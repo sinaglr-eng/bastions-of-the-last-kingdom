@@ -37,68 +37,79 @@ The user supplied [Gem TD on the Dota 2 Wiki](https://dota2.fandom.com/wiki/Gem_
 | Druid | D | Poison lasting five seconds |
 | Mage | M | Arcane hit with pure splash damage |
 | Cleric | C | Attack-speed blessing |
-| Runebreaker | R | Shatters enemy armor |
+| Engineer | R | Shatters enemy armor |
 | Frost Warden | F | Slows enemy movement |
 | Stormcaller | T | Strikes three enemies at once |
 
 Ranks I–VI are Militia, Trained, Veteran, Elite, Royal and Mythic. Display labels combine the family letter with the Roman rank, such as `S I` or `S VI`. Every family has an explicit six-row profile in data/towers.json. Two identical units of the same rank among the current round’s five draft candidates merge one rank upward; VI is capped. Mythic VI is merge-only, while mastery rolls ranks I–V. The grimoire exposes all 48 profiles; artifacts/defender-ranks.csv provides an editable comparison export.
 
-Reference basic hit-damage ratios and attack intervals are retained, with damage multiplied by three for this campaign. One hundred source range units become one board cell. Soldier adapts Diamond to a ground-only sword fighter with 2.5-cell reach. Sapphire's flat movement reductions become capped percentage slows. The reference's exceptional Topaz VI range becomes 50 cells. These are deliberate adaptations, not a claim of exact Dota combat equivalence.
+Gem TD supplies the basic identities and recipe topology. Soldier has 2.5-cell ground-only reach and 50% stronger rank I–V strikes. Soldier, Archer and Stormcaller VI deal roughly 3.5 times rank V direct DPS. Stormcaller VI reaches 12 cells. Mythic frost slows by 55%. These are campaign adaptations, not exact Dota combat equivalence.
 
-Mythic upgrades alter defining abilities: faster arrows, stronger sword hits, independent poison DPS, larger pure cleave, stronger blessing, armor reduction, nearby frost slow, or battlefield-wide triple targeting. Models add equipment and floating ornaments while keeping one-cell footprints.
+Mythic upgrades alter defining abilities: faster arrows, stronger sword hits, independent poison DPS, larger pure cleave, stronger blessing, armor reduction, nearby frost slow, or twelve-tile triple targeting. Models add equipment and floating ornaments while keeping one-cell footprints.
 
 ## Champion recipes and continuing ascension
 
-All combinations require exactly three distinct defenders with the stated families and ranks. The roster contains the 20 original branches below; the eight later formation champions and their 16 recipes have been removed. An advanced ingredient is a complete crafted defender; paid enhancements are consumed with it. Recipe requirements themselves gate progression, without additional Kingdom-level locks. Three optional paid enhancements cost 160, 320 and 480 gold and scale offensive values by 1.3 per purchase. They are separate from basic ranks and champion ascension.
+All combinations require exactly three distinct defenders with the stated families and ranks. The approved roster contains 37 champions, using stable family IDs for renamed units and including all restored reference combinations. An advanced ingredient is a complete crafted defender; paid enhancements are consumed with it. Recipe requirements themselves gate progression, without additional Kingdom-level locks. Three optional paid enhancements cost 160, 320 and 480 gold and scale offensive values by 1.3 per purchase. They are separate from basic ranks and champion ascension.
 
-| Advanced unit | Reference recipe | Required ingredients |
+| Champion | Reference recipe | Required ingredients |
 |---|---|---|
-| Rime Griffin Rider | Silver | Frost Warden 1 + Soldier 1 + Stormcaller 1 |
-| Frostwolf Knight | Silver Knight | Rime Griffin Rider + Archer 2 + Mage 3 |
-| Rose Duelist | Pink Diamond | Soldier 5 + Soldier 3 + Stormcaller 3 |
-| Lionheart Champion | Huge Pink Diamond | Rose Duelist + Frostwolf Knight + Rime Griffin Rider |
-| Astral Dragon Rider | Koh-i-noor Diamond | Lionheart Champion + Runebreaker 6 + Soldier 6 |
-| Thorn Huntress | Malachite | Cleric 1 + Druid 1 + Archer 1 |
-| Elven Windranger | Vivid Malachite | Thorn Huntress + Soldier 2 + Stormcaller 3 |
-| Storm Conjurer | Uranium-238 | Stormcaller 5 + Frost Warden 3 + Cleric 2 |
-| Thunder Titan | Uranium-235 | Storm Conjurer + Thorn Huntress + Elven Windranger |
-| Ember Catapult | Asteriated Ruby | Mage 2 + Mage 1 + Runebreaker 1 |
-| Dragonfire Cannon | Volcano | Ember Catapult + Mage 4 + Runebreaker 3 |
-| Starweaver | Bloodstone | Mage 5 + Archer 4 + Runebreaker 3 |
-| Tempest Archmage | Antique Bloodstone | Starweaver + Dragonfire Cannon + Mage 2 |
-| Phoenix Rider | The Crown Prince | Tempest Archmage + Mage 6 + Druid 6 |
-| Grovekeeper | Jade | Druid 3 + Cleric 3 + Frost Warden 2 |
-| Ancient Treant | Grey Jade | Grovekeeper + Frost Warden 4 + Archer 3 |
-| Runeforged Ballista | Gold | Runebreaker 5 + Runebreaker 4 + Soldier 2 |
-| Sun Priestess | Chrysoberyl Cat’s Eye | Cleric 5 + Soldier 4 + Archer 3 |
-| Frost Colossus | Yellow Sapphire | Frost Warden 5 + Mage 4 + Stormcaller 4 |
-| Dawn Seraph | Star Sapphire | Frost Colossus + Frost Warden 6 + Cleric 6 |
+| Frostbolt Watchmen | Silver | Frost Warden F I + Soldier S I + Stormcaller T I |
+| Knight | Silver Knight | Frostbolt Watchmen I + Archer A II + Mage M III |
+| Lionheart Champion | Pink Diamond | Soldier S V + Soldier S III + Stormcaller T III |
+| Kingslayer Arbalest | Huge Pink Diamond | Lionheart Champion I + Knight I + Frostbolt Watchmen I |
+| King | Koh-i-noor Diamond | Kingslayer Arbalest I + Engineer R VI + Soldier S VI |
+| Elven Ranger | Malachite | Cleric C I + Druid D I + Archer A I |
+| Elven Elite Warrior | Vivid Malachite | Elven Ranger I + Soldier S II + Stormcaller T III |
+| Elemental Mage | Uranium-238 | Stormcaller T V + Frost Warden F III + Cleric C II |
+| Elemental Archmage | Uranium-235 | Elemental Mage I + Elven Ranger I + Elven Elite Warrior I |
+| Fire Baby Dragon | Asteriated Ruby | Mage M II + Mage M I + Engineer R I |
+| Fire Mother Dragon | Volcano | Fire Baby Dragon I + Mage M IV + Engineer R III |
+| Thunderbird | Bloodstone | Mage M V + Archer A IV + Engineer R III |
+| Dragonrider | Antique Bloodstone | Thunderbird I + Fire Mother Dragon I + Mage M II |
+| Mage Dragon rider | The Crown Prince | Dragonrider I + Mage M VI + Druid D VI |
+| Master Druid | Jade | Druid D III + Cleric C III + Frost Warden F II |
+| Archdruid | Grey Jade | Master Druid I + Frost Warden F IV + Archer A III |
+| Ballista | Gold | Engineer R V + Engineer R IV + Soldier S II |
+| Priest | Chrysoberyl Cat's Eye | Cleric C V + Soldier S IV + Archer A III |
+| Frost Colossus | Yellow Saphire | Frost Warden F V + Mage M IV + Stormcaller T IV |
+| Angel | Star Sapphire | Frost Colossus I + Frost Warden F VI + Cleric C VI |
+| Dwarf Firebomber | Paraiba Tourmaline | Archer A V + Cleric C IV + Druid D II |
+| Catapult | Dark Emerald | Druid D V + Frost Warden F IV + Stormcaller T II |
+| Ranger | Quartz | Druid D IV + Mage M III + Engineer R II |
+| Royal Storm Arsenal | Deplemented-Kyparium | Elemental Archmage I + Archer A VI + Stormcaller T VI |
+| Bearking | Monkey King Jade | Archdruid I + Druid D IV + Engineer R II |
+| Paladin | Deepsea Pearl | Archer A IV + Soldier S IV + Cleric C II |
+| Mother Nature | Diamond Cullinan | Bearking I + Soldier S VI + Frost Warden F VI |
+| Royal Ranger | Lucky Chinese Jade | Ranger I + Master Druid I + Druid D III |
+| King's Ranger Guard | Charming Lazurite | Ranger I + Engineer R IV + Stormcaller T II |
+| Elven King | Golden Jubilee | King's Ranger Guard I + Stormcaller T VI + Mage M VI |
+| Fire Ballista | Egypt Gold | Ballista I + Engineer R V + Archer A II |
+| Golem | Emerald Golem | Catapult I + Ballista I + Soldier S III |
+| Dwarf Griffin bomber | Elaborately Carved Tourmaline | Catapult I + Dwarf Firebomber I + Druid D II |
+| Mechanical Golem | Sapphire Star of Adam | Dwarf Griffin bomber I + Druid D VI + Engineer R VI |
+| Monk | Red Coral | Paladin I + Priest I + Cleric C IV |
+| Archbishop | Carmen-Lucia | Monk I + Cleric C VI + Archer A VI |
+| Archangel | Northern Saber's Eye | Frost Colossus I + Thunderbird I + Frost Warden F V |
 
-The recipe dependency graph follows these selected reference combinations, including crafted ingredients and VI requirements. Missing or extreme reference combat values were authored or moderated for the browser campaign, especially final branch forms and forked lightning. Data files and the grimoire describe the implemented effects.
+The recipe dependency graph follows these selected reference combinations, including crafted ingredients and VI requirements. The approved data retains the agreed combat values, reference notes and explicitly identified adaptations. Data files and the grimoire describe the implemented effects; source-verification notes stay separate from player-facing ability labels.
 
-There are 20 champion families and 20 fixed recipes. Three champions of the same family and rank combine into one of the next rank, at the selected ingredient's position. This repeats at every champion rank without a terminal tier; offensive damage, poison, continuous burn and chain damage multiply by 1.85 per ascension. Support percentages and range do not scale with ascension. Paid enhancements are consumed rather than transferred to the new rank. Basic two-candidate rank merging remains capped at VI.
+There are 37 champion families and 37 fixed recipes. Three champions of the same family and rank combine into one of the next rank, at the selected ingredient's position. Offensive damage, poison, continuous burn, chain, forked lightning and bouncing frost damage multiply by 2.7 per ascension. Support haste, damage, range bonus and armor reduction increase by 10% of their starting value per additional rank, capped at +50%. Partial control resistance is capped at 90%; complete protection stays at 100%. Slowing auras gain two percentage points per rank, capped at 75%. Aura coverage and attack range remain fixed. Paid enhancements are consumed. Basic rank merging remains restricted to two current-round candidates, capped at VI.
 
-The following basic ranks are not ingredients in any of the 20 champion recipes. This does not prevent the usual matching-pair merge among current draft candidates at ranks I–V.
+Every basic family and rank I–VI now appears in at least one fixed champion recipe. Royal Storm Arsenal retains the reference recipe, but its rapid three-target physical true strike is an authored adaptation because the source does not specify its ability.
 
-| Basic defender | Ranks unused by champion recipes |
-|---|---|
-| Archer | V, VI |
-| Druid | II, IV, V |
-| Cleric | IV |
-| Runebreaker | II |
-| Stormcaller | II, VI |
-
-Soldier, Mage and Frost Warden use every rank I–VI in at least one champion recipe.
-
-The advanced models are original characters or mobile siege machines: griffin, wolf, dragon and phoenix riders; duelists, rangers, spellcasters, treants, elementals and a seraph; plus a catapult, cannon and ballista. Basic and advanced units occupy one cell, while advanced wings and weapons may overhang visually. Original family IDs and recipe branches remain stable. Runtime models, thumbnails and Blender exports share the same source geometry.
+The 37 advanced models are original characters, creatures or siege machines: distinct armored heroes, rangers and druids; dragons and riders, a thunderbird, bear king and golems; priest, monk, bishop and angelic silhouettes; and catapult, cannon and ballista variants. Basic and advanced units occupy one cell, while advanced wings and weapons may overhang visually. Original family IDs and recipe branches remain stable. `data/towers.json`, `data/recipes.json` and `data/balance.json` are the authoritative approved settings. `tools/author-roster.mjs` validates the full roster and can refresh presentation fields from the catalog without regenerating combat values or recipes. Runtime models, thumbnails and Blender exports share the same source geometry.
 
 ## Combat and economy
 
 Armor uses 30 / (30 + effective armor), after flat reduction and penetration. Magic damage applies generic and typed resistances; pure cleave ignores both. Projectiles deal damage on arrival. Soldier strikes have a short windup and check melee range again at impact. Criticals and chain procs use seeded randomness. Attack cooldown overshoot is retained for fast attackers at accelerated game speed.
 
-Poison has its own per-rank DPS and five-second duration. Reapplying a status refreshes it without duplicating it, retaining the strongest magnitude and kill owner. Cleric blessings of different ranks combine; identical rank auras count once. Range and damage auras use the strongest value. Slows use the strongest effect, including the Frost Colossus aura. The Ember Catapult and Dragonfire Cannon burn continuously without needing projectile damage.
+Poison has its own per-rank DPS and five-second duration. Druid and Engineer first select enemies without the corresponding live status or an incoming effect shot, preserving selected priority within that group. When all eligible targets are marked they follow ordinary priority; failed shots and expired effects release the target. Master Druid applies 24 poison DPS; Archdruid applies 48 poison DPS and grants three extra tiles of ally range. Reapplying a status refreshes it without duplicating it, retaining the strongest magnitude and kill owner. Cleric blessings of different ranks combine; duplicates use the strongest value. Range, damage, control protection, armor reduction and slows use their strongest value. Frost Colossus and Angel have a 75% slowing aura; Archangel starts at 70%. Bosses suffer half the normal slowing strength.
 
-Start with 90 gold and 30 keep health. Kills grant gold and XP; each 90 XP raises Kingdom level. Fifteen mastery upgrades cost 6,500 gold in total, reaching the maximum after wave 30 with perfect income devoted to mastery. Removal costs 8 gold; keep health can never be repaired. A current basic candidate above Tier I may be downgraded by one rank and immediately kept for 200 gold. There is no pre-placement reroll: recruits do not exist until placed. Mastery changes next round’s odds. The main campaign has 50 original orc warbands with bosses every tenth wave, plus an optional ten-wave skirmish. The Warbands guide (V) exposes all waves, movement classes and counters. docs/WAVE_REFERENCE.md records the reference mapping. Orc names, numerical balance and combat timings are original adaptations.
+Dwarf Firebomber applies a −15 armor aura within four tiles. Catapult has a 10% chance to stun for two seconds, with half duration on bosses. Ranger applies −10 armor and 30% slow only to flying targets; magic immunity blocks its slow. Royal Storm Arsenal fires three physical true-strike shots every 0.25 seconds. Bearking grants true strike and +3 range within six tiles; true strike bypasses evasion but not shields, armor or physical immunity. Paladin completely protects nearby allies from disarm and dread. Ballista removes 30 armor; Fire Ballista removes 40 and has a 1% chance to grant 1–50 gold.
+
+Royal Ranger has a 1% chance on a successful attack to restore one keep health, capped at starting health. Monk combines two distinct blessing groups without doubling identical Cleric or Priest groups. Mechanical Golem suppresses healing for three seconds and applies an armor aura to magic-immune enemies. Golem's Stone Gaze requires an enemy to face it for two seconds, then petrifies for three seconds and doubles physical damage received. Dragonrider's forked lightning selects five targets, with magical immunity respected. Archangel has a 25% chance to release ten frost bounces when an allied caster within six tiles lands a magical hit; its own attacks, blocked hits and secondary bounces do not trigger that effect.
+
+Start with 90 gold and 30 keep health. Kills grant gold and XP; each 90 XP raises Kingdom level. Fifteen mastery upgrades cost 6,500 gold in total, reaching the maximum after wave 30 with perfect income devoted to mastery. Removal costs 8 gold; keep health cannot be purchased; Royal Ranger's approved recovery proc is the champion health-recovery mechanic. A current basic candidate above Tier I may be downgraded by one rank and immediately kept for 200 gold. There is no pre-placement reroll: recruits do not exist until placed. Mastery changes next round’s odds. The main campaign has 50 original orc warbands with bosses every tenth wave, plus an optional ten-wave skirmish. The Warbands guide (V) exposes all waves, movement classes and counters. docs/WAVE_REFERENCE.md records the reference mapping. Orc names, numerical balance and combat timings are original adaptations.
 
 The opening three waves allow time to establish a basic defense near a checkpoint or central crossing. Their HP is 9, 15 and 21, armor is zero, movement speeds are 1.3, 1.45 and 1.6, and spawn intervals are 2.4, 2.2 and 2 seconds. Enemy counts remain 8, 8 and 9, and wave rewards remain 29, 36 and 43 gold. Later waves and mastery income are unchanged; placing defenders away from the route can still allow leaks.
 

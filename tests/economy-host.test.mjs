@@ -30,7 +30,7 @@ test('downgrade rejects insufficient funds, lowest rank, retained units and adva
 test('potential combinations use the selected family AND tier, including repeated ingredients',()=>{
  const soldier={family:'soldier',tier:3,state:'draft'},matches=recipesUsing(soldier,data.recipes);
  assert.ok(matches.length);for(const r of matches)assert.ok(r.ingredients.some(i=>i.family==='soldier'&&i.tier===3));
- const rime=data.recipes.find(r=>data.towers[r.id].name==='Rime Griffin Rider');assert.ok(rime);assert.ok(!matches.includes(rime));
+ const rime=data.recipes.find(r=>data.towers[r.id].name==='Frostbolt Watchmen');assert.ok(rime);assert.ok(!matches.includes(rime));
  assert.ok(recipesUsing({...soldier,tier:1},data.recipes).includes(rime));assert.deepEqual(recipesUsing({...soldier,state:'ruin'},data.recipes),[]);
 });
 test('mastery has fifteen gradual upgrades and perfect income first reaches maximum after wave 30',()=>{

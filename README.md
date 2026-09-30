@@ -2,6 +2,8 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
+Current release: **0.2.0 · Champion Edition** — [release notes](CHANGELOG.md).
+
 ## Play
 
 [Play the public game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/) · [Royal atelier](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/archer.html)
@@ -17,9 +19,9 @@ pnpm dev
 
 Open http://127.0.0.1:5173/. For a fresh production build: `pnpm build`, then `node tools/serve.mjs`. Do not open index.html directly with a file URL; browser modules and model loading need the local server. The game has no account, backend service, runtime CDN, or external asset requests.
 
-The current board is an open 37 × 37 grid with five ordered checkpoints. Eight original defender classes each have six ranks; 20 exact three-defender recipes lead to the 20 original champions, including a catapult, cannon and ballista. Three identical champions can ascend repeatedly with no final rank limit. A snowy valley, branched forests, flowing waterfall and winding river surround the unobstructed field; occasional clouds drift through the wide camera view. Checkpoints sit on the fifth tile from each edge. A continuous textured meadow blends the field into its surroundings without a frame. The campaign contains 50 orc warbands and five bosses; the Warbands guide lists their traits and counters. The first three waves have lower health, no armor, slower movement and wider spawn spacing to allow time for an initial defense; their enemy counts and rewards are unchanged.
+The current board is an open 37 × 37 grid with five ordered checkpoints. Eight original defender classes each have six ranks; 37 exact three-defender recipes lead to 37 champions, including a catapult, cannon and ballista. Three identical champions can ascend repeatedly with no final rank limit. A snowy valley, branched forests, flowing waterfall and winding river surround the unobstructed field; occasional clouds drift through the wide camera view. Checkpoints sit on the fifth tile from each edge. A continuous textured meadow blends the field into its surroundings without a frame. The campaign contains 50 orc warbands and five bosses; the Warbands guide lists their traits and counters. The first three waves have lower health, no armor, slower movement and wider spawn spacing to allow time for an initial defense; their enemy counts and rewards are unchanged.
 
-The **Royal atelier** link opens `/archer.html`: all 28 defender types in the approved Blender archer style, with smoother connected anatomy, tailored clothing, six color-coded ranks per basic class and 20 distinctive champion models. All 68 defender variants also have portraits rendered by Blender. Rejected foundations form connected castle stone walls. **Commander's spiral** follows the red-line reference drawing: 136 wall cells, 590 counted steps and a solid 3 × 3 central battery. Suggested maze now offers eight fixed layouts, including **Diamond spiral** (128 cells, 718 steps, 19 central firing positions) and **Chevron bastion** (153 cells, 504 steps, 21 central firing positions), traced from the two supplied diagrams. Choose once with M: the panel closes and the selected cells stay fixed. M reopens it. Create or edit a blueprint by drawing/erasing on the map, then save it locally for future games.
+The **Royal atelier** link opens `/archer.html`: all 45 defender types in the approved Blender style, with smoother connected anatomy, tailored clothing, six color-coded ranks per basic class and 37 individually designed champion models. All 85 defender variants also have portraits rendered by Blender. Rejected foundations form connected castle stone walls. **Commander's spiral** follows the red-line reference drawing: 136 wall cells, 590 counted steps and a solid 3 × 3 central battery. Suggested maze now offers eight fixed layouts, including **Diamond spiral** (128 cells, 718 steps, 19 central firing positions) and **Chevron bastion** (153 cells, 504 steps, 21 central firing positions), traced from the two supplied diagrams. Choose once with M: the panel closes and the selected cells stay fixed. M reopens it. Create or edit a blueprint by drawing/erasing on the map, then save it locally for future games.
 
 Golden rotating arrows identify only this round's placed candidates. When an advanced recipe is possible, portraits show the result unit above the ingredients, including older defenders. A star marks the result tile, a minus marks consumed ingredients, and a wall marks discarded candidates. Thin leaders connect crowded portraits to their units. Older ingredients have no rotating arrow.
 
@@ -52,11 +54,14 @@ pnpm test
 pnpm balance
 node tools/balance.mjs --campaign
 node tools/benchmark-mazes.mjs
+node tools/author-roster.mjs
 node tools/export-defender-meshes.mjs
 blender --background --python blender/scripts/generate_assets.py -- --output public/assets/models
 ```
 
 The balance tool writes CSV and probability reports into `artifacts/`. Its optional campaign bot uses the real gameplay simulation with a simple placement/keep policy. It is a balance smoke test, not proof of fairness for every strategy or seed.
+
+The approved settings in `data/towers.json`, `data/recipes.json` and `data/balance.json` are the source of truth. `node tools/author-roster.mjs` validates the 37-champion roster without rewriting statistics or recipes. All 48 basic family/rank pairs appear in a champion recipe. The optional `--refresh-presentation` flag refreshes catalog names, descriptions and model categories only.
 
 `?debug=1&seed=42` on the **development server** enables F2 developer tools. Production excludes this interface.
 
@@ -64,11 +69,11 @@ See [DEVELOPMENT.md](DEVELOPMENT.md), [GAME_DESIGN.md](GAME_DESIGN.md), and [ASS
 
 ## Host, battlements and progression
 
-The 50-wave roster uses 51 original Blender enemy models (including the balloon alternative), with native `.blend` sources and portraits. Regular units stand about 1.82–1.98 units tall; the five warlords reach about 3.1–3.4 and carry distinct auras. Fallen enemies collapse, fold their wings where applicable, and remain on the field until the next construction round. Kept defenders stand on stone wall platforms connected to nearby masonry. Catapults articulate their throwing arm while firing, including continuous ember attacks.
+The 50-wave roster uses 51 original Blender enemy models (including the balloon alternative), with native `.blend` sources and portraits. Regular units stand about 1.82–1.98 units tall; the five warlords reach about 3.1–3.4 and carry distinct auras. Fallen enemies collapse, fold their wings where applicable, and remain on the field until the next construction round. Kept defenders stand on stone wall platforms connected to nearby masonry. Catapults articulate their throwing arm while firing.
 
-The sidebar shows the current warband's actual traits and resistances, live boss health, and how many retained defenders match a selected family and rank. The grimoire also counts built champions. Basic defenders use one letter followed by their Roman rank: Soldier S, Archer A, Druid D, Mage M, Cleric C, Runebreaker R, Frost Warden F and Stormcaller T; for example, `S III` identifies a Veteran Soldier. The HUD tracks score, with a best score saved locally: a regular kill earns 10 × wave, a boss kill 500 × wave, and surviving a wave 100 × wave plus another 200 × wave for boss rounds.
+The sidebar shows the current warband's actual traits and resistances, live boss health, and how many retained defenders match a selected family and rank. The grimoire also counts built champions. Basic defenders use one letter followed by their Roman rank: Soldier S, Archer A, Druid D, Mage M, Cleric C, Engineer R, Frost Warden F and Stormcaller T; for example, `S III` identifies a Veteran Soldier. The HUD tracks score, with a best score saved locally: a regular kill earns 10 × wave, a boss kill 500 × wave, and surviving a wave 100 × wave plus another 200 × wave for boss rounds.
 
-There are 15 mastery upgrades for 6,500 gold total: with perfect kill income and no optional spending, the maximum is affordable after wave 30. Lost lives cannot be bought back. A current basic candidate above Tier I can be downgraded one rank and immediately kept for 200 gold. The planner counts all walls and defenders against 250 placements, including off-plan structures and spent demolished draws.
+There are 15 mastery upgrades for 6,500 gold total: with perfect kill income and no optional spending, the maximum is affordable after wave 30. Lost lives cannot be bought back; Royal Ranger has an approved 1% on-hit recovery ability capped at starting health. A current basic candidate above Tier I can be downgraded one rank and immediately kept for 200 gold. The planner counts all walls and defenders against 250 placements, including off-plan structures and spent demolished draws.
 
 `node tools/economy-report.mjs` reproduces the income calculation. See [economy and difficulty](docs/ECONOMY_BALANCE.md) and [asset guide](ASSET_GUIDE.md).
 

@@ -34,17 +34,22 @@ export function damageAfterDefense(amount, type, enemy, stats, balance) {
 export function towerStats(tower, data) {
   const stats = data.towers[tower.family];
   if(!stats.advanced&&stats.levels)return {...stats,...stats.levels[tower.tier-1]};
-  const multiplier = stats.advanced ? Math.pow(1.85,Math.max(0,(tower.tier||1)-1))*Math.pow(data.balance.specialUpgradeMultiplier, tower.upgrades || 0) : data.balance.tierDamage[tower.tier - 1];
-  return {...stats, damage: stats.damage * multiplier, ...(stats.burnAura?{burnAura:stats.burnAura*multiplier}:{}), ...(stats.poisonDps?{poisonDps:stats.poisonDps*multiplier}:{}), ...(stats.chainDamage?{chainDamage:stats.chainDamage*multiplier}:{}),range: stats.range + (stats.advanced ? 0 : data.balance.tierRange[tower.tier - 1])};
+  const ranks=Math.max(0,(tower.tier||1)-1),supportScale=1+Math.min(.5,ranks*.1);
+  const multiplier = stats.advanced ? Math.pow(data.balance.championRankMultiplier??2.7,ranks)*Math.pow(data.balance.specialUpgradeMultiplier, tower.upgrades || 0) : data.balance.tierDamage[tower.tier - 1];
+  const aura=stats.aura?{...stats.aura,...(stats.aura.hasteGroups?{hasteGroups:{...stats.aura.hasteGroups}}:{})}:null;
+  if(aura&&stats.advanced){for(const key of ['haste','damageBonus','rangeBonus'])if(aura[key])aura[key]*=supportScale;if(aura.hasteGroups)for(const key of Object.keys(aura.hasteGroups))aura.hasteGroups[key]*=supportScale;if(aura.controlResistance)aura.controlResistance=stats.aura.controlResistance===1?1:Math.min(.9,aura.controlResistance*supportScale);}
+  return {...stats, damage: stats.damage * multiplier, ...(aura?{aura}:{}), ...(stats.slowAura?{slowAura:Math.min(.75,stats.slowAura+ranks*.02)}:{}), ...(stats.armorShredAura?{armorShredAura:stats.armorShredAura*supportScale}:{}), ...(stats.magicShredAura?{magicShredAura:stats.magicShredAura*supportScale}:{}), ...(stats.shred&&stats.advanced?{shred:stats.shred*supportScale}:{}), ...(stats.burnAura?{burnAura:stats.burnAura*multiplier}:{}), ...(stats.poisonDps?{poisonDps:stats.poisonDps*multiplier}:{}), ...(stats.chainDamage?{chainDamage:stats.chainDamage*multiplier}:{}), ...(stats.forkedDamage?{forkedDamage:stats.forkedDamage*multiplier}:{}), ...(stats.bouncingFrostDamage?{bouncingFrostDamage:stats.bouncingFrostDamage*multiplier}:{}),range: stats.range + (stats.advanced ? 0 : data.balance.tierRange[tower.tier - 1])};
 }
 export function supportBonuses(tower,towers,data) {
-  const haste=new Map();let damage=0,range=0;
+  const haste=new Map();let damage=0,range=0,trueStrike=false,controlResistance=0;
   for(const other of towers){
     if(other.state!=='active')continue;
     const aura=towerStats(other,data).aura;
     if(!aura||distance(tower,other)>aura.range)continue;
     if(aura.haste){const key=aura.stackKey||'strongest';haste.set(key,Math.max(haste.get(key)||0,aura.haste));}
+    for(const [key,value]of Object.entries(aura.hasteGroups||{}))haste.set(key,Math.max(haste.get(key)||0,value));
     damage=Math.max(damage,aura.damageBonus||0);range=Math.max(range,aura.rangeBonus||0);
+    trueStrike||=!!aura.trueStrike;controlResistance=Math.max(controlResistance,aura.controlResistance||0);
   }
-  return {haste:1+[...haste.values()].reduce((a,b)=>a+b,0),damage:1+damage,range};
+  return {haste:1+[...haste.values()].reduce((a,b)=>a+b,0),damage:1+damage,range,...(trueStrike?{trueStrike}:{}),...(controlResistance?{controlResistance}:{})};
 }

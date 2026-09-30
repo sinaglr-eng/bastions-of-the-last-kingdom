@@ -343,7 +343,7 @@
     "id": "sunward",
     "level": 1,
     "stage": "Intermediate",
-    "referenceTower": "Chrysoberyl Cat’s Eye",
+    "referenceTower": "Chrysoberyl Cat's Eye",
     "ingredients": [
       {
         "family": "cleric",
@@ -363,7 +363,7 @@
     "id": "winterhold",
     "level": 1,
     "stage": "Intermediate",
-    "referenceTower": "Yellow Sapphire",
+    "referenceTower": "Yellow Saphire",
     "ingredients": [
       {
         "family": "frostwarden",
@@ -396,6 +396,346 @@
       {
         "family": "cleric",
         "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "royalmarshal",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Paraiba Tourmaline",
+    "ingredients": [
+      {
+        "family": "archer",
+        "tier": 5
+      },
+      {
+        "family": "cleric",
+        "tier": 4
+      },
+      {
+        "family": "druid",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "stonewarden",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Dark Emerald",
+    "ingredients": [
+      {
+        "family": "druid",
+        "tier": 5
+      },
+      {
+        "family": "frostwarden",
+        "tier": 4
+      },
+      {
+        "family": "stormcaller",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "wyvernhunter",
+    "level": 1,
+    "stage": "Basic",
+    "referenceTower": "Quartz",
+    "ingredients": [
+      {
+        "family": "druid",
+        "tier": 4
+      },
+      {
+        "family": "mage",
+        "tier": 3
+      },
+      {
+        "family": "runebreaker",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "royalarsenal",
+    "level": 1,
+    "stage": "Mythic",
+    "referenceTower": "Deplemented-Kyparium",
+    "ingredients": [
+      {
+        "family": "stormcitadel",
+        "tier": 1
+      },
+      {
+        "family": "archer",
+        "tier": 6
+      },
+      {
+        "family": "stormcaller",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "rangermentor",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Monkey King Jade",
+    "ingredients": [
+      {
+        "family": "eldergrove",
+        "tier": 1
+      },
+      {
+        "family": "druid",
+        "tier": 4
+      },
+      {
+        "family": "runebreaker",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "kingdomprotector",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Deepsea Pearl",
+    "ingredients": [
+      {
+        "family": "archer",
+        "tier": 4
+      },
+      {
+        "family": "soldier",
+        "tier": 4
+      },
+      {
+        "family": "cleric",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "mothernature",
+    "level": 1,
+    "stage": "Mythic",
+    "referenceTower": "Diamond Cullinan",
+    "ingredients": [
+      {
+        "family": "rangermentor",
+        "tier": 1
+      },
+      {
+        "family": "soldier",
+        "tier": 6
+      },
+      {
+        "family": "frostwarden",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "royalranger",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Lucky Chinese Jade",
+    "ingredients": [
+      {
+        "family": "wyvernhunter",
+        "tier": 1
+      },
+      {
+        "family": "greenheart",
+        "tier": 1
+      },
+      {
+        "family": "druid",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "kingsrangerguard",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Charming Lazurite",
+    "ingredients": [
+      {
+        "family": "wyvernhunter",
+        "tier": 1
+      },
+      {
+        "family": "runebreaker",
+        "tier": 4
+      },
+      {
+        "family": "stormcaller",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "elvenking",
+    "level": 1,
+    "stage": "Mythic",
+    "referenceTower": "Golden Jubilee",
+    "ingredients": [
+      {
+        "family": "kingsrangerguard",
+        "tier": 1
+      },
+      {
+        "family": "stormcaller",
+        "tier": 6
+      },
+      {
+        "family": "mage",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "fireballista",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Egypt Gold",
+    "ingredients": [
+      {
+        "family": "kingsreach",
+        "tier": 1
+      },
+      {
+        "family": "runebreaker",
+        "tier": 5
+      },
+      {
+        "family": "archer",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "emeraldgolem",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Emerald Golem",
+    "ingredients": [
+      {
+        "family": "stonewarden",
+        "tier": 1
+      },
+      {
+        "family": "kingsreach",
+        "tier": 1
+      },
+      {
+        "family": "soldier",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "griffinbomber",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Elaborately Carved Tourmaline",
+    "ingredients": [
+      {
+        "family": "stonewarden",
+        "tier": 1
+      },
+      {
+        "family": "royalmarshal",
+        "tier": 1
+      },
+      {
+        "family": "druid",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "mechanicalgolem",
+    "level": 1,
+    "stage": "Mythic",
+    "referenceTower": "Sapphire Star of Adam",
+    "ingredients": [
+      {
+        "family": "griffinbomber",
+        "tier": 1
+      },
+      {
+        "family": "druid",
+        "tier": 6
+      },
+      {
+        "family": "runebreaker",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "monk",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Red Coral",
+    "ingredients": [
+      {
+        "family": "kingdomprotector",
+        "tier": 1
+      },
+      {
+        "family": "sunward",
+        "tier": 1
+      },
+      {
+        "family": "cleric",
+        "tier": 4
+      }
+    ]
+  },
+  {
+    "id": "archbishop",
+    "level": 1,
+    "stage": "Mythic",
+    "referenceTower": "Carmen-Lucia",
+    "ingredients": [
+      {
+        "family": "monk",
+        "tier": 1
+      },
+      {
+        "family": "cleric",
+        "tier": 6
+      },
+      {
+        "family": "archer",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "archangel",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Northern Saber's Eye",
+    "ingredients": [
+      {
+        "family": "winterhold",
+        "tier": 1
+      },
+      {
+        "family": "starfall",
+        "tier": 1
+      },
+      {
+        "family": "frostwarden",
+        "tier": 5
       }
     ]
   }

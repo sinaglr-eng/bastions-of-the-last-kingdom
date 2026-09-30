@@ -7,18 +7,20 @@ import towers from '../data/towers.json';
 import '../ui/atelier.css';
 import {siteUrl} from './site-url.js';
 import {defenderCode} from './core/unit-label.js';
+import {releaseAsset,GAME_VERSION} from './release.js';
 
 const roman=['I','II','III','IV','V','VI'],colors=['Modrá','Zelená','Fialová','Bílá','Zlatá','Záře'];
-const portrait=(family,rank=1)=>siteUrl(`assets/${family==='archer'?'archer':'army'}/${family}-t${rank}.png`);
-const asset=(family,rank)=>siteUrl(`assets/models/${towers[family].advanced?'advanced_'+family:'human_'+family+'_t'+rank}.glb`);
-let family='archer';
+const portrait=(family,rank=1)=>releaseAsset(`assets/${family==='archer'?'archer':'army'}/${family}-t${rank}.png`);
+const asset=(family,rank)=>releaseAsset(`assets/models/${towers[family].advanced?'advanced_'+family:'human_'+family+'_t'+rank}.glb`);
+const requestedFamily=new URLSearchParams(location.search).get('family');
+let family=towers[requestedFamily]?requestedFamily:'archer';
 const basicCount=Object.values(towers).filter(t=>!t.advanced).length,championCount=Object.values(towers).filter(t=>t.advanced).length;
 const variantCount=basicCount*6+championCount;
 document.querySelector('#atelier').innerHTML=`
 <header class="atelier-header"><a class="atelier-brand" href="${siteUrl('?update=cohesive')}" target="_blank" rel="noopener">♜ <span>BASTIONS<small>THE ROYAL ATELIER</small></span></a><div class="edition">THE DEFENDERS <b>${String(basicCount).padStart(2,'0')} CLASSES / ${championCount} CHAMPIONS</b></div><a class="outline-link" href="${siteUrl('?update=cohesive')}" target="_blank" rel="noopener">Otevřít hru ↗</a></header>
-<section class="model-stage" aria-label="Interaktivní 3D náhled obránců"><div class="stage-heading"><span class="eyebrow">BLENDER ORIGINALS · THE ASHEN HOST</span><h1 id="family-title">Archer.</h1><p id="family-subtitle">Osm tříd. Jeden společný styl.</p></div><div id="model-canvas"></div><div class="stage-caption"><span id="load-status" role="status">Načítám model z Blenderu…</span><small>Tažením otáčej · Kolečkem přibližuj</small></div><div class="view-controls"><button id="rotate" aria-pressed="false">↻ Automatická rotace</button><button id="reset">Obnovit pohled</button><button id="walls" aria-pressed="false">Kamenné hradby</button></div></section>
+<section class="model-stage" aria-label="Interaktivní 3D náhled obránců"><div class="stage-heading"><span class="eyebrow">BLENDER 5.2 · CHAMPION EDITION ${GAME_VERSION}</span><h1 id="family-title">Archer.</h1><p id="family-subtitle">Osm tříd. Jeden společný styl.</p></div><div id="model-canvas"></div><div class="stage-caption"><span id="load-status" role="status">Načítám model z Blenderu…</span><small>Tažením otáčej · Kolečkem přibližuj</small></div><div class="view-controls"><button id="rotate" aria-pressed="false">↻ Automatická rotace</button><button id="reset">Obnovit pohled</button><button id="walls" aria-pressed="false">Kamenné hradby</button></div></section>
 <aside class="atelier-notes"><label class="eyebrow" for="family-picker">VYBER OBRÁNCE</label><select id="family-picker">${[false,true].map(advanced=>`<optgroup label="${advanced?'Pokročilí obránci':'Základní třídy · šest úrovní'}">${Object.entries(towers).filter(([,t])=>!!t.advanced===advanced).map(([id,t])=>`<option value="${id}" ${id==='archer'?'selected':''}>${t.name}</option>`).join('')}</optgroup>`).join('')}</select><h2 id="family-name">Archer</h2><p id="family-role"></p><div class="note-rule"></div><div class="rank-heading"><h3 id="rank-heading">Šest úrovní. Šest signálů.</h3><span id="rank-instruction">VYBER ÚROVEŇ</span></div><div class="rank-picker"></div><div class="design-detail"><span id="selected-rank"></span><p id="rank-detail"></p></div><div class="note-rule"></div><div class="materials"><span>01 <b>Barvená látka</b></span><span>02 <b>Patinovaná kůže</b></span><span>03 <b>Mosaz a ocel</b></span></div><p class="approval-note">Postavy mají v Blenderu spojenou anatomii a vyhlazené tvarované povrchy. Výstroj zůstává členěná jako skutečná zbroj a vrstvené oblečení. Každá třída má vlastní siluetu; šampioni přidávají gryfy, draky, obry i obléhací stroje.</p><div class="asset-links"><a id="download-model" download>Stáhnout GLB ↓</a><a id="download-portrait" target="_blank">Portrét z Blenderu ↗</a></div><details class="roster-details" open><summary>Celá družina · ${basicCount+championCount} typů</summary><div class="roster-grid">${Object.entries(towers).map(([id,t])=>`<button data-family="${id}" title="${t.name}" aria-label="Zobrazit ${t.name}"><img src="${portrait(id)}" alt="" loading="lazy"><span>${t.name}</span></button>`).join('')}</div></details></aside>
-<footer class="atelier-footer"><span>MODELLED IN BLENDER <b>${variantCount} VARIANTS</b></span><p>37 × 37 polí · Hradby s cimbuřím · Spirálové cesty kolem středu</p><span>BASTIONS / ASHEN VALE</span></footer>`;
+<footer class="atelier-footer"><span>BLENDER 5.2 · v${GAME_VERSION} <b>${variantCount} VARIANTS</b></span><p>37 × 37 polí · Hradby s cimbuřím · Spirálové cesty kolem středu</p><span>BASTIONS / ASHEN VALE</span></footer>`;
 
 const host=document.querySelector('#model-canvas'),scene=new THREE.Scene();
 const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;host.append(renderer.domElement);
@@ -69,7 +71,7 @@ async function showRank(rank){
  }catch{document.querySelector('#load-status').textContent='Model se nepodařilo načíst. Obnov stránku.';}
 }
 function status(){document.querySelector('#load-status').textContent=wallsVisible?'Hradby · spojené díly a rohové cimbuří':`${towers[family].name} · ${towers[family].advanced?'Šampion':`${defenderCode(towers[family],selected)} · ${colors[selected-1]}`} · Blender GLB`;}
-function showFamily(id){family=id;document.querySelector('#family-picker').value=id;if(wallsVisible)toggleWalls();rankButtons();showRank(1);}
+function showFamily(id){family=id;document.querySelector('#family-picker').value=id;if(wallsVisible)toggleWalls();document.querySelector('#family-picker').value=family;rankButtons();showRank(1);}
 document.querySelector('#family-picker').addEventListener('change',e=>showFamily(e.target.value));
 document.querySelectorAll('[data-family]').forEach(b=>b.addEventListener('click',()=>showFamily(b.dataset.family)));
 document.querySelector('#rotate').addEventListener('click',e=>{controls.autoRotate=!controls.autoRotate;e.currentTarget.setAttribute('aria-pressed',String(controls.autoRotate));});
@@ -77,6 +79,6 @@ document.querySelector('#reset').addEventListener('click',()=>reset(wallsVisible
 function toggleWalls(){wallsVisible=!wallsVisible;wallGroup.visible=wallsVisible;if(model)model.visible=!wallsVisible;reset(wallsVisible);document.querySelector('#walls').setAttribute('aria-pressed',String(wallsVisible));status();}
 document.querySelector('#walls').addEventListener('click',toggleWalls);
 new ResizeObserver(()=>{const {width,height}=host.getBoundingClientRect();renderer.setSize(width,height);camera.aspect=width/height;camera.updateProjectionMatrix();}).observe(host);
-rankButtons();showRank(1);
+document.querySelector('#family-picker').value=family;rankButtons();showRank(1);
 let previous=performance.now();function frame(now){const dt=Math.min(.1,(now-previous)/1000);previous=now;controls.update(dt);if(model)animateRank(model,now/1000);renderer.render(scene,camera);requestAnimationFrame(frame);}requestAnimationFrame(frame);
 

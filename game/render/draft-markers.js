@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {recipeFamily,recipeLabel} from '../core/recipes.js';
-import {siteUrl} from '../site-url.js';
+import {releaseAsset} from '../release.js';
 
 // Independent world-space markers: aiming and recoil never move the round indicators.
 export class DraftMarkers {
@@ -44,7 +44,7 @@ export class DraftMarkers {
       const number=candidates.find(c=>c.tower.id===tower.id)?.number;
       const name=recipeLabel(recipe,game.data),label=role==='result'?`${name}: result here`:role==='consumed'?`${name}: this ingredient becomes a wall`:role==='discarded'?'Unchosen candidate becomes a wall':`${name}: combination available`;
       badge.el.className=`recipe-map-badge ${role}`;badge.line.setAttribute('stroke',role==='result'?'#ffdb83':role==='consumed'?'#e89479':'#b9d2c5');badge.el.setAttribute('aria-label',label);badge.el.title=label;
-      badge.el.innerHTML=`${role==='discarded'?'<span class="wall-glyph">♜</span>':`<img src="${siteUrl(`assets/army/${recipeFamily(recipe)}-t1.png`)}" alt="">`}<b>${role==='result'?'★':role==='consumed'?'−':role==='discarded'?'×':'+'}</b>${number?`<small>${number}</small>`:''}`;
+      badge.el.innerHTML=`${role==='discarded'?'<span class="wall-glyph">♜</span>':`<img src="${releaseAsset(`assets/army/${recipeFamily(recipe)}-t1.png`)}" alt="">`}<b>${role==='result'?'★':role==='consumed'?'−':role==='discarded'?'×':'+'}</b>${number?`<small>${number}</small>`:''}`;
       badge.el.onclick=()=>{game.select(tower.id);if(role!=='discarded')game.previewRecipe(recipe.id);};
       const body=models.get(tower.id)?.object;badge.height=body?new THREE.Box3().setFromObject(body).max.y:2;badge.tower=tower;
     }

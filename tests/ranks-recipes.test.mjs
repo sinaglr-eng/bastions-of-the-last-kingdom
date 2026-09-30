@@ -15,7 +15,7 @@ test('all eight gem identities have six finite, distinct rank profiles',()=>{
     gems.add(s.referenceGem);assert.equal(s.levels.length,6);
     for(let tier=1;tier<=6;tier++){const t=towerStats(unit(family,tier),data);assert.ok(t.damage>=0&&Number.isFinite(t.damage));assert.ok(t.interval>0&&t.range>0);if(tier>1)assert.ok(t.damage>=s.levels[tier-2].damage);}
   }
-  assert.equal(gems.size,8);assert.equal(towerStats(unit('archer',6),data).interval,.1);assert.equal(towerStats(unit('stormcaller',6),data).range,50);assert.equal(towerStats(unit('druid',6),data).poisonDps,384);
+  assert.equal(gems.size,8);assert.equal(towerStats(unit('archer',6),data).interval,.1);assert.equal(towerStats(unit('stormcaller',6),data).range,12);assert.equal(towerStats(unit('druid',6),data).poisonDps,384);
 });
 test('two Royal V defenders merge into Mythic VI at the chosen tile, with VI capped',()=>{
   const g=new Game(data,{seed:2});g.draft.forced={family:'runebreaker',tier:5};g.draft.roll(0);for(let x=10;x<15;x++)g.place(x,10);
@@ -36,7 +36,7 @@ test('formation recipes form an acyclic graph and craft from every valid anchor 
       assert.equal(g.craft(r.id),true,r.id);assert.equal(g.selection.family,recipeFamily(r));assert.equal(g.selection.tier,recipeTier(r));assert.equal(g.selection.x,10+anchor);assert.equal(g.towers.filter(t=>t.state==='active').length,1);assert.equal(g.grid.occupied.size,3);
     }
   }
-  assert.equal(finished.size,20);
+  assert.equal(finished.size,37);
 });
 test('wrong ranks and one copy of a repeated ingredient cannot satisfy a recipe',()=>{
   const g=new Game(data,{seed:3});g.phase='ready';g.towers=[unit('highking'),unit('runebreaker',5,2),unit('soldier',6,3)];g.select(1);
@@ -62,13 +62,13 @@ test('stormcaller fires at three distinct targets and Mythic frost applies nearb
   const g=arena(),caster=unit('stormcaller');g.towers=[caster];for(let i=0;i<4;i++)enemy(g,11,10+i*.1);g.tick(.01);
   assert.equal(new Set(g.combat.projectiles.map(p=>p.target.id)).size,3);
   const frost=unit('frostwarden',6),target=g.combat.enemies[0];g.combat.impact({source:frost,target,stats:towerStats(frost,data)});
-  for(const e of g.combat.enemies)assert.equal(e.statuses.slow.amount,.75);
+  for(const e of g.combat.enemies)assert.equal(e.statuses.slow.amount,.55);
 });
 test('burning and slowing auras work without projectiles and stop when the tower is consumed',()=>{
   const g=arena(),beacon=unit('embercrown'),winter=unit('winterhold',1,2);g.towers=[beacon,winter];winter.cooldown=999;
   const spawn=g.grid.checkpoints[0];const e=enemy(g,spawn.x,spawn.z);e.speed=1;beacon.x=spawn.x;beacon.z=spawn.z;winter.x=spawn.x;winter.z=spawn.z;
-  g.tick(1);assert.equal(e.hp,9760);assert.equal(e.x,.25);assert.equal(g.combat.projectiles.length,0);
-  beacon.state='ruin';winter.state='ruin';g.tick(1);assert.equal(e.hp,9760);assert.equal(e.x,1.25);
+  g.tick(1);assert.equal(e.hp,9760);assert.ok(Math.abs(e.x-.25)<1e-9);assert.equal(g.combat.projectiles.length,0);
+  beacon.state='ruin';winter.state='ruin';g.tick(1);assert.equal(e.hp,9760);assert.ok(Math.abs(e.x-1.25)<1e-9);
 });
 test('Mythic rapid fire preserves its rate across frame sizes and stacked blessings',()=>{
   function shots(step){const g=arena(),archer=unit('archer',6),cleric=unit('cleric',6,2);g.towers=[archer,cleric];cleric.cooldown=999;const e=enemy(g,11,10);e.hp=1e9;let count=0;g.on(type=>{if(type==='shot')count++;});for(let elapsed=0;elapsed<.999;elapsed+=step)g.tick(step);return count;}

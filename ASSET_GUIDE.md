@@ -1,6 +1,6 @@
 # Original asset guide
 
-The working style is readable medieval fantasy: smooth connected character anatomy, tailored clothing, crisp armor edges, warm timber, pale stone, dull iron, gold heraldry, subdued green/brown orcs and red hide tents. Scenery retains stylized faceted ridges. No borrowed game assets or external textures are used. Original fantasy siege machines include a dragonfire cannon.
+The working style is readable medieval fantasy: smooth connected character anatomy, tailored clothing, crisp armor edges, warm timber, pale stone, dull iron, gold heraldry, subdued green/brown orcs and red hide tents. Scenery retains stylized faceted ridges. No borrowed game assets or external textures are used. Original fantasy siege machines include a catapult and distinct ballista/cannon variants.
 
 ## Scale and origins
 
@@ -12,13 +12,13 @@ The working style is readable medieval fantasy: smooth connected character anato
 ## Naming and assets
 
 - `human_<family>_t1.glb` through `t6.glb`: 48 character rank variants.
-- `advanced_<family>.glb`: 20 original champion and siege models (champion-v5), shared by continuing ascension ranks.
+- `advanced_<family>.glb`: 37 champion, creature and siege models (champion-v6), shared by continuing ascension ranks.
 - `barricade.glb`, `pine_tree.glb`, `deciduous_tree.glb`, `rock.glb`, `castle_wall.glb`, `human_keep.glb`, `medieval_house.glb`, `barrel.glb`, `crate.glb`, `human_banner.glb`, `campfire.glb`, `wooden_fence.glb`, `cliff_module.glb`, `orc_warcamp.glb`.
 - `orc_<archetype>.glb`: six original character blockouts, plus simple root/spine armature scaffolds in their source construction.
-- `public/assets/models/manifest.json` lists 88 exports: 68 defender variants (48 basic ranks and 20 champions), plus 20 legacy prop/enemy assets. Entries include family/rank identities, style and triangle counts.
+- `public/assets/models/manifest.json` lists 105 exports: 85 defender variants (48 basic ranks and 37 champions), plus 20 legacy prop/enemy assets. Entries include family/rank identities, style and triangle counts.
 - `public/assets/enemies/manifest.json` separately lists 51 active Ashen Host models and their portraits (ashen-host-v2).
 
-`game/render/models.js` defines the original defender fallback meshes. `tools/export-defender-meshes.mjs` supplies these to the legacy stage of the full generator. Native Blender authoring scripts then overwrite defender GLBs with the approved archer-style roster; the fallback meshes are retained for immediate rendering while GLBs load. The manifest is authoritative; legacy unreferenced GLBs are not loaded. Representative Royal Archer and Orc Grunt `.blend` scenes are retained under `blender/scenes/`.
+`game/render/models.js` defines the original defender fallback meshes. `tools/export-defender-meshes.mjs` supplies these to the legacy stage of the full generator. Native Blender authoring scripts then overwrite defender GLBs with the approved archer-style roster; the fallback meshes are retained for immediate rendering while GLBs load. The approved JSON roster is authoritative for champion identities and statistics; the model manifest is authoritative for shipped asset paths. Legacy unreferenced GLBs are not loaded. Representative Royal Archer and Orc Grunt `.blend` scenes are retained under `blender/scenes/`.
 
 ## Geometry and materials
 
@@ -35,11 +35,11 @@ blender --background --python blender/scripts/generate_assets.py -- --output pub
 
 The script was executed and verified with Blender 5.2.2; it is written against Blender 4.x/5.x APIs. Export is binary glTF 2.0, Y up, transforms applied, no cameras/lights and no final animation clips. Blender must be installed only to regenerate models, not to play.
 
-The browser loads all 68 playable defender GLBs and the separate 51-model enemy pack, with complete procedural fallbacks while loading. Current style tags are archer-v2, hero-v5, champion-v5 and ashen-host-v2. All 68 defender portraits are rendered directly by Blender and shared by draft cards, the grimoire and the Royal atelier. The original champion catalog contains 17 characters/creatures and three siege machines. Stable family IDs preserve existing recipes and discoveries. Ground scenery remains procedural Three.js geometry in `game/render/environment.js`, merged by material where static; legacy prop GLBs are retained as references.
+The browser loads all 85 playable defender GLBs and the separate 51-model enemy pack, with complete procedural fallbacks while loading. Current style tags are archer-v2, hero-v5, champion-v6 and ashen-host-v2. All 85 defender portraits are rendered directly by Blender and shared by draft cards, the grimoire and the Royal atelier. The approved catalog contains 37 champions with individual character, creature or siege identities. Stable family IDs preserve existing recipes and discoveries. Ground scenery remains procedural Three.js geometry in `game/render/environment.js`, merged by material where static; legacy prop GLBs are retained as references.
 
 ## Animation and VFX
 
-Browser enemy limbs use exported pivots for walk cycles, bobbing, heading and hit reactions. On death, the same model falls into a ground pose; flying enemies descend and fold their wings. Corpses remain through combat and clear when construction begins. Bosses have clan-colored rings and orbiting aura effects. Defenders breathe, sway, aim and spring on attack. Catapult `siege_arm` pivots drive the throwing stroke and recovery, including continuous ember-aura attacks. Mythic equipment adds floating ornaments; Soldier attacks show a short sword slash. Projectiles travel visibly, and impacts/combinations emit short rings. These remain rigid articulated miniatures, rather than skinned characters with authored animation clips. Final particles, texture atlases and production audio remain future art work.
+Browser enemy limbs use exported pivots for walk cycles, bobbing, heading and hit reactions. On death, the same model falls into a ground pose; flying enemies descend and fold their wings. Corpses remain through combat and clear when construction begins. Bosses have clan-colored rings and orbiting aura effects. Defenders breathe, sway, aim and spring on attack. Catapult `siege_arm` pivots drive the throwing stroke and recovery, on ordinary catapult attacks. Mythic equipment adds floating ornaments; Soldier attacks show a short sword slash. Projectiles travel visibly, and impacts/combinations emit short rings. These remain rigid articulated miniatures, rather than skinned characters with authored animation clips. Final particles, texture atlases and production audio remain future art work.
 
 The river uses curve-aligned procedural shading and traveling foam streaks. The waterfall has flowing sheets, descending spray and expanding splash rings. Detailed branched trees and terraced peaks remain outside every build tile. Soft procedural cloud sprites drift and fade in with camera distance; close views hide them.
 
@@ -48,30 +48,30 @@ The river uses curve-aligned procedural shading and traveling foam streaks. The 
 
 `blender/scripts/author_archer.py` authors the archer directly in Blender: open hood, shaped pleated cape, leather jerkin, boots, bracers, drawn recurve bow, arrow, quiver and individual face features. This does not use the previous procedural archer meshes. Native editable source: `blender/scenes/archer_design_v1.blend`. Collections separate ranks I–VI and parts retain semantic names. Temporary copies are joined by material for glTF export; the source retains editable parts.
 
-Run `blender --background --python blender/scripts/author_archer.py` to regenerate six GLBs, six transparent portraits and the lineup under `public/assets/archer/`. The full asset generator calls this authoring module without re-rendering portraits, so rebuilding the pack cannot replace the approved candidate with an older archer. At the V1 review milestone, GLBs were tagged archer-v1 and the roster contained 68 defender variants. The current cohesive pass exports six archer-v2, 42 hero-v5 and 20 champion-v5 entries. The stone footing stays within one cell; the drawn bow overhangs visually without blocking an adjacent cell.
+Run `blender --background --python blender/scripts/author_archer.py` to regenerate six GLBs, six transparent portraits and the lineup under `public/assets/archer/`. The full asset generator calls this authoring module without re-rendering portraits, so rebuilding the pack cannot replace the approved candidate with an older archer. At the V1 review milestone, GLBs were tagged archer-v1 and the roster contained 68 defender variants. The current pack exports six archer-v2, 42 hero-v5 and 37 champion-v6 entries. The stone footing stays within one cell; the drawn bow overhangs visually without blocking an adjacent cell.
 
 Rank cloth is I blue (#3989ed), II green (#3eac63), III purple (#9555d8), IV white (#eee9db), V gold (#e7b43f), VI radiant gold (#ffd969). Runtime VI adds a soft additive halo and orbiting motes. The archer style is approved and is now shared by all other basic and advanced defenders, authored by `blender/scripts/author_army.py`. Advanced recipes keep their individual identities.
 
 `game/render/walls.js` renders the current castle barricades with dressed stone courses, mortar seams, capping stones, lichen and crenellations. Cardinal neighboring barricades join into continuous straight, corner, T and cross walls. Removal updates neighboring connections. Legacy prop GLBs remain reference assets; they are not loaded for player-built walls.
 
-`archer.html` is the Royal atelier: all 28 defender types, all six basic ranks, orbit/zoom, automatic rotation and a connected-wall preview. Basic labels use one family letter and a Roman rank, such as `A III`. It never reads or changes a live game. These are posed meshes with runtime aim/sway; skeletal shooting clips are not part of this milestone.
+`archer.html` is the Royal atelier: all 45 defender types, all six basic ranks, orbit/zoom, automatic rotation and a connected-wall preview. Basic labels use one family letter and a Roman rank, such as `A III`. It never reads or changes a live game. These are posed meshes with runtime aim/sway; skeletal shooting clips are not part of this milestone.
 
 
-## Approved roster — Blender army V1 and cohesive revision
+## Approved 37-champion roster and Blender revision
 
-`blender/scripts/author_army.py` reuses the approved archer's proportions, layered clothing, bevels and PBR palette. It authors all 42 non-archer basic rank variants and 20 original champions directly in Blender. The cohesive revision smooths faces, joins skin and tailored forms and retains useful articulation pivots. Runtime accepts hero-v5 and champion-v5; archer is archer-v2. All 68 defender assets remain under the 10,000-triangle ceiling. Decorative wings/weapons overhang the one-cell gameplay footprint.
+`blender/scripts/author_army.py` reuses the approved archer's proportions, layered clothing, bevels and PBR palette. It authors all 42 non-archer basic rank variants. The champion-v6 revision builds 37 individually designed champions directly in Blender. The cohesive revision smooths faces, joins skin and tailored forms and retains useful articulation pivots. Runtime loads hero-v5 and champion-v6; archer is archer-v2. All 85 defender assets remain under the 10,000-triangle ceiling. Decorative wings/weapons overhang the one-cell gameplay footprint.
 
 - Soldier: crested helmet, steel plate, sword and kite shield.
 - Druid: antlers, leaf mantle, oak staff and beard.
 - Mage: bent pointed hat, long robe, crystal staff and spellbook.
 - Cleric: mitre, halo, sun staff and devotional book.
-- Runebreaker: compact armored silhouette, braided beard and runic warhammer.
+- Engineer (stable family ID `runebreaker`): compact armored silhouette, braided beard and runic equipment.
 - Frost Warden: fur mantle, crystal staff and ice shield.
 - Stormcaller: swept hair, brass circlet, lightning and hand orbs.
-- Advanced roster includes griffin, wolf, dragon and phoenix riders; treant and ice colossus; distinct champions and spellcasters; three wheeled siege machines with matching miniature crews.
-- The original 20 champion families share their authored models across higher ascension ranks, with runtime adornments indicating rank. The eight later formation champions, their GLBs, portraits and editable scenes have been removed from the shipped roster and authoring catalog.
+- Advanced roster includes distinct knights and royalty, rangers, elemental casters and druids; dragons, riders, thunderbird, bear king and golems; holy champions and separate siege variants.
+- All 37 champion families share their authored models across higher ascension ranks, with runtime adornments indicating rank. The removed eight formation families remain excluded; the approved restored units use their agreed names and recipes instead.
 
-Regenerate all new models and portraits with `blender --background --python blender/scripts/author_army.py`. Use `-- --family mage` for one family or `-- --no-render` to skip portraits. Editable semantic parts and materials are saved for every family at `blender/scenes/<family>_design_v1.blend`; the six basic color variants are generated by the script. Portraits are in `public/assets/army/`. The full pack generator calls both native authoring scripts after the older fallback/prop export so it cannot silently regress the approved character style.
+Regenerate all new models and portraits with `blender --background --python blender/scripts/author_army.py`. Use `-- --family mage` for one family or `-- --no-render` to skip portraits. Editable semantic parts and materials are saved for every family at `blender/scenes/<family>_design_v1.blend`; the six basic color variants are generated by the script. Portraits are in `public/assets/army/`. The full pack generator calls native authoring after the older fallback/prop export so it cannot silently regress the approved character style. `author_army.py` dispatches the 37 champion families to `champion_humans_v6.py`, `champion_engines_v6.py` and `champion_beasts_v6.py`; exports use the `champion-v6` style and design revision 6. These modules read the approved data and author individual silhouettes rather than changing mechanics.
 
 The floating current-round arrows are runtime overlays in `game/render/draft-markers.js`, independent of model aiming/recoil. Numbers map to keyboard slots 1–5. Their minimum screen size adjusts with zoom, and reduced-motion mode retains static markers.
 

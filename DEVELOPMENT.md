@@ -14,7 +14,7 @@ The repository was initially empty apart from `.git`. The implementation sequenc
 - Dynamic four-neighbor shortest routes checked across every checkpoint segment before committing a placement. Rejected placements leave occupancy and the route unchanged.
 - Five sealed slots per round; independent family/rank roll only after valid placement; keep one, conversion to four blocking barricades and paid removal. Round-start mastery odds are frozen; invalid placement consumes no random roll.
 - Six basic tier qualities (VI is merge-only), 15 gradual mastery upgrades costing 6,500 gold, equal family weighting, Kingdom XP / gold and mastery gates. Perfect-income maximum remains first affordable after wave 30.
-- Current-five-only basic family/tier merging, 20 original exact three-defender recipes across retained ingredients and repeatable three-identical-champion ascension at any rank. The eight later formation champions and their 16 recipes have been removed. Recipe eligibility uses the selected defender's exact family/rank; result location follows the selected ingredient. Consumed foundations stay occupied.
+- Current-five-only basic family/tier merging, 37 approved exact three-defender recipes across retained ingredients and repeatable three-identical-champion ascension at any rank. The eight later formation champions remain removed; the agreed renamed and restored roster contains 37 champions. Every basic family/rank pair appears in a fixed recipe. Recipe eligibility uses the selected defender's exact family/rank; result location follows the selected ingredient. Consumed foundations stay occupied.
 - Physical, piercing, arcane, fire, frost, poison and holy damage; armor, resistance, penetration, splash, chain, slow, freeze, poison, burn, bleed, auras and bonus damage tags.
 - Visible traveling projectiles, articulated catapult throwing arms, unit motion/recoil, impact rings, combine pulses and heavy-hit feedback. Boss auras reinforce enlarged silhouettes. Fallen enemies descend/collapse and remain as corpses through the round; next construction clears them.
 - Fifty authored orc waves follow the source movement/trait order, with five bosses and seeded alternatives. The opening three waves use lower HP, zero armor, slower movement and wider spawn intervals while retaining enemy counts and rewards. Veil, evasion, disarm, refraction, immunities, theft, dread, rush, reactive armor, recharge, blink, shell and war drums have real counters. Legacy archetypes remain for development fixtures.
@@ -23,7 +23,9 @@ The repository was initially empty apart from `.git`. The implementation sequenc
 - Kill/wave score and browser-local profile for recipe discoveries, audio setting, best score, best wave and wins. No online account or permanent power progression.
 - Audio manager with replaceable category hooks and synthesized placeholder attack/UI/result cues.
 - Developer controls guarded by the development-build flag and `?debug`: gold, mastery, forced next draft, enemy spawn, kill, wave skip, recipe unlock.
-- Reproducible Blender authoring: 68 playable defender/champion GLBs plus 20 legacy prop/enemy assets in the 88-entry model manifest; a separate 51-model Ashen Host pack. All playable families and warbands have editable `.blend` sources and rendered portraits. Cohesive skin/clothing geometry and smooth normals retain useful articulation pivots.
+- Reproducible Blender authoring: 85 playable defender/champion GLBs plus 20 legacy prop/enemy assets in the 105-entry model manifest; a separate 51-model Ashen Host pack. All playable families and warbands have editable `.blend` sources and rendered portraits. Cohesive skin/clothing geometry and smooth normals retain useful articulation pivots.
+
+The approved `data/towers.json`, `data/recipes.json` and `data/balance.json` files are the source of truth for numerical balance and recipe topology. `node tools/author-roster.mjs` validates them without modifying files. Its explicit `--refresh-presentation` mode changes only catalog names, descriptions, model categories and unit kind, preserving all agreed combat values and recipes. Blender regeneration reads the current JSON; it must never restore the obsolete 26-unit reference generator.
 
 ## Architecture
 
@@ -64,10 +66,10 @@ The frame loop clamps its elapsed step to avoid hidden-tab jumps. Game speed mul
 
 ## Validation
 
-- `pnpm test`: includes 800,000 seeded quality rolls and 100,000 family draws. Coverage includes original-roster recipe matching and unused basic ranks, champion ascension, exact three-unit consumption, score awards, counts, actual wave traits, boss health, corpse posing, siege pivots, moving-water bounds and distant-cloud visibility. Opening-wave tests run all eight basic families at rank I through three waves at checkpoint and central-crossing placements; touch tests exercise tap/drag separation, multi-touch suppression and actual OrbitControls panning. The latest full-suite result is recorded in `docs/QA.md`.
+- `pnpm test`: includes 800,000 seeded quality rolls and 100,000 family draws. Coverage includes approved 37-champion recipe matching and complete basic-rank ingredient coverage, champion ascension, exact three-unit consumption, score awards, counts, actual wave traits, boss health, corpse posing, siege pivots, moving-water bounds and distant-cloud visibility. Opening-wave tests run all eight basic families at rank I through three waves at checkpoint and central-crossing placements; touch tests exercise tap/drag separation, multi-touch suppression and actual OrbitControls panning. The latest full-suite result is recorded in `docs/QA.md`.
 - Three complete seed-driven campaign simulations use the actual combat and progression code. Latest outcomes are recorded in docs/QA.md. Reports are in `artifacts/campaign-simulation.json` after running the tool.
 - `pnpm build`: production bundle succeeds; the graphics-engine chunk is approximately 628 KB before gzip. No CDN dependencies.
-- Blender 5.2.2 authors the current cohesive pack. Runtime selects archer-v2, hero-v5, champion-v5 and ashen-host-v2. The 88-entry defender/legacy library and 51 active enemy exports are covered by GLB parsing, mesh-budget and finite-bounds checks.
+- Blender 5.2.2 authors the current cohesive pack. Runtime loads archer-v2, hero-v5, champion-v6 and ashen-host-v2. The 105-entry defender/legacy library and 51 active enemy exports are covered by GLB parsing, mesh-budget and finite-bounds checks.
 - Browser checks and remaining limitations are recorded in `docs/QA.md`.
 
 ## Controls
@@ -81,7 +83,7 @@ See README.md and the in-game Help dialog for the complete keyboard, pointer and
 - Audio is synthesized placeholder feedback; no final music, ambience recordings or voice performances.
 - Save/load covers local profile data and custom maze blueprints, not an in-progress battlefield. Refreshing begins a new run. Browser storage can be unavailable or cleared; the game handles that without failing.
 - Sappers scorch nearby barricades to apply a temporary local tower-rate penalty. They do not remove walls or require midcombat path rebuilding.
-- The roster retains the 20 original advanced branches and unlimited champion-rank ascension. Some basic ranks are not ingredients in any champion recipe; matching-pair merges remain available for current draft candidates below rank VI. Timed protective blessings, achievements and other campaigns remain future work.
+- The approved roster has 37 fixed champion recipes and unlimited champion-rank ascension. All 48 basic family/rank pairs have a recipe route; matching-pair merges remain available for current draft candidates below rank VI. Achievements and other campaigns remain future work.
 - Balance is provisional. Full campaigns have automated smoke coverage; manual playtesting across many random drafts is still needed.
 - A WebGL-capable browser is required. Mobile layout and one-finger map panning are present, with tap selection and two-finger zoom/rotation. Automated touch tests do not replace physical iPad playtesting.
 

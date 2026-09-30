@@ -272,59 +272,11 @@ def elemental(kind):
     A.cohesive.elemental()
 
 def advanced(family):
-    if family in ['embercrown','worldfire','kingsreach']:return siege({'embercrown':'catapult','worldfire':'cannon','kingsreach':'ballista'}[family])
-    if family in ['eldergrove','winterhold']:return elemental('tree' if family=='eldergrove' else 'ice')
-    archetype={'rimewatch':'soldier','frostblade':'soldier','roseguard':'soldier','highking':'soldier','crownofages':'mage','thornwarden':'archer','verdantguard':'archer','tempest':'stormcaller','stormcitadel':'runebreaker','starfall':'mage','thunderheart':'mage','phoenix':'cleric','greenheart':'druid','sunward':'cleric','dawnspire':'cleric'}[family]
-    p=basic(archetype,5)
-    hues={'rimewatch':'619dac','frostblade':'a5d3dd','roseguard':'a74459','highking':'34537a','crownofages':'806ca5','thornwarden':'527d47','verdantguard':'77a773','tempest':'577b9c','stormcitadel':'ccab57','starfall':'5f548c','thunderheart':'5373a3','phoenix':'d28247','greenheart':'638653','sunward':'efddad','dawnspire':'dce5ed'}
-    recolor(p['cloth'],hues[family])
-    if family in ['rimewatch','frostblade','crownofages','phoenix']:
-        mount({'rimewatch':'griffin','frostblade':'wolf','crownofages':'dragon','phoenix':'phoenix'}[family],p)
-    elif family=='roseguard':
-        remove_prefix(meshes(),['Kite shield','Shield','Heraldic','Horsehair'])
-        rose=mat('Rose enamel','cd6376');ellipsoid('Rose pauldron',(-.25,.06,1.43),(.16,.13,.07),rose,10,5)
-        for j in range(5):
-            a=j*math.tau/5;ellipsoid('Rose petal',(-.25+math.cos(a)*.067,.16,1.43+math.sin(a)*.055),(.045,.025,.04),rose,8,4)
-        plume=rod('Duelist plume',(-.04,-.03,1.91),(-.27,-.04,2.14),.06,p['ivory'],6,end=.005)
-    elif family=='highking':
-        remove_prefix(meshes(),['Horsehair'])
-        for x in [-.13,0,.13]:cylinder('Lion crown point',(x,.03,2.03),.047,.25,p['trim'],5,top=0)
-        lion=ellipsoid('Lion heraldry',(-.36,.29,.99),(.105,.035,.11),p['trim'],10,5)
-        for x in [-.40,-.32]:ellipsoid('Lion heraldry eye',(x,.325,1.02),(.015,.011,.012),p['dark'],6,3)
-    elif family in ['thornwarden','verdantguard']:
-        antlers(p) if family=='thornwarden' else None
-        for side in [-1,1]:
-            custom('Elven pointed ear',[(side*.15,.06,1.72),(side*.31,.015,1.80),(side*.19,.045,1.63)],[(0,1,2)],p['skin'])
-        if family=='verdantguard':
-            for j in range(3):rod('Wind feather',(.12,-.09,1.92),(.20+j*.07,-.15,2.20-j*.03),.041,p['ivory'],6,end=.003)
-    elif family=='tempest':
-        for side in [-1,1]:
-            ring=torus('Storm sigil',(side*.46,.29,1.37),.19,.012,p['trim']);ring.rotation_euler[0]=math.pi/2
-    elif family=='stormcitadel':
-        bpy.context.view_layer.update()
-        for o in meshes():o.matrix_world=Matrix.Diagonal((1.27,1.2,1.28,1))@o.matrix_world
-        for x in [-.32,.32]:
-            for j in range(3):cylinder('Thunder shoulder spike',(x+j*.06*(1 if x>0 else -1),0,1.54),.06,.32,p['trim'],5,top=0)
-    elif family=='starfall':
-        stars=mat('Starlight','dcceff',0,1)
-        for j in range(7):
-            a=j*math.tau/7;ellipsoid('Orbiting star',(math.cos(a)*.39,-.18,1.82+math.sin(a)*.39),(.035,.035,.055),stars,6,4)
-        ring=torus('Celestial orbit',(0,-.19,1.82),.39,.008,p['trim']);ring.rotation_euler[0]=math.pi/2
-    elif family=='thunderheart':
-        remove_prefix(meshes(),['Wide hat','Pointed wizard','Bent hat','Hatband'])
-        for x in [-.16,-.08,0,.08,.16]:rod('Archmage crown',(x,0,1.85),(x*1.4,0,2.16-abs(x)*.2),.025,p['trim'],6,end=.006)
-        for side in [-1,1]:rod('Lightning mantle',(side*.28,-.04,1.38),(side*.50,-.04,1.66),.038,p['trim'],5,end=.007)
-    elif family=='greenheart':
-        owl=mat('Owl feathers','b6b199');ellipsoid('Owl companion',(-.35,-.02,1.51),(.10,.11,.14),owl,10,5)
-        for x in [-.385,-.315]:ellipsoid('Owl face',(x,.07,1.57),(.033,.02,.035),p['ivory'],8,4);ellipsoid('Owl eye',(x,.09,1.58),(.012,.01,.013),p['dark'],6,3)
-    elif family in ['sunward','dawnspire']:
-        for x in [-.16,.16]:rod('Long ceremonial braid',(x,-.04,1.77),(x*1.25,-.06,1.13),.043,p['trim'],8,end=.018)
-        if family=='dawnspire':
-            for side in [-1,1]:wing(side,(side*.18,-.23,1.55),'e5e7d7',True,.83)
-        else:
-            for j in range(12):
-                a=j*math.tau/12;rod('Solar ray',(.28*math.cos(a),-.10,1.91+.28*math.sin(a)),(.35*math.cos(a),-.10,1.91+.35*math.sin(a)),.011,p['trim'],5)
-    return p
+    """Every approved champion is a purpose-built design, not a basic-class variant."""
+    import champion_humans_v6, champion_engines_v6, champion_beasts_v6
+    for design in (champion_humans_v6, champion_engines_v6, champion_beasts_v6):
+        if family in design.FAMILIES:return design.build(family,sys.modules[__name__])
+    raise ValueError(f'Missing original champion design: {family}')
 
 def export_current(file):
     objects=meshes();copies=[]
@@ -355,7 +307,9 @@ def frame_camera(cam):
 
 def generate(render=True,family=None):
     entries=json.loads((OUT/'manifest.json').read_text(encoding='utf-8'))
-    families=[f for f in DATA if f!='archer' and (not family or f==family)]
+    requested=set(family.split(',')) if family else None
+    if requested and not requested.issubset(DATA):raise ValueError('Unknown requested family')
+    families=[f for f in DATA if f!='archer' and (not requested or f in requested)]
     for fam in families:
         advanced_unit=bool(DATA[fam].get('advanced'));ranks=[1] if advanced_unit else range(1,7)
         for rank in ranks:
@@ -366,11 +320,13 @@ def generate(render=True,family=None):
             triangles=export_current(file)
             if triangles>=10000:raise ValueError(f'{fam} exceeds triangle budget: {triangles}')
             entries=[e for e in entries if not(e.get('family')==fam and e.get('tier')==rank and e.get('kind')=='tower')]
-            entries.append(dict(file=file,kind='tower',family=fam,tier=rank,style='champion-v5' if advanced_unit else 'hero-v5',authoring='Blender',triangles=triangles))
+            entries.append(dict(file=file,kind='tower',family=fam,tier=rank,style='champion-v6' if advanced_unit else 'hero-v5',authoring='Blender',triangles=triangles,**({'designRevision':6,'name':DATA[fam]['name']} if advanced_unit else {})))
             cam=A.configure_scene();frame_camera(cam);scene=bpy.context.scene
             scene.render.resolution_x=360;scene.render.resolution_y=420;scene.render.resolution_percentage=100;scene.cycles.samples=24
             if rank==1:
-                scene['Style']='Approved archer proportions, hand-cut fantasy materials, original class equipment'
+                scene['Style']='Original champion silhouettes, unified smooth anatomy, crafted fantasy equipment' if advanced_unit else 'Approved archer proportions, hand-cut fantasy materials, original class equipment'
+                if advanced_unit:
+                    scene['Champion']=DATA[fam]['name'];scene['Family']=fam;scene['DesignRevision']=6
                 bpy.ops.wm.save_as_mainfile(filepath=str(SCENES/f'{fam}_design_v1.blend'))
             if render:scene.render.filepath=str(PORTRAITS/f'{fam}-t{rank}.png');bpy.ops.render.render(write_still=True)
             print(f'ARMY: {fam} rank {rank}, {triangles} triangles',flush=True)

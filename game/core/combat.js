@@ -23,25 +23,33 @@ export class CombatManager {
   canSee(enemy,tower) {
     if(!enemy.cloaked)return true;
     if(distance(tower,enemy)<=2 || this.game.grid.checkpoints.some(p=>distance(p,enemy)<=1.5))return true;
-    return this.game.towers.some(t=>t.state==='active'&&t.family==='cleric'&&distance(t,enemy)<=6);
+    return this.game.towers.some(t=>t.state==='active'&&distance(t,enemy)<=(t.family==='cleric'?6:towerStats(t,this.game.data).detectionRange||0));
   }
   targetList(tower,stats) {
     const candidates=this.enemies.filter(e=>!e.dead&&this.canSee(e,tower)&&(!stats.melee||!e.flying)&&distance(tower,e)<=stats.range);
     const priority=tower.priority||'first';
     const sorters={first:(a,b)=>b.traveled/b.pathLength-a.traveled/a.pathLength,last:(a,b)=>a.traveled/a.pathLength-b.traveled/b.pathLength,strongest:(a,b)=>b.hp-a.hp,weakest:(a,b)=>a.hp-b.hp,fastest:(a,b)=>b.speed-a.speed,slowest:(a,b)=>a.speed-b.speed};
-    return candidates.sort(sorters[priority]||sorters.first);
+    const ordered=candidates.sort(sorters[priority]||sorters.first),effect=stats.spreadEffect;
+    if(!effect)return ordered;
+    // Pending projectiles reserve their effect so rapid or allied shots spread first.
+    const unmarked=ordered.filter(e=>!(e.statuses?.[effect]?.time>0)&&!(effect==='poison'&&e.magicImmune)&&!(effect==='shred'&&e.physicalImmune));
+    const untouched=unmarked.filter(e=>!this.projectiles.some(s=>s.progress<1&&s.target===e&&(effect==='poison'?(s.stats.poisonDps||s.stats.poison):s.stats.shred)));
+    if(untouched.length)return [...untouched,...ordered.filter(e=>!untouched.includes(e))];
+    // Wait for the last unmarked targets' shots to land before ordinary targeting.
+    return unmarked.length?[]:ordered;
   }
   damage(enemy,amount,type,stats,source) {
     if(enemy.dead)return 0;
     if(stats.directHit){
-      if(enemy.evasion&&['physical','piercing'].includes(type)&&this.game.rng()<enemy.evasion)return 0;
+      if(enemy.evasion&&!stats.trueStrike&&['physical','piercing'].includes(type)&&this.game.rng()<enemy.evasion)return 0;
       if(enemy.shields>0){enemy.shields--;this.game.emit('deflect',{enemy});return 0;}
     }
     const frozen=enemy.statuses.freeze && type==='physical' ? 1.25:1;
     let bonus=1;
     if(stats.beastBonus && enemy.beast)bonus*=stats.beastBonus;
     if(stats.bossBonus && (enemy.boss||enemy.type==='shaman'))bonus*=stats.bossBonus;
-    let dealt=damageAfterDefense(amount*frozen*bonus,type,enemy,stats,this.game.data.balance);
+    const petrified=enemy.statuses.petrify&&['physical','piercing'].includes(type)?1+(enemy.statuses.petrify.physicalBonus||0):1;
+    let dealt=damageAfterDefense(amount*frozen*bonus*petrified,type,enemy,stats,this.game.data.balance);
     if(stats.directHit&&type!=='pure')dealt=Math.max(0,dealt-(enemy.krakenShell||0));
     if(stats.directHit&&enemy.reactiveArmor)enemy.reactiveStacks=Math.min(12,enemy.reactiveStacks+1);
     if(dealt<=0)return 0;
@@ -56,9 +64,10 @@ export class CombatManager {
   }
   applyEffects(enemy,stats,source) {
     if(enemy.dead)return;
-    if(enemy.magicImmune){stats={...stats,slow:0,freeze:0,burn:0,poison:0,poisonDps:0,shredMagic:0};}
+    if(enemy.magicImmune){stats={...stats,slow:0,antiAirSlow:stats.antiAirPiercesImmunity?stats.antiAirSlow:0,antiAirMagicShred:stats.antiAirPiercesImmunity?stats.antiAirMagicShred:0,freeze:0,burn:0,poison:0,poisonDps:0,shredMagic:0,healingBlockDuration:0};}
+    if(enemy.flying)stats={...stats,shred:Math.max(stats.shred||0,stats.antiAirShred||0),slow:Math.max(stats.slow||0,stats.antiAirSlow||0),shredMagic:Math.max(stats.shredMagic||0,stats.antiAirMagicShred||0)};
     if(stats.slow)enemy.statuses.slow={amount:Math.max(stats.slow,enemy.statuses.slow?.amount||0),time:stats.slowDuration||2};
-    if(stats.freeze && this.game.rng()<stats.freeze)enemy.statuses.freeze={time:0.8};
+    if(stats.freeze&&this.elapsed>=(enemy.stunRecoveryUntil||0)&&this.game.rng()<stats.freeze){enemy.statuses.freeze={time:(stats.freezeDuration||.8)*(enemy.boss ? .5 : 1)};enemy.stunRecoveryUntil=this.elapsed+(stats.stunRecovery||0);}
     for(const key of ['burn','poison','bleed'])if(stats[key]||(key==='poison'&&stats.poisonDps)) {
       const previous=enemy.statuses[key];
       const dps=key==='poison'&&stats.poisonDps?stats.poisonDps:stats.damage*stats[key];
@@ -66,23 +75,74 @@ export class CombatManager {
     }
     if(stats.shred)enemy.statuses.shred={amount:Math.max(stats.shred,enemy.statuses.shred?.amount||0),time:4};
     if(stats.shredMagic)enemy.statuses.shredMagic={amount:stats.shredMagic,time:4};
+    if(stats.healingBlockDuration)enemy.statuses.healBlock={time:stats.healingBlockDuration};
+  }
+  landedProcs(stats,source) {
+    if(stats.recoverChance&&this.game.rng()<stats.recoverChance){this.game.lives=Math.min(this.game.data.balance.startingLives,this.game.lives+(stats.recoverLives||1));this.game.emit('recover',{source});}
+    if(stats.goldChance&&this.game.rng()<stats.goldChance){const min=stats.goldMin||1,max=stats.goldMax||50;this.game.economy.reward(min+Math.floor(this.game.rng()*(max-min+1)));this.game.emit('gold-proc',{source});}
+    if(stats.stoneGazeChance&&this.game.rng()<stats.stoneGazeChance)source.stoneGaze={remaining:stats.stoneGazeDuration||6,facing:new Map(),petrified:new Set(),stats};
+  }
+  updateStoneGazes(dt) {
+    for(const tower of this.game.towers){
+      const gaze=tower.stoneGaze;if(!gaze)continue;
+      if(tower.state!=='active'){delete tower.stoneGaze;continue;}
+      const slice=Math.min(dt,gaze.remaining),s=gaze.stats;
+      for(const e of this.enemies){
+        if(e.dead||e.magicImmune||distance(tower,e)>(s.stoneGazeRange||10)){gaze.facing.delete(e.id);continue;}
+        e.statuses.gazeSlow={amount:s.stoneGazeSlow||.8,time:slice+.05};
+        if(gaze.petrified.has(e.id))continue;
+        const next=e.route[e.pathIndex],dx=(next?.x??e.x)-e.x,dz=(next?.z??e.z)-e.z;
+        const toward=dx*(tower.x-e.x)+dz*(tower.z-e.z)>0;
+        const facing=toward?(gaze.facing.get(e.id)||0)+slice:0;gaze.facing.set(e.id,facing);
+        if(facing>=(s.stoneGazeFacingTime||2)){e.statuses.petrify={time:s.petrifyDuration||3,physicalBonus:s.petrifyPhysicalBonus??1};gaze.petrified.add(e.id);}
+      }
+      gaze.remaining-=dt;if(gaze.remaining<=0)delete tower.stoneGaze;
+    }
+  }
+  bounceFrost(target,stats,source) {
+    let previous=target;
+    for(let i=0;i<stats.bouncingFrost;i++){
+      const next=this.enemies.filter(e=>!e.dead&&e!==previous&&distance(e,previous)<=(stats.bouncingFrostRange||10)).sort((a,b)=>distance(a,previous)-distance(b,previous))[0];
+      if(!next)break;
+      if(this.damage(next,stats.bouncingFrostDamage||stats.damage,'frost',{...stats,directHit:true},source)>0)this.applyEffects(next,stats,source);
+      this.game.emit('chain',{from:previous,to:next,color:stats.color});previous=next;
+    }
+  }
+  nearbyMagicProcs(caster,target,stats) {
+    if(['physical','piercing','pure'].includes(stats.type))return;
+    for(const ally of this.game.towers){
+      if(ally===caster||ally.state!=='active')continue;
+      const s=towerStats(ally,this.game.data);
+      if(s.bouncingFrostTrigger!=='nearby-ally-magic-hit'||distance(ally,caster)>(s.bouncingFrostTriggerRange||6))continue;
+      if(this.game.rng()<s.bouncingFrostChance)this.bounceFrost(target,s,ally);
+    }
   }
   impact(shot) {
     const {target,stats,source}=shot;
     const victims=stats.splash ? this.enemies.filter(e=>!e.dead&&(!stats.melee||(!e.flying&&distance(e,source)<=stats.range+.25))&&distance(e,target)<=stats.splash) : target.dead||(stats.melee&&(target.flying||distance(source,target)>stats.range+.25))?[]:[target];
     const hitDamage=stats.damage*(stats.critChance&&this.game.rng()<stats.critChance?stats.critMultiplier:1);
-    for(const enemy of victims) {if(this.damage(enemy,hitDamage,stats.type,{...stats,directHit:true},source)>0)this.applyEffects(enemy,stats,source);}
+    const landed=[];
+    for(const enemy of victims) {if(this.damage(enemy,hitDamage,stats.type,{...stats,directHit:true},source)>0){this.applyEffects(enemy,stats,source);landed.push(enemy);}}
+    for(const enemy of landed)this.nearbyMagicProcs(source,enemy,stats);
+    if(landed.length)this.landedProcs(stats,source);
     if(stats.cleave&&victims.length)for(const e of this.enemies)if(e!==target&&!e.dead&&distance(e,target)<=stats.cleaveRadius)this.damage(e,hitDamage*stats.cleave,stats.cleaveType||stats.type,stats,source);
-    if(stats.effectsRadius)for(const e of this.enemies)if(!e.dead&&distance(e,target)<=stats.effectsRadius)this.applyEffects(e,stats,source);
+    if(landed.length&&stats.effectsRadius)for(const e of this.enemies)if(!e.dead&&distance(e,target)<=stats.effectsRadius)this.applyEffects(e,{slow:stats.slow,slowDuration:stats.slowDuration,healingBlockDuration:stats.healingBlockDuration},source);
     if(stats.chain&&(!stats.chainChance||this.game.rng()<stats.chainChance)) {
       const chained=this.enemies.filter(e=>!e.dead&&!victims.includes(e)&&distance(e,target)<4).sort((a,b)=>distance(a,target)-distance(b,target)).slice(0,stats.chain);
       for(const e of chained){if(this.damage(e,stats.chainDamage||stats.damage*0.55,stats.type,{...stats,directHit:true},source)>0)this.applyEffects(e,stats,source);this.game.emit('chain',{from:target,to:e,color:stats.color});}
     }
+    if(landed.length&&stats.forkedTargets&&this.game.rng()<(stats.forkedChance||1)){
+      const forked=this.enemies.filter(e=>!e.dead&&distance(e,target)<=(stats.forkedRange||10)).sort((a,b)=>distance(a,target)-distance(b,target)).slice(0,stats.forkedTargets);
+      for(const e of forked){this.damage(e,stats.forkedDamage,'arcane',stats,source);this.game.emit('chain',{from:source,to:e,color:stats.color});}
+    }
+    if(landed.length&&stats.bouncingFrost&&stats.bouncingFrostTrigger!=='nearby-ally-magic-hit'&&this.game.rng()<(stats.bouncingFrostChance||1))this.bounceFrost(target,stats,source);
+    if(landed.length&&stats.burnedChance&&this.game.rng()<stats.burnedChance)for(const e of this.enemies)if(!e.dead&&distance(e,target)<=stats.burnedRadius)this.damage(e,stats.damage*stats.burnedMultiplier,'fire',stats,source);
     this.game.emit('impact',{x:target.x,z:target.z,color:stats.color,heavy:stats.damage>160,radius:stats.splash||stats.cleaveRadius||0.4,melee:stats.melee});
   }
   update(dt) {
     this.elapsed+=dt;
     while(this.spawnQueue.length && this.spawnQueue[0].time<=this.elapsed) {const item=this.spawnQueue.shift();this.spawn(item.type,item.modifiers);}
+    this.updateStoneGazes(dt);
     for(const enemy of this.enemies) {
       if(enemy.dead)continue;
       enemy.hit=Math.max(0,enemy.hit-dt);
@@ -90,7 +150,7 @@ export class CombatManager {
       enemy.cloaked=!!(enemy.stealth||(enemy.cloakDaggers&&this.elapsed%6<4));
       enemy.reactiveStacks=Math.max(0,enemy.reactiveStacks-dt*.7);
       if(enemy.refraction){enemy.shieldClock-=dt;while(enemy.shieldClock<=0){enemy.shields=enemy.refraction;enemy.shieldClock+=8;}}
-      if(enemy.recharge){enemy.rechargeClock-=dt;while(enemy.rechargeClock<=0){enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.maxHp*enemy.recharge);enemy.rechargeClock+=8;}}
+      if(enemy.recharge){enemy.rechargeClock-=dt;while(enemy.rechargeClock<=0){if(!enemy.statuses.healBlock)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.maxHp*enemy.recharge);enemy.rechargeClock+=8;}}
       let blinkTravel=0;
       if(enemy.blink){enemy.blinkClock-=dt;while(enemy.blinkClock<=0){blinkTravel+=enemy.blink;enemy.blinkClock+=6;}}
 
@@ -106,12 +166,14 @@ export class CombatManager {
         status.time-=dt;if(status.time<=0)delete enemy.statuses[key];
       }
       if(enemy.dead)continue;
-      if(enemy.regen)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.regen*dt);
+      if(enemy.regen&&!enemy.statuses.healBlock)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.regen*dt);
       if(enemy.type==='sapper')for(const ruin of this.game.towers)if(ruin.state==='ruin'&&distance(ruin,enemy)<1.5)ruin.weakened=3;
       const frenzy=enemy.rush&&this.elapsed%6<2?enemy.rush:enemy.type==='berserker'&&enemy.hp<enemy.maxHp*0.5?1.65:1;
-      let slow=enemy.statuses.slow?.amount||0;
-      for(const t of this.game.towers)if(t.state==='active'){const s=towerStats(t,this.game.data);if(!enemy.magicImmune&&s.slowAura&&distance(t,enemy)<=s.range)slow=Math.max(slow,s.slowAura);}
-      let travel=enemy.speed*dt*haste*frenzy*(enemy.statuses.freeze?0:1-slow)+blinkTravel;
+      let slow=Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
+      enemy.armorShred=enemy.statuses.shred?.amount||0;
+      for(const t of this.game.towers)if(t.state==='active'){const s=towerStats(t,this.game.data);if(!enemy.magicImmune&&s.slowAura&&distance(t,enemy)<=s.range)slow=Math.max(slow,s.slowAura);if((!enemy.magicImmune||s.auraPiercesImmunity)&&distance(t,enemy)<=(s.effectRange??s.range)){if(s.armorShredAura)enemy.armorShred=Math.max(enemy.armorShred,s.armorShredAura);if(s.magicShredAura)enemy.magicShred=Math.max(enemy.magicShred,s.magicShredAura);}}
+      if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
+      let travel=enemy.statuses.petrify?0:enemy.speed*dt*haste*frenzy*(enemy.statuses.freeze?0:1-slow)+blinkTravel;
       while(travel>0 && enemy.pathIndex<enemy.route.length) {
         const to=enemy.route[enemy.pathIndex],length=distance(enemy,to);
         if(length<=travel){enemy.x=to.x;enemy.z=to.z;enemy.pathIndex++;enemy.traveled+=length;travel-=length;}
@@ -124,12 +186,13 @@ export class CombatManager {
       if(tower.state!=='active')continue;
       const bonuses=supportBonuses(tower,this.game.towers,this.game.data),stats=towerStats(tower,this.game.data);
       stats.range+=bonuses.range;stats.damage*=bonuses.damage;
+      stats.trueStrike||=!!bonuses.trueStrike;
       let boost=bonuses.haste,dread=0;
       tower.disarmed=false;
       for(const enemy of this.enemies)if(!enemy.dead){
         const range=distance(tower,enemy);
-        if(enemy.untouchable&&range<4)dread=Math.max(dread,enemy.untouchable);
-        if(enemy.disarm&&range<3&&(this.elapsed+enemy.id*.37)%8<1.25)tower.disarmed=true;
+        if(enemy.untouchable&&range<4)dread=Math.max(dread,enemy.untouchable*(1-(bonuses.controlResistance||0)));
+        if(enemy.disarm&&range<3&&(this.elapsed+enemy.id*.37)%8<1.25*(1-(bonuses.controlResistance||0)))tower.disarmed=true;
       }
       boost*=1-dread;
       for(const other of this.game.towers) {

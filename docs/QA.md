@@ -2,9 +2,18 @@
 
 ## Current revision
 
-100 Node tests pass in the latest full run. Production builds successfully. The current model manifest has 88 entries: 68 playable defender variants and 20 legacy assets. The separate enemy pack contains 51 articulated Blender GLBs. Runtime selects archer-v2, hero-v5, champion-v5 and ashen-host-v2. Editable sources and rendered portraits accompany the playable packs. Historical review notes below retain their original counts and behavior; later revisions supersede them.
+The approved release contains eight basic classes and 37 champions: 85 defender variants and 20 legacy assets in a 105-entry model manifest, plus the separate 51-model Ashen Host pack. The new champion art uses champion-v6; basic and enemy packs retain archer-v2, hero-v5 and ashen-host-v2. Native editable sources and rendered portraits accompany the shipped packs. Historical review notes below retain their original counts and behavior; later revisions supersede them.
 
-Coverage includes the clean 37 × 37 board, five inset checkpoints, ordered loop traversal, life loss only at the keep, path rejection, five-draw selection, basic exact-rank merging through VI, all 20 original fixed recipes and repeatable champion ascension. Tests require exactly three distinct consumed ingredients, increasing result ranks and stable result anchors. Existing projectile, melee/air, poison, pure cleave, tiered blessing, aura, multi-target and accelerated-timing tests remain covered. Random tests cover 800,000 quality rolls and 100,000 family draws.
+After Blender 5.2 regeneration, the complete suite passed 124 Node tests. All 37 new champion GLBs parsed through the real Three.js GLTFLoader with finite positions, normals and bounds, exact manifest triangle counts and fewer than 10,000 triangles per model. Canonical world-space triangle hashes confirm 37 distinct geometries, independent of names and materials. Catapult's real siege_arm rig moves its loaded child geometry and restores it without modifying the cached source. All 37 native sources and 37 portraits are present. The production Vite build passed; local production-browser checks showed 37 champions, 45 types and 85 variants, loaded the new Archangel and all grimoire portraits, and reported no warning/error logs.
+
+Coverage includes all 37 reachable three-defender fixed recipes, all 48 basic family/rank pairs, repeatable champion ascension, allied-magic-triggered Archangel bounces, capped Royal Ranger health recovery, bounded Greedy gold, Monk blessing groups, healing suppression, Stone Gaze and five-target forked lightning. Existing route, economy, score, touch, status and enemy-mechanic tests remain covered.
+
+## September 30 — approved 37-champion release preparation
+
+- Preserved the approved stable family IDs, champion names, numerical settings and recipe topology. Nineteen original champions have new names; Frost Colossus retains its name. Seventeen restored units bring the total to 37. All 48 basic family/rank pairs appear in at least one fixed recipe.
+- Replaced the obsolete 26-unit authoring generator with a read-only authoritative JSON validator. Explicit presentation refresh changes catalog labels and model categories only; it never regenerates combat statistics, balance settings or recipes.
+- Replaced four player-facing wiki-verification placeholder labels with descriptions of the implemented abilities, preserving source-verification metadata.
+- Updated roster, recipe table, model counts, support caps and ability documentation to match the agreed data. All 37 models were rebuilt in Blender 5.2 with distinct silhouettes; every asset and source is included in version 0.2.0. The existing GitHub Pages workflow validates the same tests and production build before deployment.
 
 ## September 30 — original roster, opening patrols and iPad input
 

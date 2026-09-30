@@ -42,7 +42,7 @@ export function championModel(family,k) {
     const x=-.43;beam(p,[x,.4,-.12],[x-.14,.85,-.21],.07,wood);beam(p,[x-.14,.85,-.21],[x,1.3,-.12],.07,wood);beam(p,[x,.4,-.12],[x,1.3,-.12],.018,'#f1ddb2');beam(p,[x-.18,.84,-.36],[x+.32,.84,-.36],.035,gold);
   }
   function eyes(p,y,z,c=accent){for(const x of [-.105,.105])gem(p,.052,c,[x,y,z]);}
-  function beast(p,dragon=false){
+  function beast(p,dragon=false,mounted=true){
     const body=sphere(p,.39,color,[0,.63,.08]);body.scale.set(.9,.85,1.4);
     for(const x of [-.22,.22])for(const z of [-.28,.35]){beam(p,[x,.63,z],[x,.24,z-.06],.115,accent);box(p,[.19,.09,.25],ink,[x,.2,z-.1]);}
     const head=sphere(p,.29,accent,[0,.92,-.44]);head.scale.set(.95,1,1.2);
@@ -50,7 +50,7 @@ export function championModel(family,k) {
     else {const beak=cone(p,.14,.3,gold,[0,.86,-.74],4);beak.rotation.x=-Math.PI/2;}
     eyes(p,.99,-.705,ink);beam(p,[0,.7,.38],[.18,.96,.74],.09,color);
     featherWing(p,-1,.82);featherWing(p,1,.82);
-    const rider=new THREE.Group();hero(rider,{helmet:true});rider.scale.setScalar(.58);rider.position.set(0,.8,.06);p.add(rider);staff(rider,.4,1.6);
+    if(mounted){const rider=new THREE.Group();hero(rider,{helmet:true});rider.scale.setScalar(.58);rider.position.set(0,.8,.06);p.add(rider);staff(rider,.4,1.6);}
   }
   function wheels(p){
     box(p,[.67,.16,.92],wood,[0,.44,0]);
@@ -60,7 +60,18 @@ export function championModel(family,k) {
       for(const sign of [-1,1])beam(p,[x*1.17,.2,z+sign*.12],[x*1.17,.42,z-sign*.12],.035,wood);
     }
   }
-  if(kind==='griffin'||kind==='dragon'||kind==='phoenix'){
+  if(['firebaby','firemother','thunderbird'].includes(kind)){
+    beast(root,kind!=='thunderbird',false);
+    for(let i=0;i<3;i++)gem(root,.075,accent,[(i-1)*.14,1.34,.08]);
+    if(kind==='firemother'){cone(root,.14,.45,accent,[0,1.56,.18],5);sphere(root,.12,'#ffcb66',[0,.88,-.87]);}
+    if(kind==='thunderbird')for(const s of [-1,1]){beam(root,[s*.2,1.25,0],[s*.35,1.5,0],.045,accent);beam(root,[s*.35,1.5,0],[s*.25,1.66,0],.04,accent);}
+  }else if(kind==='bear'){
+    const body=sphere(root,.42,color,[0,.75,.08]);body.scale.set(1,1.15,1.25);
+    for(const x of [-.26,.26])for(const z of [-.25,.3])beam(root,[x,.7,z],[x,.24,z-.06],.18,color);
+    sphere(root,.32,color,[0,1.14,-.38]);sphere(root,.19,accent,[0,1.04,-.61]);sphere(root,.06,ink,[0,1.1,-.78]);eyes(root,1.23,-.66,ink);
+    for(const x of [-.24,.24])sphere(root,.105,color,[x,1.39,-.33]);
+    for(const x of [-.14,0,.14])cone(root,.07,.24,gold,[x,1.61,-.4],5);
+  }else if(kind==='griffin'||kind==='dragon'||kind==='phoenix'){
     beast(root,kind==='dragon');
     if(kind==='phoenix')for(let i=0;i<5;i++){const f=cone(root,.1,.6,i%2?accent:color,[(i-2)*.1,.53,.61+i%2*.05],5);f.rotation.x=.85;}
     if(kind==='dragon')for(let i=0;i<4;i++)gem(root,.075,accent,[(i-1.5)*.21,1.94,.2]);
@@ -113,7 +124,10 @@ export function championModel(family,k) {
       if(kind==='huntress'){sphere(root,.16,'#dad9c0',[.35,1.06,0]);for(const x of [.29,.41]){sphere(root,.06,'#f1d98d',[x,1.09,-.125]);sphere(root,.025,ink,[x,1.09,-.17]);}cone(root,.045,.1,gold,[.35,1.02,-.15],4).rotation.x=-1;}
       else for(const s of [-1,1])beam(root,[s*.24,.55,.25],[s*.5,.2,.32],.1,accent);
     }
-    if(['grovekeeper','priestess','archmage','seraph'].includes(kind))staff(root);
+    if(['grovekeeper','priestess','archmage','seraph','archbishop'].includes(kind))staff(root);
+    if(kind==='firebomber'){sphere(root,.16,ink,[-.37,.76,-.25]);beam(root,[-.37,.89,-.25],[-.33,1.03,-.25],.04,gold);sphere(root,.05,'#ffb350',[-.33,1.05,-.25]);for(const x of [-.1,0,.1])cone(root,.08,.28,accent,[x,.94,-.2],5).rotation.z=Math.PI;}
+    if(kind==='monk'){halo(root,1.55,.25);for(let i=0;i<5;i++)sphere(root,.045,gold,[(i-2)*.085,.86,-.25]);}
+    if(kind==='archbishop'){cone(root,.23,.58,accent,[0,1.58,0],4);beam(root,[-.08,1.66,-.14],[.08,1.66,-.14],.045,gold);beam(root,[0,1.55,-.14],[0,1.82,-.14],.045,gold);}
     if(kind==='grovekeeper'){
       for(const s of [-1,1]){beam(root,[s*.17,1.27,0],[s*.34,1.69,.03],.06,wood);beam(root,[s*.29,1.54,.03],[s*.48,1.61,.03],.05,wood);beam(root,[s*.34,1.69,.03],[s*.27,1.83,.03],.045,wood);}
       cylinder(root,.075,.095,.19,'#e8d7ad',[-.35,.24,-.2],6);const cap=sphere(root,.16,'#be6955',[-.35,.38,-.2]);cap.scale.y=.5;
