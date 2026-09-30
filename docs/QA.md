@@ -114,3 +114,12 @@ This revision supersedes the earlier demolition and live-search behavior above.
 - Removed PNG metadata containing personal local file paths without changing decoded pixels, compressed image data or color metadata.
 - Runtime model, manifest, portrait and page URLs use Vite's deployment base. Both the game and Royal atelier load successfully under `/bastions-of-the-last-kingdom/`; local root-path builds remain supported.
 - All 90 tests pass. Local and project-path production builds pass. GitHub Actions installs from the frozen pnpm lockfile, runs the tests and deploys the built website on pushes to `main`.
+
+## Release 0.2.1 — Champion Auras
+
+- 133 automated tests pass; production build passes. Three.js parses all 85 defender GLBs with finite positions, normals, bounds and matching triangle counts; all 37 champion geometry signatures remain distinct.
+- Wiki classification coverage is 5 Basic / 13 Intermediate / 11 Advanced / 8 TOP. Tests cover absent Basic effects, progressively stronger signals, stable classification across ascension, finite animation, reduced motion and resource disposal.
+- Genuine Blender 5.2.2 exports and editable scenes were regenerated for Engineer I–VI, Knight, Lionheart Champion, Kingslayer, Paladin and Mother Nature. Portrait stamp metadata was removed without changing decoded pixels. Knight/Lionheart/Kingslayer/Paladin/Mother Nature use 9,002 / 9,552 / 9,238 / 9,530 / 3,338 triangles.
+- Read-only comparison with release 0.2.0 confirms every numeric/combat field and all recipes, balance, enemies and waves are unchanged. Seven presentation fields changed, including Kingslayer's name and renderer category.
+- The 4174 production game starts normally and the grimoire loads 74 recipe cards (37 fixed recipes plus next-rank ascensions), including the renamed Kingslayer, with no broken portraits. Atelier checks cover all six model edits and representatives of every classification; browser consoles have no errors or warnings.
+- Local visual proof: `artifacts/0.2.1-rimewatch-browser.png`, `artifacts/0.2.1-runebreaker-browser.png`, `artifacts/0.2.1-roseguard-browser.png` and `artifacts/0.2.1-kingdomprotector-browser.png`.

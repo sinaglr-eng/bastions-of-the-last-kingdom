@@ -1,0 +1,72 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {CHAMPIONS} from '../game/render/champion-catalog.js';
+import {ascensionRecipe,recipeFamily} from '../game/core/recipes.js';
+import {
+  CHAMPION_CLASSIFICATIONS,
+  CLASSIFICATION_LEVELS,
+  championClassification,
+  championAuraLevel
+} from '../game/render/champion-classification.js';
+
+const towers=JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url)));
+const recipes=JSON.parse(readFileSync(new URL('../data/recipes.json',import.meta.url)));
+const champions=Object.keys(towers).filter(family=>towers[family].advanced);
+const basics=Object.keys(towers).filter(family=>!towers[family].advanced);
+
+test('visual classifications cover exactly the 37 approved champion families',()=>{
+  assert.deepEqual(Object.keys(CHAMPION_CLASSIFICATIONS).sort(),champions.sort());
+  assert.deepEqual(Object.keys(CHAMPIONS).sort(),champions);
+  const counts={Basic:0,Intermediate:0,Advanced:0,TOP:0};
+  for(const family of champions){
+    const classification=championClassification(family);
+    assert.ok(Object.hasOwn(counts,classification),family);
+    counts[classification]++;
+  }
+  assert.deepEqual(counts,{Basic:5,Intermediate:13,Advanced:11,TOP:8});
+});
+
+test('fixed recipe reference classifications agree with the verified wiki Towers table',()=>{
+  assert.equal(recipes.length,37);
+  assert.equal(new Set(recipes.map(recipe=>recipe.referenceTower)).size,37);
+  for(const recipe of recipes){
+    assert.ok(recipe.referenceTower?.trim(),recipe.id+' needs its source tower');
+    const expected=recipe.stage==='Mythic'?'TOP':recipe.stage;
+    assert.equal(championClassification(recipeFamily(recipe)),expected,recipe.referenceTower);
+  }
+  // These source distinctions are easy to confuse with names or ascension ranks.
+  assert.equal(championClassification('archangel'),'Advanced');
+  assert.equal(championClassification('dawnspire'),'TOP');
+  assert.equal(championClassification('royalarsenal'),'TOP');
+  assert.equal(championClassification('roseguard'),'Intermediate');
+  assert.equal(championAuraLevel('rimewatch'),0);
+  assert.equal(championAuraLevel('frostblade'),1);
+  assert.equal(championAuraLevel('highking'),2);
+  assert.equal(championAuraLevel('mothernature'),3);
+});
+
+test('all basic defender ranks and unknown families receive no classification aura',()=>{
+  assert.equal(basics.length,8);
+  for(const family of basics){
+    assert.equal(towers[family].levels.length,6);
+    assert.equal(championClassification(family),null,family);
+    assert.equal(championAuraLevel(family),0,family);
+  }
+  for(const family of ['unknown','toString','constructor','__proto__',undefined,null]){
+    assert.equal(championClassification(family),null);
+    assert.equal(championAuraLevel(family),0);
+  }
+});
+
+test('ascension changes rank while preserving each family visual classification',()=>{
+  for(const family of champions){
+    const classification=championClassification(family);
+    for(const tier of [1,2,6,12,100]){
+      const recipe=ascensionRecipe(family,tier);
+      assert.equal(recipe.resultTier,tier+1);
+      assert.equal(championClassification(recipeFamily(recipe)),classification);
+      assert.equal(championAuraLevel(recipeFamily(recipe)),CLASSIFICATION_LEVELS[classification]);
+    }
+  }
+});

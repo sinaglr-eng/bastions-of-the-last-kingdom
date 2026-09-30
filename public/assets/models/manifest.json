@@ -484,60 +484,6 @@
     "triangles": 7900
   },
   {
-    "file": "human_runebreaker_t1.glb",
-    "kind": "tower",
-    "family": "runebreaker",
-    "tier": 1,
-    "style": "hero-v5",
-    "authoring": "Blender",
-    "triangles": 7136
-  },
-  {
-    "file": "human_runebreaker_t2.glb",
-    "kind": "tower",
-    "family": "runebreaker",
-    "tier": 2,
-    "style": "hero-v5",
-    "authoring": "Blender",
-    "triangles": 7244
-  },
-  {
-    "file": "human_runebreaker_t3.glb",
-    "kind": "tower",
-    "family": "runebreaker",
-    "tier": 3,
-    "style": "hero-v5",
-    "authoring": "Blender",
-    "triangles": 7504
-  },
-  {
-    "file": "human_runebreaker_t4.glb",
-    "kind": "tower",
-    "family": "runebreaker",
-    "tier": 4,
-    "style": "hero-v5",
-    "authoring": "Blender",
-    "triangles": 7612
-  },
-  {
-    "file": "human_runebreaker_t5.glb",
-    "kind": "tower",
-    "family": "runebreaker",
-    "tier": 5,
-    "style": "hero-v5",
-    "authoring": "Blender",
-    "triangles": 7816
-  },
-  {
-    "file": "human_runebreaker_t6.glb",
-    "kind": "tower",
-    "family": "runebreaker",
-    "tier": 6,
-    "style": "hero-v5",
-    "authoring": "Blender",
-    "triangles": 8468
-  },
-  {
     "file": "advanced_embercrown.glb",
     "kind": "tower",
     "family": "embercrown",
@@ -613,17 +559,6 @@
     "triangles": 7562,
     "designRevision": 6,
     "name": "Dwarf Griffin bomber"
-  },
-  {
-    "file": "advanced_highking.glb",
-    "kind": "tower",
-    "family": "highking",
-    "tier": 1,
-    "style": "champion-v6",
-    "authoring": "Blender",
-    "triangles": 4270,
-    "designRevision": 6,
-    "name": "Kingslayer Arbalest"
   },
   {
     "file": "advanced_kingsreach.glb",
@@ -712,28 +647,6 @@
     "triangles": 5880,
     "designRevision": 6,
     "name": "Frostbolt Watchmen"
-  },
-  {
-    "file": "advanced_frostblade.glb",
-    "kind": "tower",
-    "family": "frostblade",
-    "tier": 1,
-    "style": "champion-v6",
-    "authoring": "Blender",
-    "triangles": 6334,
-    "designRevision": 6,
-    "name": "Knight"
-  },
-  {
-    "file": "advanced_roseguard.glb",
-    "kind": "tower",
-    "family": "roseguard",
-    "tier": 1,
-    "style": "champion-v6",
-    "authoring": "Blender",
-    "triangles": 6282,
-    "designRevision": 6,
-    "name": "Lionheart Champion"
   },
   {
     "file": "advanced_crownofages.glb",
@@ -857,28 +770,6 @@
     "name": "Ranger"
   },
   {
-    "file": "advanced_kingdomprotector.glb",
-    "kind": "tower",
-    "family": "kingdomprotector",
-    "tier": 1,
-    "style": "champion-v6",
-    "authoring": "Blender",
-    "triangles": 6154,
-    "designRevision": 6,
-    "name": "Paladin"
-  },
-  {
-    "file": "advanced_mothernature.glb",
-    "kind": "tower",
-    "family": "mothernature",
-    "tier": 1,
-    "style": "champion-v6",
-    "authoring": "Blender",
-    "triangles": 5552,
-    "designRevision": 6,
-    "name": "Mother Nature"
-  },
-  {
     "file": "advanced_royalranger.glb",
     "kind": "tower",
     "family": "royalranger",
@@ -943,5 +834,114 @@
     "triangles": 6324,
     "designRevision": 6,
     "name": "Archangel"
+  },
+  {
+    "file": "human_runebreaker_t1.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 1,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7882
+  },
+  {
+    "file": "human_runebreaker_t2.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 2,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7990
+  },
+  {
+    "file": "human_runebreaker_t3.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 3,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 8250
+  },
+  {
+    "file": "human_runebreaker_t4.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 4,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 8358
+  },
+  {
+    "file": "human_runebreaker_t5.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 5,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 8562
+  },
+  {
+    "file": "human_runebreaker_t6.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 6,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 9214
+  },
+  {
+    "file": "advanced_frostblade.glb",
+    "kind": "tower",
+    "family": "frostblade",
+    "tier": 1,
+    "style": "champion-v6",
+    "authoring": "Blender",
+    "triangles": 9002,
+    "designRevision": 6,
+    "name": "Knight"
+  },
+  {
+    "file": "advanced_roseguard.glb",
+    "kind": "tower",
+    "family": "roseguard",
+    "tier": 1,
+    "style": "champion-v6",
+    "authoring": "Blender",
+    "triangles": 9552,
+    "designRevision": 6,
+    "name": "Lionheart Champion"
+  },
+  {
+    "file": "advanced_highking.glb",
+    "kind": "tower",
+    "family": "highking",
+    "tier": 1,
+    "style": "champion-v6",
+    "authoring": "Blender",
+    "triangles": 9238,
+    "designRevision": 6,
+    "name": "Kingslayer"
+  },
+  {
+    "file": "advanced_kingdomprotector.glb",
+    "kind": "tower",
+    "family": "kingdomprotector",
+    "tier": 1,
+    "style": "champion-v6",
+    "authoring": "Blender",
+    "triangles": 9530,
+    "designRevision": 6,
+    "name": "Paladin"
+  },
+  {
+    "file": "advanced_mothernature.glb",
+    "kind": "tower",
+    "family": "mothernature",
+    "tier": 1,
+    "style": "champion-v6",
+    "authoring": "Blender",
+    "triangles": 3338,
+    "designRevision": 6,
+    "name": "Mother Nature"
   }
 ]

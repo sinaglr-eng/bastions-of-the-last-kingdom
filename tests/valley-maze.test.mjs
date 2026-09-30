@@ -40,9 +40,10 @@ test('mountains, forests, river and bridge leave the entire construction field c
   valley.update(.016,1);
   for(const group of [valley.staticGroup,valley.water])group.traverse(o=>o.geometry?.dispose());
 });
-test('thirty-seven advanced units have distinct finite models, with five siege machines',()=>{
+test('thirty-seven advanced units have distinct finite models, with four siege machines and a humanoid Kingslayer',()=>{
   const signatures=new Set();assert.equal(Object.keys(CHAMPIONS).length,37);
-  assert.equal(Object.values(CHAMPIONS).filter(c=>SIEGE_KINDS.includes(c.kind)).length,5);
+  assert.equal(Object.values(CHAMPIONS).filter(c=>SIEGE_KINDS.includes(c.kind)).length,4);
+  assert.equal(CHAMPIONS.highking.kind,'paladin');
   for(const id of Object.keys(CHAMPIONS)){
     const model=towerModel(id,1,true),b=new Box3().setFromObject(model),size=b.getSize(new Vector3());
     assert.ok([size.x,size.y,size.z].every(Number.isFinite));assert.ok(size.x<2.2&&size.z<2.2&&size.y<2.6,id);

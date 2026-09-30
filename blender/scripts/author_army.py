@@ -124,19 +124,39 @@ def basic(family,rank):
         arm((.22,0,1.33),(.34,.07,1.15),(.40,.17,1.06),p);arm((-.22,0,1.33),(-.31,.08,1.09),(-.34,.26,1.09),p);book(p);staff(p,color='ffd76a')
         halo=torus('Sun halo',(0,-.09,1.91),.27,.015,p['trim']);halo.rotation_euler[0]=math.pi/2
     elif family=='runebreaker':
-        helmet(p,False)
+        # A working dwarf: a broad, short body and a full-size expressive head.
+        remove_prefix(meshes(),['Front leather breastplate','Breastplate seam'])
+        cap=ellipsoid('Engineer leather work cap',(0,-.006,1.865),(.19,.158,.082),p['leather'],16,8)
+        cube('Engineer cap peak',(0,.16,1.838),(.30,.115,.024),p['leather'],.012)
+        cube('Engineer stitched apron',(0,.187,1.055),(.385,.038,.53),p['leather'],.028)
+        for x in [-.142,.142]:rod('Apron shoulder strap',(x,.182,1.31),(x,.223,1.11),.018,p['trim'],6)
+        cube('Apron tool pocket',(0,.221,.99),(.24,.033,.15),p['dark'],.014)
+        beard=ellipsoid('Engineer full copper beard',(0,.171,1.49),(.155,.091,.19),p['hair'],16,8)
         for j in range(5):
-            x=(j-2)*.043;rod('Copper braided beard',(x,.175,1.61),(x*.8,.21,1.32+abs(j-2)*.02),.039,p['hair'],7,end=.015)
-            cylinder('Beard binding',(x*.8,.21,1.37+abs(j-2)*.02),.025,.034,p['trim'],7)
-        arm((.22,0,1.33),(.37,.08,1.18),(.39,.19,1.1),p,True);arm((-.22,0,1.33),(-.32,.07,1.09),(-.3,.22,.91),p,True)
-        rod('Warhammer handle',(.4,.16,.64),(.4,.16,1.85),.04,p['leather'],8)
-        cube('Forged warhammer',(.4,.16,1.78),(.47,.22,.27),p['steel'],.045)
-        for x in [.205,.595]:cube('Hammer gold band',(x,.16,1.78),(.045,.237,.285),p['trim'],.008)
-        glow=mat('Hammer runes','bc9de4',0,.8)
-        for x in [.32,.4,.48]:rod('Hammer rune',(x,.285,1.71),(x+.015,.285,1.83),.009,glow,4)
+            x=(j-2)*.047;rod('Engineer copper braided beard',(x,.207,1.59),(x*.78,.235,1.31+abs(j-2)*.03),.042,p['hair'],9,end=.016)
+            cylinder('Engineer beard binding',(x*.78,.235,1.36+abs(j-2)*.03),.025,.033,p['trim'],9)
+        for side in [-1,1]:
+            rod('Engineer copper moustache',(side*.012,.218,1.624),(side*.10,.228,1.60),.019,p['hair'],8,end=.012)
+            frame=torus('Engineer spectacle frame',(side*.073,.221,1.706),.056,.008,p['trim']);frame.rotation_euler[0]=math.pi/2
+            rod('Engineer spectacle temple',(side*.127,.209,1.711),(side*.171,.07,1.722),.008,p['trim'],6)
+        rod('Engineer spectacle bridge',(-.017,.229,1.713),(.017,.229,1.713),.007,p['trim'],6)
+        arm((.22,0,1.33),(.34,.09,1.17),(.39,.21,1.08),p);arm((-.22,0,1.33),(-.33,.12,1.17),(-.36,.25,1.12),p)
         bpy.context.view_layer.update()
+        head_prefixes=('Head','Cheek','Nose','Eye','Focused','Auburn eyebrow','Mouth','Swept hair','Temple hair','Engineer leather work cap','Engineer cap peak','Engineer full copper beard','Engineer copper','Engineer beard','Engineer spectacle')
         for o in meshes():
-            if not o.name.startswith(('Octagonal','Beveled limestone','Rank inlay','Radiant','Floating')):o.matrix_world=Matrix.Diagonal((1.14,1.08,.87,1))@o.matrix_world
+            if o.name.startswith(('Octagonal','Beveled limestone','Rank inlay','Radiant','Floating')):continue
+            if o.name.startswith(head_prefixes):o.matrix_world=Matrix.Translation((0,0,-.32))@Matrix.Diagonal((1.10,1.08,1,1))@o.matrix_world
+            else:o.matrix_world=Matrix.Translation((0,0,.17*(1-.72)))@Matrix.Diagonal((1.30,1.12,.72,1))@o.matrix_world
+        # Hand-sized carpenter's hammer and a visibly graduated measuring ruler.
+        rod('Engineer small hammer handle',(.507,.235,.65),(.507,.235,1.08),.024,p['leather'],10)
+        cube('Engineer carpenter hammer',(.507,.235,1.065),(.26,.14,.14),p['steel'],.023)
+        cube('Engineer hammer striking face',(.65,.235,1.065),(.035,.153,.15),p['dark'],.008)
+        for side in [-1,1]:rod('Engineer hammer fork',(.385,.235+side*.042,1.06),(.35,.235+side*.057,1.12),.016,p['steel'],6)
+        cube('Engineer measuring ruler',(-.468,.28,.94),(.08,.039,.60),p['ivory'],.006)
+        for j in range(11):
+            z=.67+j*.05;length=.052 if j%5==0 else .025
+            rod('Engineer ruler graduation',(-.5,.303,z),(-.5+length,.303,z),.0035,p['dark'],4)
+        cube('Engineer ruler end cap',(-.468,.28,1.244),(.084,.044,.024),p['trim'],.003)
     elif family=='frostwarden':
         fur=mat('Winter fur','e1e3d5');ice=mat('Glacial facets','a7e4eb',.15,.25)
         for j in range(10):
@@ -305,6 +325,15 @@ def frame_camera(cam):
     centre=(lo+hi)/2;cam.location=centre+Vector((-3.3,6,2.6));cam.rotation_euler=(centre-cam.location).to_track_quat('-Z','Y').to_euler()
     cam.data.ortho_scale=max(2.5,(hi.z-lo.z)*1.23,(hi.x-lo.x)*1.40)
 
+def clean_portrait_metadata(path):
+    """Keep original pixels/color chunks; omit Blender's local-file render stamps."""
+    png=path.read_bytes();chunks=[png[:8]];offset=8
+    while offset<len(png):
+        length=int.from_bytes(png[offset:offset+4],'big');end=offset+length+12
+        if png[offset+4:offset+8] not in (b'tEXt',b'zTXt',b'iTXt',b'eXIf'):chunks.append(png[offset:end])
+        offset=end
+    path.write_bytes(b''.join(chunks))
+
 def generate(render=True,family=None):
     entries=json.loads((OUT/'manifest.json').read_text(encoding='utf-8'))
     requested=set(family.split(',')) if family else None
@@ -328,7 +357,10 @@ def generate(render=True,family=None):
                 if advanced_unit:
                     scene['Champion']=DATA[fam]['name'];scene['Family']=fam;scene['DesignRevision']=6
                 bpy.ops.wm.save_as_mainfile(filepath=str(SCENES/f'{fam}_design_v1.blend'))
-            if render:scene.render.filepath=str(PORTRAITS/f'{fam}-t{rank}.png');bpy.ops.render.render(write_still=True)
+            if render:
+                portrait_path=PORTRAITS/f'{fam}-t{rank}.png'
+                scene.render.filepath=str(portrait_path);bpy.ops.render.render(write_still=True)
+                clean_portrait_metadata(portrait_path)
             print(f'ARMY: {fam} rank {rank}, {triangles} triangles',flush=True)
         (OUT/'manifest.json').write_text(json.dumps(entries,indent=2)+'\n',encoding='utf-8')
     print('ARMY: all requested families complete',flush=True)

@@ -56,8 +56,8 @@ All combinations require exactly three distinct defenders with the stated famili
 | Frostbolt Watchmen | Silver | Frost Warden F I + Soldier S I + Stormcaller T I |
 | Knight | Silver Knight | Frostbolt Watchmen I + Archer A II + Mage M III |
 | Lionheart Champion | Pink Diamond | Soldier S V + Soldier S III + Stormcaller T III |
-| Kingslayer Arbalest | Huge Pink Diamond | Lionheart Champion I + Knight I + Frostbolt Watchmen I |
-| King | Koh-i-noor Diamond | Kingslayer Arbalest I + Engineer R VI + Soldier S VI |
+| Kingslayer | Huge Pink Diamond | Lionheart Champion I + Knight I + Frostbolt Watchmen I |
+| King | Koh-i-noor Diamond | Kingslayer I + Engineer R VI + Soldier S VI |
 | Elven Ranger | Malachite | Cleric C I + Druid D I + Archer A I |
 | Elven Elite Warrior | Vivid Malachite | Elven Ranger I + Soldier S II + Stormcaller T III |
 | Elemental Mage | Uranium-238 | Stormcaller T V + Frost Warden F III + Cleric C II |

@@ -617,8 +617,8 @@
     "referenceNote": ""
   },
   "highking": {
-    "name": "Kingslayer Arbalest",
-    "short": "Kingslayer Arbalest",
+    "name": "Kingslayer",
+    "short": "Kingslayer",
     "referenceTower": "Huge Pink Diamond",
     "source": "https://dota2.fandom.com/wiki/Gem_TD",
     "stage": "Advanced",
@@ -631,7 +631,7 @@
     "range": 10,
     "projectileSpeed": 22,
     "role": "Cleave 3; Crit 1; Damage; Slow 3",
-    "description": "A royal arbalest firing frostbound bolts with crushing critical impacts and a runic shockwave.",
+    "description": "A black-armored knight whose frostbound blade delivers crushing critical impacts and a runic shockwave.",
     "strong": "Cleave 3; Crit 1; Damage; Slow 3",
     "weak": "Requires exact recipe ingredients",
     "critChance": 0.1,
@@ -641,8 +641,8 @@
     "cleaveType": "pure",
     "slow": 0.24,
     "slowDuration": 3,
-    "model": "ballista",
-    "unitKind": "siege",
+    "model": "paladin",
+    "unitKind": "champion",
     "referenceAbility": "Cleave 3; Crit 1; Damage; Slow 3",
     "referenceVerification": "Wiki",
     "referenceNote": "Jméno Lionheart Champion se přesouvá z této jednotky na Pink Diamond. Při zavádění používat stabilní ID."
@@ -1237,7 +1237,7 @@
     "range": 5,
     "projectileSpeed": 22,
     "role": "Resist",
-    "description": "A paladin whose protective ward shields nearby allies from magical control.",
+    "description": "A paladin bearing a sacred warhammer whose protective ward shields nearby allies from magical control.",
     "strong": "Resist",
     "weak": "Requires exact recipe ingredients",
     "aura": {
@@ -1279,7 +1279,7 @@
     "referenceVerification": "Wiki",
     "referenceNote": "Wiki uvádí i alternativní jednorázový recept D1+D2+D3+D4+D5. Tento přehled používá hlavní třísložkový recept.",
     "unitKind": "champion",
-    "description": "Mother Nature guides allied aim and range while poisonous thorns punish the invaders.",
+    "description": "A floating nature spirit who guides allied aim and range while poisonous thorns punish the invaders.",
     "role": "Poison 5; Overlook; Monkey King Bar; Damage",
     "strong": "Poison 5; Overlook; Monkey King Bar; Damage"
   },

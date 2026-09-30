@@ -14,18 +14,78 @@ export function championModel(family,k) {
     for(const x of [-.085,.085]){box(p,[.072,.065,.03],'#fff7e1',[x,y+.025,-.254]);box(p,[.035,.048,.025],ink,[x,y+.02,-.274]);}
     box(p,[.085,.023,.026],'#986357',[0,y-.09,-.267]);
   }
-  function hero(p,{robe=false,helmet=false,hat=false,beard=false}={}){
+  function closedHelm(p,{heraldic=false,black=false}={}){
+    const steel=black?'#27303a':'#afc5cd',edge=black?accent:heraldic?gold:'#d6e3e7';
+    const shell=mesh(p,new THREE.SphereGeometry(.255,12,8),steel,[0,1.19,.045]);shell.scale.set(.93,1.13,.85);
+    const xs=[-.21,-.145,-.035,.035,.145,.21],rows=[[.985,-.175],[1.10,-.304],[1.195,-.275],[1.235,-.27],[1.34,-.205],[1.43,-.08]];
+    const positions=[],indices=[];
+    for(let row=0;row<rows.length;row++)for(const x of xs){
+      const [y,z]=rows[row],taper=[.74,.96,1,1,.94,.59][row];
+      positions.push(x*taper,y,z+.068*Math.abs(x)/.21);
+    }
+    for(let row=0;row<rows.length-1;row++)for(let j=0;j<5;j++){
+      if(row===2&&(j===1||j===3))continue;
+      const a=row*6+j,b=a+1,c=a+7,d=a+6;indices.push(a,c,b,a,d,c);
+    }
+    const visor=new THREE.BufferGeometry();visor.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));
+    visor.setAttribute('uv',new THREE.Float32BufferAttribute(new Float32Array(positions.length/3*2),2));
+    visor.setIndex(indices);visor.computeVertexNormals();mesh(p,visor,steel);
+    box(p,[.36,.065,.015],'#101820',[0,1.215,-.181]);
+    beam(p,[0,1.425,-.088],[0,1.246,-.278],.024,edge);beam(p,[0,1.246,-.278],[0,1.09,-.316],.021,edge);
+    cylinder(p,.16,.20,.12,steel,[0,.98,.015],12);
+    for(const sign of [-1,1]){
+      sphere(p,.027,edge,[sign*.235,1.25,-.02]);
+      for(let j=0;j<3;j++)box(p,[.013,.028,.008],'#17212a',[sign*(.060+j*.038),1.13,-.285+.022*j]);
+      if(black){mesh(p,new THREE.BoxGeometry(.076,.013,.006),accent,[sign*.092,1.217,-.191],[0,0,0],true);cone(p,.033,.15,steel,[sign*.12,1.52,.10],5).rotation.x=.45;}
+    }
+    if(heraldic){
+      for(let j=0;j<4;j++)sphere(p,.07,'#aa3f54',[0,1.50+Math.sin(j*.7)*.025,.08-j*.055]);
+      gem(p,.04,gold,[0,1.34,-.215]);
+    }
+  }
+  function plateArmor(p,black=false){
+    const steel=black?'#27303a':'#afc5cd',edge=black?accent:gold;
+    const breast=sphere(p,.30,steel,[0,.735,-.02]);breast.scale.set(.88,1.05,.59);
+    beam(p,[0,.60,-.21],[0,.89,-.20],.020,edge);
+    for(const sign of [-1,1]){
+      for(let j=0;j<3;j++){
+        const pauldron=sphere(p,.151-j*.013,steel,[sign*(.27+j*.016),.865-j*.04,0]);pauldron.scale.y=.39;
+        box(p,[.175,.057,.047],steel,[sign*.135,.47+j*.050,-.167]);
+      }
+      box(p,[.175,.255,.15],steel,[sign*.13,.355,-.025]);sphere(p,.087,steel,[sign*.13,.50,-.10]);
+      for(let j=0;j<3;j++)box(p,[.18,.042,.07],steel,[sign*.13,.225,-.12-j*.041]);
+      beam(p,[sign*.28,.83,0],[sign*.34,.66,-.09],.118,steel);sphere(p,.09,steel,[sign*.34,.63,-.12]);
+    }
+  }
+  function heraldicShield(p,{lion=false,black=false}={}){
+    const shape=new THREE.Shape();shape.moveTo(-.18,.23);shape.lineTo(.18,.23);shape.lineTo(.20,-.02);shape.lineTo(0,-.27);shape.lineTo(-.20,-.02);shape.closePath();
+    mesh(p,new THREE.ExtrudeGeometry(shape,{depth:.055,bevelEnabled:false}),black?'#202a34':color,[-.37,.73,-.23]);
+    for(const [a,b] of [[[-.55,.96,-.237],[-.19,.96,-.237]],[[-.55,.96,-.237],[-.57,.71,-.237]],[[-.57,.71,-.237],[-.37,.46,-.237]],[[-.37,.46,-.237],[-.17,.71,-.237]],[[-.17,.71,-.237],[-.19,.96,-.237]]])beam(p,a,b,.025,black?accent:gold);
+    if(lion){const mane=sphere(p,.097,gold,[-.37,.75,-.257]);mane.scale.z=.3;sphere(p,.039,ink,[-.37,.728,-.287]);}
+    else{beam(p,[-.37,.62,-.256],[-.37,.87,-.256],.024,black?accent:gold);beam(p,[-.46,.80,-.256],[-.28,.80,-.256],.018,black?accent:gold);}
+  }
+  function warhammer(p){
+    beam(p,[.4,.44,-.2],[.4,1.27,-.2],.052,wood);
+    for(const y of [.57,.63,.69])box(p,[.061,.017,.061],gold,[.4,y,-.2]);
+    box(p,[.33,.18,.15],'#afc5cd',[.4,1.27,-.2]);
+    for(const sign of [-1,1])box(p,[.035,.22,.19],gold,[.4+sign*.173,1.27,-.2]);
+    beam(p,[.4,1.205,-.282],[.4,1.335,-.282],.018,gold);beam(p,[.35,1.28,-.282],[.45,1.28,-.282],.014,gold);
+    sphere(p,.045,gold,[.4,.43,-.2]);
+  }
+  function hero(p,{robe=false,helmet=false,closedHelmet=false,armor=false,hat=false,beard=false}={}){
     for(const x of [-.13,.13]){box(p,[.16,.3,.18],ink,[x,.35,0]);box(p,[.19,.12,.3],ink,[x,.22,-.05]);}
     cylinder(p,.2,robe?.36:.28,.55,color,[0,.63,0],7);
     box(p,[.49,.6,.07],color,[0,.66,.2],[.12,0,0]);
     for(const x of [-.23,.23])box(p,[.04,.57,.04],accent,[x,.65,.26],[.12,0,0]);
     box(p,[.48,.07,.36],gold,[0,.5,0]);sphere(p,.065,accent,[0,.77,-.24]);
     for(const s of [-1,1]){sphere(p,.145,helmet?accent:color,[s*.28,.85,0]);beam(p,[s*.28,.83,0],[s*.34,.64,-.09],.12,color);sphere(p,.09,skin,[s*.34,.63,-.12]);}
-    face(p,1.1);
-    if(helmet){sphere(p,.255,'#8fadb9',[0,1.23,.035]);box(p,[.47,.055,.4],accent,[0,1.16,.015]);for(const x of [-.18,.18])box(p,[.075,.2,.17],'#8fadb9',[x,1.07,0]);}
+    if(!closedHelmet)face(p,1.1);
+    if(closedHelmet)closedHelm(p,{heraldic:family==='roseguard',black:family==='highking'});
+    else if(helmet){sphere(p,.255,'#8fadb9',[0,1.23,.035]);box(p,[.47,.055,.4],accent,[0,1.16,.015]);for(const x of [-.18,.18])box(p,[.075,.2,.17],'#8fadb9',[x,1.07,0]);}
     else {sphere(p,.25,kind==='priestess'?'#a87a46':'#ece0be',[0,1.21,.08]);}
     if(beard)for(const x of [-.13,0,.13])cone(p,.1,.35,'#e4e5de',[x,.94,-.2],5).rotation.z=Math.PI;
     if(hat){cylinder(p,.33,.33,.055,color,[0,1.29,0],8);cone(p,.26,.55,color,[.03,1.56,.01],7).rotation.z=-.14;box(p,[.43,.07,.38],accent,[0,1.31,0]);gem(p,.085,accent,[.03,1.81,.01]);}
+    if(armor)plateArmor(p,family==='highking');
   }
   function staff(p,x=.4,y=1.65){beam(p,[x,.2,0],[x,y,0],.065,wood);gem(p,.17,accent,[x,y+.12,0]);for(const s of [-1,1])beam(p,[x,y-.13,0],[x+s*.18,y+.15,0],.045,gold);}
   function sword(p,x,tilt=0){
@@ -60,7 +120,36 @@ export function championModel(family,k) {
       for(const sign of [-1,1])beam(p,[x*1.17,.2,z+sign*.12],[x*1.17,.42,z-sign*.12],.035,wood);
     }
   }
-  if(['firebaby','firemother','thunderbird'].includes(kind)){
+  if(family==='mothernature'){
+    const jade='#91cbb0',leaf='#428b69',light='#dfecaf';
+    const body=mesh(root,new THREE.SphereGeometry(.29,12,8),jade,[0,.96,0]);body.scale.set(.60,.88,.49);
+    cylinder(root,.115,.15,.22,jade,[0,.77,0],10);
+    const tail=cylinder(root,.119,.060,.31,jade,[.027,.53,.01],10);tail.rotation.z=-.19;
+    const tip=cone(root,.060,.19,jade,[.082,.32,.01],10);tip.rotation.z=Math.PI+.27;
+    beam(root,[0,1.13,0],[0,1.24,0],.077,jade);
+    const head=mesh(root,new THREE.SphereGeometry(.18,12,8),jade,[0,1.36,-.016]);head.scale.set(.85,1.1,.80);
+    for(const sign of [-1,1]){
+      beam(root,[sign*.14,1.05,0],[sign*.25,1.00,-.02],.075,jade);
+      beam(root,[sign*.25,1.00,-.02],[sign*.36,1.18,-.09],.058,jade);sphere(root,.047,jade,[sign*.36,1.18,-.09]);
+      mesh(root,new THREE.OctahedronGeometry(.025),light,[sign*.061,1.40,-.165],[0,0,0],true);
+      beam(root,[sign*.09,1.47,.04],[sign*.19,1.64,.055],.037,leaf);beam(root,[sign*.19,1.64,.055],[sign*.30,1.70,.08],.025,leaf);
+      beam(root,[sign*.19,1.63,.06],[sign*.17,1.76,.08],.022,leaf);
+      for(let j=0;j<3;j++){
+        const crown=gem(root,.070,accent,[sign*(.14+j*.055),1.65+j*.031,.034]);crown.scale.set(.64,1.16,.3);crown.rotation.z=sign*-.58;
+        const hair=cone(root,.065,.37+j*.09,leaf,[sign*(.06+j*.039),1.34-j*.03,.13],5);hair.rotation.z=Math.PI+sign*.13;
+        const collar=gem(root,.093,leaf,[sign*(.065+j*.042),1.078,-.12]);collar.scale.set(.7,1,.3);
+      }
+      mesh(root,new THREE.OctahedronGeometry(.043),light,[sign*.36,1.29,-.09],[0,0,0],true);
+      const drift=gem(root,.061,accent,[sign*.43,.86,-.11]);drift.scale.set(.55,1,.3);drift.rotation.z=sign*.57;
+    }
+    // Wisps orbit the hovering tail; they replace the recruit's legs and boots.
+    for(let j=0;j<7;j++){
+      const a=j*.54;
+      const wisp=gem(root,.075*(1-j*.08),jade,[Math.cos(a)*(.17+j*.008),.79-j*.068,Math.sin(a)*.18]);
+      wisp.scale.set(.55,1.3,.32);wisp.rotation.z=.45;
+    }
+    box(root,[.041,.012,.006],'#496f5b',[0,1.285,-.169]);
+  }else if(['firebaby','firemother','thunderbird'].includes(kind)){
     beast(root,kind!=='thunderbird',false);
     for(let i=0;i<3;i++)gem(root,.075,accent,[(i-1)*.14,1.34,.08]);
     if(kind==='firemother'){cone(root,.14,.45,accent,[0,1.56,.18],5);sphere(root,.12,'#ffcb66',[0,.88,-.87]);}
@@ -116,9 +205,22 @@ export function championModel(family,k) {
     }else{for(const x of [-.22,0,.22])gem(root,.17,accent,[x,1.91,.02]);if(kind==='titan')halo(root,2.08,.36);}
   }else{
     const robe=!['duelist','paladin','huntress','ranger'].includes(kind);
-    hero(root,{robe,helmet:kind==='paladin',hat:['conjurer','archmage'].includes(kind),beard:kind==='archmage'});
+    const revisedKnight=['frostblade','roseguard','highking'].includes(family);
+    hero(root,{robe,helmet:kind==='paladin',closedHelmet:revisedKnight,armor:revisedKnight||family==='kingdomprotector',hat:['conjurer','archmage'].includes(kind),beard:kind==='archmage'});
     if(kind==='duelist'){sword(root,-.36,-.28);sword(root,.36,.28);const feather=cone(root,.095,.42,accent,[-.2,1.53,.02],5);feather.rotation.z=-.7;cylinder(root,.33,.33,.05,color,[0,1.28,0],8);}
-    if(kind==='paladin'){sword(root,.4);sphere(root,.2,gold,[-.37,.75,-.1]);gem(root,.08,color,[-.37,.75,-.28]);for(const x of [-.17,0,.17])cone(root,.07,.21,gold,[x,1.48,0],4);}
+    if(kind==='paladin'){
+      if(family==='kingdomprotector')warhammer(root);
+      else if(family==='highking'){
+        box(root,[.075,.18,.065],wood,[.40,.71,-.20]);sphere(root,.048,accent,[.40,.815,-.20]);
+        box(root,[.28,.045,.070],accent,[.40,.62,-.20]);box(root,[.125,.32,.047],'#384653',[.40,.44,-.20]);
+        const point=cone(root,.086,.12,'#384653',[.40,.22,-.20],4);point.rotation.z=Math.PI;
+        for(const y of [.36,.44,.52])mesh(root,new THREE.BoxGeometry(.022,.035,.008),accent,[.40,y,-.228],[0,0,0],true);
+        for(const sign of [-1,1]){const spike=cone(root,.061,.22,'#27303a',[sign*.38,1.00,.025],5);spike.rotation.z=sign*-.55;}
+      }else sword(root,.4);
+      if(revisedKnight)heraldicShield(root,{lion:family==='roseguard',black:family==='highking'});
+      else{sphere(root,.2,gold,[-.37,.75,-.1]);gem(root,.08,color,[-.37,.75,-.28]);}
+      if(!revisedKnight)for(const x of [-.17,0,.17])cone(root,.07,.21,gold,[x,1.48,0],4);
+    }
     if(kind==='huntress'||kind==='ranger'){
       bow(root);cone(root,.27,.32,color,[0,1.41,.045],6);for(const x of [-.24,.24]){const ear=cone(root,.075,.23,skin,[x,1.12,-.01],4);ear.rotation.z=x>0?-.8:.8;}
       if(kind==='huntress'){sphere(root,.16,'#dad9c0',[.35,1.06,0]);for(const x of [.29,.41]){sphere(root,.06,'#f1d98d',[x,1.09,-.125]);sphere(root,.025,ink,[x,1.09,-.17]);}cone(root,.045,.1,gold,[.35,1.02,-.15],4).rotation.x=-1;}

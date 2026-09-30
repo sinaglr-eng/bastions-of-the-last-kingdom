@@ -2,7 +2,7 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-Current release: **0.2.0 · Champion Edition** — [release notes](CHANGELOG.md).
+Current release: **0.2.1 · Champion Auras** — [release notes](CHANGELOG.md).
 
 ## Play
 

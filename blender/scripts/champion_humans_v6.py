@@ -10,7 +10,7 @@ from mathutils import Vector
 import cohesive
 
 FAMILIES = {
-    'rimewatch', 'frostblade', 'roseguard', 'crownofages', 'thornwarden',
+    'rimewatch', 'frostblade', 'roseguard', 'highking', 'crownofages', 'thornwarden',
     'verdantguard', 'tempest', 'stormcitadel', 'greenheart', 'eldergrove',
     'sunward', 'dawnspire', 'wyvernhunter', 'kingdomprotector', 'mothernature',
     'royalranger', 'kingsrangerguard', 'elvenking', 'monk', 'archbishop',
@@ -26,7 +26,8 @@ class Sculpt:
         # from a recruit rank; they belong to these newly authored costumes.
         colors = {
             'rimewatch': ('457b95', 'bfdde1'), 'frostblade': ('447896', 'd5ecf5'),
-            'roseguard': ('943c50', 'e4b658'), 'crownofages': ('554380', 'dfbf68'),
+            'roseguard': ('943c50', 'e4b658'), 'highking': ('202733', 'a7bdcb'),
+            'crownofages': ('554380', 'dfbf68'),
             'thornwarden': ('3c754d', 'b2c68b'), 'verdantguard': ('247b70', 'd6b95d'),
             'tempest': ('5b5897', 'b6dbed'), 'stormcitadel': ('234f77', 'afdcf1'),
             'greenheart': ('638544', 'cbbd83'), 'eldergrove': ('36594a', 'b7cb84'),
@@ -187,6 +188,128 @@ class Sculpt:
         if crest:
             for i in range(5):
                 self.orb('Curved horsehair plume',(0,-.12+i*.06,head+.235+.05*math.sin(i*.7)),(.038,.051,.085),self.p['cloth'],8,4)
+
+    def plate_helmet(self, heraldic=False, black=False):
+        """Closed bascinet with a raised visor, actual eye openings and a gorget.
+
+        The face plate is built around the eye slits rather than painting dark
+        rectangles onto a human face. The rear shell encloses the whole skull.
+        """
+        for o in list(bpy.context.scene.objects):
+            if o.name.startswith(('New continuous face ears and neck', 'Continuous sculpted hair',
+                                  'Inset focused eye', 'Sculpted eyebrow', 'Defined lip')):
+                bpy.data.objects.remove(o, do_unlink=True)
+        steel=self.p['steel']; trim=self.p['trim']; dark=self.p['darkmetal']
+        # A single curved occipital shell, rising to the bascinet's forged apex.
+        levels=[(1.535,.140,.137,-.017),(1.66,.184,.159,-.022),
+                (1.80,.188,.166,-.022),(1.90,.159,.144,-.034),
+                (1.976,.081,.091,-.034),(2.005,.006,.012,-.025)]
+        n=18; angles=[math.pi*.92+j*(math.pi*1.16)/(n-1) for j in range(n)]
+        vs=[(w*math.cos(an),cy+d*math.sin(an),z) for z,w,d,cy in levels for an in angles]
+        fs=[(r*n+j,r*n+j+1,(r+1)*n+j+1,(r+1)*n+j)
+            for r in range(len(levels)-1) for j in range(n-1)]
+        self.mesh('Closed forged bascinet rear shell',vs,fs,steel,.021,True)
+        # Six columns form a folded center ridge and two open ocular slits.
+        xs=[-.177,-.116,-.027,.027,.116,.177]
+        rows=[(1.56,.116),(1.655,.240),(1.731,.202),(1.765,.198),(1.85,.171),(1.94,.107)]
+        verts=[]
+        for r,(z,depth) in enumerate(rows):
+            for x in xs:
+                taper=[.74,.96,1,1,.94,.69][r]
+                verts.append((x*taper,depth-.056*(abs(x)/.177),z+.008*(abs(x)/.177)))
+        faces=[]
+        for r in range(len(rows)-1):
+            for j in range(len(xs)-1):
+                if r==2 and j in (1,3):continue
+                faces.append((r*6+j,r*6+j+1,(r+1)*6+j+1,(r+1)*6+j))
+        visor=self.mesh('Raised folded steel visor with open eye slits',verts,faces,steel,.014)
+        bevel=visor.modifiers.new('Rounded visor folds','BEVEL');bevel.width=.006;bevel.segments=2
+        bpy.context.view_layer.objects.active=visor;bpy.ops.object.modifier_apply(modifier=bevel.name)
+        self.mesh('Bascinet curved front crown',verts[-6:]+[(0,-.025,2.005)],
+                  [(j,j+1,6) for j in range(5)],steel,.014,True)
+        # A dark inner hood can be seen through the geometric openings.
+        self.orb('Helmet recessed shadow lining',(0,.104,1.73),(.139,.055,.143),self.p['dark'],12,6)
+        self.rod('Visor raised center ridge',(0,.180,1.94),(0,.213,1.775),.010,trim,seg=6)
+        self.rod('Visor folded beak ridge',(0,.213,1.775),(0,.25,1.655),.011,trim,seg=6)
+        for side in [-1,1]:
+            self.orb('Visor side pivot rivet',(side*.183,.050,1.77),(.022,.019,.025),trim,8,4)
+            for j in range(3):
+                x=side*(.051+j*.032); y=.231-.056*(abs(x)/.177)
+                self.box('Recessed visor breathing aperture',(x,y+.006,1.685),(.013,.006,.030),dark,.002)
+            self.rod('Rolled steel visor lower lip',(side*.012,.125,1.568),(side*.17,.072,1.57),.011,trim,seg=6)
+        self.loft('Articulated steel gorget',[(1.397,.145,.12,-.013),(1.43,.163,.133,-.013),
+                                           (1.50,.147,.119,-.013),(1.555,.116,.097,-.013)],steel,16)
+        self.loft('Gorget overlapping collar seam',[(1.43,.168,.137,-.013),(1.446,.166,.135,-.013)],trim,16)
+        if heraldic:
+            # A swept red crest with gold saddle, distinct from the plain Knight.
+            self.rod('Lionheart helmet gilded crest saddle',(0,-.155,1.956),(0,.07,1.991),.022,trim,seg=8)
+            for i in range(6):
+                y=-.18+i*.049
+                self.orb('Lionheart swept crimson crest',(0,y,2.055+.036*math.sin(i*.62)),
+                         (.032,.040,.081),self.p['cloth'],10,5)
+            self.lion((0,.187,1.844),.047)
+        if black:
+            # The eye recess remains dark; a restrained cold glint is set deep inside.
+            for side in [-1,1]:
+                self.rod('Kingslayer recessed cold gaze',(side*.044,.157,1.750),
+                         (side*.099,.154,1.754),.006,self.p['glow'],seg=5)
+            for side in [-1,1]:
+                self.leaf('Kingslayer swept helmet crest',(side*.105,-.088,1.946),
+                          (side*.033,-.14,.105),steel,.028)
+
+    def plate_armor(self, royal=False):
+        """Convex breastplate, articulated fauld, cuisses and shaped sabatons."""
+        steel=self.p['steel']; trim=self.p['trim']; dark=self.p['darkmetal']
+        # Swept front plate has a central keel and contours under the arms.
+        levels=[(1.045,.185,.145),(1.14,.208,.190),(1.29,.223,.211),(1.39,.177,.156)]
+        n=9; verts=[]
+        for z,w,depth in levels:
+            for j in range(n):
+                t=j/(n-1); x=(t-.5)*2*w
+                verts.append((x,.085+(depth-.085)*math.sin(t*math.pi),z))
+        fs=[(r*n+j,r*n+j+1,(r+1)*n+j+1,(r+1)*n+j) for r in range(3) for j in range(n-1)]
+        self.mesh('Contoured forged breastplate',verts,fs,steel,.022,True)
+        self.rod('Breastplate hammered center ridge',(0,.155,1.05),(0,.225,1.29),.011,trim,seg=6)
+        for z in [.99,1.027,1.064]:
+            self.loft('Overlapping articulated fauld plate',[(z-.025,.225,.175,0),(z+.019,.211,.166,0)],steel,16)
+            self.loft('Fauld chased lower seam',[(z-.027,.229,.179,0),(z-.019,.227,.177,0)],dark,16)
+        for side in [-1,1]:
+            # Pair of hung hip plates and three shoulder lames with rolled edges.
+            x=side*.126
+            self.mesh('Suspended steel tasset',[(x-.098,.19,.99),(x+.098,.19,.99),
+                                               (x+.084,.187,.80),(x-.084,.187,.80)],[(0,1,2,3)],steel,.019)
+            for j in range(3):
+                self.rod('Tasset overlapping steel seam',(x-.081,.205,.84+j*.052),
+                         (x+.081,.205,.84+j*.052),.007,dark,seg=5)
+                self.orb('Articulated shoulder lame',(side*(.237+j*.025),-.001,1.406-j*.046),
+                         (.139-j*.010,.132,.049),steel,12,5)
+            self.rod('Pauldron rolled steel lip',(side*.17,.123,1.401),
+                     (side*.354,.092,1.356),.015,trim,seg=6)
+            for z,width,depth in [(.70,.077,.052),(.575,.080,.056),(.385,.065,.053)]:
+                self.orb('Rounded shaped leg armor plate',(side*.12,.133,z),(width,depth,.100),steel,12,6)
+            self.orb('Full enclosing forged greave',(side*.12,.027,.474),(.087,.102,.167),steel,12,6)
+            self.rod('Greave central rolled ridge',(side*.12,.189,.32),(side*.12,.185,.61),.010,trim,seg=6)
+            for j in range(3):
+                self.orb('Overlapping sabaton toe plate',(side*.125,.134+j*.052,.30-j*.015),
+                         (.093,.057,.043),steel,12,5)
+            self.orb('Steel articulated elbow couter',(side*.34,.07,1.17),(.083,.073,.068),steel,12,5)
+            self.orb('Steel closed gauntlet',(side*.392,.20,1.15),(.066,.063,.072),steel,12,5)
+        if royal:
+            self.loft('Heraldic embossed breastplate collar',[(1.36,.221,.15,-.01),(1.39,.199,.141,-.01)],trim,16)
+
+    def warhammer(self, x=.40, y=.21, z=1.64, sacred=False):
+        self.rod('Bound warhammer wooden haft',(x,y,.91),(x,y,z+.01),.032,self.p['leather'],seg=10)
+        for zz in [1.04,1.115,1.19]:
+            self.rod('Warhammer grip wrapped bands',(x,y,zz-.011),(x,y,zz+.011),.037,self.p['trim'],seg=8)
+        self.orb('Warhammer weighted pommel',(x,y,.88),(.049,.042,.048),self.p['trim'],10,5)
+        self.box('Forged square warhammer head',(x,y,z),(.34,.15,.19),self.p['steel'],.019)
+        for side in [-1,1]:
+            self.box('Warhammer gilded striking face',(x+side*.176,y,z),(.033,.176,.22),self.p['trim'],.012)
+            self.box('Warhammer recessed striking inset',(x+side*.197,y,z),(.010,.11,.137),self.p['darkmetal'],.005)
+        self.box('Warhammer chased center binding',(x,y,z),(.073,.16,.201),self.p['trim'],.012)
+        if sacred:
+            self.rod('Holy hammer vertical blessing',(x,y+.087,z-.071),(x,y+.087,z+.075),.014,self.p['glow'],seg=6)
+            self.rod('Holy hammer cross blessing',(x-.052,y+.088,z+.018),(x+.052,y+.088,z+.018),.010,self.p['glow'],seg=6)
 
     def crown(self, head=1.7, elven=False):
         z=head+.13
@@ -360,20 +483,41 @@ def _watchman(s):
 
 def _knight(s):
     s.body(armor=True)
-    s.cloak(length=.37,width=.35,wind=.04);s.helmet(full=True);s.pauldrons()
+    s.cloak(length=.37,width=.35,wind=.04);s.plate_helmet();s.plate_armor()
     s.shield(style='kite');s.blade(frost=True,length=.80)
-    for side in [-1,1]:
-        s.box('Knight polished greave',(side*.12,.145,.51),(.12,.047,.29),s.p['steel'],.02)
-        s.orb('Knight rounded knee plate',(side*.12,.15,.69),(.084,.04,.075),s.p['steel'],10,5)
-    s.rod('Frost insignia',(0,.171,1.12),(0,.18,1.35),.014,s.p['glow'],seg=5)
+    s.rod('Frost insignia',(0,.211,1.12),(0,.239,1.35),.014,s.p['glow'],seg=5)
 
 
 def _lionheart(s):
-    s.body(armor=True);s.cloak(length=.26,width=.39);s.helmet(crest=True);s.pauldrons(large=True)
-    s.lion((0,.168,1.22),.105);s.shield(lion=True);s.blade(broad=True,length=.67)
+    s.body(armor=True);s.cloak(length=.26,width=.39);s.plate_helmet(heraldic=True);s.plate_armor(royal=True)
+    s.lion((0,.221,1.22),.105);s.shield(lion=True);s.blade(broad=True,length=.67)
     for side in [-1,1]:
         for j in range(4):s.leaf('Lion mane shoulder scallop',(side*(.17+j*.04),.075,1.43),(side*.01,.035,-.13),s.p['trim'],.035)
     s.loft('Crimson heroic breast sash',[(1.11,.24,.159,0),(1.17,.24,.159,0)],s.p['cloth'],12)
+
+
+def _kingslayer(s):
+    # Entirely new character: forged midnight armor, a heavy rune blade and a
+    # torn mantle. There are no wheels, bow limbs or siege-machine components.
+    s.p['steel']=s.mat('Midnight blackened armor','27303a',.82)
+    s.p['darkmetal']=s.mat('Armor recessed joints','10181f',.60)
+    s.p['trim']=s.mat('Cold hammered steel edge','879fab',.76)
+    s.p['cloth']=s.mat('Kingslayer soot velvet','19222c')
+    s.p['dark']=s.mat('Kingslayer charcoal underarmor','101820')
+    s.p['glow']=s.mat('Kingslayer frozen runes','93ddeb',.1,.85)
+    s.body(armor=True)
+    s.plate_helmet(black=True);s.plate_armor()
+    s.cloak('Kingslayer swept ragged mantle',length=.25,width=.43,mat=s.p['cloth'],wind=-.12)
+    s.blade(guard=1.19,length=.87,broad=True,frost=True,down=True)
+    s.shield(style='kite')
+    # A broken silver crown crosses the shield: a readable identity at map scale.
+    for side in [-1,1]:
+        s.rod('Broken crown shield crest',(-.38+side*.04,.302,1.065),
+              (-.38+side*.10,.302,1.18),.020,s.p['trim'],.007,seg=6)
+        s.rod('Kingslayer pointed shoulder flange',(side*.30,-.008,1.43),
+              (side*.43,-.047,1.55),.034,s.p['steel'],.006,seg=6)
+    s.box('Kingslayer shattered crown seal',(0,.237,1.24),(.14,.025,.07),s.p['trim'],.014)
+    s.rod('Kingslayer cold breast rune',(0,.255,1.21),(0,.255,1.36),.010,s.p['glow'],seg=5)
 
 
 def _king(s):
@@ -444,24 +588,86 @@ def _mage(s, arch=False):
     for i in range(3 if arch else 2):s.rod('Layered robe embroidered hem',(-.22,.18,.28+i*.055),(.22,.18,.28+i*.055),.012,s.p['trim'],seg=6)
 
 
+def _nature_spirit(s):
+    """A levitating spirit grown from a continuous jade mist and living leaves."""
+    s.plinth()
+    jade=s.mat('Spirit softly luminous jade','92cbb3',0,.20)
+    leaf=s.mat('Spirit living emerald leaves','428b69',0,.12)
+    tips=s.mat('Spirit new spring leaf tips','b7dfa2',0,.28)
+    bark=s.mat('Spirit curved living branch','526e59')
+    light=s.mat('Spirit floating seed light','e2efb0',0,1.3)
+    s.p['skin']=jade;s.p['cloth']=leaf;s.p['trim']=tips;s.p['glow']=light
+    pieces=[s.orb('Spirit continuous upper breast',(0,.01,1.35),(.195,.134,.196),jade,16,8),
+            s.orb('Spirit narrow flowing waist',(0,-.01,1.115),(.147,.13,.168),jade,16,8),
+            s.orb('Spirit neck',(0,.01,1.59),(.055,.063,.13),jade,12,6),
+            s.orb('Spirit serene face',(0,.025,1.805),(.131,.122,.175),jade,16,8),
+            s.orb('Spirit sculpted jaw',(0,.056,1.725),(.107,.105,.100),jade,12,6),
+            s.orb('Spirit delicate nose',(0,.147,1.804),(.026,.025,.042),jade,10,5)]
+    # The torso descends into a curling single spirit tail; there are no human
+    # trousers, boots or solid dress panels below the hovering body.
+    points=[(0,-.014,1.14),(.024,-.017,.94),(.085,-.031,.76),(.152,-.046,.58),(.095,-.058,.44)]
+    for i,(a,b) in enumerate(zip(points,points[1:])):
+        pieces.append(s.rod('Continuous curling spirit tail',a,b,.142-i*.028,jade,.110-i*.029,seg=12))
+    for side in [-1,1]:
+        shoulder=(side*.17,.005,1.425);elbow=(side*.285,.10,1.37);hand=(side*.40,.195,1.54)
+        pieces.extend([s.orb('Spirit joined shoulder',shoulder,(.081,.079,.101),jade,12,6),
+                       s.rod('Spirit graceful upper arm',shoulder,elbow,.061,jade,.046,seg=10),
+                       s.rod('Spirit raised forearm',elbow,hand,.047,jade,.034,seg=10),
+                       s.orb('Spirit open offered hand',hand,(.041,.049,.055),jade,10,5),
+                       s.leaf('Spirit tapered pointed ear',(side*.10,.010,1.826),(side*.102,-.01,.038),jade,.032)])
+    cohesive.fuse(pieces,'Continuous floating nature spirit anatomy',.016,1850,jade)
+    for side in [-1,1]:
+        s.orb('Spirit luminous inset eye',(side*.049,.143,1.833),(.016,.009,.010),light,8,4)
+        s.rod('Spirit leaf-shaped brow',(side*.026,.147,1.86),(side*.071,.135,1.863),.006,bark,seg=5)
+    s.rod('Spirit serene mouth',(-.026,.156,1.742),(.026,.156,1.742),.004,bark,seg=5)
+    # An asymmetric crown of branch antlers and leafy hair, rather than a human
+    # hairstyle and staff. Roots sweep around the spirit without joining feet.
+    for side in [-1,1]:
+        pts=[(side*.092,-.061,1.905),(side*.15,-.074,2.022),(side*.256,-.055,2.13),(side*.315,-.032,2.15)]
+        for a,b in zip(pts,pts[1:]):s.rod('Living crown branch',a,b,.024,bark,.012,seg=8)
+        s.rod('Crown natural branching twig',pts[1],(side*.13,-.052,2.18),.016,bark,.004,seg=6)
+        for j in range(3):
+            s.leaf('Crown luminous spring leaf',(side*(.13+j*.066),-.046,2.03+j*.032),
+                   (side*.092,.03,.083),tips,.040)
+        for j in range(4):
+            start=(side*(.05+j*.041),-.104,1.927-j*.025)
+            s.leaf('Swept leafy spirit hair',start,(side*(.02+j*.008),-.061,-(.29+j*.087)),leaf,.068-j*.007)
+        for j in range(3):
+            s.leaf('Spirit leaf collar',(side*(.065+j*.055),.095,1.488),
+                   (side*.018,.044,-(.22+j*.025)),leaf,.069)
+    s.blossom((-.11,.097,1.970),size=.024)
+    s.blossom((.23,-.028,2.12),size=.025)
+    # Long translucent mist ribbons give the body a hovering, wind-swept outline.
+    mist=s.mat('Translucent nature spirit mist','7bc9ad',0,.27)
+    shader=mist.node_tree.nodes.get('Principled BSDF');shader.inputs['Alpha'].default_value=.38
+    mist.diffuse_color=(*mist.diffuse_color[:3],.38)
+    mist.surface_render_method='DITHERED'
+    for side in [-1,1]:
+        vs=[]
+        for j in range(9):
+            t=j/8;ang=t*2.25+side*.38
+            cx=side*(.10+.23*t)*math.cos(ang);cy=-.04-.20*math.sin(ang);z=1.10-.77*t
+            width=.083*(1-t)+.006
+            vs.extend([(cx-width,cy,z+.018),(cx+width,cy,z-.018)])
+        s.mesh('Floating translucent spirit ribbon',vs,
+               [(j*2,j*2+1,j*2+3,j*2+2) for j in range(8)],mist,.003,True)
+    for side in [-1,1]:
+        s.orb('Spirit offered floating seed',(side*.40,.198,1.66),(.031,.029,.047),light,10,5)
+        for j in range(2):
+            s.leaf('Weightless drifting nature leaf',(side*(.36+j*.11),.16-j*.055,1.39-j*.22),
+                   (side*.068,.024,.091),tips,.035)
+    for j in range(6):
+        an=j*math.tau/6
+        s.leaf('Spirit pedestal new shoots',(.24*math.cos(an),.24*math.sin(an),.174),
+               (.07*math.cos(an),.06*math.sin(an),.10),leaf,.030)
+
+
 def _forest(s, role):
-    mother=role=='mother';arch=role=='arch'
-    s.body(robe=mother or arch,slender=mother,female=mother,elf=mother,hair='long' if mother else 'short',
+    if role=='mother':return _nature_spirit(s)
+    arch=role=='arch'
+    s.body(robe=arch,slender=False,female=False,elf=False,hair='short',
            arms=[((-.21,0,1.34),(-.34,.07,1.25),(-.38,.25,1.29)),((.21,0,1.34),(.35,.035,1.16),(.40,.18,1.17))])
-    if mother:
-        s.p['hair']=s.mat('Mother Nature pale moss hair','b9c49c')
-        for o in bpy.context.scene.objects:
-            if 'sculpted hair' in o.name.lower():
-                o.data.materials.clear();o.data.materials.append(s.p['hair'])
-        s.cloak('Mother Nature living petal train',length=.22,width=.40,wind=.08)
-        for side in [-1,1]:
-            for j in range(4):s.leaf('Overlapping leafy dress petal',(side*(.05+j*.052),.13,1.02),(side*.06,.045,-.58),s.p['cloth'],.070)
-        for j in range(5):s.blossom((-.13+j*.065,.128,1.875),size=.023)
-        s.staff(style='forest',top=1.89)
-        s.blossom((-.38,.28,1.32),size=.038)
-        s.orb('Mother Nature offered living seed',(-.38,.28,1.34),(.052,.046,.053),s.p['glow'],10,5)
-        for side in [-1,1]:s.leaf('Mother Nature shoulder leaf',(side*.18,-.005,1.40),(side*.20,.04,-.05),s.p['trim'],.07)
-    elif arch:
+    if arch:
         s.cloak('Archdruid ancient leaf mantle',length=.31,width=.42,wind=-.07);s.antlers(high=True)
         s.staff(style='forest',top=1.96);s.book(x=-.38,z=1.27)
         for side in [-1,1]:
@@ -531,11 +737,11 @@ def _angel(s, arch=False):
 
 
 def _paladin(s):
-    s.body(armor=True);s.pauldrons(large=True);s.cloak(length=.39,width=.36)
-    s.helmet(full=False,crest=True);s.shield(style='round');s.blade(broad=True,frost=False,length=.65)
+    s.body(armor=True);s.plate_armor(royal=True);s.cloak(length=.39,width=.36)
+    s.helmet(full=False,crest=True);s.shield(style='round');s.warhammer(sacred=True)
     s.loft('Paladin heraldic shoulder mantle',[(1.37,.29,.17,-.015),(1.46,.245,.14,-.015)],s.p['cloth'],12)
-    s.rod('Paladin sacred breast sigil',(0,.19,1.09),(0,.19,1.36),.017,s.p['trim'],seg=6)
-    s.rod('Paladin sacred breast arms',(-.083,.19,1.28),(.083,.19,1.28),.014,s.p['trim'],seg=6)
+    s.rod('Paladin sacred breast sigil',(0,.232,1.09),(0,.244,1.36),.017,s.p['trim'],seg=6)
+    s.rod('Paladin sacred breast arms',(-.083,.242,1.28),(.083,.242,1.28),.014,s.p['trim'],seg=6)
     for side in [-1,1]:s.orb('Paladin consecrated shoulder seal',(side*.245,.13,1.405),(.037,.019,.043),s.p['glow'],8,4)
     s.ring('Paladin protective ground ward',(0,0,.20),.405,.011,s.p['glow'])
 
@@ -571,6 +777,7 @@ def build(family, a):
     if family=='rimewatch':_watchman(s)
     elif family=='frostblade':_knight(s)
     elif family=='roseguard':_lionheart(s)
+    elif family=='highking':_kingslayer(s)
     elif family=='crownofages':_king(s)
     elif family in ('thornwarden','verdantguard','elvenking'):_elven_ranger(s,elite=family=='verdantguard',king=family=='elvenking')
     elif family in ('wyvernhunter','royalranger','kingsrangerguard'):_ranger(s,royal=family=='royalranger',guard=family=='kingsrangerguard')

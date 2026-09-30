@@ -2,6 +2,8 @@
 
 The working style is readable medieval fantasy: smooth connected character anatomy, tailored clothing, crisp armor edges, warm timber, pale stone, dull iron, gold heraldry, subdued green/brown orcs and red hide tents. Scenery retains stylized faceted ridges. No borrowed game assets or external textures are used. Original fantasy siege machines include a catapult and distinct ballista/cannon variants.
 
+Version 0.2.1 revises Engineer into a bespectacled dwarf carpenter, replaces Kingslayer's siege machine with a black knight, gives Knight and Lionheart Champion closed plate helmets, equips Paladin with a warhammer and turns Mother Nature into a floating nature spirit. The six affected editable scenes and their exported portraits/meshes ship together. Visual champion auras are created at runtime in `game/render/champion-aura.js`, with the verified Basic/Intermediate/Advanced/TOP mapping in `game/render/champion-classification.js`; they do not alter combat buffs. See [all classifications](docs/CHAMPION_CLASSIFICATION.md).
+
 ## Scale and origins
 
 - One grid cell = one world meter. A normal tower foundation fits a 0.94 × 0.94 meter square.

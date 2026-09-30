@@ -22,11 +22,11 @@ export const CHAMPIONS={
     "description": "A lion-hearted champion who finds devastating openings in enemy defenses."
   },
   "highking": {
-    "name": "Kingslayer Arbalest",
-    "kind": "ballista",
-    "color": "#447d9a",
-    "accent": "#f1ca70",
-    "description": "A royal arbalest firing frostbound bolts with crushing critical impacts and a runic shockwave."
+    "name": "Kingslayer",
+    "kind": "paladin",
+    "color": "#27303a",
+    "accent": "#93ddeb",
+    "description": "A black-armored knight whose frostbound blade delivers crushing critical impacts and a runic shockwave."
   },
   "crownofages": {
     "name": "King",
@@ -180,14 +180,14 @@ export const CHAMPIONS={
     "kind": "paladin",
     "color": "#567eaa",
     "accent": "#d4ecf5",
-    "description": "A paladin whose protective ward shields nearby allies from magical control."
+    "description": "A paladin bearing a sacred warhammer whose protective ward shields nearby allies from magical control."
   },
   "mothernature": {
     "color": "#728d65",
     "accent": "#e5d4a0",
     "name": "Mother Nature",
     "kind": "grovekeeper",
-    "description": "Mother Nature guides allied aim and range while poisonous thorns punish the invaders."
+    "description": "A floating nature spirit who guides allied aim and range while poisonous thorns punish the invaders."
   },
   "royalranger": {
     "color": "#476b8d",

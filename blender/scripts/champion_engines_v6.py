@@ -10,14 +10,13 @@ from mathutils import Vector
 
 
 FAMILIES = {
-    'highking', 'kingsreach', 'stonewarden', 'royalarsenal', 'fireballista',
+    'kingsreach', 'stonewarden', 'royalarsenal', 'fireballista',
     'winterhold', 'emeraldgolem', 'mechanicalgolem',
 }
 
 
 def _palette(a, identity):
     colors = {
-        'highking': ('384a71', 'ead49a', '726651', '8596ac'),
         'kingsreach': ('704e31', 'b79759', '543b2d', '657173'),
         'stonewarden': ('825837', 'aa9470', '543925', '596164'),
         'royalarsenal': ('263c50', 'b2d6e5', '465263', '809bac'),
@@ -38,7 +37,7 @@ def _palette(a, identity):
         'stone': a.mat(identity + ' limestone pedestal', 'a0ac98'),
         'edge': a.mat(identity + ' pedestal sides', '61746b'),
         'light': a.mat(identity + ' enchanted light', {
-            'highking': '72c6ef', 'kingsreach': 'e6d1a3',
+            'kingsreach': 'e6d1a3',
             'stonewarden': 'ccb5a1', 'royalarsenal': '86e1fa',
             'fireballista': 'ff9c36', 'winterhold': '96e7ff',
             'emeraldgolem': '63d293', 'mechanicalgolem': 'e8b655',
@@ -132,32 +131,6 @@ def _bow(a, p, z, forward=.36, spread=.65, royal=False, fiery=False):
             (side*.008, -.38, z+.04), (side*.095, -.43, z+.105),
             (side*.095, -.25, z+.098), (side*.008, -.18, z+.04),
         ], [(0, 1, 2, 3)], p['trim'])
-
-
-def _arbalest(a, p):
-    _chassis(a, p, length=1.10)
-    a.cylinder('Royal rotating aiming pedestal', (0, -.05, .75), .18, .29, p['steel'], 12)
-    a.cylinder('Royal pedestal gold collar', (0, -.05, .85), .197, .065, p['trim'], 12)
-    for x in (-.22, .22):
-        a.cube('Elevated arbalest cheek', (x, -.05, 1.015), (.095, .48, .38), p['body'], .027)
-        a.rod('Regal cheek gilt spine', (x, -.28, 1.16), (x, .14, 1.19), .018, p['trim'], 6)
-    _bow(a, p, 1.25, .39, .66, royal=True)
-    a.cube('Kingslayer front shield plate', (0, .49, 1.028), (.45, .067, .3), p['body'], .025)
-    for side in (-1, 1):
-        a.rod('Swept gilt shield border', (side*.205, .536, 1.16),
-              (side*.16, .536, .887), .024, p['trim'], 7)
-    # A crown-shaped load-bearing rear gantry marks this as a royal heavy weapon.
-    for x in (-.28, .28):
-        a.rod('Crown gantry upright', (x, -.36, .67), (x, -.36, 1.52), .046, p['steel'], 8)
-        a.rod('Crown gantry diagonal', (x, .22, .66), (x, -.36, 1.33), .029, p['trim'], 6)
-    a.rod('Crown gantry top arch', (-.28, -.36, 1.52), (0, -.36, 1.64), .043, p['trim'], 8)
-    a.rod('Crown gantry top arch', (0, -.36, 1.64), (.28, -.36, 1.52), .043, p['trim'], 8)
-    for x, height in ((-.21, .13), (0, .24), (.21, .13)):
-        a.cylinder('Royal three-point crown', (x, -.36, 1.58+height*.5), .044, height,
-                   p['trim'], 5, top=0)
-    _handwheel(a, p, (.32, -.10, 1.02))
-    a.ellipsoid('Kingslayer central seal', (0, .539, 1.055), (.067, .025, .09), p['trim'], 10, 5)
-    a.ellipsoid('Royal aiming focus', (0, .565, 1.055), (.026, .009, .052), p['light'], 8, 4)
 
 
 def _ballista(a, p, fiery=False):
@@ -493,7 +466,6 @@ def build(family, a):
         raise ValueError('Unknown v6 engine or construct: ' + family)
     p = _palette(a, family)
     {
-        'highking': lambda: _arbalest(a, p),
         'kingsreach': lambda: _ballista(a, p),
         'fireballista': lambda: _ballista(a, p, True),
         'stonewarden': lambda: _catapult(a, p),

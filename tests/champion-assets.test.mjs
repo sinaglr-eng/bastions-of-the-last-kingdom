@@ -12,11 +12,12 @@ const towers = JSON.parse(readFileSync(new URL('../data/towers.json', import.met
 const champions = Object.keys(towers).filter(family => towers[family].advanced);
 const basics = Object.keys(towers).filter(family => !towers[family].advanced);
 const championEntries = manifest.filter(entry => entry.kind === 'tower' && towers[entry.family]?.advanced);
+const defenderEntries = manifest.filter(entry => entry.kind === 'tower');
 let loaded;
 
-async function loadChampions() {
+async function loadDefenders() {
   if (!loaded) {
-    loaded = Promise.all(championEntries.map(async entry => {
+    loaded = Promise.all(defenderEntries.map(async entry => {
       const file = readFileSync(new URL(entry.file, models));
       const array = file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength);
       const gltf = await new GLTFLoader().parseAsync(array, '');
@@ -25,6 +26,10 @@ async function loadChampions() {
     }));
   }
   return loaded;
+}
+
+async function loadChampions() {
+  return (await loadDefenders()).filter(({entry}) => towers[entry.family].advanced);
 }
 
 function meshList(scene) {
@@ -92,8 +97,8 @@ test('the v6 release includes all 37 champions and all six ranks of the eight ba
   }
 });
 
-test('Three.js loads every champion with finite geometry, normals, bounds and the recorded triangle budget', async () => {
-  for (const {entry, scene} of await loadChampions()) {
+test('Three.js loads all 85 defender variants with finite geometry, normals, bounds and the recorded triangle budget', async () => {
+  for (const {entry, scene} of await loadDefenders()) {
     const meshes = meshList(scene);
     assert.ok(meshes.length > 0, `${entry.family}: no renderable meshes`);
     let triangles = 0;

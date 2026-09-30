@@ -8,6 +8,7 @@ The repository was initially empty apart from `.git`. The implementation sequenc
 
 ## Completed systems
 
+- Verified visual classifications for all 37 champions, with no added Basic aura and progressively stronger Intermediate, Advanced and TOP effects shared by the battlefield and atelier. Version 0.2.1 includes the requested six character redesigns without changes to combat values or recipes.
 - Open 37 × 37 strategic grid, no terrain obstacles, five intermediate checkpoints on the fifth tile from the edge, spawn and keep exit.
 - Continuous detailed meadow without a board frame, terraced snowy peaks, branched forested banks, curve-aligned flowing water, waterfall sheets/spray/ripples and exterior bridge. Scenery bounds exclude the whole construction area; distant camera views add occasional drifting clouds.
 - M-key chooser with eight fixed measured blueprints, persistent selection, progress/conflict reporting and a draw/erase/undo/redo custom editor. Local saved plans survive reload. Offline tools retain search and independent BFS benchmarking. No global-optimality claim.

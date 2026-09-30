@@ -1,5 +1,12 @@
 # Releases
 
+## 0.2.1 — Champion Auras — 30 September 2026
+
+- Uses the verified Gem TD Towers classifications for all 37 champions: Basic has no added aura; Intermediate, Advanced and TOP have progressively stronger animated visual auras in both the battlefield and the atelier. Combat abilities, numerical settings and recipes are unchanged.
+- Engineer is now a stout dwarf with round spectacles, a small carpenter's hammer and a graduated measuring ruler, across all six ranks.
+- Knight and Lionheart Champion have newly modeled closed helmets and more complete plate armor. Kingslayer replaces Kingslayer Arbalest with an original black-armored knight model. Paladin carries a warhammer; Mother Nature is a floating spirit with living foliage and luminous wisps.
+- Updates the editable Blender 5.2 sources, GLBs and portraits, and versions the art URLs so returning players receive the revised models.
+
 ## 0.2.0 — Champion Edition — 30 September 2026
 
 - Ships the approved eight basic classes and 37 champions, with the agreed English names and exact three-defender recipes. Engineer replaces the Runebreaker display name; stable family IDs preserve discoveries.
