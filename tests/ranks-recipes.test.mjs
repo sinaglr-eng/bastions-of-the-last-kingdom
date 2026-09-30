@@ -36,7 +36,7 @@ test('formation recipes form an acyclic graph and craft from every valid anchor 
       assert.equal(g.craft(r.id),true,r.id);assert.equal(g.selection.family,recipeFamily(r));assert.equal(g.selection.tier,recipeTier(r));assert.equal(g.selection.x,10+anchor);assert.equal(g.towers.filter(t=>t.state==='active').length,1);assert.equal(g.grid.occupied.size,3);
     }
   }
-  assert.equal(finished.size,36);
+  assert.equal(finished.size,20);
 });
 test('wrong ranks and one copy of a repeated ingredient cannot satisfy a recipe',()=>{
   const g=new Game(data,{seed:3});g.phase='ready';g.towers=[unit('highking'),unit('runebreaker',5,2),unit('soldier',6,3)];g.select(1);

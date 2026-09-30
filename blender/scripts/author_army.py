@@ -274,11 +274,9 @@ def elemental(kind):
 def advanced(family):
     if family in ['embercrown','worldfire','kingsreach']:return siege({'embercrown':'catapult','worldfire':'cannon','kingsreach':'ballista'}[family])
     if family in ['eldergrove','winterhold']:return elemental('tree' if family=='eldergrove' else 'ice')
-    new_classes={'bannerwarden':'soldier','galehunter':'archer','oakherald':'druid','arcaneseer':'mage','sunhierophant':'cleric','ironrune':'runebreaker','winterregent':'frostwarden','tempestherald':'stormcaller'}
-    archetype=new_classes.get(family) or {'rimewatch':'soldier','frostblade':'soldier','roseguard':'soldier','highking':'soldier','crownofages':'mage','thornwarden':'archer','verdantguard':'archer','tempest':'stormcaller','stormcitadel':'runebreaker','starfall':'mage','thunderheart':'mage','phoenix':'cleric','greenheart':'druid','sunward':'cleric','dawnspire':'cleric'}[family]
+    archetype={'rimewatch':'soldier','frostblade':'soldier','roseguard':'soldier','highking':'soldier','crownofages':'mage','thornwarden':'archer','verdantguard':'archer','tempest':'stormcaller','stormcitadel':'runebreaker','starfall':'mage','thunderheart':'mage','phoenix':'cleric','greenheart':'druid','sunward':'cleric','dawnspire':'cleric'}[family]
     p=basic(archetype,5)
     hues={'rimewatch':'619dac','frostblade':'a5d3dd','roseguard':'a74459','highking':'34537a','crownofages':'806ca5','thornwarden':'527d47','verdantguard':'77a773','tempest':'577b9c','stormcitadel':'ccab57','starfall':'5f548c','thunderheart':'5373a3','phoenix':'d28247','greenheart':'638653','sunward':'efddad','dawnspire':'dce5ed'}
-    hues.update(bannerwarden='334e67',galehunter='547e8d',oakherald='436d48',arcaneseer='67558f',sunhierophant='eed49b',ironrune='72737d',winterregent='b7d3da',tempestherald='476684')
     recolor(p['cloth'],hues[family])
     if family in ['rimewatch','frostblade','crownofages','phoenix']:
         mount({'rimewatch':'griffin','frostblade':'wolf','crownofages':'dragon','phoenix':'phoenix'}[family],p)
@@ -326,44 +324,6 @@ def advanced(family):
         else:
             for j in range(12):
                 a=j*math.tau/12;rod('Solar ray',(.28*math.cos(a),-.10,1.91+.28*math.sin(a)),(.35*math.cos(a),-.10,1.91+.35*math.sin(a)),.011,p['trim'],5)
-    elif family=='bannerwarden':
-        remove_prefix(meshes(),['Horsehair'])
-        rod('Standard of the keep',(-.27,-.25,.55),(-.27,-.25,2.32),.028,p['trim'],8)
-        custom('Swallowtail war standard',[(-.27,-.25,2.29),(.23,-.25,2.24),(.22,-.25,1.75),(-.015,-.25,1.87),(-.27,-.25,1.78)],[(0,1,2,3,4)],p['cloth'])
-        for x in [-.08,.08]:rod('Banner sigil',(x,-.234,1.96),(x,-.234,2.13),.013,p['ivory'],6)
-        for side in [-1,1]:rod('Champion helmet sweep',(side*.12,-.06,1.9),(side*.28,-.12,2.16),.032,p['trim'],8,end=.007)
-    elif family=='galehunter':
-        for side in [-1,1]:
-            for j in range(3):rod('Windbound feather',(side*.21,-.14,1.40),(side*(.30+j*.07),-.18,1.72-j*.06),.037,p['ivory'],8,end=.003)
-        for j in range(4):rod('Ranger silver plume',(.08,-.09,1.94),(.14+j*.055,-.15,2.17-j*.04),.029,p['steel'],7,end=.003)
-    elif family=='oakherald':
-        for side in [-1,1]:
-            ellipsoid('Carved oak mask',(.17*side,.025,1.78),(.044,.08,.14),p['leather'],12,7)
-            for j in range(4):ellipsoid('Layered oak leaf mantle',(side*(.19+j*.043),-.025+j*.015,1.42-j*.025),(.11,.09,.037),p['cloth'],12,6)
-        for j in range(4):rod('Living root hem',((j-1.5)*.11,.18,.70),((j-1.5)*.12,.18,.33),.035,p['leather'],8,end=.007)
-    elif family=='arcaneseer':
-        remove_prefix(meshes(),['Wide hat','Pointed wizard','Bent hat','Hatband'])
-        ring=torus('Seer astrolabe',(0,-.14,1.90),.31,.023,p['trim']);ring.rotation_euler[0]=math.pi/2
-        for j in range(5):
-            a=j*math.tau/5;ellipsoid('Astrolabe star',(.31*math.cos(a),-.13,1.9+.31*math.sin(a)),(.036,.03,.043),p['ivory'],10,6)
-        cube('Seer blindfold',(0,.175,1.72),(.29,.045,.056),p['cloth'],.012)
-    elif family=='sunhierophant':
-        for j in range(10):
-            a=j*math.tau/10;rod('Hierophant rays',(.27*math.cos(a),-.095,1.91+.27*math.sin(a)),(.36*math.cos(a),-.095,1.91+.36*math.sin(a)),.022,p['trim'],8,end=.006)
-        for side in [-1,1]:rod('Hierophant ceremonial braid',(side*.16,-.03,1.79),(side*.2,-.06,1.14),.032,p['trim'],10,end=.015)
-    elif family=='ironrune':
-        for side in [-1,1]:
-            cube('Runeforged shoulder bastion',(side*.26,-.04,1.36),(.27,.23,.14),p['steel'],.045)
-            for j in range(3):rod('Runeforge chimney',(side*(.22+j*.055),-.12,1.39),(side*(.25+j*.064),-.15,1.61-j*.035),.025,p['trim'],8,end=.015)
-        torus('Runeforge anvil seal',(0,.235,1.12),.11,.018,p['trim']).rotation_euler[0]=math.pi/2
-    elif family=='winterregent':
-        for side in [-1,1]:rod('Winter diadem',(side*.08,.02,1.93),(side*.20,-.04,2.18),.035,p['steel'],7,end=.003)
-        for j in range(5):ellipsoid('Royal ermine mantle',((j-2)*.115,-.11,1.43),(.095,.115,.067),p['ivory'],12,6)
-        for x in [-.085,0,.085]:cylinder('Ice crown facet',(x,.02,2.05),.047,.27-abs(x),p['steel'],6,top=.002)
-    elif family=='tempestherald':
-        for side in [-1,1]:
-            for j in range(3):rod('Storm mantle arc',(side*.24,-.06,1.36),(side*(.39+j*.065),-.09,1.58-j*.04),.027,p['steel'],8,end=.006)
-            ring=torus('Tempest gauntlet circuit',(side*.46,.29,1.36),.17,.019,p['trim']);ring.rotation_euler[0]=math.pi/2
     return p
 
 def export_current(file):

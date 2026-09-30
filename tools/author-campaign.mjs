@@ -59,16 +59,29 @@ const rows=[
 const labels={vitality:'Vitality',stealth:'Veil',evasion:'Evasion',disarm:'Disarm',refraction:'Mirror shields',magicImmune:'Magic immunity',physicalImmune:'Physical immunity',thief:'Plunder',untouchable:'Dread aura',rush:'Blood rush',highArmor:'Iron plate',reactiveArmor:'Reactive armor',recharge:'Soul recharge',blink:'Rift step',cloakDaggers:'Cloak & daggers',krakenShell:'Deep shell',splitImmunity:'Alternating immunity',warDrums:'War drums'};
 const counters={vitality:'Regenerates health; focus damage.',stealth:'Cloaked beyond 2 tiles; Clerics reveal within 6.',evasion:'Can evade direct physical hits; use magic.',disarm:'Briefly disarms nearby defenders every 8 seconds.',refraction:'Shields absorb three direct hits; poison ticks and burning auras bypass them.',magicImmune:'Magic and magical status immunity; physical or pure damage wins.',physicalImmune:'Physical immunity; use magic or pure damage.',thief:'Steals gold on reaching the keep.',untouchable:'Nearby defenders attack more slowly.',rush:'Periodic bursts of movement speed.',highArmor:'Heavy armor; use armor reduction or magic.',reactiveArmor:'Direct hits build temporary armor.',recharge:'Periodically restores health.',blink:'Dashes forward along the route, still visiting checkpoints.',cloakDaggers:'Cycles between cloak and short close-range disarms.',krakenShell:'Reduces damage from individual direct hits.',splitImmunity:'This wave rolls either magic or physical immunity.',warDrums:'Pulses haste to nearby allies.'};
 const waves=[];
+// Introductory patrols give even a Tier I support defender time to hold a crossing.
+// Counts and rewards stay on the campaign curve; combat pressure resumes at wave four.
+const openingPatrols=[
+  {hp:9,speed:1.3,interval:2.4},
+  {hp:15,speed:1.45,interval:2.2},
+  {hp:21,speed:1.6,interval:2}
+];
 rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   const wave=i+1,boss=wave%10===0,flying=movement==='flying',traits=skills?skills.split(','):[],id=`host_${String(wave).padStart(2,'0')}`;
+  const opening=openingPatrols[i];
   const pressure=1.15+Math.min(1.85,wave*.055);
-  const hp=Math.round((32+wave*6)*Math.pow(1.105,wave-1)*(boss?11:1)*pressure),skin=['#72815b','#7f8861','#6a8378','#8a775d','#7a697d'][Math.floor(i/10)];
+  const hp=opening?.hp??Math.round((32+wave*6)*Math.pow(1.105,wave-1)*(boss?11:1)*pressure),skin=['#72815b','#7f8861','#6a8378','#8a775d','#7a697d'][Math.floor(i/10)];
   const enemy={name,model,traits,hp,speed:boss?1.65:flying?2.5:2.05+(i%3)*.16,armor:Math.round(wave*.55),gold:boss?70+wave*4:3+Math.floor(wave/5),xp:boss?60:3+Math.floor(wave/10),color:skin,size:boss?1.75:model==='goblin'?.66:model==='troll'||model==='ogre'?1.15:.9,boss,flying,leak:boss?10:1,clan:Math.floor(i/10),threat:traits.length?traits.map(t=>labels[t]).join(' · '):flying?'Airborne raiders · guard the checkpoint crossings':'Ground warband · shape the route',counter:traits.map(t=>counters[t]).join(' ')};
   const plated=['shield','ogre','grunt'].includes(model),caster=['shaman','warlock','troll'].includes(model);
   enemy.armor=Math.round(wave*.65+(plated?5+wave*.22:0));
   if(['goblin','wolf','bat','assassin'].includes(model))enemy.armor=Math.round(enemy.armor*.6);
-  if(plated)enemy.counter+=' Plated armor reduces physical damage; break armor or add magic.';
+  if(plated&&!opening)enemy.counter+=' Plated armor reduces physical damage; break armor or add magic.';
   if(caster){enemy.resists={magic:+Math.min(.24,.12+wave*.003).toFixed(3)};enemy.counter+=' Ritual wards resist magic; physical and pure attacks remain effective.';}
+  if(opening){
+    enemy.speed=opening.speed;enemy.armor=0;
+    enemy.threat='Opening patrol · no armor or resistances';
+    enemy.counter='Keep a defender near a checkpoint or crossing, then strengthen your defense each round.';
+  }
   if(['wolf','bat','wyvern','dragon'].includes(model))enemy.beast=true;
   enemy.counter=enemy.counter.trim();
   if(traits.includes('vitality'))enemy.regen=hp*.004;
@@ -93,7 +106,7 @@ rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   if(wave===50)enemy.variants=[{}, {name:'Ghorun, the Gilded Tyrant',magicImmune:true,color:'#b99d57'},{name:'Ghorun, the Pale Devourer',krakenShell:enemy.krakenShell*1.3,color:'#a4b9b5'}];
   enemies[id]=enemy;
   const count=boss?1:flying?8+Math.floor(wave*.22):8+Math.floor(wave*.48);
-  waves.push({name,boss,hp:1,reward:22+wave*7,reference:{source,wave,name:referenceName,movement,traits:skills,...(wave===45?{note:'The source lists an undefined Level ? skill; War Drums is an authored replacement.'}:{})},groups:[{type:id,count,interval:boss?1:flying?.9:.6}]});
+  waves.push({name,boss,hp:1,reward:22+wave*7,reference:{source,wave,name:referenceName,movement,traits:skills,...(wave===45?{note:'The source lists an undefined Level ? skill; War Drums is an authored replacement.'}:{})},groups:[{type:id,count,interval:opening?.interval??(boss?1:flying?.9:.6)}]});
 });
 writeFileSync('data/enemies.json',JSON.stringify(enemies,null,2)+'\n');
 writeFileSync('data/waves.json',JSON.stringify(waves,null,2)+'\n');

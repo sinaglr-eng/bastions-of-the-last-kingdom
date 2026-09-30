@@ -40,8 +40,8 @@ test('mountains, forests, river and bridge leave the entire construction field c
   valley.update(.016,1);
   for(const group of [valley.staticGroup,valley.water])group.traverse(o=>o.geometry?.dispose());
 });
-test('twenty-eight advanced units have distinct finite silhouettes, with three siege machines',()=>{
-  const signatures=new Set();assert.equal(Object.keys(CHAMPIONS).length,28);
+test('twenty original advanced units have distinct finite silhouettes, with three siege machines',()=>{
+  const signatures=new Set();assert.equal(Object.keys(CHAMPIONS).length,20);
   assert.equal(Object.values(CHAMPIONS).filter(c=>SIEGE_KINDS.includes(c.kind)).length,3);
   for(const id of Object.keys(CHAMPIONS)){
     const model=towerModel(id,1,true),b=new Box3().setFromObject(model),size=b.getSize(new Vector3());
@@ -49,5 +49,5 @@ test('twenty-eight advanced units have distinct finite silhouettes, with three s
     assert.ok(size.y>1);signatures.add(JSON.stringify(model.children.map(o=>[o.material.color.getHex(),o.geometry.attributes.position.count])));
     model.traverse(o=>o.geometry?.dispose());
   }
-  assert.equal(signatures.size,28);
+  assert.equal(signatures.size,20);
 });

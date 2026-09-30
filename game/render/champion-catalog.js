@@ -19,14 +19,6 @@ export const CHAMPIONS={
   kingsreach:{name:'Runeforged Ballista',kind:'ballista',color:'#715842',accent:'#e7c37a',description:'A wheeled dwarven ballista firing massive runic bolts that tear through armor.'},
   sunward:{name:'Sun Priestess',kind:'priestess',color:'#e6d5a1',accent:'#efbd5e',description:'A radiant priestess carrying a miniature sun. Her blessing strengthens and hastens nearby defenders.'},
   winterhold:{name:'Frost Colossus',kind:'colossus',color:'#83b5ca',accent:'#d9f4ee',description:'A hulking crystal guardian whose cold heart blankets the surrounding path in deep winter.'},
-  dawnspire:{name:'Dawn Seraph',kind:'seraph',color:'#ece4c9',accent:'#bfeaf0',description:'A winged celestial guardian, uniting the blessing of dawn with the stillness of winter.'},
-  bannerwarden:{name:'Banner Warden',kind:'paladin',color:'#b8a570',accent:'#e5ddbd'},
-  galehunter:{name:'Gale Hunter',kind:'ranger',color:'#a1cab3',accent:'#fff1cb'},
-  oakherald:{name:'Oak Herald',kind:'grovekeeper',color:'#91b76c',accent:'#dfc9a2'},
-  arcaneseer:{name:'Arcane Seer',kind:'starweaver',color:'#ae94db',accent:'#ede1ff'},
-  sunhierophant:{name:'Sun Hierophant',kind:'priestess',color:'#e5cb8a',accent:'#fff3cf'},
-  ironrune:{name:'Ironrune Marshal',kind:'duelist',color:'#b3a2c1',accent:'#d7e1e8'},
-  winterregent:{name:'Winter Regent',kind:'archmage',color:'#a3d7de',accent:'#edf4f1'},
-  tempestherald:{name:'Tempest Herald',kind:'conjurer',color:'#dfcb8c',accent:'#d0e6ee'}
+  dawnspire:{name:'Dawn Seraph',kind:'seraph',color:'#ece4c9',accent:'#bfeaf0',description:'A winged celestial guardian, uniting the blessing of dawn with the stillness of winter.'}
 };
 export const SIEGE_KINDS=['catapult','cannon','ballista'];

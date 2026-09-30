@@ -10,6 +10,7 @@ import {siteUrl} from '../site-url.js';
 import {SIZE} from '../core/grid.js';
 import {MazePlanner} from './maze-planner.js';
 import {edgePan,compassBearing} from './navigation.js';
+import {configureTouchControls,PointerTapGesture} from './touch-input.js';
 import {valleyEnvironment} from './environment.js';
 import {meadowTerrain,interiorGrid} from './terrain.js';
 import {seededRandom,towerStats,supportBonuses} from '../core/math.js';
@@ -25,29 +26,48 @@ export class Battlefield {
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#9bbcc1');this.scene.fog=new THREE.Fog('#9bbcc1',88,155);
     this.camera=new THREE.PerspectiveCamera(38,1,0.1,210);this.camera.position.set(7,53,41);
     this.renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.18;container.append(this.renderer.domElement);
-    this.renderer.domElement.setAttribute('aria-label','3D battlefield. Select a draw, then click an empty tile to place it.');this.renderer.domElement.tabIndex=0;
-    this.controls=new OrbitControls(this.camera,this.renderer.domElement);this.controls.target.set(1,1,-1);this.controls.enableDamping=true;this.controls.dampingFactor=0.09;this.controls.minDistance=12;this.controls.maxDistance=90;this.controls.maxPolarAngle=Math.PI*0.43;this.controls.minPolarAngle=Math.PI*0.12;this.controls.mouseButtons={LEFT:null,MIDDLE:THREE.MOUSE.ROTATE,RIGHT:THREE.MOUSE.PAN};this.controls.touches={ONE:null,TWO:THREE.TOUCH.DOLLY_ROTATE};
+    this.renderer.domElement.setAttribute('aria-label','3D battlefield. Tap to place or select; drag one finger to pan; use two fingers to rotate or pinch to zoom.');this.renderer.domElement.tabIndex=0;
+    this.controls=new OrbitControls(this.camera,this.renderer.domElement);this.controls.target.set(1,1,-1);this.controls.enableDamping=true;this.controls.dampingFactor=0.09;this.controls.minDistance=12;this.controls.maxDistance=90;this.controls.maxPolarAngle=Math.PI*0.43;this.controls.minPolarAngle=Math.PI*0.12;this.controls.mouseButtons={LEFT:null,MIDDLE:THREE.MOUSE.ROTATE,RIGHT:THREE.MOUSE.PAN};configureTouchControls(this.controls);
     this.scene.add(new THREE.HemisphereLight('#e0eee0','#465847',2));
     const sun=new THREE.DirectionalLight('#fff0cc',3.4);sun.position.set(-18,38,13);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-35;sun.shadow.camera.right=35;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;sun.shadow.camera.far=100;sun.shadow.normalBias=0.04;sun.shadow.bias=-0.0001;this.scene.add(sun);
     this.scene.add(new THREE.AmbientLight('#b2c6c6',0.25));
     this.createEnvironment();this.createOverlays();this.maze=new MazePlanner(this);this.draftMarkers=new DraftMarkers(this.scene,this.container);
-    this.raycaster=new THREE.Raycaster();this.pointer=new THREE.Vector2();this.plane=new THREE.Plane(new THREE.Vector3(0,1,0),-0.03);this.pointerStart=null;
+    this.raycaster=new THREE.Raycaster();this.pointer=new THREE.Vector2();this.plane=new THREE.Plane(new THREE.Vector3(0,1,0),-0.03);this.tapGesture=new PointerTapGesture();
+    this.clearPointer=()=>{this.edgePointer=null;this.hover=null;this.cursor.visible=false;this.ghost.visible=false;this.maze.endStroke();};
     this.trackPointer=e=>{
       const rect=this.renderer.domElement.getBoundingClientRect();
       this.edgePointer=e.target===this.renderer.domElement&&e.pointerType!=='touch'&&!e.buttons?{x:e.clientX-rect.left,y:e.clientY-rect.top}:null;
     };
     document.addEventListener('pointermove',this.trackPointer);
     this.renderer.domElement.addEventListener('pointerdown',e=>{
-      this.edgePointer=null;this.pointerStart={x:e.clientX,y:e.clientY,button:e.button};
+      this.edgePointer=null;this.tapGesture.start(e);
+      if(e.pointerType==='touch'){this.clearPointer();return;}
       if(this.maze.editing&&e.button===0){this.movePointer(e);this.maze.editor.begin();if(this.hover)this.maze.paint(this.hover.x,this.hover.z);}
     });
-    this.renderer.domElement.addEventListener('pointermove',e=>{this.movePointer(e);if(this.maze.editing&&e.buttons===1&&this.hover)this.maze.paint(this.hover.x,this.hover.z);});
-    this.renderer.domElement.addEventListener('pointerleave',()=>{this.edgePointer=null;this.hover=null;this.cursor.visible=false;this.ghost.visible=false;this.maze.endStroke();});
-    this.renderer.domElement.addEventListener('pointerup',e=>{
-      if(this.maze.editing)this.maze.endStroke();
-      else if(this.pointerStart?.button===0&&Math.hypot(e.clientX-this.pointerStart.x,e.clientY-this.pointerStart.y)<6){this.movePointer(e);if(this.hover)this.onTile(this.hover.x,this.hover.z);}
-      this.pointerStart=null;this.trackPointer(e);
+    this.renderer.domElement.addEventListener('pointermove',e=>{
+      this.tapGesture.move(e);
+      if(e.pointerType==='touch'){
+        // This listener runs before OrbitControls' move listener. Small tap jitter
+        // does not move the camera; a drag then pans from the original position.
+        if(!this.tapGesture.navigating(e.pointerId))e.stopImmediatePropagation();
+        return;
+      }
+      this.movePointer(e);if(this.maze.editing&&e.buttons===1&&this.hover)this.maze.paint(this.hover.x,this.hover.z);
     });
+    this.renderer.domElement.addEventListener('pointerleave',this.clearPointer);
+    this.renderer.domElement.addEventListener('pointerup',e=>{
+      const tap=this.tapGesture.end(e);
+      if(this.maze.editing){
+        if(e.pointerType==='touch'&&tap){this.movePointer(e);this.maze.editor.begin();if(this.hover)this.maze.paint(this.hover.x,this.hover.z);}
+        this.maze.endStroke();
+      }else if(tap){this.movePointer(e);if(this.hover)this.onTile(this.hover.x,this.hover.z);}
+      if(e.pointerType==='touch')this.clearPointer();else this.trackPointer(e);
+    });
+    const cancelPointer=e=>{this.tapGesture.cancel(e);this.clearPointer();};
+    this.renderer.domElement.addEventListener('pointercancel',cancelPointer);
+    this.renderer.domElement.addEventListener('lostpointercapture',cancelPointer);
+    this.renderer.domElement.addEventListener('click',e=>{if(this.tapGesture.suppressClick(e)){e.preventDefault();e.stopPropagation();}},true);
+    this.cancelInput=()=>{this.tapGesture.clear();this.clearPointer();};window.addEventListener('blur',this.cancelInput);
     this.renderer.domElement.addEventListener('contextmenu',e=>e.preventDefault());
     this.resizeObserver=new ResizeObserver(()=>this.resize());this.resizeObserver.observe(container);this.resize();
     this.unsubscribe=game.on((type,payload)=>this.event(type,payload));
@@ -164,7 +184,7 @@ export class Battlefield {
   }
   event(type,payload) {
     if(type==='change')this.sync();
-    if(type==='shot'||type==='aura-attack'){const value=this.models.get(payload.source.id);if(value){value.kick=.15;if(value.siege)value.siege.elapsed=0;value.actor.rotation.y=Math.atan2(payload.target.x-payload.source.x,payload.target.z-payload.source.z)+(['archer','thornwarden','verdantguard','galehunter'].includes(payload.source.family)?Math.PI/2:Math.PI);}}
+    if(type==='shot'||type==='aura-attack'){const value=this.models.get(payload.source.id);if(value){value.kick=.15;if(value.siege)value.siege.elapsed=0;value.actor.rotation.y=Math.atan2(payload.target.x-payload.source.x,payload.target.z-payload.source.z)+(['archer','thornwarden','verdantguard'].includes(payload.source.family)?Math.PI/2:Math.PI);}}
     if(['place','combine','keep'].includes(type)){const t=payload.tower;this.burst(t.x,t.z,type==='combine'?'#ead091':'#c7d4a8',type==='combine'?2.5:0.7);}
     if(type==='impact'&&payload.melee){
       const slash=new THREE.Mesh(new THREE.RingGeometry(.45,.65,20,1,0,Math.PI*1.3),new THREE.MeshBasicMaterial({color:'#e8f5dc',transparent:true,side:THREE.DoubleSide}));slash.position.copy(v3(payload.x,.8,payload.z));slash.rotation.set(-Math.PI/3,0,this.time);this.scene.add(slash);this.effects.push({object:slash,life:.22,max:.22,size:.3});
@@ -228,7 +248,7 @@ export class Battlefield {
     this.renderer.render(this.scene,this.camera);
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
-  dispose(){this.clearCorpses();this.draftMarkers.dispose();this.unsubscribe();this.resizeObserver.disconnect();this.controls.dispose();this.maze.dispose();document.removeEventListener('pointermove',this.trackPointer);this.renderer.dispose();}
+  dispose(){this.clearCorpses();this.draftMarkers.dispose();this.unsubscribe();this.resizeObserver.disconnect();this.controls.dispose();this.maze.dispose();document.removeEventListener('pointermove',this.trackPointer);window.removeEventListener('blur',this.cancelInput);this.renderer.dispose();}
 }
 
 export function makeThumbnails(data) {

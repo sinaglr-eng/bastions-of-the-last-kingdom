@@ -9,13 +9,20 @@ import {beginDeath,animateDeath,bossAura,animateBossAura,siegeRig,animateSiege} 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
 const unit=(family,tier,id)=>({id,family,tier,state:'active',x:10+id,z:10,kills:id,cooldown:0});
 
-test('every basic rank and every champion rank has a three-unit path forward',()=>{
- for(const [family,stats]of Object.entries(data.towers))for(const tier of stats.advanced?[1,5,9,23]:[1,2,3,4,5,6]){
+test('the original champions retain their recipes and repeatable three-unit ascensions',()=>{
+ const original=['rimewatch','frostblade','roseguard','highking','crownofages','thornwarden','verdantguard','tempest','stormcitadel','embercrown','worldfire','starfall','thunderheart','phoenix','greenheart','eldergrove','kingsreach','sunward','winterhold','dawnspire'];
+ assert.deepEqual(Object.keys(data.towers).filter(f=>data.towers[f].advanced),original);
+ assert.deepEqual(data.recipes.map(r=>recipeFamily(r)),original);
+ for(const family of original)for(const tier of [1,5,9,23]){
   const t=unit(family,tier,1),options=recipesUsing(t,allRecipes(data,[t]));
   assert.ok(options.length,`${family} ${tier}`);
   for(const recipe of options){assert.equal(recipe.ingredients.length,3);assert.ok(data.towers[recipeFamily(recipe)]);}
  }
  assert.equal(rankLabel(14),'XIV');
+});
+test('unused basic ranks are reported from the original exact-rank ingredient list',()=>{
+ const unused=Object.fromEntries(Object.entries(data.towers).filter(([,t])=>!t.advanced).map(([family])=>[family,[1,2,3,4,5,6].filter(tier=>!recipesUsing(unit(family,tier,1),data.recipes).length)]));
+ assert.deepEqual(unused,{soldier:[],archer:[5,6],druid:[2,4,5],mage:[],cleric:[4],runebreaker:[2],frostwarden:[],stormcaller:[2,6]});
 });
 test('ascension consumes three distinct exact-rank champions and continues beyond six',()=>{
  for(const tier of [1,6,12])for(let anchor=1;anchor<=3;anchor++){

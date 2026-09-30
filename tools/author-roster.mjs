@@ -4,9 +4,10 @@ import {readFileSync,writeFileSync} from 'node:fs';
 const write=(file,data)=>writeFileSync(file,JSON.stringify(data,null,2)+'\n');
 const source='https://dota2.fandom.com/wiki/Gem_TD';
 const towers={},recipes=[];
+const unitCodes={"soldier":"S","archer":"A","druid":"D","mage":"M","cleric":"C","runebreaker":"R","frostwarden":"F","stormcaller":"T"};
 function basic(id,name,gem,code,color,icon,type,damage,interval,range,role,description,extra){
   const levels=damage.map((n,i)=>({damage:n*3,interval:Array.isArray(interval)?interval[i]:interval,range:Array.isArray(range)?range[i]:range,...extra(i)}));
-  towers[id]={name,short:name,referenceGem:gem,referenceCode:code,source,color,icon,type,weight:1,projectileSpeed:20,role,description,strong:role,weak:id==='soldier'?'Flying enemies and distant targets':id==='cleric'?'Low solo damage; needs allies':id==='archer'?'Heavy armor':id==='druid'?'Poison resistance':id==='runebreaker'?'Low solo damage; needs physical allies':'Resistant or scattered enemies',...levels[0],levels};
+  towers[id]={name,short:name,unitCode:unitCodes[id],referenceGem:gem,referenceCode:code,source,color,icon,type,weight:1,projectileSpeed:20,role,description,strong:role,weak:id==='soldier'?'Flying enemies and distant targets':id==='cleric'?'Low solo damage; needs allies':id==='archer'?'Heavy armor':id==='druid'?'Poison resistance':id==='runebreaker'?'Low solo damage; needs physical allies':'Resistant or scattered enemies',...levels[0],levels};
 }
 basic('soldier','Soldier','Diamond','D','#80b7c9','swords','physical',[5,10,20,40,80,460],[1,1,1,1,1,.7],2.5,'Heavy single-target sword strikes','A determined shieldbearer. Mythic rank delivers a devastating, faster sword strike.',()=>({melee:true}));
 basic('archer','Archer','Aquamarine','Q','#d7b578','bow','physical',[2,4,8,16,24,80],[.25,.25,.25,.25,.25,.1],[4,4,4,4,4,5],'Rapid single-target arrows','A feather-capped ranger whose Mythic bow releases ten arrows a second.',()=>({}));
@@ -53,4 +54,3 @@ balance.tierDamage=[1,1.85,3.3,5.6,9,24];balance.tierRange=[0,.35,.7,1.05,1.4,2]
 for(const row of balance.mastery)row.weights=[...row.weights.slice(0,5),0];
 write('data/balance.json',balance);
 console.log('Authored eight defenders × six ranks and twenty branching recipes.');
-await import('./author-continuations.mjs');

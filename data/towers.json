@@ -56,7 +56,7 @@
         "melee": true
       }
     ],
-    "unitCode": "SG"
+    "unitCode": "S"
   },
   "archer": {
     "name": "Archer",
@@ -108,7 +108,7 @@
         "range": 5
       }
     ],
-    "unitCode": "BW"
+    "unitCode": "A"
   },
   "druid": {
     "name": "Druid",
@@ -174,7 +174,7 @@
         "dotDuration": 5
       }
     ],
-    "unitCode": "OK"
+    "unitCode": "D"
   },
   "mage": {
     "name": "Mage",
@@ -247,7 +247,7 @@
         "cleaveType": "pure"
       }
     ],
-    "unitCode": "AM"
+    "unitCode": "M"
   },
   "cleric": {
     "name": "Cleric",
@@ -334,7 +334,7 @@
         }
       }
     ],
-    "unitCode": "SL"
+    "unitCode": "C"
   },
   "runebreaker": {
     "name": "Runebreaker",
@@ -393,7 +393,7 @@
         "shred": 64
       }
     ],
-    "unitCode": "RB"
+    "unitCode": "R"
   },
   "frostwarden": {
     "name": "Frost Warden",
@@ -460,7 +460,7 @@
         "effectsRadius": 0.5
       }
     ],
-    "unitCode": "FW"
+    "unitCode": "F"
   },
   "stormcaller": {
     "name": "Stormcaller",
@@ -519,7 +519,7 @@
         "multishot": 3
       }
     ],
-    "unitCode": "SC"
+    "unitCode": "T"
   },
   "rimewatch": {
     "name": "Rime Griffin Rider",
@@ -999,204 +999,5 @@
     },
     "model": "seraph",
     "unitKind": "champion"
-  },
-  "bannerwarden": {
-    "name": "Banner Warden",
-    "short": "Banner Warden",
-    "unitCode": "SGH",
-    "advanced": true,
-    "stage": "Formation",
-    "color": "#b8a570",
-    "icon": "crown",
-    "type": "physical",
-    "projectileSpeed": 22,
-    "unitKind": "champion",
-    "modelBase": "soldier",
-    "model": "soldier",
-    "role": "A shield captain who rallies nearby allies and cleaves the ground warband.",
-    "description": "A shield captain who rallies nearby allies and cleaves the ground warband.",
-    "strong": "A shield captain who rallies nearby allies and cleaves the ground warband.",
-    "weak": "Requires three exact ranks",
-    "damage": 180,
-    "interval": 0.8,
-    "range": 3,
-    "melee": true,
-    "cleave": 0.8,
-    "cleaveRadius": 2,
-    "cleaveType": "pure",
-    "bossBonus": 1.5,
-    "aura": {
-      "range": 4,
-      "damageBonus": 0.15
-    }
-  },
-  "galehunter": {
-    "name": "Gale Hunter",
-    "short": "Gale Hunter",
-    "unitCode": "BWH",
-    "advanced": true,
-    "stage": "Formation",
-    "color": "#a1cab3",
-    "icon": "crown",
-    "type": "physical",
-    "projectileSpeed": 22,
-    "unitKind": "champion",
-    "modelBase": "archer",
-    "model": "archer",
-    "role": "A wind ranger whose three arrows pierce armor at every crossing.",
-    "description": "A wind ranger whose three arrows pierce armor at every crossing.",
-    "strong": "A wind ranger whose three arrows pierce armor at every crossing.",
-    "weak": "Requires three exact ranks",
-    "damage": 85,
-    "interval": 0.28,
-    "range": 6,
-    "multishot": 3,
-    "penetration": 0.3
-  },
-  "oakherald": {
-    "name": "Oak Herald",
-    "short": "Oak Herald",
-    "unitCode": "OKH",
-    "advanced": true,
-    "stage": "Formation",
-    "color": "#91b76c",
-    "icon": "crown",
-    "type": "physical",
-    "projectileSpeed": 22,
-    "unitKind": "champion",
-    "modelBase": "druid",
-    "model": "druid",
-    "role": "Living thorns poison the host and expose its armor.",
-    "description": "Living thorns poison the host and expose its armor.",
-    "strong": "Living thorns poison the host and expose its armor.",
-    "weak": "Requires three exact ranks",
-    "damage": 30,
-    "interval": 0.75,
-    "range": 6,
-    "poisonDps": 155,
-    "dotDuration": 5,
-    "shred": 10
-  },
-  "arcaneseer": {
-    "name": "Arcane Seer",
-    "short": "Arcane Seer",
-    "unitCode": "AMH",
-    "advanced": true,
-    "stage": "Formation",
-    "color": "#ae94db",
-    "icon": "crown",
-    "type": "arcane",
-    "projectileSpeed": 22,
-    "unitKind": "champion",
-    "modelBase": "mage",
-    "model": "mage",
-    "role": "An observatory mage sends pure shockwaves through resistant enemies.",
-    "description": "An observatory mage sends pure shockwaves through resistant enemies.",
-    "strong": "An observatory mage sends pure shockwaves through resistant enemies.",
-    "weak": "Requires three exact ranks",
-    "damage": 120,
-    "interval": 0.85,
-    "range": 6,
-    "cleave": 0.9,
-    "cleaveRadius": 3,
-    "cleaveType": "pure"
-  },
-  "sunhierophant": {
-    "name": "Sun Hierophant",
-    "short": "Sun Hierophant",
-    "unitCode": "SLH",
-    "advanced": true,
-    "stage": "Formation",
-    "color": "#e5cb8a",
-    "icon": "crown",
-    "type": "holy",
-    "projectileSpeed": 22,
-    "unitKind": "champion",
-    "modelBase": "cleric",
-    "model": "cleric",
-    "role": "A sunlit hierophant sustains the formation with a distinct blessing.",
-    "description": "A sunlit hierophant sustains the formation with a distinct blessing.",
-    "strong": "A sunlit hierophant sustains the formation with a distinct blessing.",
-    "weak": "Needs nearby allies",
-    "damage": 22,
-    "interval": 0.8,
-    "range": 6,
-    "aura": {
-      "range": 6,
-      "haste": 0.5,
-      "damageBonus": 0.2,
-      "stackKey": "hierophant"
-    }
-  },
-  "ironrune": {
-    "name": "Ironrune Marshal",
-    "short": "Ironrune Marshal",
-    "unitCode": "RBH",
-    "advanced": true,
-    "stage": "Formation",
-    "color": "#b3a2c1",
-    "icon": "crown",
-    "type": "physical",
-    "projectileSpeed": 22,
-    "unitKind": "champion",
-    "modelBase": "runebreaker",
-    "model": "runebreaker",
-    "role": "A rune marshal breaks armor so the entire formation can strike harder.",
-    "description": "A rune marshal breaks armor so the entire formation can strike harder.",
-    "strong": "A rune marshal breaks armor so the entire formation can strike harder.",
-    "weak": "Requires three exact ranks",
-    "damage": 100,
-    "interval": 0.65,
-    "range": 5,
-    "shred": 28,
-    "penetration": 0.25
-  },
-  "winterregent": {
-    "name": "Winter Regent",
-    "short": "Winter Regent",
-    "unitCode": "FWH",
-    "advanced": true,
-    "stage": "Formation",
-    "color": "#a3d7de",
-    "icon": "crown",
-    "type": "frost",
-    "projectileSpeed": 22,
-    "unitKind": "champion",
-    "modelBase": "frostwarden",
-    "model": "frostwarden",
-    "role": "A winter regent chills clustered invaders at the checkpoint crossings.",
-    "description": "A winter regent chills clustered invaders at the checkpoint crossings.",
-    "strong": "A winter regent chills clustered invaders at the checkpoint crossings.",
-    "weak": "Requires three exact ranks",
-    "damage": 72,
-    "interval": 0.65,
-    "range": 7,
-    "slow": 0.48,
-    "slowDuration": 3,
-    "effectsRadius": 1.5
-  },
-  "tempestherald": {
-    "name": "Tempest Herald",
-    "short": "Tempest Herald",
-    "unitCode": "SCH",
-    "advanced": true,
-    "stage": "Formation",
-    "color": "#dfcb8c",
-    "icon": "crown",
-    "type": "arcane",
-    "projectileSpeed": 22,
-    "unitKind": "champion",
-    "modelBase": "stormcaller",
-    "model": "stormcaller",
-    "role": "A crowned storm herald threads lightning through several enemies.",
-    "description": "A crowned storm herald threads lightning through several enemies.",
-    "strong": "A crowned storm herald threads lightning through several enemies.",
-    "weak": "Requires three exact ranks",
-    "damage": 110,
-    "interval": 0.7,
-    "range": 7,
-    "multishot": 3,
-    "chain": 2,
-    "chainChance": 0.35
   }
 }

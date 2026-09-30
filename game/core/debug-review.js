@@ -3,7 +3,7 @@ import {GridManager} from './grid.js';
 // Repeatable development-only scene for reviewing imported rigs and the combat panel.
 export function prepareBattleReview(game,boss=false){
   game.grid=new GridManager();game.towers=[];game.selected=null;game.score=0;game.kills=0;game.leaks=0;game.lives=30;game.round=boss?10:6;game.phase='ready';game.speed=1;game.paused=false;
-  const families=['bannerwarden','galehunter','embercrown','dawnspire','ironrune','oakherald','sunhierophant'];
+  const families=['highking','verdantguard','embercrown','dawnspire','roseguard','greenheart','sunward'];
   let id=1;
   for(let x=6;x<=30;x++){
     if(!game.grid.occupy(x,17,id).ok)continue;

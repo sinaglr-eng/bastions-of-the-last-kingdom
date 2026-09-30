@@ -6,6 +6,7 @@ import {castleWallModel,wallConnections} from './render/walls.js';
 import towers from '../data/towers.json';
 import '../ui/atelier.css';
 import {siteUrl} from './site-url.js';
+import {defenderCode} from './core/unit-label.js';
 
 const roman=['I','II','III','IV','V','VI'],colors=['Modrá','Zelená','Fialová','Bílá','Zlatá','Záře'];
 const portrait=(family,rank=1)=>siteUrl(`assets/${family==='archer'?'archer':'army'}/${family}-t${rank}.png`);
@@ -47,14 +48,14 @@ function rankButtons(){
  document.querySelector('#family-subtitle').textContent=advanced?'Šampion získaný kombinací obránců.':'Základní obránce · šest barevných úrovní.';
  document.querySelector('#rank-heading').textContent=advanced?'Jedinečná silueta.':'Šest úrovní. Šest signálů.';
  document.querySelector('#rank-instruction').textContent=advanced?'POKROČILÝ OBRÁNCE':'VYBER ÚROVEŇ';
- document.querySelector('.rank-picker').innerHTML=advanced?'':roman.map((r,i)=>`<button class="rank-choice" data-rank="${i+1}" aria-label="Úroveň ${r}: ${colors[i]}" aria-pressed="false" style="--rank:${rankColor(i+1)}"><span class="rank-number">${r}</span><img src="${portrait(family,i+1)}" alt=""><strong>${colors[i]}</strong></button>`).join('');
+ document.querySelector('.rank-picker').innerHTML=advanced?'':roman.map((r,i)=>`<button class="rank-choice" data-rank="${i+1}" aria-label="${defenderCode(towers[family],i+1)}: ${colors[i]}" aria-pressed="false" style="--rank:${rankColor(i+1)}"><span class="rank-number">${defenderCode(towers[family],i+1)}</span><img src="${portrait(family,i+1)}" alt=""><strong>${colors[i]}</strong></button>`).join('');
  document.querySelectorAll('[data-rank]').forEach(b=>b.addEventListener('click',()=>{if(wallsVisible)toggleWalls();showRank(Number(b.dataset.rank));}));
  document.querySelectorAll('[data-family]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.family===family)));
 }
 async function showRank(rank){
  selected=rank;const request=++sequence,advanced=towers[family].advanced,url=asset(family,rank);
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
- document.querySelector('#selected-rank').textContent=advanced?'POKROČILÝ OBRÁNCE':`${roman[rank-1]} · ${colors[rank-1].toUpperCase()}`;
+ document.querySelector('#selected-rank').textContent=advanced?'POKROČILÝ OBRÁNCE':`${defenderCode(towers[family],rank)} · ${colors[rank-1].toUpperCase()}`;
  document.querySelector('#rank-detail').textContent=advanced?'Vlastní výstroj a charakter. Recept na sloučení najdeš v herním Grimoáru.':rank===6?'Zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`;
  document.querySelector('#download-model').href=url;document.querySelector('#download-portrait').href=portrait(family,rank);
  document.querySelector('#load-status').textContent='Načítám model z Blenderu…';
@@ -67,7 +68,7 @@ async function showRank(rank){
   if(!advanced)model.add(rankAdornment(rank));model.visible=!wallsVisible;scene.add(model);reset(wallsVisible);status();
  }catch{document.querySelector('#load-status').textContent='Model se nepodařilo načíst. Obnov stránku.';}
 }
-function status(){document.querySelector('#load-status').textContent=wallsVisible?'Hradby · spojené díly a rohové cimbuří':`${towers[family].name} · ${towers[family].advanced?'Šampion':`Úroveň ${roman[selected-1]} · ${colors[selected-1]}`} · Blender GLB`;}
+function status(){document.querySelector('#load-status').textContent=wallsVisible?'Hradby · spojené díly a rohové cimbuří':`${towers[family].name} · ${towers[family].advanced?'Šampion':`${defenderCode(towers[family],selected)} · ${colors[selected-1]}`} · Blender GLB`;}
 function showFamily(id){family=id;document.querySelector('#family-picker').value=id;if(wallsVisible)toggleWalls();rankButtons();showRank(1);}
 document.querySelector('#family-picker').addEventListener('change',e=>showFamily(e.target.value));
 document.querySelectorAll('[data-family]').forEach(b=>b.addEventListener('click',()=>showFamily(b.dataset.family)));
