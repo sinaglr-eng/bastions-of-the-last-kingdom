@@ -1,0 +1,1364 @@
+{
+  "goblin": {
+    "name": "Goblin Runner",
+    "hp": 34,
+    "speed": 2.6,
+    "armor": 0,
+    "gold": 3,
+    "xp": 3,
+    "color": "#78905b",
+    "size": 0.6,
+    "threat": "Fast · vulnerable to arrows"
+  },
+  "grunt": {
+    "name": "Orc Grunt",
+    "hp": 65,
+    "speed": 1.7,
+    "armor": 3,
+    "gold": 4,
+    "xp": 4,
+    "color": "#687652",
+    "size": 0.85,
+    "threat": "Infantry · balanced defenses"
+  },
+  "shield": {
+    "name": "Orc Shieldbearer",
+    "hp": 130,
+    "speed": 1.35,
+    "armor": 32,
+    "gold": 6,
+    "xp": 5,
+    "color": "#77775a",
+    "size": 0.95,
+    "threat": "Heavy armor · use piercing or magic"
+  },
+  "troll": {
+    "name": "Mossback Troll",
+    "hp": 270,
+    "speed": 1.3,
+    "armor": 9,
+    "regen": 5,
+    "gold": 9,
+    "xp": 7,
+    "color": "#737f76",
+    "size": 1.25,
+    "threat": "Regeneration · focus your fire"
+  },
+  "ogre": {
+    "name": "Ironhide Ogre",
+    "hp": 1150,
+    "speed": 1.05,
+    "armor": 40,
+    "gold": 35,
+    "xp": 30,
+    "color": "#9b8c74",
+    "size": 1.75,
+    "boss": true,
+    "leak": 5,
+    "threat": "Miniboss · armor and immense health"
+  },
+  "berserker": {
+    "name": "Orc Berserker",
+    "hp": 115,
+    "speed": 2,
+    "armor": 4,
+    "gold": 6,
+    "xp": 5,
+    "color": "#886e54",
+    "size": 0.9,
+    "threat": "Enrages below half health · slow or burst"
+  },
+  "wolf": {
+    "name": "Wolf Rider",
+    "hp": 145,
+    "speed": 3.2,
+    "armor": 8,
+    "gold": 7,
+    "xp": 6,
+    "color": "#637568",
+    "size": 0.85,
+    "beast": true,
+    "threat": "Fast elite beast · frost and beast hunters"
+  },
+  "shaman": {
+    "name": "Orc Shaman",
+    "hp": 210,
+    "speed": 1.5,
+    "armor": 4,
+    "resists": {
+      "magic": 0.42
+    },
+    "gold": 10,
+    "xp": 8,
+    "color": "#7d795d",
+    "size": 1,
+    "threat": "Magic resistant · hastens nearby allies"
+  },
+  "sapper": {
+    "name": "Goblin Sapper",
+    "hp": 115,
+    "speed": 2.35,
+    "armor": 2,
+    "gold": 6,
+    "xp": 5,
+    "color": "#889166",
+    "size": 0.7,
+    "threat": "Scorches barricades · briefly weakens adjacent towers"
+  },
+  "warlock": {
+    "name": "Orc Warlock",
+    "hp": 260,
+    "speed": 1.4,
+    "armor": 6,
+    "resists": {
+      "magic": 0.2,
+      "fire": 0.2
+    },
+    "gold": 11,
+    "xp": 9,
+    "color": "#6c686b",
+    "size": 1,
+    "threat": "Magic ward aura · use physical and piercing"
+  },
+  "wyvern": {
+    "name": "Wyvern Rider",
+    "hp": 130,
+    "speed": 2.8,
+    "armor": 3,
+    "gold": 9,
+    "xp": 7,
+    "color": "#898568",
+    "size": 0.95,
+    "beast": true,
+    "flying": true,
+    "threat": "Flying · ignores your maze, follows checkpoints"
+  },
+  "warlord": {
+    "name": "Ghorun, the Hollow Crown",
+    "hp": 2800,
+    "speed": 1.15,
+    "armor": 52,
+    "resists": {
+      "magic": 0.2,
+      "poison": 0.3
+    },
+    "gold": 160,
+    "xp": 100,
+    "color": "#787b64",
+    "size": 2.1,
+    "boss": true,
+    "leak": 12,
+    "threat": "Legendary warlord · piercing, holy and a long maze"
+  },
+  "host_01": {
+    "name": "Ashclaw Scouts",
+    "model": "goblin",
+    "traits": [],
+    "hp": 46,
+    "speed": 2.05,
+    "armor": 1,
+    "gold": 3,
+    "xp": 3,
+    "color": "#72815b",
+    "size": 0.66,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 0,
+    "threat": "Ground warband · shape the route",
+    "counter": ""
+  },
+  "host_02": {
+    "name": "Reedfang Leapers",
+    "model": "wolf",
+    "traits": [],
+    "hp": 61,
+    "speed": 2.21,
+    "armor": 1,
+    "gold": 3,
+    "xp": 3,
+    "color": "#72815b",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 0,
+    "threat": "Ground warband · shape the route",
+    "counter": "",
+    "beast": true
+  },
+  "host_03": {
+    "name": "Ironbelly Brutes",
+    "model": "grunt",
+    "traits": [],
+    "hp": 80,
+    "speed": 2.3699999999999997,
+    "armor": 8,
+    "gold": 3,
+    "xp": 3,
+    "color": "#72815b",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 0,
+    "threat": "Ground warband · shape the route",
+    "counter": "Plated armor reduces physical damage; break armor or add magic."
+  },
+  "host_04": {
+    "name": "Scrapjaw Tinkerers",
+    "model": "sapper",
+    "traits": [],
+    "hp": 104,
+    "speed": 2.05,
+    "armor": 3,
+    "gold": 3,
+    "xp": 3,
+    "color": "#72815b",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 0,
+    "threat": "Ground warband · shape the route",
+    "counter": ""
+  },
+  "host_05": {
+    "name": "Gloamwing Outriders",
+    "model": "wyvern",
+    "traits": [],
+    "hp": 132,
+    "speed": 2.5,
+    "armor": 3,
+    "gold": 4,
+    "xp": 3,
+    "color": "#72815b",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 0,
+    "threat": "Airborne raiders · guard the checkpoint crossings",
+    "counter": "",
+    "beast": true,
+    "variants": [
+      {},
+      {
+        "name": "Gloamwing Outriders · Moonclaw clan",
+        "color": "#667e91",
+        "model": "balloon"
+      }
+    ]
+  },
+  "host_06": {
+    "name": "Mossback Lumberers",
+    "model": "troll",
+    "traits": [],
+    "hp": 166,
+    "speed": 2.3699999999999997,
+    "armor": 4,
+    "gold": 4,
+    "xp": 3,
+    "color": "#72815b",
+    "size": 1.15,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 0,
+    "threat": "Ground warband · shape the route",
+    "counter": "Ritual wards resist magic; physical and pure attacks remain effective.",
+    "resists": {
+      "magic": 0.138
+    }
+  },
+  "host_07": {
+    "name": "Bogscale Hunters",
+    "model": "grunt",
+    "traits": [],
+    "hp": 207,
+    "speed": 2.05,
+    "armor": 11,
+    "gold": 4,
+    "xp": 3,
+    "color": "#72815b",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 0,
+    "threat": "Ground warband · shape the route",
+    "counter": "Plated armor reduces physical damage; break armor or add magic."
+  },
+  "host_08": {
+    "name": "Veilfang Stalkers",
+    "model": "assassin",
+    "traits": [
+      "vitality",
+      "stealth"
+    ],
+    "hp": 256,
+    "speed": 2.21,
+    "armor": 3,
+    "gold": 4,
+    "xp": 3,
+    "color": "#72815b",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 0,
+    "threat": "Vitality · Veil",
+    "counter": "Regenerates health; focus damage. Cloaked beyond 2 tiles; Clerics reveal within 6.",
+    "regen": 1.024,
+    "stealth": true
+  },
+  "host_09": {
+    "name": "Dustcloak Skirmishers",
+    "model": "assassin",
+    "traits": [
+      "evasion"
+    ],
+    "hp": 314,
+    "speed": 2.3699999999999997,
+    "armor": 4,
+    "gold": 4,
+    "xp": 3,
+    "color": "#72815b",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 0,
+    "threat": "Evasion",
+    "counter": "Can evade direct physical hits; use magic.",
+    "evasion": 0.25
+  },
+  "host_10": {
+    "name": "Mogrok the Gatebreaker",
+    "model": "ogre",
+    "traits": [],
+    "hp": 4226,
+    "speed": 1.65,
+    "armor": 14,
+    "gold": 110,
+    "xp": 60,
+    "color": "#72815b",
+    "size": 1.75,
+    "boss": true,
+    "flying": false,
+    "leak": 10,
+    "clan": 0,
+    "threat": "Ground warband · shape the route",
+    "counter": "Plated armor reduces physical damage; break armor or add magic."
+  },
+  "host_11": {
+    "name": "Bonehook Raiders",
+    "model": "grunt",
+    "traits": [],
+    "hp": 467,
+    "speed": 2.21,
+    "armor": 15,
+    "gold": 5,
+    "xp": 4,
+    "color": "#7f8861",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 1,
+    "threat": "Ground warband · shape the route",
+    "counter": "Plated armor reduces physical damage; break armor or add magic."
+  },
+  "host_12": {
+    "name": "Hexdrum Saboteurs",
+    "model": "shaman",
+    "traits": [
+      "disarm"
+    ],
+    "hp": 565,
+    "speed": 2.3699999999999997,
+    "armor": 8,
+    "gold": 5,
+    "xp": 4,
+    "color": "#7f8861",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 1,
+    "threat": "Disarm",
+    "counter": "Briefly disarms nearby defenders every 8 seconds. Ritual wards resist magic; physical and pure attacks remain effective.",
+    "resists": {
+      "magic": 0.156
+    },
+    "disarm": true
+  },
+  "host_13": {
+    "name": "Redtusk Amazons",
+    "model": "berserker",
+    "traits": [],
+    "hp": 680,
+    "speed": 2.05,
+    "armor": 8,
+    "gold": 5,
+    "xp": 4,
+    "color": "#7f8861",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 1,
+    "threat": "Ground warband · shape the route",
+    "counter": ""
+  },
+  "host_14": {
+    "name": "Mirrorhide Guard",
+    "model": "shield",
+    "traits": [
+      "refraction"
+    ],
+    "hp": 816,
+    "speed": 2.21,
+    "armor": 17,
+    "gold": 5,
+    "xp": 4,
+    "color": "#7f8861",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 1,
+    "threat": "Mirror shields",
+    "counter": "Shields absorb three direct hits; poison ticks and burning auras bypass them. Plated armor reduces physical damage; break armor or add magic.",
+    "refraction": 3
+  },
+  "host_15": {
+    "name": "Moonbat Beastmasters",
+    "model": "bat",
+    "traits": [
+      "vitality"
+    ],
+    "hp": 975,
+    "speed": 2.5,
+    "armor": 6,
+    "gold": 6,
+    "xp": 4,
+    "color": "#7f8861",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 1,
+    "threat": "Vitality",
+    "counter": "Regenerates health; focus damage.",
+    "beast": true,
+    "regen": 3.9,
+    "variants": [
+      {},
+      {
+        "name": "Moonbat Beastmasters · Moonclaw clan",
+        "color": "#667e91",
+        "model": "bat"
+      }
+    ]
+  },
+  "host_16": {
+    "name": "Ashvein Cutpurses",
+    "model": "warlock",
+    "traits": [
+      "magicImmune",
+      "thief"
+    ],
+    "hp": 1162,
+    "speed": 2.05,
+    "armor": 10,
+    "gold": 6,
+    "xp": 4,
+    "color": "#7f8861",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 1,
+    "threat": "Magic immunity · Plunder",
+    "counter": "Magic and magical status immunity; physical or pure damage wins. Steals gold on reaching the keep. Ritual wards resist magic; physical and pure attacks remain effective.",
+    "resists": {
+      "magic": 0.168
+    },
+    "magicImmune": true,
+    "thief": 13
+  },
+  "host_17": {
+    "name": "Briarhex Shamans",
+    "model": "shaman",
+    "traits": [
+      "untouchable"
+    ],
+    "hp": 1380,
+    "speed": 2.21,
+    "armor": 11,
+    "gold": 6,
+    "xp": 4,
+    "color": "#7f8861",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 1,
+    "threat": "Dread aura",
+    "counter": "Nearby defenders attack more slowly. Ritual wards resist magic; physical and pure attacks remain effective.",
+    "resists": {
+      "magic": 0.171
+    },
+    "untouchable": 0.35
+  },
+  "host_18": {
+    "name": "Nightveil Hexblades",
+    "model": "assassin",
+    "traits": [
+      "stealth",
+      "disarm"
+    ],
+    "hp": 1636,
+    "speed": 2.3699999999999997,
+    "armor": 7,
+    "gold": 6,
+    "xp": 4,
+    "color": "#7f8861",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 1,
+    "threat": "Veil · Disarm",
+    "counter": "Cloaked beyond 2 tiles; Clerics reveal within 6. Briefly disarms nearby defenders every 8 seconds.",
+    "stealth": true,
+    "disarm": true
+  },
+  "host_19": {
+    "name": "Bloodhowl Wolfpack",
+    "model": "wolf",
+    "traits": [
+      "rush"
+    ],
+    "hp": 1933,
+    "speed": 2.05,
+    "armor": 7,
+    "gold": 6,
+    "xp": 4,
+    "color": "#7f8861",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 1,
+    "threat": "Blood rush",
+    "counter": "Periodic bursts of movement speed.",
+    "beast": true,
+    "rush": 1.7
+  },
+  "host_20": {
+    "name": "Gorvash the Bone Giant",
+    "model": "ogre",
+    "traits": [],
+    "hp": 25079,
+    "speed": 1.65,
+    "armor": 22,
+    "gold": 150,
+    "xp": 60,
+    "color": "#7f8861",
+    "size": 1.75,
+    "boss": true,
+    "flying": false,
+    "leak": 10,
+    "clan": 1,
+    "threat": "Ground warband · shape the route",
+    "counter": "Plated armor reduces physical damage; break armor or add magic."
+  },
+  "host_21": {
+    "name": "Rotroot Juggernauts",
+    "model": "troll",
+    "traits": [
+      "vitality"
+    ],
+    "hp": 2683,
+    "speed": 2.3699999999999997,
+    "armor": 14,
+    "gold": 7,
+    "xp": 5,
+    "color": "#6a8378",
+    "size": 1.15,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 2,
+    "threat": "Vitality",
+    "counter": "Regenerates health; focus damage. Ritual wards resist magic; physical and pure attacks remain effective.",
+    "resists": {
+      "magic": 0.183
+    },
+    "regen": 10.732000000000001
+  },
+  "host_22": {
+    "name": "Blackplate Ironclads",
+    "model": "shield",
+    "traits": [
+      "highArmor"
+    ],
+    "hp": 3150,
+    "speed": 2.05,
+    "armor": 74,
+    "gold": 7,
+    "xp": 5,
+    "color": "#6a8378",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 2,
+    "threat": "Iron plate",
+    "counter": "Heavy armor; use armor reduction or magic. Plated armor reduces physical damage; break armor or add magic."
+  },
+  "host_23": {
+    "name": "Mirrorwraith Warlocks",
+    "model": "warlock",
+    "traits": [
+      "physicalImmune",
+      "refraction"
+    ],
+    "hp": 3693,
+    "speed": 2.21,
+    "armor": 15,
+    "gold": 7,
+    "xp": 5,
+    "color": "#6a8378",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 2,
+    "threat": "Physical immunity · Mirror shields",
+    "counter": "Physical immunity; use magic or pure damage. Shields absorb three direct hits; poison ticks and burning auras bypass them. Ritual wards resist magic; physical and pure attacks remain effective.",
+    "resists": {
+      "magic": 0.189
+    },
+    "refraction": 3,
+    "physicalImmune": true
+  },
+  "host_24": {
+    "name": "Scrapspine Marauders",
+    "model": "sapper",
+    "traits": [
+      "reactiveArmor"
+    ],
+    "hp": 4321,
+    "speed": 2.3699999999999997,
+    "armor": 16,
+    "gold": 7,
+    "xp": 5,
+    "color": "#6a8378",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 2,
+    "threat": "Reactive armor",
+    "counter": "Direct hits build temporary armor.",
+    "reactiveArmor": 3
+  },
+  "host_25": {
+    "name": "Ironwing Corsairs",
+    "model": "wyvern",
+    "traits": [
+      "highArmor"
+    ],
+    "hp": 5047,
+    "speed": 2.5,
+    "armor": 66,
+    "gold": 8,
+    "xp": 5,
+    "color": "#6a8378",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 2,
+    "threat": "Iron plate",
+    "counter": "Heavy armor; use armor reduction or magic.",
+    "beast": true
+  },
+  "host_26": {
+    "name": "Cinderseal Zealots",
+    "model": "berserker",
+    "traits": [
+      "magicImmune"
+    ],
+    "hp": 5886,
+    "speed": 2.21,
+    "armor": 17,
+    "gold": 8,
+    "xp": 5,
+    "color": "#6a8378",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 2,
+    "threat": "Magic immunity",
+    "counter": "Magic and magical status immunity; physical or pure damage wins.",
+    "magicImmune": true
+  },
+  "host_27": {
+    "name": "Wraithwing Harriers",
+    "model": "bat",
+    "traits": [
+      "untouchable",
+      "physicalImmune"
+    ],
+    "hp": 6855,
+    "speed": 2.5,
+    "armor": 11,
+    "gold": 8,
+    "xp": 5,
+    "color": "#6a8378",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 2,
+    "threat": "Dread aura · Physical immunity",
+    "counter": "Nearby defenders attack more slowly. Physical immunity; use magic or pure damage.",
+    "beast": true,
+    "physicalImmune": true,
+    "untouchable": 0.35,
+    "variants": [
+      {},
+      {
+        "name": "Wraithwing Harriers · Moonclaw clan",
+        "color": "#667e91",
+        "model": "bat"
+      }
+    ]
+  },
+  "host_28": {
+    "name": "Rivetwing Bombardiers",
+    "model": "balloon",
+    "traits": [
+      "reactiveArmor"
+    ],
+    "hp": 7972,
+    "speed": 2.5,
+    "armor": 18,
+    "gold": 8,
+    "xp": 5,
+    "color": "#6a8378",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 2,
+    "threat": "Reactive armor",
+    "counter": "Direct hits build temporary armor.",
+    "reactiveArmor": 3,
+    "variants": [
+      {},
+      {
+        "name": "Rivetwing Bombardiers · Moonclaw clan",
+        "color": "#667e91",
+        "model": "balloon"
+      }
+    ]
+  },
+  "host_29": {
+    "name": "Prismbat Tricksters",
+    "model": "bat",
+    "traits": [
+      "evasion",
+      "refraction"
+    ],
+    "hp": 9259,
+    "speed": 2.5,
+    "armor": 11,
+    "gold": 8,
+    "xp": 5,
+    "color": "#6a8378",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 2,
+    "threat": "Evasion · Mirror shields",
+    "counter": "Can evade direct physical hits; use magic. Shields absorb three direct hits; poison ticks and burning auras bypass them.",
+    "beast": true,
+    "evasion": 0.25,
+    "refraction": 3,
+    "variants": [
+      {},
+      {
+        "name": "Prismbat Tricksters · Moonclaw clan",
+        "color": "#667e91",
+        "model": "bat"
+      }
+    ]
+  },
+  "host_30": {
+    "name": "Zaruun the Stormrider",
+    "model": "dragon",
+    "traits": [],
+    "hp": 118139,
+    "speed": 1.65,
+    "armor": 20,
+    "gold": 190,
+    "xp": 60,
+    "color": "#6a8378",
+    "size": 1.75,
+    "boss": true,
+    "flying": true,
+    "leak": 10,
+    "clan": 2,
+    "threat": "Airborne raiders · guard the checkpoint crossings",
+    "counter": "",
+    "beast": true,
+    "variants": [
+      {},
+      {
+        "name": "Zaruun the Stormrider · Moonclaw clan",
+        "color": "#667e91",
+        "model": "dragon"
+      }
+    ]
+  },
+  "host_31": {
+    "name": "Twinseal Spellbreakers",
+    "model": "warlock",
+    "traits": [
+      "splitImmunity",
+      "refraction"
+    ],
+    "hp": 12443,
+    "speed": 2.05,
+    "armor": 20,
+    "gold": 9,
+    "xp": 6,
+    "color": "#8a775d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 3,
+    "threat": "Alternating immunity · Mirror shields",
+    "counter": "This wave rolls either magic or physical immunity. Shields absorb three direct hits; poison ticks and burning auras bypass them. Ritual wards resist magic; physical and pure attacks remain effective.",
+    "resists": {
+      "magic": 0.213
+    },
+    "refraction": 3,
+    "variants": [
+      {
+        "magicImmune": true,
+        "physicalImmune": false,
+        "name": "Twinseal Spellbreakers · Cinder seal"
+      },
+      {
+        "physicalImmune": true,
+        "magicImmune": false,
+        "name": "Twinseal Spellbreakers · Wraith seal"
+      }
+    ]
+  },
+  "host_32": {
+    "name": "Soulwell Channelers",
+    "model": "shaman",
+    "traits": [
+      "recharge"
+    ],
+    "hp": 14400,
+    "speed": 2.21,
+    "armor": 21,
+    "gold": 9,
+    "xp": 6,
+    "color": "#8a775d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 3,
+    "threat": "Soul recharge",
+    "counter": "Periodically restores health. Ritual wards resist magic; physical and pure attacks remain effective.",
+    "resists": {
+      "magic": 0.216
+    },
+    "recharge": 0.12
+  },
+  "host_33": {
+    "name": "Riftstep Revenants",
+    "model": "assassin",
+    "traits": [
+      "physicalImmune",
+      "blink"
+    ],
+    "hp": 16647,
+    "speed": 2.3699999999999997,
+    "armor": 13,
+    "gold": 9,
+    "xp": 6,
+    "color": "#8a775d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 3,
+    "threat": "Physical immunity · Rift step",
+    "counter": "Physical immunity; use magic or pure damage. Dashes forward along the route, still visiting checkpoints.",
+    "physicalImmune": true,
+    "blink": 3
+  },
+  "host_34": {
+    "name": "Gallowswing Pickpockets",
+    "model": "bat",
+    "traits": [
+      "evasion",
+      "thief"
+    ],
+    "hp": 19098,
+    "speed": 2.5,
+    "armor": 13,
+    "gold": 9,
+    "xp": 6,
+    "color": "#8a775d",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 3,
+    "threat": "Evasion · Plunder",
+    "counter": "Can evade direct physical hits; use magic. Steals gold on reaching the keep.",
+    "beast": true,
+    "evasion": 0.25,
+    "thief": 19
+  },
+  "host_35": {
+    "name": "Eclipsewing Twins",
+    "model": "wyvern",
+    "traits": [
+      "splitImmunity"
+    ],
+    "hp": 21640,
+    "speed": 2.5,
+    "armor": 23,
+    "gold": 10,
+    "xp": 6,
+    "color": "#8a775d",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 3,
+    "threat": "Alternating immunity",
+    "counter": "This wave rolls either magic or physical immunity.",
+    "beast": true,
+    "variants": [
+      {
+        "magicImmune": true,
+        "physicalImmune": false,
+        "name": "Eclipsewing Twins · Cinder seal"
+      },
+      {
+        "physicalImmune": true,
+        "magicImmune": false,
+        "name": "Eclipsewing Twins · Wraith seal"
+      }
+    ]
+  },
+  "host_36": {
+    "name": "Sunless Oathbreakers",
+    "model": "shield",
+    "traits": [
+      "splitImmunity"
+    ],
+    "hp": 24505,
+    "speed": 2.3699999999999997,
+    "armor": 36,
+    "gold": 10,
+    "xp": 6,
+    "color": "#8a775d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 3,
+    "threat": "Alternating immunity",
+    "counter": "This wave rolls either magic or physical immunity. Plated armor reduces physical damage; break armor or add magic.",
+    "variants": [
+      {
+        "magicImmune": true,
+        "physicalImmune": false,
+        "name": "Sunless Oathbreakers · Cinder seal"
+      },
+      {
+        "physicalImmune": true,
+        "magicImmune": false,
+        "name": "Sunless Oathbreakers · Wraith seal"
+      }
+    ]
+  },
+  "host_37": {
+    "name": "Riftfang Prowlers",
+    "model": "wolf",
+    "traits": [
+      "blink"
+    ],
+    "hp": 27733,
+    "speed": 2.05,
+    "armor": 14,
+    "gold": 10,
+    "xp": 6,
+    "color": "#8a775d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 3,
+    "threat": "Rift step",
+    "counter": "Dashes forward along the route, still visiting checkpoints.",
+    "beast": true,
+    "blink": 3
+  },
+  "host_38": {
+    "name": "Blackmire Knifemasters",
+    "model": "assassin",
+    "traits": [
+      "cloakDaggers"
+    ],
+    "hp": 31369,
+    "speed": 2.21,
+    "armor": 15,
+    "gold": 10,
+    "xp": 6,
+    "color": "#8a775d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 3,
+    "threat": "Cloak & daggers",
+    "counter": "Cycles between cloak and short close-range disarms.",
+    "cloakDaggers": true,
+    "disarm": true,
+    "variants": [
+      {},
+      {
+        "name": "Blackmire Blooddrinkers",
+        "cloakDaggers": false,
+        "disarm": false,
+        "regen": 125.476
+      }
+    ]
+  },
+  "host_39": {
+    "name": "Tempestscale Reavers",
+    "model": "wyvern",
+    "traits": [
+      "untouchable",
+      "krakenShell",
+      "evasion"
+    ],
+    "hp": 35463,
+    "speed": 2.5,
+    "armor": 25,
+    "gold": 10,
+    "xp": 6,
+    "color": "#8a775d",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 3,
+    "threat": "Dread aura · Deep shell · Evasion",
+    "counter": "Nearby defenders attack more slowly. Reduces damage from individual direct hits. Can evade direct physical hits; use magic.",
+    "beast": true,
+    "evasion": 0.25,
+    "untouchable": 0.35,
+    "krakenShell": 66.5
+  },
+  "host_40": {
+    "name": "Vorlak the Hollow Sky",
+    "model": "dragon",
+    "traits": [
+      "krakenShell"
+    ],
+    "hp": 440770,
+    "speed": 1.65,
+    "armor": 26,
+    "gold": 230,
+    "xp": 60,
+    "color": "#8a775d",
+    "size": 1.75,
+    "boss": true,
+    "flying": true,
+    "leak": 10,
+    "clan": 3,
+    "threat": "Deep shell",
+    "counter": "Reduces damage from individual direct hits.",
+    "beast": true,
+    "krakenShell": 68
+  },
+  "host_41": {
+    "name": "Crystalmaw Phalanx",
+    "model": "shield",
+    "traits": [
+      "refraction"
+    ],
+    "hp": 45254,
+    "speed": 2.21,
+    "armor": 41,
+    "gold": 11,
+    "xp": 7,
+    "color": "#7a697d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 4,
+    "threat": "Mirror shields",
+    "counter": "Shields absorb three direct hits; poison ticks and burning auras bypass them. Plated armor reduces physical damage; break armor or add magic.",
+    "refraction": 3,
+    "variants": [
+      {},
+      {
+        "name": "Crystalmaw Phalanx · Moonclaw clan",
+        "color": "#667e91",
+        "model": "shield"
+      }
+    ]
+  },
+  "host_42": {
+    "name": "Wildfire Bat-Lancers",
+    "model": "bat",
+    "traits": [
+      "magicImmune",
+      "rush"
+    ],
+    "hp": 51085,
+    "speed": 2.5,
+    "armor": 16,
+    "gold": 11,
+    "xp": 7,
+    "color": "#7a697d",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 4,
+    "threat": "Magic immunity · Blood rush",
+    "counter": "Magic and magical status immunity; physical or pure damage wins. Periodic bursts of movement speed.",
+    "beast": true,
+    "magicImmune": true,
+    "rush": 1.7
+  },
+  "host_43": {
+    "name": "Soulfed Hexguard",
+    "model": "shaman",
+    "traits": [
+      "untouchable",
+      "evasion",
+      "recharge"
+    ],
+    "hp": 57641,
+    "speed": 2.05,
+    "armor": 28,
+    "gold": 11,
+    "xp": 7,
+    "color": "#7a697d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 4,
+    "threat": "Dread aura · Evasion · Soul recharge",
+    "counter": "Nearby defenders attack more slowly. Can evade direct physical hits; use magic. Periodically restores health. Ritual wards resist magic; physical and pure attacks remain effective.",
+    "resists": {
+      "magic": 0.24
+    },
+    "evasion": 0.25,
+    "untouchable": 0.35,
+    "recharge": 0.12
+  },
+  "host_44": {
+    "name": "Cinderblink Executioners",
+    "model": "berserker",
+    "traits": [
+      "magicImmune",
+      "blink"
+    ],
+    "hp": 65012,
+    "speed": 2.21,
+    "armor": 29,
+    "gold": 11,
+    "xp": 7,
+    "color": "#7a697d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 4,
+    "threat": "Magic immunity · Rift step",
+    "counter": "Magic and magical status immunity; physical or pure damage wins. Dashes forward along the route, still visiting checkpoints.",
+    "magicImmune": true,
+    "blink": 3
+  },
+  "host_45": {
+    "name": "Skyhex Drumguard",
+    "model": "balloon",
+    "traits": [
+      "disarm",
+      "warDrums"
+    ],
+    "hp": 73294,
+    "speed": 2.5,
+    "armor": 29,
+    "gold": 12,
+    "xp": 7,
+    "color": "#7a697d",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 4,
+    "threat": "Disarm · War drums",
+    "counter": "Briefly disarms nearby defenders every 8 seconds. Pulses haste to nearby allies.",
+    "disarm": true,
+    "hasteAura": 1.18
+  },
+  "host_46": {
+    "name": "Ghostplate Immortals",
+    "model": "shield",
+    "traits": [
+      "physicalImmune"
+    ],
+    "hp": 82599,
+    "speed": 2.05,
+    "armor": 45,
+    "gold": 12,
+    "xp": 7,
+    "color": "#7a697d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 4,
+    "threat": "Physical immunity",
+    "counter": "Physical immunity; use magic or pure damage. Plated armor reduces physical damage; break armor or add magic.",
+    "physicalImmune": true
+  },
+  "host_47": {
+    "name": "Doomchant Ravagers",
+    "model": "berserker",
+    "traits": [
+      "magicImmune",
+      "untouchable",
+      "rush"
+    ],
+    "hp": 93050,
+    "speed": 2.21,
+    "armor": 31,
+    "gold": 12,
+    "xp": 7,
+    "color": "#7a697d",
+    "size": 0.9,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 4,
+    "threat": "Magic immunity · Dread aura · Blood rush",
+    "counter": "Magic and magical status immunity; physical or pure damage wins. Nearby defenders attack more slowly. Periodic bursts of movement speed.",
+    "magicImmune": true,
+    "untouchable": 0.35,
+    "rush": 1.7
+  },
+  "host_48": {
+    "name": "Nightfire Sky-Thieves",
+    "model": "bat",
+    "traits": [
+      "magicImmune",
+      "disarm",
+      "evasion",
+      "thief"
+    ],
+    "hp": 104785,
+    "speed": 2.5,
+    "armor": 19,
+    "gold": 12,
+    "xp": 7,
+    "color": "#7a697d",
+    "size": 0.9,
+    "boss": false,
+    "flying": true,
+    "leak": 1,
+    "clan": 4,
+    "threat": "Magic immunity · Disarm · Evasion · Plunder",
+    "counter": "Magic and magical status immunity; physical or pure damage wins. Briefly disarms nearby defenders every 8 seconds. Can evade direct physical hits; use magic. Steals gold on reaching the keep.",
+    "beast": true,
+    "evasion": 0.25,
+    "disarm": true,
+    "magicImmune": true,
+    "thief": 24
+  },
+  "host_49": {
+    "name": "Deepmaw Soulkeepers",
+    "model": "ogre",
+    "traits": [
+      "krakenShell",
+      "recharge"
+    ],
+    "hp": 117958,
+    "speed": 2.05,
+    "armor": 48,
+    "gold": 12,
+    "xp": 7,
+    "color": "#7a697d",
+    "size": 1.15,
+    "boss": false,
+    "flying": false,
+    "leak": 1,
+    "clan": 4,
+    "threat": "Deep shell · Soul recharge",
+    "counter": "Reduces damage from individual direct hits. Periodically restores health. Plated armor reduces physical damage; break armor or add magic.",
+    "recharge": 0.12,
+    "krakenShell": 81.5
+  },
+  "host_50": {
+    "name": "Ghorun, Emperor of Ash",
+    "model": "dragon",
+    "traits": [
+      "krakenShell"
+    ],
+    "hp": 1460171,
+    "speed": 1.65,
+    "armor": 33,
+    "gold": 270,
+    "xp": 60,
+    "color": "#7a697d",
+    "size": 1.75,
+    "boss": true,
+    "flying": true,
+    "leak": 10,
+    "clan": 4,
+    "threat": "Deep shell",
+    "counter": "Reduces damage from individual direct hits.",
+    "beast": true,
+    "krakenShell": 83,
+    "variants": [
+      {},
+      {
+        "name": "Ghorun, the Gilded Tyrant",
+        "magicImmune": true,
+        "color": "#b99d57"
+      },
+      {
+        "name": "Ghorun, the Pale Devourer",
+        "krakenShell": 107.9,
+        "color": "#a4b9b5"
+      }
+    ]
+  }
+}

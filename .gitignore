@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+artifacts/
+.sites-runtime/
+*.blend[0-9]
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example

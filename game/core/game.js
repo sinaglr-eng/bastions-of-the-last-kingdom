@@ -1,0 +1,153 @@
+import {GridManager} from './grid.js';
+import {seededRandom} from './math.js';
+import {DraftManager} from './draft.js';
+import {EconomyManager} from './progression.js';
+import {CombatManager} from './combat.js';
+import {matchingIngredients,mergePartner,allRecipes,recipeFamily,recipeTier} from './recipes.js';
+
+export class Game {
+  constructor(data,{seed=Date.now(),waveLimit=data.waves.length,discoveries=[]}={}) {
+    this.data=data;this.seed=seed;this.rng=seededRandom(seed);this.waveLimit=waveLimit;
+    this.grid=new GridManager();this.economy=new EconomyManager(data.balance);this.draft=new DraftManager(data,this.rng);this.combat=new CombatManager(this);
+    this.towers=[];this.nextId=1;this.round=1;this.lives=data.balance.startingLives;this.kills=0;this.leaks=0;this.phase='build';this.selected=null;this.activeDraw=0;this.speed=1;this.paused=false;this.listeners=new Set();this.discoveries=new Set(discoveries);this.pinned=null;this.lastReward=0;
+    this.score=0;this.draft.roll(0);
+  }
+  on(callback){this.listeners.add(callback);return()=>this.listeners.delete(callback);}
+  emit(type,payload={}){for(const fn of this.listeners)fn(type,payload);}
+  message(text){this.emit('message',{text});return false;}
+  select(id){this.selected=id;this.previewRecipeId=null;this.emit('change');}
+  get selection(){return this.towers.find(t=>t.id===this.selected)||null;}
+  get roundCandidates(){
+    if(!['build','select'].includes(this.phase))return [];
+    return this.draft.draws.flatMap((draw,index)=>{
+      const tower=this.towers.find(t=>t.id===draw.towerId&&t.state==='draft'&&t.round===this.round);
+      return tower?[{tower,number:index+1}]:[];
+    });
+  }
+  get wave(){return this.data.waves[this.round-1];}
+  get recipes(){return allRecipes(this.data,this.towers);}
+  awardScore(points){this.score+=Math.max(0,Math.floor(points));}
+  get constructionBudget(){
+    const perRound=this.data.balance.drawsPerRound,limit=this.waveLimit*perRound;
+    const spent=(this.round-1)*perRound+this.draft.draws.filter(d=>d.placed).length;
+    return {limit,spent,remaining:Math.max(0,limit-spent),occupied:this.grid.occupied.size};
+  }
+  place(x,z) {
+    if(this.phase!=='build')return this.message('Construction is closed. Select a defense to inspect it.');
+    const draw=this.draft.draws[this.activeDraw];
+    if(!draw || draw.placed)return false;
+    const result=this.grid.occupy(x,z,this.nextId);
+    if(!result.ok)return this.message(result.reason);
+    // The successful placement commits the location BEFORE consuming any random draw.
+    this.draft.reveal(this.activeDraw);
+    const tower={id:this.nextId++,family:draw.family,tier:draw.tier,x,z,state:'draft',round:this.round,kills:0,priority:'first',cooldown:0};
+    this.towers.push(tower);draw.placed=true;draw.towerId=tower.id;this.selected=tower.id;
+    this.activeDraw=this.draft.draws.findIndex(d=>!d.placed);
+    if(this.activeDraw<0){this.phase='select';this.message('Choose one defense to keep, merge, or combine. The others become barricades.');}
+    this.emit('place',{tower});this.emit('change');return true;
+  }
+  finishSelection(keep) {
+    for(const t of this.towers)if(t.state==='draft')t.state=t.id===keep.id?'active':'ruin';
+    keep.state='active';this.phase='ready';this.selected=keep.id;this.emit('change');
+  }
+  keep() {
+    const t=this.selection;
+    if(this.phase!=='select'||t?.state!=='draft')return this.message('Select one of this round’s five defenses.');
+    this.finishSelection(t);this.emit('keep',{tower:t});return true;
+  }
+  downgrade() {
+    const t=this.selection;
+    if(this.phase!=='select'||!this.roundCandidates.some(c=>c.tower===t))return this.message('Select one of this round’s five candidates.');
+    if(this.data.towers[t.family].advanced||t.tier<=1)return this.message('Only a basic candidate above Tier I can be downgraded.');
+    if(!this.economy.spend(this.data.balance.downgradeCost))return this.message('Downgrading and keeping a defender costs 200 gold.');
+    t.tier--;this.finishSelection(t);this.emit('keep',{tower:t});
+    this.message('Defender downgraded by one rank and kept · 200 gold');return true;
+  }
+  canCombine(t) {return t&&t.state!=='ruin'&&['build','select','ready','reward'].includes(this.phase)&&(t.state!=='draft'||this.phase==='select');}
+  mergePartner(t=this.selection){return this.phase==='select'?mergePartner(t,this.roundCandidates.map(c=>c.tower),this.data):null;}
+  merge() {
+    const t=this.selection;
+    const partner=this.mergePartner(t);
+    if(!partner)return this.message('Rank merging needs two identical defenders among this round’s five candidates.');
+    const draftUsed=t.state==='draft'||partner.state==='draft';
+    if(this.phase==='select'&&t.state!=='draft'&&draftUsed)return this.message('Select the new tower to choose its result location.');
+    partner.state='ruin';t.tier++;t.kills+=partner.kills;t.state='active';
+    if(draftUsed)this.finishSelection(t);
+    this.emit('combine',{tower:t});this.emit('change');return true;
+  }
+  availableRecipes(t=this.selection) {
+    if(!this.canCombine(t))return [];
+    return this.recipes.filter(r=>r.level<=this.economy.level&&matchingIngredients(r,this.towers.filter(o=>this.canCombine(o)),t));
+  }
+  previewRecipe(id){if(!this.availableRecipes().some(r=>r.id===id))return false;this.previewRecipeId=id;this.emit('change');return true;}
+  get recipePreview(){
+    const pool=this.towers.filter(t=>this.canCombine(t));
+    let anchor=this.selection,options=this.availableRecipes(anchor);
+    if(!options.length){
+      const recipe=this.recipes.find(r=>r.level<=this.economy.level&&matchingIngredients(r,pool));
+      if(!recipe)return null;
+      const pieces=matchingIngredients(recipe,pool);anchor=pieces.find(t=>t.state==='draft')||pieces[0];options=[recipe];
+    }
+    const recipe=options.find(r=>r.id===this.previewRecipeId)||options[0];
+    const pieces=matchingIngredients(recipe,pool,anchor);
+    const discarded=pieces.some(t=>t.state==='draft')?this.roundCandidates.map(c=>c.tower).filter(t=>!pieces.includes(t)):[];
+    return {recipe,anchor,pieces,discarded};
+  }
+  get combinationHints(){
+    const hints=new Map();
+    for(const tower of this.towers){const recipe=this.availableRecipes(tower)[0];if(recipe)hints.set(tower.id,{tower,recipe,role:'available'});}
+    const preview=this.recipePreview;
+    if(preview){
+      for(const tower of preview.pieces)hints.set(tower.id,{tower,recipe:preview.recipe,role:tower.id===preview.anchor.id?'result':'consumed'});
+      for(const tower of preview.discarded)hints.set(tower.id,{tower,recipe:preview.recipe,role:'discarded'});
+    }
+    return [...hints.values()];
+  }
+  craft(id) {
+    const t=this.selection,recipe=this.availableRecipes(t).find(r=>r.id===id);
+    if(!recipe)return this.message('Select a matching ingredient and gather every recipe piece.');
+    const pieces=matchingIngredients(recipe,this.towers.filter(o=>this.canCombine(o)),t);
+    const draftUsed=pieces.some(p=>p.state==='draft');
+    const kills=pieces.reduce((sum,p)=>sum+(p.kills||0),0),family=recipeFamily(recipe);
+    pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=recipeTier(recipe);t.state='active';t.upgrades=0;t.kills=kills;
+    this.discoveries.add(family);
+    if(draftUsed)this.finishSelection(t);
+    this.emit('combine',{tower:t});this.emit('discover',{id:family});this.emit('change');return true;
+  }
+  remove() {
+    const t=this.selection;
+    if(!t)return this.message('Select a castle wall to demolish.');
+    if(!['build','select','ready','reward'].includes(this.phase))return this.message('Demolition is available between waves.');
+    if(t.state==='draft')return this.message('Choose your keeper first. This round’s five candidates cannot be demolished yet.');
+    if(t.state!=='ruin')return this.message('Retained defenders are permanent. Transform them through an advanced recipe; only castle walls can be demolished.');
+    if(!this.economy.spend(this.data.balance.removalCost))return this.message('Not enough gold to demolish this defense.');
+    this.grid.remove(t.x,t.z);this.towers=this.towers.filter(o=>o.id!==t.id);this.selected=null;
+    this.emit('change');this.message(`Defense demolished · ${this.data.balance.removalCost} gold · tile cleared`);return true;
+  }
+  reroll() {
+    return this.message('Defenders are rolled only after placement. Improve mastery for better future rounds.');
+  }
+  mastery() {if(!this.economy.upgradeMastery())return this.message('More gold or a higher Kingdom level is needed.');this.emit('change');this.emit('upgrade');return true;}
+  repair() {
+    return this.message('Lost keep health is permanent.');
+  }
+  upgradeSpecial() {
+    const t=this.selection;
+    if(!t||t.state!=='active'||!this.data.towers[t.family].advanced||!this.canCombine(t)||(t.upgrades||0)>=3)return false;
+    const cost=this.data.balance.specialUpgradeCost*((t.upgrades||0)+1);
+    if(!this.economy.spend(cost))return this.message('Not enough gold to improve this bastion.');
+    t.upgrades=(t.upgrades||0)+1;this.emit('combine',{tower:t});this.emit('change');return true;
+  }
+  startCombat() {if(this.phase!=='ready')return false;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
+  completeWave() {
+    if(this.phase!=='combat')return;
+    this.awardScore(this.round*100+(this.wave.boss?this.round*200:0));
+    this.lastReward=this.wave.reward;this.economy.reward(this.lastReward,15);this.combat.projectiles=[];
+    if(this.round>=this.waveLimit){this.end(true);return;}
+    const round=this.round;this.phase='reward';this.emit('reward',{round,gold:this.lastReward});this.nextRound();
+    this.message(`Wave ${round} survived · +${this.lastReward} gold · build five new defenders`);
+  }
+  nextRound() {if(this.phase!=='reward')return false;this.round++;this.phase='build';this.draft.roll(this.economy.mastery);this.activeDraw=0;this.selected=null;this.emit('change');return true;}
+  end(won){this.phase=won?'won':'lost';this.emit(this.phase);this.emit('change');}
+  tick(dt){if(this.phase==='combat'&&!this.paused)this.combat.update(dt*this.speed);}
+}

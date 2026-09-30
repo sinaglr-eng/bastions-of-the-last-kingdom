@@ -1,0 +1,1003 @@
+[
+  {
+    "name": "Ashclaw Scouts",
+    "boss": false,
+    "hp": 1,
+    "reward": 29,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 1,
+      "name": "Frenzied Pig",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_01",
+        "count": 8,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Reedfang Leapers",
+    "boss": false,
+    "hp": 1,
+    "reward": 36,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 2,
+      "name": "Swift Frog",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_02",
+        "count": 8,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Ironbelly Brutes",
+    "boss": false,
+    "hp": 1,
+    "reward": 43,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 3,
+      "name": "Sturdy Yak",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_03",
+        "count": 9,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Scrapjaw Tinkerers",
+    "boss": false,
+    "hp": 1,
+    "reward": 50,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 4,
+      "name": "Smart Robot",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_04",
+        "count": 9,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Gloamwing Outriders",
+    "boss": false,
+    "hp": 1,
+    "reward": 57,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 5,
+      "name": "Baby Panda / Balloon Badger",
+      "movement": "flying",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_05",
+        "count": 9,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Mossback Lumberers",
+    "boss": false,
+    "hp": 1,
+    "reward": 64,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 6,
+      "name": "Tardy Stump",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_06",
+        "count": 10,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Bogscale Hunters",
+    "boss": false,
+    "hp": 1,
+    "reward": 71,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 7,
+      "name": "Satisfied Lizard",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_07",
+        "count": 11,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Veilfang Stalkers",
+    "boss": false,
+    "hp": 1,
+    "reward": 78,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 8,
+      "name": "Invisible Spider",
+      "movement": "ground",
+      "traits": "vitality,stealth"
+    },
+    "groups": [
+      {
+        "type": "host_08",
+        "count": 11,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Dustcloak Skirmishers",
+    "boss": false,
+    "hp": 1,
+    "reward": 85,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 9,
+      "name": "Dusky",
+      "movement": "ground",
+      "traits": "evasion"
+    },
+    "groups": [
+      {
+        "type": "host_09",
+        "count": 12,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Mogrok the Gatebreaker",
+    "boss": true,
+    "hp": 1,
+    "reward": 92,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 10,
+      "name": "Invincible Dog",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_10",
+        "count": 1,
+        "interval": 1
+      }
+    ]
+  },
+  {
+    "name": "Bonehook Raiders",
+    "boss": false,
+    "hp": 1,
+    "reward": 99,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 11,
+      "name": "Sheep",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_11",
+        "count": 13,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Hexdrum Saboteurs",
+    "boss": false,
+    "hp": 1,
+    "reward": 106,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 12,
+      "name": "Funny Alpaca",
+      "movement": "ground",
+      "traits": "disarm"
+    },
+    "groups": [
+      {
+        "type": "host_12",
+        "count": 13,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Redtusk Amazons",
+    "boss": false,
+    "hp": 1,
+    "reward": 113,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 13,
+      "name": "Pig Princess",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_13",
+        "count": 14,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Mirrorhide Guard",
+    "boss": false,
+    "hp": 1,
+    "reward": 120,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 14,
+      "name": "Bulldog",
+      "movement": "ground",
+      "traits": "refraction"
+    },
+    "groups": [
+      {
+        "type": "host_14",
+        "count": 14,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Moonbat Beastmasters",
+    "boss": false,
+    "hp": 1,
+    "reward": 127,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 15,
+      "name": "Bamboo Addict / Cat & Dog",
+      "movement": "flying",
+      "traits": "vitality"
+    },
+    "groups": [
+      {
+        "type": "host_15",
+        "count": 11,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Ashvein Cutpurses",
+    "boss": false,
+    "hp": 1,
+    "reward": 134,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 16,
+      "name": "Young Demon",
+      "movement": "ground",
+      "traits": "magicImmune,thief"
+    },
+    "groups": [
+      {
+        "type": "host_16",
+        "count": 15,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Briarhex Shamans",
+    "boss": false,
+    "hp": 1,
+    "reward": 141,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 17,
+      "name": "Belted Chicken",
+      "movement": "ground",
+      "traits": "untouchable"
+    },
+    "groups": [
+      {
+        "type": "host_17",
+        "count": 16,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Nightveil Hexblades",
+    "boss": false,
+    "hp": 1,
+    "reward": 148,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 18,
+      "name": "Bajie",
+      "movement": "ground",
+      "traits": "stealth,disarm"
+    },
+    "groups": [
+      {
+        "type": "host_18",
+        "count": 16,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Bloodhowl Wolfpack",
+    "boss": false,
+    "hp": 1,
+    "reward": 155,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 19,
+      "name": "Donkeytrio",
+      "movement": "ground",
+      "traits": "rush"
+    },
+    "groups": [
+      {
+        "type": "host_19",
+        "count": 17,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Gorvash the Bone Giant",
+    "boss": true,
+    "hp": 1,
+    "reward": 162,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 20,
+      "name": "Shakbag",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_20",
+        "count": 1,
+        "interval": 1
+      }
+    ]
+  },
+  {
+    "name": "Rotroot Juggernauts",
+    "boss": false,
+    "hp": 1,
+    "reward": 169,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 21,
+      "name": "Crab",
+      "movement": "ground",
+      "traits": "vitality"
+    },
+    "groups": [
+      {
+        "type": "host_21",
+        "count": 18,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Blackplate Ironclads",
+    "boss": false,
+    "hp": 1,
+    "reward": 176,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 22,
+      "name": "Lockyaw",
+      "movement": "ground",
+      "traits": "highArmor"
+    },
+    "groups": [
+      {
+        "type": "host_22",
+        "count": 18,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Mirrorwraith Warlocks",
+    "boss": false,
+    "hp": 1,
+    "reward": 183,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 23,
+      "name": "Flopjaw",
+      "movement": "ground",
+      "traits": "physicalImmune,refraction"
+    },
+    "groups": [
+      {
+        "type": "host_23",
+        "count": 19,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Scrapspine Marauders",
+    "boss": false,
+    "hp": 1,
+    "reward": 190,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 24,
+      "name": "Mech Donkey",
+      "movement": "ground",
+      "traits": "reactiveArmor"
+    },
+    "groups": [
+      {
+        "type": "host_24",
+        "count": 19,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Ironwing Corsairs",
+    "boss": false,
+    "hp": 1,
+    "reward": 197,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 25,
+      "name": "Cosair",
+      "movement": "flying",
+      "traits": "highArmor"
+    },
+    "groups": [
+      {
+        "type": "host_25",
+        "count": 13,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Cinderseal Zealots",
+    "boss": false,
+    "hp": 1,
+    "reward": 204,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 26,
+      "name": "Skateboard Flamingo",
+      "movement": "ground",
+      "traits": "magicImmune"
+    },
+    "groups": [
+      {
+        "type": "host_26",
+        "count": 20,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Wraithwing Harriers",
+    "boss": false,
+    "hp": 1,
+    "reward": 211,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 27,
+      "name": "LGD Goldfish / Jellyfish",
+      "movement": "flying",
+      "traits": "untouchable,physicalImmune"
+    },
+    "groups": [
+      {
+        "type": "host_27",
+        "count": 13,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Rivetwing Bombardiers",
+    "boss": false,
+    "hp": 1,
+    "reward": 218,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 28,
+      "name": "Timbersaw / IG Dragon",
+      "movement": "flying",
+      "traits": "reactiveArmor"
+    },
+    "groups": [
+      {
+        "type": "host_28",
+        "count": 14,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Prismbat Tricksters",
+    "boss": false,
+    "hp": 1,
+    "reward": 225,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 29,
+      "name": "VG Fox",
+      "movement": "flying",
+      "traits": "evasion,refraction"
+    },
+    "groups": [
+      {
+        "type": "host_29",
+        "count": 14,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Zaruun the Stormrider",
+    "boss": true,
+    "hp": 1,
+    "reward": 232,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 30,
+      "name": "Carpet Rider / Zard-",
+      "movement": "flying",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_30",
+        "count": 1,
+        "interval": 1
+      }
+    ]
+  },
+  {
+    "name": "Twinseal Spellbreakers",
+    "boss": false,
+    "hp": 1,
+    "reward": 239,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 31,
+      "name": "Bookwyrm / Otterdragon",
+      "movement": "ground",
+      "traits": "splitImmunity,refraction"
+    },
+    "groups": [
+      {
+        "type": "host_31",
+        "count": 22,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Soulwell Channelers",
+    "boss": false,
+    "hp": 1,
+    "reward": 246,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 32,
+      "name": "Recharable Shark",
+      "movement": "ground",
+      "traits": "recharge"
+    },
+    "groups": [
+      {
+        "type": "host_32",
+        "count": 23,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Riftstep Revenants",
+    "boss": false,
+    "hp": 1,
+    "reward": 253,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 33,
+      "name": "Ribboned Zombie",
+      "movement": "ground",
+      "traits": "physicalImmune,blink"
+    },
+    "groups": [
+      {
+        "type": "host_33",
+        "count": 23,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Gallowswing Pickpockets",
+    "boss": false,
+    "hp": 1,
+    "reward": 260,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 34,
+      "name": "Babybloody",
+      "movement": "flying",
+      "traits": "evasion,thief"
+    },
+    "groups": [
+      {
+        "type": "host_34",
+        "count": 15,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Eclipsewing Twins",
+    "boss": false,
+    "hp": 1,
+    "reward": 267,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 35,
+      "name": "Black & White Fox",
+      "movement": "flying",
+      "traits": "splitImmunity"
+    },
+    "groups": [
+      {
+        "type": "host_35",
+        "count": 15,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Sunless Oathbreakers",
+    "boss": false,
+    "hp": 1,
+    "reward": 274,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 36,
+      "name": "Jumo",
+      "movement": "ground",
+      "traits": "splitImmunity"
+    },
+    "groups": [
+      {
+        "type": "host_36",
+        "count": 25,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Riftfang Prowlers",
+    "boss": false,
+    "hp": 1,
+    "reward": 281,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 37,
+      "name": "Baeko",
+      "movement": "ground",
+      "traits": "blink"
+    },
+    "groups": [
+      {
+        "type": "host_37",
+        "count": 25,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Blackmire Knifemasters",
+    "boss": false,
+    "hp": 1,
+    "reward": 288,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 38,
+      "name": "Lilnova",
+      "movement": "ground",
+      "traits": "cloakDaggers"
+    },
+    "groups": [
+      {
+        "type": "host_38",
+        "count": 26,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Tempestscale Reavers",
+    "boss": false,
+    "hp": 1,
+    "reward": 295,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 39,
+      "name": "Newt",
+      "movement": "flying",
+      "traits": "untouchable,krakenShell,evasion"
+    },
+    "groups": [
+      {
+        "type": "host_39",
+        "count": 16,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Vorlak the Hollow Sky",
+    "boss": true,
+    "hp": 1,
+    "reward": 302,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 40,
+      "name": "Thrilling Ghost",
+      "movement": "flying",
+      "traits": "krakenShell"
+    },
+    "groups": [
+      {
+        "type": "host_40",
+        "count": 1,
+        "interval": 1
+      }
+    ]
+  },
+  {
+    "name": "Crystalmaw Phalanx",
+    "boss": false,
+    "hp": 1,
+    "reward": 309,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 41,
+      "name": "Azuremir / Jade Dragon",
+      "movement": "ground",
+      "traits": "refraction"
+    },
+    "groups": [
+      {
+        "type": "host_41",
+        "count": 27,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Wildfire Bat-Lancers",
+    "boss": false,
+    "hp": 1,
+    "reward": 316,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 42,
+      "name": "Kupu",
+      "movement": "flying",
+      "traits": "magicImmune,rush"
+    },
+    "groups": [
+      {
+        "type": "host_42",
+        "count": 17,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Soulfed Hexguard",
+    "boss": false,
+    "hp": 1,
+    "reward": 323,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 43,
+      "name": "Furry fish",
+      "movement": "ground",
+      "traits": "untouchable,evasion,recharge"
+    },
+    "groups": [
+      {
+        "type": "host_43",
+        "count": 28,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Cinderblink Executioners",
+    "boss": false,
+    "hp": 1,
+    "reward": 330,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 44,
+      "name": "Shroomy",
+      "movement": "ground",
+      "traits": "magicImmune,blink"
+    },
+    "groups": [
+      {
+        "type": "host_44",
+        "count": 29,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Skyhex Drumguard",
+    "boss": false,
+    "hp": 1,
+    "reward": 337,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 45,
+      "name": "Chirpy",
+      "movement": "flying",
+      "traits": "disarm,warDrums",
+      "note": "The source lists an undefined Level ? skill; War Drums is an authored replacement."
+    },
+    "groups": [
+      {
+        "type": "host_45",
+        "count": 17,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Ghostplate Immortals",
+    "boss": false,
+    "hp": 1,
+    "reward": 344,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 46,
+      "name": "Boooofus",
+      "movement": "ground",
+      "traits": "physicalImmune"
+    },
+    "groups": [
+      {
+        "type": "host_46",
+        "count": 30,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Doomchant Ravagers",
+    "boss": false,
+    "hp": 1,
+    "reward": 351,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 47,
+      "name": "Crummy",
+      "movement": "ground",
+      "traits": "magicImmune,untouchable,rush"
+    },
+    "groups": [
+      {
+        "type": "host_47",
+        "count": 30,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Nightfire Sky-Thieves",
+    "boss": false,
+    "hp": 1,
+    "reward": 358,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 48,
+      "name": "Wabbit",
+      "movement": "flying",
+      "traits": "magicImmune,disarm,evasion,thief"
+    },
+    "groups": [
+      {
+        "type": "host_48",
+        "count": 18,
+        "interval": 0.9
+      }
+    ]
+  },
+  {
+    "name": "Deepmaw Soulkeepers",
+    "boss": false,
+    "hp": 1,
+    "reward": 365,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 49,
+      "name": "Drodo",
+      "movement": "ground",
+      "traits": "krakenShell,recharge"
+    },
+    "groups": [
+      {
+        "type": "host_49",
+        "count": 31,
+        "interval": 0.6
+      }
+    ]
+  },
+  {
+    "name": "Ghorun, Emperor of Ash",
+    "boss": true,
+    "hp": 1,
+    "reward": 372,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 50,
+      "name": "Baby / Golden / Platinum Baby Roshan",
+      "movement": "flying",
+      "traits": "krakenShell"
+    },
+    "groups": [
+      {
+        "type": "host_50",
+        "count": 1,
+        "interval": 1
+      }
+    ]
+  }
+]

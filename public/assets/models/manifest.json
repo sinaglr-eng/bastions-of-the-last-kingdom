@@ -1,0 +1,792 @@
+[
+  {
+    "file": "barricade.glb",
+    "kind": "prop",
+    "triangles": 36
+  },
+  {
+    "file": "pine_tree.glb",
+    "kind": "prop",
+    "triangles": 52
+  },
+  {
+    "file": "deciduous_tree.glb",
+    "kind": "prop",
+    "triangles": 40
+  },
+  {
+    "file": "rock.glb",
+    "kind": "prop",
+    "triangles": 20
+  },
+  {
+    "file": "castle_wall.glb",
+    "kind": "prop",
+    "triangles": 72
+  },
+  {
+    "file": "human_keep.glb",
+    "kind": "prop",
+    "triangles": 68
+  },
+  {
+    "file": "medieval_house.glb",
+    "kind": "prop",
+    "triangles": 18
+  },
+  {
+    "file": "barrel.glb",
+    "kind": "prop",
+    "triangles": 108
+  },
+  {
+    "file": "crate.glb",
+    "kind": "prop",
+    "triangles": 24
+  },
+  {
+    "file": "human_banner.glb",
+    "kind": "prop",
+    "triangles": 50
+  },
+  {
+    "file": "campfire.glb",
+    "kind": "prop",
+    "triangles": 20
+  },
+  {
+    "file": "wooden_fence.glb",
+    "kind": "prop",
+    "triangles": 48
+  },
+  {
+    "file": "cliff_module.glb",
+    "kind": "prop",
+    "triangles": 60
+  },
+  {
+    "file": "orc_warcamp.glb",
+    "kind": "prop",
+    "triangles": 56
+  },
+  {
+    "file": "orc_goblin.glb",
+    "kind": "character",
+    "triangles": 148
+  },
+  {
+    "file": "orc_grunt.glb",
+    "kind": "character",
+    "triangles": 148
+  },
+  {
+    "file": "orc_troll.glb",
+    "kind": "character",
+    "triangles": 148
+  },
+  {
+    "file": "orc_ogre.glb",
+    "kind": "character",
+    "triangles": 160
+  },
+  {
+    "file": "orc_shaman.glb",
+    "kind": "character",
+    "triangles": 156
+  },
+  {
+    "file": "orc_warlord.glb",
+    "kind": "character",
+    "triangles": 160
+  },
+  {
+    "file": "human_archer_t1.glb",
+    "kind": "tower",
+    "family": "archer",
+    "tier": 1,
+    "style": "archer-v2",
+    "triangles": 7293,
+    "authoring": "Blender",
+    "rankColor": "#3989ed"
+  },
+  {
+    "file": "human_archer_t2.glb",
+    "kind": "tower",
+    "family": "archer",
+    "tier": 2,
+    "style": "archer-v2",
+    "triangles": 7401,
+    "authoring": "Blender",
+    "rankColor": "#3eac63"
+  },
+  {
+    "file": "human_archer_t3.glb",
+    "kind": "tower",
+    "family": "archer",
+    "tier": 3,
+    "style": "archer-v2",
+    "triangles": 7661,
+    "authoring": "Blender",
+    "rankColor": "#9555d8"
+  },
+  {
+    "file": "human_archer_t4.glb",
+    "kind": "tower",
+    "family": "archer",
+    "tier": 4,
+    "style": "archer-v2",
+    "triangles": 7769,
+    "authoring": "Blender",
+    "rankColor": "#eee9db"
+  },
+  {
+    "file": "human_archer_t5.glb",
+    "kind": "tower",
+    "family": "archer",
+    "tier": 5,
+    "style": "archer-v2",
+    "triangles": 7973,
+    "authoring": "Blender",
+    "rankColor": "#e7b43f"
+  },
+  {
+    "file": "human_archer_t6.glb",
+    "kind": "tower",
+    "family": "archer",
+    "tier": 6,
+    "style": "archer-v2",
+    "triangles": 8625,
+    "authoring": "Blender",
+    "rankColor": "#ffd969"
+  },
+  {
+    "file": "human_soldier_t1.glb",
+    "kind": "tower",
+    "family": "soldier",
+    "tier": 1,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 6998
+  },
+  {
+    "file": "human_soldier_t2.glb",
+    "kind": "tower",
+    "family": "soldier",
+    "tier": 2,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7106
+  },
+  {
+    "file": "human_soldier_t3.glb",
+    "kind": "tower",
+    "family": "soldier",
+    "tier": 3,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7366
+  },
+  {
+    "file": "human_soldier_t4.glb",
+    "kind": "tower",
+    "family": "soldier",
+    "tier": 4,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7474
+  },
+  {
+    "file": "human_soldier_t5.glb",
+    "kind": "tower",
+    "family": "soldier",
+    "tier": 5,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7678
+  },
+  {
+    "file": "human_soldier_t6.glb",
+    "kind": "tower",
+    "family": "soldier",
+    "tier": 6,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 8330
+  },
+  {
+    "file": "human_druid_t1.glb",
+    "kind": "tower",
+    "family": "druid",
+    "tier": 1,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7000
+  },
+  {
+    "file": "human_druid_t2.glb",
+    "kind": "tower",
+    "family": "druid",
+    "tier": 2,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7108
+  },
+  {
+    "file": "human_druid_t3.glb",
+    "kind": "tower",
+    "family": "druid",
+    "tier": 3,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7368
+  },
+  {
+    "file": "human_druid_t4.glb",
+    "kind": "tower",
+    "family": "druid",
+    "tier": 4,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7476
+  },
+  {
+    "file": "human_druid_t5.glb",
+    "kind": "tower",
+    "family": "druid",
+    "tier": 5,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7680
+  },
+  {
+    "file": "human_druid_t6.glb",
+    "kind": "tower",
+    "family": "druid",
+    "tier": 6,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 8332
+  },
+  {
+    "file": "human_mage_t1.glb",
+    "kind": "tower",
+    "family": "mage",
+    "tier": 1,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 6872
+  },
+  {
+    "file": "human_mage_t2.glb",
+    "kind": "tower",
+    "family": "mage",
+    "tier": 2,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 6980
+  },
+  {
+    "file": "human_mage_t3.glb",
+    "kind": "tower",
+    "family": "mage",
+    "tier": 3,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7240
+  },
+  {
+    "file": "human_mage_t4.glb",
+    "kind": "tower",
+    "family": "mage",
+    "tier": 4,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7348
+  },
+  {
+    "file": "human_mage_t5.glb",
+    "kind": "tower",
+    "family": "mage",
+    "tier": 5,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7552
+  },
+  {
+    "file": "human_mage_t6.glb",
+    "kind": "tower",
+    "family": "mage",
+    "tier": 6,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 8204
+  },
+  {
+    "file": "human_cleric_t1.glb",
+    "kind": "tower",
+    "family": "cleric",
+    "tier": 1,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7236
+  },
+  {
+    "file": "human_cleric_t2.glb",
+    "kind": "tower",
+    "family": "cleric",
+    "tier": 2,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7344
+  },
+  {
+    "file": "human_cleric_t3.glb",
+    "kind": "tower",
+    "family": "cleric",
+    "tier": 3,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7604
+  },
+  {
+    "file": "human_cleric_t4.glb",
+    "kind": "tower",
+    "family": "cleric",
+    "tier": 4,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7712
+  },
+  {
+    "file": "human_cleric_t5.glb",
+    "kind": "tower",
+    "family": "cleric",
+    "tier": 5,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7916
+  },
+  {
+    "file": "human_cleric_t6.glb",
+    "kind": "tower",
+    "family": "cleric",
+    "tier": 6,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 8568
+  },
+  {
+    "file": "human_frostwarden_t1.glb",
+    "kind": "tower",
+    "family": "frostwarden",
+    "tier": 1,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7019
+  },
+  {
+    "file": "human_frostwarden_t2.glb",
+    "kind": "tower",
+    "family": "frostwarden",
+    "tier": 2,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7127
+  },
+  {
+    "file": "human_frostwarden_t3.glb",
+    "kind": "tower",
+    "family": "frostwarden",
+    "tier": 3,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7387
+  },
+  {
+    "file": "human_frostwarden_t4.glb",
+    "kind": "tower",
+    "family": "frostwarden",
+    "tier": 4,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7495
+  },
+  {
+    "file": "human_frostwarden_t5.glb",
+    "kind": "tower",
+    "family": "frostwarden",
+    "tier": 5,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7699
+  },
+  {
+    "file": "human_frostwarden_t6.glb",
+    "kind": "tower",
+    "family": "frostwarden",
+    "tier": 6,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 8351
+  },
+  {
+    "file": "human_stormcaller_t1.glb",
+    "kind": "tower",
+    "family": "stormcaller",
+    "tier": 1,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 6568
+  },
+  {
+    "file": "human_stormcaller_t2.glb",
+    "kind": "tower",
+    "family": "stormcaller",
+    "tier": 2,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 6676
+  },
+  {
+    "file": "human_stormcaller_t3.glb",
+    "kind": "tower",
+    "family": "stormcaller",
+    "tier": 3,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 6936
+  },
+  {
+    "file": "human_stormcaller_t4.glb",
+    "kind": "tower",
+    "family": "stormcaller",
+    "tier": 4,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7044
+  },
+  {
+    "file": "human_stormcaller_t5.glb",
+    "kind": "tower",
+    "family": "stormcaller",
+    "tier": 5,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7248
+  },
+  {
+    "file": "human_stormcaller_t6.glb",
+    "kind": "tower",
+    "family": "stormcaller",
+    "tier": 6,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7900
+  },
+  {
+    "file": "advanced_roseguard.glb",
+    "kind": "tower",
+    "family": "roseguard",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7854
+  },
+  {
+    "file": "advanced_highking.glb",
+    "kind": "tower",
+    "family": "highking",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7822
+  },
+  {
+    "file": "advanced_thornwarden.glb",
+    "kind": "tower",
+    "family": "thornwarden",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8127
+  },
+  {
+    "file": "advanced_verdantguard.glb",
+    "kind": "tower",
+    "family": "verdantguard",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8035
+  },
+  {
+    "file": "advanced_tempest.glb",
+    "kind": "tower",
+    "family": "tempest",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7760
+  },
+  {
+    "file": "advanced_starfall.glb",
+    "kind": "tower",
+    "family": "starfall",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8060
+  },
+  {
+    "file": "advanced_thunderheart.glb",
+    "kind": "tower",
+    "family": "thunderheart",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7544
+  },
+  {
+    "file": "advanced_greenheart.glb",
+    "kind": "tower",
+    "family": "greenheart",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7904
+  },
+  {
+    "file": "advanced_sunward.glb",
+    "kind": "tower",
+    "family": "sunward",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8164
+  },
+  {
+    "file": "advanced_dawnspire.glb",
+    "kind": "tower",
+    "family": "dawnspire",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8300
+  },
+  {
+    "file": "advanced_bannerwarden.glb",
+    "kind": "tower",
+    "family": "bannerwarden",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7797
+  },
+  {
+    "file": "advanced_galehunter.glb",
+    "kind": "tower",
+    "family": "galehunter",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8237
+  },
+  {
+    "file": "advanced_oakherald.glb",
+    "kind": "tower",
+    "family": "oakherald",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 9040
+  },
+  {
+    "file": "advanced_arcaneseer.glb",
+    "kind": "tower",
+    "family": "arcaneseer",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8276
+  },
+  {
+    "file": "advanced_sunhierophant.glb",
+    "kind": "tower",
+    "family": "sunhierophant",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8268
+  },
+  {
+    "file": "advanced_winterregent.glb",
+    "kind": "tower",
+    "family": "winterregent",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8407
+  },
+  {
+    "file": "advanced_tempestherald.glb",
+    "kind": "tower",
+    "family": "tempestherald",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7928
+  },
+  {
+    "file": "advanced_eldergrove.glb",
+    "kind": "tower",
+    "family": "eldergrove",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 2844
+  },
+  {
+    "file": "advanced_winterhold.glb",
+    "kind": "tower",
+    "family": "winterhold",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 2372
+  },
+  {
+    "file": "human_runebreaker_t1.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 1,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7136
+  },
+  {
+    "file": "human_runebreaker_t2.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 2,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7244
+  },
+  {
+    "file": "human_runebreaker_t3.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 3,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7504
+  },
+  {
+    "file": "human_runebreaker_t4.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 4,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7612
+  },
+  {
+    "file": "human_runebreaker_t5.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 5,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 7816
+  },
+  {
+    "file": "human_runebreaker_t6.glb",
+    "kind": "tower",
+    "family": "runebreaker",
+    "tier": 6,
+    "style": "hero-v5",
+    "authoring": "Blender",
+    "triangles": 8468
+  },
+  {
+    "file": "advanced_rimewatch.glb",
+    "kind": "tower",
+    "family": "rimewatch",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 9178
+  },
+  {
+    "file": "advanced_frostblade.glb",
+    "kind": "tower",
+    "family": "frostblade",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 9234
+  },
+  {
+    "file": "advanced_crownofages.glb",
+    "kind": "tower",
+    "family": "crownofages",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8890
+  },
+  {
+    "file": "advanced_phoenix.glb",
+    "kind": "tower",
+    "family": "phoenix",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 9416
+  },
+  {
+    "file": "advanced_stormcitadel.glb",
+    "kind": "tower",
+    "family": "stormcitadel",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7864
+  },
+  {
+    "file": "advanced_ironrune.glb",
+    "kind": "tower",
+    "family": "ironrune",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 8456
+  },
+  {
+    "file": "advanced_embercrown.glb",
+    "kind": "tower",
+    "family": "embercrown",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7708
+  },
+  {
+    "file": "advanced_worldfire.glb",
+    "kind": "tower",
+    "family": "worldfire",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7512
+  },
+  {
+    "file": "advanced_kingsreach.glb",
+    "kind": "tower",
+    "family": "kingsreach",
+    "tier": 1,
+    "style": "champion-v5",
+    "authoring": "Blender",
+    "triangles": 7478
+  }
+]

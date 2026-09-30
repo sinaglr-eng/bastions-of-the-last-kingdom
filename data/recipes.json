@@ -1,0 +1,738 @@
+[
+  {
+    "id": "rimewatch",
+    "level": 1,
+    "stage": "Basic",
+    "referenceTower": "Silver",
+    "ingredients": [
+      {
+        "family": "frostwarden",
+        "tier": 1
+      },
+      {
+        "family": "soldier",
+        "tier": 1
+      },
+      {
+        "family": "stormcaller",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "frostblade",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Silver Knight",
+    "ingredients": [
+      {
+        "family": "rimewatch",
+        "tier": 1
+      },
+      {
+        "family": "archer",
+        "tier": 2
+      },
+      {
+        "family": "mage",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "roseguard",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Pink Diamond",
+    "ingredients": [
+      {
+        "family": "soldier",
+        "tier": 5
+      },
+      {
+        "family": "soldier",
+        "tier": 3
+      },
+      {
+        "family": "stormcaller",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "highking",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Huge Pink Diamond",
+    "ingredients": [
+      {
+        "family": "roseguard",
+        "tier": 1
+      },
+      {
+        "family": "frostblade",
+        "tier": 1
+      },
+      {
+        "family": "rimewatch",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "crownofages",
+    "level": 1,
+    "stage": "Mythic",
+    "referenceTower": "Koh-i-noor Diamond",
+    "ingredients": [
+      {
+        "family": "highking",
+        "tier": 1
+      },
+      {
+        "family": "runebreaker",
+        "tier": 6
+      },
+      {
+        "family": "soldier",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "thornwarden",
+    "level": 1,
+    "stage": "Basic",
+    "referenceTower": "Malachite",
+    "ingredients": [
+      {
+        "family": "cleric",
+        "tier": 1
+      },
+      {
+        "family": "druid",
+        "tier": 1
+      },
+      {
+        "family": "archer",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "verdantguard",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Vivid Malachite",
+    "ingredients": [
+      {
+        "family": "thornwarden",
+        "tier": 1
+      },
+      {
+        "family": "soldier",
+        "tier": 2
+      },
+      {
+        "family": "stormcaller",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "tempest",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Uranium-238",
+    "ingredients": [
+      {
+        "family": "stormcaller",
+        "tier": 5
+      },
+      {
+        "family": "frostwarden",
+        "tier": 3
+      },
+      {
+        "family": "cleric",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "stormcitadel",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Uranium-235",
+    "ingredients": [
+      {
+        "family": "tempest",
+        "tier": 1
+      },
+      {
+        "family": "thornwarden",
+        "tier": 1
+      },
+      {
+        "family": "verdantguard",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "embercrown",
+    "level": 1,
+    "stage": "Basic",
+    "referenceTower": "Asteriated Ruby",
+    "ingredients": [
+      {
+        "family": "mage",
+        "tier": 2
+      },
+      {
+        "family": "mage",
+        "tier": 1
+      },
+      {
+        "family": "runebreaker",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "worldfire",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Volcano",
+    "ingredients": [
+      {
+        "family": "embercrown",
+        "tier": 1
+      },
+      {
+        "family": "mage",
+        "tier": 4
+      },
+      {
+        "family": "runebreaker",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "starfall",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Bloodstone",
+    "ingredients": [
+      {
+        "family": "mage",
+        "tier": 5
+      },
+      {
+        "family": "archer",
+        "tier": 4
+      },
+      {
+        "family": "runebreaker",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "thunderheart",
+    "level": 1,
+    "stage": "Advanced",
+    "referenceTower": "Antique Bloodstone",
+    "ingredients": [
+      {
+        "family": "starfall",
+        "tier": 1
+      },
+      {
+        "family": "worldfire",
+        "tier": 1
+      },
+      {
+        "family": "mage",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "phoenix",
+    "level": 1,
+    "stage": "Mythic",
+    "referenceTower": "The Crown Prince",
+    "ingredients": [
+      {
+        "family": "thunderheart",
+        "tier": 1
+      },
+      {
+        "family": "mage",
+        "tier": 6
+      },
+      {
+        "family": "druid",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "greenheart",
+    "level": 1,
+    "stage": "Basic",
+    "referenceTower": "Jade",
+    "ingredients": [
+      {
+        "family": "druid",
+        "tier": 3
+      },
+      {
+        "family": "cleric",
+        "tier": 3
+      },
+      {
+        "family": "frostwarden",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "eldergrove",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Grey Jade",
+    "ingredients": [
+      {
+        "family": "greenheart",
+        "tier": 1
+      },
+      {
+        "family": "frostwarden",
+        "tier": 4
+      },
+      {
+        "family": "archer",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "kingsreach",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Gold",
+    "ingredients": [
+      {
+        "family": "runebreaker",
+        "tier": 5
+      },
+      {
+        "family": "runebreaker",
+        "tier": 4
+      },
+      {
+        "family": "soldier",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "sunward",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Chrysoberyl Cat’s Eye",
+    "ingredients": [
+      {
+        "family": "cleric",
+        "tier": 5
+      },
+      {
+        "family": "soldier",
+        "tier": 4
+      },
+      {
+        "family": "archer",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "winterhold",
+    "level": 1,
+    "stage": "Intermediate",
+    "referenceTower": "Yellow Sapphire",
+    "ingredients": [
+      {
+        "family": "frostwarden",
+        "tier": 5
+      },
+      {
+        "family": "mage",
+        "tier": 4
+      },
+      {
+        "family": "stormcaller",
+        "tier": 4
+      }
+    ]
+  },
+  {
+    "id": "dawnspire",
+    "level": 1,
+    "stage": "Mythic",
+    "referenceTower": "Star Sapphire",
+    "ingredients": [
+      {
+        "family": "winterhold",
+        "tier": 1
+      },
+      {
+        "family": "frostwarden",
+        "tier": 6
+      },
+      {
+        "family": "cleric",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "bannerwarden",
+    "resultFamily": "bannerwarden",
+    "resultTier": 1,
+    "level": 1,
+    "stage": "Formation",
+    "ingredients": [
+      {
+        "family": "soldier",
+        "tier": 1
+      },
+      {
+        "family": "soldier",
+        "tier": 2
+      },
+      {
+        "family": "soldier",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "bannerwarden-royal",
+    "resultFamily": "bannerwarden",
+    "resultTier": 5,
+    "level": 1,
+    "stage": "Royal formation",
+    "ingredients": [
+      {
+        "family": "soldier",
+        "tier": 4
+      },
+      {
+        "family": "soldier",
+        "tier": 5
+      },
+      {
+        "family": "soldier",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "galehunter",
+    "resultFamily": "galehunter",
+    "resultTier": 1,
+    "level": 1,
+    "stage": "Formation",
+    "ingredients": [
+      {
+        "family": "archer",
+        "tier": 1
+      },
+      {
+        "family": "archer",
+        "tier": 2
+      },
+      {
+        "family": "archer",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "galehunter-royal",
+    "resultFamily": "galehunter",
+    "resultTier": 5,
+    "level": 1,
+    "stage": "Royal formation",
+    "ingredients": [
+      {
+        "family": "archer",
+        "tier": 4
+      },
+      {
+        "family": "archer",
+        "tier": 5
+      },
+      {
+        "family": "archer",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "oakherald",
+    "resultFamily": "oakherald",
+    "resultTier": 1,
+    "level": 1,
+    "stage": "Formation",
+    "ingredients": [
+      {
+        "family": "druid",
+        "tier": 1
+      },
+      {
+        "family": "druid",
+        "tier": 2
+      },
+      {
+        "family": "druid",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "oakherald-royal",
+    "resultFamily": "oakherald",
+    "resultTier": 5,
+    "level": 1,
+    "stage": "Royal formation",
+    "ingredients": [
+      {
+        "family": "druid",
+        "tier": 4
+      },
+      {
+        "family": "druid",
+        "tier": 5
+      },
+      {
+        "family": "druid",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "arcaneseer",
+    "resultFamily": "arcaneseer",
+    "resultTier": 1,
+    "level": 1,
+    "stage": "Formation",
+    "ingredients": [
+      {
+        "family": "mage",
+        "tier": 1
+      },
+      {
+        "family": "mage",
+        "tier": 2
+      },
+      {
+        "family": "mage",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "arcaneseer-royal",
+    "resultFamily": "arcaneseer",
+    "resultTier": 5,
+    "level": 1,
+    "stage": "Royal formation",
+    "ingredients": [
+      {
+        "family": "mage",
+        "tier": 4
+      },
+      {
+        "family": "mage",
+        "tier": 5
+      },
+      {
+        "family": "mage",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "sunhierophant",
+    "resultFamily": "sunhierophant",
+    "resultTier": 1,
+    "level": 1,
+    "stage": "Formation",
+    "ingredients": [
+      {
+        "family": "cleric",
+        "tier": 1
+      },
+      {
+        "family": "cleric",
+        "tier": 2
+      },
+      {
+        "family": "cleric",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "sunhierophant-royal",
+    "resultFamily": "sunhierophant",
+    "resultTier": 5,
+    "level": 1,
+    "stage": "Royal formation",
+    "ingredients": [
+      {
+        "family": "cleric",
+        "tier": 4
+      },
+      {
+        "family": "cleric",
+        "tier": 5
+      },
+      {
+        "family": "cleric",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "ironrune",
+    "resultFamily": "ironrune",
+    "resultTier": 1,
+    "level": 1,
+    "stage": "Formation",
+    "ingredients": [
+      {
+        "family": "runebreaker",
+        "tier": 1
+      },
+      {
+        "family": "runebreaker",
+        "tier": 2
+      },
+      {
+        "family": "runebreaker",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "ironrune-royal",
+    "resultFamily": "ironrune",
+    "resultTier": 5,
+    "level": 1,
+    "stage": "Royal formation",
+    "ingredients": [
+      {
+        "family": "runebreaker",
+        "tier": 4
+      },
+      {
+        "family": "runebreaker",
+        "tier": 5
+      },
+      {
+        "family": "runebreaker",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "winterregent",
+    "resultFamily": "winterregent",
+    "resultTier": 1,
+    "level": 1,
+    "stage": "Formation",
+    "ingredients": [
+      {
+        "family": "frostwarden",
+        "tier": 1
+      },
+      {
+        "family": "frostwarden",
+        "tier": 2
+      },
+      {
+        "family": "frostwarden",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "winterregent-royal",
+    "resultFamily": "winterregent",
+    "resultTier": 5,
+    "level": 1,
+    "stage": "Royal formation",
+    "ingredients": [
+      {
+        "family": "frostwarden",
+        "tier": 4
+      },
+      {
+        "family": "frostwarden",
+        "tier": 5
+      },
+      {
+        "family": "frostwarden",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "tempestherald",
+    "resultFamily": "tempestherald",
+    "resultTier": 1,
+    "level": 1,
+    "stage": "Formation",
+    "ingredients": [
+      {
+        "family": "stormcaller",
+        "tier": 1
+      },
+      {
+        "family": "stormcaller",
+        "tier": 2
+      },
+      {
+        "family": "stormcaller",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "tempestherald-royal",
+    "resultFamily": "tempestherald",
+    "resultTier": 5,
+    "level": 1,
+    "stage": "Royal formation",
+    "ingredients": [
+      {
+        "family": "stormcaller",
+        "tier": 4
+      },
+      {
+        "family": "stormcaller",
+        "tier": 5
+      },
+      {
+        "family": "stormcaller",
+        "tier": 6
+      }
+    ]
+  }
+]
