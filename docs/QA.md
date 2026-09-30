@@ -90,3 +90,9 @@ This revision supersedes the earlier demolition and live-search behavior above.
 - Diamond reference's 36 × 36 grid was aligned to the game's checkpoints with one inserted row and column plus four connecting wall cells. Chevron preserves black and orange wall strokes with a single open gate east of checkpoint 4. See MAZE_COMPARISON.md for coordinates and six-leg counts.
 - All 88 tests pass, including construction of every new foundation through the actual gameplay placement checks, exact BFS route/segment agreement, central firing coverage, budget accounting and saved selection. Production build passes.
 - Both previews were selected and visually checked on the development origin. The served 4174 build displays both new choices without changing the user's existing selection. Browser console has no warnings or errors. Proof: artifacts/suggested-mazes-added.png and artifacts/chevron-bastion-preview.png.
+## GitHub Pages publication
+
+- Prepared a public repository with the game, exported assets, editable Blender sources, generators, documentation and tests. Backup scenes, local dependencies, logs and review artifacts are excluded.
+- Removed PNG metadata containing personal local file paths without changing decoded pixels, compressed image data or color metadata.
+- Runtime model, manifest, portrait and page URLs use Vite's deployment base. Both the game and Royal atelier load successfully under `/bastions-of-the-last-kingdom/`; local root-path builds remain supported.
+- All 90 tests pass. Local and project-path production builds pass. GitHub Actions installs from the frozen pnpm lockfile, runs the tests and deploys the built website on pushes to `main`.
