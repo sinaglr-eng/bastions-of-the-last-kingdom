@@ -238,10 +238,10 @@ def fortified_warcamp():
         cyl('Torch iron bowl',(x,y,1.50),.095,.16,'iron',8,.13)
         cyl('Watch torch flame',(x,y,1.73),.115,.37,'fire',7,0)
 
-def export_scene(name,build,camera_x):
+def export_scene(name,build,camera_x,view_center=None,ortho_scale=None,camera_position=None):
     global P
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
-    P=palette();build();objects=[obj for obj in bpy.context.scene.objects if obj.type=='MESH']
+    P=palette();build();bpy.context.view_layer.update();objects=[obj for obj in bpy.context.scene.objects if obj.type=='MESH']
     triangles=sum(sum(max(0,len(poly.vertices)-2) for poly in obj.data.polygons) for obj in objects)
     # Sources keep every named building part. Only temporary export copies are batched.
     copies=[]
@@ -260,17 +260,17 @@ def export_scene(name,build,camera_x):
     for obj in copies:obj.select_set(True)
     bpy.ops.export_scene.gltf(filepath=str(OUT/(name+'.glb')),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False)
     for obj in copies:bpy.data.objects.remove(obj,do_unlink=True)
-    cam=A.configure_scene();cam.location=(camera_x,-15,11.5)
-    target=Vector((0,0,3.0 if name=='royal-castle-v2' else 1.15))
+    cam=A.configure_scene();cam.location=camera_position or (camera_x,-15,11.5)
+    target=Vector(view_center or (0,0,3.0 if name=='royal-castle-v2' else 1.15))
     cam.rotation_euler=(target-cam.location).to_track_quat('-Z','Y').to_euler()
-    cam.data.ortho_scale=15.5 if name=='royal-castle-v2' else 13.5
+    cam.data.ortho_scale=ortho_scale or (15.5 if name=='royal-castle-v2' else 13.5)
     for obj in bpy.context.scene.objects:
         if obj.type=='LIGHT':
             obj.location*=3;obj.data.energy*=8;obj.data.size*=3
             obj.rotation_euler=(target-obj.location).to_track_quat('-Z','Y').to_euler()
     scene=bpy.context.scene;scene.cycles.samples=24;scene.render.resolution_x=900;scene.render.resolution_y=760
-    scene['Authoring']='Blender 5.2';scene['Scenery design']='V2 layered fortification';scene['Triangle count']=triangles
-    if name=='fortified-warcamp-v2':scene['Upcoming invader anchor']='Game Y-up local (2.25, 0.595, 0); native Blender (2.25, 0, 0.595)'
+    scene['Authoring']='Blender 5.2';scene['Scenery design']=name;scene['Triangle count']=triangles
+    if name.startswith('fortified-warcamp'):scene['Upcoming invader anchor']='Game Y-up local (2.25, 0.595, 0); native Blender (2.25, 0, 0.595)'
     bpy.ops.wm.save_as_mainfile(filepath=str(SCENES/(name+'.blend')))
     scene.render.filepath=str(REVIEW/(name+'-review.png'));bpy.ops.render.render(write_still=True)
     print(json.dumps({'file':name+'.glb','triangles':triangles,'meshes':len(copies),'authoring':'Blender 5.2','source':name+'.blend'}))

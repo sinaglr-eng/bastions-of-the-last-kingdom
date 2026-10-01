@@ -6,6 +6,12 @@ from mathutils import Vector
 def fuse(objects, name, voxel=.015, triangle_budget=1400, material=None):
     parts=[o for o in objects if o and o.type=='MESH']
     if not parts:return None
+    parents={o.parent for o in parts}
+    if len(parents)>1 and any(parent and parent.get('articulation') for parent in parents):
+        # A smooth shoulder can overlap the torso while remaining a real joint.
+        groups={parent:[o for o in parts if o.parent==parent] for parent in parents}
+        results={parent:fuse(group,name+(' '+parent.name if parent else ''),voxel,max(230,int(triangle_budget*len(group)/len(parts))),material) for parent,group in groups.items()}
+        return results.get(None) or next(iter(results.values()))
     bpy.ops.object.select_all(action='DESELECT')
     for o in parts:o.select_set(True)
     o=parts[0];bpy.context.view_layer.objects.active=o
@@ -53,7 +59,9 @@ def human():
         (('Shaped shoulder','Tailored upper sleeve'),'Continuous tailored sleeves'),
     ]:
         pieces=[o for o in bpy.context.scene.objects if o.type=='MESH' and o.name.startswith(prefixes)]
-        if len(pieces)>1:fuse(pieces,name,.017,650,pieces[0].data.materials[0])
+        groups={parent:[o for o in pieces if o.parent==parent] for parent in {o.parent for o in pieces}}
+        for parent,joint_parts in groups.items():
+            if len(joint_parts)>1:fuse(joint_parts,name,.017,650,joint_parts[0].data.materials[0])
     # The fitted neck extends to the torso rather than stopping at a visible sphere.
     soften_surfaces([o for o in bpy.context.scene.objects if o.type=='MESH'])
 

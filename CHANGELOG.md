@@ -1,5 +1,13 @@
 # Releases
 
+## 0.2.4 — Kingdoms in Motion — 1 October 2026
+
+- Restores waves 2 and 3 to their original normal campaign difficulty, including HP, armor, movement and spawn spacing. Only wave 1 retains its introductory tuning; counts, rewards and waves 4–50 remain unchanged.
+- Lets players keep a placed draft candidate by double-clicking or double-tapping its card. A separate Keep button stays directly beneath the selected card. Validation prevents stale cards, unrevealed draws, drags or multi-touch navigation from retaining a different defender.
+- Places construction mastery in a horizontal bar above all five draw cards and moves the next-wave button to the top center of the map, visible only when defenses are ready.
+- Rebuilds defender exports with real articulated limbs and equipment. Archers draw their bowstring, soldiers swing their sword or hammer, and casters raise glowing focuses and release magic waves from the weapon. Runtime joints animate cloned mesh hierarchies without changing shared source geometry or combat statistics.
+- Expands the royal castle into a larger citadel and surrounding town with houses, workshops and farms. The orc settlement gains an outer encampment, campfires, seated inhabitants and guards. Denser woodland, rocks and layered terrain fill the surrounding landscape while leaving the playable field clear.
+
 ## 0.2.3 — Living Battlefield — 1 October 2026
 
 - Surrounds the open board with layered hills, mountains, woodland and rock outcrops. Adds an original fortified orc settlement and a multi-towered royal castle, with editable Blender 5.2 source scenes. One decorative upcoming invader stands behind the camp gate; it never participates in combat or consumes random draws.

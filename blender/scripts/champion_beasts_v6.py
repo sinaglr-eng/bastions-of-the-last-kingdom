@@ -4,6 +4,7 @@ Blender +Z is up and +Y is the face. Organic forms are voxel-unioned;
 wing membranes, layered feathers and riding equipment remain separate.
 """
 import bpy, math
+import articulation
 from mathutils import Vector
 
 FAMILIES={'embercrown','worldfire','starfall','thunderheart','phoenix','rangermentor','griffinbomber'}
@@ -38,6 +39,7 @@ def tapered_leaf(a,name,start,end,width,material):
 
 
 def feather_wing(a,p,side,z=1.18,span=1.2,raised=.28):
+    before=set(articulation.meshes())
     shoulder=Vector((side*.22,-.11,z));elbow=Vector((side*.65,-.12,z+raised));tip=Vector((side*span,-.12,z+raised-.12))
     a.rod('V6 feathered wing leading edge',shoulder,elbow,.075,p['light'],10,end=.06)
     a.rod('V6 feathered wing wrist',elbow,tip,.06,p['light'],8,end=.027)
@@ -48,9 +50,11 @@ def feather_wing(a,p,side,z=1.18,span=1.2,raised=.28):
     for j in range(6):
         t=j/5;start=shoulder.lerp(elbow,t)
         tapered_leaf(a,'V6 layered wing covert',start,start+Vector((side*.10,.04,-.26)),.09,p['hide'])
+    articulation.attach(set(articulation.meshes())-before,articulation.pivot('left_wing_pivot' if side<0 else 'right_wing_pivot',tuple(shoulder)))
 
 
 def dragon_wing(a,p,side,z=1.01,span=1.20,raised=.65):
+    before=set(articulation.meshes())
     root=(side*.21,-.04,z);wrist=(side*.62,-.13,z+raised)
     fingers=[(side*span,-.19,z+raised*.68),(side*(span*.89),-.22,z-.22),(side*.58,-.24,z-.32)]
     bone=p['light'];membrane=a.mat('V6 warm translucent-looking dragon sail','b75c47' if p['hide'].name.find('worldfire')>=0 else 'b77c69')
@@ -61,6 +65,7 @@ def dragon_wing(a,p,side,z=1.01,span=1.20,raised=.65):
     mod=wing.modifiers.new('Double sided wing thickness','SOLIDIFY');mod.thickness=.014
     bpy.context.view_layer.objects.active=wing;bpy.ops.object.modifier_apply(modifier=mod.name)
     a.rod('V6 wing thumb claw',wrist,(side*.66,-.1,z+raised+.13),.038,p['ivory'],7,end=.002)
+    articulation.attach(set(articulation.meshes())-before,articulation.pivot('left_wing_pivot' if side<0 else 'right_wing_pivot',root))
 
 
 def dragon(a,p,family):
@@ -72,8 +77,9 @@ def dragon(a,p,family):
     e('Dragon sculpt chest',(0,.12,.67),(.30,.37,.38))
     e('Dragon sculpt abdomen',(0,-.19,.55),(.32,.4,.26))
     e('Dragon sculpt rising neck',(0,.38,.97),(.19,.23,.35))
-    e('Dragon sculpt skull',(0,.50,1.25),(.23 if baby else .19,.24,.23 if baby else .17))
-    e('Dragon sculpt muzzle',(0,.72,1.17),(.19 if baby else .14,.21,.095))
+    head=articulation.pivot('head_pivot',(0,.38,1.08))
+    skull=e('Dragon sculpt skull',(0,.50,1.25),(.23 if baby else .19,.24,.23 if baby else .17));muzzle=e('Dragon sculpt muzzle',(0,.72,1.17),(.19 if baby else .14,.21,.095))
+    articulation.attach([skull,muzzle],head)
     for side in [-1,1]:
         for y in [-.31,.27]:
             e('Dragon sculpt hip',(side*.24,y,.50),(.16,.19,.20))
@@ -83,10 +89,12 @@ def dragon(a,p,family):
     for j,(s,t) in enumerate(zip(tail,tail[1:])):r('Dragon sculpt curled tail',s,t,.095-j*.024,end=.07-j*.023)
     organic(a,'V6 unified dragon anatomy',parts,p['hide'],.023,2600)
     for side in [-1,1]:
+        before_head=set(articulation.meshes())
         eye_z=1.29 if baby else 1.26
         a.ellipsoid('V6 dragon bronze eye socket',(side*.185,.624,eye_z),(.055,.031,.04),p['light'],10,6)
         a.ellipsoid('V6 dragon glowing eye',(side*.19,.647,eye_z),(.025,.012,.025),p['glow'],10,6)
         a.rod('V6 dragon swept horn',(side*.14,.41,1.38),(side*.24,.29,1.64 if mother else 1.51),.055,p['ivory'],8,end=.004)
+        articulation.attach(set(articulation.meshes())-before_head,head)
         for y in [-.31,.27]:
             for dx in [-.06,0,.06]:a.rod('V6 dragon foot talon',(side*.31+dx,y+.23,.23),(side*.31+dx,y+.33,.18),.021,p['ivory'],6,end=.002)
         dragon_wing(a,p,side,1.00,span=.86 if baby else (1.24 if mother else 1.12),raised=.47 if baby else .66)
@@ -96,8 +104,11 @@ def dragon(a,p,family):
     for j in range(4):
         plate=a.ellipsoid('V6 layered dragon belly scale',(0,.35+j*.09,.56+j*.13),(.21-j*.025,.05,.105),p['light'],12,6)
         plate.rotation_euler[0]=-.38
+    jaw=articulation.pivot('dragon_jaw',(0,.56,1.125),head);before_jaw=set(articulation.meshes())
+    a.ellipsoid('V6 articulated lower dragon jaw',(0,.715,1.105),(.14,.18,.052),p['hide'],12,6)
     a.rod('V6 dragon mouth crease',(-.13,.842,1.13),(.13,.842,1.13),.008,p['dark'],6)
     for x in [-.095,.095]:a.cylinder('V6 dragon tiny fang',(x,.834,1.135),.018,.064,p['ivory'],6,top=0).rotation_euler[0]=math.pi
+    articulation.attach(set(articulation.meshes())-before_jaw,jaw);articulation.pivot('attack_muzzle',(0,.90,1.15),head)
     if not mounted:
         a.ellipsoid('V6 living ember in breath',(0,.88,1.16),(.046,.06,.045),p['glow'],10,6)
         if mother:
@@ -124,8 +135,11 @@ def rider(a,p,family,seat=(0,0,1.02),mage=False,dwarf=False):
     for side in [-1,1]:
         body.append(a.rod('V6 bent riding thigh',(x+side*.08,y,z+.04),(x+side*.24,y+.02,z-.08),.07,p['cloth'],8))
         a.rod('V6 riding boot',(x+side*.24,y+.02,z-.08),(x+side*.25,y+.15,z-.30),.064,p['dark'],8)
-        body.append(a.rod('V6 rider sleeve',(x+side*.14,y,z+.30),(x+side*.25,y+.12,z+.13),.063,p['cloth'],8))
-        a.ellipsoid('V6 rider glove',(x+side*.26,y+.14,z+.12),(.05,.055,.047),p['leather'],10,5)
+        shoulder=(x+side*.14,y,z+.30);elbow=(x+side*.22,y+.08,z+.19);hand=(x+side*.26,y+.14,z+.12)
+        upper,lower,wrist,weapon=articulation.limb(shoulder,elbow,hand)
+        body.append(a.rod('V6 rider sleeve',shoulder,elbow,.063,p['cloth'],8));articulation.attach([body[-1]],upper)
+        articulation.attach([a.rod('V6 rider bracer',elbow,hand,.052,p['leather'],8)],lower)
+        articulation.attach([a.ellipsoid('V6 rider glove',hand,(.05,.055,.047),p['leather'],10,5)],wrist)
     organic(a,'V6 seamless rider tunic',body,p['cloth'],.014,850)
     head=[a.ellipsoid('V6 rider cheek and cranium',(x,y+.012,z+.49),(.125,.11,.15),p['skin'],14,8),a.ellipsoid('V6 rider neck',(x,y,z+.37),(.055,.06,.085),p['skin'],10,6),a.ellipsoid('V6 rider nose',(x,y+.122,z+.48),(.028,.028,.035),p['skin'],10,6)]
     organic(a,'V6 sculpted rider face',head,p['skin'],.009,600)
@@ -153,6 +167,7 @@ def rider(a,p,family,seat=(0,0,1.02),mage=False,dwarf=False):
 def bird(a,p):
     footing(a,p)
     parts=[a.ellipsoid('Thunderbird sculpt breast',(0,0,.95),(.24,.23,.36),p['hide'],16,8),a.ellipsoid('Thunderbird sculpt neck',(0,.12,1.26),(.14,.17,.24),p['hide'],14,8),a.ellipsoid('Thunderbird sculpt head',(0,.22,1.44),(.17,.17,.17),p['hide'],14,8)]
+    head=articulation.pivot('head_pivot',(0,.12,1.22));articulation.attach(parts[1:],head)
     organic(a,'V6 unified thunderbird anatomy',parts,p['hide'],.019,1600)
     for side in [-1,1]:
         a.rod('V6 thunderbird scaled leg',(side*.12,0,.74),(side*.14,.07,.27),.055,p['gold'],8)
@@ -162,6 +177,9 @@ def bird(a,p):
         for j in range(3):tapered_leaf(a,'V6 thunderbird swept head plume',(side*.03,.13,1.51),(side*(.08+j*.08),.08,1.78-j*.04),.035,p['light'])
     a.rod('V6 thunderbird hooked beak',(0,.32,1.44),(0,.53,1.40),.067,p['gold'],8,end=.013)
     a.rod('V6 beak hooked end',(0,.52,1.41),(0,.53,1.34),.025,p['gold'],7,end=.003)
+    for obj in articulation.meshes():
+        if any(k in obj.name for k in ('beak','luminous eye','head plume')):articulation.parent_keep_world(obj,head)
+    articulation.pivot('attack_muzzle',(0,.54,1.42),head)
     for j in range(5):tapered_leaf(a,'V6 thunderbird long tail fan',((j-2)*.025,-.12,.90),((j-2)*.12,-.38,.27),.07,p['light'] if j%2 else p['hide'])
     for side in [-1,1]:
         pts=[(side*.23,.07,1.60),(side*.34,.07,1.78),(side*.23,.07,1.75),(side*.35,.07,1.96)]
@@ -173,11 +191,15 @@ def bear(a,p):
     footing(a,p,.50)
     parts=[]
     for n,pos,scale in [('Bear sculpt haunch',(0,-.21,.69),(.38,.40,.38)),('Bear sculpt powerful chest',(0,.19,.85),(.35,.36,.43)),('Bear sculpt neck',(0,.38,1.15),(.24,.24,.27)),('Bear sculpt head',(0,.51,1.32),(.26,.24,.24)),('Bear sculpt muzzle',(0,.72,1.24),(.19,.20,.12))]:parts.append(a.ellipsoid(n,pos,scale,p['hide'],16,8))
+    head=articulation.pivot('head_pivot',(0,.38,1.10));articulation.attach(parts[2:],head)
     for side in [-1,1]:
         for y in [-.31,.29]:
             parts.append(a.rod('Bear sculpt heavy leg',(side*.28,y,.69),(side*.31,y+.02,.23),.13,p['hide'],10,end=.115))
             parts.append(a.ellipsoid('Bear sculpt rounded paw',(side*.31,y+.08,.23),(.15,.18,.07),p['hide'],12,6))
-        parts.append(a.ellipsoid('Bear sculpt ear',(side*.2,.45,1.51),(.09,.07,.10),p['hide'],12,6))
+            if y>0:
+                upper,lower,wrist,weapon=articulation.limb((side*.28,y,.69),(side*.295,y+.015,.42),(side*.31,y+.08,.23))
+                articulation.attach([parts[-2]],upper);articulation.attach([parts[-1]],wrist)
+        parts.append(a.ellipsoid('Bear sculpt ear',(side*.2,.45,1.51),(.09,.07,.10),p['hide'],12,6));articulation.attach([parts[-1]],head)
     organic(a,'V6 unified royal bear anatomy',parts,p['hide'],.025,3000)
     a.ellipsoid('V6 royal bear nose',(0,.878,1.30),(.092,.046,.045),p['dark'],12,6)
     for side in [-1,1]:
@@ -191,6 +213,8 @@ def bear(a,p):
         ang=j*math.tau/5
         a.cylinder('V6 Bearking crown leaf',(math.cos(ang)*.21,.46+math.sin(ang)*.17,1.62),.035,.23,p['gold'],5,top=0)
     a.ellipsoid('V6 Bearking venom emerald',(0,.65,1.53),(.05,.022,.055),a.mat('V6 royal venomstone','92ca77',.2,.5),10,6)
+    for obj in articulation.meshes():
+        if any(k in obj.name for k in ('bear nose','bear amber eye','Bearking','crown leaf')):articulation.parent_keep_world(obj,head)
     return p
 
 

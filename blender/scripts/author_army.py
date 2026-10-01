@@ -7,6 +7,7 @@ from pathlib import Path
 from mathutils import Vector, Matrix
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import author_archer as A
+import articulation
 from author_archer import cube,ellipsoid,cylinder,rod,custom,torus,mat
 
 ROOT=A.ROOT;OUT=A.OUT;PORTRAITS=ROOT/'public/assets/army';SCENES=A.SCENES
@@ -32,13 +33,18 @@ def recolor(material,color):
     material.diffuse_color=rgba;material.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value=rgba
 
 def arm(a,b,c,p,armored=False):
+    upper,lower,hand,weapon=articulation.limb(a,b,c)
+    before=set(meshes())
     ellipsoid('Shaped shoulder',a,(.12,.12,.12),p['cloth'],10,5)
     rod('Tailored upper sleeve',a,b,.079,p['cloth'],8,end=.066)
+    articulation.attach(set(meshes())-before,upper);before=set(meshes())
     rod('Bound bracer',b,c,.071,p['steel'] if armored else p['leather'],8,end=.055)
     v=Vector(b).lerp(Vector(c),.25);w=Vector(b).lerp(Vector(c),.39)
     rod('Bracer edging',v,w,.074,p['trim'],8)
+    articulation.attach(set(meshes())-before,lower);before=set(meshes())
     ellipsoid('Held glove',c,(.069,.06,.072),p['leather'],10,5)
     for dz in [-.031,0,.031]:rod('Articulated fingers',(c[0]-.035,c[1]+.041,c[2]+dz),(c[0]+.025,c[1]+.042,c[2]+dz),.009,p['skin'],5)
+    articulation.attach(set(meshes())-before,hand)
 
 def staff(p,crystal=False,color='b28de7'):
     rod('Staff shaft',(.40,.16,.18),(.40,.16,1.78),.027,p['leather'],8)
@@ -88,6 +94,8 @@ def basic(family,rank):
     objects=A.build_archer(rank);p=palette(objects)
     if family=='archer':return p
     remove_prefix(objects,['Sleeve shoulder','Cloth upper arm','Leather bracer','Bracer brass','Gloved hand','Glove finger','Recurve','Bow ','Upper drawn','Lower drawn','Nocked','Leaf arrowhead','Arrow fletching','Quiver','Spare arrow','Strap clasp'])
+    for o in list(bpy.context.scene.objects):
+        if o.type=='EMPTY' and o.get('articulation'):bpy.data.objects.remove(o,do_unlink=True)
     if family!='frostwarden':remove_prefix(meshes(),['Open hood','Hood contrast','Loose hair'])
     # Hair follows the ranger proportions; the final sculpt pass joins facial anatomy.
     if family not in ['soldier','frostwarden']:
@@ -142,11 +150,19 @@ def basic(family,rank):
         rod('Engineer spectacle bridge',(-.017,.229,1.713),(.017,.229,1.713),.007,p['trim'],6)
         arm((.22,0,1.33),(.34,.09,1.17),(.39,.21,1.08),p);arm((-.22,0,1.33),(-.33,.12,1.17),(-.36,.25,1.12),p)
         bpy.context.view_layer.update()
+        joint_originals={o:o.matrix_world.copy() for o in bpy.context.scene.objects if o.type=='EMPTY' and o.get('articulation')}
+        mesh_targets={}
         head_prefixes=('Head','Cheek','Nose','Eye','Focused','Auburn eyebrow','Mouth','Swept hair','Temple hair','Engineer leather work cap','Engineer cap peak','Engineer full copper beard','Engineer copper','Engineer beard','Engineer spectacle')
         for o in meshes():
             if o.name.startswith(('Octagonal','Beveled limestone','Rank inlay','Radiant','Floating')):continue
             if o.name.startswith(head_prefixes):o.matrix_world=Matrix.Translation((0,0,-.32))@Matrix.Diagonal((1.10,1.08,1,1))@o.matrix_world
             else:o.matrix_world=Matrix.Translation((0,0,.17*(1-.72)))@Matrix.Diagonal((1.30,1.12,.72,1))@o.matrix_world
+            mesh_targets[o]=o.matrix_world.copy()
+        def depth(o):return 0 if not o.parent else 1+depth(o.parent)
+        for o in sorted(joint_originals,key=depth):
+            o.matrix_world=Matrix.Translation((0,0,.17*(1-.72)))@Matrix.Diagonal((1.30,1.12,.72,1))@joint_originals[o]
+        # Moving a parent also moves its descendants; restore each intended world pose once.
+        for o,target in mesh_targets.items():o.matrix_world=target
         # Hand-sized carpenter's hammer and a visibly graduated measuring ruler.
         rod('Engineer small hammer handle',(.507,.235,.65),(.507,.235,1.08),.024,p['leather'],10)
         cube('Engineer carpenter hammer',(.507,.235,1.065),(.26,.14,.14),p['steel'],.023)
@@ -315,7 +331,7 @@ def export_current(file):
     for o in copies:o.select_set(True)
     for o in bpy.context.scene.objects:
         if o.type=='EMPTY':o.select_set(True)
-    bpy.ops.export_scene.gltf(filepath=str(OUT/file),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False)
+    bpy.ops.export_scene.gltf(filepath=str(OUT/file),export_format='GLB',use_selection=True,export_apply=True,export_extras=True,export_animations=False,export_cameras=False,export_lights=False)
     for o in copies:bpy.data.objects.remove(o,do_unlink=True)
     return sum(sum(len(p.vertices)-2 for p in o.data.polygons) for o in objects)
 
@@ -338,18 +354,19 @@ def generate(render=True,family=None):
     entries=json.loads((OUT/'manifest.json').read_text(encoding='utf-8'))
     requested=set(family.split(',')) if family else None
     if requested and not requested.issubset(DATA):raise ValueError('Unknown requested family')
-    families=[f for f in DATA if f!='archer' and (not requested or f in requested)]
+    families=[f for f in DATA if not requested or f in requested]
     for fam in families:
         advanced_unit=bool(DATA[fam].get('advanced'));ranks=[1] if advanced_unit else range(1,7)
         for rank in ranks:
             clear();advanced(fam) if advanced_unit else basic(fam,rank)
+            articulation.finalize(fam)
             A.cohesive.human()
             A.cohesive.budget_meshes()
             file=f'advanced_{fam}.glb' if advanced_unit else f'human_{fam}_t{rank}.glb'
             triangles=export_current(file)
             if triangles>=10000:raise ValueError(f'{fam} exceeds triangle budget: {triangles}')
             entries=[e for e in entries if not(e.get('family')==fam and e.get('tier')==rank and e.get('kind')=='tower')]
-            entries.append(dict(file=file,kind='tower',family=fam,tier=rank,style='champion-v6' if advanced_unit else 'hero-v5',authoring='Blender',triangles=triangles,**({'designRevision':6,'name':DATA[fam]['name']} if advanced_unit else {})))
+            entries.append(dict(file=file,kind='tower',family=fam,tier=rank,style='champion-v6' if advanced_unit else 'archer-v2' if fam=='archer' else 'hero-v5',authoring='Blender',triangles=triangles,**articulation.metadata(),**({'designRevision':6,'name':DATA[fam]['name']} if advanced_unit else {})))
             cam=A.configure_scene();frame_camera(cam);scene=bpy.context.scene
             scene.render.resolution_x=360;scene.render.resolution_y=420;scene.render.resolution_percentage=100;scene.cycles.samples=24
             if rank==1:

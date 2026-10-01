@@ -59,27 +59,55 @@ export function animateSiege(rig,dt){
   rig.arm.rotation.x=rig.restX-swing*.85;
 }
 
-// The exported soldiers are mostly material-joined meshes. Animate their actor
-// transform safely; only explicit authored pivots may be articulated separately.
-// Position, scale and aim rotation Y are exclusively owned by Battlefield.
+// Authored rigid joints carry the real arms, gloves and held weapons. Cached
+// GLB geometry/materials stay untouched; only this actor's local joints move.
 const ATTACK_POSES={
-  melee:{x:-.15,z:.23,duration:.32},arrow:{x:-.065,z:.085,duration:.24},
+  melee:{x:-.15,z:.23,duration:.44},arrow:{x:-.065,z:.085,duration:.48},
   roots:{x:.065,z:-.11,duration:.42},flame:{x:-.12,z:.025,duration:.52},
   lightning:{x:.055,z:-.10,duration:.30},siege:{x:-.038,z:0,duration:.33},
   holy:{x:.025,z:-.06,duration:.35},frost:{x:.055,z:-.075,duration:.33},
   arcane:{x:.06,z:-.11,duration:.32},
 };
+const JOINT_NAMES=['torso_pivot','head_pivot','upper_arm_L','upper_arm_R','forearm_L','forearm_R','hand_L','hand_R','weapon_L','weapon_R','bow_pivot','weapon_pivot','attack_arm','bow_arm','dragon_jaw','mouth_pivot','left_wing_pivot','right_wing_pivot'];
+const SPELL_KINDS=new Set(['arcane','holy','frost','roots','lightning']);
+const smooth=p=>{p=THREE.MathUtils.clamp(p,0,1);return p*p*(3-2*p);};
+const noPick=()=>{};
 export function attackRig(actor,family,stats={}){
   if(!actor)return null;
   const kind=attackVisualKind(family,stats),pose=ATTACK_POSES[kind],pivots=[];
-  for(const name of ['attack_arm','weapon_pivot','bow_arm','dragon_jaw','mouth_pivot','left_wing_pivot','right_wing_pivot']){
+  for(const name of JOINT_NAMES){
     const node=actor.getObjectByName(name);
-    if(node)pivots.push({node,name,x:node.rotation.x,z:node.rotation.z});
+    if(node)pivots.push({node,name,rotation:node.rotation.clone(),position:node.position.clone()});
   }
-  return {actor,family,kind,pose,pivots,restX:actor.rotation.x,restZ:actor.rotation.z,elapsed:pose.duration,duration:pose.duration,active:false};
+  const rig={actor,family,kind,pose,pivots,joints:new Map(pivots.map(p=>[p.name,p])),restX:actor.rotation.x,restZ:actor.rotation.z,elapsed:pose.duration,duration:pose.duration,active:false,owned:[],disposed:false};
+  rig.muzzle=(kind==='flame'?actor.getObjectByName('attack_muzzle'):actor.getObjectByName('staff_tip'))||actor.getObjectByName('attack_muzzle')||null;
+  const tip=actor.getObjectByName('staff_tip');
+  if(tip&&SPELL_KINDS.has(kind)){
+    const color=kind==='holy'?'#ffe7a3':kind==='roots'?'#9bdd67':kind==='frost'?'#a4efff':kind==='lightning'?'#b1ddff':'#cb9fff';
+    const glow=new THREE.Group();glow.name='Charging staff focus';glow.visible=false;tip.add(glow);
+    glow.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.095,1),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})),new THREE.Mesh(new THREE.TorusGeometry(.14,.012,4,20),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.7,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})));
+    glow.traverse(node=>node.raycast=noPick);rig.glow=glow;rig.owned.push(glow);
+  }
+  const top=actor.getObjectByName('bow_tip_upper'),bottom=actor.getObjectByName('bow_tip_lower'),nock=actor.getObjectByName('bow_nock');
+  if(top&&bottom&&nock){
+    const authored=actor.getObjectByName('authored_bowstring');if(authored){rig.authoredString={node:authored,visible:authored.visible};authored.visible=false;}
+    const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(12),3));
+    const string=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:'#eee3c9',depthWrite:false,toneMapped:false}));string.name='Articulated taut bowstring';string.raycast=noPick;string.frustumCulled=false;actor.add(string);
+    rig.string={object:string,top,bottom,nock,point:new THREE.Vector3()};rig.owned.push(string);updateBowString(rig);
+  }
+  return rig;
+}
+function updateBowString(rig){
+  if(!rig.string)return;
+  const {object,top,bottom,nock,point}=rig.string,positions=object.geometry.attributes.position;rig.actor.updateMatrixWorld(true);
+  [top,nock,bottom,nock].forEach((node,i)=>{node.getWorldPosition(point);rig.actor.worldToLocal(point);positions.setXYZ(i,point.x,point.y,point.z);});positions.needsUpdate=true;
+}
+export function attackMuzzle(rig,out=new THREE.Vector3()){
+  if(!rig||rig.disposed||!rig.muzzle)return null;
+  rig.actor.updateMatrixWorld(true);return rig.muzzle.getWorldPosition(out);
 }
 export function triggerAttack(rig,payload={}){
-  if(!rig)return;
+  if(!rig||rig.disposed)return;
   // Simultaneous multishot callbacks describe one release pose.
   if(rig.active&&rig.elapsed<.025)return;
   const interval=payload.stats?.interval;
@@ -87,21 +115,61 @@ export function triggerAttack(rig,payload={}){
   rig.elapsed=0;rig.active=true;
 }
 export function animateAttack(rig,dt,time=0,{reducedMotion=false}={}){
-  if(!rig)return;
+  if(!rig||rig.disposed||!rig.active)return;
   rig.elapsed=Math.min(rig.duration,rig.elapsed+(Number.isFinite(dt)?Math.max(0,dt):0));
   const progress=rig.duration>0?rig.elapsed/rig.duration:1;
   const stroke=reducedMotion?0:Math.sin(progress*Math.PI)*(progress<.42?1:Math.pow(Math.max(0,1-(progress-.42)/.58),.4));
-  rig.actor.rotation.x=rig.restX+rig.pose.x*stroke;
-  rig.actor.rotation.z=rig.restZ+rig.pose.z*stroke;
+  const articulated=rig.joints.has('torso_pivot');
+  rig.actor.rotation.x=rig.restX+(articulated?0:rig.pose.x*stroke);
+  rig.actor.rotation.z=rig.restZ+(articulated?0:rig.pose.z*stroke);
+  const draw=progress<.42?smooth(progress/.42):1-smooth((progress-.42)/.18);
+  const cast=Math.sin(progress*Math.PI),slash=progress<.28?smooth(progress/.28):progress<.60?1-2*smooth((progress-.28)/.32):-1+smooth((progress-.60)/.40);
+  const move=(name,x=0,y=0,z=0)=>{
+    const pivot=rig.joints.get(name);if(!pivot||reducedMotion)return;
+    pivot.node.rotation.set(pivot.rotation.x+x,pivot.rotation.y+y,pivot.rotation.z+z,pivot.rotation.order);
+  };
+  for(const pivot of rig.pivots){pivot.node.rotation.copy(pivot.rotation);pivot.node.position.copy(pivot.position);}
+  move('torso_pivot',-.045*stroke,rig.kind==='melee'?.18*slash:-.035*stroke,.045*stroke);
+  move('head_pivot',-.055*stroke,0,0);
+  if(rig.string||rig.kind==='arrow'){
+    // Authored bow joints choose the draw pose independently of projectile FX.
+    // Pull the drawing hand away from the bow; the actual string endpoints follow it.
+    move('upper_arm_R',-.12*draw,-.20*draw,-.10*draw);move('forearm_R',.08*draw,-.55*draw,.10*draw);
+    move('hand_R',0,-.12*draw,0);move('upper_arm_L',-.035*stroke,0,.05*stroke);move('forearm_L',-.08*stroke,0,0);
+    move('bow_pivot',0,-.035*stroke,.045*stroke);
+  }else if(rig.kind==='melee'){
+    // Shoulder windup, elbow extension and wrist sweep carry the whole sword/hammer.
+    move('upper_arm_R',-1.05*slash,.20*stroke,-.43*stroke);move('forearm_R',-.48*draw,.15*stroke,.12*stroke);
+    move('hand_R',-.12*stroke,0,.22*slash);move('weapon_R',0,-.65*slash,0);
+    move('upper_arm_L',-.16*stroke,0,.13*stroke);move('forearm_L',-.16*stroke,0,0);
+  }else if(SPELL_KINDS.has(rig.kind)){
+    move('upper_arm_R',-.28*cast,-.07*cast,-.22*cast);move('forearm_R',-.35*cast,0,.12*cast);
+    move('weapon_R',-.20*cast,0,.06*cast);move('upper_arm_L',-.38*cast,.10*cast,.20*cast);move('forearm_L',-.25*cast,0,-.12*cast);
+    move('hand_L',.18*cast,0,.14*cast);
+  }else if(rig.kind==='siege'){
+    move('weapon_pivot',.085*stroke,0,0);move('upper_arm_R',-.55*stroke,0,-.16*stroke);move('forearm_R',-.35*stroke,0,0);
+    move('upper_arm_L',-.25*stroke,0,.10*stroke);
+  }
+  const recoil=rig.joints.get('weapon_pivot');if(recoil&&!reducedMotion)recoil.node.position.z+=.11*stroke;
   for(const pivot of rig.pivots){
     const jaw=pivot.name==='dragon_jaw'||pivot.name==='mouth_pivot',wing=pivot.name.includes('wing');
-    pivot.node.rotation.x=pivot.x+stroke*(jaw ? .28 : wing ? .10 : -.34);
-    pivot.node.rotation.z=pivot.z+(wing?stroke*(pivot.name.startsWith('left') ? .12 : -.12):0);
+    if(jaw)move(pivot.name,-.36*stroke,0,0);
+    else if(wing)move(pivot.name,.12*stroke,0,stroke*(pivot.name.startsWith('left')?.20:-.20));
+    else if(['attack_arm','bow_arm'].includes(pivot.name))move(pivot.name,-.34*stroke,0,0);
   }
-  if(progress>=1)rig.active=false;
+  if(rig.glow){rig.glow.visible=rig.active&&progress<.92;rig.glow.scale.setScalar(reducedMotion?1:.6+1.55*Math.sin(Math.PI*progress));rig.glow.children[1].rotation.set(reducedMotion?0:progress*3,reducedMotion?0:progress*2,0);}
+  updateBowString(rig);
+  if(progress>=1)resetAttack(rig);
 }
 export function resetAttack(rig){
   if(!rig)return;rig.elapsed=rig.duration;rig.active=false;
   rig.actor.rotation.x=rig.restX;rig.actor.rotation.z=rig.restZ;
-  for(const pivot of rig.pivots){pivot.node.rotation.x=pivot.x;pivot.node.rotation.z=pivot.z;}
+  for(const pivot of rig.pivots){pivot.node.rotation.copy(pivot.rotation);pivot.node.position.copy(pivot.position);}
+  if(rig.glow)rig.glow.visible=false;updateBowString(rig);
+}
+export function disposeAttack(rig){
+  if(!rig||rig.disposed)return;resetAttack(rig);
+  for(const object of rig.owned){object.traverse(node=>{node.geometry?.dispose();node.material?.dispose();});object.removeFromParent();}
+  if(rig.authoredString)rig.authoredString.node.visible=rig.authoredString.visible;
+  rig.owned.length=0;rig.disposed=true;
 }

@@ -59,12 +59,10 @@ const rows=[
 const labels={vitality:'Vitality',stealth:'Veil',evasion:'Evasion',disarm:'Disarm',refraction:'Mirror shields',magicImmune:'Magic immunity',physicalImmune:'Physical immunity',thief:'Plunder',untouchable:'Dread aura',rush:'Blood rush',highArmor:'Iron plate',reactiveArmor:'Reactive armor',recharge:'Soul recharge',blink:'Rift step',cloakDaggers:'Cloak & daggers',krakenShell:'Deep shell',splitImmunity:'Alternating immunity',warDrums:'War drums'};
 const counters={vitality:'Regenerates health; focus damage.',stealth:'Cloaked beyond 2 tiles; Clerics reveal within 6.',evasion:'Can evade direct physical hits; use magic.',disarm:'Briefly disarms nearby defenders every 8 seconds.',refraction:'Shields absorb three direct hits; poison ticks and burning auras bypass them.',magicImmune:'Magic and magical status immunity; physical or pure damage wins.',physicalImmune:'Physical immunity; use magic or pure damage.',thief:'Steals gold on reaching the keep.',untouchable:'Nearby defenders attack more slowly.',rush:'Periodic bursts of movement speed.',highArmor:'Heavy armor; use armor reduction or magic.',reactiveArmor:'Direct hits build temporary armor.',recharge:'Periodically restores health.',blink:'Dashes forward along the route, still visiting checkpoints.',cloakDaggers:'Cycles between cloak and short close-range disarms.',krakenShell:'Reduces damage from individual direct hits.',splitImmunity:'This wave rolls either magic or physical immunity.',warDrums:'Pulses haste to nearby allies.'};
 const waves=[];
-// Introductory patrols give even a Tier I support defender time to hold a crossing.
-// Counts and rewards stay on the campaign curve; combat pressure resumes at wave four.
+// Only the first patrol gives a Tier I support defender time to hold a crossing.
+// Counts and rewards stay on the campaign curve; normal pressure resumes at wave two.
 const openingPatrols=[
-  {hp:9,speed:1.3,interval:2.4},
-  {hp:15,speed:1.45,interval:2.2},
-  {hp:21,speed:1.6,interval:2}
+  {hp:9,speed:1.3,interval:2.4}
 ];
 rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   const wave=i+1,boss=wave%10===0,flying=movement==='flying',traits=skills?skills.split(','):[],id=`host_${String(wave).padStart(2,'0')}`;

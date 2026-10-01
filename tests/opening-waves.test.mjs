@@ -21,17 +21,15 @@ function keepBasic(game,family,position){
   assert.notEqual(game.phase,'combat','opening patrol must finish');
 }
 
-test('each opening patrol is manageable with one new Tier I defender per round at a crossing or checkpoint',()=>{
+test('only the first patrol is introductory and manageable with any Tier I keeper near the route',()=>{
   for(const family of basicFamilies)for(const [layout,positions] of Object.entries(formations)){
     const game=new Game(data,{seed:4});
-    for(let round=1;round<=3;round++){
-      keepBasic(game,family,positions[round-1]);
-      assert.equal(game.leaks,0,`${family} I, ${layout}, wave ${round}`);
-      assert.equal(game.lives,data.balance.startingLives);
-      assert.equal(game.towers.filter(t=>t.state==='active').length,round);
-      assert.equal(game.grid.occupied.size,round*5);
-    }
-    assert.equal(game.kills,25);
+    keepBasic(game,family,positions[0]);
+    assert.equal(game.leaks,0,`${family} I, ${layout}, wave 1`);
+    assert.equal(game.lives,data.balance.startingLives);
+    assert.equal(game.towers.filter(t=>t.state==='active').length,1);
+    assert.equal(game.grid.occupied.size,5);
+    assert.equal(game.kills,8);
   }
 });
 
@@ -42,19 +40,21 @@ test('opening patrols still punish placing the keeper away from the route',()=>{
   assert.equal(game.lives,data.balance.startingLives-8);
 });
 
-test('introductory tuning preserves campaign income, count, movement and increasing pressure',()=>{
+test('waves two and three retain their original normal difficulty while wave one stays introductory',()=>{
   const patrols=data.waves.slice(0,3).map(w=>data.enemies[w.groups[0].type]);
   assert.deepEqual(data.waves.slice(0,3).map(w=>w.groups[0].count),[8,8,9]);
   assert.deepEqual(data.waves.slice(0,3).map(w=>w.reward),[29,36,43]);
   for(const e of patrols){
     assert.equal(e.gold,3);assert.equal(e.xp,3);assert.equal(e.leak,1);
-    assert.equal(e.flying,false);assert.equal(e.armor,0);assert.deepEqual(e.traits,[]);
+    assert.equal(e.flying,false);assert.deepEqual(e.traits,[]);
     assert.ok(!e.resists||Object.values(e.resists).every(r=>r===0));
   }
-  for(let i=1;i<3;i++){
-    assert.ok(patrols[i].hp>patrols[i-1].hp);assert.ok(patrols[i].speed>patrols[i-1].speed);
-    assert.ok(data.waves[i].groups[0].interval<data.waves[i-1].groups[0].interval);
-  }
+  assert.deepEqual(patrols.map(e=>[e.hp,e.armor,e.speed]),[[9,0,1.3],[61,1,2.21],[80,8,2.05+2*.16]]);
+  assert.deepEqual(data.waves.slice(0,3).map(w=>w.groups[0].interval),[2.4,.6,.6]);
+  assert.match(patrols[0].threat,/Opening patrol/);
+  assert.equal(patrols[1].threat,'Ground warband · shape the route');
+  assert.equal(patrols[2].threat,'Ground warband · shape the route');
+  assert.match(patrols[2].counter,/Plated armor/);
   assert.ok(patrols[2].hp<data.enemies.host_04.hp);
 });
 

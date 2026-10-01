@@ -8,6 +8,7 @@ from pathlib import Path
 from mathutils import Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import cohesive
+import articulation
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'public/assets/models'
@@ -133,13 +134,17 @@ def build_archer(rank):
     # Stretched bow arm and bent drawing arm; separate bracers, gloves and fingers.
     arms=[((-.22,.005,1.33),(-.4,.16,1.35),(-.60,.25,1.36)),((.22,.005,1.33),(.41,.08,1.24),(.095,.275,1.40))]
     for a,b,c in arms:
+        upper,lower,hand,weapon=articulation.limb(a,b,c);before_arm=set(bpy.context.scene.objects)
         ellipsoid('Sleeve shoulder',a,(.12,.12,.13),cloth,10,5)
         rod('Cloth upper arm',a,b,.082,cloth,8,end=.069)
+        articulation.attach(set(bpy.context.scene.objects)-before_arm,upper);before_arm=set(bpy.context.scene.objects)
         rod('Leather bracer',b,c,.078,leather,8,end=.058)
         mid=Vector(b).lerp(Vector(c),.18);end=Vector(b).lerp(Vector(c),.30)
         rod('Bracer brass binding',mid,end,.08,trim,8)
+        articulation.attach(set(bpy.context.scene.objects)-before_arm,lower);before_arm=set(bpy.context.scene.objects)
         ellipsoid('Gloved hand',c,(.075,.062,.066),leather,10,5)
         for d in [-.03,0,.03]: rod('Glove finger',(c[0]-.038,c[1]+.034,c[2]+d),(c[0]+.025,c[1]+.049,c[2]+d),.01,skin,5)
+        articulation.attach(set(bpy.context.scene.objects)-before_arm,hand)
     # Recurve bow with laminated limbs and separate taut bowstring.
     bow=[(-.59,.25,.76),(-.67,.25,.86),(-.72,.25,1.02),(-.695,.25,1.18),(-.625,.25,1.36),(-.695,.25,1.54),(-.72,.25,1.70),(-.67,.25,1.86),(-.59,.25,1.96)]
     for i in range(len(bow)-1):
@@ -191,59 +196,8 @@ def configure_scene():
     return cam
 
 def generate(render=True):
-    manifest_path=OUT/'manifest.json'
-    manifest=json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.exists() else []
-    manifest=[e for e in manifest if not(e.get('kind')=='tower' and e.get('family')=='archer')]
-    rank_collections=[]
-    bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
-    for rank in range(1,7):
-        collection=bpy.data.collections.new('ARCHER %s — %s'%(rank,NAMES[rank-1]));bpy.context.scene.collection.children.link(collection)
-        build_archer(rank);cohesive.human()
-        cohesive.budget_meshes()
-        objects=[o for o in bpy.context.scene.objects if o.type=='MESH' and not o.hide_render]
-        for o in objects:
-            for c in list(o.users_collection):c.objects.unlink(o)
-            collection.objects.link(o)
-        # Join temporary copies by material for the game; keep named source parts editable.
-        bpy.ops.object.select_all(action='DESELECT')
-        copies=[]
-        for material in {o.data.materials[0] for o in objects}:
-            pieces=[]
-            for original in objects:
-                if original.data.materials[0]!=material:continue
-                copy=original.copy();copy.data=original.data.copy();bpy.context.collection.objects.link(copy);pieces.append(copy)
-            bpy.ops.object.select_all(action='DESELECT')
-            for o in pieces:o.select_set(True)
-            bpy.context.view_layer.objects.active=pieces[0]
-            if len(pieces)>1:bpy.ops.object.join()
-            copies.append(pieces[0])
-        bpy.ops.object.select_all(action='DESELECT')
-        for o in copies:o.select_set(True)
-        file='human_archer_t%s.glb'%rank
-        bpy.ops.export_scene.gltf(filepath=str(OUT/file),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False)
-        for o in copies:bpy.data.objects.remove(o,do_unlink=True)
-        tris=sum(sum(len(p.vertices)-2 for p in o.data.polygons) for o in objects)
-        manifest.append(dict(file=file,kind='tower',family='archer',tier=rank,style='archer-v2',triangles=tris,authoring='Blender',rankColor='#'+COLORS[rank-1]))
-        rank_collections.append(collection)
-        for o in objects:o.hide_render=True;o.hide_set(True)
-    manifest_path.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
-    cam=configure_scene();scene=bpy.context.scene
-    if render:
-        scene.render.resolution_x=480;scene.render.resolution_y=560;scene.render.resolution_percentage=100
-        for rank,col in enumerate(rank_collections,1):
-            for o in col.objects:o.hide_render=False;o.hide_set(False)
-            scene.render.filepath=str(PORTRAITS/('archer-t%s.png'%rank));bpy.ops.render.render(write_still=True)
-            for o in col.objects:o.hide_render=True;o.hide_set(True)
-    # All ranks spaced in the native authoring scene; a single camera frames the lineup.
-    for i,col in enumerate(rank_collections):
-        for o in col.objects:o.hide_render=False;o.hide_set(False);o.location.x+=(2.5-i)*1.62
-    cam.location=(0,12,5.6);cam.rotation_euler=(Vector((0,0,1))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=10.8
-    scene.render.resolution_x=2100;scene.render.resolution_y=700
-    scene['Design status']='Archer V2: continuous sculpted anatomy, rounded leather, tailored sleeves.'
-    scene['Ranks']='I blue / II green / III purple / IV ivory white / V gold / VI radiant gold'
-    bpy.ops.wm.save_as_mainfile(filepath=str(SCENES/'archer_design_v1.blend'))
-    if render:
-        scene.render.filepath=str(PORTRAITS/'archer-lineup.png');bpy.ops.render.render(write_still=True)
-    print('ARCHER V2: six sculpted Blender models, portraits and editable review scene ready.')
+    # Keep this standalone entry point on the joint-preserving production path.
+    import author_army
+    author_army.generate(render=render,family='archer')
 
 if __name__=='__main__':generate(render='--no-render' not in sys.argv)

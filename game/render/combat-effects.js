@@ -118,13 +118,17 @@ function slash(color){
 /** Cosmetic presentation only; never updates projectile timing, targets or damage. */
 export class CombatEffects{
   constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x,y,z),sourceHeight=1.5,targetHeight=enemy=>enemy?.flying?1.9:enemy?.boss?1.4:1,
-    getStats=()=>({}),isVisible=()=>true,reducedMotion=false,maxEffects=48,maxProjectiles=96}={}){
-    this.scene=scene;this.position=position;this.sourceHeight=sourceHeight;this.targetHeight=targetHeight;this.getStats=getStats;this.isVisible=isVisible;this.reducedMotion=reducedMotion;
+    getStats=()=>({}),getMuzzle=null,isVisible=()=>true,reducedMotion=false,maxEffects=48,maxProjectiles=96}={}){
+    this.scene=scene;this.position=position;this.sourceHeight=sourceHeight;this.targetHeight=targetHeight;this.getStats=getStats;this.getMuzzle=getMuzzle;this.isVisible=isVisible;this.reducedMotion=reducedMotion;
     this.maxEffects=Math.max(1,Math.floor(maxEffects));this.maxProjectiles=Math.max(1,Math.floor(maxProjectiles));this.effects=[];this.projectiles=new Map();this.disposed=false;this.time=0;
   }
   motion(){return !(typeof this.reducedMotion==='function'?this.reducedMotion():this.reducedMotion);}
   visible(target){return !target||this.isVisible(target)!==false;}
   point(target,height){return this.position(target.x,height,target.z);}
+  muzzle(source,fallback=source){
+    const out=new THREE.Vector3(),point=this.getMuzzle?.(source,out);
+    return point&&[point.x,point.y,point.z].every(Number.isFinite)?out.copy(point):this.point(fallback,this.sourceHeight);
+  }
   addEffect(object,duration,animate,target=null){
     if(this.disposed||!this.visible(target)){disposeObject(object);return null;}
     while(this.effects.length>=this.maxEffects)this.removeEffect(this.effects[0]);
@@ -140,11 +144,18 @@ export class CombatEffects{
     const lobbed=kind==='siege'&&LOBBED.has(shot.source.family);
     const object=kind==='roots'?thorns(color):kind==='flame'?flameStream(color):kind==='lightning'?zigzag(color):kind==='melee'?slash(color):lobbed?bomb(color):kind==='arrow'||kind==='siege'?arrow(color):spell(kind,color);
     if(kind==='siege'&&!lobbed)object.scale.setScalar(1.4);
-    sealMaterials(object);this.scene.add(object);const record={object,kind,shot,stats,color,lobbed};this.projectiles.set(shot.id,record);this.poseProjectile(record,this.time);return record;
+    sealMaterials(object);this.scene.add(object);const record={object,kind,shot,stats,color,lobbed,origin:this.muzzle(shot.source,shot.start||shot.source)};this.projectiles.set(shot.id,record);this.poseProjectile(record,this.time);
+    if(['arcane','holy','frost'].includes(kind))this.magicWave(record.origin,this.point(shot.target,this.targetHeight(shot.target)),color,shot.target);
+    return record;
+  }
+  magicWave(start,end,color,target){
+    const object=mesh(new THREE.TorusGeometry(.16,.017,4,24),material(color,.82,true),'Staff-tip released magic wave');object.position.copy(start);
+    const direction=end.clone().sub(start).normalize();object.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),direction);
+    this.addEffect(object,.32,(effect,p,motion)=>{effect.position.copy(start).addScaledVector(direction,motion?p*.7:.18);effect.scale.setScalar(motion ? .45+p*2.7 : 1.8);fadeObject(effect,1-p);},target);
   }
   poseProjectile(record,time){
     const {object,kind,shot,lobbed}=record,p=clampProgress(shot.progress),motion=this.motion();
-    const start=this.point(shot.start||shot.source,this.sourceHeight),end=this.point(shot.target,this.targetHeight(shot.target));
+    const start=kind==='flame'?this.muzzle(shot.source,shot.start||shot.source):record.origin,end=this.point(shot.target,this.targetHeight(shot.target));
     if(kind==='roots'){
       object.position.copy(this.point(shot.target,.03));object.scale.setScalar(1);object.scale.y=motion ? .16+.84*Math.sin(Math.min(1,p*1.35)*Math.PI/2) : .85;
     }else if(kind==='lightning'){
@@ -164,6 +175,7 @@ export class CombatEffects{
   }
   syncProjectiles(shots,time=this.time){
     if(this.disposed)return;this.time=Number.isFinite(time)?time%1e6:0;
+    for(const effect of [...this.effects])if(!this.visible(effect.target))this.removeEffect(effect);
     const visibleShots=shots.filter(shot=>this.visible(shot.target)).slice(0,this.maxProjectiles);
     const active=new Set(visibleShots.map(shot=>shot.id));
     for(const id of this.projectiles.keys())if(!active.has(id))this.removeProjectile(id);
@@ -195,11 +207,11 @@ export class CombatEffects{
   }
   breath(payload){
     if(!payload.source||!payload.target||!this.visible(payload.target))return;
-    const object=flameStream(ATTACK_COLORS.flame),start=this.point(payload.source,this.sourceHeight),end=this.point(payload.target,this.targetHeight(payload.target));
+    const object=flameStream(ATTACK_COLORS.flame),start=this.muzzle(payload.source),end=this.point(payload.target,this.targetHeight(payload.target));
     orientY(object,start,end);
     this.addEffect(object,.57,(effect,p,motion)=>{
       // Follow the target without changing its combat location or the actor's aim.
-      orientY(effect,this.point(payload.source,this.sourceHeight),this.point(payload.target,this.targetHeight(payload.target)));
+      orientY(effect,this.muzzle(payload.source),this.point(payload.target,this.targetHeight(payload.target)));
       animateBreath(effect,p*2,motion);
       fadeObject(effect,Math.sin(Math.PI*Math.min(1,p*1.1))*.85);
     },payload.target);

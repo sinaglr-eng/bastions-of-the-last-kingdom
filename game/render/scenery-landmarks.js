@@ -4,10 +4,19 @@ import {releaseAsset} from '../release.js';
 import {keepModel,campModel,optimize} from './models.js';
 
 export const LANDMARK_SITES=Object.freeze({
-  camp:Object.freeze({x:-25,y:0,z:-14,file:'fortified-warcamp-v2.glb',labelHeight:4.2}),
-  keep:Object.freeze({x:28,y:0,z:14,file:'royal-castle-v2.glb',labelHeight:8.2})
+  camp:Object.freeze({x:-25,y:0,z:-14,file:'fortified-warcamp-v3.glb',labelHeight:4.2}),
+  keep:Object.freeze({x:28,y:0,z:14,file:'royal-castle-v3.glb',labelHeight:13.8})
 });
 export const WARCAMP_PREVIEW_LOCAL=Object.freeze({x:2.25,y:.595,z:0});
+
+export const LANDMARK_CLEARINGS=Object.freeze([
+  Object.freeze({x:-30.5,z:-15,halfWidth:11.5,halfDepth:13,height:-.04}),
+  Object.freeze({x:34.5,z:14,halfWidth:15.5,halfDepth:13.5,height:-.04})
+]);
+export function landmarkClearingDistance(x,z){
+  return Math.min(...LANDMARK_CLEARINGS.map(site=>Math.max(Math.abs(x-site.x)-site.halfWidth,Math.abs(z-site.z)-site.halfDepth,0)));
+}
+export const isLandmarkClearing=(x,z,margin=0)=>landmarkClearingDistance(x,z)<=margin;
 
 function disposeVisual(object){
   const geometries=new Set(),materials=new Set();
@@ -29,7 +38,7 @@ export function createLandmarkScenery(){
   for(const [key,site]of Object.entries(LANDMARK_SITES)){
     const root=new THREE.Group();root.name=key==='camp'?'Orc fortified settlement':'Royal last castle';
     root.position.set(site.x,site.y,site.z);group.add(root);roots[key]=root;
-    const fallback=key==='camp'?campModel():keepModel();fallback.scale.setScalar(key==='camp'?1.23:1.51);
+    const fallback=key==='camp'?campModel():keepModel();fallback.scale.setScalar(key==='camp'?1.23:2.35);
     const visual=optimize(fallback);visual.name=key+' playable fallback';root.add(visual);visuals[key]=visual;
   }
   const previewAnchor=new THREE.Group();previewAnchor.name='Upcoming warband presentation';

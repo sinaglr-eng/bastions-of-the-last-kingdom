@@ -3,8 +3,9 @@ import assert from 'node:assert/strict';
 import {readFileSync,statSync} from 'node:fs';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {LANDMARK_SITES,WARCAMP_PREVIEW_LOCAL,createLandmarkScenery} from '../game/render/scenery-landmarks.js';
+import {LANDMARK_SITES,LANDMARK_CLEARINGS,WARCAMP_PREVIEW_LOCAL,createLandmarkScenery} from '../game/render/scenery-landmarks.js';
 import {createValleyRelief,valleyGroundHeight} from '../game/render/valley-relief.js';
+import {valleyEnvironment} from '../game/render/environment.js';
 
 async function loadModel(file){
   const bytes=readFileSync(new URL(`../public/assets/scenery/${file}`,import.meta.url));
@@ -24,12 +25,14 @@ test('both detailed Blender landmarks load within their triangle budget and rema
       for(const value of position.array)assert.ok(Number.isFinite(value));
       triangles+=(object.geometry.index?.count??position.count)/3;
     });
-    assert.ok(triangles>5000&&triangles<10000,name+' detailed but bounded geometry');
-    assert.ok(meshes<=12,name+' material batches bound draw calls');
+    assert.ok(triangles>15000&&triangles<(name==='keep'?25000:36000),name+' complete settlement within a bounded geometry budget');
+    assert.ok(meshes<=24,name+' material batches bound draw calls for the whole settlement');
     scene.position.set(site.x,site.y,site.z);
     const bounds=new THREE.Box3().setFromObject(scene,true);
     assert.ok(bounds.max.x<=-18.5||bounds.min.x>=18.5||bounds.max.z<=-18.5||bounds.min.z>=18.5,name);
     assert.ok(bounds.max.y>3.5);
+    if(name==='keep'){assert.ok(bounds.max.y>13,'The enlarged castle is monumental');assert.ok(bounds.max.x-bounds.min.x>26,'The castle town fills the eastern shoulder');}
+    else assert.ok(bounds.max.x-bounds.min.x>18,'The inhabited military camp extends beyond the first palisade');
     const source=new URL(`../blender/scenes/${site.file.replace('.glb','.blend')}`,import.meta.url);
     assert.ok(statSync(source).size>10000,'Native editable source is retained');
     dispose(scene);
@@ -69,6 +72,21 @@ test('continuous relief has upward faces, deterministic layered slopes and no ge
     assert.ok(normals.getY(i)>0,'Terrain top faces point upward');if(y>2)high++;
   }
   assert.ok(high>100,'Broad surrounding slopes extend beyond the near tree line');
-  for(const site of Object.values(LANDMARK_SITES))assert.ok(Math.abs(valleyGroundHeight(site.x,site.z)+.04)<1e-8);
+  for(const site of [...Object.values(LANDMARK_SITES),...LANDMARK_CLEARINGS])assert.ok(Math.abs(valleyGroundHeight(site.x,site.z)+.04)<1e-8);
   dispose(a);dispose(b);
+});
+
+test('dense scenery fills every outer shoulder while entrance and bridge corridors stay open',()=>{
+  const valley=valleyEnvironment();
+  assert.ok(valley.sceneryCounts.trees>600);assert.ok(valley.sceneryCounts.mountains>50);
+  assert.ok(valley.sceneryCounts.rocks>100);assert.ok(valley.sceneryCounts.undergrowth>350);
+  let staticBatches=0;valley.staticGroup.traverse(object=>{if(object.isMesh)staticBatches++;});
+  assert.ok(staticBatches<=30,'Shared mountain and foliage materials bound the dense landscape draw calls');
+  for(const bounds of valley.bounds){
+    const crosses=(minX,maxX,minZ,maxZ)=>bounds.max[0]>minX&&bounds.min[0]<maxX&&bounds.max[2]>minZ&&bounds.min[2]<maxZ;
+    // Check the physical approaches; distant mountain layers may sit beyond the settlements.
+    if(crosses(-22,-18.5,-15,-13))assert.ok(bounds.max[1]<1,'The orc gate approach remains open');
+    if(crosses(18.5,25.2,13,15))assert.ok(bounds.max[1]<1,'The bridge approach remains open');
+  }
+  dispose(valley.staticGroup);dispose(valley.water);dispose(valley.clouds);
 });

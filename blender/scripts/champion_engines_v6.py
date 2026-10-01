@@ -6,6 +6,7 @@ The catapult's complete throwing assembly is parented to the siege_arm pivot.
 """
 import math
 import bpy
+import articulation
 from mathutils import Vector
 
 
@@ -289,6 +290,7 @@ def _ice_colossus(a, p):
     body.append(a.ellipsoid('Ice giant cheek and chin', (0, .118, 1.745), (.149, .076, .095), p['body'], 12, 6))
     body.append(a.ellipsoid('Ice giant nose ridge', (0, .165, 1.84), (.032, .045, .074), p['body'], 10, 5))
     for side in (-1, 1):
+        before_arm=set(articulation.meshes())
         body.append(a.ellipsoid('Ice giant connected shoulder', (side*.33, -.01, 1.52),
                                 (.20, .195, .18), p['body'], 12, 6))
         body.append(a.rod('Ice giant curved upper arm', (side*.38, 0, 1.49),
@@ -297,6 +299,7 @@ def _ice_colossus(a, p):
                           (side*.43, .165, .93), .13, p['body'], 12, end=.10))
         body.append(a.ellipsoid('Ice giant clenched hand', (side*.43, .17, .9),
                                 (.133, .10, .14), p['body'], 12, 6))
+        articulation.articulated_parts(set(articulation.meshes())-before_arm,(side*.33,-.01,1.52),(side*.48,.055,1.15),(side*.43,.17,.9))
     a.A.cohesive.fuse(body, 'Unified flowing glacial giant anatomy', .026, 2700, p['body'])
     for side in (-1, 1):
         a.rod('Ice giant luminous stern eye', (side*.042, .16, 1.875),
@@ -336,6 +339,7 @@ def _rock_golem(a, p):
     mass.append(a.ellipsoid('Runic golem sculpted head', (0, .008, 1.75), (.205, .17, .23), p['body'], 12, 6))
     mass.append(a.ellipsoid('Runic golem strong jaw', (0, .13, 1.65), (.167, .085, .115), p['body'], 10, 5))
     for side in (-1, 1):
+        before_arm=set(articulation.meshes())
         mass.append(a.ellipsoid('Runic golem joined shoulder', (side*.37, -.01, 1.40),
                                 (.23, .22, .235), p['body'], 10, 5))
         mass.append(a.rod('Runic golem stone upper arm', (side*.40, 0, 1.36),
@@ -344,6 +348,7 @@ def _rock_golem(a, p):
                           (side*.46, .09, .72), .16, p['body'], 9, end=.20))
         mass.append(a.ellipsoid('Runic golem huge stone fist', (side*.46, .12, .72),
                                 (.20, .18, .18), p['body'], 10, 5))
+        articulation.articulated_parts(set(articulation.meshes())-before_arm,(side*.37,-.01,1.40),(side*.47,.025,1.06),(side*.46,.12,.72))
     body = a.A.cohesive.fuse(mass, 'Sculpted monolithic runic statue', .03, 2450, p['body'])
     # Low amplitude deformation makes this a carved natural rock, not spherical body pieces.
     for vertex in body.data.vertices:
@@ -424,6 +429,7 @@ def _mechanical_golem(a, p):
         a.cube('Automaton lower face ventilation slot', (x, .165, 1.708),
                (.012, .013, .04), p['dark'], .003)
     for side in (-1, 1):
+        before_arm=set(articulation.meshes())
         a.ellipsoid('Automaton shoulder ball bearing', (side*.33, 0, 1.48),
                     (.13, .135, .14), p['dark'], 12, 6)
         a.ellipsoid('Automaton curved shoulder armor', (side*.35, 0, 1.555),
@@ -441,6 +447,7 @@ def _mechanical_golem(a, p):
                   (side*.43+(index-1)*.055, .248, .75), .019, p['trim'], 7)
         a.rod('Automaton gripping thumb', (side*.335, .16, .86),
               (side*.32, .245, .82), .025, p['trim'], 7)
+        articulation.articulated_parts(set(articulation.meshes())-before_arm,(side*.33,0,1.48),(side*.485,.04,1.14),(side*.43,.17,.842))
         # Back-mounted alchemical packs connect to the boiler with copper feed pipes.
         a.cylinder('Automaton alchemy pressure pack', (side*.20, -.26, 1.30),
                    .077, .35, p['steel'], 10)

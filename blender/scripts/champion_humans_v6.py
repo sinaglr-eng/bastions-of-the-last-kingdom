@@ -8,6 +8,7 @@ import math
 import bpy
 from mathutils import Vector
 import cohesive
+import articulation
 
 FAMILIES = {
     'rimewatch', 'frostblade', 'roseguard', 'highking', 'crownofages', 'thornwarden',
@@ -147,13 +148,16 @@ class Sculpt:
             start=(start[0]*w,start[1],start[2]*h)
             elbow=(elbow[0]*w,elbow[1],elbow[2]*h)
             hand=(hand[0]*w,hand[1],hand[2]*h); hands.append(hand)
+            upper,lower,wrist,weapon=articulation.limb(start,elbow,hand)
             sleeve=self.orb('Anatomical tailored shoulder',start,(.112*w,.11,.122*h),self.p['steel'] if armor else self.p['cloth'],10,5)
-            torso.append(sleeve)
-            torso.append(self.rod('Seamless tailored upper arm',start,elbow,.076*w,self.p['steel'] if armor else self.p['cloth'],.069*w))
+            arm_surface=[sleeve,self.rod('Seamless tailored upper arm',start,elbow,.076*w,self.p['steel'] if armor else self.p['cloth'],.069*w)]
+            fused=cohesive.fuse(arm_surface,'Continuous articulated upper sleeve',.018,330,self.p['steel'] if armor else self.p['cloth'])
+            articulation.attach([fused],upper);before_arm=set(bpy.context.scene.objects)
             self.rod('Fitted forearm',elbow,hand,.071*w,self.p['skin'] if bare else (self.p['steel'] if armor else self.p['leather']),.052*w)
-            self.orb('Natural gripping hand',hand,(.057*w,.052,.064),self.p['skin'] if bare else self.p['leather'],10,5)
             mid=Vector(elbow).lerp(Vector(hand),.32);end=Vector(elbow).lerp(Vector(hand),.45)
             self.rod('Bracer chased binding',mid,end,.072*w,self.p['trim'],seg=8)
+            articulation.attach(set(bpy.context.scene.objects)-before_arm,lower)
+            articulation.attach([self.orb('Natural gripping hand',hand,(.057*w,.052,.064),self.p['skin'] if bare else self.p['leather'],10,5)],wrist)
         cohesive.fuse(torso,'Continuous sculpted cuirass and upper sleeves' if armor else 'Seamless sculpted tunic and sleeves',.022,950,self.p['steel'] if armor else self.p['cloth'])
         skinparts=[self.orb('New sculpted head',(0,.022,head),(.149*w,.132,.192*h),self.p['skin'],16,8),
                    self.orb('Sculpted jaw',(0,.069,head-.075*h),(.121*w,.108,.109*h),self.p['skin'],12,6),
@@ -449,6 +453,7 @@ class Sculpt:
         # Separate sculpted flight feathers rooted in a curved shoulder structure.
         ivory=self.p['ivory'];shade=self.mat('Wing soft blue underside','a2bbc1')
         for side in [-1,1]:
+            before_wing=set(bpy.context.scene.objects)
             pts=[(side*.13,-.14,1.40),(side*.42,-.20,1.68),(side*.76,-.21,1.88),(side*(1.15 if arch else .98),-.20,1.84)]
             for a,b in zip(pts,pts[1:]):self.rod('Curved feathered wing root',a,b,.072,ivory,.040,seg=10)
             for j in range(8 if arch else 7):
@@ -460,6 +465,7 @@ class Sculpt:
             for j in range(5):
                 t=j/4;start=(side*(.23+t*.55),-.13,1.58+.20*t)
                 self.leaf('Overlapping wing covert',start,(side*.12,.005,-.19),shade,.065)
+            articulation.attach(set(bpy.context.scene.objects)-before_wing,articulation.pivot('left_wing_pivot' if side<0 else 'right_wing_pivot',pts[0]))
         if arch:
             for side in [-1,1]:
                 for j in range(4):self.leaf('Archangel lower feather fan',(side*(.16+j*.07),-.18,1.35),(side*(.13+j*.055),-.035,-.30),ivory,.054)
@@ -610,11 +616,12 @@ def _nature_spirit(s):
         pieces.append(s.rod('Continuous curling spirit tail',a,b,.142-i*.028,jade,.110-i*.029,seg=12))
     for side in [-1,1]:
         shoulder=(side*.17,.005,1.425);elbow=(side*.285,.10,1.37);hand=(side*.40,.195,1.54)
-        pieces.extend([s.orb('Spirit joined shoulder',shoulder,(.081,.079,.101),jade,12,6),
-                       s.rod('Spirit graceful upper arm',shoulder,elbow,.061,jade,.046,seg=10),
-                       s.rod('Spirit raised forearm',elbow,hand,.047,jade,.034,seg=10),
-                       s.orb('Spirit open offered hand',hand,(.041,.049,.055),jade,10,5),
-                       s.leaf('Spirit tapered pointed ear',(side*.10,.010,1.826),(side*.102,-.01,.038),jade,.032)])
+        upper,lower,wrist,weapon=articulation.limb(shoulder,elbow,hand)
+        arm_surface=[s.orb('Spirit joined shoulder',shoulder,(.081,.079,.101),jade,12,6),s.rod('Spirit graceful upper arm',shoulder,elbow,.061,jade,.046,seg=10)]
+        articulation.attach([cohesive.fuse(arm_surface,'Continuous spirit upper arm',.014,230,jade)],upper)
+        articulation.attach([s.rod('Spirit raised forearm',elbow,hand,.047,jade,.034,seg=10)],lower)
+        articulation.attach([s.orb('Spirit open offered hand',hand,(.041,.049,.055),jade,10,5)],wrist)
+        pieces.append(s.leaf('Spirit tapered pointed ear',(side*.10,.010,1.826),(side*.102,-.01,.038),jade,.032))
     cohesive.fuse(pieces,'Continuous floating nature spirit anatomy',.016,1850,jade)
     for side in [-1,1]:
         s.orb('Spirit luminous inset eye',(side*.049,.143,1.833),(.016,.009,.010),light,8,4)
