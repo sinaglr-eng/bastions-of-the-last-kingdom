@@ -51,18 +51,22 @@ export function abilityLines(s){
 }
 export const abilityText=s=>abilityLines(s).join(' · ');
 export function ingredientName(p,data){const stats=data.towers[p.family];return stats.advanced?`${rankLabel(p.tier)} · ${stats.name}`:`${defenderCode(stats,p.tier)} · ${stats.name}`;}
+export const recipeProgressLegend=()=>`<div class="recipe-progress-heading"><span class="owned-progress">Built</span><span class="draft-progress">This round</span></div>`;
+export function basicRecipeBreakdown(recipe,data,towerList){
+  return `<ul class="pinned-basics">${expandedRecipeProgress(recipe,towerList,data).map(p=>`<li class="${p.ownedCount===p.count?'owned':p.draftCount?'draft-available':''}" data-family="${p.family}" data-tier="${p.tier}"><span><b>${basicIngredientLabel(p,data)}</b><small>${data.towers[p.family].name}</small></span><span class="pinned-progress"><b class="${p.ownedCount?'owned-progress':''}">${p.ownedCount}/${p.count}</b>${p.draftCount?`<small class="draft-progress">+${p.draftCount} this round</small>`:''}</span></li>`).join('')}</ul>`;
+}
 export function championRecipeCard(recipe,data,images,{towerList=[],pinned=false,discovered=false,level=1,craftable=false}={}){
   const family=recipeFamily(recipe),stats=towerStats({family,tier:recipeTier(recipe)},data);
-  const progress=recipeProgress(recipe,towerList),ready=progress.every(p=>p.owned)&&level>=recipe.level;
-  const abilities=abilityLines(stats),basic=pinned?expandedRecipeProgress(recipe,towerList,data):[];
+  const progress=recipeProgress(recipe,towerList),ready=progress.every(p=>p.available)&&level>=recipe.level;
+  const abilities=abilityLines(stats);
   return `<article class="recipe-card ${ready?'available':''}" data-family="${family}" data-recipe-id="${recipe.id}">
     <img src="${images[`${family}:${recipeTier(recipe)}`]||images[family]}" alt="${recipeLabel(recipe,data)}">
     <div class="recipe-summary"><div class="eyebrow">${championClassification(family).toUpperCase()} · ${ready?'COMBINATION AVAILABLE':discovered?'DISCOVERED':'UNFORGED'}</div><h3>${recipeLabel(recipe,data)}</h3><p>${stats.description}</p></div>
     <p class="recipe-built"><strong>${builtTowerCount(towerList,family)}</strong> built</p>
     <dl class="recipe-stat-grid"><div><dt>Damage / hit</dt><dd>${formatTowerNumber(stats.damage)}</dd></div><div><dt>Base DPS</dt><dd>${formatTowerNumber(baseAttackDps(stats))}</dd></div><div><dt>Interval</dt><dd>${formatTowerNumber(stats.interval)}s</dd></div><div><dt>Range</dt><dd>${formatTowerNumber(stats.range)}</dd></div></dl>
     <div class="recipe-ability-heading">${damageTypeName(stats.type)} · Effects</div><ul class="recipe-effects">${abilities.map(line=>`<li>${line}</li>`).join('')}</ul>
-    <div class="recipe-ability-heading">Combine these ${recipe.ingredients.length} defenders</div><ul class="recipe-ingredients">${progress.map(p=>`<li class="${p.owned?'owned':''}"><span>${p.owned?'✓':'○'}</span>${ingredientName(p,data)}</li>`).join('')}</ul>
-    ${pinned?`<details class="recipe-basic-breakdown" open><summary>Full basic recruit chain</summary><ul>${basic.map(p=>`<li class="${p.ownedCount===p.count?'owned':''}"><span>${basicIngredientLabel(p,data)}</span><small>${p.ownedCount}/${p.count} covered</small></li>`).join('')}</ul><p>Existing ingredient champions cover their recruits.</p></details>`:''}
+    <div class="recipe-ability-heading">Combine these ${recipe.ingredients.length} defenders</div><ul class="recipe-ingredients">${progress.map(p=>`<li class="${p.owned?'owned':p.draft?'draft-available':''}"><span>${p.owned?'✓':p.draft?'◆':'○'}</span>${ingredientName(p,data)}${p.draft?' <small class="draft-progress">this round</small>':''}</li>`).join('')}</ul>
+    ${pinned?`<details class="recipe-basic-breakdown" open><summary>Full basic recruit chain</summary>${basicRecipeBreakdown(recipe,data,towerList)}</details>`:''}
     <button class="text-button ${pinned?'recipe-pin':''}" data-action="pin" data-id="${recipe.id}">${icon('pin')}${pinned?'Pinned':'Pin recipe'}</button>${ready&&craftable?` <button class="text-button gold" data-action="craft" data-id="${recipe.id}">Recruit champion</button>`:''}
   </article>`;
 }

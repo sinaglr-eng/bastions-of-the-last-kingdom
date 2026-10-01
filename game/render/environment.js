@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import {seededRandom} from '../core/math.js';
 import {box,beam,cone,sphere,cylinder,rockModel,optimize} from './models.js';
+import {createValleyRelief,valleyGroundHeight,RIVER_CONTROL_POINTS} from './valley-relief.js';
+import {LANDMARK_SITES} from './scenery-landmarks.js';
 
 // UVs follow the river's bends, keeping the current parallel to the banks.
 function flowingWater(time,fall=false){
@@ -59,7 +61,7 @@ export function valleyEnvironment(){
   const land=new THREE.Group(),water=new THREE.Group(),clouds=new THREE.Group(),rng=seededRandom(1907),bounds=[];
   const half=18.5,timeUniform={value:0};
   function place(object,x,z,scale=1,angle=0){
-    object.position.set(x,0,z);object.scale.multiplyScalar(scale);object.rotation.y=angle;
+    object.position.set(x,valleyGroundHeight(x,z),z);object.scale.multiplyScalar(scale);object.rotation.y=angle;
     const b=new THREE.Box3().setFromObject(object);
     if(b.min.x<half&&b.max.x>-half&&b.min.z<half&&b.max.z>-half)return false;
     bounds.push({min:b.min.toArray(),max:b.max.toArray()});land.add(object);return true;
@@ -81,11 +83,18 @@ export function valleyEnvironment(){
     const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));geometry.computeVertexNormals();
     const m=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({vertexColors:true,roughness:1,flatShading:true}));m.castShadow=true;m.receiveShadow=true;g.add(m);return g;
   }
-  for(let i=0;i<12;i++)place(peak(4.5+rng()*3,7+rng()*9),-38+i*6.8,-31-rng()*6);
-  for(let i=0;i<6;i++)place(peak(4+rng()*2,4+rng()*6),-29-rng()*6,-20+i*7);
-  for(let i=0;i<7;i++)place(peak(3+rng()*2,3+rng()*5),31+rng()*5,-20+i*7);
+  land.add(createValleyRelief());
+  // Irregular ridges in three depth bands form a landscape, rather than a wall
+  // of evenly spaced peaks. The lower foreground ridge preserves the map view.
+  for(let layer=0;layer<3;layer++)for(let i=0;i<14;i++){
+    const angle=(i+(rng()-.5)*.7)/14*Math.PI*2,distance=43+layer*14+rng()*7;
+    const x=Math.cos(angle)*distance,z=Math.sin(angle)*distance;
+    const height=(z>19?3.8:7.5)+layer*1.7+rng()*4.5;
+    const mountain=peak(4.3+layer*.5+rng()*2.7,height);mountain.scale.x=.90+rng()*.65;mountain.scale.z=.85+rng()*.53;
+    place(mountain,x,z,1,rng()*Math.PI);
+  }
 
-  const curve=new THREE.CatmullRomCurve3([[25,-39],[24,-29],[24,-23],[22.7,-14],[22.6,-3],[22,8],[23,18],[20,24],[7,26],[-8,28],[-25,33]].map(([x,z])=>new THREE.Vector3(x,0,z)));
+  const curve=new THREE.CatmullRomCurve3(RIVER_CONTROL_POINTS.map(([x,z])=>new THREE.Vector3(x,0,z)));
   const points=curve.getPoints(240),riverMaterial=flowingWater(timeUniform),fallMaterial=flowingWater(timeUniform,true);
   function ribbon(width,y,material){
     const positions=[],uvs=[],lengths=[0];
@@ -130,6 +139,7 @@ export function valleyEnvironment(){
   const spray=new THREE.Points(sparkGeometry,new THREE.PointsMaterial({color:'#ecfff2',size:.075,transparent:true,opacity:.75,depthWrite:false}));water.add(spray);
 
   const leafMaterials=['#2f6251','#39745b','#4b8462','#6a9268','#98ad76'].map(color=>new THREE.MeshStandardMaterial({color,roughness:.96}));
+  const leafGeometry={broad:new THREE.IcosahedronGeometry(.61,1),crown:new THREE.IcosahedronGeometry(.85,1),pine:Array.from({length:4},(_,i)=>new THREE.ConeGeometry(.8-i*.145,1.42-i*.09,12)),twig:Array.from({length:4},(_,i)=>new THREE.ConeGeometry((.8-i*.145)*.4,.66,8))};
   function foliage(parent,geometry,materialIndex,position,scale=[1,1,1]){
     const m=new THREE.Mesh(geometry,leafMaterials[materialIndex%leafMaterials.length]);m.position.set(...position);m.scale.set(...scale);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m;
   }
@@ -137,29 +147,46 @@ export function valleyEnvironment(){
     const g=new THREE.Group(),h=2.8+rng()*.5;cylinder(g,.065,.13,h*.86,'#6c503c',[0,h*.4,0],10);
     for(let i=0;i<5;i++){
       const a=i*2.399,level=.95+i*.23,reach=.48+rng()*.24,tip=[Math.cos(a)*reach,level+.26,Math.sin(a)*reach];beam(g,[0,level,0],tip,.05,'#6f5940');
-      if(broadleaf)foliage(g,new THREE.IcosahedronGeometry(.61,1),3+i%2,[tip[0],tip[1]+.28,tip[2]],[1,.85,1]);
+      if(broadleaf)foliage(g,leafGeometry.broad,3+i%2,[tip[0],tip[1]+.28,tip[2]],[1,.85,1]);
     }
     if(broadleaf){
-      foliage(g,new THREE.IcosahedronGeometry(.85,1),3,[0,h-.35,0],[.95,1,1]);cylinder(g,.105,.13,h*.5,'#c2bea0',[0,h*.25,0],10);
+      foliage(g,leafGeometry.crown,3,[0,h-.35,0],[.95,1,1]);cylinder(g,.105,.13,h*.5,'#c2bea0',[0,h*.25,0],10);
       for(let i=0;i<5;i++)box(g,[.13,.06,.013],'#695c43',[Math.sin(i*2)*.02,.2+i*.22,.13]);
     }else{
       for(let i=0;i<4;i++){
-        const radius=.8-i*.145,branch=foliage(g,new THREE.ConeGeometry(radius,1.42-i*.09,12),i,[Math.sin(i*2)*.08,1.15+i*.49,Math.cos(i*3)*.045]);branch.rotation.y=i*.8;branch.rotation.z=(rng()-.5)*.07;
-        for(let j=0;j<3;j++){const a=j*2.094+i*.7;foliage(g,new THREE.ConeGeometry(radius*.4,.66,8),i,[Math.cos(a)*radius*.63,.99+i*.49,Math.sin(a)*radius*.63],[1,.8,1]);}
+        const radius=.8-i*.145,branch=foliage(g,leafGeometry.pine[i],i,[Math.sin(i*2)*.08,1.15+i*.49,Math.cos(i*3)*.045]);branch.rotation.y=i*.8;branch.rotation.z=(rng()-.5)*.07;
+        for(let j=0;j<3;j++){const a=j*2.094+i*.7;foliage(g,leafGeometry.twig[i],i,[Math.cos(a)*radius*.63,.99+i*.49,Math.sin(a)*radius*.63],[1,.8,1]);}
       }
     }
     for(let i=0;i<3;i++){const a=i*2.094;beam(g,[0,.15,0],[Math.cos(a)*.3,.01,Math.sin(a)*.3],.075,'#6b5540');}return g;
   }
-  for(let i=0;i<190;i++){
+  function landmarkClearing(x,z){
+    return Object.entries(LANDMARK_SITES).some(([key,site])=>Math.hypot(x-site.x,z-site.z)<(key==='camp'?6.3:6.5));
+  }
+  for(let i=0;i<205;i++){
     const side=i%4;let x,z;
     if(side===0){x=-25+rng()*48;z=-21.8-rng()*5;}if(side===1){x=-22.5-rng()*6;z=-21+rng()*46;}
     if(side===2){x=27.5+rng()*7;z=-20+rng()*46;}if(side===3){x=-25+rng()*46;z=31+rng()*7;}
-    if(Math.hypot(x+22,z+14)<4.4||Math.hypot(x-26,z-14)<4.5||Math.hypot(x-24,z+24)<4)continue;
+    if(landmarkClearing(x,z)||Math.hypot(x-24,z+24)<4)continue;
     place(tree(i%5===0),x,z,.72+rng()*.67,rng()*6.28);
+  }
+  // Broad forest masses repeat shared foliage geometry at the outer shoulders.
+  // Small distant conifers use three crowns, keeping geometry and draw calls low.
+  const distantCone=new THREE.ConeGeometry(.75,1.55,7);
+  for(let cluster=0;cluster<12;cluster++){
+    const angle=cluster/12*Math.PI*2+.12*Math.sin(cluster*2.8),distance=35+(cluster%3)*7;
+    const cx=Math.cos(angle)*distance,cz=Math.sin(angle)*distance;
+    for(let i=0;i<13;i++){
+      const x=cx+(rng()-.5)*10,z=cz+(rng()-.5)*10;
+      if(landmarkClearing(x,z))continue;
+      const sapling=new THREE.Group();cylinder(sapling,.07,.12,2.1,'#6c503c',[0,.86,0],7);
+      for(let crown=0;crown<3;crown++)foliage(sapling,distantCone,(cluster+crown)%3,[0,1.04+crown*.56,0],[1-crown*.22,1,1-crown*.22]);
+      place(sapling,x,z,.75+rng()*.65,rng()*Math.PI*2);
+    }
   }
   for(let i=0;i<70;i++){
     const side=i%3,x=side===0?-21-rng()*4:side===1?28+rng()*5:-23+rng()*44,z=side===2?-21-rng()*4:-21+rng()*47;
-    if(Math.hypot(x+22,z+14)<4||Math.hypot(x-26,z-14)<4)continue;place(rockModel(),x,z,.3+rng()*.65,rng()*6);
+    if(landmarkClearing(x,z))continue;place(rockModel(),x,z,.3+rng()*.65,rng()*6);
   }
   for(let i=0;i<35;i++){
     const flowers=new THREE.Group(),x=-20.5-rng()*4,z=-8+rng()*31;

@@ -35,12 +35,12 @@ function baseIngredientTree(recipe,data){
 
 function aggregateBaseLeaves(nodes){
   const totals=new Map();
-  const visit=(node,covered=false)=>{
-    covered||=!!node.covered;
-    if(node.children){node.children.forEach(child=>visit(child,covered));return;}
+  const visit=(node,coverage=null)=>{
+    coverage=node.coverage||coverage;
+    if(node.children){node.children.forEach(child=>visit(child,coverage));return;}
     const key=`${node.family}:${node.tier}`;
-    if(!totals.has(key))totals.set(key,{family:node.family,tier:node.tier,count:0,ownedCount:0});
-    const row=totals.get(key);row.count++;if(covered)row.ownedCount++;
+    if(!totals.has(key))totals.set(key,{family:node.family,tier:node.tier,count:0,ownedCount:0,draftCount:0});
+    const row=totals.get(key);row.count++;if(coverage==='owned')row.ownedCount++;else if(coverage==='draft')row.draftCount++;
   };
   nodes.forEach(node=>visit(node));
   return [...totals.values()];
@@ -48,7 +48,7 @@ function aggregateBaseLeaves(nodes){
 
 // Expand fixed champion ingredients recursively and aggregate exact basic family/rank pairs.
 export function expandRecipeToBasics(recipe,data){
-  return aggregateBaseLeaves(baseIngredientTree(recipe,data)).map(({ownedCount,...row})=>row);
+  return aggregateBaseLeaves(baseIngredientTree(recipe,data)).map(({ownedCount,draftCount,...row})=>row);
 }
 
 // A ready ingredient champion satisfies its entire subtree. Its consumed recruits
@@ -57,17 +57,22 @@ export function expandedRecipeProgress(recipe,towers,data){
   const nodes=baseIngredientTree(recipe,data);
   const identities=new Set();
   const inventory=towers.filter(tower=>{
+    if(tower.placed===false)return false;
     if(tower.state!=='active'&&tower.state!=='draft')return false;
     const identity=tower.id??tower;if(identities.has(identity))return false;
     identities.add(identity);return true;
   });
   const used=new Set();
-  const visit=node=>{
-    const index=inventory.findIndex((tower,index)=>!used.has(index)&&tower.family===node.family&&tower.tier===node.tier);
-    if(index>=0){used.add(index);node.covered=true;return;}
-    node.children?.forEach(visit);
+  const visit=(node,state)=>{
+    if(node.coverage==='owned')return;
+    const index=inventory.findIndex((tower,index)=>!used.has(index)&&tower.state===state&&tower.family===node.family&&tower.tier===node.tier);
+    if(index>=0){used.add(index);node.coverage=state==='active'?'owned':'draft';return;}
+    node.children?.forEach(child=>visit(child,state));
   };
-  nodes.forEach(visit);
+  // Retained ingredients own their leaves. Placed candidates are tracked in a
+  // separate pass and only cover the remaining requirements provisionally.
+  nodes.forEach(node=>visit(node,'active'));
+  nodes.forEach(node=>visit(node,'draft'));
   return aggregateBaseLeaves(nodes);
 }
 export function recipesUsing(tower,recipes) {
@@ -96,9 +101,10 @@ export function matchingIngredients(recipe, towers, requiredAnchor = null) {
 export function recipeProgress(recipe,towers) {
   const used=new Set();
   return recipe.ingredients.map(r=>{
-    const t=towers.find(t=>t.state!=='ruin'&&!used.has(t.id)&&t.family===r.family&&t.tier===r.tier);
-    if(t)used.add(t.id);
-    return {...r,owned:!!t};
+    const matches=t=>t.placed!==false&&!used.has(t.id??t)&&t.family===r.family&&t.tier===r.tier;
+    const t=towers.find(t=>t.state==='active'&&matches(t))||towers.find(t=>t.state==='draft'&&matches(t));
+    if(t)used.add(t.id??t);
+    return {...r,owned:t?.state==='active',draft:t?.state==='draft',available:!!t};
   });
 }
 export function mergePartner(tower,towers,data) {

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {towerStats} from '../game/core/math.js';
 import {championClassification} from '../game/render/champion-classification.js';
-import {baseAttackDps,abilityLines,championRecipeCard,defenderGuide,BASE_DPS_NOTE} from '../ui/grimoire.js';
+import {baseAttackDps,abilityLines,championRecipeCard,basicRecipeBreakdown,recipeProgressLegend,defenderGuide,BASE_DPS_NOTE} from '../ui/grimoire.js';
 
 const data=Object.fromEntries(['balance','towers','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 
@@ -49,5 +49,28 @@ test('pinned higher recipes show aggregated basic ranks and still retain actual 
   assert.match(html,/Full basic recruit chain/);assert.match(html,/2×F I/);
   assert.match(html,/2×S I/);assert.match(html,/2×T I/);
   for(const ingredient of recipe.ingredients)assert.ok(html.includes(data.towers[ingredient.family].name));
-  assert.match(html,/covered/);assert.match(html,/Existing ingredient champions cover their recruits/);
+  assert.match(html,/pinned-progress/);assert.doesNotMatch(html,/Existing ingredient champions cover their recruits/);
+});
+
+test('fully covered draft recipes show blue provisional counts and zero retained ownership',()=>{
+  const recipe=data.recipes.find(r=>r.id==='highking');
+  const candidates=recipe.ingredients.map((piece,index)=>({...piece,id:index+1,state:'draft',placed:true}));
+  const html=recipeProgressLegend()+basicRecipeBreakdown(recipe,data,candidates);
+  assert.match(html,/<span class="owned-progress">Built<\/span>/);
+  assert.match(html,/<span class="draft-progress">This round<\/span>/);
+  assert.equal((html.match(/class="draft-available"/g)||[]).length,8);
+  assert.equal((html.match(/<b class="">0\//g)||[]).length,8);
+  const counts=[...html.matchAll(/class="draft-progress">\+(\d+) this round/g)].map(match=>Number(match[1]));
+  assert.equal(counts.reduce((sum,count)=>sum+count,0),11);
+  assert.doesNotMatch(html,/<b class="owned-progress">/);
+});
+
+test('mixed recruit rows label retained counts separately from visible candidates',()=>{
+  const recipe=data.recipes.find(r=>r.id==='highking');
+  const stock=[{id:1,family:'frostwarden',tier:1,state:'active'},
+    {id:2,family:'frostwarden',tier:1,state:'draft',placed:true},
+    {id:3,family:'soldier',tier:1,state:'draft',placed:false}];
+  const html=basicRecipeBreakdown(recipe,data,stock);
+  assert.match(html,/<b class="owned-progress">1\/2<\/b><small class="draft-progress">\+1 this round<\/small>/);
+  assert.equal((html.match(/this round/g)||[]).length,1,'an unplaced draw cannot show provisional progress');
 });

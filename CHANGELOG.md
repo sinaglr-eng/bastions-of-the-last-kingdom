@@ -1,5 +1,15 @@
 # Releases
 
+## 0.2.3 — Living Battlefield — 1 October 2026
+
+- Surrounds the open board with layered hills, mountains, woodland and rock outcrops. Adds an original fortified orc settlement and a multi-towered royal castle, with editable Blender 5.2 source scenes. One decorative upcoming invader stands behind the camp gate; it never participates in combat or consumes random draws.
+- Gives attacks distinct presentations: poisonous roots erupt beneath targets, dragons breathe flame, storm units cast lightning, warriors sweep spectral blades, siege weapons launch bolts or arcing charges, and casters release holy, frost and arcane spells. Defenders lean into their casts and releases; authored weapon pivots animate when present. Cosmetic effects have resource limits, cleanup and reduced-motion handling.
+- Replaces generic bleeps with layered WebAudio sounds for different attacks, impacts, construction and deaths. Voices and event rates are bounded, sound unlocks only on interaction, and muting stops current voices.
+- Makes unrevealed cloaked enemies fully invisible, including health bars and effects. Close active defenders, checkpoint beacons and detection towers share reveal coverage with the renderer; reacquired cloak rejects incoming hits and secondary target selection. Existing damage-over-time may continue without disclosing a hidden enemy's position.
+- Compacts the five-draw strip, places construction mastery alongside it, adds a Keep button there and accepts a double tap on a selected eligible candidate. Dragging and multi-touch gestures cannot confirm a keeper.
+- Adds previous/next recipe browsing and a return arrow to the pinned recipe. Potential-combination buttons show their breakdown directly in the sidebar. Recipes describe the champion and distinguish retained ingredients from candidates available this round; hidden draws are never counted or disclosed. Removes the requested sidebar explanation text.
+- Verifies that physical and piercing attacks use armor, magical attacks use general and element-specific resistance, and pure damage bypasses both. Approved defender statistics and recipe definitions remain unchanged.
+
 ## 0.2.2 — Champion Codex — 1 October 2026
 
 - Gives all 37 champions the same large animated classification aura: Basic blue, Intermediate green, Advanced purple and TOP gold. Ordinary basic defenders retain their rank appearance.

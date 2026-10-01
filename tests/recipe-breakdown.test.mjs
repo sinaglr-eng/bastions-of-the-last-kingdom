@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
-import {expandRecipeToBasics,expandedRecipeProgress,recipeFamily,mergePartner} from '../game/core/recipes.js';
+import {expandRecipeToBasics,expandedRecipeProgress,recipeFamily,recipeProgress,mergePartner} from '../game/core/recipes.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[
   key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))
@@ -54,10 +54,10 @@ test('basic inventory respects rank, state and physical identity and never excee
   const stock=[soldier,soldier,{...soldier},unit('soldier',2,2),unit('stormcaller',1,3,'ruin'),
     unit('frostwarden',1,4),unit('frostwarden',1,5),unit('frostwarden',1,6)];
   const progress=byKey(expandedRecipeProgress(kingslayer,stock,data));
-  assert.equal(progress['soldier:1'].ownedCount,1);
+  assert.equal(progress['soldier:1'].ownedCount,0);
   assert.equal(progress['stormcaller:1'].ownedCount,0);
   assert.equal(progress['frostwarden:1'].ownedCount,2);
-  assert.equal(ownedTotal(Object.values(progress)),3);
+  assert.equal(progress['soldier:1'].draftCount,1);assert.equal(ownedTotal(Object.values(progress)),2);
 });
 
 test('a single owned champion cannot satisfy three repeated champion ingredient nodes',()=>{
@@ -65,9 +65,9 @@ test('a single owned champion cannot satisfy three repeated champion ingredient 
   const stock=[unit('rimewatch',1,1),unit('frostwarden',1,2),unit('frostwarden',1,3)];
   const progress=byKey(expandedRecipeProgress(recipe,stock,data));
   assert.deepEqual(progress,{
-    'frostwarden:1':{count:3,ownedCount:3},
-    'soldier:1':{count:3,ownedCount:1},
-    'stormcaller:1':{count:3,ownedCount:1}
+    'frostwarden:1':{count:3,ownedCount:3,draftCount:0},
+    'soldier:1':{count:3,ownedCount:1,draftCount:0},
+    'stormcaller:1':{count:3,ownedCount:1,draftCount:0}
   });
 });
 
@@ -78,6 +78,30 @@ test('malformed recipe chains fail explicitly instead of recursing forever or dr
   const missing={...data,recipes:data.recipes.filter(recipe=>recipe.id!=='rimewatch')};
   assert.throws(()=>expandRecipeToBasics(kingslayer,missing),/Missing fixed recipe/);
   assert.throws(()=>expandRecipeToBasics({...kingslayer,resultTier:2},data),/Only fixed champion recipes/);
+});
+
+test('draft ingredients remain provisional and champion overlap cannot duplicate retained leaves',()=>{
+  const draftKnight=unit('frostblade',1,1,'draft'),retainedFrost=unit('frostwarden',1,2);
+  const rows=expandedRecipeProgress(kingslayer,[draftKnight,retainedFrost],data),progress=byKey(rows);
+  assert.equal(progress['frostwarden:1'].ownedCount,1);
+  assert.equal(progress['frostwarden:1'].draftCount,0,'a retained recruit owns the exact leaf even inside a provisional champion branch');
+  assert.equal(rows.reduce((sum,row)=>sum+row.draftCount,0),4);
+  assert.ok(rows.every(row=>row.ownedCount+row.draftCount<=row.count));
+  const ownedKnight=unit('frostblade',1,3);
+  const covered=expandedRecipeProgress(kingslayer,[ownedKnight,draftKnight,draftKnight],data);
+  assert.equal(ownedTotal(covered),5);assert.equal(covered.reduce((sum,row)=>sum+row.draftCount,0),0,'extra draft champions cannot satisfy unrelated branches');
+});
+
+test('unplaced draws never affect retained ownership or placed-draft availability',()=>{
+  const recipe=data.recipes.find(r=>r.id==='rimewatch'),hidden={...unit('frostwarden',1,1,'draft'),placed:false};
+  const draft=unit('soldier',1,2,'draft'),owned=unit('stormcaller',1,3);
+  const rows=expandedRecipeProgress(recipe,[hidden,draft,owned],data);
+  const progress=byKey(rows);
+  assert.equal(progress['frostwarden:1'].ownedCount,0);assert.equal(progress['frostwarden:1'].draftCount,0);
+  assert.equal(progress['soldier:1'].ownedCount,0);assert.equal(progress['soldier:1'].draftCount,1);
+  const direct=recipeProgress(recipe,[hidden,draft,owned]);
+  assert.equal(direct.filter(row=>row.owned).length,1);assert.equal(direct.filter(row=>row.draft).length,1);
+  assert.equal(direct.filter(row=>row.available).length,2);
 });
 
 test('recruit merging still advances each matching draft pair from I through VI and stops at VI',()=>{

@@ -2,9 +2,28 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {PerspectiveCamera} from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
-import {configureTouchControls,PointerTapGesture} from '../game/render/touch-input.js';
+import {configureTouchControls,PointerTapGesture,SelectedTowerDoubleTap} from '../game/render/touch-input.js';
 
 const pointer=(pointerId,x=100,y=100,type='touch',button=0)=>({pointerId,clientX:x,clientY:y,pageX:x,pageY:y,pointerType:type,button});
+
+test('a second eligible touch on the selected candidate confirms once, while other towers and mouse taps cannot',()=>{
+  let now=1000;const taps=new SelectedTowerDoubleTap(()=>now);
+  assert.equal(taps.tap(4,pointer(1),{selected:false,eligible:true}),false);
+  now+=200;assert.equal(taps.tap(4,pointer(2,106,105),{selected:true,eligible:true}),true);
+  now+=100;assert.equal(taps.tap(4,pointer(3),{selected:true,eligible:true}),false,'the completed pair is consumed');
+  now+=100;assert.equal(taps.tap(5,pointer(4),{selected:true,eligible:true}),false);
+  now+=100;assert.equal(taps.tap(5,pointer(5,100,100,'mouse'),{selected:true,eligible:true}),false);
+  now+=100;assert.equal(taps.tap(5,pointer(6),{selected:true,eligible:true}),false,'a mouse action clears touch history');
+});
+
+test('late, distant, cancelled and ineligible touches cannot retain a tower',()=>{
+  let now=1000;const taps=new SelectedTowerDoubleTap(()=>now),options={selected:true,eligible:true};
+  taps.tap(1,pointer(1),options);now+=451;assert.equal(taps.tap(1,pointer(2),options),false);
+  now+=100;assert.equal(taps.tap(1,pointer(3,140,100),options),false);
+  taps.clear();now+=100;assert.equal(taps.tap(1,pointer(4,140,100),options),false);
+  now+=100;assert.equal(taps.tap(1,pointer(5,140,100),{selected:true,eligible:false}),false);
+  now+=100;assert.equal(taps.tap(1,pointer(6,140,100),options),false);
+});
 
 test('touch taps tolerate small jitter, but returning after a drag never places a tower',()=>{
   const gesture=new PointerTapGesture();

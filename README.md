@@ -2,7 +2,7 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-Current release: **0.2.2 · Champion Codex** — [release notes](CHANGELOG.md).
+Current release: **0.2.3 · Living Battlefield** — [release notes](CHANGELOG.md).
 
 ## Play
 
@@ -23,6 +23,10 @@ The current board is an open 37 × 37 grid with five ordered checkpoints. Eight 
 
 The **Royal atelier** link opens `/archer.html`: all 45 defender types in the approved Blender style, with smoother connected anatomy, tailored clothing, six color-coded ranks per basic class and 37 individually designed champion models. All 85 defender variants also have portraits rendered by Blender. Rejected foundations form connected castle stone walls. **Commander's spiral** follows the red-line reference drawing: 136 wall cells, 590 counted steps and a solid 3 × 3 central battery. Suggested maze now offers eight fixed layouts, including **Diamond spiral** (128 cells, 718 steps, 19 central firing positions) and **Chevron bastion** (153 cells, 504 steps, 21 central firing positions), traced from the two supplied diagrams. Choose once with M: the panel closes and the selected cells stay fixed. M reopens it. Create or edit a blueprint by drawing/erasing on the map, then save it locally for future games.
 
+Layered terrain and forest clusters extend around the whole field. A fortified orc settlement presents one upcoming invader behind its gate; a royal castle stands across the river. Both landmarks have editable Blender 5.2 scenes. Combat uses roots growing beneath enemies, dragon flame, lightning, spectral slashes, shaped spells and siege projectiles, with corresponding attack motions and sounds. Unrevealed cloaked enemies disappear completely; active nearby defenders, checkpoint beacons and detection towers reveal them for both the player and other defenders. Physical/piercing damage uses armor; magic uses general and elemental resistance; pure damage bypasses both.
+
+Construction mastery sits beside the compact five-draw strip. Its Keep button confirms the selected candidate. The sidebar can browse all champion recipes with arrows, open a potential combination directly and return to the pinned recipe. Ingredient progress marks retained defenders in green and available placed candidates separately in blue; unrevealed draws remain unknown.
+
 Golden rotating arrows identify only this round's placed candidates. When an advanced recipe is possible, portraits show the result unit above the ingredients, including older defenders. A star marks the result tile, a minus marks consumed ingredients, and a wall marks discarded candidates. Thin leaders connect crowded portraits to their units. Older ingredients have no rotating arrow.
 
 Rank merges require two matching units among the current five candidates. Retained defenders are permanent and can only transform through advanced recipes. Only castle walls can be demolished with **Delete / Backspace** between waves for 8 gold. Clearing a position never grants another draw. A survived wave immediately begins the next construction round.
@@ -37,6 +41,7 @@ Rank merges require two matching units among the current five candidates. Retain
 | Q / E / middle drag | Rotate |
 | Mouse wheel | Zoom |
 | One-finger drag | Pan the map on iPad and other touch screens |
+| Double tap a selected current-round candidate | Keep it after all five defenders have been placed |
 | Pinch / two-finger drag | Zoom / rotate on touch screens |
 | Home | Reset the camera |
 | Space | Keep / send wave / pause, by phase |

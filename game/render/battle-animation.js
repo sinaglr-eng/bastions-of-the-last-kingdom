@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {attackVisualKind} from './combat-effects.js';
 
 const CLAN_AURAS=['#c85e43','#77bfd5','#93be69','#b287d3','#e2bb67'];
 export function bossAura(clan=0){
@@ -56,4 +57,51 @@ export function animateSiege(rig,dt){
   // Fast release of the counterweight, followed by a slower winch reset.
   const swing=p<.2?Math.sin(p/.2*Math.PI/2):Math.pow(1-(p-.2)/.8,2);
   rig.arm.rotation.x=rig.restX-swing*.85;
+}
+
+// The exported soldiers are mostly material-joined meshes. Animate their actor
+// transform safely; only explicit authored pivots may be articulated separately.
+// Position, scale and aim rotation Y are exclusively owned by Battlefield.
+const ATTACK_POSES={
+  melee:{x:-.15,z:.23,duration:.32},arrow:{x:-.065,z:.085,duration:.24},
+  roots:{x:.065,z:-.11,duration:.42},flame:{x:-.12,z:.025,duration:.52},
+  lightning:{x:.055,z:-.10,duration:.30},siege:{x:-.038,z:0,duration:.33},
+  holy:{x:.025,z:-.06,duration:.35},frost:{x:.055,z:-.075,duration:.33},
+  arcane:{x:.06,z:-.11,duration:.32},
+};
+export function attackRig(actor,family,stats={}){
+  if(!actor)return null;
+  const kind=attackVisualKind(family,stats),pose=ATTACK_POSES[kind],pivots=[];
+  for(const name of ['attack_arm','weapon_pivot','bow_arm','dragon_jaw','mouth_pivot','left_wing_pivot','right_wing_pivot']){
+    const node=actor.getObjectByName(name);
+    if(node)pivots.push({node,name,x:node.rotation.x,z:node.rotation.z});
+  }
+  return {actor,family,kind,pose,pivots,restX:actor.rotation.x,restZ:actor.rotation.z,elapsed:pose.duration,duration:pose.duration,active:false};
+}
+export function triggerAttack(rig,payload={}){
+  if(!rig)return;
+  // Simultaneous multishot callbacks describe one release pose.
+  if(rig.active&&rig.elapsed<.025)return;
+  const interval=payload.stats?.interval;
+  rig.duration=Math.min(rig.pose.duration,Number.isFinite(interval)&&interval>0?Math.max(.12,interval*.8):rig.pose.duration);
+  rig.elapsed=0;rig.active=true;
+}
+export function animateAttack(rig,dt,time=0,{reducedMotion=false}={}){
+  if(!rig)return;
+  rig.elapsed=Math.min(rig.duration,rig.elapsed+(Number.isFinite(dt)?Math.max(0,dt):0));
+  const progress=rig.duration>0?rig.elapsed/rig.duration:1;
+  const stroke=reducedMotion?0:Math.sin(progress*Math.PI)*(progress<.42?1:Math.pow(Math.max(0,1-(progress-.42)/.58),.4));
+  rig.actor.rotation.x=rig.restX+rig.pose.x*stroke;
+  rig.actor.rotation.z=rig.restZ+rig.pose.z*stroke;
+  for(const pivot of rig.pivots){
+    const jaw=pivot.name==='dragon_jaw'||pivot.name==='mouth_pivot',wing=pivot.name.includes('wing');
+    pivot.node.rotation.x=pivot.x+stroke*(jaw ? .28 : wing ? .10 : -.34);
+    pivot.node.rotation.z=pivot.z+(wing?stroke*(pivot.name.startsWith('left') ? .12 : -.12):0);
+  }
+  if(progress>=1)rig.active=false;
+}
+export function resetAttack(rig){
+  if(!rig)return;rig.elapsed=rig.duration;rig.active=false;
+  rig.actor.rotation.x=rig.restX;rig.actor.rotation.z=rig.restZ;
+  for(const pivot of rig.pivots){pivot.node.rotation.x=pivot.x;pivot.node.rotation.z=pivot.z;}
 }

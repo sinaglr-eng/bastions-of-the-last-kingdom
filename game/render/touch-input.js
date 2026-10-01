@@ -4,6 +4,21 @@ export function configureTouchControls(controls){
   controls.touches={ONE:TOUCH.PAN,TWO:TOUCH.DOLLY_ROTATE};
 }
 
+// Call only after PointerTapGesture accepts a touch release on an occupied tile.
+// The first tap selects; the second may confirm the same current-round candidate.
+export class SelectedTowerDoubleTap {
+  constructor(now=()=>performance.now()){this.now=now;this.last=null;}
+  tap(towerId,event,{selected=false,eligible=false}={}){
+    const now=this.now(),last=this.last;
+    if(event.pointerType!=='touch'||!eligible||towerId==null){this.clear();return false;}
+    const confirm=selected&&last?.towerId===towerId&&now-last.time<=450&&
+      Math.hypot(event.clientX-last.x,event.clientY-last.y)<=24;
+    this.last=confirm?null:{towerId,time:now,x:event.clientX,y:event.clientY};
+    return !!confirm;
+  }
+  clear(){this.last=null;}
+}
+
 // A gesture remains a drag even if a finger returns to its starting point.
 // Every finger involved in a multi-touch gesture is ineligible to place a tower.
 export class PointerTapGesture {

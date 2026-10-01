@@ -22,3 +22,24 @@ export function prepareBattleReview(game,boss=false){
   if(!boss)game.combat.spawnQueue=[{time:99999,type:'host_06',modifiers:{}}];
   game.emit('change');
 }
+
+// An explicit developer tool exercises spell families and a veiled target.
+// Production builds never expose the action that invokes this fixture.
+export function prepareSpellReview(game){
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.lives=30;game.round=8;game.phase='ready';game.speed=1;game.paused=false;
+  const families=['druid','stormcaller','embercrown','mage','cleric','frostwarden','soldier','dawnspire'];
+  let id=1;
+  families.forEach((family,i)=>{
+    const x=7+i*3,z=17;if(!game.grid.occupy(x,z,id).ok)return;
+    game.towers.push({id:id++,family,tier:game.data.towers[family].advanced?1:4,state:'active',x,z,round:0,kills:0,priority:'first',cooldown:0});
+  });
+  game.nextId=id;game.startCombat();game.combat.spawnQueue=[{time:99999,type:'host_08',modifiers:{}}];
+  for(let i=0;i<16;i++){
+    const enemy=game.combat.spawn(i===15?'host_08':'host_06'),x=7+(i%8)*3,z=i<8?18:20;
+    const index=enemy.route.findIndex(p=>p.x===x&&p.z===z);
+    Object.assign(enemy,{x,z,pathIndex:Math.max(1,index+1),traveled:20+i,speed:0,hp:1e8,maxHp:1e8});
+  }
+  // A remote, permanently cloaked invader stays hidden outside reveal coverage.
+  const hidden=game.combat.spawn('host_08');Object.assign(hidden,{x:18,z:7,speed:0,hp:1e8,maxHp:1e8});
+  game.combat.total=18;game.emit('change');
+}

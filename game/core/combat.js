@@ -1,4 +1,5 @@
 import {distance, damageAfterDefense, towerStats,supportBonuses} from './math.js';
+import {enemyRevealed} from './visibility.js';
 
 export class CombatManager {
   constructor(game) {this.game=game;this.enemies=[];this.projectiles=[];this.spawnQueue=[];this.elapsed=0;this.serial=0;this.shotSerial=0;this.spawned=0;this.total=0;}
@@ -20,11 +21,8 @@ export class CombatManager {
     const enemy={...structuredClone(base),id:++this.serial,type,maxHp:base.hp*(modifiers.hp||1),hp:base.hp*(modifiers.hp||1),speed:base.speed*(modifiers.speed||1),armor:base.armor+(modifiers.armor||0),resists:{...base.resists,...modifiers.resists},...route[0],route,pathLength,pathIndex:1,traveled:0,statuses:{},dead:false,hit:0,shields:base.refraction||0,shieldClock:8,rechargeClock:8,blinkClock:6,reactiveStacks:0,cloaked:!!(base.stealth||base.cloakDaggers)};
     this.enemies.push(enemy);this.spawned++;this.game.emit('spawn',{enemy});return enemy;
   }
-  canSee(enemy,tower) {
-    if(!enemy.cloaked)return true;
-    if(distance(tower,enemy)<=2 || this.game.grid.checkpoints.some(p=>distance(p,enemy)<=1.5))return true;
-    return this.game.towers.some(t=>t.state==='active'&&distance(t,enemy)<=(t.family==='cleric'?6:towerStats(t,this.game.data).detectionRange||0));
-  }
+  isRevealed(enemy){return enemyRevealed(enemy,this.game);}
+  canSee(enemy,tower){return enemyRevealed(enemy,this.game,tower);}
   targetList(tower,stats) {
     const candidates=this.enemies.filter(e=>!e.dead&&this.canSee(e,tower)&&(!stats.melee||!e.flying)&&distance(tower,e)<=stats.range);
     const priority=tower.priority||'first';
@@ -54,11 +52,12 @@ export class CombatManager {
     if(stats.directHit&&enemy.reactiveArmor)enemy.reactiveStacks=Math.min(12,enemy.reactiveStacks+1);
     if(dealt<=0)return 0;
     enemy.hp-=dealt;enemy.hit=0.16;
+    this.game.emit('hit',{enemy,source,type,damage:dealt,directHit:!!stats.directHit,visible:this.isRevealed(enemy)});
     if(enemy.hp<=0) {
       enemy.dead=true;this.game.economy.reward(enemy.gold,enemy.xp);this.game.kills++;
       this.game.awardScore(this.game.round*(enemy.boss?500:10));
       if(source)source.kills++;
-      this.game.emit('death',{enemy,type});
+      this.game.emit('death',{enemy,type,visible:this.isRevealed(enemy)});
     }
     return dealt;
   }
@@ -102,7 +101,7 @@ export class CombatManager {
   bounceFrost(target,stats,source) {
     let previous=target;
     for(let i=0;i<stats.bouncingFrost;i++){
-      const next=this.enemies.filter(e=>!e.dead&&e!==previous&&distance(e,previous)<=(stats.bouncingFrostRange||10)).sort((a,b)=>distance(a,previous)-distance(b,previous))[0];
+      const next=this.enemies.filter(e=>!e.dead&&this.canSee(e,source)&&e!==previous&&distance(e,previous)<=(stats.bouncingFrostRange||10)).sort((a,b)=>distance(a,previous)-distance(b,previous))[0];
       if(!next)break;
       if(this.damage(next,stats.bouncingFrostDamage||stats.damage,'frost',{...stats,directHit:true},source)>0)this.applyEffects(next,stats,source);
       this.game.emit('chain',{from:previous,to:next,color:stats.color});previous=next;
@@ -119,25 +118,28 @@ export class CombatManager {
   }
   impact(shot) {
     const {target,stats,source}=shot;
+    // A target that recloaks before impact cannot be struck or disclose its
+    // hidden position through impact particles. Existing damage-over-time stays.
+    if(!this.canSee(target,source))return;
     const victims=stats.splash ? this.enemies.filter(e=>!e.dead&&(!stats.melee||(!e.flying&&distance(e,source)<=stats.range+.25))&&distance(e,target)<=stats.splash) : target.dead||(stats.melee&&(target.flying||distance(source,target)>stats.range+.25))?[]:[target];
     const hitDamage=stats.damage*(stats.critChance&&this.game.rng()<stats.critChance?stats.critMultiplier:1);
     const landed=[];
-    for(const enemy of victims) {if(this.damage(enemy,hitDamage,stats.type,{...stats,directHit:true},source)>0){this.applyEffects(enemy,stats,source);landed.push(enemy);}}
+    for(const enemy of victims) {if(this.canSee(enemy,source)&&this.damage(enemy,hitDamage,stats.type,{...stats,directHit:true},source)>0){this.applyEffects(enemy,stats,source);landed.push(enemy);}}
     for(const enemy of landed)this.nearbyMagicProcs(source,enemy,stats);
     if(landed.length)this.landedProcs(stats,source);
-    if(stats.cleave&&victims.length)for(const e of this.enemies)if(e!==target&&!e.dead&&distance(e,target)<=stats.cleaveRadius)this.damage(e,hitDamage*stats.cleave,stats.cleaveType||stats.type,stats,source);
-    if(landed.length&&stats.effectsRadius)for(const e of this.enemies)if(!e.dead&&distance(e,target)<=stats.effectsRadius)this.applyEffects(e,{slow:stats.slow,slowDuration:stats.slowDuration,healingBlockDuration:stats.healingBlockDuration},source);
+    if(stats.cleave&&victims.length)for(const e of this.enemies)if(e!==target&&!e.dead&&this.canSee(e,source)&&distance(e,target)<=stats.cleaveRadius)this.damage(e,hitDamage*stats.cleave,stats.cleaveType||stats.type,stats,source);
+    if(landed.length&&stats.effectsRadius)for(const e of this.enemies)if(!e.dead&&this.canSee(e,source)&&distance(e,target)<=stats.effectsRadius)this.applyEffects(e,{slow:stats.slow,slowDuration:stats.slowDuration,healingBlockDuration:stats.healingBlockDuration},source);
     if(stats.chain&&(!stats.chainChance||this.game.rng()<stats.chainChance)) {
-      const chained=this.enemies.filter(e=>!e.dead&&!victims.includes(e)&&distance(e,target)<4).sort((a,b)=>distance(a,target)-distance(b,target)).slice(0,stats.chain);
+      const chained=this.enemies.filter(e=>!e.dead&&this.canSee(e,source)&&!victims.includes(e)&&distance(e,target)<4).sort((a,b)=>distance(a,target)-distance(b,target)).slice(0,stats.chain);
       for(const e of chained){if(this.damage(e,stats.chainDamage||stats.damage*0.55,stats.type,{...stats,directHit:true},source)>0)this.applyEffects(e,stats,source);this.game.emit('chain',{from:target,to:e,color:stats.color});}
     }
     if(landed.length&&stats.forkedTargets&&this.game.rng()<(stats.forkedChance||1)){
-      const forked=this.enemies.filter(e=>!e.dead&&distance(e,target)<=(stats.forkedRange||10)).sort((a,b)=>distance(a,target)-distance(b,target)).slice(0,stats.forkedTargets);
+      const forked=this.enemies.filter(e=>!e.dead&&this.canSee(e,source)&&distance(e,target)<=(stats.forkedRange||10)).sort((a,b)=>distance(a,target)-distance(b,target)).slice(0,stats.forkedTargets);
       for(const e of forked){this.damage(e,stats.forkedDamage,'arcane',stats,source);this.game.emit('chain',{from:source,to:e,color:stats.color});}
     }
     if(landed.length&&stats.bouncingFrost&&stats.bouncingFrostTrigger!=='nearby-ally-magic-hit'&&this.game.rng()<(stats.bouncingFrostChance||1))this.bounceFrost(target,stats,source);
-    if(landed.length&&stats.burnedChance&&this.game.rng()<stats.burnedChance)for(const e of this.enemies)if(!e.dead&&distance(e,target)<=stats.burnedRadius)this.damage(e,stats.damage*stats.burnedMultiplier,'fire',stats,source);
-    this.game.emit('impact',{x:target.x,z:target.z,color:stats.color,heavy:stats.damage>160,radius:stats.splash||stats.cleaveRadius||0.4,melee:stats.melee});
+    if(landed.length&&stats.burnedChance&&this.game.rng()<stats.burnedChance)for(const e of this.enemies)if(!e.dead&&this.canSee(e,source)&&distance(e,target)<=stats.burnedRadius)this.damage(e,stats.damage*stats.burnedMultiplier,'fire',stats,source);
+    this.game.emit('impact',{source,target,stats,x:target.x,z:target.z,color:stats.color,heavy:stats.damage>160,radius:stats.splash||stats.cleaveRadius||0.4,melee:stats.melee});
   }
   update(dt) {
     this.elapsed+=dt;
@@ -200,10 +202,10 @@ export class CombatManager {
         if(other.state==='ruin'&&other.weakened>0&&distance(tower,other)<2)boost*=0.85;
       }
       if(stats.burnAura){
-        const victims=this.enemies.filter(e=>!e.dead&&distance(e,tower)<=stats.range);
+        const victims=this.enemies.filter(e=>!e.dead&&this.canSee(e,tower)&&distance(e,tower)<=stats.range);
         for(const e of victims)this.damage(e,stats.burnAura*dt,'fire',stats,tower);
         tower.auraPulse=(tower.auraPulse||0)-dt;
-        if(victims.length&&tower.auraPulse<=0){this.game.emit('aura-attack',{source:tower,target:victims[0]});this.game.emit('impact',{x:tower.x,z:tower.z,color:stats.color,radius:stats.range});tower.auraPulse=.7;}
+        if(victims.length&&tower.auraPulse<=0){this.game.emit('aura-attack',{source:tower,target:victims[0],stats});this.game.emit('impact',{source:tower,target:victims[0],stats,aura:true,x:tower.x,z:tower.z,color:stats.color,radius:stats.range});tower.auraPulse=.7;}
       }
       if(stats.damage<=0||tower.disarmed)continue;
       tower.cooldown-=dt*boost;
