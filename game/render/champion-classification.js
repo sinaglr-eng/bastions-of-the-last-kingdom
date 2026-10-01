@@ -1,5 +1,5 @@
 // Visual classifications verified against the Gem TD wiki's Towers table.
-// These levels describe presentation only, independently of combat auras and ascension ranks.
+// These levels identify presentation classes independently of combat buffs and basic ranks.
 export const CHAMPION_CLASSIFICATION_SOURCE = 'https://dota2.fandom.com/wiki/Gem_TD#Towers';
 
 export const CLASSIFICATION_LEVELS = Object.freeze({Basic:0, Intermediate:1, Advanced:2, TOP:3});

@@ -3,40 +3,48 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
 import {Game} from '../game/core/game.js';
-import {allRecipes,recipesUsing,matchingIngredients,ascensionRecipe,recipeFamily,rankLabel} from '../game/core/recipes.js';
+import {allRecipes,recipesUsing,recipeFamily,recipeTier,rankLabel} from '../game/core/recipes.js';
 import {towerStats} from '../game/core/math.js';
 import {beginDeath,animateDeath,bossAura,animateBossAura,siegeRig,animateSiege} from '../game/render/battle-animation.js';
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
 const unit=(family,tier,id)=>({id,family,tier,state:'active',x:10+id,z:10,kills:id,cooldown:0});
 
-test('the original champions retain their recipes and repeatable three-unit ascensions',()=>{
+test('the 37 fixed recipes preserve the original champion lineages without extra rank recipes',()=>{
  const original=['rimewatch','frostblade','roseguard','highking','crownofages','thornwarden','verdantguard','tempest','stormcitadel','embercrown','worldfire','starfall','thunderheart','phoenix','greenheart','eldergrove','kingsreach','sunward','winterhold','dawnspire'];
  assert.deepEqual(Object.keys(data.towers).filter(f=>data.towers[f].advanced).slice(0,20),original);
  assert.deepEqual(data.recipes.slice(0,20).map(r=>recipeFamily(r)),original);
- for(const family of original)for(const tier of [1,5,9,23]){
-  const t=unit(family,tier,1),options=recipesUsing(t,allRecipes(data,[t]));
-  assert.ok(options.length,`${family} ${tier}`);
-  for(const recipe of options){assert.equal(recipe.ingredients.length,3);assert.ok(data.towers[recipeFamily(recipe)]);}
+ for(const tier of [1,2,6]){
+  const towers=original.map((family,id)=>unit(family,tier,id)),recipes=allRecipes(data,towers);
+  assert.equal(recipes.length,37);assert.deepEqual(recipes,data.recipes);
+  for(const recipe of recipes){assert.equal(recipe.ingredients.length,3);assert.equal(recipeTier(recipe),1);assert.ok(data.towers[recipeFamily(recipe)]);}
+  if(tier>1)for(const tower of towers)assert.deepEqual(recipesUsing(tower,recipes),[]);
  }
  assert.equal(rankLabel(14),'XIV');
 });
-test('the six new recipes cover every basic rank',()=>{
+test('the approved fixed recipes cover every basic rank',()=>{
  const unused=Object.fromEntries(Object.entries(data.towers).filter(([,t])=>!t.advanced).map(([family])=>[family,[1,2,3,4,5,6].filter(tier=>!recipesUsing(unit(family,tier,1),data.recipes).length)]));
  assert.deepEqual(unused,{soldier:[],archer:[],druid:[],mage:[],cleric:[],runebreaker:[],frostwarden:[],stormcaller:[]});
 });
-test('ascension consumes three distinct exact-rank champions and continues beyond six',()=>{
- for(const tier of [1,6,12])for(let anchor=1;anchor<=3;anchor++){
+test('three identical champions cannot create another rank or mutate the battlefield',()=>{
+ for(const tier of [1,2,6])for(let anchor=1;anchor<=3;anchor++){
   const g=new Game(data,{seed:1});g.phase='ready';g.towers=[1,2,3].map(id=>unit('dawnspire',tier,id));g.selected=anchor;
   for(const t of g.towers)g.grid.occupy(t.x,t.z,t.id);
-  const before=towerStats(g.selection,data),recipe=ascensionRecipe('dawnspire',tier);
-  assert.ok(g.craft(recipe.id));assert.equal(g.selection.tier,tier+1);assert.equal(g.selection.family,'dawnspire');
-  assert.equal(g.selection.kills,6);assert.equal(g.grid.occupied.size,3);assert.equal(g.towers.filter(t=>t.state==='active').length,1);
-  assert.ok(towerStats(g.selection,data).damage>before.damage);assert.ok(recipesUsing(g.selection,g.recipes).length);
-  assert.ok(g.discoveries.has('dawnspire'));
+  const before=structuredClone(g.towers),gold=g.economy.gold;
+  assert.equal(g.recipes.length,37);assert.deepEqual(g.availableRecipes(),[]);
+  assert.equal(g.craft(`ascend-dawnspire-${tier}`),false);assert.equal(g.merge(),false);
+  assert.deepEqual(g.towers,before);assert.equal(g.economy.gold,gold);
+  assert.equal(g.grid.occupied.size,3);assert.equal(g.discoveries.size,0);
  }
- const recipe=ascensionRecipe('dawnspire',2),two=[unit('dawnspire',2,1),unit('dawnspire',2,2)];
- assert.equal(matchingIngredients(recipe,two),null);
- assert.equal(matchingIngredients(recipe,[...two,unit('dawnspire',1,3)]),null);
+});
+test('champion stats ignore obsolete ranks while preserving paid enhancements',()=>{
+ for(const [family,spec]of Object.entries(data.towers).filter(([,spec])=>spec.advanced)){
+  for(const upgrades of [0,1,2,3]){
+   const baseline=towerStats({...unit(family,1,1),upgrades},data);
+   for(const tier of [2,6,12])assert.deepEqual(towerStats({...unit(family,tier,1),upgrades},data),baseline,family);
+   assert.equal(baseline.damage,spec.damage*Math.pow(data.balance.specialUpgradeMultiplier,upgrades));
+   if(spec.aura)assert.deepEqual(baseline.aura,spec.aura);
+  }
+ }
 });
 test('kill and survived-wave score are awarded once and leaks never count',()=>{
  const g=new Game(data,{seed:1});g.phase='combat';const e=g.combat.spawn('grunt');

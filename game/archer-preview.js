@@ -42,7 +42,7 @@ const ground=new THREE.Mesh(new THREE.CircleGeometry(3.2,80),new THREE.MeshStand
 for(const radius of [1.2,2.1,3]){const m=new THREE.Mesh(new THREE.RingGeometry(radius,radius+.004,96),new THREE.MeshBasicMaterial({color:'#90a99a',transparent:true,opacity:.14,side:THREE.DoubleSide}));m.rotation.x=-Math.PI/2;m.position.y=-.005;scene.add(m);}
 const loader=new GLTFLoader(),cache=new Map();let selected=1,model=null,modelAura=null,wallsVisible=false,sequence=0;
 const reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
-const auraDescriptions=['Bez dodatečné aury.','Jemná světelná aura se slabým kruhem a několika jiskrami.','Silná aura se dvěma kruhy, jiskrami a světelnými prameny.','Velmi silná aura se třemi kruhy, hustšími jiskrami a vysokými světelnými prameny.'];
+const auraDescriptions=['Velká silná modrá aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná zelená aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná fialová aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná zlatá aura se třemi kruhy, jiskrami a vysokými světelnými prameny.'];
 const wallGroup=new THREE.Group();wallGroup.visible=false;
 const wallTiles=[[-1,-1],[0,-1],[1,-1],[1,0],[1,1]].map(([x,z])=>({x,z,state:'ruin'}));
 for(const t of wallTiles){const m=castleWallModel(wallConnections(t,wallTiles));m.position.set(t.x*1,t.y||0,t.z*1);wallGroup.add(m);}scene.add(wallGroup);
@@ -50,7 +50,7 @@ function rankButtons(){
  const advanced=towers[family].advanced;
  document.querySelector('#family-title').textContent=towers[family].name+'.';
  document.querySelector('#family-name').textContent=towers[family].name;
- document.querySelector('#family-role').textContent=towers[family].role;
+ document.querySelector('#family-role').textContent=towers[family].description||towers[family].role;
  document.querySelector('#family-subtitle').textContent=advanced?`${championClassification(family)} · Šampion získaný kombinací obránců.`:'Základní obránce · šest barevných úrovní.';
  document.querySelector('#rank-heading').textContent=advanced?'Jedinečná silueta.':'Šest úrovní. Šest signálů.';
  document.querySelector('#rank-instruction').textContent=advanced?championClassification(family).toUpperCase():'VYBER ÚROVEŇ';
@@ -62,7 +62,7 @@ async function showRank(rank){
  selected=rank;const request=++sequence,advanced=towers[family].advanced,url=asset(family,rank);
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelector('#selected-rank').textContent=advanced?`${championClassification(family).toUpperCase()} · ŠAMPION`:`${defenderCode(towers[family],rank)} · ${colors[rank-1].toUpperCase()}`;
- document.querySelector('#rank-detail').textContent=advanced?`${auraDescriptions[championAuraLevel(family)]} Třída zůstává stejná při dalším sloučení. Recept najdeš v herním Grimoáru.`:rank===6?'Zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`;
+ document.querySelector('#rank-detail').textContent=advanced?`${auraDescriptions[championAuraLevel(family)]} Recept najdeš v herním Grimoáru.`:rank===6?'Zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`;
  document.querySelector('#download-model').href=url;document.querySelector('#download-portrait').href=portrait(family,rank);
  document.querySelector('#load-status').textContent='Načítám model z Blenderu…';
  try{

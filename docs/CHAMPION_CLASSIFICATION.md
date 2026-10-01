@@ -1,10 +1,10 @@
 # Champion visual classifications
 
-The cosmetic aura follows the **Classification** column of the [Gem TD wiki's Towers table](https://dota2.fandom.com/wiki/Gem_TD#Towers), checked on 30 September 2026. The table was available through the search-rendered wiki page; direct page fetching was restricted. The established `referenceTower` field connects each Bastions champion to its wiki counterpart.
+The cosmetic aura follows the **Classification** column of the [Gem TD wiki's Towers table](https://dota2.fandom.com/wiki/Gem_TD#Towers), checked again on 1 October 2026. The table was available through the search-rendered wiki page; direct page fetching was restricted. The established `referenceTower` field connects each Bastions champion to its wiki counterpart.
 
 All 37 champions have a corresponding classified tower: **5 Basic, 13 Intermediate, 11 Advanced and 8 TOP**. Royal Storm Arsenal corresponds to Deplemented-Kyparium and is TOP. Archangel is Advanced; Angel is TOP. The wiki writes the final class as `Top`; presentation normalizes that label to `TOP`.
 
-These classes do not change attack damage, range, attack speed, abilities, recipes or ascension ranks. Existing `Mythic` recipe stages remain unchanged; their visual classification is TOP. The eight basic defender families receive no new classification aura. Basic champions retain their existing appearance, Intermediate champions gain a weak aura, Advanced champions a stronger aura and TOP champions a very strong aura.
+These classes do not change attack damage, range, attack speed, abilities or recipe ingredients. Fixed recipe stages now use these four classifications directly, including TOP. Every champion has the same large, strong aura, with three ground rings, eighteen motes and six rising wisps. Only the color varies: Basic blue (`#3989ed`), Intermediate green (`#3eac63`), Advanced purple (`#9555d8`) and TOP gold (`#ffd969`). The eight ordinary basic defender families retain their existing rank appearance.
 
 | Stable family | Bastions champion | Wiki tower | Classification |
 | --- | --- | --- | --- |
@@ -34,7 +34,7 @@ These classes do not change attack damage, range, attack speed, abilities, recip
 | royalarsenal | Royal Storm Arsenal | Deplemented-Kyparium | TOP |
 | rangermentor | Bearking | Monkey King Jade | Advanced |
 | kingdomprotector | Paladin | Deepsea Pearl | Intermediate |
-| mothernature | Mother Nature | Diamond Cullinan | TOP |
+| mothernature | Nature Spirit | Diamond Cullinan | TOP |
 | royalranger | Royal Ranger | Lucky Chinese Jade | Advanced |
 | kingsrangerguard | King's Ranger Guard | Charming Lazurite | Advanced |
 | elvenking | Elven King | Golden Jubilee | TOP |
@@ -46,4 +46,4 @@ These classes do not change attack damage, range, attack speed, abilities, recip
 | archbishop | Archbishop | Carmen-Lucia | TOP |
 | archangel | Archangel | Northern Saber's Eye | Advanced |
 
-Runtime source: `game/render/champion-classification.js`. Classification depends on the stable family ID, so ascended copies keep their family classification.
+Runtime source: `game/render/champion-classification.js`. Classification depends on the stable family ID; rendering uses `game/render/champion-aura.js`. The approved roster has 37 fixed champion forms, without additional Ascension recipes.

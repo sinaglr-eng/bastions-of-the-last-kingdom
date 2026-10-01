@@ -1,12 +1,20 @@
-# QA record — 30 September 2026
+# QA record — 1 October 2026
 
 ## Current revision
 
 The approved release contains eight basic classes and 37 champions: 85 defender variants and 20 legacy assets in a 105-entry model manifest, plus the separate 51-model Ashen Host pack. The new champion art uses champion-v6; basic and enemy packs retain archer-v2, hero-v5 and ashen-host-v2. Native editable sources and rendered portraits accompany the shipped packs. Historical review notes below retain their original counts and behavior; later revisions supersede them.
 
-After Blender 5.2 regeneration, the complete suite passed 124 Node tests. All 37 new champion GLBs parsed through the real Three.js GLTFLoader with finite positions, normals and bounds, exact manifest triangle counts and fewer than 10,000 triangles per model. Canonical world-space triangle hashes confirm 37 distinct geometries, independent of names and materials. Catapult's real siege_arm rig moves its loaded child geometry and restores it without modifying the cached source. All 37 native sources and 37 portraits are present. The production Vite build passed; local production-browser checks showed 37 champions, 45 types and 85 variants, loaded the new Archangel and all grimoire portraits, and reported no warning/error logs.
+Release 0.2.2 passed the complete suite of 145 Node tests and the production Vite build. All 85 defender GLBs parse through the real Three.js GLTFLoader with finite positions, normals and bounds and matching manifest triangle counts. Canonical world-space triangle hashes confirm 37 distinct champion geometries, independent of names and materials. Catapult's real siege_arm rig moves its loaded child geometry and restores it without modifying the cached source. Local production-browser checks confirmed exactly 37 recipe cards, Basic/Intermediate/Advanced/TOP labels, damage and base DPS, the Nature Spirit rename, aggregated pinned requirements and strong blue/green/purple/gold auras, with no broken portraits or console warning/error logs.
 
-Coverage includes all 37 reachable three-defender fixed recipes, all 48 basic family/rank pairs, repeatable champion ascension, allied-magic-triggered Archangel bounces, capped Royal Ranger health recovery, bounded Greedy gold, Monk blessing groups, healing suppression, Stone Gaze and five-target forked lightning. Existing route, economy, score, touch, status and enemy-mechanic tests remain covered.
+Coverage includes all 37 reachable three-defender fixed recipes, all 48 basic family/rank pairs, rejection of champion Ascension, recursive pinned recipe accounting, allied-magic-triggered Archangel bounces, capped Royal Ranger health recovery, bounded Greedy gold, Monk blessing groups, healing suppression, Stone Gaze and five-target forked lightning. Existing route, economy, score, touch, status and enemy-mechanic tests remain covered.
+
+## October 1 — Champion Codex 0.2.2
+
+- Removed generated champion Ascension recipes, crafting and numerical rank scaling. Recruit merging I–VI and paid champion upgrades remain available. An independent comparison with 0.2.1 found identical combat stats for all 196 currently reachable profiles: 48 basic ranks plus 37 champions with zero through three paid upgrades.
+- Rechecked all 37 classifications against the wiki Towers table: 5 Basic / 13 Intermediate / 11 Advanced / 8 TOP. All four classes have identical aura geometry and animation strength, differentiated only by classification color. Tests cover all 37 auras, absent effects for ordinary recruits, finite animation, reduced motion and disposal.
+- Grimoire tests verify readable concrete effects, all 37 classification labels, fixed three-piece recipes and damage/interval DPS without conditional bonuses. Continuous fire DPS and other effects are separate from direct attack DPS. Nature Spirit keeps its existing stable ID and model.
+- Recursive recipe tests cover repeated family/rank requirements, owned component champions, surplus stock, ignored ruins, duplicate physical identities, missing recipes and cycle guards. Kingslayer expands to eleven recruits in eight rows, including two copies each of F I, S I and T I. A built Knight plus Frostbolt Watchmen covers eight of those eleven without double counting.
+- Local production checks verified all four aura colors, the renamed Nature Spirit and the complete pinned Kingslayer breakdown in both its card and sidebar. Pinning opens the breakdown and keeps it in view. Browser logs contain no warnings or errors.
 
 ## September 30 — approved 37-champion release preparation
 

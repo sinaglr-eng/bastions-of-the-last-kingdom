@@ -47,9 +47,9 @@ Gem TD supplies the basic identities and recipe topology. Soldier has 2.5-cell g
 
 Mythic upgrades alter defining abilities: faster arrows, stronger sword hits, independent poison DPS, larger pure cleave, stronger blessing, armor reduction, nearby frost slow, or twelve-tile triple targeting. Models add equipment and floating ornaments while keeping one-cell footprints.
 
-## Champion recipes and continuing ascension
+## Champion recipes
 
-All combinations require exactly three distinct defenders with the stated families and ranks. The approved roster contains 37 champions, using stable family IDs for renamed units and including all restored reference combinations. An advanced ingredient is a complete crafted defender; paid enhancements are consumed with it. Recipe requirements themselves gate progression, without additional Kingdom-level locks. Three optional paid enhancements cost 160, 320 and 480 gold and scale offensive values by 1.3 per purchase. They are separate from basic ranks and champion ascension.
+All combinations require exactly three distinct defenders with the stated families and ranks. The approved roster contains 37 champions, using stable family IDs for renamed units and including all restored reference combinations. An advanced ingredient is a complete crafted defender; paid enhancements are consumed with it. Recipe requirements themselves gate progression, without additional Kingdom-level locks. Three optional paid enhancements cost 160, 320 and 480 gold and scale offensive values by 1.3 per purchase. They are separate from basic rank merging. Every champion has one fixed form.
 
 | Champion | Reference recipe | Required ingredients |
 |---|---|---|
@@ -79,7 +79,7 @@ All combinations require exactly three distinct defenders with the stated famili
 | Royal Storm Arsenal | Deplemented-Kyparium | Elemental Archmage I + Archer A VI + Stormcaller T VI |
 | Bearking | Monkey King Jade | Archdruid I + Druid D IV + Engineer R II |
 | Paladin | Deepsea Pearl | Archer A IV + Soldier S IV + Cleric C II |
-| Mother Nature | Diamond Cullinan | Bearking I + Soldier S VI + Frost Warden F VI |
+| Nature Spirit | Diamond Cullinan | Bearking I + Soldier S VI + Frost Warden F VI |
 | Royal Ranger | Lucky Chinese Jade | Ranger I + Master Druid I + Druid D III |
 | King's Ranger Guard | Charming Lazurite | Ranger I + Engineer R IV + Stormcaller T II |
 | Elven King | Golden Jubilee | King's Ranger Guard I + Stormcaller T VI + Mage M VI |
@@ -93,7 +93,9 @@ All combinations require exactly three distinct defenders with the stated famili
 
 The recipe dependency graph follows these selected reference combinations, including crafted ingredients and VI requirements. The approved data retains the agreed combat values, reference notes and explicitly identified adaptations. Data files and the grimoire describe the implemented effects; source-verification notes stay separate from player-facing ability labels.
 
-There are 37 champion families and 37 fixed recipes. Three champions of the same family and rank combine into one of the next rank, at the selected ingredient's position. Offensive damage, poison, continuous burn, chain, forked lightning and bouncing frost damage multiply by 2.7 per ascension. Support haste, damage, range bonus and armor reduction increase by 10% of their starting value per additional rank, capped at +50%. Partial control resistance is capped at 90%; complete protection stays at 100%. Slowing auras gain two percentage points per rank, capped at 75%. Aura coverage and attack range remain fixed. Paid enhancements are consumed. Basic rank merging remains restricted to two current-round candidates, capped at VI.
+There are exactly 37 champion families and 37 fixed recipes; champion Ascension is disabled. Basic rank merging remains restricted to two current-round candidates, capped at VI. Paid enhancements are consumed when their defender is used as an ingredient. Champion cards show readable effects plus direct attack damage and DPS (damage divided by attack interval); conditional criticals, multi-target hits, support bonuses and continuous damage are described separately. Pinning a recipe recursively expands its crafted ingredients into basic family/rank requirements and aggregates duplicates. Existing component champions contribute their underlying basic ingredients to progress without consuming stock twice.
+
+Champion classifications follow the wiki Towers table: 5 Basic, 13 Intermediate, 11 Advanced and 8 TOP. All classes have equally large cosmetic auras, distinguished by blue, green, purple and gold respectively. Basic recruit ranks use their existing six colors independently of champion classification.
 
 Every basic family and rank I–VI now appears in at least one fixed champion recipe. Royal Storm Arsenal retains the reference recipe, but its rapid three-target physical true strike is an authored adaptation because the source does not specify its ability.
 

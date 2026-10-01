@@ -34,11 +34,9 @@ export function damageAfterDefense(amount, type, enemy, stats, balance) {
 export function towerStats(tower, data) {
   const stats = data.towers[tower.family];
   if(!stats.advanced&&stats.levels)return {...stats,...stats.levels[tower.tier-1]};
-  const ranks=Math.max(0,(tower.tier||1)-1),supportScale=1+Math.min(.5,ranks*.1);
-  const multiplier = stats.advanced ? Math.pow(data.balance.championRankMultiplier??2.7,ranks)*Math.pow(data.balance.specialUpgradeMultiplier, tower.upgrades || 0) : data.balance.tierDamage[tower.tier - 1];
+  const multiplier = stats.advanced ? Math.pow(data.balance.specialUpgradeMultiplier, tower.upgrades || 0) : data.balance.tierDamage[tower.tier - 1];
   const aura=stats.aura?{...stats.aura,...(stats.aura.hasteGroups?{hasteGroups:{...stats.aura.hasteGroups}}:{})}:null;
-  if(aura&&stats.advanced){for(const key of ['haste','damageBonus','rangeBonus'])if(aura[key])aura[key]*=supportScale;if(aura.hasteGroups)for(const key of Object.keys(aura.hasteGroups))aura.hasteGroups[key]*=supportScale;if(aura.controlResistance)aura.controlResistance=stats.aura.controlResistance===1?1:Math.min(.9,aura.controlResistance*supportScale);}
-  return {...stats, damage: stats.damage * multiplier, ...(aura?{aura}:{}), ...(stats.slowAura?{slowAura:Math.min(.75,stats.slowAura+ranks*.02)}:{}), ...(stats.armorShredAura?{armorShredAura:stats.armorShredAura*supportScale}:{}), ...(stats.magicShredAura?{magicShredAura:stats.magicShredAura*supportScale}:{}), ...(stats.shred&&stats.advanced?{shred:stats.shred*supportScale}:{}), ...(stats.burnAura?{burnAura:stats.burnAura*multiplier}:{}), ...(stats.poisonDps?{poisonDps:stats.poisonDps*multiplier}:{}), ...(stats.chainDamage?{chainDamage:stats.chainDamage*multiplier}:{}), ...(stats.forkedDamage?{forkedDamage:stats.forkedDamage*multiplier}:{}), ...(stats.bouncingFrostDamage?{bouncingFrostDamage:stats.bouncingFrostDamage*multiplier}:{}),range: stats.range + (stats.advanced ? 0 : data.balance.tierRange[tower.tier - 1])};
+  return {...stats, damage: stats.damage * multiplier, ...(aura?{aura}:{}), ...(stats.burnAura?{burnAura:stats.burnAura*multiplier}:{}), ...(stats.poisonDps?{poisonDps:stats.poisonDps*multiplier}:{}), ...(stats.chainDamage?{chainDamage:stats.chainDamage*multiplier}:{}), ...(stats.forkedDamage?{forkedDamage:stats.forkedDamage*multiplier}:{}), ...(stats.bouncingFrostDamage?{bouncingFrostDamage:stats.bouncingFrostDamage*multiplier}:{}),range: stats.range + (stats.advanced ? 0 : data.balance.tierRange[tower.tier - 1])};
 }
 export function supportBonuses(tower,towers,data) {
   const haste=new Map();let damage=0,range=0,trueStrike=false,controlResistance=0;

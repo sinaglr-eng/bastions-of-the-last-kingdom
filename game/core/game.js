@@ -3,7 +3,7 @@ import {seededRandom} from './math.js';
 import {DraftManager} from './draft.js';
 import {EconomyManager} from './progression.js';
 import {CombatManager} from './combat.js';
-import {matchingIngredients,mergePartner,allRecipes,recipeFamily,recipeTier} from './recipes.js';
+import {matchingIngredients,mergePartner,allRecipes,recipeFamily} from './recipes.js';
 
 export class Game {
   constructor(data,{seed=Date.now(),waveLimit=data.waves.length,discoveries=[]}={}) {
@@ -25,7 +25,7 @@ export class Game {
     });
   }
   get wave(){return this.data.waves[this.round-1];}
-  get recipes(){return allRecipes(this.data,this.towers);}
+  get recipes(){return allRecipes(this.data);}
   awardScore(points){this.score+=Math.max(0,Math.floor(points));}
   get constructionBudget(){
     const perRound=this.data.balance.drawsPerRound,limit=this.waveLimit*perRound;
@@ -109,7 +109,7 @@ export class Game {
     const pieces=matchingIngredients(recipe,this.towers.filter(o=>this.canCombine(o)),t);
     const draftUsed=pieces.some(p=>p.state==='draft');
     const kills=pieces.reduce((sum,p)=>sum+(p.kills||0),0),family=recipeFamily(recipe);
-    pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=recipeTier(recipe);t.state='active';t.upgrades=0;t.kills=kills;
+    pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=1;t.state='active';t.upgrades=0;t.kills=kills;
     this.discoveries.add(family);
     if(draftUsed)this.finishSelection(t);
     this.emit('combine',{tower:t});this.emit('discover',{id:family});this.emit('change');return true;

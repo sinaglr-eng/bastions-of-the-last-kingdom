@@ -185,7 +185,7 @@ export const CHAMPIONS={
   "mothernature": {
     "color": "#728d65",
     "accent": "#e5d4a0",
-    "name": "Mother Nature",
+    "name": "Nature Spirit",
     "kind": "grovekeeper",
     "description": "A floating nature spirit who guides allied aim and range while poisonous thorns punish the invaders."
   },

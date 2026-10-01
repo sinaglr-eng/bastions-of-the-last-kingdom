@@ -55,3 +55,36 @@ dialog{border:1px solid #9a8b6077;background:linear-gradient(145deg,#243132,#152
 @media(max-width:580px){.header-actions>a,.header-actions [data-action="warbands"]{display:none}.hud-stat.score{min-width:55px}.top-stats{gap:8px}.hud-stat.score strong{font-size:13px}.topbar{gap:10px}.boss-health{padding:9px 8px}}
 .touch-controls{display:none}
 @media(hover:none) and (pointer:coarse){.touch-controls{display:inline}.mouse-controls{display:none}}
+
+/* Combat numbers and complete pinned recruit chains. */
+.combat-stat-grid{grid-template-columns:repeat(2,1fr)}
+.tower-effects{padding-left:16px;margin:10px 0 15px;color:#dbc491;font-size:11px;line-height:1.65}
+.tower-effects li+li{margin-top:7px}
+.damage-note{color:#8fa498;font-size:9px;line-height:1.6;margin:9px 0 0}
+.dialog-body .dps-explanation{font-size:11px;color:#bac8bb;padding:12px;border:1px solid #75826e45;border-radius:4px;background:#10201e45}
+.recipe-summary{min-height:110px;padding-right:105px;position:relative}
+.recipe-card .recipe-summary h3{max-width:none;font-size:20px;line-height:1.18}
+.recipe-summary p{font-size:11px;line-height:1.6;color:#bdcbbd}
+.recipe-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:10px 0;padding:11px 0}
+.recipe-stat-grid dt{font-size:8px;letter-spacing:.4px;text-transform:uppercase;color:#a1b3a6;line-height:1.5}
+.recipe-stat-grid dd{font-size:15px;margin:4px 0 0;color:#eee1bf}
+.recipe-ability-heading{color:#cbb681;font-size:9px;letter-spacing:.6px;text-transform:uppercase;margin:13px 0 7px}
+.recipe-card ul.recipe-effects{list-style:disc;padding-left:14px;margin:8px 0 16px;line-height:1.55;color:#bfcbbb}
+.recipe-effects li+li{margin-top:6px}
+.recipe-card .recipe-ingredients{line-height:1.9;margin:7px 0 11px}
+.recipe-basic-breakdown{background:#a88ac50c;border:1px solid #a58abd40;border-radius:4px;padding:9px 10px;margin:11px 0 8px;font-size:10px;color:#c9bed5}
+.recipe-basic-breakdown summary{cursor:pointer;color:#dbceea;font-size:10px}
+.recipe-basic-breakdown ul{margin:8px 0 4px}
+.recipe-basic-breakdown li{display:flex;justify-content:space-between;gap:8px}
+.recipe-card .recipe-basic-breakdown li span{width:auto;font-weight:600}
+.recipe-basic-breakdown small{font-size:9px;color:#99ad9d}
+.recipe-basic-breakdown p{font-size:9px;color:#98ad9e;line-height:1.5}
+.pinned-heading{display:block;color:#aa9ebb;margin:6px 0;font-size:9px;line-height:1.5}
+.pinned-basics{list-style:none;padding:0;margin:9px 0;display:grid;gap:6px;max-height:190px;overflow:auto;scrollbar-width:thin}
+.pinned-basics li{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid #a38aba1e;padding-top:5px}
+.pinned-basics b{font-size:11px;color:#d9ccec;font-weight:600}
+.pinned-basics small{display:block;color:#96a899;font-size:9px;line-height:1.5}
+.pinned-progress{color:#a59caf;font-size:10px;white-space:nowrap}
+.pinned-basics .owned b,.pinned-basics .owned .pinned-progress{color:#c5dcad}
+.pinned-help{font-size:9px;line-height:1.55;color:#8fa393;margin-top:8px}
+@media(max-width:680px){.recipe-summary{padding-right:82px}.recipe-card .recipe-summary h3{font-size:18px}.recipe-card img{width:105px}.recipe-stat-grid{gap:5px}.recipe-stat-grid dd{font-size:13px}.recipe-stat-grid dt{font-size:7px}.recipe-card{padding:13px}}

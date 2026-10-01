@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {CHAMPIONS} from '../game/render/champion-catalog.js';
-import {ascensionRecipe,recipeFamily} from '../game/core/recipes.js';
+import {allRecipes,recipeFamily,recipeTier} from '../game/core/recipes.js';
 import {
   CHAMPION_CLASSIFICATIONS,
   CLASSIFICATION_LEVELS,
@@ -32,10 +32,10 @@ test('fixed recipe reference classifications agree with the verified wiki Towers
   assert.equal(new Set(recipes.map(recipe=>recipe.referenceTower)).size,37);
   for(const recipe of recipes){
     assert.ok(recipe.referenceTower?.trim(),recipe.id+' needs its source tower');
-    const expected=recipe.stage==='Mythic'?'TOP':recipe.stage;
+    const expected=recipe.stage;
     assert.equal(championClassification(recipeFamily(recipe)),expected,recipe.referenceTower);
   }
-  // These source distinctions are easy to confuse with names or ascension ranks.
+  // These source distinctions are easy to confuse with champion names.
   assert.equal(championClassification('archangel'),'Advanced');
   assert.equal(championClassification('dawnspire'),'TOP');
   assert.equal(championClassification('royalarsenal'),'TOP');
@@ -59,14 +59,13 @@ test('all basic defender ranks and unknown families receive no classification au
   }
 });
 
-test('ascension changes rank while preserving each family visual classification',()=>{
-  for(const family of champions){
-    const classification=championClassification(family);
-    for(const tier of [1,2,6,12,100]){
-      const recipe=ascensionRecipe(family,tier);
-      assert.equal(recipe.resultTier,tier+1);
-      assert.equal(championClassification(recipeFamily(recipe)),classification);
-      assert.equal(championAuraLevel(recipeFamily(recipe)),CLASSIFICATION_LEVELS[classification]);
-    }
+test('all 37 fixed outputs retain their family classification and produce rank I champions',()=>{
+  const fixed=allRecipes({towers,recipes});assert.equal(fixed.length,37);
+  assert.deepEqual(fixed.map(recipeFamily).sort(),champions);
+  for(const recipe of fixed){
+    assert.equal(recipeTier(recipe),1);
+    const family=recipeFamily(recipe),classification=championClassification(family);
+    assert.equal(classification,recipe.stage);
+    assert.equal(championAuraLevel(family),CLASSIFICATION_LEVELS[classification]);
   }
 });

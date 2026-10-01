@@ -1,15 +1,14 @@
 import * as THREE from 'three';
-import {CHAMPIONS} from './champion-catalog.js';
 import {championAuraLevel,championClassification} from './champion-classification.js';
 
 // These visual signals never enter towerStats, combat or support calculations.
-// Basic champions intentionally create no group, geometry, material or light.
-export const CHAMPION_AURA_TIERS=Object.freeze({
-  0:Object.freeze({strength:0,radius:0,rings:0,particles:0,wisps:0,height:0}),
-  1:Object.freeze({strength:.18,radius:.57,rings:1,particles:7,wisps:0,height:.36}),
-  2:Object.freeze({strength:.32,radius:.75,rings:2,particles:12,wisps:4,height:.65}),
-  3:Object.freeze({strength:.50,radius:.92,rings:3,particles:18,wisps:6,height:.94}),
+// All champions share the former TOP effect. Classification changes color only;
+// the eight ordinary defender families have no champion classification or aura.
+export const CHAMPION_AURA_COLORS=Object.freeze({
+  Basic:'#3989ed',Intermediate:'#3eac63',Advanced:'#9555d8',TOP:'#ffd969',
 });
+export const CHAMPION_AURA_STYLE=Object.freeze({strength:.50,radius:.92,rings:3,particles:18,wisps:6,height:.94});
+export const CHAMPION_AURA_TIERS=Object.freeze({0:CHAMPION_AURA_STYLE,1:CHAMPION_AURA_STYLE,2:CHAMPION_AURA_STYLE,3:CHAMPION_AURA_STYLE});
 
 const vertex=`
   varying vec2 auraUV;
@@ -70,22 +69,23 @@ function ribbonGeometry(height,width){
 }
 
 export function createChampionAura(family,{phase=0}={}){
+  const classification=championClassification(family);
+  if(!classification)return null;
   const level=championAuraLevel(family);
-  if(!level)return null;
-  const tier=CHAMPION_AURA_TIERS[level],color=CHAMPIONS[family].accent;
+  const tier=CHAMPION_AURA_STYLE,color=CHAMPION_AURA_COLORS[classification];
   const aura=new THREE.Group();aura.name='Champion classification aura';
   const data=aura.userData;
-  Object.assign(data,{family,classification:championClassification(family),level,tier,
+  Object.assign(data,{family,classification,level,tier,color,
     phase:Number.isFinite(phase)?phase:0,disposed:false,rings:[],wisps:[]});
   const glow=new THREE.Mesh(new THREE.PlaneGeometry(tier.radius*2,tier.radius*2),cosmeticMaterial(color,tier.strength,groundFragment));
   glow.name='Fading champion ground glow';glow.rotation.x=-Math.PI/2;glow.position.y=.183;
   glow.raycast=ignoreRaycast;aura.add(glow);data.ground=glow;
   for(let i=0;i<tier.rings;i++){
-    const radius=.43+i*.15+(level===3?.015:0);
+    const radius=.445+i*.15;
     const material=new THREE.MeshBasicMaterial({color,transparent:true,opacity:tier.strength+.16,
       side:THREE.DoubleSide,depthWrite:false,depthTest:true,blending:THREE.AdditiveBlending,toneMapped:false});
     // Broken outer rings read as runic arcs and leave room for selection markers.
-    const ring=new THREE.Mesh(new THREE.RingGeometry(radius,radius+.012+level*.003,40,1,0,i?Math.PI*1.55:Math.PI*2),material);
+    const ring=new THREE.Mesh(new THREE.RingGeometry(radius,radius+.021,40,1,0,i?Math.PI*1.55:Math.PI*2),material);
     ring.name=`Champion aura ring ${i+1}`;ring.rotation.x=-Math.PI/2;ring.position.y=.187+i*.006;
     ring.raycast=ignoreRaycast;aura.add(ring);data.rings.push(ring);
   }
@@ -93,14 +93,14 @@ export function createChampionAura(family,{phase=0}={}){
   particleGeometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(tier.particles*3),3));
   const particleMaterial=new THREE.ShaderMaterial({
     uniforms:{tint:{value:new THREE.Color(color).lerp(new THREE.Color('#ffffff'),.27)},
-      opacity:{value:.38+level*.15},pointScale:{value:.055+level*.02}},
+      opacity:{value:.83},pointScale:{value:.115}},
     vertexShader:pointVertex,fragmentShader:pointFragment,transparent:true,depthWrite:false,
     depthTest:true,blending:THREE.AdditiveBlending,toneMapped:false,
   });
   const particles=new THREE.Points(particleGeometry,particleMaterial);particles.name='Champion aura motes';
   particles.raycast=ignoreRaycast;particles.frustumCulled=false;aura.add(particles);data.particles=particles;
   if(tier.wisps){
-    const geometry=ribbonGeometry(tier.height,.058+level*.017);
+    const geometry=ribbonGeometry(tier.height,.109);
     const material=cosmeticMaterial(color,tier.strength*.88,wispFragment);
     for(let i=0;i<tier.wisps;i++){
       const wisp=new THREE.Mesh(geometry,material);wisp.name=`Champion aura rising wisp ${i+1}`;
@@ -112,7 +112,7 @@ export function createChampionAura(family,{phase=0}={}){
 
 export function animateChampionAura(aura,time,{reducedMotion=false}={}){
   if(!aura||aura.userData.disposed)return;
-  const data=aura.userData,{tier,level,phase}=data;
+  const data=aura.userData,{tier,phase}=data;
   const clock=reducedMotion?0:((Number.isFinite(time)?time:0)%1e6+phase%1e6);
   data.ground.material.uniforms.opacity.value=tier.strength*(reducedMotion?1:1+.07*Math.sin(clock*1.6));
   data.rings.forEach((ring,i)=>{
@@ -121,7 +121,7 @@ export function animateChampionAura(aura,time,{reducedMotion=false}={}){
   });
   const positions=data.particles.geometry.attributes.position;
   for(let i=0;i<tier.particles;i++){
-    const angle=i*Math.PI*2/tier.particles+clock*(.16+level*.025);
+    const angle=i*Math.PI*2/tier.particles+clock*.235;
     const radius=tier.radius*(.64+.11*Math.sin(i*2.17));
     const rise=reducedMotion?(i+.5)/tier.particles:((clock*.16+i/tier.particles)%1+1)%1;
     positions.setXYZ(i,Math.cos(angle)*radius,.22+rise*tier.height,Math.sin(angle)*radius);

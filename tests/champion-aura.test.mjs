@@ -1,9 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
-import {CHAMPIONS} from '../game/render/champion-catalog.js';
 import {CHAMPION_CLASSIFICATIONS,championClassification,championAuraLevel} from '../game/render/champion-classification.js';
-import {CHAMPION_AURA_TIERS,createChampionAura,animateChampionAura,disposeChampionAura} from '../game/render/champion-aura.js';
+import {CHAMPION_AURA_COLORS,CHAMPION_AURA_STYLE,CHAMPION_AURA_TIERS,createChampionAura,animateChampionAura,disposeChampionAura} from '../game/render/champion-aura.js';
 
 const examples=Object.fromEntries(['Basic','Intermediate','Advanced','TOP'].map(classification=>[
   classification,Object.keys(CHAMPION_CLASSIFICATIONS).find(family=>championClassification(family)===classification),
@@ -15,29 +14,35 @@ const state=aura=>({
   wisps:aura.userData.wisps.map(wisp=>[...wisp.position.toArray(),...wisp.rotation.toArray().slice(0,3),wisp.scale.y]),
 });
 
-test('Basic champions and basic defenders create exactly no classification aura',()=>{
-  for(const [family,classification] of Object.entries(CHAMPION_CLASSIFICATIONS)){
-    if(classification==='Basic'){assert.equal(championAuraLevel(family),0);assert.equal(createChampionAura(family),null);}
-  }
+test('ordinary basic defenders and unknown families create exactly no champion aura',()=>{
   for(const family of ['soldier','archer','druid','mage','cleric','runebreaker','frostwarden','stormcaller','unknown']){
     assert.equal(createChampionAura(family),null,family);
   }
   animateChampionAura(null,4);disposeChampionAura(null);
 });
 
-test('Intermediate, Advanced and TOP have visibly increasing cosmetic intensity',()=>{
-  let previous=CHAMPION_AURA_TIERS[0];
-  for(const [classification,level] of [['Intermediate',1],['Advanced',2],['TOP',3]]){
+test('every champion classification has the same former TOP size and strength, differing only in color',()=>{
+  let previousGeometry=null,previousAnimation=null;
+  assert.deepEqual(CHAMPION_AURA_STYLE,{strength:.50,radius:.92,rings:3,particles:18,wisps:6,height:.94});
+  assert.deepEqual(CHAMPION_AURA_COLORS,{Basic:'#3989ed',Intermediate:'#3eac63',Advanced:'#9555d8',TOP:'#ffd969'});
+  for(const [classification,level] of [['Basic',0],['Intermediate',1],['Advanced',2],['TOP',3]]){
     const family=examples[classification],aura=createChampionAura(family),tier=aura.userData.tier;
     assert.equal(aura.userData.classification,classification);assert.equal(aura.userData.level,level);
-    assert.ok(tier.strength>previous.strength);assert.ok(tier.radius>previous.radius);
-    assert.ok(tier.particles>previous.particles);assert.ok(tier.height>previous.height);
-    assert.equal(aura.userData.rings.length,level);assert.equal(aura.userData.wisps.length,tier.wisps);
+    assert.equal(tier,CHAMPION_AURA_STYLE);assert.equal(CHAMPION_AURA_TIERS[level],tier);
+    assert.equal(aura.userData.rings.length,3);assert.equal(aura.userData.wisps.length,6);
     assert.equal(aura.userData.particles.geometry.attributes.position.count,tier.particles);
-    assert.equal(aura.userData.ground.material.uniforms.tint.value.getHexString(),new THREE.Color(CHAMPIONS[family].accent).getHexString());
-    assert.ok(aura.children.length<=11,'Few render objects even for TOP');
+    const color=new THREE.Color(CHAMPION_AURA_COLORS[classification]);
+    assert.equal(aura.userData.ground.material.uniforms.tint.value.getHexString(),color.getHexString());
+    for(const ring of aura.userData.rings)assert.equal(ring.material.color.getHexString(),color.getHexString());
+    for(const wisp of aura.userData.wisps)assert.equal(wisp.material.uniforms.tint.value.getHexString(),color.getHexString());
+    assert.equal(aura.userData.particles.material.uniforms.opacity.value,.83);
+    assert.equal(aura.userData.particles.material.uniforms.pointScale.value,.115);
+    assert.equal(aura.children.length,11,'Bounded render objects for all classifications');
     aura.traverse(object=>{assert.equal(!!object.isLight,false);if(object.material){assert.equal(object.material.depthWrite,false);assert.equal(object.raycast(),undefined);}});
-    disposeChampionAura(aura);previous=tier;
+    const geometries=[];aura.traverse(object=>{if(object.geometry)geometries.push(Array.from(object.geometry.attributes.position.array));});
+    animateChampionAura(aura,7.25);const animated=state(aura);
+    if(previousGeometry){assert.deepEqual(geometries,previousGeometry);assert.deepEqual(animated,previousAnimation);}
+    previousGeometry=geometries;previousAnimation=animated;disposeChampionAura(aura);
   }
 });
 
@@ -47,14 +52,15 @@ test('all 37 champions keep their family classification independent of ascension
     const classification=championClassification(family),level=championAuraLevel(family);
     for(const rank of [1,2,6,14]){
       const aura=createChampionAura(family,{phase:rank});
-      assert.equal(aura?.userData.classification||'Basic',classification);
-      assert.equal(aura?.userData.level||0,level);disposeChampionAura(aura);
+      assert.ok(aura,`${family} has its classification aura at rank ${rank}`);
+      assert.equal(aura.userData.classification,classification);
+      assert.equal(aura.userData.level,level);assert.equal(aura.userData.tier,CHAMPION_AURA_STYLE);disposeChampionAura(aura);
     }
   }
 });
 
 test('animation stays finite and reduced motion freezes the complete visual aura',()=>{
-  for(const classification of ['Intermediate','Advanced','TOP']){
+  for(const classification of ['Basic','Intermediate','Advanced','TOP']){
     const aura=createChampionAura(examples[classification],{phase:7.1});
     const first=state(aura);animateChampionAura(aura,9);assert.notDeepEqual(state(aura),first);
     for(const time of [0,-40,100000,NaN,Infinity,Number.MAX_VALUE]){
