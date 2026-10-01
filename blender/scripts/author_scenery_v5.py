@@ -266,6 +266,11 @@ def export_v5(name,build,view_center,ortho,camera_position):
     # V4 exporter keeps all semantically named source meshes, batches only copies,
     # and exports every role marker needed for actual-runtime geometry checks.
     V4.export_v4(name,build,view_center,ortho,camera_position)
+    # Preserve the real native-scene review image alongside the editable source.
+    from shutil import copyfile
+    render_dir=S.ROOT/'blender/renders'
+    render_dir.mkdir(parents=True,exist_ok=True)
+    copyfile(S.REVIEW/(name+'-review.png'),render_dir/(name+'-review.png'))
     scene=bpy.context.scene;manifest=next(o for o in scene.objects if o.get('sceneryRole')=='manifest')
     return dict(file=name+'.glb',source=name+'.blend',style='scenery-v5',authoring='Blender 5.2',triangles=manifest['triangleCount'],roles=json.loads(manifest['roles']),review=name+'-review.png')
 

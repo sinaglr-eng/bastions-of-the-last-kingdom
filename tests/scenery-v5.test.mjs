@@ -29,7 +29,9 @@ test('V5 mountain stream is narrow, independent upstream and reaches the main ri
   for(const [x,z]of TOWN_RIVER_CONTROL_POINTS.slice(0,-1))assert.ok(valleyRiverDistance(x,z)>4,'Only the final confluence joins the main river');
   for(let i=1;i<=100;i++)assert.ok(TOWN_STREAM_CURVE.getPoint(i/100).y<=TOWN_STREAM_CURVE.getPoint((i-1)/100).y+.001,'Source flow runs downhill');
   const authored=JSON.parse(readFileSync(new URL('../public/assets/scenery/layout-v5.json',import.meta.url),'utf8'));
-  assert.deepEqual(authored.townStream.samples,TOWN_STREAM_CURVE.getPoints(480).map(p=>p.toArray()),'Blender and runtime use the same curve, widths and elevations');
+  const runtime=TOWN_STREAM_CURVE.getPoints(480).map(p=>p.toArray());
+  assert.equal(authored.townStream.samples.length,runtime.length);
+  for(let i=0;i<runtime.length;i++)for(let axis=0;axis<3;axis++)assert.ok(Math.abs(authored.townStream.samples[i][axis]-runtime[i][axis])<1e-10,'Blender and runtime share stream coordinates within floating-point precision');
 });
 
 test('every V5 town roof, footing and mill house clears the real curved water ribbon',async()=>{
@@ -112,5 +114,5 @@ test('every exported V5 settlement vertex and triangle stays outside the full co
 test('V5 manifest keeps native editable Blender sources and actual source renders',()=>{
   const manifest=JSON.parse(readFileSync(new URL('../public/assets/scenery/manifest.json',import.meta.url),'utf8'));
   assert.equal(manifest.length,2);
-  for(const entry of manifest){assert.equal(entry.style,'scenery-v5');assert.equal(entry.authoring,'Blender 5.2');assert.ok(statSync(new URL('../blender/scenes/'+entry.source,import.meta.url)).size>10000);assert.ok(statSync(new URL('../artifacts/'+entry.review,import.meta.url)).size>10000);assert.ok(entry.triangles>80000&&entry.triangles<140000);}
+  for(const entry of manifest){assert.equal(entry.style,'scenery-v5');assert.equal(entry.authoring,'Blender 5.2');assert.ok(statSync(new URL('../blender/scenes/'+entry.source,import.meta.url)).size>10000);assert.ok(statSync(new URL('../blender/renders/'+entry.review,import.meta.url)).size>10000);assert.ok(entry.triangles>80000&&entry.triangles<140000);}
 });
