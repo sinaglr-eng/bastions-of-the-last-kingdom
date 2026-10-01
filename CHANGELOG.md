@@ -1,5 +1,17 @@
 # Releases
 
+## 0.2.6 — Guided Kingdoms — 1 October 2026
+
+- Offers a seven-step tutorial on first opening, with a choice to skip and a replay button in Help. The guide highlights the live building controls, keeper selection, maze plans, mastery, recipes, defender details and wave button.
+- Adds a separate persistent statistics backend with per-run and per-wave checkpoints, draft and keeper counts, enemy leaks, route length, damage, kills and sampled control/support time. Owner-only reports export JSON and CSV; failed uploads keep a bounded browser retry queue.
+- Offers a named score submission after victory or defeat, a Top 10 and the current player's rank even outside it. Separate campaign/version rankings, server validation, bound SQL parameters and text-only rendering protect names and stored results from HTML injection. Statistics remain client-reported rather than verified competitive scores.
+- Replaces Engineer with Kushek, a blonde human woman with a ponytail, green eyes, black bib overalls, rubber boots, a hammer and a ruler. Six T-shirt colors distinguish the basic ranks; existing recipes and discoveries retain their stable family ID.
+- Refreshes already placed defenders as soon as their own GLB arrives, including the approved Master Druid. Map selection resolves the visible figure, and mouse/touch double activation keeps an eligible candidate after all five placements.
+- Retains Commander's spiral, Diamond spiral and Chevron bastion; replaces the five earlier automatic layouts with Compact crossfire, Core gauntlet and Crown crossfire. Each new layout uses at most 150 wall cells and repeatedly routes enemies through central firing coverage. The planner reports measurable exposure and route statistics.
+- Ties construction mastery automatically to Kingdom level, capped at 15, for future draws. Completed waves pay 50 gold, or 200 for a boss. Gold now pays only for a 200-gold candidate downgrade; wall demolition is free and paid champion enhancements are removed.
+- Closes gaps in the royal town's western walls and places soldiers and archers on their walkways. An independent mountain stream powers the watermill and joins the main river farther south. Enlarged fields surround houses with foundations and roofs checked clear of water.
+- Encloses the expanded orc camp with a complete wooden palisade and fills the adjoining landscape with trees and rocks. Both V5 settlements retain editable Blender scenes and leave the playable board unobstructed.
+
 ## 0.2.5 — Living Kingdoms — 1 October 2026
 
 - Extends the royal settlement with connected streets, inhabitants, farmsteads, livestock pastures, a stone quarry and a river-fed watermill. The pale palace and slender spires take inspiration from Neuschwanstein; the castle now stands on the dry eastern bank, connected by a longer decorative bridge.

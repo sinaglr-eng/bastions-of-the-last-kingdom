@@ -22,7 +22,7 @@ test('round markers identify only this round and disappear after keep, merge and
  }
 });
 
-test('demolition charges once, refreshes navigation and never reopens a spent draft',()=>{
+test('free demolition refreshes navigation and never reopens a spent draft',()=>{
  const g=make();placeFive(g);g.keep();
  for(const state of ['ruin']){
   const tower=g.towers.find(t=>t.state===state),beforeGold=g.economy.gold,beforeRevision=g.grid.revision;
@@ -33,12 +33,12 @@ test('demolition charges once, refreshes navigation and never reopens a spent dr
  }
 });
 
-test('drafts, combat, end states and insufficient gold reject demolition without mutation',()=>{
+test('drafts, combat and end states reject demolition; empty wallets can remove castle walls',()=>{
  const g=make();g.place(18,18);const gold=g.economy.gold;assert.equal(g.remove(),false);assert.equal(g.economy.gold,gold);
  for(let x=13;x<17;x++)g.place(x,18);assert.equal(g.remove(),false);g.keep();
  const original=JSON.stringify({towers:g.towers,occupied:[...g.grid.occupied],gold:g.economy.gold});
  for(const phase of ['combat','won','lost']){g.phase=phase;assert.equal(g.remove(),false);assert.equal(JSON.stringify({towers:g.towers,occupied:[...g.grid.occupied],gold:g.economy.gold}),original);}
- g.phase='ready';g.economy.gold=7;assert.equal(g.remove(),false);assert.equal(g.economy.gold,7);assert.equal(g.towers.length,5);
+ g.phase='ready';g.select(g.towers.find(t=>t.state==='ruin').id);g.economy.gold=0;assert.equal(g.remove(),true);assert.equal(g.economy.gold,0);assert.equal(g.towers.length,4);
 });
 
 test('red-line spiral is constructible at every prefix, preserves checkpoint hooks and its measured route',()=>{

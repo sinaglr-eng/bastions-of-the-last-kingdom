@@ -33,17 +33,16 @@ test('potential combinations use the selected family AND tier, including repeate
  const rime=data.recipes.find(r=>data.towers[r.id].name==='Frostbolt Watchmen');assert.ok(rime);assert.ok(!matches.includes(rime));
  assert.ok(recipesUsing({...soldier,tier:1},data.recipes).includes(rime));assert.deepEqual(recipesUsing({...soldier,state:'ruin'},data.recipes),[]);
 });
-test('mastery has fifteen gradual upgrades and perfect income first reaches maximum after wave 30',()=>{
+test('fifteen mastery stages follow Kingdom experience automatically without spending gold',()=>{
  const eco=new EconomyManager(data.balance);assert.equal(data.balance.mastery.length,16);
- assert.equal(data.balance.mastery.reduce((sum,m)=>sum+m.cost,0),6500);
- while(eco.upgradeMastery());let first=null;
+ assert.equal(eco.upgradeMastery(),false);let first=null;
  for(const [i,w] of data.waves.entries()){
-  for(const g of w.groups){const e=data.enemies[g.type];eco.reward(g.count*e.gold,g.count*e.xp);}
-  eco.reward(w.reward,15);while(eco.upgradeMastery());
+  for(const g of w.groups){const e=data.enemies[g.type];eco.reward(0,g.count*e.xp);}
+  eco.reward(w.reward,15);
   if(eco.mastery===15&&!first)first=i+1;
  }
- assert.equal(first,30);const gold=eco.gold;assert.equal(eco.upgradeMastery(),false);assert.equal(eco.gold,gold);
- for(const row of data.balance.mastery){assert.equal(row.weights.reduce((a,b)=>a+b,0),100);assert.equal(row.weights[5],0);}
+ assert.equal(first,22);assert.equal(eco.gold,3340);const gold=eco.gold;assert.equal(eco.upgradeMastery(),false);assert.equal(eco.gold,gold);
+ for(const [i,row] of data.balance.mastery.entries()){assert.equal(row.level,i+1);assert.equal(row.cost,undefined);assert.equal(row.weights.reduce((a,b)=>a+b,0),100);assert.equal(row.weights[5],0);}
 });
 test('lost lives stay lost in every phase even with unlimited gold',()=>{
  const g=new Game(data);g.lives=12;g.economy.gold=100000;
@@ -52,10 +51,10 @@ test('lost lives stay lost in every phase even with unlimited gold',()=>{
 test('construction budget counts spent draws, demolition and off-plan structures',()=>{
  const g=candidates();assert.deepEqual(g.constructionBudget,{limit:250,spent:5,remaining:245,occupied:5});g.keep();g.select(g.towers[0].id);assert.ok(g.remove());
  assert.deepEqual(g.constructionBudget,{limit:250,spent:5,remaining:245,occupied:4});g.startCombat();g.completeWave();assert.equal(g.constructionBudget.remaining,245);
- const grid=new GridManager(),plan=preparedBlueprints(JSON.parse(readFileSync('data/maze-blueprints.json','utf8'))).find(p=>p.walls.length===250);
+ const grid=new GridManager(),plan=preparedBlueprints(JSON.parse(readFileSync('data/maze-blueprints.json','utf8'))).find(p=>p.id==='crown-crossfire');
  const outside={x:0,z:0};assert.ok(!plan.walls.some(p=>p.x===outside.x&&p.z===outside.z));grid.occupy(0,0,1);
- const progress=blueprintProgress(plan,grid,249);assert.equal(progress.projected,251);assert.equal(progress.overBudget,true);assert.equal(progress.offPlan,1);
- assert.ok(validateBlueprint([...plan.walls,outside]).error);
+ const progress=blueprintProgress(plan,grid,147);assert.equal(progress.projected,149);assert.equal(progress.overBudget,true);assert.equal(progress.offPlan,1);
+ const oversize=Array.from({length:251},(_,i)=>({x:i%37,z:Math.floor(i/37)+10}));assert.ok(validateBlueprint(oversize).error);
 });
 test('retained defenders and ruins join the same wall, while drafts stay on the ground',()=>{
  const active={x:10,z:10,state:'active'},ruin={x:11,z:10,state:'ruin'},draft={x:9,z:10,state:'draft'};

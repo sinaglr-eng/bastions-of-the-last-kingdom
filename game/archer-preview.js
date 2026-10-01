@@ -51,6 +51,7 @@ function rankButtons(){
  document.querySelector('#family-title').textContent=towers[family].name+'.';
  document.querySelector('#family-name').textContent=towers[family].name;
  document.querySelector('#family-role').textContent=towers[family].description||towers[family].role;
+ document.querySelector('.materials').innerHTML=family==='runebreaker'?'<span>01 <b>Barevné bavlněné tričko</b></span><span>02 <b>Černé lacláče a gumovky</b></span><span>03 <b>Mosaz a ocel</b></span>':'<span>01 <b>Barvená látka</b></span><span>02 <b>Patinovaná kůže</b></span><span>03 <b>Mosaz a ocel</b></span>';
  document.querySelector('#family-subtitle').textContent=advanced?`${championClassification(family)} · Šampion získaný kombinací obránců.`:'Základní obránce · šest barevných úrovní.';
  document.querySelector('#rank-heading').textContent=advanced?'Jedinečná silueta.':'Šest úrovní. Šest signálů.';
  document.querySelector('#rank-instruction').textContent=advanced?championClassification(family).toUpperCase():'VYBER ÚROVEŇ';
@@ -62,7 +63,7 @@ async function showRank(rank){
  selected=rank;const request=++sequence,advanced=towers[family].advanced,url=asset(family,rank);
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelector('#selected-rank').textContent=advanced?`${championClassification(family).toUpperCase()} · ŠAMPION`:`${defenderCode(towers[family],rank)} · ${colors[rank-1].toUpperCase()}`;
- document.querySelector('#rank-detail').textContent=advanced?`${auraDescriptions[championAuraLevel(family)]} Recept najdeš v herním Grimoáru.`:rank===6?'Zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`;
+ document.querySelector('#rank-detail').textContent=advanced?`${auraDescriptions[championAuraLevel(family)]} Recept najdeš v herním Grimoáru.`:family==='runebreaker'?`${colors[rank-1]} tričko pod černými lacláči a barevná obruba podstavce. Blond culík, zelené oči, gumovky, kladivo a pravítko zůstávají na všech šesti úrovních stejné.`:rank===6?'Zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`;
  document.querySelector('#download-model').href=url;document.querySelector('#download-portrait').href=portrait(family,rank);
  document.querySelector('#load-status').textContent='Načítám model z Blenderu…';
  try{

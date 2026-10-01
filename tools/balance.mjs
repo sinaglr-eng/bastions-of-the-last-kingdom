@@ -17,7 +17,6 @@ if(process.argv.includes('--campaign')){
   const g=new Game(data,{seed});let steps=0;
   while(!['lost','won'].includes(g.phase)&&steps<250000){
    if(g.phase==='build'){
-    while(g.economy.nextMastery()&&g.economy.level>=g.economy.nextMastery().level&&g.economy.gold>=g.economy.nextMastery().cost)g.mastery();
     // A simple greedy placement/keep policy: no maze optimization, reroll fishing or emergency repairs.
     for(let i=0;i<5;i++){
      const candidates=[];

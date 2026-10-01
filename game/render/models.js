@@ -4,6 +4,7 @@ import {seededRandom} from '../core/math.js';
 import {championModel} from './champions.js';
 import {castleWallModel} from './walls.js';
 import {rankColor} from './ranks.js';
+import {kushekFallback} from './kushek.js';
 
 const materials=new Map();
 export function material(color,emissive=false) {
@@ -98,6 +99,7 @@ export function towerModel(family,tier=1,advanced=false,appearance=null) {
 }
 // Original tabletop-sized adventurers. All face -Z and stay inside one placement tile.
 export function defenderModel(family,tier=1) {
+  if(family==='runebreaker')return kushekFallback(rankColor(tier),{box,beam,sphere,cylinder,cone,mesh,optimize});
   const p=new THREE.Group(),skin='#efbc90',ink='#233a3e',gold='#efc15d';
   const cloth=rankColor(tier);
   cylinder(p,.43,.46,.12,tier>=3?gold:'#8c9b91',[0,.07,0],10);
@@ -144,15 +146,6 @@ export function defenderModel(family,tier=1) {
     for(const x of [-.13,.13])box(p,[.085,.45,.047],gold,[x,.64,-.246]);
     box(p,[.26,.23,.1],'#875856',[-.28,.66,-.26],[-.25,0,0]);box(p,[.22,.18,.045],'#fff0cd',[-.28,.66,-.32],[-.25,0,0]);
     beam(p,[.34,.19,0],[.34,1.29,0],.055,gold);sphere(p,.12,'#ffe9ab',[.34,1.35,0]);box(p,[.26,.045,.055],gold,[.34,1.35,0]);
-  } else if(family==='runebreaker') {
-    cylinder(p,.26,.3,.12,'#725340',[0,1.31,.02],10);box(p,[.38,.028,.12],'#725340',[0,1.27,-.23]);
-    box(p,[.36,.33,.04],'#725340',[0,.64,-.2]);box(p,[.22,.12,.028],'#44372e',[0,.58,-.23]);
-    for(const x of [-.13,0,.13]){const beard=cone(p,.115,.36,'#c07643',[x,.89,-.22],5);beard.rotation.z=Math.PI;}
-    for(const x of [-.1,.1])mesh(p,new THREE.TorusGeometry(.069,.01,6,20),gold,[x,1.081,-.302]);
-    beam(p,[-.027,1.087,-.3],[.027,1.087,-.3],.012,gold);
-    beam(p,[.32,.43,-.14],[.32,.86,-.14],.035,'#71523e');box(p,[.26,.14,.14],'#bcc3ce',[.32,.88,-.14]);
-    box(p,[.073,.52,.04],'#e8dfb4',[-.315,.7,-.205]);
-    for(let i=0;i<10;i++)box(p,[i%5===0?.05:.025,.007,.01],ink,[-.332,.48+i*.045,-.232]);
   } else if(family==='frostwarden') {
     sphere(p,.31,'#d3ece9',[0,1.18,.08]);cone(p,.28,.32,cloth,[0,1.43,.045],6);
     box(p,[.47,.1,.38],'#ecf2e4',[0,.84,0]);

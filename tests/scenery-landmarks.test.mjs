@@ -25,11 +25,12 @@ test('both detailed Blender landmarks load within their triangle budget and rema
       for(const value of position.array)assert.ok(Number.isFinite(value));
       triangles+=(object.geometry.index?.count??position.count)/3;
     });
-    assert.ok(triangles>40000&&triangles<(name==='keep'?65000:80000),name+' complete settlement within a bounded geometry budget');
+    assert.ok(triangles>40000&&triangles<(name==='keep'?110000:140000),name+' complete settlement within a bounded geometry budget');
     assert.ok(meshes<=(name==='keep'?32:24),name+' material batches bound draw calls for the whole settlement');
     scene.position.set(site.x,site.y,site.z);
     const bounds=new THREE.Box3().setFromObject(scene,true);
-    assert.ok(bounds.max.x<=-18.5||bounds.min.x>=18.5||bounds.max.z<=-18.5||bounds.min.z>=18.5,name);
+    const point=new THREE.Vector3();scene.updateMatrixWorld(true);
+    scene.traverse(object=>{if(!object.isMesh)return;const positions=object.geometry.attributes.position;for(let i=0;i<positions.count;i++){point.fromBufferAttribute(positions,i).applyMatrix4(object.matrixWorld);assert.ok(Math.abs(point.x)>=18.5||Math.abs(point.z)>=18.5,name+' geometry clears every playable tile');}});
     assert.ok(bounds.max.y>3.5);
     if(name==='keep'){
       assert.ok(bounds.max.y>18,'The alpine palace has a tall spired silhouette');assert.ok(bounds.max.x-bounds.min.x>40,'The complete town fills the eastern shoulder');

@@ -43,7 +43,7 @@ test('opening patrols still punish placing the keeper away from the route',()=>{
 test('waves two and three retain their original normal difficulty while wave one stays introductory',()=>{
   const patrols=data.waves.slice(0,3).map(w=>data.enemies[w.groups[0].type]);
   assert.deepEqual(data.waves.slice(0,3).map(w=>w.groups[0].count),[8,8,9]);
-  assert.deepEqual(data.waves.slice(0,3).map(w=>w.reward),[29,36,43]);
+  assert.deepEqual(data.waves.slice(0,3).map(w=>w.reward),[50,50,50]);
   for(const e of patrols){
     assert.equal(e.gold,3);assert.equal(e.xp,3);assert.equal(e.leak,1);
     assert.equal(e.flying,false);assert.deepEqual(e.traits,[]);

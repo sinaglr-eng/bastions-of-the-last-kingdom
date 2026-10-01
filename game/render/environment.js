@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {seededRandom} from '../core/math.js';
 import {box,beam,cone,sphere,cylinder,rockModel,optimize} from './models.js';
-import {createValleyRelief,valleyGroundHeight,valleyRiverDistance,townRiverDistance,RIVER_CONTROL_POINTS,TOWN_RIVER_CONTROL_POINTS} from './valley-relief.js';
+import {createValleyRelief,valleyGroundHeight,valleyRiverDistance,townRiverDistance,RIVER_CONTROL_POINTS,TOWN_STREAM_CURVE,TOWN_STREAM_WATER_WIDTH,TOWN_STREAM_BANK_WIDTH} from './valley-relief.js';
 import {isLandmarkClearing} from './scenery-landmarks.js';
 
 // UVs follow the river's bends, keeping the current parallel to the banks.
@@ -133,7 +133,7 @@ export function valleyEnvironment(){
   function ribbon(width,y,material,coursePoints=points){
     const positions=[],uvs=[],lengths=[0];
     for(let i=1;i<coursePoints.length;i++)lengths.push(lengths[i-1]+coursePoints[i].distanceTo(coursePoints[i-1]));
-    const edges=coursePoints.map((p,i)=>{const d=coursePoints[Math.min(i+1,coursePoints.length-1)].clone().sub(coursePoints[Math.max(0,i-1)]).normalize();const n=new THREE.Vector3(-d.z,0,d.x).multiplyScalar(width/2);return [p.clone().add(n).setY(y),p.clone().sub(n).setY(y)];});
+    const edges=coursePoints.map((p,i)=>{const d=coursePoints[Math.min(i+1,coursePoints.length-1)].clone().sub(coursePoints[Math.max(0,i-1)]).normalize();const n=new THREE.Vector3(-d.z,0,d.x).normalize().multiplyScalar(width/2);return [p.clone().add(n).setY(p.y+y),p.clone().sub(n).setY(p.y+y)];});
     for(let i=0;i<edges.length-1;i++){
       const [a,b]=edges[i],[c,d]=edges[i+1],v=lengths[i]/3,w=lengths[i+1]/3;
       for(const [p,u,t]of [[a,0,v],[c,0,w],[b,1,v],[b,1,v],[c,0,w],[d,1,w]]){positions.push(...p.toArray());uvs.push(u,t);}
@@ -143,10 +143,11 @@ export function valleyEnvironment(){
   }
   ribbon(5.5,-.095,new THREE.MeshStandardMaterial({color:'#a3b18d',roughness:.95}));
   ribbon(4.7,-.06,new THREE.MeshStandardMaterial({color:'#659d91',roughness:.42}));ribbon(4.1,-.025,riverMaterial);
-  const townCurve=new THREE.CatmullRomCurve3(TOWN_RIVER_CONTROL_POINTS.map(([x,z])=>new THREE.Vector3(x,0,z))),townPoints=townCurve.getPoints(220);
-  ribbon(3.5,-.092,new THREE.MeshStandardMaterial({color:'#98a184',roughness:.96}),townPoints);
-  ribbon(2.8,-.051,new THREE.MeshStandardMaterial({color:'#5b9389',roughness:.52}),townPoints);
-  const townWater=ribbon(2.3,-.018,riverMaterial,townPoints);townWater.name='Royal town mill stream';townWater.userData.townCanal=true;
+  const townCurve=TOWN_STREAM_CURVE,townPoints=townCurve.getPoints(480);
+  ribbon(TOWN_STREAM_BANK_WIDTH,-.092,new THREE.MeshStandardMaterial({color:'#98a184',roughness:.96}),townPoints);
+  ribbon(TOWN_STREAM_WATER_WIDTH+.3,-.051,new THREE.MeshStandardMaterial({color:'#5b9389',roughness:.52}),townPoints);
+  const townWater=ribbon(TOWN_STREAM_WATER_WIDTH,-.018,riverMaterial,townPoints);townWater.name='Royal town alpine mill stream';townWater.userData.townCanal=true;
+  townWater.userData.source='Independent alpine spring';townWater.userData.width=TOWN_STREAM_WATER_WIDTH;
   const townCurrentGeometry=new THREE.BufferGeometry();townCurrentGeometry.setAttribute('position',new THREE.BufferAttribute(new Float32Array(26*6),3));
   const townCurrents=new THREE.LineSegments(townCurrentGeometry,new THREE.LineBasicMaterial({color:'#d6f2dd',transparent:true,opacity:.5,depthWrite:false}));townCurrents.name='Town downstream currents';townCurrents.frustumCulled=false;water.add(townCurrents);
   const flowGeometry=new THREE.BufferGeometry(),flowPositions=new Float32Array(84*2*3),streaks=[];
@@ -284,7 +285,7 @@ export function valleyEnvironment(){
     const townFlow=townCurrentGeometry.attributes.position;
     for(let i=0;i<26;i++){
       const t=THREE.MathUtils.euclideanModulo(i/26+time*.015,1),p=townCurve.getPoint(t),direction=townCurve.getTangent(t).normalize();
-      p.addScaledVector(new THREE.Vector3(-direction.z,0,direction.x),Math.sin(i*2.4)*.73);p.y=.014;
+      p.addScaledVector(new THREE.Vector3(-direction.z,0,direction.x).normalize(),Math.sin(i*2.4)*TOWN_STREAM_WATER_WIDTH*.32);p.y+=.014;
       const end=p.clone().addScaledVector(direction,-.25);townFlow.setXYZ(i*2,p.x,p.y,p.z);townFlow.setXYZ(i*2+1,end.x,end.y,end.z);
     }
     townFlow.needsUpdate=true;

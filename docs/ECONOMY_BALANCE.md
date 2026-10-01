@@ -1,28 +1,26 @@
 # Campaign economy and difficulty
 
-Construction Mastery now has 15 upgrades, costing 6,500 gold in total. With every enemy killed, all wave rewards collected, no theft, and all available gold devoted to mastery, it first reaches the maximum after wave 30. Kingdom-level gates are included in this calculation. The fifth tier remains uncommon; tier VI still requires merging two tier V candidates in the same round. Current-round odds never change after buying mastery.
+Construction mastery follows Kingdom level automatically: mastery = min(Kingdom level − 1, 15). Each 90 XP advances Kingdom. Kills award XP and score; completed waves award 15 XP. Current-round draw odds are frozen at its start. Reaching a Kingdom level during combat changes the next round's draw odds, without a purchase.
 
-Downgrade costs 200 gold, lowers a basic current candidate by exactly one tier, and immediately keeps it. The other four become walls. It cannot affect Tier I, retained defenders or champions. Demolition and champion improvements also delay mastery. Keep health cannot be purchased.
+Normal waves award 50 gold on completion; boss waves award 200 gold. These completion payouts happen once, including the finale. Kills and champion attacks award no gold. Starting gold remains 90. In a full campaign with no theft, total gold is 3,340. Enemy theft remains an enemy ability.
 
-Every 50-wave campaign grants 250 placements, including kept defenders and walls. Demolished positions remain spent. The planner counts the union of the fixed plan and all existing occupied cells, and compares its missing cells against the remaining draws.
+Gold is spent only on the 200-gold candidate downgrade. It lowers one basic current candidate by exactly one rank and immediately keeps it; the other four become walls. Castle-wall demolition is free and does not refund a construction draw. Paid mastery and champion enhancements are unavailable. Keep health cannot be bought.
 
-## Perfect-income milestones
+With every enemy killed, maximum mastery first applies after wave 22. This timing depends on XP, not on gold spending or theft. Tier VI requires merging two Tier V candidates in the same round.
 
-| After wave | Total gold earned including initial 90 | Mastery | Unspent gold |
-|---:|---:|---:|---:|
-| 0 | 90 | 1/15 | 25 |
-| 5 | 443 | 3/15 | 163 |
-| 10 | 1119 | 5/15 | 449 |
-| 15 | 2020 | 8/15 | 330 |
-| 20 | 3294 | 11/15 | 34 |
-| 25 | 4831 | 13/15 | 141 |
-| 29 | 6177 | 14/15 | 637 |
-| 30 | 6599 | 15/15 | 99 |
-| 35 | 8761 | 15/15 | 2261 |
-| 50 | 17649 | 15/15 | 11149 |
+Every 50-wave campaign grants 250 placements. The three new curated plans use no more than 150 occupied cells; user-provided layouts keep their original geometry. The planner counts the union of planned and existing walls and defenders.
 
-## Enemy pressure
+| After wave | Kingdom | Mastery | XP | Total gold before downgrades or theft |
+|---:|---:|---:|---:|---:|
+| 0 | 1 | 0/15 | 0 | 90 |
+| 3 | 2 | 1/15 | 120 | 240 |
+| 5 | 3 | 2/15 | 204 | 340 |
+| 10 | 6 | 5/15 | 471 | 740 |
+| 15 | 9 | 8/15 | 806 | 990 |
+| 20 | 14 | 13/15 | 1197 | 1390 |
+| 25 | 19 | 15/15 | 1707 | 1640 |
+| 30 | 24 | 15/15 | 2147 | 2040 |
+| 35 | 32 | 15/15 | 2810 | 2290 |
+| 50 | 59 | 15/15 | 5296 | 3340 |
 
-Campaign HP multiplies the original curve by `1.15 + min(1.85, wave × 0.055)`. Armor grows with wave and role: plated brutes and shields require armor reduction or magic; light scouts and beasts retain lower armor; ritual casters have 12–24% magic resistance. Existing immunities, regeneration, evasion, reactive armor, mirror shields, disarm and flying routes remain active. Gold and XP rewards are unchanged. Beast-specific bonuses now apply to the mounted warbands.
-
-Reproduce with `node tools/author-economy.mjs`, `node tools/author-campaign.mjs`, `node tools/economy-report.mjs` and `node tools/balance.mjs --campaign`. The campaign bot is a simple greedy player, not a proof of optimal play or final balance.
+Only the first patrol is introductory, with 9 HP, speed 1.3, zero armor and 2.4-second spawn intervals. Waves 2–50 retain their existing normal combat tuning, movement classes and abilities. Reproduce with `node tools/author-economy.mjs`, `node tools/author-campaign.mjs` and `node tools/economy-report.mjs`.

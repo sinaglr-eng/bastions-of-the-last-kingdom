@@ -3,6 +3,16 @@ import {describeMaze,mazeSnapshot} from './maze-search.js';
 import {commanderWalls,COMMANDER_CORE} from './commander-maze.js';
 
 export const BLUEPRINT_KEY='bastions.blueprints.v1';
+export function measureCoreFire(route,core,range=6,speed=2){
+  let steps=0,passes=0,inside=false,batterySteps=0;
+  for(const p of route.slice(1)){
+    const guns=core.filter(q=>Math.hypot(p.x-q.x,p.z-q.z)<=range).length;
+    const covered=guns>0;
+    if(covered){steps++;batterySteps+=guns;if(!inside)passes++;}
+    inside=covered;
+  }
+  return {steps,passes,seconds:steps/speed,batterySeconds:batterySteps/speed,range,speed};
+}
 const reserved=new Set(CHECKPOINTS.map(p=>cellKey(p.x,p.z)));
 export const validPlanCell=p=>p&&Number.isInteger(p.x)&&Number.isInteger(p.z)&&p.x>=0&&p.z>=0&&p.x<SIZE&&p.z<SIZE&&!reserved.has(cellKey(p.x,p.z));
 export function validateBlueprint(walls,name='Custom maze'){
@@ -10,12 +20,14 @@ export function validateBlueprint(walls,name='Custom maze'){
   const cells=[...new Map(walls.map(p=>[cellKey(p.x,p.z),{x:p.x,z:p.z}])).values()];
   if(cells.length>250)return {error:'A 50-wave campaign provides at most 250 building positions.'};
   const plan=describeMaze(mazeSnapshot(new GridManager()),250,cells,String(name).trim().slice(0,48)||'Custom maze');
+  if(plan)plan.fire=measureCoreFire(plan.route,plan.core);
   return plan?{plan}:{error:'This wall layout seals a checkpoint. Erase a cell to reopen the route.'};
 }
 export function preparedBlueprints(presets){
   const useCore=(plan,core)=>{
     plan.core=core.map(({x,z})=>({x,z}));
     plan.coverage=plan.route.slice(1).filter(p=>plan.core.some(q=>Math.hypot(p.x-q.x,p.z-q.z)<=6)).length;
+    plan.fire=measureCoreFire(plan.route,plan.core);
     return plan;
   };
   const commander=validateBlueprint(commanderWalls(CHECKPOINTS),"Commander's spiral").plan;
@@ -23,7 +35,7 @@ export function preparedBlueprints(presets){
   return [{...commander,id:'commander',topology:'Your spiral · solid nine-defender central battery'},...presets.map(p=>{
     const plan=validateBlueprint(p.walls,p.name).plan;
     if(p.core)useCore(plan,p.core);
-    return {...plan,id:p.id,topology:p.topology};
+    return {...plan,id:p.id,topology:p.topology,origin:p.origin||'reference'};
   })];
 }
 export function loadBlueprintLibrary(storage){

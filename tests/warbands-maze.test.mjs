@@ -19,7 +19,7 @@ test('rounds hold no rolled identities and invalid placement consumes no randomn
   const a=make(),b=make();a.activeDraw=4;assert.equal(a.place(0,4),false);assert.equal(a.place(-1,18),false);
   assert.ok(a.draft.draws.every(r=>!r.family));a.place(18,18);b.place(15,15);
   assert.deepEqual([a.towers[0].family,a.towers[0].tier],[b.towers[0].family,b.towers[0].tier]);
-  a.mastery();a.place(19,18);assert.equal(a.towers[1].tier,1,'quality odds fixed for current round');
+  a.economy.reward(0,90);a.place(19,18);assert.equal(a.towers[1].tier,1,'quality odds fixed for current round');
 });
 
 test('50 waves preserve reference movement classes, five bosses, and selected variant per wave',()=>{

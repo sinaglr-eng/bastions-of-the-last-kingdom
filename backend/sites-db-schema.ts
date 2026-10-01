@@ -1,0 +1,7 @@
+import {sql} from 'drizzle-orm';
+import {sqliteTable,text,integer,index,primaryKey} from 'drizzle-orm/sqlite-core';
+export const runs=sqliteTable('runs',{
+  id:text('id').primaryKey().notNull(),tokenHash:text('token_hash').notNull(),version:text('version').notNull(),mode:integer('mode').notNull(),seed:text('seed').notNull(),startedAt:integer('started_at').notNull(),updatedAt:integer('updated_at').notNull(),finishedAt:integer('finished_at'),sequence:integer('sequence').notNull().default(0),outcome:text('outcome').notNull().default('playing'),score:integer('score').notNull().default(0),wavesSurvived:integer('waves_survived').notNull().default(0),durationMs:integer('duration_ms').notNull().default(0),health:integer('health').notNull().default(30),kingdomLevel:integer('kingdom_level').notNull().default(1),gold:integer('gold').notNull().default(0),name:text('name'),summaryJson:text('summary_json').notNull().default('{"draws":[],"decisions":[]}')
+},t=>[index('idx_runs_leaderboard').on(t.mode,t.version,sql`${t.score} DESC`,t.finishedAt,t.id).where(sql`${t.name} IS NOT NULL`)]);
+export const runWaves=sqliteTable('run_waves',{runId:text('run_id').notNull().references(()=>runs.id),wave:integer('wave').notNull(),snapshotJson:text('snapshot_json').notNull(),sequence:integer('sequence').notNull()},t=>[primaryKey({columns:[t.runId,t.wave]})]);
+export const requestLimits=sqliteTable('request_limits',{key:text('key').primaryKey().notNull(),period:integer('period').notNull(),hits:integer('hits').notNull()});

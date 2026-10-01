@@ -8,13 +8,14 @@ import {enemyFigure,disposeEnemyFigure} from './enemy-assets.js';
 import {bossAura,animateBossAura,beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from './battle-animation.js';
 import {CombatEffects} from './combat-effects.js';
 import {SupportEffects} from './support-effects.js';
+import {installDefenderTemplate,pointedTower} from './defender-assets.js';
 import {DraftMarkers} from './draft-markers.js';
 import {siteUrl} from '../site-url.js';
 import {releaseAsset} from '../release.js';
 import {SIZE} from '../core/grid.js';
 import {MazePlanner} from './maze-planner.js';
 import {edgePan,compassBearing} from './navigation.js';
-import {configureTouchControls,PointerTapGesture,SelectedTowerDoubleTap} from './touch-input.js';
+import {configureTouchControls,PointerTapGesture,SelectedTowerDoubleTap,cancelPointerGesture} from './touch-input.js';
 import {upcomingInvader} from './warcamp-preview.js';
 import {createLandmarkScenery} from './scenery-landmarks.js';
 import {valleyEnvironment} from './environment.js';
@@ -80,7 +81,7 @@ export class Battlefield {
       }else this.doubleTap.clear();
       if(e.pointerType==='touch')this.clearPointer();else this.trackPointer(e);
     });
-    const cancelPointer=e=>{this.tapGesture.cancel(e);this.doubleTap.clear();this.clearPointer();};
+    const cancelPointer=e=>cancelPointerGesture(e,this.tapGesture,this.doubleTap,this.clearPointer);
     this.renderer.domElement.addEventListener('pointercancel',cancelPointer);
     this.renderer.domElement.addEventListener('lostpointercapture',cancelPointer);
     this.renderer.domElement.addEventListener('click',e=>{if(this.tapGesture.suppressClick(e)){e.preventDefault();e.stopPropagation();}},true);
@@ -110,14 +111,17 @@ export class Battlefield {
     const loader=new GLTFLoader();
     // The procedural templates make the game immediately playable; generated glTF replaces them when available.
     try {
-      const response=await fetch(releaseAsset('assets/models/manifest.json'));if(!response.ok)return;
+      const response=await fetch(releaseAsset('assets/models/manifest.json'));if(!response.ok)throw new Error(`Defender manifest: HTTP ${response.status}`);
       const entries=await response.json();
       await Promise.all(entries.filter(e=>e.kind==='tower'&&this.game.data.towers[e.family]).map(async e=>{
-        try {const gltf=await loader.loadAsync(releaseAsset(`assets/models/${e.file}`));gltf.scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});this.imported.set(`${e.family}:${e.tier}`,gltf.scene);}catch{/* The complete procedural model remains available. */}
+        let failure;
+        for(let attempt=0;attempt<2&&!this.disposed;attempt++){
+          try {const gltf=await loader.loadAsync(releaseAsset(`assets/models/${e.file}`));gltf.scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});installDefenderTemplate(this,e,gltf.scene);return;}catch(error){failure=error;}
+        }
+        if(!this.disposed)console.warn(`Defender model could not load: ${e.file}`,failure);
       }));
       if(this.disposed)return;
-      this.models.forEach(v=>v.signature='');this.sync();
-    }catch{/* Static mirrors without the generated asset pack retain the procedural models. */}
+    }catch(error){if(!this.disposed)console.warn('Defender assets unavailable; using temporary models.',error);}
   }
   createEnvironment() {
     // The entire 37 × 37 playfield is open; only player-built defenses obstruct it.
@@ -203,7 +207,8 @@ export class Battlefield {
   movePointer(e) {
     const rect=this.renderer.domElement.getBoundingClientRect();this.pointer.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);this.raycaster.setFromCamera(this.pointer,this.camera);
     const p=new THREE.Vector3();if(!this.raycaster.ray.intersectPlane(this.plane,p))return;
-    const x=Math.round(p.x+HALF),z=Math.round(p.z+HALF);
+    const hitId=this.maze.editing?null:pointedTower(this.raycaster,this.models),hitTower=hitId==null?null:this.game.towers.find(t=>t.id===hitId);
+    const x=hitTower?.x??Math.round(p.x+HALF),z=hitTower?.z??Math.round(p.z+HALF);
     if(!this.game.grid.inside(x,z)){this.cursor.visible=false;this.ghost.visible=false;this.hover=null;return;}
     if(this.hover?.x===x&&this.hover?.z===z&&this.hover?.rev===`${this.game.grid.revision}:${this.game.activeDraw}:${this.game.phase}`)return;
     this.hover={x,z,rev:`${this.game.grid.revision}:${this.game.activeDraw}:${this.game.phase}`};

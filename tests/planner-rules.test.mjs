@@ -6,7 +6,7 @@ import {Game} from '../game/core/game.js';
 import {GridManager} from '../game/core/grid.js';
 import {mergePartner} from '../game/core/recipes.js';
 import {COMMANDER_CORE,commanderWalls} from '../game/core/commander-maze.js';
-import {BLUEPRINT_KEY,BlueprintEditor,validateBlueprint,preparedBlueprints,blueprintProgress,loadBlueprintLibrary,saveBlueprintLibrary} from '../game/core/blueprints.js';
+import {BLUEPRINT_KEY,BlueprintEditor,validateBlueprint,preparedBlueprints,blueprintProgress,loadBlueprintLibrary,saveBlueprintLibrary,measureCoreFire} from '../game/core/blueprints.js';
 import {edgePan,compassBearing} from '../game/render/navigation.js';
 import {wallConnections,castleWallModel} from '../game/render/walls.js';
 import {enemyModel} from '../game/render/models.js';
@@ -63,7 +63,7 @@ test('commander centre is nine contiguous occupied cells and all six legs remain
 
 test('every shipped fixed layout matches the gameplay route and its counted six segments',()=>{
  const presets=JSON.parse(readFileSync(new URL('../data/maze-blueprints.json',import.meta.url)));
- const plans=preparedBlueprints(presets);assert.equal(plans.length,8);
+ const plans=preparedBlueprints(presets);assert.equal(plans.length,6);
  for(const plan of plans){
   const grid=new GridManager();for(const p of plan.walls)grid.occupied.set(`${p.x},${p.z}`,1);
   assert.deepEqual(grid.findRoute(),plan.route,plan.name);assert.equal(plan.route.length-1,plan.plannedLength);
@@ -89,6 +89,33 @@ test('both reference mazes preserve their firing batteries and can be constructe
  }
  const chevron=plans.find(p=>p.id==='chevron-bastion');
  assert.ok(!chevron.walls.some(p=>p.x===19&&p.z===4),'The gate east of checkpoint 4 stays open');
+});
+
+test('three curated plans stay within 150 cells and repeatedly expose every checkpoint leg to central fire',()=>{
+ const presets=JSON.parse(readFileSync(new URL('../data/maze-blueprints.json',import.meta.url))),plans=preparedBlueprints(presets);
+ assert.deepEqual(plans.map(p=>p.id),['commander','diamond-spiral','chevron-bastion','compact-crossfire','core-gauntlet','crown-crossfire']);
+ const curated=plans.filter(p=>p.origin==='curated');assert.equal(curated.length,3);
+ for(const plan of curated){
+   const grid=new GridManager();for(const [i,p]of plan.walls.entries())assert.ok(grid.occupy(p.x,p.z,i+1).ok);
+   assert.ok(plan.walls.length<=150);assert.deepEqual(grid.route,plan.route);
+   assert.ok(plan.coverage/plan.plannedLength>=.65);assert.ok(plan.fire.passes>=8);
+   const covered=grid.route.slice(1).filter(p=>plan.core.some(q=>Math.hypot(p.x-q.x,p.z-q.z)<=6));
+   const unique=new Set(covered.map(p=>`${p.x},${p.z}`));assert.ok(covered.length>unique.size*3,'Repeated visits matter more than a single long approach');
+   let offset=0;
+   for(const length of plan.segments){
+     assert.ok(grid.route.slice(offset+1,offset+length+1).some(p=>plan.core.some(q=>Math.hypot(p.x-q.x,p.z-q.z)<=6)),'Every ordered leg reaches the central battery');offset+=length;
+   }
+   assert.equal(plan.fire.steps,plan.coverage);assert.equal(plan.fire.seconds,plan.coverage/2);
+   assert.ok(plan.fire.batterySeconds>plan.fire.seconds);
+   for(const p of plan.core)assert.ok(grid.occupied.has(`${p.x},${p.z}`));
+ }
+});
+
+test('core dwell measures exits, returns and time at a stated reference speed',()=>{
+ const route=[{x:0,z:0},{x:1,z:0},{x:2,z:0},{x:3,z:0},{x:2,z:0},{x:1,z:0},{x:0,z:0}],core=[{x:1,z:1}];
+ const fire=measureCoreFire(route,core,1.5,2);
+ assert.deepEqual(fire,{steps:5,passes:2,seconds:2.5,batterySeconds:2.5,range:1.5,speed:2});
+ assert.equal(measureCoreFire(route,core,1.5,1).seconds,5);
 });
 
 test('custom drawing supports strokes, erase, undo/redo, clear and protects all route markers',()=>{

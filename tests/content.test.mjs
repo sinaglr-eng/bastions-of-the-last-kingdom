@@ -31,8 +31,8 @@ test('damage-over-time is finite, refreshes instead of stacking, and retains kil
 test('game freezes combat updates while paused; wave starts once',()=>{
  const g=new Game(data,{seed:2});g.phase='ready';assert.equal(g.startCombat(),true);assert.equal(g.startCombat(),false);g.paused=true;g.tick(2);assert.equal(g.combat.elapsed,0);g.paused=false;g.tick(.1);assert.equal(g.combat.elapsed,.1);
 });
-test('advanced upgrades cap at three and deduct increasing costs',()=>{
- const g=new Game(data,{seed:2});const t={id:1,family:'rimewatch',tier:1,state:'active',x:3,z:3};g.towers.push(t);g.selected=1;g.economy.gold=2000;for(let i=0;i<3;i++)assert.equal(g.upgradeSpecial(),true);assert.equal(g.upgradeSpecial(),false);assert.equal(g.economy.gold,1040);assert.ok(towerStats(t,data).damage>140);
+test('paid champion improvements are unavailable and cannot spend gold or change damage',()=>{
+ const g=new Game(data,{seed:2});const t={id:1,family:'rimewatch',tier:1,state:'active',x:3,z:3};g.towers.push(t);g.selected=1;g.economy.gold=2000;const damage=towerStats(t,data).damage;assert.equal(g.upgradeSpecial(),false);assert.equal(g.economy.gold,2000);assert.equal(towerStats(t,data).damage,damage);
 });
 test('every exported GLB has a valid header and finite footprint metadata',()=>{
  const base=new URL('../public/assets/models/',import.meta.url);const manifest=JSON.parse(readFileSync(new URL('manifest.json',base)));assert.equal(manifest.length,105);

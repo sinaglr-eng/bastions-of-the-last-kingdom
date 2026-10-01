@@ -44,14 +44,14 @@ test('armor, penetration and type resistance calculations',()=>{
   assert.equal(damageAfterDefense(100,'fire',{armor:100,resists:{magic:0.2,fire:0.3}},{},data.balance),50);
   assert.ok(Math.abs(damageAfterDefense(100,'holy',{resists:{magic:2}},{},data.balance)-15)<1e-6);
 });
-test('mastery and removal charge atomically; rerolls and health purchases are unavailable',()=>{
-  const g=makeGame();assert.equal(g.mastery(),true);assert.equal(g.economy.gold,25);assert.equal(g.reroll(),false);assert.equal(g.economy.gold,25);g.economy.reward(200,180);assert.equal(g.reroll(),false);assert.equal(g.economy.gold,225);placeFive(g);assert.equal(g.reroll(),false);g.keep();g.select(g.towers.find(t=>t.state==='ruin').id);assert.equal(g.remove(),true);assert.equal(g.economy.gold,217);g.lives=28;assert.equal(g.repair(),false);assert.equal(g.lives,28);assert.equal(g.economy.gold,217);
+test('mastery follows XP, demolition is free, and rerolls and health purchases are unavailable',()=>{
+  const g=makeGame();assert.equal(g.mastery(),false);assert.equal(g.economy.gold,90);assert.equal(g.reroll(),false);assert.equal(g.economy.gold,90);g.economy.reward(0,180);assert.equal(g.economy.mastery,2);assert.equal(g.reroll(),false);assert.equal(g.economy.gold,90);placeFive(g);assert.equal(g.reroll(),false);g.keep();g.select(g.towers.find(t=>t.state==='ruin').id);assert.equal(g.remove(),true);assert.equal(g.economy.gold,90);g.lives=28;assert.equal(g.repair(),false);assert.equal(g.lives,28);assert.equal(g.economy.gold,90);
 });
 test('combat waits for every spawn and enemy; reward granted once',()=>{
   const g=makeGame();placeFive(g);g.keep();g.startCombat();const gold=g.economy.gold,reward=g.wave.reward;g.tick(0.1);assert.equal(g.phase,'combat');g.combat.spawnQueue=[];g.combat.enemies=[];g.tick(0.1);assert.equal(g.phase,'build');assert.equal(g.economy.gold,gold+reward);g.completeWave();assert.equal(g.economy.gold,gold+reward);assert.equal(g.round,2);assert.equal(g.phase,'build');assert.equal(g.draft.draws.length,5);
 });
-test('projectile travel deals damage only on impact and awards kill gold once',()=>{
-  const g=makeGame();placeFive(g);g.keep();const t=g.selection;t.family='archer';t.tier=5;g.startCombat();g.combat.spawnQueue=[];const e=g.combat.spawn('grunt');e.x=t.x+1;e.z=t.z;e.speed=0;const hp=e.hp,gold=g.economy.gold,reward=g.wave.reward;g.tick(0.01);assert.equal(e.hp,hp);assert.ok(g.combat.projectiles.length);g.tick(0.1);assert.equal(e.dead,true);assert.equal(g.kills,1);assert.equal(g.economy.gold,gold+e.gold+reward);
+test('projectile travel deals damage only on impact and awards kill XP and completion gold once',()=>{
+  const g=makeGame();placeFive(g);g.keep();const t=g.selection;t.family='archer';t.tier=5;g.startCombat();g.combat.spawnQueue=[];const e=g.combat.spawn('grunt');e.x=t.x+1;e.z=t.z;e.speed=0;const hp=e.hp,gold=g.economy.gold,reward=g.wave.reward;g.tick(0.01);assert.equal(e.hp,hp);assert.ok(g.combat.projectiles.length);g.tick(0.1);assert.equal(e.dead,true);assert.equal(g.kills,1);assert.equal(g.economy.gold,gold+reward);
 });
 test('lives reaching zero loses; last completed wave wins',()=>{
   const g=makeGame();placeFive(g);g.keep();g.startCombat();g.lives=1;g.combat.spawnQueue=[];const e=g.combat.spawn('grunt');e.pathIndex=e.route.length;g.tick(0.02);assert.equal(g.phase,'lost');

@@ -120,29 +120,24 @@ export class Game {
     if(!['build','select','ready','reward'].includes(this.phase))return this.message('Demolition is available between waves.');
     if(t.state==='draft')return this.message('Choose your keeper first. This round’s five candidates cannot be demolished yet.');
     if(t.state!=='ruin')return this.message('Retained defenders are permanent. Transform them through an advanced recipe; only castle walls can be demolished.');
-    if(!this.economy.spend(this.data.balance.removalCost))return this.message('Not enough gold to demolish this defense.');
     this.grid.remove(t.x,t.z);this.towers=this.towers.filter(o=>o.id!==t.id);this.selected=null;
-    this.emit('change');this.message(`Defense demolished · ${this.data.balance.removalCost} gold · tile cleared`);return true;
+    this.emit('change');this.message('Castle wall demolished · tile cleared');return true;
   }
   reroll() {
-    return this.message('Defenders are rolled only after placement. Improve mastery for better future rounds.');
+    return this.message('Defenders are rolled only after placement. Kingdom experience improves future draws automatically.');
   }
-  mastery() {if(!this.economy.upgradeMastery())return this.message('More gold or a higher Kingdom level is needed.');this.emit('change');this.emit('upgrade');return true;}
+  mastery() {return this.message('Construction mastery advances automatically with Kingdom level.');}
   repair() {
     return this.message('Lost keep health is permanent.');
   }
   upgradeSpecial() {
-    const t=this.selection;
-    if(!t||t.state!=='active'||!this.data.towers[t.family].advanced||!this.canCombine(t)||(t.upgrades||0)>=3)return false;
-    const cost=this.data.balance.specialUpgradeCost*((t.upgrades||0)+1);
-    if(!this.economy.spend(cost))return this.message('Not enough gold to improve this bastion.');
-    t.upgrades=(t.upgrades||0)+1;this.emit('combine',{tower:t});this.emit('change');return true;
+    return this.message('Gold is reserved for downgrading a current candidate. Champions improve through recipes.');
   }
   startCombat() {if(this.phase!=='ready')return false;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
   completeWave() {
     if(this.phase!=='combat')return;
     this.awardScore(this.round*100+(this.wave.boss?this.round*200:0));
-    this.lastReward=this.wave.reward;this.economy.reward(this.lastReward,15);this.combat.projectiles=[];
+    this.lastReward=this.wave.boss?200:50;this.economy.reward(this.lastReward,15);this.combat.projectiles=[];
     if(this.round>=this.waveLimit){this.end(true);return;}
     const round=this.round;this.phase='reward';this.emit('reward',{round,gold:this.lastReward});this.nextRound();
     this.message(`Wave ${round} survived · +${this.lastReward} gold · build five new defenders`);

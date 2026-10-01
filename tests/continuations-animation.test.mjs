@@ -36,12 +36,12 @@ test('three identical champions cannot create another rank or mutate the battlef
   assert.equal(g.grid.occupied.size,3);assert.equal(g.discoveries.size,0);
  }
 });
-test('champion stats ignore obsolete ranks while preserving paid enhancements',()=>{
+test('champion stats ignore obsolete ranks and enhancements',()=>{
  for(const [family,spec]of Object.entries(data.towers).filter(([,spec])=>spec.advanced)){
   for(const upgrades of [0,1,2,3]){
    const baseline=towerStats({...unit(family,1,1),upgrades},data);
    for(const tier of [2,6,12])assert.deepEqual(towerStats({...unit(family,tier,1),upgrades},data),baseline,family);
-   assert.equal(baseline.damage,spec.damage*Math.pow(data.balance.specialUpgradeMultiplier,upgrades));
+   assert.equal(baseline.damage,spec.damage);
    if(spec.aura)assert.deepEqual(baseline.aura,spec.aura);
   }
  }

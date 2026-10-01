@@ -68,13 +68,13 @@ test('protector shortens disarm windows and reduces dread without stacking dupli
  p.state='ruin';duplicate.state='ruin';g.combat.elapsed=.23;g.tick(.01);assert.equal(t.disarmed,true);
 });
 
-test('only paid champion enhancements increase damage while support stays fixed and source data immutable',()=>{
+test('fixed champion profiles ignore obsolete ranks and enhancements while source data stays immutable',()=>{
  const before=JSON.stringify(data.towers),base=towerStats(unit('sunward'),data);
  for(const tier of [2,6,100])assert.deepEqual(towerStats(unit('sunward',1,tier),data),base);
  for(const upgrades of [1,2,3]){
   const improved=towerStats({...unit('sunward'),upgrades},data);
-  assert.equal(improved.damage,base.damage*Math.pow(data.balance.specialUpgradeMultiplier,upgrades));
-  assert.deepEqual(improved.aura,base.aura,'Paid enhancements preserve the approved support values');
+  assert.equal(improved.damage,base.damage);
+  assert.deepEqual(improved.aura,base.aura,'Champion support values are fixed');
   improved.aura.haste=999;
  }
  assert.equal(towerStats(unit('winterhold',1,100),data).slowAura,towerStats(unit('winterhold'),data).slowAura);

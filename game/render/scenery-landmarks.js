@@ -4,14 +4,14 @@ import {releaseAsset} from '../release.js';
 import {keepModel,campModel,optimize} from './models.js';
 
 export const LANDMARK_SITES=Object.freeze({
-  camp:Object.freeze({x:-25,y:0,z:-14,file:'fortified-warcamp-v4.glb',labelHeight:4.2}),
-  keep:Object.freeze({x:38,y:0,z:14,file:'royal-castle-v4.glb',labelHeight:19.4})
+  camp:Object.freeze({x:-25,y:0,z:-14,file:'fortified-warcamp-v5.glb',labelHeight:4.2}),
+  keep:Object.freeze({x:38,y:0,z:14,file:'royal-castle-v5.glb',labelHeight:19.4})
 });
 export const WARCAMP_PREVIEW_LOCAL=Object.freeze({x:2.25,y:.595,z:0});
 
 export const LANDMARK_CLEARINGS=Object.freeze([
-  Object.freeze({x:-38,z:-14,halfWidth:18,halfDepth:26,height:-.04}),
-  Object.freeze({x:48,z:14,halfWidth:24,halfDepth:29,height:-.04})
+  Object.freeze({x:-39,z:-14,halfWidth:24,halfDepth:31,height:-.04}),
+  Object.freeze({x:48,z:14,halfWidth:32,halfDepth:29,height:-.04})
 ]);
 export function landmarkClearingDistance(x,z){
   return Math.min(...LANDMARK_CLEARINGS.map(site=>Math.max(Math.abs(x-site.x)-site.halfWidth,Math.abs(z-site.z)-site.halfDepth,0)));

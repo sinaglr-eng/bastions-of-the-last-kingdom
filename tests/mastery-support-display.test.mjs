@@ -10,27 +10,29 @@ import {SUPPORT_EFFECT_STYLES} from '../game/render/support-effects.js';
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const unit=(family,id,tier=1,x=10)=>({family,id,tier,state:'active',x,z:10});
 
-test('compact mastery distribution includes every exact current quality weight and next upgrade cost without changing economy',()=>{
-  const economy=new EconomyManager(data.balance);economy.gold=10000;economy.xp=10000;
+test('compact automatic mastery display includes every exact future quality weight without changing economy',()=>{
+  const economy=new EconomyManager(data.balance);economy.gold=0;
   for(let rank=0;rank<data.balance.mastery.length;rank++){
-    economy.mastery=rank;const before=JSON.stringify(economy),html=masteryPanelMarkup(economy,data.balance);
+    economy.xp=rank*data.balance.xpPerLevel;const before=JSON.stringify(economy),html=masteryPanelMarkup(economy,data.balance);
     assert.match(html,/Future draw odds/);assert.match(html,new RegExp(`${rank} / ${data.balance.mastery.length-1}`));
     const rendered=[...html.matchAll(/<em>(\d+)%<\/em>/g)].map(match=>Number(match[1]));
     assert.deepEqual(rendered,data.balance.mastery[rank].weights.slice(0,5));assert.match(html,/<b>VI<\/b><em>Merge<\/em>/);
-    const next=economy.nextMastery();if(next){assert.ok(html.includes(String(next.cost)));assert.doesNotMatch(html,/data-action="mastery"[^>]*disabled/);}else{assert.match(html,/Mastery complete/);assert.match(html,/data-action="mastery"[^>]*disabled/);}
+    const next=economy.nextMastery();if(next)assert.match(html,new RegExp(`Next odds at Kingdom ${rank+2}`));else assert.match(html,/Maximum mastery reached/);
+    assert.doesNotMatch(html,/<button|data-action="mastery"|gold/);
     assert.equal(JSON.stringify(economy),before);
   }
 });
 
-test('mastery upgrade stays gated by real gold and kingdom requirements and clearly applies next round',()=>{
+test('mastery advances at XP boundaries without gold and clearly applies to next-round draws',()=>{
   const economy=new EconomyManager(data.balance);economy.gold=0;
-  assert.match(masteryPanelMarkup(economy,data.balance),/data-action="mastery"[^>]*disabled/);
-  economy.gold=10000;economy.mastery=1;
-  assert.match(masteryPanelMarkup(economy,data.balance),/Kingdom 2 required · yours: 1/);
-  assert.match(masteryPanelMarkup(economy,data.balance),/data-action="mastery"[^>]*disabled/);
-  economy.xp=data.balance.xpPerLevel;
-  assert.match(masteryPanelMarkup(economy,data.balance),/Applies to the next round/);
-  assert.doesNotMatch(masteryPanelMarkup(economy,data.balance),/data-action="mastery"[^>]*disabled/);
+  economy.reward(0,data.balance.xpPerLevel-1);assert.equal(economy.mastery,0);
+  economy.reward(0,1);assert.equal(economy.mastery,1);assert.equal(economy.gold,0);
+  assert.match(masteryPanelMarkup(economy,data.balance),/Automatic · Kingdom 2/);
+  assert.match(masteryPanelMarkup(economy,data.balance),/New odds apply next round/);
+  const game=new Game(data,{seed:42});game.economy.reward(0,90);
+  assert.equal(game.economy.mastery,1);assert.equal(game.draft.mastery,0);
+  for(let x=10;x<15;x++)assert.ok(game.place(x,10));assert.ok(game.towers.every(t=>t.tier===1));
+  game.keep();game.startCombat();game.completeWave();assert.equal(game.draft.mastery,1);
 });
 
 test('current friendly effects show exact values and actual named providers alongside different shape icons',()=>{

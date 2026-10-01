@@ -54,7 +54,7 @@ export class CombatManager {
     enemy.hp-=dealt;enemy.hit=0.16;
     this.game.emit('hit',{enemy,source,type,damage:dealt,directHit:!!stats.directHit,visible:this.isRevealed(enemy)});
     if(enemy.hp<=0) {
-      enemy.dead=true;this.game.economy.reward(enemy.gold,enemy.xp);this.game.kills++;
+      enemy.dead=true;this.game.economy.reward(0,enemy.xp);this.game.kills++;
       this.game.awardScore(this.game.round*(enemy.boss?500:10));
       if(source)source.kills++;
       this.game.emit('death',{enemy,type,visible:this.isRevealed(enemy)});
@@ -65,20 +65,19 @@ export class CombatManager {
     if(enemy.dead)return;
     if(enemy.magicImmune){stats={...stats,slow:0,antiAirSlow:stats.antiAirPiercesImmunity?stats.antiAirSlow:0,antiAirMagicShred:stats.antiAirPiercesImmunity?stats.antiAirMagicShred:0,freeze:0,burn:0,poison:0,poisonDps:0,shredMagic:0,healingBlockDuration:0};}
     if(enemy.flying)stats={...stats,shred:Math.max(stats.shred||0,stats.antiAirShred||0),slow:Math.max(stats.slow||0,stats.antiAirSlow||0),shredMagic:Math.max(stats.shredMagic||0,stats.antiAirMagicShred||0)};
-    if(stats.slow)enemy.statuses.slow={amount:Math.max(stats.slow,enemy.statuses.slow?.amount||0),time:stats.slowDuration||2};
-    if(stats.freeze&&this.elapsed>=(enemy.stunRecoveryUntil||0)&&this.game.rng()<stats.freeze){enemy.statuses.freeze={time:(stats.freezeDuration||.8)*(enemy.boss ? .5 : 1)};enemy.stunRecoveryUntil=this.elapsed+(stats.stunRecovery||0);}
+    if(stats.slow){const previous=enemy.statuses.slow;enemy.statuses.slow={amount:Math.max(stats.slow,previous?.amount||0),time:stats.slowDuration||2,source:stats.slow>=(previous?.amount||0)?source:previous.source};}
+    if(stats.freeze&&this.elapsed>=(enemy.stunRecoveryUntil||0)&&this.game.rng()<stats.freeze){enemy.statuses.freeze={time:(stats.freezeDuration||.8)*(enemy.boss ? .5 : 1),source};enemy.stunRecoveryUntil=this.elapsed+(stats.stunRecovery||0);}
     for(const key of ['burn','poison','bleed'])if(stats[key]||(key==='poison'&&stats.poisonDps)) {
       const previous=enemy.statuses[key];
       const dps=key==='poison'&&stats.poisonDps?stats.poisonDps:stats.damage*stats[key];
       enemy.statuses[key]={dps:Math.max(dps,previous?.dps||0),time:stats.dotDuration||3,source:dps>=(previous?.dps||0)?source:previous.source};
     }
-    if(stats.shred)enemy.statuses.shred={amount:Math.max(stats.shred,enemy.statuses.shred?.amount||0),time:4};
-    if(stats.shredMagic)enemy.statuses.shredMagic={amount:stats.shredMagic,time:4};
-    if(stats.healingBlockDuration)enemy.statuses.healBlock={time:stats.healingBlockDuration};
+    if(stats.shred){const previous=enemy.statuses.shred;enemy.statuses.shred={amount:Math.max(stats.shred,previous?.amount||0),time:4,source:stats.shred>=(previous?.amount||0)?source:previous.source};}
+    if(stats.shredMagic)enemy.statuses.shredMagic={amount:stats.shredMagic,time:4,source};
+    if(stats.healingBlockDuration)enemy.statuses.healBlock={time:stats.healingBlockDuration,source};
   }
   landedProcs(stats,source) {
     if(stats.recoverChance&&this.game.rng()<stats.recoverChance){this.game.lives=Math.min(this.game.data.balance.startingLives,this.game.lives+(stats.recoverLives||1));this.game.emit('recover',{source});}
-    if(stats.goldChance&&this.game.rng()<stats.goldChance){const min=stats.goldMin||1,max=stats.goldMax||50;this.game.economy.reward(min+Math.floor(this.game.rng()*(max-min+1)));this.game.emit('gold-proc',{source});}
     if(stats.stoneGazeChance&&this.game.rng()<stats.stoneGazeChance)source.stoneGaze={remaining:stats.stoneGazeDuration||6,facing:new Map(),petrified:new Set(),stats};
   }
   updateStoneGazes(dt) {
@@ -88,12 +87,12 @@ export class CombatManager {
       const slice=Math.min(dt,gaze.remaining),s=gaze.stats;
       for(const e of this.enemies){
         if(e.dead||e.magicImmune||distance(tower,e)>(s.stoneGazeRange||10)){gaze.facing.delete(e.id);continue;}
-        e.statuses.gazeSlow={amount:s.stoneGazeSlow||.8,time:slice+.05};
+        e.statuses.gazeSlow={amount:s.stoneGazeSlow||.8,time:slice+.05,source:tower};
         if(gaze.petrified.has(e.id))continue;
         const next=e.route[e.pathIndex],dx=(next?.x??e.x)-e.x,dz=(next?.z??e.z)-e.z;
         const toward=dx*(tower.x-e.x)+dz*(tower.z-e.z)>0;
         const facing=toward?(gaze.facing.get(e.id)||0)+slice:0;gaze.facing.set(e.id,facing);
-        if(facing>=(s.stoneGazeFacingTime||2)){e.statuses.petrify={time:s.petrifyDuration||3,physicalBonus:s.petrifyPhysicalBonus??1};gaze.petrified.add(e.id);}
+        if(facing>=(s.stoneGazeFacingTime||2)){e.statuses.petrify={time:s.petrifyDuration||3,physicalBonus:s.petrifyPhysicalBonus??1,source:tower};gaze.petrified.add(e.id);}
       }
       gaze.remaining-=dt;if(gaze.remaining<=0)delete tower.stoneGaze;
     }

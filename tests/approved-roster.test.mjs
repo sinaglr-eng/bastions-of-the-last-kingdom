@@ -22,9 +22,9 @@ test('Archangel ignores own attacks, physical hits, blocked hits, immunity, inac
   const caster=condition==='own'?angel:mage,s={...towerStats(caster,data),cleave:0};if(condition==='physical')s.type='physical';strike(g,caster,a,s);assert.equal(jumps,0,condition);
  }
 });
-test('Royal Ranger recovery caps keep health and fails on shielded attacks; Greedy pays only 1 through 50 gold',()=>{
+test('Royal Ranger recovery caps keep health; armor-breaking champion attacks award no gold',()=>{
  const g=arena(),ranger=unit('royalranger'),e=foe(g);g.rng=()=>0;g.lives=29;strike(g,ranger,e);assert.equal(g.lives,30);strike(g,ranger,e);assert.equal(g.lives,30);g.lives=29;e.shields=1;strike(g,ranger,e);assert.equal(g.lives,29);
- const ballista=unit('fireballista');for(const [roll,gold]of [[0,1],[.999999,50]]){let n=0;g.rng=()=>n++===0?0:roll;const before=g.economy.gold;strike(g,ballista,e);assert.equal(g.economy.gold-before,gold);assert.ok(Number.isFinite(g.economy.xp));}
+ const ballista=unit('fireballista');g.rng=()=>0;const before=g.economy.gold;strike(g,ballista,e);assert.equal(g.economy.gold,before);assert.equal(e.statuses.shred.amount,data.towers.fireballista.shred);assert.equal(data.towers.fireballista.goldChance,undefined);
 });
 test('Monk combines two different blessing ranks and never doubles identical Priest or Cleric auras',()=>{
  const archer=unit('archer'),monk=unit('monk',2),priest=unit('sunward',3),cleric={...unit('cleric',4),tier:4};const bonus=supportBonuses(archer,[monk,monk,priest,cleric],data);

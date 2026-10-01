@@ -104,7 +104,7 @@ rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   if(wave===50)enemy.variants=[{}, {name:'Ghorun, the Gilded Tyrant',magicImmune:true,color:'#b99d57'},{name:'Ghorun, the Pale Devourer',krakenShell:enemy.krakenShell*1.3,color:'#a4b9b5'}];
   enemies[id]=enemy;
   const count=boss?1:flying?8+Math.floor(wave*.22):8+Math.floor(wave*.48);
-  waves.push({name,boss,hp:1,reward:22+wave*7,reference:{source,wave,name:referenceName,movement,traits:skills,...(wave===45?{note:'The source lists an undefined Level ? skill; War Drums is an authored replacement.'}:{})},groups:[{type:id,count,interval:opening?.interval??(boss?1:flying?.9:.6)}]});
+  waves.push({name,boss,hp:1,reward:boss?200:50,reference:{source,wave,name:referenceName,movement,traits:skills,...(wave===45?{note:'The source lists an undefined Level ? skill; War Drums is an authored replacement.'}:{})},groups:[{type:id,count,interval:opening?.interval??(boss?1:flying?.9:.6)}]});
 });
 writeFileSync('data/enemies.json',JSON.stringify(enemies,null,2)+'\n');
 writeFileSync('data/waves.json',JSON.stringify(waves,null,2)+'\n');

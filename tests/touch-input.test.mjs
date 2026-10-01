@@ -2,11 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {PerspectiveCamera} from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
-import {configureTouchControls,PointerTapGesture,SelectedTowerDoubleTap} from '../game/render/touch-input.js';
+import {configureTouchControls,PointerTapGesture,SelectedTowerDoubleTap,cancelPointerGesture} from '../game/render/touch-input.js';
 
 const pointer=(pointerId,x=100,y=100,type='touch',button=0)=>({pointerId,clientX:x,clientY:y,pageX:x,pageY:y,pointerType:type,button});
 
-test('a second eligible touch on the selected candidate confirms once, while other towers and mouse taps cannot',()=>{
+test('a second eligible tap on the selected candidate confirms once and mixed pointer types cannot',()=>{
   let now=1000;const taps=new SelectedTowerDoubleTap(()=>now);
   assert.equal(taps.tap(4,pointer(1),{selected:false,eligible:true}),false);
   now+=200;assert.equal(taps.tap(4,pointer(2,106,105),{selected:true,eligible:true}),true);
@@ -14,6 +14,17 @@ test('a second eligible touch on the selected candidate confirms once, while oth
   now+=100;assert.equal(taps.tap(5,pointer(4),{selected:true,eligible:true}),false);
   now+=100;assert.equal(taps.tap(5,pointer(5,100,100,'mouse'),{selected:true,eligible:true}),false);
   now+=100;assert.equal(taps.tap(5,pointer(6),{selected:true,eligible:true}),false,'a mouse action clears touch history');
+});
+
+test('mouse and pen double clicks retain the same selected candidate, never another or an ineligible unit',()=>{
+  for(const type of ['mouse','pen']){
+    let now=100;const taps=new SelectedTowerDoubleTap(()=>now);
+    assert.equal(taps.tap(3,pointer(1,100,100,type),{selected:false,eligible:true}),false);
+    now+=180;assert.equal(taps.tap(3,pointer(1,103,102,type),{selected:true,eligible:true}),true);
+    now+=80;assert.equal(taps.tap(3,pointer(1,100,100,type),{selected:true,eligible:true}),false);
+    now+=80;assert.equal(taps.tap(4,pointer(1,100,100,type),{selected:true,eligible:true}),false);
+    now+=80;assert.equal(taps.tap(4,pointer(1,100,100,type),{selected:true,eligible:false}),false);
+  }
 });
 
 test('late, distant, cancelled and ineligible touches cannot retain a tower',()=>{
@@ -69,6 +80,35 @@ class Canvas extends EventTarget {
   releasePointerCapture(){}
   emit(type,data){const event=Object.assign(new Event(type,{cancelable:true}),data);this.dispatchEvent(event);return event;}
 }
+
+test('normal OrbitControls capture release preserves a map double tap while unexpected capture loss cancels it',()=>{
+  class CapturingCanvas extends Canvas {
+    constructor(){super();this.captured=new Set();this.losses=0;}
+    setPointerCapture(id){this.captured.add(id);}
+    releasePointerCapture(id){if(this.captured.delete(id)){this.losses++;this.emit('lostpointercapture',{pointerId:id});}}
+  }
+  for(const type of ['mouse','touch','pen']){
+    const canvas=new CapturingCanvas(),camera=new PerspectiveCamera(38,1.5,.1,210);
+    camera.position.set(7,53,41);const controls=new OrbitControls(camera,canvas);configureTouchControls(controls);
+    let now=1000,selected=false,kept=0,cleared=0;
+    const gesture=new PointerTapGesture(()=>now),doubleTap=new SelectedTowerDoubleTap(()=>now);
+    canvas.addEventListener('pointerdown',event=>gesture.start(event));
+    canvas.addEventListener('pointerup',event=>{if(gesture.end(event)){if(doubleTap.tap(4,event,{selected,eligible:true}))kept++;selected=true;}else doubleTap.clear();});
+    const cancel=event=>cancelPointerGesture(event,gesture,doubleTap,()=>cleared++);
+    canvas.addEventListener('lostpointercapture',cancel);canvas.addEventListener('pointercancel',cancel);
+    canvas.emit('pointerdown',pointer(1,100,100,type));canvas.emit('pointerup',pointer(1,100,100,type));
+    assert.equal(canvas.losses,1);assert.equal(cleared,0);assert.equal(kept,0);
+    now+=200;canvas.emit('pointerdown',pointer(2,100,100,type));canvas.emit('pointerup',pointer(2,100,100,type));
+    assert.equal(canvas.losses,2);assert.equal(kept,1,`${type}: normal release must allow the second tap to keep`);
+    now+=100;canvas.emit('pointerdown',pointer(3,100,100,type));canvas.emit('pointerup',pointer(3,100,100,type));
+    now+=100;canvas.emit('pointerdown',pointer(4,100,100,type));canvas.releasePointerCapture(4);
+    assert.equal(cleared,1);assert.equal(gesture.active(4),false);assert.equal(doubleTap.last,null);
+    canvas.emit('pointerup',pointer(4,100,100,type));
+    now+=100;canvas.emit('pointerdown',pointer(5,100,100,type));canvas.emit('pointerup',pointer(5,100,100,type));
+    assert.equal(kept,1,`${type}: capture loss must consume pending confirmation`);
+    controls.dispose();
+  }
+});
 
 test('one finger pans the camera, two fingers zoom and rotate, and neither gesture activates a tile',()=>{
   const canvas=new Canvas(),camera=new PerspectiveCamera(38,1.5,.1,210);camera.position.set(7,53,41);

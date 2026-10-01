@@ -34,7 +34,7 @@ export function damageAfterDefense(amount, type, enemy, stats, balance) {
 export function towerStats(tower, data) {
   const stats = data.towers[tower.family];
   if(!stats.advanced&&stats.levels)return {...stats,...stats.levels[tower.tier-1]};
-  const multiplier = stats.advanced ? Math.pow(data.balance.specialUpgradeMultiplier, tower.upgrades || 0) : data.balance.tierDamage[tower.tier - 1];
+  const multiplier = stats.advanced ? 1 : data.balance.tierDamage[tower.tier - 1];
   const aura=stats.aura?{...stats.aura,...(stats.aura.hasteGroups?{hasteGroups:{...stats.aura.hasteGroups}}:{})}:null;
   return {...stats, damage: stats.damage * multiplier, ...(aura?{aura}:{}), ...(stats.burnAura?{burnAura:stats.burnAura*multiplier}:{}), ...(stats.poisonDps?{poisonDps:stats.poisonDps*multiplier}:{}), ...(stats.chainDamage?{chainDamage:stats.chainDamage*multiplier}:{}), ...(stats.forkedDamage?{forkedDamage:stats.forkedDamage*multiplier}:{}), ...(stats.bouncingFrostDamage?{bouncingFrostDamage:stats.bouncingFrostDamage*multiplier}:{}),range: stats.range + (stats.advanced ? 0 : data.balance.tierRange[tower.tier - 1])};
 }

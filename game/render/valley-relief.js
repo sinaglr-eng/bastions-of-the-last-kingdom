@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {LANDMARK_CLEARINGS} from './scenery-landmarks.js';
+import sceneryLayout from '../../data/scenery-v5.json' with {type:'json'};
 
 // These controls keep the existing river course and bridge aligned with the map.
 export const RIVER_CONTROL_POINTS=Object.freeze([
@@ -7,12 +8,22 @@ export const RIVER_CONTROL_POINTS=Object.freeze([
   [23,18],[20,24],[7,26],[-8,28],[-25,33]
 ].map(point=>Object.freeze(point)));
 
-// The working mill stream leaves and rejoins the main river beyond the board.
-// The palace occupies the dry shoulder west of this canal through the town.
-export const TOWN_RIVER_CONTROL_POINTS=Object.freeze([
-  [23,-4],[31,-10],[45,-10],[55,-4],[55,3],[55,14],
-  [55,22],[52,29],[40,32],[28,29],[20,24]
-].map(point=>Object.freeze(point)));
+// An independent alpine source feeds the narrow mill stream. It meets the main
+// river once, downstream of the settlement; no northern main-river branch exists.
+export const TOWN_STREAM_WATER_WIDTH=sceneryLayout.townStream.waterWidth;
+export const TOWN_STREAM_BANK_WIDTH=sceneryLayout.townStream.bankWidth;
+export const TOWN_RIVER_CONTROL_POINTS=Object.freeze(sceneryLayout.townStream.controls.map(point=>Object.freeze(point)));
+export function townStreamHeight(x,z){
+  const {sourceZ,lowlandZ,sourceHeight}=sceneryLayout.townStream;
+  return THREE.MathUtils.smoothstep(-z,-lowlandZ,-sourceZ)*sourceHeight;
+}
+class AlpineStreamCurve extends THREE.CatmullRomCurve3{
+  getPoint(t,target){const point=super.getPoint(t,target);point.y=townStreamHeight(point.x,point.z);return point;}
+}
+// Compute altitude from the source slope after interpolation: CatmullRom's Y
+// overshoot otherwise creates a small uphill flow beyond the alpine descent.
+export const TOWN_STREAM_CURVE=new AlpineStreamCurve(TOWN_RIVER_CONTROL_POINTS.map(([x,z])=>new THREE.Vector3(x,0,z)));
+export const TOWN_STREAM_SAMPLES=Object.freeze(TOWN_STREAM_CURVE.getPoints(480).map(p=>Object.freeze([p.x,p.z])));
 
 function courseDistance(points,x,z){
   let closest=Infinity;
@@ -23,7 +34,18 @@ function courseDistance(points,x,z){
   }
   return closest;
 }
-export const townRiverDistance=(x,z)=>courseDistance(TOWN_RIVER_CONTROL_POINTS,x,z);
+export const townRiverDistance=(x,z)=>courseDistance(TOWN_STREAM_SAMPLES,x,z);
+
+// The full roof/foundation rectangle must clear the sampled water ribbon, not
+// merely the building's center. Exported Blender markers carry these real bounds.
+export function townStreamFootprintClearance(minX,maxX,minZ,maxZ){
+  let closest=Infinity;
+  for(const [x,z]of TOWN_STREAM_SAMPLES){
+    const dx=Math.max(minX-x,0,x-maxX),dz=Math.max(minZ-z,0,z-maxZ);
+    closest=Math.min(closest,Math.hypot(dx,dz));
+  }
+  return closest-TOWN_STREAM_WATER_WIDTH/2;
+}
 
 export function valleyRiverDistance(x,z){
   return courseDistance(RIVER_CONTROL_POINTS,x,z);
@@ -50,7 +72,7 @@ export function valleyGroundHeight(x,z){
     height=THREE.MathUtils.lerp(height,site.height,clearing);
   }
   // Carve the mill channel after settlement levelling so water remains visible.
-  height=THREE.MathUtils.lerp(height,-.14,1-THREE.MathUtils.smoothstep(townRiverDistance(x,z),1.4,2.3));
+  height=THREE.MathUtils.lerp(height,townStreamHeight(x,z)-.14,1-THREE.MathUtils.smoothstep(townRiverDistance(x,z),TOWN_STREAM_WATER_WIDTH/2+.15,TOWN_STREAM_BANK_WIDTH/2+.65));
   return height;
 }
 
