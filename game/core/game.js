@@ -64,6 +64,14 @@ export class Game {
     this.message('Defender downgraded by one rank and kept · 200 gold');return true;
   }
   canCombine(t) {return t&&t.state!=='ruin'&&['build','select','ready','reward'].includes(this.phase)&&(t.state!=='draft'||this.phase==='select');}
+  recipePieces(recipe,anchor=this.selection){
+    if(!recipe.currentRoundOnly)return matchingIngredients(recipe,this.towers.filter(t=>this.canCombine(t)),anchor);
+    // The five actual, placed draw IDs are the authority. A stray or stale draft
+    // tower must never satisfy a secret recipe or serve as its result anchor.
+    const candidates=this.roundCandidates.map(c=>c.tower);
+    if(this.phase!=='select'||this.draft.draws.length!==5||this.draft.draws.some(d=>!d.placed)||candidates.length!==5)return null;
+    return matchingIngredients(recipe,candidates,anchor,{phase:this.phase,round:this.round});
+  }
   mergePartner(t=this.selection){return this.phase==='select'?mergePartner(t,this.roundCandidates.map(c=>c.tower),this.data):null;}
   merge() {
     const t=this.selection;
@@ -77,25 +85,27 @@ export class Game {
   }
   availableRecipes(t=this.selection) {
     if(!this.canCombine(t))return [];
-    return this.recipes.filter(r=>r.level<=this.economy.level&&matchingIngredients(r,this.towers.filter(o=>this.canCombine(o)),t));
+    return this.recipes.filter(r=>r.level<=this.economy.level&&this.recipePieces(r,t));
   }
   previewRecipe(id){if(!this.availableRecipes().some(r=>r.id===id))return false;this.previewRecipeId=id;this.emit('change');return true;}
   get recipePreview(){
     const pool=this.towers.filter(t=>this.canCombine(t));
     let anchor=this.selection,options=this.availableRecipes(anchor);
     if(!options.length){
-      const recipe=this.recipes.find(r=>r.level<=this.economy.level&&matchingIngredients(r,pool));
+      const recipe=this.recipes.find(r=>!r.currentRoundOnly&&r.level<=this.economy.level&&matchingIngredients(r,pool));
       if(!recipe)return null;
       const pieces=matchingIngredients(recipe,pool);anchor=pieces.find(t=>t.state==='draft')||pieces[0];options=[recipe];
     }
     const recipe=options.find(r=>r.id===this.previewRecipeId)||options[0];
-    const pieces=matchingIngredients(recipe,pool,anchor);
+    const pieces=this.recipePieces(recipe,anchor);
+    if(!pieces)return null;
     const discarded=pieces.some(t=>t.state==='draft')?this.roundCandidates.map(c=>c.tower).filter(t=>!pieces.includes(t)):[];
     return {recipe,anchor,pieces,discarded};
   }
   get combinationHints(){
     const hints=new Map();
-    for(const tower of this.towers){const recipe=this.availableRecipes(tower)[0];if(recipe)hints.set(tower.id,{tower,recipe,role:'available'});}
+    const selectedSecrets=new Set(this.availableRecipes().filter(r=>r.currentRoundOnly).map(r=>r.id));
+    for(const tower of this.towers){const recipe=this.availableRecipes(tower).find(r=>!r.currentRoundOnly||selectedSecrets.has(r.id));if(recipe)hints.set(tower.id,{tower,recipe,role:'available'});}
     const preview=this.recipePreview;
     if(preview){
       for(const tower of preview.pieces)hints.set(tower.id,{tower,recipe:preview.recipe,role:tower.id===preview.anchor.id?'result':'consumed'});
@@ -106,7 +116,8 @@ export class Game {
   craft(id) {
     const t=this.selection,recipe=this.availableRecipes(t).find(r=>r.id===id);
     if(!recipe)return this.message('Select a matching ingredient and gather every recipe piece.');
-    const pieces=matchingIngredients(recipe,this.towers.filter(o=>this.canCombine(o)),t);
+    const pieces=this.recipePieces(recipe,t);
+    if(!pieces)return this.message('All three secret ingredients must belong to this round’s five defenders.');
     const draftUsed=pieces.some(p=>p.state==='draft');
     const kills=pieces.reduce((sum,p)=>sum+(p.kills||0),0),family=recipeFamily(recipe);
     pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=1;t.state='active';t.upgrades=0;t.kills=kills;

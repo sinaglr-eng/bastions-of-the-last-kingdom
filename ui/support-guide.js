@@ -12,6 +12,7 @@ const paths={
   cross:'<path d="m5 5 14 14M5 19 19 5"/>',
   crack:'<path d="m5 3 8 7-4 4 10 7M3 14v7h18v-7"/>',
   snowflake:'<path d="M12 2v20M3 7l18 10M3 17 21 7"/>',
+  moon:'<path d="M19 16A9 9 0 0 1 8 3a9 9 0 1 0 11 13Z"/>',
   flame:'<path d="M5 20 4 11l8-9 1 10 6-6 2 14Z"/>',
   brokenStar:'<path d="M3 8h13l-4-6 9 14H8l4 6Z"/>'
 };
@@ -29,7 +30,7 @@ export function supportEffectsMarkup(tower,towers,data,options){
     return `${source.name} #${source.id}`;
   };
   const labels=effect=>[...new Set(providers(effect).map(source=>providerLabel(effect,source)))].map(escape).join(', ');
-  return `<ul class="support-effects-list">${effects.map(effect=>`<li class="${['dread','disarm','weakened'].includes(effect.key)?'negative':'friendly'}" data-effect="${effect.key}">${supportGlyph(effect.glyph,effect.color)}<span><b>${escape(effect.label)}</b><small>From ${labels(effect)}</small></span></li>`).join('')}</ul>`;
+  return `<ul class="support-effects-list">${effects.map(effect=>`<li class="${['dread','disarm','weakened','melancholy'].includes(effect.key)?'negative':'friendly'}" data-effect="${effect.key}">${supportGlyph(effect.glyph,effect.color)}<span><b>${escape(effect.label)}</b><small>From ${labels(effect)}</small></span></li>`).join('')}</ul>`;
 }
 export function supportMapLegendMarkup(){
   return `<details class="support-map-legend"><summary>Map effect symbols</summary><p>The wall color follows the first listed effect; separate symbols show every active effect. The selected provider’s dashed circle shows its reach.</p><ul>${Object.entries(SUPPORT_EFFECT_STYLES).map(([key,style])=>`<li data-effect="${key}">${supportGlyph(style.glyph,style.color)}<span>${style.label}</span></li>`).join('')}</ul></details>`;

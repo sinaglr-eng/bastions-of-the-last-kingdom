@@ -41,7 +41,7 @@ Ve Windows může původní Bash balicí pomocník Sites selhat při předáván
 
 Alternativně lze stejný Worker provozovat přímo nad Cloudflare D1. Místní SQLite server používá `backend/migrations/0000_statistics.sql`; jeho spouštěč není určen jako nezabezpečený veřejný internetový server.
 
-`GET /api/health` kontroluje dostupnost databáze a uvádí aktuální edici `0.2.7` s názvem `Dark Host`. Veřejný žebříček je `GET /api/leaderboard?mode=10&version=0.2.7`; režim může být `10` nebo `50`. Volitelný `id` vrátí také umístění konkrétní pojmenované hry. Úvodní stránka služby `/` standardně zobrazuje edici **0.2.7 · Dark Host**. Starší výsledky zůstávají uložené a lze je načíst s `version=0.2.6`; edice mají oddělené pořadí a aktualizace nevyžaduje změnu schématu ani reset databáze. Stránka `/owner` vyžaduje zadání vlastnického tokenu před načtením chráněných statistik. Token se na této stránce neukládá do úložiště prohlížeče.
+`GET /api/health` kontroluje dostupnost databáze a uvádí aktuální edici `0.2.8` s názvem `Secret Champions`. Veřejný žebříček je `GET /api/leaderboard?mode=10&version=0.2.8`; režim může být `10` nebo `50`. Volitelný `id` vrátí také umístění konkrétní pojmenované hry. Úvodní stránka služby `/` standardně zobrazuje edici **0.2.8 · Secret Champions**. Starší výsledky zůstávají uložené a lze je načíst s `version=0.2.7` nebo `version=0.2.6`; edice mají oddělené pořadí a aktualizace nevyžaduje změnu schématu ani reset databáze. Stránka `/owner` vyžaduje zadání vlastnického tokenu před načtením chráněných statistik. Token se na této stránce neukládá do úložiště prohlížeče.
 
 ## Životní cyklus a odolnost zápisů
 
@@ -61,7 +61,9 @@ Frontend uchovává v `localStorage` frontu nejvýše 20 her pro aktuální adre
 | Vlna | Index, boss flag, dokončení, životy před/po, součet poškození uniklými nepřáteli, počty spawnů/zabití/boss killů/úniků, čas boje, délka cesty, kingdom level, construction mastery. |
 | Typy nepřátel | Počet spawnů, zabití a úniků každého typu v dané vlně. |
 | Výkon obránců | Rodina, rank, ID, pozice, zásahy, výstřely, skutečně odebrané HP, připsaná zabití, `controlSeconds` a `supportSeconds`. |
-| Efekty | Vzorkovaný součet aktivních status-sekund podle typu; jde o nepřátelské sekundy, které mohou přes více nepřátel přesáhnout délku vlny. |
+| Efekty | Součet aktivních status-sekund podle typu; nepřátelské sekundy mohou přes více nepřátel přesáhnout délku vlny. Od 0.2.8 také `melancholyTriggers` (počet začátků Melancholie) a `melancholy` (bojové sekundy, kdy Lady Claire kvůli ní neútočí). |
+
+Verze 0.2.8 přijímá známé rodiny `ladyclaire` a `lordbernhard` v kombinacích i výkonu obránců. Původní tři tahy zůstávají v `draws`; rozhodnutí `combine` obsahuje výsledného secret šampiona. Melancholie nemá kredit v `controlSeconds`, protože jde o vlastní přerušení útoku. Její čas vychází z překryvu aktivního pětisekundového intervalu s bojovým časem a pauza jej nezvyšuje. Nová pole se ukládají do stávajícího záznamu efektů, bez migrace či resetu databáze.
 
 `durationMs` celé hry je čas podle hodin prohlížeče od vytvoření hry, včetně stavění a pauz. `durationMs` vlny je simulovaný čas boje, který respektuje rychlost hry. `healthLost` je součet síly úniků, nikoli nutně rozdíl mezi počátečními a konečnými životy: poškození se na nule ořízne a některé schopnosti mohou životy obnovovat.
 

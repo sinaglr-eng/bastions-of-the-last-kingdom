@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {CHAMPIONS,SIEGE_KINDS} from '../game/render/champion-catalog.js';
 import {recipeFamily,recipeTier} from '../game/core/recipes.js';
+import {championClassification} from '../game/render/champion-classification.js';
 
 const args=process.argv.slice(2);
 assert.ok(args.every(arg=>arg==='--refresh-presentation'),'Usage: node tools/author-roster.mjs [--refresh-presentation]');
@@ -14,8 +15,8 @@ const recipes=JSON.parse(readFileSync(new URL('../data/recipes.json',import.meta
 const basic=Object.entries(towers).filter(([,unit])=>!unit.advanced);
 const champions=Object.entries(towers).filter(([,unit])=>unit.advanced);
 assert.equal(basic.length,8,'The approved roster has eight basic classes');
-assert.equal(champions.length,37,'The approved roster has 37 champions');
-assert.equal(recipes.length,37,'The approved roster has 37 fixed recipes');
+assert.equal(champions.length,39,'The approved roster has 37 ordinary and two secret champions');
+assert.equal(recipes.length,39,'The approved roster has 39 fixed recipes');
 assert.deepEqual(Object.keys(CHAMPIONS).sort(),champions.map(([family])=>family).sort(),'Catalog and champion IDs must match');
 const codes=new Set();
 for(const [family,unit] of basic){
@@ -31,6 +32,11 @@ for(const recipe of recipes){
   assert.equal(recipeTier(recipe),1,recipe.id+': fixed recipes produce champion rank I');
   assert.ok(!byResult.has(family),family+': duplicate fixed recipe');byResult.set(family,recipe);
   assert.equal(recipe.ingredients.length,3,recipe.id+': exactly three ingredients are required');
+  if(towers[family].secret){
+    assert.equal(recipe.currentRoundOnly,true,recipe.id+': secret recipes require the current round');
+    assert.equal(championClassification(family),'Secret');
+    assert.ok(recipe.ingredients.every(i=>!towers[i.family]?.advanced),recipe.id+': secret ingredients are basic defenders');
+  }else assert.ok(!recipe.currentRoundOnly,recipe.id+': ordinary recipes retain their existing inventory rules');
   for(const ingredient of recipe.ingredients){
     assert.ok(towers[ingredient.family],recipe.id+': unknown ingredient '+ingredient.family);
     assert.ok(Number.isInteger(ingredient.tier)&&ingredient.tier>=1&&ingredient.tier<=(towers[ingredient.family].advanced?1:6),recipe.id+': invalid ingredient rank');
@@ -60,4 +66,4 @@ if(args.includes('--refresh-presentation')){
   assert.equal(unit.name,CHAMPIONS[family].name,family+': catalog name differs; review or use --refresh-presentation');
   assert.equal(unit.model,CHAMPIONS[family].kind,family+': model category differs');
 }
-console.log('Validated eight basic classes × six ranks, 37 champions and 37 exact three-defender recipes. All 48 basic ranks are used.');
+console.log('Validated eight basic classes × six ranks, 37 ordinary champions, two current-round secrets and 39 exact three-defender recipes. All 48 basic ranks are used.');

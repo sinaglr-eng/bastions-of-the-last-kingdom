@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import {CHAMPION_CLASSIFICATIONS,championClassification,championAuraLevel} from '../game/render/champion-classification.js';
 import {CHAMPION_AURA_COLORS,CHAMPION_AURA_STYLE,CHAMPION_AURA_TIERS,createChampionAura,animateChampionAura,disposeChampionAura} from '../game/render/champion-aura.js';
 
-const examples=Object.fromEntries(['Basic','Intermediate','Advanced','TOP'].map(classification=>[
+const examples=Object.fromEntries(['Basic','Intermediate','Advanced','TOP','Secret'].map(classification=>[
   classification,Object.keys(CHAMPION_CLASSIFICATIONS).find(family=>championClassification(family)===classification),
 ]));
 const state=aura=>({
@@ -24,8 +24,8 @@ test('ordinary basic defenders and unknown families create exactly no champion a
 test('every champion classification has the same former TOP size and strength, differing only in color',()=>{
   let previousGeometry=null,previousAnimation=null;
   assert.deepEqual(CHAMPION_AURA_STYLE,{strength:.50,radius:.92,rings:3,particles:18,wisps:6,height:.94});
-  assert.deepEqual(CHAMPION_AURA_COLORS,{Basic:'#3989ed',Intermediate:'#3eac63',Advanced:'#9555d8',TOP:'#ffd969'});
-  for(const [classification,level] of [['Basic',0],['Intermediate',1],['Advanced',2],['TOP',3]]){
+  assert.deepEqual(CHAMPION_AURA_COLORS,{Basic:'#3989ed',Intermediate:'#3eac63',Advanced:'#9555d8',TOP:'#ffd969',Secret:'#ffd969'});
+  for(const [classification,level] of [['Basic',0],['Intermediate',1],['Advanced',2],['TOP',3],['Secret',4]]){
     const family=examples[classification],aura=createChampionAura(family),tier=aura.userData.tier;
     assert.equal(aura.userData.classification,classification);assert.equal(aura.userData.level,level);
     assert.equal(tier,CHAMPION_AURA_STYLE);assert.equal(CHAMPION_AURA_TIERS[level],tier);
@@ -46,8 +46,8 @@ test('every champion classification has the same former TOP size and strength, d
   }
 });
 
-test('all 37 champions keep their family classification independent of ascension',()=>{
-  assert.equal(Object.keys(CHAMPION_CLASSIFICATIONS).length,37);
+test('all 39 champions keep their family classification independent of ascension',()=>{
+  assert.equal(Object.keys(CHAMPION_CLASSIFICATIONS).length,39);
   for(const family of Object.keys(CHAMPION_CLASSIFICATIONS)){
     const classification=championClassification(family),level=championAuraLevel(family);
     for(const rank of [1,2,6,14]){
@@ -60,7 +60,7 @@ test('all 37 champions keep their family classification independent of ascension
 });
 
 test('animation stays finite and reduced motion freezes the complete visual aura',()=>{
-  for(const classification of ['Basic','Intermediate','Advanced','TOP']){
+  for(const classification of ['Basic','Intermediate','Advanced','TOP','Secret']){
     const aura=createChampionAura(examples[classification],{phase:7.1});
     const first=state(aura);animateChampionAura(aura,9);assert.notDeepEqual(state(aura),first);
     for(const time of [0,-40,100000,NaN,Infinity,Number.MAX_VALUE]){

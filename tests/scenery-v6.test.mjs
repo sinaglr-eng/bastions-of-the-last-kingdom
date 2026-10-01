@@ -9,8 +9,8 @@ import {townStreamFootprintClearance,TOWN_STREAM_CURVE,RIVER_CONTROL_POINTS} fro
 const layout=JSON.parse(readFileSync(new URL('../data/scenery-v6.json',import.meta.url),'utf8'));
 const river=new THREE.CatmullRomCurve3(RIVER_CONTROL_POINTS.map(([x,z])=>new THREE.Vector3(x,0,z))).getPoints(480);
 async function model(name){
-  const site=LANDMARK_SITES[name];assert.ok(site.file.endsWith('-v6.glb'));
-  const bytes=readFileSync(new URL('../public/assets/scenery/'+site.file,import.meta.url));
+  const site=LANDMARK_SITES[name];
+  const bytes=readFileSync(new URL('../public/assets/scenery/'+(name==='keep'?'royal-castle-v6.glb':'fortified-warcamp-v6.glb'),import.meta.url));
   const {scene}=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
   scene.position.set(site.x,site.y,site.z);scene.updateMatrixWorld(true);return scene;
 }

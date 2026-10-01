@@ -57,10 +57,11 @@ export function expandRecipeToBasics(recipe,data){
 // are counted only there; each real inventory unit can satisfy one requested node.
 function allocatedRecipeTree(recipe,towers,data){
   const nodes=baseIngredientTree(recipe,data);
+  const eligible=new Set(recipeInventory(recipe,towers));
   const identities=new Set();
   const inventory=[];
   towers.forEach((tower,index)=>{
-    if(tower.placed===false||!['active','draft'].includes(tower.state))return;
+    if(!eligible.has(tower)||tower.placed===false||!['active','draft'].includes(tower.state))return;
     const identity=tower.id??tower;if(identities.has(identity))return;
     identities.add(identity);inventory.push({tower,index});
   });
@@ -98,10 +99,22 @@ export function recipeTreeProgress(recipe,towers,data){
   return allocatedRecipeTree(recipe,towers,data).map(node=>describe(node));
 }
 export function recipesUsing(tower,recipes) {
-  return tower&&tower.state!=='ruin'?recipes.filter(r=>r.ingredients.some(i=>i.family===tower.family&&i.tier===tower.tier)):[];
+  return tower&&tower.state!=='ruin'?recipes.filter(r=>(!r.currentRoundOnly||tower.state==='draft')&&r.ingredients.some(i=>i.family===tower.family&&i.tier===tower.tier)):[];
 }
-export function matchingIngredients(recipe, towers, requiredAnchor = null) {
-  const pool=towers.filter(t=>t.state!=='ruin');
+// Secret progress never claims previously retained units. Game supplies the
+// authoritative current round when deciding whether the recipe can be crafted.
+function recipeInventory(recipe,towers,round=null){
+  if(!recipe.currentRoundOnly)return towers;
+  const current=round??Math.max(0,...towers.map(t=>Number.isInteger(t.round)?t.round:0));
+  return towers.filter(t=>t.state==='draft'&&t.placed!==false&&t.round===current);
+}
+export function matchingIngredients(recipe, towers, requiredAnchor = null, context = null) {
+  let pool=towers.filter(t=>t.state!=='ruin');
+  if(recipe.currentRoundOnly){
+    if(context?.phase!=='select'||!Number.isInteger(context.round)||recipe.ingredients.length!==3||!requiredAnchor)return null;
+    pool=recipeInventory(recipe,pool,context.round);
+    if(pool.length!==5||new Set(pool.map(t=>t.id)).size!==5||!pool.includes(requiredAnchor))return null;
+  }
   if(requiredAnchor&&!pool.some(t=>t.id===requiredAnchor.id))return null;
   // Try every matching slot for the anchor: recipes may contain duplicate ingredients.
   const anchors=requiredAnchor ? recipe.ingredients.map((r,i)=>r.family===requiredAnchor.family&&r.tier===requiredAnchor.tier?i:-1).filter(i=>i>=0) : [-1];
@@ -121,6 +134,7 @@ export function matchingIngredients(recipe, towers, requiredAnchor = null) {
   return null;
 }
 export function recipeProgress(recipe,towers) {
+  towers=recipeInventory(recipe,towers);
   const used=new Set();
   return recipe.ingredients.map(r=>{
     const matches=t=>t.placed!==false&&!used.has(t.id??t)&&t.family===r.family&&t.tier===r.tier;

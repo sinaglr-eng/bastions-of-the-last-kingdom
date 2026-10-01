@@ -1,5 +1,15 @@
 import {GridManager} from './grid.js';
 
+export function prepareSecretDraftReview(game,family='ladyclaire'){
+  const recipe=game.recipes.find(r=>r.id===family&&r.currentRoundOnly);if(!recipe)return false;
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.round=16;game.phase='build';game.nextId=1;game.activeDraw=0;game.previewRecipeId=null;game.paused=false;
+  game.draft.roll(15);
+  const ingredients=[...recipe.ingredients,{family:'archer',tier:1},{family:'cleric',tier:1}];
+  const tiles=[[17,18],[18,19],[19,18],[17,20],[19,20]];
+  ingredients.forEach((ingredient,i)=>{game.draft.roundForced={...ingredient};game.place(...tiles[i]);});
+  game.draft.roundForced=null;game.select(game.towers[0].id);game.previewRecipe(recipe.id);game.emit('change');return true;
+}
+
 // Explicit development fixtures use the same importer and world renderer as
 // play, with analytics disabled by the existing ?debug gate in main.js.
 export function prepareEnemyReview(game){
@@ -8,6 +18,8 @@ export function prepareEnemyReview(game){
   for(const [i,type]of ['host_05','host_15','host_25','host_35','host_45','host_50'].entries()){
     const enemy=game.combat.spawn(type);enemy.x=i===5?18:6+i*6;enemy.z=i===5?23:14;
     enemy.route=[{x:enemy.x,z:enemy.z},{x:enemy.x,z:enemy.z-1}];enemy.pathIndex=1;
+    // Hold the lineup in view while the real renderer animates its flying rigs.
+    enemy.speed=0;
   }
   game.paused=true;game.emit('change');
 }

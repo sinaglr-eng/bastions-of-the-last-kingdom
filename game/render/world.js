@@ -5,6 +5,8 @@ import {rankAdornment,animateRank} from './ranks.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
+import {animateEnemyMotion} from './enemy-motion.js';
+import {animateSecretChampion} from './secret-champions.js';
 import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
 import {beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from './battle-animation.js';
 import {CombatEffects} from './combat-effects.js';
@@ -154,7 +156,7 @@ export class Battlefield {
     const figure=enemyFigure(enemy,this.enemyTemplates);figure.name=`Wave ${enemy.previewRound}: ${enemy.name}`;
     const height=new THREE.Box3().setFromObject(figure).getSize(new THREE.Vector3()).y;
     figure.scale.setScalar(THREE.MathUtils.clamp(2.35/Math.max(.5,height),.55,1.7));
-    figure.position.y=enemy.flying?.5:0;figure.rotation.y=-Math.PI/2;
+    figure.userData.previewEnemy=enemy;figure.position.y=enemy.flying?.5:0;figure.rotation.y=-Math.PI/2;
     this.landmarks.previewAnchor.add(figure);this.campPreview=figure;
   }
   template(t) {if(t.state==='ruin'){const mask=wallConnections(t,this.game.towers),key='wall:'+mask;if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask));return this.templates.get(key);}const stats=this.game.data.towers[t.family],key=`${t.family}:${stats?.advanced?1:t.tier}`;if(this.imported.has(key))return this.imported.get(key);if(!this.templates.has(key))this.templates.set(key,towerModel(t.family,stats?.advanced?1:t.tier,stats?.advanced,stats?.model));return this.templates.get(key);}
@@ -177,7 +179,7 @@ export class Battlefield {
         if(t.state!=='ruin'&&(!this.game.data.towers[t.family]?.advanced||t.tier>1))actor.add(rankAdornment(Math.min(6,t.tier)));
         const aura=t.state==='active'?createChampionAura(t.family,{phase:t.id*1.7}):null;
         if(aura)actor.add(aura);
-        value={object,actor,aura,signature,siege:siegeRig(actor),attack:t.state==='ruin'?null:attackRig(actor,t.family,towerStats(t,this.game.data)),hero:this.game.data.towers[t.family]?.unitKind!=='siege'&&t.state!=='ruin',phase:t.id*1.7};this.models.set(t.id,value);
+        value={object,actor,aura,signature,tower:t,siege:siegeRig(actor),attack:t.state==='ruin'?null:attackRig(actor,t.family,towerStats(t,this.game.data)),hero:this.game.data.towers[t.family]?.unitKind!=='siege'&&t.state!=='ruin',phase:t.id*1.7};this.models.set(t.id,value);
       }
     }
     this.draftMarkers.sync(this.game,this.models);
@@ -243,12 +245,13 @@ export class Battlefield {
   tileScreen(x,z) {const p=v3(x,0.08,z).project(this.camera),r=this.renderer.domElement.getBoundingClientRect();return {x:r.left+(p.x+1)*r.width/2,y:r.top+(-p.y+1)*r.height/2};}
   update(dt) {
     this.time+=dt;this.draftMarkers.update(this.time,this.camera,this.container.clientHeight);
-    if(this.campPreview)this.campPreview.userData.body.rotation.z=Math.sin(this.time*1.8)*.018;
+    if(this.campPreview){const enemy=this.campPreview.userData.previewEnemy;this.campPreview.position.y=(enemy.flying?.5:0)+animateEnemyMotion(this.campPreview,enemy,this.time,{moving:false,reducedMotion:!!this.reducedMotion?.matches});}
     for(const v of this.models.values()){animateRank(v.object,this.time);animateChampionAura(v.aura,this.time,{reducedMotion:!!this.reducedMotion?.matches});}
     this.valley.update(dt,this.time,this.camera.position.distanceTo(this.controls.target));
     this.landmarks.update?.(dt,this.time);
     if(this.corpseRound!==this.game.round){this.clearCorpses();this.corpseRound=this.game.round;}
     const battleDt=this.game.paused?0:dt*this.game.speed;
+    this.motionTime=(this.motionTime||0)+battleDt;
     for(const corpse of this.corpses.values())animateDeath(corpse,battleDt);
     const pan=new THREE.Vector3();const forward=new THREE.Vector3().subVectors(this.controls.target,this.camera.position);forward.y=0;forward.normalize();const right=new THREE.Vector3().crossVectors(forward,new THREE.Vector3(0,1,0));
     if(this.keys.has('w')||this.keys.has('arrowup'))pan.add(forward);if(this.keys.has('s')||this.keys.has('arrowdown'))pan.sub(forward);if(this.keys.has('d')||this.keys.has('arrowright'))pan.add(right);if(this.keys.has('a')||this.keys.has('arrowleft'))pan.sub(right);
@@ -263,19 +266,18 @@ export class Battlefield {
     const active=new Set(this.game.combat.enemies.map(e=>e.id));
     for(const [id,m]of this.enemies)if(!active.has(id)){this.scene.remove(m);disposeEnemyFigure(m);this.enemies.delete(id);}
     for(const e of this.game.combat.enemies){if(e.dead)continue;let m=this.enemies.get(e.id);if(!m){m=enemyFigure(e,this.enemyTemplates);this.scene.add(m);this.enemies.set(e.id,m);const bg=new THREE.Mesh(new THREE.PlaneGeometry(0.7,0.065),new THREE.MeshBasicMaterial({color:'#232e24',depthTest:false}));const fill=new THREE.Mesh(new THREE.PlaneGeometry(0.67,0.045),new THREE.MeshBasicMaterial({color:e.boss?'#e2b362':'#94c888',depthTest:false}));bg.add(fill);fill.position.z=0.003;m.add(bg);m.userData.bar=bg;m.userData.fill=fill;const aura=createEnemyAura(e,m.userData.body);if(aura){m.add(aura);m.userData.aura=aura;}}
-      const flying=e.flying?.8:0;const bob=Math.sin(this.time*e.speed*8+e.id)*0.035;m.position.copy(v3(e.x,flying+bob,e.z));const to=e.route[Math.min(e.pathIndex,e.route.length-1)];m.rotation.y=Math.atan2(to.x-e.x,to.z-e.z)+Math.PI;
-      const limbs=m.userData.limbs;limbs?.forEach((l,i)=>l.rotation.x=(l.userData.restRotation||0)+Math.sin(this.time*e.speed*7+e.id+(l.userData.gaitPhase??(i%2)*Math.PI))*0.42);
-      m.userData.wings?.forEach((wing,i)=>wing.rotation.z=wing.userData.restRotation+Math.sin(this.time*7+e.id)*.26*(i%2?1:-1));
+      const flying=e.flying?.8:0;const bob=animateEnemyMotion(m,e,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches});m.position.copy(v3(e.x,flying+bob,e.z));const to=e.route[Math.min(e.pathIndex,e.route.length-1)];m.rotation.y=Math.atan2(to.x-e.x,to.z-e.z)+Math.PI;
       animateEnemyAura(m.userData.aura,this.time,{reducedMotion:!!this.reducedMotion?.matches});
       animateEnemyCues(m,e,this.game.combat.elapsed,{reducedMotion:!!this.reducedMotion?.matches});
       m.visible=this.game.combat.isRevealed(e);
-      m.userData.body.rotation.z=e.hit>0?0.1:0;m.userData.body.scale.setScalar(1);if(m.userData.shards)m.userData.shards.children.forEach((s,i)=>s.visible=i<e.shields);m.userData.bar.position.set(0,m.userData.barHeight||1.28,0);m.userData.fill.material.color.set(e.cloaked?'#8295c4':e.boss?'#e2b362':'#94c888');m.userData.bar.quaternion.copy(m.quaternion).invert().multiply(this.camera.quaternion);m.userData.fill.scale.x=Math.max(0,e.hp/e.maxHp);m.userData.fill.position.x=-(1-e.hp/e.maxHp)*0.335;
+      if(m.userData.shards)m.userData.shards.children.forEach((s,i)=>s.visible=i<e.shields);m.userData.bar.position.set(0,m.userData.barHeight||1.28,0);m.userData.fill.material.color.set(e.cloaked?'#8295c4':e.boss?'#e2b362':'#94c888');m.userData.bar.quaternion.copy(m.quaternion).invert().multiply(this.camera.quaternion);m.userData.fill.scale.x=Math.max(0,e.hp/e.maxHp);m.userData.fill.position.x=-(1-e.hp/e.maxHp)*0.335;
     }
     for(const value of this.models.values()){
       const idle=value.hero?Math.sin(this.time*2.8+value.phase)*.018:0;
       value.actor.scale.set(1,1+idle,1);
       animateSiege(value.siege,battleDt);
       animateAttack(value.attack,battleDt,this.time,{reducedMotion:!!this.reducedMotion?.matches});
+      if(this.game.data.towers[value.tower.family]?.secret)animateSecretChampion(value.actor,this.time,{reducedMotion:!!this.reducedMotion?.matches,melancholy:this.game.phase==='combat'&&(value.tower.melancholyUntil||0)>this.game.combat.elapsed});
     }
     this.combatEffects.syncProjectiles(this.game.combat.projectiles,this.time);this.combatEffects.update(battleDt,this.time);
     this.supportEffects.sync(this.game.towers,this.game.data,{selected:this.game.selection,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase,time:this.time});

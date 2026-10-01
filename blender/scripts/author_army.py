@@ -355,7 +355,10 @@ def generate(render=True,family=None):
     requested=set(family.split(',')) if family else None
     if requested and not requested.issubset(DATA):raise ValueError('Unknown requested family')
     families=[f for f in DATA if not requested or f in requested]
-    for fam in families:
+    # Secret champions own their native rigid rig, bounds and v7.8 manifest.
+    # Generic finalization/budgeting would reparent their orbs and horse parts.
+    secret_families=[f for f in families if DATA[f].get('secret')]
+    for fam in (f for f in families if f not in secret_families):
         advanced_unit=bool(DATA[fam].get('advanced'));ranks=[1] if advanced_unit else range(1,7)
         for rank in ranks:
             clear();advanced(fam) if advanced_unit else basic(fam,rank)
@@ -380,6 +383,11 @@ def generate(render=True,family=None):
                 clean_portrait_metadata(portrait_path)
             print(f'ARMY: {fam} rank {rank}, {triangles} triangles',flush=True)
         (OUT/'manifest.json').write_text(json.dumps(entries,indent=2)+'\n',encoding='utf-8')
+    if secret_families:
+        import author_secret_champions
+        author_secret_champions.OUT=OUT
+        author_secret_champions.army=sys.modules[__name__]
+        author_secret_champions.generate(render=render,family=','.join(secret_families))
     print('ARMY: all requested families complete',flush=True)
 
 if __name__=='__main__':

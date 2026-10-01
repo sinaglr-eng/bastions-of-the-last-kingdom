@@ -37,7 +37,7 @@ The user supplied [Gem TD on the Dota 2 Wiki](https://dota2.fandom.com/wiki/Gem_
 | Druid | D | Poison lasting five seconds |
 | Mage | M | Arcane hit with pure splash damage |
 | Cleric | C | Attack-speed blessing |
-| Kushek | R | Shatters enemy armor |
+| Engineer | R | Shatters enemy armor |
 | Frost Warden | F | Slows enemy movement |
 | Stormcaller | T | Strikes three enemies at once |
 
@@ -49,7 +49,7 @@ Mythic upgrades alter defining abilities: faster arrows, stronger sword hits, in
 
 ## Champion recipes
 
-All combinations require exactly three distinct defenders with the stated families and ranks. The approved roster contains 37 champions, using stable family IDs for renamed units and including all restored reference combinations. An advanced ingredient is a complete crafted defender. Recipe requirements themselves gate progression, without additional Kingdom-level locks. Every champion has one fixed form; paid enhancements and obsolete upgrade multipliers are unavailable.
+All combinations require exactly three distinct defenders with the stated families and ranks. The approved roster contains 37 ordinary champions and two Secret champions, using stable family IDs for renamed units and including all restored reference combinations. An advanced ingredient is a complete crafted defender. Recipe requirements themselves gate progression, without additional Kingdom-level locks. Every champion has one fixed form; paid enhancements and obsolete upgrade multipliers are unavailable.
 
 | Champion | Reference recipe | Required ingredients |
 |---|---|---|
@@ -57,55 +57,65 @@ All combinations require exactly three distinct defenders with the stated famili
 | Knight | Silver Knight | Frostbolt Watchmen I + Archer A II + Mage M III |
 | Lionheart Champion | Pink Diamond | Soldier S V + Soldier S III + Stormcaller T III |
 | Kingslayer | Huge Pink Diamond | Lionheart Champion I + Knight I + Frostbolt Watchmen I |
-| King | Koh-i-noor Diamond | Kingslayer I + Kushek R VI + Soldier S VI |
+| King | Koh-i-noor Diamond | Kingslayer I + Engineer R VI + Soldier S VI |
 | Elven Ranger | Malachite | Cleric C I + Druid D I + Archer A I |
 | Elven Elite Warrior | Vivid Malachite | Elven Ranger I + Soldier S II + Stormcaller T III |
 | Elemental Mage | Uranium-238 | Stormcaller T V + Frost Warden F III + Cleric C II |
 | Elemental Archmage | Uranium-235 | Elemental Mage I + Elven Ranger I + Elven Elite Warrior I |
-| Fire Baby Dragon | Asteriated Ruby | Mage M II + Mage M I + Kushek R I |
-| Fire Mother Dragon | Volcano | Fire Baby Dragon I + Mage M IV + Kushek R III |
-| Thunderbird | Bloodstone | Mage M V + Archer A IV + Kushek R III |
+| Fire Baby Dragon | Asteriated Ruby | Mage M II + Mage M I + Engineer R I |
+| Fire Mother Dragon | Volcano | Fire Baby Dragon I + Mage M IV + Engineer R III |
+| Thunderbird | Bloodstone | Mage M V + Archer A IV + Engineer R III |
 | Dragonrider | Antique Bloodstone | Thunderbird I + Fire Mother Dragon I + Mage M II |
 | Mage Dragon rider | The Crown Prince | Dragonrider I + Mage M VI + Druid D VI |
 | Master Druid | Jade | Druid D III + Cleric C III + Frost Warden F II |
 | Archdruid | Grey Jade | Master Druid I + Frost Warden F IV + Archer A III |
-| Ballista | Gold | Kushek R V + Kushek R IV + Soldier S II |
+| Ballista | Gold | Engineer R V + Engineer R IV + Soldier S II |
 | Priest | Chrysoberyl Cat's Eye | Cleric C V + Soldier S IV + Archer A III |
 | Frost Colossus | Yellow Saphire | Frost Warden F V + Mage M IV + Stormcaller T IV |
 | Angel | Star Sapphire | Frost Colossus I + Frost Warden F VI + Cleric C VI |
 | Dwarf Firebomber | Paraiba Tourmaline | Archer A V + Cleric C IV + Druid D II |
 | Catapult | Dark Emerald | Druid D V + Frost Warden F IV + Stormcaller T II |
-| Ranger | Quartz | Druid D IV + Mage M III + Kushek R II |
+| Ranger | Quartz | Druid D IV + Mage M III + Engineer R II |
 | Royal Storm Arsenal | Deplemented-Kyparium | Elemental Archmage I + Archer A VI + Stormcaller T VI |
-| Bearking | Monkey King Jade | Archdruid I + Druid D IV + Kushek R II |
+| Bearking | Monkey King Jade | Archdruid I + Druid D IV + Engineer R II |
 | Paladin | Deepsea Pearl | Archer A IV + Soldier S IV + Cleric C II |
 | Nature Spirit | Diamond Cullinan | Bearking I + Soldier S VI + Frost Warden F VI |
 | Royal Ranger | Lucky Chinese Jade | Ranger I + Master Druid I + Druid D III |
-| King's Ranger Guard | Charming Lazurite | Ranger I + Kushek R IV + Stormcaller T II |
+| King's Ranger Guard | Charming Lazurite | Ranger I + Engineer R IV + Stormcaller T II |
 | Elven King | Golden Jubilee | King's Ranger Guard I + Stormcaller T VI + Mage M VI |
-| Fire Ballista | Egypt Gold | Ballista I + Kushek R V + Archer A II |
+| Fire Ballista | Egypt Gold | Ballista I + Engineer R V + Archer A II |
 | Golem | Emerald Golem | Catapult I + Ballista I + Soldier S III |
 | Dwarf Griffin bomber | Elaborately Carved Tourmaline | Catapult I + Dwarf Firebomber I + Druid D II |
-| Mechanical Golem | Sapphire Star of Adam | Dwarf Griffin bomber I + Druid D VI + Kushek R VI |
+| Mechanical Golem | Sapphire Star of Adam | Dwarf Griffin bomber I + Druid D VI + Engineer R VI |
 | Monk | Red Coral | Paladin I + Priest I + Cleric C IV |
 | Archbishop | Carmen-Lucia | Monk I + Cleric C VI + Archer A VI |
 | Archangel | Northern Saber's Eye | Frost Colossus I + Thunderbird I + Frost Warden F V |
+| Lady Claire · Secret | Fantastic Miss Shrimp | Mage M V + Druid D V + Frost Warden F V · current round only |
+| Lord Bernhard · Secret | Diamond Cullinan | Soldier S V + Soldier S IV + Soldier S III · current round only |
 
 The recipe dependency graph follows these selected reference combinations, including crafted ingredients and VI requirements. The approved data retains the agreed combat values, reference notes and explicitly identified adaptations. Data files and the grimoire describe the implemented effects; source-verification notes stay separate from player-facing ability labels.
 
-There are exactly 37 champion families and 37 fixed recipes; champion Ascension is disabled. Basic rank merging remains restricted to two current-round candidates, capped at VI. Champions have fixed statistics and no paid enhancements. Champion cards show readable effects plus direct attack damage and DPS (damage divided by attack interval); conditional criticals, multi-target hits, support bonuses and continuous damage are described separately. Pinning a recipe recursively expands its crafted ingredients into basic family/rank requirements and aggregates duplicates. Existing component champions contribute their underlying basic ingredients to progress without consuming stock twice.
+There are exactly 39 champion families and 39 fixed recipes (37 ordinary and two Secret); champion Ascension is disabled. Basic rank merging remains restricted to two current-round candidates, capped at VI. Champions have fixed statistics and no paid enhancements. Champion cards show readable effects plus direct attack damage and DPS (damage divided by attack interval); conditional criticals, multi-target hits, support bonuses and continuous damage are described separately. Pinning a recipe recursively expands its crafted ingredients into basic family/rank requirements and aggregates duplicates. Existing component champions contribute their underlying basic ingredients to progress without consuming stock twice.
 
-Champion classifications follow the wiki Towers table: 5 Basic, 13 Intermediate, 11 Advanced and 8 TOP. All classes have equally large cosmetic auras, distinguished by blue, green, purple and gold respectively. Basic recruit ranks use their existing six colors independently of champion classification.
+The 37 ordinary champion classifications follow the wiki Towers table: 5 Basic, 13 Intermediate, 11 Advanced and 8 TOP. Lady Claire and Lord Bernhard use the Secret classification with gold auras. All classes have equally large cosmetic auras: Basic blue, Intermediate green, Advanced purple, TOP gold and Secret gold. Basic recruit ranks use their existing six colors independently of champion classification.
 
 Every basic family and rank I–VI now appears in at least one fixed champion recipe. Royal Storm Arsenal retains the reference recipe, but its rapid three-target physical true strike is an authored adaptation because the source does not specify its ability.
 
-The 37 advanced models are original characters, creatures or siege machines: distinct armored heroes, rangers and druids; dragons and riders, a thunderbird, bear king and golems; priest, monk, bishop and angelic silhouettes; and catapult, cannon and ballista variants. Basic and advanced units occupy one cell, while advanced wings and weapons may overhang visually. Original family IDs and recipe branches remain stable. `data/towers.json`, `data/recipes.json` and `data/balance.json` are the authoritative approved settings. `tools/author-roster.mjs` validates the full roster and can refresh presentation fields from the catalog without regenerating combat values or recipes. Runtime models, thumbnails and Blender exports share the same source geometry.
+The 37 ordinary champion models are original characters, creatures or siege machines: distinct armored heroes, rangers and druids; dragons and riders, a thunderbird, bear king and golems; priest, monk, bishop and angelic silhouettes; and catapult, cannon and ballista variants. Basic and advanced units occupy one cell, while advanced wings and weapons may overhang visually. Original family IDs and recipe branches remain stable. `data/towers.json`, `data/recipes.json` and `data/balance.json` are the authoritative approved settings. `tools/author-roster.mjs` validates the full roster and can refresh presentation fields from the catalog without regenerating combat values or recipes. Runtime models, thumbnails and Blender exports share the same source geometry.
+
+## Secret champion selection
+
+Lady Claire and Lord Bernhard can be crafted only in the selection phase after all five current-round candidates have been placed. Their exact three ingredients must be distinct actual draw IDs from that same round. Retained defenders, stale candidates, incomplete placement or a selected noningredient cannot offer the combination. Selecting any one of the three valid ingredients anchors the result there; the other four current foundations become walls. No gold is charged. Ordinary recipes retain their existing use of retained ingredients.
+
+Claire attacks for 1225 arcane damage every 0.5 seconds at range 10. A successful hit rolls chain (20%) and fork (50%) independently: chain deals 150 through up to five additional distinct hops, and fork deals 2500 to up to five eligible targets with a 50-tile impact-centered reach. Her attack-start Melancholy roll is 3%, cancels that attack and blocks new attacks for five combat seconds. A moon symbol and countdown report the live state; already launched shots continue.
+
+Bernhard attacks one target for 3164 poison-type damage every 0.5 seconds at range 13, applying 16 poison damage per second for five seconds. His three-tile support aura grants allies +3 range and true strike, including himself and the exact boundary. “Poison 5” is an ability grade, not five targets. Existing strongest-effect stacking and immunity rules apply. Exact source precedence and adaptations are in [SECRET_CHAMPION_RULES.md](docs/SECRET_CHAMPION_RULES.md). Nature Spirit remains a separate approved ordinary champion even though it shares the Diamond Cullinan reference.
 
 ## Combat and economy
 
 Armor uses 30 / (30 + effective armor), after flat reduction and penetration. Magic damage applies generic and typed resistances; pure cleave ignores both. Projectiles deal damage on arrival. Soldier strikes have a short windup and check melee range again at impact. Criticals and chain procs use seeded randomness. Attack cooldown overshoot is retained for fast attackers at accelerated game speed.
 
-Poison has its own per-rank DPS and five-second duration. Druid and Kushek first select enemies without the corresponding live status or an incoming effect shot, preserving selected priority within that group. When all eligible targets are marked they follow ordinary priority; failed shots and expired effects release the target. Master Druid applies 24 poison DPS; Archdruid applies 48 poison DPS and grants three extra tiles of ally range. Reapplying a status refreshes it without duplicating it, retaining the strongest magnitude and kill owner. Cleric blessings of different ranks combine; duplicates use the strongest value. Range, damage, control protection, armor reduction and slows use their strongest value. Frost Colossus and Angel have a 75% slowing aura; Archangel starts at 70%. Bosses suffer half the normal slowing strength.
+Poison has its own per-rank DPS and five-second duration. Druid and Engineer first select enemies without the corresponding live status or an incoming effect shot, preserving selected priority within that group. When all eligible targets are marked they follow ordinary priority; failed shots and expired effects release the target. Master Druid applies 24 poison DPS; Archdruid applies 48 poison DPS and grants three extra tiles of ally range. Reapplying a status refreshes it without duplicating it, retaining the strongest magnitude and kill owner. Cleric blessings of different ranks combine; duplicates use the strongest value. Range, damage, control protection, armor reduction and slows use their strongest value. Frost Colossus and Angel have a 75% slowing aura; Archangel starts at 70%. Bosses suffer half the normal slowing strength.
 
 Dwarf Firebomber applies a −15 armor aura within four tiles. Catapult has a 10% chance to stun for two seconds, with half duration on bosses. Ranger applies −10 armor and 30% slow only to flying targets; magic immunity blocks its slow. Royal Storm Arsenal fires three physical true-strike shots every 0.25 seconds. Bearking grants true strike and +3 range within six tiles; true strike bypasses evasion but not shields, armor or physical immunity. Paladin completely protects nearby allies from disarm and dread. Ballista removes 30 armor; Fire Ballista removes 40 armor; champion attacks do not generate gold.
 
@@ -115,7 +125,7 @@ Start with 90 gold and 30 keep health. Kills grant XP and score. Each 90 XP rais
 
 Only the first wave allows extra time to establish a basic defense near a checkpoint or central crossing: 9 HP, zero armor, movement speed 1.3 and a 2.4-second spawn interval. Waves 2 and 3 return to their original normal pressure: 61/80 HP, 1/8 armor, movement speeds 2.21/2.37 and 0.6-second spawn intervals. Enemy counts remain 8, 8 and 9. Combat tuning for waves 4–50 is unchanged; placing defenders away from the route can still allow leaks.
 
-Enemy mechanics include veil detection, evasion, periodic disarm, three-hit refraction shields, physical/magical immunities, theft on leaking, non-stacking attack suppression, periodic rush, reactive armor, healing recharge, checkpoint-preserving blink, flat shell protection and war-drum haste. Pure damage bypasses damage-type immunity, armor and shell; refraction still absorbs direct pure hits. Damage over time bypasses direct-hit shields. Clerics reveal veiled enemies within six tiles. Flying variants include wyvern riders, giant bats, scrap balloons and dragon-mounted warlords. Variants are seeded once per wave, and the combat sidebar reports that actual variant's traits and resistances. Boss health updates while the battle runs.
+Enemy mechanics include veil detection, evasion, periodic disarm, three-hit refraction shields, physical/magical immunities, theft on leaking, non-stacking attack suppression, periodic rush, reactive armor, healing recharge, checkpoint-preserving blink, flat shell protection and war-drum haste. Pure damage bypasses damage-type immunity, armor and shell; refraction still absorbs direct pure hits. Damage over time bypasses direct-hit shields. Clerics reveal veiled enemies within six tiles. Flying variants include wyvern riders, giant bats, goblin scrapwings and dragon-mounted warlords; the old balloon silhouette is retired. All active names and appearance descriptions are in English. Native bats flap, heavy flying mounts use slower wing cycles, and ground actors move their legs and breathe. The simulation clock freezes living enemy motion while paused; reduced motion restores their authored poses. Variants are seeded once per wave, and the combat sidebar reports that actual variant's traits and resistances. Boss health updates while the battle runs.
 
 Score starts at zero. Each killed regular enemy grants 10 × the current wave; a boss grants 500 × the wave. Surviving grants 100 × the wave, with an additional 200 × the wave on boss rounds. Rewards are awarded once, and leaking enemies grant no kill score. The browser-local profile stores the best score. Selected-defender counts include retained units of the exact family and rank; grimoire cards count retained results across champion ranks.
 

@@ -4,6 +4,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {rankColor,rankAdornment,animateRank} from './render/ranks.js';
 import {championClassification,championAuraLevel} from './render/champion-classification.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './render/champion-aura.js';
+import {animateSecretChampion} from './render/secret-champions.js';
 import {castleWallModel,wallConnections} from './render/walls.js';
 import towers from '../data/towers.json';
 import '../ui/atelier.css';
@@ -42,7 +43,7 @@ const ground=new THREE.Mesh(new THREE.CircleGeometry(3.2,80),new THREE.MeshStand
 for(const radius of [1.2,2.1,3]){const m=new THREE.Mesh(new THREE.RingGeometry(radius,radius+.004,96),new THREE.MeshBasicMaterial({color:'#90a99a',transparent:true,opacity:.14,side:THREE.DoubleSide}));m.rotation.x=-Math.PI/2;m.position.y=-.005;scene.add(m);}
 const loader=new GLTFLoader(),cache=new Map();let selected=1,model=null,modelAura=null,wallsVisible=false,sequence=0;
 const reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
-const auraDescriptions=['Velká silná modrá aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná zelená aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná fialová aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná zlatá aura se třemi kruhy, jiskrami a vysokými světelnými prameny.'];
+const auraDescriptions=['Velká silná modrá aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná zelená aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná fialová aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná zlatá aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Tajný šampion se zlatou aurou. Všechny tři přísady musí padnout v jednom kole.'];
 const wallGroup=new THREE.Group();wallGroup.visible=false;
 const wallTiles=[[-1,-1],[0,-1],[1,-1],[1,0],[1,1]].map(([x,z])=>({x,z,state:'ruin'}));
 for(const t of wallTiles){const m=castleWallModel(wallConnections(t,wallTiles));m.position.set(t.x*1,t.y||0,t.z*1);wallGroup.add(m);}scene.add(wallGroup);
@@ -87,5 +88,5 @@ function toggleWalls(){wallsVisible=!wallsVisible;wallGroup.visible=wallsVisible
 document.querySelector('#walls').addEventListener('click',toggleWalls);
 new ResizeObserver(()=>{const {width,height}=host.getBoundingClientRect();renderer.setSize(width,height);camera.aspect=width/height;camera.updateProjectionMatrix();}).observe(host);
 document.querySelector('#family-picker').value=family;rankButtons();showRank(1);
-let previous=performance.now();function frame(now){const dt=Math.min(.1,(now-previous)/1000);previous=now;controls.update(dt);if(model)animateRank(model,now/1000);animateChampionAura(modelAura,now/1000,{reducedMotion:!!reducedMotion?.matches});renderer.render(scene,camera);requestAnimationFrame(frame);}requestAnimationFrame(frame);
+let previous=performance.now();function frame(now){const dt=Math.min(.1,(now-previous)/1000);previous=now;controls.update(dt);if(model){animateRank(model,now/1000);animateSecretChampion(model,now/1000,{reducedMotion:!!reducedMotion?.matches});}animateChampionAura(modelAura,now/1000,{reducedMotion:!!reducedMotion?.matches});renderer.render(scene,camera);requestAnimationFrame(frame);}requestAnimationFrame(frame);
 

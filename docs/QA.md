@@ -2,7 +2,11 @@
 
 ## Current revision
 
-The approved 0.2.7 Dark Host release contains eight basic classes and 37 champions: 85 defender variants and 20 legacy assets in a 105-entry model manifest, plus 59 native Dark Host V3 enemies. Champion art uses champion-v6; basic packs retain archer-v2 and hero-v5. The original Engineer is active; Kushek is archived separately. Scenery uses V6. Native editable sources and rendered portraits accompany the shipped packs. Historical review notes below retain their original counts and behavior; later revisions supersede them.
+The 0.2.8 Secret Champions revision contains eight basic classes and 39 champions: 87 defender variants and 20 legacy assets in a 107-entry model manifest, plus 59 native Dark Host V3 enemies. The 37 ordinary champion models retain champion-v6; the two Secret models use champions-v7.8. Basic packs retain archer-v2 and hero-v5. The original Engineer is active and Kushek's design archive is unchanged. Royal scenery uses V7, while the camp remains V6. Native editable sources and rendered portraits accompany the shipped packs. Historical notes below retain their original counts and behavior; later revisions supersede them.
+
+## October 1 — Secret Champions 0.2.8
+
+Focused mechanics, actual native geometry, motion, generator dispatch, scenery and statistics evidence is recorded in [SECRET_CHAMPIONS_V028.md](SECRET_CHAMPIONS_V028.md). Full-suite, production-browser and publication evidence belongs in that record's final release verification section once the release checks finish.
 
 ## October 1 — Dark Host 0.2.7
 

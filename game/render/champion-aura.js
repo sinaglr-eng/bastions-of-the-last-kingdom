@@ -5,10 +5,10 @@ import {championAuraLevel,championClassification} from './champion-classificatio
 // All champions share the former TOP effect. Classification changes color only;
 // the eight ordinary defender families have no champion classification or aura.
 export const CHAMPION_AURA_COLORS=Object.freeze({
-  Basic:'#3989ed',Intermediate:'#3eac63',Advanced:'#9555d8',TOP:'#ffd969',
+  Basic:'#3989ed',Intermediate:'#3eac63',Advanced:'#9555d8',TOP:'#ffd969',Secret:'#ffd969',
 });
 export const CHAMPION_AURA_STYLE=Object.freeze({strength:.50,radius:.92,rings:3,particles:18,wisps:6,height:.94});
-export const CHAMPION_AURA_TIERS=Object.freeze({0:CHAMPION_AURA_STYLE,1:CHAMPION_AURA_STYLE,2:CHAMPION_AURA_STYLE,3:CHAMPION_AURA_STYLE});
+export const CHAMPION_AURA_TIERS=Object.freeze({0:CHAMPION_AURA_STYLE,1:CHAMPION_AURA_STYLE,2:CHAMPION_AURA_STYLE,3:CHAMPION_AURA_STYLE,4:CHAMPION_AURA_STYLE});
 
 const vertex=`
   varying vec2 auraUV;

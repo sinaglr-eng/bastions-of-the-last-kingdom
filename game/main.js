@@ -10,7 +10,7 @@ import enemies from '../data/enemies.json';
 import waves from '../data/waves.json';
 import recipes from '../data/recipes.json';
 import {Game} from './core/game.js';
-import {prepareBattleReview,prepareSpellReview,prepareSupportReview,prepareEnemyReview,prepareRecipeMarkerReview} from './core/debug-review.js';
+import {prepareBattleReview,prepareSpellReview,prepareSupportReview,prepareEnemyReview,prepareRecipeMarkerReview,prepareSecretDraftReview} from './core/debug-review.js';
 import {towerStats} from './core/math.js';
 import {recipeProgress,recipesUsing,recipeFamily,recipeLabel,rankLabel} from './core/recipes.js';
 import {currentWarbandInfo,bossHealth,builtTowerCount} from './core/warband-info.js';
@@ -134,7 +134,7 @@ function hud(){
 }
 
 function render(){renderSidebar();renderRecipeBrowser();renderEconomy();renderDraft();renderMapAction();hud();tour.refresh();}
-function openDialog(html){draftCardActivation.clear();draftPointerGesture.clear();pointerDraws.clear();const dialog=$('dialog');if(!dialog.open){modalPaused=game.paused;game.paused=true;dialog.showModal();}world.keys.clear();$('dialog-content').innerHTML=html;if(debug&&html.includes('Commander’s tools'))$('dialog-content').insertAdjacentHTML('beforeend','<div class="dialog-body debug-row"><button class="text-button" data-action="debug-review">Review corpses and catapult</button><button class="text-button" data-action="debug-boss-review">Review boss battle</button><button class="text-button" data-action="debug-enemies-review">Review Dark Host and auras</button><button class="text-button" data-action="debug-markers-review">Review recipe portraits</button></div>');}
+function openDialog(html){draftCardActivation.clear();draftPointerGesture.clear();pointerDraws.clear();const dialog=$('dialog');if(!dialog.open){modalPaused=game.paused;game.paused=true;dialog.showModal();}world.keys.clear();$('dialog-content').innerHTML=html;if(debug&&html.includes('Commander’s tools'))$('dialog-content').insertAdjacentHTML('beforeend','<div class="dialog-body debug-row"><button class="text-button" data-action="debug-review">Review corpses and catapult</button><button class="text-button" data-action="debug-boss-review">Review boss battle</button><button class="text-button" data-action="debug-enemies-review">Review Dark Host and auras</button><button class="text-button" data-action="debug-markers-review">Review recipe portraits</button><button class="text-button" data-action="debug-secret-claire">Review Lady Claire draft</button><button class="text-button" data-action="debug-secret-bernhard">Review Lord Bernhard draft</button></div>');}
 function closeDialog(){if($('dialog').open)$('dialog').close();}
 $('dialog').addEventListener('close',()=>{game.paused=modalPaused;render();});
 function dialogHeader(label,title){return `<div class="dialog-header"><div><div class="eyebrow">${label}</div><h2>${title}</h2></div><button class="icon-button" data-action="close" aria-label="Close">${icon('close')}</button></div>`;}
@@ -194,6 +194,7 @@ function handleCommand(e){
   if(actions[action])actions[action]();
   else if(debug&&action.startsWith('debug-')){
     if(action==='debug-enemies-review'){prepareEnemyReview(game);modalPaused=true;closeDialog();}
+    if(action==='debug-secret-claire'||action==='debug-secret-bernhard'){prepareSecretDraftReview(game,action==='debug-secret-claire'?'ladyclaire':'lordbernhard');modalPaused=false;closeDialog();}
     if(action==='debug-markers-review'){prepareRecipeMarkerReview(game);closeDialog();}
     if(action==='debug-spell-review'){prepareSpellReview(game);closeDialog();}
     if(action==='debug-support-review'){prepareSupportReview(game);closeDialog();}

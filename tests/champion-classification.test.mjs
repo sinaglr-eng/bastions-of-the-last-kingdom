@@ -15,21 +15,22 @@ const recipes=JSON.parse(readFileSync(new URL('../data/recipes.json',import.meta
 const champions=Object.keys(towers).filter(family=>towers[family].advanced);
 const basics=Object.keys(towers).filter(family=>!towers[family].advanced);
 
-test('visual classifications cover exactly the 37 approved champion families',()=>{
+test('visual classifications cover exactly the 39 approved champion families',()=>{
   assert.deepEqual(Object.keys(CHAMPION_CLASSIFICATIONS).sort(),champions.sort());
   assert.deepEqual(Object.keys(CHAMPIONS).sort(),champions);
-  const counts={Basic:0,Intermediate:0,Advanced:0,TOP:0};
+  const counts={Basic:0,Intermediate:0,Advanced:0,TOP:0,Secret:0};
   for(const family of champions){
     const classification=championClassification(family);
     assert.ok(Object.hasOwn(counts,classification),family);
     counts[classification]++;
   }
-  assert.deepEqual(counts,{Basic:5,Intermediate:13,Advanced:11,TOP:8});
+  assert.deepEqual(counts,{Basic:5,Intermediate:13,Advanced:11,TOP:8,Secret:2});
 });
 
 test('fixed recipe reference classifications agree with the verified wiki Towers table',()=>{
-  assert.equal(recipes.length,37);
-  assert.equal(new Set(recipes.map(recipe=>recipe.referenceTower)).size,37);
+  assert.equal(recipes.length,39);
+  assert.equal(new Set(recipes.filter(r=>!r.currentRoundOnly).map(recipe=>recipe.referenceTower)).size,37);
+  assert.equal(new Set(recipes.map(recipe=>recipe.referenceTower)).size,38,'Lord Bernhard intentionally shares Diamond Cullinan with Nature Spirit');
   for(const recipe of recipes){
     assert.ok(recipe.referenceTower?.trim(),recipe.id+' needs its source tower');
     const expected=recipe.stage;
@@ -44,6 +45,8 @@ test('fixed recipe reference classifications agree with the verified wiki Towers
   assert.equal(championAuraLevel('frostblade'),1);
   assert.equal(championAuraLevel('highking'),2);
   assert.equal(championAuraLevel('mothernature'),3);
+  assert.equal(championAuraLevel('ladyclaire'),4);
+  assert.equal(championAuraLevel('lordbernhard'),4);
 });
 
 test('all basic defender ranks and unknown families receive no classification aura',()=>{
@@ -59,8 +62,8 @@ test('all basic defender ranks and unknown families receive no classification au
   }
 });
 
-test('all 37 fixed outputs retain their family classification and produce rank I champions',()=>{
-  const fixed=allRecipes({towers,recipes});assert.equal(fixed.length,37);
+test('all 39 fixed outputs retain their family classification and produce rank I champions',()=>{
+  const fixed=allRecipes({towers,recipes});assert.equal(fixed.length,39);
   assert.deepEqual(fixed.map(recipeFamily).sort(),champions);
   for(const recipe of fixed){
     assert.equal(recipeTier(recipe),1);

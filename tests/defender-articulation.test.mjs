@@ -17,8 +17,8 @@ const meshes=root=>{const parts=[];root.traverse(o=>{if(o.isMesh)parts.push(o);}
 const sample=o=>{o.updateWorldMatrix(true,false);return new THREE.Vector3().fromBufferAttribute(o.geometry.attributes.position,0).applyMatrix4(o.matrixWorld);};
 const entry=(family,tier=1)=>manifest.find(e=>e.family===family&&e.tier===tier);
 
-test('all 85 production defenders export active articulated mesh hierarchies, not dormant named nodes',async()=>{
-  assert.equal(manifest.length,85);
+test('all 87 production defenders export active articulated mesh hierarchies, not dormant named nodes',async()=>{
+  assert.equal(manifest.length,87);
   for(const e of manifest){
     assert.equal(e.articulationRevision,1,`${e.family}/${e.tier}: not regenerated`);
     const source=await model(e),actor=source.clone(true),stats=towers[e.family],rig=attackRig(actor,e.family,stats),siege=siegeRig(actor);
@@ -75,6 +75,35 @@ test('reduced motion keeps joints at rest and owned string/glow resources dispos
     triggerAttack(rig);animateAttack(rig,.12,0,{reducedMotion:true});rig.pivots.forEach((p,i)=>assert.deepEqual(p.node.rotation.toArray(),rest[i]));
     disposeAttack(rig);disposeAttack(rig);assert.ok(disposed.every(item=>item.count===1));assert.equal(attackMuzzle(rig),null);assert.equal(rig.owned.length,0);
   }
+});
+
+test('Lady Claire exports three independent drawable orbit pivots and the preserved human face identity',async()=>{
+  const source=await model(entry('ladyclaire')),actor=source.clone(true);
+  assert.match(actor.getObjectByName('head_pivot').userData.identitySource,/Preserved Kushek human face/);
+  const orbs=[0,1,2].map(index=>actor.getObjectByName('secret_orb_'+index));
+  assert.ok(orbs.every((orb,index)=>orb&&orb.userData.secretOrbIndex===index&&meshes(orb).length===2));
+  assert.equal(new Set(orbs.map(orb=>orb.parent)).size,1);
+  const before=orbs.map(orb=>meshes(orb).map(sample)),face=meshes(actor.getObjectByName('head_pivot')).map(sample);
+  orbs[0].position.x+=.2;actor.updateMatrixWorld(true);
+  assert.ok(meshes(orbs[0]).some((mesh,i)=>sample(mesh).distanceTo(before[0][i])>.19));
+  for(const i of [1,2])meshes(orbs[i]).forEach((mesh,j)=>assert.deepEqual(sample(mesh).toArray(),before[i][j].toArray()));
+  meshes(actor.getObjectByName('head_pivot')).forEach((mesh,i)=>assert.deepEqual(sample(mesh).toArray(),face[i].toArray()));
+  const rig=attackRig(actor,'ladyclaire',towers.ladyclaire),muzzle=attackMuzzle(rig).clone();
+  triggerAttack(rig);animateAttack(rig,.12);assert.ok(attackMuzzle(rig).distanceTo(muzzle)>.1);disposeAttack(rig);
+});
+
+test('Lord Bernhard has four independently articulated horse legs while his raised sword follows the rider rig',async()=>{
+  const source=await model(entry('lordbernhard')),actor=source.clone(true),legs=[];
+  actor.traverse(node=>{if(node.name.startsWith('leg_horse_'))legs.push(node);});
+  assert.equal(legs.length,4);assert.ok(legs.every(leg=>meshes(leg).length>=2));
+  assert.equal(legs.find(leg=>leg.name==='leg_horse_L_front').userData.gaitPhase,legs.find(leg=>leg.name==='leg_horse_R_rear').userData.gaitPhase);
+  const legSamples=legs.map(leg=>meshes(leg).map(sample)),otherSamples=legs.slice(1).map(leg=>meshes(leg).map(sample));
+  legs[0].rotation.x+=.25;actor.updateMatrixWorld(true);
+  assert.ok(meshes(legs[0]).some((mesh,i)=>sample(mesh).distanceTo(legSamples[0][i])>.04));
+  legs.slice(1).forEach((leg,i)=>meshes(leg).forEach((mesh,j)=>assert.deepEqual(sample(mesh).toArray(),otherSamples[i][j].toArray())));
+  const rig=attackRig(actor,'lordbernhard',towers.lordbernhard),weapon=actor.getObjectByName('weapon_R'),before=meshes(weapon).map(sample);
+  triggerAttack(rig);animateAttack(rig,.14);assert.ok(meshes(weapon).some((mesh,i)=>sample(mesh).distanceTo(before[i])>.1));
+  assert.equal(actor.rotation.x,0);disposeAttack(rig);
 });
 
 after(async()=>{

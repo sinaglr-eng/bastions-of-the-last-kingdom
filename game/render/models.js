@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {seededRandom} from '../core/math.js';
 import {championModel} from './champions.js';
+import {secretChampionModel} from './secret-champions.js';
 import {castleWallModel} from './walls.js';
 import {rankColor} from './ranks.js';
 
@@ -55,6 +56,7 @@ function crossbow(p,y=1.05,large=false) {
 }
 export const DEFENDER_FAMILIES=['soldier','archer','druid','mage','cleric','runebreaker','frostwarden','stormcaller'];
 export function towerModel(family,tier=1,advanced=false,appearance=null) {
+  if(['ladyclaire','lordbernhard'].includes(family))return secretChampionModel(family,{box,beam,sphere,cylinder,cone,mesh,optimize});
   if(advanced&&family!=='ruin')return championModel(family,{box,beam,sphere,cylinder,cone,mesh,optimize});
   if(!advanced&&DEFENDER_FAMILIES.includes(family))return defenderModel(family,tier);
   const p=new THREE.Group();
@@ -212,7 +214,7 @@ export function enemyModel(type,stats) {
   type=stats.model||type;
   const p=new THREE.Group();const skin=stats.color,heavy=['ogre','warlord','troll'].includes(type);
   const body=new THREE.Group();p.add(body);p.userData.body=body;
-  const limbs=[];
+  const limbs=[],wings=[];
   for(const x of [-0.13,0.13]){const leg=new THREE.Group();leg.position.set(x,0.38,0);box(leg,[0.14,0.32,0.18],'#554b3e',[0,-0.16,0]);box(leg,[0.16,0.09,0.25],'#343b34',[0,-0.32,-0.05]);body.add(leg);limbs.push(leg);}
   cylinder(body,0.19,0.15,0.38,skin,[0,0.53,0],6);box(body,[0.37,0.18,0.22],'#5b5040',[0,0.42,0]);
   sphere(body,0.185,skin,[0,0.85,-0.03]);sphere(body,0.12,skin,[0,0.78,-0.15]);
@@ -222,7 +224,7 @@ export function enemyModel(type,stats) {
   if(type==='shaman'||type==='warlock'){cone(body,0.31,0.5,type==='shaman'?'#774d4b':'#514663',[0,0.44,0],6);beam(body,[0.38,0.15,0],[0.38,1.25,0],0.045,palette.wood);sphere(body,0.12,type==='shaman'?'#bbdd8b':'#b58aca',[0.38,1.28,0]);}
   else {beam(body,[0.3,0.2,0],[0.3,0.78,-0.1],0.06,palette.wood);box(body,[0.2,0.18,0.09],palette.iron,[0.3,0.8,-0.1]);}
   if(type==='wolf'){const wolf=box(body,[0.42,0.32,0.9],'#71796e',[0,0.26,-0.15]);sphere(body,0.24,'#848c7c',[0,0.41,-0.62]);wolf.rotation.x=0.07;}
-  if(type==='wyvern'){for(const side of [-1,1]){const wing=cone(body,0.57,0.06,'#826c64',[side*0.65,0.56,0.1],3);wing.rotation.z=side*0.3;}box(body,[0.2,0.13,1.1],'#657664',[0,0.4,0.2]);}
+  if(type==='wyvern'){for(const side of [-1,1]){const wing=cone(body,0.57,0.06,'#826c64',[side*0.65,0.56,0.1],3);wing.rotation.z=side*0.3;wing.userData.restRotation=wing.rotation.z;wing.userData.wingSide=side;wings.push(wing);}box(body,[0.2,0.13,1.1],'#657664',[0,0.4,0.2]);}
   if(type==='sapper')sphere(body,0.28,'#77533a',[0,0.62,0.27]);
   const clan=['#98483c','#596b86','#777141','#695583','#ba8c46'][stats.clan||0];
   box(body,[.38,.07,.27],clan,[0,.59,0]);
@@ -237,8 +239,9 @@ export function enemyModel(type,stats) {
     sphere(body,.26,hide,[0,.35,-.26]).scale.set(1,1,2);
     for(const side of [-1,1]){
       const shape=new THREE.Shape();shape.moveTo(.15,.04);shape.lineTo(span,.4);shape.lineTo(span*.9,-.4);shape.lineTo(span*.6,-.16);shape.lineTo(span*.32,-.38);shape.closePath();
-      const wing=mesh(body,new THREE.ShapeGeometry(shape),hide,[0,.4,0]);wing.rotation.x=-Math.PI/2;wing.userData.restRotation=-Math.PI/2;wing.scale.x=side;wing.material=wing.material.clone();wing.material.side=THREE.DoubleSide;limbs.push(wing);
-      beam(body,[side*.13,.43,0],[side*span,.43,-.4],.035,'#c2aa83');
+      const pivot=new THREE.Group();pivot.position.y=.4;pivot.userData.restRotation=0;pivot.userData.wingSide=side;body.add(pivot);wings.push(pivot);
+      const wing=mesh(pivot,new THREE.ShapeGeometry(shape),hide,[0,0,0]);wing.rotation.x=-Math.PI/2;wing.scale.x=side;wing.material=wing.material.clone();wing.material.side=THREE.DoubleSide;
+      beam(pivot,[side*.13,.03,0],[side*span,.03,-.4],.035,'#c2aa83');
       cone(body,.075,.32,'#b8b094',[side*.15,.51,-.57],3);
     }
     if(dragon){
@@ -264,5 +267,5 @@ export function enemyModel(type,stats) {
   const bounds=new THREE.Box3().setFromObject(body),height=bounds.getSize(new THREE.Vector3()).y;
   const visualHeight=stats.boss?3.30:stats.model==='goblin'?1.82:1.98;
   p.scale.setScalar(visualHeight/height);p.userData.barHeight=bounds.max.y+.18;
-  p.userData.limbs=limbs;return p;
+  p.userData.limbs=limbs;p.userData.wings=wings;return p;
 }

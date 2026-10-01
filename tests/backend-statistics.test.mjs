@@ -8,12 +8,13 @@ import worker from '../backend/worker.js';
 import {playerName, validateSnapshot} from '../backend/validation.js';
 import {Game} from '../game/core/game.js';
 import {RunStatistics} from '../game/core/run-statistics.js';
+import {towerStats} from '../game/core/math.js';
 import {StatisticsClient} from '../game/core/statistics-client.js';
 import {report, csvRows} from '../tools/statistics-report.mjs';
 
 const data = Object.fromEntries(['balance', 'towers', 'enemies', 'waves', 'recipes'].map(name =>
   [name, JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url)))]));
-const access = 'a'.repeat(64), version = '0.2.7';
+const access = 'a'.repeat(64), version = '0.2.8';
 const uuid = number => `12345678-1234-4234-8234-${String(number).padStart(12, '0')}`;
 
 function storage() {
@@ -69,25 +70,25 @@ function run(mode, id, edition=version) {
   return {game, statistics, assault};
 }
 
-test('Dark Host defaults to edition 0.2.7 while preserving separate previous-edition results', async () => {
+test('Secret Champions defaults to edition 0.2.8 while preserving separate Dark Host results', async () => {
   const store=storage(), playedRuns=[];
   try {
     const health=await request(store,'/api/health');
     assert.equal(health.status,200);
-    assert.deepEqual(await health.json(),{ok:true,storage:'SQLite',edition:version,releaseName:'Dark Host'});
+    assert.deepEqual(await health.json(),{ok:true,storage:'SQLite',edition:version,releaseName:'Secret Champions'});
     const page=await request(store,'/');
     assert.equal(page.status,200);
     const html=await page.text();
-    assert.ok(html.includes('/api/leaderboard?version=0.2.7&mode='));
-    assert.ok(html.includes('0.2.7 · Dark Host. Finish a campaign'));
-    assert.ok(!html.includes('/api/leaderboard?version=0.2.6&mode='));
-    for(const [index,edition] of ['0.2.6',version].entries()) {
+    assert.ok(html.includes('/api/leaderboard?version=0.2.8&mode='));
+    assert.ok(html.includes('0.2.8 · Secret Champions. Finish a campaign'));
+    assert.ok(!html.includes('/api/leaderboard?version=0.2.7&mode='));
+    for(const [index,edition] of ['0.2.7',version].entries()) {
       const id=uuid(index+2), played=run(10,id,edition); playedRuns.push(played);
       assert.equal((await request(store,'/api/runs',{id,writeToken:access,mode:10,seed:42,version:edition})).status,201);
       let final;
       for(let wave=0;wave<10;wave++)final=played.assault();
       assert.equal((await request(store,`/api/runs/${id}/checkpoint`,{writeToken:access,snapshot:final})).status,200);
-      assert.equal((await request(store,`/api/runs/${id}/score`,{writeToken:access,name:index?'Dark Host':'Previous edition'})).status,200);
+      assert.equal((await request(store,`/api/runs/${id}/score`,{writeToken:access,name:index?'Secret Champions':'Dark Host'})).status,200);
       const own=await request(store,`/api/leaderboard?mode=10&version=${edition}&id=${id}`);
       const result=await own.json();
       assert.equal(result.version,edition);assert.equal(result.current.rank,1);
@@ -96,9 +97,9 @@ test('Dark Host defaults to edition 0.2.7 while preserving separate previous-edi
     assert.equal(store.sqlite.prepare('SELECT COUNT(*) AS n FROM runs').get().n,2);
     const current=await request(store,`/api/leaderboard?mode=10&version=${version}&id=${uuid(2)}`);
     const result=await current.json();
-    assert.equal(result.current,null);assert.equal(result.top.length,1);assert.equal(result.top[0].name,'Dark Host');
-    const older=await request(store,'/api/leaderboard?mode=10&version=0.2.6');
-    assert.equal((await older.json()).top[0].name,'Previous edition');
+    assert.equal(result.current,null);assert.equal(result.top.length,1);assert.equal(result.top[0].name,'Secret Champions');
+    const older=await request(store,'/api/leaderboard?mode=10&version=0.2.7');
+    assert.equal((await older.json()).top[0].name,'Dark Host');
   } finally {for(const played of playedRuns)played.statistics.dispose();store.close();}
 });
 
@@ -115,6 +116,58 @@ test('native SQLite supports the D1 schema, transactions, JSON analytics and nam
     assert.equal((await request(store, `/api/runs/${uuid(1)}/score`, {writeToken: access, name: 'Kushek'})).status, 409);
     assert.equal((await request(store, '/api/admin/statistics')).status, 401);
   } finally {store.close();}
+});
+
+test('real secret crafting retains ingredient draws, result families, combat performance and effect uptime in the existing SQLite schema',async()=>{
+  const store=storage(),playedRuns=[];
+  try{
+    const originalTables=store.sqlite.prepare("SELECT name FROM sqlite_schema WHERE type='table' ORDER BY name").all();
+    for(const [index,family] of ['ladyclaire','lordbernhard'].entries()){
+      const played=run(10,uuid(160+index)),g=played.game;playedRuns.push(played);
+      const recipe=data.recipes.find(r=>r.id===family);assert.equal(recipe.currentRoundOnly,true);
+      const draws=[...recipe.ingredients,{family:'archer',tier:1},{family:'cleric',tier:1}];
+      for(let i=0;i<draws.length;i++){Object.assign(g.draft.draws[i],draws[i]);assert.equal(g.place(8+i,19),true);}
+      g.select(g.towers[0].id);assert.equal(g.craft(family),true);assert.equal(g.phase,'ready');
+      const champion=g.selection;assert.equal(champion.family,family);assert.equal(g.startCombat(),true);
+      g.combat.spawnQueue.length=0;
+      const enemy=g.combat.spawn('host_01');Object.assign(enemy,{x:champion.x+.5,z:champion.z});
+      g.combat.damage(enemy,1,'pure',{},champion);
+      if(family==='ladyclaire'){
+        g.rng=()=>0;g.tick(.01);
+        assert.ok(champion.melancholy>0,'The actual attack-start penalty fires');
+        g.tick(.25);
+      }else{
+        g.combat.applyEffects(enemy,towerStats(champion,data),champion);
+      }
+      played.statistics.sample(.25);
+      const snapshot=played.statistics.snapshot();
+      assert.deepEqual(snapshot.draws.slice(0,3).map(t=>({family:t.family,tier:t.tier})),recipe.ingredients);
+      assert.deepEqual(snapshot.decisions.map(t=>[t.family,t.action,t.tier]),[[family,'combine',1]],'Crafting records the new secret family instead of its consumed anchor');
+      const unit=snapshot.waves[0].towers.find(t=>t.family===family);assert.ok(unit.damage>0);assert.equal(unit.hits,1);
+      if(family==='ladyclaire'){
+        assert.ok(snapshot.waves[0].effects.melancholy>0,'The penalty duration is retained as an existing effect value');
+        assert.equal(snapshot.waves[0].effects.melancholyTriggers,1);
+        assert.equal(unit.controlSeconds,0,'Self-disarm is not reported as control of an enemy');
+      }else assert.equal(snapshot.waves[0].effects.poison,.25);
+      const canonical=validateSnapshot(snapshot,{families:data.towers,waveDefinitions:data.waves,enemyDefinitions:data.enemies});
+      const create={id:snapshot.id,writeToken:access,mode:snapshot.mode,seed:snapshot.seed,version};
+      assert.equal((await request(store,'/api/runs',create)).status,201);
+      assert.equal((await request(store,`/api/runs/${snapshot.id}/checkpoint`,{writeToken:access,snapshot})).status,200);
+      const saved=store.sqlite.prepare('SELECT summary_json FROM runs WHERE id = ?').get(snapshot.id);
+      assert.deepEqual(JSON.parse(saved.summary_json).decisions,canonical.decisions);
+      const wave=JSON.parse(store.sqlite.prepare('SELECT snapshot_json FROM run_waves WHERE run_id = ? AND wave = 1').get(snapshot.id).snapshot_json);
+      assert.deepEqual(wave.effects,snapshot.waves[0].effects);assert.deepEqual(wave.towers,snapshot.waves[0].towers);
+      const unknown=structuredClone(snapshot);unknown.sequence++;unknown.decisions[0].family='unknownSecret';
+      assert.equal((await request(store,`/api/runs/${snapshot.id}/checkpoint`,{writeToken:access,snapshot:unknown})).status,400,'New legitimate families do not permit arbitrary family IDs');
+    }
+    const report=await request(store,'/api/admin/statistics',null,{headers:{Authorization:'Bearer test-owner-access'}});
+    assert.equal(report.status,200);const analytics=await report.json();
+    for(const family of ['ladyclaire','lordbernhard']){
+      const decision=analytics.decisions.find(row=>row.family===family);assert.equal(decision.action,'combine');assert.equal(decision.chosen,1);assert.equal(decision.version,version);
+      const defender=analytics.defenders.find(row=>row.family===family);assert.equal(defender.waveDeployments,1);assert.ok(defender.damage>0);assert.equal(defender.hits,1);
+    }
+    assert.deepEqual(store.sqlite.prepare("SELECT name FROM sqlite_schema WHERE type='table' ORDER BY name").all(),originalTables,'Secret statistics need no new table or schema migration');
+  }finally{for(const played of playedRuns)played.statistics.dispose();store.close();}
 });
 
 test('real Game and RunStatistics produce accepted 10-wave and 50-wave wins below the request size limit', async t => {

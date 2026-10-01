@@ -123,5 +123,41 @@
       "frontierTower": 2
     },
     "review": "royal-castle-v6-review.png"
+  },
+  {
+    "file": "royal-castle-v7.glb",
+    "source": "royal-castle-v7.blend",
+    "style": "scenery-v7",
+    "authoring": "Blender 5.2",
+    "triangles": 109570,
+    "roles": {
+      "wallSoldier": 4,
+      "animalPen": 2,
+      "springSource": 1,
+      "springRock": 3,
+      "frontierTower": 2,
+      "wallArcher": 13,
+      "townBuilding": 20,
+      "farmPlot": 7,
+      "buildingFootprint": 1,
+      "cow": 6,
+      "resident": 31,
+      "royalWallSegment": 7,
+      "settlementTree": 88,
+      "settlementRock": 14,
+      "street": 7,
+      "defensiveThornbrush": 22,
+      "watermill": 1,
+      "canalBridge": 3,
+      "quarry": 1,
+      "defensiveStake": 133,
+      "waterwheel": 1,
+      "sheep": 9,
+      "royalGate": 1,
+      "palace": 1
+    },
+    "review": "royal-castle-v7-review.png",
+    "inherits": "royal-castle-v6.blend",
+    "gameplayEffect": "none"
   }
 ]

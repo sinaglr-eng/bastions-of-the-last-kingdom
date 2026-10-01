@@ -14,8 +14,8 @@ const styleKeys=Object.keys(SUPPORT_EFFECT_STYLES);
 function arena(){const g=new Game(data,{seed:7});g.phase='combat';g.combat.spawnQueue=[{time:9999,type:'grunt'}];return g;}
 function foe(g,x=11,z=10){const e=g.combat.spawn('grunt');Object.assign(e,{x,z,hp:1e9,maxHp:1e9,speed:0});return e;}
 
-test('all 85 actual defender variants display exactly the numerical supportBonuses result without changing source data',()=>{
-  const before=JSON.stringify(data),towers=allUnits();assert.equal(towers.length,85);
+test('all 87 actual defender variants display exactly the numerical supportBonuses result without changing source data',()=>{
+  const before=JSON.stringify(data),towers=allUnits();assert.equal(towers.length,87);
   const found=new Set();
   for(const tower of towers){
     const state=towerSupportState(tower,towers,data);
@@ -77,10 +77,10 @@ test('all persistent enemy statuses and effective debuff auras have distinct gly
 test('owned instanced overlays have bounded counts, visible independent glyph geometry, no picking and no hidden-enemy leaks',()=>{
   const scene=new THREE.Scene(),fx=new SupportEffects(scene,{baseHeight:1,position:(x,y,z)=>new THREE.Vector3(x-18,y,z-18),isVisible:e=>!e.cloaked,maxTowers:4,maxEnemies:3}),target=unit('archer'),support=unit('monk',2),nature=unit('mothernature',3);
   const towers=[target,support,nature,...Array.from({length:10},(_,i)=>unit('archer',20+i))],enemies=Array.from({length:12},(_,i)=>({id:i,x:10,z:10,statuses:{poison:{time:2,dps:5}},dead:false,cloaked:i===0}));
-  fx.sync(towers,data,{selected:support,combat:{enemies,elapsed:0},phase:'combat'});assert.equal(fx.batches.size,17);assert.equal(fx.group.children.length,19);
+  fx.sync(towers,data,{selected:support,combat:{enemies,elapsed:0},phase:'combat'});assert.equal(fx.batches.size,18);assert.equal(fx.group.children.length,20);
   assert.equal(fx.batches.get('haste').count,4);assert.equal(fx.batches.get('enemy:poison').count,3);assert.equal(fx.enemyStates.has(0),false);assert.ok(fx.radius.visible);assert.equal(fx.tint.count,4);
   const signatures=new Set();for(const key of styleKeys){const mesh=fx.batches.get(key);signatures.add(Array.from(mesh.geometry.attributes.position.array).join(','));assert.equal(mesh.geometry.userData.glyph,SUPPORT_EFFECT_STYLES[key].glyph);assert.ok(mesh.geometry.userData.glyphVertexStart>0);}
-  assert.equal(signatures.size,8,'Shapes differ as well as colors');
+  assert.equal(signatures.size,9,'Shapes differ as well as colors');
   fx.group.traverse(o=>{assert.equal(o.raycast(),undefined);assert.ok(!o.isLight);if(o.geometry)assert.ok(o.geometry.attributes.position.array.every(Number.isFinite));if(o.material)assert.equal(o.material.depthWrite,false);});
   const position=fx.radius.geometry.attributes.position;fx.sync(towers,data,{selected:nature});assert.equal(fx.radius.geometry.attributes.position,position,'Selected radius buffer is reused');
   support.state='ruin';nature.state='draft';fx.sync(towers,data);assert.ok([...fx.batches.values()].every(m=>m.count===0));assert.equal(fx.radius.visible,false);assert.equal(fx.tint.count,0);fx.dispose();

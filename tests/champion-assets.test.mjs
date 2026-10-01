@@ -66,14 +66,16 @@ function geometrySignature(scene) {
   return hash.digest('hex');
 }
 
-test('the v6 release includes all 37 champions and all six ranks of the eight basic defenders', () => {
-  assert.equal(champions.length, 37);
-  assert.equal(championEntries.length, 37);
+test('the release includes 37 regular champions, two secret champions and all six ranks of the eight basic defenders', () => {
+  assert.equal(champions.length, 39);
+  assert.equal(championEntries.length, 39);
   assert.deepEqual(championEntries.map(entry => entry.family).sort(), [...champions].sort());
-  assert.equal(new Set(championEntries.map(entry => entry.file)).size, 37);
+  assert.equal(new Set(championEntries.map(entry => entry.file)).size, 39);
   for (const entry of championEntries) {
-    assert.equal(entry.style, 'champion-v6', entry.family);
-    assert.equal(entry.designRevision, 6, entry.family);
+    const secret = ['ladyclaire', 'lordbernhard'].includes(entry.family);
+    assert.equal(entry.style, secret ? 'champions-v7.8' : 'champion-v6', entry.family);
+    assert.equal(entry.designRevision, secret ? 8 : 6, entry.family);
+    if (secret) assert.equal(entry.secret, true, entry.family);
     assert.equal(entry.authoring, 'Blender', entry.family);
     assert.equal(entry.name, towers[entry.family].name, entry.family);
     assert.equal(entry.tier, 1, entry.family);
@@ -97,7 +99,8 @@ test('the v6 release includes all 37 champions and all six ranks of the eight ba
   }
 });
 
-test('Three.js loads all 85 defender variants with finite geometry, normals, bounds and the recorded triangle budget', async () => {
+test('Three.js loads all 87 defender variants with finite geometry, normals, bounds and the recorded triangle budget', async () => {
+  assert.equal(defenderEntries.length, 87);
   for (const {entry, scene} of await loadDefenders()) {
     const meshes = meshList(scene);
     assert.ok(meshes.length > 0, `${entry.family}: no renderable meshes`);
@@ -118,26 +121,41 @@ test('Three.js loads all 85 defender variants with finite geometry, normals, bou
       triangles += count / 3;
     }
     assert.equal(triangles, entry.triangles, `${entry.family}: manifest triangle count`);
-    assert.ok(triangles > 0 && triangles < 10000, `${entry.family}: ${triangles} triangles`);
+    const mountedSecret = entry.family === 'lordbernhard';
+    assert.ok(triangles > 0 && triangles < (mountedSecret ? 13500 : 10000), `${entry.family}: ${triangles} triangles`);
     const bounds = new THREE.Box3().setFromObject(scene, true);
     for (const vector of [bounds.min, bounds.max]) {
       assert.ok([vector.x, vector.y, vector.z].every(Number.isFinite), `${entry.family}: invalid bounds`);
     }
     const size = bounds.getSize(new THREE.Vector3());
     assert.ok(size.x > .1 && size.x < 3.5, `${entry.family}: width ${size.x}`);
-    assert.ok(size.y > .1 && size.y < 3, `${entry.family}: height ${size.y}`);
+    assert.ok(size.y > .1 && size.y < (mountedSecret ? 3.1 : 3), `${entry.family}: height ${size.y}`);
     assert.ok(size.z > .1 && size.z < 3.5, `${entry.family}: depth ${size.z}`);
   }
 });
 
-test('all 37 champions have distinct actual geometry, independent of their names and materials', async () => {
+test('all 39 champions have distinct actual geometry, independent of their names and materials', async () => {
   const signatures = new Map();
   for (const {entry, scene} of await loadChampions()) {
     const signature = geometrySignature(scene);
     assert.ok(!signatures.has(signature), `${entry.family} duplicates the geometry of ${signatures.get(signature)}`);
     signatures.set(signature, entry.family);
   }
-  assert.equal(signatures.size, 37);
+  assert.equal(signatures.size, 39);
+});
+
+test('secret champions preserve native bounds and editable Blender authoring metadata', async () => {
+  for (const family of ['ladyclaire', 'lordbernhard']) {
+    const {entry, scene} = (await loadChampions()).find(item => item.entry.family === family);
+    const authored = scene.getObjectByName('secret_champion_' + family);
+    assert.equal(authored?.userData.secret, true, family);
+    assert.equal(authored.userData.assetRevision, 'champions-v7.8', family);
+    assert.equal(authored.userData.designName, towers[family].name, family);
+    assert.equal(entry.source, `blender/scenes/${family}_design_v1.blend`);
+    const size = new THREE.Box3().setFromObject(scene, true).getSize(new THREE.Vector3());
+    const expected = [entry.bounds.size[0], entry.bounds.size[2], entry.bounds.size[1]];
+    size.toArray().forEach((value, axis) => assert.ok(Math.abs(value - expected[axis]) < .001, `${family}: native axis ${axis}`));
+  }
 });
 
 test('the exported Catapult arm moves its real mesh descendants and returns to rest on a cloned loaded model', async () => {

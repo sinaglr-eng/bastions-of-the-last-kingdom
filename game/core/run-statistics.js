@@ -18,6 +18,7 @@ export class RunStatistics {
     const w=this.current;
     if(w&&type==='spawn'){w.spawned++;const key=p.enemy.type;w.enemyTypes[key]??={spawned:0,kills:0,leaks:0};w.enemyTypes[key].spawned++;}
     if(w&&type==='shot'){const row=this.waveUnits.get(p.source?.id);if(row)row.shots++;}
+    if(w&&type==='melancholy')w.effects.melancholyTriggers=(w.effects.melancholyTriggers||0)+1;
     if(w&&type==='hit'){const row=this.waveUnits.get(p.source?.id);if(row){row.damage+=Math.min(p.damage,Math.max(0,p.enemy.hp+p.damage));row.hits++;}}
     if(w&&type==='death'){w.kills++;if(p.enemy.boss)w.bossKills++;if(w.enemyTypes[p.enemy.type])w.enemyTypes[p.enemy.type].kills++;const row=this.waveUnits.get(this.lastSources.get(p.enemy.id));if(row)row.kills++;this.lastSources.delete(p.enemy.id);}
     // hit precedes death in CombatManager; remember the actual finishing source.
@@ -40,7 +41,13 @@ export class RunStatistics {
       }
       const row=this.waveUnits.get(effect?.source?.id);if(row){const seconds=Math.min(slice,effect.time);row.controlSeconds+=seconds;if(effect.aura)w.effects.slowAura=(w.effects.slowAura||0)+seconds;}
     }
-    for(const tower of this.game.towers){const row=this.waveUnits.get(tower.id);if(!row)continue;const bonus=supportBonuses(tower,this.game.towers,this.game.data);if(bonus.haste>1||bonus.damage>1||bonus.range>0||bonus.trueStrike||bonus.controlResistance)row.supportSeconds+=slice;}
+    for(const tower of this.game.towers){
+      const row=this.waveUnits.get(tower.id);if(!row)continue;
+      const bonus=supportBonuses(tower,this.game.towers,this.game.data);if(bonus.haste>1||bonus.damage>1||bonus.range>0||bonus.trueStrike||bonus.controlResistance)row.supportSeconds+=slice;
+      const until=tower.melancholyUntil||0,duration=towerStats(tower,this.game.data).melancholyDuration||0,elapsed=this.game.combat.elapsed;
+      const seconds=duration?Math.max(0,Math.min(elapsed,until)-Math.max(elapsed-slice,until-duration)):0;
+      if(seconds)w.effects.melancholy=(w.effects.melancholy||0)+seconds;
+    }
   }
   finishWave(completed){if(!this.current)return;this.current.completed=completed;this.current.endHealth=this.game.lives;this.current.durationMs=Math.round(this.game.combat.elapsed*1000);this.waves.push(this.current);this.current=null;this.lastSources.clear();this.sampleClock=0;}
   snapshot({abandoned=false}={}){

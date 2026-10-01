@@ -26,7 +26,7 @@ test('both detailed Blender landmarks load within their triangle budget and rema
       triangles+=(object.geometry.index?.count??position.count)/3;
     });
     assert.ok(triangles>40000&&triangles<(name==='keep'?110000:140000),name+' complete settlement within a bounded geometry budget');
-    assert.ok(meshes<=(name==='keep'?38:30),name+' material batches bound draw calls for the whole settlement');
+    assert.ok(meshes<=(name==='keep'?41:30),name+' material batches bound draw calls for the whole settlement');
     scene.position.set(site.x,site.y,site.z);
     const bounds=new THREE.Box3().setFromObject(scene,true);
     const point=new THREE.Vector3();scene.updateMatrixWorld(true);

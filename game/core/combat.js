@@ -12,7 +12,7 @@ export class CombatManager {
       for(let i=0;i<group.count;i++){this.spawnQueue.push({time,type:group.type,modifiers:{...wave,...group,variant}});time+=group.interval;}
     }
     this.total=this.spawnQueue.length;
-    for(const t of this.game.towers)t.cooldown=0;
+    for(const t of this.game.towers){t.cooldown=0;t.melancholy=0;t.melancholyUntil=0;}
   }
   spawn(type,modifiers={}) {
     const base={...this.game.data.enemies[type],...modifiers.variant};
@@ -128,9 +128,20 @@ export class CombatManager {
     if(landed.length)this.landedProcs(stats,source);
     if(stats.cleave&&victims.length)for(const e of this.enemies)if(e!==target&&!e.dead&&this.canSee(e,source)&&distance(e,target)<=stats.cleaveRadius)this.damage(e,hitDamage*stats.cleave,stats.cleaveType||stats.type,stats,source);
     if(landed.length&&stats.effectsRadius)for(const e of this.enemies)if(!e.dead&&this.canSee(e,source)&&distance(e,target)<=stats.effectsRadius)this.applyEffects(e,{slow:stats.slow,slowDuration:stats.slowDuration,healingBlockDuration:stats.healingBlockDuration},source);
-    if(stats.chain&&(!stats.chainChance||this.game.rng()<stats.chainChance)) {
-      const chained=this.enemies.filter(e=>!e.dead&&this.canSee(e,source)&&!victims.includes(e)&&distance(e,target)<4).sort((a,b)=>distance(a,target)-distance(b,target)).slice(0,stats.chain);
-      for(const e of chained){if(this.damage(e,stats.chainDamage||stats.damage*0.55,stats.type,{...stats,directHit:true},source)>0)this.applyEffects(e,stats,source);this.game.emit('chain',{from:target,to:e,color:stats.color});}
+    if(stats.chain&&(!stats.chainSequential||landed.length)&&(!stats.chainChance||this.game.rng()<stats.chainChance)) {
+      if(stats.chainSequential){
+        const used=new Set(victims);let previous=target;
+        for(let i=0;i<stats.chain;i++){
+          const next=this.enemies.filter(e=>!e.dead&&this.canSee(e,source)&&!used.has(e)&&distance(e,previous)<=(stats.chainRange||4)).sort((a,b)=>distance(a,previous)-distance(b,previous))[0];
+          if(!next)break;
+          used.add(next);
+          if(this.damage(next,stats.chainDamage||stats.damage*.55,stats.type,{...stats,directHit:true},source)>0)this.applyEffects(next,stats,source);
+          this.game.emit('chain',{from:previous,to:next,color:stats.color});previous=next;
+        }
+      }else{
+        const chained=this.enemies.filter(e=>!e.dead&&this.canSee(e,source)&&!victims.includes(e)&&distance(e,target)<(stats.chainRange||4)).sort((a,b)=>distance(a,target)-distance(b,target)).slice(0,stats.chain);
+        for(const e of chained){if(this.damage(e,stats.chainDamage||stats.damage*0.55,stats.type,{...stats,directHit:true},source)>0)this.applyEffects(e,stats,source);this.game.emit('chain',{from:target,to:e,color:stats.color});}
+      }
     }
     if(landed.length&&stats.forkedTargets&&this.game.rng()<(stats.forkedChance||1)){
       const forked=this.enemies.filter(e=>!e.dead&&this.canSee(e,source)&&distance(e,target)<=(stats.forkedRange||10)).sort((a,b)=>distance(a,target)-distance(b,target)).slice(0,stats.forkedTargets);
@@ -185,11 +196,13 @@ export class CombatManager {
     for(const tower of this.game.towers) {
       tower.weakened=Math.max(0,(tower.weakened||0)-dt);
       if(tower.state!=='active')continue;
+      const melancholySlice=Math.min(dt,Math.max(0,(tower.melancholyUntil||0)-(this.elapsed-dt)));
+      tower.melancholy=Math.max(0,(tower.melancholyUntil||0)-this.elapsed);
       const bonuses=supportBonuses(tower,this.game.towers,this.game.data),stats=towerStats(tower,this.game.data);
       stats.range+=bonuses.range;stats.damage*=bonuses.damage;
       stats.trueStrike||=!!bonuses.trueStrike;
       let boost=bonuses.haste,dread=0;
-      tower.disarmed=false;
+      tower.disarmed=tower.melancholy>0;
       for(const enemy of this.enemies)if(!enemy.dead){
         const range=distance(tower,enemy);
         if(enemy.untouchable&&range<4)dread=Math.max(dread,enemy.untouchable*(1-(bonuses.controlResistance||0)));
@@ -207,11 +220,17 @@ export class CombatManager {
         if(victims.length&&tower.auraPulse<=0){this.game.emit('aura-attack',{source:tower,target:victims[0],stats});this.game.emit('impact',{source:tower,target:victims[0],stats,aura:true,x:tower.x,z:tower.z,color:stats.color,radius:stats.range});tower.auraPulse=.7;}
       }
       if(stats.damage<=0||tower.disarmed)continue;
-      tower.cooldown-=dt*boost;
+      tower.cooldown-=(dt-melancholySlice)*boost;
       // Preserve overshoot: Mythic rapid fire and stacked blessings must survive 3× speed.
       while(tower.cooldown<=0) {
         const targets=this.targetList(tower,stats).slice(0,stats.multishot||1);
         if(!targets.length){tower.cooldown=0;break;}
+        // Melancholy triggers at attack start, cancelling this attack. Its
+        // combat-time deadline is independent of attack-speed blessings.
+        if(stats.melancholyChance&&this.game.rng()<stats.melancholyChance){
+          tower.melancholy=stats.melancholyDuration||5;tower.melancholyUntil=this.elapsed+tower.melancholy;tower.disarmed=true;tower.cooldown=0;
+          this.game.emit('melancholy',{source:tower,duration:tower.melancholy});break;
+        }
         tower.cooldown+=stats.interval;
         for(const target of targets) {
           const shot={id:++this.shotSerial,source:tower,target,stats,start:{x:tower.x,z:tower.z},x:tower.x,z:tower.z,progress:0,duration:stats.melee ? .14 : Math.max(0.08,distance(tower,target)/stats.projectileSpeed)};

@@ -738,5 +738,29 @@
         "tier": 5
       }
     ]
+  },
+  {
+    "id": "ladyclaire",
+    "level": 1,
+    "stage": "Secret",
+    "currentRoundOnly": true,
+    "referenceTower": "Fantastic Miss Shrimp",
+    "ingredients": [
+      { "family": "mage", "tier": 5 },
+      { "family": "druid", "tier": 5 },
+      { "family": "frostwarden", "tier": 5 }
+    ]
+  },
+  {
+    "id": "lordbernhard",
+    "level": 1,
+    "stage": "Secret",
+    "currentRoundOnly": true,
+    "referenceTower": "Diamond Cullinan",
+    "ingredients": [
+      { "family": "soldier", "tier": 5 },
+      { "family": "soldier", "tier": 4 },
+      { "family": "soldier", "tier": 3 }
+    ]
   }
 ]

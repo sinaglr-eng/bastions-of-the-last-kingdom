@@ -17,23 +17,23 @@ function gameplay(value){
 }
 const fingerprint=value=>createHash('sha256').update(JSON.stringify(gameplay(value))).digest('hex');
 const approvedNames=[
- 'Skřetí sběrači lebek','Gobliní trnonožci','Ogroví žrouti','Skřetí šrotokutálové','Netopýří zvědové',
- 'Trollové mechových zad','Skřetí lovci z močálů','Trollí stínokrevníci','Gobliní prachotanečníci','Mogrok, Rozbíječ bran',
- 'Skřetí hákonoši','Gobliní zvonožrouti','Skřetice Rudého klu','Skřetí zrcadloštítníci','Krvaví netopýří honáci',
- 'Skřetí popelní kapsáři','Trollí nosiči prokletých totemů','Skřetí němí kati','Skřetí jezdci na krvavých vlcích','Gorvash, Kostěný patriarcha',
- 'Trollové Hnilobného kořene','Ogroví železní berani','Skřetí zaklínači střepových duší','Gobliní nýtovaní mutanti','Skřetí jezdci na železných netopýrech',
- 'Skřetí požírači kouzel','Přízrační netopýří jezdcové','Gobliní křídlošroti','Prizmatickí netopýří šejdíři','Zaruun, Pán bouřných křídel',
- 'Skřetí dvojpečetní inkvizitoři','Trollí pijáci duší','Skřetí přízraky roztrženého světa','Gobliní šibeniční letci','Netopýří stráž Zatmění',
- 'Skřetí křivopřísežníci','Skřetí jezdci na trhlinových vlcích','Nožíři Černé bažiny / Trollí krvesajové','Skřetí jezdci na hromových mantách','Vorlak, Dutý král nebes',
- 'Skřetí krystalová falanga','Skřetí ohniví netopýří kopiníci','Ogroví strážci vězněných duší','Skřetí popelní popravčí','Létající bubeníci Černé hordy',
- 'Ogroví revenanti v prázdné zbroji','Skřetí jezdci Posledního vytí','Netopýří zloději černého ohně','Trollí strážci Hluboké tlamy','Ghorun, Černý čaroděj na Královně wyvern',
+ 'Orc Skull Scavengers','Goblin Thornstriders','Ogre Gluttons','Orc Scrap Tinkers','Bat Scouts',
+ 'Mossback Trolls','Marsh Orc Hunters','Shadowblood Trolls','Goblin Dust Dancers','Mogrok, the Gatebreaker',
+ 'Orc Hookbearers','Goblin Bell Devourers','Red Tusk Orc Huntresses','Orc Mirror Shieldbearers','Blood Bat Riders',
+ 'Orc Ash Pickpockets','Cursed Totem Trolls','Silent Orc Executioners','Bloodwolf Orc Riders','Gorvash, the Bone Patriarch',
+ 'Rotroot Trolls','Iron Ram Ogres','Shard-Soul Orc Warlocks','Riveted Goblin Mutants','Iron Bat Orc Riders',
+ 'Orc Spell Eaters','Spectral Bat Riders','Goblin Scrapwings','Prismatic Bat Tricksters','Zaruun, Lord of Storm Wings',
+ 'Orc Dual-Seal Inquisitors','Soul-Drinker Trolls','Orc Wraiths of the Shattered World','Goblin Gallows Fliers','Eclipse Bat Guard',
+ 'Orc Oathbreakers','Riftwolf Orc Riders','Black Marsh Knifemen / Blood-Leech Trolls','Thunder Manta Orc Riders','Vorlak, the Hollow Sky King',
+ 'Orc Crystal Phalanx','Fire Bat Orc Lancers','Ogres of the Imprisoned Souls','Orc Ash Executioners','Flying Drummers of the Black Horde',
+ 'Ogre Revenants in Hollow Armor','Orc Riders of the Last Howl','Bat Thieves of Black Fire','Troll Guardians of the Deep Maw','Ghorun, the Black Sorcerer on the Wyvern Queen',
 ];
 const variantMap={
- host_31:[['Popelní dvojpečetní inkvizitoři','host_31-ember'],['Přízrační dvojpečetní inkvizitoři','host_31-wraith']],
- host_35:[['Popelní jezdci stráže Zatmění','host_35-ember'],['Přízrační jezdci stráže Zatmění','host_35-wraith']],
- host_36:[['Popelní křivopřísežníci','host_36-ember'],['Přízrační křivopřísežníci','host_36-wraith']],
- host_38:[['Nožíři Černé bažiny','host_38'],['Trollí krvesajové','host_38-wraith']],
- host_50:[['Ghorun Popelavý','host_50'],['Ghorun Zlatokletý','host_50-tyrant'],['Ghorun Bledý požírač','host_50-devourer']],
+ host_31:[['Ashen Dual-Seal Inquisitors','host_31-ember'],['Spectral Dual-Seal Inquisitors','host_31-wraith']],
+ host_35:[['Ashen Eclipse Bat Riders','host_35-ember'],['Spectral Eclipse Bat Riders','host_35-wraith']],
+ host_36:[['Ashen Oathbreakers','host_36-ember'],['Spectral Oathbreakers','host_36-wraith']],
+ host_38:[['Black Marsh Knifemen','host_38'],['Blood-Leech Trolls','host_38-wraith']],
+ host_50:[['Ghorun the Ashen','host_50'],['Ghorun the Gold-Cursed','host_50-tyrant'],['Ghorun the Pale Devourer','host_50-devourer']],
 };
 
 test('Dark Host changes only the five allowed visual fields and preserves every other enemy and wave field recursively',()=>{

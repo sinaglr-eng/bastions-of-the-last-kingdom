@@ -8,14 +8,17 @@ The repository was initially empty apart from `.git`. The implementation sequenc
 
 ## Completed systems
 
-- Verified visual classifications for all 37 champions, with equally large auras shared by the battlefield and atelier: Basic blue, Intermediate green, Advanced purple and TOP gold. Version 0.2.2 uses only the 37 fixed champion forms and readable Grimoire effects, direct damage/DPS and recursively expanded pinned requirements. The six Blender redesigns from 0.2.1 retain their geometry.
+- Release 0.2.8 adds two current-round-only Secret champions to the 37 ordinary forms: Lady Claire and Lord Bernhard. The complete roster has 39 fixed recipes, 87 defender variants and 47 types. Their native Blender models, gold auras, private orb/horse animation and source-derived combat behavior are documented in [Secret champion rules](docs/SECRET_CHAMPION_RULES.md) and [release reproduction](docs/SECRET_CHAMPIONS_V028.md).
+- All active warband names, variants and descriptions are English. Native enemy wing/leg motion reads private cloned pivots, uses a paused combat clock and restores authored poses for reduced motion. Scenery V7 adds dry stakes/thorns outside the western wall while retaining the complete V6 settlement geometry and an open bridge entrance.
+
+- Verified visual classifications for the 37 ordinary champions, with equally large auras shared by the battlefield and atelier: Basic blue, Intermediate green, Advanced purple and TOP gold. Version 0.2.2 uses only the 37 fixed champion forms and readable Grimoire effects, direct damage/DPS and recursively expanded pinned requirements. The six Blender redesigns from 0.2.1 retain their geometry.
 - Open 37 × 37 strategic grid, no terrain obstacles, five intermediate checkpoints on the fifth tile from the edge, spawn and keep exit.
 - Continuous detailed meadow without a board frame, terraced snowy peaks, branched forested banks, curve-aligned flowing water, waterfall sheets/spray/ripples and exterior bridge. Scenery bounds exclude the whole construction area; distant camera views add occasional drifting clouds.
 - M-key chooser with six fixed measured blueprints: the three supplied reference plans and three new central crossfire routes of at most 150 wall cells. Persistent selection, exposure/pass metrics, progress/conflict reporting and a draw/erase/undo/redo custom editor remain available. Local saved plans survive reload. Offline tools retain search and independent BFS benchmarking. No global-optimality claim.
 - Dynamic four-neighbor shortest routes checked across every checkpoint segment before committing a placement. Rejected placements leave occupancy and the route unchanged.
 - Five sealed slots per round; independent family/rank roll only after valid placement; keep one and convert the other foundations to blocking barricades. Wall demolition is free between waves and never refunds a draw. Round-start mastery odds are frozen; invalid placement consumes no random roll. Double-clicking or double-tapping the visible map figure or its card can confirm an eligible keeper.
 - Six basic tier qualities (VI is merge-only), automatic mastery at Kingdom level minus one capped at 15, equal family weighting and Kingdom XP. Perfect kill XP first reaches maximum mastery after wave 22. Completed waves award 50 gold, or 200 for a boss; gold pays only for a 200-gold candidate downgrade. Paid mastery and champion improvements are unavailable.
-- Current-five-only basic family/tier merging and 37 approved exact three-defender champion recipes across retained ingredients. Champions have a single fixed form; Ascension is removed. The eight later formation champions remain removed. Every basic family/rank pair appears in a fixed recipe. Recipe eligibility uses the selected defender's exact family/rank; result location follows the selected ingredient. Consumed foundations stay occupied. Pinned recipes recursively expand to aggregated basic requirements, accounting for owned component champions once.
+- Current-five-only basic family/tier merging, 37 ordinary exact three-defender champion recipes across retained ingredients, and two Secret recipes using only the same round's five placed candidates. Champions have a single fixed form; Ascension is removed. The eight later formation champions remain removed. Every basic family/rank pair appears in a fixed recipe. Recipe eligibility uses the selected defender's exact family/rank; result location follows the selected ingredient. Consumed foundations stay occupied. Pinned recipes recursively expand to aggregated basic requirements, accounting for owned component champions once.
 - Physical, piercing, arcane, fire, frost, poison and holy damage; armor, resistance, penetration, splash, chain, slow, freeze, poison, burn, bleed, auras and bonus damage tags.
 - Visible traveling projectiles, articulated catapult throwing arms, unit motion/recoil, impact rings, combine pulses and heavy-hit feedback. Boss auras reinforce enlarged silhouettes. Fallen enemies descend/collapse and remain as corpses through the round; next construction clears them.
 - Fifty authored orc waves follow the source movement/trait order, with five bosses and seeded alternatives. Only wave 1 has introductory health, armor, speed and spawn intervals; waves 2 and 3 retain their original normal tuning. Veil, evasion, disarm, refraction, immunities, theft, dread, rush, reactive armor, recharge, blink, shell and war drums have real counters. Legacy archetypes remain for development fixtures.
@@ -24,7 +27,7 @@ The repository was initially empty apart from `.git`. The implementation sequenc
 - Kill/wave score and browser-local profile for recipe discoveries, audio setting, tutorial choice, best score, best wave and wins. A seven-step guide offers a startup choice and replay in Help. A separate persistent statistics backend records run/wave checkpoints for balancing; named scores after victory or defeat appear in campaign/version Top 10 rankings with the player's own position. Detailed reports require the owner's token. No player account or permanent power progression.
 - Audio manager with replaceable category hooks and synthesized placeholder attack/UI/result cues.
 - Developer controls guarded by the development-build flag and `?debug`: gold, mastery, forced next draft, enemy spawn, kill, wave skip, recipe unlock.
-- Reproducible Blender authoring: 85 playable defender/champion GLBs plus 20 legacy prop/enemy assets in the 105-entry model manifest; a separate 59-model Dark Host V3 pack. All playable families and warbands have editable `.blend` sources and rendered portraits. Cohesive skin/clothing geometry and smooth normals retain useful articulation pivots.
+- Reproducible Blender authoring: 87 playable defender/champion GLBs plus 20 legacy prop/enemy assets in the 107-entry model manifest; a separate 59-model Dark Host V3 pack. All playable families and warbands have editable `.blend` sources and rendered portraits. Cohesive skin/clothing geometry and smooth normals retain useful articulation pivots.
 
 The approved `data/towers.json`, `data/recipes.json` and `data/balance.json` files are the source of truth for numerical balance and recipe topology. `node tools/author-roster.mjs` validates them without modifying files. Its explicit `--refresh-presentation` mode changes only catalog names, descriptions, model categories and unit kind, preserving all agreed combat values and recipes. Blender regeneration reads the current JSON; it must never restore the obsolete 26-unit reference generator.
 
@@ -40,13 +43,13 @@ game/core/                pure JavaScript, no browser or Three.js dependency
   maze-worker.js          optional search tooling; not used by the live planner
   maze-seeds.js           prepared legal candidates, always revalidated
   draft.js                sealed slots and on-placement random reveal
-  recipes.js              exact multiset matching, recursive base requirements and basic merges
+  recipes.js              exact matching, current-round Secret gating, recursive requirements and merges
   progression.js          atomic spending, XP and mastery
   combat.js               spawning, targeting, damage/status/aura components
   warband-info.js          actual seeded wave traits, boss HP and retained counts
   math.js                 seeded RNG, probabilities, defenses, tier stats
   save.js                 versioned local profile storage
-  run-statistics.js       event-based run/wave analytics and sampled effect time
+  run-statistics.js       event-based run/wave analytics, sampled effect time and Melancholy downtime
   statistics-client.js   backend checkpoints, bounded retry queue and score API
 game/render/              Three.js scene, camera, model factories, VFX
 game/audio/               Web Audio categories and placeholder cues
@@ -62,7 +65,7 @@ tools/                    local static server, balance and content authoring
 docs/                     additional engineering notes and QA record
 ```
 
-Core dependencies flow into `Game`; rendering, UI and statistics observe its events (`change`, `shot`, `impact`, `death`, `combine`, `wave`, `reward`, `won`, `lost`). State updates never depend on animation completion or network responses. Static scenery is merged by material; tower templates share geometries/materials. Each GLB replaces its own complete procedural fallback immediately after loading, without waiting for the entire asset pack.
+Core dependencies flow into `Game`; rendering, UI and statistics observe its events (`change`, `shot`, `impact`, `death`, `combine`, `melancholy`, `wave`, `reward`, `won`, `lost`). State updates never depend on animation completion or network responses. Static scenery is merged by material; tower templates share geometries/materials. Each GLB replaces its own complete procedural fallback immediately after loading, without waiting for the entire asset pack.
 
 Movement is deterministic in grid coordinates; rendered world coordinates offset the grid to center it at the origin. Ground enemies follow a route snapshot because construction is closed during combat. Flying enemies interpolate the checkpoint list directly. Barricade removal happens between combats, so active enemies never inherit stale navigation.
 
@@ -70,10 +73,10 @@ The frame loop clamps its elapsed step to avoid hidden-tab jumps. Game speed mul
 
 ## Validation
 
-- `pnpm test`: includes 800,000 seeded quality rolls and 100,000 family draws. Coverage includes approved 37-champion recipes, automatic mastery and exact round income, real SQLite/D1 queries, full 10/50-wave statistical snapshots, retry ordering, safe names and leaderboard races. It also validates scenery water/board bounds and asynchronous defender imports. Touch tests exercise tap/drag separation, multi-touch suppression, actual OrbitControls panning and capture release during mouse/touch/pen double activation. The latest full-suite result is recorded in `docs/QA.md`.
+- `pnpm test`: includes 800,000 seeded quality rolls and 100,000 family draws. Coverage includes all 39 fixed champion recipes and Secret current-round restrictions, automatic mastery and exact round income, real SQLite/D1 queries, full 10/50-wave statistical snapshots, retry ordering, safe names and leaderboard races. It also validates scenery water/board bounds and asynchronous defender imports. Touch tests exercise tap/drag separation, multi-touch suppression, actual OrbitControls panning and capture release during mouse/touch/pen double activation. The latest full-suite result is recorded in `docs/QA.md`.
 - Three complete seed-driven campaign simulations use the actual combat and progression code. Latest outcomes are recorded in docs/QA.md. Reports are in `artifacts/campaign-simulation.json` after running the tool.
 - `pnpm build`: production bundle succeeds; the graphics-engine chunk is approximately 628 KB before gzip. No CDN dependencies.
-- Blender 5.2.2 authors the current cohesive pack. Runtime loads archer-v2, hero-v5, champion-v6 and dark-host-v3. The 105-entry defender/legacy library and 59 active enemy exports are covered by GLB parsing, mesh-budget and finite-bounds checks.
+- Blender 5.2.2 authors the current cohesive pack. Runtime loads archer-v2, hero-v5, champion-v6, champions-v7.8 Secret models and dark-host-v3. The 107-entry defender/legacy library and 59 active enemy exports are covered by GLB parsing, mesh-budget and finite-bounds checks.
 - Browser checks and remaining limitations are recorded in `docs/QA.md`.
 
 ## Controls
@@ -87,7 +90,7 @@ See README.md and the in-game Help dialog for the complete keyboard, pointer and
 - Audio is synthesized placeholder feedback; no final music, ambience recordings or voice performances.
 - Save/load covers local profile data and custom maze blueprints, not an in-progress battlefield. Refreshing begins a new run. Browser storage can be unavailable or cleared; the game handles that without failing.
 - Sappers scorch nearby barricades to apply a temporary local tower-rate penalty. They do not remove walls or require midcombat path rebuilding.
-- The approved roster has exactly 37 fixed champion recipes without champion Ascension. All 48 basic family/rank pairs have a recipe route; matching-pair merges remain available for current draft candidates below rank VI. Achievements and other campaigns remain future work.
+- The approved roster has 37 ordinary and two Secret fixed champion recipes without champion Ascension. All 48 basic family/rank pairs have a recipe route; matching-pair merges remain available for current draft candidates below rank VI. Achievements and other campaigns remain future work.
 - Balance is provisional. Full campaigns have automated smoke coverage; manual playtesting across many random drafts is still needed.
 - A WebGL-capable browser is required. Mobile layout and one-finger map panning are present, with tap selection and two-finger zoom/rotation. Automated touch tests do not replace physical iPad playtesting.
 

@@ -29,14 +29,14 @@ test('formation recipes form an acyclic graph and craft from every valid anchor 
     const r=data.recipes.find(r=>r.id===id);assert.ok(r);const next=new Set([...trail,id]);
     for(const p of r.ingredients)if(data.towers[p.family].advanced)visit(p.family,next);finished.add(id);
   }
-  for(const r of data.recipes){visit(r.id);
+  for(const r of data.recipes){visit(r.id);if(r.currentRoundOnly)continue;
     for(let anchor=0;anchor<r.ingredients.length;anchor++){
       const g=new Game(data,{seed:2});g.phase='ready';g.towers=r.ingredients.map((p,i)=>unit(p.family,p.tier,i+1,10+i));
       for(const t of g.towers)g.grid.occupy(t.x,t.z,t.id);g.select(anchor+1);
       assert.equal(g.craft(r.id),true,r.id);assert.equal(g.selection.family,recipeFamily(r));assert.equal(g.selection.tier,recipeTier(r));assert.equal(g.selection.x,10+anchor);assert.equal(g.towers.filter(t=>t.state==='active').length,1);assert.equal(g.grid.occupied.size,3);
     }
   }
-  assert.equal(finished.size,37);
+  assert.equal(finished.size,39);
 });
 test('wrong ranks and one copy of a repeated ingredient cannot satisfy a recipe',()=>{
   const g=new Game(data,{seed:3});g.phase='ready';g.towers=[unit('highking'),unit('runebreaker',5,2),unit('soldier',6,3)];g.select(1);

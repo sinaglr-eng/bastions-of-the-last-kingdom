@@ -1,5 +1,16 @@
 # Releases
 
+## 0.2.8 — Secret Champions — 1 October 2026
+
+- Adds Lady Claire and Lord Bernhard as fixed Secret champions with gold auras, leaving the 37 ordinary champions intact. Claire requires Mage V + Druid V + Frost Warden V; Bernhard uses the requested Soldier V + Soldier IV + Soldier III. All three ingredients must be actual candidates from the same current round, after all five placements. Old retained units cannot complete these recipes.
+- Authors both new characters in Blender 5.2 with editable scenes and rendered portraits. Claire has loose blonde hair below her shoulders, an open forehead, a smile, a dress, a staff and three orbiting orbs. Bernhard rides a white horse in radiant armor with his sword raised; the horse has four articulated legs. The roster now has 47 types, 87 defender variants and 39 fixed champion recipes.
+- Implements Fantastic Miss Shrimp-inspired chain/fork attacks and five-combat-second Melancholy for Claire, plus Diamond Cullinan-inspired single-target poison, nearby range support and true strike for Bernhard. Source precedence, range conversion and the adapted fork shape are explicit in [Secret champion rules](docs/SECRET_CHAMPION_RULES.md). A moon symbol and countdown show Claire's active Melancholy; analytics record triggers and inactive combat time.
+- Translates all fifty warband names, alternate names and descriptions into English. Enemy and wave combat fields retain their prior fingerprints. Living native models now move their actual wings and legs: bats flap strongly, heavier flying mounts use slower cycles, and grounded actors breathe and sway. Pause and reduced-motion settings preserve the expected rest behavior without changing shared templates.
+- Adds scenery V7's 133 angled stakes and 22 thorn bushes in front of the western royal walls. The seven-meter bridge entrance, dry ground clearance and construction board remain clear, and all original V6 geometry is preserved. The camp keeps its V6 export.
+- Makes full and family-only asset generation dispatch Secret models through their dedicated native authoring module, preserving unrelated manifest entries and avoiding generic human finalization. The statistics service recognizes the new champion families and edition without a schema reset.
+
+Technical evidence and reproduction: [Secret Champions QA record](docs/SECRET_CHAMPIONS_V028.md).
+
 ## 0.2.7 — Dark Host — 1 October 2026
 
 - Applies the exact fifty approved Czech warband names and appearance descriptions from the Dark Host design. Fifty main forms and nine alternate forms have new Blender 5.2 models, portraits and editable source scenes, including recognizable goblin, orc, troll, ogre, wolf-rider and flying-mount silhouettes.

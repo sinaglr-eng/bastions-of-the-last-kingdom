@@ -2144,5 +2144,107 @@
       "weapon_L",
       "weapon_R"
     ]
+  },
+  {
+    "id": "lordbernhard-t1",
+    "file": "advanced_lordbernhard.glb",
+    "kind": "tower",
+    "family": "lordbernhard",
+    "tier": 1,
+    "style": "champions-v7.8",
+    "assetRevision": "champions-v7.8",
+    "authoring": "Blender",
+    "secret": true,
+    "triangles": 13365,
+    "designRevision": 8,
+    "name": "Lord Bernhard",
+    "source": "blender/scenes/lordbernhard_design_v1.blend",
+    "bounds": {
+      "min": [
+        -0.47,
+        -0.66296,
+        0.0
+      ],
+      "max": [
+        0.47,
+        0.79498,
+        3.053
+      ],
+      "size": [
+        0.94,
+        1.45795,
+        3.053
+      ]
+    },
+    "articulationRevision": 1,
+    "attackJoints": [
+      "attack_muzzle",
+      "forearm_L",
+      "forearm_R",
+      "hand_L",
+      "hand_R",
+      "head_pivot",
+      "leg_horse_L_front",
+      "leg_horse_L_rear",
+      "leg_horse_R_front",
+      "leg_horse_R_rear",
+      "secret_champion_lordbernhard",
+      "torso_pivot",
+      "upper_arm_L",
+      "upper_arm_R",
+      "weapon_L",
+      "weapon_R"
+    ]
+  },
+  {
+    "id": "ladyclaire-t1",
+    "file": "advanced_ladyclaire.glb",
+    "kind": "tower",
+    "family": "ladyclaire",
+    "tier": 1,
+    "style": "champions-v7.8",
+    "assetRevision": "champions-v7.8",
+    "authoring": "Blender",
+    "secret": true,
+    "triangles": 9904,
+    "designRevision": 8,
+    "name": "Lady Claire",
+    "source": "blender/scenes/ladyclaire_design_v1.blend",
+    "bounds": {
+      "min": [
+        -0.53561,
+        -0.44,
+        0.0
+      ],
+      "max": [
+        0.56298,
+        0.44,
+        2.19992
+      ],
+      "size": [
+        1.09858,
+        0.88,
+        2.19992
+      ]
+    },
+    "articulationRevision": 1,
+    "attackJoints": [
+      "attack_muzzle",
+      "forearm_L",
+      "forearm_R",
+      "hand_L",
+      "hand_R",
+      "head_pivot",
+      "secret_champion_ladyclaire",
+      "secret_orb_0",
+      "secret_orb_1",
+      "secret_orb_2",
+      "staff_tip",
+      "torso_pivot",
+      "upper_arm_L",
+      "upper_arm_R",
+      "weapon_L",
+      "weapon_R"
+    ]
   }
 ]

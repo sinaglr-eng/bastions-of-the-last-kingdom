@@ -2,7 +2,7 @@
 // These levels identify presentation classes independently of combat buffs and basic ranks.
 export const CHAMPION_CLASSIFICATION_SOURCE = 'https://dota2.fandom.com/wiki/Gem_TD#Towers';
 
-export const CLASSIFICATION_LEVELS = Object.freeze({Basic:0, Intermediate:1, Advanced:2, TOP:3});
+export const CLASSIFICATION_LEVELS = Object.freeze({Basic:0, Intermediate:1, Advanced:2, TOP:3, Secret:4});
 
 export const CHAMPION_CLASSIFICATIONS = Object.freeze({
   rimewatch: 'Basic',
@@ -41,7 +41,9 @@ export const CHAMPION_CLASSIFICATIONS = Object.freeze({
   mechanicalgolem: 'TOP',
   monk: 'Advanced',
   archbishop: 'TOP',
-  archangel: 'Advanced'
+  archangel: 'Advanced',
+  ladyclaire: 'Secret',
+  lordbernhard: 'Secret'
 });
 
 export const championClassification = family => Object.hasOwn(CHAMPION_CLASSIFICATIONS,family) ? CHAMPION_CLASSIFICATIONS[family] : null;

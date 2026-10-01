@@ -27,10 +27,10 @@ test('support descriptions explain numeric blessings and separate stacking chant
   assert.match(angel,/own attacks do not trigger/);
 });
 
-test('each of 37 fixed champion cards uses classification, descriptions, damage and base DPS',()=>{
+test('each of 39 fixed champion cards uses classification, descriptions, damage and base DPS',()=>{
   const before=JSON.stringify(data);
   const cards=data.recipes.map(recipe=>championRecipeCard({...recipe,stage:'Mythic'},data,{}));
-  assert.equal(cards.length,37);
+  assert.equal(cards.length,39);
   cards.forEach((html,index)=>{
     const family=data.recipes[index].resultFamily||data.recipes[index].id;
     assert.ok(html.includes(championClassification(family).toUpperCase()));

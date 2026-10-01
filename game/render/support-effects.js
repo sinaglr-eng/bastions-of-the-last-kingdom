@@ -13,6 +13,7 @@ export const SUPPORT_EFFECT_STYLES=Object.freeze({
   dread:Object.freeze({label:'Dread',color:'#dd71df',glyph:'spiral'}),
   disarm:Object.freeze({label:'Disarmed',color:'#ff7976',glyph:'cross'}),
   weakened:Object.freeze({label:'Barricade disruption',color:'#e69b69',glyph:'crack'}),
+  melancholy:Object.freeze({label:'Melancholy',color:'#9bb4ed',glyph:'moon'}),
 });
 export const ENEMY_EFFECT_STYLES=Object.freeze({
   slow:Object.freeze({label:'Slowed',color:'#71d1e6',glyph:'clock'}),
@@ -26,7 +27,7 @@ export const ENEMY_EFFECT_STYLES=Object.freeze({
   healBlock:Object.freeze({label:'Healing blocked',color:'#ffc0d0',glyph:'cross'}),
 });
 const positiveKeys=['haste','damage','range','controlResistance','trueStrike'];
-const negativeKeys=['dread','disarm','weakened'];
+const negativeKeys=['dread','disarm','weakened','melancholy'];
 // One legible wall hue, in the same stable order as the effect legend. Every
 // simultaneous effect retains its own independent glyph and halo segment.
 export const SUPPORT_TINT_PRIORITY=Object.freeze([...positiveKeys,...negativeKeys]);
@@ -97,6 +98,8 @@ export function towerSupportState(tower,towers,data,options={}){
     }
     if(dread.length){const strongest=Math.max(...dread.map(s=>s.value));state.effects.push(effect('dread',strongest,strongest,dread.filter(s=>s.value===strongest)));}
     if(disarm.length)state.effects.push(effect('disarm',true,1,disarm));
+    const remaining=Math.max(0,(tower.melancholyUntil||0)-(combat.elapsed||0));
+    if(remaining)state.effects.push(effect('melancholy',remaining,1,[{id:tower.id,family:tower.family,name:data.towers[tower.family].name,value:remaining}],{label:`Melancholy · cannot attack · ${remaining.toFixed(1)}s remaining`}));
     for(const ruin of towers)if(ruin.state==='ruin'&&ruin.weakened>0&&distance(tower,ruin)<2)ruins.push({id:ruin.id,family:ruin.family,name:'Scorched barricade',value:.15});
     if(ruins.length){const penalty=1-Math.pow(.85,ruins.length);state.effects.push(effect('weakened',penalty,penalty,ruins));}
   }
@@ -166,6 +169,7 @@ function geometryFor(glyph,{inner=.51,outer=.58,glyphRadius=.74,angle=.65}={}){
   else if(glyph==='drop')line([[0,sy-.115],[.075,sy+.025],[.05,sy+.082],[-.05,sy+.082],[-.075,sy+.025],[0,sy-.115]],.014);
   else if(glyph==='flame')line([[-.085,sy+.08],[-.065,sy-.04],[0,sy-.12],[.012,sy-.015],[.07,sy-.06],[.085,sy+.08],[-.085,sy+.08]],.015);
   else if(glyph==='brokenStar'){line([[-.09,sy-.045],[.03,sy-.045],[0,sy-.12],[.09,sy+.05],[-.03,sy+.05],[0,sy+.12],[-.09,sy-.045]],.013);}
+  else if(glyph==='moon'){line(Array.from({length:18},(_,i)=>{const a=.55+i/17*(Math.PI*2-1.1);return[Math.cos(a)*.1,sy+Math.sin(a)*.1];}),.016);line(Array.from({length:16},(_,i)=>{const a=.93+i/15*(Math.PI*2-1.86);return[.043+Math.cos(a)*.067,sy+Math.sin(a)*.095];}),.014);}
   // Glyph triangles were generated in a 2D plane (x,z,0).
   for(let i=0;i<vertices.length;i+=3){vertices[i+2]=vertices[i+1];vertices[i+1]=0;}
   const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.computeVertexNormals();geometry.computeBoundingSphere();geometry.userData.glyph=glyph;geometry.userData.glyphVertexStart=offset/3;return geometry;
@@ -198,7 +202,7 @@ export class SupportEffects{
     const context=prepared(towers,data),options={context,combat,phase},tints=[];
     for(const tower of towers){
       if(tower.state!=='active')continue;const state=towerSupportState(tower,towers,data,options);this.states.set(tower.id,state);
-      for(const e of state.effects){const index=positiveKeys.includes(e.key)?positiveKeys.indexOf(e.key):negativeKeys.indexOf(e.key);this.entries.get(e.key).push({x:tower.x,z:tower.z,y:this.baseHeight+.015+(negativeKeys.includes(e.key)?.018:0),angle:index*Math.PI*2/(positiveKeys.includes(e.key)?5:3),id:tower.id});}
+      for(const e of state.effects){const index=positiveKeys.includes(e.key)?positiveKeys.indexOf(e.key):negativeKeys.indexOf(e.key);this.entries.get(e.key).push({x:tower.x,z:tower.z,y:this.baseHeight+.015+(negativeKeys.includes(e.key)?.018:0),angle:index*Math.PI*2/(positiveKeys.includes(e.key)?positiveKeys.length:negativeKeys.length),id:tower.id});}
       const tintKey=supportTintKey(state);
       if(tintKey)tints.push({tower,color:new THREE.Color(SUPPORT_EFFECT_STYLES[tintKey].color)});
     }

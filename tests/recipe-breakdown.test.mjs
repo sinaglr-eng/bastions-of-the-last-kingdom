@@ -23,7 +23,7 @@ test('Kingslayer recursively requires eleven recruits with repeated exact ranks 
   assert.equal(JSON.stringify(data),before,'The breakdown cannot alter approved recipes or stats');
 });
 
-test('all 37 fixed recipes resolve entirely to valid basic ranks',()=>{
+test('all 39 fixed recipes resolve entirely to valid basic ranks',()=>{
   for(const recipe of data.recipes){
     const rows=expandRecipeToBasics(recipe,data);
     assert.ok(rows.length,recipeFamily(recipe));

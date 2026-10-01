@@ -7,9 +7,11 @@ import {seededRandom,towerStats} from '../game/core/math.js';
 import {matchingIngredients,recipeFamily} from '../game/core/recipes.js';
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
 test('campaign content references valid types and every three-defender recipe is achievable',()=>{
- assert.equal(Object.values(data.towers).filter(t=>!t.advanced).length,8);assert.equal(Object.values(data.towers).filter(t=>t.advanced).length,37);assert.equal(data.recipes.length,37);assert.equal(Object.keys(data.enemies).filter(id=>id.startsWith('host_')).length,50);assert.equal(data.waves.length,50);
+ assert.equal(Object.values(data.towers).filter(t=>!t.advanced).length,8);assert.equal(Object.values(data.towers).filter(t=>t.advanced).length,39);assert.equal(data.recipes.length,39);assert.equal(Object.keys(data.enemies).filter(id=>id.startsWith('host_')).length,50);assert.equal(data.waves.length,50);
  for(const w of data.waves){assert.ok(w.reward>=0);for(const g of w.groups){assert.ok(data.enemies[g.type]);assert.ok(g.count>0&&g.interval>0);}}
- for(const r of data.recipes){assert.equal(r.ingredients.length,3);assert.ok(data.towers[recipeFamily(r)]?.advanced);assert.ok(r.ingredients.every(i=>data.towers[i.family]&&i.tier>=1&&i.tier<=(data.towers[i.family].advanced?1:6)));const pieces=r.ingredients.map((i,id)=>({...i,id,state:'active'}));assert.equal(matchingIngredients(r,pieces).length,r.ingredients.length);for(const t of pieces)assert.ok(matchingIngredients(r,pieces,t));}
+ for(const r of data.recipes){assert.equal(r.ingredients.length,3);assert.ok(data.towers[recipeFamily(r)]?.advanced);assert.ok(r.ingredients.every(i=>data.towers[i.family]&&i.tier>=1&&i.tier<=(data.towers[i.family].advanced?1:6)));
+   if(r.currentRoundOnly){const pieces=[...r.ingredients,{family:'archer',tier:1},{family:'cleric',tier:1}].map((i,id)=>({...i,id,state:'draft',round:1}));assert.equal(matchingIngredients(r,pieces,pieces[0],{phase:'select',round:1}).length,3);for(const t of pieces.slice(0,3))assert.ok(matchingIngredients(r,pieces,t,{phase:'select',round:1}));}
+   else{const pieces=r.ingredients.map((i,id)=>({...i,id,state:'active'}));assert.equal(matchingIngredients(r,pieces).length,r.ingredients.length);for(const t of pieces)assert.ok(matchingIngredients(r,pieces,t));}}
 });
 test('family weighting matches eight equal probabilities over 100,000 draws',()=>{
  const draft=new DraftManager(data,seededRandom(85)),counts={};for(let i=0;i<20000;i++)for(const hidden of draft.roll(0)){const d=draft.reveal(hidden.index);counts[d.family]=(counts[d.family]||0)+1;}
@@ -35,10 +37,11 @@ test('paid champion improvements are unavailable and cannot spend gold or change
  const g=new Game(data,{seed:2});const t={id:1,family:'rimewatch',tier:1,state:'active',x:3,z:3};g.towers.push(t);g.selected=1;g.economy.gold=2000;const damage=towerStats(t,data).damage;assert.equal(g.upgradeSpecial(),false);assert.equal(g.economy.gold,2000);assert.equal(towerStats(t,data).damage,damage);
 });
 test('every exported GLB has a valid header and finite footprint metadata',()=>{
- const base=new URL('../public/assets/models/',import.meta.url);const manifest=JSON.parse(readFileSync(new URL('manifest.json',base)));assert.equal(manifest.length,105);
- for(const entry of manifest){assert.ok(existsSync(new URL(entry.file,base)));const b=readFileSync(new URL(entry.file,base));assert.equal(b.toString('ascii',0,4),'glTF');assert.equal(b.readUInt32LE(4),2);assert.equal(b.readUInt32LE(8),b.length);assert.ok(entry.triangles>0&&entry.triangles<10000);}
- assert.equal(manifest.filter(x=>x.kind==='tower').length,85);
+ const base=new URL('../public/assets/models/',import.meta.url);const manifest=JSON.parse(readFileSync(new URL('manifest.json',base)));assert.equal(manifest.length,107);
+ for(const entry of manifest){assert.ok(existsSync(new URL(entry.file,base)));const b=readFileSync(new URL(entry.file,base));assert.equal(b.toString('ascii',0,4),'glTF');assert.equal(b.readUInt32LE(4),2);assert.equal(b.readUInt32LE(8),b.length);assert.ok(entry.triangles>0&&entry.triangles<(entry.family==='lordbernhard'?13500:10000));}
+ assert.equal(manifest.filter(x=>x.kind==='tower').length,87);
  assert.equal(manifest.filter(x=>x.style==='hero-v5').length,42);
  assert.equal(manifest.filter(x=>x.style==='archer-v2').length,6);
  assert.equal(manifest.filter(x=>x.style==='champion-v6').length,37);
+ assert.equal(manifest.filter(x=>x.secret===true&&x.style==='champions-v7.8').length,2);
 });

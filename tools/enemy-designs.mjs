@@ -12,7 +12,7 @@ export function applyEnemyDesigns(enemies,waves){
     const variants=approvedEnemyDesigns.variants[design.id];
     if(enemy.variants)enemy.variants=enemy.variants.map((variant,index)=>{
       const visual=variants?.[index];
-      return {...variant,name:visual?.name||(index?design.name+' · měsíční klan':design.name),visualAsset:visual?`${design.id}-${visual.model==='dragon'||visual.model==='assassin'?'':visual.model}`.replace(/-$/,''):design.id,...(visual?.appearance?{appearance:visual.appearance}:{}),...(visual?.archetype?{designArchetype:visual.archetype}:{})};
+      return {...variant,name:visual?.name||(index?design.name+' · Moon Clan':design.name),visualAsset:visual?`${design.id}-${visual.model==='dragon'||visual.model==='assassin'?'':visual.model}`.replace(/-$/,''):design.id,...(visual?.appearance?{appearance:visual.appearance}:{}),...(visual?.archetype?{designArchetype:visual.archetype}:{})};
     });
     const wave=waves[design.wave-1];
     if(!wave||wave.groups[0]?.type!==design.id)throw new Error('Incorrect wave order for '+design.id);
