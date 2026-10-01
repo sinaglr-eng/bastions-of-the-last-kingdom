@@ -13,7 +13,7 @@ import {report, csvRows} from '../tools/statistics-report.mjs';
 
 const data = Object.fromEntries(['balance', 'towers', 'enemies', 'waves', 'recipes'].map(name =>
   [name, JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url)))]));
-const access = 'a'.repeat(64), version = '0.2.6';
+const access = 'a'.repeat(64), version = '0.2.7';
 const uuid = number => `12345678-1234-4234-8234-${String(number).padStart(12, '0')}`;
 
 function storage() {
@@ -41,9 +41,9 @@ const request = (store, path, body, options = {}) => worker.fetch(new Request(`h
   ...(body ? {body: JSON.stringify(body)} : {}),
 }), {DB: store.DB, GAME_ORIGINS: 'https://sinaglr-eng.github.io', ADMIN_TOKEN: 'test-owner-access'});
 
-function run(mode, id) {
+function run(mode, id, edition=version) {
   const game = new Game(data, {seed: 42, waveLimit: mode});
-  const statistics = new RunStatistics(game, {id, version, clock: () => 1000});
+  const statistics = new RunStatistics(game, {id, version: edition, clock: () => 1000});
   let cell = 0;
   function build() {
     game.draft.forced = {family: 'archer', tier: 1};
@@ -68,6 +68,39 @@ function run(mode, id) {
   }
   return {game, statistics, assault};
 }
+
+test('Dark Host defaults to edition 0.2.7 while preserving separate previous-edition results', async () => {
+  const store=storage(), playedRuns=[];
+  try {
+    const health=await request(store,'/api/health');
+    assert.equal(health.status,200);
+    assert.deepEqual(await health.json(),{ok:true,storage:'SQLite',edition:version,releaseName:'Dark Host'});
+    const page=await request(store,'/');
+    assert.equal(page.status,200);
+    const html=await page.text();
+    assert.ok(html.includes('/api/leaderboard?version=0.2.7&mode='));
+    assert.ok(html.includes('0.2.7 · Dark Host. Finish a campaign'));
+    assert.ok(!html.includes('/api/leaderboard?version=0.2.6&mode='));
+    for(const [index,edition] of ['0.2.6',version].entries()) {
+      const id=uuid(index+2), played=run(10,id,edition); playedRuns.push(played);
+      assert.equal((await request(store,'/api/runs',{id,writeToken:access,mode:10,seed:42,version:edition})).status,201);
+      let final;
+      for(let wave=0;wave<10;wave++)final=played.assault();
+      assert.equal((await request(store,`/api/runs/${id}/checkpoint`,{writeToken:access,snapshot:final})).status,200);
+      assert.equal((await request(store,`/api/runs/${id}/score`,{writeToken:access,name:index?'Dark Host':'Previous edition'})).status,200);
+      const own=await request(store,`/api/leaderboard?mode=10&version=${edition}&id=${id}`);
+      const result=await own.json();
+      assert.equal(result.version,edition);assert.equal(result.current.rank,1);
+      assert.equal(result.top.length,1);assert.equal(result.top[0].id,id);
+    }
+    assert.equal(store.sqlite.prepare('SELECT COUNT(*) AS n FROM runs').get().n,2);
+    const current=await request(store,`/api/leaderboard?mode=10&version=${version}&id=${uuid(2)}`);
+    const result=await current.json();
+    assert.equal(result.current,null);assert.equal(result.top.length,1);assert.equal(result.top[0].name,'Dark Host');
+    const older=await request(store,'/api/leaderboard?mode=10&version=0.2.6');
+    assert.equal((await older.json()).top[0].name,'Previous edition');
+  } finally {for(const played of playedRuns)played.statistics.dispose();store.close();}
+});
 
 test('native SQLite supports the D1 schema, transactions, JSON analytics and name normalization safely', async () => {
   const store = storage();

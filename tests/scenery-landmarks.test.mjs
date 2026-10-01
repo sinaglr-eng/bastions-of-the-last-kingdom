@@ -26,7 +26,7 @@ test('both detailed Blender landmarks load within their triangle budget and rema
       triangles+=(object.geometry.index?.count??position.count)/3;
     });
     assert.ok(triangles>40000&&triangles<(name==='keep'?110000:140000),name+' complete settlement within a bounded geometry budget');
-    assert.ok(meshes<=(name==='keep'?32:24),name+' material batches bound draw calls for the whole settlement');
+    assert.ok(meshes<=(name==='keep'?38:30),name+' material batches bound draw calls for the whole settlement');
     scene.position.set(site.x,site.y,site.z);
     const bounds=new THREE.Box3().setFromObject(scene,true);
     const point=new THREE.Vector3();scene.updateMatrixWorld(true);
@@ -34,7 +34,8 @@ test('both detailed Blender landmarks load within their triangle budget and rema
     assert.ok(bounds.max.y>3.5);
     if(name==='keep'){
       assert.ok(bounds.max.y>18,'The alpine palace has a tall spired silhouette');assert.ok(bounds.max.x-bounds.min.x>40,'The complete town fills the eastern shoulder');
-      assert.ok(bounds.min.x>27,'All palace and town foundations are beyond the main river eastern bank');
+      assert.ok(bounds.min.x>24,'The southern frontier wall stops on the dry eastern river bank');
+      for(const building of roleNodes(scene,'townBuilding'))assert.ok(building.userData.worldMinX>27,'Town houses remain beyond the main river eastern bank');
     }else{assert.ok(bounds.max.x-bounds.min.x>30,'The inhabited military camp extends into the clan territory');assert.ok(bounds.max.y>8,'Caves and the elevated camp create a second inhabited level');}
     const source=new URL(`../blender/scenes/${site.file.replace('.glb','.blend')}`,import.meta.url);
     assert.ok(statSync(source).size>10000,'Native editable source is retained');

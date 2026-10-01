@@ -1,5 +1,17 @@
 # Releases
 
+## 0.2.7 — Dark Host — 1 October 2026
+
+- Applies the exact fifty approved Czech warband names and appearance descriptions from the Dark Host design. Fifty main forms and nine alternate forms have new Blender 5.2 models, portraits and editable source scenes, including recognizable goblin, orc, troll, ogre, wolf-rider and flying-mount silhouettes.
+- Preserves all enemy and wave gameplay fields beyond the five presentation fields. Health, armor, movement, abilities, variant rules, rewards and spawn timings retain their previous fingerprints; only wave 1 keeps its introductory difficulty.
+- Adds five cosmetic enemy aura stages: none for waves 1–10, yellow for 11–20, red for 21–30, dark violet for 31–40, and black smoke with a visible violet edge for 41–50. Boss auras are stronger. Actual combat states drive shield, immunity, regeneration and reactive-armor cues without adding abilities or revealing concealed enemies.
+- Retains each imported species' native proportions. Ghorun's three queen-wyvern forms span approximately three ordinary bat scouts or one-and-a-half wave-40 bosses. Explicit appearance IDs select the approved alternate silhouettes; the old balloon is retired. Fallen models rest on the terrain without modifying shared living instances.
+- Restores Engineer's original name, six dwarf carpenter models, portraits and native source exactly. The six-rank human Kushek design remains preserved separately for future use, outside the playable roster and recipes.
+- Extends scenery V6's western royal wall to the northern edge and southern river bank, keeping the bridge gate open and adding staffed frontier towers. Sheep and cattle scatter across larger irregular dry pastures; mixed woodland replaces repeated tree rows and fills landscape gaps. Actual geometry checks keep roofs, fields, fences and fortifications clear of water and the entire construction board.
+- Removes rotating map arrows. Stable candidate numbers and complete camera-facing recipe portraits remain readable, with leaders connecting crowded portraits to their defenders.
+
+Technical evidence and reproduction: [Dark Host V3 QA record](docs/DARK_HOST_V3.md).
+
 ## 0.2.6 — Guided Kingdoms — 1 October 2026
 
 - Offers a seven-step tutorial on first opening, with a choice to skip and a replay button in Help. The guide highlights the live building controls, keeper selection, maze plans, mastery, recipes, defender details and wave button.

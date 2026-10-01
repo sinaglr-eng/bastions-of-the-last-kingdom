@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-// A small playable stand-in retains Kushek's identity until her Blender GLB arrives.
+// Preserved inactive Kushek stand-in; the live runebreaker family uses Engineer.
 export function kushekFallback(cloth, k) {
   const {box, beam, sphere, cylinder, mesh, optimize} = k;
   const root = new THREE.Group();

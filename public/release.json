@@ -1,14 +1,22 @@
 {
-  "version": "0.2.6",
-  "edition": "Guided Kingdoms",
+  "version": "0.2.7",
+  "edition": "Dark Host",
   "date": "2026-10-01",
   "basicClasses": 8,
   "champions": 37,
   "defenderVariants": 85,
   "championDesignRevision": 6,
-  "artPatch": 6,
+  "artPatch": 7,
   "championRecipes": 37,
   "championAscension": false,
-  "championClassifications": {"Basic": 5, "Intermediate": 13, "Advanced": 11, "TOP": 8},
-  "authoring": "Blender 5.2"
+  "championClassifications": {
+    "Basic": 5,
+    "Intermediate": 13,
+    "Advanced": 11,
+    "TOP": 8
+  },
+  "authoring": "Blender 5.2",
+  "enemyVariants": 59,
+  "enemyDesignRevision": 3,
+  "sceneryRevision": 6
 }

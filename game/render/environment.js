@@ -119,8 +119,8 @@ export function valleyEnvironment(){
   ridgeLine([[-66,66],[-42,60],[-18,67],[4,59],[29,68],[52,63],[72,70]],9.3,4.9);
   // Irregular ridges in four depth bands form a landscape, rather than a wall
   // of evenly spaced peaks. The lower foreground ridge preserves the map view.
-  for(let layer=0;layer<4;layer++)for(let i=0;i<24;i++){
-    const angle=(i+(rng()-.5)*.7)/24*Math.PI*2,distance=43+layer*13+rng()*7;
+  for(let layer=0;layer<4;layer++)for(let i=0;i<30;i++){
+    const angle=(i+(rng()-.5)*.7)/30*Math.PI*2,distance=43+layer*13+rng()*7;
     const x=Math.cos(angle)*distance,z=Math.sin(angle)*distance;
     if(isLandmarkClearing(x,z,12))continue;
     const height=(z>19?3.8:7.5)+layer*1.7+rng()*4.5;
@@ -226,7 +226,7 @@ export function valleyEnvironment(){
       if(place(sapling,x,z,.75+rng()*.65,rng()*Math.PI*2))sceneryCounts.trees++;
     }
   }
-  for(let i=0;i<270;i++){
+  for(let i=0;i<350;i++){
     const side=i%4;let x,z;
     if(side===0){x=-34+rng()*67;z=-20.1-rng()*14;}
     if(side===1){x=-20.3-rng()*17;z=-34+rng()*67;}
@@ -237,7 +237,7 @@ export function valleyEnvironment(){
   // Ferns, low bushes and grass clumps fill the ground between the forest trunks.
   // All clumps reuse a few geometries and are batched with the static scenery.
   const bushGeometry=new THREE.IcosahedronGeometry(.28,0),fernGeometry=new THREE.ConeGeometry(.26,.24,5);
-  for(let i=0;i<760;i++){
+  for(let i=0;i<1140;i++){
     const side=i%4;let x,z;
     if(side===0){x=-40+rng()*79;z=-19.25-rng()*22;}
     if(side===1){x=-19.25-rng()*25;z=-40+rng()*79;}

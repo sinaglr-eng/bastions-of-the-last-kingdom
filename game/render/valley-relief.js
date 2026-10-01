@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {LANDMARK_CLEARINGS} from './scenery-landmarks.js';
-import sceneryLayout from '../../data/scenery-v5.json' with {type:'json'};
+import sceneryLayout from '../../data/scenery-v6.json' with {type:'json'};
 
 // These controls keep the existing river course and bridge aligned with the map.
 export const RIVER_CONTROL_POINTS=Object.freeze([

@@ -1,0 +1,206 @@
+{
+  "name": "Kushek",
+  "status": "inactive-design-reserved-for-future-use",
+  "playable": false,
+  "description": "Blonde human craftswoman with a ponytail and green eyes; black bib overalls and rubber boots, a hammer and a measuring ruler. Shirt color varies across the six ranks.",
+  "nativeScene": "blender/scenes/kushek_design_v1.blend",
+  "nativeSceneSha256": "5d02e0e27d2e17d03e99cf50edc593a7718be611c188961c79e7e6b4670c3292",
+  "authoringModule": "blender/scripts/author_kushek.py",
+  "fallbackModule": "game/render/kushek.js",
+  "entries": [
+    {
+      "file": "models/kushek-t1.glb",
+      "kind": "tower",
+      "family": "kushek",
+      "tier": 1,
+      "style": "hero-v5",
+      "authoring": "Blender",
+      "triangles": 9478,
+      "articulationRevision": 1,
+      "attackJoints": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "portrait": "portraits/kushek-t1.png"
+    },
+    {
+      "file": "models/kushek-t2.glb",
+      "kind": "tower",
+      "family": "kushek",
+      "tier": 2,
+      "style": "hero-v5",
+      "authoring": "Blender",
+      "triangles": 9478,
+      "articulationRevision": 1,
+      "attackJoints": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "portrait": "portraits/kushek-t2.png"
+    },
+    {
+      "file": "models/kushek-t3.glb",
+      "kind": "tower",
+      "family": "kushek",
+      "tier": 3,
+      "style": "hero-v5",
+      "authoring": "Blender",
+      "triangles": 9478,
+      "articulationRevision": 1,
+      "attackJoints": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "portrait": "portraits/kushek-t3.png"
+    },
+    {
+      "file": "models/kushek-t4.glb",
+      "kind": "tower",
+      "family": "kushek",
+      "tier": 4,
+      "style": "hero-v5",
+      "authoring": "Blender",
+      "triangles": 9478,
+      "articulationRevision": 1,
+      "attackJoints": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "portrait": "portraits/kushek-t4.png"
+    },
+    {
+      "file": "models/kushek-t5.glb",
+      "kind": "tower",
+      "family": "kushek",
+      "tier": 5,
+      "style": "hero-v5",
+      "authoring": "Blender",
+      "triangles": 9478,
+      "articulationRevision": 1,
+      "attackJoints": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "portrait": "portraits/kushek-t5.png"
+    },
+    {
+      "file": "models/kushek-t6.glb",
+      "kind": "tower",
+      "family": "kushek",
+      "tier": 6,
+      "style": "hero-v5",
+      "authoring": "Blender",
+      "triangles": 9478,
+      "articulationRevision": 1,
+      "attackJoints": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "portrait": "portraits/kushek-t6.png"
+    }
+  ],
+  "preserved": [
+    {
+      "file": "models/kushek-t1.glb",
+      "sha256": "3e91c1762cad60ba4eb1f694765d9a4f2cc47c2ce9c7108e1cc2e16b64a800f2"
+    },
+    {
+      "file": "portraits/kushek-t1.png",
+      "sha256": "35ca691b0ed1aac6f22da83c1bf004c9b83f985fda1064f0ee4bfe3cda22be6b"
+    },
+    {
+      "file": "models/kushek-t2.glb",
+      "sha256": "62b844b15f483309d5d6469dff47e16064351bfce212bd9a7cdad4ab2de236fd"
+    },
+    {
+      "file": "portraits/kushek-t2.png",
+      "sha256": "903533c8c66d40e456a9907edac927e95ec95a04ef43ff742d0e5d4328822339"
+    },
+    {
+      "file": "models/kushek-t3.glb",
+      "sha256": "11f2532d2d6fbe256eaede0c37ad9d7f1f3ba76cc157d889833321fac1958ad6"
+    },
+    {
+      "file": "portraits/kushek-t3.png",
+      "sha256": "e269458622b42d15db3e922b8ef0dda46a09e0785546d0a847a28a9f62d34676"
+    },
+    {
+      "file": "models/kushek-t4.glb",
+      "sha256": "7edc2997792388387247d5be4a614e94aa17b83e9dfba4fbdc43d8f67069b694"
+    },
+    {
+      "file": "portraits/kushek-t4.png",
+      "sha256": "c2ba9210693602b16550318e5bd58a08b8ad0f2e857efec5580fb432607b49de"
+    },
+    {
+      "file": "models/kushek-t5.glb",
+      "sha256": "b6bbf19f2dcb0a0ed22a1b0f64521fad409a24dd7f43183e52a21b7db8198b31"
+    },
+    {
+      "file": "portraits/kushek-t5.png",
+      "sha256": "6875f64c5a39514a905021815264fae0da6d5ebc2eaa47e82cf9174ece1e149e"
+    },
+    {
+      "file": "models/kushek-t6.glb",
+      "sha256": "467791881a2f16767deffaed1015f04965e441dc09597e2c2e81a1f951120d29"
+    },
+    {
+      "file": "portraits/kushek-t6.png",
+      "sha256": "c9a5d3baae4387798fea4ff90dd8245c8f031f3f74eeb4a7a2c9fef469e7462a"
+    }
+  ]
+}

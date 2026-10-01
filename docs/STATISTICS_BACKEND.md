@@ -41,7 +41,7 @@ Ve Windows může původní Bash balicí pomocník Sites selhat při předáván
 
 Alternativně lze stejný Worker provozovat přímo nad Cloudflare D1. Místní SQLite server používá `backend/migrations/0000_statistics.sql`; jeho spouštěč není určen jako nezabezpečený veřejný internetový server.
 
-`GET /api/health` kontroluje dostupnost databáze. Veřejný žebříček je `GET /api/leaderboard?mode=10&version=0.2.6`; režim může být `10` nebo `50`. Volitelný `id` vrátí také umístění konkrétní pojmenované hry. Úvodní stránka služby `/` nabízí veřejný žebříček; stránka `/owner` vyžaduje zadání vlastnického tokenu před načtením chráněných statistik. Token se na této stránce neukládá do úložiště prohlížeče.
+`GET /api/health` kontroluje dostupnost databáze a uvádí aktuální edici `0.2.7` s názvem `Dark Host`. Veřejný žebříček je `GET /api/leaderboard?mode=10&version=0.2.7`; režim může být `10` nebo `50`. Volitelný `id` vrátí také umístění konkrétní pojmenované hry. Úvodní stránka služby `/` standardně zobrazuje edici **0.2.7 · Dark Host**. Starší výsledky zůstávají uložené a lze je načíst s `version=0.2.6`; edice mají oddělené pořadí a aktualizace nevyžaduje změnu schématu ani reset databáze. Stránka `/owner` vyžaduje zadání vlastnického tokenu před načtením chráněných statistik. Token se na této stránce neukládá do úložiště prohlížeče.
 
 ## Životní cyklus a odolnost zápisů
 

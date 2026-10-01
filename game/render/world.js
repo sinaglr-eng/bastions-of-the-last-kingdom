@@ -4,8 +4,9 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {rankAdornment,animateRank} from './ranks.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
-import {enemyFigure,disposeEnemyFigure} from './enemy-assets.js';
-import {bossAura,animateBossAura,beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from './battle-animation.js';
+import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
+import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
+import {beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from './battle-animation.js';
 import {CombatEffects} from './combat-effects.js';
 import {SupportEffects} from './support-effects.js';
 import {installDefenderTemplate,pointedTower} from './defender-assets.js';
@@ -96,14 +97,12 @@ export class Battlefield {
   }
   async loadEnemies(){
     try{
-      const response=await fetch(siteUrl('assets/enemies/manifest.json'));if(!response.ok)return;
+      const response=await fetch(releaseAsset('assets/enemies/manifest.json'));if(!response.ok)return;
       const entries=await response.json(),loader=new GLTFLoader();
       await Promise.all(entries.map(async entry=>{
-        try{const gltf=await loader.loadAsync(siteUrl(`assets/enemies/${entry.file}`));gltf.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});this.enemyTemplates.set(entry.id,gltf.scene);}catch{/* Keep the playable fallback if one file is unavailable. */}
+        try{const gltf=await loader.loadAsync(releaseAsset(`assets/enemies/${entry.file}`));gltf.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});installEnemyTemplate(this,entry,gltf.scene);}catch{/* Keep the playable fallback if one file is unavailable. */}
       }));
       if(this.disposed)return;
-      for(const model of this.enemies.values()){this.scene.remove(model);disposeEnemyFigure(model);}
-      this.enemies.clear();
       this.previewKey=null;this.updateCampPreview();
     }catch{/* Standalone mirrors can use the procedural fallback. */}
   }
@@ -148,7 +147,7 @@ export class Battlefield {
     this.labelItems=[{...this.landmarks.sites.camp,title:'ORC WARCAMP',className:'enemy',height:this.landmarks.sites.camp.labelHeight},{...this.landmarks.sites.keep,title:'THE LAST KEEP',className:'keep',height:this.landmarks.sites.keep.labelHeight},...this.game.grid.checkpoints.slice(1,-1).map((p,i)=>({x:p.x-HALF,z:p.z-HALF,title:`${i+1}`,className:'checkpoint-label',height:2}))].map(p=>{const el=document.createElement('span');el.className=`map-label ${p.className}`;el.textContent=p.title;this.labels.append(el);return {...p,el};});
   }
   updateCampPreview(){
-    const enemy=upcomingInvader(this.game),key=enemy?`${enemy.previewRound}:${enemy.type}:${enemy.model||''}`:'none';
+    const enemy=upcomingInvader(this.game),key=enemy?`${enemy.previewRound}:${enemy.type}:${enemy.visualAsset||enemy.model||''}`:'none';
     if(key===this.previewKey)return;this.previewKey=key;
     if(this.campPreview){disposeEnemyFigure(this.campPreview);this.campPreview.removeFromParent();this.campPreview=null;}
     if(!enemy)return;
@@ -263,11 +262,12 @@ export class Battlefield {
     if(this.compass)this.compass.style.transform=`rotate(${compassBearing(this.camera.position,this.controls.target)}rad)`;
     const active=new Set(this.game.combat.enemies.map(e=>e.id));
     for(const [id,m]of this.enemies)if(!active.has(id)){this.scene.remove(m);disposeEnemyFigure(m);this.enemies.delete(id);}
-    for(const e of this.game.combat.enemies){if(e.dead)continue;let m=this.enemies.get(e.id);if(!m){m=enemyFigure(e,this.enemyTemplates);this.scene.add(m);this.enemies.set(e.id,m);const bg=new THREE.Mesh(new THREE.PlaneGeometry(0.7,0.065),new THREE.MeshBasicMaterial({color:'#232e24',depthTest:false}));const fill=new THREE.Mesh(new THREE.PlaneGeometry(0.67,0.045),new THREE.MeshBasicMaterial({color:e.boss?'#e2b362':'#94c888',depthTest:false}));bg.add(fill);fill.position.z=0.003;m.add(bg);m.userData.bar=bg;m.userData.fill=fill;if(e.boss){const aura=bossAura(e.clan);m.add(aura);m.userData.aura=aura;}}
+    for(const e of this.game.combat.enemies){if(e.dead)continue;let m=this.enemies.get(e.id);if(!m){m=enemyFigure(e,this.enemyTemplates);this.scene.add(m);this.enemies.set(e.id,m);const bg=new THREE.Mesh(new THREE.PlaneGeometry(0.7,0.065),new THREE.MeshBasicMaterial({color:'#232e24',depthTest:false}));const fill=new THREE.Mesh(new THREE.PlaneGeometry(0.67,0.045),new THREE.MeshBasicMaterial({color:e.boss?'#e2b362':'#94c888',depthTest:false}));bg.add(fill);fill.position.z=0.003;m.add(bg);m.userData.bar=bg;m.userData.fill=fill;const aura=createEnemyAura(e,m.userData.body);if(aura){m.add(aura);m.userData.aura=aura;}}
       const flying=e.flying?.8:0;const bob=Math.sin(this.time*e.speed*8+e.id)*0.035;m.position.copy(v3(e.x,flying+bob,e.z));const to=e.route[Math.min(e.pathIndex,e.route.length-1)];m.rotation.y=Math.atan2(to.x-e.x,to.z-e.z)+Math.PI;
-      const limbs=m.userData.limbs;limbs?.forEach((l,i)=>l.rotation.x=(l.userData.restRotation||0)+Math.sin(this.time*e.speed*7+e.id+(i%2)*Math.PI)*0.42);
+      const limbs=m.userData.limbs;limbs?.forEach((l,i)=>l.rotation.x=(l.userData.restRotation||0)+Math.sin(this.time*e.speed*7+e.id+(l.userData.gaitPhase??(i%2)*Math.PI))*0.42);
       m.userData.wings?.forEach((wing,i)=>wing.rotation.z=wing.userData.restRotation+Math.sin(this.time*7+e.id)*.26*(i%2?1:-1));
-      if(m.userData.aura)animateBossAura(m.userData.aura,this.time);
+      animateEnemyAura(m.userData.aura,this.time,{reducedMotion:!!this.reducedMotion?.matches});
+      animateEnemyCues(m,e,this.game.combat.elapsed,{reducedMotion:!!this.reducedMotion?.matches});
       m.visible=this.game.combat.isRevealed(e);
       m.userData.body.rotation.z=e.hit>0?0.1:0;m.userData.body.scale.setScalar(1);if(m.userData.shards)m.userData.shards.children.forEach((s,i)=>s.visible=i<e.shields);m.userData.bar.position.set(0,m.userData.barHeight||1.28,0);m.userData.fill.material.color.set(e.cloaked?'#8295c4':e.boss?'#e2b362':'#94c888');m.userData.bar.quaternion.copy(m.quaternion).invert().multiply(this.camera.quaternion);m.userData.fill.scale.x=Math.max(0,e.hp/e.maxHp);m.userData.fill.position.x=-(1-e.hp/e.maxHp)*0.335;
     }
@@ -299,7 +299,7 @@ export function makeThumbnails(data) {
     if(tier===1)images[id]=images[`${id}:${tier}`];
   }
   camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,.95,0);
-  for(const id of Object.keys(data.enemies).filter(id=>id.startsWith('host_')))images['enemy:'+id]=siteUrl(`assets/enemies/${id}.png`);
+  for(const id of Object.keys(data.enemies).filter(id=>id.startsWith('host_')))images['enemy:'+id]=releaseAsset(`assets/enemies/${id}.png`);
   camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,.95,0);
   const wall=castleWallModel(10);scene.add(wall);camera.lookAt(0,.4,0);renderer.render(scene,camera);images.ruin=renderer.domElement.toDataURL('image/png');wall.traverse(o=>o.geometry?.dispose());renderer.dispose();return images;
 }

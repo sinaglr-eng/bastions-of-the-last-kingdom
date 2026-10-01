@@ -8,7 +8,7 @@ import {RIVER_CONTROL_POINTS,TOWN_RIVER_CONTROL_POINTS,TOWN_STREAM_CURVE,TOWN_ST
 
 const layout=JSON.parse(readFileSync(new URL('../data/scenery-v5.json',import.meta.url),'utf8'));
 async function model(name){
-  const site=LANDMARK_SITES[name],bytes=readFileSync(new URL('../public/assets/scenery/'+site.file,import.meta.url));
+  const site=LANDMARK_SITES[name],file=name==='keep'?'royal-castle-v5.glb':'fortified-warcamp-v5.glb',bytes=readFileSync(new URL('../public/assets/scenery/'+file,import.meta.url));
   const {scene}=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
   scene.position.set(site.x,site.y,site.z);scene.updateMatrixWorld(true);return scene;
 }
@@ -112,7 +112,7 @@ test('every exported V5 settlement vertex and triangle stays outside the full co
 });
 
 test('V5 manifest keeps native editable Blender sources and actual source renders',()=>{
-  const manifest=JSON.parse(readFileSync(new URL('../public/assets/scenery/manifest.json',import.meta.url),'utf8'));
+  const manifest=JSON.parse(readFileSync(new URL('../public/assets/scenery/manifest.json',import.meta.url),'utf8')).filter(entry=>entry.style==='scenery-v5');
   assert.equal(manifest.length,2);
   for(const entry of manifest){assert.equal(entry.style,'scenery-v5');assert.equal(entry.authoring,'Blender 5.2');assert.ok(statSync(new URL('../blender/scenes/'+entry.source,import.meta.url)).size>10000);assert.ok(statSync(new URL('../blender/renders/'+entry.review,import.meta.url)).size>10000);assert.ok(entry.triangles>80000&&entry.triangles<140000);}
 });

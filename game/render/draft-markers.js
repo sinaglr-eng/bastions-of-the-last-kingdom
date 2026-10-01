@@ -11,20 +11,13 @@ export class DraftMarkers {
     this.legend=document.createElement('div');this.legend.className='recipe-map-legend';this.legend.hidden=true;container.append(this.legend);
   }
   create(number){
-    const group=new THREE.Group(),orbit=new THREE.Group();group.add(orbit);
-    const material=new THREE.MeshBasicMaterial({color:'#ffd570',depthTest:false,depthWrite:false,transparent:true});
-    const arc=new THREE.Mesh(new THREE.TorusGeometry(.51,.062,6,36,Math.PI*1.65),material);
-    arc.rotation.x=-Math.PI/2;orbit.add(arc);
-    const angle=Math.PI*1.65,head=new THREE.Mesh(new THREE.ConeGeometry(.17,.34,3),material);
-    head.position.set(.51*Math.cos(angle),0,-.51*Math.sin(angle));
-    head.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),new THREE.Vector3(-Math.sin(angle),0,-Math.cos(angle)));orbit.add(head);
-    const pointer=new THREE.Mesh(new THREE.ConeGeometry(.14,.29,4),material);pointer.rotation.z=Math.PI;pointer.position.y=-.15;group.add(pointer);
+    const group=new THREE.Group();
     const canvas=document.createElement('canvas');canvas.width=canvas.height=96;const c=canvas.getContext('2d');
     c.fillStyle='#172b2b';c.beginPath();c.arc(48,48,38,0,Math.PI*2);c.fill();c.strokeStyle='#ffe0a1';c.lineWidth=4;c.stroke();
     c.fillStyle='#fff0c2';c.font='bold 48px Georgia';c.textAlign='center';c.textBaseline='middle';c.fillText(String(number),48,51);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
     const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,depthTest:false,depthWrite:false}));sprite.scale.set(.62,.62,1);sprite.position.y=.43;group.add(sprite);
-    group.traverse(o=>o.renderOrder=20);group.userData={orbit,material,texture,sprite};this.scene.add(group);return group;
+    group.traverse(o=>o.renderOrder=20);group.userData={texture,sprite};this.scene.add(group);return group;
   }
   sync(game,models){
     const candidates=game.roundCandidates,ids=new Set(candidates.map(c=>c.tower.id)),hints=game.combinationHints,hintIds=new Set(hints.map(h=>h.tower.id));
@@ -34,7 +27,7 @@ export class DraftMarkers {
       const body=models.get(tower.id)?.object;
       const height=body?new THREE.Box3().setFromObject(body).max.y:2;
       marker.position.set(tower.x-18,height+.5,tower.z-18);marker.userData.height=height;
-      marker.userData.material.color.set(tower.id===game.selected?'#fff1b2':'#f3ba48');
+      marker.userData.sprite.material.color.set(tower.id===game.selected?'#fff1b2':'#ffffff');
       marker.userData.sprite.visible=!hintIds.has(tower.id);
     }
     for(const [id,badge] of this.badges)if(!hintIds.has(id)){badge.el.remove();badge.line.remove();this.badges.delete(id);}
@@ -43,8 +36,8 @@ export class DraftMarkers {
       if(!badge){const el=document.createElement('button'),line=document.createElementNS('http://www.w3.org/2000/svg','line');this.layer.append(el);this.lines.append(line);badge={el,line};this.badges.set(tower.id,badge);}
       const number=candidates.find(c=>c.tower.id===tower.id)?.number;
       const name=recipeLabel(recipe,game.data),label=role==='result'?`${name}: result here`:role==='consumed'?`${name}: this ingredient becomes a wall`:role==='discarded'?'Unchosen candidate becomes a wall':`${name}: combination available`;
-      badge.el.className=`recipe-map-badge ${role}`;badge.line.setAttribute('stroke',role==='result'?'#ffdb83':role==='consumed'?'#e89479':'#b9d2c5');badge.el.setAttribute('aria-label',label);badge.el.title=label;
-      badge.el.innerHTML=`${role==='discarded'?'<span class="wall-glyph">♜</span>':`<img src="${releaseAsset(`assets/army/${recipeFamily(recipe)}-t1.png`)}" alt="">`}<b>${role==='result'?'★':role==='consumed'?'−':role==='discarded'?'×':'+'}</b>${number?`<small>${number}</small>`:''}`;
+      badge.el.className=`recipe-map-badge ${role==='result'?'recipe-result':role}`;badge.line.setAttribute('stroke',role==='result'?'#ffdb83':role==='consumed'?'#e89479':'#b9d2c5');badge.el.setAttribute('aria-label',label);badge.el.title=label;
+      badge.el.innerHTML=`<span class="recipe-map-portrait">${role==='discarded'?'<span class="wall-glyph">♜</span>':`<img src="${releaseAsset(`assets/army/${recipeFamily(recipe)}-t1.png`)}" alt="">`}</span><b>${role==='result'?'★':role==='consumed'?'−':role==='discarded'?'×':'+'}</b>${number?`<small>${number}</small>`:''}`;
       badge.el.onclick=()=>{game.select(tower.id);if(role!=='discarded')game.previewRecipe(recipe.id);};
       const body=models.get(tower.id)?.object;badge.height=body?new THREE.Box3().setFromObject(body).max.y:2;badge.tower=tower;
     }
@@ -56,10 +49,9 @@ export class DraftMarkers {
       // Keep the numeral legible even when the full 37 × 37 field is on screen.
       const unitsPerPixel=2*camera.position.distanceTo(marker.position)*Math.tan(THREE.MathUtils.degToRad(camera.fov/2))/Math.max(1,viewportHeight);
       const scale=Math.min(3.2,Math.max(1,unitsPerPixel*16/.62));marker.scale.setScalar(scale);
-      marker.userData.orbit.rotation.y=this.reduced?0:time*1.7+id;
-      marker.position.y=marker.userData.height+.42*scale+(this.reduced?0:Math.sin(time*2.6+id)*.065);
+      marker.position.y=marker.userData.height+.42*scale;
     }
-    const occupied=[],width=this.container.clientWidth,small=width<580,bw=small?30:38,bh=small?34:44;
+    const occupied=[],width=this.container.clientWidth,small=width<580,bw=small?36:48,bh=small?42:54;
     for(const [id,badge] of this.badges){
       const marker=this.items.get(id),p=new THREE.Vector3(badge.tower.x-18,marker?marker.position.y+.43*marker.scale.y:badge.height+1,badge.tower.z-18).project(camera);
       badge.el.hidden=Math.abs(p.x)>1||Math.abs(p.y)>1||p.z>1;

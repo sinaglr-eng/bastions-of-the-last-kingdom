@@ -1,0 +1,568 @@
+{
+  "revision": "dark-host-v3",
+  "sourceThread": {
+    "id": "01a0f2a3-159d-7850-99b8-1d87e9ea5b5e",
+    "title": "Navrhni věže a vlny skřetů"
+  },
+  "auraStages": [
+    {
+      "id": 0,
+      "waves": [
+        1,
+        10
+      ],
+      "name": "None",
+      "color": null
+    },
+    {
+      "id": 1,
+      "waves": [
+        11,
+        20
+      ],
+      "name": "Yellow",
+      "color": "#f3d34a"
+    },
+    {
+      "id": 2,
+      "waves": [
+        21,
+        30
+      ],
+      "name": "Red",
+      "color": "#dc3748"
+    },
+    {
+      "id": 3,
+      "waves": [
+        31,
+        40
+      ],
+      "name": "Dark violet",
+      "color": "#64239a"
+    },
+    {
+      "id": 4,
+      "waves": [
+        41,
+        50
+      ],
+      "name": "Black",
+      "color": "#100c18",
+      "edgeColor": "#8550b5"
+    }
+  ],
+  "designs": [
+    {
+      "wave": 1,
+      "id": "host_01",
+      "name": "Skřetí sběrači lebek",
+      "appearance": "Drobní zelení skřeti v otrhaných kápích. Nesou rezavé sekáčky a pytle s kořistí; první, nejméně vybavená část armády.",
+      "archetype": "skull-scavenger",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 2,
+      "id": "host_02",
+      "name": "Gobliní trnonožci",
+      "appearance": "Hubení goblini s dlouhýma nohama, zahnutými kopími a botami vyztuženými kostěnými trny. Běží při zemi, hlavy vystrčené dopředu.",
+      "archetype": "thornfoot",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 3,
+      "id": "host_03",
+      "name": "Ogroví žrouti",
+      "appearance": "Břichatí mladí ogři s kotlíkem místo přilby a obrovskou kuchyňskou palicí. Z opasků jim visí kusy masa a ukradené pánve.",
+      "archetype": "ogre-glutton",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 4,
+      "id": "host_04",
+      "name": "Skřetí šrotokutálové",
+      "appearance": "Gobliní válečníci obtěžkaní plechem, ozubenými koly a podivnými nástroji. Výzbroj působí jako poskládaná z vykradeného lidského mlýna.",
+      "archetype": "scrap-tinker",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 5,
+      "id": "host_05",
+      "name": "Netopýří zvědové",
+      "appearance": "Malí skřeti zavěšení v kožených postrojích pod obřími ušatými netopýry. Siluetu tvoří široká křídla a dolů mířící průzkumnické kopí.",
+      "archetype": "bat-scout",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 6,
+      "id": "host_06",
+      "name": "Trollové mechových zad",
+      "appearance": "Zavalití lesní trollové porostlí mechem a houbami. Na zádech mají zarostlé runové kameny, které naznačují magickou odolnost.",
+      "archetype": "moss-troll",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 7,
+      "id": "host_07",
+      "name": "Skřetí lovci z močálů",
+      "appearance": "Šupinaté kožené pláště, krokodýlí čelisti na přilbách a ostnaté harpuny. Zelenohnědí lovci obalení rákosem a blátem.",
+      "archetype": "swamp-hunter",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 8,
+      "id": "host_08",
+      "name": "Trollí stínokrevníci",
+      "appearance": "Štíhlí šedomodří trollové s velmi dlouhými pažemi. Těla se rozpouštějí do kouře; z ran jim prosakuje světélkující krev, která rány zaceluje.",
+      "archetype": "shade-troll",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 9,
+      "id": "host_09",
+      "name": "Gobliní prachotanečníci",
+      "appearance": "Maskovaní goblini s dvojicí zahnutých nožů a cáry lehkého pláště. Úhyb znázorňuje krátké vychýlení těla a obláček prachu.",
+      "archetype": "dust-dancer",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 10,
+      "id": "host_10",
+      "name": "Mogrok, Rozbíječ bran",
+      "appearance": "Boss: obrovský obrněný ogr, který jako štít vleče vytržené hradní dveře. V druhé ruce drží beranidlo s železnou beraní hlavou.",
+      "archetype": "gatebreaker",
+      "auraStage": 0,
+      "visualScale": 1
+    },
+    {
+      "wave": 11,
+      "id": "host_11",
+      "name": "Skřetí hákonoši",
+      "appearance": "Ostřílení nájezdníci s hákovými čepelemi a řetězy. Na ramenou mají lidské přilby jako trofeje; první zřetelně organizovaná pěchota.",
+      "archetype": "hook-raider",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 12,
+      "id": "host_12",
+      "name": "Gobliní zvonožrouti",
+      "appearance": "Gobliní šamani nesoucí na zádech puklé chrámové zvony. Při odzbrojení do nich udeří kostěnou palicí a vyšlou kruh fialových run.",
+      "archetype": "bell-shaman",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 13,
+      "id": "host_13",
+      "name": "Skřetice Rudého klu",
+      "appearance": "Svalnaté válečnice s rudými copánky, tesáky a dlouhými sekerami. Brnění z tmavé kůže zdobí červené otisky dlaní.",
+      "archetype": "redtusk-woman",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 14,
+      "id": "host_14",
+      "name": "Skřetí zrcadloštítníci",
+      "appearance": "Těžká pěchota s leštěnými černými štíty. Kolem každého obíhají tři stříbrné střepy, které při zachycení zásahu postupně praskají.",
+      "archetype": "mirror-shield",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 15,
+      "id": "host_15",
+      "name": "Krvaví netopýří honáci",
+      "appearance": "Skřetí jezdci na mohutných rudých netopýrech s potrhanými křídly. Regeneraci ukazují žhnoucí žilky, které zacelují trhliny v blánách.",
+      "archetype": "blood-bat",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 16,
+      "id": "host_16",
+      "name": "Skřetí popelní kapsáři",
+      "appearance": "Vychrtlí skřeti s popelem pokrytou kůží, měděnými maskami a přecpanými měšci. Magickou imunitu naznačuje vypálená runa na hrudi.",
+      "archetype": "ash-thief",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 17,
+      "id": "host_17",
+      "name": "Trollí nosiči prokletých totemů",
+      "appearance": "Hrbatí trollové vláčející vysoké totemy z lebek a kořenů. Z otevřených úst totemu proudí temný dech představující zastrašení.",
+      "archetype": "totem-troll",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 18,
+      "id": "host_18",
+      "name": "Skřetí němí kati",
+      "appearance": "Černé kapuce, zašitá ústa masek a srpovité čepele. Skrytí doprovází zhasínání jejich obrysu; odzbrojení krátký záblesk run na čepeli.",
+      "archetype": "mute-executioner",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 19,
+      "id": "host_19",
+      "name": "Skřetí jezdci na krvavých vlcích",
+      "appearance": "Nízcí jezdci přikrčení nad rudookými vlky. Při výpadu vlci sklopí hlavu, rozsvítí se jim oči a za tlapami zůstane prachová stopa.",
+      "archetype": "blood-wolf",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 20,
+      "id": "host_20",
+      "name": "Gorvash, Kostěný patriarcha",
+      "appearance": "Boss: prastarý trollí obr s korunou z mamutích žeber. Opírá se o kyj z celé páteře obří nestvůry a na zádech nese kostěný trůn.",
+      "archetype": "bone-patriarch",
+      "auraStage": 1,
+      "visualScale": 1
+    },
+    {
+      "wave": 21,
+      "id": "host_21",
+      "name": "Trollové Hnilobného kořene",
+      "appearance": "Mohutní bažinní trollové s kořeny prorůstajícími tělem. Rány zarůstají čerstvými výhonky; ochranné runy mají vyřezané do dřevnaté kůže.",
+      "archetype": "root-troll",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 22,
+      "id": "host_22",
+      "name": "Ogroví železní berani",
+      "appearance": "Ogři uzavření v plátové zbroji, s helmami připomínajícími beraní hlavy. Téměř žádná odkrytá kůže, široká ramena a těžké železné palice.",
+      "archetype": "iron-ram",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 23,
+      "id": "host_23",
+      "name": "Skřetí zaklínači střepových duší",
+      "appearance": "Přízrační šamani s průsvitnými těly. Kolem nich plují tři úlomky zrcadlové masky; fyzické zásahy procházejí kouřovým trupem.",
+      "archetype": "shard-sorcerer",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 24,
+      "id": "host_24",
+      "name": "Gobliní nýtovaní mutanti",
+      "appearance": "Goblini sevření v živé železné konstrukci. Každý zásah vizuálně přitáhne další kovové pláty k jejich tělu; po chvíli zase povolí.",
+      "archetype": "rivet-mutant",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 25,
+      "id": "host_25",
+      "name": "Skřetí jezdci na železných netopýrech",
+      "appearance": "Obrnění netopýři s kovovými čelními maskami a pláty na hrudi. Jezdci mají kuše a těžké přilby; let musí působit namáhavě a silově.",
+      "archetype": "iron-bat",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 26,
+      "id": "host_26",
+      "name": "Skřetí požírači kouzel",
+      "appearance": "Podsadití skřeti s černými kameny zapuštěnými do kůže. Ústa mají rozšířená do nepřirozeného úsměvu; magické zásahy se u run rozpadnou na popel.",
+      "archetype": "spell-eater",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 27,
+      "id": "host_27",
+      "name": "Přízrační netopýří jezdcové",
+      "appearance": "Skřetí přízraky na kostěných netopýrech s kouřovými blánami. Fyzickou imunitu ukazuje průsvitnost, zastrašení dlouhé stíny pod letci.",
+      "archetype": "ghost-bat",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 28,
+      "id": "host_28",
+      "name": "Gobliní křídlošroti",
+      "appearance": "Goblini v létajících postrojích s netopýřími křídly a nýtovaným trupem. Reaktivní zbroj se při zásazích viditelně zavírá kolem pilota.",
+      "archetype": "wing-scrapper",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 29,
+      "id": "host_29",
+      "name": "Prizmatickí netopýří šejdíři",
+      "appearance": "Hubení skřeti na drobných fialových netopýrech. Tři krystaly tvoří štít; úhyb provází krátký barevný dvojník.",
+      "archetype": "prism-bat",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 30,
+      "id": "host_30",
+      "name": "Zaruun, Pán bouřných křídel",
+      "appearance": "Létající boss: skřetí válečník na obrovském bouřném netopýrovi. Rozervaná křídla, měděné rohy a bleskové jizvy; elektrické záblesky jsou pouze vzhled.",
+      "archetype": "storm-bat-lord",
+      "auraStage": 2,
+      "visualScale": 1
+    },
+    {
+      "wave": 31,
+      "id": "host_31",
+      "name": "Skřetí dvojpečetní inkvizitoři",
+      "appearance": "Dvě vzhledové varianty stejného řádu: Popelní s černou kůží a oranžovými runami; Přízrační s bledým průsvitným tělem. Obě mají tři ochranné pečeti.",
+      "archetype": "dual-inquisitor",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 32,
+      "id": "host_32",
+      "name": "Trollí pijáci duší",
+      "appearance": "Bledí trollové s lucernou zavěšenou uvnitř rozevřeného hrudního koše. Při obnově životů nasají světlo z lucerny do celého těla.",
+      "archetype": "soul-troll",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 33,
+      "id": "host_33",
+      "name": "Skřetí přízraky roztrženého světa",
+      "appearance": "Duchové s tělem rozděleným na několik vznášejících se částí. Při teleportu je pohltí svislá černá trhlina a na novém místě se znovu složí.",
+      "archetype": "rift-wraith",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 34,
+      "id": "host_34",
+      "name": "Gobliní šibeniční letci",
+      "appearance": "Goblini na vychrtlých netopýrech s kostěnými maskami. Na postrojích jim visí ukradené měšce a provazy; při úhybu se jezdec přehoupne pod břicho zvířete.",
+      "archetype": "gallows-bat",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 35,
+      "id": "host_35",
+      "name": "Netopýří stráž Zatmění",
+      "appearance": "Dvojí letka: Popelní jezdci na uhlově černých netopýrech a Přízrační jezdci na průsvitných. Barvy jasně odlišují magickou a fyzickou imunitu.",
+      "archetype": "eclipse-bat",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 36,
+      "id": "host_36",
+      "name": "Skřetí křivopřísežníci",
+      "appearance": "Padlí válečníci s rozlámanými královskými znaky na zbroji. Popelní varianta má žhavé runy; přízračná prázdné, světélkující obrysy pod brněním.",
+      "archetype": "oathbreaker",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 37,
+      "id": "host_37",
+      "name": "Skřetí jezdci na trhlinových vlcích",
+      "appearance": "Jezdci na černých vlcích s fialově popraskanou srstí. Při teleportu se vlk protáhne do úzkého stínu a vyskočí z jiné trhliny.",
+      "archetype": "rift-wolf",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 38,
+      "id": "host_38",
+      "name": "Nožíři Černé bažiny / Trollí krvesajové",
+      "appearance": "Nožíři: maskovaní skřeti, kteří se střídavě ztrácejí v mlze a ruší obránce zakletými noži. Krvesajové: bledí trollové s rudými vaky na zádech, z nichž čerpají regeneraci.",
+      "archetype": "swamp-knifer",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 39,
+      "id": "host_39",
+      "name": "Skřetí jezdci na hromových mantách",
+      "appearance": "Letci na širokých kožnatých nestvůrách s kostěnou hlavou a pancéřovaným hřbetem. Skořápku ukazuje pevný krunýř, úhyb naklánění širokých křídel a strach rudé masky jezdců.",
+      "archetype": "thunder-manta",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 40,
+      "id": "host_40",
+      "name": "Vorlak, Dutý král nebes",
+      "appearance": "Létající boss: obrovská kostěná wyverna, uvnitř které visí skřetí nekromant jako srdce. Žebra obklopuje tmavá skořápka; v dutém těle pulzuje mdlé světlo.",
+      "archetype": "hollow-wyvern",
+      "auraStage": 3,
+      "visualScale": 1
+    },
+    {
+      "wave": 41,
+      "id": "host_41",
+      "name": "Skřetí krystalová falanga",
+      "appearance": "Elitní pěchota s kopími a průsvitnými štíty z kouřového krystalu. Nad každým štítem jsou tři výrazné světelné uzly odpovídající jeho zbývající ochraně.",
+      "archetype": "crystal-phalanx",
+      "auraStage": 4,
+      "visualScale": 1
+    },
+    {
+      "wave": 42,
+      "id": "host_42",
+      "name": "Skřetí ohniví netopýří kopiníci",
+      "appearance": "Jezdci na černých netopýrech s oranžovými žilkami v křídlech. Magickou imunitu ukazují popelné runy; při výpadu se křídla rozzáří.",
+      "archetype": "fire-bat",
+      "auraStage": 4,
+      "visualScale": 1
+    },
+    {
+      "wave": 43,
+      "id": "host_43",
+      "name": "Ogroví strážci vězněných duší",
+      "appearance": "Obrnění ogři s obřími klecemi na ramenou. Duše uvnitř posilují obnovu; plovoucí stíny a zastrašující maska propojují další efekty.",
+      "archetype": "soul-cage-ogre",
+      "auraStage": 4,
+      "visualScale": 1
+    },
+    {
+      "wave": 44,
+      "id": "host_44",
+      "name": "Skřetí popelní popravčí",
+      "appearance": "Vysocí skřeti s dlouhými černými sekerami a rozžhavenými pečetěmi. Teleportují se skrze vír popela; černé runy signalizují magickou imunitu.",
+      "archetype": "ash-executioner",
+      "auraStage": 4,
+      "visualScale": 1
+    },
+    {
+      "wave": 45,
+      "id": "host_45",
+      "name": "Létající bubeníci Černé hordy",
+      "appearance": "Dvojice skřetů na širokohřbetých netopýrech: jeden řídí, druhý tluče do bubnu z trollí kůže. Údery vytvářejí dvě odlišné vlny pro odzbrojení a podporu pohybu.",
+      "archetype": "drummer-bat",
+      "auraStage": 4,
+      "visualScale": 1
+    },
+    {
+      "wave": 46,
+      "id": "host_46",
+      "name": "Ogroví revenanti v prázdné zbroji",
+      "appearance": "Obrovské zbroje, které zevnitř drží pohromadě duchové mrtvých ogrů. V mezerách není maso, pouze modrozelený oheň; fyzické útoky jím procházejí.",
+      "archetype": "revenant-ogre",
+      "auraStage": 4,
+      "visualScale": 1
+    },
+    {
+      "wave": 47,
+      "id": "host_47",
+      "name": "Skřetí jezdci Posledního vytí",
+      "appearance": "Fanatičtí jezdci na obrovských černých vlcích s kostěnými maskami. Žhavé runy značí magickou imunitu; výpad doprovází rudé oči a zastrašující stín.",
+      "archetype": "last-howl-wolf",
+      "auraStage": 4,
+      "visualScale": 1
+    },
+    {
+      "wave": 48,
+      "id": "host_48",
+      "name": "Netopýří zloději černého ohně",
+      "appearance": "Čarodějovi osobní lupiči na štíhlých černých netopýrech. Mají dlouhé šátky, zlaté měšce a rušící runové zvonky; let působí mrštně a neklidně.",
+      "archetype": "blackfire-bat",
+      "auraStage": 4,
+      "visualScale": 1
+    },
+    {
+      "wave": 49,
+      "id": "host_49",
+      "name": "Trollí strážci Hluboké tlamy",
+      "appearance": "Gigantičtí trollové s obsidiánovým krunýřem a druhou tlamou v břiše. Z ní při obnově proudí duševní světlo; výrazný krunýř ukazuje snížení poškození.",
+      "archetype": "deepmaw-troll",
+      "auraStage": 4,
+      "visualScale": 1
+    },
+    {
+      "wave": 50,
+      "id": "host_50",
+      "name": "Ghorun, Černý čaroděj na Královně wyvern",
+      "appearance": "Finální létající boss: temný skřetí čaroděj na mimořádně velké, staré wyverně. Tři stávající varianty dostanou vlastní barevnost a podobu pancíře, viz níže.",
+      "archetype": "queen-wyvern",
+      "auraStage": 4,
+      "visualScale": 1.5
+    }
+  ],
+  "variants": {
+    "host_31": [
+      {
+        "model": "ember",
+        "name": "Popelní dvojpečetní inkvizitoři"
+      },
+      {
+        "model": "wraith",
+        "name": "Přízrační dvojpečetní inkvizitoři"
+      }
+    ],
+    "host_35": [
+      {
+        "model": "ember",
+        "name": "Popelní jezdci stráže Zatmění"
+      },
+      {
+        "model": "wraith",
+        "name": "Přízrační jezdci stráže Zatmění"
+      }
+    ],
+    "host_36": [
+      {
+        "model": "ember",
+        "name": "Popelní křivopřísežníci"
+      },
+      {
+        "model": "wraith",
+        "name": "Přízrační křivopřísežníci"
+      }
+    ],
+    "host_38": [
+      {
+        "model": "assassin",
+        "name": "Nožíři Černé bažiny",
+        "archetype": "swamp-knifer"
+      },
+      {
+        "model": "wraith",
+        "name": "Trollí krvesajové",
+        "archetype": "blood-leech-troll"
+      }
+    ],
+    "host_50": [
+      {
+        "model": "dragon",
+        "name": "Ghorun Popelavý",
+        "appearance": "Černá královna wyvern s rozžhavenými prasklinami mezi obsidiánovými pláty. Ohořelé černé roucho a oranžově žhnoucí hůl."
+      },
+      {
+        "model": "tyrant",
+        "name": "Ghorun Zlatokletý",
+        "appearance": "Zlaté runové obruče kolem krku a křídel, pozlacená koruna a temně fialová magie. Magickou imunitu signalizují zlaté runy."
+      },
+      {
+        "model": "devourer",
+        "name": "Ghorun Bledý požírač",
+        "appearance": "Téměř bílá wyverna s mohutným kostěným pancířem, černými žilami a propadlýma očima. Výrazně silnější skořápka."
+      }
+    ]
+  }
+}

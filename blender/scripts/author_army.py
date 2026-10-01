@@ -91,9 +91,6 @@ def antlers(p):
         rod('Antler branch',points[1],(side*.44,.04,2.09),.021,p['ivory'],5,end=.008)
 
 def basic(family,rank):
-    if family=='runebreaker':
-        import author_kushek
-        return author_kushek.build(rank,sys.modules[__name__])
     objects=A.build_archer(rank);p=palette(objects)
     if family=='archer':return p
     remove_prefix(objects,['Sleeve shoulder','Cloth upper arm','Leather bracer','Bracer brass','Gloved hand','Glove finger','Recurve','Bow ','Upper drawn','Lower drawn','Nocked','Leaf arrowhead','Arrow fletching','Quiver','Spare arrow','Strap clasp'])
@@ -134,6 +131,48 @@ def basic(family,rank):
         for x in [-.105,.105]:cube('Priestly stole',(x,.207,1.0),(.068,.026,.65),p['ivory'],.006)
         arm((.22,0,1.33),(.34,.07,1.15),(.40,.17,1.06),p);arm((-.22,0,1.33),(-.31,.08,1.09),(-.34,.26,1.09),p);book(p);staff(p,color='ffd76a')
         halo=torus('Sun halo',(0,-.09,1.91),.27,.015,p['trim']);halo.rotation_euler[0]=math.pi/2
+    elif family=='runebreaker':
+        # A working dwarf: a broad, short body and a full-size expressive head.
+        remove_prefix(meshes(),['Front leather breastplate','Breastplate seam'])
+        cap=ellipsoid('Engineer leather work cap',(0,-.006,1.865),(.19,.158,.082),p['leather'],16,8)
+        cube('Engineer cap peak',(0,.16,1.838),(.30,.115,.024),p['leather'],.012)
+        cube('Engineer stitched apron',(0,.187,1.055),(.385,.038,.53),p['leather'],.028)
+        for x in [-.142,.142]:rod('Apron shoulder strap',(x,.182,1.31),(x,.223,1.11),.018,p['trim'],6)
+        cube('Apron tool pocket',(0,.221,.99),(.24,.033,.15),p['dark'],.014)
+        beard=ellipsoid('Engineer full copper beard',(0,.171,1.49),(.155,.091,.19),p['hair'],16,8)
+        for j in range(5):
+            x=(j-2)*.047;rod('Engineer copper braided beard',(x,.207,1.59),(x*.78,.235,1.31+abs(j-2)*.03),.042,p['hair'],9,end=.016)
+            cylinder('Engineer beard binding',(x*.78,.235,1.36+abs(j-2)*.03),.025,.033,p['trim'],9)
+        for side in [-1,1]:
+            rod('Engineer copper moustache',(side*.012,.218,1.624),(side*.10,.228,1.60),.019,p['hair'],8,end=.012)
+            frame=torus('Engineer spectacle frame',(side*.073,.221,1.706),.056,.008,p['trim']);frame.rotation_euler[0]=math.pi/2
+            rod('Engineer spectacle temple',(side*.127,.209,1.711),(side*.171,.07,1.722),.008,p['trim'],6)
+        rod('Engineer spectacle bridge',(-.017,.229,1.713),(.017,.229,1.713),.007,p['trim'],6)
+        arm((.22,0,1.33),(.34,.09,1.17),(.39,.21,1.08),p);arm((-.22,0,1.33),(-.33,.12,1.17),(-.36,.25,1.12),p)
+        bpy.context.view_layer.update()
+        joint_originals={o:o.matrix_world.copy() for o in bpy.context.scene.objects if o.type=='EMPTY' and o.get('articulation')}
+        mesh_targets={}
+        head_prefixes=('Head','Cheek','Nose','Eye','Focused','Auburn eyebrow','Mouth','Swept hair','Temple hair','Engineer leather work cap','Engineer cap peak','Engineer full copper beard','Engineer copper','Engineer beard','Engineer spectacle')
+        for o in meshes():
+            if o.name.startswith(('Octagonal','Beveled limestone','Rank inlay','Radiant','Floating')):continue
+            if o.name.startswith(head_prefixes):o.matrix_world=Matrix.Translation((0,0,-.32))@Matrix.Diagonal((1.10,1.08,1,1))@o.matrix_world
+            else:o.matrix_world=Matrix.Translation((0,0,.17*(1-.72)))@Matrix.Diagonal((1.30,1.12,.72,1))@o.matrix_world
+            mesh_targets[o]=o.matrix_world.copy()
+        def depth(o):return 0 if not o.parent else 1+depth(o.parent)
+        for o in sorted(joint_originals,key=depth):
+            o.matrix_world=Matrix.Translation((0,0,.17*(1-.72)))@Matrix.Diagonal((1.30,1.12,.72,1))@joint_originals[o]
+        # Moving a parent also moves its descendants; restore each intended world pose once.
+        for o,target in mesh_targets.items():o.matrix_world=target
+        # Hand-sized carpenter's hammer and a visibly graduated measuring ruler.
+        rod('Engineer small hammer handle',(.507,.235,.65),(.507,.235,1.08),.024,p['leather'],10)
+        cube('Engineer carpenter hammer',(.507,.235,1.065),(.26,.14,.14),p['steel'],.023)
+        cube('Engineer hammer striking face',(.65,.235,1.065),(.035,.153,.15),p['dark'],.008)
+        for side in [-1,1]:rod('Engineer hammer fork',(.385,.235+side*.042,1.06),(.35,.235+side*.057,1.12),.016,p['steel'],6)
+        cube('Engineer measuring ruler',(-.468,.28,.94),(.08,.039,.60),p['ivory'],.006)
+        for j in range(11):
+            z=.67+j*.05;length=.052 if j%5==0 else .025
+            rod('Engineer ruler graduation',(-.5,.303,z),(-.5+length,.303,z),.0035,p['dark'],4)
+        cube('Engineer ruler end cap',(-.468,.28,1.244),(.084,.044,.024),p['trim'],.003)
     elif family=='frostwarden':
         fur=mat('Winter fur','e1e3d5');ice=mat('Glacial facets','a7e4eb',.15,.25)
         for j in range(10):

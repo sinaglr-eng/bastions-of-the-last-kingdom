@@ -4,13 +4,15 @@ import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {defenderModel} from '../game/render/models.js';
+import {kushekFallback} from '../game/render/kushek.js';
+import {box, beam, sphere, cylinder, cone, mesh, optimize} from '../game/render/models.js';
 import {rankColor} from '../game/render/ranks.js';
 import {attackRig, triggerAttack, animateAttack, resetAttack, disposeAttack} from '../game/render/battle-animation.js';
 
 const towers = JSON.parse(readFileSync(new URL('../data/towers.json', import.meta.url)));
-const folder = new URL('../public/assets/models/', import.meta.url);
-const manifest = JSON.parse(readFileSync(new URL('manifest.json', folder)));
+const folder = new URL('../public/assets/designs/kushek/', import.meta.url);
+const design = JSON.parse(readFileSync(new URL('manifest.json', folder)));
+const manifest = design.entries;
 const sources = [];
 function meshes(root) {
   const list = [];
@@ -42,13 +44,17 @@ function palette(root) {
   return colors;
 }
 
-test('all six native Kushek ranks retain the same human model and change only the undershirt/inlay material', async () => {
-  assert.equal(towers.runebreaker.name, 'Kushek');
-  assert.equal(towers.runebreaker.short, 'Kushek');
-  assert.equal(towers.runebreaker.unitCode, 'R');
+test('all six archived Kushek ranks retain the human model and stay outside the active game manifest', async () => {
+  assert.equal(design.name, 'Kushek');
+  assert.equal(design.playable, false);
+  assert.equal(manifest.length, 6);
+  assert.equal(createHash('sha256').update(readFileSync(new URL('../'+design.nativeScene, import.meta.url))).digest('hex'), '5d02e0e27d2e17d03e99cf50edc593a7718be611c188961c79e7e6b4670c3292');
+  const activeManifest = JSON.parse(readFileSync(new URL('../public/assets/models/manifest.json', import.meta.url)));
+  assert.ok(activeManifest.every(entry => entry.family !== 'kushek' && !entry.file.includes('kushek')));
+  for (const preserved of design.preserved) assert.equal(createHash('sha256').update(readFileSync(new URL(preserved.file, folder))).digest('hex'), preserved.sha256);
   let reference, fixedColors;
   for (let tier = 1; tier <= 6; tier++) {
-    const entry = manifest.find(item => item.kind === 'tower' && item.family === 'runebreaker' && item.tier === tier);
+    const entry = manifest.find(item => item.kind === 'tower' && item.family === 'kushek' && item.tier === tier);
     assert.ok(entry);
     const bytes = readFileSync(new URL(entry.file, folder));
     const source = (await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset+bytes.byteLength), '')).scene;
@@ -91,10 +97,10 @@ test('Kushek carries her actual hammer and ruler on independent animated hands',
   resetAttack(rig);assert.equal(signature(actor), rest);disposeAttack(rig);
 });
 
-test('the playable offline stand-in retains Kushek colors and human proportions for every rank', () => {
+test('the archived fallback retains Kushek colors and human proportions for a future role', () => {
   let shape;
   for (let tier = 1; tier <= 6; tier++) {
-    const actor = defenderModel('runebreaker', tier), colors = new Set(meshes(actor).map(mesh => mesh.material.color.getHexString()));
+    const actor = kushekFallback(rankColor(tier), {box, beam, sphere, cylinder, cone, mesh, optimize}), colors = new Set(meshes(actor).map(mesh => mesh.material.color.getHexString()));
     for (const color of ['202326', '242b2b', 'd8b865', '388956', rankColor(tier).slice(1)]) assert.ok(colors.has(color));
     const current = signature(actor);
     if (shape) assert.equal(current, shape);

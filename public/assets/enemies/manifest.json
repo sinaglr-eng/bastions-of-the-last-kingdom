@@ -3,459 +3,2314 @@
     "id": "host_01",
     "file": "host_01.glb",
     "portrait": "host_01.png",
-    "style": "ashen-host-v2",
-    "triangles": 6840,
-    "authoring": "Blender",
-    "name": "Ashclaw Scouts"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5536,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí sběrači lebek",
+    "archetype": "skull-scavenger",
+    "source": "blender/scenes/enemies-v3/host_01.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.38988,
+        -0.0
+      ],
+      "max": [
+        0.96588,
+        0.30664,
+        2.07006
+      ],
+      "size": [
+        1.54695,
+        0.69652,
+        2.07006
+      ]
+    },
+    "height": 2.07006,
+    "wingspan": 1.54695,
+    "nativeScale": 1,
+    "semanticParts": [],
+    "auraStage": 0
   },
   {
     "id": "host_02",
     "file": "host_02.glb",
     "portrait": "host_02.png",
-    "style": "ashen-host-v2",
-    "triangles": 8004,
-    "authoring": "Blender",
-    "name": "Reedfang Leapers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4694,
+    "authoring": "Blender 5.2",
+    "name": "Gobliní trnonožci",
+    "archetype": "thornfoot",
+    "source": "blender/scenes/enemies-v3/host_02.blend",
+    "bounds": {
+      "min": [
+        -0.40641,
+        -0.18092,
+        0.0
+      ],
+      "max": [
+        0.57517,
+        0.26973,
+        2.17155
+      ],
+      "size": [
+        0.98158,
+        0.45066,
+        2.17155
+      ]
+    },
+    "height": 2.17155,
+    "wingspan": 0.98158,
+    "nativeScale": 1,
+    "semanticParts": [],
+    "auraStage": 0
   },
   {
     "id": "host_03",
     "file": "host_03.glb",
     "portrait": "host_03.png",
-    "style": "ashen-host-v2",
-    "triangles": 6796,
-    "authoring": "Blender",
-    "name": "Ironbelly Brutes"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5100,
+    "authoring": "Blender 5.2",
+    "name": "Ogroví žrouti",
+    "archetype": "ogre-glutton",
+    "source": "blender/scenes/enemies-v3/host_03.blend",
+    "bounds": {
+      "min": [
+        -0.77476,
+        -0.48401,
+        -0.0
+      ],
+      "max": [
+        0.9983,
+        0.53293,
+        2.7738
+      ],
+      "size": [
+        1.77306,
+        1.01693,
+        2.7738
+      ]
+    },
+    "height": 2.7738,
+    "wingspan": 1.77306,
+    "nativeScale": 1,
+    "semanticParts": [],
+    "auraStage": 0
   },
   {
     "id": "host_04",
     "file": "host_04.glb",
     "portrait": "host_04.png",
-    "style": "ashen-host-v2",
-    "triangles": 8272,
-    "authoring": "Blender",
-    "name": "Scrapjaw Tinkerers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 7114,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí šrotokutálové",
+    "archetype": "scrap-tinker",
+    "source": "blender/scenes/enemies-v3/host_04.blend",
+    "bounds": {
+      "min": [
+        -0.49755,
+        -0.63291,
+        0.0
+      ],
+      "max": [
+        0.84742,
+        0.26973,
+        1.88325
+      ],
+      "size": [
+        1.34497,
+        0.90265,
+        1.88325
+      ]
+    },
+    "height": 1.88325,
+    "wingspan": 1.34497,
+    "nativeScale": 1,
+    "semanticParts": [
+      "overlapping armored belly"
+    ],
+    "auraStage": 0
   },
   {
     "id": "host_05",
     "file": "host_05.glb",
     "portrait": "host_05.png",
-    "style": "ashen-host-v2",
-    "triangles": 8174,
-    "authoring": "Blender",
-    "name": "Gloamwing Outriders"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4500,
+    "authoring": "Blender 5.2",
+    "name": "Netopýří zvědové",
+    "archetype": "bat-scout",
+    "source": "blender/scenes/enemies-v3/host_05.blend",
+    "bounds": {
+      "min": [
+        -1.75228,
+        -0.74901,
+        -0.19141
+      ],
+      "max": [
+        1.75228,
+        0.58657,
+        1.9
+      ],
+      "size": [
+        3.50455,
+        1.33559,
+        2.09141
+      ]
+    },
+    "height": 2.09141,
+    "wingspan": 3.50455,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw"
+    ],
+    "auraStage": 0
   },
   {
     "id": "host_06",
     "file": "host_06.glb",
     "portrait": "host_06.png",
-    "style": "ashen-host-v2",
-    "triangles": 7452,
-    "authoring": "Blender",
-    "name": "Mossback Lumberers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5424,
+    "authoring": "Blender 5.2",
+    "name": "Trollové mechových zad",
+    "archetype": "moss-troll",
+    "source": "blender/scenes/enemies-v3/host_06.blend",
+    "bounds": {
+      "min": [
+        -0.76022,
+        -0.46827,
+        0.0
+      ],
+      "max": [
+        0.76022,
+        0.36221,
+        2.27025
+      ],
+      "size": [
+        1.52044,
+        0.83048,
+        2.27025
+      ]
+    },
+    "height": 2.27025,
+    "wingspan": 1.52044,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3",
+      "moss covered runestone"
+    ],
+    "auraStage": 0
   },
   {
     "id": "host_07",
     "file": "host_07.glb",
     "portrait": "host_07.png",
-    "style": "ashen-host-v2",
-    "triangles": 6796,
-    "authoring": "Blender",
-    "name": "Bogscale Hunters"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5372,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí lovci z močálů",
+    "archetype": "swamp-hunter",
+    "source": "blender/scenes/enemies-v3/host_07.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.38988,
+        -0.0
+      ],
+      "max": [
+        0.5936,
+        0.34344,
+        2.3903
+      ],
+      "size": [
+        1.17467,
+        0.73332,
+        2.3903
+      ]
+    },
+    "height": 2.3903,
+    "wingspan": 1.17467,
+    "nativeScale": 1,
+    "semanticParts": [],
+    "auraStage": 0
   },
   {
     "id": "host_08",
     "file": "host_08.glb",
     "portrait": "host_08.png",
-    "style": "ashen-host-v2",
-    "triangles": 6840,
-    "authoring": "Blender",
-    "name": "Veilfang Stalkers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4916,
+    "authoring": "Blender 5.2",
+    "name": "Trollí stínokrevníci",
+    "archetype": "shade-troll",
+    "source": "blender/scenes/enemies-v3/host_08.blend",
+    "bounds": {
+      "min": [
+        -0.76022,
+        -0.35475,
+        0.0
+      ],
+      "max": [
+        0.76022,
+        0.36221,
+        2.27025
+      ],
+      "size": [
+        1.52044,
+        0.71696,
+        2.27025
+      ]
+    },
+    "height": 2.27025,
+    "wingspan": 1.52044,
+    "nativeScale": 1,
+    "semanticParts": [],
+    "auraStage": 0
   },
   {
     "id": "host_09",
     "file": "host_09.glb",
     "portrait": "host_09.png",
-    "style": "ashen-host-v2",
-    "triangles": 6840,
-    "authoring": "Blender",
-    "name": "Dustcloak Skirmishers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5014,
+    "authoring": "Blender 5.2",
+    "name": "Gobliní prachotanečníci",
+    "archetype": "dust-dancer",
+    "source": "blender/scenes/enemies-v3/host_09.blend",
+    "bounds": {
+      "min": [
+        -0.53875,
+        -0.34207,
+        0.0
+      ],
+      "max": [
+        0.53875,
+        0.26973,
+        1.7645
+      ],
+      "size": [
+        1.0775,
+        0.6118,
+        1.7645
+      ]
+    },
+    "height": 1.7645,
+    "wingspan": 1.0775,
+    "nativeScale": 1,
+    "semanticParts": [
+      "mask lower face"
+    ],
+    "auraStage": 0
   },
   {
     "id": "host_10",
     "file": "host_10.glb",
     "portrait": "host_10.png",
-    "style": "ashen-host-v2",
-    "triangles": 8955,
-    "authoring": "Blender",
-    "name": "Mogrok the Gatebreaker"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 8776,
+    "authoring": "Blender 5.2",
+    "name": "Mogrok, Rozbíječ bran",
+    "archetype": "gatebreaker",
+    "source": "blender/scenes/enemies-v3/host_10.blend",
+    "bounds": {
+      "min": [
+        -1.58388,
+        -0.58081,
+        -0.0
+      ],
+      "max": [
+        1.44497,
+        0.73003,
+        3.2562
+      ],
+      "size": [
+        3.02885,
+        1.31084,
+        3.2562
+      ]
+    },
+    "height": 3.2562,
+    "wingspan": 3.02885,
+    "nativeScale": 1,
+    "semanticParts": [
+      "gate iron band",
+      "gate vertical planks",
+      "iron ram head",
+      "overlapping armored belly",
+      "ram curled horn0",
+      "ram curled horn1",
+      "ram curled horn2",
+      "ramming log"
+    ],
+    "auraStage": 0
   },
   {
     "id": "host_11",
     "file": "host_11.glb",
     "portrait": "host_11.png",
-    "style": "ashen-host-v2",
-    "triangles": 6796,
-    "authoring": "Blender",
-    "name": "Bonehook Raiders"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 8404,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí hákonoši",
+    "archetype": "hook-raider",
+    "source": "blender/scenes/enemies-v3/host_11.blend",
+    "bounds": {
+      "min": [
+        -0.61406,
+        -0.25525,
+        -0.0
+      ],
+      "max": [
+        0.61406,
+        0.31482,
+        2.01139
+      ],
+      "size": [
+        1.22812,
+        0.57007,
+        2.01139
+      ]
+    },
+    "height": 2.01139,
+    "wingspan": 1.22812,
+    "nativeScale": 1,
+    "semanticParts": [
+      "hooked blade0",
+      "hooked blade1",
+      "hooked blade2"
+    ],
+    "auraStage": 1
   },
   {
     "id": "host_12",
     "file": "host_12.glb",
     "portrait": "host_12.png",
-    "style": "ashen-host-v2",
-    "triangles": 7212,
-    "authoring": "Blender",
-    "name": "Hexdrum Saboteurs"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5454,
+    "authoring": "Blender 5.2",
+    "name": "Gobliní zvonožrouti",
+    "archetype": "bell-shaman",
+    "source": "blender/scenes/enemies-v3/host_12.blend",
+    "bounds": {
+      "min": [
+        -0.40641,
+        -0.69285,
+        0.0
+      ],
+      "max": [
+        0.48481,
+        0.26973,
+        1.81619
+      ],
+      "size": [
+        0.89122,
+        0.96258,
+        1.81619
+      ]
+    },
+    "height": 1.81619,
+    "wingspan": 0.89122,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bell black crack0",
+      "bell black crack1",
+      "bell clapper",
+      "bone bell mallet",
+      "cracked temple bell",
+      "flared bell lip"
+    ],
+    "auraStage": 1
   },
   {
     "id": "host_13",
     "file": "host_13.glb",
     "portrait": "host_13.png",
-    "style": "ashen-host-v2",
-    "triangles": 6796,
-    "authoring": "Blender",
-    "name": "Redtusk Amazons"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 6744,
+    "authoring": "Blender 5.2",
+    "name": "Skřetice Rudého klu",
+    "archetype": "redtusk-woman",
+    "source": "blender/scenes/enemies-v3/host_13.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.25525,
+        -0.0
+      ],
+      "max": [
+        0.96588,
+        0.30671,
+        2.1677
+      ],
+      "size": [
+        1.54695,
+        0.56195,
+        2.1677
+      ]
+    },
+    "height": 2.1677,
+    "wingspan": 1.54695,
+    "nativeScale": 1,
+    "semanticParts": [
+      "overlapping armored belly",
+      "ruddy braided hair"
+    ],
+    "auraStage": 1
   },
   {
     "id": "host_14",
     "file": "host_14.glb",
     "portrait": "host_14.png",
-    "style": "ashen-host-v2",
-    "triangles": 7254,
-    "authoring": "Blender",
-    "name": "Mirrorhide Guard"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5678,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí zrcadloštítníci",
+    "archetype": "mirror-shield",
+    "source": "blender/scenes/enemies-v3/host_14.blend",
+    "bounds": {
+      "min": [
+        -0.7473,
+        -0.25927,
+        -0.0
+      ],
+      "max": [
+        0.58107,
+        0.39432,
+        2.3903
+      ],
+      "size": [
+        1.32837,
+        0.65359,
+        2.3903
+      ]
+    },
+    "height": 2.3903,
+    "wingspan": 1.32837,
+    "nativeScale": 1,
+    "semanticParts": [
+      "overlapping armored belly"
+    ],
+    "auraStage": 1
   },
   {
     "id": "host_15",
     "file": "host_15.glb",
     "portrait": "host_15.png",
-    "style": "ashen-host-v2",
-    "triangles": 8546,
-    "authoring": "Blender",
-    "name": "Moonbat Beastmasters"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4556,
+    "authoring": "Blender 5.2",
+    "name": "Krvaví netopýří honáci",
+    "archetype": "blood-bat",
+    "source": "blender/scenes/enemies-v3/host_15.blend",
+    "bounds": {
+      "min": [
+        -1.982,
+        -0.74901,
+        0.70125
+      ],
+      "max": [
+        1.982,
+        0.58657,
+        1.9808
+      ],
+      "size": [
+        3.964,
+        1.33559,
+        1.27955
+      ]
+    },
+    "height": 1.27955,
+    "wingspan": 3.964,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw"
+    ],
+    "auraStage": 1
   },
   {
     "id": "host_16",
     "file": "host_16.glb",
     "portrait": "host_16.png",
-    "style": "ashen-host-v2",
-    "triangles": 7500,
-    "authoring": "Blender",
-    "name": "Ashvein Cutpurses"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5504,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí popelní kapsáři",
+    "archetype": "ash-thief",
+    "source": "blender/scenes/enemies-v3/host_16.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.28394,
+        -0.0
+      ],
+      "max": [
+        0.58107,
+        0.30664,
+        2.07006
+      ],
+      "size": [
+        1.16214,
+        0.59058,
+        2.07006
+      ]
+    },
+    "height": 2.07006,
+    "wingspan": 1.16214,
+    "nativeScale": 1,
+    "semanticParts": [
+      "ash thief copper mask",
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 1
   },
   {
     "id": "host_17",
     "file": "host_17.glb",
     "portrait": "host_17.png",
-    "style": "ashen-host-v2",
-    "triangles": 7212,
-    "authoring": "Blender",
-    "name": "Briarhex Shamans"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 6192,
+    "authoring": "Blender 5.2",
+    "name": "Trollí nosiči prokletých totemů",
+    "archetype": "totem-troll",
+    "source": "blender/scenes/enemies-v3/host_17.blend",
+    "bounds": {
+      "min": [
+        -1.24955,
+        -0.45977,
+        0.0
+      ],
+      "max": [
+        0.76022,
+        0.36221,
+        2.74375
+      ],
+      "size": [
+        2.00978,
+        0.82197,
+        2.74375
+      ]
+    },
+    "height": 2.74375,
+    "wingspan": 2.00978,
+    "nativeScale": 1,
+    "semanticParts": [],
+    "auraStage": 1
   },
   {
     "id": "host_18",
     "file": "host_18.glb",
     "portrait": "host_18.png",
-    "style": "ashen-host-v2",
-    "triangles": 6840,
-    "authoring": "Blender",
-    "name": "Nightveil Hexblades"
-  },
-  {
-    "id": "host_19",
-    "file": "host_19.glb",
-    "portrait": "host_19.png",
-    "style": "ashen-host-v2",
-    "triangles": 8004,
-    "authoring": "Blender",
-    "name": "Bloodhowl Wolfpack"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5232,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí němí kati",
+    "archetype": "mute-executioner",
+    "source": "blender/scenes/enemies-v3/host_18.blend",
+    "bounds": {
+      "min": [
+        -0.61406,
+        -0.38988,
+        -0.0
+      ],
+      "max": [
+        0.61406,
+        0.30664,
+        2.07006
+      ],
+      "size": [
+        1.22812,
+        0.69652,
+        2.07006
+      ]
+    },
+    "height": 2.07006,
+    "wingspan": 1.22812,
+    "nativeScale": 1,
+    "semanticParts": [
+      "hooked blade0",
+      "hooked blade1",
+      "hooked blade2",
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3",
+      "mask lower face",
+      "mask stitched mouth"
+    ],
+    "auraStage": 1
   },
   {
     "id": "host_20",
     "file": "host_20.glb",
     "portrait": "host_20.png",
-    "style": "ashen-host-v2",
-    "triangles": 8943,
-    "authoring": "Blender",
-    "name": "Gorvash the Bone Giant"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5924,
+    "authoring": "Blender 5.2",
+    "name": "Gorvash, Kostěný patriarcha",
+    "archetype": "bone-patriarch",
+    "source": "blender/scenes/enemies-v3/host_20.blend",
+    "bounds": {
+      "min": [
+        -0.91227,
+        -0.59243,
+        -0.0
+      ],
+      "max": [
+        1.03825,
+        0.44001,
+        3.85863
+      ],
+      "size": [
+        1.95052,
+        1.03244,
+        3.85863
+      ]
+    },
+    "height": 3.85863,
+    "wingspan": 1.95052,
+    "nativeScale": 1,
+    "semanticParts": [
+      "back bone throne0",
+      "back bone throne1",
+      "mammoth rib crown0",
+      "mammoth rib crown1",
+      "mammoth rib crown2",
+      "throne rib rail"
+    ],
+    "auraStage": 1
   },
   {
     "id": "host_21",
     "file": "host_21.glb",
     "portrait": "host_21.png",
-    "style": "ashen-host-v2",
-    "triangles": 7500,
-    "authoring": "Blender",
-    "name": "Rotroot Juggernauts"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4956,
+    "authoring": "Blender 5.2",
+    "name": "Trollové Hnilobného kořene",
+    "archetype": "root-troll",
+    "source": "blender/scenes/enemies-v3/host_21.blend",
+    "bounds": {
+      "min": [
+        -0.76022,
+        -0.35475,
+        0.0
+      ],
+      "max": [
+        0.76022,
+        0.36221,
+        2.27025
+      ],
+      "size": [
+        1.52044,
+        0.71696,
+        2.27025
+      ]
+    },
+    "height": 2.27025,
+    "wingspan": 1.52044,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_22",
     "file": "host_22.glb",
     "portrait": "host_22.png",
-    "style": "ashen-host-v2",
-    "triangles": 7212,
-    "authoring": "Blender",
-    "name": "Blackplate Ironclads"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5772,
+    "authoring": "Blender 5.2",
+    "name": "Ogroví železní berani",
+    "archetype": "iron-ram",
+    "source": "blender/scenes/enemies-v3/host_22.blend",
+    "bounds": {
+      "min": [
+        -0.8289,
+        -0.48401,
+        -0.0
+      ],
+      "max": [
+        0.9514,
+        0.53293,
+        2.7135
+      ],
+      "size": [
+        1.7803,
+        1.01693,
+        2.7135
+      ]
+    },
+    "height": 2.7135,
+    "wingspan": 1.7803,
+    "nativeScale": 1,
+    "semanticParts": [
+      "closed ram visor",
+      "helmet ram horns0",
+      "helmet ram horns1",
+      "helmet ram horns2",
+      "overlapping armored belly"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_23",
     "file": "host_23.glb",
     "portrait": "host_23.png",
-    "style": "ashen-host-v2",
-    "triangles": 7638,
-    "authoring": "Blender",
-    "name": "Mirrorwraith Warlocks"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4950,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí zaklínači střepových duší",
+    "archetype": "shard-sorcerer",
+    "source": "blender/scenes/enemies-v3/host_23.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.38988,
+        -0.0
+      ],
+      "max": [
+        0.58107,
+        0.37398,
+        2.07006
+      ],
+      "size": [
+        1.16214,
+        0.76386,
+        2.07006
+      ]
+    },
+    "height": 2.07006,
+    "wingspan": 1.16214,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_24",
     "file": "host_24.glb",
     "portrait": "host_24.png",
-    "style": "ashen-host-v2",
-    "triangles": 8320,
-    "authoring": "Blender",
-    "name": "Scrapspine Marauders"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 6798,
+    "authoring": "Blender 5.2",
+    "name": "Gobliní nýtovaní mutanti",
+    "archetype": "rivet-mutant",
+    "source": "blender/scenes/enemies-v3/host_24.blend",
+    "bounds": {
+      "min": [
+        -0.45577,
+        -0.18321,
+        0.0
+      ],
+      "max": [
+        0.84742,
+        0.26973,
+        1.88325
+      ],
+      "size": [
+        1.30319,
+        0.45294,
+        1.88325
+      ]
+    },
+    "height": 1.88325,
+    "wingspan": 1.30319,
+    "nativeScale": 1,
+    "semanticParts": [
+      "living iron framework0",
+      "living iron framework1",
+      "overlapping armored belly",
+      "reactive riveted armor"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_25",
     "file": "host_25.glb",
     "portrait": "host_25.png",
-    "style": "ashen-host-v2",
-    "triangles": 8222,
-    "authoring": "Blender",
-    "name": "Ironwing Corsairs"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5452,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí jezdci na železných netopýrech",
+    "archetype": "iron-bat",
+    "source": "blender/scenes/enemies-v3/host_25.blend",
+    "bounds": {
+      "min": [
+        -1.982,
+        -0.74901,
+        0.70125
+      ],
+      "max": [
+        1.982,
+        0.58657,
+        1.9808
+      ],
+      "size": [
+        3.964,
+        1.33559,
+        1.27955
+      ]
+    },
+    "height": 1.27955,
+    "wingspan": 3.964,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw",
+      "bat iron facial mask",
+      "bat reactive wing plate",
+      "rider crossbow bow0",
+      "rider crossbow bow1",
+      "rider crossbow stock"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_26",
     "file": "host_26.glb",
     "portrait": "host_26.png",
-    "style": "ashen-host-v2",
-    "triangles": 6916,
-    "authoring": "Blender",
-    "name": "Cinderseal Zealots"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4912,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí požírači kouzel",
+    "archetype": "spell-eater",
+    "source": "blender/scenes/enemies-v3/host_26.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.25525,
+        -0.0
+      ],
+      "max": [
+        0.58107,
+        0.3079,
+        2.01139
+      ],
+      "size": [
+        1.16214,
+        0.56315,
+        2.01139
+      ]
+    },
+    "height": 2.01139,
+    "wingspan": 1.16214,
+    "nativeScale": 1,
+    "semanticParts": [
+      "embedded spell eating obsidian",
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_27",
     "file": "host_27.glb",
     "portrait": "host_27.png",
-    "style": "ashen-host-v2",
-    "triangles": 8666,
-    "authoring": "Blender",
-    "name": "Wraithwing Harriers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4960,
+    "authoring": "Blender 5.2",
+    "name": "Přízrační netopýří jezdcové",
+    "archetype": "ghost-bat",
+    "source": "blender/scenes/enemies-v3/host_27.blend",
+    "bounds": {
+      "min": [
+        -1.75228,
+        -0.74901,
+        0.70141
+      ],
+      "max": [
+        1.75228,
+        0.6579,
+        1.9808
+      ],
+      "size": [
+        3.50455,
+        1.40691,
+        1.27939
+      ]
+    },
+    "height": 1.27939,
+    "wingspan": 3.50455,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw",
+      "bat skeletal facial mask lower jaw",
+      "bat skeletal facial mask skull",
+      "bat skeletal facial mask socket",
+      "bat skeletal facial mask tooth",
+      "bat visible skeletal rib"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_28",
     "file": "host_28.glb",
     "portrait": "host_28.png",
-    "style": "ashen-host-v2",
-    "triangles": 9108,
-    "authoring": "Blender",
-    "name": "Rivetwing Bombardiers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5452,
+    "authoring": "Blender 5.2",
+    "name": "Gobliní křídlošroti",
+    "archetype": "wing-scrapper",
+    "source": "blender/scenes/enemies-v3/host_28.blend",
+    "bounds": {
+      "min": [
+        -1.982,
+        -0.74901,
+        0.70125
+      ],
+      "max": [
+        1.982,
+        0.58657,
+        1.9808
+      ],
+      "size": [
+        3.964,
+        1.33559,
+        1.27955
+      ]
+    },
+    "height": 1.27955,
+    "wingspan": 3.964,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw",
+      "bat iron facial mask",
+      "bat reactive wing plate",
+      "rider crossbow bow0",
+      "rider crossbow bow1",
+      "rider crossbow stock"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_29",
     "file": "host_29.glb",
     "portrait": "host_29.png",
-    "style": "ashen-host-v2",
-    "triangles": 8312,
-    "authoring": "Blender",
-    "name": "Prismbat Tricksters"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4550,
+    "authoring": "Blender 5.2",
+    "name": "Prizmatickí netopýří šejdíři",
+    "archetype": "prism-bat",
+    "source": "blender/scenes/enemies-v3/host_29.blend",
+    "bounds": {
+      "min": [
+        -1.75228,
+        -0.74901,
+        0.70141
+      ],
+      "max": [
+        1.75228,
+        0.58657,
+        1.9808
+      ],
+      "size": [
+        3.50455,
+        1.33559,
+        1.27939
+      ]
+    },
+    "height": 1.27939,
+    "wingspan": 3.50455,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_30",
     "file": "host_30.glb",
     "portrait": "host_30.png",
-    "style": "ashen-host-v2",
-    "triangles": 9555,
-    "authoring": "Blender",
-    "name": "Zaruun the Stormrider"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4700,
+    "authoring": "Blender 5.2",
+    "name": "Zaruun, Pán bouřných křídel",
+    "archetype": "storm-bat-lord",
+    "source": "blender/scenes/enemies-v3/host_30.blend",
+    "bounds": {
+      "min": [
+        -2.83137,
+        -0.74901,
+        0.7008
+      ],
+      "max": [
+        2.83137,
+        0.58657,
+        2.2681
+      ],
+      "size": [
+        5.66275,
+        1.33559,
+        1.5673
+      ]
+    },
+    "height": 1.5673,
+    "wingspan": 5.66275,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw"
+    ],
+    "auraStage": 2
   },
   {
     "id": "host_31",
     "file": "host_31.glb",
     "portrait": "host_31.png",
-    "style": "ashen-host-v2",
-    "triangles": 7566,
-    "authoring": "Blender",
-    "name": "Twinseal Spellbreakers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5234,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí dvojpečetní inkvizitoři",
+    "archetype": "dual-inquisitor",
+    "source": "blender/scenes/enemies-v3/host_31.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.38988,
+        -0.0
+      ],
+      "max": [
+        0.65402,
+        0.37398,
+        2.36592
+      ],
+      "size": [
+        1.23509,
+        0.76386,
+        2.36592
+      ]
+    },
+    "height": 2.36592,
+    "wingspan": 1.23509,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 3
+  },
+  {
+    "id": "host_31-ember",
+    "file": "host_31-ember.glb",
+    "portrait": "host_31-ember.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5234,
+    "authoring": "Blender 5.2",
+    "name": "Popelní dvojpečetní inkvizitoři",
+    "archetype": "dual-inquisitor",
+    "source": "blender/scenes/enemies-v3/host_31-ember.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.38988,
+        -0.0
+      ],
+      "max": [
+        0.65402,
+        0.37398,
+        2.36592
+      ],
+      "size": [
+        1.23509,
+        0.76386,
+        2.36592
+      ]
+    },
+    "height": 2.36592,
+    "wingspan": 1.23509,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 3
+  },
+  {
+    "id": "host_31-wraith",
+    "file": "host_31-wraith.glb",
+    "portrait": "host_31-wraith.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5234,
+    "authoring": "Blender 5.2",
+    "name": "Přízrační dvojpečetní inkvizitoři",
+    "archetype": "dual-inquisitor",
+    "source": "blender/scenes/enemies-v3/host_31-wraith.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.38988,
+        -0.0
+      ],
+      "max": [
+        0.65402,
+        0.37398,
+        2.36592
+      ],
+      "size": [
+        1.23509,
+        0.76386,
+        2.36592
+      ]
+    },
+    "height": 2.36592,
+    "wingspan": 1.23509,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 3
   },
   {
     "id": "host_32",
     "file": "host_32.glb",
     "portrait": "host_32.png",
-    "style": "ashen-host-v2",
-    "triangles": 7260,
-    "authoring": "Blender",
-    "name": "Soulwell Channelers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5260,
+    "authoring": "Blender 5.2",
+    "name": "Trollí pijáci duší",
+    "archetype": "soul-troll",
+    "source": "blender/scenes/enemies-v3/host_32.blend",
+    "bounds": {
+      "min": [
+        -0.76022,
+        -0.35475,
+        0.0
+      ],
+      "max": [
+        0.76022,
+        0.36535,
+        2.26911
+      ],
+      "size": [
+        1.52044,
+        0.7201,
+        2.26911
+      ]
+    },
+    "height": 2.26911,
+    "wingspan": 1.52044,
+    "nativeScale": 1,
+    "semanticParts": [
+      "captive soul lantern frame",
+      "open chest ribs0",
+      "open chest ribs1",
+      "soul inside open ribs"
+    ],
+    "auraStage": 3
   },
   {
     "id": "host_33",
     "file": "host_33.glb",
     "portrait": "host_33.png",
-    "style": "ashen-host-v2",
-    "triangles": 6960,
-    "authoring": "Blender",
-    "name": "Riftstep Revenants"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5228,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí přízraky roztrženého světa",
+    "archetype": "rift-wraith",
+    "source": "blender/scenes/enemies-v3/host_33.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.38988,
+        -0.0
+      ],
+      "max": [
+        0.58107,
+        0.30995,
+        2.07006
+      ],
+      "size": [
+        1.16214,
+        0.69983,
+        2.07006
+      ]
+    },
+    "height": 2.07006,
+    "wingspan": 1.16214,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 3
   },
   {
     "id": "host_34",
     "file": "host_34.glb",
     "portrait": "host_34.png",
-    "style": "ashen-host-v2",
-    "triangles": 8222,
-    "authoring": "Blender",
-    "name": "Gallowswing Pickpockets"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 6014,
+    "authoring": "Blender 5.2",
+    "name": "Gobliní šibeniční letci",
+    "archetype": "gallows-bat",
+    "source": "blender/scenes/enemies-v3/host_34.blend",
+    "bounds": {
+      "min": [
+        -1.75228,
+        -0.96,
+        0.70141
+      ],
+      "max": [
+        1.75228,
+        0.6579,
+        1.9808
+      ],
+      "size": [
+        3.50455,
+        1.6179,
+        1.27939
+      ]
+    },
+    "height": 1.27939,
+    "wingspan": 3.50455,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw",
+      "bat skeletal facial mask lower jaw",
+      "bat skeletal facial mask skull",
+      "bat skeletal facial mask socket",
+      "bat skeletal facial mask tooth",
+      "bat visible skeletal rib",
+      "bell black crack0",
+      "bell black crack1",
+      "bell clapper",
+      "cracked temple bell",
+      "flared bell lip",
+      "long rider scarf"
+    ],
+    "auraStage": 3
   },
   {
     "id": "host_35",
     "file": "host_35.glb",
     "portrait": "host_35.png",
-    "style": "ashen-host-v2",
-    "triangles": 8222,
-    "authoring": "Blender",
-    "name": "Eclipsewing Twins"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4646,
+    "authoring": "Blender 5.2",
+    "name": "Netopýří stráž Zatmění",
+    "archetype": "eclipse-bat",
+    "source": "blender/scenes/enemies-v3/host_35.blend",
+    "bounds": {
+      "min": [
+        -1.75228,
+        -0.74901,
+        0.70141
+      ],
+      "max": [
+        1.75228,
+        0.58657,
+        1.9808
+      ],
+      "size": [
+        3.50455,
+        1.33559,
+        1.27939
+      ]
+    },
+    "height": 1.27939,
+    "wingspan": 3.50455,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw",
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 3
+  },
+  {
+    "id": "host_35-ember",
+    "file": "host_35-ember.glb",
+    "portrait": "host_35-ember.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4646,
+    "authoring": "Blender 5.2",
+    "name": "Popelní jezdci stráže Zatmění",
+    "archetype": "eclipse-bat",
+    "source": "blender/scenes/enemies-v3/host_35-ember.blend",
+    "bounds": {
+      "min": [
+        -1.75228,
+        -0.74901,
+        0.70141
+      ],
+      "max": [
+        1.75228,
+        0.58657,
+        1.9808
+      ],
+      "size": [
+        3.50455,
+        1.33559,
+        1.27939
+      ]
+    },
+    "height": 1.27939,
+    "wingspan": 3.50455,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw",
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 3
+  },
+  {
+    "id": "host_35-wraith",
+    "file": "host_35-wraith.glb",
+    "portrait": "host_35-wraith.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4646,
+    "authoring": "Blender 5.2",
+    "name": "Přízrační jezdci stráže Zatmění",
+    "archetype": "eclipse-bat",
+    "source": "blender/scenes/enemies-v3/host_35-wraith.blend",
+    "bounds": {
+      "min": [
+        -1.75228,
+        -0.74901,
+        0.70141
+      ],
+      "max": [
+        1.75228,
+        0.58657,
+        1.9808
+      ],
+      "size": [
+        3.50455,
+        1.33559,
+        1.27939
+      ]
+    },
+    "height": 1.27939,
+    "wingspan": 3.50455,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw",
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 3
   },
   {
     "id": "host_36",
     "file": "host_36.glb",
     "portrait": "host_36.png",
-    "style": "ashen-host-v2",
-    "triangles": 7212,
-    "authoring": "Blender",
-    "name": "Sunless Oathbreakers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5828,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí křivopřísežníci",
+    "archetype": "oathbreaker",
+    "source": "blender/scenes/enemies-v3/host_36.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.25525,
+        -0.0
+      ],
+      "max": [
+        0.96588,
+        0.30664,
+        2.1465
+      ],
+      "size": [
+        1.54695,
+        0.56189,
+        2.1465
+      ]
+    },
+    "height": 2.1465,
+    "wingspan": 1.54695,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3",
+      "overlapping armored belly"
+    ],
+    "auraStage": 3
   },
   {
-    "id": "host_37",
-    "file": "host_37.glb",
-    "portrait": "host_37.png",
-    "style": "ashen-host-v2",
-    "triangles": 8052,
-    "authoring": "Blender",
-    "name": "Riftfang Prowlers"
+    "id": "host_36-ember",
+    "file": "host_36-ember.glb",
+    "portrait": "host_36-ember.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5828,
+    "authoring": "Blender 5.2",
+    "name": "Popelní křivopřísežníci",
+    "archetype": "oathbreaker",
+    "source": "blender/scenes/enemies-v3/host_36-ember.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.25525,
+        -0.0
+      ],
+      "max": [
+        0.96588,
+        0.30664,
+        2.1465
+      ],
+      "size": [
+        1.54695,
+        0.56189,
+        2.1465
+      ]
+    },
+    "height": 2.1465,
+    "wingspan": 1.54695,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3",
+      "overlapping armored belly"
+    ],
+    "auraStage": 3
+  },
+  {
+    "id": "host_36-wraith",
+    "file": "host_36-wraith.glb",
+    "portrait": "host_36-wraith.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5828,
+    "authoring": "Blender 5.2",
+    "name": "Přízrační křivopřísežníci",
+    "archetype": "oathbreaker",
+    "source": "blender/scenes/enemies-v3/host_36-wraith.blend",
+    "bounds": {
+      "min": [
+        -0.58107,
+        -0.25525,
+        -0.0
+      ],
+      "max": [
+        0.96588,
+        0.30664,
+        2.1465
+      ],
+      "size": [
+        1.54695,
+        0.56189,
+        2.1465
+      ]
+    },
+    "height": 2.1465,
+    "wingspan": 1.54695,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3",
+      "overlapping armored belly"
+    ],
+    "auraStage": 3
   },
   {
     "id": "host_38",
     "file": "host_38.glb",
     "portrait": "host_38.png",
-    "style": "ashen-host-v2",
-    "triangles": 6888,
-    "authoring": "Blender",
-    "name": "Blackmire Knifemasters"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5232,
+    "authoring": "Blender 5.2",
+    "name": "Nožíři Černé bažiny / Trollí krvesajové",
+    "archetype": "swamp-knifer",
+    "source": "blender/scenes/enemies-v3/host_38.blend",
+    "bounds": {
+      "min": [
+        -0.61406,
+        -0.38988,
+        -0.0
+      ],
+      "max": [
+        0.61406,
+        0.30664,
+        2.07006
+      ],
+      "size": [
+        1.22812,
+        0.69652,
+        2.07006
+      ]
+    },
+    "height": 2.07006,
+    "wingspan": 1.22812,
+    "nativeScale": 1,
+    "semanticParts": [
+      "hooked blade0",
+      "hooked blade1",
+      "hooked blade2",
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3",
+      "mask lower face",
+      "mask stitched mouth"
+    ],
+    "auraStage": 3
+  },
+  {
+    "id": "host_38-wraith",
+    "file": "host_38-wraith.glb",
+    "portrait": "host_38-wraith.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5212,
+    "authoring": "Blender 5.2",
+    "name": "Trollí krvesajové",
+    "archetype": "blood-leech-troll",
+    "source": "blender/scenes/enemies-v3/host_38-wraith.blend",
+    "bounds": {
+      "min": [
+        -0.76022,
+        -0.53841,
+        0.0
+      ],
+      "max": [
+        0.76022,
+        0.36221,
+        2.27025
+      ],
+      "size": [
+        1.52044,
+        0.90062,
+        2.27025
+      ]
+    },
+    "height": 2.27025,
+    "wingspan": 1.52044,
+    "nativeScale": 1,
+    "semanticParts": [],
+    "auraStage": 3
   },
   {
     "id": "host_39",
     "file": "host_39.glb",
     "portrait": "host_39.png",
-    "style": "ashen-host-v2",
-    "triangles": 8594,
-    "authoring": "Blender",
-    "name": "Tempestscale Reavers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4720,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí jezdci na hromových mantách",
+    "archetype": "thunder-manta",
+    "source": "blender/scenes/enemies-v3/host_39.blend",
+    "bounds": {
+      "min": [
+        -1.94028,
+        -1.60481,
+        0.88
+      ],
+      "max": [
+        1.94028,
+        0.7972,
+        2.0729
+      ],
+      "size": [
+        3.88057,
+        2.40201,
+        1.1929
+      ]
+    },
+    "height": 1.1929,
+    "wingspan": 3.88057,
+    "nativeScale": 1,
+    "semanticParts": [
+      "manta interlocking carapace",
+      "rider terrifying red mask"
+    ],
+    "auraStage": 3
   },
   {
     "id": "host_40",
     "file": "host_40.glb",
     "portrait": "host_40.png",
-    "style": "ashen-host-v2",
-    "triangles": 9549,
-    "authoring": "Blender",
-    "name": "Vorlak the Hollow Sky"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 7674,
+    "authoring": "Blender 5.2",
+    "name": "Vorlak, Dutý král nebes",
+    "archetype": "hollow-wyvern",
+    "source": "blender/scenes/enemies-v3/host_40.blend",
+    "bounds": {
+      "min": [
+        -3.53251,
+        -2.74224,
+        0.28656
+      ],
+      "max": [
+        3.53251,
+        2.46223,
+        2.6428
+      ],
+      "size": [
+        7.06502,
+        5.20446,
+        2.35625
+      ]
+    },
+    "height": 2.35625,
+    "wingspan": 7.06502,
+    "nativeScale": 1,
+    "semanticParts": [
+      "captive soul in Ghorun staff",
+      "obsidian back armor plate",
+      "sorcerer soul staff",
+      "staff captive soul cage0",
+      "staff captive soul cage1",
+      "tail terminal bone hook0",
+      "tail terminal bone hook1",
+      "wyvern hooked foot talon0",
+      "wyvern hooked foot talon1",
+      "wyvern long hooked snout",
+      "wyvern open rib cage0",
+      "wyvern open rib cage1",
+      "wyvern open rib cage2"
+    ],
+    "auraStage": 3
   },
   {
     "id": "host_41",
     "file": "host_41.glb",
     "portrait": "host_41.png",
-    "style": "ashen-host-v2",
-    "triangles": 7302,
-    "authoring": "Blender",
-    "name": "Crystalmaw Phalanx"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5535,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí krystalová falanga",
+    "archetype": "crystal-phalanx",
+    "source": "blender/scenes/enemies-v3/host_41.blend",
+    "bounds": {
+      "min": [
+        -0.742,
+        -0.25927,
+        -0.0
+      ],
+      "max": [
+        0.58107,
+        0.3816,
+        2.3903
+      ],
+      "size": [
+        1.32307,
+        0.64087,
+        2.3903
+      ]
+    },
+    "height": 2.3903,
+    "wingspan": 1.32307,
+    "nativeScale": 1,
+    "semanticParts": [
+      "overlapping armored belly"
+    ],
+    "auraStage": 4
   },
   {
     "id": "host_42",
     "file": "host_42.glb",
     "portrait": "host_42.png",
-    "style": "ashen-host-v2",
-    "triangles": 8666,
-    "authoring": "Blender",
-    "name": "Wildfire Bat-Lancers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 4652,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí ohniví netopýří kopiníci",
+    "archetype": "fire-bat",
+    "source": "blender/scenes/enemies-v3/host_42.blend",
+    "bounds": {
+      "min": [
+        -1.75228,
+        -0.74901,
+        0.70141
+      ],
+      "max": [
+        1.75228,
+        0.58657,
+        1.9808
+      ],
+      "size": [
+        3.50455,
+        1.33559,
+        1.27939
+      ]
+    },
+    "height": 1.27939,
+    "wingspan": 3.50455,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw",
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3"
+    ],
+    "auraStage": 4
   },
   {
     "id": "host_43",
     "file": "host_43.glb",
     "portrait": "host_43.png",
-    "style": "ashen-host-v2",
-    "triangles": 7260,
-    "authoring": "Blender",
-    "name": "Soulfed Hexguard"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 6524,
+    "authoring": "Blender 5.2",
+    "name": "Ogroví strážci vězněných duší",
+    "archetype": "soul-cage-ogre",
+    "source": "blender/scenes/enemies-v3/host_43.blend",
+    "bounds": {
+      "min": [
+        -0.9447,
+        -0.48401,
+        -0.0
+      ],
+      "max": [
+        1.22102,
+        0.53293,
+        2.7135
+      ],
+      "size": [
+        2.16572,
+        1.01693,
+        2.7135
+      ]
+    },
+    "height": 2.7135,
+    "wingspan": 2.16572,
+    "nativeScale": 1,
+    "semanticParts": [
+      "cage front bars",
+      "cage iron bar",
+      "mask lower face",
+      "overlapping armored belly",
+      "soul prison cage floor",
+      "soul prisoner"
+    ],
+    "auraStage": 4
   },
   {
     "id": "host_44",
     "file": "host_44.glb",
     "portrait": "host_44.png",
-    "style": "ashen-host-v2",
-    "triangles": 6916,
-    "authoring": "Blender",
-    "name": "Cinderblink Executioners"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5740,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí popelní popravčí",
+    "archetype": "ash-executioner",
+    "source": "blender/scenes/enemies-v3/host_44.blend",
+    "bounds": {
+      "min": [
+        -0.6508,
+        -0.43667,
+        -0.0
+      ],
+      "max": [
+        1.08178,
+        0.34471,
+        2.42782
+      ],
+      "size": [
+        1.73258,
+        0.78138,
+        2.42782
+      ]
+    },
+    "height": 2.42782,
+    "wingspan": 1.73258,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3",
+      "overlapping armored belly"
+    ],
+    "auraStage": 4
   },
   {
     "id": "host_45",
     "file": "host_45.glb",
     "portrait": "host_45.png",
-    "style": "ashen-host-v2",
-    "triangles": 9108,
-    "authoring": "Blender",
-    "name": "Skyhex Drumguard"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 8004,
+    "authoring": "Blender 5.2",
+    "name": "Létající bubeníci Černé hordy",
+    "archetype": "drummer-bat",
+    "source": "blender/scenes/enemies-v3/host_45.blend",
+    "bounds": {
+      "min": [
+        -1.982,
+        -0.91,
+        0.70125
+      ],
+      "max": [
+        1.982,
+        0.58657,
+        1.9
+      ],
+      "size": [
+        3.964,
+        1.49657,
+        1.19875
+      ]
+    },
+    "height": 1.19875,
+    "wingspan": 3.964,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw"
+    ],
+    "auraStage": 4
   },
   {
     "id": "host_46",
     "file": "host_46.glb",
     "portrait": "host_46.png",
-    "style": "ashen-host-v2",
-    "triangles": 7284,
-    "authoring": "Blender",
-    "name": "Ghostplate Immortals"
-  },
-  {
-    "id": "host_47",
-    "file": "host_47.glb",
-    "portrait": "host_47.png",
-    "style": "ashen-host-v2",
-    "triangles": 6916,
-    "authoring": "Blender",
-    "name": "Doomchant Ravagers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 2200,
+    "authoring": "Blender 5.2",
+    "name": "Ogroví revenanti v prázdné zbroji",
+    "archetype": "revenant-ogre",
+    "source": "blender/scenes/enemies-v3/host_46.blend",
+    "bounds": {
+      "min": [
+        -0.8289,
+        -0.48401,
+        -0.0
+      ],
+      "max": [
+        0.8289,
+        0.48401,
+        2.7135
+      ],
+      "size": [
+        1.6578,
+        0.96802,
+        2.7135
+      ]
+    },
+    "height": 2.7135,
+    "wingspan": 1.6578,
+    "nativeScale": 1,
+    "semanticParts": [
+      "overlapping armored belly"
+    ],
+    "auraStage": 4
   },
   {
     "id": "host_48",
     "file": "host_48.glb",
     "portrait": "host_48.png",
-    "style": "ashen-host-v2",
-    "triangles": 8666,
-    "authoring": "Blender",
-    "name": "Nightfire Sky-Thieves"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5514,
+    "authoring": "Blender 5.2",
+    "name": "Netopýří zloději černého ohně",
+    "archetype": "blackfire-bat",
+    "source": "blender/scenes/enemies-v3/host_48.blend",
+    "bounds": {
+      "min": [
+        -1.75228,
+        -0.96,
+        0.70141
+      ],
+      "max": [
+        1.75228,
+        0.58657,
+        1.9808
+      ],
+      "size": [
+        3.50455,
+        1.54657,
+        1.27939
+      ]
+    },
+    "height": 1.27939,
+    "wingspan": 3.50455,
+    "nativeScale": 1,
+    "semanticParts": [
+      "bat hooked foot claw",
+      "bell black crack0",
+      "bell black crack1",
+      "bell clapper",
+      "cracked temple bell",
+      "flared bell lip",
+      "long rider scarf"
+    ],
+    "auraStage": 4
   },
   {
     "id": "host_49",
     "file": "host_49.glb",
     "portrait": "host_49.png",
-    "style": "ashen-host-v2",
-    "triangles": 7356,
-    "authoring": "Blender",
-    "name": "Deepmaw Soulkeepers"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5958,
+    "authoring": "Blender 5.2",
+    "name": "Trollí strážci Hluboké tlamy",
+    "archetype": "deepmaw-troll",
+    "source": "blender/scenes/enemies-v3/host_49.blend",
+    "bounds": {
+      "min": [
+        -0.86601,
+        -0.434,
+        0.0
+      ],
+      "max": [
+        0.86601,
+        0.45749,
+        2.835
+      ],
+      "size": [
+        1.73203,
+        0.89149,
+        2.835
+      ]
+    },
+    "height": 2.835,
+    "wingspan": 1.73203,
+    "nativeScale": 1,
+    "semanticParts": [
+      "maw bone tooth",
+      "obsidian carapace",
+      "overlapping armored belly",
+      "second belly maw",
+      "soul light inside maw"
+    ],
+    "auraStage": 4
   },
   {
     "id": "host_50",
     "file": "host_50.glb",
     "portrait": "host_50.png",
-    "style": "ashen-host-v2",
-    "triangles": 9551,
-    "authoring": "Blender",
-    "name": "Ghorun, Emperor of Ash"
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 17770,
+    "authoring": "Blender 5.2",
+    "name": "Ghorun, Černý čaroděj na Královně wyvern",
+    "archetype": "queen-wyvern",
+    "source": "blender/scenes/enemies-v3/host_50.blend",
+    "bounds": {
+      "min": [
+        -5.30376,
+        -4.11335,
+        0.57037
+      ],
+      "max": [
+        5.30376,
+        3.69334,
+        4.93766
+      ],
+      "size": [
+        10.60753,
+        7.8067,
+        4.36728
+      ]
+    },
+    "height": 4.36728,
+    "wingspan": 10.60753,
+    "nativeScale": 1,
+    "semanticParts": [
+      "Ghorun tall throne back",
+      "Ghorun throne saddle",
+      "captive soul in Ghorun staff",
+      "obsidian back armor plate",
+      "sorcerer soul staff",
+      "staff captive soul cage0",
+      "staff captive soul cage1",
+      "tail terminal bone hook0",
+      "tail terminal bone hook1",
+      "throne gilded spire",
+      "wyvern hooked foot talon0",
+      "wyvern hooked foot talon1",
+      "wyvern long hooked snout"
+    ],
+    "auraStage": 4
   },
   {
-    "id": "host_05-balloon",
-    "file": "host_05-balloon.glb",
-    "portrait": "host_05-balloon.png",
-    "style": "ashen-host-v2",
-    "triangles": 9060,
-    "authoring": "Blender",
-    "name": "Gloamwing Outriders"
+    "id": "host_50-devourer",
+    "file": "host_50-devourer.glb",
+    "portrait": "host_50-devourer.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 18314,
+    "authoring": "Blender 5.2",
+    "name": "Ghorun Bledý požírač",
+    "archetype": "queen-wyvern",
+    "source": "blender/scenes/enemies-v3/host_50-devourer.blend",
+    "bounds": {
+      "min": [
+        -5.30376,
+        -4.11335,
+        0.57037
+      ],
+      "max": [
+        5.30376,
+        3.69334,
+        4.93766
+      ],
+      "size": [
+        10.60753,
+        7.8067,
+        4.36728
+      ]
+    },
+    "height": 4.36728,
+    "wingspan": 10.60753,
+    "nativeScale": 1,
+    "semanticParts": [
+      "Ghorun tall throne back",
+      "Ghorun throne saddle",
+      "captive soul in Ghorun staff",
+      "massive pale bony carapace",
+      "obsidian back armor plate",
+      "sorcerer soul staff",
+      "staff captive soul cage0",
+      "staff captive soul cage1",
+      "tail terminal bone hook0",
+      "tail terminal bone hook1",
+      "throne gilded spire",
+      "wyvern hooked foot talon0",
+      "wyvern hooked foot talon1",
+      "wyvern long hooked snout"
+    ],
+    "auraStage": 4
+  },
+  {
+    "id": "host_50-tyrant",
+    "file": "host_50-tyrant.glb",
+    "portrait": "host_50-tyrant.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 20074,
+    "authoring": "Blender 5.2",
+    "name": "Ghorun Zlatokletý",
+    "archetype": "queen-wyvern",
+    "source": "blender/scenes/enemies-v3/host_50-tyrant.blend",
+    "bounds": {
+      "min": [
+        -5.30376,
+        -4.11335,
+        0.57037
+      ],
+      "max": [
+        5.30376,
+        3.69334,
+        4.93766
+      ],
+      "size": [
+        10.60753,
+        7.8067,
+        4.36728
+      ]
+    },
+    "height": 4.36728,
+    "wingspan": 10.60753,
+    "nativeScale": 1,
+    "semanticParts": [
+      "Ghorun tall throne back",
+      "Ghorun throne saddle",
+      "captive soul in Ghorun staff",
+      "golden wing rune ring",
+      "obsidian back armor plate",
+      "sorcerer soul staff",
+      "staff captive soul cage0",
+      "staff captive soul cage1",
+      "tail terminal bone hook0",
+      "tail terminal bone hook1",
+      "throne gilded spire",
+      "wyvern hooked foot talon0",
+      "wyvern hooked foot talon1",
+      "wyvern long hooked snout"
+    ],
+    "auraStage": 4
+  },
+  {
+    "id": "host_19",
+    "file": "host_19.glb",
+    "portrait": "host_19.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5336,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí jezdci na krvavých vlcích",
+    "archetype": "blood-wolf",
+    "source": "blender/scenes/enemies-v3/host_19.blend",
+    "bounds": {
+      "min": [
+        -0.30045,
+        -1.05983,
+        0.0
+      ],
+      "max": [
+        0.3782,
+        0.94,
+        1.799
+      ],
+      "size": [
+        0.67865,
+        1.99983,
+        1.799
+      ]
+    },
+    "height": 1.799,
+    "wingspan": 0.67865,
+    "nativeScale": 1,
+    "semanticParts": [],
+    "auraStage": 1
+  },
+  {
+    "id": "host_37",
+    "file": "host_37.glb",
+    "portrait": "host_37.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5480,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí jezdci na trhlinových vlcích",
+    "archetype": "rift-wolf",
+    "source": "blender/scenes/enemies-v3/host_37.blend",
+    "bounds": {
+      "min": [
+        -0.32449,
+        -1.14462,
+        -0.0
+      ],
+      "max": [
+        0.40846,
+        1.0152,
+        1.94292
+      ],
+      "size": [
+        0.73294,
+        2.15982,
+        1.94292
+      ]
+    },
+    "height": 1.94292,
+    "wingspan": 0.73294,
+    "nativeScale": 1,
+    "semanticParts": [],
+    "auraStage": 3
+  },
+  {
+    "id": "host_47",
+    "file": "host_47.glb",
+    "portrait": "host_47.png",
+    "style": "dark-host-v3",
+    "revision": "dark-host-v3",
+    "triangles": 5820,
+    "authoring": "Blender 5.2",
+    "name": "Skřetí jezdci Posledního vytí",
+    "archetype": "last-howl-wolf",
+    "source": "blender/scenes/enemies-v3/host_47.blend",
+    "bounds": {
+      "min": [
+        -0.38157,
+        -1.34598,
+        0.0
+      ],
+      "max": [
+        0.48032,
+        1.1938,
+        2.28473
+      ],
+      "size": [
+        0.86189,
+        2.53978,
+        2.28473
+      ]
+    },
+    "height": 2.28473,
+    "wingspan": 0.86189,
+    "nativeScale": 1,
+    "semanticParts": [
+      "immunity rune0",
+      "immunity rune1",
+      "immunity rune2",
+      "immunity rune3",
+      "last howl bone mask lower jaw",
+      "last howl bone mask skull",
+      "last howl bone mask socket",
+      "last howl bone mask tooth",
+      "wolf mask tusk"
+    ],
+    "auraStage": 4
   }
 ]

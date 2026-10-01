@@ -1,5 +1,26 @@
 import {GridManager} from './grid.js';
 
+// Explicit development fixtures use the same importer and world renderer as
+// play, with analytics disabled by the existing ?debug gate in main.js.
+export function prepareEnemyReview(game){
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.round=50;game.phase='ready';game.lives=30;game.paused=false;game.speed=1;
+  game.startCombat();game.combat.spawnQueue=[];game.combat.enemies=[];
+  for(const [i,type]of ['host_05','host_15','host_25','host_35','host_45','host_50'].entries()){
+    const enemy=game.combat.spawn(type);enemy.x=i===5?18:6+i*6;enemy.z=i===5?23:14;
+    enemy.route=[{x:enemy.x,z:enemy.z},{x:enemy.x,z:enemy.z-1}];enemy.pathIndex=1;
+  }
+  game.paused=true;game.emit('change');
+}
+export function prepareRecipeMarkerReview(game){
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.round=1;game.phase='build';game.nextId=1;game.activeDraw=0;game.previewRecipeId=null;
+  game.draft.roll(0);
+  const families=['frostwarden','soldier','stormcaller','druid','archer'];
+  families.forEach((family,i)=>{game.draft.roundForced={family,tier:1};game.place(15+i,18);});
+  game.select(game.towers[0].id);
+  const recipe=game.data.recipes.find(r=>game.data.towers[r.id].name==='Frostbolt Watchmen');
+  if(recipe)game.previewRecipe(recipe.id);game.emit('change');
+}
+
 // Repeatable development-only scene for reviewing imported rigs and the combat panel.
 export function prepareBattleReview(game,boss=false){
   game.grid=new GridManager();game.towers=[];game.selected=null;game.score=0;game.kills=0;game.leaks=0;game.lives=30;game.round=boss?10:6;game.phase='ready';game.speed=1;game.paused=false;

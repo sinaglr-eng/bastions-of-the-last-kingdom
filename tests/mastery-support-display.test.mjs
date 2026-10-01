@@ -75,11 +75,11 @@ test('a real cloaked disarm invader shows the penalty without exposing its name 
   assert.equal(game.combat.isRevealed(enemy),false);
   const options={phase:game.phase,combat:game.combat},hidden=supportEffectsMarkup(target,game.towers,data,options);
   assert.match(hidden,/Disarmed · cannot attack/);assert.match(hidden,/From Unrevealed invader/);
-  assert.doesNotMatch(hidden,/Nightveil Hexblades|host_18|#71/);
+  assert.doesNotMatch(hidden,/Skřetí němí kati|host_18|#71/);
   assert.equal(enemy.cloaked,true,'rendering does not reveal the real enemy');
   enemy.x=21.5;assert.equal(game.combat.isRevealed(enemy),true);
   const visible=supportEffectsMarkup(target,game.towers,data,options);
-  assert.match(visible,/From Nightveil Hexblades #71/);assert.doesNotMatch(visible,/Unrevealed invader/);
+  assert.match(visible,/From Skřetí němí kati #71/);assert.doesNotMatch(visible,/Unrevealed invader/);
 });
 
 test('map legend names every shared support shape so color alone is not necessary',()=>{

@@ -151,7 +151,7 @@
     "threat": "Legendary warlord · piercing, holy and a long maze"
   },
   "host_01": {
-    "name": "Ashclaw Scouts",
+    "name": "Skřetí sběrači lebek",
     "model": "goblin",
     "traits": [],
     "hp": 9,
@@ -166,10 +166,14 @@
     "leak": 1,
     "clan": 0,
     "threat": "Opening patrol · no armor or resistances",
-    "counter": "Keep a defender near a checkpoint or crossing, then strengthen your defense each round."
+    "counter": "Keep a defender near a checkpoint or crossing, then strengthen your defense each round.",
+    "appearance": "Drobní zelení skřeti v otrhaných kápích. Nesou rezavé sekáčky a pytle s kořistí; první, nejméně vybavená část armády.",
+    "visualAsset": "host_01",
+    "designArchetype": "skull-scavenger",
+    "auraStage": 0
   },
   "host_02": {
-    "name": "Reedfang Leapers",
+    "name": "Gobliní trnonožci",
     "model": "wolf",
     "traits": [],
     "hp": 61,
@@ -185,10 +189,14 @@
     "clan": 0,
     "threat": "Ground warband · shape the route",
     "counter": "",
-    "beast": true
+    "beast": true,
+    "appearance": "Hubení goblini s dlouhýma nohama, zahnutými kopími a botami vyztuženými kostěnými trny. Běží při zemi, hlavy vystrčené dopředu.",
+    "visualAsset": "host_02",
+    "designArchetype": "thornfoot",
+    "auraStage": 0
   },
   "host_03": {
-    "name": "Ironbelly Brutes",
+    "name": "Ogroví žrouti",
     "model": "grunt",
     "traits": [],
     "hp": 80,
@@ -203,10 +211,14 @@
     "leak": 1,
     "clan": 0,
     "threat": "Ground warband · shape the route",
-    "counter": "Plated armor reduces physical damage; break armor or add magic."
+    "counter": "Plated armor reduces physical damage; break armor or add magic.",
+    "appearance": "Břichatí mladí ogři s kotlíkem místo přilby a obrovskou kuchyňskou palicí. Z opasků jim visí kusy masa a ukradené pánve.",
+    "visualAsset": "host_03",
+    "designArchetype": "ogre-glutton",
+    "auraStage": 0
   },
   "host_04": {
-    "name": "Scrapjaw Tinkerers",
+    "name": "Skřetí šrotokutálové",
     "model": "sapper",
     "traits": [],
     "hp": 104,
@@ -221,10 +233,14 @@
     "leak": 1,
     "clan": 0,
     "threat": "Ground warband · shape the route",
-    "counter": ""
+    "counter": "",
+    "appearance": "Gobliní válečníci obtěžkaní plechem, ozubenými koly a podivnými nástroji. Výzbroj působí jako poskládaná z vykradeného lidského mlýna.",
+    "visualAsset": "host_04",
+    "designArchetype": "scrap-tinker",
+    "auraStage": 0
   },
   "host_05": {
-    "name": "Gloamwing Outriders",
+    "name": "Netopýří zvědové",
     "model": "wyvern",
     "traits": [],
     "hp": 132,
@@ -242,16 +258,24 @@
     "counter": "",
     "beast": true,
     "variants": [
-      {},
       {
-        "name": "Gloamwing Outriders · Moonclaw clan",
+        "name": "Netopýří zvědové",
+        "visualAsset": "host_05"
+      },
+      {
+        "name": "Netopýří zvědové · měsíční klan",
         "color": "#667e91",
-        "model": "balloon"
+        "model": "balloon",
+        "visualAsset": "host_05"
       }
-    ]
+    ],
+    "appearance": "Malí skřeti zavěšení v kožených postrojích pod obřími ušatými netopýry. Siluetu tvoří široká křídla a dolů mířící průzkumnické kopí.",
+    "visualAsset": "host_05",
+    "designArchetype": "bat-scout",
+    "auraStage": 0
   },
   "host_06": {
-    "name": "Mossback Lumberers",
+    "name": "Trollové mechových zad",
     "model": "troll",
     "traits": [],
     "hp": 166,
@@ -269,10 +293,14 @@
     "counter": "Ritual wards resist magic; physical and pure attacks remain effective.",
     "resists": {
       "magic": 0.138
-    }
+    },
+    "appearance": "Zavalití lesní trollové porostlí mechem a houbami. Na zádech mají zarostlé runové kameny, které naznačují magickou odolnost.",
+    "visualAsset": "host_06",
+    "designArchetype": "moss-troll",
+    "auraStage": 0
   },
   "host_07": {
-    "name": "Bogscale Hunters",
+    "name": "Skřetí lovci z močálů",
     "model": "grunt",
     "traits": [],
     "hp": 207,
@@ -287,10 +315,14 @@
     "leak": 1,
     "clan": 0,
     "threat": "Ground warband · shape the route",
-    "counter": "Plated armor reduces physical damage; break armor or add magic."
+    "counter": "Plated armor reduces physical damage; break armor or add magic.",
+    "appearance": "Šupinaté kožené pláště, krokodýlí čelisti na přilbách a ostnaté harpuny. Zelenohnědí lovci obalení rákosem a blátem.",
+    "visualAsset": "host_07",
+    "designArchetype": "swamp-hunter",
+    "auraStage": 0
   },
   "host_08": {
-    "name": "Veilfang Stalkers",
+    "name": "Trollí stínokrevníci",
     "model": "assassin",
     "traits": [
       "vitality",
@@ -310,10 +342,14 @@
     "threat": "Vitality · Veil",
     "counter": "Regenerates health; focus damage. Cloaked beyond 2 tiles; Clerics reveal within 6.",
     "regen": 1.024,
-    "stealth": true
+    "stealth": true,
+    "appearance": "Štíhlí šedomodří trollové s velmi dlouhými pažemi. Těla se rozpouštějí do kouře; z ran jim prosakuje světélkující krev, která rány zaceluje.",
+    "visualAsset": "host_08",
+    "designArchetype": "shade-troll",
+    "auraStage": 0
   },
   "host_09": {
-    "name": "Dustcloak Skirmishers",
+    "name": "Gobliní prachotanečníci",
     "model": "assassin",
     "traits": [
       "evasion"
@@ -331,10 +367,14 @@
     "clan": 0,
     "threat": "Evasion",
     "counter": "Can evade direct physical hits; use magic.",
-    "evasion": 0.25
+    "evasion": 0.25,
+    "appearance": "Maskovaní goblini s dvojicí zahnutých nožů a cáry lehkého pláště. Úhyb znázorňuje krátké vychýlení těla a obláček prachu.",
+    "visualAsset": "host_09",
+    "designArchetype": "dust-dancer",
+    "auraStage": 0
   },
   "host_10": {
-    "name": "Mogrok the Gatebreaker",
+    "name": "Mogrok, Rozbíječ bran",
     "model": "ogre",
     "traits": [],
     "hp": 4226,
@@ -349,10 +389,14 @@
     "leak": 10,
     "clan": 0,
     "threat": "Ground warband · shape the route",
-    "counter": "Plated armor reduces physical damage; break armor or add magic."
+    "counter": "Plated armor reduces physical damage; break armor or add magic.",
+    "appearance": "Boss: obrovský obrněný ogr, který jako štít vleče vytržené hradní dveře. V druhé ruce drží beranidlo s železnou beraní hlavou.",
+    "visualAsset": "host_10",
+    "designArchetype": "gatebreaker",
+    "auraStage": 0
   },
   "host_11": {
-    "name": "Bonehook Raiders",
+    "name": "Skřetí hákonoši",
     "model": "grunt",
     "traits": [],
     "hp": 467,
@@ -367,10 +411,14 @@
     "leak": 1,
     "clan": 1,
     "threat": "Ground warband · shape the route",
-    "counter": "Plated armor reduces physical damage; break armor or add magic."
+    "counter": "Plated armor reduces physical damage; break armor or add magic.",
+    "appearance": "Ostřílení nájezdníci s hákovými čepelemi a řetězy. Na ramenou mají lidské přilby jako trofeje; první zřetelně organizovaná pěchota.",
+    "visualAsset": "host_11",
+    "designArchetype": "hook-raider",
+    "auraStage": 1
   },
   "host_12": {
-    "name": "Hexdrum Saboteurs",
+    "name": "Gobliní zvonožrouti",
     "model": "shaman",
     "traits": [
       "disarm"
@@ -391,10 +439,14 @@
     "resists": {
       "magic": 0.156
     },
-    "disarm": true
+    "disarm": true,
+    "appearance": "Gobliní šamani nesoucí na zádech puklé chrámové zvony. Při odzbrojení do nich udeří kostěnou palicí a vyšlou kruh fialových run.",
+    "visualAsset": "host_12",
+    "designArchetype": "bell-shaman",
+    "auraStage": 1
   },
   "host_13": {
-    "name": "Redtusk Amazons",
+    "name": "Skřetice Rudého klu",
     "model": "berserker",
     "traits": [],
     "hp": 680,
@@ -409,10 +461,14 @@
     "leak": 1,
     "clan": 1,
     "threat": "Ground warband · shape the route",
-    "counter": ""
+    "counter": "",
+    "appearance": "Svalnaté válečnice s rudými copánky, tesáky a dlouhými sekerami. Brnění z tmavé kůže zdobí červené otisky dlaní.",
+    "visualAsset": "host_13",
+    "designArchetype": "redtusk-woman",
+    "auraStage": 1
   },
   "host_14": {
-    "name": "Mirrorhide Guard",
+    "name": "Skřetí zrcadloštítníci",
     "model": "shield",
     "traits": [
       "refraction"
@@ -430,10 +486,14 @@
     "clan": 1,
     "threat": "Mirror shields",
     "counter": "Shields absorb three direct hits; poison ticks and burning auras bypass them. Plated armor reduces physical damage; break armor or add magic.",
-    "refraction": 3
+    "refraction": 3,
+    "appearance": "Těžká pěchota s leštěnými černými štíty. Kolem každého obíhají tři stříbrné střepy, které při zachycení zásahu postupně praskají.",
+    "visualAsset": "host_14",
+    "designArchetype": "mirror-shield",
+    "auraStage": 1
   },
   "host_15": {
-    "name": "Moonbat Beastmasters",
+    "name": "Krvaví netopýří honáci",
     "model": "bat",
     "traits": [
       "vitality"
@@ -454,16 +514,24 @@
     "beast": true,
     "regen": 3.9,
     "variants": [
-      {},
       {
-        "name": "Moonbat Beastmasters · Moonclaw clan",
+        "name": "Krvaví netopýří honáci",
+        "visualAsset": "host_15"
+      },
+      {
+        "name": "Krvaví netopýří honáci · měsíční klan",
         "color": "#667e91",
-        "model": "bat"
+        "model": "bat",
+        "visualAsset": "host_15"
       }
-    ]
+    ],
+    "appearance": "Skřetí jezdci na mohutných rudých netopýrech s potrhanými křídly. Regeneraci ukazují žhnoucí žilky, které zacelují trhliny v blánách.",
+    "visualAsset": "host_15",
+    "designArchetype": "blood-bat",
+    "auraStage": 1
   },
   "host_16": {
-    "name": "Ashvein Cutpurses",
+    "name": "Skřetí popelní kapsáři",
     "model": "warlock",
     "traits": [
       "magicImmune",
@@ -486,10 +554,14 @@
       "magic": 0.168
     },
     "magicImmune": true,
-    "thief": 13
+    "thief": 13,
+    "appearance": "Vychrtlí skřeti s popelem pokrytou kůží, měděnými maskami a přecpanými měšci. Magickou imunitu naznačuje vypálená runa na hrudi.",
+    "visualAsset": "host_16",
+    "designArchetype": "ash-thief",
+    "auraStage": 1
   },
   "host_17": {
-    "name": "Briarhex Shamans",
+    "name": "Trollí nosiči prokletých totemů",
     "model": "shaman",
     "traits": [
       "untouchable"
@@ -510,10 +582,14 @@
     "resists": {
       "magic": 0.171
     },
-    "untouchable": 0.35
+    "untouchable": 0.35,
+    "appearance": "Hrbatí trollové vláčející vysoké totemy z lebek a kořenů. Z otevřených úst totemu proudí temný dech představující zastrašení.",
+    "visualAsset": "host_17",
+    "designArchetype": "totem-troll",
+    "auraStage": 1
   },
   "host_18": {
-    "name": "Nightveil Hexblades",
+    "name": "Skřetí němí kati",
     "model": "assassin",
     "traits": [
       "stealth",
@@ -533,10 +609,14 @@
     "threat": "Veil · Disarm",
     "counter": "Cloaked beyond 2 tiles; Clerics reveal within 6. Briefly disarms nearby defenders every 8 seconds.",
     "stealth": true,
-    "disarm": true
+    "disarm": true,
+    "appearance": "Černé kapuce, zašitá ústa masek a srpovité čepele. Skrytí doprovází zhasínání jejich obrysu; odzbrojení krátký záblesk run na čepeli.",
+    "visualAsset": "host_18",
+    "designArchetype": "mute-executioner",
+    "auraStage": 1
   },
   "host_19": {
-    "name": "Bloodhowl Wolfpack",
+    "name": "Skřetí jezdci na krvavých vlcích",
     "model": "wolf",
     "traits": [
       "rush"
@@ -555,10 +635,14 @@
     "threat": "Blood rush",
     "counter": "Periodic bursts of movement speed.",
     "beast": true,
-    "rush": 1.7
+    "rush": 1.7,
+    "appearance": "Nízcí jezdci přikrčení nad rudookými vlky. Při výpadu vlci sklopí hlavu, rozsvítí se jim oči a za tlapami zůstane prachová stopa.",
+    "visualAsset": "host_19",
+    "designArchetype": "blood-wolf",
+    "auraStage": 1
   },
   "host_20": {
-    "name": "Gorvash the Bone Giant",
+    "name": "Gorvash, Kostěný patriarcha",
     "model": "ogre",
     "traits": [],
     "hp": 25079,
@@ -573,10 +657,14 @@
     "leak": 10,
     "clan": 1,
     "threat": "Ground warband · shape the route",
-    "counter": "Plated armor reduces physical damage; break armor or add magic."
+    "counter": "Plated armor reduces physical damage; break armor or add magic.",
+    "appearance": "Boss: prastarý trollí obr s korunou z mamutích žeber. Opírá se o kyj z celé páteře obří nestvůry a na zádech nese kostěný trůn.",
+    "visualAsset": "host_20",
+    "designArchetype": "bone-patriarch",
+    "auraStage": 1
   },
   "host_21": {
-    "name": "Rotroot Juggernauts",
+    "name": "Trollové Hnilobného kořene",
     "model": "troll",
     "traits": [
       "vitality"
@@ -597,10 +685,14 @@
     "resists": {
       "magic": 0.183
     },
-    "regen": 10.732000000000001
+    "regen": 10.732000000000001,
+    "appearance": "Mohutní bažinní trollové s kořeny prorůstajícími tělem. Rány zarůstají čerstvými výhonky; ochranné runy mají vyřezané do dřevnaté kůže.",
+    "visualAsset": "host_21",
+    "designArchetype": "root-troll",
+    "auraStage": 2
   },
   "host_22": {
-    "name": "Blackplate Ironclads",
+    "name": "Ogroví železní berani",
     "model": "shield",
     "traits": [
       "highArmor"
@@ -617,10 +709,14 @@
     "leak": 1,
     "clan": 2,
     "threat": "Iron plate",
-    "counter": "Heavy armor; use armor reduction or magic. Plated armor reduces physical damage; break armor or add magic."
+    "counter": "Heavy armor; use armor reduction or magic. Plated armor reduces physical damage; break armor or add magic.",
+    "appearance": "Ogři uzavření v plátové zbroji, s helmami připomínajícími beraní hlavy. Téměř žádná odkrytá kůže, široká ramena a těžké železné palice.",
+    "visualAsset": "host_22",
+    "designArchetype": "iron-ram",
+    "auraStage": 2
   },
   "host_23": {
-    "name": "Mirrorwraith Warlocks",
+    "name": "Skřetí zaklínači střepových duší",
     "model": "warlock",
     "traits": [
       "physicalImmune",
@@ -643,10 +739,14 @@
       "magic": 0.189
     },
     "refraction": 3,
-    "physicalImmune": true
+    "physicalImmune": true,
+    "appearance": "Přízrační šamani s průsvitnými těly. Kolem nich plují tři úlomky zrcadlové masky; fyzické zásahy procházejí kouřovým trupem.",
+    "visualAsset": "host_23",
+    "designArchetype": "shard-sorcerer",
+    "auraStage": 2
   },
   "host_24": {
-    "name": "Scrapspine Marauders",
+    "name": "Gobliní nýtovaní mutanti",
     "model": "sapper",
     "traits": [
       "reactiveArmor"
@@ -664,10 +764,14 @@
     "clan": 2,
     "threat": "Reactive armor",
     "counter": "Direct hits build temporary armor.",
-    "reactiveArmor": 3
+    "reactiveArmor": 3,
+    "appearance": "Goblini sevření v živé železné konstrukci. Každý zásah vizuálně přitáhne další kovové pláty k jejich tělu; po chvíli zase povolí.",
+    "visualAsset": "host_24",
+    "designArchetype": "rivet-mutant",
+    "auraStage": 2
   },
   "host_25": {
-    "name": "Ironwing Corsairs",
+    "name": "Skřetí jezdci na železných netopýrech",
     "model": "wyvern",
     "traits": [
       "highArmor"
@@ -685,10 +789,14 @@
     "clan": 2,
     "threat": "Iron plate",
     "counter": "Heavy armor; use armor reduction or magic.",
-    "beast": true
+    "beast": true,
+    "appearance": "Obrnění netopýři s kovovými čelními maskami a pláty na hrudi. Jezdci mají kuše a těžké přilby; let musí působit namáhavě a silově.",
+    "visualAsset": "host_25",
+    "designArchetype": "iron-bat",
+    "auraStage": 2
   },
   "host_26": {
-    "name": "Cinderseal Zealots",
+    "name": "Skřetí požírači kouzel",
     "model": "berserker",
     "traits": [
       "magicImmune"
@@ -706,10 +814,14 @@
     "clan": 2,
     "threat": "Magic immunity",
     "counter": "Magic and magical status immunity; physical or pure damage wins.",
-    "magicImmune": true
+    "magicImmune": true,
+    "appearance": "Podsadití skřeti s černými kameny zapuštěnými do kůže. Ústa mají rozšířená do nepřirozeného úsměvu; magické zásahy se u run rozpadnou na popel.",
+    "visualAsset": "host_26",
+    "designArchetype": "spell-eater",
+    "auraStage": 2
   },
   "host_27": {
-    "name": "Wraithwing Harriers",
+    "name": "Přízrační netopýří jezdcové",
     "model": "bat",
     "traits": [
       "untouchable",
@@ -732,16 +844,24 @@
     "physicalImmune": true,
     "untouchable": 0.35,
     "variants": [
-      {},
       {
-        "name": "Wraithwing Harriers · Moonclaw clan",
+        "name": "Přízrační netopýří jezdcové",
+        "visualAsset": "host_27"
+      },
+      {
+        "name": "Přízrační netopýří jezdcové · měsíční klan",
         "color": "#667e91",
-        "model": "bat"
+        "model": "bat",
+        "visualAsset": "host_27"
       }
-    ]
+    ],
+    "appearance": "Skřetí přízraky na kostěných netopýrech s kouřovými blánami. Fyzickou imunitu ukazuje průsvitnost, zastrašení dlouhé stíny pod letci.",
+    "visualAsset": "host_27",
+    "designArchetype": "ghost-bat",
+    "auraStage": 2
   },
   "host_28": {
-    "name": "Rivetwing Bombardiers",
+    "name": "Gobliní křídlošroti",
     "model": "balloon",
     "traits": [
       "reactiveArmor"
@@ -761,16 +881,24 @@
     "counter": "Direct hits build temporary armor.",
     "reactiveArmor": 3,
     "variants": [
-      {},
       {
-        "name": "Rivetwing Bombardiers · Moonclaw clan",
+        "name": "Gobliní křídlošroti",
+        "visualAsset": "host_28"
+      },
+      {
+        "name": "Gobliní křídlošroti · měsíční klan",
         "color": "#667e91",
-        "model": "balloon"
+        "model": "balloon",
+        "visualAsset": "host_28"
       }
-    ]
+    ],
+    "appearance": "Goblini v létajících postrojích s netopýřími křídly a nýtovaným trupem. Reaktivní zbroj se při zásazích viditelně zavírá kolem pilota.",
+    "visualAsset": "host_28",
+    "designArchetype": "wing-scrapper",
+    "auraStage": 2
   },
   "host_29": {
-    "name": "Prismbat Tricksters",
+    "name": "Prizmatickí netopýří šejdíři",
     "model": "bat",
     "traits": [
       "evasion",
@@ -793,16 +921,24 @@
     "evasion": 0.25,
     "refraction": 3,
     "variants": [
-      {},
       {
-        "name": "Prismbat Tricksters · Moonclaw clan",
+        "name": "Prizmatickí netopýří šejdíři",
+        "visualAsset": "host_29"
+      },
+      {
+        "name": "Prizmatickí netopýří šejdíři · měsíční klan",
         "color": "#667e91",
-        "model": "bat"
+        "model": "bat",
+        "visualAsset": "host_29"
       }
-    ]
+    ],
+    "appearance": "Hubení skřeti na drobných fialových netopýrech. Tři krystaly tvoří štít; úhyb provází krátký barevný dvojník.",
+    "visualAsset": "host_29",
+    "designArchetype": "prism-bat",
+    "auraStage": 2
   },
   "host_30": {
-    "name": "Zaruun the Stormrider",
+    "name": "Zaruun, Pán bouřných křídel",
     "model": "dragon",
     "traits": [],
     "hp": 118139,
@@ -820,16 +956,24 @@
     "counter": "",
     "beast": true,
     "variants": [
-      {},
       {
-        "name": "Zaruun the Stormrider · Moonclaw clan",
+        "name": "Zaruun, Pán bouřných křídel",
+        "visualAsset": "host_30"
+      },
+      {
+        "name": "Zaruun, Pán bouřných křídel · měsíční klan",
         "color": "#667e91",
-        "model": "dragon"
+        "model": "dragon",
+        "visualAsset": "host_30"
       }
-    ]
+    ],
+    "appearance": "Létající boss: skřetí válečník na obrovském bouřném netopýrovi. Rozervaná křídla, měděné rohy a bleskové jizvy; elektrické záblesky jsou pouze vzhled.",
+    "visualAsset": "host_30",
+    "designArchetype": "storm-bat-lord",
+    "auraStage": 2
   },
   "host_31": {
-    "name": "Twinseal Spellbreakers",
+    "name": "Skřetí dvojpečetní inkvizitoři",
     "model": "warlock",
     "traits": [
       "splitImmunity",
@@ -856,17 +1000,23 @@
       {
         "magicImmune": true,
         "physicalImmune": false,
-        "name": "Twinseal Spellbreakers · Cinder seal"
+        "name": "Popelní dvojpečetní inkvizitoři",
+        "visualAsset": "host_31-ember"
       },
       {
         "physicalImmune": true,
         "magicImmune": false,
-        "name": "Twinseal Spellbreakers · Wraith seal"
+        "name": "Přízrační dvojpečetní inkvizitoři",
+        "visualAsset": "host_31-wraith"
       }
-    ]
+    ],
+    "appearance": "Dvě vzhledové varianty stejného řádu: Popelní s černou kůží a oranžovými runami; Přízrační s bledým průsvitným tělem. Obě mají tři ochranné pečeti.",
+    "visualAsset": "host_31",
+    "designArchetype": "dual-inquisitor",
+    "auraStage": 3
   },
   "host_32": {
-    "name": "Soulwell Channelers",
+    "name": "Trollí pijáci duší",
     "model": "shaman",
     "traits": [
       "recharge"
@@ -887,10 +1037,14 @@
     "resists": {
       "magic": 0.216
     },
-    "recharge": 0.12
+    "recharge": 0.12,
+    "appearance": "Bledí trollové s lucernou zavěšenou uvnitř rozevřeného hrudního koše. Při obnově životů nasají světlo z lucerny do celého těla.",
+    "visualAsset": "host_32",
+    "designArchetype": "soul-troll",
+    "auraStage": 3
   },
   "host_33": {
-    "name": "Riftstep Revenants",
+    "name": "Skřetí přízraky roztrženého světa",
     "model": "assassin",
     "traits": [
       "physicalImmune",
@@ -910,10 +1064,14 @@
     "threat": "Physical immunity · Rift step",
     "counter": "Physical immunity; use magic or pure damage. Dashes forward along the route, still visiting checkpoints.",
     "physicalImmune": true,
-    "blink": 3
+    "blink": 3,
+    "appearance": "Duchové s tělem rozděleným na několik vznášejících se částí. Při teleportu je pohltí svislá černá trhlina a na novém místě se znovu složí.",
+    "visualAsset": "host_33",
+    "designArchetype": "rift-wraith",
+    "auraStage": 3
   },
   "host_34": {
-    "name": "Gallowswing Pickpockets",
+    "name": "Gobliní šibeniční letci",
     "model": "bat",
     "traits": [
       "evasion",
@@ -934,10 +1092,14 @@
     "counter": "Can evade direct physical hits; use magic. Steals gold on reaching the keep.",
     "beast": true,
     "evasion": 0.25,
-    "thief": 19
+    "thief": 19,
+    "appearance": "Goblini na vychrtlých netopýrech s kostěnými maskami. Na postrojích jim visí ukradené měšce a provazy; při úhybu se jezdec přehoupne pod břicho zvířete.",
+    "visualAsset": "host_34",
+    "designArchetype": "gallows-bat",
+    "auraStage": 3
   },
   "host_35": {
-    "name": "Eclipsewing Twins",
+    "name": "Netopýří stráž Zatmění",
     "model": "wyvern",
     "traits": [
       "splitImmunity"
@@ -960,17 +1122,23 @@
       {
         "magicImmune": true,
         "physicalImmune": false,
-        "name": "Eclipsewing Twins · Cinder seal"
+        "name": "Popelní jezdci stráže Zatmění",
+        "visualAsset": "host_35-ember"
       },
       {
         "physicalImmune": true,
         "magicImmune": false,
-        "name": "Eclipsewing Twins · Wraith seal"
+        "name": "Přízrační jezdci stráže Zatmění",
+        "visualAsset": "host_35-wraith"
       }
-    ]
+    ],
+    "appearance": "Dvojí letka: Popelní jezdci na uhlově černých netopýrech a Přízrační jezdci na průsvitných. Barvy jasně odlišují magickou a fyzickou imunitu.",
+    "visualAsset": "host_35",
+    "designArchetype": "eclipse-bat",
+    "auraStage": 3
   },
   "host_36": {
-    "name": "Sunless Oathbreakers",
+    "name": "Skřetí křivopřísežníci",
     "model": "shield",
     "traits": [
       "splitImmunity"
@@ -992,17 +1160,23 @@
       {
         "magicImmune": true,
         "physicalImmune": false,
-        "name": "Sunless Oathbreakers · Cinder seal"
+        "name": "Popelní křivopřísežníci",
+        "visualAsset": "host_36-ember"
       },
       {
         "physicalImmune": true,
         "magicImmune": false,
-        "name": "Sunless Oathbreakers · Wraith seal"
+        "name": "Přízrační křivopřísežníci",
+        "visualAsset": "host_36-wraith"
       }
-    ]
+    ],
+    "appearance": "Padlí válečníci s rozlámanými královskými znaky na zbroji. Popelní varianta má žhavé runy; přízračná prázdné, světélkující obrysy pod brněním.",
+    "visualAsset": "host_36",
+    "designArchetype": "oathbreaker",
+    "auraStage": 3
   },
   "host_37": {
-    "name": "Riftfang Prowlers",
+    "name": "Skřetí jezdci na trhlinových vlcích",
     "model": "wolf",
     "traits": [
       "blink"
@@ -1021,10 +1195,14 @@
     "threat": "Rift step",
     "counter": "Dashes forward along the route, still visiting checkpoints.",
     "beast": true,
-    "blink": 3
+    "blink": 3,
+    "appearance": "Jezdci na černých vlcích s fialově popraskanou srstí. Při teleportu se vlk protáhne do úzkého stínu a vyskočí z jiné trhliny.",
+    "visualAsset": "host_37",
+    "designArchetype": "rift-wolf",
+    "auraStage": 3
   },
   "host_38": {
-    "name": "Blackmire Knifemasters",
+    "name": "Nožíři Černé bažiny / Trollí krvesajové",
     "model": "assassin",
     "traits": [
       "cloakDaggers"
@@ -1045,17 +1223,27 @@
     "cloakDaggers": true,
     "disarm": true,
     "variants": [
-      {},
       {
-        "name": "Blackmire Blooddrinkers",
+        "name": "Nožíři Černé bažiny",
+        "visualAsset": "host_38",
+        "designArchetype": "swamp-knifer"
+      },
+      {
+        "name": "Trollí krvesajové",
         "cloakDaggers": false,
         "disarm": false,
-        "regen": 125.476
+        "regen": 125.476,
+        "visualAsset": "host_38-wraith",
+        "designArchetype": "blood-leech-troll"
       }
-    ]
+    ],
+    "appearance": "Nožíři: maskovaní skřeti, kteří se střídavě ztrácejí v mlze a ruší obránce zakletými noži. Krvesajové: bledí trollové s rudými vaky na zádech, z nichž čerpají regeneraci.",
+    "visualAsset": "host_38",
+    "designArchetype": "swamp-knifer",
+    "auraStage": 3
   },
   "host_39": {
-    "name": "Tempestscale Reavers",
+    "name": "Skřetí jezdci na hromových mantách",
     "model": "wyvern",
     "traits": [
       "untouchable",
@@ -1078,10 +1266,14 @@
     "beast": true,
     "evasion": 0.25,
     "untouchable": 0.35,
-    "krakenShell": 66.5
+    "krakenShell": 66.5,
+    "appearance": "Letci na širokých kožnatých nestvůrách s kostěnou hlavou a pancéřovaným hřbetem. Skořápku ukazuje pevný krunýř, úhyb naklánění širokých křídel a strach rudé masky jezdců.",
+    "visualAsset": "host_39",
+    "designArchetype": "thunder-manta",
+    "auraStage": 3
   },
   "host_40": {
-    "name": "Vorlak the Hollow Sky",
+    "name": "Vorlak, Dutý král nebes",
     "model": "dragon",
     "traits": [
       "krakenShell"
@@ -1100,10 +1292,14 @@
     "threat": "Deep shell",
     "counter": "Reduces damage from individual direct hits.",
     "beast": true,
-    "krakenShell": 68
+    "krakenShell": 68,
+    "appearance": "Létající boss: obrovská kostěná wyverna, uvnitř které visí skřetí nekromant jako srdce. Žebra obklopuje tmavá skořápka; v dutém těle pulzuje mdlé světlo.",
+    "visualAsset": "host_40",
+    "designArchetype": "hollow-wyvern",
+    "auraStage": 3
   },
   "host_41": {
-    "name": "Crystalmaw Phalanx",
+    "name": "Skřetí krystalová falanga",
     "model": "shield",
     "traits": [
       "refraction"
@@ -1123,16 +1319,24 @@
     "counter": "Shields absorb three direct hits; poison ticks and burning auras bypass them. Plated armor reduces physical damage; break armor or add magic.",
     "refraction": 3,
     "variants": [
-      {},
       {
-        "name": "Crystalmaw Phalanx · Moonclaw clan",
+        "name": "Skřetí krystalová falanga",
+        "visualAsset": "host_41"
+      },
+      {
+        "name": "Skřetí krystalová falanga · měsíční klan",
         "color": "#667e91",
-        "model": "shield"
+        "model": "shield",
+        "visualAsset": "host_41"
       }
-    ]
+    ],
+    "appearance": "Elitní pěchota s kopími a průsvitnými štíty z kouřového krystalu. Nad každým štítem jsou tři výrazné světelné uzly odpovídající jeho zbývající ochraně.",
+    "visualAsset": "host_41",
+    "designArchetype": "crystal-phalanx",
+    "auraStage": 4
   },
   "host_42": {
-    "name": "Wildfire Bat-Lancers",
+    "name": "Skřetí ohniví netopýří kopiníci",
     "model": "bat",
     "traits": [
       "magicImmune",
@@ -1153,10 +1357,14 @@
     "counter": "Magic and magical status immunity; physical or pure damage wins. Periodic bursts of movement speed.",
     "beast": true,
     "magicImmune": true,
-    "rush": 1.7
+    "rush": 1.7,
+    "appearance": "Jezdci na černých netopýrech s oranžovými žilkami v křídlech. Magickou imunitu ukazují popelné runy; při výpadu se křídla rozzáří.",
+    "visualAsset": "host_42",
+    "designArchetype": "fire-bat",
+    "auraStage": 4
   },
   "host_43": {
-    "name": "Soulfed Hexguard",
+    "name": "Ogroví strážci vězněných duší",
     "model": "shaman",
     "traits": [
       "untouchable",
@@ -1181,10 +1389,14 @@
     },
     "evasion": 0.25,
     "untouchable": 0.35,
-    "recharge": 0.12
+    "recharge": 0.12,
+    "appearance": "Obrnění ogři s obřími klecemi na ramenou. Duše uvnitř posilují obnovu; plovoucí stíny a zastrašující maska propojují další efekty.",
+    "visualAsset": "host_43",
+    "designArchetype": "soul-cage-ogre",
+    "auraStage": 4
   },
   "host_44": {
-    "name": "Cinderblink Executioners",
+    "name": "Skřetí popelní popravčí",
     "model": "berserker",
     "traits": [
       "magicImmune",
@@ -1204,10 +1416,14 @@
     "threat": "Magic immunity · Rift step",
     "counter": "Magic and magical status immunity; physical or pure damage wins. Dashes forward along the route, still visiting checkpoints.",
     "magicImmune": true,
-    "blink": 3
+    "blink": 3,
+    "appearance": "Vysocí skřeti s dlouhými černými sekerami a rozžhavenými pečetěmi. Teleportují se skrze vír popela; černé runy signalizují magickou imunitu.",
+    "visualAsset": "host_44",
+    "designArchetype": "ash-executioner",
+    "auraStage": 4
   },
   "host_45": {
-    "name": "Skyhex Drumguard",
+    "name": "Létající bubeníci Černé hordy",
     "model": "balloon",
     "traits": [
       "disarm",
@@ -1227,10 +1443,14 @@
     "threat": "Disarm · War drums",
     "counter": "Briefly disarms nearby defenders every 8 seconds. Pulses haste to nearby allies.",
     "disarm": true,
-    "hasteAura": 1.18
+    "hasteAura": 1.18,
+    "appearance": "Dvojice skřetů na širokohřbetých netopýrech: jeden řídí, druhý tluče do bubnu z trollí kůže. Údery vytvářejí dvě odlišné vlny pro odzbrojení a podporu pohybu.",
+    "visualAsset": "host_45",
+    "designArchetype": "drummer-bat",
+    "auraStage": 4
   },
   "host_46": {
-    "name": "Ghostplate Immortals",
+    "name": "Ogroví revenanti v prázdné zbroji",
     "model": "shield",
     "traits": [
       "physicalImmune"
@@ -1248,10 +1468,14 @@
     "clan": 4,
     "threat": "Physical immunity",
     "counter": "Physical immunity; use magic or pure damage. Plated armor reduces physical damage; break armor or add magic.",
-    "physicalImmune": true
+    "physicalImmune": true,
+    "appearance": "Obrovské zbroje, které zevnitř drží pohromadě duchové mrtvých ogrů. V mezerách není maso, pouze modrozelený oheň; fyzické útoky jím procházejí.",
+    "visualAsset": "host_46",
+    "designArchetype": "revenant-ogre",
+    "auraStage": 4
   },
   "host_47": {
-    "name": "Doomchant Ravagers",
+    "name": "Skřetí jezdci Posledního vytí",
     "model": "berserker",
     "traits": [
       "magicImmune",
@@ -1273,10 +1497,14 @@
     "counter": "Magic and magical status immunity; physical or pure damage wins. Nearby defenders attack more slowly. Periodic bursts of movement speed.",
     "magicImmune": true,
     "untouchable": 0.35,
-    "rush": 1.7
+    "rush": 1.7,
+    "appearance": "Fanatičtí jezdci na obrovských černých vlcích s kostěnými maskami. Žhavé runy značí magickou imunitu; výpad doprovází rudé oči a zastrašující stín.",
+    "visualAsset": "host_47",
+    "designArchetype": "last-howl-wolf",
+    "auraStage": 4
   },
   "host_48": {
-    "name": "Nightfire Sky-Thieves",
+    "name": "Netopýří zloději černého ohně",
     "model": "bat",
     "traits": [
       "magicImmune",
@@ -1301,10 +1529,14 @@
     "evasion": 0.25,
     "disarm": true,
     "magicImmune": true,
-    "thief": 24
+    "thief": 24,
+    "appearance": "Čarodějovi osobní lupiči na štíhlých černých netopýrech. Mají dlouhé šátky, zlaté měšce a rušící runové zvonky; let působí mrštně a neklidně.",
+    "visualAsset": "host_48",
+    "designArchetype": "blackfire-bat",
+    "auraStage": 4
   },
   "host_49": {
-    "name": "Deepmaw Soulkeepers",
+    "name": "Trollí strážci Hluboké tlamy",
     "model": "ogre",
     "traits": [
       "krakenShell",
@@ -1324,10 +1556,14 @@
     "threat": "Deep shell · Soul recharge",
     "counter": "Reduces damage from individual direct hits. Periodically restores health. Plated armor reduces physical damage; break armor or add magic.",
     "recharge": 0.12,
-    "krakenShell": 81.5
+    "krakenShell": 81.5,
+    "appearance": "Gigantičtí trollové s obsidiánovým krunýřem a druhou tlamou v břiše. Z ní při obnově proudí duševní světlo; výrazný krunýř ukazuje snížení poškození.",
+    "visualAsset": "host_49",
+    "designArchetype": "deepmaw-troll",
+    "auraStage": 4
   },
   "host_50": {
-    "name": "Ghorun, Emperor of Ash",
+    "name": "Ghorun, Černý čaroděj na Královně wyvern",
     "model": "dragon",
     "traits": [
       "krakenShell"
@@ -1348,17 +1584,29 @@
     "beast": true,
     "krakenShell": 83,
     "variants": [
-      {},
       {
-        "name": "Ghorun, the Gilded Tyrant",
-        "magicImmune": true,
-        "color": "#b99d57"
+        "name": "Ghorun Popelavý",
+        "visualAsset": "host_50",
+        "appearance": "Černá královna wyvern s rozžhavenými prasklinami mezi obsidiánovými pláty. Ohořelé černé roucho a oranžově žhnoucí hůl."
       },
       {
-        "name": "Ghorun, the Pale Devourer",
+        "name": "Ghorun Zlatokletý",
+        "magicImmune": true,
+        "color": "#b99d57",
+        "visualAsset": "host_50-tyrant",
+        "appearance": "Zlaté runové obruče kolem krku a křídel, pozlacená koruna a temně fialová magie. Magickou imunitu signalizují zlaté runy."
+      },
+      {
+        "name": "Ghorun Bledý požírač",
         "krakenShell": 107.9,
-        "color": "#a4b9b5"
+        "color": "#a4b9b5",
+        "visualAsset": "host_50-devourer",
+        "appearance": "Téměř bílá wyverna s mohutným kostěným pancířem, černými žilami a propadlýma očima. Výrazně silnější skořápka."
       }
-    ]
+    ],
+    "appearance": "Finální létající boss: temný skřetí čaroděj na mimořádně velké, staré wyverně. Tři stávající varianty dostanou vlastní barevnost a podobu pancíře, viz níže.",
+    "visualAsset": "host_50",
+    "designArchetype": "queen-wyvern",
+    "auraStage": 4
   }
 }

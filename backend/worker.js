@@ -2,7 +2,7 @@ import {playerName,validId,validateSnapshot} from './validation.js';
 import families from '../data/towers.json' with {type:'json'};
 import waveDefinitions from '../data/waves.json' with {type:'json'};
 import enemyDefinitions from '../data/enemies.json' with {type:'json'};
-import {servicePage} from './service-page.js';
+import {servicePage,STATISTICS_EDITION,STATISTICS_RELEASE_NAME} from './service-page.js';
 
 const hash=async value=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value)))].map(x=>x.toString(16).padStart(2,'0')).join('');
 const response=(data,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
@@ -28,7 +28,7 @@ export async function handle(request,env){
   const url=new URL(request.url),db=env.DB,path=url.pathname;
   if(request.method==='GET'&&(path==='/'||path==='/owner'))return new Response(servicePage(path==='/owner'),{headers:{'Content-Type':'text/html; charset=utf-8','Content-Security-Policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'}});
   if(!db)return response({error:'Statistics storage is unavailable.'},503);
-  if(path==='/api/health'){await db.prepare('SELECT COUNT(*) AS tables FROM sqlite_schema WHERE name = ?').bind('runs').first();return response({ok:true,storage:'SQLite',edition:'0.2.6'});}
+  if(path==='/api/health'){await db.prepare('SELECT COUNT(*) AS tables FROM sqlite_schema WHERE name = ?').bind('runs').first();return response({ok:true,storage:'SQLite',edition:STATISTICS_EDITION,releaseName:STATISTICS_RELEASE_NAME});}
   if(request.method==='POST'&&path==='/api/runs'){
     const b=await body(request);if(!validId(b.id)||!validToken(b.writeToken)||!/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(b.version)||![10,50].includes(b.mode)||!Number.isFinite(b.seed))return response({error:'Invalid new run.'},400);
     if(await owner(db,b.id,b.writeToken))return response({id:b.id},201);

@@ -1,4 +1,5 @@
 import {readFileSync,writeFileSync} from 'node:fs';
+import {applyEnemyDesigns} from './enemy-designs.mjs';
 const source='https://dota2.fandom.com/wiki/Gem_TD';
 const legacy=JSON.parse(readFileSync('data/enemies.json','utf8'));
 const enemies=Object.fromEntries(Object.entries(legacy).filter(([id])=>!id.startsWith('host_')));
@@ -106,6 +107,7 @@ rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   const count=boss?1:flying?8+Math.floor(wave*.22):8+Math.floor(wave*.48);
   waves.push({name,boss,hp:1,reward:boss?200:50,reference:{source,wave,name:referenceName,movement,traits:skills,...(wave===45?{note:'The source lists an undefined Level ? skill; War Drums is an authored replacement.'}:{})},groups:[{type:id,count,interval:opening?.interval??(boss?1:flying?.9:.6)}]});
 });
+applyEnemyDesigns(enemies,waves);
 writeFileSync('data/enemies.json',JSON.stringify(enemies,null,2)+'\n');
 writeFileSync('data/waves.json',JSON.stringify(waves,null,2)+'\n');
 writeFileSync('docs/WAVE_REFERENCE.md',`# Fifty-wave orc campaign\n\nReference: [Gem TD](${source}), inspected 29 September 2026. Movement classes, tenth-wave bosses and trait order follow its wave table. Names, HP, speed, rewards, counters and exact ability timings are original browser-game adaptations. The undefined wave-45 ability becomes War Drums; ambiguous alternatives choose a deterministic seeded variant per wave. Flying units follow ordered checkpoints directly.\n\n| Wave | Orc warband | Movement | Traits |\n|---:|---|---|---|\n`+waves.map(w=>{const e=enemies[w.groups[0].type];return `| ${w.reference.wave} | ${e.name} | ${e.boss?'Boss · ':''}${e.flying?'Flying':'Ground'} | ${e.traits.map(t=>labels[t]).join(', ')||'—'} |`;}).join('\n')+'\n');

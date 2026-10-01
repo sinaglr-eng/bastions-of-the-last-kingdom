@@ -2,7 +2,15 @@
 
 ## Current revision
 
-The approved release contains eight basic classes and 37 champions: 85 defender variants and 20 legacy assets in a 105-entry model manifest, plus the separate 51-model Ashen Host pack. The new champion art uses champion-v6; basic and enemy packs retain archer-v2, hero-v5 and ashen-host-v2. Native editable sources and rendered portraits accompany the shipped packs. Historical review notes below retain their original counts and behavior; later revisions supersede them.
+The approved 0.2.7 Dark Host release contains eight basic classes and 37 champions: 85 defender variants and 20 legacy assets in a 105-entry model manifest, plus 59 native Dark Host V3 enemies. Champion art uses champion-v6; basic packs retain archer-v2 and hero-v5. The original Engineer is active; Kushek is archived separately. Scenery uses V6. Native editable sources and rendered portraits accompany the shipped packs. Historical review notes below retain their original counts and behavior; later revisions supersede them.
+
+## October 1 — Dark Host 0.2.7
+
+- All 270 Node tests pass and the production Vite build succeeds. Gameplay fingerprints confirm unchanged wave numbers, combat abilities, movement and seeded variant selection. Every shipped enemy has a verified native Blender source, GLB and portrait. Ghorun's measured wingspan is 3.0268 times the scout's and 1.5014 times Vorlak's. Full asset checks include precise corpse grounding and shared-geometry preservation.
+- Native Blender review and the actual browser renderer confirm authored equipment, creatures, rider silhouettes and the five cosmetic aura stages. Effects remain subject to combat visibility. Reduced motion freezes decorative pulses while rush, disarm, recharge and war-drum cues retain actual combat timing. Map recipe portraits use contain sizing; a class collision with the result dialog's overflow rule was removed, eliminating the selected badge's scrollbar.
+- Both V6 settlement GLBs pass vertex checks for the playable field and dry settlement footprints. Sheep and cow pasture areas are 67.99 and 112.64 square units, with scattered headings and positions. Camp woodland has 195 varied trees and the town 88; extended royal walls include 17 guards.
+- The existing statistics Site was updated in place, preserving its database. Health reports 0.2.7 Dark Host, and older 0.2.6 runs, wave data and defender aggregates remain readable. The source declares esbuild's dependency build permission for pnpm 11. API compatibility tests cover both editions and both campaign lengths.
+- Reproduction and Blender galleries: [DARK_HOST_V3.md](DARK_HOST_V3.md). Browser screenshots and public deployment verification are recorded with the final release artifacts. Real-device performance and human campaign balance remain outside this visual revision's validation.
 
 ## October 1 — Living Kingdoms 0.2.5
 

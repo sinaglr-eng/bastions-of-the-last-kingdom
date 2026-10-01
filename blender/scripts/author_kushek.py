@@ -1,7 +1,11 @@
-"""Kushek: an original human craftswoman for all six runebreaker ranks.
+"""Kushek: an inactive human craftswoman design reserved for future use.
 
 Only her undershirt and the standard pedestal inlay use the rank color. Black
 overalls, rubber boots, blonde ponytail and green eyes retain one identity.
+The live runebreaker family uses Engineer again. The preserved scene is
+blender/scenes/kushek_design_v1.blend, and the six exports and portraits are
+public/assets/designs/kushek/. This module is intentionally not dispatched by
+author_army.basic; it remains available for a future Kushek role.
 """
 import math
 import bpy
