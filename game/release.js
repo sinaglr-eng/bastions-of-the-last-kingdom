@@ -1,6 +1,6 @@
 import {siteUrl} from './site-url.js';
 
-export const GAME_VERSION='0.2.4';
-export const CHAMPION_ART_VERSION='champions-v6.4';
+export const GAME_VERSION='0.2.5';
+export const CHAMPION_ART_VERSION='champions-v6.5';
 // Updated assets must replace cached portraits and models from earlier editions.
 export const releaseAsset=path=>`${siteUrl(path)}?v=${CHAMPION_ART_VERSION}`;

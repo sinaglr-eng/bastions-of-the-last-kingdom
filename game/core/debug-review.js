@@ -43,3 +43,20 @@ export function prepareSpellReview(game){
   const hidden=game.combat.spawn('host_08');Object.assign(hidden,{x:18,z:7,speed:0,hp:1e8,maxHp:1e8});
   game.combat.total=families.length*2+2;game.emit('change');
 }
+
+// Real aura providers and enemy suppression, using unchanged campaign data.
+export function prepareSupportReview(game){
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.lives=30;game.round=17;game.phase='ready';game.speed=1;game.paused=false;
+  const placements=[['monk',11,14,1],['mothernature',15,14,1],['mage',13,16,4],['archer',12,18,3],['cleric',10,18,4],['soldier',26,17,3],['frostwarden',27,20,3],['soldier',29,17,1]];
+  let id=1;
+  placements.forEach(([family,x,z,tier],index)=>{
+    if(!game.grid.occupy(x,z,id).ok)return;
+    game.towers.push({id:id++,family,tier,state:index===7?'ruin':'active',x,z,round:0,kills:0,priority:'first',cooldown:0,...(index===7?{weakened:99999}:{})});
+  });
+  game.nextId=id;game.startCombat();game.combat.spawnQueue=[{time:99999,type:'host_17',modifiers:{}}];
+  for(const [type,x,z]of [['host_06',13,19],['host_17',25,18],['host_12',26,19]]){
+    const enemy=game.combat.spawn(type),index=enemy.route.findIndex(p=>p.x===x&&p.z===z);
+    Object.assign(enemy,{x,z,pathIndex:Math.max(1,index+1),traveled:20,speed:0,hp:1e8,maxHp:1e8});
+  }
+  game.combat.total=4;game.selected=3;game.emit('change');
+}

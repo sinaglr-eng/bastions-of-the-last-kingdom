@@ -4,14 +4,14 @@ import {releaseAsset} from '../release.js';
 import {keepModel,campModel,optimize} from './models.js';
 
 export const LANDMARK_SITES=Object.freeze({
-  camp:Object.freeze({x:-25,y:0,z:-14,file:'fortified-warcamp-v3.glb',labelHeight:4.2}),
-  keep:Object.freeze({x:28,y:0,z:14,file:'royal-castle-v3.glb',labelHeight:13.8})
+  camp:Object.freeze({x:-25,y:0,z:-14,file:'fortified-warcamp-v4.glb',labelHeight:4.2}),
+  keep:Object.freeze({x:38,y:0,z:14,file:'royal-castle-v4.glb',labelHeight:19.4})
 });
 export const WARCAMP_PREVIEW_LOCAL=Object.freeze({x:2.25,y:.595,z:0});
 
 export const LANDMARK_CLEARINGS=Object.freeze([
-  Object.freeze({x:-30.5,z:-15,halfWidth:11.5,halfDepth:13,height:-.04}),
-  Object.freeze({x:34.5,z:14,halfWidth:15.5,halfDepth:13.5,height:-.04})
+  Object.freeze({x:-38,z:-14,halfWidth:18,halfDepth:26,height:-.04}),
+  Object.freeze({x:48,z:14,halfWidth:24,halfDepth:29,height:-.04})
 ]);
 export function landmarkClearingDistance(x,z){
   return Math.min(...LANDMARK_CLEARINGS.map(site=>Math.max(Math.abs(x-site.x)-site.halfWidth,Math.abs(z-site.z)-site.halfDepth,0)));
@@ -34,7 +34,7 @@ function disposeVisual(object){
 // asynchronous GLB loading and accepts one decorative enemy without touching game state.
 export function createLandmarkScenery(){
   const group=new THREE.Group();group.name='Fortified valley landmarks';
-  const roots={},visuals={};let disposed=false,loading;
+  const roots={},visuals={},rotors=[];let disposed=false,loading;
   for(const [key,site]of Object.entries(LANDMARK_SITES)){
     const root=new THREE.Group();root.name=key==='camp'?'Orc fortified settlement':'Royal last castle';
     root.position.set(site.x,site.y,site.z);group.add(root);roots[key]=root;
@@ -53,11 +53,15 @@ export function createLandmarkScenery(){
           const asset=await loader.loadAsync(releaseAsset(`assets/scenery/${site.file}`));
           const visual=asset.scene;visual.userData.importedLandmark=true;
           if(disposed){disposeVisual(visual);return [key,false];}
-          visual.traverse(part=>{if(part.isMesh){part.castShadow=true;part.receiveShadow=true;}});
+          visual.traverse(part=>{
+            if(part.isMesh){part.castShadow=true;part.receiveShadow=true;}
+            if(part.name==='MillWaterwheel')rotors.push({part,start:part.rotation.x});
+          });
           disposeVisual(visuals[key]);visuals[key]=visual;roots[key].add(visual);return [key,true];
         }catch{return [key,false];}
       })).then(Object.fromEntries);
     },
-    dispose(){if(disposed)return;disposed=true;Object.values(visuals).forEach(disposeVisual);group.removeFromParent();}
+    update(dt,time){if(disposed)return;for(const rotor of rotors)rotor.part.rotation.x=rotor.start+time*.58;},
+    dispose(){if(disposed)return;disposed=true;rotors.length=0;Object.values(visuals).forEach(disposeVisual);group.removeFromParent();}
   };
 }

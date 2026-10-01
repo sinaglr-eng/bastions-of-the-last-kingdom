@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {seededRandom} from '../core/math.js';
 import {box,beam,cone,sphere,cylinder,rockModel,optimize} from './models.js';
-import {createValleyRelief,valleyGroundHeight,valleyRiverDistance,RIVER_CONTROL_POINTS} from './valley-relief.js';
+import {createValleyRelief,valleyGroundHeight,valleyRiverDistance,townRiverDistance,RIVER_CONTROL_POINTS,TOWN_RIVER_CONTROL_POINTS} from './valley-relief.js';
 import {isLandmarkClearing} from './scenery-landmarks.js';
 
 // UVs follow the river's bends, keeping the current parallel to the banks.
@@ -59,7 +59,7 @@ function cloudTexture(){
 // Ground scenery stays outside the 37 × 37 construction field.
 export function valleyEnvironment(){
   const land=new THREE.Group(),water=new THREE.Group(),clouds=new THREE.Group(),rng=seededRandom(1907),bounds=[];
-  const half=18.5,timeUniform={value:0},sceneryCounts={mountains:0,trees:0,rocks:0,undergrowth:0};
+  const half=18.5,timeUniform={value:0},sceneryCounts={mountains:0,ridges:0,trees:0,rocks:0,undergrowth:0};
   const mountainMaterial=new THREE.MeshStandardMaterial({vertexColors:true,roughness:1,flatShading:true});
   function place(object,x,z,scale=1,angle=0){
     object.position.set(x,valleyGroundHeight(x,z),z);object.scale.multiplyScalar(scale);object.rotation.y=angle;
@@ -85,12 +85,44 @@ export function valleyEnvironment(){
     const m=new THREE.Mesh(geometry,mountainMaterial);m.castShadow=true;m.receiveShadow=true;g.add(m);return g;
   }
   land.add(createValleyRelief());
+  // Connected, uneven ridge shoulders bridge the gaps between individual summits.
+  // The closest north-east cliff backs the village quarry; outer chains fill the
+  // wide northern view when players pan beyond the board.
+  function ridgeLine(controls,width,height){
+    const vertices=[],colors=[],sections=[],stone=new THREE.Color('#718c86'),light=new THREE.Color('#a9bcb0');
+    for(let i=0;i<controls.length;i++){
+      const [x,z]=controls[i],prev=controls[Math.max(0,i-1)],next=controls[Math.min(controls.length-1,i+1)];
+      const direction=new THREE.Vector2(next[0]-prev[0],next[1]-prev[1]).normalize(),normal=new THREE.Vector2(-direction.y,direction.x);
+      const section=[];
+      for(const [offset,rise]of [[-1,0],[-.55,.50],[0,1],[.54,.59],[1,0]]){
+        const px=x+normal.x*width*offset,pz=z+normal.y*width*offset;
+        const py=valleyGroundHeight(px,pz)+height*rise*(.74+.22*Math.sin(i*2.47+offset*2.2));
+        section.push(new THREE.Vector3(px,py,pz));
+      }
+      sections.push(section);
+    }
+    for(let i=0;i<sections.length-1;i++)for(let j=0;j<4;j++){
+      const a=sections[i][j],b=sections[i][j+1],c=sections[i+1][j],d=sections[i+1][j+1];
+      const tint=stone.clone().lerp(light,j===1||j===2?.56:.17);
+      for(const p of [a,b,c,b,d,c]){vertices.push(...p.toArray());colors.push(tint.r,tint.g,tint.b);}
+    }
+    const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));geometry.computeVertexNormals();
+    const mesh=new THREE.Mesh(geometry,mountainMaterial);mesh.name='Continuous alpine ridge';mesh.castShadow=true;mesh.receiveShadow=true;
+    const b=new THREE.Box3().setFromObject(mesh);bounds.push({min:b.min.toArray(),max:b.max.toArray()});land.add(mesh);sceneryCounts.ridges++;
+  }
+  ridgeLine([[-71,-46],[-58,-45],[-42,-44],[-27,-40],[-10,-39],[6,-35],[21,-38],[36,-36],[50,-35],[66,-38],[78,-43]],8.4,6.2);
+  ridgeLine([[-85,-68],[-64,-63],[-44,-60],[-24,-58],[-3,-62],[18,-56],[37,-60],[56,-57],[75,-63],[91,-71]],12,9.2);
+  ridgeLine([[-94,-89],[-66,-84],[-35,-87],[-4,-82],[26,-86],[58,-82],[90,-90]],16,12.5);
+  ridgeLine([[43,-23],[53,-22],[62,-25],[72,-25]],5.4,5.5);
+  ridgeLine([[-68,-32],[-70,-13],[-74,6],[-66,26],[-71,44],[-58,65]],10,7.4);
+  ridgeLine([[79,-36],[77,-13],[79,8],[82,28],[73,48],[65,62]],11,7.6);
+  ridgeLine([[-66,66],[-42,60],[-18,67],[4,59],[29,68],[52,63],[72,70]],9.3,4.9);
   // Irregular ridges in four depth bands form a landscape, rather than a wall
   // of evenly spaced peaks. The lower foreground ridge preserves the map view.
-  for(let layer=0;layer<4;layer++)for(let i=0;i<17;i++){
-    const angle=(i+(rng()-.5)*.7)/17*Math.PI*2,distance=43+layer*13+rng()*7;
+  for(let layer=0;layer<4;layer++)for(let i=0;i<24;i++){
+    const angle=(i+(rng()-.5)*.7)/24*Math.PI*2,distance=43+layer*13+rng()*7;
     const x=Math.cos(angle)*distance,z=Math.sin(angle)*distance;
-    if(isLandmarkClearing(x,z,6))continue;
+    if(isLandmarkClearing(x,z,12))continue;
     const height=(z>19?3.8:7.5)+layer*1.7+rng()*4.5;
     const mountain=peak(4.3+layer*.5+rng()*2.7,height);mountain.scale.x=.90+rng()*.65;mountain.scale.z=.85+rng()*.53;
     if(place(mountain,x,z,1,rng()*Math.PI))sceneryCounts.mountains++;
@@ -98,10 +130,10 @@ export function valleyEnvironment(){
 
   const curve=new THREE.CatmullRomCurve3(RIVER_CONTROL_POINTS.map(([x,z])=>new THREE.Vector3(x,0,z)));
   const points=curve.getPoints(240),riverMaterial=flowingWater(timeUniform),fallMaterial=flowingWater(timeUniform,true);
-  function ribbon(width,y,material){
+  function ribbon(width,y,material,coursePoints=points){
     const positions=[],uvs=[],lengths=[0];
-    for(let i=1;i<points.length;i++)lengths.push(lengths[i-1]+points[i].distanceTo(points[i-1]));
-    const edges=points.map((p,i)=>{const d=points[Math.min(i+1,points.length-1)].clone().sub(points[Math.max(0,i-1)]).normalize();const n=new THREE.Vector3(-d.z,0,d.x).multiplyScalar(width/2);return [p.clone().add(n).setY(y),p.clone().sub(n).setY(y)];});
+    for(let i=1;i<coursePoints.length;i++)lengths.push(lengths[i-1]+coursePoints[i].distanceTo(coursePoints[i-1]));
+    const edges=coursePoints.map((p,i)=>{const d=coursePoints[Math.min(i+1,coursePoints.length-1)].clone().sub(coursePoints[Math.max(0,i-1)]).normalize();const n=new THREE.Vector3(-d.z,0,d.x).multiplyScalar(width/2);return [p.clone().add(n).setY(y),p.clone().sub(n).setY(y)];});
     for(let i=0;i<edges.length-1;i++){
       const [a,b]=edges[i],[c,d]=edges[i+1],v=lengths[i]/3,w=lengths[i+1]/3;
       for(const [p,u,t]of [[a,0,v],[c,0,w],[b,1,v],[b,1,v],[c,0,w],[d,1,w]]){positions.push(...p.toArray());uvs.push(u,t);}
@@ -111,6 +143,12 @@ export function valleyEnvironment(){
   }
   ribbon(5.5,-.095,new THREE.MeshStandardMaterial({color:'#a3b18d',roughness:.95}));
   ribbon(4.7,-.06,new THREE.MeshStandardMaterial({color:'#659d91',roughness:.42}));ribbon(4.1,-.025,riverMaterial);
+  const townCurve=new THREE.CatmullRomCurve3(TOWN_RIVER_CONTROL_POINTS.map(([x,z])=>new THREE.Vector3(x,0,z))),townPoints=townCurve.getPoints(220);
+  ribbon(3.5,-.092,new THREE.MeshStandardMaterial({color:'#98a184',roughness:.96}),townPoints);
+  ribbon(2.8,-.051,new THREE.MeshStandardMaterial({color:'#5b9389',roughness:.52}),townPoints);
+  const townWater=ribbon(2.3,-.018,riverMaterial,townPoints);townWater.name='Royal town mill stream';townWater.userData.townCanal=true;
+  const townCurrentGeometry=new THREE.BufferGeometry();townCurrentGeometry.setAttribute('position',new THREE.BufferAttribute(new Float32Array(26*6),3));
+  const townCurrents=new THREE.LineSegments(townCurrentGeometry,new THREE.LineBasicMaterial({color:'#d6f2dd',transparent:true,opacity:.5,depthWrite:false}));townCurrents.name='Town downstream currents';townCurrents.frustumCulled=false;water.add(townCurrents);
   const flowGeometry=new THREE.BufferGeometry(),flowPositions=new Float32Array(84*2*3),streaks=[];
   for(let i=0;i<84;i++)streaks.push({phase:rng(),side:(rng()-.5)*3.4,length:.12+rng()*.3,speed:.009+rng()*.004});
   flowGeometry.setAttribute('position',new THREE.BufferAttribute(flowPositions,3));
@@ -165,8 +203,8 @@ export function valleyEnvironment(){
   function sceneryCorridor(x,z){
     return (x< -18.5&&Math.abs(z+14)<1.6)||(x>18.5&&Math.abs(z-14)<1.6);
   }
-  function sceneryClearing(x,z,margin=0){return isLandmarkClearing(x,z,margin)||sceneryCorridor(x,z);}
-  for(let i=0;i<335;i++){
+  function sceneryClearing(x,z,margin=0){return isLandmarkClearing(x,z,margin)||sceneryCorridor(x,z)||townRiverDistance(x,z)<2.1+margin;}
+  for(let i=0;i<440;i++){
     const side=i%4;let x,z;
     if(side===0){x=-25+rng()*48;z=-21.8-rng()*5;}if(side===1){x=-22.5-rng()*6;z=-21+rng()*46;}
     if(side===2){x=27.5+rng()*7;z=-20+rng()*46;}if(side===3){x=-25+rng()*46;z=31+rng()*7;}
@@ -176,10 +214,10 @@ export function valleyEnvironment(){
   // Broad forest masses repeat shared foliage geometry at the outer shoulders.
   // Small distant conifers use three crowns, keeping geometry and draw calls low.
   const distantCone=new THREE.ConeGeometry(.75,1.55,7);
-  for(let cluster=0;cluster<32;cluster++){
-    const angle=cluster/32*Math.PI*2+.10*Math.sin(cluster*2.8),distance=30+(cluster%5)*7;
+  for(let cluster=0;cluster<46;cluster++){
+    const angle=cluster/46*Math.PI*2+.10*Math.sin(cluster*2.8),distance=31+(cluster%6)*7;
     const cx=Math.cos(angle)*distance,cz=Math.sin(angle)*distance;
-    for(let i=0;i<21;i++){
+    for(let i=0;i<23;i++){
       const x=cx+(rng()-.5)*10,z=cz+(rng()-.5)*10;
       if(sceneryClearing(x,z,1.2)||valleyRiverDistance(x,z)<3.0)continue;
       const sapling=new THREE.Group();cylinder(sapling,.07,.12,2.1,'#6c503c',[0,.86,0],7);
@@ -187,7 +225,7 @@ export function valleyEnvironment(){
       if(place(sapling,x,z,.75+rng()*.65,rng()*Math.PI*2))sceneryCounts.trees++;
     }
   }
-  for(let i=0;i<205;i++){
+  for(let i=0;i<270;i++){
     const side=i%4;let x,z;
     if(side===0){x=-34+rng()*67;z=-20.1-rng()*14;}
     if(side===1){x=-20.3-rng()*17;z=-34+rng()*67;}
@@ -198,7 +236,7 @@ export function valleyEnvironment(){
   // Ferns, low bushes and grass clumps fill the ground between the forest trunks.
   // All clumps reuse a few geometries and are batched with the static scenery.
   const bushGeometry=new THREE.IcosahedronGeometry(.28,0),fernGeometry=new THREE.ConeGeometry(.26,.24,5);
-  for(let i=0;i<580;i++){
+  for(let i=0;i<760;i++){
     const side=i%4;let x,z;
     if(side===0){x=-40+rng()*79;z=-19.25-rng()*22;}
     if(side===1){x=-19.25-rng()*25;z=-40+rng()*79;}
@@ -219,10 +257,11 @@ export function valleyEnvironment(){
     for(let j=0;j<4;j++){const dx=rng()*.6,dz=rng()*.6;beam(flowers,[dx,0,dz],[dx,.18,dz],.035,'#608364');sphere(flowers,.07,j%2?'#e8bc70':'#e0a7a1',[dx,.2,dz]);}place(flowers,x,z);
   }
   const bridge=new THREE.Group();
-  for(let i=0;i<28;i++)box(bridge,[.22,.12,1.3],i%2?'#b79965':'#cbb27a',[18.62+i*.24,.14,14]);
+  for(let i=0;i<45;i++)box(bridge,[.22,.12,1.3],i%2?'#b79965':'#cbb27a',[18.62+i*.24,.14,14]);
   for(const z of [13.37,14.63]){
-    beam(bridge,[18.65,.65,z],[25.1,.65,z],.07,'#84603d');for(let x=18.7;x<25.2;x+=1.25){cylinder(bridge,.065,.08,.8,'#705139',[x,.32,z],6);cone(bridge,.1,.14,'#c9b780',[x,.79,z],4);}
+    beam(bridge,[18.65,.65,z],[29.2,.65,z],.07,'#84603d');for(let x=18.7;x<29.3;x+=1.25){cylinder(bridge,.065,.08,.8,'#705139',[x,.32,z],6);cone(bridge,.1,.14,'#c9b780',[x,.79,z],4);}
   }
+  box(bridge,[1.45,.11,1.4],'#aaad93',[29.8,.12,14]);
   land.add(bridge);
   const cloudMap=cloudTexture(),cloudItems=[];
   for(let i=0;i<7;i++){
@@ -232,20 +271,29 @@ export function valleyEnvironment(){
   clouds.visible=false;
   const staticGroup=optimize(land);
   const valley={staticGroup,water,clouds,bounds,sceneryCounts:Object.freeze(sceneryCounts),update(dt,time,zoomDistance=0){
+    dt=Number.isFinite(dt)?THREE.MathUtils.clamp(dt,0,.25):0;
+    time=Number.isFinite(time)?time:0;
     timeUniform.value=time;
     const a=sparkGeometry.attributes.position;for(let i=0;i<a.count;i++){let y=a.getY(i)-dt*4.4;if(y<.04)y+=3.6;a.setY(i,y);}a.needsUpdate=true;spray.material.opacity=.61+Math.sin(time*1.3)*.1;
     const current=flowGeometry.attributes.position;
     for(let i=0;i<streaks.length;i++){
-      const s=streaks[i],t=(s.phase+time*s.speed)%1,p=curve.getPoint(t),tangent=curve.getTangent(t).normalize(),normal=new THREE.Vector3(-tangent.z,0,tangent.x);
+      const s=streaks[i],t=THREE.MathUtils.euclideanModulo(s.phase+time*s.speed,1),p=curve.getPoint(t),tangent=curve.getTangent(t).normalize(),normal=new THREE.Vector3(-tangent.z,0,tangent.x);
       p.addScaledVector(normal,s.side);p.y=.007;const tail=p.clone().addScaledVector(tangent,-s.length);current.setXYZ(i*2,p.x,p.y,p.z);current.setXYZ(i*2+1,tail.x,tail.y,tail.z);
     }
     current.needsUpdate=true;
+    const townFlow=townCurrentGeometry.attributes.position;
+    for(let i=0;i<26;i++){
+      const t=THREE.MathUtils.euclideanModulo(i/26+time*.015,1),p=townCurve.getPoint(t),direction=townCurve.getTangent(t).normalize();
+      p.addScaledVector(new THREE.Vector3(-direction.z,0,direction.x),Math.sin(i*2.4)*.73);p.y=.014;
+      const end=p.clone().addScaledVector(direction,-.25);townFlow.setXYZ(i*2,p.x,p.y,p.z);townFlow.setXYZ(i*2+1,end.x,end.y,end.z);
+    }
+    townFlow.needsUpdate=true;
     for(let i=0;i<splashRings.length;i++){
-      const ring=splashRings[i],phase=(time*.53+i/3)%1,scale=.6+phase*2.3;
+      const ring=splashRings[i],phase=THREE.MathUtils.euclideanModulo(time*.53+i/3,1),scale=.6+phase*2.3;
       ring.scale.set(scale,1,scale);ring.position.set(23.7*(1-scale),0,-20.4*(1-scale));ring.material.opacity=(1-phase)*.4;
     }
     const fade=THREE.MathUtils.smoothstep(zoomDistance,66,82);clouds.visible=fade>0;
-    for(const c of cloudItems){c.sprite.position.set(((c.x+time*c.speed+50)%100)-50,c.y,c.z+Math.sin(time*.012+c.phase)*2);c.sprite.material.opacity=fade*THREE.MathUtils.smoothstep(Math.sin(time*.017+c.phase),-.1,.7)*.38;}
+    for(const c of cloudItems){c.sprite.position.set(THREE.MathUtils.euclideanModulo(c.x+time*c.speed+50,100)-50,c.y,c.z+Math.sin(time*.012+c.phase)*2);c.sprite.material.opacity=fade*THREE.MathUtils.smoothstep(Math.sin(time*.017+c.phase),-.1,.7)*.38;}
   }};
   valley.update(0,0);
   return valley;

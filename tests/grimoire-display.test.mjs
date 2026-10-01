@@ -42,11 +42,11 @@ test('each of 37 fixed champion cards uses classification, descriptions, damage 
   assert.doesNotMatch(defenderGuide(data,{}),/ascension|ascend/i);
 });
 
-test('pinned higher recipes show aggregated basic ranks and still retain actual crafting ingredients',()=>{
+test('pinned higher recipes show champion branches, aggregated basic totals and actual crafting ingredients',()=>{
   const recipe=data.recipes.find(r=>(r.resultFamily||r.id)==='highking');
   const knight={id:1,family:'frostblade',tier:1,state:'active'};
   const html=championRecipeCard(recipe,data,{}, {pinned:true,towerList:[knight]});
-  assert.match(html,/Full basic recruit chain/);assert.match(html,/2×F I/);
+  assert.match(html,/Full crafting chain/);assert.match(html,/How to build this champion/);assert.match(html,/Basic recruit totals/);assert.match(html,/2×F I/);
   assert.match(html,/2×S I/);assert.match(html,/2×T I/);
   for(const ingredient of recipe.ingredients)assert.ok(html.includes(data.towers[ingredient.family].name));
   assert.match(html,/pinned-progress/);assert.doesNotMatch(html,/Existing ingredient champions cover their recruits/);

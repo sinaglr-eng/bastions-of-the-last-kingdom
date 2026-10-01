@@ -1,6 +1,6 @@
 import {towerStats} from '../game/core/math.js';
 import {rankColor} from '../game/render/ranks.js';
-import {rankLabel,recipeFamily,recipeTier,recipeLabel,recipeProgress,expandedRecipeProgress} from '../game/core/recipes.js';
+import {rankLabel,recipeFamily,recipeTier,recipeLabel,recipeProgress,expandedRecipeProgress,recipeTreeProgress} from '../game/core/recipes.js';
 import {defenderCode} from '../game/core/unit-label.js';
 import {championClassification} from '../game/render/champion-classification.js';
 import {builtTowerCount} from '../game/core/warband-info.js';
@@ -55,6 +55,12 @@ export const recipeProgressLegend=()=>`<div class="recipe-progress-heading"><spa
 export function basicRecipeBreakdown(recipe,data,towerList){
   return `<ul class="pinned-basics">${expandedRecipeProgress(recipe,towerList,data).map(p=>`<li class="${p.ownedCount===p.count?'owned':p.draftCount?'draft-available':''}" data-family="${p.family}" data-tier="${p.tier}"><span><b>${basicIngredientLabel(p,data)}</b><small>${data.towers[p.family].name}</small></span><span class="pinned-progress"><b class="${p.ownedCount?'owned-progress':''}">${p.ownedCount}/${p.count}</b>${p.draftCount?`<small class="draft-progress">+${p.draftCount} this round</small>`:''}</span></li>`).join('')}</ul>`;
 }
+export function recipeIngredientTree(recipe,data,towerList){
+  const label=p=>data.towers[p.family].advanced?`${p.count}×${data.towers[p.family].name} · ${rankLabel(p.tier)}`:basicIngredientLabel(p,data);
+  const progress=p=>p.coveredBy?`<span class="recipe-tree-covered ${p.coveredBy.state==='active'?'owned-progress':'draft-progress'}">${p.coveredBy.state==='active'?'✓':'◆'} Included in ${p.coveredBy.state==='active'?'built':'this round’s'} ${data.towers[p.coveredBy.family].name}</span>`:`<span class="pinned-progress"><b class="${p.ownedCount?'owned-progress':''}">${p.ownedCount}/${p.count} built</b>${p.draftCount?`<small class="draft-progress">+${p.draftCount} this round</small>`:''}</span>`;
+  const node=(p,root=false)=>`<li class="recipe-tree-node ${p.ownedCount?'owned':p.draftCount?'draft-available':p.coveredBy?'covered':''}" data-family="${p.family}" data-tier="${p.tier}"><div class="recipe-tree-row"><span class="recipe-tree-label"><b>${label(p)}</b>${!data.towers[p.family].advanced?`<small>${data.towers[p.family].name}</small>`:''}</span>${progress(p)}</div>${p.children.length?`${root?'<div class="recipe-tree-branch-heading">How to build this champion</div>':''}<ul class="recipe-tree-children">${p.children.map(child=>node(child)).join('')}</ul>`:''}</li>`;
+  return `<div class="recipe-tree-heading">Combine these ${recipe.ingredients.length} ingredients</div><ul class="recipe-tree">${recipeTreeProgress(recipe,towerList,data).map(p=>node(p,true)).join('')}</ul>`;
+}
 export function championRecipeCard(recipe,data,images,{towerList=[],pinned=false,discovered=false,level=1,craftable=false}={}){
   const family=recipeFamily(recipe),stats=towerStats({family,tier:recipeTier(recipe)},data);
   const progress=recipeProgress(recipe,towerList),ready=progress.every(p=>p.available)&&level>=recipe.level;
@@ -66,7 +72,7 @@ export function championRecipeCard(recipe,data,images,{towerList=[],pinned=false
     <dl class="recipe-stat-grid"><div><dt>Damage / hit</dt><dd>${formatTowerNumber(stats.damage)}</dd></div><div><dt>Base DPS</dt><dd>${formatTowerNumber(baseAttackDps(stats))}</dd></div><div><dt>Interval</dt><dd>${formatTowerNumber(stats.interval)}s</dd></div><div><dt>Range</dt><dd>${formatTowerNumber(stats.range)}</dd></div></dl>
     <div class="recipe-ability-heading">${damageTypeName(stats.type)} · Effects</div><ul class="recipe-effects">${abilities.map(line=>`<li>${line}</li>`).join('')}</ul>
     <div class="recipe-ability-heading">Combine these ${recipe.ingredients.length} defenders</div><ul class="recipe-ingredients">${progress.map(p=>`<li class="${p.owned?'owned':p.draft?'draft-available':''}"><span>${p.owned?'✓':p.draft?'◆':'○'}</span>${ingredientName(p,data)}${p.draft?' <small class="draft-progress">this round</small>':''}</li>`).join('')}</ul>
-    ${pinned?`<details class="recipe-basic-breakdown" open><summary>Full basic recruit chain</summary>${basicRecipeBreakdown(recipe,data,towerList)}</details>`:''}
+    ${pinned?`<details class="recipe-basic-breakdown" open><summary>Full crafting chain</summary>${recipeProgressLegend()}${recipeIngredientTree(recipe,data,towerList)}<details class="recipe-basic-totals"><summary>Basic recruit totals</summary>${basicRecipeBreakdown(recipe,data,towerList)}</details></details>`:''}
     <button class="text-button ${pinned?'recipe-pin':''}" data-action="pin" data-id="${recipe.id}">${icon('pin')}${pinned?'Pinned':'Pin recipe'}</button>${ready&&craftable?` <button class="text-button gold" data-action="craft" data-id="${recipe.id}">Recruit champion</button>`:''}
   </article>`;
 }

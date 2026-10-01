@@ -16,7 +16,9 @@ function baseIngredientTree(recipe,data){
     if(fixed.has(result))throw new Error(`Multiple fixed recipes produce ${result}.`);
     fixed.set(result,entry);
   }
-  const expand=(ingredient,path)=>{
+  let nodeCount=0;
+  const expand=(ingredient,path,depth=1)=>{
+    if(depth>16||++nodeCount>4096)throw new Error('Champion recipe expansion exceeds the finite display limit.');
     const {family,tier}=ingredient,node={family,tier};
     if(!Object.hasOwn(data.towers,family))throw new Error(`Unknown ingredient family: ${family}.`);
     if(!Number.isInteger(tier)||tier<1)throw new Error(`Invalid ingredient rank: ${family} ${tier}.`);
@@ -26,7 +28,7 @@ function baseIngredientTree(recipe,data){
     const component=fixed.get(id);
     if(!component)throw new Error(`Missing fixed recipe for ${id}.`);
     const next=new Set(path);next.add(id);
-    node.children=component.ingredients.map(piece=>expand(piece,next));
+    node.children=component.ingredients.map(piece=>expand(piece,next,depth+1));
     return node;
   };
   const path=new Set([key({family:recipeFamily(recipe),tier:recipeTier(recipe)})]);
@@ -53,27 +55,47 @@ export function expandRecipeToBasics(recipe,data){
 
 // A ready ingredient champion satisfies its entire subtree. Its consumed recruits
 // are counted only there; each real inventory unit can satisfy one requested node.
-export function expandedRecipeProgress(recipe,towers,data){
+function allocatedRecipeTree(recipe,towers,data){
   const nodes=baseIngredientTree(recipe,data);
   const identities=new Set();
-  const inventory=towers.filter(tower=>{
-    if(tower.placed===false)return false;
-    if(tower.state!=='active'&&tower.state!=='draft')return false;
-    const identity=tower.id??tower;if(identities.has(identity))return false;
-    identities.add(identity);return true;
+  const inventory=[];
+  towers.forEach((tower,index)=>{
+    if(tower.placed===false||!['active','draft'].includes(tower.state))return;
+    const identity=tower.id??tower;if(identities.has(identity))return;
+    identities.add(identity);inventory.push({tower,index});
   });
   const used=new Set();
   const visit=(node,state)=>{
     if(node.coverage==='owned')return;
-    const index=inventory.findIndex((tower,index)=>!used.has(index)&&tower.state===state&&tower.family===node.family&&tower.tier===node.tier);
-    if(index>=0){used.add(index);node.coverage=state==='active'?'owned':'draft';return;}
+    const index=inventory.findIndex(({tower},index)=>!used.has(index)&&tower.state===state&&tower.family===node.family&&tower.tier===node.tier);
+    if(index>=0){
+      used.add(index);node.coverage=state==='active'?'owned':'draft';
+      node.inventoryIndex=inventory[index].index;node.towerId=inventory[index].tower.id??null;return;
+    }
     node.children?.forEach(child=>visit(child,state));
   };
   // Retained ingredients own their leaves. Placed candidates are tracked in a
   // separate pass and only cover the remaining requirements provisionally.
   nodes.forEach(node=>visit(node,'active'));
   nodes.forEach(node=>visit(node,'draft'));
-  return aggregateBaseLeaves(nodes);
+  return nodes;
+}
+export function expandedRecipeProgress(recipe,towers,data){
+  return aggregateBaseLeaves(allocatedRecipeTree(recipe,towers,data));
+}
+
+// Physical ownership belongs to the matched node only. Descendants of an
+// available champion remain visible as its recipe, but do not claim extra units.
+export function recipeTreeProgress(recipe,towers,data){
+  const describe=(node,ancestor=null)=>{
+    const own=node.coverage==='owned',draft=node.coverage==='draft';
+    const coverage=node.coverage?{family:node.family,tier:node.tier,state:own?'active':'draft'}:ancestor;
+    return {family:node.family,tier:node.tier,count:1,ownedCount:own?1:0,draftCount:draft?1:0,
+      towerId:node.towerId??null,inventoryIndex:node.inventoryIndex??null,
+      coveredBy:node.coverage?null:ancestor,
+      children:node.children?.map(child=>describe(child,coverage))||[]};
+  };
+  return allocatedRecipeTree(recipe,towers,data).map(node=>describe(node));
 }
 export function recipesUsing(tower,recipes) {
   return tower&&tower.state!=='ruin'?recipes.filter(r=>r.ingredients.some(i=>i.family===tower.family&&i.tier===tower.tier)):[];

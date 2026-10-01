@@ -7,17 +7,29 @@ export const RIVER_CONTROL_POINTS=Object.freeze([
   [23,18],[20,24],[7,26],[-8,28],[-25,33]
 ].map(point=>Object.freeze(point)));
 
-export function valleyRiverDistance(x,z){
+// The working mill stream leaves and rejoins the main river beyond the board.
+// The palace occupies the dry shoulder west of this canal through the town.
+export const TOWN_RIVER_CONTROL_POINTS=Object.freeze([
+  [23,-4],[31,-10],[45,-10],[55,-4],[55,3],[55,14],
+  [55,22],[52,29],[40,32],[28,29],[20,24]
+].map(point=>Object.freeze(point)));
+
+function courseDistance(points,x,z){
   let closest=Infinity;
-  for(let i=1;i<RIVER_CONTROL_POINTS.length;i++){
-    const a=RIVER_CONTROL_POINTS[i-1],b=RIVER_CONTROL_POINTS[i],dx=b[0]-a[0],dz=b[1]-a[1];
+  for(let i=1;i<points.length;i++){
+    const a=points[i-1],b=points[i],dx=b[0]-a[0],dz=b[1]-a[1];
     const t=THREE.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);
     closest=Math.min(closest,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));
   }
   return closest;
 }
+export const townRiverDistance=(x,z)=>courseDistance(TOWN_RIVER_CONTROL_POINTS,x,z);
 
-const hills=[[-46,-41,25,7.4],[43,-47,24,9.2],[-48,27,28,6.0],[41,47,29,7.4],[0,-62,31,7.2],[-10,64,38,5.4]];
+export function valleyRiverDistance(x,z){
+  return courseDistance(RIVER_CONTROL_POINTS,x,z);
+}
+
+const hills=[[-46,-41,25,9.4],[43,-47,24,11.2],[-48,27,28,8.0],[41,47,29,9.4],[0,-62,31,9.2],[-10,64,38,7.4]];
 export function valleyGroundHeight(x,z){
   const distance=Math.max(Math.abs(x),Math.abs(z));
   if(distance<=20.2)return -.21;
@@ -25,6 +37,9 @@ export function valleyGroundHeight(x,z){
   for(const [cx,cz,width,height]of hills)relief+=Math.exp(-((x-cx)**2+(z-cz)**2)/(width*width))*height;
   const folds=Math.sin(x*.12+Math.sin(z*.07)*1.7)*.74+Math.cos(z*.14-x*.055)*.58;
   let height=-.20+THREE.MathUtils.smoothstep(distance,23,68)*(1.4+relief+folds);
+  // Near northern shoulders rise continuously into the connected rocky ridges.
+  const northRise=Math.exp(-((z+38)**2)/240)*(6.2+Math.sin(x*.067)*1.5);
+  height+=northRise*THREE.MathUtils.smoothstep(distance,23,35);
   const channel=1-THREE.MathUtils.smoothstep(valleyRiverDistance(x,z),3.3,7.2);
   height=THREE.MathUtils.lerp(height,-.16,channel);
   // Castle and camp stand on clear, almost level shoulders rather than floating
@@ -34,6 +49,8 @@ export function valleyGroundHeight(x,z){
     const clearing=1-THREE.MathUtils.smoothstep(outside,0,4.0);
     height=THREE.MathUtils.lerp(height,site.height,clearing);
   }
+  // Carve the mill channel after settlement levelling so water remains visible.
+  height=THREE.MathUtils.lerp(height,-.14,1-THREE.MathUtils.smoothstep(townRiverDistance(x,z),1.4,2.3));
   return height;
 }
 

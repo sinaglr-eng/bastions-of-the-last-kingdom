@@ -1,5 +1,14 @@
 # Releases
 
+## 0.2.5 — Living Kingdoms — 1 October 2026
+
+- Extends the royal settlement with connected streets, inhabitants, farmsteads, livestock pastures, a stone quarry and a river-fed watermill. The pale palace and slender spires take inspiration from Neuschwanstein; the castle now stands on the dry eastern bank, connected by a longer decorative bridge.
+- Expands the orc territory with additional tents, wolf pens and cages, guarded caves and an elevated troll/ogre camp. Closely overlapping mountain ridges fill the surrounding valley gaps without occupying the build field.
+- Returns construction mastery to a coordinated panel alongside the five recruit cards while retaining each candidate's Keep button and double-click/double-tap confirmation.
+- Displays recipe dependencies as three ingredient branches with their nested champion recipes and exact basic recruits. Built and provisional stock share one allocation, so the same defender cannot satisfy several branches.
+- Marks real allied haste, damage, range, true-strike and control-resistance effects on recipient platforms with separate colors and symbols. Enemy suppression and status markers follow current combat state, concealment and cleanup rules; approved gameplay values remain unchanged.
+- Keeps river animation inside valid curve parameters and clamps frame time against negative startup deltas, preventing intermittent freezes during loading.
+
 ## 0.2.4 — Kingdoms in Motion — 1 October 2026
 
 - Restores waves 2 and 3 to their original normal campaign difficulty, including HP, armor, movement and spawn spacing. Only wave 1 retains its introductory tuning; counts, rewards and waves 4–50 remain unchanged.
