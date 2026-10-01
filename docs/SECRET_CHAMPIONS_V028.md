@@ -55,7 +55,7 @@ blender --background --python blender/scripts/author_scenery_v7.py
 blender --background --python blender/scripts/render_scenery_v7.py
 ```
 
-Native evidence: `blender/scenes/royal-castle-v7.blend` and `blender/renders/royal-castle-v7-review.png`. Local detailed views are `artifacts/royal-outer-defenses-v7.png` and `artifacts/royal-bridge-clearance-v7.png`.
+Native evidence: `blender/scenes/royal-castle-v7.blend` and `blender/renders/royal-castle-v7-review.png`. Detailed views are committed as `blender/renders/royal-outer-defenses-v7.png` and `blender/renders/royal-bridge-clearance-v7.png`, so clean-checkout validation never depends on ignored local artifacts.
 
 ## Browser reproduction
 

@@ -10,4 +10,4 @@ for name,location,target,scale in [
     ('royal-bridge-clearance-v7',(-23,-13,13),(-10,0,1),20)
 ]:
     camera=scene.camera;camera.location=location;camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler();camera.data.ortho_scale=scale
-    scene.render.filepath=str(ROOT/'artifacts'/(name+'.png'));bpy.ops.render.render(write_still=True)
+    scene.render.filepath=str(ROOT/'blender/renders'/(name+'.png'));bpy.ops.render.render(write_still=True)

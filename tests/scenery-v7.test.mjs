@@ -80,6 +80,6 @@ test('V7 keeps the native editable source and real review proof with a bounded a
   const entries=json('public/assets/scenery/manifest.json'),entry=entries.find(o=>o.file==='royal-castle-v7.glb');
   assert.equal(entry.style,'scenery-v7');assert.equal(entry.inherits,'royal-castle-v6.blend');assert.equal(entry.triangles,triangles);assert.equal(entry.gameplayEffect,'none');
   assert.ok(entries.some(o=>o.file==='royal-castle-v6.glb'));assert.ok(entries.some(o=>o.file==='fortified-warcamp-v6.glb'));
-  for(const file of ['blender/scenes/'+entry.source,'blender/renders/'+entry.review,'artifacts/royal-outer-defenses-v7.png','artifacts/royal-bridge-clearance-v7.png'])assert.ok(statSync(new URL('../'+file,import.meta.url)).size>10000);
+  for(const file of ['blender/scenes/'+entry.source,'blender/renders/'+entry.review,'blender/renders/royal-outer-defenses-v7.png','blender/renders/royal-bridge-clearance-v7.png'])assert.ok(statSync(new URL('../'+file,import.meta.url)).size>10000);
   dispose(scene);
 });
