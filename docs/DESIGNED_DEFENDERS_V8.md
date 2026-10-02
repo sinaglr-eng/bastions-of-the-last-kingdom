@@ -1,5 +1,8 @@
 # Designed defenders, art revision 11
 
+Delivery cache revision 12 includes Engineer's fitted ruler grip at all six ranks
+and the family-specific Claire regeneration metadata guard.
+
 Cosmetic revision of game edition 0.2.8: eight basic classes with six ranks,
 37 ordinary champions and Lady Claire; 46 available families and 86 GLBs.
 Lord Bernhard is temporarily hidden from recipe offers and the atelier. His

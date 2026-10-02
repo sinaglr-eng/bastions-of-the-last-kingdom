@@ -97,7 +97,7 @@
     },
     {
       "path": "blender/scenes/runebreaker_design_v8.blend",
-      "sha256": "4e3d2758172f1148383627ea7cd7057001e70a7db32e4f3d33f9b87a47ebc8cc"
+      "sha256": "b84e6fe181f9a77db9ab01da9e1051070576272a63a69e55a1ab8b6870f38c51"
     },
     {
       "path": "blender/scenes/soldier_design_v8.blend",
@@ -135,7 +135,7 @@
   "evidence": [
     {
       "path": "blender/renders/defenders-v8-humans/basics-gallery.png",
-      "sha256": "2b6a803529a8e09bc6b15ef5b190145ab6232263cfb610e6f4bbf3a5ff483769"
+      "sha256": "8fc4f33e70aae7dedfe24e32b34b8dc53791659f8f2ac9b0a29753cd02e657f1"
     },
     {
       "path": "blender/renders/defenders-v8-humans/champions-gallery.png",
@@ -170,6 +170,26 @@
       "sha256": "7229cd0f91f89f53a4c540340e2d03cf65ee9e37a6b08cd07729cef3970fb4a7"
     },
     {
+      "path": "blender/renders/defenders-v8-humans/runebreaker-glb-hand-L.png",
+      "sha256": "22a6627f02e9c36b4187a70c4c4451f8e22369ea8905db8b6e4648d3cfdb1643"
+    },
+    {
+      "path": "blender/renders/defenders-v8-humans/runebreaker-glb-ruler-side.png",
+      "sha256": "7aa8d1f71c67b22883dc23ea9a66c0b235843aa6cc7652fe869fd04e999b5a6e"
+    },
+    {
+      "path": "blender/renders/defenders-v8-humans/runebreaker-glb-ruler-inner.png",
+      "sha256": "0d901993a12a4651290b4520a682876d8cd5f77f5a949a5f15b7d2376e2137e7"
+    },
+    {
+      "path": "blender/renders/defenders-v8-humans/runebreaker-glb-ruler-top.png",
+      "sha256": "39d611f21853c70f862761f3924456e151416513d9f2bd02d8ac99520b2dc17b"
+    },
+    {
+      "path": "blender/renders/defenders-v8-humans/runebreaker-attack-glb.gif",
+      "sha256": "0609a26fcdafb3f1393ca58045bb9e0a0f9f3b296dd9ff8a16a5139747c2cedf"
+    },
+    {
       "path": "blender/renders/secret-champions-v3/ladyclaire-grip.png",
       "sha256": "dfaef59ac0f0c17c2eb30e30580a3cb9d4a29a7641482241c93ac5b1b163ddd7"
     },
@@ -194,7 +214,7 @@
       "sha256": "6e42069cc204bb49bac47e5406da5d3105dbdfe8ba6ef896f4c5bc9b987d8d9b"
     }
   ],
-  "assetBytes": 69567216,
+  "assetBytes": 69482136,
   "assetHashes": {
     "soldier-t1": "4ab11390bb497c48f8d0b902f7f538e6b120edc8c774c99d92a4a5ad538becd1",
     "soldier-t2": "155a8f95c43b90558551f37de732b8b86b7954651e1ba3ad57931f314b5cbc72",
@@ -227,12 +247,12 @@
     "cleric-t4": "54da4aa4ed2b54c3631637ea85984b4ea98f2198ba7321d5313770b5a746f909",
     "cleric-t5": "4077212318e042ed6cb1c6273c7e0a76ecf9ac1017975f540e1827c5c00f1586",
     "cleric-t6": "c8794c70d49618ec2c0a87fb964029e0011db49fce21ea0586c1b4964b21629d",
-    "runebreaker-t1": "4fea6b740efa02f1c7a09284504454afc925f82a208f2d5a98b22554d0657781",
-    "runebreaker-t2": "1fe60d74402b4c53449cb3d6c7b3a2d371d664687ced74185d539e72c18f13a8",
-    "runebreaker-t3": "6b6e7dd7f6668bf48c20d53d3b0b9807c2a156bb585bb60067b609d0a7eadcaf",
-    "runebreaker-t4": "ffaf3d106acbb5fc3bf16fda827eba391c6151982dcd9b4b10b265b83d2508d1",
-    "runebreaker-t5": "a69cc12892fa1b21a27be38cbf362916f09494efadb708cb9da4dd0ed1789cc1",
-    "runebreaker-t6": "df661d1a7edfeb0c6f9dde147642542e921d9ac697ebef5162cc979fe57b352a",
+    "runebreaker-t1": "202205b2cb10c7f93435b1df22d38639f3052dfb1640406dbed7e3f5fe212226",
+    "runebreaker-t2": "74c56e2ba93588642e39fe5b0a546716f66bde7f4d991ffe436ceed43f901ad8",
+    "runebreaker-t3": "f23d4cc7915ec4460832423d17ab038a542a2201dc315aa47643e733bed72bc0",
+    "runebreaker-t4": "94e79410b7d9dedfa04c74435c7a99dd54eb11c10f954b701598354d96f5600d",
+    "runebreaker-t5": "137cbcfe35abfdca6bb730ce93ed89321d9c4ed0a31a00a78dbbe2feca303b1c",
+    "runebreaker-t6": "b956c767e7d3b4ff20cbade4776b19d1d656790e0d860915a057b6f7c6be933a",
     "frostwarden-t1": "f027a47940da42f89d0751a8f04ee68e61a05f4be50a1fbfa932d9de926ba8cf",
     "frostwarden-t2": "57eb10e535fd7e009e21caf5cfcb6c94d6b35afac8cafb901a2d961c4097cd59",
     "frostwarden-t3": "958ef8367f7580ce75931853023a50e700a69bf439c2abebf0c1d74d03f27434",

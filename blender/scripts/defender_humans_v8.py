@@ -212,7 +212,8 @@ class Defender:
             start=len(self.s.parts);paths={}
             arm=[a,tuple(Vector(a).lerp(Vector(e),.48)),e,tuple(Vector(e).lerp(Vector(w),.6)),w]
             self.tube('continuous deltoid elbow wrist anatomy '+side,arm,[.060,.048,.037,.039,.022],p['skin'],'hand_'+side,18,32)
-            power=(side in self.grips and (side=='R' and not self.prayer or side=='L' and self.bow or self.crossbow))
+            flat_rule=self.family=='runebreaker' and side=='L'
+            power=(side in self.grips and (side=='R' and not self.prayer or side=='L' and self.bow or self.crossbow or flat_rule))
             if power:
                 gx,gy,gz=self.grips[side]
                 # Palm sits behind the shaft; the four fingers wrap from its
@@ -225,9 +226,20 @@ class Defender:
                     # crosses the index side, never emerging by the little finger.
                     pts=[(px+sign*.015,py+.009,z),(gx+sign*.016,gy-.018,z+.001),(gx+sign*.024,gy+.004,z),(gx+sign*.011,gy+.024,z-.002),(gx-sign*.009,gy+.026,z-.003),(gx-sign*.017,gy+.017,z-.004)]
                     if nock:pts=[(px+sign*.009,py+.008,z),(gx+sign*.009,gy-.010,z+.001),(gx+sign*.013,gy+.003,z),(gx+sign*.006,gy+.012,z-.001),(gx-sign*.006,gy+.012,z-.002),(gx-sign*.010,gy+.005,z-.002)]
-                    self.tube('independent '+side+' power-grip finger '+str(i),pts,[.006,.0065,.006,.0055,.0048,.0014],p['skin'],f'finger_{side}_{i}',10,22);paths[f'finger_{side}_{i}']=[Vector(self.V(x)) for x in pts]
+                    radii=[.006,.0065,.006,.0055,.0048,.0014]
+                    if flat_rule:
+                        # The measuring rule is a flat 28 x 6 mm section, not a
+                        # round shaft. Each digit clears the back and left edge,
+                        # then its curved distal pad presses the front surface.
+                        pts=[(px+sign*.015,py+.009,z),(gx+sign*.008,gy-.0095,z+.001),(gx+sign*.020,gy-.007,z+.001),(gx+sign*.0205,gy+.003,z),(gx+sign*.019,gy+.0105,z-.001),(gx+sign*.007,gy+.0105,z-.002),(gx-sign*.009,gy+.0104,z-.003),(gx-sign*.012,gy+.0104,z-.003)]
+                        radii=[.006,.0065,.006,.0055,.0048,.0043,.0041,.0014]
+                    self.tube('independent '+side+' power-grip finger '+str(i),pts,radii,p['skin'],f'finger_{side}_{i}',10,26 if flat_rule else 22);paths[f'finger_{side}_{i}']=[Vector(self.V(x)) for x in pts]
                 pts=[(px-sign*.014,py+.006,gz+.015),(px-sign*.008,gy+.007,gz+.046),(gx-sign*.010,gy+.026,gz+.050),(gx+sign*.016,gy+.020,gz+.039),(gx+sign*.022,gy+.012,gz+.029)]
-                self.tube('opposed anatomical thumb '+side,pts,[.010,.009,.0075,.006,.0018],p['skin'],f'finger_{side}_4',12,20);paths[f'finger_{side}_4']=[Vector(self.V(x)) for x in pts]
+                thumb_radii=[.010,.009,.0075,.006,.0018]
+                if flat_rule:
+                    pts=[(px-sign*.014,py+.006,gz+.015),(px-sign*.008,gy+.003,gz+.046),(gx-sign*.017,gy+.014,gz+.050),(gx+sign*.001,gy+.013,gz+.039),(gx+sign*.009,gy+.0112,gz+.031),(gx+sign*.011,gy+.0105,gz+.029)]
+                    thumb_radii=[.010,.009,.0075,.006,.0047,.0018]
+                self.tube('opposed anatomical thumb '+side,pts,thumb_radii,p['skin'],f'finger_{side}_4',12,26 if flat_rule else 20);paths[f'finger_{side}_4']=[Vector(self.V(x)) for x in pts]
                 palmcentre=(px,py,gz)
             else:
                 # Open offering or nocking hand: one monotone, softly relaxed

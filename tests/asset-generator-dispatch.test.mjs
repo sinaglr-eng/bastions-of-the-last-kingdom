@@ -59,4 +59,9 @@ test('dedicated native secret authoring accepts family/no-render flags and prese
   assert.match(secret,/render='--no-render' not in sys.argv/);
   assert.match(secret,/generate\(render=render,family=family\)/);
   assert.match(secret,/entry.get\('kind'\)=='tower' and entry.get\('family'\)==family/);
+  assert.match(secret,/asset_version='designed-defenders-v8' if family=='ladyclaire' else ART_VERSION/);
+  assert.match(secret,/design_revision=11 if family=='ladyclaire' else DESIGN_REVISION/);
+  assert.match(secret,/scene\['AssetRevision'\]=asset_version/);
+  assert.match(secret,/root\['assetRevision'\]=asset_version/);
+  assert.match(secret,/assetRevision=asset_version[\s\S]*designRevision=design_revision/);
 });
