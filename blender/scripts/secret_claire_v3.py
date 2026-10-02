@@ -219,7 +219,7 @@ def create_rig():
         if parent:bone.parent=data.edit_bones[parent]
         bone.use_deform=True
     bpy.ops.object.mode_set(mode='OBJECT');rig.select_set(False)
-    rig['assetRevision']='champions-v7.10';rig['designRevision']=10
+    rig['assetRevision']='designed-defenders-v8';rig['designRevision']=11;rig['articulationRevision']=3
     rig['animationContract']='Idle 2.4 s; Attack 1.0 s; effect at normalized 0.36'
     rig['attackReleaseFraction']=.36
     _RIG=rig
@@ -471,8 +471,8 @@ def arms_and_hands(p):
             k=max(0,min(1,(t-.39)/.29))
             hand=max(0,min(1,(t-.90)/.10))
             return {'upper_arm_'+side:(1-k)*(1-hand),'forearm_'+side:k*(1-hand),'hand_'+side:hand}
-        tube('Claire V3 continuous anatomical '+side+' arm from deltoid to wrist',points,[.038,.034,.028,.027,.020],p['skin'],armweight,18,7)
         hand_start=len(_PARTS);digit_paths={}
+        tube('Claire V3 continuous anatomical '+side+' arm from deltoid to wrist',points,[.038,.034,.028,.027,.020],p['skin'],armweight,18,7)
         if side=='R':
             # Palm sits behind the shaft. Four separate fingers travel around
             # its right side then curl forward and back, in a true power grip.
@@ -491,35 +491,61 @@ def arms_and_hands(p):
             pts=[(.271,.106,1.226),(.277,.130,1.237),(.296,.148,1.235),(.316,.151,1.229),(.324,.142,1.223)]
             thumb=tube('Claire V3 right anatomically opposed curved thumb',pts,[.009,.008,.0075,.0066,.0047],p['skin'],'finger_R_4',10,3);thumb['digit']=5
             digit_paths['finger_R_4']=pts
+            # Move the authored hand into its actual shaft contact BEFORE the
+            # anatomical union. The old post-union translation left a visible
+            # wrist/palm gap. The forearm end stays at the real wrist.
+            for obj in _PARTS[hand_start+1:]:
+                for vertex in obj.data.vertices:vertex.co+=Vector((.025,.040,0))
+            digit_paths={name:[tuple(Vector(point)+Vector((.025,.040,0))) for point in path] for name,path in digit_paths.items()}
         else:
             centre=Vector((-.284,.132,1.362))
             shape('Claire V3 anatomical left open casting palm',
-                  [(1.328,.018,.018,.016,.122),(1.350,.021,.014,.012,.137),
-                   (1.374,.024,.013,.010,.147),(1.392,.020,.011,.009,.151)],p['skin'],'hand_L',24,14,
+                   [(1.332,.017,.016,.014,.125),(1.344,.019,.015,.012,.137),
+                    (1.363,.024,.013,.012,.151),(1.383,.025,.011,.010,.160),
+                    (1.395,.016,.007,.006,.163),(1.401,.003,.002,.002,.164)],p['skin'],'hand_L',28,22,
                   lambda v,a,t:(v.x-.277,v.y,v.z))
-            lengths=[.042,.056,.061,.050]
+            lengths=[.043,.057,.063,.056]
             for i in range(4):
-                x=-.297+i*.013;z=1.385
+                x=-.297+i*.013;z=1.387
                 l=lengths[i]
-                pts=[(x,.151,z),(x-.001,.160,z+l*.40),(x-.004,.179,z+l*.76),(x-.007,.174,z+l*.96),(x-.008,.170,z+l)]
-                finger=tube('Claire V3 left '+['little','ring','middle','index'][i]+' individually articulated curved finger',pts,[.0058,.0056,.0052,.0034,.0006],p['skin'],'finger_L_'+str(i),10,4);finger['digit']=i+1
-                rounded('Claire V3 left integrated anatomical metacarpal knuckle '+str(i),(x,.151,1.386),(.0083,.012,.010),p['skin'],'hand_L',12,8)
+                spread=(i-1.5)*.0018
+                # A relaxed three-phalange curve: no reversal at the DIP joint
+                # and no pinched pointed tip. Each phalanx has a smooth tangent.
+                curl=[.027,.035,.041,.030][i]
+                pts=[(x,.160,z),(x+spread*.3,.160+curl*.12,z+l*.29),(x+spread*.8,.160+curl*.45,z+l*.60),(x+spread,.160+curl*.78,z+l*.79),(x+spread,.160+curl*.98,z+l*.90),(x+spread,.160+curl,z+l*.92)]
+                finger=tube('Claire V3 left '+['little','ring','middle','index'][i]+' individually articulated curved finger',pts,[.0058,.0060,.0057,.0047,.0032,.0010],p['skin'],'finger_L_'+str(i),12,5);finger['digit']=i+1
                 digit_paths['finger_L_'+str(i)]=pts
-            pts=[(-.255,.144,1.365),(-.241,.157,1.375),(-.231,.170,1.383),(-.229,.164,1.392),(-.230,.161,1.395)]
-            tube('Claire V3 left opposed thumb with natural thenar origin',pts,[.008,.007,.0062,.0040,.0007],p['skin'],'finger_L_4',10,4)
-            rounded('Claire V3 integrated left thenar anatomy',(-.255,.139,1.361),(.009,.012,.014),p['skin'],'hand_L',12,8)
+            pts=[(-.260,.148,1.356),(-.250,.160,1.363),(-.239,.171,1.371),(-.230,.177,1.379),(-.226,.178,1.382)]
+            tube('Claire V3 left opposed thumb with natural thenar origin',pts,[.009,.0085,.0070,.0052,.0014],p['skin'],'finger_L_4',12,4)
+            rounded('Claire V3 integrated left thenar anatomy',(-.258,.148,1.357),(.009,.014,.017),p['skin'],'hand_L',14,10)
             digit_paths['finger_L_4']=pts
-        weld_hand(_PARTS[hand_start:],side,digit_paths)
-        if side=='R':
-            for vertex in _PARTS[-1].data.vertices:
-                vertex.co+=Vector((.025,.040,0))
+        # A gently tapered anatomical bridge embeds the palm base inside the
+        # forearm skin rather than exposing the bottom cap of a palm loft.
+        bridge_end=(.313,.134,1.211) if side=='R' else (-.278,.136,1.351)
+        tube('Claire V3 smooth anatomical wrist to metacarpal transition '+side,
+             [tuple(Vector(elbow).lerp(Vector(wrist),.77)),wrist,bridge_end],
+             [.023,.020,.018],p['skin'],'hand_'+side,18,14)
+        weld_hand(_PARTS[hand_start:],side,digit_paths,points)
+        if side=='L':
+            # Thin nail plates follow the actual curved distal phalanx,
+            # including its taper and normal. No floating rectangular tips.
+            for i in range(4):
+                path=digit_paths['finger_L_'+str(i)];vertices=[]
+                for r in range(5):
+                    t=.72+r*.040;centre=Vector(interpolation(path,t));radius=interpolation([(x,) for x in [.0058,.0060,.0057,.0047,.0032,.0010]],t)[0]
+                    tangent=(Vector(interpolation(path,min(1,t+.002)))-Vector(interpolation(path,max(0,t-.002)))).normalized();dorsal=-tangent.cross(Vector((1,0,0))).normalized()
+                    width=radius*.68*math.sin(math.pi*(r+.6)/5.5)
+                    for c in range(7):
+                        u=(c/6-.5)*2;point=centre+Vector((width*u,0,0))+dorsal*(radius*math.sqrt(max(0,1-(width*u/radius)**2))*.86);vertices.append(tuple(point))
+                faces=[(r*7+c,r*7+c+1,(r+1)*7+c+1,(r+1)*7+c) for r in range(4) for c in range(6)]
+                mesh('Claire V3 subtle shaped fingernail '+str(i),vertices,faces,p['skin'],'finger_L_'+str(i))
         # A thin cuff is fitted above wrist, leaving joint room.
         c=Vector(wrist);normal=(Vector(wrist)-Vector(elbow)).normalized();axis=normal.cross(Vector((0,1,0))).normalized();axis2=normal.cross(axis)
         pts=[tuple(c-normal*.024+.023*(axis*math.cos(TAU*i/32)+axis2*math.sin(TAU*i/32))) for i in range(32)]
         loop('Claire V3 engraved fitted wrist cuff '+side,pts,.0035,p['gold'],'forearm_'+side,6)
 
 
-def weld_hand(parts,side,paths):
+def weld_hand(parts,side,paths,arm_path):
     """Join and sculpt a connected palm/knuckle surface without finger seams.
 
     Submillimetre voxel union retains the separated fingers. Retopology is
@@ -532,25 +558,32 @@ def weld_hand(parts,side,paths):
     for obj in parts:obj.select_set(True)
     bpy.context.view_layer.objects.active=parts[0]
     bpy.ops.object.join();hand=parts[0]
-    hand.name='Claire V3 sculpted continuous '+side+' hand with five separated curved digits'
+    hand.name='Claire V3 sculpted continuous '+side+' arm wrist palm and five separated curved digits'
     voxel=hand.modifiers.new('Continuous anatomical palm and knuckle sculpt','REMESH')
     voxel.mode='VOXEL';voxel.voxel_size=.0012;voxel.use_smooth_shade=True
     bpy.ops.object.modifier_apply(modifier=voxel.name)
     soften=hand.modifiers.new('Soft human knuckle and fingertip contour','SMOOTH');soften.factor=.55;soften.iterations=4
     bpy.ops.object.modifier_apply(modifier=soften.name)
     triangles=sum(len(f.vertices)-2 for f in hand.data.polygons)
-    if triangles>3300:
-        retopo=hand.modifiers.new('Local anatomical hand surface retopology','DECIMATE');retopo.ratio=3300/triangles
+    if triangles>6100:
+        retopo=hand.modifiers.new('Local anatomical arm and hand surface retopology','DECIMATE');retopo.ratio=6100/triangles
         bpy.ops.object.modifier_apply(modifier=retopo.name)
     hand.vertex_groups.clear()
-    groups={name:hand.vertex_groups.new(name=name) for name in ['hand_'+side,*paths]}
+    groups={name:hand.vertex_groups.new(name=name) for name in ['upper_arm_'+side,'forearm_'+side,'hand_'+side,*paths]}
     samples={name:[Vector(interpolation(path,j/40)) for j in range(41)] for name,path in paths.items()}
+    arm_samples=[Vector(interpolation(arm_path,j/80)) for j in range(81)]
     for vertex in hand.data.vertices:
         distances={name:min((vertex.co-point).length for point in points) for name,points in samples.items()}
         name,distance=min(distances.items(),key=lambda item:item[1])
         amount=max(0,min(.90,(.013-distance)/.007))
-        groups['hand_'+side].add([vertex.index],1-amount,'REPLACE')
-        if amount:groups[name].add([vertex.index],amount,'REPLACE')
+        if distance<.013:
+            groups['hand_'+side].add([vertex.index],1-amount,'REPLACE')
+            if amount:groups[name].add([vertex.index],amount,'REPLACE')
+        else:
+            closest=min(range(len(arm_samples)),key=lambda i:(vertex.co-arm_samples[i]).length)
+            t=closest/80;k=max(0,min(1,(t-.39)/.29));h=max(0,min(1,(t-.87)/.13))
+            for bone,weight in {'upper_arm_'+side:(1-k)*(1-h),'forearm_'+side:k*(1-h),'hand_'+side:h}.items():
+                if weight:groups[bone].add([vertex.index],weight,'REPLACE')
     mod=hand.modifiers.new('Royal anatomical deform rig','ARMATURE');mod.object=_RIG
     hand['digits']=5;hand['opposedThumb']=True;hand['digitPaths']=str(paths)
     hand['surfaceMethod']='Fresh V3 palm and curved digits joined, submillimetre union sculpt and local retopology'

@@ -5,7 +5,7 @@ export function rankLabel(tier){
   let label='',remaining=tier;for(const [n,s]of values)while(remaining>=n){label+=s;remaining-=n;}return label;
 }
 export const recipeLabel=(recipe,data)=>data.towers[recipeFamily(recipe)].name;
-export const allRecipes=data=>data.recipes.filter(recipe=>recipeTier(recipe)===1);
+export const allRecipes=data=>data.recipes.filter(recipe=>recipeTier(recipe)===1&&!data.towers[recipeFamily(recipe)]?.hidden);
 
 function baseIngredientTree(recipe,data){
   if(recipeTier(recipe)!==1)throw new Error('Only fixed champion recipes can be expanded.');

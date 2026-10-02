@@ -742,6 +742,21 @@ def generate():
     only=sys.argv[sys.argv.index('--only')+1] if '--only' in sys.argv else None
     entries=json.loads((OUT/'manifest.json').read_text(encoding='utf-8')) if (OUT/'manifest.json').exists() else []
     selected=[item for item in roster() if not only or item[0] in only.split(',')]
+    # The final boss owns a native deform rig; the static historical generator
+    # must not overwrite it when reauthoring the otherwise unchanged Dark Host.
+    native_final=[item[0] for item in selected if item[0].split('-')[0]=='host_50']
+    if native_final:
+        import final_boss_v4
+        old_argv=list(sys.argv)
+        try:
+            sys.argv=[old_argv[0],'--only',','.join(native_final)]+(['--no-render'] if '--no-render' in old_argv else [])
+            final_boss_v4.run()
+        finally:
+            sys.argv=old_argv
+        rows=json.loads((ROOT/'artifacts/final-boss-v4-rows.json').read_text(encoding='utf-8'))
+        entries=[item for item in entries if item['id'] not in native_final]+rows
+        (OUT/'manifest.json').write_text(json.dumps(entries,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+    selected=[item for item in selected if item[0] not in native_final]
     for identifier,design,variant in selected:
         clear();dimensions=build(design,variant);camera_for(dimensions)
         scene=bpy.context.scene;scene['Warband']=design['name'];scene['Design revision']='dark-host-v3';scene['Design archetype']=design['archetype'];scene['Approved appearance']=design['appearance']

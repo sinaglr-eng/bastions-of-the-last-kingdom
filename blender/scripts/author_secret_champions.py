@@ -156,7 +156,9 @@ def generate(render=True,family=None):
                 camera_frame(camera,dimensions,(1100,1300),direction)
                 review=REVIEWS/(family+'-'+side+'.png');scene.render.filepath=str(review);bpy.ops.render.render(write_still=True);army.clean_portrait_metadata(review)
         entries=[entry for entry in entries if not(entry.get('kind')=='tower' and entry.get('family')==family)]
-        entries.append(dict(id=family+'-t1',file=file,kind='tower',family=family,tier=1,style=ART_VERSION,assetRevision=ART_VERSION,authoring='Blender',secret=True,triangles=triangles,designRevision=DESIGN_REVISION,name=name,source='blender/scenes/'+family+'_design_v3.blend',bounds=dimensions,**rig_metadata()))
+        metadata=rig_metadata()
+        if family=='ladyclaire':metadata['articulationRevision']=3
+        entries.append(dict(id=family+'-t1',file=file,kind='tower',family=family,tier=1,style='designed-defenders-v8' if family=='ladyclaire' else ART_VERSION,assetRevision=ART_VERSION,authoring='Blender',secret=True,triangles=triangles,designRevision=11 if family=='ladyclaire' else DESIGN_REVISION,name=name,source='blender/scenes/'+family+'_design_v3.blend',bounds=dimensions,**metadata))
         (OUT/'manifest.json').write_text(json.dumps(entries,indent=2)+'\n',encoding='utf-8')
         print('SECRET_CHAMPION '+family+' '+str(triangles)+' triangles '+str(dimensions['size']),flush=True)
     print('SECRET_CHAMPIONS requested native sources and GLBs complete'+(' with portraits' if render else ' without rendering'),flush=True)

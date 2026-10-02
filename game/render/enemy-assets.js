@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {enemyModel} from './models.js';
+import {cloneDefenderTemplate,disposeDefenderInstance} from './defender-assets.js';
 
 export function enemyAssetKey(enemy,templates){
   if(enemy.visualAsset&&templates.has(enemy.visualAsset))return enemy.visualAsset;
@@ -9,7 +10,8 @@ export function enemyAssetKey(enemy,templates){
 export function enemyFigure(enemy,templates){
   const key=enemyAssetKey(enemy,templates),template=templates.get(key);
   if(!template){const fallback=enemyModel(enemy.type,enemy);fallback.userData.assetKey=null;return fallback;}
-  const root=new THREE.Group(),body=template.clone(true),limbs=[],wings=[];
+  const native=enemy.type==='host_50'&&template.animations?.some(clip=>clip.name==='Idle');
+  const root=new THREE.Group(),body=native?cloneDefenderTemplate(template):template.clone(true),limbs=[],wings=[];
   root.add(body);root.userData.sharedAsset=true;root.userData.body=body;root.userData.assetKey=key;
   root.userData.visualCues=[];root.userData.ownedMaterials=[];
   body.traverse(o=>{
@@ -23,10 +25,12 @@ export function enemyFigure(enemy,templates){
     }
   });
   root.userData.limbs=limbs;root.userData.wings=wings;
+  if(native){const clip=body.animations.find(clip=>clip.name==='Idle'),mixer=new THREE.AnimationMixer(body),action=mixer.clipAction(clip);action.play();action.paused=true;root.userData.nativeFlight={mixer,action,duration:clip.duration};}
   root.userData.barHeight=new THREE.Box3().setFromObject(body).max.y+.15;
   return root;
 }
-export function installEnemyTemplate(view,entry,scene){
+export function installEnemyTemplate(view,entry,scene,animations=[]){
+  scene.animations=[...animations];
   if(view.disposed)return false;view.enemyTemplates.set(entry.id,scene);
   for(const enemy of view.game.combat.enemies){
     const figure=view.enemies.get(enemy.id);if(!figure)continue;
@@ -55,6 +59,7 @@ export function animateEnemyCues(root,enemy,elapsed,{reducedMotion=false}={}){
   }
 }
 export function disposeEnemyFigure(root){
+  if(root.userData.nativeFlight){root.userData.nativeFlight.mixer.stopAllAction();root.userData.nativeFlight.mixer.uncacheRoot(root.userData.body);disposeDefenderInstance(root.userData.body);}
   // Imported clones share the pack's geometries and materials with future spawns.
   root.userData.bar?.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});
   root.userData.aura?.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});

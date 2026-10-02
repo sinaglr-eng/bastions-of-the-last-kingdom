@@ -1,0 +1,28 @@
+{
+  "tests": 333,
+  "failures": 0,
+  "build": "Vite production build passed",
+  "atelier": {
+    "families": 46,
+    "additionalBasicRanks": 40,
+    "nativeControls": "Idle / Attack / pause / simulation speed",
+    "consoleErrors": 0
+  },
+  "battle": {
+    "groups": 4,
+    "families": 46,
+    "simulationSpeeds": [
+      1,
+      2
+    ],
+    "pauseVerified": true,
+    "finalBossWave": 50,
+    "consoleErrors": 0
+  },
+  "limits": [
+    "Stylized anatomy",
+    "Macro nail and wrist faceting",
+    "Authored cloth and finger motion; no physics or separate animated phalanges"
+  ],
+  "evidence": "Production GLB reimport renders plus real atelier and development battle UI"
+}

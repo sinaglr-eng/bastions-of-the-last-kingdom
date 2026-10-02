@@ -1,0 +1,6989 @@
+{
+  "source": "Actual production GLBs; NativeTestGLTFLoader validates embedded texture references, geometry, weights and action data. Node does not prove PBR pixel appearance.",
+  "models": [
+    {
+      "id": "soldier-t1",
+      "sha256": "4ab11390bb497c48f8d0b902f7f538e6b120edc8c774c99d92a4a5ad538becd1",
+      "bytes": 971624,
+      "triangles": 27413,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ],
+        [
+          0.3761905294002577,
+          1.7973657163241654,
+          -0.15772420418872912
+        ],
+        [
+          0.23820544933536505,
+          1.896080648868424,
+          -0.17613787086408605
+        ],
+        [
+          0.27689444125345825,
+          1.8718645482253131,
+          -0.18548143948717
+        ],
+        [
+          0.3297368989965222,
+          1.835613194903524,
+          -0.1907825219446152
+        ],
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "soldier-t2",
+      "sha256": "155a8f95c43b90558551f37de732b8b86b7954651e1ba3ad57931f314b5cbc72",
+      "bytes": 971624,
+      "triangles": 27413,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ],
+        [
+          0.3761905294002577,
+          1.7973657163241654,
+          -0.15772420418872912
+        ],
+        [
+          0.23820544933536505,
+          1.896080648868424,
+          -0.17613787086408605
+        ],
+        [
+          0.27689444125345825,
+          1.8718645482253131,
+          -0.18548143948717
+        ],
+        [
+          0.3297368989965222,
+          1.835613194903524,
+          -0.1907825219446152
+        ],
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "soldier-t3",
+      "sha256": "fd453b4d062e398d78e1ce83042d3c1baba49bf10093a5418125ea0392939f23",
+      "bytes": 971620,
+      "triangles": 27413,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ],
+        [
+          0.3761905294002577,
+          1.7973657163241654,
+          -0.15772420418872912
+        ],
+        [
+          0.23820544933536505,
+          1.896080648868424,
+          -0.17613787086408605
+        ],
+        [
+          0.27689444125345825,
+          1.8718645482253131,
+          -0.18548143948717
+        ],
+        [
+          0.3297368989965222,
+          1.835613194903524,
+          -0.1907825219446152
+        ],
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "soldier-t4",
+      "sha256": "0ed93b08cd2c9425bc65943646d44b25624d9f537179f05abfa3e6fa71c9ac0f",
+      "bytes": 971620,
+      "triangles": 27413,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ],
+        [
+          0.3761905294002577,
+          1.7973657163241654,
+          -0.15772420418872912
+        ],
+        [
+          0.23820544933536505,
+          1.896080648868424,
+          -0.17613787086408605
+        ],
+        [
+          0.27689444125345825,
+          1.8718645482253131,
+          -0.18548143948717
+        ],
+        [
+          0.3297368989965222,
+          1.835613194903524,
+          -0.1907825219446152
+        ],
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "soldier-t5",
+      "sha256": "6fe1979b030f9a7618ba3e4c955dcf744f1d6e02f091d51fa58a3079943fb11f",
+      "bytes": 971624,
+      "triangles": 27413,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ],
+        [
+          0.3761905294002577,
+          1.7973657163241654,
+          -0.15772420418872912
+        ],
+        [
+          0.23820544933536505,
+          1.896080648868424,
+          -0.17613787086408605
+        ],
+        [
+          0.27689444125345825,
+          1.8718645482253131,
+          -0.18548143948717
+        ],
+        [
+          0.3297368989965222,
+          1.835613194903524,
+          -0.1907825219446152
+        ],
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "soldier-t6",
+      "sha256": "3b19811525bd8b0ee4093a3520b606767e12e4603d002804e41e72ba64a6a2da",
+      "bytes": 971604,
+      "triangles": 27413,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ],
+        [
+          0.3761905294002577,
+          1.7973657163241654,
+          -0.15772420418872912
+        ],
+        [
+          0.23820544933536505,
+          1.896080648868424,
+          -0.17613787086408605
+        ],
+        [
+          0.27689444125345825,
+          1.8718645482253131,
+          -0.18548143948717
+        ],
+        [
+          0.3297368989965222,
+          1.835613194903524,
+          -0.1907825219446152
+        ],
+        [
+          0.3440000565463692,
+          1.82500016056477,
+          -0.19099980274190517
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "archer-t1",
+      "sha256": "5b3408aab094a8ed3db1d7d0f96fcea749894868d3f3becd31dd354e076b01de",
+      "bytes": 808180,
+      "triangles": 22505,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 121
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 131
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 161
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 88
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 81
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 84
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 80
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 148
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "archer-t2",
+      "sha256": "800542c886e752ef148c7eac1c9adaeddfd38f227fef45d1aba20c750bf6767a",
+      "bytes": 808180,
+      "triangles": 22505,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 121
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 131
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 161
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 88
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 81
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 84
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 80
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 148
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "archer-t3",
+      "sha256": "3d6b3573ad6ac5810c216a70998f9acc01ba8522f43650fdff3d04192fd0b655",
+      "bytes": 808180,
+      "triangles": 22505,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 121
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 131
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 161
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 88
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 81
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 84
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 80
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 148
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "archer-t4",
+      "sha256": "fbc9424c4c1ee073f6741c3878b83cf3d9176148aee812d08c676832ee7e6507",
+      "bytes": 808180,
+      "triangles": 22505,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 121
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 131
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 161
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 88
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 81
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 84
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 80
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 148
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "archer-t5",
+      "sha256": "b85e05f947b1ea567b017dc08f76748b0cb6ee2ac6240fd8c8f46c4d135d4f04",
+      "bytes": 808180,
+      "triangles": 22505,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 121
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 131
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 161
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 88
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 81
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 84
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 80
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 148
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "archer-t6",
+      "sha256": "67e841ca831e41f86d4a11132cf908656dc142354bef976ed04985c3f0774819",
+      "bytes": 808164,
+      "triangles": 22505,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 121
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 131
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 127
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 161
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 88
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 81
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 84
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 80
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 148
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "dawnspire-t1",
+      "sha256": "a89f31d3fac75ce566575e0fa4405250ae37b622ed8c874d3f25aec2920434d7",
+      "bytes": 1375204,
+      "triangles": 39535,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 32,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 93
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 93
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 156
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 169
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 179
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 190
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 175
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 172
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 181
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 212
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3164802108962226,
+          2.0350000364723,
+          -0.19099997727049528
+        ],
+        [
+          0.3349103065612747,
+          2.0213281938661627,
+          -0.15311817100600167
+        ],
+        [
+          0.26616193944734134,
+          2.0713741875328004,
+          -0.07160963961787753
+        ],
+        [
+          0.2815922677417668,
+          2.0620017403093103,
+          -0.11315928735692796
+        ],
+        [
+          0.30799283942018363,
+          2.042185838590019,
+          -0.17346487236637972
+        ],
+        [
+          0.3164802108962226,
+          2.0350000364723,
+          -0.19099997727049528
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "druid-t1",
+      "sha256": "408af00d15efa23064515378b4137655c728d8f55d3f759a2ca813fd48f32119",
+      "bytes": 870280,
+      "triangles": 24343,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "druid-t2",
+      "sha256": "dc712bfd5bb277707f078fbdf88147e3067f0b1374c6bb0103c64922a2ccdec1",
+      "bytes": 870280,
+      "triangles": 24343,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "druid-t3",
+      "sha256": "75bde2c6a6fe578836d3427faa3a0dba285c57728c4e6dc5da351873f5942b3d",
+      "bytes": 870280,
+      "triangles": 24343,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "druid-t4",
+      "sha256": "e1f2b4a3a11f11eccdcc504972ba71daa1bd62a43547bd2d8c0c40e7320662e5",
+      "bytes": 870280,
+      "triangles": 24343,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "druid-t5",
+      "sha256": "ec2115b67bf66a19b18cfe1aed3ddc9552723f4c9f8d8a8123eb454b3e4f25f7",
+      "bytes": 870280,
+      "triangles": 24343,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "druid-t6",
+      "sha256": "632e760b8d0bf52b09aee768922b7e9253bfe3d0c51e8f77aaf535fe58099aa2",
+      "bytes": 870264,
+      "triangles": 24343,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "mage-t1",
+      "sha256": "53eba791a94388ddc77d801798ff3df66e801cf4f4f09a1673a72f1aa28a95c7",
+      "bytes": 837420,
+      "triangles": 23353,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "mage-t2",
+      "sha256": "4d7414383e39fd75751240011055dc2b0d7fd4a32703db70c503ea39936efd4a",
+      "bytes": 837420,
+      "triangles": 23353,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "mage-t3",
+      "sha256": "a231d749113d1b78394a3fa2c9b750a7359fc7f584b3c17d453db4ade1930371",
+      "bytes": 837420,
+      "triangles": 23353,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "mage-t4",
+      "sha256": "1af71847ce71f3908ae987e74a5bf186484f7145954bb1759ceb650e79efeced",
+      "bytes": 837420,
+      "triangles": 23353,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "mage-t5",
+      "sha256": "b799fdb27ba631b8c0a1ea2b204ad27cc290e2e5c93348c5e80f146e488d579c",
+      "bytes": 837420,
+      "triangles": 23353,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "mage-t6",
+      "sha256": "6e499e5f846ccda388a31b5aea962c9f325bbbc912cc8ff9697a565cf229fd85",
+      "bytes": 837404,
+      "triangles": 23353,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "cleric-t1",
+      "sha256": "e2208910c272f47d3235c8020c44ff60d3ea1a739a4d5ca729240b022509324a",
+      "bytes": 837008,
+      "triangles": 23331,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "cleric-t2",
+      "sha256": "28920ba9d92158994eca9406163c3b8305cadcf7c85618f10136ca9aa3e734f0",
+      "bytes": 837008,
+      "triangles": 23331,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "cleric-t3",
+      "sha256": "452a0bcf1c163feea9f9c4bf8896b24962b75c455d2ad56e78180072364004a1",
+      "bytes": 837004,
+      "triangles": 23331,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "cleric-t4",
+      "sha256": "54da4aa4ed2b54c3631637ea85984b4ea98f2198ba7321d5313770b5a746f909",
+      "bytes": 837004,
+      "triangles": 23331,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "cleric-t5",
+      "sha256": "4077212318e042ed6cb1c6273c7e0a76ecf9ac1017975f540e1827c5c00f1586",
+      "bytes": 837004,
+      "triangles": 23331,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "cleric-t6",
+      "sha256": "c8794c70d49618ec2c0a87fb964029e0011db49fce21ea0586c1b4964b21629d",
+      "bytes": 836988,
+      "triangles": 23331,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "runebreaker-t1",
+      "sha256": "4fea6b740efa02f1c7a09284504454afc925f82a208f2d5a98b22554d0657781",
+      "bytes": 828120,
+      "triangles": 23071,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 128
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 149
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 113
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 148
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 118
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 115
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 146
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 188
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ],
+        [
+          0.4251537405300606,
+          1.20988984523564,
+          -0.1397554795511928
+        ],
+        [
+          0.3065149356926052,
+          1.3495497053206358,
+          -0.2127422017066226
+        ],
+        [
+          0.337410452014173,
+          1.3159893901278032,
+          -0.21048345123816053
+        ],
+        [
+          0.3782011494037718,
+          1.2654453982606952,
+          -0.19702286652451578
+        ],
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "runebreaker-t2",
+      "sha256": "1fe60d74402b4c53449cb3d6c7b3a2d371d664687ced74185d539e72c18f13a8",
+      "bytes": 828120,
+      "triangles": 23071,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 128
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 149
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 113
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 148
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 118
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 115
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 146
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 188
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ],
+        [
+          0.4251537405300606,
+          1.20988984523564,
+          -0.1397554795511928
+        ],
+        [
+          0.3065149356926052,
+          1.3495497053206358,
+          -0.2127422017066226
+        ],
+        [
+          0.337410452014173,
+          1.3159893901278032,
+          -0.21048345123816053
+        ],
+        [
+          0.3782011494037718,
+          1.2654453982606952,
+          -0.19702286652451578
+        ],
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "runebreaker-t3",
+      "sha256": "6b6e7dd7f6668bf48c20d53d3b0b9807c2a156bb585bb60067b609d0a7eadcaf",
+      "bytes": 828116,
+      "triangles": 23071,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 128
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 149
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 113
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 148
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 118
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 115
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 146
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 188
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ],
+        [
+          0.4251537405300606,
+          1.20988984523564,
+          -0.1397554795511928
+        ],
+        [
+          0.3065149356926052,
+          1.3495497053206358,
+          -0.2127422017066226
+        ],
+        [
+          0.337410452014173,
+          1.3159893901278032,
+          -0.21048345123816053
+        ],
+        [
+          0.3782011494037718,
+          1.2654453982606952,
+          -0.19702286652451578
+        ],
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "runebreaker-t4",
+      "sha256": "ffaf3d106acbb5fc3bf16fda827eba391c6151982dcd9b4b10b265b83d2508d1",
+      "bytes": 828116,
+      "triangles": 23071,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 128
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 149
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 113
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 148
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 118
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 115
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 146
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 188
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ],
+        [
+          0.4251537405300606,
+          1.20988984523564,
+          -0.1397554795511928
+        ],
+        [
+          0.3065149356926052,
+          1.3495497053206358,
+          -0.2127422017066226
+        ],
+        [
+          0.337410452014173,
+          1.3159893901278032,
+          -0.21048345123816053
+        ],
+        [
+          0.3782011494037718,
+          1.2654453982606952,
+          -0.19702286652451578
+        ],
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "runebreaker-t5",
+      "sha256": "a69cc12892fa1b21a27be38cbf362916f09494efadb708cb9da4dd0ed1789cc1",
+      "bytes": 828120,
+      "triangles": 23071,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 128
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 149
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 113
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 148
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 118
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 115
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 146
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 188
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ],
+        [
+          0.4251537405300606,
+          1.20988984523564,
+          -0.1397554795511928
+        ],
+        [
+          0.3065149356926052,
+          1.3495497053206358,
+          -0.2127422017066226
+        ],
+        [
+          0.337410452014173,
+          1.3159893901278032,
+          -0.21048345123816053
+        ],
+        [
+          0.3782011494037718,
+          1.2654453982606952,
+          -0.19702286652451578
+        ],
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "runebreaker-t6",
+      "sha256": "df661d1a7edfeb0c6f9dde147642542e921d9ac697ebef5162cc979fe57b352a",
+      "bytes": 828100,
+      "triangles": 23071,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 128
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 149
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 113
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 148
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 118
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 115
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 146
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 188
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ],
+        [
+          0.4251537405300606,
+          1.20988984523564,
+          -0.1397554795511928
+        ],
+        [
+          0.3065149356926052,
+          1.3495497053206358,
+          -0.2127422017066226
+        ],
+        [
+          0.337410452014173,
+          1.3159893901278032,
+          -0.21048345123816053
+        ],
+        [
+          0.3782011494037718,
+          1.2654453982606952,
+          -0.19702286652451578
+        ],
+        [
+          0.3887201347095686,
+          1.2506601810203468,
+          -0.19099995003238446
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "frostwarden-t1",
+      "sha256": "f027a47940da42f89d0751a8f04ee68e61a05f4be50a1fbfa932d9de926ba8cf",
+      "bytes": 969496,
+      "triangles": 27281,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "frostwarden-t2",
+      "sha256": "57eb10e535fd7e009e21caf5cfcb6c94d6b35afac8cafb901a2d961c4097cd59",
+      "bytes": 969492,
+      "triangles": 27281,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "frostwarden-t3",
+      "sha256": "958ef8367f7580ce75931853023a50e700a69bf439c2abebf0c1d74d03f27434",
+      "bytes": 969492,
+      "triangles": 27281,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "frostwarden-t4",
+      "sha256": "bc3816ac1bce6e5531b5737fa69ca39ac2d4c0546b0e5c3b10a96840cf9e38ec",
+      "bytes": 969492,
+      "triangles": 27281,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "frostwarden-t5",
+      "sha256": "96757717fc6c50ccdea3d1544e915ad5cb009eece134b526105ed014df9b8f11",
+      "bytes": 969492,
+      "triangles": 27281,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "frostwarden-t6",
+      "sha256": "ebd08cb81d64d1308c1a00020617ded1d829383a829a9f3c03275cba789c9455",
+      "bytes": 969476,
+      "triangles": 27281,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "stormcaller-t1",
+      "sha256": "6ad2787f0f9505abcaa0eadacae4c3cb2ce1b7c6d4d8e3d571f1cb800709fbf9",
+      "bytes": 871384,
+      "triangles": 24333,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "stormcaller-t2",
+      "sha256": "2265df703052bedfc1080ad09caf0b7af5d29ca102869d123d395db6785bc943",
+      "bytes": 871384,
+      "triangles": 24333,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "stormcaller-t3",
+      "sha256": "4265a9ab65f802ecf52c7e3aeefee9c84f71c35acef2d57039c462ed2ebec36e",
+      "bytes": 871380,
+      "triangles": 24333,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "stormcaller-t4",
+      "sha256": "777004038bcac740d8bc4368a6ff121c6bfc9f1f72dd204f0a5219e06ba6a00c",
+      "bytes": 871380,
+      "triangles": 24333,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "stormcaller-t5",
+      "sha256": "325a397c7b40deb43e64614f831bff8705f754706456e8cc6918a8775becbebe",
+      "bytes": 871384,
+      "triangles": 24333,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "stormcaller-t6",
+      "sha256": "dd32284a1a8a5d3bd9dce76302ec34f461a6e011f99a58536340af3598edbe23",
+      "bytes": 871364,
+      "triangles": 24333,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 150
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 103
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 145
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "rimewatch-t1",
+      "sha256": "545a5bfbda53cd1992ea7faea7281fcf2dcd282357aac140c6062fca8c2d5411",
+      "bytes": 946980,
+      "triangles": 26915,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 136
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 143
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 158
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 169
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 190
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 148
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 153
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 153
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 157
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 179
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -3.332493963772926e-8,
+          1.2700002498641814,
+          -0.8600003690983593
+        ],
+        [
+          -0.024104190030702438,
+          1.218274288796237,
+          -0.8595329392256306
+        ],
+        [
+          0.011821291832827008,
+          1.3477500784610577,
+          -0.8573930720152083
+        ],
+        [
+          0.008404006530526763,
+          1.3217445308115527,
+          -0.859038717600727
+        ],
+        [
+          0.0021058281231038424,
+          1.28194107720145,
+          -0.8600622449250952
+        ],
+        [
+          -3.332493963772926e-8,
+          1.2700002498641814,
+          -0.8600003690983593
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "frostblade-t1",
+      "sha256": "5ec27d89b7295b04f5578215584286ff1b3baa3b3237023f88f8cff208a9158f",
+      "bytes": 1208416,
+      "triangles": 34699,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "roseguard-t1",
+      "sha256": "44839ed6fdd85bf045ffb6ff3aa178077ab37a5ed0448cb5df17835f4d0b5945",
+      "bytes": 1203932,
+      "triangles": 34619,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "highking-t1",
+      "sha256": "0e388f9790214e2589e437f737cd5deefaaa9a75c4f6d7c23b705ae215d6da8a",
+      "bytes": 1208352,
+      "triangles": 34699,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "crownofages-t1",
+      "sha256": "a2effc572058a82cd76513502b9f09393786e2317dfb301d94792dc034b3271a",
+      "bytes": 1268068,
+      "triangles": 36502,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ],
+        [
+          0.3699357741709673,
+          1.8970002287549645,
+          -0.16354004739267755
+        ],
+        [
+          0.2377906830792662,
+          1.994542271532092,
+          -0.15867024241294322
+        ],
+        [
+          0.27645749426002086,
+          1.9711902230014613,
+          -0.1738969758490853
+        ],
+        [
+          0.32955809294128774,
+          1.935576419858783,
+          -0.1880801790036817
+        ],
+        [
+          0.34400004057558603,
+          1.9250000716861404,
+          -0.19099978525768213
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "thornwarden-t1",
+      "sha256": "1f0a51fd6f6a62de7533aa6d54cc74a1050539c9e6cd766ce5aa63335461710a",
+      "bytes": 993412,
+      "triangles": 28233,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 143
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 165
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 198
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 108
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 100
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 106
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 100
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 176
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.12880007824842327,
+          1.3749997330682469,
+          -0.7399996473863397
+        ],
+        [
+          -0.15857344827748454,
+          1.3609037170308818,
+          -0.7362007931422626
+        ],
+        [
+          -0.11508297256139656,
+          1.3923837573343105,
+          -0.7356116644089254
+        ],
+        [
+          -0.11935720080843557,
+          1.3865491933213867,
+          -0.7372352475320717
+        ],
+        [
+          -0.12656813125631955,
+          1.3776368352016835,
+          -0.7394036517860205
+        ],
+        [
+          -0.12880007824842327,
+          1.3749997330682469,
+          -0.7399996473863397
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "verdantguard-t1",
+      "sha256": "67d73c0900955affd8607ecb213f0d5abd506b5fb4f7c0c4b5f7cd44c37f17b9",
+      "bytes": 993244,
+      "triangles": 28233,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 158
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 195
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 106
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 93
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 108
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 100
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 170
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "tempest-t1",
+      "sha256": "91587ec29a759c73f124aa79148ad6c6eb01a3f264635a9c933d83c13279d497",
+      "bytes": 1067512,
+      "triangles": 30425,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "stormcitadel-t1",
+      "sha256": "c5b7479a9178ea1dcf653a2ca05558e85a4f17806327ed313132891787b5bfbb",
+      "bytes": 1077684,
+      "triangles": 30680,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400001582085143,
+          2.080000053133562,
+          -0.19099975815711556
+        ],
+        [
+          0.3621520801544457,
+          2.064651794130497,
+          -0.15109445893273687
+        ],
+        [
+          0.2880783913392279,
+          2.1174307787444206,
+          -0.0657833587753758
+        ],
+        [
+          0.30528447449315765,
+          2.107859433388221,
+          -0.10939463451237055
+        ],
+        [
+          0.3345950347972011,
+          2.0874343568421843,
+          -0.17262916502166725
+        ],
+        [
+          0.34400001582085143,
+          2.080000053133562,
+          -0.19099975815711556
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "greenheart-t1",
+      "sha256": "f0ab24f6c0b7556bd4dd80f8d3678b2cdc9250e2787f14503499234b2e79067a",
+      "bytes": 1064392,
+      "triangles": 30381,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "eldergrove-t1",
+      "sha256": "46a6cd5ad1893002e38db039f7c9431e11f96a04a6d1e6af0454395f31f9b7b6",
+      "bytes": 1110896,
+      "triangles": 31789,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400001582085143,
+          2.080000053133562,
+          -0.19099975815711556
+        ],
+        [
+          0.3621520801544457,
+          2.064651794130497,
+          -0.15109445893273687
+        ],
+        [
+          0.2880783913392279,
+          2.1174307787444206,
+          -0.0657833587753758
+        ],
+        [
+          0.30528447449315765,
+          2.107859433388221,
+          -0.10939463451237055
+        ],
+        [
+          0.3345950347972011,
+          2.0874343568421843,
+          -0.17262916502166725
+        ],
+        [
+          0.34400001582085143,
+          2.080000053133562,
+          -0.19099975815711556
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "sunward-t1",
+      "sha256": "6767eddbc3decd03878284d580f0161645c40e23276e4e8a1a2205530664e6ea",
+      "bytes": 1015592,
+      "triangles": 28899,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "wyvernhunter-t1",
+      "sha256": "c4b452cdcc5da93375e3e2ab8858d557a3d6c709e95518a0bc67b3635306cebf",
+      "bytes": 981172,
+      "triangles": 27893,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 158
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 195
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 106
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 93
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 108
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 100
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 170
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "kingdomprotector-t1",
+      "sha256": "caa85ab5f7a2387d511bbcc9859a8887da974c5f280a7e614a77120debac5054",
+      "bytes": 1155164,
+      "triangles": 33179,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400011292327104,
+          1.4720002418482028,
+          -0.19099986446125758
+        ],
+        [
+          0.378803396064447,
+          1.4365306160612088,
+          -0.1462760461645169
+        ],
+        [
+          0.26609825254847863,
+          1.5670158422878964,
+          -0.2016685609693323
+        ],
+        [
+          0.2948283536120186,
+          1.5343036470985791,
+          -0.2030774952716336
+        ],
+        [
+          0.33370681880423847,
+          1.4859343998857002,
+          -0.19528713035294443
+        ],
+        [
+          0.34400011292327104,
+          1.4720002418482028,
+          -0.19099986446125758
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "mothernature-t1",
+      "sha256": "aeb90d3373d42a85b10c37244536a53d60705d5d2976b3fbbf4b4419ebe86dfa",
+      "bytes": 1111096,
+      "triangles": 31783,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 156
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 169
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 179
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 137
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 190
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 175
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 172
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 181
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 212
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3164802108962226,
+          2.0350000364723,
+          -0.19099997727049528
+        ],
+        [
+          0.3349103065612747,
+          2.0213281938661627,
+          -0.15311817100600167
+        ],
+        [
+          0.26616193944734134,
+          2.0713741875328004,
+          -0.07160963961787753
+        ],
+        [
+          0.2815922677417668,
+          2.0620017403093103,
+          -0.11315928735692796
+        ],
+        [
+          0.30799283942018363,
+          2.042185838590019,
+          -0.17346487236637972
+        ],
+        [
+          0.3164802108962226,
+          2.0350000364723,
+          -0.19099997727049528
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "royalranger-t1",
+      "sha256": "f0be353a85b1d11b04a1eaf356bba5aa3b8bbc328706104a4de0b682bec2af8b",
+      "bytes": 947644,
+      "triangles": 26849,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 158
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 195
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 106
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 93
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 108
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 100
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 170
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "kingsrangerguard-t1",
+      "sha256": "20ea100f946e4dea583db359421eb59589f26ae776c24c73e9bfde6d0101fb29",
+      "bytes": 1188916,
+      "triangles": 34221,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 158
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 195
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 106
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 93
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 108
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 100
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 170
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "elvenking-t1",
+      "sha256": "aad187e7041783e695e178c9972b341bf8b14bcf41c57e64d27116035cbd7ca9",
+      "bytes": 1050228,
+      "triangles": 29872,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 90
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 90
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 147
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 158
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 195
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 106
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 93
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 108
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 100
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 170
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ],
+        [
+          -0.1698432590916274,
+          1.3616204870475008,
+          -0.7363902832629612
+        ],
+        [
+          -0.1262400156325342,
+          1.3921022857479144,
+          -0.7355262332960271
+        ],
+        [
+          -0.13052853585837892,
+          1.3863566083433694,
+          -0.7371772824588614
+        ],
+        [
+          -0.13776167057321814,
+          1.3775927254448224,
+          -0.7393907210922275
+        ],
+        [
+          -0.13999987176989698,
+          1.375000214269624,
+          -0.7400002549620806
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "monk-t1",
+      "sha256": "0edbbb27f586b08b41c00f59059a3e7684b809b76a7e70700ce9665974112b00",
+      "bytes": 931936,
+      "triangles": 26267,
+      "meshes": 11,
+      "skinBatches": 11,
+      "materials": 11,
+      "bones": 29,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 84
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 84
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 139
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 158
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 161
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 158
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 118
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 138
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 151
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 152
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 111
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0,
+          1.3400000184774399,
+          -0.26499998569488525
+        ],
+        [
+          0,
+          1.3359970434322244,
+          -0.2687200329919141
+        ],
+        [
+          0,
+          1.3451093684528845,
+          -0.26008500913353494
+        ],
+        [
+          0,
+          1.3434237977577936,
+          -0.2617276838904679
+        ],
+        [
+          0,
+          1.3407980572387848,
+          -0.264244841334282
+        ],
+        [
+          0,
+          1.3400000184774399,
+          -0.26499998569488525
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "archbishop-t1",
+      "sha256": "1a4f4fbe006b714f318b0111f1a9be9623fc6af169e11d4f0e176e9162561688",
+      "bytes": 1034520,
+      "triangles": 29473,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 159
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 176
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 173
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 168
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.34400001582085143,
+          2.080000053133562,
+          -0.19099975815711556
+        ],
+        [
+          0.3621520801544457,
+          2.064651794130497,
+          -0.15109445893273687
+        ],
+        [
+          0.2880783913392279,
+          2.1174307787444206,
+          -0.0657833587753758
+        ],
+        [
+          0.30528447449315765,
+          2.107859433388221,
+          -0.10939463451237055
+        ],
+        [
+          0.3345950347972011,
+          2.0874343568421843,
+          -0.17262916502166725
+        ],
+        [
+          0.34400001582085143,
+          2.080000053133562,
+          -0.19099975815711556
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "archangel-t1",
+      "sha256": "b83b7e2591191540476f61febd84657fdde895be01253f9ca0a44d244f03353c",
+      "bytes": 1534464,
+      "triangles": 44260,
+      "meshes": 13,
+      "skinBatches": 13,
+      "materials": 13,
+      "bones": 32,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 93
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 93
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 157
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 174
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 135
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 185
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 171
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 166
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 182
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 216
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ],
+        [
+          0.363157828708857,
+          2.019671938661825,
+          -0.15198135629739926
+        ],
+        [
+          0.28933050986121756,
+          2.073247268065752,
+          -0.07422344166466072
+        ],
+        [
+          0.30622407132026597,
+          2.063216785400418,
+          -0.1149746495336883
+        ],
+        [
+          0.33484995673017004,
+          2.0424534744192835,
+          -0.1739101028735661
+        ],
+        [
+          0.344000023007685,
+          2.0350002123382427,
+          -0.19099976602499508
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "royalmarshal-t1",
+      "sha256": "883383cbd8925ac33048aa3aa30875e6c55bab0a628d40bd4f6ca71cb890b429",
+      "bytes": 1012600,
+      "triangles": 28813,
+      "meshes": 12,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 30,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 87
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 87
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 155
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 169
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 180
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 170
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 141
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 181
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 143
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 144
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 170
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 234
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.38872015029891727,
+          1.0888103481297282,
+          -0.19099996394456256
+        ],
+        [
+          0.418958727119938,
+          1.035820729062228,
+          -0.13609743364190446
+        ],
+        [
+          0.3425946799627328,
+          1.1746601524903777,
+          -0.23793228775327588
+        ],
+        [
+          0.3603070658843217,
+          1.1452868683349715,
+          -0.2244619992009325
+        ],
+        [
+          0.38303714004363904,
+          1.1015302038640336,
+          -0.19941806999844344
+        ],
+        [
+          0.38872015029891727,
+          1.0888103481297282,
+          -0.19099996394456256
+        ]
+      ],
+      "packedImages": 2
+    },
+    {
+      "id": "ladyclaire-t1",
+      "sha256": "e2ab925cf836f9ff29fb6d4199df8ab6ea5a6d83fc62e3307729f5020e4491ad",
+      "bytes": 2124920,
+      "triangles": 58554,
+      "meshes": 18,
+      "skinBatches": 12,
+      "materials": 12,
+      "bones": 31,
+      "clips": [
+        {
+          "name": "Attack",
+          "duration": 1,
+          "tracks": 93
+        },
+        {
+          "name": "Idle",
+          "duration": 2.4000000953674316,
+          "tracks": 93
+        }
+      ],
+      "weightedDigits": [
+        {
+          "name": "finger_L_0",
+          "influencedVertices": 244
+        },
+        {
+          "name": "finger_L_1",
+          "influencedVertices": 242
+        },
+        {
+          "name": "finger_L_2",
+          "influencedVertices": 273
+        },
+        {
+          "name": "finger_L_3",
+          "influencedVertices": 270
+        },
+        {
+          "name": "finger_L_4",
+          "influencedVertices": 237
+        },
+        {
+          "name": "finger_R_0",
+          "influencedVertices": 299
+        },
+        {
+          "name": "finger_R_1",
+          "influencedVertices": 297
+        },
+        {
+          "name": "finger_R_2",
+          "influencedVertices": 294
+        },
+        {
+          "name": "finger_R_3",
+          "influencedVertices": 283
+        },
+        {
+          "name": "finger_R_4",
+          "influencedVertices": 284
+        }
+      ],
+      "attackMuzzleSamples": [
+        [
+          0.3390000429272624,
+          2.0750000660252663,
+          -0.1640000835106679
+        ],
+        [
+          0.3611361624948138,
+          2.0705246097114216,
+          -0.06572572372920255
+        ],
+        [
+          0.24435414182166737,
+          2.112917488939345,
+          -0.030777063589357806
+        ],
+        [
+          0.2658341430225803,
+          2.104674535445478,
+          -0.06730948053607505
+        ],
+        [
+          0.32558199800292276,
+          2.082728223437192,
+          -0.14245365992764192
+        ],
+        [
+          0.3390000429272624,
+          2.0750000660252663,
+          -0.1640000835106679
+        ]
+      ],
+      "packedImages": 1
+    }
+  ]
+}

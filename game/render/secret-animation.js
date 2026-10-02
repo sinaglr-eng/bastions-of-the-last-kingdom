@@ -2,20 +2,22 @@ import * as THREE from 'three';
 import {distance,supportBonuses,towerStats} from '../core/math.js';
 
 export const SECRET_ATTACK_RELEASE=.36;
-const families=new Set(['ladyclaire','lordbernhard']);
 const finite=(value,fallback=0)=>Number.isFinite(value)?value:fallback;
 const clamp=value=>THREE.MathUtils.clamp(finite(value),0,1);
 
 /** Native exported bone animation. This module never schedules combat hits. */
-export function createSecretAnimation(actor,family){
-  if(!families.has(family))return null;
+export function createSecretAnimation(actor,family,stats={}){
+  if(!actor)return null;
   let skinned=false;actor.traverse(node=>{skinned||=!!node.isSkinnedMesh;});
   const clips=actor.animations||[],idleClip=clips.find(clip=>clip.name==='Idle'),attackClip=clips.find(clip=>clip.name==='Attack');
   if(!skinned||!idleClip||!attackClip||!(attackClip.duration>0))return null;
   const mixer=new THREE.AnimationMixer(actor),idle=mixer.clipAction(idleClip),attack=mixer.clipAction(attackClip);
   idle.play();idle.paused=true;attack.play();attack.paused=true;
-  const rig={actor,family,mixer,idle,attack,idleClip,attackClip,clock:0,phase:0,stage:'idle',interval:attackClip.duration,rate:1,cycleDuration:attackClip.duration,lastRelease:null,disposed:false};
-  actor.userData.nativeSecretAnimation=true;sample(rig,0);return rig;
+  let release=SECRET_ATTACK_RELEASE;actor.traverse(node=>{const value=node.userData.attackReleaseFraction;if(Number.isFinite(value)&&value>0&&value<1)release=value;});
+  const rig={actor,family,mixer,idle,attack,idleClip,attackClip,release,clock:0,phase:0,stage:'idle',interval:stats.interval||attackClip.duration,rate:1,cycleDuration:attackClip.duration,lastRelease:null,disposed:false};
+  actor.userData.nativeDefenderAnimation=true;
+  if(family==='ladyclaire'||family==='lordbernhard')actor.userData.nativeSecretAnimation=true;
+  sample(rig,0);return rig;
 }
 function sample(rig,phase,{reducedMotion=false}={}){
   rig.phase=clamp(phase);
@@ -34,7 +36,7 @@ export function releaseSecretAttack(rig,{interval=rig?.interval,rate=rig?.rate??
   if(stamp!==null&&rig.lastRelease===stamp)return false;
   rig.interval=Math.max(.001,finite(interval,rig.interval));rig.rate=Math.max(0,finite(rate,rig.rate));
   rig.lastRelease=stamp;rig.cycleDuration=cycleDuration(rig,rig.interval,rig.rate);rig.stage='recovery';
-  sample(rig,SECRET_ATTACK_RELEASE,{reducedMotion});return true;
+  sample(rig,rig.release,{reducedMotion});return true;
 }
 export function secretAttackContext(tower,game){
   const combat=game.phase==='combat',stats=towerStats(tower,game.data),bonuses=supportBonuses(tower,game.towers,game.data);
@@ -58,9 +60,9 @@ export function updateSecretAnimation(rig,dt,{interval=rig?.interval,rate=rig?.r
     if(next<1){sample(rig,next,{reducedMotion});return;}
     rig.stage='idle';
   }
-  const duration=cycleDuration(rig,rig.interval,rig.rate),remaining=Math.max(0,finite(cooldown,Infinity))/Math.max(.01,rig.rate),preparation=duration*SECRET_ATTACK_RELEASE;
+  const duration=cycleDuration(rig,rig.interval,rig.rate),remaining=Math.max(0,finite(cooldown,Infinity))/Math.max(.01,rig.rate),preparation=duration*rig.release;
   if(combat&&!blocked&&target&&remaining>0&&remaining<=preparation){
-    rig.stage='preparation';rig.cycleDuration=duration;sample(rig,SECRET_ATTACK_RELEASE*(1-remaining/preparation),{reducedMotion});
+    rig.stage='preparation';rig.cycleDuration=duration;sample(rig,rig.release*(1-remaining/preparation),{reducedMotion});
   }else{rig.stage='idle';sample(rig,0,{reducedMotion});}
 }
 export function resetSecretAnimation(rig,{reducedMotion=false}={}){
@@ -77,10 +79,10 @@ export function updateSecretPreview(rig,dt,{reducedMotion=false,onRelease=()=>{}
   if(rig.stage==='preview'){
     const previous=rig.phase,next=Math.min(1,previous+elapsed/rig.cycleDuration);
     // Sample the exact release pose before obtaining the weapon's world muzzle.
-    if(previous<SECRET_ATTACK_RELEASE&&next>=SECRET_ATTACK_RELEASE){sample(rig,SECRET_ATTACK_RELEASE,{reducedMotion});onRelease({elapsedAfterRelease:(next-SECRET_ATTACK_RELEASE)*rig.cycleDuration});}
+    if(previous<rig.release&&next>=rig.release){sample(rig,rig.release,{reducedMotion});onRelease({elapsedAfterRelease:(next-rig.release)*rig.cycleDuration});}
     if(next>=1){rig.stage='idle';sample(rig,0,{reducedMotion});}else sample(rig,next,{reducedMotion});
   }else{rig.stage='idle';sample(rig,0,{reducedMotion});}
 }
 export function disposeSecretAnimation(rig){
-  if(!rig||rig.disposed)return;rig.mixer.stopAllAction();rig.mixer.uncacheRoot(rig.actor);delete rig.actor.userData.nativeSecretAnimation;rig.disposed=true;
+  if(!rig||rig.disposed)return;rig.mixer.stopAllAction();rig.mixer.uncacheRoot(rig.actor);delete rig.actor.userData.nativeSecretAnimation;delete rig.actor.userData.nativeDefenderAnimation;rig.disposed=true;
 }

@@ -2056,152 +2056,6 @@
     "auraStage": 4
   },
   {
-    "id": "host_50",
-    "file": "host_50.glb",
-    "portrait": "host_50.png",
-    "style": "dark-host-v3",
-    "revision": "dark-host-v3",
-    "triangles": 17770,
-    "authoring": "Blender 5.2",
-    "name": "Ghorun, the Black Sorcerer on the Wyvern Queen",
-    "archetype": "queen-wyvern",
-    "source": "blender/scenes/enemies-v3/host_50.blend",
-    "bounds": {
-      "min": [
-        -5.30376,
-        -4.11335,
-        0.57037
-      ],
-      "max": [
-        5.30376,
-        3.69334,
-        4.93766
-      ],
-      "size": [
-        10.60753,
-        7.8067,
-        4.36728
-      ]
-    },
-    "height": 4.36728,
-    "wingspan": 10.60753,
-    "nativeScale": 1,
-    "semanticParts": [
-      "Ghorun tall throne back",
-      "Ghorun throne saddle",
-      "captive soul in Ghorun staff",
-      "obsidian back armor plate",
-      "sorcerer soul staff",
-      "staff captive soul cage0",
-      "staff captive soul cage1",
-      "tail terminal bone hook0",
-      "tail terminal bone hook1",
-      "throne gilded spire",
-      "wyvern hooked foot talon0",
-      "wyvern hooked foot talon1",
-      "wyvern long hooked snout"
-    ],
-    "auraStage": 4
-  },
-  {
-    "id": "host_50-devourer",
-    "file": "host_50-devourer.glb",
-    "portrait": "host_50-devourer.png",
-    "style": "dark-host-v3",
-    "revision": "dark-host-v3",
-    "triangles": 18314,
-    "authoring": "Blender 5.2",
-    "name": "Ghorun the Pale Devourer",
-    "archetype": "queen-wyvern",
-    "source": "blender/scenes/enemies-v3/host_50-devourer.blend",
-    "bounds": {
-      "min": [
-        -5.30376,
-        -4.11335,
-        0.57037
-      ],
-      "max": [
-        5.30376,
-        3.69334,
-        4.93766
-      ],
-      "size": [
-        10.60753,
-        7.8067,
-        4.36728
-      ]
-    },
-    "height": 4.36728,
-    "wingspan": 10.60753,
-    "nativeScale": 1,
-    "semanticParts": [
-      "Ghorun tall throne back",
-      "Ghorun throne saddle",
-      "captive soul in Ghorun staff",
-      "massive pale bony carapace",
-      "obsidian back armor plate",
-      "sorcerer soul staff",
-      "staff captive soul cage0",
-      "staff captive soul cage1",
-      "tail terminal bone hook0",
-      "tail terminal bone hook1",
-      "throne gilded spire",
-      "wyvern hooked foot talon0",
-      "wyvern hooked foot talon1",
-      "wyvern long hooked snout"
-    ],
-    "auraStage": 4
-  },
-  {
-    "id": "host_50-tyrant",
-    "file": "host_50-tyrant.glb",
-    "portrait": "host_50-tyrant.png",
-    "style": "dark-host-v3",
-    "revision": "dark-host-v3",
-    "triangles": 20074,
-    "authoring": "Blender 5.2",
-    "name": "Ghorun the Gold-Cursed",
-    "archetype": "queen-wyvern",
-    "source": "blender/scenes/enemies-v3/host_50-tyrant.blend",
-    "bounds": {
-      "min": [
-        -5.30376,
-        -4.11335,
-        0.57037
-      ],
-      "max": [
-        5.30376,
-        3.69334,
-        4.93766
-      ],
-      "size": [
-        10.60753,
-        7.8067,
-        4.36728
-      ]
-    },
-    "height": 4.36728,
-    "wingspan": 10.60753,
-    "nativeScale": 1,
-    "semanticParts": [
-      "Ghorun tall throne back",
-      "Ghorun throne saddle",
-      "captive soul in Ghorun staff",
-      "golden wing rune ring",
-      "obsidian back armor plate",
-      "sorcerer soul staff",
-      "staff captive soul cage0",
-      "staff captive soul cage1",
-      "tail terminal bone hook0",
-      "tail terminal bone hook1",
-      "throne gilded spire",
-      "wyvern hooked foot talon0",
-      "wyvern hooked foot talon1",
-      "wyvern long hooked snout"
-    ],
-    "auraStage": 4
-  },
-  {
     "id": "host_19",
     "file": "host_19.glb",
     "portrait": "host_19.png",
@@ -2312,5 +2166,152 @@
       "wolf mask tusk"
     ],
     "auraStage": 4
+  },
+  {
+    "id": "host_50",
+    "file": "host_50.glb",
+    "portrait": "host_50.png",
+    "style": "designed-defenders-v8",
+    "revision": "final-boss-v4",
+    "triangles": 85278,
+    "authoring": "Blender 5.2",
+    "name": "Morvath, the Dread Sovereign",
+    "archetype": "queen-wyvern",
+    "source": "blender/scenes/final-boss-v4/host_50.blend",
+    "bounds": {
+      "min": [
+        -4.754444122314453,
+        -3.170675754547119,
+        0.35176074504852295
+      ],
+      "max": [
+        4.754233360290527,
+        1.7906239032745361,
+        4.25
+      ],
+      "size": [
+        9.50867748260498,
+        4.961299657821655,
+        3.898239254951477
+      ]
+    },
+    "height": 3.898239254951477,
+    "wingspan": 9.50867748260498,
+    "nativeScale": 1,
+    "semanticParts": [
+      "two-legged-wyvern",
+      "wing-digit-L",
+      "wing-digit-R",
+      "rider-seat-contact",
+      "saddle-seat",
+      "sword-grip",
+      "reins-grip",
+      "five-finger-gauntlets",
+      "dark-crown",
+      "attack_muzzle"
+    ],
+    "auraStage": 4,
+    "animations": [
+      "Idle",
+      "Attack"
+    ]
+  },
+  {
+    "id": "host_50-tyrant",
+    "file": "host_50-tyrant.glb",
+    "portrait": "host_50-tyrant.png",
+    "style": "designed-defenders-v8",
+    "revision": "final-boss-v4",
+    "triangles": 85278,
+    "authoring": "Blender 5.2",
+    "name": "Morvath, the Dread Sovereign",
+    "archetype": "queen-wyvern",
+    "source": "blender/scenes/final-boss-v4/host_50-tyrant.blend",
+    "bounds": {
+      "min": [
+        -4.754444122314453,
+        -3.170675754547119,
+        0.35176074504852295
+      ],
+      "max": [
+        4.754233360290527,
+        1.7906239032745361,
+        4.25
+      ],
+      "size": [
+        9.50867748260498,
+        4.961299657821655,
+        3.898239254951477
+      ]
+    },
+    "height": 3.898239254951477,
+    "wingspan": 9.50867748260498,
+    "nativeScale": 1,
+    "semanticParts": [
+      "two-legged-wyvern",
+      "wing-digit-L",
+      "wing-digit-R",
+      "rider-seat-contact",
+      "saddle-seat",
+      "sword-grip",
+      "reins-grip",
+      "five-finger-gauntlets",
+      "dark-crown",
+      "attack_muzzle"
+    ],
+    "auraStage": 4,
+    "animations": [
+      "Idle",
+      "Attack"
+    ]
+  },
+  {
+    "id": "host_50-devourer",
+    "file": "host_50-devourer.glb",
+    "portrait": "host_50-devourer.png",
+    "style": "designed-defenders-v8",
+    "revision": "final-boss-v4",
+    "triangles": 85278,
+    "authoring": "Blender 5.2",
+    "name": "Morvath, the Dread Sovereign",
+    "archetype": "queen-wyvern",
+    "source": "blender/scenes/final-boss-v4/host_50-devourer.blend",
+    "bounds": {
+      "min": [
+        -4.754444122314453,
+        -3.170675754547119,
+        0.35176074504852295
+      ],
+      "max": [
+        4.754233360290527,
+        1.7906239032745361,
+        4.25
+      ],
+      "size": [
+        9.50867748260498,
+        4.961299657821655,
+        3.898239254951477
+      ]
+    },
+    "height": 3.898239254951477,
+    "wingspan": 9.50867748260498,
+    "nativeScale": 1,
+    "semanticParts": [
+      "two-legged-wyvern",
+      "wing-digit-L",
+      "wing-digit-R",
+      "rider-seat-contact",
+      "saddle-seat",
+      "sword-grip",
+      "reins-grip",
+      "five-finger-gauntlets",
+      "dark-crown",
+      "attack_muzzle"
+    ],
+    "auraStage": 4,
+    "animations": [
+      "Idle",
+      "Attack"
+    ]
   }
 ]

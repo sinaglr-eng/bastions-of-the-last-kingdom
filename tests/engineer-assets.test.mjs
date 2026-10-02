@@ -3,7 +3,9 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import * as THREE from 'three';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {NativeTestGLTFLoader as GLTFLoader} from './helpers/native-gltf.mjs';
+import {cloneDefenderTemplate,disposeDefenderInstance} from '../game/render/defender-assets.js';
+import {previewDefenderAttack,updateDefenderPreview,resetDefenderAnimation} from '../game/render/defender-animation.js';
 import {defenderModel} from '../game/render/models.js';
 import {rankColor} from '../game/render/ranks.js';
 import {attackRig, triggerAttack, animateAttack, resetAttack, disposeAttack} from '../game/render/battle-animation.js';
@@ -29,38 +31,40 @@ const originalPortraits = [
 ];
 const meshList = root => {const result=[]; root.traverse(node => {if(node.isMesh) result.push(node);}); return result;};
 
-test('Engineer restores the original 0.2.5 name, six models, portraits and editable Blender scene exactly', () => {
+test('Engineer keeps his restored identity, all six redesigned native ranks and the exact editable original archive', () => {
   assert.equal(towers.runebreaker.name, 'Engineer');
   assert.equal(towers.runebreaker.short, 'Engineer');
   assert.equal(towers.runebreaker.unitCode, 'R');
   assert.ok(!/Kushek|blonde human/i.test(towers.runebreaker.description));
   for (let tier=1; tier<=6; tier++) {
-    assert.equal(digest(readFileSync(new URL(`../public/assets/models/human_runebreaker_t${tier}.glb`, import.meta.url))), originalModels[tier-1]);
-    assert.equal(digest(readFileSync(new URL(`../public/assets/army/runebreaker-t${tier}.png`, import.meta.url))), originalPortraits[tier-1]);
+    const entry=manifest.find(row=>row.kind==='tower'&&row.family==='runebreaker'&&row.tier===tier);
+    assert.equal(entry.style,'designed-defenders-v8');assert.equal(entry.designRevision,11);assert.equal(entry.source,'blender/scenes/runebreaker_design_v8.blend');
+    assert.notEqual(digest(readFileSync(new URL(`../public/assets/models/human_runebreaker_t${tier}.glb`, import.meta.url))),originalModels[tier-1],'Production rank must contain the new native rig');
+    const portrait=readFileSync(new URL(`../public/assets/army/runebreaker-t${tier}.png`,import.meta.url));assert.deepEqual([...portrait.subarray(0,8)],[137,80,78,71,13,10,26,10]);
   }
   assert.equal(digest(readFileSync(new URL('../blender/scenes/runebreaker_design_v1.blend', import.meta.url))), '2736b9db7c41ee8cd9385d456464d70b2f8c1ef26c532564a06b2aefada6e43e');
 });
 
-test('the restored short, bearded Engineer wears spectacles and carries his animated original tools', async () => {
+test('the redesigned short Engineer exports ten independently weighted digits and tools carried by genuine wrist/weapon animation', async () => {
   for (let tier=1; tier<=6; tier++) {
     const entry=manifest.find(item => item.kind==='tower' && item.family==='runebreaker' && item.tier===tier);
     const bytes=readFileSync(new URL(`../public/assets/models/${entry.file}`, import.meta.url));
-    const source=(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset+bytes.byteLength), '')).scene;
+    const gltf=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset+bytes.byteLength), ''),source=gltf.scene;source.animations=gltf.animations;source.updateMatrixWorld(true);
     const names=[]; source.traverse(node=>names.push(node.name));
-    assert.ok(names.some(name=>/Engineer.*beard/i.test(name)));
-    assert.ok(names.some(name=>/Engineer.*spectacle/i.test(name)));
-    assert.ok(names.some(name=>/Engineer.*hammer/i.test(name)));
-    assert.ok(names.some(name=>/Engineer.*ruler/i.test(name)));
+    assert.equal(source.getObjectByName('runebreaker_Rig').userData.identity,'Engineer');
     assert.ok(names.every(name=>!name.includes('Kushek')));
     const size=new THREE.Box3().setFromObject(source,true).getSize(new THREE.Vector3());
-    assert.ok(size.y>1.5 && size.y<1.7);
+    assert.ok(size.y>1.5 && size.y<1.8);
     assert.equal(meshList(source).reduce((sum,mesh)=>sum+(mesh.geometry.index?.count||mesh.geometry.attributes.position.count)/3,0), entry.triangles);
-    const actor=source.clone(true), rig=attackRig(actor,'runebreaker',towers.runebreaker);
-    const weapon=actor.getObjectByName('weapon_R'), rest=weapon.getWorldQuaternion(new THREE.Quaternion());
-    triggerAttack(rig); animateAttack(rig,.14);
+    const actor=cloneDefenderTemplate(source),rig=attackRig(actor,'runebreaker',towers.runebreaker);assert.ok(rig.native);
+    const skin=actor.getObjectByProperty('isSkinnedMesh',true),skeleton=skin.skeleton,used=new Set();
+    actor.traverse(mesh=>{if(!mesh.isSkinnedMesh)return;const indices=mesh.geometry.attributes.skinIndex,weights=mesh.geometry.attributes.skinWeight;for(let vertex=0;vertex<weights.count;vertex++)for(let i=0;i<4;i++)if(weights.getComponent(vertex,i)>.001)used.add(skeleton.bones[indices.getComponent(vertex,i)].name);});
+    for(const side of ['L','R'])for(let digit=0;digit<5;digit++)assert.ok(used.has(`finger_${side}_${digit}`),'Named fingers must weight actual hand vertices');
+    const weapon=actor.getObjectByName('weapon'),rest=weapon.getWorldQuaternion(new THREE.Quaternion());
+    previewDefenderAttack(rig.native);updateDefenderPreview(rig.native,.36);
     assert.ok(weapon.getWorldQuaternion(new THREE.Quaternion()).angleTo(rest)>.01);
-    assert.ok(source.getObjectByName('weapon_R').getWorldQuaternion(new THREE.Quaternion()).angleTo(rest)<.000001);
-    resetAttack(rig); assert.ok(weapon.getWorldQuaternion(new THREE.Quaternion()).angleTo(rest)<.000001); disposeAttack(rig);
+    assert.ok(source.getObjectByName('weapon').getWorldQuaternion(new THREE.Quaternion()).angleTo(rest)<.000001);
+    resetDefenderAnimation(rig.native,{reducedMotion:true});assert.ok(weapon.getWorldQuaternion(new THREE.Quaternion()).angleTo(rest)<.000001);disposeAttack(rig);disposeDefenderInstance(actor);
     const resources=new Set();
     for(const mesh of meshList(source)){resources.add(mesh.geometry); resources.add(mesh.material);}
     for(const resource of resources)resource.dispose();

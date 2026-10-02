@@ -206,9 +206,14 @@ secret_families={'ladyclaire','lordbernhard'}
 manifest_path=output/'manifest.json'
 preserved_secrets=[entry for entry in json.loads(manifest_path.read_text(encoding='utf-8'))
                    if entry.get('family') in secret_families] if manifest_path.exists() else []
+preserved_native=[entry for entry in json.loads(manifest_path.read_text(encoding='utf-8'))
+                  if entry.get('kind')=='tower' and entry.get('style')=='designed-defenders-v8'
+                  and entry.get('family') not in secret_families] if manifest_path.exists() else []
+native_families={entry['family'] for entry in preserved_native}
 for hero in json.loads(hero_source.read_text()):
     if hero['family']=='archer': continue  # Authored directly in Blender below.
     if hero['family'] in secret_families: continue  # Dedicated native rigs below.
+    if hero['family'] in native_families: continue  # Keep native animated surfaces.
     begin()
     for part_index, part in enumerate(hero['parts']):
         color = part['color']
@@ -249,11 +254,11 @@ begin();[orb('Cliff_block',(x,0,.7),1,'dark') for x in [-.8,.3,1]];export('cliff
 begin();cylinder('Orc_tent',(0,0,.8),1,1.6,'red',4,0);flag(.7,.4,0,.8,'red');export('orc_warcamp')
 for kind in ['goblin','grunt','troll','ogre','shaman','warlord']:
     begin();character(kind);export('orc_'+kind,'character')
-(output/'manifest.json').write_text(json.dumps(manifest+preserved_secrets,indent=2)+'\n')
+(output/'manifest.json').write_text(json.dumps(manifest+preserved_secrets+preserved_native,indent=2)+'\n')
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import author_archer
 author_archer.OUT=output
-author_archer.generate(render=False)
+if 'archer' not in native_families:author_archer.generate(render=False)
 import author_army
 author_army.OUT=output
 author_army.generate(render=False)

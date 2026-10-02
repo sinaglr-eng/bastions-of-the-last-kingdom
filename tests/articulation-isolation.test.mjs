@@ -2,7 +2,9 @@ import test,{after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {NativeTestGLTFLoader as GLTFLoader} from './helpers/native-gltf.mjs';
+import {cloneDefenderTemplate,disposeDefenderInstance} from '../game/render/defender-assets.js';
+import {previewDefenderAttack,updateDefenderPreview,resetDefenderAnimation} from '../game/render/defender-animation.js';
 import {attackRig,triggerAttack,animateAttack,resetAttack,disposeAttack} from '../game/render/battle-animation.js';
 
 const base=new URL('../public/assets/models/',import.meta.url);
@@ -12,7 +14,7 @@ const sources=new Map();
 async function sourceFor(entry){
   if(!sources.has(entry.file)){
     const bytes=readFileSync(new URL(entry.file,base));
-    sources.set(entry.file,(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene);
+    const gltf=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');gltf.scene.animations=gltf.animations;sources.set(entry.file,gltf.scene);
   }
   return sources.get(entry.file);
 }
@@ -29,7 +31,11 @@ test('every basic rank has a real joint chain and its actual geometry matches th
       assert.ok(upper&&lower&&hand,label+': joint chain missing');
       assert.equal(lower.parent,upper,label+': elbow must belong to shoulder');
       assert.equal(hand.parent,lower,label+': wrist must belong to elbow');
-      assert.ok(meshes(hand).length,label+': hand must carry actual geometry');
+      assert.ok(upper.isBone&&lower.isBone&&hand.isBone,label+': joints must belong to a native armature');
+      const skinned=meshes(actor).filter(mesh=>mesh.isSkinnedMesh);assert.ok(skinned.length,label+': no weighted surfaces');
+      const bone=skinned[0].skeleton.bones.indexOf(hand);let influenced=0;
+      for(const mesh of skinned)for(let vertex=0;vertex<mesh.geometry.attributes.skinWeight.count;vertex++)for(let slot=0;slot<4;slot++)if(mesh.geometry.attributes.skinIndex.getComponent(vertex,slot)===bone&&mesh.geometry.attributes.skinWeight.getComponent(vertex,slot)>.01)influenced++;
+      assert.ok(influenced>10,label+': named hand has no actual geometry weights');
     }
     let triangles=0;
     for(const mesh of meshes(actor)){
@@ -39,14 +45,15 @@ test('every basic rank has a real joint chain and its actual geometry matches th
       triangles+=(mesh.geometry.index?.count||position.count)/3;
     }
     assert.equal(triangles,entry.triangles,label+': stale triangle count');
-    assert.ok(triangles>0&&triangles<10000,label+': real geometry exceeds limit');
+    assert.ok(triangles>0&&triangles<30000,label+': real geometry exceeds the redesigned basic budget');
   }
 });
 
-test('simultaneous clones own independent strings and glows and can dispose without invalidating another actor',async()=>{
+test('simultaneous native clones own private skeletons and glows and dispose without invalidating another actor or cached bowstring',async()=>{
   for(const family of ['archer','mage']){
     const source=await sourceFor(manifest.find(entry=>entry.kind==='tower'&&entry.family===family&&entry.tier===1));
-    const a=source.clone(true),b=source.clone(true),ra=attackRig(a,family,towers[family]),rb=attackRig(b,family,towers[family]);
+    const a=cloneDefenderTemplate(source),b=cloneDefenderTemplate(source),ra=attackRig(a,family,towers[family]),rb=attackRig(b,family,towers[family]);
+    assert.ok(ra.native&&rb.native);assert.notEqual(a.getObjectByProperty('isSkinnedMesh',true).skeleton,b.getObjectByProperty('isSkinnedMesh',true).skeleton);
     const sourceResources=resources(source);let sharedDisposals=0,otherDisposals=0;
     sourceResources.forEach(resource=>resource.addEventListener('dispose',()=>sharedDisposals++));
     for(const object of rb.owned)resources(object).forEach(resource=>{
@@ -61,29 +68,29 @@ test('simultaneous clones own independent strings and glows and can dispose with
     triggerAttack(rb);animateAttack(rb,.04);
     ra.pivots.forEach((pivot,index)=>assert.deepEqual(pivot.node.rotation.toArray(),poseA[index]));
     if(stringA)assert.deepEqual(Array.from(ra.string.object.geometry.attributes.position.array),stringA);
-    disposeAttack(ra);assert.equal(sharedDisposals,0);assert.equal(otherDisposals,0);
+    disposeAttack(ra);disposeDefenderInstance(a);assert.equal(sharedDisposals,0);assert.equal(otherDisposals,0);
     assert.equal(rb.disposed,false);assert.ok(rb.owned.every(object=>object.parent),'other actor effects remain attached');
-    animateAttack(rb,.04);assert.ok(rb.active);resetAttack(rb);disposeAttack(rb);
+    animateAttack(rb,.04);assert.ok(rb.active);resetAttack(rb);disposeAttack(rb);disposeDefenderInstance(b);
     assert.equal(sharedDisposals,0,'actor cleanup never disposes cached GLB resources');
   }
 });
 
 test('actual bow joints retain their draw pose when the projectile presentation uses a spell type',async()=>{
   const source=await sourceFor(manifest.find(entry=>entry.family==='thornwarden'&&entry.tier===1));
-  const before=JSON.stringify(towers),actor=source.clone(true);
+  const before=JSON.stringify(towers),actor=cloneDefenderTemplate(source);
   // A different projectile palette must not turn a real bow into a casting pose.
   const rig=attackRig(actor,'thornwarden',{...towers.thornwarden,type:'poison'});
-  assert.ok(rig.string,'the production elven bow must have real string markers');
+  assert.ok(rig.native&&actor.getObjectByName('bow')?.isBone&&actor.getObjectByName('nocked_arrow')?.isBone,'the production elven bow must have native equipment bones');
   assert.equal(rig.kind,'arcane','projectile presentation remains independent of weapon motion');
-  const forearm=rig.joints.get('forearm_R'),restY=forearm.node.rotation.y;
-  triggerAttack(rig);animateAttack(rig,.14);
-  assert.ok(forearm.node.rotation.y<restY-.4,'the drawing forearm rotates back toward the nock');
+  const hand=actor.getObjectByName('hand_R'),rest=hand.getWorldPosition(new THREE.Vector3());
+  previewDefenderAttack(rig.native);updateDefenderPreview(rig.native,.2);
+  assert.ok(hand.getWorldPosition(new THREE.Vector3()).distanceTo(rest)>.005,'the drawing hand articulates toward the nock');
   assert.equal(JSON.stringify(towers),before,'presentation never changes approved balance data');
-  resetAttack(rig);assert.equal(forearm.node.rotation.y,restY);disposeAttack(rig);
+  resetDefenderAnimation(rig.native,{reducedMotion:true});assert.ok(hand.getWorldPosition(new THREE.Vector3()).distanceTo(rest)<1e-5);disposeAttack(rig);disposeDefenderInstance(actor);
   const bearSource=await sourceFor(manifest.find(entry=>entry.family==='rangermentor'&&entry.tier===1));
-  const bear=attackRig(bearSource.clone(true),'rangermentor',towers.rangermentor);
+  const bearActor=cloneDefenderTemplate(bearSource),bear=attackRig(bearActor,'rangermentor',towers.rangermentor);assert.ok(bear.native);
   assert.equal(bear.string,undefined,'Bearking has no bow and retains its own attack presentation');
-  assert.equal(bear.kind,'roots');disposeAttack(bear);
+  assert.equal(bear.kind,'roots');disposeAttack(bear);disposeDefenderInstance(bearActor);
 });
 
 after(()=>{const owned=new Set();for(const source of sources.values())resources(source).forEach(resource=>owned.add(resource));owned.forEach(resource=>resource.dispose());});
