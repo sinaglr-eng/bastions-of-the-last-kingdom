@@ -351,10 +351,16 @@ def clean_portrait_metadata(path):
     path.write_bytes(b''.join(chunks))
 
 def generate(render=True,family=None):
-    entries=json.loads((OUT/'manifest.json').read_text(encoding='utf-8'))
     requested=set(family.split(',')) if family else None
     if requested and not requested.issubset(DATA):raise ValueError('Unknown requested family')
     families=[f for f in DATA if not requested or f in requested]
+    basic_families=[f for f in families if f in BASIC]
+    if basic_families:
+        import author_defender_ranks_v2
+        author_defender_ranks_v2.OUT=OUT
+        author_defender_ranks_v2.generate(','.join(basic_families),render=render)
+    families=[f for f in families if f not in BASIC]
+    entries=json.loads((OUT/'manifest.json').read_text(encoding='utf-8'))
     # Secret champions own their native rigid rig, bounds and current art manifest.
     # Generic finalization/budgeting would reparent their orbs and horse parts.
     secret_families=[f for f in families if DATA[f].get('secret')]

@@ -1,6 +1,6 @@
 # Original asset guide
 
-The working style is readable medieval fantasy: smooth connected character anatomy, tailored clothing, crisp armor edges, warm timber, pale stone, dull iron, gold heraldry, subdued green/brown orcs and red hide tents. Scenery retains stylized faceted ridges. No borrowed game assets or external textures are used. Original fantasy siege machines include a catapult and distinct ballista/cannon variants.
+The eight basic defender classes use the approved faceted Ranger family: simple low-poly heads, readable solid clothing and equipment, and progressively stronger silhouettes across six ranks. Champions retain their established connected anatomy, tailored clothing and individual designs. Warm timber, pale stone, dull iron, gold heraldry, subdued green/brown orcs and red hide tents unify the roster. Scenery retains stylized faceted ridges. No borrowed game assets or external textures are used. Original fantasy siege machines include a catapult and distinct ballista/cannon variants.
 
 Current release: **0.2.8 · Secret Champions**. Version 0.2.1 introduced the original dwarf carpenter Engineer, replaced Kingslayer's siege machine with a black knight, gave Knight and Lionheart Champion closed plate helmets, equipped Paladin with a warhammer and made Nature Spirit (formerly Mother Nature) a floating spirit. Engineer's original six models, portraits and native scene are active again in 0.2.7. The human Kushek design from 0.2.6 remains archived unchanged. Art patch 9 rebuilds Lady Claire independently with a new adult face, natural blonde hairline, gold crown and ivory/champagne gown. The Engineer class and recipes stay restored. Version 0.2.2 gives all 37 champions equally large, strong cosmetic auras: Basic blue, Intermediate green, Advanced purple and TOP gold. These are created at runtime in `game/render/champion-aura.js`, with the verified mapping in `game/render/champion-classification.js`; they do not alter combat buffs. See [all classifications](docs/CHAMPION_CLASSIFICATION.md).
 
@@ -14,7 +14,7 @@ Current release: **0.2.8 · Secret Champions**. Version 0.2.1 introduced the ori
 ## Naming and assets
 
 - `human_<family>_t1.glb` through `t6.glb`: 48 character rank variants.
-- `advanced_<family>.glb`: 39 fixed champion, creature and siege models (37 champion-v6 plus two champions-v7.9 Secret models).
+- `advanced_<family>.glb`: 39 fixed champion, creature and siege models (37 champion-v6 plus two champions-v7.10 Secret models).
 - `barricade.glb`, `pine_tree.glb`, `deciduous_tree.glb`, `rock.glb`, `castle_wall.glb`, `human_keep.glb`, `medieval_house.glb`, `barrel.glb`, `crate.glb`, `human_banner.glb`, `campfire.glb`, `wooden_fence.glb`, `cliff_module.glb`, `orc_warcamp.glb`.
 - `orc_<archetype>.glb`: six original character blockouts, plus simple root/spine armature scaffolds in their source construction.
 - `public/assets/models/manifest.json` lists 107 exports: 87 defender variants (48 basic ranks and 39 champions), plus 20 legacy prop/enemy assets. Entries include family/rank identities, style and triangle counts.
@@ -38,7 +38,7 @@ blender --background --python blender/scripts/generate_assets.py -- --output pub
 
 The script was executed and verified with Blender 5.2.2; it is written against Blender 4.x/5.x APIs. Export is binary glTF 2.0, Y up, transforms applied, no cameras/lights and no final animation clips. Blender must be installed only to regenerate models, not to play.
 
-The browser loads all 87 playable defender GLBs and the separate 59-model enemy pack, with complete procedural fallbacks while loading. Current style tags are archer-v2, hero-v5, champion-v6, champions-v7.9, dark-host-v3, scenery-v7 (castle) and scenery-v6 (camp). All 87 defender portraits are rendered directly by Blender and shared by draft cards, the grimoire and the Royal atelier. The approved catalog contains 39 champions with individual character, creature or siege identities. Stable family IDs preserve existing recipes and discoveries. Ground scenery remains procedural Three.js geometry in `game/render/environment.js`, merged by material where static; legacy prop GLBs are retained as references.
+The browser loads all 87 playable defender GLBs and the separate 59-model enemy pack, with procedural fallbacks while loading. Current style tags are hooded-ranks-v2, champion-v6, champions-v7.10, dark-host-v3, scenery-v7 (castle) and scenery-v6 (camp). All 87 defender portraits are rendered directly by Blender and shared by draft cards, the grimoire and the Royal atelier through `assets/army/<family>-t<rank>.png`, including Archer. The art release query invalidates older cached models, manifests and portraits without changing the game's leaderboard edition. The approved catalog contains 39 champions with individual character, creature or siege identities. Stable family IDs preserve existing recipes and discoveries. Ground scenery remains procedural Three.js geometry in `game/render/environment.js`, merged by material where static; legacy prop GLBs are retained as references.
 
 ## Animation and VFX
 
@@ -65,11 +65,26 @@ Historical **0.2.5 scenery V4** surroundings combine 863 trees, 61 mountain mass
 `game/render/support-effects.js` derives platform colors, separate glyphs and selected-provider reach circles from real support and combat state. Friendly bonuses use their approved stacking groups; hostile suppression and enemy statuses use actual timers and immunity/detection rules. The first listed effect determines a clear wall color; individual symbols retain every simultaneous effect. A single owned box-band instance batch and 18 glyph batches reuse their geometry and materials, with a reusable selected-radius line buffer. Hidden enemies receive no visible status marks, and unrevealed hostile providers remain anonymous in the sidebar. Lady Claire's Melancholy adds a separate moon glyph and live combat-time countdown on her platform; it is a self-imposed attack pause, not an enemy control effect. Classification auras are independent cosmetic effects. Cleanup never changes shared defender materials.
 
 
+## Active basic defenders — hooded-ranks-v2
+
+`blender/scripts/author_defender_ranks_v2.py` and `blender/scripts/defender_ranks_v2/` author all 48 approved variant-B models directly in Blender 5.2. Each class has one editable native scene with ranks I–VI in `blender/scenes/hooded-ranks-v2/<family>_ranks.blend`. Exports retain `human_<family>_t<rank>.glb` and share the portrait folder `public/assets/army/`. Engineer's internal ID remains `runebreaker`. The full asset pipeline dispatches basic families to this generator so later regeneration preserves the new designs.
+
+```sh
+blender --background --python blender/scripts/author_defender_ranks_v2.py
+blender --background --python blender/scripts/author_defender_ranks_v2.py -- --family soldier --no-render
+```
+
+Equipment progresses cumulatively: Soldier gains helmet/sword, wooden shield, breastplate, full armor/iron shield and a closed knight helmet after its unarmored wooden-spear rank I. Archer gains a mantle, leather protection, longbow/cape, shoulder protection and reinforced master bow. Druid gains a leaf mantle, antlers, larger branching staff and bark guards. Mage and Cleric advance their headwear, staff focus, cape and books. Engineer gains an apron, goggles, stronger carpenter tools and protective panels; Frost Warden gains a winter collar, ice shield and simple guards; Stormcaller gains a circlet, cape, casting guards and a larger continuous lightning shape. These changes are cosmetic and preserve statistics and recipes.
+
+Cloth colors remain I `#3989ed`, II `#3eac63`, III `#9555d8`, IV `#eee9db`, V `#e7b43f` and VI `#ffd969`. `game/render/ranks.js` adds each matching ground ring. Only VI receives its existing golden additive body halo and eight orbiting pale-gold motes; these effects are never baked into the GLB. Basic units receive no champion classification aura.
+
+Asset roots carry `assetRevision`, `family`, `tier`, `rankColor` and semantic `equipment` extras. GLBs face -Z with Y up after Blender export and retain a planted base. Real mesh descendants follow `torso_pivot`, `head_pivot`, `upper_arm_L/R`, `forearm_L/R`, `hand_L/R` and `weapon_L/R`. Held caster tools use the right weapon joint and a moving `staff_tip`. Archer holds its bow on the left, draws with the right, and exports `bow_tip_upper`, `bow_tip_lower`, `bow_nock` and `authored_bowstring`; runtime supplies the taut animated string. Geometry and materials stay shared while every placed unit receives private transforms.
+
 ## Archer design V1 — historical review milestone
 
 `blender/scripts/author_archer.py` authors the archer directly in Blender: open hood, shaped pleated cape, leather jerkin, boots, bracers, drawn recurve bow, arrow, quiver and individual face features. This does not use the previous procedural archer meshes. Native editable source: `blender/scenes/archer_design_v1.blend`. Collections separate ranks I–VI and parts retain semantic names. Temporary copies are joined by material for glTF export; the source retains editable parts.
 
-Run `blender --background --python blender/scripts/author_archer.py` to regenerate six GLBs, six transparent portraits and the lineup under `public/assets/archer/`. The full asset generator calls this authoring module without re-rendering portraits, so rebuilding the pack cannot replace the approved candidate with an older archer. At the V1 review milestone, GLBs were tagged archer-v1 and the roster contained 68 defender variants. The current pack exports six archer-v2, 42 hero-v5, 37 champion-v6 and two champions-v7.9 Secret entries. The stone footing stays within one cell; the drawn bow overhangs visually without blocking an adjacent cell.
+The historical `author_archer.py` produced six GLBs, transparent portraits and a lineup under `public/assets/archer/`. At the V1 review milestone, GLBs were tagged archer-v1 and the roster contained 68 defender variants. That authoring route and its review images remain historical references; the active basic pack is generated by `author_defender_ranks_v2.py`. The stone footing stays within one cell; the bow overhangs visually without blocking an adjacent cell.
 
 Rank cloth is I blue (#3989ed), II green (#3eac63), III purple (#9555d8), IV white (#eee9db), V gold (#e7b43f), VI radiant gold (#ffd969). Runtime VI adds a soft additive halo and orbiting motes. The archer style is approved and is now shared by all other basic and advanced defenders, authored by `blender/scripts/author_army.py`. Advanced recipes keep their individual identities.
 
@@ -80,19 +95,19 @@ Rank cloth is I blue (#3989ed), II green (#3eac63), III purple (#9555d8), IV whi
 
 ## Approved 37 ordinary champions and Blender revision
 
-`blender/scripts/author_army.py` reuses the approved archer's proportions, layered clothing, bevels and PBR palette. It authors all 42 non-archer basic rank variants. The champion-v6 revision builds 37 individually designed champions directly in Blender. The cohesive revision smooths faces, joins skin and tailored forms and retains useful articulation pivots. Runtime loads hero-v5 and champion-v6; archer is archer-v2. These 85 established defender assets remain under the 10,000-triangle ceiling. Decorative wings/weapons overhang the one-cell gameplay footprint.
+`blender/scripts/author_army.py` builds the 37 individually designed champion-v6 forms directly in Blender and dispatches basic families to `author_defender_ranks_v2.py`. The historical hero-v5 pass smoothed faces, joined skin and tailored forms and retained useful articulation pivots. Ordinary champions retain that existing treatment; the 48 basic variants now use the simpler faceted style. Decorative wings and weapons overhang the one-cell gameplay footprint.
 
-- Soldier: crested helmet, steel plate, sword and kite shield.
-- Druid: antlers, leaf mantle, oak staff and beard.
+- Soldier: wooden spear recruit progressing to a closed-helmet steel knight.
+- Druid: antlers, leaf mantle, oak staff and green seed stone.
 - Mage: bent pointed hat, long robe, crystal staff and spellbook.
-- Cleric: mitre, halo, sun staff and devotional book.
-- Engineer (stable family ID `runebreaker`, unit code `R`): original broad dwarf carpenter with a copper beard, spectacles, leather work cap/apron, small hammer and graduated measuring ruler. All six models and portraits, the native scene and the live fallback restore the original design. The human Kushek proposal is preserved separately as an inactive archive.
+- Cleric: mitre, sun staff and devotional book.
+- Engineer (stable family ID `runebreaker`, unit code `R`): broad dwarf carpenter with a copper beard, work cap, hammer and measuring ruler; the active progression adds apron, goggles and reinforcement. The earlier native scene and human Kushek proposal are retained as historical references.
 - Frost Warden: fur mantle, crystal staff and ice shield.
-- Stormcaller: swept hair, brass circlet, lightning and hand orbs.
+- Stormcaller: swept hair, brass circlet and one continuous lightning glyph.
 - Advanced roster includes distinct knights and royalty, rangers, elemental casters and druids; dragons, riders, thunderbird, bear king and golems; holy champions and separate siege variants.
 - All 37 ordinary champion families have one authored form and their classification aura. The removed eight formation families remain excluded; the approved restored units use their agreed names and recipes instead. Nature Spirit retains the stable `mothernature` asset ID.
 
-Regenerate all new models and portraits with `blender --background --python blender/scripts/author_army.py`. Use `-- --family mage` for one family or `-- --no-render` to skip portraits. Editable semantic parts and materials are saved for every family at `blender/scenes/<family>_design_v1.blend`; the six basic color variants are generated by the script. Portraits are in `public/assets/army/`. The full pack generator calls native authoring after the older fallback/prop export so it cannot silently regress the approved character style. `author_army.py` dispatches the 37 ordinary champion families to `champion_humans_v6.py`, `champion_engines_v6.py` and `champion_beasts_v6.py`; exports use the `champion-v6` style and design revision 6. These modules read the approved data and author individual silhouettes rather than changing mechanics.
+Regenerate the roster with `blender --background --python blender/scripts/author_army.py`. Use `-- --family mage` for one family or `-- --no-render` to skip portraits. Current basic scenes are saved under `blender/scenes/hooded-ranks-v2/`; ordinary champion scenes remain at `blender/scenes/<family>_design_v1.blend`. Portraits are in `public/assets/army/`. The full pack generator calls native authoring after the older fallback/prop export so it cannot silently regress the approved character style. `author_army.py` dispatches the 37 ordinary champion families to `champion_humans_v6.py`, `champion_engines_v6.py` and `champion_beasts_v6.py`; exports use the `champion-v6` style and design revision 6. These modules read the approved data and author individual silhouettes rather than changing mechanics.
 
 Stable numbered current-round markers are runtime overlays in `game/render/draft-markers.js`, independent of model aiming/recoil. They have no rotating arrows. Numbers map to keyboard slots 1–5, their scale stays readable with zoom, and recipe portraits retain their full icon rather than sliding or rotating away.
 

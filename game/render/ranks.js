@@ -4,7 +4,7 @@ export const RANK_COLORS=['#3989ed','#3eac63','#9555d8','#eee9db','#e7b43f','#ff
 export const rankColor=tier=>RANK_COLORS[Math.max(0,Math.min(5,tier-1))];
 const oldCloth={soldier:'#4187a2',archer:'#54945b',druid:'#528b68',mage:'#8a62bd',cleric:'#eee3bd',runebreaker:'#805787',frostwarden:'#66b3c4',stormcaller:'#d2a645'};
 
-// Recolor existing cloth only; the other seven character designs await archer approval.
+// Recolor cloth on temporary procedural models while native rank assets load.
 export function applyRankCloth(root,family,tier){
   const original=new THREE.Color(oldCloth[family]);
   const cape=new THREE.Color('#bd4857');

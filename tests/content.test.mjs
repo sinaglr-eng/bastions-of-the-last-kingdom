@@ -40,8 +40,7 @@ test('every exported GLB has a valid header and finite footprint metadata',()=>{
  const base=new URL('../public/assets/models/',import.meta.url);const manifest=JSON.parse(readFileSync(new URL('manifest.json',base)));assert.equal(manifest.length,107);
  for(const entry of manifest){assert.ok(existsSync(new URL(entry.file,base)));const b=readFileSync(new URL(entry.file,base));assert.equal(b.toString('ascii',0,4),'glTF');assert.equal(b.readUInt32LE(4),2);assert.equal(b.readUInt32LE(8),b.length);const budget=entry.family==='lordbernhard'?60000:entry.family==='ladyclaire'?55000:10000;assert.ok(entry.triangles>0&&entry.triangles<budget);}
  assert.equal(manifest.filter(x=>x.kind==='tower').length,87);
- assert.equal(manifest.filter(x=>x.style==='hero-v5').length,42);
- assert.equal(manifest.filter(x=>x.style==='archer-v2').length,6);
+ assert.equal(manifest.filter(x=>x.style==='hooded-ranks-v2').length,48);
  assert.equal(manifest.filter(x=>x.style==='champion-v6').length,37);
  assert.equal(manifest.filter(x=>x.secret===true&&x.style==='champions-v7.10').length,2);
 });

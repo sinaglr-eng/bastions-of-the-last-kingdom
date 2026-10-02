@@ -1,6 +1,8 @@
 import {siteUrl} from './site-url.js';
 
 export const GAME_VERSION='0.2.8';
-export const CHAMPION_ART_VERSION='champions-v7.10-rollback.1';
+export const DEFENDER_ART_VERSION='hooded-ranks-v2.1';
+export const CHAMPION_ART_VERSION=DEFENDER_ART_VERSION;
 // Updated assets must replace cached portraits and models from earlier editions.
 export const releaseAsset=path=>`${siteUrl(path)}?v=${CHAMPION_ART_VERSION}`;
+export const defenderPortrait=(family,tier=1)=>releaseAsset(`assets/army/${family}-t${tier}.png`);

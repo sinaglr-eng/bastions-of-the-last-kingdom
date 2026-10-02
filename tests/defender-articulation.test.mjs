@@ -59,7 +59,7 @@ test('Archer drawing hand pulls the actual bowstring, and cloned materials/verti
 });
 
 test('Soldier sword follows shoulder/elbow/wrist articulation while the pedestal stays planted',async()=>{
-  const actor=(await model(entry('soldier'))).clone(true),rig=attackRig(actor,'soldier',towers.soldier),weapon=actor.getObjectByName('weapon_R');
+  const actor=(await model(entry('soldier',2))).clone(true),rig=attackRig(actor,'soldier',towers.soldier),weapon=actor.getObjectByName('weapon_R');
   const sword=meshes(weapon);assert.ok(sword.length>=2);const before=sword.map(sample),root=actor.position.toArray();
   triggerAttack(rig);animateAttack(rig,.14);assert.ok(sword.some((part,i)=>sample(part).distanceTo(before[i])>.15));assert.deepEqual(actor.position.toArray(),root);
   assert.equal(actor.rotation.x,0,'An articulated attack must not substitute whole-actor leaning');disposeAttack(rig);

@@ -11,49 +11,37 @@ import {attackRig, triggerAttack, animateAttack, resetAttack, disposeAttack} fro
 const towers = JSON.parse(readFileSync(new URL('../data/towers.json', import.meta.url)));
 const manifest = JSON.parse(readFileSync(new URL('../public/assets/models/manifest.json', import.meta.url)));
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
-const originalModels = [
-  '09c6261e5716c72e62aa23f816fe998be3c167555b3369c5abaf6e4d3a9e63ad',
-  'cad0ff793cb686cba45d2a42377c476346cde5e14f4bc214ae0ae994eff8cc77',
-  '15cbf925e8b175f940fb5407c119d4432d4f91f3fb86d23594ff621520265ddf',
-  'd6e44b96e811d20a8225ddd8e4cc35cbc36cee27827b7d1699cd66d289cb889b',
-  '451a8b5b575d65ad3322c23888238ff04ccb6a394da113de35dcf65207bc9625',
-  'ade3ebd5bbfffaf5079f33b781950f1cd8382bdd6e17b8404cb7f34c3e4382fc',
-];
-const originalPortraits = [
-  '2847dec5fba5e6e87855a92be7e75beb2ed7b78b936e5376bafe3cbc7054e824',
-  '152c8dbd66881eab53da05d88195777d83578fefdceacf1d32e85cb8d025c76c',
-  '229191c8969abb5b79b21f5c2066a7db1361b2a47ae6577db4c53da2cacf0561',
-  '2153e0ce0caaddaae30b80586f1ac8d2a8313eb35b19955ec38c585a77a546c1',
-  '85656bef4ca162fb5c1673d37c94cc1272e6c94784252d36e4eaaad898ab6a86',
-  '1ffd797dbee00ddca6541aab28282de8c4720431a284fddc7f5504e94114b117',
-];
 const meshList = root => {const result=[]; root.traverse(node => {if(node.isMesh) result.push(node);}); return result;};
 
-test('Engineer restores the original 0.2.5 name, six models, portraits and editable Blender scene exactly', () => {
+test('Engineer keeps his stable identity and historical native scene while shipping all six new faceted ranks', () => {
   assert.equal(towers.runebreaker.name, 'Engineer');
   assert.equal(towers.runebreaker.short, 'Engineer');
   assert.equal(towers.runebreaker.unitCode, 'R');
   assert.ok(!/Kushek|blonde human/i.test(towers.runebreaker.description));
   for (let tier=1; tier<=6; tier++) {
-    assert.equal(digest(readFileSync(new URL(`../public/assets/models/human_runebreaker_t${tier}.glb`, import.meta.url))), originalModels[tier-1]);
-    assert.equal(digest(readFileSync(new URL(`../public/assets/army/runebreaker-t${tier}.png`, import.meta.url))), originalPortraits[tier-1]);
+    const entry=manifest.find(item=>item.kind==='tower'&&item.family==='runebreaker'&&item.tier===tier);
+    assert.equal(entry.style,'hooded-ranks-v2');
+    assert.equal(entry.file,`human_runebreaker_t${tier}.glb`);
+    assert.equal(entry.source,'blender/scenes/hooded-ranks-v2/runebreaker_ranks.blend');
+    const png=readFileSync(new URL(`../public/assets/army/runebreaker-t${tier}.png`,import.meta.url));
+    assert.deepEqual([...png.subarray(0,8)],[137,80,78,71,13,10,26,10]);
   }
   assert.equal(digest(readFileSync(new URL('../blender/scenes/runebreaker_design_v1.blend', import.meta.url))), '2736b9db7c41ee8cd9385d456464d70b2f8c1ef26c532564a06b2aefada6e43e');
 });
 
-test('the restored short, bearded Engineer wears spectacles and carries his animated original tools', async () => {
+test('the faceted dwarf carpenter keeps his beard and moving tools while goggles appear from rank III', async () => {
   for (let tier=1; tier<=6; tier++) {
     const entry=manifest.find(item => item.kind==='tower' && item.family==='runebreaker' && item.tier===tier);
     const bytes=readFileSync(new URL(`../public/assets/models/${entry.file}`, import.meta.url));
     const source=(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset+bytes.byteLength), '')).scene;
     const names=[]; source.traverse(node=>names.push(node.name));
-    assert.ok(names.some(name=>/Engineer.*beard/i.test(name)));
-    assert.ok(names.some(name=>/Engineer.*spectacle/i.test(name)));
-    assert.ok(names.some(name=>/Engineer.*hammer/i.test(name)));
-    assert.ok(names.some(name=>/Engineer.*ruler/i.test(name)));
+    assert.ok(names.some(name=>/beard/i.test(name)));
+    assert.equal(names.some(name=>/goggle/i.test(name)),tier>=3);
+    assert.ok(names.some(name=>/hammer|mallet/i.test(name)));
+    assert.ok(names.some(name=>/ruler/i.test(name)));
     assert.ok(names.every(name=>!name.includes('Kushek')));
     const size=new THREE.Box3().setFromObject(source,true).getSize(new THREE.Vector3());
-    assert.ok(size.y>1.5 && size.y<1.7);
+    assert.ok(size.y>1.5 && size.y<2.2);
     assert.equal(meshList(source).reduce((sum,mesh)=>sum+(mesh.geometry.index?.count||mesh.geometry.attributes.position.count)/3,0), entry.triangles);
     const actor=source.clone(true), rig=attackRig(actor,'runebreaker',towers.runebreaker);
     const weapon=actor.getObjectByName('weapon_R'), rest=weapon.getWorldQuaternion(new THREE.Quaternion());
@@ -67,7 +55,7 @@ test('the restored short, bearded Engineer wears spectacles and carries his anim
   }
 });
 
-test('the offline Engineer fallback keeps the original brown cap, beard, tools and rank-colored clothing', () => {
+test('the temporary Engineer fallback keeps dwarf identity and rank colors while its GLB loads', () => {
   for (let tier=1; tier<=6; tier++) {
     const actor=defenderModel('runebreaker',tier), meshes=meshList(actor);
     const colors=new Set(meshes.map(mesh=>mesh.material.color.getHexString()));

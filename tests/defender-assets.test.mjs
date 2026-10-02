@@ -15,3 +15,14 @@ test('clicking an elevated figure resolves its tower rather than the empty groun
   const ray=new Raycaster(new Vector3(0,3,5),new Vector3(0,-.2,-1).normalize());assert.equal(pointedTower(ray,new Map([[7,{object}]])),7);
   ray.set(new Vector3(4,3,5),new Vector3(0,-.2,-1).normalize());assert.equal(pointedTower(ray,new Map([[7,{object}]])),null);mesh.geometry.dispose();mesh.material.dispose();
 });
+
+test('a new basic rank refreshes only its matching already-placed units',()=>{
+  const field={disposed:false,imported:new Map(),models:new Map([[1,{signature:'archer:1'}],[2,{signature:'archer:4'}],[3,{signature:'soldier:4'}],[4,{signature:'wall'}]]),game:{data:{towers:{archer:{},soldier:{}}},towers:[{id:1,family:'archer',tier:1,state:'draft'},{id:2,family:'archer',tier:4,state:'active'},{id:3,family:'soldier',tier:4,state:'active'},{id:4,family:'archer',tier:4,state:'ruin'}]},sync(){this.refreshes=(this.refreshes||0)+1;}};
+  const rank4=new Group();installDefenderTemplate(field,{family:'archer',tier:4},rank4);
+  assert.equal(field.imported.get('archer:4'),rank4);
+  assert.equal(field.models.get(2).signature,'');
+  for(const [id,signature]of [[1,'archer:1'],[3,'soldier:4'],[4,'wall']])assert.equal(field.models.get(id).signature,signature);
+  assert.equal(field.refreshes,1);
+  installDefenderTemplate(field,{family:'archer',tier:6},new Group());
+  assert.equal(field.refreshes,1,'An unused rank should not rebuild unrelated battlefield instances');
+});

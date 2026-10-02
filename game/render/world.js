@@ -15,7 +15,7 @@ import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,po
 import {secretAttackContext} from './secret-animation.js';
 import {DraftMarkers} from './draft-markers.js';
 import {siteUrl} from '../site-url.js';
-import {releaseAsset} from '../release.js';
+import {releaseAsset,defenderPortrait} from '../release.js';
 import {SIZE} from '../core/grid.js';
 import {MazePlanner} from './maze-planner.js';
 import {edgePan,compassBearing} from './navigation.js';
@@ -300,7 +300,7 @@ export function makeThumbnails(data) {
   const camera=new THREE.PerspectiveCamera(32,180/156,0.1,20);camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,0.95,0);
   const images={};
   for(const [id,stats]of Object.entries(data.towers))for(let tier=1;tier<=(stats.advanced?1:data.balance.tiers.length);tier++){
-    images[`${id}:${tier}`]=releaseAsset(`assets/${id==='archer'?'archer':'army'}/${id}-t${tier}.png`);
+    images[`${id}:${tier}`]=defenderPortrait(id,tier);
     if(tier===1)images[id]=images[`${id}:${tier}`];
   }
   camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,.95,0);

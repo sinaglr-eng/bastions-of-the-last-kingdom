@@ -14,10 +14,20 @@ import towers from '../data/towers.json';
 import '../ui/atelier.css';
 import {siteUrl} from './site-url.js';
 import {defenderCode} from './core/unit-label.js';
-import {releaseAsset,GAME_VERSION} from './release.js';
+import {releaseAsset,defenderPortrait,GAME_VERSION} from './release.js';
 
 const roman=['I','II','III','IV','V','VI'],colors=['Modrá','Zelená','Fialová','Bílá','Zlatá','Záře'];
-const portrait=(family,rank=1)=>releaseAsset(`assets/${family==='archer'?'archer':'army'}/${family}-t${rank}.png`);
+const rankEquipment={
+ soldier:['Bez zbroje, s dřevěným kopím.','Přilba a meč.','Navíc dřevěný štít.','Navíc ocelový prsní plát.','Plná zbroj a železný štít.','Uzavřená rytířská přilba a delší plášť.'],
+ archer:['Prostý krátký luk a kapuce.','Ramenní plášť a toulec.','Kožená vesta a zahnutý luk.','Dlouhý luk a delší plášť.','Ramenní ochrana a vrstvený luk.','Mistrovský luk a zpevněná vesta.'],
+ druid:['Dřevěná hůl s jedním listem.','Listový ramenní plášť.','Jednoduché paroží.','Delší plášť a rozvětvená hůl.','Dřevěné nátepníky a zelený kámen.','Širší listový límec a mistrovská hůl.'],
+ mage:['Malá špičatá čepice a jednoduchá hůl.','Široký kouzelnický klobouk.','Ramenní plášť a větší krystal.','Navíc zavřená kniha kouzel.','Delší plášť a vidlicová hlavice hole.','Otevřená kniha a mistrovský krystal.'],
+ cleric:['Prostá kapuce a sluneční kotouč.','Mitra a světlá štóla.','Sluneční hůl se čtyřmi paprsky.','Navíc plášť a zavřená kniha.','Vyšší mitra a delší plášť.','Osmipaprsková hůl a otevřená kniha.'],
+ runebreaker:['Dřevěné kladivo a pravítko.','Kožená zástěra a železné kladivo.','Pracovní brýle a nátepník.','Delší zástěra a tesařské kladivo.','Kovové chrániče a zesílená zástěra.','Mistrovské kladivo a ochranný plát.'],
+ frostwarden:['Kapuce a malý ledový krystal.','Široký zimní límec.','Navíc malý ledový štít.','Kovové nátepníky a větší krystal.','Velký ledový štít a těžší plášť.','Ramenní ochrana a mistrovský krystal.'],
+ stormcaller:['Prostá tunika a malý blesk.','Čelenka a krátký plášť.','Sesílací nátepník a větší blesk.','Dlouhý plášť a druhý nátepník.','Širší čelenka a trojramenný blesk.','Ramenní ochrana a mistrovská rukavice.'],
+};
+const portrait=defenderPortrait;
 const asset=(family,rank)=>releaseAsset(`assets/models/${towers[family].advanced?'advanced_'+family:'human_'+family+'_t'+rank}.glb`);
 const requestedFamily=new URLSearchParams(location.search).get('family');
 let family=towers[requestedFamily]?requestedFamily:'archer';
@@ -26,7 +36,7 @@ const variantCount=basicCount*6+championCount;
 document.querySelector('#atelier').innerHTML=`
 <header class="atelier-header"><a class="atelier-brand" href="${siteUrl('?update=cohesive')}" target="_blank" rel="noopener">♜ <span>BASTIONS<small>THE ROYAL ATELIER</small></span></a><div class="edition">THE DEFENDERS <b>${String(basicCount).padStart(2,'0')} CLASSES / ${championCount} CHAMPIONS</b></div><a class="outline-link" href="${siteUrl('?update=cohesive')}" target="_blank" rel="noopener">Otevřít hru ↗</a></header>
 <section class="model-stage" aria-label="Interaktivní 3D náhled obránců"><div class="stage-heading"><span class="eyebrow">BLENDER 5.2 · CHAMPION EDITION ${GAME_VERSION}</span><h1 id="family-title">Archer.</h1><p id="family-subtitle">Osm tříd. Jeden společný styl.</p></div><div id="model-canvas"></div><div class="stage-caption"><span id="load-status" role="status">Načítám model z Blenderu…</span><small>Tažením otáčej · Kolečkem přibližuj</small></div><div class="view-controls"><button id="rotate" aria-pressed="false">↻ Automatická rotace</button><button id="reset">Obnovit pohled</button><button id="walls" aria-pressed="false">Kamenné hradby</button></div></section>
-<aside class="atelier-notes"><label class="eyebrow" for="family-picker">VYBER OBRÁNCE</label><select id="family-picker">${[false,true].map(advanced=>`<optgroup label="${advanced?'Pokročilí obránci':'Základní třídy · šest úrovní'}">${Object.entries(towers).filter(([,t])=>!!t.advanced===advanced).map(([id,t])=>`<option value="${id}" ${id==='archer'?'selected':''}>${t.name}</option>`).join('')}</optgroup>`).join('')}</select><h2 id="family-name">Archer</h2><p id="family-role"></p><div class="note-rule"></div><div class="rank-heading"><h3 id="rank-heading">Šest úrovní. Šest signálů.</h3><span id="rank-instruction">VYBER ÚROVEŇ</span></div><div class="rank-picker"></div><div class="design-detail"><span id="selected-rank"></span><p id="rank-detail"></p></div><div class="note-rule"></div><div class="materials"><span>01 <b>Barvená látka</b></span><span>02 <b>Patinovaná kůže</b></span><span>03 <b>Mosaz a ocel</b></span></div><p class="approval-note">Postavy mají v Blenderu spojenou anatomii a vyhlazené tvarované povrchy. Výstroj zůstává členěná jako skutečná zbroj a vrstvené oblečení. Každá třída má vlastní siluetu; šampioni přidávají gryfy, draky, obry i obléhací stroje.</p><div class="asset-links"><a id="download-model" download>Stáhnout GLB ↓</a><a id="download-portrait" target="_blank">Portrét z Blenderu ↗</a></div><details class="roster-details" open><summary>Celá družina · ${basicCount+championCount} typů</summary><div class="roster-grid">${Object.entries(towers).map(([id,t])=>`<button data-family="${id}" title="${t.name}" aria-label="Zobrazit ${t.name}"><img src="${portrait(id)}" alt="" loading="lazy"><span>${t.name}</span></button>`).join('')}</div></details></aside>
+<aside class="atelier-notes"><label class="eyebrow" for="family-picker">VYBER OBRÁNCE</label><select id="family-picker">${[false,true].map(advanced=>`<optgroup label="${advanced?'Pokročilí obránci':'Základní třídy · šest úrovní'}">${Object.entries(towers).filter(([,t])=>!!t.advanced===advanced).map(([id,t])=>`<option value="${id}" ${id==='archer'?'selected':''}>${t.name}</option>`).join('')}</optgroup>`).join('')}</select><h2 id="family-name">Archer</h2><p id="family-role"></p><div class="note-rule"></div><div class="rank-heading"><h3 id="rank-heading">Šest úrovní. Šest signálů.</h3><span id="rank-instruction">VYBER ÚROVEŇ</span></div><div class="rank-picker"></div><div class="design-detail"><span id="selected-rank"></span><p id="rank-detail"></p></div><div class="note-rule"></div><div class="materials"><span>01 <b>Barvená látka</b></span><span>02 <b>Patinovaná kůže</b></span><span>03 <b>Mosaz a ocel</b></span></div><p class="approval-note">Základní obránci mají jednoduché lomené tvary společné s Rangerem. S každou úrovní přibývá čitelná výstroj; barva látky a obruba podstavce označují hodnost. Úroveň VI má zlatou záři a obíhající jiskry. Šampioni si zachovávají vlastní postavy, tvory a obléhací stroje.</p><div class="asset-links"><a id="download-model" download>Stáhnout GLB ↓</a><a id="download-portrait" target="_blank">Portrét z Blenderu ↗</a></div><details class="roster-details" open><summary>Celá družina · ${basicCount+championCount} typů</summary><div class="roster-grid">${Object.entries(towers).map(([id,t])=>`<button data-family="${id}" title="${t.name}" aria-label="Zobrazit ${t.name}"><img src="${portrait(id)}" alt="" loading="lazy"><span>${t.name}</span></button>`).join('')}</div></details></aside>
 <footer class="atelier-footer"><span>BLENDER 5.2 · v${GAME_VERSION} <b>${variantCount} VARIANTS</b></span><p>37 × 37 polí · Hradby s cimbuřím · Spirálové cesty kolem středu</p><span>BASTIONS / ASHEN VALE</span></footer>`;
 
 const host=document.querySelector('#model-canvas'),scene=new THREE.Scene();
@@ -64,7 +74,7 @@ function rankButtons(){
  document.querySelector('#family-name').textContent=towers[family].name;
  document.querySelector('#family-role').textContent=towers[family].description||towers[family].role;
  document.querySelector('.materials').innerHTML='<span>01 <b>Barvená látka</b></span><span>02 <b>Patinovaná kůže</b></span><span>03 <b>Mosaz a ocel</b></span>';
- document.querySelector('#family-subtitle').textContent=advanced?`${championClassification(family)} · Šampion získaný kombinací obránců.`:'Základní obránce · šest barevných úrovní.';
+ document.querySelector('#family-subtitle').textContent=advanced?`${championClassification(family)} · Šampion získaný kombinací obránců.`:'Základní obránce · šest úrovní výstroje.';
  document.querySelector('#rank-heading').textContent=advanced?'Jedinečná silueta.':'Šest úrovní. Šest signálů.';
  document.querySelector('#rank-instruction').textContent=advanced?championClassification(family).toUpperCase():'VYBER ÚROVEŇ';
  document.querySelector('.rank-picker').innerHTML=advanced?'':roman.map((r,i)=>`<button class="rank-choice" data-rank="${i+1}" aria-label="${defenderCode(towers[family],i+1)}: ${colors[i]}" aria-pressed="false" style="--rank:${rankColor(i+1)}"><span class="rank-number">${defenderCode(towers[family],i+1)}</span><img src="${portrait(family,i+1)}" alt=""><strong>${colors[i]}</strong></button>`).join('');
@@ -76,7 +86,7 @@ async function showRank(rank){
  animationControls.hidden=true;
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelector('#selected-rank').textContent=advanced?`${championClassification(family).toUpperCase()} · ŠAMPION`:`${defenderCode(towers[family],rank)} · ${colors[rank-1].toUpperCase()}`;
- document.querySelector('#rank-detail').textContent=advanced?`${auraDescriptions[championAuraLevel(family)]} Recept najdeš v herním Grimoáru.`:rank===6?'Zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`;
+ document.querySelector('#rank-detail').textContent=advanced?`${auraDescriptions[championAuraLevel(family)]} Recept najdeš v herním Grimoáru.`:`${rankEquipment[family]?.[rank-1]||''} ${rank===6?'Světle zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`}`;
  document.querySelector('#download-model').href=url;document.querySelector('#download-portrait').href=portrait(family,rank);
  document.querySelector('#load-status').textContent='Načítám model z Blenderu…';
  try{
@@ -127,4 +137,3 @@ function frame(now){
  animateChampionAura(modelAura,previewClock,{reducedMotion:!!reducedMotion?.matches});renderer.render(scene,camera);requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
-
