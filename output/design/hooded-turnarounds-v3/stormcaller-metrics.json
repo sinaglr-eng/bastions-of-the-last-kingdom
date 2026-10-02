@@ -1,0 +1,3340 @@
+[
+  {
+    "family": "stormcaller",
+    "tier": 1,
+    "bodyMetrics": {
+      "triangles": 908,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.28700000047683716,
+        0.0
+      ],
+      "bounds_max": [
+        0.5985000133514404,
+        0.4659999907016754,
+        1.8170000314712524
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_one_simple_zigzag_lightning",
+          "materials": [
+            "MAT_ice"
+          ],
+          "triangles": 20
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 976,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.5985000133514404,
+        0.4659999907016754,
+        1.937000036239624
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_one_simple_zigzag_lightning",
+          "materials": [
+            "MAT_ice"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 976,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 10
+    },
+    "equipment": [
+      "swept_hair",
+      "lightning"
+    ],
+    "rankColor": "#3989ed",
+    "file": "human_stormcaller_t1.glb",
+    "sha256": "e42af6268e10237b11fc957373d06284fdefc9aa589385515b4da25d22036d90",
+    "landmarks": {
+      "basic_defender_stormcaller_t1": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3400000035762787,
+        0.14000000059604645,
+        1.159999966621399
+      ],
+      "hand_R": [
+        0.49000000953674316,
+        0.3999999761581421,
+        1.3600000143051147
+      ],
+      "weapon_R": [
+        0.49000000953674316,
+        0.4000000059604645,
+        1.3600000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3100000023841858,
+        0.03999999910593033,
+        1.100000023841858
+      ],
+      "hand_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "weapon_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "staff_tip": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ],
+      "attack_muzzle": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ]
+    }
+  },
+  {
+    "family": "stormcaller",
+    "tier": 2,
+    "bodyMetrics": {
+      "triangles": 1088,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.44999998807907104,
+        0.0
+      ],
+      "bounds_max": [
+        0.5985000133514404,
+        0.4659999907016754,
+        1.8170000314712524
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Broad_Pointed_Back_Cape",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.002"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_thin_circlet",
+          "materials": [
+            "MAT_gold.001"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_one_simple_zigzag_lightning",
+          "materials": [
+            "MAT_ice.002"
+          ],
+          "triangles": 20
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1156,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.5985000133514404,
+        0.4659999907016754,
+        1.937000036239624
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Broad_Pointed_Back_Cape",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.002"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_thin_circlet",
+          "materials": [
+            "MAT_gold.001"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_one_simple_zigzag_lightning",
+          "materials": [
+            "MAT_ice.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.002"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1156,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 11
+    },
+    "equipment": [
+      "swept_hair",
+      "circlet",
+      "lightning",
+      "cape"
+    ],
+    "rankColor": "#3eac63",
+    "file": "human_stormcaller_t2.glb",
+    "sha256": "0df942082a14a1147b03d2cc28bd2c2c1f9fef83d6a37df6e79c95ab33c3fa65",
+    "landmarks": {
+      "basic_defender_stormcaller_t2": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3400000035762787,
+        0.14000000059604645,
+        1.159999966621399
+      ],
+      "hand_R": [
+        0.49000000953674316,
+        0.3999999761581421,
+        1.3600000143051147
+      ],
+      "weapon_R": [
+        0.49000000953674316,
+        0.4000000059604645,
+        1.3600000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3100000023841858,
+        0.03999999910593033,
+        1.100000023841858
+      ],
+      "hand_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "weapon_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "staff_tip": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ],
+      "attack_muzzle": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ]
+    }
+  },
+  {
+    "family": "stormcaller",
+    "tier": 3,
+    "bodyMetrics": {
+      "triangles": 1088,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.44999998807907104,
+        0.0
+      ],
+      "bounds_max": [
+        0.6388000249862671,
+        0.4659999907016754,
+        1.8170000314712524
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Broad_Pointed_Back_Cape",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.004"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_thin_circlet",
+          "materials": [
+            "MAT_gold.003"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_one_simple_zigzag_lightning",
+          "materials": [
+            "MAT_ice.004"
+          ],
+          "triangles": 20
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1156,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.6388000249862671,
+        0.4659999907016754,
+        1.937000036239624
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Broad_Pointed_Back_Cape",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.004"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_thin_circlet",
+          "materials": [
+            "MAT_gold.003"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_one_simple_zigzag_lightning",
+          "materials": [
+            "MAT_ice.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.004"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1156,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "swept_hair",
+      "circlet",
+      "lightning",
+      "cape",
+      "casting_bracer"
+    ],
+    "rankColor": "#9555d8",
+    "file": "human_stormcaller_t3.glb",
+    "sha256": "9da5db26dbad62a4a9737a25bd27206a5246685dfbd538c8dc8df68673340b8c",
+    "landmarks": {
+      "basic_defender_stormcaller_t3": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3400000035762787,
+        0.14000000059604645,
+        1.159999966621399
+      ],
+      "hand_R": [
+        0.49000000953674316,
+        0.3999999761581421,
+        1.3600000143051147
+      ],
+      "weapon_R": [
+        0.49000000953674316,
+        0.4000000059604645,
+        1.3600000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3100000023841858,
+        0.03999999910593033,
+        1.100000023841858
+      ],
+      "hand_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "weapon_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "staff_tip": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ],
+      "attack_muzzle": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ]
+    }
+  },
+  {
+    "family": "stormcaller",
+    "tier": 4,
+    "bodyMetrics": {
+      "triangles": 1088,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.6449999809265137,
+        0.4659999907016754,
+        1.8170000314712524
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Storm_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.006"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_thin_circlet",
+          "materials": [
+            "MAT_gold.005"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_one_simple_zigzag_lightning",
+          "materials": [
+            "MAT_ice.006"
+          ],
+          "triangles": 20
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1156,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.6449999809265137,
+        0.4659999907016754,
+        1.937000036239624
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Storm_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.006"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_thin_circlet",
+          "materials": [
+            "MAT_gold.005"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_one_simple_zigzag_lightning",
+          "materials": [
+            "MAT_ice.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.006"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1156,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "swept_hair",
+      "circlet",
+      "lightning",
+      "long_cape",
+      "metal_bracers"
+    ],
+    "rankColor": "#eee9db",
+    "file": "human_stormcaller_t4.glb",
+    "sha256": "cac0973e44f58b35c5b3db1979709e78af03ead8ef8204dcf5f169a107e1f79d",
+    "landmarks": {
+      "basic_defender_stormcaller_t4": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3400000035762787,
+        0.14000000059604645,
+        1.159999966621399
+      ],
+      "hand_R": [
+        0.49000000953674316,
+        0.3999999761581421,
+        1.3600000143051147
+      ],
+      "weapon_R": [
+        0.49000000953674316,
+        0.4000000059604645,
+        1.3600000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3100000023841858,
+        0.03999999910593033,
+        1.100000023841858
+      ],
+      "hand_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "weapon_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "staff_tip": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ],
+      "attack_muzzle": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ]
+    }
+  },
+  {
+    "family": "stormcaller",
+    "tier": 5,
+    "bodyMetrics": {
+      "triangles": 1132,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.734000027179718,
+        0.4659999907016754,
+        1.909999966621399
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Storm_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.008"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_broad_circlet",
+          "materials": [
+            "MAT_gold.007"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_one_three_prong_lightning",
+          "materials": [
+            "MAT_ice.008"
+          ],
+          "triangles": 64
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1200,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.734000027179718,
+        0.4659999907016754,
+        2.0299999713897705
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Storm_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.008"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_broad_circlet",
+          "materials": [
+            "MAT_gold.007"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_one_three_prong_lightning",
+          "materials": [
+            "MAT_ice.008"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.008"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1200,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "swept_hair",
+      "broad_circlet",
+      "three_prong_lightning",
+      "long_cape",
+      "metal_bracers"
+    ],
+    "rankColor": "#e7b43f",
+    "file": "human_stormcaller_t5.glb",
+    "sha256": "aa266fef0381df4b93cc02b7b3a16c86e583235eca310371e9219d5986cf9b77",
+    "landmarks": {
+      "basic_defender_stormcaller_t5": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3400000035762787,
+        0.14000000059604645,
+        1.159999966621399
+      ],
+      "hand_R": [
+        0.49000000953674316,
+        0.3999999761581421,
+        1.3600000143051147
+      ],
+      "weapon_R": [
+        0.49000000953674316,
+        0.4000000059604645,
+        1.3600000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3100000023841858,
+        0.03999999910593033,
+        1.100000023841858
+      ],
+      "hand_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "weapon_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "staff_tip": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ],
+      "attack_muzzle": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ]
+    }
+  },
+  {
+    "family": "stormcaller",
+    "tier": 6,
+    "bodyMetrics": {
+      "triangles": 1192,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.7580000162124634,
+        0.4862000048160553,
+        1.9700000286102295
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Storm_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.010"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_broad_circlet",
+          "materials": [
+            "MAT_gold.009"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_shoulder_plate",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "storm_left_shoulder_plate",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "storm_right_small_silver_hand_back_plate",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "storm_one_three_prong_lightning",
+          "materials": [
+            "MAT_ice.010"
+          ],
+          "triangles": 64
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1260,
+      "bounds_min": [
+        -0.44170260429382324,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.7580000162124634,
+        0.4862000048160553,
+        2.0900001525878906
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Storm_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_open_brown_casting_palm",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "storm_one_connected_swept_back_hair",
+          "materials": [
+            "MAT_hair.010"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "storm_plain_broad_circlet",
+          "materials": [
+            "MAT_gold.009"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_simple_round_mantle_clasp",
+          "materials": [
+            "MAT_buckle.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "storm_right_shoulder_plate",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "storm_left_shoulder_plate",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "storm_right_small_silver_hand_back_plate",
+          "materials": [
+            "MAT_steel.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "storm_one_three_prong_lightning",
+          "materials": [
+            "MAT_ice.010"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.010"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1260,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "swept_hair",
+      "broad_circlet",
+      "three_prong_lightning",
+      "long_cape",
+      "metal_bracers",
+      "shoulder_guards",
+      "casting_gauntlet"
+    ],
+    "rankColor": "#ffd969",
+    "file": "human_stormcaller_t6.glb",
+    "sha256": "e3efb01cee788c8901590d631a428df2772b7c880bcefb98898766043c50aacb",
+    "landmarks": {
+      "basic_defender_stormcaller_t6": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3400000035762787,
+        0.14000000059604645,
+        1.159999966621399
+      ],
+      "hand_R": [
+        0.49000000953674316,
+        0.3999999761581421,
+        1.3600000143051147
+      ],
+      "weapon_R": [
+        0.49000000953674316,
+        0.4000000059604645,
+        1.3600000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3100000023841858,
+        0.03999999910593033,
+        1.100000023841858
+      ],
+      "hand_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "weapon_L": [
+        -0.3700000047683716,
+        0.07999999821186066,
+        0.8400000333786011
+      ],
+      "staff_tip": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ],
+      "attack_muzzle": [
+        0.49000000953674316,
+        0.46000000834465027,
+        1.4600000381469727
+      ]
+    }
+  }
+]

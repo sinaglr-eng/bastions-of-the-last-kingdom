@@ -1,0 +1,711 @@
+{
+  "revision": "hooded-turnarounds-v3",
+  "frame": {
+    "front": "+Y",
+    "right": "+X",
+    "up": "+Z",
+    "solesZ": 0
+  },
+  "method": "Visual silhouette and landmark readings from the three approved current PNGs, reconciled by final modeling-notes. Authored dimensions are construction estimates, not completed raster error or IoU claims. Bare working body height H excludes hats/hoods and equipment.",
+  "workingBodyH": 1.682,
+  "referenceFiles": [
+    "druid-variant-b-turnaround.png",
+    "mage-variant-b-turnaround.png",
+    "cleric-variant-b-turnaround.png"
+  ],
+  "sharedLandmarks": {
+    "eyeZ": 1.519,
+    "chinZ": 1.35,
+    "shoulderZ": 1.25,
+    "beltZ": 0.875,
+    "hoodTopZ": 1.8,
+    "staffGrip": [
+      0.489,
+      0.45,
+      0.956
+    ],
+    "emptyLeftWrist": [
+      -0.382,
+      0.081,
+      0.676
+    ],
+    "bookLeftWrist": [
+      -0.446,
+      0.301,
+      0.965
+    ],
+    "robeHemZ": 0.22,
+    "robeHalfWidth": 0.333,
+    "robeHalfDepth": 0.214
+  },
+  "sharedNormalizedLandmarks": {
+    "eyeZ": 0.9030915576694412,
+    "chinZ": 0.8026159334126042,
+    "shoulderZ": 0.7431629013079667,
+    "beltZ": 0.5202140309155767,
+    "hoodTopZ": 1.070154577883472,
+    "robeHemZ": 0.13079667063020214
+  },
+  "sourceObservations": {
+    "druid": "Broad open hood, beige face, dark sleeves, short tunic and tall visible boots. Plain blue collar I; one green connected leaf mantle II+. Two two-prong antlers III+. Rear cape has three broad leaf tips IV+. No book, metal armor or seed stone before V.",
+    "mage": "Continuous long robe, blue pointed hood/cap without brim I, broad bent wizard brim II+. Hat tip bends anatomical left and backward. One violet diamond staff. Shoulder mantle III+, navy IV/VI, slim silver edge VI. Closed book IV/V, open VI, always anatomical left.",
+    "cleric": "Continuous long robe, blue open hood I, folded bishop mitre II+. One broad front stole II+. Plain gold Latin cross on wooden shaft all six. Closed book IV/V, open VI, always anatomical left. Navy shoulders IV; rank cloth shoulders others."
+  },
+  "inferredHiddenConstruction": {
+    "bodyRobe": "Long robe is one closed editable mesh, with inferred hidden pelvis underneath; a simple front slit occurs only in Cleric I where shown.",
+    "cape": "All capes are single open-front U-section physical wraps with seven cross-section landmarks and actual .018 SOLIDIFY thickness; rear/front occlusion is resolved by one garment rather than camera-specific duplicate parts. Druid short wrap: hem .50, spread .40, rearY -.43. Mage/Cleric integrated short shoulder drape: hem .50, spread .315, rearY -.315, waist section narrowed by .90. Long plain wrap: hem .22, spread .41, rearY -.49. Druid three-leaf-tip wrap: hem .14, spread .43, rearY -.52.",
+    "cross": "One fixed XZ-plane Latin cross .054 deep; concept side drawings show more cross-face width than a strict true profile permits, so final construction notes take precedence. All right-hand staffs are held forward at Y=.45, about .21 ahead of the face; profile staff placement was reconciled from the measured forward separation, not treated as a drawing inconsistency.",
+    "leaves": "Staff blades use a fixed XZ-plane folded broad shape with thickness .057. Reference profile leaves appear broader than their front/back thickness determines; no per-camera billboard is used.",
+    "mitre": "VI two points are front/back bishop peaks, with a .115-deep crown valley. Front silhouette preserves the final PNG single apex while making the required two-point structure in depth. Earlier mitres use .042 crown valley. Crown depth narrows toward the peaks: earlier peak Y .046/-.064, VI .083/-.082, versus lower crown Y .126/-.143. One ivory/gold ribbon follows the actual tapered crown to rear as PNG shows; front-only stole never repeats at back.",
+    "antlers": "Two modest antlers, each exactly two ends. Main radius tapers .040 to .016 and prong radius .034 to .014. Each fork separates in true depth: main tip Y -.110, inner-prong tip Y .075, retaining chunky fork silhouettes in both profiles without camera-facing duplicates.",
+    "wizardHat": "Mage I open pointed cap reaches Z 2.015 with its peak swept to Y -.185; rear roof slopes down to Z 1.925, removing the earlier flat profile ridge. II-VI use one closed 12-section annular brim with .022 cloth thickness, rising over the face and falling behind the head. The narrow cone bends anatomical left/back from base (0,-.008,1.742) to tip (-.277,-.285,1.995), with V/VI upper cone .038 higher. Closed surfaces are recalculated then checked by positive signed volume.",
+    "books": "One left holding hand, genuine two covers/page blocks, no simulated extra hand. VI fixed open volume is angled toward viewer, with its leather spine under the one left hand.",
+    "rankBelt": "Mage/Cleric IV-VI belts absent in final PNG and omitted; I-III belts remain. This is a visual detail resolved from current PNG over old models."
+  },
+  "exclusions": [
+    "podium",
+    "runtime_ground_ring",
+    "runtime_rank_VI_aura",
+    "runtime_eight_motes",
+    "camera_facing_equipment"
+  ],
+  "validationStatus": "18/18 corrected builds in Blender 5.2.2 LTS passed two-hand checks. Every evaluated mesh is closed manifold, has positive signed volume and no zero-area faces; sole minimum Z=0. Evaluated triangles 896-1414. Forty-five nonproduction renders (I/III/VI in front/back/left/right/three-quarter) completed and visually reviewed after tapered hat/mitre, sloping brim, chunky antler and integrated short cape corrections. Structural report: output/design/hooded-turnarounds-v3/caster-correction-structural-check.json. Pixel IoU/landmark acceptance and final registered render/export comparison remain unclaimed.",
+  "druid": [
+    {
+      "rank": 1,
+      "cloth": "#3989ed",
+      "ownRight": "wooden_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "rank_hood",
+        "short_split_tunic",
+        "dark_sleeves",
+        "brown_belt",
+        "plain_blue_connected_collar",
+        "wooden_staff",
+        "one_broad_green_staff_leaf",
+        "short_back_cape"
+      ],
+      "forbidden": [
+        "book",
+        "metal_armor",
+        "antlers",
+        "seed_stone",
+        "bark_bracers"
+      ],
+      "staff": {
+        "shaftBottomZ": 0.01,
+        "forkTopZ": 1.958,
+        "shaftRadius": 0.028,
+        "leafCount": 1,
+        "seedStoneCount": 0
+      },
+      "antlerTopZ": null,
+      "capeHemMinZ": 0.5
+    },
+    {
+      "rank": 2,
+      "cloth": "#3eac63",
+      "ownRight": "wooden_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "rank_hood",
+        "short_split_tunic",
+        "dark_sleeves",
+        "brown_belt",
+        "one_green_connected_leaf_mantle",
+        "wooden_staff",
+        "one_broad_green_staff_leaf",
+        "short_back_cape"
+      ],
+      "forbidden": [
+        "book",
+        "metal_armor",
+        "antlers",
+        "seed_stone",
+        "bark_bracers"
+      ],
+      "staff": {
+        "shaftBottomZ": 0.01,
+        "forkTopZ": 1.958,
+        "shaftRadius": 0.028,
+        "leafCount": 1,
+        "seedStoneCount": 0
+      },
+      "antlerTopZ": null,
+      "capeHemMinZ": 0.5
+    },
+    {
+      "rank": 3,
+      "cloth": "#9555d8",
+      "ownRight": "wooden_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "rank_hood",
+        "short_split_tunic",
+        "dark_sleeves",
+        "brown_belt",
+        "one_green_connected_leaf_mantle",
+        "wooden_staff",
+        "one_broad_green_staff_leaf",
+        "short_back_cape",
+        "two_antlers_two_prongs_each"
+      ],
+      "forbidden": [
+        "book",
+        "metal_armor",
+        "seed_stone",
+        "bark_bracers"
+      ],
+      "staff": {
+        "shaftBottomZ": 0.01,
+        "forkTopZ": 1.958,
+        "shaftRadius": 0.028,
+        "leafCount": 1,
+        "seedStoneCount": 0
+      },
+      "antlerTopZ": 2.02,
+      "capeHemMinZ": 0.5
+    },
+    {
+      "rank": 4,
+      "cloth": "#eee9db",
+      "ownRight": "wooden_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "rank_hood",
+        "short_split_tunic",
+        "dark_sleeves",
+        "brown_belt",
+        "one_green_connected_leaf_mantle",
+        "wooden_staff",
+        "two_broad_green_staff_leaves",
+        "three_tip_long_leaf_cape",
+        "two_antlers_two_prongs_each"
+      ],
+      "forbidden": [
+        "book",
+        "metal_armor",
+        "seed_stone",
+        "bark_bracers"
+      ],
+      "staff": {
+        "shaftBottomZ": 0.01,
+        "forkTopZ": 1.984,
+        "shaftRadius": 0.028,
+        "leafCount": 2,
+        "seedStoneCount": 0
+      },
+      "antlerTopZ": 2.02,
+      "capeHemMinZ": 0.14
+    },
+    {
+      "rank": 5,
+      "cloth": "#e7b43f",
+      "ownRight": "wooden_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "rank_hood",
+        "short_split_tunic",
+        "dark_sleeves",
+        "brown_belt",
+        "one_green_connected_leaf_mantle",
+        "wooden_staff",
+        "two_broad_green_staff_leaves",
+        "three_tip_long_leaf_cape",
+        "two_antlers_two_prongs_each",
+        "two_bark_bracers",
+        "one_green_seed_stone"
+      ],
+      "forbidden": [
+        "book",
+        "metal_armor"
+      ],
+      "staff": {
+        "shaftBottomZ": 0.01,
+        "forkTopZ": 1.984,
+        "shaftRadius": 0.028,
+        "leafCount": 2,
+        "seedStoneCount": 1
+      },
+      "antlerTopZ": 2.02,
+      "capeHemMinZ": 0.14
+    },
+    {
+      "rank": 6,
+      "cloth": "#ffd969",
+      "ownRight": "wooden_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "rank_hood",
+        "short_split_tunic",
+        "dark_sleeves",
+        "brown_belt",
+        "one_green_connected_leaf_mantle",
+        "wooden_staff",
+        "two_broad_green_staff_leaves",
+        "three_tip_long_leaf_cape",
+        "two_antlers_two_prongs_each",
+        "two_bark_bracers",
+        "one_green_seed_stone"
+      ],
+      "forbidden": [
+        "book",
+        "metal_armor"
+      ],
+      "staff": {
+        "shaftBottomZ": 0.01,
+        "forkTopZ": 1.984,
+        "shaftRadius": 0.036,
+        "leafCount": 2,
+        "seedStoneCount": 1
+      },
+      "antlerTopZ": 2.02,
+      "capeHemMinZ": 0.14
+    }
+  ],
+  "mage": [
+    {
+      "rank": 1,
+      "cloth": "#3989ed",
+      "ownRight": "wooden_violet_crystal_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "pointed_cap_no_brim",
+        "one_wooden_staff",
+        "one_violet_crystal",
+        "brown_belt"
+      ],
+      "forbidden": [
+        "brim",
+        "separate_shoulder_mantle",
+        "book",
+        "multiple_crystals",
+        "runes"
+      ],
+      "hatTopZ": 2.015,
+      "hatBend": "pointed_cap_swept_back",
+      "crystal": {
+        "centerZ": 1.728,
+        "radius": 0.053,
+        "height": 0.24,
+        "count": 1
+      },
+      "bookCount": 0
+    },
+    {
+      "rank": 2,
+      "cloth": "#3eac63",
+      "ownRight": "wooden_violet_crystal_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "wide_bent_wizard_hat",
+        "one_wooden_staff",
+        "one_violet_crystal",
+        "brown_belt"
+      ],
+      "forbidden": [
+        "separate_shoulder_mantle",
+        "book",
+        "multiple_crystals",
+        "runes"
+      ],
+      "hatTopZ": 2.083,
+      "hatBend": "anatomical_left_and_back",
+      "crystal": {
+        "centerZ": 1.728,
+        "radius": 0.053,
+        "height": 0.24,
+        "count": 1
+      },
+      "bookCount": 0
+    },
+    {
+      "rank": 3,
+      "cloth": "#9555d8",
+      "ownRight": "wooden_violet_crystal_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "wide_bent_wizard_hat",
+        "one_wooden_staff",
+        "one_violet_crystal",
+        "brown_belt",
+        "short_back_cape",
+        "one_connected_shoulder_mantle"
+      ],
+      "forbidden": [
+        "book",
+        "multiple_crystals",
+        "runes"
+      ],
+      "hatTopZ": 2.083,
+      "hatBend": "anatomical_left_and_back",
+      "crystal": {
+        "centerZ": 1.868,
+        "radius": 0.077,
+        "height": 0.312,
+        "count": 1
+      },
+      "bookCount": 0
+    },
+    {
+      "rank": 4,
+      "cloth": "#eee9db",
+      "ownRight": "wooden_violet_crystal_staff",
+      "ownLeft": "closed_spellbook",
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "wide_bent_wizard_hat",
+        "one_wooden_staff",
+        "one_violet_crystal",
+        "short_back_cape",
+        "one_connected_shoulder_mantle",
+        "one_closed_book"
+      ],
+      "forbidden": [
+        "multiple_crystals",
+        "runes"
+      ],
+      "hatTopZ": 2.083,
+      "hatBend": "anatomical_left_and_back",
+      "crystal": {
+        "centerZ": 1.868,
+        "radius": 0.077,
+        "height": 0.312,
+        "count": 1
+      },
+      "bookCount": 1
+    },
+    {
+      "rank": 5,
+      "cloth": "#e7b43f",
+      "ownRight": "wooden_violet_crystal_staff",
+      "ownLeft": "closed_spellbook",
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "wide_bent_wizard_hat",
+        "one_wooden_staff",
+        "one_violet_crystal",
+        "long_back_cape",
+        "one_connected_shoulder_mantle",
+        "one_closed_book",
+        "two_broad_staff_prongs"
+      ],
+      "forbidden": [
+        "multiple_crystals",
+        "runes"
+      ],
+      "hatTopZ": 2.121,
+      "hatBend": "anatomical_left_and_back",
+      "crystal": {
+        "centerZ": 1.934,
+        "radius": 0.091,
+        "height": 0.345,
+        "count": 1
+      },
+      "bookCount": 1
+    },
+    {
+      "rank": 6,
+      "cloth": "#ffd969",
+      "ownRight": "wooden_violet_crystal_staff",
+      "ownLeft": "open_spellbook",
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "wide_bent_wizard_hat",
+        "one_wooden_staff",
+        "one_violet_crystal",
+        "long_back_cape",
+        "one_connected_shoulder_mantle",
+        "one_open_book",
+        "two_broad_staff_prongs",
+        "one_dark_collar_thin_silver_rim"
+      ],
+      "forbidden": [
+        "multiple_crystals",
+        "runes"
+      ],
+      "hatTopZ": 2.121,
+      "hatBend": "anatomical_left_and_back",
+      "crystal": {
+        "centerZ": 1.97,
+        "radius": 0.104,
+        "height": 0.39,
+        "count": 1
+      },
+      "bookCount": 1
+    }
+  ],
+  "cleric": [
+    {
+      "rank": 1,
+      "cloth": "#3989ed",
+      "ownRight": "wooden_gold_latin_cross_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "plain_open_hood",
+        "one_plain_shoulder_mantle",
+        "short_back_cape",
+        "one_wooden_staff",
+        "one_gold_latin_cross",
+        "brown_belt"
+      ],
+      "forbidden": [
+        "sun_disc",
+        "sun_rays",
+        "wings",
+        "physical_halo",
+        "mitre",
+        "stole",
+        "book"
+      ],
+      "mitreTopZ": null,
+      "cross": {
+        "topZ": 1.706,
+        "height": 0.307,
+        "width": 0.252,
+        "thickness": 0.054,
+        "lowerStemFraction": 0.577,
+        "count": 1,
+        "material": "gold"
+      },
+      "shaftMaterial": "wood",
+      "bookCount": 0
+    },
+    {
+      "rank": 2,
+      "cloth": "#3eac63",
+      "ownRight": "wooden_gold_latin_cross_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "plain_deep_mitre",
+        "one_plain_shoulder_mantle",
+        "short_back_cape",
+        "one_wooden_staff",
+        "one_gold_latin_cross",
+        "brown_belt",
+        "one_connected_mitre_ribbon",
+        "one_broad_front_stole"
+      ],
+      "forbidden": [
+        "sun_disc",
+        "sun_rays",
+        "wings",
+        "physical_halo",
+        "book"
+      ],
+      "mitreTopZ": 2.046,
+      "cross": {
+        "topZ": 1.772,
+        "height": 0.307,
+        "width": 0.252,
+        "thickness": 0.054,
+        "lowerStemFraction": 0.577,
+        "count": 1,
+        "material": "gold"
+      },
+      "shaftMaterial": "wood",
+      "bookCount": 0
+    },
+    {
+      "rank": 3,
+      "cloth": "#9555d8",
+      "ownRight": "wooden_gold_latin_cross_staff",
+      "ownLeft": null,
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "plain_deep_mitre",
+        "one_plain_shoulder_mantle",
+        "short_back_cape",
+        "one_wooden_staff",
+        "one_gold_latin_cross",
+        "brown_belt",
+        "one_connected_mitre_ribbon",
+        "one_broad_front_stole"
+      ],
+      "forbidden": [
+        "sun_disc",
+        "sun_rays",
+        "wings",
+        "physical_halo",
+        "book"
+      ],
+      "mitreTopZ": 2.046,
+      "cross": {
+        "topZ": 1.866,
+        "height": 0.344,
+        "width": 0.298,
+        "thickness": 0.054,
+        "lowerStemFraction": 0.577,
+        "count": 1,
+        "material": "gold"
+      },
+      "shaftMaterial": "wood",
+      "bookCount": 0
+    },
+    {
+      "rank": 4,
+      "cloth": "#eee9db",
+      "ownRight": "wooden_gold_latin_cross_staff",
+      "ownLeft": "closed_devotional_book",
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "plain_deep_mitre",
+        "one_plain_shoulder_mantle",
+        "short_back_cape",
+        "one_wooden_staff",
+        "one_gold_latin_cross",
+        "one_connected_mitre_ribbon",
+        "one_broad_front_stole",
+        "one_closed_devotional_book"
+      ],
+      "forbidden": [
+        "sun_disc",
+        "sun_rays",
+        "wings",
+        "physical_halo"
+      ],
+      "mitreTopZ": 2.046,
+      "cross": {
+        "topZ": 1.866,
+        "height": 0.344,
+        "width": 0.298,
+        "thickness": 0.054,
+        "lowerStemFraction": 0.577,
+        "count": 1,
+        "material": "gold"
+      },
+      "shaftMaterial": "wood",
+      "bookCount": 1
+    },
+    {
+      "rank": 5,
+      "cloth": "#e7b43f",
+      "ownRight": "wooden_gold_latin_cross_staff",
+      "ownLeft": "closed_devotional_book",
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "plain_deep_mitre",
+        "one_plain_shoulder_mantle",
+        "long_back_cape",
+        "one_wooden_staff",
+        "one_gold_latin_cross",
+        "one_connected_mitre_ribbon",
+        "one_broad_front_stole",
+        "one_closed_devotional_book"
+      ],
+      "forbidden": [
+        "sun_disc",
+        "sun_rays",
+        "wings",
+        "physical_halo"
+      ],
+      "mitreTopZ": 2.136,
+      "cross": {
+        "topZ": 1.94,
+        "height": 0.382,
+        "width": 0.321,
+        "thickness": 0.054,
+        "lowerStemFraction": 0.577,
+        "count": 1,
+        "material": "gold"
+      },
+      "shaftMaterial": "wood",
+      "bookCount": 1
+    },
+    {
+      "rank": 6,
+      "cloth": "#ffd969",
+      "ownRight": "wooden_gold_latin_cross_staff",
+      "ownLeft": "open_devotional_book",
+      "equipment": [
+        "two_brown_gloves",
+        "two_brown_boots",
+        "one_right_hand_staff",
+        "continuous_long_robe",
+        "plain_deep_mitre",
+        "one_plain_shoulder_mantle",
+        "long_back_cape",
+        "one_wooden_staff",
+        "one_gold_latin_cross",
+        "one_connected_mitre_ribbon",
+        "one_broad_front_stole",
+        "one_open_devotional_book"
+      ],
+      "forbidden": [
+        "sun_disc",
+        "sun_rays",
+        "wings",
+        "physical_halo"
+      ],
+      "mitreTopZ": 2.136,
+      "cross": {
+        "topZ": 1.986,
+        "height": 0.41,
+        "width": 0.345,
+        "thickness": 0.054,
+        "lowerStemFraction": 0.577,
+        "count": 1,
+        "material": "gold"
+      },
+      "shaftMaterial": "wood",
+      "bookCount": 1
+    }
+  ]
+}

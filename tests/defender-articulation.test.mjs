@@ -52,10 +52,20 @@ test('Archer drawing hand pulls the actual bowstring, and cloned materials/verti
   const source=await model(entry('archer')),actor=source.clone(true),rig=attackRig(actor,'archer',towers.archer);
   assert.ok(rig.string&&actor.getObjectByName('forearm_R'));const hand=actor.getObjectByName('hand_R'),before=hand.getWorldPosition(new THREE.Vector3());
   const geometry=meshes(source)[0].geometry,vertices=Array.from(geometry.attributes.position.array);
-  triggerAttack(rig);animateAttack(rig,.14);assert.ok(hand.getWorldPosition(new THREE.Vector3()).distanceTo(before)>.10);
+  triggerAttack(rig);animateAttack(rig,rig.duration*.42);assert.ok(hand.getWorldPosition(new THREE.Vector3()).distanceTo(before)>.10);
   const positions=rig.string.object.geometry.attributes.position,nock=actor.worldToLocal(rig.string.nock.getWorldPosition(new THREE.Vector3()));
   assert.ok(new THREE.Vector3().fromBufferAttribute(positions,1).distanceTo(nock)<1e-6);assert.deepEqual(Array.from(geometry.attributes.position.array),vertices);
   animateAttack(rig,2);assert.ok(hand.getWorldPosition(new THREE.Vector3()).distanceTo(before)<1e-5);disposeAttack(rig);
+});
+
+test('existing Elven Ranger champion retains its authored nock-linked bow at rest and during attacks',async()=>{
+  const actor=(await model(entry('thornwarden'))).clone(true),rig=attackRig(actor,'thornwarden',towers.thornwarden);
+  assert.ok(rig.string);assert.equal(rig.string.restStraight,false);
+  const linked=()=>{
+    actor.updateMatrixWorld(true);const nock=actor.worldToLocal(rig.string.nock.getWorldPosition(new THREE.Vector3()));
+    for(const index of [1,3])assert.ok(new THREE.Vector3().fromBufferAttribute(rig.string.object.geometry.attributes.position,index).distanceTo(nock)<1e-6);
+  };
+  linked();triggerAttack(rig);animateAttack(rig,.14);linked();resetAttack(rig);linked();disposeAttack(rig);
 });
 
 test('Soldier sword follows shoulder/elbow/wrist articulation while the pedestal stays planted',async()=>{

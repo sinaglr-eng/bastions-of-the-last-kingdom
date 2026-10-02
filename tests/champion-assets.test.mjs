@@ -92,7 +92,7 @@ test('the release includes 37 regular champions, two secret champions and all si
   }
   const basicEntries = manifest.filter(entry => entry.kind === 'tower' && basics.includes(entry.family));
   assert.equal(basicEntries.length, 48);
-  assert.equal(basicEntries.filter(entry => entry.style === 'hooded-ranks-v2').length, 48);
+  assert.equal(basicEntries.filter(entry => entry.style === 'hooded-turnarounds-v3').length, 48);
   for (const family of basics) {
     assert.deepEqual(basicEntries.filter(entry => entry.family === family).map(entry => entry.tier).sort(), [1, 2, 3, 4, 5, 6]);
   }

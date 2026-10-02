@@ -92,17 +92,24 @@ export function attackRig(actor,family,stats={}){
   }
   const top=actor.getObjectByName('bow_tip_upper'),bottom=actor.getObjectByName('bow_tip_lower'),nock=actor.getObjectByName('bow_nock');
   if(top&&bottom&&nock){
+    let restStraight=false;actor.traverse(node=>{if(node.userData.bowRestPose==='lowered-hand')restStraight=true;});
     const authored=actor.getObjectByName('authored_bowstring');if(authored){rig.authoredString={node:authored,visible:authored.visible};authored.visible=false;}
     const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(12),3));
     const string=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:'#eee3c9',depthWrite:false,toneMapped:false}));string.name='Articulated taut bowstring';string.raycast=noPick;string.frustumCulled=false;actor.add(string);
-    rig.string={object:string,top,bottom,nock,point:new THREE.Vector3()};rig.owned.push(string);updateBowString(rig);
+    rig.string={object:string,top,bottom,nock,restStraight,draw:0,point:new THREE.Vector3(),topPoint:new THREE.Vector3(),bottomPoint:new THREE.Vector3(),nockPoint:new THREE.Vector3()};rig.owned.push(string);updateBowString(rig);
   }
   return rig;
 }
 function updateBowString(rig){
   if(!rig.string)return;
-  const {object,top,bottom,nock,point}=rig.string,positions=object.geometry.attributes.position;rig.actor.updateMatrixWorld(true);
-  [top,nock,bottom,nock].forEach((node,i)=>{node.getWorldPosition(point);rig.actor.worldToLocal(point);positions.setXYZ(i,point.x,point.y,point.z);});positions.needsUpdate=true;
+  const {object,top,bottom,nock,point,topPoint,bottomPoint,nockPoint,restStraight,draw}=rig.string,positions=object.geometry.attributes.position;rig.actor.updateMatrixWorld(true);
+  rig.actor.worldToLocal(top.getWorldPosition(topPoint));rig.actor.worldToLocal(bottom.getWorldPosition(bottomPoint));
+  rig.actor.worldToLocal(nock.getWorldPosition(point));nockPoint.copy(point);
+  // A lowered free hand in the neutral turnaround pose has not yet caught the
+  // string. Draw/release blends onto that hand's real moving nock. Historical
+  // drawn poses and champion archers keep their existing nock-linked string.
+  if(restStraight)nockPoint.lerpVectors(topPoint,bottomPoint,.5).lerp(point,draw);
+  [topPoint,nockPoint,bottomPoint,nockPoint].forEach((p,i)=>positions.setXYZ(i,p.x,p.y,p.z));positions.needsUpdate=true;
 }
 export function attackMuzzle(rig,out=new THREE.Vector3()){
   if(!rig||rig.disposed||!rig.muzzle)return null;
@@ -143,7 +150,13 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
   if(rig.string||rig.kind==='arrow'){
     // Authored bow joints choose the draw pose independently of projectile FX.
     // Pull the drawing hand away from the bow; the actual string endpoints follow it.
-    move('upper_arm_R',-.12*draw,-.20*draw,-.10*draw);move('forearm_R',.08*draw,-.55*draw,.10*draw);
+    if(rig.string?.restStraight){
+      // The new neutral pose starts with a lowered free hand. Lift the upper
+      // arm and bend the elbow to catch/draw at the chest before releasing.
+      move('upper_arm_R',.62*draw,-.20*draw,-.10*draw);move('forearm_R',1.02*draw,-.35*draw,.08*draw);
+    }else{
+      move('upper_arm_R',-.12*draw,-.20*draw,-.10*draw);move('forearm_R',.08*draw,-.55*draw,.10*draw);
+    }
     move('hand_R',0,-.12*draw,0);move('upper_arm_L',-.035*stroke,0,.05*stroke);move('forearm_L',-.08*stroke,0,0);
     move('bow_pivot',0,-.035*stroke,.045*stroke);
   }else if(rig.kind==='melee'){
@@ -167,6 +180,7 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     else if(['attack_arm','bow_arm'].includes(pivot.name))move(pivot.name,-.34*stroke,0,0);
   }
   if(rig.glow){rig.glow.visible=rig.active&&progress<.92;rig.glow.scale.setScalar(reducedMotion?1:.6+1.55*Math.sin(Math.PI*progress));rig.glow.children[1].rotation.set(reducedMotion?0:progress*3,reducedMotion?0:progress*2,0);}
+  if(rig.string)rig.string.draw=reducedMotion?0:draw;
   updateBowString(rig);
   if(progress>=1)resetAttack(rig);
 }
@@ -175,7 +189,7 @@ export function resetAttack(rig){
   if(rig.native){resetSecretAnimation(rig.native);if(rig.glow)rig.glow.visible=false;return;}
   rig.actor.rotation.x=rig.restX;rig.actor.rotation.z=rig.restZ;
   for(const pivot of rig.pivots){pivot.node.rotation.copy(pivot.rotation);pivot.node.position.copy(pivot.position);}
-  if(rig.glow)rig.glow.visible=false;updateBowString(rig);
+  if(rig.glow)rig.glow.visible=false;if(rig.string)rig.string.draw=0;updateBowString(rig);
 }
 export function disposeAttack(rig){
   if(!rig||rig.disposed)return;resetAttack(rig);

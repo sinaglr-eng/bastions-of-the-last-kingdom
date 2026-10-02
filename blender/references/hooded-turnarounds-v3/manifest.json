@@ -1,0 +1,176 @@
+{
+  "title": "Bastions — Variant B defender turnarounds",
+  "created": "2026-10-02",
+  "mode": "Built-in image_gen",
+  "intendedUse": "Visual concept references for future Blender modeling",
+  "classes": [
+    {
+      "id": "soldier",
+      "file": "soldier-variant-b-turnaround.png",
+      "ranks": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ],
+      "views": [
+        "FRONT",
+        "BACK",
+        "LEFT SIDE",
+        "RIGHT SIDE"
+      ],
+      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fca7-ba6d-7dc3-9cf4-a3da35d78fba\\exec-14795755-5eb0-4b8f-a7af-ee2c55690f77.png"
+    },
+    {
+      "id": "archer",
+      "file": "archer-variant-b-turnaround.png",
+      "ranks": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ],
+      "views": [
+        "FRONT",
+        "BACK",
+        "LEFT SIDE",
+        "RIGHT SIDE"
+      ],
+      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fca7-ba6d-7dc3-9cf4-a3da35d78fba\\exec-6e3738e1-38e0-4b39-ac32-1b5636693bb5.png"
+    },
+    {
+      "id": "druid",
+      "file": "druid-variant-b-turnaround.png",
+      "ranks": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ],
+      "views": [
+        "FRONT",
+        "BACK",
+        "LEFT SIDE",
+        "RIGHT SIDE"
+      ],
+      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fca7-ba6d-7dc3-9cf4-a3da35d78fba\\exec-bbd7e577-2fca-4022-b8e4-08fe5ff53bca.png"
+    },
+    {
+      "id": "mage",
+      "file": "mage-variant-b-turnaround.png",
+      "ranks": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ],
+      "views": [
+        "FRONT",
+        "BACK",
+        "LEFT SIDE",
+        "RIGHT SIDE"
+      ],
+      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fca7-ba6d-7dc3-9cf4-a3da35d78fba\\exec-02312c7c-057c-42c4-a12c-f99fe5c101d4.png"
+    },
+    {
+      "id": "cleric",
+      "file": "cleric-variant-b-turnaround.png",
+      "ranks": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ],
+      "views": [
+        "FRONT",
+        "BACK",
+        "LEFT SIDE",
+        "RIGHT SIDE"
+      ],
+      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fca7-ba6d-7dc3-9cf4-a3da35d78fba\\exec-b4714136-5c6f-48c6-b4cd-c2d03785fa56.png"
+    },
+    {
+      "id": "engineer",
+      "file": "engineer-variant-b-turnaround.png",
+      "ranks": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ],
+      "views": [
+        "FRONT",
+        "BACK",
+        "LEFT SIDE",
+        "RIGHT SIDE"
+      ],
+      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fca7-ba6d-7dc3-9cf4-a3da35d78fba\\exec-f1af14e8-944b-4744-b219-78d78e861a2a.png"
+    },
+    {
+      "id": "frostwarden",
+      "file": "frostwarden-variant-b-turnaround.png",
+      "ranks": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ],
+      "views": [
+        "FRONT",
+        "BACK",
+        "LEFT SIDE",
+        "RIGHT SIDE"
+      ],
+      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fca7-ba6d-7dc3-9cf4-a3da35d78fba\\exec-38e14b84-55f0-42e9-92fb-142a98338ba4.png"
+    },
+    {
+      "id": "stormcaller",
+      "file": "stormcaller-variant-b-turnaround.png",
+      "ranks": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI"
+      ],
+      "views": [
+        "FRONT",
+        "BACK",
+        "LEFT SIDE",
+        "RIGHT SIDE"
+      ],
+      "source": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fca7-ba6d-7dc3-9cf4-a3da35d78fba\\exec-82c109ba-720b-4538-b48e-c2d5fcb36855.png"
+    }
+  ],
+  "totalViews": 192,
+  "latestUserChanges": {
+    "cleric": "Wooden staff topped by a plain gold cross in every rank.",
+    "frostwarden": "Entire spear, including shaft and grip, made of light cyan ice in every rank.",
+    "mage": "Unchanged."
+  },
+  "constructionAuthority": "modeling-notes.txt",
+  "promptFiles": [
+    "prompts.json",
+    "correction-prompts.json",
+    "latest-user-prompts.json",
+    "final-correction-prompts.json",
+    "stormcaller-final-prompt.txt"
+  ],
+  "notes": "Concept drawings, not CAD blueprints. For hidden surfaces and precise material assignment use modeling-notes.txt. Stormcaller VI casting glove needs its small silver back-of-hand plate in the future 3D model; the selected concept keeps the brown glove base.",
+  "noRuntimeEdits": true
+}

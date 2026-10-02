@@ -1,0 +1,978 @@
+{
+  "revision": "hooded-turnarounds-v3",
+  "frame": {
+    "front": "+Y",
+    "right": "+X",
+    "up": "+Z",
+    "solesZ": 0
+  },
+  "method": "Visual landmark readings from the three current approved sheets, reconciled with modeling-notes. Below values are authoring targets, not claimed measured raster IoU or completed render error.",
+  "referenceFiles": [
+    "engineer-variant-b-turnaround.png",
+    "frostwarden-variant-b-turnaround.png",
+    "stormcaller-variant-b-turnaround.png"
+  ],
+  "sharedLandmarks": {
+    "bareSkullTopZ": 1.68,
+    "faceCenterZ": 1.5,
+    "eyeZ": 1.51,
+    "chinZ": 1.35,
+    "shoulderZ": 1.25,
+    "beltZ": 0.88,
+    "bootTopZ": 0.36
+  },
+  "sourceObservations": {
+    "engineer": "Short broad anatomy; simple brown workcap and one copper beard wedge. Goggles sit on cap III–VI. Front leather apron II+, long IV+, broad grey reinforcement V+, single steel chest plate VI only. One carpenter claw IV+.",
+    "frostwarden": "Deep pointed hood with beige opening. One broad ivory collar II+. One continuous ice spear at all ranks. Small shield III/IV and elongated broad shield V/VI. Gloves remain brown. Shoulders VI only.",
+    "stormcaller": "Bare swept back connected dark hair. No headband I. One circlet II+. Raised right casting hand, single simple cyan zigzag I–IV and one connected three-prong glyph V/VI. Long two-point cape IV+."
+  },
+  "inferredHiddenConstruction": {
+    "frostGrip": "One brown rear shield handle, never a weapon shaft wrap. Grip anchors are inferred under the left hand.",
+    "iceSpear": "PNG drawings depict a diamond head and slender cyan shaft; these are reconciled as one watertight connected ice mesh, without a socket.",
+    "stormGlyph": "Front and profile PNGs show broad lightning glyph silhouettes simultaneously, incompatible with the specified fixed thin planar glyph. Notes take priority: one fixed-thickness glyph in the XZ plane, narrow in true profile, no per-camera rotation.",
+    "engineerClaw": "One broad angular claw attached to hammer striking face. Its exact hidden join is inferred; no extra disconnected hammer.",
+    "dwarfScale": "Authoring anatomy, cap, beard, limbs and tools share the common root scale (1.17,1.05,0.87). No rank-specific anatomy scaling."
+  },
+  "exclusions": [
+    "podium",
+    "runtime_ground_ring",
+    "runtime_rank_VI_aura",
+    "runtime_eight_motes",
+    "camera_facing_equipment"
+  ],
+  "validationStatus": "Initial reconstructed geometry and specification; native render/export checks are required before declaring completion.",
+  "engineer": [
+    {
+      "rank": 1,
+      "cloth": "#3989ed",
+      "ownRight": "whole_wooden_mallet",
+      "ownLeft": null,
+      "equipment": [
+        "plain_brown_workcap",
+        "one_copper_beard_wedge",
+        "two_brown_gloves",
+        "brown_boots",
+        "left_hip_ruler",
+        "one_wooden_hammer_handle",
+        "whole_wooden_mallet_head"
+      ],
+      "forbidden": [
+        "apron",
+        "goggles",
+        "armor"
+      ],
+      "capTopZ": 1.79,
+      "beardBottomZ": 1.14,
+      "hammerGrip": [
+        0.49,
+        0.44,
+        1.012
+      ],
+      "dwarfRootScale": [
+        1.17,
+        1.05,
+        0.87
+      ],
+      "hammerHeadCenter": [
+        0.533,
+        0.519,
+        1.452
+      ],
+      "rightElbow": [
+        0.34,
+        0.15,
+        0.95
+      ],
+      "bootWidthRelativeToCommon": 1.15,
+      "beardFrontYOffset": 0.11,
+      "capCrownYOffset": 0.1,
+      "goggleRimFrontY": 0.249
+    },
+    {
+      "rank": 2,
+      "cloth": "#3eac63",
+      "ownRight": "steel_headed_hammer",
+      "ownLeft": null,
+      "equipment": [
+        "plain_brown_workcap",
+        "one_copper_beard_wedge",
+        "two_brown_gloves",
+        "brown_boots",
+        "left_hip_ruler",
+        "one_wooden_hammer_handle",
+        "steel_hammer_head",
+        "front_leather_apron",
+        "two_shoulder_straps"
+      ],
+      "forbidden": [
+        "goggles",
+        "armor",
+        "rivets"
+      ],
+      "capTopZ": 1.79,
+      "beardBottomZ": 1.14,
+      "hammerGrip": [
+        0.49,
+        0.44,
+        1.012
+      ],
+      "dwarfRootScale": [
+        1.17,
+        1.05,
+        0.87
+      ],
+      "hammerHeadCenter": [
+        0.533,
+        0.519,
+        1.452
+      ],
+      "rightElbow": [
+        0.34,
+        0.15,
+        0.95
+      ],
+      "bootWidthRelativeToCommon": 1.15,
+      "beardFrontYOffset": 0.11,
+      "capCrownYOffset": 0.1,
+      "goggleRimFrontY": 0.249
+    },
+    {
+      "rank": 3,
+      "cloth": "#9555d8",
+      "ownRight": "steel_headed_hammer",
+      "ownLeft": null,
+      "equipment": [
+        "plain_brown_workcap",
+        "one_copper_beard_wedge",
+        "two_brown_gloves",
+        "brown_boots",
+        "left_hip_ruler",
+        "one_wooden_hammer_handle",
+        "steel_hammer_head",
+        "front_leather_apron",
+        "two_shoulder_straps",
+        "two_cap_top_goggle_lenses",
+        "right_tool_arm_leather_bracer"
+      ],
+      "forbidden": [
+        "empty_arm_armor",
+        "chest_panel"
+      ],
+      "capTopZ": 1.79,
+      "beardBottomZ": 1.14,
+      "hammerGrip": [
+        0.49,
+        0.44,
+        1.012
+      ],
+      "dwarfRootScale": [
+        1.17,
+        1.05,
+        0.87
+      ],
+      "hammerHeadCenter": [
+        0.533,
+        0.519,
+        1.452
+      ],
+      "rightElbow": [
+        0.34,
+        0.15,
+        0.95
+      ],
+      "bootWidthRelativeToCommon": 1.15,
+      "beardFrontYOffset": 0.11,
+      "capCrownYOffset": 0.1,
+      "goggleRimFrontY": 0.249
+    },
+    {
+      "rank": 4,
+      "cloth": "#eee9db",
+      "ownRight": "steel_carpenter_claw_hammer",
+      "ownLeft": null,
+      "equipment": [
+        "plain_brown_workcap",
+        "one_copper_beard_wedge",
+        "two_brown_gloves",
+        "brown_boots",
+        "left_hip_ruler",
+        "one_wooden_hammer_handle",
+        "steel_hammer_head",
+        "front_leather_apron",
+        "two_shoulder_straps",
+        "two_cap_top_goggle_lenses",
+        "long_wide_apron",
+        "one_carpenter_claw",
+        "right_tool_arm_leather_bracer"
+      ],
+      "forbidden": [
+        "empty_arm_armor",
+        "chest_panel"
+      ],
+      "capTopZ": 1.79,
+      "beardBottomZ": 1.14,
+      "hammerGrip": [
+        0.49,
+        0.44,
+        1.012
+      ],
+      "dwarfRootScale": [
+        1.17,
+        1.05,
+        0.87
+      ],
+      "hammerHeadCenter": [
+        0.533,
+        0.519,
+        1.452
+      ],
+      "rightElbow": [
+        0.34,
+        0.15,
+        0.95
+      ],
+      "bootWidthRelativeToCommon": 1.15,
+      "beardFrontYOffset": 0.11,
+      "capCrownYOffset": 0.1,
+      "goggleRimFrontY": 0.249
+    },
+    {
+      "rank": 5,
+      "cloth": "#e7b43f",
+      "ownRight": "steel_carpenter_claw_hammer",
+      "ownLeft": null,
+      "equipment": [
+        "plain_brown_workcap",
+        "one_copper_beard_wedge",
+        "two_brown_gloves",
+        "brown_boots",
+        "left_hip_ruler",
+        "one_wooden_hammer_handle",
+        "steel_hammer_head",
+        "front_leather_apron",
+        "two_shoulder_straps",
+        "two_cap_top_goggle_lenses",
+        "long_wide_apron",
+        "one_carpenter_claw",
+        "two_steel_forearm_guards",
+        "front_grey_apron_reinforcement"
+      ],
+      "forbidden": [
+        "chest_panel"
+      ],
+      "capTopZ": 1.79,
+      "beardBottomZ": 1.14,
+      "hammerGrip": [
+        0.49,
+        0.44,
+        1.012
+      ],
+      "dwarfRootScale": [
+        1.17,
+        1.05,
+        0.87
+      ],
+      "hammerHeadCenter": [
+        0.533,
+        0.519,
+        1.452
+      ],
+      "rightElbow": [
+        0.34,
+        0.15,
+        0.95
+      ],
+      "bootWidthRelativeToCommon": 1.15,
+      "beardFrontYOffset": 0.11,
+      "capCrownYOffset": 0.1,
+      "goggleRimFrontY": 0.249
+    },
+    {
+      "rank": 6,
+      "cloth": "#ffd969",
+      "ownRight": "steel_carpenter_claw_hammer",
+      "ownLeft": null,
+      "equipment": [
+        "plain_brown_workcap",
+        "one_copper_beard_wedge",
+        "two_brown_gloves",
+        "brown_boots",
+        "left_hip_ruler",
+        "one_wooden_hammer_handle",
+        "steel_hammer_head",
+        "front_leather_apron",
+        "two_shoulder_straps",
+        "two_cap_top_goggle_lenses",
+        "long_wide_apron",
+        "one_carpenter_claw",
+        "two_steel_forearm_guards",
+        "front_grey_apron_reinforcement",
+        "single_front_steel_chest_panel",
+        "short_back_cape"
+      ],
+      "forbidden": [],
+      "capTopZ": 1.79,
+      "beardBottomZ": 1.14,
+      "hammerGrip": [
+        0.49,
+        0.44,
+        1.012
+      ],
+      "dwarfRootScale": [
+        1.17,
+        1.05,
+        0.87
+      ],
+      "hammerHeadCenter": [
+        0.533,
+        0.519,
+        1.452
+      ],
+      "rightElbow": [
+        0.34,
+        0.15,
+        0.95
+      ],
+      "bootWidthRelativeToCommon": 1.15,
+      "beardFrontYOffset": 0.11,
+      "capCrownYOffset": 0.1,
+      "goggleRimFrontY": 0.249
+    }
+  ],
+  "frostwarden": [
+    {
+      "rank": 1,
+      "cloth": "#3989ed",
+      "ownRight": "entire_ice_spear",
+      "ownLeft": null,
+      "equipment": [
+        "open_hood",
+        "tunic",
+        "back_cape",
+        "brown_boots",
+        "two_brown_gloves",
+        "one_continuous_ice_spear"
+      ],
+      "forbidden": [
+        "wood_in_spear",
+        "leather_in_spear",
+        "metal_spear_socket",
+        "shield",
+        "steel_shoulders"
+      ],
+      "spear": {
+        "bottomZ": 0.016,
+        "tipZ": 1.8,
+        "headHeight": 0.47,
+        "headWidth": 0.15,
+        "grip": [
+          0.49,
+          0.48,
+          0.97
+        ],
+        "materials": [
+          "ice"
+        ],
+        "meshCount": 1,
+        "rightElbow": [
+          0.35,
+          0.15,
+          0.95
+        ]
+      },
+      "shield": null
+    },
+    {
+      "rank": 2,
+      "cloth": "#3eac63",
+      "ownRight": "entire_ice_spear",
+      "ownLeft": null,
+      "equipment": [
+        "open_hood",
+        "tunic",
+        "back_cape",
+        "brown_boots",
+        "two_brown_gloves",
+        "one_continuous_ice_spear",
+        "one_connected_ivory_collar"
+      ],
+      "forbidden": [
+        "wood_in_spear",
+        "leather_in_spear",
+        "metal_spear_socket",
+        "shield",
+        "steel_shoulders"
+      ],
+      "spear": {
+        "bottomZ": 0.016,
+        "tipZ": 1.8,
+        "headHeight": 0.47,
+        "headWidth": 0.15,
+        "grip": [
+          0.49,
+          0.48,
+          0.97
+        ],
+        "materials": [
+          "ice"
+        ],
+        "meshCount": 1,
+        "rightElbow": [
+          0.35,
+          0.15,
+          0.95
+        ]
+      },
+      "shield": null
+    },
+    {
+      "rank": 3,
+      "cloth": "#9555d8",
+      "ownRight": "entire_ice_spear",
+      "ownLeft": "ice_shield",
+      "equipment": [
+        "open_hood",
+        "tunic",
+        "back_cape",
+        "brown_boots",
+        "two_brown_gloves",
+        "one_continuous_ice_spear",
+        "one_connected_ivory_collar",
+        "small_hexagonal_ice_shield",
+        "rear_shield_handle"
+      ],
+      "forbidden": [
+        "wood_in_spear",
+        "leather_in_spear",
+        "metal_spear_socket",
+        "steel_shoulders"
+      ],
+      "spear": {
+        "bottomZ": 0.016,
+        "tipZ": 1.8,
+        "headHeight": 0.47,
+        "headWidth": 0.15,
+        "grip": [
+          0.49,
+          0.48,
+          0.97
+        ],
+        "materials": [
+          "ice"
+        ],
+        "meshCount": 1,
+        "rightElbow": [
+          0.35,
+          0.15,
+          0.95
+        ]
+      },
+      "shield": {
+        "width": 0.3,
+        "height": 0.6,
+        "center": [
+          -0.45,
+          0.4,
+          0.93
+        ],
+        "faceRidge": 0.052,
+        "thickness": 0.055,
+        "grip": [
+          -0.45,
+          0.34,
+          0.93
+        ]
+      }
+    },
+    {
+      "rank": 4,
+      "cloth": "#eee9db",
+      "ownRight": "entire_ice_spear",
+      "ownLeft": "ice_shield",
+      "equipment": [
+        "open_hood",
+        "tunic",
+        "back_cape",
+        "brown_boots",
+        "two_brown_gloves",
+        "one_continuous_ice_spear",
+        "one_connected_ivory_collar",
+        "small_hexagonal_ice_shield",
+        "rear_shield_handle",
+        "two_steel_forearm_bracers"
+      ],
+      "forbidden": [
+        "wood_in_spear",
+        "leather_in_spear",
+        "metal_spear_socket",
+        "steel_shoulders"
+      ],
+      "spear": {
+        "bottomZ": 0.016,
+        "tipZ": 1.87,
+        "headHeight": 0.56,
+        "headWidth": 0.2,
+        "grip": [
+          0.49,
+          0.48,
+          0.97
+        ],
+        "materials": [
+          "ice"
+        ],
+        "meshCount": 1,
+        "rightElbow": [
+          0.35,
+          0.15,
+          0.95
+        ]
+      },
+      "shield": {
+        "width": 0.3,
+        "height": 0.6,
+        "center": [
+          -0.45,
+          0.4,
+          0.93
+        ],
+        "faceRidge": 0.052,
+        "thickness": 0.055,
+        "grip": [
+          -0.45,
+          0.34,
+          0.93
+        ]
+      }
+    },
+    {
+      "rank": 5,
+      "cloth": "#e7b43f",
+      "ownRight": "entire_ice_spear",
+      "ownLeft": "ice_shield",
+      "equipment": [
+        "open_hood",
+        "tunic",
+        "back_cape",
+        "brown_boots",
+        "two_brown_gloves",
+        "one_continuous_ice_spear",
+        "one_connected_ivory_collar",
+        "large_hexagonal_ice_shield",
+        "rear_shield_handle",
+        "two_steel_forearm_bracers"
+      ],
+      "forbidden": [
+        "wood_in_spear",
+        "leather_in_spear",
+        "metal_spear_socket",
+        "steel_shoulders"
+      ],
+      "spear": {
+        "bottomZ": 0.016,
+        "tipZ": 1.91,
+        "headHeight": 0.6,
+        "headWidth": 0.23,
+        "grip": [
+          0.49,
+          0.48,
+          0.97
+        ],
+        "materials": [
+          "ice"
+        ],
+        "meshCount": 1,
+        "rightElbow": [
+          0.35,
+          0.15,
+          0.95
+        ]
+      },
+      "shield": {
+        "width": 0.48,
+        "height": 0.92,
+        "center": [
+          -0.45,
+          0.4,
+          0.93
+        ],
+        "faceRidge": 0.075,
+        "thickness": 0.055,
+        "grip": [
+          -0.45,
+          0.34,
+          0.93
+        ]
+      }
+    },
+    {
+      "rank": 6,
+      "cloth": "#ffd969",
+      "ownRight": "entire_ice_spear",
+      "ownLeft": "ice_shield",
+      "equipment": [
+        "open_hood",
+        "tunic",
+        "back_cape",
+        "brown_boots",
+        "two_brown_gloves",
+        "one_continuous_ice_spear",
+        "one_connected_ivory_collar",
+        "large_hexagonal_ice_shield",
+        "rear_shield_handle",
+        "two_steel_forearm_bracers",
+        "two_steel_shoulders"
+      ],
+      "forbidden": [
+        "wood_in_spear",
+        "leather_in_spear",
+        "metal_spear_socket"
+      ],
+      "spear": {
+        "bottomZ": 0.016,
+        "tipZ": 1.98,
+        "headHeight": 0.67,
+        "headWidth": 0.27,
+        "grip": [
+          0.49,
+          0.48,
+          0.97
+        ],
+        "materials": [
+          "ice"
+        ],
+        "meshCount": 1,
+        "rightElbow": [
+          0.35,
+          0.15,
+          0.95
+        ]
+      },
+      "shield": {
+        "width": 0.51,
+        "height": 0.98,
+        "center": [
+          -0.45,
+          0.4,
+          0.93
+        ],
+        "faceRidge": 0.075,
+        "thickness": 0.055,
+        "grip": [
+          -0.45,
+          0.34,
+          0.93
+        ]
+      }
+    }
+  ],
+  "stormcaller": [
+    {
+      "rank": 1,
+      "cloth": "#3989ed",
+      "ownRight": "single_cyan_lightning_above_open_palm",
+      "ownLeft": null,
+      "equipment": [
+        "one_connected_dark_swept_back_hair",
+        "two_brown_gloves",
+        "brown_boots",
+        "one_cyan_lightning"
+      ],
+      "forbidden": [
+        "hood",
+        "staff",
+        "orb",
+        "crown_spikes",
+        "headband",
+        "mantle",
+        "cape",
+        "left_steel_bracer"
+      ],
+      "hair": {
+        "topZ": 1.817,
+        "backmostY": -0.287,
+        "width": 0.55
+      },
+      "castingPalm": [
+        0.49,
+        0.4,
+        1.24
+      ],
+      "glyph": {
+        "bottomZ": 1.3,
+        "height": 0.35,
+        "thickness": 0.028,
+        "plane": "XZ",
+        "prongs": 1,
+        "frontPlaneY": 0.46
+      },
+      "rightElbow": [
+        0.34,
+        0.14,
+        1.04
+      ]
+    },
+    {
+      "rank": 2,
+      "cloth": "#3eac63",
+      "ownRight": "single_cyan_lightning_above_open_palm",
+      "ownLeft": null,
+      "equipment": [
+        "one_connected_dark_swept_back_hair",
+        "two_brown_gloves",
+        "brown_boots",
+        "one_cyan_lightning",
+        "plain_gold_circlet",
+        "connected_short_mantle",
+        "back_cape",
+        "one_simple_round_clasp"
+      ],
+      "forbidden": [
+        "hood",
+        "staff",
+        "orb",
+        "crown_spikes",
+        "left_steel_bracer"
+      ],
+      "hair": {
+        "topZ": 1.817,
+        "backmostY": -0.287,
+        "width": 0.55
+      },
+      "castingPalm": [
+        0.49,
+        0.4,
+        1.24
+      ],
+      "glyph": {
+        "bottomZ": 1.3,
+        "height": 0.35,
+        "thickness": 0.028,
+        "plane": "XZ",
+        "prongs": 1,
+        "frontPlaneY": 0.46
+      },
+      "rightElbow": [
+        0.34,
+        0.14,
+        1.04
+      ]
+    },
+    {
+      "rank": 3,
+      "cloth": "#9555d8",
+      "ownRight": "single_cyan_lightning_above_open_palm",
+      "ownLeft": null,
+      "equipment": [
+        "one_connected_dark_swept_back_hair",
+        "two_brown_gloves",
+        "brown_boots",
+        "one_cyan_lightning",
+        "plain_gold_circlet",
+        "connected_short_mantle",
+        "back_cape",
+        "one_simple_round_clasp",
+        "right_steel_bracer"
+      ],
+      "forbidden": [
+        "hood",
+        "staff",
+        "orb",
+        "crown_spikes",
+        "left_steel_bracer"
+      ],
+      "hair": {
+        "topZ": 1.817,
+        "backmostY": -0.287,
+        "width": 0.55
+      },
+      "castingPalm": [
+        0.49,
+        0.4,
+        1.24
+      ],
+      "glyph": {
+        "bottomZ": 1.3,
+        "height": 0.48,
+        "thickness": 0.028,
+        "plane": "XZ",
+        "prongs": 1,
+        "frontPlaneY": 0.46
+      },
+      "rightElbow": [
+        0.34,
+        0.14,
+        1.04
+      ]
+    },
+    {
+      "rank": 4,
+      "cloth": "#eee9db",
+      "ownRight": "single_cyan_lightning_above_open_palm",
+      "ownLeft": null,
+      "equipment": [
+        "one_connected_dark_swept_back_hair",
+        "two_brown_gloves",
+        "brown_boots",
+        "one_cyan_lightning",
+        "plain_gold_circlet",
+        "connected_short_mantle",
+        "back_cape",
+        "one_simple_round_clasp",
+        "right_steel_bracer",
+        "left_steel_bracer",
+        "long_two_point_cape"
+      ],
+      "forbidden": [
+        "hood",
+        "staff",
+        "orb",
+        "crown_spikes"
+      ],
+      "hair": {
+        "topZ": 1.817,
+        "backmostY": -0.287,
+        "width": 0.55
+      },
+      "castingPalm": [
+        0.49,
+        0.4,
+        1.24
+      ],
+      "glyph": {
+        "bottomZ": 1.3,
+        "height": 0.5,
+        "thickness": 0.028,
+        "plane": "XZ",
+        "prongs": 1,
+        "frontPlaneY": 0.46
+      },
+      "rightElbow": [
+        0.34,
+        0.14,
+        1.04
+      ],
+      "cape": {
+        "lowestHemZ": 0.24,
+        "spreadX": 0.43,
+        "rearY": -0.54,
+        "lowestTipCount": 2,
+        "construction": "one physical wrapped cloth mesh with front opening and two lower tips"
+      }
+    },
+    {
+      "rank": 5,
+      "cloth": "#e7b43f",
+      "ownRight": "single_cyan_lightning_above_open_palm",
+      "ownLeft": null,
+      "equipment": [
+        "one_connected_dark_swept_back_hair",
+        "two_brown_gloves",
+        "brown_boots",
+        "one_cyan_lightning",
+        "plain_gold_circlet",
+        "connected_short_mantle",
+        "back_cape",
+        "one_simple_round_clasp",
+        "right_steel_bracer",
+        "left_steel_bracer",
+        "long_two_point_cape",
+        "three_prong_lightning"
+      ],
+      "forbidden": [
+        "hood",
+        "staff",
+        "orb",
+        "crown_spikes"
+      ],
+      "hair": {
+        "topZ": 1.817,
+        "backmostY": -0.287,
+        "width": 0.55
+      },
+      "castingPalm": [
+        0.49,
+        0.4,
+        1.24
+      ],
+      "glyph": {
+        "bottomZ": 1.3,
+        "height": 0.61,
+        "thickness": 0.028,
+        "plane": "XZ",
+        "prongs": 3,
+        "frontPlaneY": 0.46
+      },
+      "rightElbow": [
+        0.34,
+        0.14,
+        1.04
+      ],
+      "cape": {
+        "lowestHemZ": 0.24,
+        "spreadX": 0.43,
+        "rearY": -0.54,
+        "lowestTipCount": 2,
+        "construction": "one physical wrapped cloth mesh with front opening and two lower tips"
+      }
+    },
+    {
+      "rank": 6,
+      "cloth": "#ffd969",
+      "ownRight": "single_cyan_lightning_above_open_palm",
+      "ownLeft": null,
+      "equipment": [
+        "one_connected_dark_swept_back_hair",
+        "two_brown_gloves",
+        "brown_boots",
+        "one_cyan_lightning",
+        "plain_gold_circlet",
+        "connected_short_mantle",
+        "back_cape",
+        "one_simple_round_clasp",
+        "right_steel_bracer",
+        "left_steel_bracer",
+        "long_two_point_cape",
+        "three_prong_lightning",
+        "two_steel_shoulders",
+        "small_silver_casting_hand_back_plate"
+      ],
+      "forbidden": [
+        "hood",
+        "staff",
+        "orb",
+        "crown_spikes"
+      ],
+      "hair": {
+        "topZ": 1.817,
+        "backmostY": -0.287,
+        "width": 0.55
+      },
+      "castingPalm": [
+        0.49,
+        0.4,
+        1.24
+      ],
+      "glyph": {
+        "bottomZ": 1.3,
+        "height": 0.67,
+        "thickness": 0.028,
+        "plane": "XZ",
+        "prongs": 3,
+        "frontPlaneY": 0.46
+      },
+      "rightElbow": [
+        0.34,
+        0.14,
+        1.04
+      ],
+      "cape": {
+        "lowestHemZ": 0.24,
+        "spreadX": 0.43,
+        "rearY": -0.54,
+        "lowestTipCount": 2,
+        "construction": "one physical wrapped cloth mesh with front opening and two lower tips"
+      }
+    }
+  ],
+  "poseRevision": "Pilot corrections: rigidly forward tools with lowered held-tool elbows, shaped dwarf beard roots/cap for the revised face, and physically wider dwarf toes/cuffs. One fixed model per rank for all views."
+}

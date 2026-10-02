@@ -1,0 +1,4388 @@
+[
+  {
+    "family": "archer",
+    "tier": 1,
+    "bodyMetrics": {
+      "triangles": 1098,
+      "bounds_min": [
+        -0.595447301864624,
+        -0.3176436424255371,
+        0.0
+      ],
+      "bounds_max": [
+        0.4248749911785126,
+        0.6274473071098328,
+        1.7999999523162842
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 52
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1166,
+      "bounds_min": [
+        -0.595447301864624,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.4248749911785126,
+        0.6274473071098328,
+        1.9199999570846558
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 52
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1166,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "bow_pivot",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_R"
+      ],
+      "materialCount": 10
+    },
+    "equipment": [
+      "hood",
+      "quiver",
+      "shortbow"
+    ],
+    "rankColor": "#3989ed",
+    "file": "human_archer_t1.glb",
+    "sha256": "49a217e2ae4559d14bb6e65f827d2aae1ac8e5d5be403f4732a1a7070a459e5c",
+    "landmarks": {
+      "basic_defender_archer_t1": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.33399999141693115,
+        0.15000000596046448,
+        1.0699999332427979
+      ],
+      "hand_L": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_pivot": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3009999990463257,
+        0.01600000075995922,
+        1.1140000820159912
+      ],
+      "hand_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "weapon_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "bow_tip_upper": [
+        -0.4759792983531952,
+        0.5079792737960815,
+        1.6999999284744263
+      ],
+      "bow_tip_lower": [
+        -0.47527220845222473,
+        0.5072721838951111,
+        0.32499998807907104
+      ],
+      "authored_bowstring": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_nock": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "attack_muzzle": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ]
+    }
+  },
+  {
+    "family": "archer",
+    "tier": 2,
+    "bodyMetrics": {
+      "triangles": 1210,
+      "bounds_min": [
+        -0.595447301864624,
+        -0.44999998807907104,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6274473071098328,
+        1.7999999523162842
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "archer_Wrapped_Back_Cape",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 52
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.002"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1278,
+      "bounds_min": [
+        -0.595447301864624,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6274473071098328,
+        1.9199999570846558
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "archer_Wrapped_Back_Cape",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 52
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.002"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1278,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "bow_pivot",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_R"
+      ],
+      "materialCount": 10
+    },
+    "equipment": [
+      "hood",
+      "quiver",
+      "shortbow",
+      "mantle"
+    ],
+    "rankColor": "#3eac63",
+    "file": "human_archer_t2.glb",
+    "sha256": "7f36d6a4bec7dda0cf99d319862274e8bc0067fe9e09f4735e240fe4c63bff8f",
+    "landmarks": {
+      "basic_defender_archer_t2": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.33399999141693115,
+        0.15000000596046448,
+        1.0699999332427979
+      ],
+      "hand_L": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_pivot": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3009999990463257,
+        0.01600000075995922,
+        1.1140000820159912
+      ],
+      "hand_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "weapon_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "bow_tip_upper": [
+        -0.4759792983531952,
+        0.5079792737960815,
+        1.6999999284744263
+      ],
+      "bow_tip_lower": [
+        -0.47527220845222473,
+        0.5072721838951111,
+        0.32499998807907104
+      ],
+      "authored_bowstring": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_nock": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "attack_muzzle": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ]
+    }
+  },
+  {
+    "family": "archer",
+    "tier": 3,
+    "bodyMetrics": {
+      "triangles": 1290,
+      "bounds_min": [
+        -0.614383339881897,
+        -0.44999998807907104,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6463832855224609,
+        1.7999999523162842
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "archer_Wrapped_Back_Cape",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin_back",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.004"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1358,
+      "bounds_min": [
+        -0.614383339881897,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6463832855224609,
+        1.9199999570846558
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "archer_Wrapped_Back_Cape",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin_back",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.004"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1358,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "bow_pivot",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_R"
+      ],
+      "materialCount": 10
+    },
+    "equipment": [
+      "hood",
+      "quiver",
+      "recurve",
+      "mantle",
+      "leather_jerkin"
+    ],
+    "rankColor": "#9555d8",
+    "file": "human_archer_t3.glb",
+    "sha256": "b96947c99d8bd1c08e69360f5685e114c93f85d2835c8b4944aec9a7dccb9159",
+    "landmarks": {
+      "basic_defender_archer_t3": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.33399999141693115,
+        0.15000000596046448,
+        1.0699999332427979
+      ],
+      "hand_L": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_pivot": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3009999990463257,
+        0.01600000075995922,
+        1.1140000820159912
+      ],
+      "hand_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "weapon_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "bow_tip_upper": [
+        -0.4632515013217926,
+        0.49525147676467896,
+        1.840000033378601
+      ],
+      "bow_tip_lower": [
+        -0.4632515013217926,
+        0.49525147676467896,
+        0.2369999885559082
+      ],
+      "authored_bowstring": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_nock": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "attack_muzzle": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ]
+    }
+  },
+  {
+    "family": "archer",
+    "tier": 4,
+    "bodyMetrics": {
+      "triangles": 1274,
+      "bounds_min": [
+        -0.5742477774620056,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6082311868667603,
+        1.868580937385559
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Archer_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin_back",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 52
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.006"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1342,
+      "bounds_min": [
+        -0.5742477774620056,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6082311868667603,
+        1.9885809421539307
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Archer_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin_back",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 52
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.006"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1342,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "bow_pivot",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_R"
+      ],
+      "materialCount": 10
+    },
+    "equipment": [
+      "hood",
+      "quiver",
+      "longbow",
+      "leather_jerkin",
+      "long_cape"
+    ],
+    "rankColor": "#eee9db",
+    "file": "human_archer_t4.glb",
+    "sha256": "91551ac9b85c24db9784528ce35816269ff92f70997c85a545e7ffa72084dd8e",
+    "landmarks": {
+      "basic_defender_archer_t4": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.33399999141693115,
+        0.15000000596046448,
+        1.0699999332427979
+      ],
+      "hand_L": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_pivot": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3009999990463257,
+        0.01600000075995922,
+        1.1140000820159912
+      ],
+      "hand_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "weapon_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "bow_tip_upper": [
+        -0.481636106967926,
+        0.51363605260849,
+        1.9840000867843628
+      ],
+      "bow_tip_lower": [
+        -0.48305031657218933,
+        0.5150502920150757,
+        0.14600002765655518
+      ],
+      "authored_bowstring": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_nock": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "attack_muzzle": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ]
+    }
+  },
+  {
+    "family": "archer",
+    "tier": 5,
+    "bodyMetrics": {
+      "triangles": 1330,
+      "bounds_min": [
+        -0.6374952793121338,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6694952845573425,
+        1.8755810260772705
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Archer_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin_back",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "shoulder_plate_left",
+          "materials": [
+            "MAT_steel.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "shoulder_plate_right",
+          "materials": [
+            "MAT_steel.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.008",
+            "MAT_ivory.008"
+          ],
+          "triangles": 84
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.008"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1398,
+      "bounds_min": [
+        -0.6374952793121338,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6694952845573425,
+        1.995581030845642
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Archer_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin_back",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "shoulder_plate_left",
+          "materials": [
+            "MAT_steel.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "shoulder_plate_right",
+          "materials": [
+            "MAT_steel.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.008",
+            "MAT_ivory.008"
+          ],
+          "triangles": 84
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.008"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1398,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "bow_pivot",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_R"
+      ],
+      "materialCount": 11
+    },
+    "equipment": [
+      "hood",
+      "quiver",
+      "reinforced_recurve",
+      "leather_jerkin",
+      "long_cape",
+      "shoulder_guards"
+    ],
+    "rankColor": "#e7b43f",
+    "file": "human_archer_t5.glb",
+    "sha256": "e864d789f832450bb07bd24a9524ae5bb03d7c25cd07cd2e9a7ca54cf6bb756a",
+    "landmarks": {
+      "basic_defender_archer_t5": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.33399999141693115,
+        0.15000000596046448,
+        1.0699999332427979
+      ],
+      "hand_L": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_pivot": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3009999990463257,
+        0.01600000075995922,
+        1.1140000820159912
+      ],
+      "hand_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "weapon_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "bow_tip_upper": [
+        -0.45618051290512085,
+        0.4881804883480072,
+        1.9800000190734863
+      ],
+      "bow_tip_lower": [
+        -0.45618051290512085,
+        0.4881804883480072,
+        0.14399999380111694
+      ],
+      "authored_bowstring": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_nock": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "attack_muzzle": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ]
+    }
+  },
+  {
+    "family": "archer",
+    "tier": 6,
+    "bodyMetrics": {
+      "triangles": 1350,
+      "bounds_min": [
+        -0.6423460245132446,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6743460297584534,
+        1.879341959953308
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Archer_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin_back",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "silver_chest_edging",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "shoulder_plate_left",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "shoulder_plate_right",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.010",
+            "MAT_steel.006"
+          ],
+          "triangles": 84
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.010"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1418,
+      "bounds_min": [
+        -0.6423460245132446,
+        -0.5400000214576721,
+        0.0
+      ],
+      "bounds_max": [
+        0.4137606918811798,
+        0.6743460297584534,
+        1.9993419647216797
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Pointed_Open_Hood_Shell",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 62
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Archer_Long_Two_Point_Cape",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 68
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "leather_jerkin_back",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "leather_jerkin_side_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "silver_chest_edging",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "shoulder_plate_left",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "shoulder_plate_right",
+          "materials": [
+            "MAT_steel.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Continuous_Recurve_Bow",
+          "materials": [
+            "MAT_wood.010",
+            "MAT_steel.006"
+          ],
+          "triangles": 84
+        },
+        {
+          "name": "Taut_Bow_String",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "bow_wrapped_grip",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Single_Right_Back_Quiver",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Quiver_Mouth_Band",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Arrow_Shaft_0",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_0",
+          "materials": [
+            "MAT_ivory.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_1",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_1",
+          "materials": [
+            "MAT_ivory.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Arrow_Shaft_2",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 16
+        },
+        {
+          "name": "Arrow_Fletching_2",
+          "materials": [
+            "MAT_ivory.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.010"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1418,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "bow_pivot",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_R"
+      ],
+      "materialCount": 11
+    },
+    "equipment": [
+      "hood",
+      "quiver",
+      "master_recurve",
+      "leather_jerkin",
+      "long_cape",
+      "shoulder_guards",
+      "silver_chest_edging"
+    ],
+    "rankColor": "#ffd969",
+    "file": "human_archer_t6.glb",
+    "sha256": "1539f166e126f335f47056a7766d58d5f73a8bb8dc82e38acbb24b77ec22766a",
+    "landmarks": {
+      "basic_defender_archer_t6": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.33399999141693115,
+        0.15000000596046448,
+        1.0699999332427979
+      ],
+      "hand_L": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_pivot": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3009999990463257,
+        0.01600000075995922,
+        1.1140000820159912
+      ],
+      "hand_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "weapon_R": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "bow_tip_upper": [
+        -0.45618051290512085,
+        0.4881804883480072,
+        1.9800000190734863
+      ],
+      "bow_tip_lower": [
+        -0.45618051290512085,
+        0.4881804883480072,
+        0.14100003242492676
+      ],
+      "authored_bowstring": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ],
+      "bow_nock": [
+        0.3100000023841858,
+        0.06599999964237213,
+        0.8600000739097595
+      ],
+      "attack_muzzle": [
+        -0.4880000054836273,
+        0.5199999809265137,
+        1.0460000038146973
+      ]
+    }
+  }
+]

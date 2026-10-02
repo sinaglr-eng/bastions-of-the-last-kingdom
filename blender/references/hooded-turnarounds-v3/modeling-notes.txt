@@ -1,0 +1,141 @@
+BASTIONS — ZÁKLADNÍ OBRÁNCI, VARIANTA B
+Podklady pro čtyři ortografické pohledy každé úrovně I–VI
+
+Účel: návrh budoucího modelování. Tyto poznámky neurčují změnu hry ani nový export modelů.
+Původní postup výbavy: output/design/basic-defender-ranks-v1/progressions.json. Nejnovější výslovné změny uživatele jsou zapsány níže a v latest-design-changes.txt; u Clerica a Frost Wardena nahrazují starší návrh zbraně. Mage zůstává beze změny.
+Tyto finální poznámky určují i drobné části skryté za tělem nebo rukou v některém z pohledů; zakrytí neznamená jiné umístění nebo chybějící výbavu.
+Vzhledová rodina: schválený Hooded Ranger; souvislé široké plochy, hranaté látkové objemy, jednoduchý obličej, minimum drobných dílů.
+
+ORIENTACE A STEJNÁ POSTAVA VE VŠECH POHLEDECH
+„Levá“ a „pravá“ vždy znamenají vlastní levou a pravou stranu POSTAVY.
+ZEPŘEDU: pravá ruka postavy je na levé straně obrázku. Levá ruka postavy je na pravé straně obrázku.
+ZEZADU: pravá ruka postavy je na pravé straně obrázku. Levá ruka postavy je na levé straně obrázku.
+LEVÝ BOK: díváme se na vlastní levou stranu postavy. Obličej míří doleva v obrázku.
+PRAVÝ BOK: díváme se na vlastní pravou stranu postavy. Obličej míří doprava v obrázku.
+Tento systém odpovídá existujícímu Blender rámu: +Y vpřed, +X vlastní pravá strana, −X vlastní levá strana, Z vzhůru.
+
+Při otáčení se mění kamera, nikoli ruce, póza, počet výbavy nebo její upevnění.
+Vzdálenější ruka může být přirozeně zakrytá tělem; nepřidávat druhou zbraň, aby se ukázala v každém pohledu.
+Pohled zezadu nesmí mít obličej, přezku na břiše, přední štólu, přední zástěru nebo prsní plát nakopírované na záda.
+Štít má vpředu hladkou plochu a vzadu jednoduché držadlo/řemen; nesmí být totožný z obou stran.
+Luk, blesk, latinský kříž, ledové kopí a listy ukázat v bočním pohledu se skutečnou tloušťkou. Neotáčet je ke kameře nezávisle na postavě.
+Pro každou úroveň zachovat stejné měřítko, délku končetin, výšku chodidel, hlavy a ramen ve všech čtyřech pohledech.
+Neutrální postoj, ruce mírně od těla a vybavení viditelné, bez bojové animace. Bez perspektivy a bez pohledu shora.
+Přímé pohledy mají v jednom řádku společnou osu země a výškové vodicí linky. Délka zbraně se při otočení nemění.
+
+SPOLEČNÉ BARVY A EFEKTY
+I modrá #3989ed; II zelená #3eac63; III fialová #9555d8; IV slonová kost #eee9db; V zlatá #e7b43f; VI světle zlatá #ffd969.
+Barva úrovně je na látce, plášti a kapuci/klobouku. Ocel zůstává stříbrná, kůže a dřevo hnědé, kůže obličeje béžová.
+Barevná plocha musí zůstat čitelná i u plně obrněného Soldiera; velký tabard a plášť ji uchovávají.
+Všechny úrovně mají barevný kruh pod nohama. I–V nemají tělesnou auru. VI má jemnou zlatou tělesnou záři a osm světlých zlatých částic.
+Aura je samostatný efekt, nevytváří další fyzické části těla ani zbraně. U přesných modelovacích pohledů má být slabá, aby nezakrývala obrysy.
+
+SOLDIER
+Umístění: kopí I, meč II–VI v PRAVÉ ruce. Štít III–VI v LEVÉ ruce. Jediná zbraň, jediný štít.
+Zepředu: volný obličej I–V; zavřená přilba a štěrbina pouze VI. Prsní plát od IV, látkový tabard a pás před tělem. Štít je na pravé straně obrázku.
+Zezadu: prostá zadní část vlasů/přilby, souvislý plášť od ramen, nohy viditelné pod lemem. Žádný další meč, toulec nebo znak. Nezopakovat štítovou čelní plochu jako pancíř zad.
+Levý bok: bližší je štítová ruka; ukázat hloubku štítu a jeho napojení na předloktí. Pravá zbraň zůstává na vzdálenější straně.
+Pravý bok: bližší je ruka se zbraní; ukázat tloušťku čepele/kopí a přilby, odstup zadního pláště od nohou.
+I — holá hlava, modrá tunika, hnědé boty a pás, pouze celé dřevěné kopí včetně hrotu. Bez přilby, meče, štítu a brnění.
+II — zelená tunika, jednoduchá ocelová otevřená přilba, ocelový meč, krátký ramenní plášť. Bez štítu a prsního plátu.
+III — fialová tunika, přilba a meč zachované, přidán plochý hnědý dřevěný štít s velkými prkny. Bez prsního plátu.
+IV — slonovinová tunika/plášť, přidán jediný stříbrný prsní plát. Dřevěný štít zachován; ruce a nohy dosud látka/kůže.
+V — zlatý tabard/plášť, plná jednoduchá ocelová zbroj včetně ramen, předloktí a holení; štít stříbrný železný. Přilba stále otevřená, obličej viditelný.
+VI — světle zlatý tabard a delší plášť, plná zbroj, zavřená hranatá rytířská přilba se štěrbinou, větší stříbrný štít a mírně delší meč. Bez chocholu a koruny.
+
+ARCHER
+Umístění: jediný luk v LEVÉ ruce. Pravá ruka volná pro natažení tětivy. Jediný hnědý toulec na PRAVÉ straně zad, diagonálně; šípy vyčnívají nad pravým ramenem postavy.
+Zepředu: kapuce s otevřeným obličejem, přední rozdělené cípy tuniky, kožená vesta od III. Luk je na pravé straně obrázku; šípy toulece jsou nad levým ramenem obrázku.
+Zezadu: zakrytý zadní objem kapuce, velký souvislý plášť, na něm pravostranný toulec. Ústí toulece vždy u pravého ramene, dno níže k pravému boku. Nevytvářet druhý toulec na opačné straně.
+Levý bok: bližší luk a levá ruka; profil pláště a kapuce, toulec vzdálenější. Luk má viditelnou tloušťku, není druhý luk přidán na záda.
+Pravý bok: bližší pravá ruka a toulec, čitelný odstup válce/hranolu toulece od pláště a šípy; luk zůstává na vzdálenější levé straně.
+I — modrá kapuce/tunika, malý prostý dřevěný krátký luk a malý toulec. Bez ramenního pláště a vesty.
+II — zelená kapuce/tunika, přidán jediný krátký souvislý ramenní plášť a větší toulec; krátký luk zachován.
+III — fialová látka, hnědá kožená vesta a široké nátepníky; luk s výrazně zahnutými konci.
+IV — slonovinová látka, dlouhý cípatý plášť a vyšší dřevěný dlouhý luk; vesta/nátepníky zachovány. Bez kovových ramen.
+V — zlatá látka, dvě malé stříbrné ramenní ochrany, dlouhý plášť; vrstvený hnědý luk se slonovinovými výztuhami.
+VI — světle zlatá hlubší kapuce a dlouhý plášť se dvěma spodními cípy, jediný stříbrný okraj vesty; širší luk se stříbrnými výztuhami. Bez kladek a moderní mechaniky.
+
+DRUID
+Umístění: jediná dřevěná hůl v PRAVÉ ruce; levá ruka volná. Paroží od III je připevněno ke kapuci, po jednom jednoduchém dvouhrotém paroží na každé straně.
+Zepředu: otevřená kapuce, jeden spojený zelený listový límec od II. Hůl na levé straně obrázku, listy/seed kámen na její hlavici.
+Zezadu: zadní kapuce, listový ramenní límec jako jeden oděv, dlouhý plášť od IV končí třemi širokými listovými cípy. Žádný toulec, kniha, štít nebo větve navíc na zádech.
+Levý bok: bližší volná ruka; jeden boční profil paroží a hloubka listového límce. Hůl na vzdálenější straně.
+Pravý bok: bližší ruka s holí, viditelný průchod násady úchopem. List a semenný kámen mají pevný objem, nejsou dalšími plovoucími objekty.
+I — modrá kapuce/tunika, pouze dřevěná rozvětvená hůl s jedním širokým zeleným listem. Bez paroží a listového límce.
+II — zelená látka, přidán jediný spojený zelený listový ramenní límec. Bez paroží.
+III — fialová látka, přidány dvě skromné siluety paroží, každá pouze se dvěma konci.
+IV — slonovinová látka, delší třícípý listový plášť; širší vidlice hole se dvěma velkými listy.
+V — zlatá látka, jednoduché široké nátepníky z kůry, jediný zelený hranatý semenný kámen mezi dvěma listy na holi.
+VI — světle zlatá látka, širší jednodílný listový límec, silnější dubová hůl a větší jediný zelený kámen. Paroží, dva listy a kůrové nátepníky zachovány; bez kovové zbroje.
+
+MAGE
+Umístění: jediná hůl v PRAVÉ ruce, jediná kniha od IV v LEVÉ ruce. Ohyb špičky klobouku zůstává na téže vlastní straně hlavy při každém otočení; výsledný návrh jej vede diagonálně dozadu a k vlastní levé straně. Proto je zepředu špička vpravo v obrázku, zezadu vlevo a v obou bočních pohledech směřuje za hlavu.
+Zepředu: souvislá dlouhá róba, viditelný béžový obličej pod čepicí/kloboukem. Hůl na levé straně obrázku, kniha na pravé. Fialový krystal pouze jeden.
+Zezadu: souvislá látková záda, zadní profil ohnutého klobouku, plášť od III; delší od V. Kniha není připevněná k zádům a nemá druhou kopii.
+Levý bok: bližší levá ruka s knihou od IV; ukázat hřbet a tloušťku zavřené knihy, VI otevření dvou desek/listů. Hůl zůstává vzdálenější.
+Pravý bok: bližší hůl a pravá ruka, čitelné nasazení jediného krystalu a dvou hlavicových hrotů od V. Silná široká obruba klobouku neprochází obličejem.
+I — modrá dlouhá úzká róba, malá vzpřímená špičatá čepice bez krempy, tenká dřevěná hůl s malým fialovým krystalem. Bez knihy a ramenního pláště.
+II — zelená róba, široká krempa a lehce ohnutý špičatý klobouk; malý krystal zachován. Bez knihy a ramenního límce.
+III — fialová róba, krátký spojený ramenní plášť, znatelně větší jediný fialový krystal.
+IV — slonovinová róba s tmavými rukávy, přidána jedna zavřená hnědá kniha. Krempa, límec a krystal zachovány.
+V — zlatá róba, mírně vyšší klobouk a delší zadní plášť, velký fialový krystal ve dvou širokých prostých hrotech; zavřená kniha zachována.
+VI — světle zlatá róba, vyšší ohnutý klobouk, dlouhý plášť, jeden tmavý ramenní límec s jednoduchým stříbrným okrajem; velký jediný krystal a otevřená kniha. Bez sbírky koulí a drobných run.
+
+CLERIC
+Umístění: jediná DŘEVĚNÁ hůl se zřetelným ZLATÝM LATINSKÝM KŘÍŽEM na vrcholu v PRAVÉ ruce, kniha od IV v LEVÉ ruce. Kříž má delší spodní svislé rameno, kratší horní rameno a dvě krátká rovná vodorovná ramena. Nejpozdější změna platí pro VŠECHNY úrovně I–VI: žádný sluneční kotouč ani paprsky. Štóla od II je jeden široký svislý pás vpředu. Mitra není klasický kouzelnický klobouk.
+Zepředu: dlouhá róba, od II jednoduchá mitra a přední štóla. Hůl na levé straně obrázku, kniha na pravé. Jediný jednoduchý hranatý zlatý latinský kříž je čitelný již od I; nezaměnit jej za stejně dlouhá ramena znaku plus nebo hvězdu.
+Zezadu: zadní plocha mitry a souvislý plášť; nepřidávat kopii štóly doprostřed zad. Kniha a hůl s křížem zůstávají v rukou po stranách. Zadní strana kříže patří stejnému jednomu dílu.
+Levý bok: bližší kniha od IV, viditelná síla dlouhé róby a odstup pláště od těla. Mitra má pevnou předozadní hloubku.
+Pravý bok: bližší dřevěná hůl; kříž má pevnou malou hloubku, v přímém profilu je úzký. Není plovoucí symbol a neotáčí se samostatně ke kameře.
+I — modrá róba, prostá kapuce, dřevěná hůl s malým, ale zřetelným zlatým LATINSKÝM KŘÍŽEM. Bez mitry, štóly a knihy.
+II — zelená róba, nízká prostá mitra místo vrcholu kapuce a jediná široká slonovinová přední štóla. Stejná dřevěná hůl se zlatým latinským křížem.
+III — fialová róba, mitra a štóla zachované; jednoduchý latinský kříž může být širší a čitelnější, stále bez kotouče a paprsků. Bez knihy a další svatozáře.
+IV — slonovinová róba, tmavá ramena, světle zlatá přední štóla pro kontrast; krátký ramenní plášť a zavřená hnědá kniha. Dřevěná hůl se zlatým latinským křížem zachována.
+V — zlatá róba, vyšší a širší mitra, delší plášť, slonovinová štóla a zavřená kniha. Hlavice hole je větší prostý zlatý latinský kříž, bez slunečních dílů a ozdobných paprsků.
+VI — světle zlatá róba, prostá dvouhrotá mitra, dlouhý plášť a otevřená kniha; výrazný jednoduchý zlatý LATINSKÝ KŘÍŽ na dřevěné holi. Bez křídel, slunečního kotouče, paprsků a svatozáře nad hlavou.
+
+ENGINEER
+Umístění: kratší široká trpasličí postava, kladivo v PRAVÉ ruce, pravítko na LEVÉ straně opasku. Brýle od III vždy nahoře na čepici, nikdy před očima. Vous je jeden měděný klín.
+Zepředu: hnědá pracovní čepice, tvář a měděný vous, zástěra od II. Kladivo na levé straně obrázku, pravítko na pravém boku obrázku. Jediný prsní ochranný panel pouze VI.
+Zezadu: hnědá čepice, látková tunika, jednoduché upevnění zástěry kolem pasu a ramen. Zástěra je vpředu, zezadu není její druhá plná kopie. Krátký plášť pouze VI.
+Levý bok: bližší pravítko a volná ruka; viditelný profil zástěry a přezky, vous vystupuje pouze dopředu.
+Pravý bok: bližší kladivo a pracovní nátepník od III. U kladiva od IV zachovat jednu širokou zadní tesařskou čelist; otáčí se se skutečným nástrojem, neodděluje se do druhého kladiva.
+I — modrá pracovní tunika, hnědá čepice, měděný vous, malé celé dřevěné paličkové kladivo a rovné pravítko. Bez zástěry, brýlí a zbroje.
+II — zelená tunika, jednoduchá hnědá zástěra a železná hlavice kladiva na dřevěné násadě.
+III — fialová tunika, brýle na čepici a široký kožený nátepník na pravém pracovním předloktí.
+IV — slonovinová tunika, delší a širší zástěra, větší stříbrné tesařské kladivo s jednou hranatou čelistí.
+V — zlatá tunika, dva jednoduché stříbrné předloketní chrániče a široký šedý výztužný pás přes předek zástěry.
+VI — světle zlatá tunika/krátký plášť, jediný stříbrný ochranný prsní panel na zástěře, větší široké stříbrné mistrovské kladivo s čelistí. Zachovat pravítko, brýle a dva předloketní chrániče. Bez stroje a střelné zbraně.
+
+FROST WARDEN
+Umístění: jediné CELÉ LEDOVÉ KOPÍ v PRAVÉ ruce, jediný ledový štít od III v LEVÉ ruce. Nejpozdější změna platí pro VŠECHNY úrovně I–VI: kopí tvoří ledový hrot, ledová násada a ledová část úchopu v jednom souvislém světle cyanovém materiálu. Žádná hnědá dřevěná násada, kožené omotání úchopu, kovová objímka nebo kovový spoj zbraně. Hnědé boty/rukavice a postupně přidávané ocelové části oděvu zůstávají platné. Límec od II je jeden široký souvislý slonovinový pás, ne jednotlivé chlupy kožešiny.
+Zepředu: hluboká kapuce, souvislé ledové kopí na levé straně obrázku, štít na pravé. Ledová násada pokračuje skrz úchop ruky až k dolnímu konci; žádná skrytá dřevěná rukojeť. Zachovat velké barevné plochy látky pod světlým límcem.
+Zezadu: souvislá kapuce a zimní plášť, zadní část slonovinového límce. Štít zezadu má držadlo a ruka jej opravdu drží, není nalepen na záda.
+Levý bok: bližší štít; jeho šestiboký profil má mělkou tloušťku a široké fasety, stále je jeden celek. Ledové kopí je vzdálenější a materiál jeho násady se nemění ani při částečném zakrytí tělem.
+Pravý bok: bližší celé ledové kopí s jedním čistým horním hrotem; jasný profil límce a těžšího zadního pláště. Žádný dřevěný nebo kovový přechod mezi ledovým hrotem a ledovou násadou. Žádné další ledové střepy na oblečení.
+I — modrá kapuce/tunika, krátký plášť, jednoduché malé CELÉ LEDOVÉ KOPÍ včetně násady a úchopu. Bez štítu a zimního límce.
+II — zelená látka, přidán jediný široký slonovinový zimní límec. Celé ledové kopí zachováno; bez štítu.
+III — fialová látka, přidán malý plochý šestiboký světle cyanový ledový štít. Kopí zůstává celé ledové.
+IV — slonovinová látka, dva široké stříbrné nátepníky a delší špičatý ledový hrot kopí. Násada i úchop nadále ledové, bez kovových spojů. Malý štít zachován.
+V — zlatá látka, delší těžší plášť, velký protáhlý šestiboký ledový štít s širokými fasetami. Kopí nadále celý jeden ledový útvar s výraznějším horním hrotem.
+VI — světle zlatá hluboká kapuce a dlouhý zimní plášť, dvě prosté stříbrné ramenní ochrany, výraznější mistrovské CELÉ LEDOVÉ KOPÍ s velkým hranatým horním hrotem. Násada a úchop rovněž ledové, žádná kovová objímka. Velký štít zachován; bez koruny a plovoucích krystalů.
+
+STORMCALLER
+Umístění: jediný cyanový blesk nad otevřenou PRAVOU rukou; levá ruka volná. Vlasy jeden souvislý tmavý dozadu česaný tvar. Čelenka od II je obyčejný pás kolem čela, nikoli koruna.
+Zepředu: odkrytá hlava a tvář, čelenka od II; zvýšená pravá ruka s bleskem na levé straně obrázku. Látka tuniky stále jasně čitelná.
+Zezadu: souvislý zezadu viditelný účes, krátký/dlouhý plášť, čelenka pouze jako souvislý pás. Žádná kapuce, hůl nebo štít.
+Levý bok: bližší volná ruka a od IV druhý nátepník; blesk na vzdálenější straně. Profil vlasů se zvedá a stáčí dozadu.
+Pravý bok: bližší otevřená sesílací ruka a blesk. Cyanový znak má skutečnou tloušťku; v profilu je úzký, neotáčí se ke každé kameře. Rukavice VI patří právě pravé sesílací ruce.
+I — modrá prostá krátká tunika, holá hlava s tmavými vlasy, malý jednoduchý cyanový cikcak nad pravou dlaní. Bez čelenky a ramenního pláště.
+II — zelená tunika, tenká mosazná čelenka a krátký spojený ramenní plášť.
+III — fialová tunika, široký stříbrný nátepník na pravém sesílacím předloktí, větší jediný cikcak.
+IV — slonovinová tunika, dlouhý zadní plášť se dvěma cípy, přidán levý stříbrný nátepník.
+V — zlatá tunika, širší prostá čelenka bez hrotů; blesk má tři ramena, stále jeden spojený útvar.
+VI — světle zlatá tunika/dlouhý plášť, dvě prosté stříbrné ramenní ochrany, pravá sesílací ruka má širokou stříbrnou rukavici/chránič, větší jediný trojramenný blesk. Bez hole, koulí, křídel a špičaté koruny.
+
+KONTROLA PŘED DALŠÍM MODELOVÁNÍM
+Každá třída: šest úrovní krát čtyři pohledy = 24 pohledů. Celkem osm tříd = 192 pohledů.
+U každého řádku porovnat přední/zadní/oba boční pohledy: stejná výbava, stejná vlastní ruka, stejný počet a materiál dílů, stejné barvy a stejné délky.
+Zadní návrhy jsou nově dopracovaná konstrukce dosud neviditelných částí: jednoduché pevné uchycení, bez nové herní výbavy a dekorací.
+Pokud automaticky vytvořený obrázek zrcadlí zbraň, mění počet listů/výbavy, ukazuje sluneční díly u Clerica nebo dřevěnou/kovovou část Frostova kopí, opravit jej podle tohoto seznamu před použitím jako modelovací reference. Pro drobné přirozeně zakryté části platí zde uvedené finální konstrukční poznámky.

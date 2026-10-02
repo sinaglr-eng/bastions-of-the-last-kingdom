@@ -36,20 +36,27 @@ test('dedicated native secret authoring accepts family/no-render flags and prese
 test('full roster regeneration routes basic families to the faceted generator before generic human finalization',()=>{
   const army=source('author_army');
   assert.match(army,/basic_families=\[f for f in families if f in BASIC\]/);
-  assert.match(army,/author_defender_ranks_v2\.OUT=OUT/);
-  assert.match(army,/author_defender_ranks_v2\.generate\('\,'\.join\(basic_families\),render=render\)/);
-  const dispatch=army.indexOf('author_defender_ranks_v2.generate('),exclude=army.indexOf('families=[f for f in families if f not in BASIC]');
+  assert.match(army,/author_defender_turnarounds_v3\.OUT=OUT/);
+  assert.match(army,/author_defender_turnarounds_v3\.generate\('\,'\.join\(basic_families\),render=render,publish=True\)/);
+  const dispatch=army.indexOf('author_defender_turnarounds_v3.generate('),exclude=army.indexOf('families=[f for f in families if f not in BASIC]');
   assert.ok(dispatch>=0&&exclude>dispatch);
   assert.ok(exclude<army.indexOf('articulation.finalize(fam)',dispatch),'Generic smooth anatomy must never replace the faceted basic ranks');
 });
 
-test('dedicated basic authoring exports only its selected rank and preserves other manifest records',()=>{
-  const basic=source('author_defender_ranks_v2');
-  assert.match(basic,/def generate\(families=None,render=True,quick=False,manifest=True\):/);
+test('dedicated turnaround authoring stages verified selected ranks and publishes without replacing other manifest records',()=>{
+  const basic=source('author_defender_turnarounds_v3');
+  assert.match(basic,/def generate\([^)]*families=None[^)]*render=True[^)]*publish=False[^)]*\):/);
   assert.match(basic,/export_extras=True/);
   assert.match(basic,/use_selection=True/);
+  assert.match(basic,/export_cameras=False,export_lights=False/);
+  assert.match(basic,/export\(b,EXPORTS\/filename\)/);
+  assert.match(basic,/roundtrip\(EXPORTS\/filename,game_metrics,family,rank\)/);
+  const verify=basic.indexOf('verified=roundtrip('),publish=basic.indexOf('if publish:');
+  assert.ok(verify>=0&&publish>verify,'GLBs must be verified before copying into live assets');
+  assert.match(basic,/shutil\.copyfile\(EXPORTS\/entry\['file'\],OUT\/entry\['file'\]\)/);
   assert.match(basic,/e\.get\('family'\)==family and e\.get\('tier'\)==rank/);
   assert.match(basic,/parser\.add_argument\('--family'\)/);
   assert.match(basic,/parser\.add_argument\('--no-render',action='store_true'\)/);
-  assert.match(basic,/generate\(args\.family,not args\.no_render,args\.quick,not args\.no_manifest\)/);
+  assert.match(basic,/parser\.add_argument\('--publish-assets',action='store_true'\)/);
+  assert.match(basic,/generate\(args\.family,not args\.no_render,args\.quick,[^\n]*publish=args\.publish_assets\)/);
 });

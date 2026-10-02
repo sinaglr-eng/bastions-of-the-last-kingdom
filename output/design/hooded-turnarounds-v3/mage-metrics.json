@@ -1,0 +1,3304 @@
+[
+  {
+    "family": "mage",
+    "tier": 1,
+    "bodyMetrics": {
+      "triangles": 896,
+      "bounds_min": [
+        -0.44651493430137634,
+        -0.24699999392032623,
+        0.0
+      ],
+      "bounds_max": [
+        0.5419999957084656,
+        0.5194575786590576,
+        2.015000104904175
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Mage_Pointed_No_Brim_Cap",
+          "materials": [
+            "MAT_blue",
+            "MAT_navy"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket_Other_Side",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 964,
+      "bounds_min": [
+        -0.44651493430137634,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.5419999957084656,
+        0.5194575786590576,
+        2.135000228881836
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Mage_Pointed_No_Brim_Cap",
+          "materials": [
+            "MAT_blue",
+            "MAT_navy"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket_Other_Side",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 964,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 10
+    },
+    "equipment": [
+      "pointed_cap",
+      "crystal_staff"
+    ],
+    "rankColor": "#3989ed",
+    "file": "human_mage_t1.glb",
+    "sha256": "ff1957bb4bc55f355eb4038333080581b891ed32be17ff762c86e451f90faffb",
+    "landmarks": {
+      "basic_defender_mage_t1": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3580000102519989,
+        0.1469999998807907,
+        1.1169999837875366
+      ],
+      "hand_R": [
+        0.46000000834465027,
+        0.4320000410079956,
+        1.0759999752044678
+      ],
+      "weapon_R": [
+        0.46000000834465027,
+        0.4320000112056732,
+        1.0759999752044678
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3540000021457672,
+        0.03500000014901161,
+        1.0410000085830688
+      ],
+      "hand_L": [
+        -0.38199999928474426,
+        0.08100000023841858,
+        0.7960000038146973
+      ],
+      "weapon_L": [
+        -0.38199999928474426,
+        0.08100000023841858,
+        0.7960000038146973
+      ],
+      "staff_tip": [
+        0.48899999260902405,
+        0.44999998807907104,
+        1.8480000495910645
+      ],
+      "attack_muzzle": [
+        0.48899999260902405,
+        0.44999998807907104,
+        1.8480000495910645
+      ]
+    }
+  },
+  {
+    "family": "mage",
+    "tier": 2,
+    "bodyMetrics": {
+      "triangles": 1068,
+      "bounds_min": [
+        -0.453000009059906,
+        -0.3370000123977661,
+        0.0
+      ],
+      "bounds_max": [
+        0.5419999957084656,
+        0.5194575786590576,
+        2.0829999446868896
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.002",
+            "MAT_navy.002"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket_Other_Side",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.002"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1136,
+      "bounds_min": [
+        -0.453000009059906,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.5419999957084656,
+        0.5194575786590576,
+        2.203000068664551
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.002",
+            "MAT_navy.002"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket_Other_Side",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.002"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1136,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 10
+    },
+    "equipment": [
+      "wide_hat",
+      "crystal_staff"
+    ],
+    "rankColor": "#3eac63",
+    "file": "human_mage_t2.glb",
+    "sha256": "986763cf9c6e1152cb2a702cd47bae400f225d038e7e057f2b2c95553e943349",
+    "landmarks": {
+      "basic_defender_mage_t2": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3580000102519989,
+        0.1469999998807907,
+        1.1169999837875366
+      ],
+      "hand_R": [
+        0.46000000834465027,
+        0.4320000410079956,
+        1.0759999752044678
+      ],
+      "weapon_R": [
+        0.46000000834465027,
+        0.4320000112056732,
+        1.0759999752044678
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3540000021457672,
+        0.03500000014901161,
+        1.0410000085830688
+      ],
+      "hand_L": [
+        -0.38199999928474426,
+        0.08100000023841858,
+        0.7960000038146973
+      ],
+      "weapon_L": [
+        -0.38199999928474426,
+        0.08100000023841858,
+        0.7960000038146973
+      ],
+      "staff_tip": [
+        0.48899999260902405,
+        0.44999998807907104,
+        1.8480000495910645
+      ],
+      "attack_muzzle": [
+        0.48899999260902405,
+        0.44999998807907104,
+        1.8480000495910645
+      ]
+    }
+  },
+  {
+    "family": "mage",
+    "tier": 3,
+    "bodyMetrics": {
+      "triangles": 1228,
+      "bounds_min": [
+        -0.453000009059906,
+        -0.3370000123977661,
+        0.0
+      ],
+      "bounds_max": [
+        0.5659999847412109,
+        0.5194575786590576,
+        2.0829999446868896
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.004",
+            "MAT_navy.004"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Plain_Caster_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Caster_Short_Back_Cape",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket_Other_Side",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.004"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1296,
+      "bounds_min": [
+        -0.453000009059906,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.5659999847412109,
+        0.5194575786590576,
+        2.203000068664551
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.004",
+            "MAT_navy.004"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Plain_Caster_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Caster_Short_Back_Cape",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket_Other_Side",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.004"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1296,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 11
+    },
+    "equipment": [
+      "wide_hat",
+      "crystal_staff",
+      "mantle"
+    ],
+    "rankColor": "#9555d8",
+    "file": "human_mage_t3.glb",
+    "sha256": "ac0af8e124212f5059fbb851bec3b425ab742267a7da65285b05fe38b2c25639",
+    "landmarks": {
+      "basic_defender_mage_t3": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3580000102519989,
+        0.1469999998807907,
+        1.1169999837875366
+      ],
+      "hand_R": [
+        0.46000000834465027,
+        0.4320000410079956,
+        1.0759999752044678
+      ],
+      "weapon_R": [
+        0.46000000834465027,
+        0.4320000112056732,
+        1.0759999752044678
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3540000021457672,
+        0.03500000014901161,
+        1.0410000085830688
+      ],
+      "hand_L": [
+        -0.38199999928474426,
+        0.08100000023841858,
+        0.7960000038146973
+      ],
+      "weapon_L": [
+        -0.38199999928474426,
+        0.08100000023841858,
+        0.7960000038146973
+      ],
+      "staff_tip": [
+        0.48899999260902405,
+        0.44999998807907104,
+        1.9880000352859497
+      ],
+      "attack_muzzle": [
+        0.48899999260902405,
+        0.44999998807907104,
+        1.9880000352859497
+      ]
+    }
+  },
+  {
+    "family": "mage",
+    "tier": 4,
+    "bodyMetrics": {
+      "triangles": 1332,
+      "bounds_min": [
+        -0.5258713960647583,
+        -0.3370000123977661,
+        0.0
+      ],
+      "bounds_max": [
+        0.5659999847412109,
+        0.5194575786590576,
+        2.0829999446868896
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.006",
+            "MAT_navy.006"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Plain_Caster_Shoulder_Mantle",
+          "materials": [
+            "MAT_navy.006"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Caster_Short_Back_Cape",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_Spellbook_One_Plain_Page_Block",
+          "materials": [
+            "MAT_ivory.003"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Front_Leather_Cover",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Rear_Leather_Cover",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Leather_Spine",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket_Other_Side",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.006"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1400,
+      "bounds_min": [
+        -0.5258713960647583,
+        -0.4634999930858612,
+        0.0
+      ],
+      "bounds_max": [
+        0.5659999847412109,
+        0.5194575786590576,
+        2.203000068664551
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.006",
+            "MAT_navy.006"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Plain_Caster_Shoulder_Mantle",
+          "materials": [
+            "MAT_navy.006"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Caster_Short_Back_Cape",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_Spellbook_One_Plain_Page_Block",
+          "materials": [
+            "MAT_ivory.003"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Front_Leather_Cover",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Rear_Leather_Cover",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Leather_Spine",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Small_Plain_Wooden_Crystal_Socket_Other_Side",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.006"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 0.0,
+      "triangles": 1400,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 11
+    },
+    "equipment": [
+      "wide_hat",
+      "crystal_staff",
+      "mantle",
+      "closed_book"
+    ],
+    "rankColor": "#eee9db",
+    "file": "human_mage_t4.glb",
+    "sha256": "f0792c8cfe02519b4ca462357c24195e1403cb6a4b3d1628f08d3e145f87daa5",
+    "landmarks": {
+      "basic_defender_mage_t4": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3580000102519989,
+        0.1469999998807907,
+        1.1169999837875366
+      ],
+      "hand_R": [
+        0.46000000834465027,
+        0.4320000410079956,
+        1.0759999752044678
+      ],
+      "weapon_R": [
+        0.46000000834465027,
+        0.4320000112056732,
+        1.0759999752044678
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3529999852180481,
+        0.02199999988079071,
+        1.1059999465942383
+      ],
+      "hand_L": [
+        -0.44600000977516174,
+        0.3009999990463257,
+        1.084999918937683
+      ],
+      "weapon_L": [
+        -0.44600000977516174,
+        0.3009999990463257,
+        1.084999918937683
+      ],
+      "staff_tip": [
+        0.48899999260902405,
+        0.44999998807907104,
+        1.9880000352859497
+      ],
+      "attack_muzzle": [
+        0.48899999260902405,
+        0.44999998807907104,
+        1.9880000352859497
+      ]
+    }
+  },
+  {
+    "family": "mage",
+    "tier": 5,
+    "bodyMetrics": {
+      "triangles": 1356,
+      "bounds_min": [
+        -0.5258713960647583,
+        -0.49000000953674316,
+        0.0
+      ],
+      "bounds_max": [
+        0.6262478232383728,
+        0.5288082957267761,
+        2.121000051498413
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.008",
+            "MAT_navy.008"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Plain_Caster_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Caster_Long_Back_Cape",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_Spellbook_One_Plain_Page_Block",
+          "materials": [
+            "MAT_ivory.005"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Front_Leather_Cover",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Rear_Leather_Cover",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Leather_Spine",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Left_Single_Broad_Crystal_Prongs",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Mage_Right_Single_Broad_Crystal_Prongs",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.008"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1424,
+      "bounds_min": [
+        -0.5258713960647583,
+        -0.49000000953674316,
+        0.0
+      ],
+      "bounds_max": [
+        0.6262478232383728,
+        0.5288082957267761,
+        2.241000175476074
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.008",
+            "MAT_navy.008"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Plain_Caster_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Caster_Long_Back_Cape",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_Spellbook_One_Plain_Page_Block",
+          "materials": [
+            "MAT_ivory.005"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Front_Leather_Cover",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Rear_Leather_Cover",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_Spellbook_Leather_Spine",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Left_Single_Broad_Crystal_Prongs",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Mage_Right_Single_Broad_Crystal_Prongs",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.008"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 5.960464477539063e-08,
+      "triangles": 1424,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 11
+    },
+    "equipment": [
+      "wide_hat",
+      "crystal_staff",
+      "long_cape",
+      "closed_book",
+      "staff_prongs"
+    ],
+    "rankColor": "#e7b43f",
+    "file": "human_mage_t5.glb",
+    "sha256": "6368cf4f943bace853787285e4a15e00e00a40368e6e6f53790cc110ad26af9b",
+    "landmarks": {
+      "basic_defender_mage_t5": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3580000102519989,
+        0.1469999998807907,
+        1.1169999837875366
+      ],
+      "hand_R": [
+        0.46000000834465027,
+        0.4320000410079956,
+        1.0759999752044678
+      ],
+      "weapon_R": [
+        0.46000000834465027,
+        0.4320000112056732,
+        1.0759999752044678
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3529999852180481,
+        0.02199999988079071,
+        1.1059999465942383
+      ],
+      "hand_L": [
+        -0.44600000977516174,
+        0.3009999990463257,
+        1.084999918937683
+      ],
+      "weapon_L": [
+        -0.44600000977516174,
+        0.3009999990463257,
+        1.084999918937683
+      ],
+      "staff_tip": [
+        0.48899999260902405,
+        0.44999998807907104,
+        2.053999900817871
+      ],
+      "attack_muzzle": [
+        0.48899999260902405,
+        0.44999998807907104,
+        2.053999900817871
+      ]
+    }
+  },
+  {
+    "family": "mage",
+    "tier": 6,
+    "bodyMetrics": {
+      "triangles": 1352,
+      "bounds_min": [
+        -0.5799999833106995,
+        -0.49000000953674316,
+        0.0
+      ],
+      "bounds_max": [
+        0.6262478232383728,
+        0.540066659450531,
+        2.1649999618530273
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.010",
+            "MAT_navy.010"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Plain_Caster_Shoulder_Mantle",
+          "materials": [
+            "MAT_navy.010"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_One_Thin_Silver_Collar_Rim",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Caster_Long_Back_Cape",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_Spellbook_Left_Open_Leather_Cover",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Mage_Spellbook_Left_One_Open_Page_Block",
+          "materials": [
+            "MAT_ivory.007"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Mage_Spellbook_Right_Open_Leather_Cover",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Mage_Spellbook_Right_One_Open_Page_Block",
+          "materials": [
+            "MAT_ivory.007"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Mage_Spellbook_Open_Leather_Spine",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Left_Single_Broad_Crystal_Prongs",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Mage_Right_Single_Broad_Crystal_Prongs",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.010"
+          ],
+          "triangles": 12
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1420,
+      "bounds_min": [
+        -0.5799999833106995,
+        -0.49000000953674316,
+        0.0
+      ],
+      "bounds_max": [
+        0.6262478232383728,
+        0.540066659450531,
+        2.2849998474121094
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Caster_Continuous_Long_Robe",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Caster_Open_Low_Cowl",
+          "materials": [
+            "MAT_blue.010",
+            "MAT_navy.010"
+          ],
+          "triangles": 64
+        },
+        {
+          "name": "Mage_One_Broad_Thin_Wizard_Brim",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 96
+        },
+        {
+          "name": "Mage_One_Left_Back_Bent_Wizard_Hat",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Plain_Caster_Shoulder_Mantle",
+          "materials": [
+            "MAT_navy.010"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_One_Thin_Silver_Collar_Rim",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Caster_Long_Back_Cape",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "Mage_Spellbook_Left_Open_Leather_Cover",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Mage_Spellbook_Left_One_Open_Page_Block",
+          "materials": [
+            "MAT_ivory.007"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Mage_Spellbook_Right_Open_Leather_Cover",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Mage_Spellbook_Right_One_Open_Page_Block",
+          "materials": [
+            "MAT_ivory.007"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Mage_Spellbook_Open_Leather_Spine",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Mage_One_Plain_Wooden_Staff_Shaft",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Mage_Left_Single_Broad_Crystal_Prongs",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Mage_Right_Single_Broad_Crystal_Prongs",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 32
+        },
+        {
+          "name": "Mage_Exactly_One_Violet_Diamond_Crystal",
+          "materials": [
+            "MAT_violet.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.010"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 5.960464477539063e-08,
+      "triangles": 1420,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "wide_hat",
+      "master_crystal_staff",
+      "long_cape",
+      "open_book",
+      "staff_prongs",
+      "broad_collar"
+    ],
+    "rankColor": "#ffd969",
+    "file": "human_mage_t6.glb",
+    "sha256": "f886a63f754f250320b68b65ae3bfeef7bcb6a1676c31a534fcc220affe76897",
+    "landmarks": {
+      "basic_defender_mage_t6": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.6100000143051147
+      ],
+      "upper_arm_R": [
+        0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_R": [
+        0.3580000102519989,
+        0.1469999998807907,
+        1.1169999837875366
+      ],
+      "hand_R": [
+        0.46000000834465027,
+        0.4320000410079956,
+        1.0759999752044678
+      ],
+      "weapon_R": [
+        0.46000000834465027,
+        0.4320000112056732,
+        1.0759999752044678
+      ],
+      "upper_arm_L": [
+        -0.24500000476837158,
+        0.0,
+        1.3700000047683716
+      ],
+      "forearm_L": [
+        -0.3529999852180481,
+        0.02199999988079071,
+        1.1059999465942383
+      ],
+      "hand_L": [
+        -0.44600000977516174,
+        0.3009999990463257,
+        1.084999918937683
+      ],
+      "weapon_L": [
+        -0.44600000977516174,
+        0.3009999990463257,
+        1.084999918937683
+      ],
+      "staff_tip": [
+        0.48899999260902405,
+        0.44999998807907104,
+        2.0900001525878906
+      ],
+      "attack_muzzle": [
+        0.48899999260902405,
+        0.44999998807907104,
+        2.0900001525878906
+      ]
+    }
+  }
+]

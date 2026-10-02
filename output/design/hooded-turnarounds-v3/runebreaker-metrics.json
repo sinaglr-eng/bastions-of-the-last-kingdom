@@ -1,0 +1,5325 @@
+[
+  {
+    "family": "runebreaker",
+    "tier": 1,
+    "bodyMetrics": {
+      "triangles": 1204,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.1826999932527542,
+        0.0
+      ],
+      "bounds_max": [
+        0.8049599528312683,
+        0.6788249611854553,
+        1.5572999715805054
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_whole_wooden_mallet_head",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 44
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1272,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.4634999632835388,
+        1.1175870895385742e-08
+      ],
+      "bounds_max": [
+        0.8049599528312683,
+        0.6788249611854553,
+        1.677299976348877
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_whole_wooden_mallet_head",
+          "materials": [
+            "MAT_wood"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 5.960464477539063e-08,
+      "triangles": 1272,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 11
+    },
+    "equipment": [
+      "work_cap",
+      "copper_beard",
+      "ruler",
+      "wooden_mallet"
+    ],
+    "rankColor": "#3989ed",
+    "file": "human_runebreaker_t1.glb",
+    "sha256": "37c11ef80b3fff9e4bb00a05ca500137e29840cf863f21e016272003d7d8cc9f",
+    "landmarks": {
+      "basic_defender_runebreaker_t1": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        0.8856000304222107
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.4163000583648682
+      ],
+      "upper_arm_R": [
+        0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_R": [
+        0.3977999985218048,
+        0.1574999988079071,
+        0.9464999437332153
+      ],
+      "hand_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "weapon_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "upper_arm_L": [
+        -0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_L": [
+        -0.37439998984336853,
+        0.05249999836087227,
+        0.9464999437332153
+      ],
+      "hand_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "weapon_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "staff_tip": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ],
+      "attack_muzzle": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ]
+    }
+  },
+  {
+    "family": "runebreaker",
+    "tier": 2,
+    "bodyMetrics": {
+      "triangles": 1352,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.1826999932527542,
+        0.0
+      ],
+      "bounds_max": [
+        0.8049599528312683,
+        0.6788249611854553,
+        1.5572999715805054
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.002"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_plain_leather_apron",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.001"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_iron_hammer_head",
+          "materials": [
+            "MAT_steel.001"
+          ],
+          "triangles": 44
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1420,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.4634999632835388,
+        1.1175870895385742e-08
+      ],
+      "bounds_max": [
+        0.8049599528312683,
+        0.6788249611854553,
+        1.677299976348877
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.002"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.002"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_plain_leather_apron",
+          "materials": [
+            "MAT_boots.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.001"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.002"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.002"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_iron_hammer_head",
+          "materials": [
+            "MAT_steel.001"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.002"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 5.960464477539063e-08,
+      "triangles": 1420,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "work_cap",
+      "copper_beard",
+      "ruler",
+      "iron_hammer",
+      "apron"
+    ],
+    "rankColor": "#3eac63",
+    "file": "human_runebreaker_t2.glb",
+    "sha256": "6f8b3c81ffc4854588454b029b59d2bd7a5201ca1b1870bcd332fa75e47ca981",
+    "landmarks": {
+      "basic_defender_runebreaker_t2": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        0.8856000304222107
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.4163000583648682
+      ],
+      "upper_arm_R": [
+        0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_R": [
+        0.3977999985218048,
+        0.1574999988079071,
+        0.9464999437332153
+      ],
+      "hand_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "weapon_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "upper_arm_L": [
+        -0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_L": [
+        -0.37439998984336853,
+        0.05249999836087227,
+        0.9464999437332153
+      ],
+      "hand_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "weapon_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "staff_tip": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ],
+      "attack_muzzle": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ]
+    }
+  },
+  {
+    "family": "runebreaker",
+    "tier": 3,
+    "bodyMetrics": {
+      "triangles": 1688,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.1826999932527542,
+        0.0
+      ],
+      "bounds_max": [
+        0.8049599528312683,
+        0.6788249611854553,
+        1.5572999715805054
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.004"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_goggle_bridge",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_plain_leather_apron",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_working_forearm_wide_leather_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_tool_bracer_upper_pin",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_tool_bracer_lower_pin",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_iron_hammer_head",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 44
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1756,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.4634999632835388,
+        1.1175870895385742e-08
+      ],
+      "bounds_max": [
+        0.8049599528312683,
+        0.6788249611854553,
+        1.677299976348877
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.004"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.004"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_goggle_bridge",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_plain_leather_apron",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.004"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_working_forearm_wide_leather_bracer",
+          "materials": [
+            "MAT_boots.004"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_tool_bracer_upper_pin",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_tool_bracer_lower_pin",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.004"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_iron_hammer_head",
+          "materials": [
+            "MAT_steel.003"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.004"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 5.960464477539063e-08,
+      "triangles": 1756,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "work_cap",
+      "copper_beard",
+      "ruler",
+      "iron_hammer",
+      "apron",
+      "goggles",
+      "leather_bracer"
+    ],
+    "rankColor": "#9555d8",
+    "file": "human_runebreaker_t3.glb",
+    "sha256": "c74c6774b9a60d86a38c0b33561ffbf1a91cb5a250748bfe30c3743965da6a68",
+    "landmarks": {
+      "basic_defender_runebreaker_t3": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        0.8856000304222107
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.4163000583648682
+      ],
+      "upper_arm_R": [
+        0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_R": [
+        0.3977999985218048,
+        0.1574999988079071,
+        0.9464999437332153
+      ],
+      "hand_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "weapon_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "upper_arm_L": [
+        -0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_L": [
+        -0.37439998984336853,
+        0.05249999836087227,
+        0.9464999437332153
+      ],
+      "hand_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "weapon_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "staff_tip": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ],
+      "attack_muzzle": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ]
+    }
+  },
+  {
+    "family": "runebreaker",
+    "tier": 4,
+    "bodyMetrics": {
+      "triangles": 1708,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.1826999932527542,
+        0.0
+      ],
+      "bounds_max": [
+        0.7926749587059021,
+        0.679349958896637,
+        1.5572999715805054
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.006"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_goggle_bridge",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_long_wide_leather_apron",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_working_forearm_wide_leather_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_tool_bracer_upper_pin",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_tool_bracer_lower_pin",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_carpenter_hammer_striking_face",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_broad_carpenter_claw",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 20
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1776,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.4634999632835388,
+        1.1175870895385742e-08
+      ],
+      "bounds_max": [
+        0.7926749587059021,
+        0.679349958896637,
+        1.677299976348877
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.006"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.006"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_goggle_bridge",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_long_wide_leather_apron",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.006"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_working_forearm_wide_leather_bracer",
+          "materials": [
+            "MAT_boots.006"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_tool_bracer_upper_pin",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_tool_bracer_lower_pin",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.006"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_carpenter_hammer_striking_face",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_broad_carpenter_claw",
+          "materials": [
+            "MAT_steel.005"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.006"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 5.960464477539063e-08,
+      "triangles": 1776,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "work_cap",
+      "copper_beard",
+      "ruler",
+      "claw_hammer",
+      "long_apron",
+      "goggles",
+      "leather_bracer"
+    ],
+    "rankColor": "#eee9db",
+    "file": "human_runebreaker_t4.glb",
+    "sha256": "de00f1ee4c7a880752c40018eac6f68b473b62db851130b2697d484e1c228303",
+    "landmarks": {
+      "basic_defender_runebreaker_t4": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        0.8856000304222107
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.4163000583648682
+      ],
+      "upper_arm_R": [
+        0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_R": [
+        0.3977999985218048,
+        0.1574999988079071,
+        0.9464999437332153
+      ],
+      "hand_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "weapon_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "upper_arm_L": [
+        -0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_L": [
+        -0.37439998984336853,
+        0.05249999836087227,
+        0.9464999437332153
+      ],
+      "hand_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "weapon_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "staff_tip": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ],
+      "attack_muzzle": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ]
+    }
+  },
+  {
+    "family": "runebreaker",
+    "tier": 5,
+    "bodyMetrics": {
+      "triangles": 1692,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.1826999932527542,
+        0.0
+      ],
+      "bounds_max": [
+        0.7926749587059021,
+        0.679349958896637,
+        1.5572999715805054
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.008"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_goggle_bridge",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_long_wide_leather_apron",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_broad_grey_apron_reinforcement",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_carpenter_hammer_striking_face",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_broad_carpenter_claw",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 20
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1760,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.4634999632835388,
+        1.1175870895385742e-08
+      ],
+      "bounds_max": [
+        0.7926749587059021,
+        0.679349958896637,
+        1.677299976348877
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.008"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.008"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_goggle_bridge",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_long_wide_leather_apron",
+          "materials": [
+            "MAT_boots.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_broad_grey_apron_reinforcement",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.008"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.008"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_carpenter_hammer_striking_face",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_broad_carpenter_claw",
+          "materials": [
+            "MAT_steel.007"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.008"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 5.960464477539063e-08,
+      "triangles": 1760,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "work_cap",
+      "copper_beard",
+      "ruler",
+      "claw_hammer",
+      "long_apron",
+      "goggles",
+      "metal_bracers",
+      "apron_band"
+    ],
+    "rankColor": "#e7b43f",
+    "file": "human_runebreaker_t5.glb",
+    "sha256": "138b6776b5eb2224adf7dc0a95f53f8c9ed5b5d479c8779e820f775298881d06",
+    "landmarks": {
+      "basic_defender_runebreaker_t5": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        0.8856000304222107
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.4163000583648682
+      ],
+      "upper_arm_R": [
+        0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_R": [
+        0.3977999985218048,
+        0.1574999988079071,
+        0.9464999437332153
+      ],
+      "hand_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "weapon_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "upper_arm_L": [
+        -0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_L": [
+        -0.37439998984336853,
+        0.05249999836087227,
+        0.9464999437332153
+      ],
+      "hand_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "weapon_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "staff_tip": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ],
+      "attack_muzzle": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ]
+    }
+  },
+  {
+    "family": "runebreaker",
+    "tier": 6,
+    "bodyMetrics": {
+      "triangles": 1796,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.4724999666213989,
+        0.0
+      ],
+      "bounds_max": [
+        0.8219249248504639,
+        0.6798749566078186,
+        1.5572999715805054
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Broad_Pointed_Back_Cape",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.010"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_goggle_bridge",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_long_wide_leather_apron",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_broad_grey_apron_reinforcement",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_front_protective_chest_panel",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 24
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_master_hammer_striking_face",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_master_carpenter_claw",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 20
+        }
+      ]
+    },
+    "exportMetrics": {
+      "triangles": 1864,
+      "bounds_min": [
+        -0.5297951102256775,
+        -0.4724999666213989,
+        1.1175870895385742e-08
+      ],
+      "bounds_max": [
+        0.8219249248504639,
+        0.6798749566078186,
+        1.677299976348877
+      ],
+      "degenerateTriangles": 0,
+      "editableParts": [
+        {
+          "name": "Angular_Face",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 76
+        },
+        {
+          "name": "Dark_Eye_-1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Dark_Eye_1",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Small_Neck",
+          "materials": [
+            "MAT_skin.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Tunic_Bodice",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Trouser_-1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_-1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Trouser_1",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Boot_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Boot_Cuff_1",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Continuous_Split_Tunic_Skirt",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "Split_Tunic_Front_-1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Split_Tunic_Front_1",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "Waist_Belt",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "Waist_Buckle",
+          "materials": [
+            "MAT_buckle.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Continuous_Shoulder_Mantle",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "Broad_Pointed_Back_Cape",
+          "materials": [
+            "MAT_blue.010"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "right_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_bracer",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "right_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_upper_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_lower_sleeve",
+          "materials": [
+            "MAT_trousers.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_bracer",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "left_glove_mitten",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_plain_faceted_workcap",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 60
+        },
+        {
+          "name": "engineer_broad_brown_cap_band",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_one_copper_beard_wedge",
+          "materials": [
+            "MAT_copper.010"
+          ],
+          "triangles": 40
+        },
+        {
+          "name": "engineer_right_connected_sideburn",
+          "materials": [
+            "MAT_copper.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_connected_sideburn",
+          "materials": [
+            "MAT_copper.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_right_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_rim",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 80
+        },
+        {
+          "name": "engineer_left_cap_top_goggle_lens",
+          "materials": [
+            "MAT_eyes.010"
+          ],
+          "triangles": 36
+        },
+        {
+          "name": "engineer_goggle_bridge",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_long_wide_leather_apron",
+          "materials": [
+            "MAT_boots.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_right_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_front_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_left_back_apron_shoulder_strap",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_apron_waist_band",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_apron_simple_buckle",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_broad_grey_apron_reinforcement",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_front_protective_chest_panel",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 24
+        },
+        {
+          "name": "engineer_single_left_hip_straight_ruler",
+          "materials": [
+            "MAT_ivory.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_01",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_02",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_03",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_04",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_05",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_06",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_07",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_08",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_ruler_measure_mark_09",
+          "materials": [
+            "MAT_belt.010"
+          ],
+          "triangles": 12
+        },
+        {
+          "name": "engineer_wooden_hammer_handle",
+          "materials": [
+            "MAT_wood.010"
+          ],
+          "triangles": 28
+        },
+        {
+          "name": "engineer_master_hammer_striking_face",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 44
+        },
+        {
+          "name": "engineer_single_master_carpenter_claw",
+          "materials": [
+            "MAT_steel.009"
+          ],
+          "triangles": 20
+        },
+        {
+          "name": "Foundation_Hexagonal_Stone",
+          "materials": [
+            "MAT_stone.010"
+          ],
+          "triangles": 68
+        }
+      ]
+    },
+    "roundtrip": {
+      "passed": true,
+      "boundsError": 5.960464477539063e-08,
+      "triangles": 1864,
+      "hierarchyNamesVerified": [
+        "attack_muzzle",
+        "forearm_L",
+        "forearm_R",
+        "hand_L",
+        "hand_R",
+        "head_pivot",
+        "torso_pivot",
+        "upper_arm_L",
+        "upper_arm_R",
+        "weapon_L",
+        "weapon_R"
+      ],
+      "materialCount": 12
+    },
+    "equipment": [
+      "work_cap",
+      "copper_beard",
+      "ruler",
+      "master_hammer",
+      "long_apron",
+      "goggles",
+      "metal_bracers",
+      "apron_plate"
+    ],
+    "rankColor": "#ffd969",
+    "file": "human_runebreaker_t6.glb",
+    "sha256": "f1a922ccb110e21dcd404338e5b21656adc60d95097c065025f480f0a2ad514b",
+    "landmarks": {
+      "basic_defender_runebreaker_t6": [
+        0.0,
+        0.0,
+        0.11999999731779099
+      ],
+      "torso_pivot": [
+        0.0,
+        0.0,
+        0.8856000304222107
+      ],
+      "head_pivot": [
+        0.0,
+        0.0,
+        1.4163000583648682
+      ],
+      "upper_arm_R": [
+        0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_R": [
+        0.3977999985218048,
+        0.1574999988079071,
+        0.9464999437332153
+      ],
+      "hand_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "weapon_R": [
+        0.5733000040054321,
+        0.4619999825954437,
+        1.0004398822784424
+      ],
+      "upper_arm_L": [
+        -0.28665000200271606,
+        0.0,
+        1.2074999809265137
+      ],
+      "forearm_L": [
+        -0.37439998984336853,
+        0.05249999836087227,
+        0.9464999437332153
+      ],
+      "hand_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "weapon_L": [
+        -0.444599986076355,
+        0.09449999779462814,
+        0.7376999258995056
+      ],
+      "staff_tip": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ],
+      "attack_muzzle": [
+        0.6785999536514282,
+        0.5459999442100525,
+        1.381500005722046
+      ]
+    }
+  }
+]

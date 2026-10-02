@@ -1,0 +1,385 @@
+{
+  "revision": "hooded-turnarounds-v3",
+  "frame": {
+    "front": "+Y",
+    "right": "+X",
+    "up": "+Z",
+    "solesZ": 0
+  },
+  "method": "Visual landmark readings from approved FRONT/BACK/LEFT SIDE/RIGHT SIDE sheets; authored dimensions below are a reconciled specification, not a claim of exact raster IoU or measured completion.",
+  "referenceFiles": [
+    "soldier-variant-b-turnaround.png",
+    "archer-variant-b-turnaround.png"
+  ],
+  "sharedLandmarks": {
+    "beltZ": 0.88,
+    "shoulderZ": 1.25,
+    "eyeZ": 1.51,
+    "chinZ": 1.35,
+    "hoodCrownZ": 1.8,
+    "shortHemZ": 0.51,
+    "bootTopZ": 0.36,
+    "legCentersX": [
+      -0.19,
+      0.19
+    ]
+  },
+  "sourceObservations": {
+    "soldier": "Visible face I-V and closed slit only VI; shield fronts broad from front and narrow edge-on in profiles. Rank IV exposes metal breastplate while hands/calves remain cloth/leather; V-VI cover the underlying plate with one plain rank-colored frontal cloth tabard.",
+    "archer": "Hood is a broad pointed shell with an open beige face, narrow torso, split skirt, neutral lowered empty right hand. Bow left, quiver right-back, three arrows visible. Rank I has neither rear mantle nor leather vest; rank IV+ cape points extend near boot tops."
+  },
+  "inferredHiddenConstruction": {
+    "shieldGrip": "One horizontal leather rear grip joined to two short anchors; placement is inferred where occluded by the hand.",
+    "helmetBack": "One simple faceted steel shell attached to crown and lateral cheek volumes; no duplicated face or front breastplate.",
+    "quiver": "One six-sided leather tube on outer right cape, mouth pointing up/right, bottom near right belt. Back strap attachment hidden below tube is inferred.",
+    "bowPlane": "PNG front and both profiles show similarly broad bow curves, which cannot all be exact orthographic views of a single flat bow. A fixed diagonal plane with horizontal vector (-0.7071,+0.7071,0) is used; it is never rotated per camera. This is a disclosed reconciliation, not a guaranteed exact match.",
+    "weaponDepth": "Tool depth and elbow height reconciled against profiles after native pilot overlay: Soldier right elbow (.335,.14,.970) and grip (.472,.45,.955); Archer left elbow (-.334,.15,.950) and bow grip (-.488,.52,.926). Forearms are nearly level as in the approved side sheets. Tool stays ahead of face by .20-.30 units. Same rigid geometry and physical pose in all cameras.",
+    "cape": "One front-open U-shaped cloth shell, not a planar sheet. Side edges wrap forward to Y=.045 at the hem; short rear hemY=-.45, long rear hemY=-.54. Archer IV-VI have two broad lower tips with one center notch. Shoulder arc and hidden construction inferred from four silhouettes.",
+    "closedHelmFace": "Soldier VI has one solid closed helmet. The fully occluded internal face and two eye meshes are omitted as a hidden-part optimization; visor remains one physical steel helmet with one black slit, and head/neck pivot contract stays intact. root extra occludedFaceOmitted=true records omission.",
+    "soldierHeadFit": "Hair crown/front/back translated +.080Y and cheek inner edge moved to X=.123/.140,Y=.221; open helmets translated +.090Y and cheek inner edges X=.128/.132,Y=.267/.264 so both enclose the latest forward faceted face rather than leaving separated cheek strips.",
+    "frontTabard": "Soldier V/VI retain the real steel breastplate under one rank-colored cloth front tabard at Y=.214-.228, shoulder topZ1.254, belt bottomZ.882. IV exposes its steel plate; V/VI front appearance follows the gold cloth area of the approved reference."
+  },
+  "soldier": [
+    {
+      "rank": 1,
+      "cloth": "#3989ed",
+      "head": "short_hair",
+      "right": "entire_wooden_spear",
+      "left": null,
+      "equipment": [
+        "blue_tunic",
+        "connected_cloth_scarf",
+        "short_back_cloth",
+        "leather_belt",
+        "brown_boots",
+        "two_brown_gloves",
+        "wooden_spear_shaft",
+        "wooden_spear_point"
+      ],
+      "weapon": {
+        "shaftBottomZ": 0.015,
+        "pointTopZ": 1.958,
+        "grip": [
+          0.472,
+          0.45,
+          0.955
+        ],
+        "material": "wood"
+      }
+    },
+    {
+      "rank": 2,
+      "cloth": "#3eac63",
+      "head": "open_steel_helmet",
+      "right": "steel_sword",
+      "left": null,
+      "equipment": [
+        "green_tunic",
+        "short_connected_mantle",
+        "short_cape",
+        "leather_belt",
+        "brown_boots",
+        "two_brown_gloves",
+        "open_helmet",
+        "steel_sword"
+      ],
+      "bladeTipZ": 1.888
+    },
+    {
+      "rank": 3,
+      "cloth": "#9555d8",
+      "head": "open_steel_helmet",
+      "right": "steel_sword",
+      "left": "wooden_shield",
+      "equipment": [
+        "violet_tunic",
+        "short_mantle",
+        "short_cape",
+        "leather_belt",
+        "brown_boots",
+        "two_brown_gloves",
+        "open_helmet",
+        "steel_sword",
+        "wooden_shield",
+        "rear_shield_grip"
+      ],
+      "shield": {
+        "halfWidth": 0.21,
+        "topZ": 1.288,
+        "bottomZ": 0.4,
+        "thickness": 0.072
+      }
+    },
+    {
+      "rank": 4,
+      "cloth": "#eee9db",
+      "head": "open_steel_helmet",
+      "right": "steel_sword",
+      "left": "wooden_shield",
+      "equipment": [
+        "ivory_tunic",
+        "ivory_mantle",
+        "ivory_cape",
+        "leather_belt",
+        "brown_boots",
+        "two_brown_gloves",
+        "open_helmet",
+        "steel_sword",
+        "wooden_shield",
+        "rear_shield_grip",
+        "front_breastplate"
+      ],
+      "forbidden": [
+        "metal_bracers",
+        "metal_shoulders",
+        "metal_greaves"
+      ]
+    },
+    {
+      "rank": 5,
+      "cloth": "#e7b43f",
+      "head": "open_steel_helmet",
+      "right": "steel_sword",
+      "left": "iron_shield",
+      "equipment": [
+        "gold_tabard",
+        "long_gold_cape",
+        "leather_belt",
+        "open_helmet",
+        "steel_sword",
+        "iron_shield",
+        "rear_shield_grip",
+        "front_breastplate",
+        "two_steel_shoulders",
+        "two_steel_bracers",
+        "two_brown_gloves",
+        "two_knee_plates",
+        "two_greaves",
+        "steel_boots"
+      ]
+    },
+    {
+      "rank": 6,
+      "cloth": "#ffd969",
+      "head": "closed_steel_helmet",
+      "right": "longer_steel_sword",
+      "left": "larger_iron_shield",
+      "equipment": [
+        "pale_gold_tabard",
+        "long_pale_gold_cape",
+        "leather_belt",
+        "closed_helmet_with_one_slit",
+        "longer_steel_sword",
+        "larger_iron_shield",
+        "rear_shield_grip",
+        "front_breastplate",
+        "two_steel_shoulders",
+        "two_steel_bracers",
+        "two_brown_gloves",
+        "two_knee_plates",
+        "two_greaves",
+        "steel_boots"
+      ],
+      "bladeTipZ": 1.941,
+      "shield": {
+        "halfWidth": 0.22,
+        "topZ": 1.33,
+        "bottomZ": 0.366,
+        "thickness": 0.072
+      }
+    }
+  ],
+  "archer": [
+    {
+      "rank": 1,
+      "cloth": "#3989ed",
+      "right": null,
+      "left": "short_wooden_bow",
+      "equipment": [
+        "blue_open_hood",
+        "blue_split_tunic",
+        "brown_belt",
+        "brown_boots",
+        "two_brown_gloves",
+        "short_wooden_bow",
+        "one_small_right_back_quiver",
+        "three_arrows"
+      ],
+      "bowTipZ": [
+        0.205,
+        1.58
+      ],
+      "quiverEndpoints": [
+        [
+          0.173,
+          -0.229,
+          0.927
+        ],
+        [
+          0.306,
+          -0.215,
+          1.386
+        ]
+      ],
+      "bowGrip": [
+        -0.488,
+        0.52,
+        0.926
+      ]
+    },
+    {
+      "rank": 2,
+      "cloth": "#3eac63",
+      "right": null,
+      "left": "short_wooden_bow",
+      "equipment": [
+        "green_open_hood",
+        "green_split_tunic",
+        "short_connected_mantle",
+        "short_green_cape",
+        "brown_belt",
+        "brown_boots",
+        "two_brown_gloves",
+        "short_wooden_bow",
+        "one_larger_right_back_quiver",
+        "three_arrows"
+      ],
+      "bowTipZ": [
+        0.205,
+        1.58
+      ]
+    },
+    {
+      "rank": 3,
+      "cloth": "#9555d8",
+      "right": null,
+      "left": "recurve_wooden_bow",
+      "equipment": [
+        "violet_open_hood",
+        "violet_split_tunic",
+        "short_connected_mantle",
+        "violet_cape",
+        "brown_belt",
+        "brown_boots",
+        "two_wide_leather_bracers",
+        "two_brown_gloves",
+        "leather_jerkin",
+        "recurve_wooden_bow",
+        "one_right_back_quiver",
+        "three_arrows"
+      ],
+      "bowTipZ": [
+        0.117,
+        1.72
+      ]
+    },
+    {
+      "rank": 4,
+      "cloth": "#eee9db",
+      "right": null,
+      "left": "wooden_longbow",
+      "equipment": [
+        "ivory_open_hood",
+        "ivory_split_tunic",
+        "short_connected_mantle",
+        "long_pointed_ivory_cape",
+        "brown_belt",
+        "brown_boots",
+        "two_wide_leather_bracers",
+        "two_brown_gloves",
+        "leather_jerkin",
+        "wooden_longbow",
+        "one_right_back_quiver",
+        "three_arrows"
+      ],
+      "bowTipZ": [
+        0.026,
+        1.864
+      ],
+      "forbidden": [
+        "metal_shoulders"
+      ]
+    },
+    {
+      "rank": 5,
+      "cloth": "#e7b43f",
+      "right": null,
+      "left": "ivory_reinforced_laminated_bow",
+      "equipment": [
+        "gold_open_hood",
+        "gold_split_tunic",
+        "connected_mantle",
+        "long_pointed_gold_cape",
+        "brown_belt",
+        "brown_boots",
+        "two_wide_leather_bracers",
+        "two_brown_gloves",
+        "leather_jerkin",
+        "two_small_steel_shoulders",
+        "ivory_reinforced_laminated_bow",
+        "one_right_back_quiver",
+        "three_arrows"
+      ],
+      "bowTipZ": [
+        0.024,
+        1.86
+      ]
+    },
+    {
+      "rank": 6,
+      "cloth": "#ffd969",
+      "right": null,
+      "left": "silver_reinforced_master_bow",
+      "equipment": [
+        "pale_gold_deep_open_hood",
+        "pale_gold_split_tunic",
+        "connected_mantle",
+        "long_two_point_pale_gold_cape",
+        "brown_belt",
+        "brown_boots",
+        "two_wide_leather_bracers",
+        "two_brown_gloves",
+        "leather_jerkin",
+        "one_silver_chest_edging",
+        "two_small_steel_shoulders",
+        "silver_reinforced_master_bow",
+        "one_right_back_quiver",
+        "three_arrows"
+      ],
+      "bowTipZ": [
+        0.021,
+        1.86
+      ]
+    }
+  ],
+  "exclusions": [
+    "runtime_ground_ring",
+    "runtime_rank_VI_aura",
+    "runtime_eight_motes",
+    "podium",
+    "camera_facing_equipment"
+  ],
+  "validationStatus": "Initial authoring specification. Native renders and actual export checks still required.",
+  "pose": {
+    "soldierRightElbow": [
+      0.335,
+      0.14,
+      0.97
+    ],
+    "soldierRightHand": [
+      0.472,
+      0.45,
+      0.955
+    ],
+    "archerLeftElbow": [
+      -0.334,
+      0.15,
+      0.95
+    ],
+    "archerLeftHand": [
+      -0.488,
+      0.52,
+      0.926
+    ]
+  }
+}

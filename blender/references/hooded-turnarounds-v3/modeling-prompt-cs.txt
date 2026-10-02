@@ -1,0 +1,95 @@
+V Blenderu 5.2 vytvoř věrnou 3D rekonstrukci všech 8 základních obránců varianty B, každého v úrovních I–VI: celkem 48 samostatných modelů. Cílem je reprodukovat schválený design Hooded Ranger podle referencí, nikoli jej znovu navrhovat. Tento úkol zahrnuje modelování, materiály, kontrolní rendery, editovatelné scény a ověřené GLB exporty. Integrace do hry a nasazení nejsou součástí tohoto zadání.
+
+1. ZÁVAZNÉ PODKLADY
+Projekt: C:/Users/sinag/Documents/ChatGPT/Tower Defense game
+Reference: output/design/basic-defender-turnarounds-v1/ v tomto projektu.
+Použij těchto osm aktuálních souborů:
+soldier-variant-b-turnaround.png
+archer-variant-b-turnaround.png
+druid-variant-b-turnaround.png
+mage-variant-b-turnaround.png
+cleric-variant-b-turnaround.png
+engineer-variant-b-turnaround.png
+frostwarden-variant-b-turnaround.png
+stormcaller-variant-b-turnaround.png
+
+Každý list obsahuje šest řádků I–VI a čtyři sloupce FRONT, BACK, LEFT SIDE, RIGHT SIDE. Před prací skutečně prohlédni všechny listy a přečti modeling-notes.txt, latest-design-changes.txt a manifest.json ze stejné složky.
+
+Priorita při rozporu:
+a) poslední výslovné pokyny uživatele;
+b) latest-design-changes.txt;
+c) modeling-notes.txt a výslovná konstrukční výjimka v manifest.json;
+d) aktuální osmice PNG pro tvar, proporce, siluetu a rozmístění.
+Starší obrázky, hotové modely ani starý generátor nejsou autoritou pro nový vzhled. Existující kód použij k ověření herních identifikátorů, exportních konvencí a pohybových kloubů.
+
+Výslovně zachovej:
+- Cleric I–VI: jedna dřevěná hůl se zlatým latinským křížem; bez slunečního kotouče a paprsků.
+- Frost Warden I–VI: celé kopí z ledu, včetně násady a úchopu; bez dřevěné části, omotání a kovového spoje zbraně.
+- Mage: rekonstruuj současný list bez změny designu.
+- Stormcaller VI: hnědá základní rukavice má malý stříbrný hřbetní plát podle poznámek; jeho chybějící vyobrazení je známá výjimka.
+
+2. PŘED MODELOVÁNÍM ZMĚŘ A SJEDNOŤ REFERENCE
+Vytvoř reconstruction-spec.json obsahující pro každou třídu a úroveň inventář viditelných dílů, držící ruku, materiály, poměry rozměrů a klíčové body.
+Zaznamenej zejména výšku a šířku hlavy, ramena, bradu, oči, pás, délku trupu a nohou, polohu rukou, lem oděvu, obrys kapuce či klobouku a konce zbraní. Rozměry normalizuj vůči pracovní výšce těla H bez pokrývky hlavy, výzbroje, podstavce a efektů. Engineer má vlastní kratší a širší proporce.
+
+Odděl přímo odečtené rozměry od odhadů skryté geometrie. Drobné rozpory řeš podle priority podkladů a zapiš rozhodnutí. Nezakrytou neznámou část nevydávej za přesně určenou. Pro neurčenou skrytou konstrukci použij nejjednodušší řešení slučitelné se všemi pohledy a označ jej jako odhad. Pokud nelze významný rozpor vyřešit ze závazných podkladů, polož konkrétní otázku k dotčené části a pokračuj v ostatní nezávislé práci.
+
+3. JEDNA POSTAVA, ČTYŘI KAMERY
+Každá varianta musí být jediný skutečný 3D model ve stejné póze pro všechny pohledy. Mezi pohledy měň pouze kameru. Nesmíš přesouvat výbavu, měnit ruku, zrcadlit objekty, přetvářet síť nebo skrývat díly podle kamery.
+
+Souřadnice modelovacího rámu: +Y vpřed, +X vlastní pravá strana postavy, −X vlastní levá strana, Z vzhůru. Bez podstavce mají podrážky společnou rovinu Z=0; root je uprostřed postoje. Exportní transformaci vůči hernímu rámci výslovně dolož.
+
+Kamery jsou orthografické:
+FRONT ze směru +Y;
+BACK ze směru −Y;
+LEFT SIDE ze směru −X, obličej v obrázku doleva;
+RIGHT SIDE ze směru +X, obličej v obrázku doprava.
+Použij shodnou projekční velikost, výšku cíle a rovinu chodidel v rámci každého porovnání. Chybnou anatomii neopravuj samostatným přiblížením nebo deformací jednotlivých pohledů.
+
+4. VĚRNOST TVARU A VÝBAVY
+Reprodukuj obrys, objem, hloubku, proporce, pózu a velké materiálové plochy. Zachovej jednoduché hranaté látkové objemy, velké fasety a střídmý obličej rodiny Hooded Ranger. Každý díl musí odpovídat konkrétní části reference. Geometrii konstruuj podle obrysů; nepoužívej obecnou sestavu primitiv, pokud mění tvar předlohy.
+
+Nevymýšlej další ozdoby, runy, chocholy, pláty, krystaly, kapsy ani zbraně. Nezahlazuj plošky nebo nezaobluj vše jednotným postupem. Zaoblení a vyhlazení použij pouze tam, kde odpovídají referenci. Stejné anatomické proporce třídy uchovej napříč úrovněmi; mění se předepsaná výbava, oděv a efekty.
+
+Vlastní pravá a levá strana vždy patří POSTAVĚ:
+- Soldier: pravá kopí/meč, levá štít.
+- Archer: levá luk; jediný toulec na pravé straně zad, šípy nad pravým ramenem.
+- Druid, Mage, Cleric: pravá hůl; Mage/Cleric levá kniha od IV.
+- Engineer: pravá kladivo; pravítko na levém boku, brýle od III nahoře na čepici.
+- Frost Warden: pravá ledové kopí, levá ledový štít od III.
+- Stormcaller: jediný blesk nad pravou sesílací rukou.
+
+Přesný postup výbavy všech 48 variant převezmi z modeling-notes.txt. Úroveň není pouze přebarvení. Každá postava má právě dvě ruce a předepsaný počet výbavy. Štít má skutečnou tloušťku a zadní držadlo; plášť, kapuce, kniha a zástěra mají skutečný objem. Zbraň prochází úchopem správné ruky. Ozdoby mají pevnou orientaci vůči modelu a neotáčejí se samostatně ke kameře.
+
+5. BARVY A EFEKTY
+Závazné základní barvy látky v sRGB:
+I #3989ed, II #3eac63, III #9555d8,
+IV #eee9db, V #e7b43f, VI #ffd969.
+Správně je převeď do pracovního barevného prostoru; shodu ověř podle základní barvy materiálu, nikoli podle osvětleného pixelu. Barvy ostatních materiálů určují reference a poznámky.
+
+Efekty odděl od fyzického modelu. Barevný kruh každé úrovně a jemná zlatá aura s osmi částicemi úrovně VI patří do samostatné preview kolekce. Kontrolní rendery geometrie dělej bez efektů, aby nezakrývaly siluetu. Zvlášť přidej prezentaci s efekty. Export respektuje skutečnost, že efekty zajišťuje hra.
+
+6. POSTUP A KONTROLA PŘED ROZŠÍŘENÍM
+Nejprve ověř Archer I a VI, Cleric I, Frost Warden I a Engineer I. Tím prověř společný styl, boční hloubku, rozdíly tříd, postup výbavy a proporce trpaslíka. Vyrenderuj všechny čtyři pohledy a oprav zjištěné odchylky. Po splnění kontrol pokračuj autonomně všemi 48 modely. Nesdílej chybný základ mezi třídami jen kvůli rychlosti.
+
+Pro každou variantu vytvoř čtyři kontrolní rendery, překryvy s referencí a tabulku odchylek. Použij stejnou registraci podle chodidel a pracovní výšky H; dovoleno je sjednocení posunu a jednotného měřítka, nikoli lokální deformace obrázků. Siluetu těla, oblečení a výbavy porovnávej odděleně od stínů a efektů. Zvlášť kontroluj oči, bradu, pás, ruce, lem, šířku kapuce a konce zbraní.
+
+Cíl: odchylka jasně určených klíčových bodů a rozměrů nejvýše 1 % H vůči sjednocené specifikaci; překryv jednoznačně rekonstruovatelné siluety IoU alespoň 0,97. Počet dílů, držící ruka, povinná výbava, materiál a přiřazení k úrovni mají nulovou toleranci chyb. U nejednoznačných obrysů uváděj nejistotu místo smyšleného přesného výsledku. Tolerance nejsou povolením měnit design.
+
+Kontroluj geometrii také v neutrálním pohledu ze tří čtvrtin. Tvar nesmí fungovat pouze jako plochá kulisa ze čtyř hlavních stran. Nesplněné kontroly oprav a zopakuj dotčené rendery. Neprohlašuj shodu na základě úspěšného exportu nebo pouhé existence souborů. Pokud cíl nelze splnit kvůli rozporu referencí, dolož jej a uveď skutečný stav.
+
+7. EDITOVATELNÉ A OPAKOVATELNÉ VÝSTUPY
+Ověř skutečně použitou verzi Blenderu. Ulož pojmenované editovatelné části, materiály a přibalené reference v osmi .blend scénách, po jedné pro každou třídu se šesti přehledně oddělenými variantami. Přidej opakovatelný Blender Python generátor nebo přesný authoring postup a konfiguraci rozměrů; žádná náhodná změna mezi běhy.
+
+Zachovej potřebné rooty, klouby a herní identifikátory. Engineer má v existujícím runtime identifikátor runebreaker; nepřejmenuj jej bez ověření konzumentů.
+Optimalizuj až po ověření tvaru. Dolož počet trojúhelníků a dodrž skutečný rozpočet hry. Neobětuj siluetu neověřenému obecnému limitu. Zkontroluj normály, degenerované plochy, nechtěné průniky, oddělené či plovoucí části a uzavření pevných dílů tam, kde je konstrukčně potřeba.
+
+Ulož výstupy jako novou revizi:
+blender/scenes/hooded-turnarounds-v3/
+blender/renders/hooded-turnarounds-v3/
+output/design/hooded-turnarounds-v3/glb/
+a související generátor do blender/scripts/.
+Připrav 48 GLB bez referenčních obrázků, kamer, světel a pomocné scény. Každý export znovu importuj a ověř orientaci, měřítko, materiály, hierarchii a shodu geometrie s nativním modelem. Existující produkční assets ponech pro následnou samostatnou integraci.
+
+8. DOKONČENÍ
+Dodej 48 ověřených modelů, 8 editovatelných scén, všech 192 kontrolních pohledů, porovnávací překryvy, tabulku výbavy a měření, konfiguraci rekonstrukce a souhrn skutečných nejistot. V konečném výsledku jasně odliš splněné kontroly, známé výjimky podkladů a případné nevyřešené odchylky. Maximální věrnost dokládej porovnáním; neuváděj garantovanou nulovou odchylku, pokud ji podklady ani měření neumožňují.
