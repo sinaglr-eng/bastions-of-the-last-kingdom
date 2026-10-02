@@ -2,7 +2,9 @@ import test,{after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
+import {cloneDefenderTemplate,disposeDefenderInstance} from '../game/render/defender-assets.js';
+import {createSecretAnimation,updateSecretAnimation,disposeSecretAnimation} from '../game/render/secret-animation.js';
 import {animateEnemyMotion} from '../game/render/enemy-motion.js';
 import {enemyFigure,disposeEnemyFigure} from '../game/render/enemy-assets.js';
 import {animateSecretChampion} from '../game/render/secret-champions.js';
@@ -10,7 +12,7 @@ import {createChampionAura,disposeChampionAura} from '../game/render/champion-au
 
 const sources=new Map();
 async function load(path){
-  if(!sources.has(path))sources.set(path,(async()=>{const bytes=readFileSync(new URL('../public/assets/'+path,import.meta.url));return(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene;})());
+  if(!sources.has(path))sources.set(path,(async()=>{const bytes=readFileSync(new URL('../public/assets/'+path,import.meta.url));const gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');gltf.scene.animations=gltf.animations;return gltf.scene;})());
   return sources.get(path);
 }
 const rotations=root=>{const values=[];root.traverse(node=>values.push([node.name,...node.rotation.toArray()]));return values;};
@@ -30,7 +32,7 @@ test('native bat, wolf rider and queen-wyvern motion changes private limbs and p
 });
 
 test('native Lady Claire orbs keep their Y-up heights and restore exact authored poses with reduced motion',async()=>{
-  const source=await load('models/advanced_ladyclaire.glb'),actor=source.clone(true),peer=source.clone(true);
+  const source=await load('models/advanced_ladyclaire.glb'),actor=cloneDefenderTemplate(source),peer=cloneDefenderTemplate(source);
   const orbs=[0,1,2].map(i=>actor.getObjectByName('secret_orb_'+i));
   const rest=orbs.map(node=>({position:node.position.clone(),rotation:node.rotation.clone(),scale:node.scale.clone()}));
   actor.position.set(7,.85,3);actor.rotation.y=.8;actor.scale.setScalar(.7);
@@ -44,18 +46,14 @@ test('native Lady Claire orbs keep their Y-up heights and restore exact authored
   assert.deepEqual(actor.position.toArray(),[7,.85,3]);assert.equal(actor.rotation.y,.8);assert.deepEqual(actor.scale.toArray(),[.7,.7,.7]);
 });
 
-test('native Bernhard horse motion keeps the authored diagonal gait pairs and restores all four legs',async()=>{
-  const source=await load('models/advanced_lordbernhard.glb'),actor=source.clone(true),legs={};
-  actor.traverse(node=>{if(node.name.startsWith('leg_horse_'))legs[node.name]=node;});
-  assert.equal(Object.keys(legs).length,4);const before=Object.fromEntries(Object.entries(legs).map(([name,node])=>[name,node.rotation.clone()]));
-  animateSecretChampion(actor,0);animateSecretChampion(actor,.2);
-  const delta=name=>legs[name].rotation.x-before[name].x;
-  assert.ok(Math.abs(delta('leg_horse_L_front'))>.001);
-  assert.ok(Math.abs(delta('leg_horse_L_front')-delta('leg_horse_R_rear'))<1e-12);
-  assert.ok(Math.abs(delta('leg_horse_L_rear')-delta('leg_horse_R_front'))<1e-12);
-  assert.ok(Math.abs(delta('leg_horse_L_front')+delta('leg_horse_L_rear'))<1e-12);
-  animateSecretChampion(actor,.4,{reducedMotion:true});
-  for(const [name,node]of Object.entries(legs))for(const axis of ['x','y','z']){assert.ok(Math.abs(node.rotation[axis]-before[name][axis])<1e-12);assert.ok(Math.abs(source.getObjectByName(name).rotation[axis]-before[name][axis])<1e-12);}
+test('native Bernhard idle moves the horse neck through skin bones and freezes exactly when simulation pauses',async()=>{
+  const source=await load('models/advanced_lordbernhard.glb'),actor=cloneDefenderTemplate(source),rig=createSecretAnimation(actor,'lordbernhard');
+  assert.ok(rig);const neck=actor.getObjectByName('horse_neck'),original=source.getObjectByName('horse_neck').quaternion.toArray(),before=neck.quaternion.clone();
+  updateSecretAnimation(rig,.2);assert.ok(neck.quaternion.angleTo(before)>.001);
+  const pose=rotations(actor);updateSecretAnimation(rig,0);assert.deepEqual(rotations(actor),pose);
+  animateSecretChampion(actor,.4);assert.deepEqual(rotations(actor),pose,'Cosmetic motion overwrote native skeletal animation');
+  assert.deepEqual(source.getObjectByName('horse_neck').quaternion.toArray(),original);
+  disposeSecretAnimation(rig);disposeDefenderInstance(actor);
 });
 
 test('both native secret families receive the private gold Secret aura',()=>{

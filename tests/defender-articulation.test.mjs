@@ -2,7 +2,8 @@ import test,{after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
+import {cloneDefenderTemplate,disposeDefenderInstance} from '../game/render/defender-assets.js';
 import {attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack,resetAttack,siegeRig,animateSiege} from '../game/render/battle-animation.js';
 import {CombatEffects} from '../game/render/combat-effects.js';
 
@@ -10,7 +11,7 @@ const folder=new URL('../public/assets/models/',import.meta.url),manifest=JSON.p
 const towers=JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url)));
 const cached=new Map();
 async function model(entry){
-  if(!cached.has(entry.file))cached.set(entry.file,(async()=>{const bytes=readFileSync(new URL(entry.file,folder));return(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene;})());
+  if(!cached.has(entry.file))cached.set(entry.file,(async()=>{const bytes=readFileSync(new URL(entry.file,folder)),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');gltf.scene.animations=gltf.animations;return gltf.scene;})());
   return cached.get(entry.file);
 }
 const meshes=root=>{const parts=[];root.traverse(o=>{if(o.isMesh)parts.push(o);});return parts;};
@@ -20,8 +21,16 @@ const entry=(family,tier=1)=>manifest.find(e=>e.family===family&&e.tier===tier);
 test('all 87 production defenders export active articulated mesh hierarchies, not dormant named nodes',async()=>{
   assert.equal(manifest.length,87);
   for(const e of manifest){
-    assert.equal(e.articulationRevision,1,`${e.family}/${e.tier}: not regenerated`);
-    const source=await model(e),actor=source.clone(true),stats=towers[e.family],rig=attackRig(actor,e.family,stats),siege=siegeRig(actor);
+    const native=['ladyclaire','lordbernhard'].includes(e.family);
+    assert.equal(e.articulationRevision,native?2:1,`${e.family}/${e.tier}: not regenerated`);
+    const source=await model(e),actor=cloneDefenderTemplate(source),stats=towers[e.family],rig=attackRig(actor,e.family,stats),siege=siegeRig(actor);
+    if(native){
+      assert.ok(rig.native,'Native assets require exported clips and weighted skins');
+      assert.notEqual(actor.getObjectByProperty('isSkinnedMesh',true).skeleton,source.getObjectByProperty('isSkinnedMesh',true).skeleton);
+      // Full skin deformation, release and independent-cache checks are exercised
+      // against these production assets in secret-native-rig.test.mjs.
+      disposeAttack(rig);disposeDefenderInstance(actor);continue;
+    }
     const decorations=new Set(rig.owned.flatMap(meshes));
     const moving=rig.pivots.flatMap(p=>meshes(p.node)).filter(m=>!decorations.has(m));if(siege)moving.push(...meshes(siege.arm));
     assert.ok(moving.length>0,`${e.family}/${e.tier}: joints have no real mesh descendants`);
@@ -77,33 +86,17 @@ test('reduced motion keeps joints at rest and owned string/glow resources dispos
   }
 });
 
-test('Lady Claire exports three independent drawable orbit pivots and an independently sculpted adult face',async()=>{
-  const source=await model(entry('ladyclaire')),actor=source.clone(true);
-  assert.match(actor.getObjectByName('head_pivot').userData.identitySource,/Original Claire V2 adult face/);
+test('Lady Claire native orbs remain independent of her weighted body and peer skeleton',async()=>{
+  const source=await model(entry('ladyclaire')),actor=cloneDefenderTemplate(source),peer=cloneDefenderTemplate(source);
   const orbs=[0,1,2].map(index=>actor.getObjectByName('secret_orb_'+index));
   assert.ok(orbs.every((orb,index)=>orb&&orb.userData.secretOrbIndex===index&&meshes(orb).length===2));
-  assert.equal(new Set(orbs.map(orb=>orb.parent)).size,1);
-  const before=orbs.map(orb=>meshes(orb).map(sample)),face=meshes(actor.getObjectByName('head_pivot')).map(sample);
+  const before=orbs.map(orb=>meshes(orb).map(sample));
+  const head=actor.getObjectByName('head'),facePosition=head.getWorldPosition(new THREE.Vector3());
   orbs[0].position.x+=.2;actor.updateMatrixWorld(true);
   assert.ok(meshes(orbs[0]).some((mesh,i)=>sample(mesh).distanceTo(before[0][i])>.19));
   for(const i of [1,2])meshes(orbs[i]).forEach((mesh,j)=>assert.deepEqual(sample(mesh).toArray(),before[i][j].toArray()));
-  meshes(actor.getObjectByName('head_pivot')).forEach((mesh,i)=>assert.deepEqual(sample(mesh).toArray(),face[i].toArray()));
-  const rig=attackRig(actor,'ladyclaire',towers.ladyclaire),muzzle=attackMuzzle(rig).clone();
-  triggerAttack(rig);animateAttack(rig,.12);assert.ok(attackMuzzle(rig).distanceTo(muzzle)>.1);disposeAttack(rig);
-});
-
-test('Lord Bernhard has four independently articulated horse legs while his raised sword follows the rider rig',async()=>{
-  const source=await model(entry('lordbernhard')),actor=source.clone(true),legs=[];
-  actor.traverse(node=>{if(node.name.startsWith('leg_horse_'))legs.push(node);});
-  assert.equal(legs.length,4);assert.ok(legs.every(leg=>meshes(leg).length>=2));
-  assert.equal(legs.find(leg=>leg.name==='leg_horse_L_front').userData.gaitPhase,legs.find(leg=>leg.name==='leg_horse_R_rear').userData.gaitPhase);
-  const legSamples=legs.map(leg=>meshes(leg).map(sample)),otherSamples=legs.slice(1).map(leg=>meshes(leg).map(sample));
-  legs[0].rotation.x+=.25;actor.updateMatrixWorld(true);
-  assert.ok(meshes(legs[0]).some((mesh,i)=>sample(mesh).distanceTo(legSamples[0][i])>.04));
-  legs.slice(1).forEach((leg,i)=>meshes(leg).forEach((mesh,j)=>assert.deepEqual(sample(mesh).toArray(),otherSamples[i][j].toArray())));
-  const rig=attackRig(actor,'lordbernhard',towers.lordbernhard),weapon=actor.getObjectByName('weapon_R'),before=meshes(weapon).map(sample);
-  triggerAttack(rig);animateAttack(rig,.14);assert.ok(meshes(weapon).some((mesh,i)=>sample(mesh).distanceTo(before[i])>.1));
-  assert.equal(actor.rotation.x,0);disposeAttack(rig);
+  assert.ok(head.getWorldPosition(new THREE.Vector3()).equals(facePosition));
+  assert.notEqual(head,peer.getObjectByName('head'));disposeDefenderInstance(actor);disposeDefenderInstance(peer);
 });
 
 after(async()=>{

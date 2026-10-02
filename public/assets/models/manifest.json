@@ -2146,112 +2146,147 @@
     ]
   },
   {
-    "id": "lordbernhard-t1",
-    "file": "advanced_lordbernhard.glb",
-    "kind": "tower",
-    "family": "lordbernhard",
-    "tier": 1,
-    "style": "champions-v7.9",
-    "assetRevision": "champions-v7.9",
-    "authoring": "Blender",
-    "secret": true,
-    "triangles": 13297,
-    "designRevision": 9,
-    "name": "Lord Bernhard",
-    "source": "blender/scenes/lordbernhard_design_v2.blend",
-    "bounds": {
-      "min": [
-        -0.5,
-        -0.76598,
-        0.0
-      ],
-      "max": [
-        0.5,
-        0.84467,
-        2.974
-      ],
-      "size": [
-        1.0,
-        1.61065,
-        2.974
-      ]
-    },
-    "articulationRevision": 1,
-    "attackJoints": [
-      "attack_muzzle",
-      "forearm_L",
-      "forearm_R",
-      "hand_L",
-      "hand_R",
-      "head_pivot",
-      "horse_body",
-      "leg_horse_L_front",
-      "leg_horse_L_rear",
-      "leg_horse_R_front",
-      "leg_horse_R_rear",
-      "rider_seat",
-      "rider_seat_contact",
-      "saddle_seat",
-      "saddle_seat_surface",
-      "secret_champion_lordbernhard",
-      "torso_pivot",
-      "upper_arm_L",
-      "upper_arm_R",
-      "weapon_L",
-      "weapon_R"
-    ]
-  },
-  {
     "id": "ladyclaire-t1",
     "file": "advanced_ladyclaire.glb",
     "kind": "tower",
     "family": "ladyclaire",
     "tier": 1,
-    "style": "champions-v7.9",
-    "assetRevision": "champions-v7.9",
+    "style": "champions-v7.10",
+    "assetRevision": "champions-v7.10",
     "authoring": "Blender",
     "secret": true,
-    "triangles": 9550,
-    "designRevision": 9,
+    "triangles": 54842,
+    "designRevision": 10,
     "name": "Lady Claire",
-    "source": "blender/scenes/ladyclaire_design_v2.blend",
+    "source": "blender/scenes/ladyclaire_design_v3.blend",
     "bounds": {
       "min": [
-        -0.50565,
-        -0.52548,
+        -0.44,
+        -0.44,
+        0.01
+      ],
+      "max": [
+        0.4843,
+        0.44,
+        2.14292
+      ],
+      "size": [
+        0.9243,
+        0.88,
+        2.13292
+      ]
+    },
+    "articulationRevision": 2,
+    "rigType": "deform-armature",
+    "attackReleaseFraction": 0.36,
+    "animationClips": {
+      "Attack": 1.0,
+      "Idle": 2.4
+    },
+    "attackJoints": [
+      "finger_L_0",
+      "finger_L_1",
+      "finger_L_2",
+      "finger_L_3",
+      "finger_L_4",
+      "finger_R_0",
+      "finger_R_1",
+      "finger_R_2",
+      "finger_R_3",
+      "finger_R_4",
+      "foot_L",
+      "foot_R",
+      "forearm_L",
+      "forearm_R",
+      "hair_back",
+      "hand_L",
+      "hand_R",
+      "head",
+      "lower_leg_L",
+      "lower_leg_R",
+      "neck",
+      "pelvis",
+      "root",
+      "skirt_back",
+      "skirt_front",
+      "staff",
+      "torso",
+      "upper_arm_L",
+      "upper_arm_R",
+      "upper_leg_L",
+      "upper_leg_R"
+    ],
+    "bones": 31
+  },
+  {
+    "id": "lordbernhard-t1",
+    "file": "advanced_lordbernhard.glb",
+    "kind": "tower",
+    "family": "lordbernhard",
+    "tier": 1,
+    "style": "champions-v7.10",
+    "assetRevision": "champions-v7.10",
+    "authoring": "Blender",
+    "secret": true,
+    "triangles": 59638,
+    "designRevision": 10,
+    "name": "Lord Bernhard",
+    "source": "blender/scenes/lordbernhard_design_v3.blend",
+    "bounds": {
+      "min": [
+        -0.51,
+        -0.82648,
         0.0
       ],
       "max": [
-        0.53379,
-        0.44,
-        2.10928
+        0.51,
+        0.90266,
+        3.124
       ],
       "size": [
-        1.03944,
-        0.96548,
-        2.10928
+        1.02,
+        1.72913,
+        3.124
       ]
     },
-    "articulationRevision": 1,
+    "articulationRevision": 2,
+    "rigType": "deform-armature",
+    "attackReleaseFraction": 0.36,
+    "animationClips": {
+      "Attack": 1.0,
+      "Idle": 2.4
+    },
     "attackJoints": [
-      "attack_muzzle",
+      "cape",
+      "champion_root",
       "forearm_L",
       "forearm_R",
       "hand_L",
       "hand_R",
-      "head_pivot",
-      "natural_hairline",
-      "royal_crown",
-      "secret_champion_ladyclaire",
-      "secret_orb_0",
-      "secret_orb_1",
-      "secret_orb_2",
-      "staff_tip",
-      "torso_pivot",
+      "horse_fore_lower_L",
+      "horse_fore_lower_R",
+      "horse_fore_upper_L",
+      "horse_fore_upper_R",
+      "horse_head",
+      "horse_hind_lower_L",
+      "horse_hind_lower_R",
+      "horse_hind_upper_L",
+      "horse_hind_upper_R",
+      "horse_neck",
+      "horse_root",
+      "horse_tail",
+      "rider_calf_L",
+      "rider_calf_R",
+      "rider_foot_L",
+      "rider_foot_R",
+      "rider_head",
+      "rider_root",
+      "rider_spine",
+      "rider_thigh_L",
+      "rider_thigh_R",
       "upper_arm_L",
-      "upper_arm_R",
-      "weapon_L",
-      "weapon_R"
-    ]
+      "upper_arm_R"
+    ],
+    "bones": 29
   }
 ]

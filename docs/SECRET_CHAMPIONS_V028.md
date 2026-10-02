@@ -1,6 +1,6 @@
 # Secret Champions — 0.2.8 QA and reproduction
 
-Revision: **0.2.8 · Secret Champions**, released 1 October 2026; **art patch 9**, 2 October 2026. The original V1 review is retained; current V2 visuals and geometric evidence are documented in [SECRET_CHAMPION_ART_V2.md](SECRET_CHAMPION_ART_V2.md). The roster has **39 fixed champion recipes** (37 ordinary and two Secret), **47 defender types**, **87 defender variants** and **107 model-manifest entries**, including 20 legacy assets. The active enemy pack still contains 59 native Dark Host V3 models. Source-derived ability values and deliberate adaptations are recorded in [SECRET_CHAMPION_RULES.md](SECRET_CHAMPION_RULES.md).
+Revision: **0.2.8 · Secret Champions**, released 1 October 2026; **art patch 10**, 2 October 2026. Historical V1/V2 reviews are retained; current V3 visuals, native rigs and geometric evidence are documented in [SECRET_CHAMPION_ART_V3.md](SECRET_CHAMPION_ART_V3.md). The roster has **39 fixed champion recipes** (37 ordinary and two Secret), **47 defender types**, **87 defender variants** and **107 model-manifest entries**, including 20 legacy assets. The active enemy pack still contains 59 native Dark Host V3 models. Source-derived ability values and deliberate adaptations are recorded in [SECRET_CHAMPION_RULES.md](SECRET_CHAMPION_RULES.md).
 
 ## Secret selection and combat
 

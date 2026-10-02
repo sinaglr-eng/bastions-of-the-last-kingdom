@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {attackVisualKind} from './combat-effects.js';
+import {createSecretAnimation,releaseSecretAttack,updateSecretAnimation,resetSecretAnimation,disposeSecretAnimation} from './secret-animation.js';
 
 const CLAN_AURAS=['#c85e43','#77bfd5','#93be69','#b287d3','#e2bb67'];
 export function bossAura(clan=0){
@@ -80,10 +81,11 @@ export function attackRig(actor,family,stats={}){
     if(node)pivots.push({node,name,rotation:node.rotation.clone(),position:node.position.clone()});
   }
   const rig={actor,family,kind,pose,pivots,joints:new Map(pivots.map(p=>[p.name,p])),restX:actor.rotation.x,restZ:actor.rotation.z,elapsed:pose.duration,duration:pose.duration,active:false,owned:[],disposed:false};
-  rig.muzzle=(kind==='flame'?actor.getObjectByName('attack_muzzle'):actor.getObjectByName('staff_tip'))||actor.getObjectByName('attack_muzzle')||null;
-  const tip=actor.getObjectByName('staff_tip');
+  rig.native=createSecretAnimation(actor,family);
+  rig.muzzle=(family==='lordbernhard'?actor.getObjectByName('sword_tip'):kind==='flame'?actor.getObjectByName('attack_muzzle'):actor.getObjectByName('staff_tip'))||actor.getObjectByName('attack_muzzle')||null;
+  const tip=['ladyclaire','lordbernhard'].includes(family)?rig.muzzle:actor.getObjectByName('staff_tip');
   if(tip&&SPELL_KINDS.has(kind)){
-    const color=kind==='holy'?'#ffe7a3':kind==='roots'?'#9bdd67':kind==='frost'?'#a4efff':kind==='lightning'?'#b1ddff':'#cb9fff';
+    const color=['ladyclaire','lordbernhard'].includes(family)?'#ffdc78':kind==='holy'?'#ffe7a3':kind==='roots'?'#9bdd67':kind==='frost'?'#a4efff':kind==='lightning'?'#b1ddff':'#cb9fff';
     const glow=new THREE.Group();glow.name='Charging staff focus';glow.visible=false;tip.add(glow);
     glow.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.095,1),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})),new THREE.Mesh(new THREE.TorusGeometry(.14,.012,4,20),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.7,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})));
     glow.traverse(node=>node.raycast=noPick);rig.glow=glow;rig.owned.push(glow);
@@ -108,14 +110,21 @@ export function attackMuzzle(rig,out=new THREE.Vector3()){
 }
 export function triggerAttack(rig,payload={}){
   if(!rig||rig.disposed)return;
+  if(rig.native){releaseSecretAttack(rig.native,{interval:payload.stats?.interval,rate:payload.visualRate,stamp:payload.combatTime,reducedMotion:payload.reducedMotion});rig.active=true;return;}
   // Simultaneous multishot callbacks describe one release pose.
   if(rig.active&&rig.elapsed<.025)return;
   const interval=payload.stats?.interval;
   rig.duration=Math.min(rig.pose.duration,Number.isFinite(interval)&&interval>0?Math.max(.12,interval*.8):rig.pose.duration);
   rig.elapsed=0;rig.active=true;
 }
-export function animateAttack(rig,dt,time=0,{reducedMotion=false}={}){
-  if(!rig||rig.disposed||!rig.active)return;
+export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={}){
+  if(!rig||rig.disposed)return;
+  if(rig.native){
+    updateSecretAnimation(rig.native,dt,{...context,reducedMotion});rig.active=rig.native.stage!=='idle';
+    if(rig.glow){const phase=rig.native.phase;rig.glow.visible=rig.active;rig.glow.scale.setScalar(reducedMotion?1:.6+Math.sin(phase*Math.PI)*1.05);}
+    return;
+  }
+  if(!rig.active)return;
   rig.elapsed=Math.min(rig.duration,rig.elapsed+(Number.isFinite(dt)?Math.max(0,dt):0));
   const progress=rig.duration>0?rig.elapsed/rig.duration:1;
   const stroke=reducedMotion?0:Math.sin(progress*Math.PI)*(progress<.42?1:Math.pow(Math.max(0,1-(progress-.42)/.58),.4));
@@ -163,12 +172,14 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false}={}){
 }
 export function resetAttack(rig){
   if(!rig)return;rig.elapsed=rig.duration;rig.active=false;
+  if(rig.native){resetSecretAnimation(rig.native);if(rig.glow)rig.glow.visible=false;return;}
   rig.actor.rotation.x=rig.restX;rig.actor.rotation.z=rig.restZ;
   for(const pivot of rig.pivots){pivot.node.rotation.copy(pivot.rotation);pivot.node.position.copy(pivot.position);}
   if(rig.glow)rig.glow.visible=false;updateBowString(rig);
 }
 export function disposeAttack(rig){
   if(!rig||rig.disposed)return;resetAttack(rig);
+  disposeSecretAnimation(rig.native);
   for(const object of rig.owned){object.traverse(node=>{node.geometry?.dispose();node.material?.dispose();});object.removeFromParent();}
   if(rig.authoredString)rig.authoredString.node.visible=rig.authoredString.visible;
   rig.owned.length=0;rig.disposed=true;

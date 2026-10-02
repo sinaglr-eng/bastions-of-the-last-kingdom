@@ -1,8 +1,16 @@
-# QA record — 1 October 2026
+# QA record — 2 October 2026
 
 ## Current revision
 
-The 0.2.8 Secret Champions art patch 9 revision contains eight basic classes and 39 champions: 87 defender variants and 20 legacy assets in a 107-entry model manifest, plus 59 native Dark Host V3 enemies. The 37 ordinary champion models retain champion-v6; the two Secret models use champions-v7.9. Basic packs retain archer-v2 and hero-v5. The original Engineer is active and Kushek's design archive is unchanged. Royal scenery uses V7, while the camp remains V6. Native editable sources and rendered portraits accompany the shipped packs. Historical notes below retain their original counts and behavior; later revisions supersede them.
+The 0.2.8 Secret Champions art patch 10 revision contains eight basic classes and 39 champions: 87 defender variants and 20 legacy assets in a 107-entry model manifest, plus 59 native Dark Host V3 enemies. The 37 ordinary champion models retain champion-v6; the two Secret models use champions-v7.10. Basic packs retain archer-v2 and hero-v5. The original Engineer is active and Kushek's design archive is unchanged. Royal scenery uses V7, while the camp remains V6. Native editable sources and rendered portraits accompany the shipped packs. Historical notes below retain their original counts and behavior; later revisions supersede them.
+
+## October 2 — Secret champion native rigs and art V3
+
+Only Claire and Bernhard have new geometry and materials. Both production GLBs contain real weighted armatures and Idle/Attack actions. The frozen assets pass all 321 Node tests and the production build. A hash audit preserves 412 unrelated/gameplay files and 105 other manifest rows. Source rigs, packed textures, all-direction/detail renders and exported attack evidence are documented in [SECRET_CHAMPION_ART_V3.md](SECRET_CHAMPION_ART_V3.md).
+
+Independent visual review corrected Claire's forehead band, tubular eyelids and visible eye-socket seams, and Bernhard's misplaced thumb and disconnected finger loops. Contact and intersection audits supplement rendered review; they do not claim every possible surface pair or physical-device performance has been proven.
+
+Actual browser QA crafted both champions with their unchanged recipes, played their native clips with runtime gold effects in the atelier, and observed a projectile kill for each in the real game. Magic-immune enemies remained immune. Atelier pause, half/normal/3× playback and game pause/speed were exercised; inspected sessions had no console warnings or errors. Screenshots and short attack recordings accompany the editable Blender sources in the V3 evidence directory.
 
 ## October 1 — Secret Champions 0.2.8
 

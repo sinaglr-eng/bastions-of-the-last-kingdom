@@ -7,6 +7,8 @@ const SIEGE=new Set(['stonewarden','kingsreach','fireballista','royalarsenal','r
 const MELEE=new Set(['soldier','frostblade','roseguard','highking','crownofages','kingdomprotector']);
 const LOBBED=new Set(['stonewarden','royalmarshal','griffinbomber','royalarsenal']);
 export const ATTACK_COLORS=Object.freeze({roots:'#78b957',flame:'#ff973f',lightning:'#a5dcff',melee:'#e7e9c5',siege:'#d9aa68',holy:'#fff0b3',frost:'#a1e2ef',arcane:'#bc9aef',arrow:'#eadbb5'});
+const secretFamily=family=>family==='ladyclaire'||family==='lordbernhard';
+export const attackVisualColor=(family,kind)=>secretFamily(family)?'#ffda72':ATTACK_COLORS[kind];
 export function attackVisualKind(family,stats={}){
   if(ROOTS.has(family))return 'roots';
   if(DRAGONS.has(family)||stats.type==='fire')return 'flame';
@@ -118,12 +120,13 @@ function slash(color){
 /** Cosmetic presentation only; never updates projectile timing, targets or damage. */
 export class CombatEffects{
   constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x,y,z),sourceHeight=1.5,targetHeight=enemy=>enemy?.flying?1.9:enemy?.boss?1.4:1,
-    getStats=()=>({}),getMuzzle=null,isVisible=()=>true,reducedMotion=false,maxEffects=48,maxProjectiles=96}={}){
-    this.scene=scene;this.position=position;this.sourceHeight=sourceHeight;this.targetHeight=targetHeight;this.getStats=getStats;this.getMuzzle=getMuzzle;this.isVisible=isVisible;this.reducedMotion=reducedMotion;
+    getStats=()=>({}),getMuzzle=null,getSimulationTime=null,isVisible=()=>true,reducedMotion=false,maxEffects=48,maxProjectiles=96}={}){
+    this.scene=scene;this.position=position;this.sourceHeight=sourceHeight;this.targetHeight=targetHeight;this.getStats=getStats;this.getMuzzle=getMuzzle;this.getSimulationTime=getSimulationTime;this.isVisible=isVisible;this.reducedMotion=reducedMotion;
     this.maxEffects=Math.max(1,Math.floor(maxEffects));this.maxProjectiles=Math.max(1,Math.floor(maxProjectiles));this.effects=[];this.projectiles=new Map();this.disposed=false;this.time=0;
   }
   motion(){return !(typeof this.reducedMotion==='function'?this.reducedMotion():this.reducedMotion);}
   visible(target){return !target||this.isVisible(target)!==false;}
+  animationClock(source,time=this.time){const simulation=secretFamily(source?.family)?this.getSimulationTime?.():null;return Number.isFinite(simulation)?simulation:time;}
   point(target,height){return this.position(target.x,height,target.z);}
   muzzle(source,fallback=source){
     const out=new THREE.Vector3(),point=this.getMuzzle?.(source,out);
@@ -140,9 +143,10 @@ export class CombatEffects{
     if(this.disposed||!shot?.source||!shot.target||!this.visible(shot.target))return null;
     if(this.projectiles.has(shot.id))return this.projectiles.get(shot.id);
     if(this.projectiles.size>=this.maxProjectiles)return null;
-    const stats=shot.stats||this.getStats(shot.source),kind=attackVisualKind(shot.source.family,stats),color=ATTACK_COLORS[kind];
+    const stats=shot.stats||this.getStats(shot.source),kind=attackVisualKind(shot.source.family,stats),color=attackVisualColor(shot.source.family,kind);
     const lobbed=kind==='siege'&&LOBBED.has(shot.source.family);
     const object=kind==='roots'?thorns(color):kind==='flame'?flameStream(color):kind==='lightning'?zigzag(color):kind==='melee'?slash(color):lobbed?bomb(color):kind==='arrow'||kind==='siege'?arrow(color):spell(kind,color);
+    if(secretFamily(shot.source.family))object.name=shot.source.family==='lordbernhard'?'Sword-released golden magical bolt':'Staff-released golden spell';
     if(kind==='siege'&&!lobbed)object.scale.setScalar(1.4);
     sealMaterials(object);this.scene.add(object);const record={object,kind,shot,stats,color,lobbed,origin:this.muzzle(shot.source,shot.start||shot.source)};this.projectiles.set(shot.id,record);this.poseProjectile(record,this.time);
     if(['arcane','holy','frost'].includes(kind))this.magicWave(record.origin,this.point(shot.target,this.targetHeight(shot.target)),color,shot.target);
@@ -155,6 +159,7 @@ export class CombatEffects{
   }
   poseProjectile(record,time){
     const {object,kind,shot,lobbed}=record,p=clampProgress(shot.progress),motion=this.motion();
+    time=this.animationClock(shot.source,time);
     const start=kind==='flame'?this.muzzle(shot.source,shot.start||shot.source):record.origin,end=this.point(shot.target,this.targetHeight(shot.target));
     if(kind==='roots'){
       object.position.copy(this.point(shot.target,.03));object.scale.setScalar(1);object.scale.y=motion ? .16+.84*Math.sin(Math.min(1,p*1.35)*Math.PI/2) : .85;
@@ -183,7 +188,7 @@ export class CombatEffects{
   }
   impact(payload){
     if(this.disposed||!this.visible(payload.target))return;
-    const stats=payload.stats||{},kind=attackVisualKind(payload.source?.family,stats),color=ATTACK_COLORS[kind];
+    const stats=payload.stats||{},kind=attackVisualKind(payload.source?.family,stats),color=attackVisualColor(payload.source?.family,kind);
     const centre=this.position(payload.x,.04,payload.z),radius=Math.min(1.1,Math.max(.28,payload.radius||.4));
     const object=kind==='roots'?thorns(color):new THREE.Group();object.name=`${kind} attack impact`;object.position.copy(centre);
     if(kind!=='roots')object.add(groundRing(color,radius));
@@ -219,7 +224,10 @@ export class CombatEffects{
   chain(payload){
     if(!payload.from||!payload.to||!this.visible(payload.from)||!this.visible(payload.to))return;
     const object=zigzag(payload.color||ATTACK_COLORS.lightning,'Jumping elemental lightning');
-    this.addEffect(object,.24,(effect,p,motion)=>{animateZigzag(effect,this.point(payload.from,.9),this.point(payload.to,this.targetHeight(payload.to)),this.time,payload.to.id||0,motion);fadeObject(effect,1-p);},payload.to);
+    // Subsequent enemy-to-enemy chain packets carry the original tower colour,
+    // rather than its reference. This palette belongs to the two Secret towers.
+    const source=secretFamily(payload.from.family)?payload.from:payload.color==='#ffd969'?{family:'ladyclaire'}:null;
+    this.addEffect(object,.24,(effect,p,motion)=>{animateZigzag(effect,secretFamily(payload.from.family)?this.muzzle(payload.from):this.point(payload.from,.9),this.point(payload.to,this.targetHeight(payload.to)),this.animationClock(source),payload.to.id||0,motion);fadeObject(effect,1-p);},payload.to);
   }
   event(type,payload={}){
     if(this.disposed)return;

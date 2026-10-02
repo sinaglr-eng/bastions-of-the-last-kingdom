@@ -98,15 +98,15 @@ export function animateSecretChampion(actor,time,{reducedMotion=false,melancholy
   if(!actor.userData.secretMotion){
     const orbs=[0,1,2].map(i=>actor.getObjectByName(`secret_orb_${i}`)).filter(Boolean);
     const legs=[];actor.traverse(node=>{if(node.name.startsWith('leg_horse_'))legs.push({node,rest:node.rotation.clone()});});
-    actor.userData.secretMotion={clock,last:clock,orbs:orbs.map((node,i)=>({node,rest:node.position.clone(),rotation:node.rotation.clone(),scale:node.scale.clone(),phase:i*Math.PI*2/3,radius:node.userData.orbitRadius||.46})),legs};
+    actor.userData.secretMotion={clock:actor.userData.nativeSecretAnimation?0:clock,last:clock,orbs:orbs.map((node,i)=>({node,rest:node.position.clone(),rotation:node.rotation.clone(),scale:node.scale.clone(),phase:Math.hypot(node.position.x,node.position.z)>1e-6?Math.atan2(node.position.z,node.position.x):i*Math.PI*2/3,radius:node.userData.orbitRadius||.46})),legs};
   }
   const rig=actor.userData.secretMotion;
   rig.clock+=Math.max(0,Math.min(.25,clock-rig.last))*(melancholy?.22:1);rig.last=clock;
   const t=reducedMotion?0:rig.clock;
   for(const {node,rest,rotation,scale,phase,radius}of rig.orbs){
     if(reducedMotion){node.position.copy(rest);node.rotation.copy(rotation);node.scale.copy(scale);continue;}
-    const angle=phase+t*.92;node.position.set(Math.cos(angle)*radius,rest.y+(reducedMotion?0:Math.sin(t*1.8+phase)*.045),Math.sin(angle)*radius);
+    const angle=phase+t*.92;node.position.set(Math.cos(angle)*radius,rest.y+(Math.sin(t*1.8+phase)-Math.sin(phase))*.045,Math.sin(angle)*radius);
     node.rotation.copy(rotation);node.rotation.y+=t*.4;node.scale.copy(scale).multiplyScalar(melancholy?.88:1);
   }
-  rig.legs.forEach(({node,rest},i)=>{node.rotation.copy(rest);node.rotation.x+=(reducedMotion?0:Math.sin(t*1.4+(node.userData.gaitPhase??i))*.018);});
+  if(!actor.userData.nativeSecretAnimation)rig.legs.forEach(({node,rest},i)=>{node.rotation.copy(rest);node.rotation.x+=(reducedMotion?0:Math.sin(t*1.4+(node.userData.gaitPhase??i))*.018);});
 }

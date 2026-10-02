@@ -5,6 +5,10 @@ import {rankColor,rankAdornment,animateRank} from './render/ranks.js';
 import {championClassification,championAuraLevel} from './render/champion-classification.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './render/champion-aura.js';
 import {animateSecretChampion} from './render/secret-champions.js';
+import {cloneDefenderTemplate,disposeDefenderInstance} from './render/defender-assets.js';
+import {attackRig,attackMuzzle,disposeAttack} from './render/battle-animation.js';
+import {previewSecretAttack,updateSecretPreview,resetSecretAnimation} from './render/secret-animation.js';
+import {CombatEffects} from './render/combat-effects.js';
 import {castleWallModel,wallConnections} from './render/walls.js';
 import towers from '../data/towers.json';
 import '../ui/atelier.css';
@@ -42,6 +46,13 @@ light('#8ab6db',2.3,[4,3,-1]);light('#e8c47f',3.5,[0,4,4]);
 const ground=new THREE.Mesh(new THREE.CircleGeometry(3.2,80),new THREE.MeshStandardMaterial({color:'#1c2c28',roughness:1}));ground.rotation.x=-Math.PI/2;ground.position.y=-.01;ground.receiveShadow=true;scene.add(ground);
 for(const radius of [1.2,2.1,3]){const m=new THREE.Mesh(new THREE.RingGeometry(radius,radius+.004,96),new THREE.MeshBasicMaterial({color:'#90a99a',transparent:true,opacity:.14,side:THREE.DoubleSide}));m.rotation.x=-Math.PI/2;m.position.y=-.005;scene.add(m);}
 const loader=new GLTFLoader(),cache=new Map();let selected=1,model=null,modelAura=null,wallsVisible=false,sequence=0;
+let modelAttack=null,previewPaused=false,previewSpeed=1,previewShot=null,previewSerial=0;
+const animationControls=document.createElement('span');animationControls.id='native-animation-controls';animationControls.hidden=true;
+animationControls.innerHTML='<button id="animation-idle">Klidová animace</button><button id="animation-attack">Přehrát útok</button><button id="animation-pause" aria-pressed="false">Pozastavit</button><label>Rychlost <select id="animation-speed" aria-label="Rychlost animace"><option value="0.5">½×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="3">3×</option></select></label>';
+document.querySelector('.view-controls').append(animationControls);
+const previewTarget={id:-2,x:0,z:-2.5},previewTargetMesh=new THREE.Mesh(new THREE.TorusGeometry(.15,.018,4,24),new THREE.MeshBasicMaterial({color:'#ffe9b5',transparent:true,opacity:.8,depthWrite:false,toneMapped:false}));
+previewTargetMesh.name='Atelier spell target';previewTargetMesh.position.set(previewTarget.x,1,previewTarget.z);previewTargetMesh.visible=false;scene.add(previewTargetMesh);
+const previewEffects=new CombatEffects(scene,{sourceHeight:1.5,getMuzzle:(_source,out)=>attackMuzzle(modelAttack,out),maxEffects:8,maxProjectiles:2,reducedMotion:()=>!!reducedMotion?.matches});
 const reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
 const auraDescriptions=['Velká silná modrá aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná zelená aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná fialová aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Velká silná zlatá aura se třemi kruhy, jiskrami a vysokými světelnými prameny.','Tajný šampion s výraznou zlatou září, vysokými světelnými prameny a jiskrami. Všechny tři přísady musí padnout v jednom kole.'];
 const wallGroup=new THREE.Group();wallGroup.visible=false;
@@ -62,6 +73,7 @@ function rankButtons(){
 }
 async function showRank(rank){
  selected=rank;const request=++sequence,advanced=towers[family].advanced,url=asset(family,rank);
+ animationControls.hidden=true;
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelector('#selected-rank').textContent=advanced?`${championClassification(family).toUpperCase()} · ŠAMPION`:`${defenderCode(towers[family],rank)} · ${colors[rank-1].toUpperCase()}`;
  document.querySelector('#rank-detail').textContent=advanced?`${auraDescriptions[championAuraLevel(family)]} Recept najdeš v herním Grimoáru.`:rank===6?'Zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`;
@@ -70,8 +82,11 @@ async function showRank(rank){
  try{
   if(!cache.has(url))cache.set(url,loader.loadAsync(url));
   const gltf=await cache.get(url);if(request!==sequence)return;
-  if(model){disposeChampionAura(modelAura);modelAura=null;scene.remove(model);const rankGroup=model.getObjectByName('Mythic aura')||model.getObjectByName('Rank signal');rankGroup?.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});}
-  model=gltf.scene.clone(true);model.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});
+  if(model){disposeAttack(modelAttack);modelAttack=null;disposeDefenderInstance(model);disposeChampionAura(modelAura);modelAura=null;scene.remove(model);const rankGroup=model.getObjectByName('Mythic aura')||model.getObjectByName('Rank signal');rankGroup?.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});}
+  previewShot=null;previewEffects.syncProjectiles([]);for(const effect of [...previewEffects.effects])previewEffects.removeEffect(effect);previewTargetMesh.visible=false;
+  gltf.scene.animations=gltf.animations;model=cloneDefenderTemplate(gltf.scene);model.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});
+  if(towers[family].secret)modelAttack=attackRig(model,family,towers[family]);
+  animationControls.hidden=!modelAttack?.native;previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');
   const bounds=new THREE.Box3().setFromObject(model),size=bounds.getSize(new THREE.Vector3());viewCentre=bounds.getCenter(new THREE.Vector3());viewRadius=Math.max(1,size.y/2.2,size.x/2.1,size.z/2.1);
   if(!advanced)model.add(rankAdornment(rank));
   modelAura=createChampionAura(family);if(modelAura)model.add(modelAura);
@@ -86,7 +101,30 @@ document.querySelector('#rotate').addEventListener('click',e=>{controls.autoRota
 document.querySelector('#reset').addEventListener('click',()=>reset(wallsVisible));
 function toggleWalls(){wallsVisible=!wallsVisible;wallGroup.visible=wallsVisible;if(model)model.visible=!wallsVisible;reset(wallsVisible);document.querySelector('#walls').setAttribute('aria-pressed',String(wallsVisible));status();}
 document.querySelector('#walls').addEventListener('click',toggleWalls);
+document.querySelector('#animation-attack').addEventListener('click',()=>{if(wallsVisible)toggleWalls();previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');previewSecretAttack(modelAttack?.native);previewTargetMesh.visible=true;});
+document.querySelector('#animation-idle').addEventListener('click',()=>{resetSecretAnimation(modelAttack?.native);previewShot=null;previewEffects.syncProjectiles([]);previewTargetMesh.visible=false;});
+document.querySelector('#animation-pause').addEventListener('click',event=>{previewPaused=!previewPaused;event.currentTarget.setAttribute('aria-pressed',String(previewPaused));});
+document.querySelector('#animation-speed').addEventListener('change',event=>previewSpeed=Number(event.target.value));
 new ResizeObserver(()=>{const {width,height}=host.getBoundingClientRect();renderer.setSize(width,height);camera.aspect=width/height;camera.updateProjectionMatrix();}).observe(host);
 document.querySelector('#family-picker').value=family;rankButtons();showRank(1);
-let previous=performance.now();function frame(now){const dt=Math.min(.1,(now-previous)/1000);previous=now;controls.update(dt);if(model){animateRank(model,now/1000);animateSecretChampion(model,now/1000,{reducedMotion:!!reducedMotion?.matches});}animateChampionAura(modelAura,now/1000,{reducedMotion:!!reducedMotion?.matches});renderer.render(scene,camera);requestAnimationFrame(frame);}requestAnimationFrame(frame);
+let previous=performance.now(),previewClock=0;
+function frame(now){
+ const dt=Math.min(.1,(now-previous)/1000);previous=now;controls.update(dt);
+ const animationDt=previewPaused||wallsVisible?0:dt*previewSpeed;previewClock+=animationDt;
+ if(model){
+  animateRank(model,now/1000);
+  if(modelAttack?.native){
+   updateSecretPreview(modelAttack.native,animationDt,{reducedMotion:!!reducedMotion?.matches,onRelease:({elapsedAfterRelease})=>{
+    const source={id:-1,family,x:0,z:0},stats=towers[family];previewShot={id:++previewSerial,source,target:previewTarget,start:{x:0,z:0},stats,progress:0,releaseFrameDt:elapsedAfterRelease,duration:Math.max(.08,Math.hypot(previewTarget.x,previewTarget.z)/stats.projectileSpeed)};previewEffects.event('shot',previewShot);
+   }});
+   if(modelAttack.glow){modelAttack.glow.visible=modelAttack.native.stage==='preview';modelAttack.glow.scale.setScalar(.6+Math.sin(modelAttack.native.phase*Math.PI)*1.05);}
+  }
+  animateSecretChampion(model,previewClock,{reducedMotion:!!reducedMotion?.matches});
+ }
+ if(previewShot&&animationDt>0){const shotDt=previewShot.releaseFrameDt??animationDt;delete previewShot.releaseFrameDt;previewShot.progress+=shotDt/previewShot.duration;if(previewShot.progress>=1){previewEffects.event('impact',{source:previewShot.source,target:previewTarget,stats:previewShot.stats,x:previewTarget.x,z:previewTarget.z});previewShot=null;}}
+ previewEffects.syncProjectiles(previewShot?[previewShot]:[],previewClock);previewEffects.update(animationDt,previewClock);
+ if(!previewShot&&modelAttack?.native?.stage!=='preview'&&!previewEffects.effects.length)previewTargetMesh.visible=false;
+ animateChampionAura(modelAura,previewClock,{reducedMotion:!!reducedMotion?.matches});renderer.render(scene,camera);requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
 

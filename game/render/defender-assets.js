@@ -1,5 +1,26 @@
-export function installDefenderTemplate(field,entry,scene){
+import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+
+// A skinned actor needs its own bones and Skeleton. Mesh geometry, textures,
+// materials and immutable AnimationClips remain shared with the cached asset.
+export function cloneDefenderTemplate(source){
+  const actor=cloneSkeleton(source);actor.animations=[...(source.animations||[])];
+  // glTF material batches share a single skin. SkeletonUtils otherwise makes
+  // one Skeleton per batch; reuse that actor's private skin and bone texture.
+  const sourceMeshes=[];source.traverse(node=>{if(node.isSkinnedMesh)sourceMeshes.push(node);});
+  const skeletons=new Map();let index=0;
+  actor.traverse(node=>{if(!node.isSkinnedMesh)return;const sourceSkin=sourceMeshes[index++].skeleton;if(skeletons.has(sourceSkin))node.skeleton=skeletons.get(sourceSkin);else skeletons.set(sourceSkin,node.skeleton);});
+  return actor;
+}
+const disposedInstances=new WeakSet();
+export function disposeDefenderInstance(actor){
+  if(!actor||disposedInstances.has(actor))return;disposedInstances.add(actor);
+  const skeletons=new Set();actor.traverse(node=>{if(node.isSkinnedMesh)skeletons.add(node.skeleton);});
+  for(const skeleton of skeletons)skeleton.dispose();
+}
+
+export function installDefenderTemplate(field,entry,scene,animations=scene.animations||[]){
   if(field.disposed)return false;
+  scene.animations=[...animations];
   field.imported.set(`${entry.family}:${entry.tier}`,scene);
   let changed=false;
   for(const tower of field.game.towers){
