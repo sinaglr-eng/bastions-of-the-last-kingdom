@@ -2,7 +2,7 @@
 
 ## Current revision
 
-The 0.2.8 Secret Champions revision contains eight basic classes and 39 champions: 87 defender variants and 20 legacy assets in a 107-entry model manifest, plus 59 native Dark Host V3 enemies. The 37 ordinary champion models retain champion-v6; the two Secret models use champions-v7.8. Basic packs retain archer-v2 and hero-v5. The original Engineer is active and Kushek's design archive is unchanged. Royal scenery uses V7, while the camp remains V6. Native editable sources and rendered portraits accompany the shipped packs. Historical notes below retain their original counts and behavior; later revisions supersede them.
+The 0.2.8 Secret Champions art patch 9 revision contains eight basic classes and 39 champions: 87 defender variants and 20 legacy assets in a 107-entry model manifest, plus 59 native Dark Host V3 enemies. The 37 ordinary champion models retain champion-v6; the two Secret models use champions-v7.9. Basic packs retain archer-v2 and hero-v5. The original Engineer is active and Kushek's design archive is unchanged. Royal scenery uses V7, while the camp remains V6. Native editable sources and rendered portraits accompany the shipped packs. Historical notes below retain their original counts and behavior; later revisions supersede them.
 
 ## October 1 — Secret Champions 0.2.8
 

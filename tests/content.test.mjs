@@ -43,5 +43,5 @@ test('every exported GLB has a valid header and finite footprint metadata',()=>{
  assert.equal(manifest.filter(x=>x.style==='hero-v5').length,42);
  assert.equal(manifest.filter(x=>x.style==='archer-v2').length,6);
  assert.equal(manifest.filter(x=>x.style==='champion-v6').length,37);
- assert.equal(manifest.filter(x=>x.secret===true&&x.style==='champions-v7.8').length,2);
+ assert.equal(manifest.filter(x=>x.secret===true&&x.style==='champions-v7.9').length,2);
 });

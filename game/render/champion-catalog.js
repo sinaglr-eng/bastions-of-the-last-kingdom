@@ -1,7 +1,7 @@
 // Stable IDs preserve discoveries and recipe relationships.
 export const CHAMPIONS={
-  ladyclaire:{name:'Lady Claire',kind:'secretcaster',color:'#82bde4',accent:'#efc65f',description:'A smiling blonde sorceress in an elegant dress, wielding a magic staff and three orbiting orbs.'},
-  lordbernhard:{name:'Lord Bernhard',kind:'secretknight',color:'#dce8ee',accent:'#efc65f',description:'A radiant armored knight on a white horse, raising his sword to guide nearby allies.'},
+  ladyclaire:{name:'Lady Claire',kind:'secretcaster',color:'#f0e2c4',accent:'#efc65f',description:'A crowned blonde sorceress in an ivory and gold gown, wielding a radiant staff and three orbiting orbs.'},
+  lordbernhard:{name:'Lord Bernhard',kind:'secretknight',color:'#dce8ee',accent:'#efc65f',description:'A fully helmed knight in radiant silver and gold, seated on a white horse with his sword raised.'},
   "rimewatch": {
     "name": "Frostbolt Watchmen",
     "kind": "ranger",

@@ -60,7 +60,7 @@ test('native Bernhard horse motion keeps the authored diagonal gait pairs and re
 
 test('both native secret families receive the private gold Secret aura',()=>{
   const auras=['ladyclaire','lordbernhard'].map(family=>createChampionAura(family));
-  for(const aura of auras){assert.equal(aura.userData.classification,'Secret');assert.equal(aura.userData.level,4);assert.equal(aura.userData.color,'#ffd969');assert.equal(aura.userData.rings.length,3);}
+  for(const aura of auras){assert.equal(aura.userData.classification,'Secret');assert.equal(aura.userData.level,4);assert.equal(aura.userData.color,'#ffd969');assert.equal(aura.userData.rings.length,4);}
   assert.notEqual(auras[0].userData.ground.material,auras[1].userData.ground.material);
   auras.forEach(disposeChampionAura);
 });

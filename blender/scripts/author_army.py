@@ -355,7 +355,7 @@ def generate(render=True,family=None):
     requested=set(family.split(',')) if family else None
     if requested and not requested.issubset(DATA):raise ValueError('Unknown requested family')
     families=[f for f in DATA if not requested or f in requested]
-    # Secret champions own their native rigid rig, bounds and v7.8 manifest.
+    # Secret champions own their native rigid rig, bounds and current art manifest.
     # Generic finalization/budgeting would reparent their orbs and horse parts.
     secret_families=[f for f in families if DATA[f].get('secret')]
     for fam in (f for f in families if f not in secret_families):

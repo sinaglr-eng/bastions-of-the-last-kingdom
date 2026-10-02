@@ -77,9 +77,9 @@ test('reduced motion keeps joints at rest and owned string/glow resources dispos
   }
 });
 
-test('Lady Claire exports three independent drawable orbit pivots and the preserved human face identity',async()=>{
+test('Lady Claire exports three independent drawable orbit pivots and an independently sculpted adult face',async()=>{
   const source=await model(entry('ladyclaire')),actor=source.clone(true);
-  assert.match(actor.getObjectByName('head_pivot').userData.identitySource,/Preserved Kushek human face/);
+  assert.match(actor.getObjectByName('head_pivot').userData.identitySource,/Original Claire V2 adult face/);
   const orbs=[0,1,2].map(index=>actor.getObjectByName('secret_orb_'+index));
   assert.ok(orbs.every((orb,index)=>orb&&orb.userData.secretOrbIndex===index&&meshes(orb).length===2));
   assert.equal(new Set(orbs.map(orb=>orb.parent)).size,1);

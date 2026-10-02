@@ -1,13 +1,13 @@
 # Secret Champions — 0.2.8 QA and reproduction
 
-Revision: **0.2.8 · Secret Champions**, 1 October 2026. The roster has **39 fixed champion recipes** (37 ordinary and two Secret), **47 defender types**, **87 defender variants** and **107 model-manifest entries**, including 20 legacy assets. The active enemy pack still contains 59 native Dark Host V3 models. Source-derived ability values and deliberate adaptations are recorded in [SECRET_CHAMPION_RULES.md](SECRET_CHAMPION_RULES.md).
+Revision: **0.2.8 · Secret Champions**, released 1 October 2026; **art patch 9**, 2 October 2026. The original V1 review is retained; current V2 visuals and geometric evidence are documented in [SECRET_CHAMPION_ART_V2.md](SECRET_CHAMPION_ART_V2.md). The roster has **39 fixed champion recipes** (37 ordinary and two Secret), **47 defender types**, **87 defender variants** and **107 model-manifest entries**, including 20 legacy assets. The active enemy pack still contains 59 native Dark Host V3 models. Source-derived ability values and deliberate adaptations are recorded in [SECRET_CHAMPION_RULES.md](SECRET_CHAMPION_RULES.md).
 
 ## Secret selection and combat
 
 | Champion | Exact current-round ingredients | Native presentation |
 |---|---|---|
-| Lady Claire | Mage V + Druid V + Frost Warden V | Kushek-inspired face, green eyes, loose blonde hair below the shoulders, no bangs, smile, dress, staff, three orbiting orbs |
-| Lord Bernhard | Soldier V + Soldier IV + Soldier III | Radiant armored knight, raised sword, white horse with four articulated legs |
+| Lady Claire | Mage V + Druid V + Frost Warden V | Original adult face, green eyes, natural blonde hairline, loose hair below the shoulders, gold crown, ivory/champagne gown, staff, three orbiting orbs |
+| Lord Bernhard | Soldier V + Soldier IV + Soldier III | Seated silver/gold knight, ornate fully closed helmet, raised sword, proportionate white horse with four articulated legs |
 
 Both are fixed rank-I **Secret** champions with gold classification auras. All five draws must be placed before the combination can appear; its three ingredients must be distinct current-round draw IDs and the selected result anchor must be one of them. Previously retained units and stale drafts do not count. Crafting preserves all five occupied foundations, transfers ingredient kills, records normal discovery/combine events and spends no gold. All 37 ordinary recipes retain their existing ingredient rules and remain craftable from each valid anchor.
 
@@ -17,7 +17,7 @@ The moon platform glyph and selection-panel countdown read Claire's actual remai
 
 ## Native models, motion and regeneration
 
-Both models were authored and exported by Blender **5.2.2**, with editable individual scenes and a paired review scene. Lady Claire has **9,904 triangles** and three independent imported orb pivots. Lord Bernhard has **13,365 triangles** with a specific 13,500-triangle budget; his raised sword gives a 3.053-meter height, within the explicit 3.1-meter ceiling. Other defender budgets remain unchanged. Portraits and front/back/pair review renders accompany the exports.
+Both models were authored and exported by Blender **5.2.2**, with editable individual scenes and a paired review scene. Lady Claire V2 has **9,550 triangles** and three independent imported orb pivots. Lord Bernhard V2 has **13,297 triangles** with a specific 13,500-triangle budget; his raised sword gives a 2.974-meter height, within the explicit 3.1-meter ceiling. Other defender budgets remain unchanged. Portraits and front/back/pair review renders accompany the exports.
 
 `secret-render`, `native-motion`, `champion-assets` and `defender-articulation` checks load real GLBs through Three.js. They verify actual moving orb/horse child geometry, preserved Y-up orb heights, authored diagonal horse gait phases, gold Secret auras and exact reduced-motion restoration. Cached templates and simultaneous clones retain their poses and materials. Runtime fallback models have distinct Secret silhouettes while their corresponding GLBs load.
 
@@ -29,7 +29,7 @@ blender --background --python blender/scripts/author_secret_champions.py
 blender --background --python blender/scripts/author_army.py -- --family ladyclaire --no-render
 ```
 
-Native evidence: `blender/scenes/ladyclaire_design_v1.blend`, `lordbernhard_design_v1.blend`, `secret_champions_review_v1.blend` and `blender/renders/secret-champions-v1/`. The archived Kushek sources/variants and active original Engineer remain preserved.
+Native evidence: `blender/scenes/ladyclaire_design_v2.blend`, `lordbernhard_design_v2.blend`, `secret_champions_review_v2.blend` and `blender/renders/secret-champions-v2/`. The archived Kushek sources/variants and active original Engineer remain preserved.
 
 ## English host and living enemies
 
@@ -63,7 +63,7 @@ Run `pnpm dev`, open `http://127.0.0.1:5173/?debug` and press **F2** with the ba
 
 The actual development UI successfully crafted both champions and loaded their GLBs. Browser proofs are `artifacts/lady-claire-game-v028.png` and `artifacts/lord-bernhard-game-v028.png`, with no warning/error logs. The flying lineup's fixed positions and different wing poses are recorded in `artifacts/enemy-flight-v028-a.png` and `enemy-flight-v028-b.png`; the fixture holds speed at zero while the real animation clock runs. The Royal atelier provides independent family selection, full portraits, orbiting orbs and native mounted-knight inspection.
 
-## Final release verification
+## Initial 0.2.8 release verification
 
 - **306 / 306 Node tests passed**, with zero failures, skipped tests or cancellations. Full log: `artifacts/secret-champions-final-tests.log`.
 - The production Vite build passes. Log: `artifacts/secret-champions-final-build.log`. The existing shared Three.js chunk-size warning remains.

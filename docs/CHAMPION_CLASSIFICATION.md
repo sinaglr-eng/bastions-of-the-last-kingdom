@@ -4,9 +4,9 @@ The cosmetic aura follows the **Classification** column of the [Gem TD wiki's To
 
 All 37 ordinary champions have a corresponding classified tower: **5 Basic, 13 Intermediate, 11 Advanced and 8 TOP**. Royal Storm Arsenal corresponds to Deplemented-Kyparium and is TOP. Archangel is Advanced; Angel is TOP. The wiki writes the final class as `Top`; presentation normalizes that label to `TOP`.
 
-Version 0.2.8 adds two **Secret** champions, Lady Claire (Fantastic Miss Shrimp) and Lord Bernhard (Diamond Cullinan), with the same large gold aura (`#ffd969`, runtime level 4). They use distinct current-round-only recipes; Nature Spirit keeps its existing TOP classification and Diamond Cullinan reference. The full roster has 39 champions.
+Version 0.2.8 adds two **Secret** champions, Lady Claire (Fantastic Miss Shrimp) and Lord Bernhard (Diamond Cullinan), with an enhanced gold aura (`#ffd969`, runtime level 4) in art patch 9. Ordinary classifications retain their original equal-size auras; Secret effects use a brighter ground glow and taller light wisps. They use distinct current-round-only recipes; Nature Spirit keeps its existing TOP classification and Diamond Cullinan reference. The full roster has 39 champions.
 
-These classes do not change attack damage, range, attack speed, abilities or recipe ingredients. Fixed recipe stages now use these four classifications directly, including TOP. Every champion has the same large, strong aura, with three ground rings, eighteen motes and six rising wisps. Only the color varies: Basic blue (`#3989ed`), Intermediate green (`#3eac63`), Advanced purple (`#9555d8`) and TOP gold (`#ffd969`). The eight ordinary basic defender families retain their existing rank appearance.
+These classes do not change attack damage, range, attack speed, abilities or recipe ingredients. Fixed recipe stages now use these four classifications directly, including TOP. Every ordinary champion has the same large, strong aura, with three ground rings, eighteen motes and six rising wisps. Only the color varies: Basic blue (`#3989ed`), Intermediate green (`#3eac63`), Advanced purple (`#9555d8`) and TOP gold (`#ffd969`). The eight ordinary basic defender families retain their existing rank appearance.
 
 | Stable family | Bastions champion | Wiki tower | Classification |
 | --- | --- | --- | --- |

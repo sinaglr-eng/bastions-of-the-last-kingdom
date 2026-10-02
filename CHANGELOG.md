@@ -1,5 +1,13 @@
 # Releases
 
+## 0.2.8 · Art patch 9 — Royal Secret models — 2 October 2026
+
+- Rebuilds Lady Claire with an original adult face, a subtle closed smile, a natural blonde hairline, a gold crown and an ivory/champagne gown. Her staff and three orbiting orbs retain their native articulation.
+- Corrects Bernhard’s saddle contact and white horse proportions. The rider has a lavish fully closed helmet, silver/gold plate and gold accessories throughout.
+- Strengthens only Secret champions’ cosmetic gold auras. Native V2 sources, front/back/side renders, portraits and loading fallbacks accompany the exports. Recipes, combat, game edition and stored statistics retain 0.2.8 behavior.
+
+Reproduction and geometric checks: [Secret champion art V2](docs/SECRET_CHAMPION_ART_V2.md).
+
 ## 0.2.8 — Secret Champions — 1 October 2026
 
 - Adds Lady Claire and Lord Bernhard as fixed Secret champions with gold auras, leaving the 37 ordinary champions intact. Claire requires Mage V + Druid V + Frost Warden V; Bernhard uses the requested Soldier V + Soldier IV + Soldier III. All three ingredients must be actual candidates from the same current round, after all five placements. Old retained units cannot complete these recipes.

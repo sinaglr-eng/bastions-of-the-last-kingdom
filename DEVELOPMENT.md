@@ -76,7 +76,7 @@ The frame loop clamps its elapsed step to avoid hidden-tab jumps. Game speed mul
 - `pnpm test`: includes 800,000 seeded quality rolls and 100,000 family draws. Coverage includes all 39 fixed champion recipes and Secret current-round restrictions, automatic mastery and exact round income, real SQLite/D1 queries, full 10/50-wave statistical snapshots, retry ordering, safe names and leaderboard races. It also validates scenery water/board bounds and asynchronous defender imports. Touch tests exercise tap/drag separation, multi-touch suppression, actual OrbitControls panning and capture release during mouse/touch/pen double activation. The latest full-suite result is recorded in `docs/QA.md`.
 - Three complete seed-driven campaign simulations use the actual combat and progression code. Latest outcomes are recorded in docs/QA.md. Reports are in `artifacts/campaign-simulation.json` after running the tool.
 - `pnpm build`: production bundle succeeds; the graphics-engine chunk is approximately 628 KB before gzip. No CDN dependencies.
-- Blender 5.2.2 authors the current cohesive pack. Runtime loads archer-v2, hero-v5, champion-v6, champions-v7.8 Secret models and dark-host-v3. The 107-entry defender/legacy library and 59 active enemy exports are covered by GLB parsing, mesh-budget and finite-bounds checks.
+- Blender 5.2.2 authors the current cohesive pack. Runtime loads archer-v2, hero-v5, champion-v6, champions-v7.9 Secret models and dark-host-v3. The 107-entry defender/legacy library and 59 active enemy exports are covered by GLB parsing, mesh-budget and finite-bounds checks.
 - Browser checks and remaining limitations are recorded in `docs/QA.md`.
 
 ## Controls

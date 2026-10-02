@@ -2151,29 +2151,29 @@
     "kind": "tower",
     "family": "lordbernhard",
     "tier": 1,
-    "style": "champions-v7.8",
-    "assetRevision": "champions-v7.8",
+    "style": "champions-v7.9",
+    "assetRevision": "champions-v7.9",
     "authoring": "Blender",
     "secret": true,
-    "triangles": 13365,
-    "designRevision": 8,
+    "triangles": 13297,
+    "designRevision": 9,
     "name": "Lord Bernhard",
-    "source": "blender/scenes/lordbernhard_design_v1.blend",
+    "source": "blender/scenes/lordbernhard_design_v2.blend",
     "bounds": {
       "min": [
-        -0.47,
-        -0.66296,
+        -0.5,
+        -0.76598,
         0.0
       ],
       "max": [
-        0.47,
-        0.79498,
-        3.053
+        0.5,
+        0.84467,
+        2.974
       ],
       "size": [
-        0.94,
-        1.45795,
-        3.053
+        1.0,
+        1.61065,
+        2.974
       ]
     },
     "articulationRevision": 1,
@@ -2184,10 +2184,15 @@
       "hand_L",
       "hand_R",
       "head_pivot",
+      "horse_body",
       "leg_horse_L_front",
       "leg_horse_L_rear",
       "leg_horse_R_front",
       "leg_horse_R_rear",
+      "rider_seat",
+      "rider_seat_contact",
+      "saddle_seat",
+      "saddle_seat_surface",
       "secret_champion_lordbernhard",
       "torso_pivot",
       "upper_arm_L",
@@ -2202,29 +2207,29 @@
     "kind": "tower",
     "family": "ladyclaire",
     "tier": 1,
-    "style": "champions-v7.8",
-    "assetRevision": "champions-v7.8",
+    "style": "champions-v7.9",
+    "assetRevision": "champions-v7.9",
     "authoring": "Blender",
     "secret": true,
-    "triangles": 9904,
-    "designRevision": 8,
+    "triangles": 9550,
+    "designRevision": 9,
     "name": "Lady Claire",
-    "source": "blender/scenes/ladyclaire_design_v1.blend",
+    "source": "blender/scenes/ladyclaire_design_v2.blend",
     "bounds": {
       "min": [
-        -0.53561,
-        -0.44,
+        -0.50565,
+        -0.52548,
         0.0
       ],
       "max": [
-        0.56298,
+        0.53379,
         0.44,
-        2.19992
+        2.10928
       ],
       "size": [
-        1.09858,
-        0.88,
-        2.19992
+        1.03944,
+        0.96548,
+        2.10928
       ]
     },
     "articulationRevision": 1,
@@ -2235,6 +2240,8 @@
       "hand_L",
       "hand_R",
       "head_pivot",
+      "natural_hairline",
+      "royal_crown",
       "secret_champion_ladyclaire",
       "secret_orb_0",
       "secret_orb_1",

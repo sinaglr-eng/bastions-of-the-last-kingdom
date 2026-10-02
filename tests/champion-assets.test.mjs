@@ -73,15 +73,15 @@ test('the release includes 37 regular champions, two secret champions and all si
   assert.equal(new Set(championEntries.map(entry => entry.file)).size, 39);
   for (const entry of championEntries) {
     const secret = ['ladyclaire', 'lordbernhard'].includes(entry.family);
-    assert.equal(entry.style, secret ? 'champions-v7.8' : 'champion-v6', entry.family);
-    assert.equal(entry.designRevision, secret ? 8 : 6, entry.family);
+    assert.equal(entry.style, secret ? 'champions-v7.9' : 'champion-v6', entry.family);
+    assert.equal(entry.designRevision, secret ? 9 : 6, entry.family);
     if (secret) assert.equal(entry.secret, true, entry.family);
     assert.equal(entry.authoring, 'Blender', entry.family);
     assert.equal(entry.name, towers[entry.family].name, entry.family);
     assert.equal(entry.tier, 1, entry.family);
     assert.ok(existsSync(new URL(entry.file, models)), entry.file);
     const portrait = new URL(`../public/assets/army/${entry.family}-t1.png`, import.meta.url);
-    const source = new URL(`../blender/scenes/${entry.family}_design_v1.blend`, import.meta.url);
+    const source = new URL(`../${entry.source || `blender/scenes/${entry.family}_design_v1.blend`}`, import.meta.url);
     assert.ok(existsSync(portrait), `${entry.family}: portrait`);
     assert.ok(existsSync(source), `${entry.family}: editable Blender source`);
     const png = readFileSync(portrait);
@@ -149,9 +149,9 @@ test('secret champions preserve native bounds and editable Blender authoring met
     const {entry, scene} = (await loadChampions()).find(item => item.entry.family === family);
     const authored = scene.getObjectByName('secret_champion_' + family);
     assert.equal(authored?.userData.secret, true, family);
-    assert.equal(authored.userData.assetRevision, 'champions-v7.8', family);
+    assert.equal(authored.userData.assetRevision, 'champions-v7.9', family);
     assert.equal(authored.userData.designName, towers[family].name, family);
-    assert.equal(entry.source, `blender/scenes/${family}_design_v1.blend`);
+    assert.equal(entry.source, `blender/scenes/${family}_design_v2.blend`);
     const size = new THREE.Box3().setFromObject(scene, true).getSize(new THREE.Vector3());
     const expected = [entry.bounds.size[0], entry.bounds.size[2], entry.bounds.size[1]];
     size.toArray().forEach((value, axis) => assert.ok(Math.abs(value - expected[axis]) < .001, `${family}: native axis ${axis}`));
