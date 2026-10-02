@@ -98,10 +98,10 @@ test('native rig precedence allows private decorative orbits while preserving au
   animateSecretChampion(actor,.4,{reducedMotion:true});assert.ok(orb.position.equals(rest));disposeSecretAnimation(rig);cleanup(source,actor,peer);
 });
 
-test('all native projectile spin and emitted chains freeze with simulation time while a clockless fallback retains its wall clock',()=>{
-  let simulationTime=1;const fx=new CombatEffects(new THREE.Scene(),{getSimulationTime:source=>source.family==='archer'?null:simulationTime}),makeShot=(family,id)=>({id,source:{id:10,family,x:0,z:0},target:{id:20,x:5,z:0},stats:{type:'arcane'},progress:.4}),shots=[makeShot('ladyclaire',1),makeShot('lordbernhard',2),makeShot('mage',3),makeShot('archer',4)];
+test('Secret projectile spin and emitted chains freeze with simulation time while ordinary defender presentation keeps its existing clock',()=>{
+  let simulationTime=1;const fx=new CombatEffects(new THREE.Scene(),{getSimulationTime:()=>simulationTime}),makeShot=(family,id)=>({id,source:{id:10,family,x:0,z:0},target:{id:20,x:5,z:0},stats:{type:'arcane'},progress:.4}),shots=[makeShot('ladyclaire',1),makeShot('lordbernhard',2),makeShot('mage',3)];
   fx.syncProjectiles(shots,1);const rotations=shots.map(shot=>fx.projectiles.get(shot.id).object.quaternion.toArray());fx.syncProjectiles(shots,2);
-  for(let index=0;index<3;index++)assert.deepEqual(fx.projectiles.get(index+1).object.quaternion.toArray(),rotations[index]);assert.notDeepEqual(fx.projectiles.get(4).object.quaternion.toArray(),rotations[3]);
+  assert.deepEqual(fx.projectiles.get(1).object.quaternion.toArray(),rotations[0]);assert.deepEqual(fx.projectiles.get(2).object.quaternion.toArray(),rotations[1]);assert.notDeepEqual(fx.projectiles.get(3).object.quaternion.toArray(),rotations[2]);
   fx.chain({from:{id:9,x:2,z:0},to:shots[0].target,color:'#ffd969'});const chain=fx.effects.at(-1);fx.update(.01,2);const vertices=Array.from(chain.object.geometry.attributes.position.array);fx.update(0,50);assert.deepEqual(Array.from(chain.object.geometry.attributes.position.array),vertices);
   simulationTime+=.2;fx.syncProjectiles(shots,51);assert.notDeepEqual(fx.projectiles.get(1).object.quaternion.toArray(),rotations[0]);fx.dispose();
 });

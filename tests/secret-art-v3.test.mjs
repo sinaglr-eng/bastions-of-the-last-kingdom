@@ -66,7 +66,7 @@ test('Claire exports fresh sculpted anatomy, ten weighted finger joints, warm si
   const {scene,animations}=await load('ladyclaire');
   try{
     const rig=scene.getObjectByName('Lady_Claire_Rig');assert.match(rig.userData.anatomy,/five digits/);
-    assert.equal(rig.userData.designRevision,11);assert.match(rig.userData.grip,/physical staff/);
+    assert.equal(rig.userData.designRevision,10);assert.match(rig.userData.grip,/physical staff/);
     const skinned=meshes(scene).filter(mesh=>mesh.isSkinnedMesh);assert.ok(skinned.length>0);
     const bones=skinned[0].skeleton.bones;
     for(const side of ['L','R'])for(let digit=0;digit<5;digit++){

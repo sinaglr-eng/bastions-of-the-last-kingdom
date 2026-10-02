@@ -9,13 +9,13 @@ import {beginDeath,animateDeath,bossAura,animateBossAura,siegeRig,animateSiege} 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
 const unit=(family,tier,id)=>({id,family,tier,state:'active',x:10+id,z:10,kills:id,cooldown:0});
 
-test('the 39 stored recipes preserve original lineages without extra rank recipes while only 38 are available',()=>{
+test('the 39 fixed recipes preserve the original champion lineages without extra rank recipes',()=>{
  const original=['rimewatch','frostblade','roseguard','highking','crownofages','thornwarden','verdantguard','tempest','stormcitadel','embercrown','worldfire','starfall','thunderheart','phoenix','greenheart','eldergrove','kingsreach','sunward','winterhold','dawnspire'];
  assert.deepEqual(Object.keys(data.towers).filter(f=>data.towers[f].advanced).slice(0,20),original);
  assert.deepEqual(data.recipes.slice(0,20).map(r=>recipeFamily(r)),original);
  for(const tier of [1,2,6]){
   const towers=original.map((family,id)=>unit(family,tier,id)),recipes=allRecipes(data,towers);
-  assert.equal(data.recipes.length,39);assert.equal(recipes.length,38);assert.deepEqual(recipes,data.recipes.filter(recipe=>!data.towers[recipeFamily(recipe)].hidden));
+  assert.equal(recipes.length,39);assert.deepEqual(recipes,data.recipes);
   for(const recipe of recipes){assert.equal(recipe.ingredients.length,3);assert.equal(recipeTier(recipe),1);assert.ok(data.towers[recipeFamily(recipe)]);}
   if(tier>1)for(const tower of towers)assert.deepEqual(recipesUsing(tower,recipes),[]);
  }
@@ -30,7 +30,7 @@ test('three identical champions cannot create another rank or mutate the battlef
   const g=new Game(data,{seed:1});g.phase='ready';g.towers=[1,2,3].map(id=>unit('dawnspire',tier,id));g.selected=anchor;
   for(const t of g.towers)g.grid.occupy(t.x,t.z,t.id);
   const before=structuredClone(g.towers),gold=g.economy.gold;
-  assert.equal(g.recipes.length,38);assert.deepEqual(g.availableRecipes(),[]);
+  assert.equal(g.recipes.length,39);assert.deepEqual(g.availableRecipes(),[]);
   assert.equal(g.craft(`ascend-dawnspire-${tier}`),false);assert.equal(g.merge(),false);
   assert.deepEqual(g.towers,before);assert.equal(g.economy.gold,gold);
   assert.equal(g.grid.occupied.size,3);assert.equal(g.discoveries.size,0);

@@ -7,29 +7,26 @@ import {createChampionAura,animateChampionAura,disposeChampionAura} from './rend
 import {animateSecretChampion} from './render/secret-champions.js';
 import {cloneDefenderTemplate,disposeDefenderInstance} from './render/defender-assets.js';
 import {attackRig,attackMuzzle,disposeAttack} from './render/battle-animation.js';
-import {previewDefenderAttack,updateDefenderPreview,resetDefenderAnimation} from './render/defender-animation.js';
+import {previewSecretAttack,updateSecretPreview,resetSecretAnimation} from './render/secret-animation.js';
 import {CombatEffects} from './render/combat-effects.js';
 import {castleWallModel,wallConnections} from './render/walls.js';
 import towers from '../data/towers.json';
-import balance from '../data/balance.json';
-import {towerStats} from './core/math.js';
 import '../ui/atelier.css';
 import {siteUrl} from './site-url.js';
 import {defenderCode} from './core/unit-label.js';
 import {releaseAsset,GAME_VERSION} from './release.js';
 
 const roman=['I','II','III','IV','V','VI'],colors=['Modrá','Zelená','Fialová','Bílá','Zlatá','Záře'];
-const portrait=(family,rank=1)=>releaseAsset(`assets/army/${family}-t${rank}.png`);
+const portrait=(family,rank=1)=>releaseAsset(`assets/${family==='archer'?'archer':'army'}/${family}-t${rank}.png`);
 const asset=(family,rank)=>releaseAsset(`assets/models/${towers[family].advanced?'advanced_'+family:'human_'+family+'_t'+rank}.glb`);
 const requestedFamily=new URLSearchParams(location.search).get('family');
-const visibleTowers=Object.fromEntries(Object.entries(towers).filter(([,tower])=>!tower.hidden));
-let family=visibleTowers[requestedFamily]?requestedFamily:'archer';
-const basicCount=Object.values(visibleTowers).filter(t=>!t.advanced).length,championCount=Object.values(visibleTowers).filter(t=>t.advanced).length;
+let family=towers[requestedFamily]?requestedFamily:'archer';
+const basicCount=Object.values(towers).filter(t=>!t.advanced).length,championCount=Object.values(towers).filter(t=>t.advanced).length;
 const variantCount=basicCount*6+championCount;
 document.querySelector('#atelier').innerHTML=`
 <header class="atelier-header"><a class="atelier-brand" href="${siteUrl('?update=cohesive')}" target="_blank" rel="noopener">♜ <span>BASTIONS<small>THE ROYAL ATELIER</small></span></a><div class="edition">THE DEFENDERS <b>${String(basicCount).padStart(2,'0')} CLASSES / ${championCount} CHAMPIONS</b></div><a class="outline-link" href="${siteUrl('?update=cohesive')}" target="_blank" rel="noopener">Otevřít hru ↗</a></header>
 <section class="model-stage" aria-label="Interaktivní 3D náhled obránců"><div class="stage-heading"><span class="eyebrow">BLENDER 5.2 · CHAMPION EDITION ${GAME_VERSION}</span><h1 id="family-title">Archer.</h1><p id="family-subtitle">Osm tříd. Jeden společný styl.</p></div><div id="model-canvas"></div><div class="stage-caption"><span id="load-status" role="status">Načítám model z Blenderu…</span><small>Tažením otáčej · Kolečkem přibližuj</small></div><div class="view-controls"><button id="rotate" aria-pressed="false">↻ Automatická rotace</button><button id="reset">Obnovit pohled</button><button id="walls" aria-pressed="false">Kamenné hradby</button></div></section>
-<aside class="atelier-notes"><label class="eyebrow" for="family-picker">VYBER OBRÁNCE</label><select id="family-picker">${[false,true].map(advanced=>`<optgroup label="${advanced?'Pokročilí obránci':'Základní třídy · šest úrovní'}">${Object.entries(visibleTowers).filter(([,t])=>!!t.advanced===advanced).map(([id,t])=>`<option value="${id}" ${id==='archer'?'selected':''}>${t.name}</option>`).join('')}</optgroup>`).join('')}</select><h2 id="family-name">Archer</h2><p id="family-role"></p><div class="note-rule"></div><div class="rank-heading"><h3 id="rank-heading">Šest úrovní. Šest signálů.</h3><span id="rank-instruction">VYBER ÚROVEŇ</span></div><div class="rank-picker"></div><div class="design-detail"><span id="selected-rank"></span><p id="rank-detail"></p></div><div class="note-rule"></div><div class="materials"><span>01 <b>Barvená látka</b></span><span>02 <b>Patinovaná kůže</b></span><span>03 <b>Mosaz a ocel</b></span></div><p class="approval-note">Postavy mají v Blenderu spojenou anatomii a vyhlazené tvarované povrchy. Výstroj zůstává členěná jako skutečná zbroj a vrstvené oblečení. Každá třída má vlastní siluetu; šampioni přidávají gryfy, draky, obry i obléhací stroje.</p><div class="asset-links"><a id="download-model" download>Stáhnout GLB ↓</a><a id="download-portrait" target="_blank">Portrét z Blenderu ↗</a></div><details class="roster-details" open><summary>Celá družina · ${basicCount+championCount} typů</summary><div class="roster-grid">${Object.entries(visibleTowers).map(([id,t])=>`<button data-family="${id}" title="${t.name}" aria-label="Zobrazit ${t.name}"><img src="${portrait(id)}" alt="" loading="lazy"><span>${t.name}</span></button>`).join('')}</div></details></aside>
+<aside class="atelier-notes"><label class="eyebrow" for="family-picker">VYBER OBRÁNCE</label><select id="family-picker">${[false,true].map(advanced=>`<optgroup label="${advanced?'Pokročilí obránci':'Základní třídy · šest úrovní'}">${Object.entries(towers).filter(([,t])=>!!t.advanced===advanced).map(([id,t])=>`<option value="${id}" ${id==='archer'?'selected':''}>${t.name}</option>`).join('')}</optgroup>`).join('')}</select><h2 id="family-name">Archer</h2><p id="family-role"></p><div class="note-rule"></div><div class="rank-heading"><h3 id="rank-heading">Šest úrovní. Šest signálů.</h3><span id="rank-instruction">VYBER ÚROVEŇ</span></div><div class="rank-picker"></div><div class="design-detail"><span id="selected-rank"></span><p id="rank-detail"></p></div><div class="note-rule"></div><div class="materials"><span>01 <b>Barvená látka</b></span><span>02 <b>Patinovaná kůže</b></span><span>03 <b>Mosaz a ocel</b></span></div><p class="approval-note">Postavy mají v Blenderu spojenou anatomii a vyhlazené tvarované povrchy. Výstroj zůstává členěná jako skutečná zbroj a vrstvené oblečení. Každá třída má vlastní siluetu; šampioni přidávají gryfy, draky, obry i obléhací stroje.</p><div class="asset-links"><a id="download-model" download>Stáhnout GLB ↓</a><a id="download-portrait" target="_blank">Portrét z Blenderu ↗</a></div><details class="roster-details" open><summary>Celá družina · ${basicCount+championCount} typů</summary><div class="roster-grid">${Object.entries(towers).map(([id,t])=>`<button data-family="${id}" title="${t.name}" aria-label="Zobrazit ${t.name}"><img src="${portrait(id)}" alt="" loading="lazy"><span>${t.name}</span></button>`).join('')}</div></details></aside>
 <footer class="atelier-footer"><span>BLENDER 5.2 · v${GAME_VERSION} <b>${variantCount} VARIANTS</b></span><p>37 × 37 polí · Hradby s cimbuřím · Spirálové cesty kolem středu</p><span>BASTIONS / ASHEN VALE</span></footer>`;
 
 const host=document.querySelector('#model-canvas'),scene=new THREE.Scene();
@@ -88,7 +85,7 @@ async function showRank(rank){
   if(model){disposeAttack(modelAttack);modelAttack=null;disposeDefenderInstance(model);disposeChampionAura(modelAura);modelAura=null;scene.remove(model);const rankGroup=model.getObjectByName('Mythic aura')||model.getObjectByName('Rank signal');rankGroup?.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});}
   previewShot=null;previewEffects.syncProjectiles([]);for(const effect of [...previewEffects.effects])previewEffects.removeEffect(effect);previewTargetMesh.visible=false;
   gltf.scene.animations=gltf.animations;model=cloneDefenderTemplate(gltf.scene);model.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});
-  modelAttack=attackRig(model,family,towers[family]);
+  if(towers[family].secret)modelAttack=attackRig(model,family,towers[family]);
   animationControls.hidden=!modelAttack?.native;previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');
   const bounds=new THREE.Box3().setFromObject(model),size=bounds.getSize(new THREE.Vector3());viewCentre=bounds.getCenter(new THREE.Vector3());viewRadius=Math.max(1,size.y/2.2,size.x/2.1,size.z/2.1);
   if(!advanced)model.add(rankAdornment(rank));
@@ -104,8 +101,8 @@ document.querySelector('#rotate').addEventListener('click',e=>{controls.autoRota
 document.querySelector('#reset').addEventListener('click',()=>reset(wallsVisible));
 function toggleWalls(){wallsVisible=!wallsVisible;wallGroup.visible=wallsVisible;if(model)model.visible=!wallsVisible;reset(wallsVisible);document.querySelector('#walls').setAttribute('aria-pressed',String(wallsVisible));status();}
 document.querySelector('#walls').addEventListener('click',toggleWalls);
-document.querySelector('#animation-attack').addEventListener('click',()=>{if(wallsVisible)toggleWalls();previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');previewDefenderAttack(modelAttack?.native);previewTargetMesh.visible=true;});
-document.querySelector('#animation-idle').addEventListener('click',()=>{resetDefenderAnimation(modelAttack?.native);previewShot=null;previewEffects.syncProjectiles([]);previewTargetMesh.visible=false;});
+document.querySelector('#animation-attack').addEventListener('click',()=>{if(wallsVisible)toggleWalls();previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');previewSecretAttack(modelAttack?.native);previewTargetMesh.visible=true;});
+document.querySelector('#animation-idle').addEventListener('click',()=>{resetSecretAnimation(modelAttack?.native);previewShot=null;previewEffects.syncProjectiles([]);previewTargetMesh.visible=false;});
 document.querySelector('#animation-pause').addEventListener('click',event=>{previewPaused=!previewPaused;event.currentTarget.setAttribute('aria-pressed',String(previewPaused));});
 document.querySelector('#animation-speed').addEventListener('change',event=>previewSpeed=Number(event.target.value));
 new ResizeObserver(()=>{const {width,height}=host.getBoundingClientRect();renderer.setSize(width,height);camera.aspect=width/height;camera.updateProjectionMatrix();}).observe(host);
@@ -117,8 +114,8 @@ function frame(now){
  if(model){
   animateRank(model,now/1000);
   if(modelAttack?.native){
-   updateDefenderPreview(modelAttack.native,animationDt,{reducedMotion:!!reducedMotion?.matches,onRelease:({elapsedAfterRelease})=>{
-    const source={id:-1,family,tier:selected,x:0,z:0},stats=towerStats(source,{towers,balance});previewShot={id:++previewSerial,source,target:previewTarget,start:{x:0,z:0},stats,progress:0,releaseFrameDt:elapsedAfterRelease,duration:Math.max(.08,Math.hypot(previewTarget.x,previewTarget.z)/(stats.projectileSpeed||10))};previewEffects.event('shot',previewShot);
+   updateSecretPreview(modelAttack.native,animationDt,{reducedMotion:!!reducedMotion?.matches,onRelease:({elapsedAfterRelease})=>{
+    const source={id:-1,family,x:0,z:0},stats=towers[family];previewShot={id:++previewSerial,source,target:previewTarget,start:{x:0,z:0},stats,progress:0,releaseFrameDt:elapsedAfterRelease,duration:Math.max(.08,Math.hypot(previewTarget.x,previewTarget.z)/stats.projectileSpeed)};previewEffects.event('shot',previewShot);
    }});
    if(modelAttack.glow){modelAttack.glow.visible=modelAttack.native.stage==='preview';modelAttack.glow.scale.setScalar(.6+Math.sin(modelAttack.native.phase*Math.PI)*1.05);}
   }
@@ -130,3 +127,4 @@ function frame(now){
  animateChampionAura(modelAura,previewClock,{reducedMotion:!!reducedMotion?.matches});renderer.render(scene,camera);requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
+

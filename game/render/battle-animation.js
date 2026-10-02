@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {attackVisualKind} from './combat-effects.js';
-import {createDefenderAnimation,releaseDefenderAttack,updateDefenderAnimation,resetDefenderAnimation,disposeDefenderAnimation} from './defender-animation.js';
+import {createSecretAnimation,releaseSecretAttack,updateSecretAnimation,resetSecretAnimation,disposeSecretAnimation} from './secret-animation.js';
 
 const CLAN_AURAS=['#c85e43','#77bfd5','#93be69','#b287d3','#e2bb67'];
 export function bossAura(clan=0){
@@ -81,8 +81,8 @@ export function attackRig(actor,family,stats={}){
     if(node)pivots.push({node,name,rotation:node.rotation.clone(),position:node.position.clone()});
   }
   const rig={actor,family,kind,pose,pivots,joints:new Map(pivots.map(p=>[p.name,p])),restX:actor.rotation.x,restZ:actor.rotation.z,elapsed:pose.duration,duration:pose.duration,active:false,owned:[],disposed:false};
-  rig.native=createDefenderAnimation(actor,family,stats);
-  rig.muzzle=actor.getObjectByName('attack_muzzle')||(family==='lordbernhard'?actor.getObjectByName('sword_tip'):kind==='flame'?actor.getObjectByName('attack_muzzle'):actor.getObjectByName('staff_tip'))||actor.getObjectByName('sword_tip')||null;
+  rig.native=createSecretAnimation(actor,family);
+  rig.muzzle=(family==='lordbernhard'?actor.getObjectByName('sword_tip'):kind==='flame'?actor.getObjectByName('attack_muzzle'):actor.getObjectByName('staff_tip'))||actor.getObjectByName('attack_muzzle')||null;
   const tip=['ladyclaire','lordbernhard'].includes(family)?rig.muzzle:actor.getObjectByName('staff_tip');
   if(tip&&SPELL_KINDS.has(kind)){
     const color=['ladyclaire','lordbernhard'].includes(family)?'#ffdc78':kind==='holy'?'#ffe7a3':kind==='roots'?'#9bdd67':kind==='frost'?'#a4efff':kind==='lightning'?'#b1ddff':'#cb9fff';
@@ -110,7 +110,7 @@ export function attackMuzzle(rig,out=new THREE.Vector3()){
 }
 export function triggerAttack(rig,payload={}){
   if(!rig||rig.disposed)return;
-  if(rig.native){releaseDefenderAttack(rig.native,{interval:payload.stats?.interval,rate:payload.visualRate,stamp:payload.combatTime,reducedMotion:payload.reducedMotion});rig.active=true;return;}
+  if(rig.native){releaseSecretAttack(rig.native,{interval:payload.stats?.interval,rate:payload.visualRate,stamp:payload.combatTime,reducedMotion:payload.reducedMotion});rig.active=true;return;}
   // Simultaneous multishot callbacks describe one release pose.
   if(rig.active&&rig.elapsed<.025)return;
   const interval=payload.stats?.interval;
@@ -120,7 +120,7 @@ export function triggerAttack(rig,payload={}){
 export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={}){
   if(!rig||rig.disposed)return;
   if(rig.native){
-    updateDefenderAnimation(rig.native,dt,{...context,reducedMotion});rig.active=rig.native.stage!=='idle';
+    updateSecretAnimation(rig.native,dt,{...context,reducedMotion});rig.active=rig.native.stage!=='idle';
     if(rig.glow){const phase=rig.native.phase;rig.glow.visible=rig.active;rig.glow.scale.setScalar(reducedMotion?1:.6+Math.sin(phase*Math.PI)*1.05);}
     return;
   }
@@ -172,14 +172,14 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
 }
 export function resetAttack(rig){
   if(!rig)return;rig.elapsed=rig.duration;rig.active=false;
-  if(rig.native){resetDefenderAnimation(rig.native);if(rig.glow)rig.glow.visible=false;return;}
+  if(rig.native){resetSecretAnimation(rig.native);if(rig.glow)rig.glow.visible=false;return;}
   rig.actor.rotation.x=rig.restX;rig.actor.rotation.z=rig.restZ;
   for(const pivot of rig.pivots){pivot.node.rotation.copy(pivot.rotation);pivot.node.position.copy(pivot.position);}
   if(rig.glow)rig.glow.visible=false;updateBowString(rig);
 }
 export function disposeAttack(rig){
   if(!rig||rig.disposed)return;resetAttack(rig);
-  disposeDefenderAnimation(rig.native);
+  disposeSecretAnimation(rig.native);
   for(const object of rig.owned){object.traverse(node=>{node.geometry?.dispose();node.material?.dispose();});object.removeFromParent();}
   if(rig.authoredString)rig.authoredString.node.visible=rig.authoredString.visible;
   rig.owned.length=0;rig.disposed=true;

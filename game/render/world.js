@@ -12,7 +12,7 @@ import {beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,an
 import {CombatEffects} from './combat-effects.js';
 import {SupportEffects} from './support-effects.js';
 import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,pointedTower} from './defender-assets.js';
-import {defenderAttackContext} from './defender-animation.js';
+import {secretAttackContext} from './secret-animation.js';
 import {DraftMarkers} from './draft-markers.js';
 import {siteUrl} from '../site-url.js';
 import {releaseAsset} from '../release.js';
@@ -43,7 +43,7 @@ export class Battlefield {
     this.scene.add(new THREE.HemisphereLight('#e0eee0','#465847',2));
     const sun=new THREE.DirectionalLight('#fff0cc',3.4);sun.position.set(-18,38,13);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-35;sun.shadow.camera.right=35;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;sun.shadow.camera.far=100;sun.shadow.normalBias=0.04;sun.shadow.bias=-0.0001;this.scene.add(sun);
     this.scene.add(new THREE.AmbientLight('#b2c6c6',0.25));
-    this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5+WALL_DECK_HEIGHT,getStats:t=>towerStats(t,this.game.data),getMuzzle:(source,out)=>attackMuzzle(this.models.get(source?.id)?.attack,out),getSimulationTime:source=>this.models.get(source?.id)?.attack?.native?this.motionTime||0:null,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
+    this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5+WALL_DECK_HEIGHT,getStats:t=>towerStats(t,this.game.data),getMuzzle:(source,out)=>attackMuzzle(this.models.get(source?.id)?.attack,out),getSimulationTime:()=>this.motionTime||0,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
     this.supportEffects=new SupportEffects(this.scene,{position:v3,baseHeight:WALL_DECK_HEIGHT+.15,pedestalHeight:WALL_DECK_HEIGHT,reducedMotion:()=>!!this.reducedMotion?.matches,isVisible:e=>this.game.combat.isRevealed(e)});
     this.createEnvironment();this.createOverlays();this.maze=new MazePlanner(this);this.draftMarkers=new DraftMarkers(this.scene,this.container);
     this.raycaster=new THREE.Raycaster();this.pointer=new THREE.Vector2();this.plane=new THREE.Plane(new THREE.Vector3(0,1,0),-0.03);this.tapGesture=new PointerTapGesture();this.doubleTap=new SelectedTowerDoubleTap();
@@ -103,43 +103,27 @@ export class Battlefield {
       const response=await fetch(releaseAsset('assets/enemies/manifest.json'));if(!response.ok)return;
       const entries=await response.json(),loader=new GLTFLoader();
       await Promise.all(entries.map(async entry=>{
-        try{const gltf=await loader.loadAsync(releaseAsset(`assets/enemies/${entry.file}`));gltf.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});installEnemyTemplate(this,entry,gltf.scene,gltf.animations);}catch{/* Keep the playable fallback if one file is unavailable. */}
+        try{const gltf=await loader.loadAsync(releaseAsset(`assets/enemies/${entry.file}`));gltf.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});installEnemyTemplate(this,entry,gltf.scene);}catch{/* Keep the playable fallback if one file is unavailable. */}
       }));
       if(this.disposed)return;
       this.previewKey=null;this.updateCampPreview();
     }catch{/* Standalone mirrors can use the procedural fallback. */}
   }
   async loadDefenders() {
+    const loader=new GLTFLoader();
+    // The procedural templates make the game immediately playable; generated glTF replaces them when available.
     try {
       const response=await fetch(releaseAsset('assets/models/manifest.json'));if(!response.ok)throw new Error(`Defender manifest: HTTP ${response.status}`);
       const entries=await response.json();
-      this.defenderEntries=new Map(entries.filter(e=>e.kind==='tower'&&this.game.data.towers[e.family]&&!this.game.data.towers[e.family].hidden).map(entry=>[`${entry.family}:${entry.tier}`,entry]));
-      this.defenderLoader=new GLTFLoader();this.defenderLoads=new Map();this.defenderQueue=[];this.defenderLoading=0;
-      // Load the first basic ranks and visible units. Other detailed ranks and
-      // champions share a cached template and are fetched only when needed.
-      const keys=new Set(Object.entries(this.game.data.towers).filter(([,stats])=>!stats.advanced).map(([family])=>`${family}:1`));
-      for(const tower of this.game.towers)if(tower.state!=='ruin')keys.add(`${tower.family}:${this.game.data.towers[tower.family]?.advanced?1:tower.tier}`);
-      await Promise.all([...keys].map(key=>this.requestDefenderAsset(key)));
-    }catch(error){if(!this.disposed)console.warn('Defender assets unavailable; using temporary models.',error);}
-  }
-  requestDefenderAsset(key){
-    const entry=this.defenderEntries?.get(key);if(!entry||this.disposed||this.imported.has(key))return Promise.resolve();
-    if(this.defenderLoads.has(key))return this.defenderLoads.get(key);
-    const promise=new Promise(resolve=>this.defenderQueue.push({entry,resolve}));this.defenderLoads.set(key,promise);this.pumpDefenderAssets();return promise;
-  }
-  pumpDefenderAssets(){
-    if(this.disposed){for(const item of this.defenderQueue||[])item.resolve();this.defenderQueue=[];return;}
-    while(!this.disposed&&this.defenderLoading<4&&this.defenderQueue.length){
-      const {entry,resolve}=this.defenderQueue.shift();this.defenderLoading++;
-      const load=async()=>{
+      await Promise.all(entries.filter(e=>e.kind==='tower'&&this.game.data.towers[e.family]).map(async e=>{
         let failure;
         for(let attempt=0;attempt<2&&!this.disposed;attempt++){
-          try{const gltf=await this.defenderLoader.loadAsync(releaseAsset(`assets/models/${entry.file}`));gltf.scene.traverse(node=>{if(node.isMesh)node.castShadow=node.receiveShadow=true;});installDefenderTemplate(this,entry,gltf.scene,gltf.animations);return;}catch(error){failure=error;}
+          try {const gltf=await loader.loadAsync(releaseAsset(`assets/models/${e.file}`));gltf.scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});installDefenderTemplate(this,e,gltf.scene,gltf.animations);return;}catch(error){failure=error;}
         }
-        if(!this.disposed)console.warn(`Defender model could not load: ${entry.file}`,failure);
-      };
-      load().finally(()=>{this.defenderLoading--;resolve();this.pumpDefenderAssets();});
-    }
+        if(!this.disposed)console.warn(`Defender model could not load: ${e.file}`,failure);
+      }));
+      if(this.disposed)return;
+    }catch(error){if(!this.disposed)console.warn('Defender assets unavailable; using temporary models.',error);}
   }
   createEnvironment() {
     // The entire 37 × 37 playfield is open; only player-built defenses obstruct it.
@@ -176,7 +160,7 @@ export class Battlefield {
     figure.userData.previewEnemy=enemy;figure.position.y=enemy.flying?.5:0;figure.rotation.y=-Math.PI/2;
     this.landmarks.previewAnchor.add(figure);this.campPreview=figure;
   }
-  template(t) {if(t.state==='ruin'){const mask=wallConnections(t,this.game.towers),key='wall:'+mask;if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask));return this.templates.get(key);}const stats=this.game.data.towers[t.family],key=`${t.family}:${stats?.advanced?1:t.tier}`;if(this.imported.has(key))return this.imported.get(key);this.requestDefenderAsset(key);if(!this.templates.has(key))this.templates.set(key,towerModel(t.family,stats?.advanced?1:t.tier,stats?.advanced,stats?.model));return this.templates.get(key);}
+  template(t) {if(t.state==='ruin'){const mask=wallConnections(t,this.game.towers),key='wall:'+mask;if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask));return this.templates.get(key);}const stats=this.game.data.towers[t.family],key=`${t.family}:${stats?.advanced?1:t.tier}`;if(this.imported.has(key))return this.imported.get(key);if(!this.templates.has(key))this.templates.set(key,towerModel(t.family,stats?.advanced?1:t.tier,stats?.advanced,stats?.model));return this.templates.get(key);}
   sync() {
     this.updateCampPreview();
     const ids=new Set(this.game.towers.map(t=>t.id));
@@ -239,7 +223,7 @@ export class Battlefield {
   }
   event(type,payload) {
     if(type==='change')this.sync();
-    if(type==='shot'||type==='aura-attack'){const value=this.models.get(payload.source.id);if(value){value.actor.rotation.y=Math.atan2(payload.target.x-payload.source.x,payload.target.z-payload.source.z)+(!value.attack?.native&&['archer','thornwarden','verdantguard'].includes(payload.source.family)?Math.PI/2:Math.PI);const native=value.attack?.native;triggerAttack(value.attack,native?{...payload,combatTime:this.game.combat.elapsed,visualRate:defenderAttackContext(value.tower,this.game).rate,reducedMotion:!!this.reducedMotion?.matches}:payload);if(value.siege)value.siege.elapsed=0;}}
+    if(type==='shot'||type==='aura-attack'){const value=this.models.get(payload.source.id);if(value){value.actor.rotation.y=Math.atan2(payload.target.x-payload.source.x,payload.target.z-payload.source.z)+(['archer','thornwarden','verdantguard'].includes(payload.source.family)?Math.PI/2:Math.PI);const native=value.attack?.native;triggerAttack(value.attack,native?{...payload,combatTime:this.game.combat.elapsed,visualRate:secretAttackContext(value.tower,this.game).rate,reducedMotion:!!this.reducedMotion?.matches}:payload);if(value.siege)value.siege.elapsed=0;}}
     this.combatEffects.event(type,payload);
     if(['place','combine','keep'].includes(type)){const t=payload.tower;this.burst(t.x,t.z,type==='combine'?'#ead091':'#c7d4a8',type==='combine'?2.5:0.7);}
     if(type==='impact'&&payload.heavy&&!this.reducedMotion?.matches)this.shake=0.075;
@@ -290,11 +274,11 @@ export class Battlefield {
       if(m.userData.shards)m.userData.shards.children.forEach((s,i)=>s.visible=i<e.shields);m.userData.bar.position.set(0,m.userData.barHeight||1.28,0);m.userData.fill.material.color.set(e.cloaked?'#8295c4':e.boss?'#e2b362':'#94c888');m.userData.bar.quaternion.copy(m.quaternion).invert().multiply(this.camera.quaternion);m.userData.fill.scale.x=Math.max(0,e.hp/e.maxHp);m.userData.fill.position.x=-(1-e.hp/e.maxHp)*0.335;
     }
     for(const value of this.models.values()){
-      const native=value.attack?.native,context=native?defenderAttackContext(value.tower,this.game):{};
+      const native=value.attack?.native,context=native?secretAttackContext(value.tower,this.game):{};
       const idle=value.hero&&!native?Math.sin(this.time*2.8+value.phase)*.018:0;
       value.actor.scale.set(1,1+idle,1);
       if(native&&native.stage!=='recovery'&&context.target)value.actor.rotation.y=Math.atan2(context.target.x-value.tower.x,context.target.z-value.tower.z)+Math.PI;
-      if(!native)animateSiege(value.siege,battleDt);
+      animateSiege(value.siege,battleDt);
       animateAttack(value.attack,battleDt,this.motionTime,{...context,reducedMotion:!!this.reducedMotion?.matches});
       if(this.game.data.towers[value.tower.family]?.secret)animateSecretChampion(value.actor,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches,melancholy:this.game.phase==='combat'&&(value.tower.melancholyUntil||0)>this.game.combat.elapsed});
     }
@@ -316,7 +300,7 @@ export function makeThumbnails(data) {
   const camera=new THREE.PerspectiveCamera(32,180/156,0.1,20);camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,0.95,0);
   const images={};
   for(const [id,stats]of Object.entries(data.towers))for(let tier=1;tier<=(stats.advanced?1:data.balance.tiers.length);tier++){
-    images[`${id}:${tier}`]=releaseAsset(`assets/army/${id}-t${tier}.png`);
+    images[`${id}:${tier}`]=releaseAsset(`assets/${id==='archer'?'archer':'army'}/${id}-t${tier}.png`);
     if(tier===1)images[id]=images[`${id}:${tier}`];
   }
   camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,.95,0);

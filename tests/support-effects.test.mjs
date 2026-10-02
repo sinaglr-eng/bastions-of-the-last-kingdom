@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
-import {NativeTestGLTFLoader as GLTFLoader} from './helpers/native-gltf.mjs';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {Game} from '../game/core/game.js';
 import {supportBonuses,towerStats} from '../game/core/math.js';
 import {SupportEffects,SUPPORT_EFFECT_STYLES,ENEMY_EFFECT_STYLES,towerSupportState,supportLegend,supportSourceAreas,enemyStatusState,supportTintKey} from '../game/render/support-effects.js';

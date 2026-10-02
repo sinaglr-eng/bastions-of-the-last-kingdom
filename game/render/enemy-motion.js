@@ -4,12 +4,6 @@ export function animateEnemyMotion(figure,enemy,time,{moving=true,reducedMotion=
   const body=figure.userData.body;if(!body)return 0;
   const clock=Number.isFinite(time)?Math.max(0,time):0;
   const phase=Number(enemy.id??enemy.previewRound??0)*1.618;
-  const native=figure.userData.nativeFlight;
-  if(native){
-    native.action.time=reducedMotion?0:(clock+phase*.03)%Math.max(.001,native.duration);
-    native.mixer.update(0);body.updateMatrixWorld(true);
-    return reducedMotion?0:Math.sin(clock*2.5+phase)*.025;
-  }
   const motion=reducedMotion?0:1,flying=!!enemy.flying;
   const archetype=enemy.designArchetype||'',wyvern=archetype.includes('wyvern')||enemy.model==='dragon';
   const manta=archetype.includes('manta'),armored=archetype==='iron-bat';

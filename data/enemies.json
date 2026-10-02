@@ -1563,7 +1563,7 @@
     "auraStage": 4
   },
   "host_50": {
-    "name": "Morvath, the Dread Sovereign",
+    "name": "Ghorun, the Black Sorcerer on the Wyvern Queen",
     "model": "dragon",
     "traits": [
       "krakenShell"
@@ -1585,26 +1585,26 @@
     "krakenShell": 83,
     "variants": [
       {
-        "name": "Morvath the Ashen",
+        "name": "Ghorun the Ashen",
         "visualAsset": "host_50",
-        "appearance": "A hooded dark sorcerer with an ornate black crown and a runic magical sword, firmly seated in a fitted saddle on an enormous two-legged black wyvern. Its sinewy neck, predatory wedge skull, recurved fangs, clawed feet and articulated membrane wings emerge from a terrifying black and violet aura. Violet-red cursed runes glow through the dark regalia."
+        "appearance": "A black wyvern queen with fiery cracks between obsidian plates. The sorcerer wears a charred black robe and carries an orange-glowing staff."
       },
       {
-        "name": "Morvath the Gold-Cursed",
+        "name": "Ghorun the Gold-Cursed",
         "magicImmune": true,
         "color": "#b99d57",
         "visualAsset": "host_50-tyrant",
-        "appearance": "A hooded dark sorcerer with an ornate black crown and a runic magical sword, firmly seated in a fitted saddle on an enormous two-legged black wyvern. Its sinewy neck, predatory wedge skull, recurved fangs, clawed feet and articulated membrane wings emerge from a terrifying black and violet aura. Antique golden seals identify the existing magic-immune variant."
+        "appearance": "Golden rune bands encircle the neck and wings; a gilded crown and dark violet magic complete the silhouette. Golden runes signal magical immunity."
       },
       {
-        "name": "Morvath the Bone-Crowned",
+        "name": "Ghorun the Pale Devourer",
         "krakenShell": 107.9,
         "color": "#a4b9b5",
         "visualAsset": "host_50-devourer",
-        "appearance": "A hooded dark sorcerer with an ornate black crown and a runic magical sword, firmly seated in a fitted saddle on an enormous two-legged black wyvern. Its sinewy neck, predatory wedge skull, recurved fangs, clawed feet and articulated membrane wings emerge from a terrifying black and violet aura. Pale bone plates and silver runes identify the existing stronger-shell variant; the wyvern remains black."
+        "appearance": "An almost white wyvern with massive bone armor, black veins and sunken eyes. Its visibly thicker shell marks stronger damage reduction."
       }
     ],
-    "appearance": "A hooded dark sorcerer with an ornate black crown and a runic magical sword, firmly seated in a fitted saddle on an enormous two-legged black wyvern. Its sinewy neck, predatory wedge skull, recurved fangs, clawed feet and articulated membrane wings emerge from a terrifying black and violet aura.",
+    "appearance": "The final flying warlord: a dark orc sorcerer riding an exceptionally large, ancient wyvern. Three forms have distinct colors and armor.",
     "visualAsset": "host_50",
     "designArchetype": "queen-wyvern",
     "auraStage": 4

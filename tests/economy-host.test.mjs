@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {Box3,Vector3,Group} from 'three';
-import {NativeTestGLTFLoader as GLTFLoader} from './helpers/native-gltf.mjs';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {Game} from '../game/core/game.js';
 import {EconomyManager} from '../game/core/progression.js';
 import {recipesUsing} from '../game/core/recipes.js';
@@ -84,12 +84,11 @@ test('all 59 native Blender v3 warbands retain their different dimensions, land 
  };
  try{
   for(const asset of manifest){
-   const nativeBoss=asset.id.split('-')[0]==='host_50';
-   assert.ok(Number.isInteger(asset.triangles)&&asset.triangles>0&&asset.triangles<=(nativeBoss?95000:30000));assert.equal(asset.authoring,'Blender 5.2');assert.equal(asset.revision,nativeBoss?'final-boss-v4':'dark-host-v3');assert.equal(asset.nativeScale,1);
-   assert.ok(asset.source.startsWith(nativeBoss?'blender/scenes/final-boss-v4/':'blender/scenes/enemies-v3/'));assert.ok(existsSync(asset.source),`${asset.id} editable source`);
+   assert.ok(Number.isInteger(asset.triangles)&&asset.triangles>0&&asset.triangles<=30000);assert.equal(asset.authoring,'Blender 5.2');assert.equal(asset.revision,'dark-host-v3');assert.equal(asset.nativeScale,1);
+   assert.ok(asset.source.startsWith('blender/scenes/enemies-v3/'));assert.ok(existsSync(asset.source),`${asset.id} editable source`);
    const png=readFileSync(`public/assets/enemies/${asset.portrait}`);assert.equal(png.readUInt32BE(0),0x89504e47);
    const bytes=readFileSync(`public/assets/enemies/${asset.file}`),gltf=await loader.parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
-   gltf.scene.animations=gltf.animations;const bounds=new Box3().setFromObject(gltf.scene,true),size=bounds.getSize(new Vector3()),stats=data.enemies[asset.id.split('-')[0]];
+   const bounds=new Box3().setFromObject(gltf.scene,true),size=bounds.getSize(new Vector3()),stats=data.enemies[asset.id.split('-')[0]];
    assert.ok([...bounds.min.toArray(),...bounds.max.toArray()].every(Number.isFinite));assert.ok(size.x>0&&size.y>0&&size.z>0);
    // Blender records Z as height, while GLTF uses Y. Rotated source bounds can
    // slightly exceed the actual vertices; no common-height normalization applies.

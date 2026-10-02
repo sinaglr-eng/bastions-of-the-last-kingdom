@@ -42,8 +42,8 @@ const request = (store, path, body, options = {}) => worker.fetch(new Request(`h
   ...(body ? {body: JSON.stringify(body)} : {}),
 }), {DB: store.DB, GAME_ORIGINS: 'https://sinaglr-eng.github.io', ADMIN_TOKEN: 'test-owner-access'});
 
-function run(mode, id, edition=version,fixture=data) {
-  const game = new Game(fixture, {seed: 42, waveLimit: mode});
+function run(mode, id, edition=version) {
+  const game = new Game(data, {seed: 42, waveLimit: mode});
   const statistics = new RunStatistics(game, {id, version: edition, clock: () => 1000});
   let cell = 0;
   function build() {
@@ -118,13 +118,12 @@ test('native SQLite supports the D1 schema, transactions, JSON analytics and nam
   } finally {store.close();}
 });
 
-test('real Lady Claire and explicitly enabled archival Bernhard crafting retain analytics in the existing SQLite schema',async()=>{
+test('real secret crafting retains ingredient draws, result families, combat performance and effect uptime in the existing SQLite schema',async()=>{
   const store=storage(),playedRuns=[];
   try{
     const originalTables=store.sqlite.prepare("SELECT name FROM sqlite_schema WHERE type='table' ORDER BY name").all();
     for(const [index,family] of ['ladyclaire','lordbernhard'].entries()){
-      const fixture=family==='lordbernhard'?{...data,towers:{...data.towers,lordbernhard:{...data.towers.lordbernhard,hidden:false}}}:data;
-      const played=run(10,uuid(160+index),version,fixture),g=played.game;playedRuns.push(played);
+      const played=run(10,uuid(160+index)),g=played.game;playedRuns.push(played);
       const recipe=data.recipes.find(r=>r.id===family);assert.equal(recipe.currentRoundOnly,true);
       const draws=[...recipe.ingredients,{family:'archer',tier:1},{family:'cleric',tier:1}];
       for(let i=0;i<draws.length;i++){Object.assign(g.draft.draws[i],draws[i]);assert.equal(g.place(8+i,19),true);}

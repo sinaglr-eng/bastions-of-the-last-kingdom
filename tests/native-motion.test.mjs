@@ -26,8 +26,7 @@ test('native bat, wolf rider and queen-wyvern motion changes private limbs and p
     assert.ok(moving.some((node,index)=>node.rotation.toArray().some((value,axis)=>typeof value==='number'&&Math.abs(value-before[index].toArray()[axis])>.001)),id);
     assert.deepEqual(rotations(source),original,id+' cached model mutated');assert.ok(source.scale.equals(originalScale));
     animateEnemyMotion(figure,enemy,2,{reducedMotion:true});
-    if(figure.userData.nativeFlight){const settled=rotations(figure);animateEnemyMotion(figure,enemy,200,{reducedMotion:true});assert.deepEqual(rotations(figure),settled,id+' native reduced-motion clip must settle without drift');}
-    else for(const node of moving)assert.ok(Math.abs((node.name.startsWith('wing_')?node.rotation.z:node.rotation.x)-node.userData.restRotation)<1e-12,id+' reduced-motion rest');
+    for(const node of moving)assert.ok(Math.abs((node.name.startsWith('wing_')?node.rotation.z:node.rotation.x)-node.userData.restRotation)<1e-12,id+' reduced-motion rest');
     assert.ok(figure.userData.body.scale.equals(originalScale));disposeEnemyFigure(figure);
   }
 });

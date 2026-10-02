@@ -126,7 +126,7 @@ export class CombatEffects{
   }
   motion(){return !(typeof this.reducedMotion==='function'?this.reducedMotion():this.reducedMotion);}
   visible(target){return !target||this.isVisible(target)!==false;}
-  animationClock(source,time=this.time){const simulation=this.getSimulationTime?.(source);return Number.isFinite(simulation)?simulation:time;}
+  animationClock(source,time=this.time){const simulation=secretFamily(source?.family)?this.getSimulationTime?.():null;return Number.isFinite(simulation)?simulation:time;}
   point(target,height){return this.position(target.x,height,target.z);}
   muzzle(source,fallback=source){
     const out=new THREE.Vector3(),point=this.getMuzzle?.(source,out);

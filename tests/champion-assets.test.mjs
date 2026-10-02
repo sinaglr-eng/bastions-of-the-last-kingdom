@@ -4,9 +4,7 @@ import {readFileSync, existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import * as THREE from 'three';
 import {NativeTestGLTFLoader as GLTFLoader} from './helpers/native-gltf.mjs';
-import {attackRig,disposeAttack} from '../game/render/battle-animation.js';
-import {cloneDefenderTemplate,disposeDefenderInstance} from '../game/render/defender-assets.js';
-import {previewDefenderAttack,updateDefenderPreview,resetDefenderAnimation} from '../game/render/defender-animation.js';
+import {siegeRig, animateSiege} from '../game/render/battle-animation.js';
 
 const models = new URL('../public/assets/models/', import.meta.url);
 const manifest = JSON.parse(readFileSync(new URL('manifest.json', models)));
@@ -15,9 +13,6 @@ const champions = Object.keys(towers).filter(family => towers[family].advanced);
 const basics = Object.keys(towers).filter(family => !towers[family].advanced);
 const championEntries = manifest.filter(entry => entry.kind === 'tower' && towers[entry.family]?.advanced);
 const defenderEntries = manifest.filter(entry => entry.kind === 'tower');
-const creatures=new Set(['embercrown','worldfire','starfall','thunderheart','phoenix','rangermentor','griffinbomber']);
-const engines=new Set(['kingsreach','stonewarden','royalarsenal','fireballista','winterhold','emeraldgolem','mechanicalgolem']);
-const budget=entry=>['ladyclaire','lordbernhard'].includes(entry.family)||creatures.has(entry.family)?60000:basics.includes(entry.family)?30000:engines.has(entry.family)?35000:45000;
 let loaded;
 
 async function loadDefenders() {
@@ -26,7 +21,6 @@ async function loadDefenders() {
       const file = readFileSync(new URL(entry.file, models));
       const array = file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength);
       const gltf = await new GLTFLoader().parseAsync(array, '');
-      gltf.scene.animations=gltf.animations;
       gltf.scene.updateMatrixWorld(true);
       return {entry, scene: gltf.scene};
     }));
@@ -58,7 +52,7 @@ function geometrySignature(scene) {
     const geometry = mesh.geometry;
     const position = geometry.getAttribute('position');
     const keys = Array.from({length: position.count}, (_, index) =>
-      vectorKey(mesh.getVertexPosition(index,point).applyMatrix4(mesh.matrixWorld)));
+      vectorKey(point.fromBufferAttribute(position, index).applyMatrix4(mesh.matrixWorld)));
     const index = geometry.getIndex();
     const count = index ? index.count : position.count;
     for (let vertex = 0; vertex < count; vertex += 3) {
@@ -72,15 +66,15 @@ function geometrySignature(scene) {
   return hash.digest('hex');
 }
 
-test('the release includes 37 regular champions, Lady Claire, the retained hidden Bernhard archive and all six ranks of the eight basic defenders', () => {
+test('the release includes 37 regular champions, two secret champions and all six ranks of the eight basic defenders', () => {
   assert.equal(champions.length, 39);
   assert.equal(championEntries.length, 39);
   assert.deepEqual(championEntries.map(entry => entry.family).sort(), [...champions].sort());
   assert.equal(new Set(championEntries.map(entry => entry.file)).size, 39);
   for (const entry of championEntries) {
     const secret = ['ladyclaire', 'lordbernhard'].includes(entry.family);
-    assert.equal(entry.style, entry.family==='lordbernhard'?'champions-v7.10':'designed-defenders-v8', entry.family);
-    assert.equal(entry.designRevision, entry.family==='lordbernhard'?10:11, entry.family);
+    assert.equal(entry.style, secret ? 'champions-v7.10' : 'champion-v6', entry.family);
+    assert.equal(entry.designRevision, secret ? 10 : 6, entry.family);
     if (secret) assert.equal(entry.secret, true, entry.family);
     assert.equal(entry.authoring, 'Blender', entry.family);
     assert.equal(entry.name, towers[entry.family].name, entry.family);
@@ -98,9 +92,8 @@ test('the release includes 37 regular champions, Lady Claire, the retained hidde
   }
   const basicEntries = manifest.filter(entry => entry.kind === 'tower' && basics.includes(entry.family));
   assert.equal(basicEntries.length, 48);
-  assert.equal(basicEntries.filter(entry => entry.style === 'designed-defenders-v8'&&entry.designRevision===11).length, 48);
-  assert.equal(champions.filter(family=>!towers[family].hidden).length,38);
-  assert.equal(towers.lordbernhard.hidden,true);
+  assert.equal(basicEntries.filter(entry => entry.style === 'hero-v5').length, 42);
+  assert.equal(basicEntries.filter(entry => entry.style === 'archer-v2').length, 6);
   for (const family of basics) {
     assert.deepEqual(basicEntries.filter(entry => entry.family === family).map(entry => entry.tier).sort(), [1, 2, 3, 4, 5, 6]);
   }
@@ -129,7 +122,8 @@ test('Three.js loads all 87 defender variants with finite geometry, normals, bou
     }
     assert.equal(triangles, entry.triangles, `${entry.family}: manifest triangle count`);
     const mountedSecret = entry.family === 'lordbernhard';
-    assert.ok(triangles > 0 && triangles < budget(entry), `${entry.family}: ${triangles} triangles`);
+    const budget=mountedSecret?60000:entry.family==='ladyclaire'?55000:10000;
+    assert.ok(triangles > 0 && triangles < budget, `${entry.family}: ${triangles} triangles`);
     const bounds = new THREE.Box3().setFromObject(scene, true);
     for (const vector of [bounds.min, bounds.max]) {
       assert.ok([vector.x, vector.y, vector.z].every(Number.isFinite), `${entry.family}: invalid bounds`);
@@ -157,7 +151,7 @@ test('secret champions preserve native bounds and editable Blender authoring met
     const {entry, scene} = (await loadChampions()).find(item => item.entry.family === family);
     const authored = scene.getObjectByName('secret_champion_' + family);
     assert.equal(authored?.userData.secret, true, family);
-    assert.equal(authored.userData.assetRevision, family==='ladyclaire'?'designed-defenders-v8':'champions-v7.10', family);
+    assert.equal(authored.userData.assetRevision, 'champions-v7.10', family);
     assert.equal(authored.userData.designName, towers[family].name, family);
     assert.equal(entry.source, `blender/scenes/${family}_design_v3.blend`);
     const size = new THREE.Box3().setFromObject(scene, true).getSize(new THREE.Vector3());
@@ -166,24 +160,28 @@ test('secret champions preserve native bounds and editable Blender authoring met
   }
 });
 
-test('the exported Catapult native arm deforms actual weighted mesh vertices, releases from that arm and returns to rest independently of the cache', async () => {
+test('the exported Catapult arm moves its real mesh descendants and returns to rest on a cloned loaded model', async () => {
   const source = (await loadChampions()).find(({entry}) => entry.family === 'stonewarden').scene;
-  const actor = cloneDefenderTemplate(source);
+  const actor = source.clone(true);
   actor.updateMatrixWorld(true);
-  const rig = attackRig(actor,'stonewarden',towers.stonewarden);
-  assert.ok(rig.native, 'Catapult GLB lost its genuine weighted armature/clips');
-  let muzzleBone=rig.muzzle;while(muzzleBone&&!muzzleBone.isBone)muzzleBone=muzzleBone.parent;
-  assert.ok(muzzleBone, 'The catapult projectile origin must follow its authored deform bone');
+  const rig = siegeRig(actor);
+  assert.ok(rig && rig.arm.name === 'siege_arm', 'Catapult GLB lost the animated pivot');
+  const moving = meshList(rig.arm);
+  assert.ok(moving.length >= 3, 'The beam, sling and projectile must remain children of the pivot');
+  const projectile = moving.find(mesh => mesh.geometry.getAttribute('position').count > 30);
+  assert.ok(projectile);
   const rest = geometrySignature(actor);
   const original = geometrySignature(source);
-  previewDefenderAttack(rig.native);updateDefenderPreview(rig.native,.36);
+  rig.elapsed = 0;
+  animateSiege(rig, .13);
   actor.updateMatrixWorld(true);
-  assert.notEqual(geometrySignature(actor), rest, 'The exported armature did not move actual geometry');
+  assert.ok(Math.abs(rig.arm.rotation.x - rig.restX) > .7, 'The firing stroke must articulate the arm');
+  assert.notEqual(geometrySignature(actor), rest, 'The exported moving meshes did not follow the pivot');
   assert.equal(geometrySignature(source), original, 'Animating a clone altered the cached source model');
-  resetDefenderAnimation(rig.native,{reducedMotion:true});
+  animateSiege(rig, 1);
   actor.updateMatrixWorld(true);
+  assert.equal(rig.arm.rotation.x, rig.restX);
   assert.equal(geometrySignature(actor), rest, 'The loaded arm did not return its geometry to rest');
-  disposeAttack(rig);disposeDefenderInstance(actor);
 });
 
 after(async () => {

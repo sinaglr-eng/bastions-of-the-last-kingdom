@@ -351,9 +351,6 @@ def clean_portrait_metadata(path):
     path.write_bytes(b''.join(chunks))
 
 def generate(render=True,family=None):
-    if '--legacy-art' not in sys.argv:
-        import author_defenders_v8
-        return author_defenders_v8.generate(render=render,family=family)
     entries=json.loads((OUT/'manifest.json').read_text(encoding='utf-8'))
     requested=set(family.split(',')) if family else None
     if requested and not requested.issubset(DATA):raise ValueError('Unknown requested family')

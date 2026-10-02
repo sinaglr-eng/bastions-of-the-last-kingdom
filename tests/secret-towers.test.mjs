@@ -3,17 +3,14 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
 import {towerStats,supportBonuses} from '../game/core/math.js';
-import {allRecipes,matchingIngredients,recipeProgress,expandedRecipeProgress,recipesUsing} from '../game/core/recipes.js';
+import {matchingIngredients,recipeProgress,expandedRecipeProgress,recipesUsing} from '../game/core/recipes.js';
 import {championRecipeCard,abilityLines} from '../ui/grimoire.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
 const secrets=data.recipes.filter(r=>r.currentRoundOnly);
 const unit=(family,id=1,x=10,z=10)=>({id,family,tier:1,x,z,state:'active',kills:0,cooldown:0});
 function candidates(recipe){
-  // The archived recipe is exercised with an explicit fixture opt-in. Production
-  // availability is checked separately and must never expose this hidden tower.
-  const fixture=recipe.id==='lordbernhard'?{...data,towers:{...data.towers,lordbernhard:{...data.towers.lordbernhard,hidden:false}}}:data;
-  const g=new Game(fixture,{seed:31});
+  const g=new Game(data,{seed:31});
   for(let x=10;x<15;x++)assert.equal(g.place(x,10),true);
   recipe.ingredients.forEach((p,i)=>Object.assign(g.towers[i],p,{kills:i+1}));
   for(const t of g.towers.slice(3))Object.assign(t,{family:'archer',tier:2});
@@ -41,15 +38,6 @@ test('two approved secret recipes use exactly the specified basic ranks',()=>{
   assert.deepEqual(secrets[0].ingredients,[{family:'mage',tier:5},{family:'druid',tier:5},{family:'frostwarden',tier:5}]);
   assert.deepEqual(secrets[1].ingredients,[{family:'soldier',tier:5},{family:'soldier',tier:4},{family:'soldier',tier:3}]);
   for(const r of secrets){assert.equal(r.ingredients.length,3);assert.equal(r.stage,'Secret');assert.equal(data.towers[r.id].secret,true);}
-});
-
-test('production retains the Bernhard definition but excludes his hidden recipe and every crafting entry point',()=>{
-  assert.equal(data.towers.lordbernhard.hidden,true);
-  assert.deepEqual(allRecipes(data).filter(r=>r.currentRoundOnly).map(r=>r.id),['ladyclaire']);
-  const g=new Game(data,{seed:31});for(let x=10;x<15;x++)assert.equal(g.place(x,10),true);
-  secrets[1].ingredients.forEach((piece,index)=>Object.assign(g.towers[index],piece));
-  for(const tower of g.towers.slice(3))Object.assign(tower,{family:'archer',tier:2});
-  for(const tower of g.towers.slice(0,3)){g.select(tower.id);unchangedFailure(g,'lordbernhard');}
 });
 
 test('old retained units cannot satisfy secret recipes or report retained progress',()=>{
@@ -96,7 +84,7 @@ test('exact ranks are required even when all three defenders share the Soldier f
   const g=candidates(secrets[1]);g.towers[1].tier=3;unchangedFailure(g,'lordbernhard');
 });
 
-test('Lady Claire and the explicitly enabled archived Bernhard fixture craft from all three valid current-round anchors exactly once',()=>{
+test('each secret crafts from all three valid current-round anchors and closes ordinary selection once',()=>{
   for(const r of secrets)for(let anchor=0;anchor<3;anchor++){
     const g=candidates(r),chosen=g.towers[anchor],position=[chosen.x,chosen.z],gold=g.economy.gold,others=g.towers.slice(3),events=[];
     g.on((type,payload)=>events.push({type,payload}));g.select(chosen.id);

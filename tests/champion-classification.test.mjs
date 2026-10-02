@@ -62,10 +62,9 @@ test('all basic defender ranks and unknown families receive no classification au
   }
 });
 
-test('all 38 available fixed outputs retain their family classification and produce rank I champions, with Bernhard archived',()=>{
-  const fixed=allRecipes({towers,recipes});assert.equal(fixed.length,38);
-  assert.deepEqual(fixed.map(recipeFamily).sort(),champions.filter(family=>!towers[family].hidden));
-  assert.equal(towers.lordbernhard.hidden,true);assert.ok(recipes.some(recipe=>recipeFamily(recipe)==='lordbernhard'));
+test('all 39 fixed outputs retain their family classification and produce rank I champions',()=>{
+  const fixed=allRecipes({towers,recipes});assert.equal(fixed.length,39);
+  assert.deepEqual(fixed.map(recipeFamily).sort(),champions);
   for(const recipe of fixed){
     assert.equal(recipeTier(recipe),1);
     const family=recipeFamily(recipe),classification=championClassification(family);

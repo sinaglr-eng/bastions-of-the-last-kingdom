@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {Box3,Vector3} from 'three';
-import {NativeTestGLTFLoader as GLTFLoader} from './helpers/native-gltf.mjs';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {enemyAssetKey} from '../game/render/enemy-assets.js';
 
 const read=file=>JSON.parse(readFileSync(new URL(file,import.meta.url)));
@@ -26,14 +26,14 @@ const approvedNames=[
  'Orc Dual-Seal Inquisitors','Soul-Drinker Trolls','Orc Wraiths of the Shattered World','Goblin Gallows Fliers','Eclipse Bat Guard',
  'Orc Oathbreakers','Riftwolf Orc Riders','Black Marsh Knifemen / Blood-Leech Trolls','Thunder Manta Orc Riders','Vorlak, the Hollow Sky King',
  'Orc Crystal Phalanx','Fire Bat Orc Lancers','Ogres of the Imprisoned Souls','Orc Ash Executioners','Flying Drummers of the Black Horde',
- 'Ogre Revenants in Hollow Armor','Orc Riders of the Last Howl','Bat Thieves of Black Fire','Troll Guardians of the Deep Maw','Morvath, the Dread Sovereign',
+ 'Ogre Revenants in Hollow Armor','Orc Riders of the Last Howl','Bat Thieves of Black Fire','Troll Guardians of the Deep Maw','Ghorun, the Black Sorcerer on the Wyvern Queen',
 ];
 const variantMap={
  host_31:[['Ashen Dual-Seal Inquisitors','host_31-ember'],['Spectral Dual-Seal Inquisitors','host_31-wraith']],
  host_35:[['Ashen Eclipse Bat Riders','host_35-ember'],['Spectral Eclipse Bat Riders','host_35-wraith']],
  host_36:[['Ashen Oathbreakers','host_36-ember'],['Spectral Oathbreakers','host_36-wraith']],
  host_38:[['Black Marsh Knifemen','host_38'],['Blood-Leech Trolls','host_38-wraith']],
- host_50:[['Morvath the Ashen','host_50'],['Morvath the Gold-Cursed','host_50-tyrant'],['Morvath the Bone-Crowned','host_50-devourer']],
+ host_50:[['Ghorun the Ashen','host_50'],['Ghorun the Gold-Cursed','host_50-tyrant'],['Ghorun the Pale Devourer','host_50-devourer']],
 };
 
 test('Dark Host changes only the five allowed visual fields and preserves every other enemy and wave field recursively',()=>{
@@ -74,7 +74,7 @@ test('all approved variants select their own native art while the 59-model roste
  assert.ok(!templates.has('host_05-balloon'));
 });
 
-test('Morvath keeps a visibly larger native wing span than scouts and wave-40 bosses, with actual export bounds recorded without import normalization',async()=>{
+test('the actual Ghorun wing geometry spans three ordinary scouts and one-and-a-half wave-40 bosses without import normalization',async()=>{
  const loader=new GLTFLoader(),resources=new Set();
  async function span(id){
   const asset=manifest.find(entry=>entry.id===id),bytes=readFileSync(new URL(`../public/assets/enemies/${asset.file}`,import.meta.url));
@@ -85,10 +85,8 @@ test('Morvath keeps a visibly larger native wing span than scouts and wave-40 bo
  try{
   const scout=await span('host_05'),boss=await span('host_40');
   for(const id of ['host_50','host_50-tyrant','host_50-devourer']){
-   const queen=await span(id),asset=manifest.find(entry=>entry.id===id);
-   assert.ok(queen/scout>2.5&&queen/scout<3.2,`${id} scout ratio: ${queen/scout}`);
-   assert.ok(queen/boss>1.25&&queen/boss<1.65,`${id} wave-40 ratio: ${queen/boss}`);
-   assert.ok(Math.abs(queen-asset.bounds.size[0])<.003,`${id} actual span differs from native geometry metadata`);
+   const queen=await span(id);assert.ok(Math.abs(queen/scout-3)<.1,`${id} scout ratio: ${queen/scout}`);
+   assert.ok(Math.abs(queen/boss-1.5)<.1,`${id} wave-40 ratio: ${queen/boss}`);
   }
  }finally{for(const resource of resources)resource.dispose();}
 });

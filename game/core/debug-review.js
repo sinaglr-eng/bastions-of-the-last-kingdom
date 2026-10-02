@@ -1,27 +1,5 @@
 import {GridManager} from './grid.js';
 
-export function prepareDefenderReview(game,batch=0){
-  const roster=Object.keys(game.data.towers).filter(family=>!game.data.towers[family].hidden),families=roster.slice((batch%4)*12,(batch%4+1)*12);
-  game.grid=new GridManager();game.towers=[];game.selected=null;game.lives=30;game.round=16;game.phase='ready';game.speed=1;game.paused=false;
-  families.forEach((family,index)=>{
-    const id=index+1,x=8+index%4*6,z=10+Math.floor(index/4)*6;
-    game.grid.occupy(x,z,id);game.towers.push({id,family,tier:1,state:'active',x,z,round:0,kills:0,priority:'first',cooldown:0});
-  });
-  game.nextId=families.length+1;game.startCombat();game.combat.spawnQueue=[{time:99999,type:'host_06',modifiers:{}}];
-  for(const tower of game.towers){const enemy=game.combat.spawn('host_06');Object.assign(enemy,{x:tower.x,z:tower.z+1,speed:0,hp:1e9,maxHp:1e9});}
-  game.combat.total=families.length+1;game.emit('change');
-}
-
-export function prepareFinalBossReview(game){
-  game.grid=new GridManager();game.towers=[];game.selected=null;game.lives=30;game.round=50;game.phase='ready';game.speed=1;game.paused=false;
-  for(const [index,family] of ['ladyclaire','stormcitadel','worldfire'].entries()){
-    const id=index+1,x=12+index*6,z=17;game.grid.occupy(x,z,id);game.towers.push({id,family,tier:1,state:'active',x,z,round:0,kills:0,priority:'first',cooldown:0});
-  }
-  game.nextId=4;game.startCombat();game.combat.spawnQueue=[];
-  const enemy=game.combat.spawn('host_50'),point=enemy.route.findIndex(p=>p.x===18&&p.z===20);
-  Object.assign(enemy,{x:18,z:20,pathIndex:Math.max(1,point+1),traveled:40});game.combat.total=1;game.emit('change');
-}
-
 export function prepareSecretDraftReview(game,family='ladyclaire'){
   const recipe=game.recipes.find(r=>r.id===family&&r.currentRoundOnly);if(!recipe)return false;
   game.grid=new GridManager();game.towers=[];game.selected=null;game.round=16;game.phase='build';game.nextId=1;game.activeDraw=0;game.previewRecipeId=null;game.paused=false;

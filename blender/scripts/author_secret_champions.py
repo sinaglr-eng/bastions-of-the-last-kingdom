@@ -139,12 +139,10 @@ def generate(render=True,family=None):
     for family,name,builder in [('ladyclaire','Lady Claire',lady_claire),('lordbernhard','Lord Bernhard',lord_bernhard)]:
         if family not in requested:continue
         army.clear();builder()
-        asset_version='designed-defenders-v8' if family=='ladyclaire' else ART_VERSION
-        design_revision=11 if family=='ladyclaire' else DESIGN_REVISION
         scene=bpy.context.scene;scene.frame_set(0)
-        dimensions=bounds();scene['Champion']=name;scene['Family']=family;scene['DesignRevision']=design_revision;scene['SecretChampion']=True
-        scene['AssetRevision']=asset_version;scene['Identity']='Original V3 anatomical face, individually formed hands, layered gown, natural blonde hairline and sculpted golden crown' if family=='ladyclaire' else 'Armoured seated rider with articulated plate joints, closed ornate helmet, anatomically shaped horse, saddle and stirrup contacts'
-        root=scene.objects.get('secret_champion_'+family) or pivot('secret_champion_'+family,(0,0,0),[o for o in scene.objects if not o.parent]);root['secret']=True;root['assetRevision']=asset_version;root['designName']=name;root['attackReleaseFraction']=.36
+        dimensions=bounds();scene['Champion']=name;scene['Family']=family;scene['DesignRevision']=DESIGN_REVISION;scene['SecretChampion']=True
+        scene['AssetRevision']=ART_VERSION;scene['Identity']='Original V3 anatomical face, individually formed hands, layered gown, natural blonde hairline and sculpted golden crown' if family=='ladyclaire' else 'Armoured seated rider with articulated plate joints, closed ornate helmet, anatomically shaped horse, saddle and stirrup contacts'
+        root=scene.objects.get('secret_champion_'+family) or pivot('secret_champion_'+family,(0,0,0),[o for o in scene.objects if not o.parent]);root['secret']=True;root['assetRevision']=ART_VERSION;root['designName']=name;root['attackReleaseFraction']=.36
         file='advanced_'+family+'.glb';triangles=export_rigged(file)
         camera=A.configure_scene();camera_frame(camera,dimensions)
         scene['NativeBounds']=json.dumps(dimensions);bpy.ops.wm.save_as_mainfile(filepath=str(SOURCES/(family+'_design_v3.blend')))
@@ -158,9 +156,7 @@ def generate(render=True,family=None):
                 camera_frame(camera,dimensions,(1100,1300),direction)
                 review=REVIEWS/(family+'-'+side+'.png');scene.render.filepath=str(review);bpy.ops.render.render(write_still=True);army.clean_portrait_metadata(review)
         entries=[entry for entry in entries if not(entry.get('kind')=='tower' and entry.get('family')==family)]
-        metadata=rig_metadata()
-        if family=='ladyclaire':metadata['articulationRevision']=3
-        entries.append(dict(id=family+'-t1',file=file,kind='tower',family=family,tier=1,style='designed-defenders-v8' if family=='ladyclaire' else ART_VERSION,assetRevision=asset_version,authoring='Blender',secret=True,triangles=triangles,designRevision=design_revision,name=name,source='blender/scenes/'+family+'_design_v3.blend',bounds=dimensions,**metadata))
+        entries.append(dict(id=family+'-t1',file=file,kind='tower',family=family,tier=1,style=ART_VERSION,assetRevision=ART_VERSION,authoring='Blender',secret=True,triangles=triangles,designRevision=DESIGN_REVISION,name=name,source='blender/scenes/'+family+'_design_v3.blend',bounds=dimensions,**rig_metadata()))
         (OUT/'manifest.json').write_text(json.dumps(entries,indent=2)+'\n',encoding='utf-8')
         print('SECRET_CHAMPION '+family+' '+str(triangles)+' triangles '+str(dimensions['size']),flush=True)
     print('SECRET_CHAMPIONS requested native sources and GLBs complete'+(' with portraits' if render else ' without rendering'),flush=True)
