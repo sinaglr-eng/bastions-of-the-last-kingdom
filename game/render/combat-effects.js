@@ -6,10 +6,16 @@ const STORMS=new Set(['stormcaller','tempest','stormcitadel','starfall']);
 const SIEGE=new Set(['stonewarden','kingsreach','fireballista','royalarsenal','royalmarshal','griffinbomber']);
 const MELEE=new Set(['soldier','frostblade','roseguard','highking','crownofages','kingdomprotector']);
 const LOBBED=new Set(['stonewarden','royalmarshal','griffinbomber','royalarsenal']);
-export const ATTACK_COLORS=Object.freeze({roots:'#78b957',flame:'#ff973f',lightning:'#a5dcff',melee:'#e7e9c5',siege:'#d9aa68',holy:'#fff0b3',frost:'#a1e2ef',arcane:'#bc9aef',arrow:'#eadbb5'});
+export const ATTACK_COLORS=Object.freeze({roots:'#78b957',flame:'#ff973f',lightning:'#a5dcff',melee:'#e7e9c5',thrust:'#e7e9c5',siege:'#d9aa68',holy:'#fff0b3',frost:'#a1e2ef',arcane:'#bc9aef',arrow:'#eadbb5',runic:'#e1ba7d',stone:'#95a779',dart:'#a3d96d',venomArrow:'#95ce73',hammer:'#e7ddb0'});
 const secretFamily=family=>family==='ladyclaire'||family==='lordbernhard';
 export const attackVisualColor=(family,kind)=>secretFamily(family)?'#ffda72':ATTACK_COLORS[kind];
 export function attackVisualKind(family,stats={}){
+  if(family==='runebreaker')return 'runic';
+  if(family==='emeraldgolem')return 'stone';
+  if(family==='mechanicalgolem')return 'dart';
+  if(family==='thunderheart')return 'lightning';
+  if(family==='royalranger')return 'venomArrow';
+  if(family==='kingdomprotector')return 'hammer';
   if(ROOTS.has(family))return 'roots';
   if(DRAGONS.has(family)||stats.type==='fire')return 'flame';
   if(STORMS.has(family))return 'lightning';
@@ -59,11 +65,30 @@ function thorns(color){
     pose.position.set(Math.cos(a)*r,.27,Math.sin(a)*r);pose.rotation.set(Math.sin(a)*.28,0,Math.cos(a)*-.28);pose.updateMatrix();thorn.setMatrixAt(i,pose.matrix);thorn.setColorAt(i,new THREE.Color(i%3?'#50652d':color));
   }object.add(thorn,groundRing(color,.35));return object;
 }
-function arrow(color){
+function arrow(color,toxic=false){
   const object=new THREE.Group();object.name='Crafted arrow';
   const shaft=mesh(new THREE.CylinderGeometry(.009,.009,.52,5),material('#b79f73'),'Arrow shaft');shaft.rotation.x=Math.PI/2;object.add(shaft);
   const tip=mesh(new THREE.ConeGeometry(.032,.12,4),material(color),'Steel arrowhead');tip.rotation.x=Math.PI/2;tip.position.z=.30;object.add(tip);
-  const feathers=mesh(new THREE.BoxGeometry(.08,.01,.12),material('#d8d9c8'),'Arrow fletching');feathers.position.z=-.22;object.add(feathers);return object;
+  const feathers=mesh(new THREE.BoxGeometry(.08,.01,.12),material(toxic?color:'#d8d9c8'),'Arrow fletching');feathers.position.z=-.22;object.add(feathers);
+  if(toxic){object.name='Venom-coated royal arrow';const coating=mesh(new THREE.CylinderGeometry(.013,.013,.11,5),material(color,.85),'Green venom arrow coating');coating.rotation.x=Math.PI/2;coating.position.z=.22;object.add(coating);}return object;
+}
+function runicBolt(color){
+  const object=new THREE.Group();object.name='Physical armor-breaking rune bolt';
+  const core=mesh(new THREE.CylinderGeometry(.045,.075,.34,6),material('#a5adb0'),'Forged runic bolt');core.rotation.x=Math.PI/2;object.add(core);
+  const rune=mesh(new THREE.TorusGeometry(.10,.013,3,4),material(color,.88,true),'Hammer-released square rune');rune.rotation.z=Math.PI/4;object.add(rune);
+  for(const side of [-1,1]){const notch=mesh(new THREE.BoxGeometry(.14,.018,.018),material(color,.82,true),'Etched armor-break rune');notch.position.z=side*.095;object.add(notch);}
+  return object;
+}
+function stoneShard(color){
+  const object=new THREE.Group();object.name='Fist-released physical stone shard';
+  const stone=mesh(new THREE.IcosahedronGeometry(.15,0),material('#777f6c'),'Faceted stone projectile');stone.scale.set(.85,1,1.5);object.add(stone);
+  const vein=mesh(new THREE.BoxGeometry(.035,.15,.20),material(color),'Embedded emerald stone vein');vein.rotation.z=.35;object.add(vein);return object;
+}
+function toxicDart(color){
+  const object=new THREE.Group();object.name='Mechanical cannon toxic dart';
+  const shaft=mesh(new THREE.CylinderGeometry(.022,.022,.24,6),material('#9ba6a6'),'Forged toxic dart body');shaft.rotation.x=Math.PI/2;object.add(shaft);
+  const tip=mesh(new THREE.ConeGeometry(.037,.095,5),material('#c2cccc'),'Metal dart point');tip.rotation.x=Math.PI/2;tip.position.z=.165;object.add(tip);
+  const venom=mesh(new THREE.BoxGeometry(.031,.031,.14),material(color),'Cannon dart venom channel');venom.position.y=.024;object.add(venom);return object;
 }
 function spell(kind,color){
   const object=new THREE.Group();object.name=`${kind} shaped spell`;
@@ -116,6 +141,15 @@ function slash(color){
   const object=new THREE.Group();object.name='Sweeping melee blade';
   const arc=mesh(new THREE.RingGeometry(.29,.43,20,1,0,Math.PI*1.3),material(color,.90,true),'Blade cut arc');arc.rotation.x=-Math.PI*.28;object.add(arc);return object;
 }
+function spearImpact(color){
+  const object=new THREE.Group();object.name='Physical lance thrust';
+  const streak=mesh(new THREE.CylinderGeometry(.024,.014,.44,5),material(color,.78,true),'Forward spear impact streak');streak.rotation.x=Math.PI/2;object.add(streak);
+  const point=mesh(new THREE.ConeGeometry(.046,.15,4),material(color,.88,true),'Pointed spear impact');point.rotation.x=Math.PI/2;point.position.z=.25;object.add(point);return object;
+}
+function hammerStrike(color){
+  const object=new THREE.Group();object.name='Concussive physical hammer blow';object.add(groundRing(color,.38));
+  const fragment=mesh(new THREE.IcosahedronGeometry(.10,0),material('#a4a7a1'),'Hammer impact stone fragment');fragment.position.y=.12;object.add(fragment);return object;
+}
 
 /** Cosmetic presentation only; never updates projectile timing, targets or damage. */
 export class CombatEffects{
@@ -128,8 +162,8 @@ export class CombatEffects{
   visible(target){return !target||this.isVisible(target)!==false;}
   animationClock(source,time=this.time){const simulation=secretFamily(source?.family)?this.getSimulationTime?.():null;return Number.isFinite(simulation)?simulation:time;}
   point(target,height){return this.position(target.x,height,target.z);}
-  muzzle(source,fallback=source){
-    const out=new THREE.Vector3(),point=this.getMuzzle?.(source,out);
+  muzzle(source,fallback=source,options={}){
+    const out=new THREE.Vector3(),point=this.getMuzzle?.(source,out,options);
     return point&&[point.x,point.y,point.z].every(Number.isFinite)?out.copy(point):this.point(fallback,this.sourceHeight);
   }
   addEffect(object,duration,animate,target=null){
@@ -143,9 +177,13 @@ export class CombatEffects{
     if(this.disposed||!shot?.source||!shot.target||!this.visible(shot.target))return null;
     if(this.projectiles.has(shot.id))return this.projectiles.get(shot.id);
     if(this.projectiles.size>=this.maxProjectiles)return null;
-    const stats=shot.stats||this.getStats(shot.source),kind=attackVisualKind(shot.source.family,stats),color=attackVisualColor(shot.source.family,kind);
+    const stats=shot.stats||this.getStats(shot.source),damageKind=attackVisualKind(shot.source.family,stats);
+    // These approved physical weapons stab along their shaft. Keep the same
+    // combat packet and timing while displaying a narrow forward impact.
+    const spear=damageKind==='melee'&&(['frostblade','roseguard'].includes(shot.source.family)||shot.source.family==='soldier'&&shot.source.tier===1);
+    const kind=spear?'thrust':damageKind,color=attackVisualColor(shot.source.family,kind);
     const lobbed=kind==='siege'&&LOBBED.has(shot.source.family);
-    const object=kind==='roots'?thorns(color):kind==='flame'?flameStream(color):kind==='lightning'?zigzag(color):kind==='melee'?slash(color):lobbed?bomb(color):kind==='arrow'||kind==='siege'?arrow(color):spell(kind,color);
+    const object=kind==='roots'?thorns(color):kind==='flame'?flameStream(color):kind==='lightning'?zigzag(color):kind==='melee'?slash(color):kind==='thrust'?spearImpact(color):kind==='hammer'?hammerStrike(color):kind==='runic'?runicBolt(color):kind==='stone'?stoneShard(color):kind==='dart'?toxicDart(color):kind==='venomArrow'?arrow(color,true):lobbed?bomb(color):kind==='arrow'||kind==='siege'?arrow(color):spell(kind,color);
     if(secretFamily(shot.source.family))object.name=shot.source.family==='lordbernhard'?'Sword-released golden magical bolt':'Staff-released golden spell';
     if(kind==='siege'&&!lobbed)object.scale.setScalar(1.4);
     sealMaterials(object);this.scene.add(object);const record={object,kind,shot,stats,color,lobbed,origin:this.muzzle(shot.source,shot.start||shot.source)};this.projectiles.set(shot.id,record);this.poseProjectile(record,this.time);
@@ -167,6 +205,11 @@ export class CombatEffects{
       animateZigzag(object,start,start.clone().lerp(end,Math.max(.08,p)),time,shot.id||0,motion);
     }else if(kind==='flame'){
       orientY(object,start,end);animateBreath(object,time*2.8,motion);
+    }else if(kind==='hammer'){
+      object.position.copy(end);object.position.y=.06;object.scale.setScalar(motion ? .45+p*.9 : .85);
+    }else if(kind==='thrust'){
+      const direction=new THREE.Vector3().subVectors(end,start).normalize();
+      object.position.copy(end).addScaledVector(direction,-.16);object.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),direction);object.scale.setScalar(motion?.72+p*.35:1);
     }else if(kind==='melee'){
       object.position.copy(end);object.rotation.y=Math.atan2(end.x-start.x,end.z-start.z);object.rotation.z=motion?-.6+p*1.2:0;
       object.scale.setScalar(.85+Math.min(p,.8)*.4);
@@ -175,7 +218,7 @@ export class CombatEffects{
       if(lobbed)object.position.y+=Math.sin(p*Math.PI)*Math.min(2.3,1+start.distanceTo(end)*.12);
       else object.position.y+=Math.sin(p*Math.PI)*.13;
       object.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),new THREE.Vector3().subVectors(end,start).normalize());
-      if(motion&&kind!=='arrow'&&(kind!=='siege'||lobbed))object.rotateZ(time*(kind==='siege'?5:2));
+      if(motion&&!['arrow','venomArrow','dart'].includes(kind)&&(kind!=='siege'||lobbed))object.rotateZ(time*(kind==='siege'?5:2));
     }
   }
   syncProjectiles(shots,time=this.time){
@@ -188,7 +231,7 @@ export class CombatEffects{
   }
   impact(payload){
     if(this.disposed||!this.visible(payload.target))return;
-    const stats=payload.stats||{},kind=attackVisualKind(payload.source?.family,stats),color=attackVisualColor(payload.source?.family,kind);
+    const stats=payload.stats||{},kind=payload.aura&&stats.burnAura?'flame':attackVisualKind(payload.source?.family,stats),color=attackVisualColor(payload.source?.family,kind);
     const centre=this.position(payload.x,.04,payload.z),radius=Math.min(1.1,Math.max(.28,payload.radius||.4));
     const object=kind==='roots'?thorns(color):new THREE.Group();object.name=`${kind} attack impact`;object.position.copy(centre);
     if(kind!=='roots')object.add(groundRing(color,radius));
@@ -212,11 +255,11 @@ export class CombatEffects{
   }
   breath(payload){
     if(!payload.source||!payload.target||!this.visible(payload.target))return;
-    const object=flameStream(ATTACK_COLORS.flame),start=this.muzzle(payload.source),end=this.point(payload.target,this.targetHeight(payload.target));
+    const object=flameStream(ATTACK_COLORS.flame),start=this.muzzle(payload.source,payload.source,{breath:true}),end=this.point(payload.target,this.targetHeight(payload.target));
     orientY(object,start,end);
     this.addEffect(object,.57,(effect,p,motion)=>{
       // Follow the target without changing its combat location or the actor's aim.
-      orientY(effect,this.muzzle(payload.source),this.point(payload.target,this.targetHeight(payload.target)));
+      orientY(effect,this.muzzle(payload.source,payload.source,{breath:true}),this.point(payload.target,this.targetHeight(payload.target)));
       animateBreath(effect,p*2,motion);
       fadeObject(effect,Math.sin(Math.PI*Math.min(1,p*1.1))*.85);
     },payload.target);
@@ -233,7 +276,7 @@ export class CombatEffects{
     if(this.disposed)return;
     if(type==='shot')this.shot(payload);
     else if(type==='impact')this.impact(payload);
-    else if(type==='aura-attack'&&attackVisualKind(payload.source?.family,payload.stats||this.getStats(payload.source))==='flame')this.breath(payload);
+    else if(type==='aura-attack'&&((payload.stats||this.getStats(payload.source)).burnAura||attackVisualKind(payload.source?.family,payload.stats||this.getStats(payload.source))==='flame'))this.breath(payload);
     else if(type==='chain')this.chain(payload);
   }
   update(dt,time=this.time){

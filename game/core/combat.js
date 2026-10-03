@@ -185,12 +185,20 @@ export class CombatManager {
       enemy.armorShred=enemy.statuses.shred?.amount||0;
       for(const t of this.game.towers)if(t.state==='active'){const s=towerStats(t,this.game.data);if(!enemy.magicImmune&&s.slowAura&&distance(t,enemy)<=s.range)slow=Math.max(slow,s.slowAura);if((!enemy.magicImmune||s.auraPiercesImmunity)&&distance(t,enemy)<=(s.effectRange??s.range)){if(s.armorShredAura)enemy.armorShred=Math.max(enemy.armorShred,s.armorShredAura);if(s.magicShredAura)enemy.magicShred=Math.max(enemy.magicShred,s.magicShredAura);}}
       if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
-      let travel=enemy.statuses.petrify?0:enemy.speed*dt*haste*frenzy*(enemy.statuses.freeze?0:1-slow)+blinkTravel;
-      while(travel>0 && enemy.pathIndex<enemy.route.length) {
-        const to=enemy.route[enemy.pathIndex],length=distance(enemy,to);
-        if(length<=travel){enemy.x=to.x;enemy.z=to.z;enemy.pathIndex++;enemy.traveled+=length;travel-=length;}
-        else {enemy.x+=(to.x-enemy.x)/length*travel;enemy.z+=(to.z-enemy.z)/length*travel;enemy.traveled+=travel;travel=0;}
+      const move=amount=>{
+        let travel=amount;
+        while(travel>0 && enemy.pathIndex<enemy.route.length) {
+          const to=enemy.route[enemy.pathIndex],length=distance(enemy,to);
+          if(length<=travel){enemy.x=to.x;enemy.z=to.z;enemy.pathIndex++;enemy.traveled+=length;travel-=length;}
+          else {enemy.x+=(to.x-enemy.x)/length*travel;enemy.z+=(to.z-enemy.z)/length*travel;enemy.traveled+=travel;travel=0;}
+        }
+      };
+      if(blinkTravel&&!enemy.statuses.petrify){
+        const from={x:enemy.x,z:enemy.z},visible=this.isRevealed(enemy);
+        move(blinkTravel);
+        if(enemy.x!==from.x||enemy.z!==from.z)this.game.emit('teleport',{enemy,from,to:{x:enemy.x,z:enemy.z},visible:visible&&this.isRevealed(enemy)});
       }
+      move(enemy.statuses.petrify?0:enemy.speed*dt*haste*frenzy*(enemy.statuses.freeze?0:1-slow));
       if(enemy.pathIndex>=enemy.route.length){enemy.dead=true;this.game.lives=Math.max(0,this.game.lives-(enemy.leak||1));this.game.leaks++;if(enemy.thief)this.game.economy.gold=Math.max(0,this.game.economy.gold-enemy.thief);this.game.emit('leak',{enemy});}
     }
     for(const tower of this.game.towers) {

@@ -5,7 +5,7 @@ import {DEFENDER_ART_VERSION,defenderPortrait,releaseAsset} from '../game/releas
 
 test('runtime assets and page links stay inside a GitHub project deployment',()=>{
   const base='/bastions-of-the-last-kingdom/';
-  for(const path of ['assets/models/human_archer_t1.glb','assets/enemies/manifest.json','assets/army/dawnseraph-t1.png','archer.html','?update=cohesive']) {
+  for(const path of ['assets/geometric/defenders/archer-1.glb','assets/geometric/geometric-enemies.json','assets/geometric/portraits/dawnspire.png','archer.html','?update=cohesive']) {
     assert.equal(siteUrl(path,base),base+path);
     assert.equal(siteUrl('/'+path,base),base+path);
   }
@@ -21,9 +21,9 @@ test('the default root deployment also works when the helper is imported by Node
 
 test('all defenders share rank portrait routes and the new art release bypasses cached old assets',()=>{
   for(const family of ['soldier','archer','druid','mage','cleric','runebreaker','frostwarden','stormcaller']){
-    for(let rank=1;rank<=6;rank++)assert.equal(defenderPortrait(family,rank),`/assets/army/${family}-t${rank}.png?v=${DEFENDER_ART_VERSION}`);
+    for(let rank=1;rank<=6;rank++)assert.equal(defenderPortrait(family,rank),`/assets/geometric/portraits/${family}-${rank}.png?v=${DEFENDER_ART_VERSION}`);
   }
-  assert.equal(defenderPortrait('ladyclaire'),`/assets/army/ladyclaire-t1.png?v=${DEFENDER_ART_VERSION}`);
+  assert.equal(defenderPortrait('ladyclaire'),`/assets/geometric/portraits/ladyclaire.png?v=${DEFENDER_ART_VERSION}`);
   assert.ok(!DEFENDER_ART_VERSION.includes('rollback'));
   assert.equal(releaseAsset('assets/models/manifest.json'),`/assets/models/manifest.json?v=${DEFENDER_ART_VERSION}`);
 });

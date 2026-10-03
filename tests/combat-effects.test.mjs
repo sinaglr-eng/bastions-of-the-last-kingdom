@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
 import {CombatEffects,attackVisualKind} from '../game/render/combat-effects.js';
 import {attackRig,triggerAttack,animateAttack,resetAttack} from '../game/render/battle-animation.js';
@@ -14,10 +15,20 @@ const finiteScene=scene=>scene.traverse(o=>{
 
 test('different families receive mechanisms matching roots, breath, lightning, blades, siege and magic',()=>{
   for(const family of ['druid','greenheart','eldergrove','mothernature'])assert.equal(attackVisualKind(family,{type:'poison'}),'roots');
-  for(const family of ['embercrown','worldfire','thunderheart','phoenix'])assert.equal(attackVisualKind(family,{type:'arcane'}),'flame');
+  for(const family of ['embercrown','worldfire','phoenix'])assert.equal(attackVisualKind(family,{type:'fire'}),'flame');
   assert.equal(attackVisualKind('stormcaller',{type:'arcane'}),'lightning');assert.equal(attackVisualKind('frostblade'),'melee');
   assert.equal(attackVisualKind('stonewarden'),'siege');assert.equal(attackVisualKind('cleric',{type:'holy'}),'holy');
   assert.equal(attackVisualKind('frostwarden',{type:'frost'}),'frost');assert.equal(attackVisualKind('mage',{type:'arcane'}),'arcane');assert.equal(attackVisualKind('archer'),'arrow');
+});
+
+test('Thunderheart actual stats launch arcane lightning while its separate burning aura breathes fire',()=>{
+  const stats=JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url),'utf8')).thunderheart;
+  assert.equal(stats.type,'arcane');assert.ok(stats.burnAura>0);assert.equal(attackVisualKind('thunderheart',stats),'lightning');
+  const scene=new THREE.Scene(),origins=[],fx=new CombatEffects(scene,{getMuzzle:(_source,out,options)=>{origins.push(!!options?.breath);return out.set(options?.breath?2:1,1.5,2);}}),s=shot('thunderheart',1,stats),before=structuredClone(s);
+  fx.event('shot',s);assert.equal(fx.projectiles.get(1).kind,'lightning');assert.equal(fx.projectiles.get(1).object.name,'Forked lightning');assert.ok(fx.projectiles.get(1).object.isLine);
+  fx.event('aura-attack',{source:s.source,target:s.target,stats});assert.equal(fx.effects.at(-1).object.name,'Dragon fire breath');assert.ok(origins.includes(true),'aura fire explicitly requests its distinct dragon-mouth origin');
+  assert.equal(fx.projectiles.get(1).kind,'lightning','an aura pulse preserves the existing weapon shot');assert.deepEqual(s,before,'visual abilities do not change the actual damage, burnAura, target or timing');
+  finiteScene(scene);fx.dispose();assert.equal(scene.children.length,0);
 });
 
 test('druid shots grow roots at enemy feet, never fly a generic bullet from the tower',()=>{

@@ -1,8 +1,10 @@
 import {siteUrl} from './site-url.js';
 
-export const GAME_VERSION='0.2.8';
-export const DEFENDER_ART_VERSION='hooded-turnarounds-v3.1';
+export const GAME_VERSION='0.3.0';
+export const DEFENDER_ART_VERSION='geometric-game-v1';
 export const CHAMPION_ART_VERSION=DEFENDER_ART_VERSION;
 // Updated assets must replace cached portraits and models from earlier editions.
 export const releaseAsset=path=>`${siteUrl(path)}?v=${CHAMPION_ART_VERSION}`;
-export const defenderPortrait=(family,tier=1)=>releaseAsset(`assets/army/${family}-t${tier}.png`);
+const basicFamilies=new Set(['soldier','archer','mage','frostwarden','stormcaller','cleric','druid','runebreaker']);
+export const defenderPortrait=(family,tier=1)=>releaseAsset(`assets/geometric/portraits/${family}${basicFamilies.has(family)?'-'+tier:''}.png`);
+export const enemyPortrait=id=>releaseAsset(`assets/geometric/portraits/${id}.png`);

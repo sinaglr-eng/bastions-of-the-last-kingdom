@@ -1,5 +1,16 @@
 # Releases
 
+## 0.3.0 — Geometric Army — 3 October 2026
+
+- Replaces all active unit visuals with 136 articulated geometric Blender models: 48 basic ranks, 38 champions and 50 enemies, with matching portraits and six review views per model.
+- Repairs Soldier VI's closed helmet and removes concealed skin that protruded at the neck. Head coverings and the covered face share their motion pivot.
+- Adds weapon-specific attacks, distance-based walking, flight and mounted motion. Fallen enemies remain grounded and opaque until the entire wave ends, including wave 50.
+- Shows actual resistances, immunities, refraction, regeneration and both ends of real teleports. Existing friendly, hostile and support auras remain active; hidden enemies remain concealed.
+- Lord Bernhard now appears as the hostile sorcerer on a wyvern in wave 50. His former friendly unit and recipe are excluded from current play. Other combat statistics and recipe behavior remain unchanged.
+- Adds six selectable camera views and attack inspection to the Royal Atelier. Model geometry, imports, animation and combat events have separate verification; physical 1% precision and IoU 0.97 are not certified from unmeasured raster concepts.
+
+Details: [Geometric game models and verification](docs/GEOMETRIC_GAME_V1.md).
+
 ## 0.2.8 · Art patch 9 — Royal Secret models — 2 October 2026
 
 - Rebuilds Lady Claire with an original adult face, a subtle closed smile, a natural blonde hairline, a gold crown and an ivory/champagne gown. Her staff and three orbiting orbs retain their native articulation.

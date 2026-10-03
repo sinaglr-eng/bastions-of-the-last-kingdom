@@ -5,30 +5,37 @@ import {rankColor,rankAdornment,animateRank} from './render/ranks.js';
 import {championClassification,championAuraLevel} from './render/champion-classification.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './render/champion-aura.js';
 import {animateSecretChampion} from './render/secret-champions.js';
+import {animateGeometricOrbits} from './render/geometric-orbits.js';
 import {cloneDefenderTemplate,disposeDefenderInstance} from './render/defender-assets.js';
-import {attackRig,attackMuzzle,disposeAttack} from './render/battle-animation.js';
+import {attackRig,attackMuzzle,disposeAttack,previewGeometricAttack,updateGeometricPreview,resetAttack} from './render/battle-animation.js';
+import {towerStats} from './core/math.js';
+import balance from '../data/balance.json';
 import {previewSecretAttack,updateSecretPreview,resetSecretAnimation} from './render/secret-animation.js';
 import {CombatEffects} from './render/combat-effects.js';
 import {castleWallModel,wallConnections} from './render/walls.js';
-import towers from '../data/towers.json';
+import historicalTowers from '../data/towers.json';
+import {campaignTowers} from './core/campaign-roster.js';
+import {geometricModelPath} from './render/geometric-assets.js';
+import {optimizeGeometricSiblings} from './render/geometric-batching.js';
 import '../ui/atelier.css';
 import {siteUrl} from './site-url.js';
 import {defenderCode} from './core/unit-label.js';
 import {releaseAsset,defenderPortrait,GAME_VERSION} from './release.js';
 
+const towers=campaignTowers(historicalTowers);
 const roman=['I','II','III','IV','V','VI'],colors=['Modrá','Zelená','Fialová','Bílá','Zlatá','Záře'];
 const rankEquipment={
  soldier:['Bez zbroje, s dřevěným kopím.','Přilba a meč.','Navíc dřevěný štít.','Navíc ocelový prsní plát.','Plná zbroj a železný štít.','Uzavřená rytířská přilba a delší plášť.'],
  archer:['Prostý krátký luk a kapuce.','Ramenní plášť a toulec.','Kožená vesta a zahnutý luk.','Dlouhý luk a delší plášť.','Ramenní ochrana a vrstvený luk.','Mistrovský luk a zpevněná vesta.'],
  druid:['Dřevěná hůl s jedním listem.','Listový ramenní plášť.','Jednoduché paroží.','Delší plášť a rozvětvená hůl.','Dřevěné nátepníky a zelený kámen.','Širší listový límec a mistrovská hůl.'],
  mage:['Malá špičatá čepice a jednoduchá hůl.','Široký kouzelnický klobouk.','Ramenní plášť a větší krystal.','Navíc zavřená kniha kouzel.','Delší plášť a vidlicová hlavice hole.','Otevřená kniha a mistrovský krystal.'],
- cleric:['Prostá kapuce a sluneční kotouč.','Mitra a světlá štóla.','Sluneční hůl se čtyřmi paprsky.','Navíc plášť a zavřená kniha.','Vyšší mitra a delší plášť.','Osmipaprsková hůl a otevřená kniha.'],
+ cleric:['Prostá kapuce a hůl s latinským křížem.','Mitra, světlá štóla a kříž.','Fialová mitra se zlatou obrubou.','Navíc plášť a zavřená kniha.','Zlatá mitra a delší plášť.','Zlatý kříž a otevřená kniha.'],
  runebreaker:['Dřevěné kladivo a pravítko.','Kožená zástěra a železné kladivo.','Pracovní brýle a nátepník.','Delší zástěra a tesařské kladivo.','Kovové chrániče a zesílená zástěra.','Mistrovské kladivo a ochranný plát.'],
  frostwarden:['Kapuce a malý ledový krystal.','Široký zimní límec.','Navíc malý ledový štít.','Kovové nátepníky a větší krystal.','Velký ledový štít a těžší plášť.','Ramenní ochrana a mistrovský krystal.'],
  stormcaller:['Prostá tunika a malý blesk.','Čelenka a krátký plášť.','Sesílací nátepník a větší blesk.','Dlouhý plášť a druhý nátepník.','Širší čelenka a trojramenný blesk.','Ramenní ochrana a mistrovská rukavice.'],
 };
 const portrait=defenderPortrait;
-const asset=(family,rank)=>releaseAsset(`assets/models/${towers[family].advanced?'advanced_'+family:'human_'+family+'_t'+rank}.glb`);
+const asset=(family,rank)=>releaseAsset(geometricModelPath(family,rank,towers[family].advanced));
 const requestedFamily=new URLSearchParams(location.search).get('family');
 let family=towers[requestedFamily]?requestedFamily:'archer';
 const basicCount=Object.values(towers).filter(t=>!t.advanced).length,championCount=Object.values(towers).filter(t=>t.advanced).length;
@@ -60,6 +67,10 @@ let modelAttack=null,previewPaused=false,previewSpeed=1,previewShot=null,preview
 const animationControls=document.createElement('span');animationControls.id='native-animation-controls';animationControls.hidden=true;
 animationControls.innerHTML='<button id="animation-idle">Klidová animace</button><button id="animation-attack">Přehrát útok</button><button id="animation-pause" aria-pressed="false">Pozastavit</button><label>Rychlost <select id="animation-speed" aria-label="Rychlost animace"><option value="0.5">½×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="3">3×</option></select></label>';
 document.querySelector('.view-controls').append(animationControls);
+const viewPresets=document.createElement('div');viewPresets.className='view-presets';viewPresets.setAttribute('aria-label','Šest kontrolních pohledů');
+viewPresets.innerHTML=[['front','Zepředu',0],['back','Zezadu',180],['left','Levý bok',-90],['right','Pravý bok',90],['three-quarter-front','¾ zepředu',35],['three-quarter-back','¾ zezadu',145]].map(([id,label,angle])=>`<button data-view="${id}" data-angle="${angle}" aria-pressed="false">${label}</button>`).join('');
+document.querySelector('.model-stage').append(viewPresets);
+viewPresets.addEventListener('click',event=>{const button=event.target.closest('[data-view]');if(!button)return;if(wallsVisible)toggleWalls();controls.autoRotate=false;document.querySelector('#rotate').setAttribute('aria-pressed','false');const angle=Number(button.dataset.angle)*Math.PI/180;controls.target.copy(viewCentre);camera.position.copy(viewCentre).add(new THREE.Vector3(5*Math.sin(angle),1.06,-5*Math.cos(angle)).multiplyScalar(viewRadius));controls.update();viewPresets.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));});
 const previewTarget={id:-2,x:0,z:-2.5},previewTargetMesh=new THREE.Mesh(new THREE.TorusGeometry(.15,.018,4,24),new THREE.MeshBasicMaterial({color:'#ffe9b5',transparent:true,opacity:.8,depthWrite:false,toneMapped:false}));
 previewTargetMesh.name='Atelier spell target';previewTargetMesh.position.set(previewTarget.x,1,previewTarget.z);previewTargetMesh.visible=false;scene.add(previewTargetMesh);
 const previewEffects=new CombatEffects(scene,{sourceHeight:1.5,getMuzzle:(_source,out)=>attackMuzzle(modelAttack,out),maxEffects:8,maxProjectiles:2,reducedMotion:()=>!!reducedMotion?.matches});
@@ -90,13 +101,13 @@ async function showRank(rank){
  document.querySelector('#download-model').href=url;document.querySelector('#download-portrait').href=portrait(family,rank);
  document.querySelector('#load-status').textContent='Načítám model z Blenderu…';
  try{
-  if(!cache.has(url))cache.set(url,loader.loadAsync(url));
+  if(!cache.has(url))cache.set(url,loader.loadAsync(url).then(asset=>{asset.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});optimizeGeometricSiblings(asset.scene,{animations:asset.animations});return asset;}));
   const gltf=await cache.get(url);if(request!==sequence)return;
   if(model){disposeAttack(modelAttack);modelAttack=null;disposeDefenderInstance(model);disposeChampionAura(modelAura);modelAura=null;scene.remove(model);const rankGroup=model.getObjectByName('Mythic aura')||model.getObjectByName('Rank signal');rankGroup?.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});}
   previewShot=null;previewEffects.syncProjectiles([]);for(const effect of [...previewEffects.effects])previewEffects.removeEffect(effect);previewTargetMesh.visible=false;
   gltf.scene.animations=gltf.animations;model=cloneDefenderTemplate(gltf.scene);model.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});
-  if(towers[family].secret)modelAttack=attackRig(model,family,towers[family]);
-  animationControls.hidden=!modelAttack?.native;previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');
+  modelAttack=attackRig(model,family,towers[family]);
+  animationControls.hidden=!(modelAttack?.native||modelAttack?.geometric);previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');
   const bounds=new THREE.Box3().setFromObject(model),size=bounds.getSize(new THREE.Vector3());viewCentre=bounds.getCenter(new THREE.Vector3());viewRadius=Math.max(1,size.y/2.2,size.x/2.1,size.z/2.1);
   if(!advanced)model.add(rankAdornment(rank));
   modelAura=createChampionAura(family);if(modelAura)model.add(modelAura);
@@ -111,8 +122,8 @@ document.querySelector('#rotate').addEventListener('click',e=>{controls.autoRota
 document.querySelector('#reset').addEventListener('click',()=>reset(wallsVisible));
 function toggleWalls(){wallsVisible=!wallsVisible;wallGroup.visible=wallsVisible;if(model)model.visible=!wallsVisible;reset(wallsVisible);document.querySelector('#walls').setAttribute('aria-pressed',String(wallsVisible));status();}
 document.querySelector('#walls').addEventListener('click',toggleWalls);
-document.querySelector('#animation-attack').addEventListener('click',()=>{if(wallsVisible)toggleWalls();previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');previewSecretAttack(modelAttack?.native);previewTargetMesh.visible=true;});
-document.querySelector('#animation-idle').addEventListener('click',()=>{resetSecretAnimation(modelAttack?.native);previewShot=null;previewEffects.syncProjectiles([]);previewTargetMesh.visible=false;});
+document.querySelector('#animation-attack').addEventListener('click',()=>{if(wallsVisible)toggleWalls();previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');if(modelAttack?.geometric)previewGeometricAttack(modelAttack);else previewSecretAttack(modelAttack?.native);previewTargetMesh.visible=true;});
+document.querySelector('#animation-idle').addEventListener('click',()=>{resetAttack(modelAttack);previewShot=null;previewEffects.syncProjectiles([]);previewTargetMesh.visible=false;});
 document.querySelector('#animation-pause').addEventListener('click',event=>{previewPaused=!previewPaused;event.currentTarget.setAttribute('aria-pressed',String(previewPaused));});
 document.querySelector('#animation-speed').addEventListener('change',event=>previewSpeed=Number(event.target.value));
 new ResizeObserver(()=>{const {width,height}=host.getBoundingClientRect();renderer.setSize(width,height);camera.aspect=width/height;camera.updateProjectionMatrix();}).observe(host);
@@ -123,17 +134,19 @@ function frame(now){
  const animationDt=previewPaused||wallsVisible?0:dt*previewSpeed;previewClock+=animationDt;
  if(model){
   animateRank(model,now/1000);
-  if(modelAttack?.native){
-   updateSecretPreview(modelAttack.native,animationDt,{reducedMotion:!!reducedMotion?.matches,onRelease:({elapsedAfterRelease})=>{
-    const source={id:-1,family,x:0,z:0},stats=towers[family];previewShot={id:++previewSerial,source,target:previewTarget,start:{x:0,z:0},stats,progress:0,releaseFrameDt:elapsedAfterRelease,duration:Math.max(.08,Math.hypot(previewTarget.x,previewTarget.z)/stats.projectileSpeed)};previewEffects.event('shot',previewShot);
+  if(modelAttack?.native||modelAttack?.geometric){
+   const updater=modelAttack.geometric?updateGeometricPreview:updateSecretPreview,rig=modelAttack.geometric?modelAttack:modelAttack.native;
+   updater(rig,animationDt,{reducedMotion:!!reducedMotion?.matches,onRelease:({elapsedAfterRelease})=>{
+    const source={id:-1,family,tier:selected,state:'active',x:0,z:0},stats=towerStats(source,{balance,towers});previewShot={id:++previewSerial,source,target:previewTarget,start:{x:0,z:0},stats,progress:0,releaseFrameDt:elapsedAfterRelease,duration:Math.max(.08,Math.hypot(previewTarget.x,previewTarget.z)/(stats.projectileSpeed||22))};previewEffects.event('shot',previewShot);
    }});
-   if(modelAttack.glow){modelAttack.glow.visible=modelAttack.native.stage==='preview';modelAttack.glow.scale.setScalar(.6+Math.sin(modelAttack.native.phase*Math.PI)*1.05);}
+   if(modelAttack.native&&modelAttack.glow){modelAttack.glow.visible=modelAttack.native.stage==='preview';modelAttack.glow.scale.setScalar(.6+Math.sin(modelAttack.native.phase*Math.PI)*1.05);}
   }
-  animateSecretChampion(model,previewClock,{reducedMotion:!!reducedMotion?.matches});
+  if(modelAttack?.geometric)animateGeometricOrbits(model,previewClock,{reducedMotion:!!reducedMotion?.matches});
+  else animateSecretChampion(model,previewClock,{reducedMotion:!!reducedMotion?.matches});
  }
  if(previewShot&&animationDt>0){const shotDt=previewShot.releaseFrameDt??animationDt;delete previewShot.releaseFrameDt;previewShot.progress+=shotDt/previewShot.duration;if(previewShot.progress>=1){previewEffects.event('impact',{source:previewShot.source,target:previewTarget,stats:previewShot.stats,x:previewTarget.x,z:previewTarget.z});previewShot=null;}}
  previewEffects.syncProjectiles(previewShot?[previewShot]:[],previewClock);previewEffects.update(animationDt,previewClock);
- if(!previewShot&&modelAttack?.native?.stage!=='preview'&&!previewEffects.effects.length)previewTargetMesh.visible=false;
+ if(!previewShot&&modelAttack?.native?.stage!=='preview'&&modelAttack?.stage!=='preview'&&!previewEffects.effects.length)previewTargetMesh.visible=false;
  animateChampionAura(modelAura,previewClock,{reducedMotion:!!reducedMotion?.matches});renderer.render(scene,camera);requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);

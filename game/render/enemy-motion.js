@@ -1,6 +1,9 @@
 // Animate each figure's private hierarchy; native geometry and shared templates
 // retain their authored rest pose. Combat and exhibition use separate clocks.
 export function animateEnemyMotion(figure,enemy,time,{moving=true,reducedMotion=false}={}){
+  if(figure.userData.death)return 0;
+  const geometric=animateGeometricEnemyMotion(figure,enemy,time,{moving,reducedMotion});
+  if(geometric!==null)return geometric;
   const body=figure.userData.body;if(!body)return 0;
   const clock=Number.isFinite(time)?Math.max(0,time):0;
   const phase=Number(enemy.id??enemy.previewRound??0)*1.618;
@@ -28,3 +31,4 @@ export function animateEnemyMotion(figure,enemy,time,{moving=true,reducedMotion=
     (flying?.028:moving?.018:.012)*motion;
   return flying?Math.sin(clock*frequency+phase)*.075*motion:moving?Math.abs(Math.sin(pace))*.028*motion:0;
 }
+import {animateGeometricEnemyMotion} from './geometric-motion.js';

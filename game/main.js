@@ -5,10 +5,11 @@ import '../ui/leaderboard.css';
 import {resultLeaderboardMarkup,connectResultLeaderboard} from '../ui/leaderboard.js';
 import {StatisticsClient} from './core/statistics-client.js';
 import balance from '../data/balance.json';
-import towers from '../data/towers.json';
-import enemies from '../data/enemies.json';
-import waves from '../data/waves.json';
-import recipes from '../data/recipes.json';
+import historicalTowers from '../data/towers.json';
+import historicalEnemies from '../data/enemies.json';
+import historicalWaves from '../data/waves.json';
+import historicalRecipes from '../data/recipes.json';
+import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from './core/campaign-roster.js';
 import {Game} from './core/game.js';
 import {prepareBattleReview,prepareSpellReview,prepareSupportReview,prepareEnemyReview,prepareRecipeMarkerReview,prepareSecretDraftReview} from './core/debug-review.js';
 import {towerStats} from './core/math.js';
@@ -31,6 +32,7 @@ import {draftCardsMarkup} from '../ui/draft-cards.js';
 import {masteryPanelMarkup} from '../ui/mastery-panel.js';
 import {selectedSupportMarkup,supportEffectsMarkup,supportMapLegendMarkup} from '../ui/support-guide.js';
 
+const towers=campaignTowers(historicalTowers),recipes=campaignRecipes(historicalRecipes),enemies=campaignEnemies(historicalEnemies),waves=campaignWaves(historicalWaves);
 const data={balance,towers,enemies,waves,recipes},profile=loadProfile(),audio=new AudioManager(profile.muted),roman=ROMAN;
 const params=new URLSearchParams(location.search);const debug=import.meta.env.DEV&&params.has('debug');
 let game,world,statistics,images,toastTimer,uiClock=0,previous=performance.now(),modalPaused=false,mode=waves.length,recipeFocus=null;
@@ -134,7 +136,7 @@ function hud(){
 }
 
 function render(){renderSidebar();renderRecipeBrowser();renderEconomy();renderDraft();renderMapAction();hud();tour.refresh();}
-function openDialog(html){draftCardActivation.clear();draftPointerGesture.clear();pointerDraws.clear();const dialog=$('dialog');if(!dialog.open){modalPaused=game.paused;game.paused=true;dialog.showModal();}world.keys.clear();$('dialog-content').innerHTML=html;if(debug&&html.includes('Commander’s tools'))$('dialog-content').insertAdjacentHTML('beforeend','<div class="dialog-body debug-row"><button class="text-button" data-action="debug-review">Review corpses and catapult</button><button class="text-button" data-action="debug-boss-review">Review boss battle</button><button class="text-button" data-action="debug-enemies-review">Review Dark Host and auras</button><button class="text-button" data-action="debug-markers-review">Review recipe portraits</button><button class="text-button" data-action="debug-secret-claire">Review Lady Claire draft</button><button class="text-button" data-action="debug-secret-bernhard">Review Lord Bernhard draft</button></div>');}
+function openDialog(html){draftCardActivation.clear();draftPointerGesture.clear();pointerDraws.clear();const dialog=$('dialog');if(!dialog.open){modalPaused=game.paused;game.paused=true;dialog.showModal();}world.keys.clear();$('dialog-content').innerHTML=html;if(debug&&html.includes('Commander’s tools'))$('dialog-content').insertAdjacentHTML('beforeend','<div class="dialog-body debug-row"><button class="text-button" data-action="debug-review">Review corpses and catapult</button><button class="text-button" data-action="debug-boss-review">Review boss battle</button><button class="text-button" data-action="debug-enemies-review">Review Dark Host and auras</button><button class="text-button" data-action="debug-markers-review">Review recipe portraits</button><button class="text-button" data-action="debug-secret-claire">Review Lady Claire draft</button></div>');}
 function closeDialog(){if($('dialog').open)$('dialog').close();}
 $('dialog').addEventListener('close',()=>{game.paused=modalPaused;render();});
 function dialogHeader(label,title){return `<div class="dialog-header"><div><div class="eyebrow">${label}</div><h2>${title}</h2></div><button class="icon-button" data-action="close" aria-label="Close">${icon('close')}</button></div>`;}
@@ -194,7 +196,7 @@ function handleCommand(e){
   if(actions[action])actions[action]();
   else if(debug&&action.startsWith('debug-')){
     if(action==='debug-enemies-review'){prepareEnemyReview(game);modalPaused=true;closeDialog();}
-    if(action==='debug-secret-claire'||action==='debug-secret-bernhard'){prepareSecretDraftReview(game,action==='debug-secret-claire'?'ladyclaire':'lordbernhard');modalPaused=false;closeDialog();}
+    if(action==='debug-secret-claire'){prepareSecretDraftReview(game,'ladyclaire');modalPaused=false;closeDialog();}
     if(action==='debug-markers-review'){prepareRecipeMarkerReview(game);closeDialog();}
     if(action==='debug-spell-review'){prepareSpellReview(game);closeDialog();}
     if(action==='debug-support-review'){prepareSupportReview(game);closeDialog();}

@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {attackVisualKind} from './combat-effects.js';
 import {createSecretAnimation,releaseSecretAttack,updateSecretAnimation,resetSecretAnimation,disposeSecretAnimation} from './secret-animation.js';
+import {geometricMetadata,beginGroundedDeath,animateGroundedDeath} from './geometric-motion.js';
 
 const CLAN_AURAS=['#c85e43','#77bfd5','#93be69','#b287d3','#e2bb67'];
 export function bossAura(clan=0){
@@ -22,30 +23,10 @@ export function animateBossAura(root,time){
 
 // The same detailed figure falls, then rests on the terrain until the round ends.
 export function beginDeath(root,enemy){
-  const body=root.userData.body;body.scale.setScalar(1);body.rotation.z=0;
-  root.userData.bar&&(root.userData.bar.visible=false);
-  root.userData.aura&&(root.userData.aura.visible=false);
-  if(root.userData.shards)root.userData.shards.visible=false;
-  const initialY=root.position.y,originalX=body.rotation.x;
-  const limbs=root.userData.limbs||[],wings=root.userData.wings||[];
-  const rotations=[...limbs.map(l=>l.rotation.x),...wings.map(w=>w.rotation.z)];
-  limbs.forEach(l=>l.rotation.x=l.userData.restRotation||0);
-  wings.forEach((w,i)=>w.rotation.z=(w.userData.restRotation||0)+.45*(i%2?1:-1));
-  root.position.y=0;body.rotation.x=-Math.PI/2;root.updateMatrixWorld(true);
-  const lift=.025-new THREE.Box3().setFromObject(body,true).min.y;
-  limbs.forEach((l,i)=>l.rotation.x=rotations[i]);wings.forEach((w,i)=>w.rotation.z=rotations[limbs.length+i]);
-  body.rotation.x=originalX;root.position.y=initialY;
-  root.userData.death={elapsed:0,duration:enemy.flying?.95:.65,initialY,lift,originalX};
-  return root;
+  return beginGroundedDeath(root,enemy);
 }
 export function animateDeath(root,dt){
-  const death=root.userData.death;if(!death)return;
-  death.elapsed=Math.min(death.duration,death.elapsed+dt);
-  const p=death.elapsed/death.duration,ease=1-Math.pow(1-p,3),body=root.userData.body;
-  body.rotation.x=THREE.MathUtils.lerp(death.originalX,-Math.PI/2,ease);
-  root.position.y=THREE.MathUtils.lerp(death.initialY,death.lift,ease)+Math.sin(p*Math.PI)*.10;
-  root.userData.limbs?.forEach((limb,i)=>{limb.rotation.x=(limb.userData.restRotation||0)+Math.sin(p*Math.PI)*(i%2?-.3:.3);});
-  root.userData.wings?.forEach((wing,i)=>wing.rotation.z=(wing.userData.restRotation||0)+ease*.45*(i%2?1:-1));
+  animateGroundedDeath(root,dt);
 }
 
 export function siegeRig(actor){
@@ -68,8 +49,11 @@ const ATTACK_POSES={
   lightning:{x:.055,z:-.10,duration:.30},siege:{x:-.038,z:0,duration:.33},
   holy:{x:.025,z:-.06,duration:.35},frost:{x:.055,z:-.075,duration:.33},
   arcane:{x:.06,z:-.11,duration:.32},
+  runic:{x:-.085,z:.035,duration:.44},stone:{x:-.065,z:0,duration:.42},
+  dart:{x:-.015,z:0,duration:.28},venomArrow:{x:-.065,z:.085,duration:.48},
+  hammer:{x:-.085,z:.035,duration:.44},
 };
-const JOINT_NAMES=['torso_pivot','head_pivot','upper_arm_L','upper_arm_R','forearm_L','forearm_R','hand_L','hand_R','weapon_L','weapon_R','bow_pivot','weapon_pivot','attack_arm','bow_arm','dragon_jaw','mouth_pivot','left_wing_pivot','right_wing_pivot'];
+const JOINT_NAMES=['torso_pivot','head_pivot','upper_arm_L','upper_arm_R','forearm_L','forearm_R','hand_L','hand_R','weapon_L','weapon_R','bow_pivot','weapon_pivot','siege_arm','attack_arm','bow_arm','dragon_jaw','jaw_pivot','mouth_pivot','left_wing_pivot','right_wing_pivot','wing_L','wing_R'];
 const SPELL_KINDS=new Set(['arcane','holy','frost','roots','lightning']);
 const smooth=p=>{p=THREE.MathUtils.clamp(p,0,1);return p*p*(3-2*p);};
 const noPick=()=>{};
@@ -81,8 +65,15 @@ export function attackRig(actor,family,stats={}){
     if(node)pivots.push({node,name,rotation:node.rotation.clone(),position:node.position.clone()});
   }
   const rig={actor,family,kind,pose,pivots,joints:new Map(pivots.map(p=>[p.name,p])),restX:actor.rotation.x,restZ:actor.rotation.z,elapsed:pose.duration,duration:pose.duration,active:false,owned:[],disposed:false};
+  rig.geometric=geometricMetadata(actor);rig.attackStyle=rig.geometric?.attackStyle;rig.stage='idle';rig.lastRelease=null;
+  const shoulder=rig.joints.get('upper_arm_R')?.node,hand=rig.joints.get('hand_R')?.node;
+  if(shoulder&&hand){actor.updateMatrixWorld(true);const reach=shoulder.worldToLocal(hand.getWorldPosition(new THREE.Vector3()));rig.forwardArmLift=THREE.MathUtils.clamp(1.32-Math.atan2(-reach.z,-reach.y),0,1.2);}
   rig.native=createSecretAnimation(actor,family);
-  rig.muzzle=(family==='lordbernhard'?actor.getObjectByName('sword_tip'):kind==='flame'?actor.getObjectByName('attack_muzzle'):actor.getObjectByName('staff_tip'))||actor.getObjectByName('attack_muzzle')||null;
+  let heldMuzzle=null;const heldWeapon=actor.getObjectByName('weapon_R');
+  heldWeapon?.traverse(node=>{if(!heldMuzzle&&/^attack_muzzle(?:_?\d+)?$/.test(node.name))heldMuzzle=node;});
+  rig.muzzle=(family==='lordbernhard'?actor.getObjectByName('sword_tip'):kind==='flame'?actor.getObjectByName('attack_muzzle'):actor.getObjectByName('staff_tip')||heldMuzzle)||actor.getObjectByName('attack_muzzle')||null;
+  rig.breathMuzzle=actor.getObjectByName('attack_muzzle')||rig.muzzle;
+  rig.breathTrack={active:false,elapsed:ATTACK_POSES.flame.duration,duration:ATTACK_POSES.flame.duration,lastRelease:null};
   const tip=['ladyclaire','lordbernhard'].includes(family)?rig.muzzle:actor.getObjectByName('staff_tip');
   if(tip&&SPELL_KINDS.has(kind)){
     const color=['ladyclaire','lordbernhard'].includes(family)?'#ffdc78':kind==='holy'?'#ffe7a3':kind==='roots'?'#9bdd67':kind==='frost'?'#a4efff':kind==='lightning'?'#b1ddff':'#cb9fff';
@@ -90,13 +81,31 @@ export function attackRig(actor,family,stats={}){
     glow.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.095,1),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})),new THREE.Mesh(new THREE.TorusGeometry(.14,.012,4,20),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.7,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})));
     glow.traverse(node=>node.raycast=noPick);rig.glow=glow;rig.owned.push(glow);
   }
-  const top=actor.getObjectByName('bow_tip_upper'),bottom=actor.getObjectByName('bow_tip_lower'),nock=actor.getObjectByName('bow_nock');
+  let top=actor.getObjectByName('bow_tip_upper'),bottom=actor.getObjectByName('bow_tip_lower'),nock=actor.getObjectByName('bow_nock');
+  const namedStrings=[];actor.traverse(node=>{if(!node.isLine&&/bow_?string/i.test(node.name))namedStrings.push(node);});
+  const physicalStrings=namedStrings.filter(node=>node.isMesh);
+  if(rig.attackStyle==='bow'&&physicalStrings.length&&!top){
+    // Champion exports have a real string mesh, but no semantic endpoints.
+    // Derive its two ends without changing any authored vertex buffer.
+    const original=physicalStrings[0],bounds=new THREE.Box3().setFromObject(original,true),centre=bounds.getCenter(new THREE.Vector3()),parent=original.parent;
+    const endpoint=(name,point)=>{const node=new THREE.Group();node.name=name;node.position.copy(parent.worldToLocal(point));parent.add(node);rig.owned.push(node);return node;};
+    top=endpoint('runtime_bow_tip_upper',new THREE.Vector3(centre.x,bounds.max.y,centre.z));bottom=endpoint('runtime_bow_tip_lower',new THREE.Vector3(centre.x,bounds.min.y,centre.z));nock=endpoint('runtime_bow_nock',centre.clone());
+  }
   if(top&&bottom&&nock){
     let restStraight=false;actor.traverse(node=>{if(node.userData.bowRestPose==='lowered-hand')restStraight=true;});
-    const authored=actor.getObjectByName('authored_bowstring');if(authored){rig.authoredString={node:authored,visible:authored.visible};authored.visible=false;}
+    const handR=actor.getObjectByName('hand_R'),handL=actor.getObjectByName('hand_L');
+    if(rig.geometric&&handR&&handL){
+      const arms={};for(const side of ['R','L']){
+        const shoulder=rig.joints.get('upper_arm_'+side),elbow=rig.joints.get('forearm_'+side),hand=rig.joints.get('hand_'+side);
+        if(!shoulder||!elbow||!hand)continue;
+        actor.updateMatrixWorld(true);arms[side]={shoulder,elbow,hand,restTarget:actor.worldToLocal(hand.node.getWorldPosition(new THREE.Vector3())),handOrientation:actor.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(hand.node.getWorldQuaternion(new THREE.Quaternion())),reach:shoulder.node.getWorldPosition(new THREE.Vector3()).distanceTo(elbow.node.getWorldPosition(new THREE.Vector3()))+elbow.node.getWorldPosition(new THREE.Vector3()).distanceTo(hand.node.getWorldPosition(new THREE.Vector3()))};
+      }
+      if(arms.R&&arms.L){rig.bowArms=arms;restStraight=true;}
+    }
+    rig.authoredStrings=namedStrings.map(node=>({node,visible:node.visible}));for(const entry of rig.authoredStrings)entry.node.visible=false;
     const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(12),3));
     const string=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:'#eee3c9',depthWrite:false,toneMapped:false}));string.name='Articulated taut bowstring';string.raycast=noPick;string.frustumCulled=false;actor.add(string);
-    rig.string={object:string,top,bottom,nock,restStraight,draw:0,point:new THREE.Vector3(),topPoint:new THREE.Vector3(),bottomPoint:new THREE.Vector3(),nockPoint:new THREE.Vector3()};rig.owned.push(string);updateBowString(rig);
+    rig.string={object:string,top,bottom,nock:rig.bowArms?handR:nock,authoredNock:nock,restStraight,draw:0,point:new THREE.Vector3(),topPoint:new THREE.Vector3(),bottomPoint:new THREE.Vector3(),nockPoint:new THREE.Vector3()};rig.owned.push(string);updateBowString(rig);
   }
   return rig;
 }
@@ -111,18 +120,82 @@ function updateBowString(rig){
   if(restStraight)nockPoint.lerpVectors(topPoint,bottomPoint,.5).lerp(point,draw);
   [topPoint,nockPoint,bottomPoint,nockPoint].forEach((p,i)=>positions.setXYZ(i,p.x,p.y,p.z));positions.needsUpdate=true;
 }
-export function attackMuzzle(rig,out=new THREE.Vector3()){
-  if(!rig||rig.disposed||!rig.muzzle)return null;
-  rig.actor.updateMatrixWorld(true);return rig.muzzle.getWorldPosition(out);
+export function attackMuzzle(rig,out=new THREE.Vector3(),{breath=false}={}){
+  const muzzle=breath?rig?.breathMuzzle:rig?.muzzle;
+  if(!rig||rig.disposed||!muzzle)return null;
+  rig.actor.updateMatrixWorld(true);return muzzle.getWorldPosition(out);
 }
 export function triggerAttack(rig,payload={}){
   if(!rig||rig.disposed)return;
   if(rig.native){releaseSecretAttack(rig.native,{interval:payload.stats?.interval,rate:payload.visualRate,stamp:payload.combatTime,reducedMotion:payload.reducedMotion});rig.active=true;return;}
+  if(rig.geometric){
+    const breath=!!payload.breath;
+    if(breath){
+      const track=rig.breathTrack;if(payload.combatTime!==undefined&&track.lastRelease===payload.combatTime)return;
+      track.lastRelease=payload.combatTime;track.duration=ATTACK_POSES.flame.duration;track.elapsed=track.duration*.42;track.active=true;
+      // Aura fire and the rider's weapon are independent abilities. Opening
+      // the mount's jaw must not restart the arm preparation/release/recovery.
+      applyBreath(rig,payload.reducedMotion);return;
+    }
+    if(payload.combatTime!==undefined&&payload.combatTime===rig.lastRelease)return;
+    rig.lastRelease=payload.combatTime;rig.stage='recovery';
+    const interval=payload.stats?.interval,rate=Number.isFinite(payload.visualRate)?Math.max(.01,payload.visualRate):1;
+    const poseDuration=rig.pose.duration;
+    rig.duration=Math.max(.001,Math.min(poseDuration,Number.isFinite(interval)&&interval>0?interval/rate*.90:poseDuration));
+    rig.elapsed=rig.duration*.42;rig.active=true;
+    // The projectile event sees the actual release pose and moving muzzle.
+    animateAttack(rig,0,0,{reducedMotion:payload.reducedMotion});return;
+  }
   // Simultaneous multishot callbacks describe one release pose.
   if(rig.active&&rig.elapsed<.025)return;
   const interval=payload.stats?.interval;
   rig.duration=Math.min(rig.pose.duration,Number.isFinite(interval)&&interval>0?Math.max(.12,interval*.8):rig.pose.duration);
   rig.elapsed=0;rig.active=true;
+}
+const handAdvanceOrigin=new THREE.Vector3(),handAdvancePoint=new THREE.Vector3();
+function applyBreath(rig,reducedMotion=false){
+  const track=rig.breathTrack;if(!track)return;
+  const p=track.duration>0?track.elapsed/track.duration:1,stroke=reducedMotion||!track.active?0:Math.sin(Math.PI*p)*Math.pow(Math.max(0,1-(p-.42)/.58),.4);
+  for(const name of ['dragon_jaw','jaw_pivot','mouth_pivot']){
+    const pivot=rig.joints.get(name);if(!pivot)continue;
+    if(track.active||rig.kind!=='flame'||!rig.active)pivot.node.rotation.copy(pivot.rotation);
+    if(track.active)pivot.node.rotation.x-=.36*stroke;
+  }
+}
+function advanceHand(rig,distance){
+  const hand=rig.joints.get('hand_R')?.node;if(!hand?.parent)return;
+  // Advance along the character's front, not the already-bent elbow's local
+  // Z axis (which otherwise sends an authored raised lance upwards).
+  rig.actor.updateMatrixWorld(true);
+  hand.parent.worldToLocal(rig.actor.localToWorld(handAdvanceOrigin.set(0,0,0)));
+  hand.parent.worldToLocal(rig.actor.localToWorld(handAdvancePoint.set(0,0,-distance)));
+  hand.position.add(handAdvancePoint.sub(handAdvanceOrigin));
+}
+function solveBowArm(rig,side,target){
+  const arm=rig.bowArms[side],{shoulder,elbow,hand}=arm;
+  rig.actor.updateMatrixWorld(true);
+  const origin=shoulder.node.getWorldPosition(new THREE.Vector3()),end=rig.actor.localToWorld(target.clone()),elbowRest=elbow.node.getWorldPosition(new THREE.Vector3()),handRest=hand.node.getWorldPosition(new THREE.Vector3());
+  const l1=origin.distanceTo(elbowRest),l2=elbowRest.distanceTo(handRest),delta=end.clone().sub(origin),r=THREE.MathUtils.clamp(delta.length(),Math.abs(l1-l2)+.0001,l1+l2-.0001),direction=delta.normalize();
+  const normal=rig.actor.localToWorld(new THREE.Vector3(0,-1,0)).sub(rig.actor.getWorldPosition(new THREE.Vector3()));normal.addScaledVector(direction,-normal.dot(direction)).normalize();
+  const along=(l1*l1-l2*l2+r*r)/(2*r),height=Math.sqrt(Math.max(0,l1*l1-along*along)),bend=origin.clone().addScaledVector(direction,along).addScaledVector(normal,height);
+  const upperDirection=shoulder.node.parent.worldToLocal(bend.clone()).sub(shoulder.node.position).normalize(),upperRest=elbow.position.clone().applyEuler(shoulder.rotation).normalize();
+  shoulder.node.quaternion.setFromUnitVectors(upperRest,upperDirection).multiply(new THREE.Quaternion().setFromEuler(shoulder.rotation));rig.actor.updateMatrixWorld(true);
+  const lowerDirection=elbow.node.parent.worldToLocal(end.clone()).sub(elbow.node.position).normalize(),lowerRest=hand.position.clone().applyEuler(elbow.rotation).normalize();
+  elbow.node.quaternion.setFromUnitVectors(lowerRest,lowerDirection).multiply(new THREE.Quaternion().setFromEuler(elbow.rotation));rig.actor.updateMatrixWorld(true);
+  hand.node.quaternion.copy(hand.node.parent.getWorldQuaternion(new THREE.Quaternion()).invert()).multiply(rig.actor.getWorldQuaternion(new THREE.Quaternion())).multiply(arm.handOrientation);
+}
+function applyBowDraw(rig,draw){
+  if(!draw||!rig.bowArms)return;
+  const {R,L}=rig.bowArms,worldScale=rig.actor.getWorldScale(new THREE.Vector3()).y,reach=Math.min(R.reach,L.reach)/worldScale;
+  // Bring the shoulders in naturally, then solve the real elbow chains. The
+  // lowered neutral hand cannot be approximated by twisting a bow-side nock.
+  R.shoulder.node.position.x-=reach*.20*draw;L.shoulder.node.position.x+=reach*.20*draw;
+  R.shoulder.node.position.z-=reach*.20*draw;L.shoulder.node.position.z-=reach*.20*draw;rig.actor.updateMatrixWorld(true);
+  const right=rig.actor.worldToLocal(R.shoulder.node.getWorldPosition(new THREE.Vector3())),left=rig.actor.worldToLocal(L.shoulder.node.getWorldPosition(new THREE.Vector3())),mid=right.clone().add(left).multiplyScalar(.5),halfWidth=Math.abs(right.x-left.x)/2,drop=reach*.20;
+  const forward=Math.sqrt(Math.max(.0025,reach*reach*.96-halfWidth*halfWidth-drop*drop))*.86;
+  const bowGoal=mid.clone().add(new THREE.Vector3(0,-drop,-forward)),leftTarget=L.restTarget.clone().lerp(bowGoal,draw);solveBowArm(rig,'L',leftTarget);
+  const pivot=rig.joints.get('bow_pivot')||rig.joints.get('weapon_L');if(pivot)pivot.node.rotation.y=pivot.rotation.y+Math.PI/2*draw;
+  rig.actor.updateMatrixWorld(true);const nock=rig.actor.worldToLocal(rig.string.authoredNock.getWorldPosition(new THREE.Vector3())),rightGoal=nock.add(new THREE.Vector3(0,0,Math.min(.18,Math.max(.065,forward*.34)))),rightTarget=R.restTarget.clone().lerp(rightGoal,draw);solveBowArm(rig,'R',rightTarget);
 }
 export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={}){
   if(!rig||rig.disposed)return;
@@ -131,8 +204,20 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     if(rig.glow){const phase=rig.native.phase;rig.glow.visible=rig.active;rig.glow.scale.setScalar(reducedMotion?1:.6+Math.sin(phase*Math.PI)*1.05);}
     return;
   }
-  if(!rig.active)return;
-  rig.elapsed=Math.min(rig.duration,rig.elapsed+(Number.isFinite(dt)?Math.max(0,dt):0));
+  if(rig.geometric){
+    const track=rig.breathTrack;
+    if(track.active&&!(context.stamp!==undefined&&context.stamp===track.lastRelease)){track.elapsed=Math.min(track.duration,track.elapsed+(Number.isFinite(dt)?Math.max(0,dt):0));track.active=track.elapsed<track.duration;}
+    const blocked=context.blocked||context.combat===false;
+    if(blocked&&rig.stage==='preparation'){resetAttack(rig,{preserveBreath:true});applyBreath(rig,reducedMotion);return;}
+    if(rig.stage!=='recovery'){
+      const rate=Number.isFinite(context.rate)?Math.max(.01,context.rate):1,remaining=Number.isFinite(context.cooldown)?Math.max(0,context.cooldown)/rate:Infinity;
+      const duration=Math.max(.001,Math.min(rig.pose.duration,Number.isFinite(context.interval)?Math.max(.001,context.interval)/rate*.9:rig.pose.duration)),preparation=duration*.42;
+      if(context.combat&&!blocked&&context.target&&remaining>0&&remaining<=preparation){rig.duration=duration;rig.elapsed=preparation*(1-remaining/preparation);rig.stage='preparation';rig.active=true;}
+      else if(rig.stage==='preparation'){resetAttack(rig,{preserveBreath:true});applyBreath(rig,reducedMotion);return;}
+    }
+  }
+  if(!rig.active){applyBreath(rig,reducedMotion);return;}
+  if(rig.stage!=='preparation'&&!(rig.geometric&&context.stamp!==undefined&&context.stamp===rig.lastRelease))rig.elapsed=Math.min(rig.duration,rig.elapsed+(Number.isFinite(dt)?Math.max(0,dt):0));
   const progress=rig.duration>0?rig.elapsed/rig.duration:1;
   const stroke=reducedMotion?0:Math.sin(progress*Math.PI)*(progress<.42?1:Math.pow(Math.max(0,1-(progress-.42)/.58),.4));
   const articulated=rig.joints.has('torso_pivot');
@@ -145,9 +230,41 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     pivot.node.rotation.set(pivot.rotation.x+x,pivot.rotation.y+y,pivot.rotation.z+z,pivot.rotation.order);
   };
   for(const pivot of rig.pivots){pivot.node.rotation.copy(pivot.rotation);pivot.node.position.copy(pivot.position);}
-  move('torso_pivot',-.045*stroke,rig.kind==='melee'?.18*slash:-.035*stroke,.045*stroke);
+  const mechanical=rig.kind==='siege'&&!rig.joints.has('upper_arm_R'),style=rig.attackStyle;
+  if(!mechanical)move('torso_pivot',-.045*stroke,rig.kind==='melee'?.18*slash:-.035*stroke,.045*stroke);
   move('head_pivot',-.055*stroke,0,0);
-  if(rig.string||rig.kind==='arrow'){
+  if(mechanical){
+    const lobbed=['stonewarden','royalmarshal','griffinbomber','royalarsenal'].includes(rig.family);
+    if(lobbed){move('weapon_R',-.95*cast,0,0);move('siege_arm',-.95*cast,0,0);}
+    else{const recoil=progress<.42?0:Math.sin(Math.PI*Math.min(1,(progress-.42)/.32));const weapon=rig.joints.get('weapon_R');if(weapon&&!reducedMotion)weapon.node.position.z+=.095*recoil;}
+  }else if(style==='punch'){
+    // Imported arms point down (-Y) and the character faces -Z. Positive
+    // local X therefore extends the real fist forwards at the release event.
+    const thrust=progress<.42?smooth(progress/.42):1-smooth((progress-.42)/.58);
+    const lift=rig.forwardArmLift??1.20;
+    move('upper_arm_R',lift*thrust,0,-.045*thrust);move('forearm_R',.25*thrust,0,0);
+    move('hand_R',-(lift+.25)*thrust,0,0);move('torso_pivot',.055*thrust,-.06*thrust,0);
+    move('upper_arm_L',.30*draw,0,.035*draw);move('forearm_L',.22*draw,0,0);
+    if(!reducedMotion)advanceHand(rig,.07*thrust);
+  }else if(style==='dartCannon'){
+    // The authored barrel already points forwards. Keep its axis aligned,
+    // brace the free fist, and kick the actual cannon back after releasing.
+    const recoil=progress<.42?0:Math.sin(Math.PI*Math.min(1,(progress-.42)/.32));
+    move('torso_pivot',-.012*stroke,0,0);move('upper_arm_L',.20*draw,0,.025*draw);
+    move('forearm_L',.18*draw,0,0);
+    const weapon=rig.joints.get('weapon_R')||rig.joints.get('hand_R');if(weapon&&!reducedMotion)weapon.node.position.z+=.085*recoil;
+  }else if(style==='hammer'){
+    move('upper_arm_R',-.82*draw,.04*stroke,-.10*stroke);move('forearm_R',-.38*draw,0,.05*stroke);
+    move('hand_R',-.18*cast,0,0);move('torso_pivot',-.075*stroke,.055*slash,0);
+    move('upper_arm_L',-.075*stroke,0,.045*stroke);
+  }else if(style==='crossbow'){
+    const recoil=progress<.42?0:Math.sin(Math.PI*Math.min(1,(progress-.42)/.32));
+    move('upper_arm_R',-.12*stroke,0,-.035*stroke);move('forearm_R',-.17*draw,0,0);
+    move('upper_arm_L',-.05*stroke,0,.02*stroke);move('weapon_pivot',.065*recoil,0,0);
+    const weapon=rig.joints.get('weapon_R')||rig.joints.get('weapon_pivot');if(weapon&&!reducedMotion)weapon.node.position.z+=.07*recoil;
+  }else if(rig.string||style==='bow'||['arrow','venomArrow'].includes(rig.kind)&&!['staff','cross','orb'].includes(style)){
+    if(rig.bowArms&&!reducedMotion)applyBowDraw(rig,draw);
+    else{
     // Authored bow joints choose the draw pose independently of projectile FX.
     // Pull the drawing hand away from the bow; the actual string endpoints follow it.
     if(rig.string?.restStraight){
@@ -159,12 +276,23 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     }
     move('hand_R',0,-.12*draw,0);move('upper_arm_L',-.035*stroke,0,.05*stroke);move('forearm_L',-.08*stroke,0,0);
     move('bow_pivot',0,-.035*stroke,.045*stroke);
+    }
+  }else if(['spear','lance'].includes(style)){
+    // Elemental lances retain their physical thrust even when the emitted
+    // effect is frost/lightning rather than a physical melee damage packet.
+    const thrust=progress<.42?smooth(progress/.42):1-smooth((progress-.42)/.58);
+    const lift=rig.forwardArmLift??1.2;
+    move('upper_arm_R',lift*thrust,0,-.05*thrust);move('forearm_R',.15*thrust,0,0);move('hand_R',-(lift+.15)*thrust,0,0);
+    move('weapon_R',-1.35*thrust,0,0);
+    if(!reducedMotion)advanceHand(rig,.10*thrust);
+    move('torso_pivot',-.055*thrust,.025*thrust,0);
+    move('upper_arm_L',.16*stroke,0,.13*stroke);move('forearm_L',.16*stroke,0,0);
   }else if(rig.kind==='melee'){
-    // Shoulder windup, elbow extension and wrist sweep carry the whole sword/hammer.
+    // Shoulder, elbow and wrist carry the entire weapon through the sweep.
     move('upper_arm_R',-1.05*slash,.20*stroke,-.43*stroke);move('forearm_R',-.48*draw,.15*stroke,.12*stroke);
     move('hand_R',-.12*stroke,0,.22*slash);move('weapon_R',0,-.65*slash,0);
     move('upper_arm_L',-.16*stroke,0,.13*stroke);move('forearm_L',-.16*stroke,0,0);
-  }else if(SPELL_KINDS.has(rig.kind)){
+  }else if(SPELL_KINDS.has(rig.kind)||['staff','cross','orb'].includes(style)){
     move('upper_arm_R',-.28*cast,-.07*cast,-.22*cast);move('forearm_R',-.35*cast,0,.12*cast);
     move('weapon_R',-.20*cast,0,.06*cast);move('upper_arm_L',-.38*cast,.10*cast,.20*cast);move('forearm_L',-.25*cast,0,-.12*cast);
     move('hand_L',.18*cast,0,.14*cast);
@@ -174,27 +302,43 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
   }
   const recoil=rig.joints.get('weapon_pivot');if(recoil&&!reducedMotion)recoil.node.position.z+=.11*stroke;
   for(const pivot of rig.pivots){
-    const jaw=pivot.name==='dragon_jaw'||pivot.name==='mouth_pivot',wing=pivot.name.includes('wing');
-    if(jaw)move(pivot.name,-.36*stroke,0,0);
-    else if(wing)move(pivot.name,.12*stroke,0,stroke*(pivot.name.startsWith('left')?.20:-.20));
+    const jaw=['dragon_jaw','jaw_pivot','mouth_pivot'].includes(pivot.name),wing=pivot.name.includes('wing');
+    if(jaw)move(pivot.name,rig.kind==='flame'?-.36*stroke:0,0,0);
+    else if(wing)move(pivot.name,.12*stroke,0,stroke*(pivot.name.startsWith('left')||pivot.name.endsWith('_L')?.20:-.20));
     else if(['attack_arm','bow_arm'].includes(pivot.name))move(pivot.name,-.34*stroke,0,0);
   }
   if(rig.glow){rig.glow.visible=rig.active&&progress<.92;rig.glow.scale.setScalar(reducedMotion?1:.6+1.55*Math.sin(Math.PI*progress));rig.glow.children[1].rotation.set(reducedMotion?0:progress*3,reducedMotion?0:progress*2,0);}
   if(rig.string)rig.string.draw=reducedMotion?0:draw;
   updateBowString(rig);
-  if(progress>=1)resetAttack(rig);
+  if(progress>=1)resetAttack(rig,{preserveBreath:true});
+  applyBreath(rig,reducedMotion);
 }
-export function resetAttack(rig){
-  if(!rig)return;rig.elapsed=rig.duration;rig.active=false;
+export function resetAttack(rig,{preserveBreath=false}={}){
+  if(!rig)return;rig.elapsed=rig.duration;rig.active=false;rig.stage='idle';
+  if(!preserveBreath&&rig.breathTrack){rig.breathTrack.active=false;rig.breathTrack.elapsed=rig.breathTrack.duration;}
   if(rig.native){resetSecretAnimation(rig.native);if(rig.glow)rig.glow.visible=false;return;}
   rig.actor.rotation.x=rig.restX;rig.actor.rotation.z=rig.restZ;
   for(const pivot of rig.pivots){pivot.node.rotation.copy(pivot.rotation);pivot.node.position.copy(pivot.position);}
   if(rig.glow)rig.glow.visible=false;if(rig.string)rig.string.draw=0;updateBowString(rig);
 }
+// Atelier uses the same physical joints and release pose as combat. It never
+// creates damage or schedules a real shot; its callback only previews effects.
+export function previewGeometricAttack(rig,{duration=1}={}){
+  if(!rig?.geometric||rig.disposed)return false;
+  resetAttack(rig);rig.duration=Number.isFinite(duration)?Math.max(.001,duration):1;rig.elapsed=0;rig.stage='preview';rig.active=true;
+  animateAttack(rig,0);return true;
+}
+export function updateGeometricPreview(rig,dt,{reducedMotion=false,onRelease=()=>{}}={}){
+  if(!rig?.geometric||rig.disposed||rig.stage!=='preview')return false;
+  const elapsed=Number.isFinite(dt)?Math.max(0,dt):0;if(!elapsed)return true;
+  const previous=rig.elapsed/rig.duration,next=Math.min(1,previous+elapsed/rig.duration);
+  if(previous<.42&&next>=.42){rig.elapsed=rig.duration*.42;animateAttack(rig,0,0,{reducedMotion});onRelease({elapsedAfterRelease:(next-.42)*rig.duration});}
+  rig.elapsed=next*rig.duration;animateAttack(rig,0,0,{reducedMotion});return true;
+}
 export function disposeAttack(rig){
   if(!rig||rig.disposed)return;resetAttack(rig);
   disposeSecretAnimation(rig.native);
   for(const object of rig.owned){object.traverse(node=>{node.geometry?.dispose();node.material?.dispose();});object.removeFromParent();}
-  if(rig.authoredString)rig.authoredString.node.visible=rig.authoredString.visible;
+  for(const entry of rig.authoredStrings||[])entry.node.visible=entry.visible;
   rig.owned.length=0;rig.disposed=true;
 }

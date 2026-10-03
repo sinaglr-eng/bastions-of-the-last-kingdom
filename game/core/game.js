@@ -147,6 +147,7 @@ export class Game {
   startCombat() {if(this.phase!=='ready')return false;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
   completeWave() {
     if(this.phase!=='combat')return;
+    this.emit('wave-complete',{round:this.round});
     this.awardScore(this.round*100+(this.wave.boss?this.round*200:0));
     this.lastReward=this.wave.boss?200:50;this.economy.reward(this.lastReward,15);this.combat.projectiles=[];
     if(this.round>=this.waveLimit){this.end(true);return;}
