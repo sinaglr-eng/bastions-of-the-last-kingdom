@@ -8,6 +8,9 @@ import {geometricEntries} from '../game/render/geometric-assets.js';
 import {geometricMetadata} from '../game/render/geometric-motion.js';
 import {campaignTowers} from '../game/core/campaign-roster.js';
 import {partMeshes} from '../tools/audit-geometric-appearance.mjs';
+import {measureHeadCoverCoverage} from '../game/render/geometric-contacts.js';
+import {inspectEnemyAssembliesV6} from '../tools/enemy-physical-assembly-v6.mjs';
+import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.js';
 const root=new URL('../public/assets/geometric/',import.meta.url);
 const rosters=['defenders','champions','enemies'].map(kind=>geometricEntries(JSON.parse(readFileSync(new URL(`geometric-${kind}.json`,root)))));
 const entries=rosters.flat(),towers=campaignTowers(JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url))));
@@ -48,14 +51,24 @@ test('actual Three.js imports preserve finite closed model geometry, source prov
     assert.ok(views.every(view=>view.geometrySha256===qa.geometrySha256),entry.id+' one physical geometry for every view');
     const {scene}=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
     scene.updateMatrixWorld(true);
-    let protectedCover=false;scene.traverse(node=>{if(node.isMesh&&/Continuous_wrapped_hood|Thick_pointed_hood|Helmet_/i.test(node.name))protectedCover=true;});
+    const actualCoverage=measureHeadCoverCoverage(scene);
+    assert.equal(actualCoverage.failures.length,0,entry.id+' actual protected head surfaces');
+    for(const result of actualCoverage.results)assert.ok(result.testedRays>0&&result.pass,entry.id+' actual protected covering rays');
+    let protectedCover=false;scene.traverse(node=>{
+      if(node.isMesh||!/(?:^|_)head_pivot$/.test(node.name))return;
+      node.traverse(part=>{if(part.isMesh&&/Continuous_wrapped_hood|Thick_pointed_hood|Helmet_|rounded_metal_cap/i.test(part.name)&&!/horn|relic|rivet|jewel|plume|neck/i.test(part.name))protectedCover=true;});
+    });
     if(protectedCover){
       const humanFace=partMeshes(scene,/^(Observed face|Face)/),spiritMask=partMeshes(scene,/^Nature spirit .*mask/i);
-      if(humanFace.length)assert.ok(checks.length,entry.id+' protected human face has an actual coverage check');
+      if(humanFace.length)assert.ok(actualCoverage.results.length,entry.id+' protected human face has an actual coverage check');
       else if(entry.id==='mothernature'){
         assert.ok(spiritMask.length,'nonhuman spirit has a physical leaf mask instead of a flesh coverage target');
         const eyes=partMeshes(scene,/^Nature spirit .*eye/i);assert.equal(eyes.length,2);
         for(const eye of eyes)assert.ok(eye.material.emissiveIntensity>0&&eye.material.emissive.getHex()>0,'actual leaf eyes emit light');
+      }else if(entry.kind==='enemy'){
+        const actualShell=inspectEnemyAssembliesV6(scene,{id:entry.id});
+        assert.ok(actualShell.checks.length,entry.id+' nonhuman covering has actual physical checks');
+        assert.equal(actualShell.failures.length,0,entry.id+' actual nonhuman covering and required source openings');
       }else assert.ok(checks.length,entry.id+' protected covering has an actual coverage check');
     }
     const meta=geometricMetadata(scene);assert.ok(meta,entry.id+' exported motion metadata');
@@ -88,4 +101,19 @@ test('actual Three.js imports preserve finite closed model geometry, source prov
     signatures.add(geometryHash.digest('hex'));
   }
   assert.equal(signatures.size,136,'each rank/subject has distinct physical geometry');
+});
+
+test('actual rounded metal cap coverage rejects a displaced shell with unchanged native declarations',async()=>{
+  const entry=entries.find(entry=>entry.id==='host_11'),file=new URL(entry.file,root),bytes=readFileSync(file),digest=hash(bytes);
+  const gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
+  try{
+    const actual=measureHeadCoverCoverage(gltf.scene);
+    assert.equal(actual.failures.length,0);assert.ok(actual.results.some(result=>result.testedRays>0));
+    const caps=partMeshes(gltf.scene,/^V6 source fitted rounded metal cap/);
+    assert.ok(caps.length,'the actual material-split cap shell must exist');
+    const declarations=caps.map(node=>JSON.stringify(node.userData));
+    for(const cap of caps)cap.position.x+=.5;
+    assert.ok(measureHeadCoverCoverage(gltf.scene).failures.length,'actual displaced shell must fail its unchanged protected rays');
+    assert.deepEqual(caps.map(node=>JSON.stringify(node.userData)),declarations);
+  }finally{disposeDecodedGeometricAsset(gltf);assert.equal(hash(readFileSync(file)),digest);}
 });

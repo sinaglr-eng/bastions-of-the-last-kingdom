@@ -1,5 +1,15 @@
 # Releases
 
+## 0.3.5 — Dark Host source reconstruction — 3 October 2026
+
+- Fresh comparisons of all fifty campaign enemies against their original six-view designs, with source-specific anatomy, fitted equipment and complete physical assemblies in new native scenes.
+- Real openings for bell cracks, hollow undersides, masks, skeletal cages, armor recesses and the Deep Maw troll. Exported triangles are measured independently of authoring flags.
+- Mounted riders, animal joints, wing anatomy and source equipment receive separate checks. The final wyvern uses two actual hind legs, with production flight, grounded gait and control-state regressions.
+- Preserves all eighty-six 0.3.4 defender/champion assets, original concept images, all five completed archives and the previous route, camp and recommended-portrait behavior.
+- Retains the 50% boss battlefield enlargement and checks each new boss's actual authored height against its 0.3.4 model.
+
+Details: [Dark Host source reconstruction 0.3.5](docs/GEOMETRIC_GAME_V6.md).
+
 ## 0.3.4 — Draped characters and living battlefield — 3 October 2026
 
 - Slightly smaller complete humanoid head assemblies for defenders, fitted folded cloaks, and a Mage redesign with consistent body proportions and a shared camera across all six ranks.

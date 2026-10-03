@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import {auditGeometricRuntime} from '../tools/verify-geometric-runtime.mjs';
 import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
 import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.js';
+import {partMeshes} from '../tools/audit-geometric-appearance.mjs';
 
 // Exercise the production files, not substitute boxes bearing the same joint
 // names. Animated instances must preserve authored geometry and their peers.
@@ -23,8 +24,12 @@ for(const [folder,expected] of [['defenders',48],['champions',38],['enemies',50]
 }
 
 test('the actual Hollow Sky King dark eye sockets are exposed on the front skull surface during head motion',async()=>{
-  const bytes=readFileSync('public/assets/geometric/enemies/host_40.glb'),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''),head=gltf.scene.getObjectByName('head_pivot'),sockets=[];
-  assert.ok(head);head.traverse(node=>{if(node.isMesh&&/eye_socket/i.test(node.name))sockets.push(node);});assert.equal(sockets.length,2,'the source skull carries two dark eye sockets');
+  const bytes=readFileSync('public/assets/geometric/enemies/host_40.glb'),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''),head=gltf.scene.getObjectByName('head_pivot');
+  assert.ok(head);
+  // Inspect both actual recessed V6 eye interiors, retaining the historical
+  // socket selector for earlier geometry. Counts alone do not prove exposure.
+  const sockets=partMeshes(head,/^(?:Sky king skull deep rectangular eye socket|V6 Hollow King actual deep open eye interior [LR])$/);
+  assert.equal(sockets.length,2,'the source skull carries two dark eye sockets');
   for(const pose of [[0,0,0],[.24,.32,.08]]){
     head.rotation.set(...pose);gltf.scene.updateMatrixWorld(true);
     for(const socket of sockets){

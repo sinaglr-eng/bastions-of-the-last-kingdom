@@ -1,0 +1,1394 @@
+{
+  "revision": "actual-source-appearance-regressions-v3",
+  "createdAt": "2026-10-03T20:55:41.058Z",
+  "models": 34,
+  "checks": 64,
+  "failures": 0,
+  "sourceCheckpointSha256": "1a8b48da19ec01e21a509e782da4964dc1b2c999b95aa8fa04d79af70fc55398",
+  "sourceCheckpointFile": "output/design/geometric-game-v3/source-creature-checkpoints.json",
+  "limitations": "Source raster landmarks have uncertain edges and different camera perspective. These tolerant ratios and identity checks detect specified regressions; they do not certify entire silhouettes or replace actual six-view inspection.",
+  "runtimeModules": [
+    {
+      "file": "tools/audit-geometric-appearance.mjs",
+      "sha256": "4227e750c1dcad97248f3e61870dfa795f396dd82b2a7d73a7eddc588345cd23"
+    },
+    {
+      "file": "game/render/walls.js",
+      "sha256": "70d9a636fb4bd74beca7b075ab4f63b570c01d917f37fb1613ecef9133b21ddf"
+    },
+    {
+      "file": "game/render/battlefield-scale.js",
+      "sha256": "2857cf86812d4199f0a70b0b857a754d394e989fecd55afc728f5c5e6f6f0f9e"
+    }
+  ],
+  "results": [
+    {
+      "id": "cleric-2",
+      "file": "public/assets/geometric/defenders/cleric-2.glb",
+      "assetSha256": "c06889b3a267bcb1e2f24e25a8be01da145af475441043de2111731a59f9abcf",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": -1.4901161193847656e-8,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "cleric-3",
+      "file": "public/assets/geometric/defenders/cleric-3.glb",
+      "assetSha256": "68d22a5628af03724596a558baaefad08be2e5d26918b618606b57f605d33d1d",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "cleric-4",
+      "file": "public/assets/geometric/defenders/cleric-4.glb",
+      "assetSha256": "15f39961ddd7277babbd311b2eeba414c729262c0ee5d48de85adaeeb7267d75",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "cleric-5",
+      "file": "public/assets/geometric/defenders/cleric-5.glb",
+      "assetSha256": "4220b10867de1a1962120840683345d5f46c2009fe9dc70c1acc3061fd326625",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "cleric-6",
+      "file": "public/assets/geometric/defenders/cleric-6.glb",
+      "assetSha256": "9b4d02479708facfe29c47a104f5e27d04063295d8e11fcbb0adfbcf44d4af92",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "mage-1",
+      "file": "public/assets/geometric/defenders/mage-1.glb",
+      "assetSha256": "f46be6487bc3d43c67cbec1e986cbb3019b8288f0b24d19b6355157aa9e55977",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "mage-2",
+      "file": "public/assets/geometric/defenders/mage-2.glb",
+      "assetSha256": "576e45350738309adb2b086a578471fecdc7f7ca9bdeea9baedee8a160db5346",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "mage-3",
+      "file": "public/assets/geometric/defenders/mage-3.glb",
+      "assetSha256": "07f1631d8d3e13276e5f999a7ffff69d5ec0b42b3fb21b3226f964238fdcc033",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "mage-4",
+      "file": "public/assets/geometric/defenders/mage-4.glb",
+      "assetSha256": "05febaf4ad08915519282511675fdd0d83570054191df950827dd8eba54f24b7",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "mage-5",
+      "file": "public/assets/geometric/defenders/mage-5.glb",
+      "assetSha256": "84cd57397e8b0d1395dcd1ed3433d4d9d99fcf573de5b09326fafb8aa69528bf",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "mage-6",
+      "file": "public/assets/geometric/defenders/mage-6.glb",
+      "assetSha256": "5284d2a6fc164444dbcac7ad2c951d34abbcd895418ea167c72cf96a0bdb475f",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": -1.4901161193847656e-8,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "runebreaker-1",
+      "file": "public/assets/geometric/defenders/runebreaker-1.glb",
+      "assetSha256": "3151063ceafdeeddf1a158ad4de03d28010593af9bb5cf68468fabbfe36e21a0",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "runebreaker-2",
+      "file": "public/assets/geometric/defenders/runebreaker-2.glb",
+      "assetSha256": "98073917ae9be0d953e97bdc99e50d9d56a2d5f7e36696995c82811421a1bc59",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": -1.4901161193847656e-8,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "runebreaker-3",
+      "file": "public/assets/geometric/defenders/runebreaker-3.glb",
+      "assetSha256": "24fe4fc1d5e4e4ed97fa9bf8102b341ae2ef417fd52c1b296d8aab0ae1220dbf",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "runebreaker-4",
+      "file": "public/assets/geometric/defenders/runebreaker-4.glb",
+      "assetSha256": "3565e3d2579edfed8ed58271931a2c82160f8adc5fcdfa8785d47b9d72aaf6d2",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "runebreaker-5",
+      "file": "public/assets/geometric/defenders/runebreaker-5.glb",
+      "assetSha256": "2e838b768b8fda106ac3493e0cf1c6b683ce7e96915fa15f0132375875e57355",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "runebreaker-6",
+      "file": "public/assets/geometric/defenders/runebreaker-6.glb",
+      "assetSha256": "9c29b03b288e0fcf1f81807f4e7faa82b18ec3f58788307cdf6e3bf9d5f2731e",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": -1.4901161193847656e-8,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "soldier-1",
+      "file": "public/assets/geometric/defenders/soldier-1.glb",
+      "assetSha256": "1d2a7eb5a940bd053dc7298006c585037ee43840da2de35b34b2a2719da1f73b",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": -0.05000000074505806,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "soldier-2",
+      "file": "public/assets/geometric/defenders/soldier-2.glb",
+      "assetSha256": "a371f6bf58805a6329599051b82089dc4767b0730c4c34051be6851aad630e0d",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": -0.05000000074505806,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "soldier-3",
+      "file": "public/assets/geometric/defenders/soldier-3.glb",
+      "assetSha256": "d3ff9514bac2365d523840b6171acc3af94ed2a6a4da0ed1146996b64f4e56ae",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": -0.05000000074505806,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "soldier-5",
+      "file": "public/assets/geometric/defenders/soldier-5.glb",
+      "assetSha256": "04a0e3c8c0e22c07cc23fb54ddf646c7092cd9501f5f08476fc1907a36151b92",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": -0.05000000074505806,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "stormcaller-1",
+      "file": "public/assets/geometric/defenders/stormcaller-1.glb",
+      "assetSha256": "ff1301b86330470f249b4bb791c1536746bcb1e5d05805cd69afa77b9cc41198",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        },
+        {
+          "name": "natural fitted hair and crown are carried by head",
+          "pass": true,
+          "detail": {
+            "hairMeshes": 40,
+            "crownMeshes": 1
+          }
+        },
+        {
+          "name": "actual crown teeth distinguish the requested rank",
+          "pass": true,
+          "detail": {
+            "actualTeeth": 1,
+            "rank": 1
+          }
+        },
+        {
+          "name": "held focus has one tall concave lightning silhouette",
+          "pass": true,
+          "detail": {
+            "projectedArea": 0.03276460064777176,
+            "convexHullArea": 0.053434599234247315,
+            "areaFraction": 0.6131720105944439,
+            "projectedUniqueVertices": 6
+          }
+        },
+        {
+          "name": "all actual hair locks stay low around the skull",
+          "pass": true,
+          "detail": {
+            "scalpHeightNativeM": 0.14534997940063477,
+            "highestHairAboveSkullNativeM": 0.15053796768188477,
+            "lowestHairAboveJawNativeM": 0.11495983600616455
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "stormcaller-2",
+      "file": "public/assets/geometric/defenders/stormcaller-2.glb",
+      "assetSha256": "80a4f8dbe7bd1a87d93fa15a1058eee5dec3209c84f9824c6ab136d35fcab79a",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 1.4901161193847656e-8,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        },
+        {
+          "name": "natural fitted hair and crown are carried by head",
+          "pass": true,
+          "detail": {
+            "hairMeshes": 40,
+            "crownMeshes": 1
+          }
+        },
+        {
+          "name": "actual crown teeth distinguish the requested rank",
+          "pass": true,
+          "detail": {
+            "actualTeeth": 3,
+            "rank": 2
+          }
+        },
+        {
+          "name": "held focus has one tall concave lightning silhouette",
+          "pass": true,
+          "detail": {
+            "projectedArea": 0.03276459224500616,
+            "convexHullArea": 0.05343459073164514,
+            "areaFraction": 0.6131719509101106,
+            "projectedUniqueVertices": 6
+          }
+        },
+        {
+          "name": "all actual hair locks stay low around the skull",
+          "pass": true,
+          "detail": {
+            "scalpHeightNativeM": 0.14534997940063477,
+            "highestHairAboveSkullNativeM": 0.15007293224334717,
+            "lowestHairAboveJawNativeM": 0.08287131786346436
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "stormcaller-3",
+      "file": "public/assets/geometric/defenders/stormcaller-3.glb",
+      "assetSha256": "4655a1e9c954f2d54680aef4ac44550cbc3b7aae2a9ae25d942d5fc5edbbb412",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        },
+        {
+          "name": "natural fitted hair and crown are carried by head",
+          "pass": true,
+          "detail": {
+            "hairMeshes": 40,
+            "crownMeshes": 1
+          }
+        },
+        {
+          "name": "actual crown teeth distinguish the requested rank",
+          "pass": true,
+          "detail": {
+            "actualTeeth": 3,
+            "rank": 3
+          }
+        },
+        {
+          "name": "held focus has one tall concave lightning silhouette",
+          "pass": true,
+          "detail": {
+            "projectedArea": 0.03276460207828169,
+            "convexHullArea": 0.05343460662522315,
+            "areaFraction": 0.613171952552853,
+            "projectedUniqueVertices": 6
+          }
+        },
+        {
+          "name": "all actual hair locks stay low around the skull",
+          "pass": true,
+          "detail": {
+            "scalpHeightNativeM": 0.14534997940063477,
+            "highestHairAboveSkullNativeM": 0.1517014503479004,
+            "lowestHairAboveJawNativeM": 0.08726727962493896
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "stormcaller-4",
+      "file": "public/assets/geometric/defenders/stormcaller-4.glb",
+      "assetSha256": "a04edc23e763148ddc23171e910d3a0c0c4ef6d7517f0e35896723f8a3152ae4",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        },
+        {
+          "name": "natural fitted hair and crown are carried by head",
+          "pass": true,
+          "detail": {
+            "hairMeshes": 40,
+            "crownMeshes": 1
+          }
+        },
+        {
+          "name": "actual crown teeth distinguish the requested rank",
+          "pass": true,
+          "detail": {
+            "actualTeeth": 5,
+            "rank": 4
+          }
+        },
+        {
+          "name": "held focus has one tall concave lightning silhouette",
+          "pass": true,
+          "detail": {
+            "projectedArea": 0.03276460392602765,
+            "convexHullArea": 0.053434605492735265,
+            "areaFraction": 0.6131720001279354,
+            "projectedUniqueVertices": 6
+          }
+        },
+        {
+          "name": "all actual hair locks stay low around the skull",
+          "pass": true,
+          "detail": {
+            "scalpHeightNativeM": 0.14534997940063477,
+            "highestHairAboveSkullNativeM": 0.14945733547210693,
+            "lowestHairAboveJawNativeM": 0.08196961879730225
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "stormcaller-5",
+      "file": "public/assets/geometric/defenders/stormcaller-5.glb",
+      "assetSha256": "1a9aea63b0eb0584190d8a5393fa47aa6efca9a8f9c1475ecef79782a2e9aaf0",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": 0,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        },
+        {
+          "name": "natural fitted hair and crown are carried by head",
+          "pass": true,
+          "detail": {
+            "hairMeshes": 40,
+            "crownMeshes": 1
+          }
+        },
+        {
+          "name": "actual crown teeth distinguish the requested rank",
+          "pass": true,
+          "detail": {
+            "actualTeeth": 5,
+            "rank": 5
+          }
+        },
+        {
+          "name": "held focus has one tall concave lightning silhouette",
+          "pass": true,
+          "detail": {
+            "projectedArea": 0.026288947221679848,
+            "convexHullArea": 0.04287369616596237,
+            "areaFraction": 0.613171934603361,
+            "projectedUniqueVertices": 6
+          }
+        },
+        {
+          "name": "all actual hair locks stay low around the skull",
+          "pass": true,
+          "detail": {
+            "scalpHeightNativeM": 0.14535009860992432,
+            "highestHairAboveSkullNativeM": 0.15037035942077637,
+            "lowestHairAboveJawNativeM": 0.08527302742004395
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "stormcaller-6",
+      "file": "public/assets/geometric/defenders/stormcaller-6.glb",
+      "assetSha256": "2993ef56eb8f15376a50a3f8f1c95886d1237d809a7c1fb8713d560be02a9b93",
+      "checks": [
+        {
+          "name": "whole skull stays over actual torso axis",
+          "pass": true,
+          "detail": {
+            "offsetNativeM": -1.4901161193847656e-8,
+            "toleranceNativeM": 0.061,
+            "method": "actual full head and body solid centres; shallow aperture faces are excluded"
+          }
+        },
+        {
+          "name": "natural fitted hair and crown are carried by head",
+          "pass": true,
+          "detail": {
+            "hairMeshes": 40,
+            "crownMeshes": 1
+          }
+        },
+        {
+          "name": "actual crown teeth distinguish the requested rank",
+          "pass": true,
+          "detail": {
+            "actualTeeth": 7,
+            "rank": 6
+          }
+        },
+        {
+          "name": "held focus has one tall concave lightning silhouette",
+          "pass": true,
+          "detail": {
+            "projectedArea": 0.026288962134762173,
+            "convexHullArea": 0.042873711079044696,
+            "areaFraction": 0.6131720691566488,
+            "projectedUniqueVertices": 6
+          }
+        },
+        {
+          "name": "all actual hair locks stay low around the skull",
+          "pass": true,
+          "detail": {
+            "scalpHeightNativeM": 0.14534997940063477,
+            "highestHairAboveSkullNativeM": 0.14781272411346436,
+            "lowestHairAboveJawNativeM": 0.08004045486450195
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "embercrown",
+      "file": "public/assets/geometric/champions/embercrown.glb",
+      "assetSha256": "366b6eeb7f5a15c324b8bd9c697653e2d434720d44c2ebf723da5ace5d66d777",
+      "checks": [
+        {
+          "name": "baby_head_width_over_wing_span",
+          "pass": true,
+          "detail": {
+            "name": "baby_head_width_over_wing_span",
+            "numeratorNativeM": 0.6000000238418579,
+            "denominatorNativeM": 1.4772193431854248,
+            "ratio": 0.40616853997324365,
+            "range": [
+              0.36,
+              0.56
+            ],
+            "sourcePixels": {
+              "numerator": 161,
+              "denominator": 349,
+              "uncertaintyPx": 10,
+              "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+            },
+            "sourceLandmarks": [
+              {
+                "label": "Cranium incl cheeks, excluding horns and tail flame",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  176,
+                  155,
+                  337,
+                  301
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              },
+              {
+                "label": "Both wing extreme points, excluding body/feet",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  81,
+                  198,
+                  430,
+                  342
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              }
+            ],
+            "note": "Orthographic native front bounds union. Do not include horns, rider, tail or flame in head/wing selectors."
+          }
+        },
+        {
+          "name": "baby_short_muzzle_width_over_head_width",
+          "pass": true,
+          "detail": {
+            "name": "baby_short_muzzle_width_over_head_width",
+            "numeratorNativeM": 0.37599998712539673,
+            "denominatorNativeM": 0.6000000238418579,
+            "ratio": 0.6266666203075003,
+            "range": [
+              0.45,
+              0.67
+            ],
+            "sourcePixels": {
+              "numerator": 90,
+              "denominator": 161,
+              "uncertaintyPx": 10,
+              "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+            },
+            "sourceLandmarks": [
+              {
+                "label": "Central short flattened muzzle excluding outer cheek plates",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  210,
+                  229,
+                  300,
+                  300
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              },
+              {
+                "label": "Cranium/cheeks excluding horns",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  176,
+                  155,
+                  337,
+                  301
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              }
+            ],
+            "note": "Front muzzle only; source cheek transitions uncertain. Native upper muzzle is distinct closed volume connected to skull."
+          }
+        },
+        {
+          "name": "baby_tail_flame_width_over_head_width",
+          "pass": true,
+          "detail": {
+            "name": "baby_tail_flame_width_over_head_width",
+            "numeratorNativeM": 0.3100000023841858,
+            "denominatorNativeM": 0.6000000238418579,
+            "ratio": 0.5166666501098216,
+            "range": [
+              0.31,
+              0.54
+            ],
+            "sourcePixels": {
+              "numerator": 68,
+              "denominator": 161,
+              "uncertaintyPx": 10,
+              "uncertaintyMeaning": "Complete measured width extent +/-10px."
+            },
+            "sourceLandmarks": [
+              {
+                "label": "Orange tail flame, excluding brown supporting tail",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  203,
+                  74,
+                  271,
+                  149
+                ],
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              }
+            ],
+            "note": "Actual closed elongated faceted flame width, not glow/FX sprites. Source flame volume contacts curved tail; height/width source approx110/68."
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "name": "baby_head_width_over_wing_span",
+          "numeratorNativeM": 0.6000000238418579,
+          "denominatorNativeM": 1.4772193431854248,
+          "ratio": 0.40616853997324365,
+          "range": [
+            0.36,
+            0.56
+          ],
+          "sourcePixels": {
+            "numerator": 161,
+            "denominator": 349,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "sourceLandmarks": [
+            {
+              "label": "Cranium incl cheeks, excluding horns and tail flame",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                176,
+                155,
+                337,
+                301
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "Both wing extreme points, excluding body/feet",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                81,
+                198,
+                430,
+                342
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Orthographic native front bounds union. Do not include horns, rider, tail or flame in head/wing selectors."
+        },
+        {
+          "name": "baby_short_muzzle_width_over_head_width",
+          "numeratorNativeM": 0.37599998712539673,
+          "denominatorNativeM": 0.6000000238418579,
+          "ratio": 0.6266666203075003,
+          "range": [
+            0.45,
+            0.67
+          ],
+          "sourcePixels": {
+            "numerator": 90,
+            "denominator": 161,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "sourceLandmarks": [
+            {
+              "label": "Central short flattened muzzle excluding outer cheek plates",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                210,
+                229,
+                300,
+                300
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "Cranium/cheeks excluding horns",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                176,
+                155,
+                337,
+                301
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Front muzzle only; source cheek transitions uncertain. Native upper muzzle is distinct closed volume connected to skull."
+        },
+        {
+          "name": "baby_tail_flame_width_over_head_width",
+          "numeratorNativeM": 0.3100000023841858,
+          "denominatorNativeM": 0.6000000238418579,
+          "ratio": 0.5166666501098216,
+          "range": [
+            0.31,
+            0.54
+          ],
+          "sourcePixels": {
+            "numerator": 68,
+            "denominator": 161,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete measured width extent +/-10px."
+          },
+          "sourceLandmarks": [
+            {
+              "label": "Orange tail flame, excluding brown supporting tail",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                203,
+                74,
+                271,
+                149
+              ],
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Actual closed elongated faceted flame width, not glow/FX sprites. Source flame volume contacts curved tail; height/width source approx110/68."
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "griffinbomber",
+      "file": "public/assets/geometric/champions/griffinbomber.glb",
+      "assetSha256": "db3bcd2c19f04f2373dc366ac091da09a66d9109e1e9a78f81bd5ea3a3368346",
+      "checks": [
+        {
+          "name": "griffin_wing_span_over_white_head_ruff_width",
+          "pass": true,
+          "detail": {
+            "name": "griffin_wing_span_over_white_head_ruff_width",
+            "numeratorNativeM": 2.3309013843536377,
+            "denominatorNativeM": 0.7030249238014221,
+            "ratio": 3.315531648223654,
+            "range": [
+              2.63,
+              3.65
+            ],
+            "sourcePixels": {
+              "numerator": 373,
+              "denominator": 120,
+              "uncertaintyPx": 10,
+              "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+            },
+            "sourceLandmarks": [
+              {
+                "label": "Both ivory wing external tips",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  73,
+                  79,
+                  446,
+                  347
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              },
+              {
+                "label": "White cranium and collar/cheek feather silhouette, not golden beak",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  207,
+                  180,
+                  327,
+                  320
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              }
+            ],
+            "note": "Union of repeated semantic parts, actual front x range. Source feather ruff has ±10px uncertain boundaries against wings."
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "name": "griffin_wing_span_over_white_head_ruff_width",
+          "numeratorNativeM": 2.3309013843536377,
+          "denominatorNativeM": 0.7030249238014221,
+          "ratio": 3.315531648223654,
+          "range": [
+            2.63,
+            3.65
+          ],
+          "sourcePixels": {
+            "numerator": 373,
+            "denominator": 120,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "sourceLandmarks": [
+            {
+              "label": "Both ivory wing external tips",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                73,
+                79,
+                446,
+                347
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "White cranium and collar/cheek feather silhouette, not golden beak",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                207,
+                180,
+                327,
+                320
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Union of repeated semantic parts, actual front x range. Source feather ruff has ±10px uncertain boundaries against wings."
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "mothernature",
+      "file": "public/assets/geometric/champions/mothernature.glb",
+      "assetSha256": "fea9acf3df2a82a3508f3eb4bd1b581d3c936cf3029d65bcaf9b95d5dc0102ea",
+      "checks": [
+        {
+          "name": "nature spirit has luminous eyes and no human skin rectangle",
+          "pass": true,
+          "detail": {
+            "humanFaceMeshes": 0,
+            "glowingEyeMeshes": 2
+          }
+        },
+        {
+          "name": "spirit face belongs to the continuous torso rather than a separate head",
+          "pass": true,
+          "detail": {
+            "physicalBodyMeshes": 5,
+            "bodyBounds": [
+              [
+                -0.3203722834587097,
+                0.36500000953674316,
+                -0.272599995136261
+              ],
+              [
+                0.3212110102176666,
+                1.6200000047683716,
+                0.20351597666740417
+              ]
+            ],
+            "independentHeadFaceMeshes": 0
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "rangermentor",
+      "file": "public/assets/geometric/champions/rangermentor.glb",
+      "assetSha256": "e2b3bf4dfaa956e25e867cac0d4f07df30ec0f2241aefddfbdee4cd5a87936d5",
+      "checks": [
+        {
+          "name": "bear_head_width_over_front_paw_span",
+          "pass": true,
+          "detail": {
+            "name": "bear_head_width_over_front_paw_span",
+            "numeratorNativeM": 0.949999988079071,
+            "denominatorNativeM": 1.0485761165618896,
+            "ratio": 0.9059904885054662,
+            "range": [
+              0.8,
+              1.01
+            ],
+            "sourcePixels": {
+              "numerator": 231,
+              "denominator": 257,
+              "uncertaintyPx": 10,
+              "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+            },
+            "sourceLandmarks": [
+              {
+                "label": "Bear cranial cheeks excluding separate ears/crown",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  139,
+                  122,
+                  370,
+                  285
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              },
+              {
+                "label": "Front paw external contact edges",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  124,
+                  334,
+                  381,
+                  401
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              }
+            ],
+            "note": "Head shape includes all cheek fur mass but excludes crown/ears/muzzle; paw span uses both grounded front feet only, excluding claw tips."
+          }
+        },
+        {
+          "name": "bear_short_cream_muzzle_width_over_head_width",
+          "pass": true,
+          "detail": {
+            "name": "bear_short_cream_muzzle_width_over_head_width",
+            "numeratorNativeM": 0.4339999854564667,
+            "denominatorNativeM": 0.949999988079071,
+            "ratio": 0.45684209568678824,
+            "range": [
+              0.39,
+              0.58
+            ],
+            "sourcePixels": {
+              "numerator": 112,
+              "denominator": 231,
+              "uncertaintyPx": 10,
+              "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+            },
+            "sourceLandmarks": [
+              {
+                "label": "Cream muzzle frontal contour",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  197,
+                  193,
+                  309,
+                  284
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              },
+              {
+                "label": "Cranial fur cheeks",
+                "panel": "FRONT",
+                "globalBoxPx": [
+                  139,
+                  122,
+                  370,
+                  285
+                ],
+                "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+                "boundaryUncertaintyPx": 5,
+                "extentUncertaintyPx": 10
+              }
+            ],
+            "note": "Short cream muzzle with wide pentagonal black nose; do not include whole fur head."
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "name": "bear_head_width_over_front_paw_span",
+          "numeratorNativeM": 0.949999988079071,
+          "denominatorNativeM": 1.0485761165618896,
+          "ratio": 0.9059904885054662,
+          "range": [
+            0.8,
+            1.01
+          ],
+          "sourcePixels": {
+            "numerator": 231,
+            "denominator": 257,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "sourceLandmarks": [
+            {
+              "label": "Bear cranial cheeks excluding separate ears/crown",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                139,
+                122,
+                370,
+                285
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "Front paw external contact edges",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                124,
+                334,
+                381,
+                401
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Head shape includes all cheek fur mass but excludes crown/ears/muzzle; paw span uses both grounded front feet only, excluding claw tips."
+        },
+        {
+          "name": "bear_short_cream_muzzle_width_over_head_width",
+          "numeratorNativeM": 0.4339999854564667,
+          "denominatorNativeM": 0.949999988079071,
+          "ratio": 0.45684209568678824,
+          "range": [
+            0.39,
+            0.58
+          ],
+          "sourcePixels": {
+            "numerator": 112,
+            "denominator": 231,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "sourceLandmarks": [
+            {
+              "label": "Cream muzzle frontal contour",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                197,
+                193,
+                309,
+                284
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "Cranial fur cheeks",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                139,
+                122,
+                370,
+                285
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Short cream muzzle with wide pentagonal black nose; do not include whole fur head."
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "rimewatch",
+      "file": "public/assets/geometric/champions/rimewatch.glb",
+      "assetSha256": "b460344d243fe497c0b9219b0beb872f049021771e43c5d1244e8032a3869d60",
+      "checks": [
+        {
+          "name": "crossbow stock and cocked string replace any bow",
+          "pass": true,
+          "detail": {
+            "attackStyle": "crossbow"
+          }
+        },
+        {
+          "name": "rear trigger and front support are separate true hand grips",
+          "pass": true,
+          "detail": {
+            "gapRightNativeM": 0,
+            "gapLeftNativeM": 1.4901161193847656e-8,
+            "forwardSeparationNativeM": 0.26999998092651367
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "royalranger",
+      "file": "public/assets/geometric/champions/royalranger.glb",
+      "assetSha256": "f9f8afe0da426e9d73d6273f50e3f04e2312b536b9b130ecea4bcdcbb534d594",
+      "checks": [
+        {
+          "name": "crossbow stock and cocked string replace any bow",
+          "pass": true,
+          "detail": {
+            "attackStyle": "crossbow"
+          }
+        },
+        {
+          "name": "rear trigger and front support are separate true hand grips",
+          "pass": true,
+          "detail": {
+            "gapRightNativeM": 0,
+            "gapLeftNativeM": 1.4901161193847656e-8,
+            "forwardSeparationNativeM": 0.26999998092651367
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    },
+    {
+      "id": "thunderheart",
+      "file": "public/assets/geometric/champions/thunderheart.glb",
+      "assetSha256": "e9e37a93e597740f99267719c25feec8922d4e99067c0396ca4bfb8ea44b5f78",
+      "checks": [
+        {
+          "name": "whole rider armor contrasts with the actual purple dragon",
+          "pass": true,
+          "detail": {
+            "actualArmorMeshes": 19,
+            "minimumLinearRgbDistanceToMount": 0.26052823572490846,
+            "tolerance": 0.16,
+            "method": "Actual torso, arms, legs, helmet and armor materials, not palette names or override metadata"
+          }
+        }
+      ],
+      "measurements": [],
+      "failures": []
+    }
+  ]
+}

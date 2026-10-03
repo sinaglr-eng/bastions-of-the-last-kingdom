@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Actual V6 enemy motion review</title>
+  <style>
+    html,body{overflow:hidden;margin:0;background:#ece9df;color:#222;font:13px system-ui}
+    header{height:70px;display:flex;gap:8px;align-items:center;padding:0 12px;flex-wrap:wrap}
+    button,select{font:inherit;padding:5px}
+    canvas{display:block;width:100vw;height:calc(100vh - 70px)}
+    #labels{position:absolute;top:70px;left:0;right:0;pointer-events:none;display:grid;grid-template-columns:repeat(4,1fr)}
+    .label{padding:6px 9px;box-sizing:border-box;background:linear-gradient(#ece9dfdd,transparent);font-weight:600}
+    #status{font-size:11px}
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Actual enemy GLBs / production motion</strong>
+    <select id="page" aria-label="Enemy page"></select>
+    <select id="angle" aria-label="View"><option value="front">FRONT</option><option value="left">LEFT</option><option value="right">RIGHT</option><option value="quarter-front">3/4 FRONT</option><option value="quarter-back">3/4 BACK</option><option value="back">BACK</option></select>
+    <select id="state" aria-label="Production state"><option value="normal">Normal</option><option value="freeze">Freeze</option><option value="petrify">Petrify</option><option value="reduced">Reduced motion</option><option value="death">Grounded death</option></select>
+    <button id="play">Play</button>
+    <button data-phase="0">Phase 0</button><button data-phase="0.25">Phase 25%</button><button data-phase="0.5">Phase 50%</button><button data-phase="0.75">Phase 75%</button><button data-phase="1">Phase 100%</button>
+    <label><input id="effects" type="checkbox"> Production auras / defenses</label>
+    <span id="status">Loading</span>
+  </header>
+  <div id="labels"></div>
+  <script type="module" src="/tools/enemy-review-v6.js"></script>
+</body>
+</html>

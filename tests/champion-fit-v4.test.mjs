@@ -39,8 +39,16 @@ test('every rebuilt humanoid head physically touches the structural chest with n
  for(const category of ['champions','enemies']){
   const file=`${assetRoot}/geometric-${category}.json`,mf=JSON.parse(readFileSync(file)),entries=mf.entries||mf;
   for(const entry of entries){const gltf=await load(entry.id),actor=gltf.scene,meta=geometricMetadata(actor);actor.updateMatrixWorld(true);
-   const fits=JSON.parse(meta?.humanoidHeadFitDetailsV4||'[]');
-   for(const fit of fits){const head=actor.getObjectByName(fit.head),headParts=partMeshes(head,fit.bearingParts),bodyParts=partMeshes(actor,fit.structuralBodyParts).filter(n=>!descendant(n,head));assert.ok(headParts.length&&bodyParts.length,entry.id+' actual nondecorative surfaces');assert.equal(partMeshes(head,/^Connected neck inside collar$/).length,0,entry.id+' exposed shaft removed');assert.ok(physicalSurfaceGap(headParts,bodyParts).gap<=.00002,entry.id+' chin seats in actual chest');measured++;
+   const fits=JSON.parse(meta?.humanoidHeadFitDetailsV4||'[]'),contract=typeof meta?.enemyPhysicalContractV6==='string'?JSON.parse(meta.enemyPhysicalContractV6):meta?.enemyPhysicalContractV6;
+   for(const fit of fits){
+    // V6 replaced the V4 chest solids. The current contract selects their
+    // actual replacements; triangle contact still supplies the pass proof.
+    const seating=contract?.revision==='geometric-game-v6'?(contract.contacts.find(row=>row.leftScopeJoint===fit.head&&/head seated/.test(row.name))||contract.contacts.find(row=>row.name==='Actual rebuilt head-to-structural torso seating')):null;
+    if(contract?.revision==='geometric-game-v6')assert.ok(seating,entry.id+' current structural head interface is explicitly selected');
+    const head=actor.getObjectByName(fit.head),bodyRoot=seating?actor.getObjectByName(seating.rightScopeJoint||fit.head.replace(/head_pivot$/,'torso_pivot')):actor;
+    assert.ok(head&&bodyRoot,entry.id+' physical head and its own torso joints exist');
+    const headParts=partMeshes(head,seating?.leftParts||fit.bearingParts),bodyParts=partMeshes(bodyRoot,seating?.rightParts||fit.structuralBodyParts).filter(n=>!descendant(n,head));
+    assert.ok(headParts.length&&bodyParts.length,entry.id+' actual nondecorative surfaces');assert.equal(partMeshes(head,/^Connected neck inside collar$/).length,0,entry.id+' exposed shaft removed');assert.ok(physicalSurfaceGap(headParts,bodyParts).gap<=.00002,entry.id+' chin seats in actual chest');measured++;
     const old=head.position.clone();head.position.y+=.50;actor.updateMatrixWorld(true);assert.ok(physicalSurfaceGap(headParts,bodyParts).gap>.08,entry.id+' prior floating head variant fails');head.position.copy(old);actor.updateMatrixWorld(true);
    }
    if(meta?.locomotion!=='flying')assert.ok(new THREE.Box3().setFromObject(actor,true).min.y>=-.002,entry.id+' actual all-mesh floor');disposeDecodedGeometricAsset(gltf);
@@ -50,11 +58,48 @@ test('every rebuilt humanoid head physically touches the structural chest with n
 });
 
 test('all actual champion/enemy crossbows retain rear trigger/front support and physically joined palms throughout recoil at battlefield scale',async()=>{
+ // The actual closed palm must enclose the stock's grip. Its anatomical
+ // joint origin need not be the centre of that contact volume.
+ function containsGrip(parts,point){
+  const ray=new THREE.Ray(point,new THREE.Vector3(.913,.271,.303).normalize()),hit=new THREE.Vector3();
+  for(const mesh of parts){
+   const p=mesh.geometry.attributes.position,ix=mesh.geometry.index,distances=[];
+   for(let i=0;i<(ix?.count||p.count);i+=3){
+    const vertices=[0,1,2].map(k=>new THREE.Vector3().fromBufferAttribute(p,ix?ix.getX(i+k):i+k).applyMatrix4(mesh.matrixWorld));
+    if(ray.intersectTriangle(...vertices,false,hit)){const d=hit.distanceTo(point);if(d<1e-7)return true;distances.push(d);}
+   }
+   distances.sort((a,b)=>a-b);let unique=0,last=-Infinity;
+   for(const d of distances)if(d-last>1e-7){unique++;last=d;}
+   if(unique%2===1)return true;
+  }
+  return false;
+ }
  for(const id of ['rimewatch','wyvernhunter','kingsrangerguard','royalranger','host_25','host_28']){
   if(!existsSync(`${assetRoot}/${id.startsWith('host_')?'enemies':'champions'}/${id}.glb`))continue;
   const gltf=await load(id),actor=cloneDefenderTemplate(gltf.scene);scaleBattlefieldUnit(actor);actor.updateMatrixWorld(true);const meta=geometricMetadata(actor);assert.equal(meta.crossbowGripContract,'rear-trigger-front-support-v3');
   const rig=attackRig(actor,id,{}),rear=actor.getObjectByName('crossbow_trigger_grip'),front=actor.getObjectByName('crossbow_foregrip');assert.ok(rig.crossbowArms&&rear&&front);const worldScale=actor.getWorldScale(new THREE.Vector3()).y;const stock=partBounds(actor,/^Crossbow connected fore-stock$/).getSize(new THREE.Vector3()).z;assert.ok((rear.getWorldPosition(new THREE.Vector3()).z-front.getWorldPosition(new THREE.Vector3()).z)/stock>.30,'support palm is physically forward of trigger relative to actual stock size');
-  for(const phase of [0,.21,.42,.49,.58,.72,.87,1]){resetAttack(rig);previewGeometricAttack(rig,{duration:1});updateGeometricPreview(rig,phase);actor.updateMatrixWorld(true);for(const side of ['R','L']){const hand=actor.getObjectByName('hand_'+side),fore=actor.getObjectByName('forearm_'+side),weapon=actor.getObjectByName('weapon_'+side),grip=side==='R'?rear:front;assert.ok(hand.getWorldPosition(new THREE.Vector3()).distanceTo(grip.getWorldPosition(new THREE.Vector3()))/worldScale<.0001,id+' '+side+' palm follows actual moving grip');const sleeve=meshes(fore,n=>!descendant(n,hand)),palm=meshes(hand,n=>!descendant(n,weapon));assert.ok(physicalSurfaceGap(sleeve,palm).gap/worldScale<.0001,id+' joined wrist at '+phase);}}
+  const stockParts=partMeshes(actor,/^Crossbow (?:connected fore-stock|proper stock)$/);assert.ok(stockParts.length,'inspect actual stock triangles');
+  for(const phase of [0,.21,.42,.49,.58,.72,.87,1]){
+   resetAttack(rig);previewGeometricAttack(rig,{duration:1});updateGeometricPreview(rig,phase);actor.updateMatrixWorld(true);
+   for(const side of ['R','L']){
+    const arm=rig.crossbowArms[side],hand=arm.hand.node,fore=arm.elbow.node,grip=side==='R'?rear:front;
+    const sleeve=meshes(fore,n=>!descendant(n,hand)),palm=partMeshes(hand,['Crossbow gripping palm '+side]),point=grip.getWorldPosition(new THREE.Vector3());
+    assert.ok(sleeve.length&&palm.length,id+' '+side+' actual sleeve/palm surfaces');
+    assert.ok(containsGrip(palm,point),id+' '+side+' actual closed palm encloses the moving grip at '+phase);
+    assert.ok(physicalSurfaceGap(stockParts,palm).gap/worldScale<.0001,id+' '+side+' actual stock/palm contact at '+phase);
+    assert.ok(physicalSurfaceGap(sleeve,palm).gap/worldScale<.0001,id+' joined wrist at '+phase);
+    if(phase===.58){
+     const saved=palm.map(mesh=>[mesh,mesh.geometry]),jointBefore=hand.getWorldPosition(new THREE.Vector3());
+     try{
+      for(const [mesh,geometry] of saved){const size=new THREE.Box3().setFromBufferAttribute(geometry.attributes.position).getSize(new THREE.Vector3());mesh.geometry=geometry.clone().translate(size.length()*2,0,0);}
+      assert.deepEqual(hand.getWorldPosition(new THREE.Vector3()).toArray(),jointBefore.toArray(),'negative changes actual palm vertices while its joint stays unchanged');
+      assert.deepEqual(grip.getWorldPosition(new THREE.Vector3()).toArray(),point.toArray(),'negative leaves the authored grip unchanged');
+      assert.equal(containsGrip(palm,point),false,id+' '+side+' displaced actual palm fails despite intact joint/grip markers');
+      assert.ok(physicalSurfaceGap(stockParts,palm).gap/worldScale>.0001,id+' '+side+' detached actual stock/palm surfaces fail');
+     }finally{for(const [mesh,geometry] of saved){mesh.geometry.dispose();mesh.geometry=geometry;}}
+    }
+   }
+  }
   disposeAttack(rig);disposeDefenderInstance(actor);disposeDecodedGeometricAsset(gltf);
  }
 });

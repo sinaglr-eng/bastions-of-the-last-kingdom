@@ -21,7 +21,8 @@ export function createGeometricMotionRig(figure){
   body.traverse(node=>{if(JOINT.test(node.name)&&!node.isMesh)joints.set(node.name,{node,position:node.position.clone(),rotation:node.rotation.clone(),scale:node.scale.clone()});});
   const locomotion=metadata.locomotion||'biped';
   const rig={figure,body,metadata,locomotion,joints,bodyRest:{position:body.position.clone(),rotation:body.rotation.clone(),scale:body.scale.clone()},phase:finite(figure.userData.phase,0),clock:null,traveled:null,dead:false,footTarget:new THREE.Vector3(),footCurrent:new THREE.Vector3(),parentFromBody:new THREE.Matrix4(),worldScale:new THREE.Vector3()};
-  const legs=locomotion==='quadruped'||locomotion==='flying'&&joints.has('upper_leg_FL')?['FL','FR','BL','BR']:['L','R'];
+  const legs=locomotion==='quadruped'||locomotion==='flying'&&joints.has('upper_leg_FL')?['FL','FR','BL','BR']:
+    locomotion==='flying'&&joints.has('upper_leg_BL')&&joints.has('upper_leg_BR')?['BL','BR']:['L','R'];
   rig.legs=legs.map(side=>{
     const hip=joints.get('upper_leg_'+side),knee=joints.get('shin_'+side),foot=joints.get('foot_'+side);
     const l1=knee?Math.hypot(knee.position.y,knee.position.z):0,l2=foot?Math.hypot(foot.position.y,foot.position.z):0;
@@ -135,7 +136,7 @@ export function animateGeometricEnemyMotion(figure,enemy,time,{moving=true,reduc
   const footTargets=[];
   if(active){
     for(const leg of rig.legs){
-      const offset=locomotion==='quadruped'?(['FL','BR'].includes(leg.side)?0:Math.PI):leg.side==='L'?0:Math.PI;
+      const offset=locomotion==='quadruped'?(['FL','BR'].includes(leg.side)?0:Math.PI):leg.side.endsWith('L')?0:Math.PI;
       if(leg.ik)footTargets.push({leg,offset:solveLeg(leg,phase+offset,stride,height*.055)});
       else{rotate(rig,'upper_leg_'+leg.side,Math.sin(phase+offset)*.36);rotate(rig,'shin_'+leg.side,Math.max(0,Math.sin(phase+offset-.45))*.48);rotate(rig,'foot_'+leg.side,-Math.sin(phase+offset)*.14);}
     }

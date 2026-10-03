@@ -1,0 +1,2070 @@
+{
+  "revision": "geometric-game-v6",
+  "stageOwner": "humanoidAndEquipment",
+  "reviewMethod": "Actual final paired source/model sheets personally opened and all six rows compared after the final native/export/render changes; manually written per-ID observations are bound to exact current files.",
+  "sourceLimitations": "The original PNGs provide six projected views, without calibrated metres, hidden topology, lighting or texture/stance measurements. Source-specific dimensions and depths remain authored geometric estimates; no one-percent or absolute-scale fidelity certification is made.",
+  "absoluteScaleCertification": false,
+  "enemyAttackMetadataProductionAnimationCertified": false,
+  "productionMotionScope": "Enemy production gait/flight/abilities, freeze/petrify/reduced-motion variants and surface/coverage probes are validated separately by independent runtime audits; attackStyle is an equipment descriptor, not a production attack-animation certification.",
+  "initialReview": {
+    "path": "output/design/geometric-game-v6/enemy-initial-six-view-review.json",
+    "sha256": "d03f7c6f35762cea02427bc898e36599e922bd55ec7f5166b1750324cc16823c"
+  },
+  "stageManifest": {
+    "path": "output/design/geometric-game-v6/stage-humanoid-enemies.json",
+    "sha256": "0371cbf95a7c9f6eddc70a4cdd8fde1a07544f3a8c8a91ffc7946fcd8290730f"
+  },
+  "subjectCount": 32,
+  "actuallyComparedSourceModelPairs": 192,
+  "entries": [
+    {
+      "id": "host_01",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_01.png",
+      "sourceSha256": "a5e72491393d8cd542de1e3c19560f6e7b5d311d14240b3f14619add86db6baf",
+      "actualGlbSha256": "e44fbc342bba292a94753a2df49f1615629b2dca84b7c906ad924fb8ec21c15e",
+      "actualNativeSha256": "37f39291471ff88b1e37c95cd3268714fa85c9615e200b241865206df12e8fcc",
+      "actualPortraitSha256": "9207545cbd20071e6c462d32ad0d99fe11c6b52b8ee70310810db27879e0e2da",
+      "geometrySha256": "aa9a9f6303aa705d934f6b89870b82dd8fd17f6efb2ce3ada72d88309cd99bf5",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_01.jpg",
+        "sha256": "bca173588ee010e3c3ff8d6de7ec60f622a594689283b630bb404a8174ad70f5"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_01.jpg",
+      "pairedSixViewSheetSha256": "bca173588ee010e3c3ff8d6de7ec60f622a594689283b630bb404a8174ad70f5",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_01/front.png",
+          "sha256": "982c8774ece702314af376126692c14d9445443bc650ebb6f015af319e3db7fc",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_01/back.png",
+          "sha256": "ba0a71e3fee57673e8bc09c03a1443f7fa5e13d33c8f95d21371ae26abfc0fbe",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_01/left.png",
+          "sha256": "1ad397cda2890e8193cdde91c8ef1f30fe83aa7ff7e601b1b70a76a1e0d40f28",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_01/right.png",
+          "sha256": "a64b0d62a7fd71d1fae6b48ac2a2a992e23587eb8c22e0453cf109c0962ab60e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_01/three-quarter-front.png",
+          "sha256": "9207545cbd20071e6c462d32ad0d99fe11c6b52b8ee70310810db27879e0e2da",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_01/three-quarter-back.png",
+          "sha256": "127a1cf6b3804697de821a48692ac73399a769d273dc35c2f4c3add9291d1a7c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "Six actual pairs opened: brown rear cloth is now folded around the retained skull pack, leaving hands and cleaver clear. Enemy head remains unchanged. Skull/cleaver faceting and surface wear remain source estimates outside the V5 cloth correction.",
+      "initialFindingsSha256": "c6a05a6caa759254a6ec7e00f90fa1b1b70e1d5032abf4732b96cf34caafa2f9",
+      "resolution": "The six final pairs show a fitted brown leather chest beneath the front crossed straps, folded ragged rear garment around the skull pack, visible paired skull cargo, shaped tusked face/hood and a compact jagged rusty cleaver. The initial cloth-only review is superseded by this actual V6 outfit/head/equipment comparison; the hands and complete held cleaver remain clear in front and both profiles.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_02",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_02.png",
+      "sourceSha256": "7a89aafc9fa34fee0156fb45c3ff3067bc83d734e51b1bd76c1bdeca0ebf20ac",
+      "actualGlbSha256": "bd16cc2dc5931e2f9141346bc4fddbf3c3f0164aa07dca56c948b4bddf589179",
+      "actualNativeSha256": "78bb6f4946cff3d3bd36c40b148dbd67942ffcd248196499f83faba413fae188",
+      "actualPortraitSha256": "05d08956020535e771a90a573b2558898dd6dbd235fac4ca5c16373064331747",
+      "geometrySha256": "804f8c33e98b4540ac9efc75e0370a0c7de729dbbe8c30ef2c098470c99d0d8b",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_02.jpg",
+        "sha256": "4b7cd5ef27a6adf17400a51462fffaed9cae069b6df8d222e9b823bf41766d80"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_02.jpg",
+      "pairedSixViewSheetSha256": "4b7cd5ef27a6adf17400a51462fffaed9cae069b6df8d222e9b823bf41766d80",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_02/front.png",
+          "sha256": "1cabb9d516f324a74257122084838ae3c57db768b1215a4d705c0e7e77281657",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_02/back.png",
+          "sha256": "df89fc86a73883abbbe54842a7bb73f08f0aab828c005911deb6c43422587ae4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_02/left.png",
+          "sha256": "fd0d708f10704111e66a331d7d741359f0e7fc0442d8fb92192f6bc27b78796e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_02/right.png",
+          "sha256": "bb5468ab9a4eea94bb524f9ac8c8ba84e55d21cbf1128b2a76f3a9a256311f07",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_02/three-quarter-front.png",
+          "sha256": "05d08956020535e771a90a573b2558898dd6dbd235fac4ca5c16373064331747",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_02/three-quarter-back.png",
+          "sha256": "f6d001f36abc251d2c634f1546bfc0b576b480c2714436ae07d8cae766585b45",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Rebuild thornstrider lean torso, small pointed ears and ankle bone cuffs: current ears shrink to tiny side pyramids in profile and ankle cuffs have become forward boot claws. Jagged leather loincloth and layered spearhead/barbs are simplified; spear is upright rather than relaxed source grip.",
+      "initialFindingsSha256": "bb3f35042313d664fa465ea97aa666aaf7954061fa3b100496fa10380fd0c8de",
+      "resolution": "The rebuilt narrower bodice, long pointed ears, crossed leather front/back harness and actual ankle bone cuffs are visible in the final six pairs. The cuffs wrap the ankle instead of becoming forward boot claws. The ragged leather hem and layered barbed spear are actual geometry, with the held shaft and head moving as one assembly. The render stance is an authored neutral stance rather than a claim to duplicate the original pose exactly.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_03",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_03.png",
+      "sourceSha256": "e088f7023e011ed88ae66147fd6721bde53fbb3454b71d4212a005fde3786fc2",
+      "actualGlbSha256": "4e0e77dbe65363b690fdd5abf65e1f35985734f3f504e81ac69db6342baef396",
+      "actualNativeSha256": "7dd6786556dc642a5f563c18a2f907bed7f16b2301f54bd71ab9ee36b907a337",
+      "actualPortraitSha256": "cba7ade4763711122f441cf8d7badcb99da72bd97565280513828982e895e257",
+      "geometrySha256": "8db2917cc3538e1af82f07394149c07712f76c464da8c2a81163dc31446a1543",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_03.jpg",
+        "sha256": "0b8493c77f7cc0385d74d37407e3339d7c5335289674327ce291ca9b06387195"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_03.jpg",
+      "pairedSixViewSheetSha256": "0b8493c77f7cc0385d74d37407e3339d7c5335289674327ce291ca9b06387195",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_03/front.png",
+          "sha256": "c8127fb02ea9ef0b7d061253bdde9ad0b9536dedbdd7ea3f591d45f539388461",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_03/back.png",
+          "sha256": "8129a4a449153289de415429ef358c820a59c4126fe0df9f67ce2b66ea48cb12",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_03/left.png",
+          "sha256": "a97c1e8b438025413fc44bff1c34a5f6c8086049738841183e0733fb06475d97",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_03/right.png",
+          "sha256": "4afaf6711e0313f47a6ebf0ac5d6fc0394ee3141b4d48926cce235a1beaaff5d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_03/three-quarter-front.png",
+          "sha256": "cba7ade4763711122f441cf8d7badcb99da72bd97565280513828982e895e257",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_03/three-quarter-back.png",
+          "sha256": "ef6656d110d294d7c5db42bbc994177870d4bf8deb277b28fcb0b6854e1e7a65",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Ogre belly is an abrupt layered sphere, shoulders/forearms are oversegmented, suspenders are missing and source one hanging pan becomes two generic side pans. Wooden mallet has a rectangular hollow-looking dark end instead of rounded strapped source head. Pot rim/handle shape and natural body proportions need reconstruction.",
+      "initialFindingsSha256": "65fe9fb677a35dc84f183a0f5680c3bec386495523d4320c226fc3196e46c0e8",
+      "resolution": "A single fitted cooking-pot helmet with contacting rim and side handles replaces the generic hood. The bare ogre has one continuous convex forward belly and naturally connected thick arms/legs, rather than a stacked belly sphere. Actual fitted suspenders run over the front and back. One physically hung pan replaces the duplicate pans. The wooden mallet has a rounded solid head with iron end straps and a continuous held handle; all six views show the intended potbelly/cook identity.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_04",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_04.png",
+      "sourceSha256": "d5205cc58789195a3884e000f9063825a1ec0817f468ff26472bec6d0b2e4286",
+      "actualGlbSha256": "5fac9406feffcc4913dc3112e1c527e4b0ceef5bf4aad2725c94c6a49f726014",
+      "actualNativeSha256": "3aec10cc684ec7f1c4e7d7ba4eb346dfd5167367dce5a28e79cb3282df0657d2",
+      "actualPortraitSha256": "e34d4c66f215b9afc98615ad13dea3aa112a936c118d57cd4b97a2854ca86de6",
+      "geometrySha256": "60a3e9a3a05e77540b3fd1822c3e01ab9d8d3af8fb4b06340ea764de286e3767",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_04.jpg",
+        "sha256": "30a75bcd605f8c0ca966f7f2249fa559b0f5739615c7070b393e3bf04522a71d"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_04.jpg",
+      "pairedSixViewSheetSha256": "30a75bcd605f8c0ca966f7f2249fa559b0f5739615c7070b393e3bf04522a71d",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_04/front.png",
+          "sha256": "2174ab796481bbbc31986440b80d382dd1a2158167e85b215280495724233c15",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_04/back.png",
+          "sha256": "4c225ddd9dae78503a1b7e7c0c5c201363e7b971f7d3038edb58be34c48c6104",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_04/left.png",
+          "sha256": "50ac5b94a7de5b13454afb5dde40f0a3a39656f15cff3465a0e6fcb0d3c0186a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_04/right.png",
+          "sha256": "988127f2e80af8e2fa25bfa06ef44a987649edb1ee7c9457025c537b52b04ae2",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_04/three-quarter-front.png",
+          "sha256": "e34d4c66f215b9afc98615ad13dea3aa112a936c118d57cd4b97a2854ca86de6",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_04/three-quarter-back.png",
+          "sha256": "980678961f8b48c379ce48846a1f34c912d978387d3d9920eeb0489f940696d0",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Scrap tinker's helmet/head dominates body and has rectangular slab depth, while source is a small exposed orc with fitted scrap cap and large asymmetrical shoulder plate. Backpack wood boards, rivets and source crank mechanism are simplified; shoulder gear replaced by chest/forearm panels and generic hammer.",
+      "initialFindingsSha256": "b782536d3f37e6f1b80f4b0fce0f1a8940da39c35477d7b57f8d5faf6345b266",
+      "resolution": "The exposed green face now sits under a compact rounded riveted steel cap, with broad pointed ears and short thick legs/boots. A broad continuous curved asymmetrical scrap shoulder shell carries six seated rivets, instead of a thin crescent or generic chest substitute. The fitted brown vest, diamond buckle and riveted loin sheet are visible. The wooden backpack has real board/binding/rivet/crank parts and a cap-height gear; the whole compact rectangular metal hammer leaves the face visible in all six comparisons.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_06",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_06.png",
+      "sourceSha256": "607a95bbd91dd7393aa1c2a4d50894cfc9f38eaa8198b7c34fe82d4ecdb60be8",
+      "actualGlbSha256": "068082e93c41cc1ba343e3864581a8dce253e2ae7b4de7f460c263fa5fe62830",
+      "actualNativeSha256": "53a2b7ccd5dbe2bdaad0bd463361a00b88d82e0a6aaa0da3fc6f0f3f11436b58",
+      "actualPortraitSha256": "a01cd0aabbc35f9166c9a5ee74a37d2fd550a799b2c7051e35967df63907807e",
+      "geometrySha256": "836f8d1c74f6d5bfde07096c560e01e4a13f2fa1b3976aa1cfc4dc5bda0d1e02",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_06.jpg",
+        "sha256": "c3d4307a28bf7d32ac7d65d79d17cb4a41d1de477b084c258e3a0ee5b54efd57"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_06.jpg",
+      "pairedSixViewSheetSha256": "c3d4307a28bf7d32ac7d65d79d17cb4a41d1de477b084c258e3a0ee5b54efd57",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_06/front.png",
+          "sha256": "1b92bc8c570f2952ec368a853aafa639098db6dd5790be5feb59630975bc6fb5",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_06/back.png",
+          "sha256": "e4d582e29c545c3671be95337630ff68a2f8e39a0511fbb89e5e5a0a5cebfcf1",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_06/left.png",
+          "sha256": "4260465d5be7d360dca540e5aa5a314b3fc999444eebc595195dcd08ab6abc8c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_06/right.png",
+          "sha256": "cfcbfab7ce5fa3d84e0950932b71abbc07db0709930266d6c1e4d3842b766f64",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_06/three-quarter-front.png",
+          "sha256": "a01cd0aabbc35f9166c9a5ee74a37d2fd550a799b2c7051e35967df63907807e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_06/three-quarter-back.png",
+          "sha256": "f920401e431ec2cce2f3001dcc900bc88226de7f47174811808b3556e4d2aba4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Mossback troll needs natural large moss-covered shoulder/back mass, rune stones rather than plain cone spikes, irregular mushrooms and heavy uneven stone maul. Current bare square face, smooth belt tunic, symmetric moss collar and boot blocks lose source rough organic silhouette.",
+      "initialFindingsSha256": "0cbd7eea24096b237926174d52c943b83349dd11a864ceba48580ee2b72c7b39",
+      "resolution": "The final six pairs show a large fitted irregular moss shoulder/back canopy, three actual rune stones and visible tan mushroom caps on perimeter stems. A continuous bare green anatomical trunk with thick arms, palms and bare feet replaces the generic booted torso. The held club is a large uneven round stone with moss and a continuous wooden grip, rather than a flat hatchet. The canopy is irregular connected volume rather than evenly aligned collar rods; source organic surface detail remains a geometric estimate.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_07",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_07.png",
+      "sourceSha256": "f3ecc114d250f3a0d071ebadb7d5d2268db78bd3b3acebc3d114ae4171facb47",
+      "actualGlbSha256": "c55bedba04df8a2c5ddd40336c7f8005df45986b39da3c921e8724d9d0226afe",
+      "actualNativeSha256": "f2a7e31773725578662976968d524dfafbc42807e4b65ea956d8c52d3e708dce",
+      "actualPortraitSha256": "ad816527d3c887befc0d35b8e5e614b3760cacc868af8f7d1c3ded4844368bcd",
+      "geometrySha256": "c150fb9d7670f69644f4717d974e58515ec9752fb2cba0952440a765522cad3f",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_07.jpg",
+        "sha256": "1e226fe62f484fca67417710a61f65f796221d40d34cc2b062fb03936d07caae"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_07.jpg",
+      "pairedSixViewSheetSha256": "1e226fe62f484fca67417710a61f65f796221d40d34cc2b062fb03936d07caae",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_07/front.png",
+          "sha256": "db50e20cb069c0247bee8377cbe6443cf0ebd993324b3ed3091cb7cdc20ad545",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_07/back.png",
+          "sha256": "a24cdd5aa7d6d7a879835a0447a53b2775f87bb9a5760d9c628aed3ad2d7207a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_07/left.png",
+          "sha256": "9bb1ddf6da1cdf59218a811e7fad49d180d42a3d2b459e680cc2080fa161ca87",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_07/right.png",
+          "sha256": "6fd3239e3ef599ee4a628aade54f019bbec159ccfea993d4e1ecf24d6799869c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_07/three-quarter-front.png",
+          "sha256": "ad816527d3c887befc0d35b8e5e614b3760cacc868af8f7d1c3ded4844368bcd",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_07/three-quarter-back.png",
+          "sha256": "1bad163168b2f3383f65f014994f9bfffa5a11c2cd610d67aa6f1fac5a4b1e29",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "Six actual pairs opened: rear brown cloth now has thickness and drape under retained green leaf strips; spear and limbs remain clear. Retained simplified skull hood and sparse leaf mantle differ materially from the original source and should be addressed in the subsequent full enemy fidelity audit.",
+      "initialFindingsSha256": "6bc5032c31ae43b42d9f076fe41f62d394bab21504aa186d4f0dd94791b21e7f",
+      "resolution": "The crocodile skull now has a visibly projecting long snout, deep open side eye sockets, teeth and stepped rear skull ridges over a physically fitted hood support. The source leaf mantle extends in ragged fitted tiers toward the thighs in front/back/profiles. The barbed spear, exposed orc face and connected limbs remain readable. This resolves the previously opened flat white face-disk and short sparse mantle findings; the final actual six pairs, including both snout profiles, were reopened.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_08",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_08.png",
+      "sourceSha256": "9c69f7814f50186c666c3e89df9b0774326579a062af9352c3e04990cbf735de",
+      "actualGlbSha256": "77eda133acaff89154f944f17350bd60d3ca405b72a93ceb5f4ac754e7012257",
+      "actualNativeSha256": "c98e82f043ac79e2850a14665caf51c3fdc19e667360a20f6f99b4028e1ca7b9",
+      "actualPortraitSha256": "5a2784ce43a651c95c8fc056e3a0ce6996a6c62b34ae664f42af8b1502a7ba80",
+      "geometrySha256": "541a31015089d4d0d5f460e3410729aebc6ad7059d3c0d823331867dbdd9c964",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_08.jpg",
+        "sha256": "a871ddba1950ea2ce35dab6839a49b5a92614d112aa1962bd2566355aac9a98e"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_08.jpg",
+      "pairedSixViewSheetSha256": "a871ddba1950ea2ce35dab6839a49b5a92614d112aa1962bd2566355aac9a98e",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_08/front.png",
+          "sha256": "4dd0d2af4f2da2689eb4bc026a40dec62c4813517f35affb26086e90eada12f0",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_08/back.png",
+          "sha256": "f8b0f2fc39d53840ba0514a5c4dc0d9a67095a351bece50c87ec19425ac14f9f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_08/left.png",
+          "sha256": "5c9840b6d097ab815c1823f402908050f62589d58f33a6c96adfef89965bfafe",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_08/right.png",
+          "sha256": "2c68bb8dfe8ebb7bbeb9564b710cca0397af4edd799d19c9d587a44851450e2f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_08/three-quarter-front.png",
+          "sha256": "5a2784ce43a651c95c8fc056e3a0ce6996a6c62b34ae664f42af8b1502a7ba80",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_08/three-quarter-back.png",
+          "sha256": "b4f8d2ea3f32c3715f1197c97df58d332888c0b384bd8d2b0617a275556d092f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Shadowblood troll has an oversized almost planar detached-looking black back hide plate instead of source fitted ragged leather mantle. Hands/feet claws are uniform thin spikes, body/shoulder segmentation too geometric-generic, crystal placements sparse and source leather scraps missing. Verify actual hide-to-shoulder fit rather than accepting cape selector metadata. Initial flat garment finding resolved by the authorized V5 repair; all six final source/model rows were actually reopened and show fitted nonplanar folds. Other listed source anatomy/gear findings remain unresolved for V6.",
+      "initialFindingsSha256": "f6edb2e0c76ce02f98ac976e86d2f9dabfb42b1508cdcef42faf51652a4e6c1d",
+      "resolution": "The black ragged hide and cowl now fit the actual back/shoulder anatomy with nonplanar contacting layers; no retained flat detached back plate remains. The blue troll has rebuilt connected thorax/pelvis/limbs, source-specific tusked face, broad curved contacting finger/foot claws and seated cyan crystal details. Ragged leather waist pieces and wrist wraps are visible. The six final source comparisons resolve the initial hide, generic body and sparse gear findings within the geometric reconstruction scope. All six current pairs were reopened after the coherent whole-figure ground seating correction; the source silhouette, held gear and body connections are preserved.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_09",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_09.png",
+      "sourceSha256": "756e1cd62618a1800cfb6345659b45e0c3d8ea178b99439030d26a957af2e479",
+      "actualGlbSha256": "66cfca5fbc72a8ed3ba1c14f2bba824619dc26ccd947af7c6f78a0445b0e2fb4",
+      "actualNativeSha256": "8d1c0861b2042373106fcc6f1ec7253f5c5f2dfd248b7477245389cd6c46c2e0",
+      "actualPortraitSha256": "5429547743facaed30562e52dfa24174c23c3ea36cbe878991e8e219d46aac0b",
+      "geometrySha256": "5919f4f491e227b2734a9c27d7d0f55db3bf2931b6b1b23441043497b34ba8d8",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_09.jpg",
+        "sha256": "7f3639ddc259771f6c0613729f9da2d6a039d9caced4455a5b3d4a50c713a01f"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_09.jpg",
+      "pairedSixViewSheetSha256": "7f3639ddc259771f6c0613729f9da2d6a039d9caced4455a5b3d4a50c713a01f",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_09/front.png",
+          "sha256": "67728f1610bb183a9946810654318ff41dca9fd2e695cc223b615fe2629d043d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_09/back.png",
+          "sha256": "7293e8cf422036c67a7a2a3426f6b81d6e52dfb70e8436cb1175009439bd31e4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_09/left.png",
+          "sha256": "64d49fe988177192bb10fc25511958de2549b87605c5295cf7b5b0410fa6c14c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_09/right.png",
+          "sha256": "997d7a8731ad75c731b89f5d24580de538001a00dcd9bb9c2ebe3f588e84e428",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_09/three-quarter-front.png",
+          "sha256": "5429547743facaed30562e52dfa24174c23c3ea36cbe878991e8e219d46aac0b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_09/three-quarter-back.png",
+          "sha256": "a9cc49aa28a4779c7e181e42af5012cc89a7888f651b342d8960e64b4c44b749",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "Six actual pairs opened: brown rear cape has folds and thickness between unchanged wide-stance legs; twin held blades remain clear. Retained hood depth, blade curvature and ragged layered silhouette are simpler than source and remain candidates for the full enemy audit.",
+      "initialFindingsSha256": "2873957c12a3898eb6d99d0b5085a0ec7d74255f1cb368bcf8ed3f334d8da6bf",
+      "resolution": "A fitted brown peaked hood and broad lower-face mask, ragged layered brown garment and two actual curved short blades replace the retained shallow source estimates. The lean bodice and connected shoulder/arm surfaces preserve the wide source-inspired stance. Both blades have continuous held hilt/guard/blade assemblies. Front/back/profile comparisons show the source brown masked dust-dancer identity and folded rear tiers without a planar cape or straight generic blades.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_10",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_10.png",
+      "sourceSha256": "83a7bf2065fe495d0cb7045486a519c14b832f92faad39050fe5d813898a8349",
+      "actualGlbSha256": "96511b7dc0f1401beb8c3a3e2ac7bc4e79bc40bc16a186fd04909709b355b24a",
+      "actualNativeSha256": "db3c31eec8ad4573268fbaf2d6feb0589082b2b8509d9cc54b727e0f9bad6cf3",
+      "actualPortraitSha256": "f684ed40f6b7a58e4f3213cc2aaba29b4d9fb36e244c05c5db5825cf623ecf7f",
+      "geometrySha256": "6cdcf572d2a6f853f2fac612b47806160a007f2a914eb80ee0d2db82e8d43789",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_10.jpg",
+        "sha256": "c6d33594523e9ec051b908a600f7cf5bc55399efa7d95c2cae6f2c6baa6c4f18"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_10.jpg",
+      "pairedSixViewSheetSha256": "c6d33594523e9ec051b908a600f7cf5bc55399efa7d95c2cae6f2c6baa6c4f18",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_10/front.png",
+          "sha256": "c6ca2630676a19db88391a5c6b60af886d6c8c651f92be5ce8b105e58e15c356",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_10/back.png",
+          "sha256": "e4dd1baca6ee4f8881f2e8fce42752c2e508026cd1577ccbc395aa0b24875d68",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_10/left.png",
+          "sha256": "2a2cdfb7f9b861492eca3516cef9ca039acbfd232a10c03eb6ab02ab67eb0193",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_10/right.png",
+          "sha256": "97984ee89f949d167b7d39214717b6e53ed0c1ba349a243a5529558aee169743",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_10/three-quarter-front.png",
+          "sha256": "f684ed40f6b7a58e4f3213cc2aaba29b4d9fb36e244c05c5db5825cf623ecf7f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_10/three-quarter-back.png",
+          "sha256": "643b917d8dc811945428c7896e3f3a785f99d3c8f874da569e51d6a7375c465e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Gatebreaker head is an overly deep flat helmet slab, breastplate becomes smooth oval belly, shoulder armor is stacked horizontal thin plates rather than angled fitted source plates. Skull mace lacks shaped skull cavities/horn profile and shield boards/rim need source wear and proportions; straps/ragged skirt details simplified.",
+      "initialFindingsSha256": "cddac2dd9d8e09c374942ef30a48f9f443606c4afe5d8bb2c393bb2bd739576d",
+      "resolution": "The actual rounded steel cap helmet shell has source-sized depth and physically contacting curved ivory horns; the old deep rear slab is gone. The bare continuous ogre body carries a fitted cross harness and angled rough shoulder plates. The mace is a real horned carved skull with recessed eye cavities, a continuous shaft and actual hand grip. The wood shield has separate boards, fitted rim, straps, rear braces and seated rivets. Boss total authored height is retained; all six source pairs show these repairs.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_11",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_11.png",
+      "sourceSha256": "7307a7130e655b8b68b256b4e37af08da83ae6bcf17497519f4ff12921cd8896",
+      "actualGlbSha256": "ce94159325d6f06b23b7cc6ea15a01926fa4e8a1a469f493f72c2aa8c73f7f8e",
+      "actualNativeSha256": "d27642456dc09d26becfb1c6c4525ba90b979352d4eaad988d6cd18cda54c738",
+      "actualPortraitSha256": "a5c74cdbf96f6bce3a6ce6a18f55d6b0116db4bbc16b980f95fc11079b893a6c",
+      "geometrySha256": "ac2858a394315ddef4277e052f380bd355da458601941b026e7d2a52fad67067",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_11.jpg",
+        "sha256": "59540f26388080c2c7e8fffee85c426fd0d2e0aadfc79e08521c62bfa3e98541"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_11.jpg",
+      "pairedSixViewSheetSha256": "59540f26388080c2c7e8fffee85c426fd0d2e0aadfc79e08521c62bfa3e98541",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_11/front.png",
+          "sha256": "b09c88b52eead3cd1c40cad686605d08faea32af0dfefbbef90da45f7e997673",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_11/back.png",
+          "sha256": "66caef64238b2ed595b3bc8f46854a71ac849196404b020f6c98d25bc4e54e8c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_11/left.png",
+          "sha256": "ba5824927bcf57b169233d9beb676532fa9409eb489cdb97addce1d4f307af9c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_11/right.png",
+          "sha256": "21d1096d18f4d93ffdc2955a63caeb068740ade4ff624231b129720aff9260e5",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_11/three-quarter-front.png",
+          "sha256": "a5c74cdbf96f6bce3a6ce6a18f55d6b0116db4bbc16b980f95fc11079b893a6c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_11/three-quarter-back.png",
+          "sha256": "d5b5d57f50ca3cd02e8802163064768fa1646bd0929c6e3041d1dca6018222ee",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Hookbearer has one tiny cubic shoulder skull instead of large horned skull plus asymmetrical salvaged helmet pad; chest plate/chain position and fitted cap are overly generic. Source hooks have inward hooked tips and wrist armor; current broad blade-like hooks and segmented hands require fit and hand attachment check.",
+      "initialFindingsSha256": "0d0266ac92bc3621967d5a29b66673dfc4c387e82e034f2679386da8544570b9",
+      "resolution": "The enlarged horned shoulder skull has real recessed eye sockets and a contacting carrier, while the opposite source salvaged shoulder helmet has a pointed steel relic. The compact cap and metal breast/back plates sit over a fitted brown leather vest; a visible fitted brown rear crossed harness follows the outer plate. The real chain is seated, wrist guards are leather/metal source layers and both inward hooks have complete held grips. All six reopened views resolve the tiny skull, generic outfit and hook-attachment findings.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_12",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_12.png",
+      "sourceSha256": "096f26fc2ebd4179940718af33ebf08fd7d747034468fabdea4116371d42000c",
+      "actualGlbSha256": "e04285d89986611063579c284642bb918285c3672abef3c6acb6ec342ee3beab",
+      "actualNativeSha256": "cd3bd21e41b77ec53d9e8c68155ea4d404569bf7fa3e26a44db187ac71acd4d6",
+      "actualPortraitSha256": "e86a2a3438878391aeb3cbe5131caab3392459e390bf3197e1210e98d3fa8ca1",
+      "geometrySha256": "df35bf039bf5e2463a208ab9389559b6e1070e051f5e19a1bfb540d2bc492096",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_12.jpg",
+        "sha256": "2ebba4ae53ad137c764ee69914f0821f21d376c860289064523c81c7fb637d7f"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_12.jpg",
+      "pairedSixViewSheetSha256": "2ebba4ae53ad137c764ee69914f0821f21d376c860289064523c81c7fb637d7f",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_12/front.png",
+          "sha256": "ee41bbd031b68f460f5f292b46ef813f2bd4d169884b3f16de829c9d26f12cd5",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_12/back.png",
+          "sha256": "2f51e64af0e3b2c953637f5646e56e8bb8d9251774eab4a3ae3121b7920d36ab",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_12/left.png",
+          "sha256": "7e84950b74e5b7d7ba97d86efd0ca8d1ed899076b110d5f69f519e58a4d5d381",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_12/right.png",
+          "sha256": "339321d01aeec90ab1dd3c91a6ef5e138bdbfeac5f16b01ba02467153ed4fe88",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_12/three-quarter-front.png",
+          "sha256": "e86a2a3438878391aeb3cbe5131caab3392459e390bf3197e1210e98d3fa8ca1",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_12/three-quarter-back.png",
+          "sha256": "d3fef7f687234ad987e651c6bbd6f38c8bf7971831cc0331b41a9e0d23eb7ff2",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Bell devourer needs actual cracked bronze bell with thick flared lower rim, hollow underside and purple runes; current smooth gold frustum lacks all distinctive crack/rim/rune surfaces. Goblin ears/body/loincloth and stone knocker reduced to generic hood/boots; bell must remain physically seated on the carrier.",
+      "initialFindingsSha256": "dce0c58c48f90d9bde6db418a52aaa482c76176e0ada7994a53acd4f6ffdb968",
+      "resolution": "The giant bronze bell is a real closed-thickness hollow shell with a true irregular front fracture, thick flared lower rim, actual upward-visible underside and purple side/back glyphs. It remains physically seated on the carrier, above a visible small green face and ears. The actual fitted brown vest/loincloth and held stone knocker restore the carrier identity. All six final pairs show the bell opening/crack/rim and improved seated body instead of a smooth opaque gold frustum.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_13",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_13.png",
+      "sourceSha256": "50760b74929008293b7c36006a7d96fca2f46c0b6807cebce14028ef9e471e6a",
+      "actualGlbSha256": "850c376f1e51971da2d9b5ee2207cef382f1e700ffa09f43f3e7d0fe0d28f7ee",
+      "actualNativeSha256": "b37e19b68fd7cceb4c412b339197ec473dc986881efa11ccac631862732fc45a",
+      "actualPortraitSha256": "24ca6364af971ed65eb9a9928d6dd8c53b3c9146ef2681eef4936ab604eb3c9d",
+      "geometrySha256": "eee71708c48991a289bdf1a2981019c10e6cad9dab6daa63b741c36528ca8ea8",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_13.jpg",
+        "sha256": "657db8d0cc46637508c4c4499c99d101b8ad41de2fa649f069ad971ca969dcf8"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_13.jpg",
+      "pairedSixViewSheetSha256": "657db8d0cc46637508c4c4499c99d101b8ad41de2fa649f069ad971ca969dcf8",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_13/front.png",
+          "sha256": "14ff8b9a31b88b2a80b8bdbccc2ac8e9076d6d2d9d8f6e6aededb894f83a2e78",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_13/back.png",
+          "sha256": "c3a9b1d58692fea6c5c94b826fe81c770d1e6a42bc5214e47df10db952484027",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_13/left.png",
+          "sha256": "88b4cf365f94a59d357c4f4bc24ea6cba56a66f5c85f0087af7b75ba7b248fb4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_13/right.png",
+          "sha256": "af28c6cae589460d8397895aec757230c2baca3eb168ac4a8dddd9437e5d116a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_13/three-quarter-front.png",
+          "sha256": "24ca6364af971ed65eb9a9928d6dd8c53b3c9146ef2681eef4936ab604eb3c9d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_13/three-quarter-back.png",
+          "sha256": "5db93d39ab57aeb21c5d4e0f206d79286658e977444c89f0faad60389eef10ac",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Red Tusk huntress long segmented braids are reduced to straight chunky side hair blocks and flat red back cap. Axe crescent/dark inner blade is a plain red polygon, chest/arm/leg armor and waist ring missing or generic; source leather outfit needs fitted layers.",
+      "initialFindingsSha256": "7b925536fb1c71f985622028589bbf01425cd7b3eb738a76efef3ed6b5b440ce",
+      "resolution": "Source-specific red hair is reconstructed as contacting segmented front and rear braids, with a fitted brown leather outfit and real metal/leather armor layers. The axe is a held curved red crescent with a separate dark inner blade, and the waist carries an actual ring. The final six pairs show the braids down the chest/back and the source leather vest silhouette. This recipe is scoped to host13 and preserves the independently frozen mounted host15 braid geometry.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_14",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_14.png",
+      "sourceSha256": "a27eec893daf407c03c55e724689c305e5f434dd9d976a43c571ca37baeff7be",
+      "actualGlbSha256": "a818ed2a1f36e508a1f6c4728921c976c5381cd62f6a2da424296c8ad8c8f0ba",
+      "actualNativeSha256": "f0fcd04a27c6b7eafb427d8cbe8148e243840381e8ff3ea7ccf8a4db927db2aa",
+      "actualPortraitSha256": "83b5910a2063b843fd93682f492a074aecd1b77d330f4ba1fadda0dea36bad1e",
+      "geometrySha256": "1446f5ca9ed1471af2612ed5bb7a25add37b3d8a464e5ff75afc41a6d935bf4a",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_14.jpg",
+        "sha256": "a71ce55361a2010a0b5bb6f7021049e12f4ac8d70a7d370f9b30028b55626f99"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_14.jpg",
+      "pairedSixViewSheetSha256": "a71ce55361a2010a0b5bb6f7021049e12f4ac8d70a7d370f9b30028b55626f99",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_14/front.png",
+          "sha256": "faefacffe2cf4b9571b94503571420cc5eaf785011f4273179d7620b1558afc7",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_14/back.png",
+          "sha256": "9c245b904fed9b33b187a9bca7031713465acf012424e5b870b4bddfbfe1181f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_14/left.png",
+          "sha256": "aab4b2298f1adb2f3243304cdc69a90415931113003b0bc2ec4151dc20b7f197",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_14/right.png",
+          "sha256": "97344a48637ccefc2dd14acf58eb56a0b4b180a98999426dd0b9817ec12cefa3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_14/three-quarter-front.png",
+          "sha256": "83b5910a2063b843fd93682f492a074aecd1b77d330f4ba1fadda0dea36bad1e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_14/three-quarter-back.png",
+          "sha256": "a5daba85b9b449728f3f896e2a568b55b8eaec807c2caa34766e6896648b9be5",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Mirror shieldbearer lacks actual shield upper mirror spikes and fitted steel cap/segmented riveted armor; shoulder spikes substitute for shield details. Current head slab and square breastplate are too generic; rebuild source shield back straps and keep actual hand contact.",
+      "initialFindingsSha256": "d603106b3b9dcef4de333cc9f2605ef34332e6ca33c506385d7a01046604d834",
+      "resolution": "The steel cap has a true rounded shell and contacting rear neck guard rather than a bare green rear head. Fitted riveted steel plates and tassets retain the source armored identity. The dark mirror shield has actual upper spikes, centre mirror relief, seated perimeter rivets and real rear grip/braces/straps. A brown rear crossed harness is physically fitted over the outer rear plate. All six final source pairs show shield and cap identity with attached hands and source orbit mirrors.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_16",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_16.png",
+      "sourceSha256": "54e34d00a320a7fc96e878a2e363fc2c2314a80fa9d2766f0273c7f87eb6d1de",
+      "actualGlbSha256": "5f27dd6ad0c8f3d084dbdd186e222ac09f15c8de4ba0ae986812bf155d131a0e",
+      "actualNativeSha256": "2d26c41eb992e74aa161f076a67f9dcf7f6f92aec27dc151dc47cb522caa3434",
+      "actualPortraitSha256": "23aca1e46b080f43f1ea320b24206efbdeb35e7ae63a461db2ef7630620eaedf",
+      "geometrySha256": "c04feaabc932a1e23124b9163aae1c96cd9fc7a534a014431744423d50266941",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_16.jpg",
+        "sha256": "9cb88035dda59c9bd28347ddc238e89027aa46fd220ba519e2c6bb2b79cdd0e0"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_16.jpg",
+      "pairedSixViewSheetSha256": "9cb88035dda59c9bd28347ddc238e89027aa46fd220ba519e2c6bb2b79cdd0e0",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_16/front.png",
+          "sha256": "d148211d240a5e7d93b28bae66978b5b502bfbbd685fe71585ff75a9ed746757",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_16/back.png",
+          "sha256": "37139faee2e7e10188f9a1af33640f7723a1bc1318cb1d1c8b2671364cd5e3a7",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_16/left.png",
+          "sha256": "67a8f0cbad77134728ed00e447f7c3575af015ffe4904e2d8139f27a9ba7d86f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_16/right.png",
+          "sha256": "673d14e351f673071eefd2809a9b1ac5a379dfd2d1f521c99424ce350b7c5457",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_16/three-quarter-front.png",
+          "sha256": "23aca1e46b080f43f1ea320b24206efbdeb35e7ae63a461db2ef7630620eaedf",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_16/three-quarter-back.png",
+          "sha256": "1968c58a4e74ea174a2da095ded52a2b15df4ac70e2fe22c3d7c6b0ead921626",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Ash pickpocket gold mask should be angular hollow fitted face cover with true eye openings, not projecting flat gold panel with black stickers. Dark hood is deep and block-like; source layered dark leather outfit, bracers and large gold pouches need fitted structure and source proportions.",
+      "initialFindingsSha256": "0d7571ad590afb6734a3c4c40c5f5ada9637b3e960caf999b14b4fddc3263ef1",
+      "resolution": "The gold face mask is an angular continuous hollow shell with a pointed lower face, central ridge and real recessed eye openings, rather than black stickers on a flat projecting panel. A fitted dark hood, layered leather jacket, ragged dark front hem, real wrist bracers, amber focus and large gold pouches restore the outfit. The final brown rear X was actually refitted onto the outer jacket/flaps and is now visible in back/profiles. The final six pairs were reopened after that last surface/material repair.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_17",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_17.png",
+      "sourceSha256": "ba9a2cd6b05d0273acf4866f3db4d7710c7669a08f6d4e34881d28ba2d37ae22",
+      "actualGlbSha256": "408b24bb150fa2052d3820e5b514694f925ef84620a4814652043dc4db6e5c63",
+      "actualNativeSha256": "06685f5b4db7eaed552250d60ede1aef018e97abb2fca79c119816225b6fef51",
+      "actualPortraitSha256": "31c65f0dc05790f5e2b409cbec0c5a07a85876f302f5b1f1dfe59f10afff0902",
+      "geometrySha256": "b6133ad02e874efe760bd1453180ac87b4d56e1d209d872c7f52a1922e2807a1",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_17.jpg",
+        "sha256": "8a642267c1b5d4a4c23bc120633696b0595441d4e1e971bbecdf690873e3e0f5"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_17.jpg",
+      "pairedSixViewSheetSha256": "8a642267c1b5d4a4c23bc120633696b0595441d4e1e971bbecdf690873e3e0f5",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_17/front.png",
+          "sha256": "bbccec3d0e3ced7fb691c1aff03e061fd31a67f512bbb0e71b95da482aeaf943",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_17/back.png",
+          "sha256": "8ddb36e32a49c6897b59e092352ddc6600e6a42f3adeeeada7115a8a031557ff",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_17/left.png",
+          "sha256": "1fa58dc706662bf6307bdc67c5f4dccb933fab02a52dbc43f50ad929983f8432",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_17/right.png",
+          "sha256": "7a732586300e6d39fbe0eb5a1b53e8ef808c46a9c01eea827137f98324a171cd",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_17/three-quarter-front.png",
+          "sha256": "31c65f0dc05790f5e2b409cbec0c5a07a85876f302f5b1f1dfe59f10afff0902",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_17/three-quarter-back.png",
+          "sha256": "902a5212a7761c13fe945af7341ed6c8085b19fa17580b469029b6b9d9f0120f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Cursed totem troll needs an uneven branch club, three shaped bone skulls and fitted rope/back harness; current club is smooth oval, skulls cubic and totem is a straight rigid stack floating far behind the back. Natural hunched anatomy, loincloth and moss/harness detail simplified.",
+      "initialFindingsSha256": "604b4394e5be796b22dc64421c32a8398e103ab07527eed9fed4338c66b4e649",
+      "resolution": "The final troll has a natural connected hunched body, ragged leather hem and contacting ropes/back harness. Three actual carved ivory skulls are seated in a shaped wood carrier rather than cubes floating behind the torso. The held long upward uneven branch club is a whole connected wooden assembly; the former secondary generic weapon replacement was removed so it cannot overwrite this source club. Final front/back/profile pairs show the source totem, fitted carrier and gnarled club identity. All six current pairs were reopened after the coherent whole-figure ground seating correction; the source silhouette, held gear and body connections are preserved.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_18",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_18.png",
+      "sourceSha256": "c494fbef57f69e5cbb9c51b286db47a0f7837c4a2acfbc5df515efe25fc57a8f",
+      "actualGlbSha256": "bba89ff498582a2a311fc3c83756042878e8c4b14de4e36abf21f307e22659fd",
+      "actualNativeSha256": "806b4cf7a204547142244078e85fd38d2c33cf02b1c920e4b8769460e8c7832c",
+      "actualPortraitSha256": "af427a4539ac85002f41a016ff2ddd0b5691c743d2d3d313185e33c89e80d34a",
+      "geometrySha256": "0fa14ffe3798aa2debe14919cc535e6ac9a61397906c42d3a2d3f6071dc423d0",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_18.jpg",
+        "sha256": "5bec67651b291cd462eba44b5a4a879ea020987b42001cb8788299ab2baa65f1"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_18.jpg",
+      "pairedSixViewSheetSha256": "5bec67651b291cd462eba44b5a4a879ea020987b42001cb8788299ab2baa65f1",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/front.png",
+          "sha256": "c52ffe1a55e71e9a2e4ad070c5e5fede7fd5ffe54a7bffc9c023c001f339b797",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/back.png",
+          "sha256": "d6806e8a96fabc682ee0fc6983d9c3f560acc0eb4e77811fa0ae82b11d2d5d62",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/left.png",
+          "sha256": "a8cabb77658303509207f0c5e5a7148062b730bbae58f4a5477d56ac786245e2",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/right.png",
+          "sha256": "1ccf385ce2b889b26648eff84a2730b5bf31187712262fe5cab1f7897dbeed0b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/three-quarter-front.png",
+          "sha256": "af427a4539ac85002f41a016ff2ddd0b5691c743d2d3d313185e33c89e80d34a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/three-quarter-back.png",
+          "sha256": "2fc5fb51ca2e14b1c274130a75ff40781526586f687e5d535ee4e5d1abadae05",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "Six actual pairs opened: dark rear cape folds now follow the shoulders without covering the two curved blades. Retained hood/mask and garment ornamentation remain simplified versus the original purple-rune source; V5 verifies cloth improvement only.",
+      "initialFindingsSha256": "e4c99ab19582f49584aa8f48ec31ef1aeea5ad96035da8b24eeba2f14dee16b3",
+      "resolution": "The tall hood has a tapered pointed front and folded rear profile, seated purple side diamonds and a real broad brown mask covering the lower jaw. Actual upper arms remain exposed green, wrists/forearms have brown leather wraps and shoulders carry charcoal cloth instead of full grey arm plates. A long folded dark cloak carries visible purple rear rune geometry; both held blades are true curved crescents. The six final pairs resolve the retained hood/mask/ornamentation findings and the later independent clothing observations. All six current pairs were reopened after the final genuine middle-station cloth folds; the small contour changes preserve the upper bearing, pointed hood, rear runes and long cloak silhouette.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_20",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_20.png",
+      "sourceSha256": "7d35d96387d95997fd01cb312b736955f880e8f6b7d5afc5638123b616ef1270",
+      "actualGlbSha256": "b2bd7ee78ad4729f6941fea0eddd5f15d3ec8634825dda62f053797fd1d2fabd",
+      "actualNativeSha256": "99cf582a7e0d6f54e48e5b13cc2e354a61a23932e91fb724d5599e673bb3bb25",
+      "actualPortraitSha256": "2489d5954626a8ac15c224d66be9ed9d1a5c10b96a0d1355bf5d26220740b9dc",
+      "geometrySha256": "ca497778f787505dd79236883c44c2e9dabd4004099674d6566bf393ea713c76",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_20.jpg",
+        "sha256": "fe5226e49a8334cba3a4dfd0bed7177d6503324d75c2ee83132466c6b5c66f4f"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_20.jpg",
+      "pairedSixViewSheetSha256": "fe5226e49a8334cba3a4dfd0bed7177d6503324d75c2ee83132466c6b5c66f4f",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/front.png",
+          "sha256": "de457ef2d976bce858e5682398247c48f001a6b5a4c029259c6d2f264b4680fc",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/back.png",
+          "sha256": "5e4196dc204ff43d23ab8d21c84bf946086ae95cb8bdf2ce7ae1ea7fbc4513b2",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/left.png",
+          "sha256": "1c1c46d0868107b81cdd931fdc4308f474abbcb6bac98f1f9d59b7aea692c1b6",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/right.png",
+          "sha256": "696a5d11e0595fa1d0b836978acc25fa98cb40a4f7ab61969013fae4087da30e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/three-quarter-front.png",
+          "sha256": "2489d5954626a8ac15c224d66be9ed9d1a5c10b96a0d1355bf5d26220740b9dc",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/three-quarter-back.png",
+          "sha256": "5c82c60911f5cedef4a5be48fb66a7c18d666bf9753f29819d11d957ac2d5e76",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Bone Patriarch crown has thin vertical rods and jagged fins rather than broad curved ivory ribs; carrier frame is a flat plain rectangle with two white rods rather than shaped strapped bone totem. Skull staff, natural hulking body, hanging rings/necklace and ragged leather skirt need reconstruction.",
+      "initialFindingsSha256": "22f30c4d6300bbe7b05d9eecd5099a3fcdfc31e90fed169e98ab6e47966fc688",
+      "resolution": "Broad contacting curved ivory crown ribs replace thin rods/fins. The natural hulking body is covered by an actual fitted dark brown leather front/back vest and dark shoulder caps, with no green punctures through the vest in the final views. The strapped wood/bone carrier, hanging rings, ragged leather skirt and six separately carved ivory staff skulls restore the source equipment. All six final pairs were reopened after the last leather-band repair; boss authored height is preserved. All six current pairs were reopened after the coherent whole-figure ground seating correction; the source silhouette, held gear and body connections are preserved.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_21",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_21.png",
+      "sourceSha256": "c62135e61cb901eecbea78a75b1dea026177aa61e7c4eecad8d8bd277f180687",
+      "actualGlbSha256": "e6aeef36671a42bfa7955f515f5023b12bf365eb10a90b52c25087129785ef84",
+      "actualNativeSha256": "c59e12d985f8fc29cfba43a5a6e3235da6c7c98168bc4fb23bda1a9377f81f49",
+      "actualPortraitSha256": "7bfc9bde6fc4937c2715696bef549a5a6283a3060be75fe4c3a646dae20586e3",
+      "geometrySha256": "cd4fa84ccc6603183c9e14f28618f96feefbfd2129ffb238a4279b04c448f8e7",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_21.jpg",
+        "sha256": "880d7d531207140e09dc7fe91990e3a7ff1cd880ffd7a577a3d3cc7be328b3eb"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_21.jpg",
+      "pairedSixViewSheetSha256": "880d7d531207140e09dc7fe91990e3a7ff1cd880ffd7a577a3d3cc7be328b3eb",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/front.png",
+          "sha256": "97b095565b070bb11b3a6695649696c983d54a4d2e86700dc2f6cfe2274081b1",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/back.png",
+          "sha256": "b8920e5381eebd23db2c45dd4c84a825199d4a5110d83b9992e3f55be94de24a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/left.png",
+          "sha256": "f7154a147f5978b39f9bd9c7cff0dba929129e7a110166f7830185a250c78d6b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/right.png",
+          "sha256": "2acec8081b6634cbd8986a861f593d3b717d9fbbae65649bed5fcd960efe9f58",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/three-quarter-front.png",
+          "sha256": "7bfc9bde6fc4937c2715696bef549a5a6283a3060be75fe4c3a646dae20586e3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/three-quarter-back.png",
+          "sha256": "ccc6e7f162946f92a39678f6fe1b57fb87336e2d31e492b48966257e8ecbe980",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Rotroot troll source is thick integrated bark/moss body with curved branching trunks, dense organic crown and massive gnarled fists. Current sparse parallel straight rods over generic green torso, symmetric moss collar and bare square face lose the source foliage/wood volume; hand branch structure must connect to actual palms.",
+      "initialFindingsSha256": "0b3ca166f333483f51073f25d2882198b39c1bf02f5ad4965be718abc4277c8c",
+      "resolution": "A connected articulated bark body and thick gnarled fists are fitted to real palms and limb bearings. Curved branching crown trunks and irregular moss canopy replace the sparse parallel rods. Actual bark/root beard and moss volume wrap the chest/neck, and a long tapered contacting root/moss back mantle reaches toward the thighs instead of stopping as a short bare-backed collar. The six final source/model pairs were reopened after the final root helper export; the prior substantial bark/cloak coverage findings are resolved. All six current pairs were reopened after the coherent whole-figure ground seating correction; the source silhouette, held gear and body connections are preserved.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_22",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_22.png",
+      "sourceSha256": "de8a10851446a9dbdc1130e11d22185b7d2665caa59576473e2c101134c26d17",
+      "actualGlbSha256": "44ceab27fa3221ac4812b90c1b2e78872129e21d5e4d0ad4e45f1bd96840e59e",
+      "actualNativeSha256": "5c952601a81f4123040584ee7a84463752b08e0be957e878ec23b43f39660806",
+      "actualPortraitSha256": "00fe84be540a39598e51e47f515b9e64d9ebf0523de9c721a55e86502ca7a0ac",
+      "geometrySha256": "c0bf53173152073169374c893994ebacd32b99675680d84b8d388667fc870dff",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_22.jpg",
+        "sha256": "1e6ac59e4a2f6892db04688cf4c9e326d496a0e38a91e90a488da6a02d2b043c"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_22.jpg",
+      "pairedSixViewSheetSha256": "1e6ac59e4a2f6892db04688cf4c9e326d496a0e38a91e90a488da6a02d2b043c",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/front.png",
+          "sha256": "fa9311f2c6c98c3ae1654171aa2ae7e1faa1a3fc38c50d12fbb08baf83654004",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/back.png",
+          "sha256": "a8608564d26f59e4721974e55c6ce28f92bd0d13c84da5fc7e156c6c1f16bcd5",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/left.png",
+          "sha256": "328da62d089db73e2495451e2fea0b0e80be150247a1746d625325c6774ed329",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/right.png",
+          "sha256": "bdfd40dcb4dd373e55c2cfcb9e45b49dc156acbf61e68ddbb902db0f16ecffd3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/three-quarter-front.png",
+          "sha256": "00fe84be540a39598e51e47f515b9e64d9ebf0523de9c721a55e86502ca7a0ac",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/three-quarter-back.png",
+          "sha256": "3b694a65f19e04e1c5eb486bc9cdf61631c343c7219c8ab0e40de843664929ae",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Iron Ram's wrapped round armor and curved heavy horns are represented but geometry remains much more slab-like: thin stacked shoulder/wrist plates, elongated flat-backed helmet and plain hammer. Improve actual fitted plate depth, rivets/weathering and source hooked horn profile without losing hand/leg contacts.",
+      "initialFindingsSha256": "9ad3e6ea885ebc8239c7ed9351f4f26aba1e10b89a851d960ec53b45a61e8c49",
+      "resolution": "A rounded fitted steel cap carries true curled ram horns; steel armor and rivets wrap the actual shoulders, wrists and lower body with contacting joints. The final held weapon is a large solid studded cuboid metal hammer on a continuous wooden handle, replacing the wrongly substituted pointed/flanged mace. Actual leather rear harness and ragged waist layers remain. All six final comparisons show the source heavy ram armor and correct hammer class, rather than just inherited weapon metadata.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_23",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_23.png",
+      "sourceSha256": "c7a366bf166f1bc6f779b5a73cef300a46ec4b9ee00813886f4a77a44647149b",
+      "actualGlbSha256": "e919ded6d3adba6f7beb0308d7ef5aea6c226fbf2aed89f31f2a990d2551fc45",
+      "actualNativeSha256": "8d6d6f1eb5022a063a3359a7a228942d8623f2a8174a49cc25e0cd09abaa0b81",
+      "actualPortraitSha256": "ee3aa8faaad97ccff345f1ba80c9c887b0f7f0d5a8d2f3beeac7c81b55628d3a",
+      "geometrySha256": "ec38c5dbe6373dc77fd2c27c10d792eacc97ed2ec5cef3fd4431101c12d1ffcd",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_23.jpg",
+        "sha256": "c570f9c7c0f793806b93683fc31a1ee7ab6ca171918bef9cefdd6ad4f5e0410d"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_23.jpg",
+      "pairedSixViewSheetSha256": "c570f9c7c0f793806b93683fc31a1ee7ab6ca171918bef9cefdd6ad4f5e0410d",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/front.png",
+          "sha256": "62bfc80708c2218e3e94c8ce130d0b63697cf447c9b2f2f87dfe77f00df4111e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/back.png",
+          "sha256": "eb1489c8f7489bf35841835962c7b36512040d5a88d32cf75fdd91de0e6b0acf",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/left.png",
+          "sha256": "de13d4c2d40f283394fe24b3eb971190ba0e436e15a52e25085a0cadc161a7e1",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/right.png",
+          "sha256": "276972cef8a986b0d91c7ee927ab2ce56604ff7a5fa05d80833aff09c672bd09",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/three-quarter-front.png",
+          "sha256": "ee3aa8faaad97ccff345f1ba80c9c887b0f7f0d5a8d2f3beeac7c81b55628d3a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/three-quarter-back.png",
+          "sha256": "33b9327bb2ec26fdea9b5e3b3d41c1ad4b4ed8a12a8b5a63b3e70b69bc34f2f0",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "Six actual pairs opened: dark blue rear cloak shows nonplanar folds and follows shoulders; staff, soul orbit and cyan hands stay attached. Retained footwear, ragged robe layers, soul colors and face details differ from original source and require later fidelity review.",
+      "initialFindingsSha256": "81f32ae8d037d62a3c424aa6703b3bd50f58adbb681a8b3683cbbda25c9b0579",
+      "resolution": "The source blue soul character has bare cyan feet/hands, layered long ragged blue cloth and a fitted hood. Real shaped ivory skull masks are carried by the wooden fork and the three intentional soul orbits; the centre orbit is above the hood rather than blocking the face. A fitted broad studded brown girdle supports three actual brown-framed hanging cyan diamond seals through contacting links. All six final source comparisons show these visible repairs and the complete held staff assembly.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_24",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_24.png",
+      "sourceSha256": "3a2e5ec81c3a262bde3f736ce9a54ff27dd5fd8d43d66bf6c48e9c0e8dd89f5e",
+      "actualGlbSha256": "20ae466ef3c1e292b6e9f5b72762051b4f3b62547a8feb6c60eab0ae6b73aece",
+      "actualNativeSha256": "bc8d37cb9b82fc8da7262c3f4316d04ca7aedd81ca3ebf56581b0397e4a5cbeb",
+      "actualPortraitSha256": "d641c95cffb29733ac02fab05745a947cc9b8610e2f64367619a4ca071699616",
+      "geometrySha256": "a85a820a09236d721b94aae76ebd89c2c51ccba8dd38eeed45803fef2596b199",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_24.jpg",
+        "sha256": "de4f995c9b5f9486f41c807f7079bfa987179f4ebafa228d61fecf80165e898b"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_24.jpg",
+      "pairedSixViewSheetSha256": "de4f995c9b5f9486f41c807f7079bfa987179f4ebafa228d61fecf80165e898b",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/front.png",
+          "sha256": "a3643768c03a306dba05286e100b8916c71356021a5d4c95a389d3544f95264a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/back.png",
+          "sha256": "111bf029290a7f9142e6cf1818ab74736fc01a701c1ebb0c56f98ba1b85d5fd7",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/left.png",
+          "sha256": "6ab13939be340390f44e99f730ee294b318309bd36a800abf080ce2ca2de8dbb",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/right.png",
+          "sha256": "fb1aa4f7e9ccba6393af5a5f8e4e83856ff114c8889245b99b8cbd434e805a6b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/three-quarter-front.png",
+          "sha256": "d641c95cffb29733ac02fab05745a947cc9b8610e2f64367619a4ca071699616",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/three-quarter-back.png",
+          "sha256": "1d0e497cf27249309ab057fbf09036947ce9f873ccb5e081391dce6f844e36c2",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Riveted mutant source has compact cage pilot, thick riveted irregular box armor, round shoulder/elbow/knee/ankle mechanical bearings and gear fist. Current rectangular wooden cage dominates, limbs lack source bearing assemblies/struts, chest grid and flat boot blocks too generic. Actual gear hand needs nontrivial axle/palm mount, not floating gear near wrist.",
+      "initialFindingsSha256": "051ad25298310d16db54e7cbf0f6d1c155ac6de0acd22a9ede568ad78ec95821",
+      "resolution": "The pilot has a compact visibly open copper window/cage with thick riveted frame, steel rear plate and actual circular side-bearing housings, iron insets, terminal hubs and seated rivets. Copper limb covers and real mechanical shoulder/elbow/knee/ankle bearing/strut assemblies replace the generic wood/grey body. The gear fist has an actual axle/palm mount connected to its toothed hub and teeth. The final six source pairs show the robust copper pilot identity and circular profile housings; no cosmetic metadata substitute was accepted.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_26",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_26.png",
+      "sourceSha256": "4e6a8bc1328b0e53596d3bc2f45fb05ba791aead3f2ca4beeb168f2e35a1667d",
+      "actualGlbSha256": "2fe9e15f76945fea2eb28877dd16a7a1e8c6ccd43c7b336046b6341361c85626",
+      "actualNativeSha256": "6b7ed93ea8c005c530eeed2986b41f4ec1fabb84f2b162ae9fb2f45004760f02",
+      "actualPortraitSha256": "4a1eb0138d79a5d3217f937406cf25f0548bcb2f2910837105f2055377580371",
+      "geometrySha256": "0e59521a81f00382d88cf071672ffc109df1a0c84e2f1596da9b760bedac0018",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_26.jpg",
+        "sha256": "9086c3f66cba8c7f6ae02638b2c2bf0a29ece9800601a440db2aabf4170b508d"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_26.jpg",
+      "pairedSixViewSheetSha256": "9086c3f66cba8c7f6ae02638b2c2bf0a29ece9800601a440db2aabf4170b508d",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/front.png",
+          "sha256": "65e2a2a96d22751d0e4163014e6805501ba343410ef6f25a4faffd9dde806781",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/back.png",
+          "sha256": "586f4bfd6237051d9bd2b3ba1db1db9483e27a22eb35096fc3799300dea260a0",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/left.png",
+          "sha256": "917c02ad468a5f7c8073e12ccb4f035f4fe5ad70d235fdcfa77a635140f31060",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/right.png",
+          "sha256": "d98c8ca59718165760fa405495c9daaf8d2a9c97db635225cd7918ee47a40e71",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/three-quarter-front.png",
+          "sha256": "4a1eb0138d79a5d3217f937406cf25f0548bcb2f2910837105f2055377580371",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/three-quarter-back.png",
+          "sha256": "9daa90fa6a841c49f23621c48921fb6c6550542c88b0b9e6409045a76368fef8",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Spell Eater chunky muscular silhouette is represented but source dark rune stones should be irregular rock collar with varied engraved orange runes, not a regular block necklace. Improve actual anatomical fist/arm depth and ragged leather skirt, skull buckle and asymmetric spiked mace.",
+      "initialFindingsSha256": "b73032fcb6f94a7c89c91376b7a4452876739388c54442f0c263e235a121ff12",
+      "resolution": "A natural chunky connected green body carries a varied dark rune-rock collar with actual separately seated engraved orange glyphs, instead of a regular unmarked block necklace. The bare abdomen, ragged leather skirt, actual skull belt buckle and asymmetric spiked held mace remain readable. Brown leather forearm/wrist wraps are now actual material/mesh surfaces rather than green skin bands. All six final source pairs show the collar, wraps and source weapon identity.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_31",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_31.png",
+      "sourceSha256": "7de73f17356ecc13f3b829d20b3b288a30f9e7b2d3bcf3ab4c992bc3db8616cb",
+      "actualGlbSha256": "c4858d359e1baa13d056c3b4fd260fc8b8771c473d7ec915d7e0f7e4a4ee1860",
+      "actualNativeSha256": "a03cf35fcb5513843def4192f523f611ab4dab69141af054b569eb0136219b09",
+      "actualPortraitSha256": "a73a7451caf85d6c455585c5d4b8bf17135408f9031567c641ef71d9e1c96823",
+      "geometrySha256": "45ea85a5478a165974637ce222700ca602a7a511f61518133195202558a41af3",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_31.jpg",
+        "sha256": "82d9605338bbd2f228fc0c1705d9ffa16076b1464a6962b66340f3fd6a9e6288"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_31.jpg",
+      "pairedSixViewSheetSha256": "82d9605338bbd2f228fc0c1705d9ffa16076b1464a6962b66340f3fd6a9e6288",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/front.png",
+          "sha256": "8d9c0dc48aeac021e975e94f6a7a23173aa410b8edada27c3cbab7c7206bf020",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/back.png",
+          "sha256": "4d12d250aa8f07a8415e09bf327006c657b072452ed8656028eeaec4e9078479",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/left.png",
+          "sha256": "f56a7b1087a7aa3a4fae2a299d5b1bf511850010eccd5a587da6998e871a88d3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/right.png",
+          "sha256": "ca2ed9014d6b033db784c1e63d1f854125560ae61a20e998e99c72048cab5d26",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/three-quarter-front.png",
+          "sha256": "a73a7451caf85d6c455585c5d4b8bf17135408f9031567c641ef71d9e1c96823",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/three-quarter-back.png",
+          "sha256": "7a8a009f52112d1851b006260286182fb73244058359cd0dea592e5b91671f55",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "Six actual pairs opened: dark rear cloak is folded and seated below the twin-point hood; shield/staff and shoulder skulls remain clear. Retained short twin hood peaks, staff emblem and shield decoration differ from source; not a full fidelity approval.",
+      "initialFindingsSha256": "c2647bbe1b53378b2a17f2ee6484f5858b2ae00553782afba8a1dc03f12459fa",
+      "resolution": "The twin-point hood and full ankle-length charcoal robe have real gold facings and front/back seals. The shield has a dark sun face and a conspicuous physically seated gold perimeter, while the whole staff has a brown shaft, gold ring/emblem and hand contact. Both shoulder skull assemblies directly support actual hanging ivory runic tabs down the upper back, visible in back and both profiles after the final relocation. All six final source pairs were reopened, resolving the earlier short robe, grey rim, pale shaft and hidden-tab findings. All six current pairs were reopened after the final genuine middle-station robe folds; the small contour changes preserve the top bearing, gold facings, seals and hanging rear rune tabs.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_32",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_32.png",
+      "sourceSha256": "f0114906482e4e3be10d5b4e227ee80018b4ee9f44f6697ec539045d430c11c7",
+      "actualGlbSha256": "a23a94047bd557550aac14b49c916d1f5e45fd5e08a5062a620ac8edc128b1c8",
+      "actualNativeSha256": "95e0297926c066c541c2e10f957a1a1442f65cf74290d01dfcef8a335407e066",
+      "actualPortraitSha256": "516314a75b03cabd5f0f38d49973913bec9892181314967bfbb5ab4ef98615d9",
+      "geometrySha256": "23bcb24dd5bb04c4bcd4aa42df39c39dc74f2015b24f21a238235493780216b0",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_32.jpg",
+        "sha256": "7374a4a3f6846463b5ee6258a39f26bb7e66c7883db35094a0f816cd4618af9a"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_32.jpg",
+      "pairedSixViewSheetSha256": "7374a4a3f6846463b5ee6258a39f26bb7e66c7883db35094a0f816cd4618af9a",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/front.png",
+          "sha256": "f28e6a9040e81555d9827b3f6d7d1be983ba53ffe815b9b4178dc112597ff94d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/back.png",
+          "sha256": "71940222cf9535d2901186b5d87c7ce0b60c4b19adee235911da53041323e3ca",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/left.png",
+          "sha256": "6ee6483a284e996372b28e4283d446a0461f34747b611e98e69f751615f3614e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/right.png",
+          "sha256": "39eb906fe6c70a0aa5c4d62d13156042c27acfd7b3c5c39ce943df215bf5dbc3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/three-quarter-front.png",
+          "sha256": "516314a75b03cabd5f0f38d49973913bec9892181314967bfbb5ab4ef98615d9",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/three-quarter-back.png",
+          "sha256": "765e92a407714cc0d2d2e53625389e88fb51aa340c71c99cf7221f95b07a3277",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Soul Drinker needs curved connected ivory rib cage around recessed glowing cage lantern, natural hulking grey body and hanging caged staff lantern under a bone fork. Current straight rib bars on rectangular wood frame, uncaged diamond, rigid narrow staff fork and generic boots/loincloth differ materially.",
+      "initialFindingsSha256": "51ed32effac13d730d0ddb186697cab1c3f6b39feeb4b345bf98e797ec83893b",
+      "resolution": "The rebuilt grey troll carries a curved connected ivory rib cage around a genuinely open recessed chest cage/lantern. The staff has a true bone fork and hanging closed-thickness lantern cage around its intentional cyan soul, with a continuous held shaft. Natural thick limbs/bare feet and a ragged leather waist replace generic boots. The obsolete two flat detached rear baldric planks were removed; the remaining actual diagonal crossed harness follows the back surface. All six final comparisons show the repaired cage and source gear identity. All six current pairs were reopened after the coherent whole-figure ground seating correction; the source silhouette, held gear and body connections are preserved.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_33",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_33.png",
+      "sourceSha256": "1e1f8bc5aa7cf1455439275d4600726dc27393907cfe4a5a70c9a1658b4ca9fe",
+      "actualGlbSha256": "924f19ecf8bae1b38cd25425106d84abf3862a18558d89c16535c4ab36eda6ed",
+      "actualNativeSha256": "a62df730250d427d8ab943003d06590b0b379df73ff3d7149766c0a6602e1bc4",
+      "actualPortraitSha256": "18a3a4b52f9015c831420536d55295bcb2cd45defa43301a2352ec22cc70c105",
+      "geometrySha256": "9a423b2750755998063188c94d008892918078d6db06fc7bc9f0ce9251b4f48f",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_33.jpg",
+        "sha256": "0d099a811177c019b970a25cf5f67239423824ff8878726963f745d370663373"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_33.jpg",
+      "pairedSixViewSheetSha256": "0d099a811177c019b970a25cf5f67239423824ff8878726963f745d370663373",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/front.png",
+          "sha256": "aba8fd2c0871de85af196436d761cee34ee4d4703dcb7873d8a34cb68f4014cf",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/back.png",
+          "sha256": "b36792905c24370749889958cbf1db9a25d9a6dff04655b947f631cd0bf04d7a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/left.png",
+          "sha256": "7867856c53f78dce239216969ba7d748042538de662f20795fbbdf5e6d448897",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/right.png",
+          "sha256": "8d784501798dbfe7c3150518f93a51e724c3f11d90d8a24a22f8385ef1131548",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/three-quarter-front.png",
+          "sha256": "18a3a4b52f9015c831420536d55295bcb2cd45defa43301a2352ec22cc70c105",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/three-quarter-back.png",
+          "sha256": "6ae97a66c2b54f004a442358a31e5092d2781da08d26dbc8515f683f9a26ef4a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six initial actual pairs opened. V5 flat-cloak miss: large planar rear purple cape visibly stands away from torso and must be fitted/folded now. Further V6 source redesign needed for ragged hood/shoulder/skirt layers, icy bare limbs, silver belt and faceted purple sword; current smooth generic robe and brown cross straps differ. Initial flat garment finding resolved by the authorized V5 repair; all six final source/model rows were actually reopened and show fitted nonplanar folds. Other listed source anatomy/gear findings remain unresolved for V6.",
+      "initialFindingsSha256": "05de247f997da64afaef92aff88e0a736798394d716eb4d5ef9b7658c53f0e58",
+      "resolution": "The character has bare connected icy blue limbs and a real fitted icy pelvis, a ragged purple hood/shoulder mantle, faceted purple held sword and a visible bright silver waist girdle. Nine real folded trailing ragged purple garment panels extend below the waist toward the calves in back/profiles, replacing the short fan over bare legs. Their roots are physically seated; no flat purple back plate remains. All six final pairs were reopened after the final long-drape export and show the source icy/cloth identity.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_36",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_36.png",
+      "sourceSha256": "6898d21bad29df4985f0ff4e55384b17affd625d862b3dc5a3a3599cf9831a89",
+      "actualGlbSha256": "1201bbb3c16c6fa0258aadf792ac938e8437863828857ff5f2d136794ad99853",
+      "actualNativeSha256": "90d62e5e7e53c74fe0c205fed5a93285a9a0fde4f35dfa6743dbb455343d8b63",
+      "actualPortraitSha256": "285980e1e5861351e7c7f599a128824c90be7adf8121792c92798c131d0fb3cf",
+      "geometrySha256": "5f682f7e8f981ff6bc2d983301e86d18395022445320713fe3d4842f653e5eaa",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_36.jpg",
+        "sha256": "f774a4aa87a4ed2617a182c245d757619c5937f2cb3b020dc35ab52c57edf3e1"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_36.jpg",
+      "pairedSixViewSheetSha256": "f774a4aa87a4ed2617a182c245d757619c5937f2cb3b020dc35ab52c57edf3e1",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/front.png",
+          "sha256": "aee1ff6a131cb4a960e4282f87f947ab1dd7b798316810f0d01ecd46d9383b34",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/back.png",
+          "sha256": "04fbf3a001364af88e03f0c59a8e213d5171887e59668015c380723a5425f5f2",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/left.png",
+          "sha256": "c962cbe95655b17683a2af09694d6e218980ebb28f60a028428ad994ccd68dbe",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/right.png",
+          "sha256": "b080071947775ffbd35b2d4afb01dd6c192fdf2e093be2e9af8119d4d2f3e9f4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/three-quarter-front.png",
+          "sha256": "285980e1e5861351e7c7f599a128824c90be7adf8121792c92798c131d0fb3cf",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/three-quarter-back.png",
+          "sha256": "7f95bd28a88c822e780f0c787bcc2441552df4c27863fbdd270efdc6228b029a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Oathbreaker source has exposed crowned orc face and rough riveted steel plates; current closed slab helmet with three triangular crown spikes, square breastplate and plain red tunic differs. Shield is too clean and barely fractured versus source deeply broken split shield. Leg armor, waist tabard layers and sword blade profile need reconstruction.",
+      "initialFindingsSha256": "0b6bce181d7f0cb1a148678320ea4b5c0bc989d96daf895db5c90ec8f170a171",
+      "resolution": "The exposed green face wears an actual broken crown rather than a closed slab helmet. Rough steel upper armor, heavy actual steel thighs/knees/greaves/boots and a short torn red loincloth restore the source knight identity, replacing the long red robe/green legs/brown boots. The dark shield has a deep real split with contacting rear braces and gold crown relief, the sword is a whole held assembly and brown rear X straps visibly fit the outer armor. Final six views show these source repairs.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_38",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_38.png",
+      "sourceSha256": "66fec81fdb7df9ff5efc428c8614efe4821a5226ea3a239567f5ec80099e3c04",
+      "actualGlbSha256": "02a6ee5aaf5a02b88c30ac8713b7fc857fad977404d6cb0fb02e71f533485b5a",
+      "actualNativeSha256": "d908118745086c7efced2026de1644e7523667a57548b2070063bba94b225d0d",
+      "actualPortraitSha256": "fdb164e1180cdd8ef8298910cad5992b20eff44c96a4905aa0534e12b780c4f0",
+      "geometrySha256": "a19d97b44fafe159b2ebc5387366318695f2e8b9f9a42cb291722ea1db20246c",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_38.jpg",
+        "sha256": "bcb0f65f32cf329e6e79b39303919e9373d6a4e6390627ddcf3339a29cf06be4"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_38.jpg",
+      "pairedSixViewSheetSha256": "bcb0f65f32cf329e6e79b39303919e9373d6a4e6390627ddcf3339a29cf06be4",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/front.png",
+          "sha256": "7f0be6ebc940c3c357d614cd2ef203bda114516986da5024a9239a536a78f8b8",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/back.png",
+          "sha256": "96e556b36dd2ad80d2d39d7a52de45f2d021cbb5e0a4969da33db9576d40ff25",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/left.png",
+          "sha256": "2ee040fa6b4b4b8ccdddf270274cde47836b437c485e9e8c62574ce2098b340f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/right.png",
+          "sha256": "0358e9ab1be8cfed68d6dde95b43d6a608e9ca6f986a094c4fb6fd1f524c6eca",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/three-quarter-front.png",
+          "sha256": "fdb164e1180cdd8ef8298910cad5992b20eff44c96a4905aa0534e12b780c4f0",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/three-quarter-back.png",
+          "sha256": "290c8b5b689d6ba416abc343c3fd44fa352f5fbdde33d6772fe75b08498464cb",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "Six actual pairs opened: dark rear cape has clear folds and is fitted below unchanged hood, leaving twin blades clear. Original ragged feather-like cloak tiers, ear prominence, mask shaping and blade profiles remain simplified in the retained baseline.",
+      "initialFindingsSha256": "ecda2978b66e0d6f6d36af9d81152b5830255f92dddf192b8b9dbcb2fd5fa177",
+      "resolution": "Prominent pointed ears, a fitted charcoal hood, shaped red lower-face mask and ragged cloth tiers restore the source rogue silhouette. Actual green upper arms stay exposed, brown leather wraps cover the forearms/wrists and charcoal ragged shoulder cloth replaces full hard grey arm guards. The two short knives have source-inspired curved blade/guard/hilt assemblies physically under their held pivots. All six final source pairs show the folded tiers and repaired cloth/skin identity.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_41",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_41.png",
+      "sourceSha256": "4eea18cf33680a965dfb51a285bd4b0299076023bae5e4f100b5b523bde02882",
+      "actualGlbSha256": "712d2439c577dd43e4f7a86cf0f37b343b8083b0607da2bba97eb707d2e7dd0b",
+      "actualNativeSha256": "6402057f916db72194e8bd66ca727c49b101a6ba0fe31e92f0bf34a446ad5804",
+      "actualPortraitSha256": "5dfedbec30fc55d7e68dcc73ea1ee187535961f41057765fa460e742e3f05652",
+      "geometrySha256": "b845de36576144f4db533e24c2d40b9dfb936320fee4ff26b78d52f8707e548f",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_41.jpg",
+        "sha256": "f0f309a23e5cd67d06b1b5d99ecb6ff17227fa4bb6a87ea4213ff1d3215c449c"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_41.jpg",
+      "pairedSixViewSheetSha256": "f0f309a23e5cd67d06b1b5d99ecb6ff17227fa4bb6a87ea4213ff1d3215c449c",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/front.png",
+          "sha256": "f09c06583e31ad0f030400ccf982129f311773e41449780bbb82cc9d1f15e200",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/back.png",
+          "sha256": "1caa7cf4c5ca59b0294bcd5dcbf3dfb5ed331b202c4926f95dea1feab9d64aa7",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/left.png",
+          "sha256": "39126934a2cb1f6a199eb2931d93e6a778b8e5de99256e9b5d3142390699625f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/right.png",
+          "sha256": "7473e5b3b60ce5e8895d50659099b977559260617575df4fd869108991b1890a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/three-quarter-front.png",
+          "sha256": "5dfedbec30fc55d7e68dcc73ea1ee187535961f41057765fa460e742e3f05652",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/three-quarter-back.png",
+          "sha256": "a31c928c742a7e1ee571e6deb72ce7eef6def8c7aab392d7339f1ecce7998d66",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Crystal Phalanx needs fitted segmented metal helmet/chest/arm/leg armor with rivets and worn crystal shield surface. Current helmet is enormous plain rear slab, chest square plate and brown bare limbs lack source plate joints; shield looks plain teal panel with three cone crystals rather than faceted crystal inset/tinted mirrored surfaces. Spear and shield hand attachments must remain physical.",
+      "initialFindingsSha256": "f4322c34c4db4d92623ade00a381150dc2f33070920f7df0d1bee20ccf4d32f5",
+      "resolution": "The rounded fitted steel cap and contacting rear neck guard replace the oversized rear slab. The shoulders, arms, waist, thighs, greaves and boots carry actual steel armor rather than a brown coat and bare limbs. The shield is a long pointed kite with an actual faceted tinted prism inset, continuous fitted frame, three upper crystals, seated rivets and real rear grip/straps. The spear has one broad faceted diamond head instead of multiple barbs. All six source pairs show the corrected heavy steel/phalanx identity and physical held gear.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_43",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_43.png",
+      "sourceSha256": "57ad6b0d09ed99269672ba09f47b59aeda7c1233379cf87736a8083f3d68e008",
+      "actualGlbSha256": "4f3fa260d9ffa551d8deb883fb82030b925814fee5a2d46772551dbbf1c2fa9a",
+      "actualNativeSha256": "7de36cc39c8f19c3d4de79871d4f04d842cdd07ff55fd93529487616b8f2dc1c",
+      "actualPortraitSha256": "e7dec6c0dedb2e91495c94d5d3440154c6df6034cbe5d7b9b3854e1d9e8b3b4a",
+      "geometrySha256": "6182188d4437b205a03bdde55b87b0b53045abe18070e0ba97f1a006e65cdb8c",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_43.jpg",
+        "sha256": "1c199dac080538f0276ffacbfe5cb5ad2afb4e54bffa89e892d33f6ff2336d1e"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_43.jpg",
+      "pairedSixViewSheetSha256": "1c199dac080538f0276ffacbfe5cb5ad2afb4e54bffa89e892d33f6ff2336d1e",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/front.png",
+          "sha256": "74696a5fe55648a06f1bc3f37fb8015a9b73170499e0b874c27a7536ac9fc0be",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/back.png",
+          "sha256": "6aa5aab93409425eecd55266681c607c747b8eadfe5f9e9c82e3a14b27fa44dd",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/left.png",
+          "sha256": "63ed66d866a11169086513c30de55312cfddb20b864908d60206e10f518666d2",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/right.png",
+          "sha256": "abe23b5696647bba78cd5f3a8aee5d4d5ebda3dd0c1f5800eadaf293e2475e53",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/three-quarter-front.png",
+          "sha256": "e7dec6c0dedb2e91495c94d5d3440154c6df6034cbe5d7b9b3854e1d9e8b3b4a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/three-quarter-back.png",
+          "sha256": "45fe218dab3593ffe16e4594a5970c26a17adb9d6f1e91b2cb4de0ab0b009011",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Imprisoned Souls ogre retains actual two caged shoulder lanterns but their cage mounting/shoulder contact needs verification; source spiked thick metal mace is a plain rectangular hammer with sparse spikes. Head slab, plate stacks, belly segmentation and cuff bracelets remain overly generic. Rebuild rough riveted asymmetric armor and natural anatomical proportions from source.",
+      "initialFindingsSha256": "f64cba891d7b1fcba66f4c23fe08059c056051557369bb97d1637de6dc6f3618",
+      "resolution": "The ogre has a continuous natural potbelly, source-specific fitted steel cap/visor, rough riveted armor and cuffs. Both actual caged cyan shoulder lanterns have physically contacting mounts and cage pieces. The final weapon is a solid large cuboid studded/spiked metal mallet with a whole wooden held handle, replacing the wrongly substituted rounded/flanged mace. Source bare belly harness and ragged leather waist remain visible. All six final pairs show the repaired armor, lantern and mallet identity.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_44",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_44.png",
+      "sourceSha256": "6e1f9a0a440ca261250b267d21dc56fe4803957069288455d4df7f2c6f9f3221",
+      "actualGlbSha256": "5a4efcfd7ea6d26e7a4aedf8b23860b9bde36e53059a49921df5259e20211002",
+      "actualNativeSha256": "0a1dc524db00eb1e9c0a75da951e057528b2a8f92823c8329069389f87bd1fc2",
+      "actualPortraitSha256": "41c3510aa101e81dcfcdd9de00e8aa5818eb4f1011df7f2b16f11faae7e719c9",
+      "geometrySha256": "cba5490ea7677833cffe244baa1c970c199ac4ff9f1d272395f1878dfe5ccd3f",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_44.jpg",
+        "sha256": "1fcd8698274ac87dc6768d46a86a24abb7cc2e900eb13c46a9da7b48c5b1eff2"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_44.jpg",
+      "pairedSixViewSheetSha256": "1fcd8698274ac87dc6768d46a86a24abb7cc2e900eb13c46a9da7b48c5b1eff2",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/front.png",
+          "sha256": "8e2e938045f2bf1307d0b1a04af3b3e168f3ca37af41aad530a8f592a579deb9",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/back.png",
+          "sha256": "0e15a2603047659292df8a0c6353b3c078de55d0860eed23f256cedf3d347f19",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/left.png",
+          "sha256": "a4690d8fe66cb0e4f9d1b7b6efe0e2dfc27d662db9f93aec5c742ec9c32d8486",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/right.png",
+          "sha256": "2c85c443e789b96569cba19ef3f12ac867fb81f97bf016a77b46d5f1efed808b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/three-quarter-front.png",
+          "sha256": "41c3510aa101e81dcfcdd9de00e8aa5818eb4f1011df7f2b16f11faae7e719c9",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/three-quarter-back.png",
+          "sha256": "c0db5969d96f39f8d0c8313a47ecad014c925dc903836765cf5199419591e178",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "Six actual pairs opened: rear charcoal cloak drapes in folds below unchanged helmet; held axe and free hand remain clear. Retained helmet proportion, crescent axe profile and orange garment ornamentation differ from source and require the subsequent enemy fidelity pass.",
+      "initialFindingsSha256": "d01fe5cdfdc1f93da23b6e31abb2fa659700c19174d846bae0cb4524f964bcd0",
+      "resolution": "The face cover has real open recessed eyes, three pointed ivory crown blades and an amber/gold focus. A real long folded dark purple robe carries actual broad orange/gold shoulder mantle facings visible across front/back/profiles, and a continuous orange ragged lower hem follows the real jagged bottom ring. These physical facings replace the ineffective tiny centre accents and two vertical bars alone. The held weapon is a whole long poleaxe with broad curved faceted blade and separate pointed top pike. All six final pairs were reopened after the final mantle/hem repair.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_46",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_46.png",
+      "sourceSha256": "d9319e94ae2f233e28713e80abc7f4619bcdc426a65b5184b390fbec370f3abd",
+      "actualGlbSha256": "c20c7fc0b8b2f667532e83de30698e4b923921603a3607f3d342964b02456e73",
+      "actualNativeSha256": "5ac228804697661a17d24d5ab3da7ed0bcf9d37da75327550bf630d7c79ad831",
+      "actualPortraitSha256": "8838804dc604f27bc4b035525e82711a277473b013acf64200be765ebed358a0",
+      "geometrySha256": "9d701e235135b201c58ab73fb702e41f3a9cb760ca3396c26c3cb77ad074e71c",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_46.jpg",
+        "sha256": "a7375be63772576ba38c3142fdbe0108487de7ea54ce6e80242741eecb334736"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_46.jpg",
+      "pairedSixViewSheetSha256": "a7375be63772576ba38c3142fdbe0108487de7ea54ce6e80242741eecb334736",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/front.png",
+          "sha256": "4d3d109aaf44a14994bf4e6c17014a5f960e343beca2223e76760411f9e90e99",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/back.png",
+          "sha256": "83b6ec79eba0cda58b44fad6277ff1906a5df22e6c90a2d07aebe620366d58f7",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/left.png",
+          "sha256": "0b32f86918f110850997e3c5cfea6091c9e88b92f494eccbe04c17080160c8ce",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/right.png",
+          "sha256": "0c44ebcde04d7957b38f92e2df0ff2e119843731380f30803683f7330735e5ed",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/three-quarter-front.png",
+          "sha256": "8838804dc604f27bc4b035525e82711a277473b013acf64200be765ebed358a0",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/three-quarter-back.png",
+          "sha256": "4cf934d06ea170560f7e9d31d2c1f3a8a9879a2070d8fee6497bade6fa34012d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Hollow Armor revenant needs continuous open armor around dark empty skeletal volume, recessed soul crystals and cyan inner neck/waist light, fitted metal skirt/leg armor. Current round back helmet and broad simplified shoulders, plain brown skirt and exterior floating crystal diamonds differ; body armor silhouette and actual open recess geometry must be rebuilt, sword remains held.",
+      "initialFindingsSha256": "c3046f5a93b7141e8494a994014fc3464d8633a78c1c45de8c0d3e580051c244",
+      "resolution": "Continuous actual hollow metal head/body shells enclose real dark recesses rather than an exterior painted diamond. Split dark front breastplates support two actual cyan side gems, while three separate recessed cyan crystals form the central chain; intentional soul volumes stay inside the open armor. Cyan neck and front/back waist seams are visible through genuine openings. Fitted metal hip/skirt/leg armor and the whole contacting sword replace brown garment/generic parts. All six final source pairs show the restored hollow revenant layout.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_49",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_49.png",
+      "sourceSha256": "55637bd24f0276d7882795aa0dfbd0846c610215be7929e53de5dc1d65729fff",
+      "actualGlbSha256": "1b5c384b90e3f88e850c0afbaef522e8a140cd0e74e38d88958ae0dfe90f91df",
+      "actualNativeSha256": "2a568c093e1a5d97cc973b5a1532f6d2d1b8ca2c099f034f63352ce6b516573b",
+      "actualPortraitSha256": "677f985c55dabb7c45c997c713bf1580a61a0c98e4b717dcf783e873e72255ec",
+      "geometrySha256": "77b5ac8ee9dcb92f21deffaaa43a5eeeb4c0e2aae1b9d83fa5e51addaaf95984",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_49.jpg",
+        "sha256": "f4c597cd8e10875a7fe397066cc29fa92040a09cfab325dc8aed309fca4b57ed"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_49.jpg",
+      "pairedSixViewSheetSha256": "f4c597cd8e10875a7fe397066cc29fa92040a09cfab325dc8aed309fca4b57ed",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/front.png",
+          "sha256": "fa81215fd86d441a4728e413e8c262e7c62c848deed2b8bb9a6d012cfc35d1ff",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/back.png",
+          "sha256": "10f04c763c60697604eb618f71df72bb7fc0bd8e90ed6ef8dcec99e330f1fb2b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/left.png",
+          "sha256": "6cf2f955db6e7388c53ca4750962ff09ac8c658b3f87c91a3e4b5b3d27db5f4c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/right.png",
+          "sha256": "c336df66c5740cf6c1aee79c22fdce7db43cdc91f8f3618dac096428a3fd3e0d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/three-quarter-front.png",
+          "sha256": "677f985c55dabb7c45c997c713bf1580a61a0c98e4b717dcf783e873e72255ec",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/three-quarter-back.png",
+          "sha256": "844b3ae3192ecc987f587949f3a8e13e7f8e82b83bebcc58652003a741016df0",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true
+        }
+      ],
+      "passedWithinScope": true,
+      "initialFindings": "All six actual pairs opened. Deep Maw troll needs hunched continuous stone anatomy and true recessed oval tooth-ring belly mouth with dark interior/glowing soul, broad natural claws and shaped jaw/tusks. Current mouth is black rectangular plate with white triangles under a plain small head, brown leather tunic/boots are unlike source naked stone. Rear many repeated obsidian blocks should become fitted overlapping broad carapace; it is armor, not a cloth cloak.",
+      "initialFindingsSha256": "30ac9d160cb9435658138202c1d94ff1d5f60d544b59373dda9817b193d124c1",
+      "resolution": "The troll has a connected hunched naked stone body with no retained brown tunic/boots, broad actual finger/toe claws and a shaped projecting lower jaw/tusks. The belly is a genuine wide oval carved aperture with dark interior, a recessed cyan soul and separate thick upper/lower curved contacting tooth rows, replacing a flat black panel/triangle teeth. Irregular dark overlapping obsidian back/shoulder/forearm armor replaces a repeated uniform grid. All six final pairs show source maw and stone anatomy identity; the back carapace is armor rather than cloth. All six current pairs were reopened after the coherent whole-figure ground seating correction; the source silhouette, held gear and body connections are preserved.",
+      "unresolvedSignificantFindings": []
+    }
+  ],
+  "unresolvedSignificantFindingsWithinScope": []
+}

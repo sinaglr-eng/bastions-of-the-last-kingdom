@@ -75,7 +75,7 @@ export function measureHeadCoverCoverage(actor,{tolerance=.00002}={}){
   actor.updateWorldMatrix(true,true);const heads=[],results=[];actor.traverse(n=>{if(!n.isMesh&&/(?:^|_)head_pivot$/.test(n.name))heads.push(n);});
   for(const head of heads){
     const own=[];head.traverse(n=>{if(n.isMesh)own.push(n);});
-    const faces=own.filter(n=>/observed face|^face\b/i.test(label(n))),covers=own.filter(n=>/hood|helmet/i.test(label(n))&&!/fringe|buckle|jewel|crystal|plume|feather|stud|neck/i.test(label(n)));
+    const faces=own.filter(n=>/observed face|^face\b/i.test(label(n))),covers=own.filter(n=>/hood|helmet|rounded metal cap/i.test(label(n))&&!/fringe|buckle|jewel|crystal|plume|feather|stud|neck/i.test(label(n)));
     if(!covers.length||!faces.length)continue;
     const inverse=head.matrixWorld.clone().invert(),local=nodes=>trianglesOf(nodes).map(({triangle:t})=>({triangle:new THREE.Triangle(t.a.applyMatrix4(inverse),t.b.applyMatrix4(inverse),t.c.applyMatrix4(inverse))})),skin=local(faces),cover=local(covers),bounds=new THREE.Box3().setFromPoints(skin.flatMap(({triangle:t})=>[t.a,t.b,t.c])),coverBounds=new THREE.Box3().setFromPoints(cover.flatMap(({triangle:t})=>[t.a,t.b,t.c])),size=bounds.getSize(new THREE.Vector3()),centre=bounds.getCenter(new THREE.Vector3()),rays=[];
     for(const y of [-.3,0,.3])for(const x of [-.3,0,.3]){

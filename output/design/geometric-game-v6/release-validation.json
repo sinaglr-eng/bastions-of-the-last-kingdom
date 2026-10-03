@@ -1,0 +1,1572 @@
+{
+  "version": "0.3.5",
+  "tests": {
+    "tests": 470,
+    "pass": 470,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "build": {
+    "command": "pnpm build",
+    "exitCode": 0,
+    "basePath": "/bastions-of-the-last-kingdom/",
+    "modulesTransformed": 95,
+    "entryPages": [
+      "index.html",
+      "archer.html"
+    ],
+    "log": "output/design/geometric-game-v6/v6-production-build.log",
+    "logSha256": "9c52a767c5a09263a61b469f1626b576546a263b0e75c047617e172cc0b8106a"
+  },
+  "testLog": "output/design/geometric-game-v6/v6-final-tests.log",
+  "testLogSha256": "5d5e0b748e17119c8545f2eed2f04436ba8305b1d2ed35e77d10662c838ec549",
+  "createdAtUtc": "2026-10-03T20:56:54.161983+00:00",
+  "inputSnapshot": {
+    "file": "output/design/geometric-game-v6/validation-run-input-snapshot.json",
+    "sha256": "549b8bd730ddcd873764c9a93e96e702f815c86cbbd24a619b0727f5a1b329a1",
+    "allInputsUnchangedAfterTestsAndBuild": true,
+    "sourceFiles": 384,
+    "modelFiles": 680,
+    "subjects": 136
+  },
+  "validatedSourceFiles": [
+    {
+      "file": ".env.example",
+      "sha256": "fea947b2273a374fc60761c6e409b0d43669b26596653dfa7cb5f6d5a51e7d5e"
+    },
+    {
+      "file": ".gitattributes",
+      "sha256": "3a1002cf0d15742365b56ed2b42d05815bdc31fe11707765fcef70f4ecfd75b1"
+    },
+    {
+      "file": ".github/workflows/pages.yml",
+      "sha256": "cf98f26de2c6d60ab75fc05a823932042e4fa1369d0f43ce88d73289e9c7a571"
+    },
+    {
+      "file": ".gitignore",
+      "sha256": "be25ad03926c2df6322edd1850fa223b82d3c3b1c4fae8f7e649ef28a96e163f"
+    },
+    {
+      "file": "ASSET_GUIDE.md",
+      "sha256": "620d51b4dee4176cb8e885b0f71e6c287a6a785ed2c3cb5b70566836289616c0"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "sha256": "e5fb4372efe485def7528ad91ddc6ae5d98364172acbf29837904b31e42b1f33"
+    },
+    {
+      "file": "DEVELOPMENT.md",
+      "sha256": "17e18d9630b9d223c3f45b975f7c2e8c6cb9db8d2b820bd52168689aba15e21e"
+    },
+    {
+      "file": "GAME_DESIGN.md",
+      "sha256": "3ad630725938e8291c140858135a7e8dc64c4e9b2dd23baa3071f6aed99cdbb9"
+    },
+    {
+      "file": "README.md",
+      "sha256": "6129f27bfb11838fc457b0e66fe46fb9df7ff4825cbcc7c7706a4a4defe7ec48"
+    },
+    {
+      "file": "START_GAME.cmd",
+      "sha256": "1c9c940678c1395c6f1609de4b5e2392705d101951a7c5b7a57a2ddffddfe8bb"
+    },
+    {
+      "file": "archer.html",
+      "sha256": "3bc9ba2b8f521cb01ae26ea24ab2b86fb805245842cd5dfc790684cabcc0a4f7"
+    },
+    {
+      "file": "backend/SITES_DEPLOYMENT.json",
+      "sha256": "87d65ef0ab663197caa09d06cff3ce1419344761bf2b0978f77c2904be2c6200"
+    },
+    {
+      "file": "backend/drizzle/0000_tearful_gamma_corps.sql",
+      "sha256": "413781f28790dee1b7472785374df8ec0c153a7f5f66dbf1eafacab6f8649b54"
+    },
+    {
+      "file": "backend/drizzle/meta/0000_snapshot.json",
+      "sha256": "c08c863b0a8e02b312804e56c80b6a3926663379deeac8f8043470dd00525a80"
+    },
+    {
+      "file": "backend/drizzle/meta/_journal.json",
+      "sha256": "04e6d86cc65681297ece1db43ec94ed654ebf228f4748c6b5056d0cf24d4a616"
+    },
+    {
+      "file": "backend/migrations/0000_statistics.sql",
+      "sha256": "34e8adb42a850a10b924ef9fa3a245a2587e88b237cc7134d76f3acd136a979b"
+    },
+    {
+      "file": "backend/server.mjs",
+      "sha256": "2539fe39ac0b0c750444babe617faaa7dab0d9eb83fce6edc2626e2bef4e82d1"
+    },
+    {
+      "file": "backend/service-page.js",
+      "sha256": "336df48742181cee123f545198554c8ed2486533ce6f208f9173b8c09a39fd44"
+    },
+    {
+      "file": "backend/sites-db-schema.ts",
+      "sha256": "1bf6570634d04fab733f8eef6fca220f9dcc16a786f000180bac29071e7c519f"
+    },
+    {
+      "file": "backend/sqlite-adapter.js",
+      "sha256": "218e124839b84026df6bbf5ef4f1954a0cf46a0feaef386e8de9a218954dc32c"
+    },
+    {
+      "file": "backend/validation.js",
+      "sha256": "d23518a8a16648facb27820a45455a934f362b224952c673b1dc96b9332f96cb"
+    },
+    {
+      "file": "backend/worker.js",
+      "sha256": "eeefbded111ac58f505b83f4c3657a2468450d26e44198e79a83cc7e2f925862"
+    },
+    {
+      "file": "blender/generated/defenders.json",
+      "sha256": "627e70fdf80359696e1d6250ccbe03eaf82aba08438d642f4b48760f7c613ae7"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/archer-variant-b-turnaround.png",
+      "sha256": "e18ad30c196d04e4f0a3ed50734005b9b2288b5e09eb2e2db0a66a572ae95271"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/cleric-variant-b-turnaround.png",
+      "sha256": "eb835a868aa46bfe46a18f22ae6f9a63d8cfc626a4f6d0150e2324bfcf2c2349"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/druid-variant-b-turnaround.png",
+      "sha256": "8a53c0ed58039f9ffb781a4fa3c570a007f09fe67d289ef612046abcf7f3978f"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/engineer-variant-b-turnaround.png",
+      "sha256": "425b5fdb6b98304f5003096db4fe141bd7000d11e118cc46244bf72a884b4efb"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/frostwarden-variant-b-turnaround.png",
+      "sha256": "0e62fa7af99734cdbc44386a57c61ec5f8aefdc291ef0576b21e69d346f790bb"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/latest-design-changes.txt",
+      "sha256": "8dce62e8b51212172ffc375dc003940392b854a27730d3b2b8e7210ab32941ba"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/mage-variant-b-turnaround.png",
+      "sha256": "d70442329ef6aa5509a105dc4665ef587a0439205b7825a996c9b98d0a232384"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/manifest.json",
+      "sha256": "2bf5e5f7bf69e7e5cf9d5f772c6f381eada0aa2bcf20e75f09fa70d8a485c09c"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/modeling-notes.txt",
+      "sha256": "d01edfd78e220abbb5de97b36edd2a181a9e5bf8d6041eb4166ce10d6c316572"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/modeling-prompt-cs.txt",
+      "sha256": "14c932ea31ab589e61178eadd90fdc2d8ceaa3af2d7b4982a2468b68ce5af5cd"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/soldier-variant-b-turnaround.png",
+      "sha256": "258d30e9e6c17700f290d8b37d54717114179bfe62c1fbbb50a30fd5295f225e"
+    },
+    {
+      "file": "blender/references/hooded-turnarounds-v3/stormcaller-variant-b-turnaround.png",
+      "sha256": "de49d38ab2a6ae267cf49ff4e92309526407e5a6c3aae721855de1b45932b054"
+    },
+    {
+      "file": "blender/scripts/archer_design_study/geometric.py",
+      "sha256": "22835ffbadfb7f43c3ae0af4c923d2d3fc1dc867ca6ad20ad5204217960aa549"
+    },
+    {
+      "file": "blender/scripts/archer_design_study/ranger.py",
+      "sha256": "9a1190ea11d0191ef06bb02019a707235cfc6ff21dbdbcdffe4d505bfff4fab0"
+    },
+    {
+      "file": "blender/scripts/archer_design_study/verify_exports.py",
+      "sha256": "2cdacd63edd84fa5665b15cb7e010e19b6b30a1a2df4929d16dd83a29794a672"
+    },
+    {
+      "file": "blender/scripts/articulation.py",
+      "sha256": "15180f24eb4f9a438e396635305ba55e42044d6edfe92d2ceef1fb5dcad424c8"
+    },
+    {
+      "file": "blender/scripts/author_archer.py",
+      "sha256": "7832b03ac8ed472234eef3570ee006a4943749a196b94144bad1cb1a2ac33d25"
+    },
+    {
+      "file": "blender/scripts/author_archer_design_study.py",
+      "sha256": "a9cae1969fb9874c5a2f1a768025ce88b71c126ec2b4267134072e3a7e823252"
+    },
+    {
+      "file": "blender/scripts/author_army.py",
+      "sha256": "c6da83b8b85386d7918afa875522dc7c46e0da5138889358f419df3faa141cf2"
+    },
+    {
+      "file": "blender/scripts/author_defender_ranks_v2.py",
+      "sha256": "a3a9abb1a91a884af708a2e9c42b8158553d99cd9f353f2c8be0936a50e9147a"
+    },
+    {
+      "file": "blender/scripts/author_defender_turnarounds_v3.py",
+      "sha256": "4e7ffa3465c3cf1369e23560325c2ece9036331094dec7b632ebde70425ce91f"
+    },
+    {
+      "file": "blender/scripts/author_enemies.py",
+      "sha256": "75bb9c5eca3a3a1af9b3dc46d872af47cbbea3ff6bd1a75de4949cee0cd74164"
+    },
+    {
+      "file": "blender/scripts/author_enemies_v3.py",
+      "sha256": "4cf4eea2e291d83eb829b9695642bf9b206980cc9b26da517ce2b7b12f13e5eb"
+    },
+    {
+      "file": "blender/scripts/author_enemy_humanoid_sources_v6.py",
+      "sha256": "db0920697cfa0de24f73e35cf894995bea817485f82475df7ef35445adec6de0"
+    },
+    {
+      "file": "blender/scripts/author_geometric_enemy_mounts_v6.py",
+      "sha256": "0a96603f9bddfb253988688d14a80653866bc800a9f8e2216b11155602678eb2"
+    },
+    {
+      "file": "blender/scripts/author_geometric_game_defenders.py",
+      "sha256": "5ef79fd79505b031d658ba5e9f52832533f487d17900fca70b71d9848273ad3e"
+    },
+    {
+      "file": "blender/scripts/author_geometric_proportions_v5.py",
+      "sha256": "93dab7afd13fe696d14fddb62aad4f9bc2e467045f07258f6b9f1f3e3af35c64"
+    },
+    {
+      "file": "blender/scripts/author_geometric_roster_v1.py",
+      "sha256": "0d70dfca222e184c438a399d8c1624ec1f12875f64e8492b8993909809999f69"
+    },
+    {
+      "file": "blender/scripts/author_kushek.py",
+      "sha256": "8c14bbcb4ac12733c62d9a0011c109f1caf2271739b1a4ef14d6f4642a792f83"
+    },
+    {
+      "file": "blender/scripts/author_scenery_v2.py",
+      "sha256": "a58fe7ccef15348fd7ffc1bdb2ce0a4df21ce2dfc75524641c640d9ecc7fbdcd"
+    },
+    {
+      "file": "blender/scripts/author_scenery_v3.py",
+      "sha256": "4cd3ee8b8e46ea8702d1dc67cb96c27baf3cda289d1b8603e35d0e92e96bc857"
+    },
+    {
+      "file": "blender/scripts/author_scenery_v4.py",
+      "sha256": "5755f570e440b1ebd0ed55e7a7d1d3a3a9aefad311560e65b324867a472c9a0c"
+    },
+    {
+      "file": "blender/scripts/author_scenery_v5.py",
+      "sha256": "26c446601123dd05896aac9fdc8c97ae0d42896046094c0f5620fc5b55f54a35"
+    },
+    {
+      "file": "blender/scripts/author_scenery_v6.py",
+      "sha256": "72fb3865b5059fb678150fa7c8600a65f61f6800757a371b1ea23f09fca9c047"
+    },
+    {
+      "file": "blender/scripts/author_scenery_v7.py",
+      "sha256": "a93cfeab4d790e2c54932f052970765ba9e1fd3efe408cd68b0b69f5281eff33"
+    },
+    {
+      "file": "blender/scripts/author_scenery_v8_camp.py",
+      "sha256": "476a827f620fbc8ca5253dc14bab87dd9c57fcb774598dad405abfe10f67fbb1"
+    },
+    {
+      "file": "blender/scripts/author_secret_champions.py",
+      "sha256": "af2be8f0f0f98b2ad24978e35baedd48d3a4ebafbfcc69e99621dfd0013475ad"
+    },
+    {
+      "file": "blender/scripts/champion_beasts_v6.py",
+      "sha256": "741365226e7ef70f16ff1aa86ac0241b49a1d65fc4839a6d5de346af0779fcce"
+    },
+    {
+      "file": "blender/scripts/champion_engines_v6.py",
+      "sha256": "a7757d1d7d9c99edc5307b016efd89336e0fc59f834c5c8a17a60c6120ae59c7"
+    },
+    {
+      "file": "blender/scripts/champion_humans_v6.py",
+      "sha256": "979e6a37a084048e5b429cbe4e7c08a2c5309c2d940834b8c6dd10fc31c80e9d"
+    },
+    {
+      "file": "blender/scripts/cohesive.py",
+      "sha256": "11f4adf41923f89a0237f9679fddaab8c2c1c8abf0ccbc21366309e30c618c35"
+    },
+    {
+      "file": "blender/scripts/defender_ranks_v2/casters.py",
+      "sha256": "e7634b5732dbe15bd2311da4a68110cacd6d51a50db4b62a43bb3f3045e63c6e"
+    },
+    {
+      "file": "blender/scripts/defender_ranks_v2/common.py",
+      "sha256": "a7804ad5908dfb674569069d05002d60e7d9dc6c54f990636799d53d9462db03"
+    },
+    {
+      "file": "blender/scripts/defender_ranks_v2/equipment.json",
+      "sha256": "0fe1043caf58cac3e0fc024ff0f1d11cf9d416fdaa7121dc8baf711f5ee5c298"
+    },
+    {
+      "file": "blender/scripts/defender_ranks_v2/martials.py",
+      "sha256": "1c9bbafa4a7fd47824be3bd6212150c2ccb714b83599f75a1dc3b2ee397fb3a2"
+    },
+    {
+      "file": "blender/scripts/defender_ranks_v2/specialists.py",
+      "sha256": "b81d30373bbcba79cbd4e1076afc97bcb1f4bcf8639d328736c2fca6cc0672c9"
+    },
+    {
+      "file": "blender/scripts/defender_turnarounds_v3/casters-measurements.json",
+      "sha256": "278cbc7a56deda737f41dbc98a10ae039ec7f3de8c53de724f8fb5b590f808fd"
+    },
+    {
+      "file": "blender/scripts/defender_turnarounds_v3/casters.py",
+      "sha256": "93e045794bdde59e189ef4f59af7b6575347848aec5bdfe4ae75889dfda25b52"
+    },
+    {
+      "file": "blender/scripts/defender_turnarounds_v3/common.py",
+      "sha256": "4850fc9d3818a534484fb9a55eea3fd75c8d53ed956e1e847b3e5c6986634753"
+    },
+    {
+      "file": "blender/scripts/defender_turnarounds_v3/equipment.json",
+      "sha256": "0b264cc3572e73161f36f997da0e71fc407aa2f5b4aa213270b8aa8bb6281cae"
+    },
+    {
+      "file": "blender/scripts/defender_turnarounds_v3/martials-measurements.json",
+      "sha256": "dfe3a82ab924dc599ee6ea867f40ab52921d76f13989e66c387ca884c3f02375"
+    },
+    {
+      "file": "blender/scripts/defender_turnarounds_v3/martials.py",
+      "sha256": "30fa53a448476acbea300a5866f53fd194f06e680c25fdacbc88c6b9c0de170e"
+    },
+    {
+      "file": "blender/scripts/defender_turnarounds_v3/specialists-measurements.json",
+      "sha256": "5f25082abd16b988880344e80cc927d09c69c690055a590d6a2d296c1686558f"
+    },
+    {
+      "file": "blender/scripts/defender_turnarounds_v3/specialists.py",
+      "sha256": "2b8d3981ad28082af526f57a64aa2803632fa822c8d89d78c60f1c1d045557b3"
+    },
+    {
+      "file": "blender/scripts/generate_assets.py",
+      "sha256": "742cb012491f86396987b7263274a134ebe3bff6a4b3313adce793895e59bc02"
+    },
+    {
+      "file": "blender/scripts/geometric_champion_creature_fit_v4.py",
+      "sha256": "f75bf9075b201c887fbaa0d01f4bbfcf1b9aff77da15a5aefc7c4bb77a14cde9"
+    },
+    {
+      "file": "blender/scripts/geometric_champion_fit_v3.py",
+      "sha256": "89b8bdd4fc5a68d71f6652740e1e2aa0d0836b1e2899b7d0c6d98a084441119d"
+    },
+    {
+      "file": "blender/scripts/geometric_champion_shapes_v5.py",
+      "sha256": "8e98db15983797fa26692cd8ffd09fdd5e7f8463ad76fe71c85eeb217b7bd928"
+    },
+    {
+      "file": "blender/scripts/geometric_character_proportions_v5.py",
+      "sha256": "d4d87cf347402754f543189e4e20a13c32345bdd27e9664a04c34c23512e7efa"
+    },
+    {
+      "file": "blender/scripts/geometric_construct_source_v1.py",
+      "sha256": "ee3dbab6b1997838bf065b598ffce1aaad31f7b6797402c69d40899a2a0d5981"
+    },
+    {
+      "file": "blender/scripts/geometric_creature_anatomy_v2.py",
+      "sha256": "0d7ab43390e623a07d60aa139ea8efa806b01a718e1ee1d0d5d5169e29677bab"
+    },
+    {
+      "file": "blender/scripts/geometric_creature_anatomy_v3.py",
+      "sha256": "5331dc9ff70a82d7e9c158fd10b4d7cd277b72520b5db6fd315e6fc403970783"
+    },
+    {
+      "file": "blender/scripts/geometric_defender_fit_v2.py",
+      "sha256": "cfaff0b19c53935e25af479cecc00a545e0e4ec9c8ff26e489689b8df838123c"
+    },
+    {
+      "file": "blender/scripts/geometric_defender_fit_v3.py",
+      "sha256": "df813cc119ea0ee99ca9ffa8ccda3ff326dec7ab9a82dd45586bd43efb7556ff"
+    },
+    {
+      "file": "blender/scripts/geometric_defender_fit_v4.py",
+      "sha256": "93caf8c81c2c156d82917007263e6b01404bdd033f90b76d1f92ffaf17d3a6a1"
+    },
+    {
+      "file": "blender/scripts/geometric_enemy_creature_anatomy_v6.py",
+      "sha256": "40b319cb896bb8bf1074663277794f4f4c2e07b30b0a7e1e83f94f58b2345714"
+    },
+    {
+      "file": "blender/scripts/geometric_enemy_equipment_final_v1.py",
+      "sha256": "7b9b44752b86276a27e82e604d4750f2b393ac9ad36f21552bc7d1b33d42231f"
+    },
+    {
+      "file": "blender/scripts/geometric_enemy_humanoid_equipment_v6.py",
+      "sha256": "d95f745c3e8f8e20f60cab48d0ab310b2649fb1ef345207de6eb3002ac8333f3"
+    },
+    {
+      "file": "blender/scripts/geometric_enemy_mount_scope_v6.py",
+      "sha256": "6a883a195d061dd4dc78f8a0db5f0b3d395e83176eec4471fa4986fd2bd33642"
+    },
+    {
+      "file": "blender/scripts/geometric_enemy_mount_sources_v6.py",
+      "sha256": "dd4d2ac8b2e276aad31bb04320c260d4a29f0d42747b8c1dc2a5420a1af5ee49"
+    },
+    {
+      "file": "blender/scripts/geometric_enemy_physical_scopes_v6.py",
+      "sha256": "1eec321cbfa2839c09c70e3998c8e13fbd0911af2de701804dd41ceb56d81481"
+    },
+    {
+      "file": "blender/scripts/geometric_enemy_pilot_frame_v6.py",
+      "sha256": "12db832a73d13781f391129f5ce6608dd6c63bd8835dc508351c63c92c97d16d"
+    },
+    {
+      "file": "blender/scripts/geometric_enemy_secondary_details_v6.py",
+      "sha256": "44f5218a4d45f8930a9f1c8f2835ca1af481395629db3d293918ca7b19273a48"
+    },
+    {
+      "file": "blender/scripts/geometric_enemy_source_equipment_v6.py",
+      "sha256": "02180e29101fe751e5a144b21e111bc2fd8a3c88f2b85052d3f54d038cdb0d67"
+    },
+    {
+      "file": "blender/scripts/geometric_game_common.py",
+      "sha256": "641a8e3e67162a23ab332988a4d066442ad9620efdd1137707c6b2d770387e8d"
+    },
+    {
+      "file": "blender/scripts/geometric_heavy_orc_source_v1.py",
+      "sha256": "0cd6a2bceb5f2fa61beedfe0698d5e62b2f4b72906733c48b36ee9ec5a001dfa"
+    },
+    {
+      "file": "blender/scripts/geometric_hollow_sky_source_v2.py",
+      "sha256": "fb51eb09441196fe708aa7cb0200dc04416f6de956d79742981d133f954135c1"
+    },
+    {
+      "file": "blender/scripts/geometric_roster_builder.py",
+      "sha256": "e01a14af36aae0c2f87050a29f31673be08f0f4c58bedca73288463acb60d599"
+    },
+    {
+      "file": "blender/scripts/inspect_cloaks_v5.py",
+      "sha256": "3a8eb46f093d50420381fd60c407d7075e376764d9c8db2b7173688b82a8ef01"
+    },
+    {
+      "file": "blender/scripts/inspect_geometric_v5_native.py",
+      "sha256": "7a53c5b1138261f49b4c70c780bd45513abd6bce81781355419fa48c81ca3d4f"
+    },
+    {
+      "file": "blender/scripts/probe_enemy_source_v6.py",
+      "sha256": "d2c0d51358f39f096a3bf832dddecc60d6e6ce8f0bdb61a65be689b76771cfb7"
+    },
+    {
+      "file": "blender/scripts/render_scenery_v5.py",
+      "sha256": "d552fd208e819fc9c7efce7bf970f9a05238c9ce251695941cc5f3c12be436c9"
+    },
+    {
+      "file": "blender/scripts/render_scenery_v6.py",
+      "sha256": "53778b2e29c6c0cf8b0093cdbdcaa72238757d419a3647b0072705ae87a39b57"
+    },
+    {
+      "file": "blender/scripts/render_scenery_v7.py",
+      "sha256": "45239867c0ce0fdec6d8c0c9e91e8f6f13ce4d2b4885443985f7cdd5cb33608b"
+    },
+    {
+      "file": "blender/scripts/review_claire_v3.py",
+      "sha256": "8973491148714ca8bab3bbc7256c6570300320841fb03f7e106d61c34bdcaf6b"
+    },
+    {
+      "file": "blender/scripts/review_claire_v3_glb.py",
+      "sha256": "0118414fb40829475b67fa4fffe8cf1b85d6ec75f4260fb0391a3df498f86103"
+    },
+    {
+      "file": "blender/scripts/scenery_geometry.py",
+      "sha256": "25bc45cf64450dc54b5753e71c857aa22d2c799a8835f66b6fb330ca621063d8"
+    },
+    {
+      "file": "blender/scripts/scenery_orcs_v4.py",
+      "sha256": "846c314690cb9db07d2b0f58c5de78bf432a71faa60e875e0d1dec581d6bcea4"
+    },
+    {
+      "file": "blender/scripts/secret_bernhard_v2.py",
+      "sha256": "59bb472d2d22ca85b2b4bc4e99cef65e2d18cb4659daa1a777ebbfc6534624d3"
+    },
+    {
+      "file": "blender/scripts/secret_bernhard_v3.py",
+      "sha256": "386e21c0cfbab5a2b4b7b4041d308fbae6bca8620ad8de9e0c4c25cb12e9af00"
+    },
+    {
+      "file": "blender/scripts/secret_claire_v2.py",
+      "sha256": "c9e1b5cd26a02b41f1c1fac7b220acc4f517b4a2de02634fa4a8915116c750b2"
+    },
+    {
+      "file": "blender/scripts/secret_claire_v3.py",
+      "sha256": "8641e1acb1cbefd96b2fbb99ec7e7c2d60d201a8a5bd7993827d862450013fca"
+    },
+    {
+      "file": "data/balance.json",
+      "sha256": "92b1abebe6b2349ec7a05ff64f18db61ba440f8ad136a14021f0876e881bdc80"
+    },
+    {
+      "file": "data/enemies.json",
+      "sha256": "979176dab7186466f35c7a671dcce4d7f2eaa2057c1027b052fe61c77015666f"
+    },
+    {
+      "file": "data/enemy-designs.json",
+      "sha256": "4f7b64e4c91ec5ff627b27717ea414ca8fbb34fb64d24bd930e82014691e1288"
+    },
+    {
+      "file": "data/maze-blueprints.json",
+      "sha256": "beb8caf34473dd4f6043f38d4736455d74cc705d8a1fa91a4513c523276d21e4"
+    },
+    {
+      "file": "data/recipes.json",
+      "sha256": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97"
+    },
+    {
+      "file": "data/scenery-v5.json",
+      "sha256": "f2e3dfeb61c3bf91185fe843ab622c35a9e638770aacedbe920d825059c86519"
+    },
+    {
+      "file": "data/scenery-v6.json",
+      "sha256": "74d874c95443ff5d5e7326e5161335b49f4f10f2e08393ee1e7f6ac647035dbd"
+    },
+    {
+      "file": "data/scenery-v7.json",
+      "sha256": "8986c4083cee05ba6c90605a91c5cb88b750335941d706b9b9be27e534512502"
+    },
+    {
+      "file": "data/scenery-v8-camp.json",
+      "sha256": "940cfc8a04d1719c1711b2068c65e0b1b864e2ffdfbc7c5b23882f42129c0b27"
+    },
+    {
+      "file": "data/towers.json",
+      "sha256": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d"
+    },
+    {
+      "file": "data/waves.json",
+      "sha256": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0"
+    },
+    {
+      "file": "docs/APPROVED_ENEMY_DESIGNS.md",
+      "sha256": "57f1257411271dd1a6b934faa5f234b86de4e5dbb76c053a5301673894dfe10e"
+    },
+    {
+      "file": "docs/ATELIER_REVIEW_0_3_1.md",
+      "sha256": "e9161e673e6b094ee8f4d8faed887f3b66ca661ea4e455cc864c24653f31af7d"
+    },
+    {
+      "file": "docs/ATELIER_REVIEW_0_3_2.md",
+      "sha256": "015ea31f70f48c35808557b17c1c2c3c4e69fc5b05428f57a429eadb76b6f90e"
+    },
+    {
+      "file": "docs/ATELIER_REVIEW_0_3_3.md",
+      "sha256": "9d702ef48d1edee732e1e24e67e3103467bdccc1a3ac4c334543e2fb44697063"
+    },
+    {
+      "file": "docs/CHAMPION_CLASSIFICATION.md",
+      "sha256": "164cbe8d34529fb8759c7890489f97d681b5f1b90f371c259441a9f4ccffbeee"
+    },
+    {
+      "file": "docs/DARK_HOST_V3.md",
+      "sha256": "bb14b7334791d0bef97718fa880941e9dcb68b79fadab5d93c959c91e5f771b3"
+    },
+    {
+      "file": "docs/DEFENDER_RECONSTRUCTION_V3.md",
+      "sha256": "ecf24258d7b6f00ede51d0284048e57b1c7810bf8e4af3f43331b47618b0d5f0"
+    },
+    {
+      "file": "docs/ECONOMY_BALANCE.md",
+      "sha256": "87921b099a8eb061a22c6a9caf8c5c98744af2692b7237d703bb7212dedaf6d0"
+    },
+    {
+      "file": "docs/GEOMETRIC_GAME_V1.md",
+      "sha256": "74f74d917fb5e6c78db39b0123cf8eed6987743e7a283e0bddb4783a0437c8eb"
+    },
+    {
+      "file": "docs/GEOMETRIC_GAME_V2.md",
+      "sha256": "00170481a5bef51be6b8ee825071734be0c6e6e21e0c37ddfd7f1530ef0b574f"
+    },
+    {
+      "file": "docs/GEOMETRIC_GAME_V3.md",
+      "sha256": "93bea037977ec0c941d857b6e09e719ad96016274bab33a38ac0f4cf5f7948e6"
+    },
+    {
+      "file": "docs/GEOMETRIC_GAME_V4.md",
+      "sha256": "ad9098f4adaf95c460bf564f25c494d02074426f9bf34af31ee7029534bb8c5b"
+    },
+    {
+      "file": "docs/GEOMETRIC_GAME_V5.md",
+      "sha256": "02db48a65632eebed7ae087afd6af48beffe545240d0bec31d4a379b77c05f95"
+    },
+    {
+      "file": "docs/GEOMETRIC_GAME_V6.md",
+      "sha256": "6634f1b4db58a228023b7dc50bc7096727bcc384fdaef94695a32f72fc7619e9"
+    },
+    {
+      "file": "docs/MAZE_COMPARISON.md",
+      "sha256": "7b10f63c60b80c8b1ff26451370d570475e8f0ef50e41bb3c9aa08ebf710cd8f"
+    },
+    {
+      "file": "docs/QA.md",
+      "sha256": "732ea9c3bfa641731171ec6ecb8fb0483e919388f3eea13c37b21be398d293db"
+    },
+    {
+      "file": "docs/SECRET_CHAMPIONS_V028.md",
+      "sha256": "1c5fa1009e1511a5ad9eafed3ec140dbd21e2fba2af26d16bb9449be8568eb89"
+    },
+    {
+      "file": "docs/SECRET_CHAMPION_ART_V2.md",
+      "sha256": "4d5ccbc325ae3eb078346a2b006da47497cfad71f7c3f4dc14e5726435d5d0a6"
+    },
+    {
+      "file": "docs/SECRET_CHAMPION_ART_V3.md",
+      "sha256": "0ddd999bbcb23c84ce02519b2419606c30bca7dc77f4b5f5dc3324212fcd80d8"
+    },
+    {
+      "file": "docs/SECRET_CHAMPION_RULES.md",
+      "sha256": "8bed0d65afdb26bb00addfbeb6f8fe0505a825aee8731f73accb7724f002835b"
+    },
+    {
+      "file": "docs/STATISTICS_BACKEND.md",
+      "sha256": "217631e694815cefafa6a114f3ea80a66944c0ce9a30c71c938a30ab4a5bbf8d"
+    },
+    {
+      "file": "docs/V5_AUTHORING.md",
+      "sha256": "1dd5cdee3a47f38632c2435dfdcd41196aa365e6513dacb2b324f6537b6eafd2"
+    },
+    {
+      "file": "docs/WAVE_REFERENCE.md",
+      "sha256": "80745017288c76372dc39677ab1ad42caeeaee35bac1e3299f82b3aba98ef735"
+    },
+    {
+      "file": "game/archer-preview.js",
+      "sha256": "da459e3dd674c0468f72ba90b4f8dd27099aa1892fc9300f093fbeafd8fbdf62"
+    },
+    {
+      "file": "game/audio/audio.js",
+      "sha256": "06cef84a0a132572623ee29f6b343852ee09d18c149fe2cc46873c3891b48248"
+    },
+    {
+      "file": "game/core/atelier-roster.js",
+      "sha256": "b63753e1ab41785a3ce6a4fba36955be97f460a44e1e85a2e5d40887161247af"
+    },
+    {
+      "file": "game/core/blueprints.js",
+      "sha256": "787c4c60d0a81f89423d9698b6fe7db7644a52b80c152bdc558ca93d2359d94c"
+    },
+    {
+      "file": "game/core/campaign-roster.js",
+      "sha256": "5757bde0d84b21a127137f6d3fd4ab0835e0d516e5b6c0d57920050629f5e5e2"
+    },
+    {
+      "file": "game/core/combat.js",
+      "sha256": "db61c6eb1de682bb55d4e2cd43ac5e2253dc4e02cbf893e129a2457b4937f716"
+    },
+    {
+      "file": "game/core/commander-maze.js",
+      "sha256": "b4ea5be2cfde14c61dc49caf88836d0e48df24e20dd2def65a80590912be9f27"
+    },
+    {
+      "file": "game/core/debug-review.js",
+      "sha256": "6bb875ebf885fc6bc6d4be1bdba2add8abb3b2697ff6ac29ef0c6eaeb81720f6"
+    },
+    {
+      "file": "game/core/draft.js",
+      "sha256": "dbc67ec868382ac0f9d8839f941730ceeea1849b6ab4dc2e5c6e3d2b0c27a17b"
+    },
+    {
+      "file": "game/core/game.js",
+      "sha256": "7a80385bf719be9ddba86de4bac9f09169baaffa39eba1499166a3673b38b14d"
+    },
+    {
+      "file": "game/core/grid.js",
+      "sha256": "b0bdb41a125920f4702cde668d0b0faf4653a5ecda205cfe13cdd297564817f2"
+    },
+    {
+      "file": "game/core/math.js",
+      "sha256": "68fdb40664c3143fb053ffebd9bd00665c9bdca4ed683953b5ae908a9195e940"
+    },
+    {
+      "file": "game/core/maze-search.js",
+      "sha256": "8f7ec0c240814ae80b93408da55c0ed1785b0b7c3f5bcbf48a2deed577513961"
+    },
+    {
+      "file": "game/core/maze-seeds.js",
+      "sha256": "b279321dee6b589d5fa047945b3eeb25affdf4bb11213293997f96492e0f0110"
+    },
+    {
+      "file": "game/core/maze-worker.js",
+      "sha256": "c5f2f27953a54e6fde367e2c2bbf9d28a53fafb1cf4edbe2b0fc07118ebe4ba3"
+    },
+    {
+      "file": "game/core/maze.js",
+      "sha256": "a9bf68ac3e875d8cb3fb36ebb3ac2a68f62773d6e150bb9bdc80e39ecb544797"
+    },
+    {
+      "file": "game/core/progression.js",
+      "sha256": "e6ad990a9e7a0c3b9636f97e9f392b7265ab7c85e909c65ff3e80f96637aff15"
+    },
+    {
+      "file": "game/core/recipes.js",
+      "sha256": "71f8b5a749e5a1447428b46f19d0da9c30feb7ef35875065d82b043b1f3e906c"
+    },
+    {
+      "file": "game/core/run-statistics.js",
+      "sha256": "871c24b18307540c57bd7a888ef6299af42f4e1c002576394656a88f566d461a"
+    },
+    {
+      "file": "game/core/save.js",
+      "sha256": "8cb5f6ff3d1826944b26984205a5387eb712a2a4895a5f07cdf1d949d78170e2"
+    },
+    {
+      "file": "game/core/spiral-maze.js",
+      "sha256": "36a617ad4518643469cf77033aa58546955121061af383e612046d356b4416b8"
+    },
+    {
+      "file": "game/core/statistics-client.js",
+      "sha256": "9eb935896e9b9bc2cf86e9d3d4842260320919166513d7fba51e9f6abcb1b794"
+    },
+    {
+      "file": "game/core/unit-label.js",
+      "sha256": "949d52f07a25282078551dbe41de07658eecba16cf4d9295c53efd4600357e2e"
+    },
+    {
+      "file": "game/core/visibility.js",
+      "sha256": "2da16f5ec861f1e5be1013c5a1d0fe6f56f07268c3f62e0625fa9dacb7a80c5b"
+    },
+    {
+      "file": "game/core/warband-info.js",
+      "sha256": "e960943b99099dae490e35dde0cc6c2e6bb1fb8646dd2a643e0b8d145c0b8188"
+    },
+    {
+      "file": "game/main.js",
+      "sha256": "247df036db7bfea633b5dc519489dcaca83ace4852ca09ac937b225c372d1bfc"
+    },
+    {
+      "file": "game/release.js",
+      "sha256": "8d8057bb8950d9f64a19ca57a0f985b7e42ba5559f719a34ed258c5b8c439d1c"
+    },
+    {
+      "file": "game/render/atelier-enemy-preview.js",
+      "sha256": "2000656f98788047316a8de7a914a0ce14a1bbf00fc4321c37f90331c2738c99"
+    },
+    {
+      "file": "game/render/atelier-framing.js",
+      "sha256": "9f6321dea8d3daee6fac28a83747d4681f1941bb46df94d51577a1bcc177ed5b"
+    },
+    {
+      "file": "game/render/battle-animation.js",
+      "sha256": "bf9d493cff1d837c466a1b2de986a8c75431da26c2068b31a9bd946806b4e1af"
+    },
+    {
+      "file": "game/render/battlefield-scale.js",
+      "sha256": "2857cf86812d4199f0a70b0b857a754d394e989fecd55afc728f5c5e6f6f0f9e"
+    },
+    {
+      "file": "game/render/champion-aura.js",
+      "sha256": "ffeaa37763f64f1545f79391ab048f4c4b286deab0ec00efbf18886edddea34f"
+    },
+    {
+      "file": "game/render/champion-catalog.js",
+      "sha256": "9b6405662fa37f62f9291949e58d179b4f13e0b60eabad3b00ef8a43d470378c"
+    },
+    {
+      "file": "game/render/champion-classification.js",
+      "sha256": "278a16fa34f92428ea490c93baed457d9965a7aa2655a3b5a5ecb908d9724cff"
+    },
+    {
+      "file": "game/render/champions.js",
+      "sha256": "d71519fd10726b09f97abd2485a6ac00b411e3be56af66ddd6c7b5f1d2f1491b"
+    },
+    {
+      "file": "game/render/combat-effects.js",
+      "sha256": "a23e06baca2cf9efe52c095c5429dea83734e6941170cee2ff31b659fd543bde"
+    },
+    {
+      "file": "game/render/defender-assets.js",
+      "sha256": "dc163717960f55575a2f0cf703fbd524403cb2401a69aa01f66fcb82509061eb"
+    },
+    {
+      "file": "game/render/draft-markers.js",
+      "sha256": "e705c12c43354f1ad2116137a61712c8e91ff80d082dc9609edae221147ec394"
+    },
+    {
+      "file": "game/render/enemy-assets.js",
+      "sha256": "305bbd7ef75d7785f79db7f095d5611dfc9e472d64f7284324c604654f937f98"
+    },
+    {
+      "file": "game/render/enemy-aura.js",
+      "sha256": "dc5c20f3c90950d8d8b51508d2818817654209ce5302400baf13c1c1d8140284"
+    },
+    {
+      "file": "game/render/enemy-motion.js",
+      "sha256": "33a2dcbe72db7bba8d97ec3bd898eaaac30a16cbca1dab5280585a457f51d27b"
+    },
+    {
+      "file": "game/render/environment.js",
+      "sha256": "55147f663aadf09c8cd5151a943bf80c2da2b8ba6ebddc31945c15879c8fa0a5"
+    },
+    {
+      "file": "game/render/geometric-assets.js",
+      "sha256": "8ea2fdac22179547edab4bd6934ff19d30dac44ed1d19693a33e149bebb5d400"
+    },
+    {
+      "file": "game/render/geometric-batching.js",
+      "sha256": "928b3adad4d4155f8244565f45531887ff36add7ddb48a005933099938a12dc7"
+    },
+    {
+      "file": "game/render/geometric-contacts.js",
+      "sha256": "8683b10c9414bbf59eadbc29b849d74457afb566492b6b83c303749fbc94d9b4"
+    },
+    {
+      "file": "game/render/geometric-enemy-effects.js",
+      "sha256": "554b27d29bdb020443a3bb25de691162d36f84b379095714533ac1265d70f091"
+    },
+    {
+      "file": "game/render/geometric-motion.js",
+      "sha256": "885827ff99df6ff29420b9c4e68662f986c58d12f572a8fe1fdd6f5c4b3d5d10"
+    },
+    {
+      "file": "game/render/geometric-orbits.js",
+      "sha256": "d8ae11eff0d09d1612ed09e016284370fabfa7c432096caa762e77bf178f6548"
+    },
+    {
+      "file": "game/render/geometric-resources.js",
+      "sha256": "8c33cd529665c9656758edffd32902e0218d99cb6d32a7f849692d5b2a27360d"
+    },
+    {
+      "file": "game/render/kushek.js",
+      "sha256": "06cbd603f591d43975d26e0526c27c01cda11f2ad7704083759108016b733e7f"
+    },
+    {
+      "file": "game/render/maze-planner.js",
+      "sha256": "b5262a75d64e10056190acdeaff88b65b56f597c93924388fe8122921fcc3e8f"
+    },
+    {
+      "file": "game/render/models.js",
+      "sha256": "dfa41ea68df27422a89be266eb3bf2cfb95946e132183981a0b486d78b523a41"
+    },
+    {
+      "file": "game/render/navigation.js",
+      "sha256": "9e04f2904a52e44fc013c27c693113de5cafada9a3cb343d9aa0c4c2c0c5343f"
+    },
+    {
+      "file": "game/render/ranks.js",
+      "sha256": "4c325c5da8e0a784f76f4add29a2cced40007c02fd86b1ffad1fb59f71fc2168"
+    },
+    {
+      "file": "game/render/route-overlay.js",
+      "sha256": "fc1067817c597e92debdbe35896ff1c1d8a7af8773d7d3f39f26b9fb7dc80920"
+    },
+    {
+      "file": "game/render/scenery-landmarks.js",
+      "sha256": "d7b9968a673a11caac81f434f7738740f275b5ae15732116566c6b46bdfe2bc5"
+    },
+    {
+      "file": "game/render/secret-animation.js",
+      "sha256": "ed9fbc2e5a71f6d2c58b7d7b3673580131a1fce95978731b2ac24ca141c2752e"
+    },
+    {
+      "file": "game/render/secret-champions.js",
+      "sha256": "41b7b10e61c7d9ce324ab51e7e3ae16a94e74dd58170121ff624cfcd0af5546d"
+    },
+    {
+      "file": "game/render/support-effects.js",
+      "sha256": "63abc48203b752dcc9e75b5b0dc33686824ba9e182c7b749e4bfbe4e9af49a8c"
+    },
+    {
+      "file": "game/render/terrain.js",
+      "sha256": "5be225060b666b0e9b6f5a1d785b1556ec08cb4ac436c2c4e73fab0895ffd0c6"
+    },
+    {
+      "file": "game/render/touch-input.js",
+      "sha256": "08e45fce09113c16f749d7ed6edbf04566dd546b4863a76233d29521a34e483f"
+    },
+    {
+      "file": "game/render/valley-relief.js",
+      "sha256": "951d3a568004211e34b240bb8f0c5e65635104f6638fdd4b8a5f0214151193d4"
+    },
+    {
+      "file": "game/render/walls.js",
+      "sha256": "70d9a636fb4bd74beca7b075ab4f63b570c01d917f37fb1613ecef9133b21ddf"
+    },
+    {
+      "file": "game/render/warcamp-preview.js",
+      "sha256": "b788ebe139efccc6a5fbd5355f7e66c1e45ce244bf9fdcd2774a0d4fc7736a0f"
+    },
+    {
+      "file": "game/render/world.js",
+      "sha256": "bad3752f31fd6170f1378c280beab2c3bd7f1a58922620ef2bda6d4750b2b339"
+    },
+    {
+      "file": "game/site-url.js",
+      "sha256": "c93b63d724437c6977fd93cb45b1f98482b7fc0785da4e93fd76d7f0c9917d7b"
+    },
+    {
+      "file": "game/statistics-config.js",
+      "sha256": "aeec9b65a3b8258bfbd7d3ca717f69d24ef2ab0d2976e6fbb1626fb43edb542a"
+    },
+    {
+      "file": "index.html",
+      "sha256": "2f6ceb641f626e89470aeaa5fb9e9e1981347d91f0a4fbce55fe5ee7ddc8d3e4"
+    },
+    {
+      "file": "package.json",
+      "sha256": "faf9303e93d2f052fdb97d15872fc58a40b9e1c84e790a9e81658efc2396de0a"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "79e11d19632564461493bd3f287f1789dda0c33a78565df737d0252dce06cf53"
+    },
+    {
+      "file": "pnpm-workspace.yaml",
+      "sha256": "787f8bb2ca5b1d5e6281785b6548e0a02432adb9fe7e7edfa53081f4a73a64d4"
+    },
+    {
+      "file": "public/assets/geometric/geometric-champions.json",
+      "sha256": "6d7b205a71990f84afd941107f0e38275337781372748bced51e6c42c4e0c5b5"
+    },
+    {
+      "file": "public/assets/geometric/geometric-defenders.json",
+      "sha256": "4003c85dc4e4676c2182b3ab711e261c57c77ac620d2e42911eee1bbf0c93dfc"
+    },
+    {
+      "file": "public/assets/geometric/geometric-enemies.json",
+      "sha256": "8c415dc693ba925cbf5c6439b2c61e42d7a54f70d5e1c3dd001efcd71d3f99c0"
+    },
+    {
+      "file": "public/assets/scenery/manifest.json",
+      "sha256": "75570e34c2d3724b27592f09d20138c47291719568d8f9afe9053d608c72dc70"
+    },
+    {
+      "file": "public/release.json",
+      "sha256": "362bc5fa0fad0cc9d5d2b179444143f663fb4c678fe9aea16b10f0968e91321b"
+    },
+    {
+      "file": "tests/approved-roster.test.mjs",
+      "sha256": "2d0238b4bce8f837e59586d989de38fab118269fbd6c8ba11bef77fb96433d89"
+    },
+    {
+      "file": "tests/army-round.test.mjs",
+      "sha256": "92db7b85290c8dec9bedf16497cd24f927af9d0b50ceec74246b5ae285ee5470"
+    },
+    {
+      "file": "tests/articulation-isolation.test.mjs",
+      "sha256": "d7f0c6db49edfd8973b12f7c5d8bc0444fd3a3695767b4ac33decb73ce41c810"
+    },
+    {
+      "file": "tests/asset-generator-dispatch.test.mjs",
+      "sha256": "8d4872bda5f08e4e7b60fa064332ac9260bc7dd882d2da7b53feddc161dec16a"
+    },
+    {
+      "file": "tests/atelier-enemy-preview.test.mjs",
+      "sha256": "d53c1ea694e81c17d23b5d66bdfe97a6a2e40a29a9ebde9249cc9a3963379338"
+    },
+    {
+      "file": "tests/atelier-framing.test.mjs",
+      "sha256": "8bba22b5b8dd8957fb7a90bb8d7a88a9c47cdf199d210b640524927d6bbb3f5d"
+    },
+    {
+      "file": "tests/atelier-roster.test.mjs",
+      "sha256": "85e223c517e42a458bb8dc5431d791b33978c9f26649de55e3646c1e00fa4daf"
+    },
+    {
+      "file": "tests/attack-animation-audit.test.mjs",
+      "sha256": "831abd1b7b15ae3be3a53d5392e82485030c09a6fbe59eb76d84a3b4d78dc845"
+    },
+    {
+      "file": "tests/audio.test.mjs",
+      "sha256": "7d37d9983f6fc1d02b6a893a3916aa82cc69482052b21f0624452e1a95b3e9a5"
+    },
+    {
+      "file": "tests/backend-statistics.test.mjs",
+      "sha256": "b4db54eb57e2c4401532a3ae576bb9cef098c3c6369bbdba63c5cda4f054bd44"
+    },
+    {
+      "file": "tests/basic-rank-assets.test.mjs",
+      "sha256": "e89ce2c21a76c68362994784dfdae28e29761e99d2532eb16d48573e10a59d2d"
+    },
+    {
+      "file": "tests/boss-scale-v5.test.mjs",
+      "sha256": "44b249eb6ab368e55a5c9d84d9439a34db4942f144b768b1664873188fdb0f26"
+    },
+    {
+      "file": "tests/champion-assets.test.mjs",
+      "sha256": "d13d4e4eb5ecd8f54b84d3dd4721b8ff7c08d3c0e66915c98e220b484f395795"
+    },
+    {
+      "file": "tests/champion-aura.test.mjs",
+      "sha256": "f58fa615816467e86de42519a0d160fb80ced422ad16155b198ffa457c72150e"
+    },
+    {
+      "file": "tests/champion-classification.test.mjs",
+      "sha256": "d0f3b2fe965a457aa13c1c74f96f9cf3a8471d6849a7f13cb4eddf18627d2898"
+    },
+    {
+      "file": "tests/champion-fit-v4.test.mjs",
+      "sha256": "6454b65259aca4d7ceafb8732d58d3206a9b29e7143a123534174cdcf408ef95"
+    },
+    {
+      "file": "tests/combat-effects.test.mjs",
+      "sha256": "25d60b17b7543e132c25c03afa1928e91799b224bf1f4aa79af36681ee4ead4b"
+    },
+    {
+      "file": "tests/content.test.mjs",
+      "sha256": "064fff7dd97f2f6abfed0671dfd9cc1be502e0981acb77c2bbdbed006d5289e5"
+    },
+    {
+      "file": "tests/continuations-animation.test.mjs",
+      "sha256": "ca493cbd3edacdd87dab89ca26a0336b83f8acb0e6b8ad4ef7f556d28fc9f0f2"
+    },
+    {
+      "file": "tests/core.test.mjs",
+      "sha256": "66e9abd72078dc0299bf5f98126964df68be67cd48727a541813a1eebf9546b6"
+    },
+    {
+      "file": "tests/defender-articulation.test.mjs",
+      "sha256": "9a1fb692e006731ef134e4aeb65fbad57aa1d9eeb9ef738bb46e10a58ca3354e"
+    },
+    {
+      "file": "tests/defender-assets.test.mjs",
+      "sha256": "ded4387d73cf4338503e4a5d118efde139b3d42ff50a46767d03fbc472db59a8"
+    },
+    {
+      "file": "tests/defender-fit-v4.test.mjs",
+      "sha256": "fc5e48717b5051e2536fd6d8f9d13830a454ad11e3ef3d2e4c37fbbcf5635db2"
+    },
+    {
+      "file": "tests/defender-specialization.test.mjs",
+      "sha256": "4e75cc265279e542cf0d728e5edd7a8d689d4397b46cc586fa7332f612c1d54d"
+    },
+    {
+      "file": "tests/divine-aura-v5.test.mjs",
+      "sha256": "d453d547243d1d2f1b09cdd5f5c155663d9c1edd4af225cff81c5b08367d909b"
+    },
+    {
+      "file": "tests/divine-sword-v5.test.mjs",
+      "sha256": "00044f483877cf729d4aa8246529095c439e080c0c862969edda21aa69dcadfe"
+    },
+    {
+      "file": "tests/draft-keeper-ui.test.mjs",
+      "sha256": "7c3f57bac6cb374167d9fd27e7f4f66f3185ab28b0ced69a28ac93a6789cf426"
+    },
+    {
+      "file": "tests/economy-host.test.mjs",
+      "sha256": "5b815b72fa968ce17b352ff9316e47de6e0d2a75c26d259fe271bb631f7d8ab1"
+    },
+    {
+      "file": "tests/enemy-aura.test.mjs",
+      "sha256": "4a5362220b4fe243e37a1f3c7701a72bca22f7deada2bb367d9b4148807006cc"
+    },
+    {
+      "file": "tests/enemy-cloak-scope-v6.test.mjs",
+      "sha256": "0c4ed0c92216fa8b6c325f3dedf666747a1977fd83847b2d6a34d4cc773634ef"
+    },
+    {
+      "file": "tests/enemy-designs.test.mjs",
+      "sha256": "5cde7c773608d9b04e1db8888e49d0f0d651b367dfdde50cdb1a40df03ec2707"
+    },
+    {
+      "file": "tests/enemy-hindleg-flight-v6.test.mjs",
+      "sha256": "8588585d3ea64c71c85f8a77442aa9352f778ffd36b21d1b0bacdb1ddb790987"
+    },
+    {
+      "file": "tests/enemy-motion.test.mjs",
+      "sha256": "89e14b20e8dd31bd80c487a6350b8986cce0538342c241a607dca83ccd836f50"
+    },
+    {
+      "file": "tests/enemy-physical-assembly-v6.test.mjs",
+      "sha256": "b736b7e190445072f8d2fcd3f4746d21a65eed2c4258fc7838b884152f338588"
+    },
+    {
+      "file": "tests/engineer-assets.test.mjs",
+      "sha256": "3c446c5a8cc79ef481d480a14bedb03327e141819d28a74da7b6d7aa49e40dfe"
+    },
+    {
+      "file": "tests/environment-flow.test.mjs",
+      "sha256": "765c5386684113b93961209ede69b06426d6b9a51c61131b899ba791ad1f5755"
+    },
+    {
+      "file": "tests/geometric-appearance.test.mjs",
+      "sha256": "5ab8b040f431726ef47c45758e53916cb3d2c1eb29f8d66179b223da1fcb78b7"
+    },
+    {
+      "file": "tests/geometric-batching.test.mjs",
+      "sha256": "f83317b7170eabb0a7def65962eaf088c9f1f33a18d289539d4a103558b82f6a"
+    },
+    {
+      "file": "tests/geometric-construct-attacks.test.mjs",
+      "sha256": "c79d5220a8f6f4a916d650e32d36fd127ae4f7da15e68c05a15676fe688d0ee4"
+    },
+    {
+      "file": "tests/geometric-crossbow-fit.test.mjs",
+      "sha256": "3d9bb7044e070541dec5451207a044784c61ad22b20de1936b3d879c686096e0"
+    },
+    {
+      "file": "tests/geometric-game-assets.test.mjs",
+      "sha256": "f36123fe6757eee80749419c3adb55f56e1d1d1eaee8e93a520f873f2b750b7f"
+    },
+    {
+      "file": "tests/geometric-integration.test.mjs",
+      "sha256": "ebed9080d879996af4a3c7844e54dae0f639524edf2be9bf37bffa3c3ff435b4"
+    },
+    {
+      "file": "tests/geometric-motion-effects.test.mjs",
+      "sha256": "dc97205deb4f2bb7e8b8b2082258cd933d40593b50f693a569b9b0768106f0d2"
+    },
+    {
+      "file": "tests/geometric-native-motion.test.mjs",
+      "sha256": "8f43fd0abeaac77586843502962ec14a486a6de419e4b9ab836aa5f32a8f1117"
+    },
+    {
+      "file": "tests/geometric-orbits.test.mjs",
+      "sha256": "35e69b0fcb1faef9bb5e4ab042cc341b9d0b37aedadf8e9b4bdd2fea46ae509c"
+    },
+    {
+      "file": "tests/geometric-proportions-v5.test.mjs",
+      "sha256": "081958def9ad175dd790758c44f9e9e5a657ce4422d2ebfe4f9e57de74b2eb85"
+    },
+    {
+      "file": "tests/geometric-resources.test.mjs",
+      "sha256": "a5f2a14862c3534b16744c9f5e98be45da8026d0934b6439d52e02392c0bed9b"
+    },
+    {
+      "file": "tests/geometric-seam-rays.test.mjs",
+      "sha256": "a23ac9d0d8468776b980f5e590de5471c33d93f6a28d08cca3361a0c1d5f54eb"
+    },
+    {
+      "file": "tests/geometric-source-publication.test.mjs",
+      "sha256": "4ed6ceb2d219174cd1a2cee26d8bcc3cac67b137b9e15b0c944d8b968adf56af"
+    },
+    {
+      "file": "tests/geometric-surface-contacts.test.mjs",
+      "sha256": "76a80955d17f367eb3eed91ba185f135ccc2ee8e13e41f39068a6a860454f3eb"
+    },
+    {
+      "file": "tests/geometric-wall-height.test.mjs",
+      "sha256": "e4386ae94e0c4e87bf8d586a0ece8c760d90688a6d9e81ac04e73aa53e55e1ce"
+    },
+    {
+      "file": "tests/grimoire-display.test.mjs",
+      "sha256": "1beae883c8728b1037b81197dc65fc989ed1a4428cc09922e630ed7a29211114"
+    },
+    {
+      "file": "tests/held-staff-v5.test.mjs",
+      "sha256": "d3c7265a665684dd8c9b70cf56e7d3a3331fbc41ef139c27c39c6cfe48588d3d"
+    },
+    {
+      "file": "tests/helpers/native-gltf.mjs",
+      "sha256": "e8a628fb8f39ce116fc9d42a1e8ef09ddd351fd260135f72b7ea2a1ec8c9fc16"
+    },
+    {
+      "file": "tests/kushek-assets.test.mjs",
+      "sha256": "555ecdd235e95c367285a3ebee99335d994aabcb55b603372c593c7bf64b403d"
+    },
+    {
+      "file": "tests/leaderboard-display.test.mjs",
+      "sha256": "c35d1d782989225e3acdf2613fc43d000be12912aed6693998e33dbe2e7bcd59"
+    },
+    {
+      "file": "tests/map-defenders.test.mjs",
+      "sha256": "d5cdad54ba25653b397a8b673ff545972d6b0b450643a41debcc48034f268b6c"
+    },
+    {
+      "file": "tests/mastery-support-display.test.mjs",
+      "sha256": "903928c9c87fc7605f9fbb5507fc0d2fab3d5e8ba5bcac31c31fdafa930dbee4"
+    },
+    {
+      "file": "tests/native-motion.test.mjs",
+      "sha256": "5ec57d3b821958f2d940fcd20c828befb03989c63b3d9f5a3d3e1f04c7453e4b"
+    },
+    {
+      "file": "tests/neutral-bowstring.test.mjs",
+      "sha256": "10a9dd74733028fa3cfee8c3f4d5108ab000898795d4c82c4c9b684f62323347"
+    },
+    {
+      "file": "tests/opening-waves.test.mjs",
+      "sha256": "cc30128d33b6d2f75825720f98db59e303e292bd387949654832bbd9374f96f8"
+    },
+    {
+      "file": "tests/planner-rules.test.mjs",
+      "sha256": "71e3228e4ba76400057b30d073a188e276f3e3e8269623996702ed8a4dbf534b"
+    },
+    {
+      "file": "tests/ranks-recipes.test.mjs",
+      "sha256": "cd8c1a46e40afee1b0a3a5c0c808afd9bbcff4848bfa306c8ffc5b43deb18f84"
+    },
+    {
+      "file": "tests/recipe-breakdown.test.mjs",
+      "sha256": "2ff749dbcc3882c69219cadf6878b5639c5e9b292495ae5f0c70b936bfd63106"
+    },
+    {
+      "file": "tests/recipe-marker-input.test.mjs",
+      "sha256": "cc5f83dfc4ccf11532dfd0dabb99a164764f8c17b3dd7c3139c8b4ef304fe3c7"
+    },
+    {
+      "file": "tests/recipe-tree.test.mjs",
+      "sha256": "556b70236dfd82f6adff940ca821f481fd1786d23ba20ef8d86048b9e9316e7f"
+    },
+    {
+      "file": "tests/round-income.test.mjs",
+      "sha256": "9f85a86f77ae652a99a1bc66a9e0a6149d9b9c40d5804635c0dbfbc778b66f19"
+    },
+    {
+      "file": "tests/route-presentation.test.mjs",
+      "sha256": "fe7f4dba5ff1a191e0d80ee6c09e247c2f355be18a863e7f4cd1fbe6891a30b2"
+    },
+    {
+      "file": "tests/scenery-landmarks.test.mjs",
+      "sha256": "6dd0eb29937336c1eee26aa19f339dceba3de497fc68f5b15eba3c7a131aef1c"
+    },
+    {
+      "file": "tests/scenery-v5.test.mjs",
+      "sha256": "38e954811ec518df230a59d6efbae9a6c3575ea4cf84de1502668cab94f533b4"
+    },
+    {
+      "file": "tests/scenery-v6.test.mjs",
+      "sha256": "d148816eae68a4f329055d77dab9604119b378b49f8e17272e34e486e5d9307a"
+    },
+    {
+      "file": "tests/scenery-v7.test.mjs",
+      "sha256": "11ed3c2bd739b69ead745b0191677198a9d1882fcde12ce8714bc91d41586b03"
+    },
+    {
+      "file": "tests/scenery-v8-camp.test.mjs",
+      "sha256": "c0bf4a20deee49a7c055ade38bc6a8d513b74400132567f369728e41bd5c25f5"
+    },
+    {
+      "file": "tests/secret-art-v3.test.mjs",
+      "sha256": "a12a8bbeff10a076994b0241d5366a378868fa3eae66cfd3830b6c6ae0d5255a"
+    },
+    {
+      "file": "tests/secret-native-rig.test.mjs",
+      "sha256": "4abb9758792a59235f5f26fab905786e8633f8622f4a60e6988c1da398f0d5db"
+    },
+    {
+      "file": "tests/secret-render.test.mjs",
+      "sha256": "bdeacaea4659cf4bee18d62d88f4938edbe98272531a05df18dfe80482d242f7"
+    },
+    {
+      "file": "tests/secret-towers.test.mjs",
+      "sha256": "6567935cdabe364f1e117752337b97e4b6bada99f60fea171e4617958fc612a2"
+    },
+    {
+      "file": "tests/site-url.test.mjs",
+      "sha256": "971a40cc01d6350324a45ba3f5b599cf8eeda2416e3b87a449fd45c11e0872b2"
+    },
+    {
+      "file": "tests/support-effects.test.mjs",
+      "sha256": "9e57b380f3d7a767149c448bc1e883b0fcbbcdff4dcd25bf7b56fe329210469b"
+    },
+    {
+      "file": "tests/touch-input.test.mjs",
+      "sha256": "28e7d3737e40910155363a08b35dc1dacc9a2e47eb32d87590f2717eacd33c01"
+    },
+    {
+      "file": "tests/valley-maze.test.mjs",
+      "sha256": "b5379a9f61de3afdd5bc76d2193bc63d48881e350718b1ef22430445bf9c729c"
+    },
+    {
+      "file": "tests/visibility.test.mjs",
+      "sha256": "d6ef9027f54e734c8a2ce491ebb5bc208afea57d0322ba9aa54a1a92e1c347c9"
+    },
+    {
+      "file": "tests/warband-info.test.mjs",
+      "sha256": "5cf85cf938b319f282492703c6de5743a0ca6dbd4eb14988082d374ace4606fa"
+    },
+    {
+      "file": "tests/warbands-maze.test.mjs",
+      "sha256": "043cb7384421df01a1a350a3f99690637914c2a5afa3f733ce4646a22d0103b1"
+    },
+    {
+      "file": "tools/analyze_defender_turnarounds_v3.py",
+      "sha256": "e8b601a7fcd0464929986ccf3690bc0258a400f85b911c02dee8f329888fffd8"
+    },
+    {
+      "file": "tools/animation-review.html",
+      "sha256": "4084adc1aecd98350cde2035362d84c51b7a4ec2153af7e94ef4c8885c072beb"
+    },
+    {
+      "file": "tools/animation-review.js",
+      "sha256": "563b34cdd5762e5c620174fec06a9c425ee22b81d725012cd78509b79d5c0fc0"
+    },
+    {
+      "file": "tools/audit-geometric-appearance.mjs",
+      "sha256": "4227e750c1dcad97248f3e61870dfa795f396dd82b2a7d73a7eddc588345cd23"
+    },
+    {
+      "file": "tools/audit-geometric-attacks.mjs",
+      "sha256": "9a9a1e74eede3aea871a04dffd9f4da471d6750275a60a89a48c53e941a0b353"
+    },
+    {
+      "file": "tools/audit-geometric-contacts.mjs",
+      "sha256": "b46cd6218447ea68d619d64684f54fa75cd3ec3b88f908103e35e75120236e95"
+    },
+    {
+      "file": "tools/audit-geometric-drawcalls.mjs",
+      "sha256": "0369281f692f9c632f4436c192ff17b4a71d46af2771d6f03249c4c0668afa7e"
+    },
+    {
+      "file": "tools/audit-geometric-proportions-v5.mjs",
+      "sha256": "5b0a38c18f9bd905ea1e0837ae486e5e0894c17b67561dd7e49dc3678a27afbd"
+    },
+    {
+      "file": "tools/audit-geometric-proportions-v6.mjs",
+      "sha256": "4fc2b51c28437d7969c8c9adc38597f1e84bfabeeefa8bef915bd8f4d4de45b5"
+    },
+    {
+      "file": "tools/audit_scenery_v8_camp.py",
+      "sha256": "838f25edfded18ea26f7fed43789d51f7fd4cf3bd5bd75a233ef61b64e441e93"
+    },
+    {
+      "file": "tools/author-campaign.mjs",
+      "sha256": "264d057d9defb5577690095fe418b8ceaeb5f80c8a64b6d72cde9153f254caba"
+    },
+    {
+      "file": "tools/author-economy.mjs",
+      "sha256": "ba99881257b68cc32ce329aee4c9c3c255bc934507864d54d06adcaa4e1ee52e"
+    },
+    {
+      "file": "tools/author-enemy-appearance.mjs",
+      "sha256": "9a625a1a425f193c6b5ac0948dd7948c1d4a89a6fcc737a9543a695e1013a86c"
+    },
+    {
+      "file": "tools/author-roster.mjs",
+      "sha256": "9181e6ee3fb66425cee0ff085a8ac681881490d64065ed7849bd1e0e99ad4cb7"
+    },
+    {
+      "file": "tools/author-scenery-layout-v6.mjs",
+      "sha256": "99c366d4ae959c1e72510bbd533c5fabb5ded4d8e9f442b5fd3650984001bef9"
+    },
+    {
+      "file": "tools/author-scenery-layout-v7.mjs",
+      "sha256": "c08ea781ea999d3934d937141a889585bbefa9f9af4a3ae407fed24578c55975"
+    },
+    {
+      "file": "tools/author-scenery-layout.mjs",
+      "sha256": "f0c734027bf0fb43d8e07b57708b8a25784eb5b141aa577eda183a074e90f51f"
+    },
+    {
+      "file": "tools/balance.mjs",
+      "sha256": "6651b545eb7f5e73cce67df4bd6b7f4dd6ef126a2b58320c5ba93be5d6572b94"
+    },
+    {
+      "file": "tools/benchmark-curated-mazes.mjs",
+      "sha256": "8906b3e9f7cc168304ecaf2afd2e9bf60ec745a5eaecaea7080852950cef52b8"
+    },
+    {
+      "file": "tools/benchmark-mazes.mjs",
+      "sha256": "5f51dac24485bd114233dcdb86b0b1aa0bec2198ebd408d896d3f4bb2b5bfd20"
+    },
+    {
+      "file": "tools/check_champion_shapes_v5.py",
+      "sha256": "00f76c48cac3e644494548839bb61c668a6208be9a99d2016f9532a2a79c9ea0"
+    },
+    {
+      "file": "tools/check_defender_turnarounds_v3.py",
+      "sha256": "137ea4a8bd400d0bdd5f0e32f384d8ae0b878f4930d442b528533417a75a964f"
+    },
+    {
+      "file": "tools/compose_geometric_v5_reviews.py",
+      "sha256": "57dccbfa99a45e433c5867002edfb79b2df5b0d39edd2672aac4e87820ad7db2"
+    },
+    {
+      "file": "tools/compose_geometric_v6_reviews.py",
+      "sha256": "b8b031ccd2a1895ee3e9ad911a5e23a2c74dfb46f1dcece2d02f64dcf6f61b39"
+    },
+    {
+      "file": "tools/document-content.mjs",
+      "sha256": "eeaa0b4ff483da29521c764296f8f027933bcca58fbf395364fd25f13a695735"
+    },
+    {
+      "file": "tools/document-warband-effects.mjs",
+      "sha256": "62862efb261cf0f27fea3b6f13e142cfcc5ff35973d6f8aaebd8e0a7d836a634"
+    },
+    {
+      "file": "tools/economy-report.mjs",
+      "sha256": "32ee1b99c4bc4a512eba2437586c060bdc79d95e554e218e6326c23aa4ebf373"
+    },
+    {
+      "file": "tools/enemy-designs.mjs",
+      "sha256": "0bd762ef4c6f6493c418e4d755d52b059533d7170dbde26518ae474e1296b248"
+    },
+    {
+      "file": "tools/enemy-physical-assembly-v6.mjs",
+      "sha256": "02b26cfe84320acb027c1e635c5b1623a2db98d7f5111b7c9f477ee2bc0f6d5e"
+    },
+    {
+      "file": "tools/enemy-review-v6.html",
+      "sha256": "34d80da13f6d90fe49859b4b72af36ce720d91a08306c17754c1c5f1979d3240"
+    },
+    {
+      "file": "tools/enemy-review-v6.js",
+      "sha256": "c44740d18f164e0276469ca6646220d1e15f2af2c7ccf32feed50087ebf09a3d"
+    },
+    {
+      "file": "tools/enemy-rider-anatomy-v6.mjs",
+      "sha256": "4736a84ec49cd3664dc64436ccead60b3d7d616ee970480a120d9c5603dec604"
+    },
+    {
+      "file": "tools/expand-content.mjs",
+      "sha256": "821ce5b42e2885a83a51584ae1fdbadb6a0c503b4e8c801ec7a25c669b700116"
+    },
+    {
+      "file": "tools/export-defender-meshes.mjs",
+      "sha256": "1cce15d3e94a238b56ace7cadd019989b653d2836eb921e8ee9c48c4481f676f"
+    },
+    {
+      "file": "tools/inherit-geometric-enemy-review-v3.py",
+      "sha256": "32611fc5da29079cc19cb5eaa7d2ee2139e824571661f926eb97727b2d0ac582"
+    },
+    {
+      "file": "tools/package-statistics-site.mjs",
+      "sha256": "0067eb97f1858dd7b9fbcec766f8c50159edcdf5f4a89eb276017cb10a471ce7"
+    },
+    {
+      "file": "tools/package_geometric_game_v2.py",
+      "sha256": "a9a33ebfed23bd4a79aa42aeb8241b16412e0d6936c7a4b7226e0a095c33cc28"
+    },
+    {
+      "file": "tools/package_geometric_game_v3.py",
+      "sha256": "d1b681c25df411901f39fa62389ff80678138ed6ff9a44e04c5c214ddf6473f1"
+    },
+    {
+      "file": "tools/package_geometric_game_v4.py",
+      "sha256": "d0d7e91c8796d25fb377f13531592c41f5248440d6c49fb76ec206b57a08ba74"
+    },
+    {
+      "file": "tools/package_geometric_game_v5.py",
+      "sha256": "1495a526479e80191a0fffcb7cad362a5e83c27a94b4a8fa7f36d1462b900000"
+    },
+    {
+      "file": "tools/package_geometric_game_v6.py",
+      "sha256": "99a9ae3bdc662711c8447b33206438b82282802e89939b53867e63af5a21a456"
+    },
+    {
+      "file": "tools/prepare-statistics-site.mjs",
+      "sha256": "57583645f2fa2f0be4a4feff6778017a59b74cff45c180082b7d2404df75eb6e"
+    },
+    {
+      "file": "tools/record_basic_six_review_v5.py",
+      "sha256": "73b5bcff1ccebd71ed7dcd6bb70b945afed14b3b0afe62c125537232636c2411"
+    },
+    {
+      "file": "tools/record_defender_v2_source_review.py",
+      "sha256": "aa26c8061ab3a56fa7381023ef445d1fcd16a6f9ddbc7f9798bce0132fd390f5"
+    },
+    {
+      "file": "tools/record_defender_v3_source_review.py",
+      "sha256": "f32cebe4f5be283389af9943034c50d012220728fd5e91c3bbe01815cc4c04ff"
+    },
+    {
+      "file": "tools/record_enemy_mounted_source_review_v6.py",
+      "sha256": "b5dc232309ffa4ebc6f44bd9fa1e05a1c3833e5431bc9c6b28e365b62111ac83"
+    },
+    {
+      "file": "tools/review-geometric-roster.py",
+      "sha256": "63dcc894499f82cf5480d14e335d40dcc350ade761db67f5823e5b908ce533d0"
+    },
+    {
+      "file": "tools/serve.mjs",
+      "sha256": "6402f48ad3faa7e8497b3410bd28959fd8489ebb76b6e569562dad400534ffa4"
+    },
+    {
+      "file": "tools/snapshot_geometric_validation_v6.py",
+      "sha256": "5201d2030f131f002942a77b60d0a2bba009ea252acbc01443352b169e5ac7a3"
+    },
+    {
+      "file": "tools/statistics-report.mjs",
+      "sha256": "b9ce7dacc31f3e62d214e949d33de8c31cb7f128e0840c422e695ae961f1b9ae"
+    },
+    {
+      "file": "tools/summarize_cloak_scope_v5.py",
+      "sha256": "3fd977a38821368d8bbaebb8984d87e201def282af310629b520ac7e12fe20f9"
+    },
+    {
+      "file": "tools/summarize_defender_turnarounds_v3.py",
+      "sha256": "832817fa2461e437442f98af04bdb389c83cbf74cb0fd67dce67c3a007fc252b"
+    },
+    {
+      "file": "tools/trace-maze.py",
+      "sha256": "f9d36852a5e6e1932d41690c011aff28456139bc0e6bd654b750c089336cd056"
+    },
+    {
+      "file": "tools/verify-geometric-published.mjs",
+      "sha256": "797ca5f0b181a89706215d1bd754ea2942566eb08064022dfe985fe09d39ae41"
+    },
+    {
+      "file": "tools/verify-geometric-runtime.mjs",
+      "sha256": "d926c33077ba0d2f8f30c2b4c518d69922741aad7270fae045f3e33881131df4"
+    },
+    {
+      "file": "tools/verify_defender_roundtrip_v3.py",
+      "sha256": "3860c7d8f1cd1406d1797481ce63358dbb8d5c96ef153b554f30583583401370"
+    },
+    {
+      "file": "tools/verify_defender_turnarounds_production.mjs",
+      "sha256": "4a609913f3125ddbf85f2482e64b1d9521eeca81ee808f6945251af7aebb451d"
+    },
+    {
+      "file": "tools/verify_geometric_archive_v5.py",
+      "sha256": "397b773343ee01d4e9fb769890634c6747572358c2ac40c43d0746c04204653f"
+    },
+    {
+      "file": "tools/verify_geometric_archive_v6.py",
+      "sha256": "8aa8f77c924393a88bab705426560a4f251b4bfa39e580ad9c6694f8ebbee691"
+    },
+    {
+      "file": "tools/verify_geometric_native_v1.py",
+      "sha256": "0c4076e0bd012e2498a4d8d669029139414f194ff31dede258b4bc1f01a4fb27"
+    },
+    {
+      "file": "ui/atelier.css",
+      "sha256": "e5a6b0c68edfe48dda98abce21b44f80487005a8dcab242d92323f0ed6e2b082"
+    },
+    {
+      "file": "ui/draft-cards.js",
+      "sha256": "6b7f950c45cabb4ef652d7173a92ee0e0ed376760bbe31d1d3c75429d8f4d6bf"
+    },
+    {
+      "file": "ui/draft-input.js",
+      "sha256": "906bb912ad5143046a178c513ad5ea882914d987d7e1bc921faf66b4a61f7fd2"
+    },
+    {
+      "file": "ui/grimoire.js",
+      "sha256": "26320538b10de405c0a0e0bceaae59530966354804f3acca54517877f3701b97"
+    },
+    {
+      "file": "ui/icons.js",
+      "sha256": "fbda490886cd994ab81202eb73cd7674f0dde03cee3e983cf293c2498bebefb8"
+    },
+    {
+      "file": "ui/leaderboard.css",
+      "sha256": "88e37bc493f17cbc88d9b36cad8f34beea7269486b977dbb7fb8a1eaa6321b58"
+    },
+    {
+      "file": "ui/leaderboard.js",
+      "sha256": "939f5f7218bcbfeb3dcfb7a3e4797c2ecd34f0e4d3dcf462c03a228f9410903f"
+    },
+    {
+      "file": "ui/mastery-panel.js",
+      "sha256": "0d159ae602f97e092785adbcc0fc4ee1df4ee88ecc181f578b119d6b1de18255"
+    },
+    {
+      "file": "ui/recipe-marker-input.js",
+      "sha256": "964ba91173b612e0de18e479ba2bf7308814cfccd06cec86bac28e4e5102fe7f"
+    },
+    {
+      "file": "ui/style.css",
+      "sha256": "9daa10c0d580c44a76897c7b8e4eea8b8864bb657e6e8e467fb34e79374105ae"
+    },
+    {
+      "file": "ui/support-guide.js",
+      "sha256": "16ee56a3662b6f2818e097a7f20f45ad69543ed7e90618e3556427a4c938a077"
+    },
+    {
+      "file": "ui/theme.css",
+      "sha256": "89089d77bc8cbfe70deca098a49cbc200947e3b8d8ed3240ba71316202c0c253"
+    },
+    {
+      "file": "ui/tutorial.css",
+      "sha256": "13ca68b031e04341b0617850df34b7d38b715cc5400962b2bb129f3bc12e1ab9"
+    },
+    {
+      "file": "ui/tutorial.js",
+      "sha256": "602cff0f7d3dd3eb337db95e4d565e283d5bc3fc2a568a0d1968cfce46e0f251"
+    },
+    {
+      "file": "vite.config.js",
+      "sha256": "1a5e13d074ace8660ef72fd0a8e44c8ad324de14b3232d73271e4befe6250bd3"
+    }
+  ]
+}

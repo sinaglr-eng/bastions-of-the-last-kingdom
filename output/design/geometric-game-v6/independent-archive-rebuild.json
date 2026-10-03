@@ -1,0 +1,81 @@
+{
+  "status": "pass",
+  "independentExtraction": true,
+  "zip": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v6-complete.zip",
+  "zipSHA256": "05c20a4b39a44f42acee2f4f88582f8c55dde30fe13a9cc46f4dd03e6e305310",
+  "bytes": 1516736045,
+  "entries": 4767,
+  "allInventoryStreamsCRCAndSHA256Verified": true,
+  "allExtractedFileHashesVerified": true,
+  "currentManifestModels": 136,
+  "nativeReplayBaselineModels": {
+    "v4": 136,
+    "v5": 136
+  },
+  "newExtractionDirectory": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\zip-v6-independent-rebuild",
+  "dependencyLockSHA256": "79e11d19632564461493bd3f287f1789dda0c33a78565df737d0252dce06cf53",
+  "dependencyReuse": "Exact-lockfile cached node_modules junction",
+  "commands": [
+    {
+      "command": "pnpm test",
+      "exitCode": 0,
+      "log": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v6\\independent-archive-tests.log",
+      "logSHA": "5259ebfa768d0464b7783a6f0de4c2bb0c8e00fa53d16f5c8068775bfe2e32ff",
+      "summary": {
+        "tests": 470,
+        "pass": 470,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "command": "pnpm build",
+      "exitCode": 0,
+      "log": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v6\\independent-archive-build.log",
+      "logSHA": "ab4b7a2fb554f334b3a72a3fe5f605afc0a3bee90cedc8bae4ca494855ea61c3"
+    }
+  ],
+  "productionBasePath": "/bastions-of-the-last-kingdom/",
+  "productionEntryPoints": [
+    "index.html",
+    "archer.html"
+  ],
+  "publicOriginalFilesUnchanged": 1970,
+  "archiveImmutableAfterRebuild": true,
+  "timestamp": "2026-10-03T21:08:41.935627+00:00",
+  "historicalArchivesUnchanged": {
+    "v1": {
+      "file": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v1-complete.zip",
+      "sha256": "33b54de0e65a3605b0124a4e1c76d4d07364fb1b003d06b2d8c56fb9b8b4b014",
+      "bytes": 458281901
+    },
+    "v2": {
+      "file": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v2-complete.zip",
+      "sha256": "1ee5a05eea721b53965e3721b1bf1dcfa5c69ce194792de78759a4754a98c4d8",
+      "bytes": 903322202
+    },
+    "v3": {
+      "file": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v3-complete.zip",
+      "sha256": "ab7d5f5e665ea9cc8c1d30b74b9648f0355fffba34463bd2e20b5d872c54b251",
+      "bytes": 903001831
+    },
+    "v4": {
+      "file": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v4-complete.zip",
+      "sha256": "5900df0908797fa41667d80132efe9f0d35637aab99d9489ef3d4cf12cd84237",
+      "bytes": 1280753090
+    },
+    "v5": {
+      "file": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v5-complete.zip",
+      "sha256": "a4516a26e00db318d897230d5095e78788167bd1b999c3f84d8184f96f6b7243",
+      "bytes": 1384811170
+    }
+  },
+  "actualV5BossReplayModels": 5,
+  "frozenV5PortraitModels": 136,
+  "inheritedPortraitsVerified": 86,
+  "freshEnemyPortraitsBoundToApprovedRenders": 50,
+  "originalSourceModelsVerified": 136,
+  "originalSourcePNGCopiesVerified": 272
+}

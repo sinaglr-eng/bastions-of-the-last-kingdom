@@ -1,0 +1,1530 @@
+{
+  "revision": "V6 final independent source spotcheck, seventeen assigned staged enemies",
+  "reviewer": "/root/v5_champion_shapes",
+  "createdAtUtc": "2026-10-03T20:42:20Z",
+  "subjectsActuallyOpened": 17,
+  "sourceModelPairsActuallyInspected": 102,
+  "freshlyReopenedAfterBoundedRepairs": 10,
+  "unchangedPreviouslyOpenedSubjectsRehashed": 7,
+  "method": "Personally displayed the actual original-source/current-model six-row paired sheets and compared every front, back, left, right, three-quarter-front and three-quarter-back row. All ten subjects changed in the last cloth/ground batch were freshly reopened again (60 actual pairs). The other seven previously opened subjects retain their recorded observations after all source/native/GLB/render/sheet bytes were rehashed unchanged. Individual PNGs are hash-bound; the actual visual openings were the six paired-sheet rows.",
+  "inspectionScope": "Independent visible source identity: significant equipment, silhouette, material family and visible attachment essence, including the concrete omissions found during the earlier spotchecks. This does not certify hidden triangle contacts, motion, exact raster dimensions, exact rivet or facet counts, or shading equivalence. Physical and owner source approvals remain separate.",
+  "ownerOrAll50AcceptanceGranted": false,
+  "nativeOrExportModified": false,
+  "remainingSignificantVisibleFindingsWithinScope": [],
+  "unresolvedSignificantFindingsWithinScope": [],
+  "priorReports": [
+    {
+      "path": "output/design/geometric-game-v6/independent-four-enemy-source-spotcheck-v6.json",
+      "sha256": "3af2a2a29e29b24f2c21da5a1a883d0ae4c201f05daaa6fbc3f41d1f36ad0e1f",
+      "role": "Earlier independently opened evidence; superseded per changed asset hashes, preserved as history."
+    },
+    {
+      "path": "output/design/geometric-game-v6/independent-frozen18-24-32-source-spotcheck-v6.json",
+      "sha256": "036f1053959ef82ce9d2d78f78cc3b5ff15649a4ca672c3eb57ea889ebf2fde1",
+      "role": "Earlier independently opened evidence; superseded per changed asset hashes, preserved as history."
+    },
+    {
+      "path": "output/design/geometric-game-v6/independent-final31-source-spotcheck-v6.json",
+      "sha256": "8ff30d58e3c028b52eeabee542ab2073f0eb54aa8f5fb548278414a7df467fea",
+      "role": "Earlier independently opened evidence; superseded per changed asset hashes, preserved as history."
+    },
+    {
+      "path": "output/design/geometric-game-v6/independent-twelve-enemy-source-spotcheck-v6.json",
+      "sha256": "c115f837905cb512daeb38a8e4dd0b68227bb96d2631cf009cacd3246e998dea",
+      "role": "Earlier independently opened evidence; superseded per changed asset hashes, preserved as history."
+    }
+  ],
+  "entries": [
+    {
+      "id": "host_18",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_18.blend",
+      "actualNativeSha256": "806b4cf7a204547142244078e85fd38d2c33cf02b1c920e4b8769460e8c7832c",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_18.glb",
+      "actualGlbSha256": "bba89ff498582a2a311fc3c83756042878e8c4b14de4e36abf21f307e22659fd",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_18.png",
+      "sourceSha256": "c494fbef57f69e5cbb9c51b286db47a0f7837c4a2acfbc5df515efe25fc57a8f",
+      "initialFindingsSha256": "e4c99ab19582f49584aa8f48ec31ef1aeea5ad96035da8b24eeba2f14dee16b3",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_18.jpg",
+        "sha256": "5bec67651b291cd462eba44b5a4a879ea020987b42001cb8788299ab2baa65f1"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/front.png",
+          "sha256": "c52ffe1a55e71e9a2e4ad070c5e5fede7fd5ffe54a7bffc9c023c001f339b797",
+          "geometrySha256": "0fa14ffe3798aa2debe14919cc535e6ac9a61397906c42d3a2d3f6071dc423d0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/back.png",
+          "sha256": "d6806e8a96fabc682ee0fc6983d9c3f560acc0eb4e77811fa0ae82b11d2d5d62",
+          "geometrySha256": "0fa14ffe3798aa2debe14919cc535e6ac9a61397906c42d3a2d3f6071dc423d0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/left.png",
+          "sha256": "a8cabb77658303509207f0c5e5a7148062b730bbae58f4a5477d56ac786245e2",
+          "geometrySha256": "0fa14ffe3798aa2debe14919cc535e6ac9a61397906c42d3a2d3f6071dc423d0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/right.png",
+          "sha256": "1ccf385ce2b889b26648eff84a2730b5bf31187712262fe5cab1f7897dbeed0b",
+          "geometrySha256": "0fa14ffe3798aa2debe14919cc535e6ac9a61397906c42d3a2d3f6071dc423d0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/three-quarter-front.png",
+          "sha256": "af427a4539ac85002f41a016ff2ddd0b5691c743d2d3d313185e33c89e80d34a",
+          "geometrySha256": "0fa14ffe3798aa2debe14919cc535e6ac9a61397906c42d3a2d3f6071dc423d0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_18/three-quarter-back.png",
+          "sha256": "2fc5fb51ca2e14b1c274130a75ff40781526586f687e5d535ee4e5d1abadae05",
+          "geometrySha256": "0fa14ffe3798aa2debe14919cc535e6ac9a61397906c42d3a2d3f6071dc423d0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "The former steel arm coverage has been replaced by exposed green upper arms and brown forearm wraps. The broad brown chin mask now covers the lower face. The tall hood tapers in profile, with seated purple ornaments on its sides and shoulder edges; the long dark rear cloth and paired crescent blades retain the source identity.",
+      "resolution": "The former steel arm coverage has been replaced by exposed green upper arms and brown forearm wraps. The broad brown chin mask now covers the lower face. The tall hood tapers in profile, with seated purple ornaments on its sides and shoulder edges; the long dark rear cloth and paired crescent blades retain the source identity.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    },
+    {
+      "id": "host_20",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_20.blend",
+      "actualNativeSha256": "99cf582a7e0d6f54e48e5b13cc2e354a61a23932e91fb724d5599e673bb3bb25",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_20.glb",
+      "actualGlbSha256": "b2bd7ee78ad4729f6941fea0eddd5f15d3ec8634825dda62f053797fd1d2fabd",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_20.png",
+      "sourceSha256": "7d35d96387d95997fd01cb312b736955f880e8f6b7d5afc5638123b616ef1270",
+      "initialFindingsSha256": "22f30c4d6300bbe7b05d9eecd5099a3fcdfc31e90fed169e98ab6e47966fc688",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_20.jpg",
+        "sha256": "fe5226e49a8334cba3a4dfd0bed7177d6503324d75c2ee83132466c6b5c66f4f"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/front.png",
+          "sha256": "de457ef2d976bce858e5682398247c48f001a6b5a4c029259c6d2f264b4680fc",
+          "geometrySha256": "ca497778f787505dd79236883c44c2e9dabd4004099674d6566bf393ea713c76",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/back.png",
+          "sha256": "5e4196dc204ff43d23ab8d21c84bf946086ae95cb8bdf2ce7ae1ea7fbc4513b2",
+          "geometrySha256": "ca497778f787505dd79236883c44c2e9dabd4004099674d6566bf393ea713c76",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/left.png",
+          "sha256": "1c1c46d0868107b81cdd931fdc4308f474abbcb6bac98f1f9d59b7aea692c1b6",
+          "geometrySha256": "ca497778f787505dd79236883c44c2e9dabd4004099674d6566bf393ea713c76",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/right.png",
+          "sha256": "696a5d11e0595fa1d0b836978acc25fa98cb40a4f7ab61969013fae4087da30e",
+          "geometrySha256": "ca497778f787505dd79236883c44c2e9dabd4004099674d6566bf393ea713c76",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/three-quarter-front.png",
+          "sha256": "2489d5954626a8ac15c224d66be9ed9d1a5c10b96a0d1355bf5d26220740b9dc",
+          "geometrySha256": "ca497778f787505dd79236883c44c2e9dabd4004099674d6566bf393ea713c76",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_20/three-quarter-back.png",
+          "sha256": "5c82c60911f5cedef4a5be48fb66a7c18d666bf9753f29819d11d957ac2d5e76",
+          "geometrySha256": "ca497778f787505dd79236883c44c2e9dabd4004099674d6566bf393ea713c76",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "The previously missing brown torso covering and shoulder caps are now visible: a continuous broad brown vest wraps the body in the front, both profiles and rear under the bone rack, with dark brown shoulder caps. The large ivory crown, bone-decorated staff, rear bone harness and brown waist garment retain the source's bone patriarch identity. No further significant discrepancy was observed within the scoped vest/shoulder repair comparison across all six pairs.",
+      "resolution": "The previously missing brown torso covering and shoulder caps are now visible: a continuous broad brown vest wraps the body in the front, both profiles and rear under the bone rack, with dark brown shoulder caps. The large ivory crown, bone-decorated staff, rear bone harness and brown waist garment retain the source's bone patriarch identity. No further significant discrepancy was observed within the scoped vest/shoulder repair comparison across all six pairs.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    },
+    {
+      "id": "host_21",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_21.blend",
+      "actualNativeSha256": "c59e12d985f8fc29cfba43a5a6e3235da6c7c98168bc4fb23bda1a9377f81f49",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_21.glb",
+      "actualGlbSha256": "e6aeef36671a42bfa7955f515f5023b12bf365eb10a90b52c25087129785ef84",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_21.png",
+      "sourceSha256": "c62135e61cb901eecbea78a75b1dea026177aa61e7c4eecad8d8bd277f180687",
+      "initialFindingsSha256": "0b3ca166f333483f51073f25d2882198b39c1bf02f5ad4965be718abc4277c8c",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_21.jpg",
+        "sha256": "880d7d531207140e09dc7fe91990e3a7ff1cd880ffd7a577a3d3cc7be328b3eb"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/front.png",
+          "sha256": "97b095565b070bb11b3a6695649696c983d54a4d2e86700dc2f6cfe2274081b1",
+          "geometrySha256": "cd4fa84ccc6603183c9e14f28618f96feefbfd2129ffb238a4279b04c448f8e7",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/back.png",
+          "sha256": "b8920e5381eebd23db2c45dd4c84a825199d4a5110d83b9992e3f55be94de24a",
+          "geometrySha256": "cd4fa84ccc6603183c9e14f28618f96feefbfd2129ffb238a4279b04c448f8e7",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/left.png",
+          "sha256": "f7154a147f5978b39f9bd9c7cff0dba929129e7a110166f7830185a250c78d6b",
+          "geometrySha256": "cd4fa84ccc6603183c9e14f28618f96feefbfd2129ffb238a4279b04c448f8e7",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/right.png",
+          "sha256": "2acec8081b6634cbd8986a861f593d3b717d9fbbae65649bed5fcd960efe9f58",
+          "geometrySha256": "cd4fa84ccc6603183c9e14f28618f96feefbfd2129ffb238a4279b04c448f8e7",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/three-quarter-front.png",
+          "sha256": "7bfc9bde6fc4937c2715696bef549a5a6283a3060be75fe4c3a646dae20586e3",
+          "geometrySha256": "cd4fa84ccc6603183c9e14f28618f96feefbfd2129ffb238a4279b04c448f8e7",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_21/three-quarter-back.png",
+          "sha256": "ccc6e7f162946f92a39678f6fe1b57fb87336e2d31e492b48966257e8ecbe980",
+          "geometrySha256": "cd4fa84ccc6603183c9e14f28618f96feefbfd2129ffb238a4279b04c448f8e7",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "The formerly bare lower torso and short straight collar arrangement have been replaced by contacting bark/root coverage and a root beard under the face, together with a broad moss-covered rear canopy that tapers into long brown root and bark strands down the thighs. Both profiles and back show the extended tapered silhouette; front and oblique views retain the green face, bark arms and sprouting branches. The prior substantial source coverage omissions are resolved, with no further significant discrepancy within this scoped comparison.",
+      "resolution": "The formerly bare lower torso and short straight collar arrangement have been replaced by contacting bark/root coverage and a root beard under the face, together with a broad moss-covered rear canopy that tapers into long brown root and bark strands down the thighs. Both profiles and back show the extended tapered silhouette; front and oblique views retain the green face, bark arms and sprouting branches. The prior substantial source coverage omissions are resolved, with no further significant discrepancy within this scoped comparison.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    },
+    {
+      "id": "host_22",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_22.blend",
+      "actualNativeSha256": "5c952601a81f4123040584ee7a84463752b08e0be957e878ec23b43f39660806",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_22.glb",
+      "actualGlbSha256": "44ceab27fa3221ac4812b90c1b2e78872129e21d5e4d0ad4e45f1bd96840e59e",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_22.png",
+      "sourceSha256": "de8a10851446a9dbdc1130e11d22185b7d2665caa59576473e2c101134c26d17",
+      "initialFindingsSha256": "9ad3e6ea885ebc8239c7ed9351f4f26aba1e10b89a851d960ec53b45a61e8c49",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_22.jpg",
+        "sha256": "1e6ac59e4a2f6892db04688cf4c9e326d496a0e38a91e90a488da6a02d2b043c"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/front.png",
+          "sha256": "fa9311f2c6c98c3ae1654171aa2ae7e1faa1a3fc38c50d12fbb08baf83654004",
+          "geometrySha256": "c0bf53173152073169374c893994ebacd32b99675680d84b8d388667fc870dff",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/back.png",
+          "sha256": "a8608564d26f59e4721974e55c6ce28f92bd0d13c84da5fc7e156c6c1f16bcd5",
+          "geometrySha256": "c0bf53173152073169374c893994ebacd32b99675680d84b8d388667fc870dff",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/left.png",
+          "sha256": "328da62d089db73e2495451e2fea0b0e80be150247a1746d625325c6774ed329",
+          "geometrySha256": "c0bf53173152073169374c893994ebacd32b99675680d84b8d388667fc870dff",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/right.png",
+          "sha256": "bdfd40dcb4dd373e55c2cfcb9e45b49dc156acbf61e68ddbb902db0f16ecffd3",
+          "geometrySha256": "c0bf53173152073169374c893994ebacd32b99675680d84b8d388667fc870dff",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/three-quarter-front.png",
+          "sha256": "00fe84be540a39598e51e47f515b9e64d9ebf0523de9c721a55e86502ca7a0ac",
+          "geometrySha256": "c0bf53173152073169374c893994ebacd32b99675680d84b8d388667fc870dff",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_22/three-quarter-back.png",
+          "sha256": "3b694a65f19e04e1c5eb486bc9cdf61631c343c7219c8ab0e40de843664929ae",
+          "geometrySha256": "c0bf53173152073169374c893994ebacd32b99675680d84b8d388667fc870dff",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        }
+      ],
+      "observation": "The former pointed, flanged mace has been replaced by a closed cuboid metal hammer on a brown shaft. All six comparisons retain the curled ram horns, fitted steel armor, brown rear crossed straps and torn brown waist tabs, without another significant visible equipment omission.",
+      "resolution": "The former pointed, flanged mace has been replaced by a closed cuboid metal hammer on a brown shaft. All six comparisons retain the curled ram horns, fitted steel armor, brown rear crossed straps and torn brown waist tabs, without another significant visible equipment omission.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Previously personally opened source/current paired rows; all current source/native/GLB/six-render/sheet files independently rehashed unchanged from the previous combined report.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      }
+    },
+    {
+      "id": "host_23",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_23.blend",
+      "actualNativeSha256": "8d6d6f1eb5022a063a3359a7a228942d8623f2a8174a49cc25e0cd09abaa0b81",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_23.glb",
+      "actualGlbSha256": "e919ded6d3adba6f7beb0308d7ef5aea6c226fbf2aed89f31f2a990d2551fc45",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_23.png",
+      "sourceSha256": "c7a366bf166f1bc6f779b5a73cef300a46ec4b9ee00813886f4a77a44647149b",
+      "initialFindingsSha256": "81f32ae8d037d62a3c424aa6703b3bd50f58adbb681a8b3683cbbda25c9b0579",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_23.jpg",
+        "sha256": "c570f9c7c0f793806b93683fc31a1ee7ab6ca171918bef9cefdd6ad4f5e0410d"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/front.png",
+          "sha256": "62bfc80708c2218e3e94c8ce130d0b63697cf447c9b2f2f87dfe77f00df4111e",
+          "geometrySha256": "ec38c5dbe6373dc77fd2c27c10d792eacc97ed2ec5cef3fd4431101c12d1ffcd",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/back.png",
+          "sha256": "eb1489c8f7489bf35841835962c7b36512040d5a88d32cf75fdd91de0e6b0acf",
+          "geometrySha256": "ec38c5dbe6373dc77fd2c27c10d792eacc97ed2ec5cef3fd4431101c12d1ffcd",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/left.png",
+          "sha256": "de13d4c2d40f283394fe24b3eb971190ba0e436e15a52e25085a0cadc161a7e1",
+          "geometrySha256": "ec38c5dbe6373dc77fd2c27c10d792eacc97ed2ec5cef3fd4431101c12d1ffcd",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/right.png",
+          "sha256": "276972cef8a986b0d91c7ee927ab2ce56604ff7a5fa05d80833aff09c672bd09",
+          "geometrySha256": "ec38c5dbe6373dc77fd2c27c10d792eacc97ed2ec5cef3fd4431101c12d1ffcd",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/three-quarter-front.png",
+          "sha256": "ee3aa8faaad97ccff345f1ba80c9c887b0f7f0d5a8d2f3beeac7c81b55628d3a",
+          "geometrySha256": "ec38c5dbe6373dc77fd2c27c10d792eacc97ed2ec5cef3fd4431101c12d1ffcd",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_23/three-quarter-back.png",
+          "sha256": "33b9327bb2ec26fdea9b5e3b3d41c1ad4b4ed8a12a8b5a63b3e70b69bc34f2f0",
+          "geometrySha256": "ec38c5dbe6373dc77fd2c27c10d792eacc97ed2ec5cef3fd4431101c12d1ffcd",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "A broad brown studded waist belt and hanging brown-framed cyan diamond seals are now visible on the front and oblique views. The layered blue ragged garment, cyan body and skull-faced suspended crystals on the staff and around the hood preserve the source equipment and silhouette; no further significant omission was observed in all six pairs.",
+      "resolution": "A broad brown studded waist belt and hanging brown-framed cyan diamond seals are now visible on the front and oblique views. The layered blue ragged garment, cyan body and skull-faced suspended crystals on the staff and around the hood preserve the source equipment and silhouette; no further significant omission was observed in all six pairs.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    },
+    {
+      "id": "host_24",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_24.blend",
+      "actualNativeSha256": "bc8d37cb9b82fc8da7262c3f4316d04ca7aedd81ca3ebf56581b0397e4a5cbeb",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_24.glb",
+      "actualGlbSha256": "20ae466ef3c1e292b6e9f5b72762051b4f3b62547a8feb6c60eab0ae6b73aece",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_24.png",
+      "sourceSha256": "3a2e5ec81c3a262bde3f736ce9a54ff27dd5fd8d43d66bf6c48e9c0e8dd89f5e",
+      "initialFindingsSha256": "051ad25298310d16db54e7cbf0f6d1c155ac6de0acd22a9ede568ad78ec95821",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_24.jpg",
+        "sha256": "de4f995c9b5f9486f41c807f7079bfa987179f4ebafa228d61fecf80165e898b"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/front.png",
+          "sha256": "a3643768c03a306dba05286e100b8916c71356021a5d4c95a389d3544f95264a",
+          "geometrySha256": "a85a820a09236d721b94aae76ebd89c2c51ccba8dd38eeed45803fef2596b199",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared.",
+          "scopedPass": true
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/back.png",
+          "sha256": "111bf029290a7f9142e6cf1818ab74736fc01a701c1ebb0c56f98ba1b85d5fd7",
+          "geometrySha256": "a85a820a09236d721b94aae76ebd89c2c51ccba8dd38eeed45803fef2596b199",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared.",
+          "scopedPass": true
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/left.png",
+          "sha256": "6ab13939be340390f44e99f730ee294b318309bd36a800abf080ce2ca2de8dbb",
+          "geometrySha256": "a85a820a09236d721b94aae76ebd89c2c51ccba8dd38eeed45803fef2596b199",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared.",
+          "scopedPass": true
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/right.png",
+          "sha256": "fb1aa4f7e9ccba6393af5a5f8e4e83856ff114c8889245b99b8cbd434e805a6b",
+          "geometrySha256": "a85a820a09236d721b94aae76ebd89c2c51ccba8dd38eeed45803fef2596b199",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared.",
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/three-quarter-front.png",
+          "sha256": "d641c95cffb29733ac02fab05745a947cc9b8610e2f64367619a4ca071699616",
+          "geometrySha256": "a85a820a09236d721b94aae76ebd89c2c51ccba8dd38eeed45803fef2596b199",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared.",
+          "scopedPass": true
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_24/three-quarter-back.png",
+          "sha256": "1d0e497cf27249309ab057fbf09036947ce9f873ccb5e081391dce6f844e36c2",
+          "geometrySha256": "a85a820a09236d721b94aae76ebd89c2c51ccba8dd38eeed45803fef2596b199",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared.",
+          "scopedPass": true
+        }
+      ],
+      "observation": "Circular side bearing/gear housings now appear in both profiles and quarters, resolving the previously missing head-cage feature. Open pilot cage, riveted front frame, large hand gear and mechanical joint/limb motifs remain recognizable.",
+      "resolution": "Circular side bearing/gear housings now appear in both profiles and quarters, resolving the previously missing head-cage feature. Open pilot cage, riveted front frame, large hand gear and mechanical joint/limb motifs remain recognizable.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Previously personally opened source/current paired rows; all current source/native/GLB/six-render/sheet files independently rehashed unchanged from the previous combined report.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      }
+    },
+    {
+      "id": "host_26",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_26.blend",
+      "actualNativeSha256": "6b7ed93ea8c005c530eeed2986b41f4ec1fabb84f2b162ae9fb2f45004760f02",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_26.glb",
+      "actualGlbSha256": "2fe9e15f76945fea2eb28877dd16a7a1e8c6ccd43c7b336046b6341361c85626",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_26.png",
+      "sourceSha256": "4e6a8bc1328b0e53596d3bc2f45fb05ba791aead3f2ca4beeb168f2e35a1667d",
+      "initialFindingsSha256": "b73032fcb6f94a7c89c91376b7a4452876739388c54442f0c263e235a121ff12",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_26.jpg",
+        "sha256": "9086c3f66cba8c7f6ae02638b2c2bf0a29ece9800601a440db2aabf4170b508d"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/front.png",
+          "sha256": "65e2a2a96d22751d0e4163014e6805501ba343410ef6f25a4faffd9dde806781",
+          "geometrySha256": "0e59521a81f00382d88cf071672ffc109df1a0c84e2f1596da9b760bedac0018",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/back.png",
+          "sha256": "586f4bfd6237051d9bd2b3ba1db1db9483e27a22eb35096fc3799300dea260a0",
+          "geometrySha256": "0e59521a81f00382d88cf071672ffc109df1a0c84e2f1596da9b760bedac0018",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/left.png",
+          "sha256": "917c02ad468a5f7c8073e12ccb4f035f4fe5ad70d235fdcfa77a635140f31060",
+          "geometrySha256": "0e59521a81f00382d88cf071672ffc109df1a0c84e2f1596da9b760bedac0018",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/right.png",
+          "sha256": "d98c8ca59718165760fa405495c9daaf8d2a9c97db635225cd7918ee47a40e71",
+          "geometrySha256": "0e59521a81f00382d88cf071672ffc109df1a0c84e2f1596da9b760bedac0018",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/three-quarter-front.png",
+          "sha256": "4a1eb0138d79a5d3217f937406cf25f0548bcb2f2910837105f2055377580371",
+          "geometrySha256": "0e59521a81f00382d88cf071672ffc109df1a0c84e2f1596da9b760bedac0018",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_26/three-quarter-back.png",
+          "sha256": "9daa90fa6a841c49f23621c48921fb6c6550542c88b0b9e6409045a76368fef8",
+          "geometrySha256": "0e59521a81f00382d88cf071672ffc109df1a0c84e2f1596da9b760bedac0018",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        }
+      ],
+      "observation": "The previously missing brown leather forearm and wrist wraps are now clearly visible in front, back and both profiles. The dark block-shaped rune collar, ivory tusks, skull buckle, ragged brown skirt and dark spiked mace retain the visible source identity; no further significant discrepancy was observed in all six pairs.",
+      "resolution": "The previously missing brown leather forearm and wrist wraps are now clearly visible in front, back and both profiles. The dark block-shaped rune collar, ivory tusks, skull buckle, ragged brown skirt and dark spiked mace retain the visible source identity; no further significant discrepancy was observed in all six pairs.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Previously personally opened source/current paired rows; all current source/native/GLB/six-render/sheet files independently rehashed unchanged from the previous combined report.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      }
+    },
+    {
+      "id": "host_31",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_31.blend",
+      "actualNativeSha256": "a03cf35fcb5513843def4192f523f611ab4dab69141af054b569eb0136219b09",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_31.glb",
+      "actualGlbSha256": "c4858d359e1baa13d056c3b4fd260fc8b8771c473d7ec915d7e0f7e4a4ee1860",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_31.png",
+      "sourceSha256": "7de73f17356ecc13f3b829d20b3b288a30f9e7b2d3bcf3ab4c992bc3db8616cb",
+      "initialFindingsSha256": "c2647bbe1b53378b2a17f2ee6484f5858b2ae00553782afba8a1dc03f12459fa",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_31.jpg",
+        "sha256": "82d9605338bbd2f228fc0c1705d9ffa16076b1464a6962b66340f3fd6a9e6288"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/front.png",
+          "sha256": "8d9c0dc48aeac021e975e94f6a7a23173aa410b8edada27c3cbab7c7206bf020",
+          "geometrySha256": "45ea85a5478a165974637ce222700ca602a7a511f61518133195202558a41af3",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/back.png",
+          "sha256": "4d12d250aa8f07a8415e09bf327006c657b072452ed8656028eeaec4e9078479",
+          "geometrySha256": "45ea85a5478a165974637ce222700ca602a7a511f61518133195202558a41af3",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/left.png",
+          "sha256": "f56a7b1087a7aa3a4fae2a299d5b1bf511850010eccd5a587da6998e871a88d3",
+          "geometrySha256": "45ea85a5478a165974637ce222700ca602a7a511f61518133195202558a41af3",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/right.png",
+          "sha256": "ca2ed9014d6b033db784c1e63d1f854125560ae61a20e998e99c72048cab5d26",
+          "geometrySha256": "45ea85a5478a165974637ce222700ca602a7a511f61518133195202558a41af3",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/three-quarter-front.png",
+          "sha256": "a73a7451caf85d6c455585c5d4b8bf17135408f9031567c641ef71d9e1c96823",
+          "geometrySha256": "45ea85a5478a165974637ce222700ca602a7a511f61518133195202558a41af3",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_31/three-quarter-back.png",
+          "sha256": "7a8a009f52112d1851b006260286182fb73244058359cd0dea592e5b91671f55",
+          "geometrySha256": "45ea85a5478a165974637ce222700ca602a7a511f61518133195202558a41af3",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "All six original/current rows personally reopened. Gold shield perimeter, brown shaft and two ivory rear rune tabs are now conspicuous. Tabs hang from real shoulder skull assemblies and appear in back, both profiles and quarterback. Prior three scoped findings are resolved.",
+      "resolution": "All six original/current rows personally reopened. Gold shield perimeter, brown shaft and two ivory rear rune tabs are now conspicuous. Tabs hang from real shoulder skull assemblies and appear in back, both profiles and quarterback. Prior three scoped findings are resolved.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    },
+    {
+      "id": "host_32",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_32.blend",
+      "actualNativeSha256": "95e0297926c066c541c2e10f957a1a1442f65cf74290d01dfcef8a335407e066",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_32.glb",
+      "actualGlbSha256": "a23a94047bd557550aac14b49c916d1f5e45fd5e08a5062a620ac8edc128b1c8",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_32.png",
+      "sourceSha256": "f0114906482e4e3be10d5b4e227ee80018b4ee9f44f6697ec539045d430c11c7",
+      "initialFindingsSha256": "51ed32effac13d730d0ddb186697cab1c3f6b39feeb4b345bf98e797ec83893b",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_32.jpg",
+        "sha256": "7374a4a3f6846463b5ee6258a39f26bb7e66c7883db35094a0f816cd4618af9a"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/front.png",
+          "sha256": "f28e6a9040e81555d9827b3f6d7d1be983ba53ffe815b9b4178dc112597ff94d",
+          "geometrySha256": "23bcb24dd5bb04c4bcd4aa42df39c39dc74f2015b24f21a238235493780216b0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/back.png",
+          "sha256": "71940222cf9535d2901186b5d87c7ce0b60c4b19adee235911da53041323e3ca",
+          "geometrySha256": "23bcb24dd5bb04c4bcd4aa42df39c39dc74f2015b24f21a238235493780216b0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/left.png",
+          "sha256": "6ee6483a284e996372b28e4283d446a0461f34747b611e98e69f751615f3614e",
+          "geometrySha256": "23bcb24dd5bb04c4bcd4aa42df39c39dc74f2015b24f21a238235493780216b0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/right.png",
+          "sha256": "39eb906fe6c70a0aa5c4d62d13156042c27acfd7b3c5c39ce943df215bf5dbc3",
+          "geometrySha256": "23bcb24dd5bb04c4bcd4aa42df39c39dc74f2015b24f21a238235493780216b0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/three-quarter-front.png",
+          "sha256": "516314a75b03cabd5f0f38d49973913bec9892181314967bfbb5ab4ef98615d9",
+          "geometrySha256": "23bcb24dd5bb04c4bcd4aa42df39c39dc74f2015b24f21a238235493780216b0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_32/three-quarter-back.png",
+          "sha256": "765e92a407714cc0d2d2e53625389e88fb51aa340c71c99cf7221f95b07a3277",
+          "geometrySha256": "23bcb24dd5bb04c4bcd4aa42df39c39dc74f2015b24f21a238235493780216b0",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "The old constant-depth crossed baldric planks are removed. Current brown crossed rear harness follows the thorax in both profiles/back/quarterback. Bone chest rack, cyan caged soul, held lantern/fork and ragged waist retain source identity.",
+      "resolution": "The old constant-depth crossed baldric planks are removed. Current brown crossed rear harness follows the thorax in both profiles/back/quarterback. Bone chest rack, cyan caged soul, held lantern/fork and ragged waist retain source identity.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    },
+    {
+      "id": "host_33",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_33.blend",
+      "actualNativeSha256": "a62df730250d427d8ab943003d06590b0b379df73ff3d7149766c0a6602e1bc4",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_33.glb",
+      "actualGlbSha256": "924f19ecf8bae1b38cd25425106d84abf3862a18558d89c16535c4ab36eda6ed",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_33.png",
+      "sourceSha256": "1e1f8bc5aa7cf1455439275d4600726dc27393907cfe4a5a70c9a1658b4ca9fe",
+      "initialFindingsSha256": "05de247f997da64afaef92aff88e0a736798394d716eb4d5ef9b7658c53f0e58",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_33.jpg",
+        "sha256": "0d099a811177c019b970a25cf5f67239423824ff8878726963f745d370663373"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/front.png",
+          "sha256": "aba8fd2c0871de85af196436d761cee34ee4d4703dcb7873d8a34cb68f4014cf",
+          "geometrySha256": "9a423b2750755998063188c94d008892918078d6db06fc7bc9f0ce9251b4f48f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/back.png",
+          "sha256": "b36792905c24370749889958cbf1db9a25d9a6dff04655b947f631cd0bf04d7a",
+          "geometrySha256": "9a423b2750755998063188c94d008892918078d6db06fc7bc9f0ce9251b4f48f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/left.png",
+          "sha256": "7867856c53f78dce239216969ba7d748042538de662f20795fbbdf5e6d448897",
+          "geometrySha256": "9a423b2750755998063188c94d008892918078d6db06fc7bc9f0ce9251b4f48f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/right.png",
+          "sha256": "8d784501798dbfe7c3150518f93a51e724c3f11d90d8a24a22f8385ef1131548",
+          "geometrySha256": "9a423b2750755998063188c94d008892918078d6db06fc7bc9f0ce9251b4f48f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/three-quarter-front.png",
+          "sha256": "18a3a4b52f9015c831420536d55295bcb2cd45defa43301a2352ec22cc70c105",
+          "geometrySha256": "9a423b2750755998063188c94d008892918078d6db06fc7bc9f0ce9251b4f48f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_33/three-quarter-back.png",
+          "sha256": "6ae97a66c2b54f004a442358a31e5092d2781da08d26dbc8515f683f9a26ef4a",
+          "geometrySha256": "9a423b2750755998063188c94d008892918078d6db06fc7bc9f0ce9251b4f48f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "The formerly waist-length rear fan now continues into long folded purple trailing cloth down the calves. Back, both profiles and quarter-back comparisons show the repaired lower silhouette, while a silver waist band, purple hood and crystal sword retain the source identity. No further significant discrepancy was observed within the scoped long-garment comparison across all six pairs.",
+      "resolution": "The formerly waist-length rear fan now continues into long folded purple trailing cloth down the calves. Back, both profiles and quarter-back comparisons show the repaired lower silhouette, while a silver waist band, purple hood and crystal sword retain the source identity. No further significant discrepancy was observed within the scoped long-garment comparison across all six pairs.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    },
+    {
+      "id": "host_36",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_36.blend",
+      "actualNativeSha256": "90d62e5e7e53c74fe0c205fed5a93285a9a0fde4f35dfa6743dbb455343d8b63",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_36.glb",
+      "actualGlbSha256": "1201bbb3c16c6fa0258aadf792ac938e8437863828857ff5f2d136794ad99853",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_36.png",
+      "sourceSha256": "6898d21bad29df4985f0ff4e55384b17affd625d862b3dc5a3a3599cf9831a89",
+      "initialFindingsSha256": "0b6bce181d7f0cb1a148678320ea4b5c0bc989d96daf895db5c90ec8f170a171",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_36.jpg",
+        "sha256": "f774a4aa87a4ed2617a182c245d757619c5937f2cb3b020dc35ab52c57edf3e1"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/front.png",
+          "sha256": "aee1ff6a131cb4a960e4282f87f947ab1dd7b798316810f0d01ecd46d9383b34",
+          "geometrySha256": "5f682f7e8f981ff6bc2d983301e86d18395022445320713fe3d4842f653e5eaa",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/back.png",
+          "sha256": "04fbf3a001364af88e03f0c59a8e213d5171887e59668015c380723a5425f5f2",
+          "geometrySha256": "5f682f7e8f981ff6bc2d983301e86d18395022445320713fe3d4842f653e5eaa",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/left.png",
+          "sha256": "c962cbe95655b17683a2af09694d6e218980ebb28f60a028428ad994ccd68dbe",
+          "geometrySha256": "5f682f7e8f981ff6bc2d983301e86d18395022445320713fe3d4842f653e5eaa",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/right.png",
+          "sha256": "b080071947775ffbd35b2d4afb01dd6c192fdf2e093be2e9af8119d4d2f3e9f4",
+          "geometrySha256": "5f682f7e8f981ff6bc2d983301e86d18395022445320713fe3d4842f653e5eaa",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/three-quarter-front.png",
+          "sha256": "285980e1e5861351e7c7f599a128824c90be7adf8121792c92798c131d0fb3cf",
+          "geometrySha256": "5f682f7e8f981ff6bc2d983301e86d18395022445320713fe3d4842f653e5eaa",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_36/three-quarter-back.png",
+          "sha256": "7f95bd28a88c822e780f0c787bcc2441552df4c27863fbdd270efdc6228b029a",
+          "geometrySha256": "5f682f7e8f981ff6bc2d983301e86d18395022445320713fe3d4842f653e5eaa",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        }
+      ],
+      "observation": "The long red robe and exposed legs have been replaced by actual steel thigh, knee and greave surfaces with a short torn red loincloth. Brown crossed straps are now seated on the rear armor. The crown, broad dark crown-emblem shield, sword and spiked shoulder coverage remain visible across all six source/model pairs; no further significant discrepancy was observed within the scoped identity comparison.",
+      "resolution": "The long red robe and exposed legs have been replaced by actual steel thigh, knee and greave surfaces with a short torn red loincloth. Brown crossed straps are now seated on the rear armor. The crown, broad dark crown-emblem shield, sword and spiked shoulder coverage remain visible across all six source/model pairs; no further significant discrepancy was observed within the scoped identity comparison.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Previously personally opened source/current paired rows; all current source/native/GLB/six-render/sheet files independently rehashed unchanged from the previous combined report.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      }
+    },
+    {
+      "id": "host_38",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_38.blend",
+      "actualNativeSha256": "d908118745086c7efced2026de1644e7523667a57548b2070063bba94b225d0d",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_38.glb",
+      "actualGlbSha256": "02a6ee5aaf5a02b88c30ac8713b7fc857fad977404d6cb0fb02e71f533485b5a",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_38.png",
+      "sourceSha256": "66fec81fdb7df9ff5efc428c8614efe4821a5226ea3a239567f5ec80099e3c04",
+      "initialFindingsSha256": "ecda2978b66e0d6f6d36af9d81152b5830255f92dddf192b8b9dbcb2fd5fa177",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_38.jpg",
+        "sha256": "bcb0f65f32cf329e6e79b39303919e9373d6a4e6390627ddcf3339a29cf06be4"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/front.png",
+          "sha256": "7f0be6ebc940c3c357d614cd2ef203bda114516986da5024a9239a536a78f8b8",
+          "geometrySha256": "a19d97b44fafe159b2ebc5387366318695f2e8b9f9a42cb291722ea1db20246c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/back.png",
+          "sha256": "96e556b36dd2ad80d2d39d7a52de45f2d021cbb5e0a4969da33db9576d40ff25",
+          "geometrySha256": "a19d97b44fafe159b2ebc5387366318695f2e8b9f9a42cb291722ea1db20246c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/left.png",
+          "sha256": "2ee040fa6b4b4b8ccdddf270274cde47836b437c485e9e8c62574ce2098b340f",
+          "geometrySha256": "a19d97b44fafe159b2ebc5387366318695f2e8b9f9a42cb291722ea1db20246c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/right.png",
+          "sha256": "0358e9ab1be8cfed68d6dde95b43d6a608e9ca6f986a094c4fb6fd1f524c6eca",
+          "geometrySha256": "a19d97b44fafe159b2ebc5387366318695f2e8b9f9a42cb291722ea1db20246c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/three-quarter-front.png",
+          "sha256": "fdb164e1180cdd8ef8298910cad5992b20eff44c96a4905aa0534e12b780c4f0",
+          "geometrySha256": "a19d97b44fafe159b2ebc5387366318695f2e8b9f9a42cb291722ea1db20246c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_38/three-quarter-back.png",
+          "sha256": "290c8b5b689d6ba416abc343c3fd44fa352f5fbdde33d6772fe75b08498464cb",
+          "geometrySha256": "a19d97b44fafe159b2ebc5387366318695f2e8b9f9a42cb291722ea1db20246c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "The former solid steel arm coverage has been removed in favor of exposed green upper arms and brown leather forearm wraps under the layered charcoal ragged shoulder garment. The pink-red face scarf, paired knives, brown belt and layered torn cloth retain the source identity across all six pairs; no further significant discrepancy was observed.",
+      "resolution": "The former solid steel arm coverage has been removed in favor of exposed green upper arms and brown leather forearm wraps under the layered charcoal ragged shoulder garment. The pink-red face scarf, paired knives, brown belt and layered torn cloth retain the source identity across all six pairs; no further significant discrepancy was observed.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    },
+    {
+      "id": "host_41",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_41.blend",
+      "actualNativeSha256": "6402057f916db72194e8bd66ca727c49b101a6ba0fe31e92f0bf34a446ad5804",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_41.glb",
+      "actualGlbSha256": "712d2439c577dd43e4f7a86cf0f37b343b8083b0607da2bba97eb707d2e7dd0b",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_41.png",
+      "sourceSha256": "4eea18cf33680a965dfb51a285bd4b0299076023bae5e4f100b5b523bde02882",
+      "initialFindingsSha256": "f4322c34c4db4d92623ade00a381150dc2f33070920f7df0d1bee20ccf4d32f5",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_41.jpg",
+        "sha256": "f0f309a23e5cd67d06b1b5d99ecb6ff17227fa4bb6a87ea4213ff1d3215c449c"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/front.png",
+          "sha256": "f09c06583e31ad0f030400ccf982129f311773e41449780bbb82cc9d1f15e200",
+          "geometrySha256": "b845de36576144f4db533e24c2d40b9dfb936320fee4ff26b78d52f8707e548f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/back.png",
+          "sha256": "1caa7cf4c5ca59b0294bcd5dcbf3dfb5ed331b202c4926f95dea1feab9d64aa7",
+          "geometrySha256": "b845de36576144f4db533e24c2d40b9dfb936320fee4ff26b78d52f8707e548f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/left.png",
+          "sha256": "39126934a2cb1f6a199eb2931d93e6a778b8e5de99256e9b5d3142390699625f",
+          "geometrySha256": "b845de36576144f4db533e24c2d40b9dfb936320fee4ff26b78d52f8707e548f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/right.png",
+          "sha256": "7473e5b3b60ce5e8895d50659099b977559260617575df4fd869108991b1890a",
+          "geometrySha256": "b845de36576144f4db533e24c2d40b9dfb936320fee4ff26b78d52f8707e548f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/three-quarter-front.png",
+          "sha256": "5dfedbec30fc55d7e68dcc73ea1ee187535961f41057765fa460e742e3f05652",
+          "geometrySha256": "b845de36576144f4db533e24c2d40b9dfb936320fee4ff26b78d52f8707e548f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_41/three-quarter-back.png",
+          "sha256": "a31c928c742a7e1ee571e6deb72ce7eef6def8c7aab392d7339f1ecce7998d66",
+          "geometrySha256": "b845de36576144f4db533e24c2d40b9dfb936320fee4ff26b78d52f8707e548f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        }
+      ],
+      "observation": "The formerly dominant brown coat surfaces have been replaced by steel shoulder, arm, torso, waist and leg armor. The cyan shield now has a single pointed lower kite tip, and the brown spear carries one broad faceted diamond head rather than separated barbs. All six source/model pairs preserve the steel phalanx identity without another significant visible equipment omission.",
+      "resolution": "The formerly dominant brown coat surfaces have been replaced by steel shoulder, arm, torso, waist and leg armor. The cyan shield now has a single pointed lower kite tip, and the brown spear carries one broad faceted diamond head rather than separated barbs. All six source/model pairs preserve the steel phalanx identity without another significant visible equipment omission.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Previously personally opened source/current paired rows; all current source/native/GLB/six-render/sheet files independently rehashed unchanged from the previous combined report.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      }
+    },
+    {
+      "id": "host_43",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_43.blend",
+      "actualNativeSha256": "7de36cc39c8f19c3d4de79871d4f04d842cdd07ff55fd93529487616b8f2dc1c",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_43.glb",
+      "actualGlbSha256": "4f3fa260d9ffa551d8deb883fb82030b925814fee5a2d46772551dbbf1c2fa9a",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_43.png",
+      "sourceSha256": "57ad6b0d09ed99269672ba09f47b59aeda7c1233379cf87736a8083f3d68e008",
+      "initialFindingsSha256": "f64cba891d7b1fcba66f4c23fe08059c056051557369bb97d1637de6dc6f3618",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_43.jpg",
+        "sha256": "1c199dac080538f0276ffacbfe5cb5ad2afb4e54bffa89e892d33f6ff2336d1e"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/front.png",
+          "sha256": "74696a5fe55648a06f1bc3f37fb8015a9b73170499e0b874c27a7536ac9fc0be",
+          "geometrySha256": "6182188d4437b205a03bdde55b87b0b53045abe18070e0ba97f1a006e65cdb8c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/back.png",
+          "sha256": "6aa5aab93409425eecd55266681c607c747b8eadfe5f9e9c82e3a14b27fa44dd",
+          "geometrySha256": "6182188d4437b205a03bdde55b87b0b53045abe18070e0ba97f1a006e65cdb8c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/left.png",
+          "sha256": "63ed66d866a11169086513c30de55312cfddb20b864908d60206e10f518666d2",
+          "geometrySha256": "6182188d4437b205a03bdde55b87b0b53045abe18070e0ba97f1a006e65cdb8c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/right.png",
+          "sha256": "abe23b5696647bba78cd5f3a8aee5d4d5ebda3dd0c1f5800eadaf293e2475e53",
+          "geometrySha256": "6182188d4437b205a03bdde55b87b0b53045abe18070e0ba97f1a006e65cdb8c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/three-quarter-front.png",
+          "sha256": "e7dec6c0dedb2e91495c94d5d3440154c6df6034cbe5d7b9b3854e1d9e8b3b4a",
+          "geometrySha256": "6182188d4437b205a03bdde55b87b0b53045abe18070e0ba97f1a006e65cdb8c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_43/three-quarter-back.png",
+          "sha256": "45fe218dab3593ffe16e4594a5970c26a17adb9d6f1e91b2cb4de0ab0b009011",
+          "geometrySha256": "6182188d4437b205a03bdde55b87b0b53045abe18070e0ba97f1a006e65cdb8c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        }
+      ],
+      "observation": "The former flanged pointed mace has been replaced by a studded cuboid metal mallet on the held shaft. The two actual cage lanterns and cyan crystals, fitted face mask, brown harness and steel armor remain visible and consistent with the source equipment in all six pairs; no further significant discrepancy was observed within this scope.",
+      "resolution": "The former flanged pointed mace has been replaced by a studded cuboid metal mallet on the held shaft. The two actual cage lanterns and cyan crystals, fitted face mask, brown harness and steel armor remain visible and consistent with the source equipment in all six pairs; no further significant discrepancy was observed within this scope.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Previously personally opened source/current paired rows; all current source/native/GLB/six-render/sheet files independently rehashed unchanged from the previous combined report.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      }
+    },
+    {
+      "id": "host_44",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_44.blend",
+      "actualNativeSha256": "0a1dc524db00eb1e9c0a75da951e057528b2a8f92823c8329069389f87bd1fc2",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_44.glb",
+      "actualGlbSha256": "5a4efcfd7ea6d26e7a4aedf8b23860b9bde36e53059a49921df5259e20211002",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_44.png",
+      "sourceSha256": "6e1f9a0a440ca261250b267d21dc56fe4803957069288455d4df7f2c6f9f3221",
+      "initialFindingsSha256": "d01fe5cdfdc1f93da23b6e31abb2fa659700c19174d846bae0cb4524f964bcd0",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_44.jpg",
+        "sha256": "1fcd8698274ac87dc6768d46a86a24abb7cc2e900eb13c46a9da7b48c5b1eff2"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/front.png",
+          "sha256": "8e2e938045f2bf1307d0b1a04af3b3e168f3ca37af41aad530a8f592a579deb9",
+          "geometrySha256": "cba5490ea7677833cffe244baa1c970c199ac4ff9f1d272395f1878dfe5ccd3f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/back.png",
+          "sha256": "0e15a2603047659292df8a0c6353b3c078de55d0860eed23f256cedf3d347f19",
+          "geometrySha256": "cba5490ea7677833cffe244baa1c970c199ac4ff9f1d272395f1878dfe5ccd3f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/left.png",
+          "sha256": "a4690d8fe66cb0e4f9d1b7b6efe0e2dfc27d662db9f93aec5c742ec9c32d8486",
+          "geometrySha256": "cba5490ea7677833cffe244baa1c970c199ac4ff9f1d272395f1878dfe5ccd3f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/right.png",
+          "sha256": "2c85c443e789b96569cba19ef3f12ac867fb81f97bf016a77b46d5f1efed808b",
+          "geometrySha256": "cba5490ea7677833cffe244baa1c970c199ac4ff9f1d272395f1878dfe5ccd3f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/three-quarter-front.png",
+          "sha256": "41c3510aa101e81dcfcdd9de00e8aa5818eb4f1011df7f2b16f11faae7e719c9",
+          "geometrySha256": "cba5490ea7677833cffe244baa1c970c199ac4ff9f1d272395f1878dfe5ccd3f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_44/three-quarter-back.png",
+          "sha256": "c0db5969d96f39f8d0c8313a47ecad014c925dc903836765cf5199419591e178",
+          "geometrySha256": "cba5490ea7677833cffe244baa1c970c199ac4ff9f1d272395f1878dfe5ccd3f",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "The formerly missing orange/gold shoulder-panel borders are now conspicuous in the front, back, both profiles and both oblique views. An actual continuous orange lower border follows the ragged robe hem instead of being represented solely by vertical orange bars. The full brown-shaft poleaxe retains a separate top spike and broad side blade. The previously reported visible mantle and rear-hem omissions are resolved, with no additional significant discrepancy observed within this scoped comparison.",
+      "resolution": "The formerly missing orange/gold shoulder-panel borders are now conspicuous in the front, back, both profiles and both oblique views. An actual continuous orange lower border follows the ragged robe hem instead of being represented solely by vertical orange bars. The full brown-shaft poleaxe retains a separate top spike and broad side blade. The previously reported visible mantle and rear-hem omissions are resolved, with no additional significant discrepancy observed within this scoped comparison.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    },
+    {
+      "id": "host_46",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_46.blend",
+      "actualNativeSha256": "5ac228804697661a17d24d5ab3da7ed0bcf9d37da75327550bf630d7c79ad831",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_46.glb",
+      "actualGlbSha256": "c20c7fc0b8b2f667532e83de30698e4b923921603a3607f3d342964b02456e73",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_46.png",
+      "sourceSha256": "d9319e94ae2f233e28713e80abc7f4619bcdc426a65b5184b390fbec370f3abd",
+      "initialFindingsSha256": "c3046f5a93b7141e8494a994014fc3464d8633a78c1c45de8c0d3e580051c244",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_46.jpg",
+        "sha256": "a7375be63772576ba38c3142fdbe0108487de7ea54ce6e80242741eecb334736"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/front.png",
+          "sha256": "4d3d109aaf44a14994bf4e6c17014a5f960e343beca2223e76760411f9e90e99",
+          "geometrySha256": "9d701e235135b201c58ab73fb702e41f3a9cb760ca3396c26c3cb77ad074e71c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/back.png",
+          "sha256": "83b6ec79eba0cda58b44fad6277ff1906a5df22e6c90a2d07aebe620366d58f7",
+          "geometrySha256": "9d701e235135b201c58ab73fb702e41f3a9cb760ca3396c26c3cb77ad074e71c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/left.png",
+          "sha256": "0b32f86918f110850997e3c5cfea6091c9e88b92f494eccbe04c17080160c8ce",
+          "geometrySha256": "9d701e235135b201c58ab73fb702e41f3a9cb760ca3396c26c3cb77ad074e71c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/right.png",
+          "sha256": "0c44ebcde04d7957b38f92e2df0ff2e119843731380f30803683f7330735e5ed",
+          "geometrySha256": "9d701e235135b201c58ab73fb702e41f3a9cb760ca3396c26c3cb77ad074e71c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/three-quarter-front.png",
+          "sha256": "8838804dc604f27bc4b035525e82711a277473b013acf64200be765ebed358a0",
+          "geometrySha256": "9d701e235135b201c58ab73fb702e41f3a9cb760ca3396c26c3cb77ad074e71c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_46/three-quarter-back.png",
+          "sha256": "4cf934d06ea170560f7e9d31d2c1f3a8a9879a2070d8fee6497bade6fa34012d",
+          "geometrySha256": "9d701e235135b201c58ab73fb702e41f3a9cb760ca3396c26c3cb77ad074e71c",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared."
+        }
+      ],
+      "observation": "The former single oversized cyan core and skeletal chest frame have been replaced by two actual dark steel breastplate panels carrying separate side cyan gems and a central vertical cyan sequence. The open dark hollow helmet, cyan waist slit, fitted steel limbs and sword remain visible in all six source/model comparisons; no additional significant discrepancy was observed within the scoped chest-equipment comparison.",
+      "resolution": "The former single oversized cyan core and skeletal chest frame have been replaced by two actual dark steel breastplate panels carrying separate side cyan gems and a central vertical cyan sequence. The open dark hollow helmet, cyan waist slit, fitted steel limbs and sword remain visible in all six source/model comparisons; no additional significant discrepancy was observed within the scoped chest-equipment comparison.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Previously personally opened source/current paired rows; all current source/native/GLB/six-render/sheet files independently rehashed unchanged from the previous combined report.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      }
+    },
+    {
+      "id": "host_49",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_49.blend",
+      "actualNativeSha256": "2a568c093e1a5d97cc973b5a1532f6d2d1b8ca2c099f034f63352ce6b516573b",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_49.glb",
+      "actualGlbSha256": "1b5c384b90e3f88e850c0afbaef522e8a140cd0e74e38d88958ae0dfe90f91df",
+      "source": "output/design/geometric-turnarounds-v1/enemies/host_49.png",
+      "sourceSha256": "55637bd24f0276d7882795aa0dfbd0846c610215be7929e53de5dc1d65729fff",
+      "initialFindingsSha256": "30ac9d160cb9435658138202c1d94ff1d5f60d544b59373dda9817b193d124c1",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_49.jpg",
+        "sha256": "f4c597cd8e10875a7fe397066cc29fa92040a09cfab325dc8aed309fca4b57ed"
+      },
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/front.png",
+          "sha256": "fa81215fd86d441a4728e413e8c262e7c62c848deed2b8bb9a6d012cfc35d1ff",
+          "geometrySha256": "77b5ac8ee9dcb92f21deffaaa43a5eeeb4c0e2aae1b9d83fa5e51addaaf95984",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/back.png",
+          "sha256": "10f04c763c60697604eb618f71df72bb7fc0bd8e90ed6ef8dcec99e330f1fb2b",
+          "geometrySha256": "77b5ac8ee9dcb92f21deffaaa43a5eeeb4c0e2aae1b9d83fa5e51addaaf95984",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/left.png",
+          "sha256": "6cf2f955db6e7388c53ca4750962ff09ac8c658b3f87c91a3e4b5b3d27db5f4c",
+          "geometrySha256": "77b5ac8ee9dcb92f21deffaaa43a5eeeb4c0e2aae1b9d83fa5e51addaaf95984",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/right.png",
+          "sha256": "c336df66c5740cf6c1aee79c22fdce7db43cdc91f8f3618dac096428a3fd3e0d",
+          "geometrySha256": "77b5ac8ee9dcb92f21deffaaa43a5eeeb4c0e2aae1b9d83fa5e51addaaf95984",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/three-quarter-front.png",
+          "sha256": "677f985c55dabb7c45c997c713bf1580a61a0c98e4b717dcf783e873e72255ec",
+          "geometrySha256": "77b5ac8ee9dcb92f21deffaaa43a5eeeb4c0e2aae1b9d83fa5e51addaaf95984",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_49/three-quarter-back.png",
+          "sha256": "844b3ae3192ecc987f587949f3a8e13e7f8e82b83bebcc58652003a741016df0",
+          "geometrySha256": "77b5ac8ee9dcb92f21deffaaa43a5eeeb4c0e2aae1b9d83fa5e51addaaf95984",
+          "freshV6Render": true,
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual original/current paired-sheet row personally displayed and compared again after the final cloth/ground export."
+        }
+      ],
+      "observation": "All six actual pairs show the grey stone hunch, broad overlapping dark obsidian back/shoulder carapace, open oval belly maw with upper/lower thick teeth and cyan soul, and giant ivory hand/foot claws. No further significant visible source identity discrepancy was found within this spotcheck; hidden dimensions and physical cavity certification remain separate.",
+      "resolution": "All six actual pairs show the grey stone hunch, broad overlapping dark obsidian back/shoulder carapace, open oval belly maw with upper/lower thick teeth and cyan soul, and giant ivory hand/foot claws. No further significant visible source identity discrepancy was found within this spotcheck; hidden dimensions and physical cavity certification remain separate.",
+      "remainingSignificantVisibleFindings": [],
+      "unresolvedSignificantFindings": [],
+      "noFurtherSignificantVisibleFindingWithinScope": true,
+      "passedWithinScope": true,
+      "ownerOrAll50AcceptanceGranted": false,
+      "evidenceProvenance": {
+        "mode": "Freshly personally reopened all six actual source/model paired-sheet rows after the final cloth/ground repair and current export.",
+        "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+      },
+      "finalClothGroundReopenObservation": "The final cloth scope/station and ground adjustments preserve the significant source equipment, silhouette, material family and visible attachment described in the recorded observation. No additional significant visible finding was observed in any of the six current pairs."
+    }
+  ],
+  "latestReopenScope": "Ten subjects personally reopened in all six actual paired rows after the final closed-cloth station, actual garment selector and rigid ground corrections: host_18, host_20, host_21, host_23, host_31, host_32, host_33, host_38, host_44, host_49. Seven other subjects retain their personally recorded observations only after every bound file was independently rehashed unchanged.",
+  "previousCombinedReportSha256": "cc19726c9bda8c0a6706d0e22b6e342f071c5896f0845fdd6d0f0fc0dc80c800"
+}

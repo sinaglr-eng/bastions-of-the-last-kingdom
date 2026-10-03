@@ -1,0 +1,1284 @@
+{
+  "revision": "geometric-game-v6",
+  "reviewer": "v5_champion_shapes",
+  "createdAtUtc": "2026-10-03T20:34:48.615375+00:00",
+  "subjectsActuallyOpened": 18,
+  "sourceModelPairsActuallyInspected": 108,
+  "stageManifest": "output/design/geometric-game-v6/stage-mounted-enemies.json",
+  "stageManifestSha256": "0418573803cf4ad51db8d9202e189d97c980ba093584e0b16f2cb8edf8acd2c3",
+  "initialReview": "output/design/geometric-game-v6/enemy-initial-six-view-review.json",
+  "initialReviewSha256": "d03f7c6f35762cea02427bc898e36599e922bd55ec7f5166b1750324cc16823c",
+  "manualReviewNotes": "output/design/geometric-game-v6/mounted-final-manual-review-notes.json",
+  "manualReviewNotesSha256": "01994c03f00653b65259527da5536b27c0897c6ade40de7ba3fa82723086730e",
+  "method": "Each of the six actual source/model rows in the final SHA-bound paired sheet was personally displayed with view_image and compared. Changed subjects were reopened after their last export; no bounds or metadata substitute for this visual comparison.",
+  "scope": "Source-specific visible anatomy, mounted posture, palette, fitted clothing/equipment and identity features. Independent actual geometry/production-pose evidence is recorded separately.",
+  "limitations": [
+    "Original PNG cameras and scale are uncalibrated. Absolute dimensions, hidden surfaces, exact raster shading and camera projection are authored estimates.",
+    "Each original/model view was personally compared through its displayed final paired-sheet row; individual PNG paths and SHA are bound to the pixels used in that row. This recorder performs no visual inspection."
+  ],
+  "sourceFilesModified": false,
+  "nativeFilesModifiedByReviewRecorder": false,
+  "unresolvedSignificantFindingsWithinScope": [],
+  "entries": [
+    {
+      "id": "host_05",
+      "source": "public/geometric-turnarounds-v1/enemies/host_05.png",
+      "sourceSha256": "6bd7be7b195147f6ae8073d1a3e7efef1d481b689485f36ed93bc626abf20758",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_05.glb",
+      "actualGlbSha256": "d83bd1f007935db6301a85bc415d372192b42cb57160a6838a1d1cf4585eadd8",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_05.blend",
+      "actualNativeSha256": "c0b1f5e191fa87b7a4a63af1c49b1e7329a2b9432cb4a2c0f9cccfe0fd1a8dc2",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_05.jpg",
+        "sha256": "7f8e2c54ce16ed9cc6bc336e8cdd755f900e941deec862038169960fcd9de326"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_05.jpg",
+      "pairedSixViewSheetSha256": "7f8e2c54ce16ed9cc6bc336e8cdd755f900e941deec862038169960fcd9de326",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_05/front.png",
+          "sha256": "4731152972c2c6cd09593f04ecd420eeb50dbe1da4dbaa74e15e7db011ee3ed9",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_05/back.png",
+          "sha256": "f37c1553c2ed68e0f330cecb2b2c942670004d18617ce2299a74a9140cb879b6",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_05/left.png",
+          "sha256": "f11897fdcbdac7c31bb6828f5658600292aadfc481debd0b7053fb32f7c8626a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_05/right.png",
+          "sha256": "8f9e7aa1263b257ab15e905dbdebeb6234cedbac87ef40add4628317b04d7632",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_05/three-quarter-front.png",
+          "sha256": "afae1f3f4b117651a51edfa60e8db9dd1067b899a8d28aec8fcd39791dbdb69d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_05/three-quarter-back.png",
+          "sha256": "db57a3b0116de99c7e206a52710e3add172ed1e4f14df9d0ed7427bcf4f4b0af",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Bat body/muzzle/limb/claw anatomy is much simpler than source; pink muzzle is a projecting rectangular block and membranes lack organic lobes. Hanging goblin posture/legs/straps differ from natural overhead hold, spear direction differs. Actual bat claws/strap-to-hand/mount seam needs physical hierarchy inspection.",
+      "initialFindingsSha256": "b142cd621e9836437866915747d9d4e9c9604aa122371934f50380026e4de86d",
+      "resolution": "All six original/model pairs show the original hanging green scout beneath the dark bat, separate pink snout/ears and dusty rose scalloped wings. The generic mount was replaced with continuous body/neck, real wing shoulder/elbow/wrist and tarsal/claw anatomy. The whole goblin torso, arms and legs sit within the actual brown suspension harness with tunic/skirt and crossed back straps; physical interfaces are separate measured evidence.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_15",
+      "source": "public/geometric-turnarounds-v1/enemies/host_15.png",
+      "sourceSha256": "5efa290a33703575775ca96ed3acb3ec06f8c77573977449a42686bb9c16b89a",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_15.glb",
+      "actualGlbSha256": "058425e0452f36c8d826799f7932f90b42a84b6ec91121ab5594a44756112eec",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_15.blend",
+      "actualNativeSha256": "cccfe536556a7de312fcda6e7d5a61c09c09b80bbfd679f5600651515c7befb5",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_15.jpg",
+        "sha256": "879ff22ec943d10012900909245765e152eef5177e3ea3b69a4c8347f7ffc1db"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_15.jpg",
+      "pairedSixViewSheetSha256": "879ff22ec943d10012900909245765e152eef5177e3ea3b69a4c8347f7ffc1db",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_15/front.png",
+          "sha256": "3b79314e9d163dfd0adf7723983caf2f1452adcee7109a96e94676a9e6e1830e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_15/back.png",
+          "sha256": "acfc1be855452e799b525d7e83102f9016ed79bc9d3084c82cf67dc944b88fe6",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_15/left.png",
+          "sha256": "5f216c70e5d42eab0b285bdf227879bb6fc530994a52da24dd35ebb5c27766c4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_15/right.png",
+          "sha256": "c84d16b38746e13f7f59b0358b7e17313f09b8160809ad699ea78a9243ae44c3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_15/three-quarter-front.png",
+          "sha256": "b09bdd400d6c7c8f783bb4a6c5e06592c921e2361bcdf15d3d6a28ea5a614194",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_15/three-quarter-back.png",
+          "sha256": "98f073b7bbeb9f0b53b2681b43b7275cb7ff2b64a4f6f245b0fcdc11fa88294c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Blood bat rider requires sculpted rounded bat muzzle, large ears/teeth, correct two hindfeet/claws and lobed red membrane holes; current rectangular muzzle and block feet, angular solid wings, generic saddle/tack and rider hair/body differ strongly from source. Verify seated hips and wing roots physically.",
+      "initialFindingsSha256": "0148b0b9881dd566f93ba7bff8e167a42cb7f0f7681656aeefdc9f59514b05d6",
+      "resolution": "All six pairs show the blood bat's dark red body, pink snout, torn red membranes and green red-haired rider. Source red shoulder shells/spikes, brown fitted vest/back straps and forked whole gripped polearm are present. Actual continuous body, real bones/membranes, anatomical hind joints and whole seated upper-body/hips replace disconnected generic forms.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_19",
+      "source": "public/geometric-turnarounds-v1/enemies/host_19.png",
+      "sourceSha256": "cb6f179ae6d96254d2c1402bb7afbedb7d345dfc0565d816d67a402b905d2450",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_19.glb",
+      "actualGlbSha256": "e45f66352e271b8cd7263ce53befe6c8092060130b0062d6f95933667e91968b",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_19.blend",
+      "actualNativeSha256": "e604af191c83a4f4b1c29b42d6dc8eb94e96499578d3536ad16363a565413520",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_19.jpg",
+        "sha256": "0c680663a8279fa364e156d691d9d445270215aab028eb385f7ed573cdb0c744"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_19.jpg",
+      "pairedSixViewSheetSha256": "0c680663a8279fa364e156d691d9d445270215aab028eb385f7ed573cdb0c744",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_19/front.png",
+          "sha256": "5311450f596331c7f0b5785e11b62423d0d7735fe4b721368e0e02383d82a406",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_19/back.png",
+          "sha256": "3b9547882ef816a03917e045308e53c3cdd2e4f0b489771794c184ad1f420174",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_19/left.png",
+          "sha256": "598576ce210267b9addf67f0a7bc3edb9004b1e0d173b861c3e0501fe6bf8465",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_19/right.png",
+          "sha256": "3ba55ebca4398dc9acab61d5557874e4801128dd68d77e46664e881c7831c47a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_19/three-quarter-front.png",
+          "sha256": "05147c0496438af31ee29ad6adc1fb699d7e16824a0eab1ec44f6f025b349add",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_19/three-quarter-back.png",
+          "sha256": "cf1555ac68cca8a56650fc1084f1431f5c42aa7dd65d38c3d45c76251e4011d3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Bloodwolf mount has rectangular long muzzle, cylindrical barrel and uniform block/shin paws versus source natural canine anatomy, curled thick tail and fitted red tack. Rider upright body/straight legs lack seated crouch and source red shoulder armor. Rebuild head/jaw/neck, paw/hip joints, red fitted plates and rein/saddle contacts from six-source evidence.",
+      "initialFindingsSha256": "1c0fb0213df0be5a76f7398b8697eb2462acc1cfa333e56d74912cb771da5eeb",
+      "resolution": "All six pairs show the grey bloodwolf with separate pointed red brow/cheek/neck harness and dorsal/crupper tack, dark paw claws and bushy curled tail. Brown leather hood/front/rear vest, source red spiked pauldrons/wrist guards and irregular rusty red-edged cleaver replace the prior grey rider/flat pink brow/plain white weapon. Entire rider assembly is inclined over joined seated hips/thighs and source saddle rather than repositioned legs alone.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_25",
+      "source": "public/geometric-turnarounds-v1/enemies/host_25.png",
+      "sourceSha256": "6d3deadf5bf7e2272beab1a46387b5fabe78df4d073f96383bb907cf6504e5e3",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_25.glb",
+      "actualGlbSha256": "c957f2807f4b80afc9bc819da832ce63d53fd82916f416216786776cc33b4030",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_25.blend",
+      "actualNativeSha256": "f09f996b640df6fe243acd87fdb687c07950c4c0a3f10a0dc9538fc622949b0c",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_25.jpg",
+        "sha256": "9c998a441c853fbb84815ce780d255516a462e82ffe1bb0f6da00ea44e7c3b6f"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_25.jpg",
+      "pairedSixViewSheetSha256": "9c998a441c853fbb84815ce780d255516a462e82ffe1bb0f6da00ea44e7c3b6f",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_25/front.png",
+          "sha256": "34729c4600c91235a61598368e196cc245c4aa9cb8c25389bedd562948c2618b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_25/back.png",
+          "sha256": "1fda6e89bcd6c40eee69ec628c60cb499c7700857a846c006954b465d2a1b298",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_25/left.png",
+          "sha256": "0f1bf72400625b8b715061cb6b7388e9d6c74c5de6863a7a3b1e4d66c238a1ce",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_25/right.png",
+          "sha256": "9e562a28ec1577a094863cca4d40f8ca22d1fbabfd34da83674c47cfdb90d49d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_25/three-quarter-front.png",
+          "sha256": "9ebf68e2b78df121a2c63dad223c487e171c7490e9ea51bf2d05c580bb060fc3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_25/three-quarter-back.png",
+          "sha256": "ca8c91166c4fcda6ace17e0c783e8524c3eea2f1f4a6078d495c44ba75d6c43c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Iron bat rider lacks source fitted armored muzzle/cheek plates, wing wrist armor and belly protection; same rectangular bat muzzle/body/legs as other bats remains. Rider helmet and torso are slab-like, quiver/back gear absent/simplified. Crossbow corrected V4 two-hand grip retained; redesign real mount neck/head/leg/wing connections and fitted tack.",
+      "initialFindingsSha256": "894e4f0c8376a79b188403fd638aaddc89f3771ddd3eab8c54490e1b543126d3",
+      "resolution": "All six source/model pairs show the armored iron bat with dusty rose membranes, fitted metal forehead/cheek/belly and wing-root armor, anatomical hind paws and continuous closed body. The rider has the source rounded steel cap with continuous contacting temples/cheeks, steel front and brown leather rear layers, and the whole wood/metal crossbow held as one connected assembly. The source profile and structural features replace the former generic animal and exposed rider seams. The last source-equipment repair adds a real open leather rear quiver, steel rim bindings, three complete seated arrows with attached heads/fletching and actual measured quiver-to-body and arrow-to-base contacts; the new back gear is visible in final back/side/three-quarter views.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_27",
+      "source": "public/geometric-turnarounds-v1/enemies/host_27.png",
+      "sourceSha256": "c80e819748ff125ac9a63dec674ec9eb8cba6ce2746a59fbe87a6e9f97a39d8c",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_27.glb",
+      "actualGlbSha256": "4efd6e24fc7b14035a86bfd0328ff6fc99851c9a2b428c3d3fbe8f035bc9a0a4",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_27.blend",
+      "actualNativeSha256": "4d0e862bc1a16909d2c5ffed903c50c29d0651c2c28d81bc161aae8cf062d1d9",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_27.jpg",
+        "sha256": "2537ab6f53dee21141bb7ad8e4bf620b42414407de000480102b845b295c2bc7"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_27.jpg",
+      "pairedSixViewSheetSha256": "2537ab6f53dee21141bb7ad8e4bf620b42414407de000480102b845b295c2bc7",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_27/front.png",
+          "sha256": "663a22b610ca08a2792175ac0ad9d055a6902effc39040201b7cf920ddaccb39",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_27/back.png",
+          "sha256": "b76561915bc3d12fed695378a744b14adf2904dab740613d8a68a7c92da8d0a3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_27/left.png",
+          "sha256": "a048f6bb9b209ea5185089f0a2804f60b7d3307edbcbb4bfec1c88099468fa12",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_27/right.png",
+          "sha256": "e4881161e3d4883c3a34a54a7c83d6974dd038d7cc08642209119e2c19743bce",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_27/three-quarter-front.png",
+          "sha256": "0064fe69aa7c5be16d2052dc649f43c4ffb0f7065561e391df2122bef7c17d77",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_27/three-quarter-back.png",
+          "sha256": "d9e7412e5141b5abccb2ae4c57f2b17d61771116a97304d0cf2f6d19648549c4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Spectral bat requires true pale skeleton limbs/toes/curved spinal tail and open curved rib cage, not solid cyan boot legs under a sparse straight-stick cage. Skull nose/jaw and ear bones are block-like; rider hood slab, cloth layers and tack/hanging reins need fitted source shape.",
+      "initialFindingsSha256": "ea671eebc19b2338ba7c89fc22c38d0655737cde16e093b95f384096ae6d3cc1",
+      "resolution": "All six source/model pairs show an ivory skeletal bat with open ribs, vertebral spine, real scapular/pelvic bearings, cyan membranes, separate recessed skull sockets/nasal opening and an open fang-lined jaw. The skeletal rider has the original dark blue hood and fitted dark cloth with pale steel armor, rather than the previous nearly white icy body. Whole seated rider joints, carved skull and held source gear remain joined throughout the native assembly.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_28",
+      "source": "public/geometric-turnarounds-v1/enemies/host_28.png",
+      "sourceSha256": "ba184c715414486bae297f8e54b384e41c139639241fbabda6d3220c7a443cda",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_28.glb",
+      "actualGlbSha256": "48ee480890dcdf7e1a7f359782c9fc234192127c21ff8e09d23e9d66e983c407",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_28.blend",
+      "actualNativeSha256": "3f4e07ee94b860e98e02d12a4e22075e9c58e41079e6db0c118629bcd56e2a69",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_28.jpg",
+        "sha256": "e2733d7aa90705a16e87b0203ca84a2ca60558f74ab871b40320d97f508fb909"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_28.jpg",
+      "pairedSixViewSheetSha256": "e2733d7aa90705a16e87b0203ca84a2ca60558f74ab871b40320d97f508fb909",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_28/front.png",
+          "sha256": "abb93b7865b190554f0f3344d4ce15fb6f2697e26777c68ba723944dd24265bf",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_28/back.png",
+          "sha256": "12ba3876b14b79540639b22bba57198f264adb37af36714a56687d8fdbb40a21",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_28/left.png",
+          "sha256": "eb769cffa32b0bcdb8f5bd10a990264d537ee1292a69eaa1e46ab36b2334ab5f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_28/right.png",
+          "sha256": "6ba6225130dffaf1b7db4839cdcc5061e9d6bfa99a27afa05457139af45a6a58",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_28/three-quarter-front.png",
+          "sha256": "6fe980b2d9187517d71fb7e1f1a6cb428feaeb01bb3f40a2e6d3777a1aa5908e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_28/three-quarter-back.png",
+          "sha256": "4a1d0944ae29437cd374f2cd364f3753af2bde21e624777e81c7ad0b373c301b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Scrapwing engine is a plain wood box with a flat un-riveted steel front and two polygon plugs; source has fitted timber/bolted iron casing, actual cylindrical side engines with recessed bores and dense struts. Wing outlines are excessively broad plain triangles, pilot sits above rather than inside source chassis. Crossbow two-hand grip retained; barrel/chassis and wing joint hierarchy need physical checks.",
+      "initialFindingsSha256": "1c3a09460dafab169e79bf0c6a9da5b054a3040243a71b1e0740bece789f04b9",
+      "resolution": "All six source/model pairs show the original timber flying chassis: open pilot compartment, plank walls, tan wooden sail wings with wood/iron struts, fitted iron front plate, bronze/leather corner rails and rivets, rear diagonal braces and deep bored side engines. The brown hooded green pilot is crouched within the frame with source ears, leather clothing and whole crossbow. The complete upper body moved with the seated hips and arms; the source compartment and engine depth replace the earlier generic mount.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_29",
+      "source": "public/geometric-turnarounds-v1/enemies/host_29.png",
+      "sourceSha256": "1a8773b991cf02d8ef00f0d1b9b46a30228490d10b67c1c80904ff1f7880a344",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_29.glb",
+      "actualGlbSha256": "49080817da64e4920b0a5318a2121f06ef06780a791ce9730f1391d1a11eeaf1",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_29.blend",
+      "actualNativeSha256": "c9cc32db91be84b995ec62066472b5449ff145371f6810076123904a4cfef50b",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_29.jpg",
+        "sha256": "ac3e816eebcbfbf67ee6deb6dc6bd4d14c63694a89b4c7e2a933701d7f81dc56"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_29.jpg",
+      "pairedSixViewSheetSha256": "ac3e816eebcbfbf67ee6deb6dc6bd4d14c63694a89b4c7e2a933701d7f81dc56",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_29/front.png",
+          "sha256": "78cc0bdbcf8f3bca8c5154a776853501f3cb71187a2330ed4723dcb027bdb1ec",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_29/back.png",
+          "sha256": "3b0ad28c1cfc9f048e59cc212f763234a16a6a0172b566f6bca183091d90f649",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_29/left.png",
+          "sha256": "c3f888ac3f76238f05d516cb2e3f96026ef811bf8696ef7e66d54096e0d00f06",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_29/right.png",
+          "sha256": "441167aa030f6a669c42db713c31cc8dc754993831791f92a42535f7954e2f5b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_29/three-quarter-front.png",
+          "sha256": "f074e09b908985ff0ff268ca15428b48af171f83bb2eb14c2536b12d14c8e337",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_29/three-quarter-back.png",
+          "sha256": "1f8bb360e922efb8c86e4f252b9399b603f5c712dab0a5dcaacfbb63a3cdd917",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Prismatic bat rider needs source rounded small bat face/muzzle, scalloped forward-pointing wings, tapered suspended feet and saddle/tack. Current square long muzzle, solid block feet and generic rider differ; cyan prisms are free floating at torso/outer wing rather than mounted near source bat face and wing root.",
+      "initialFindingsSha256": "5633d082bd9c1762053640f26cb6d2a4b1ea1603d485756a6187e726d26129b7",
+      "resolution": "All six final source/model pairs show the prismatic purple bat with three broad attached turquoise front diamonds at brow/wing roots and the matching broad rear diamond. The final visibility correction moves the real crystal shapes out of the previously buried cranium/wing/back surfaces while preserving physical attachment. The brown hooded green rider has source ears, fitted brown leather clothing and whole short blade; continuous bat body, natural hind joints, wing bones and caudal root resolve the old generic anatomy.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_30",
+      "source": "public/geometric-turnarounds-v1/enemies/host_30.png",
+      "sourceSha256": "0a9305f5ef43f791a959abe2f81effb5c5eb9cfc88c3a5e16054a3a5e21df689",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_30.glb",
+      "actualGlbSha256": "ea18d9f3116cc2ab12651c6827abcdce5624026829b8dade7eaffefd75756621",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_30.blend",
+      "actualNativeSha256": "ff009f04144e5a6d7f1da03e72e20abf21ce3f63e4bc72faeac2a12bb50f725b",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_30.jpg",
+        "sha256": "aade78c7b0a555b847afefebb54fb778d8e20b9518dcda547417f01333662e49"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_30.jpg",
+      "pairedSixViewSheetSha256": "aade78c7b0a555b847afefebb54fb778d8e20b9518dcda547417f01333662e49",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_30/front.png",
+          "sha256": "8289eddc7e4b2241f9ba6e3694cda2b4635e8d14d99836ffe4d7d2a174686329",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_30/back.png",
+          "sha256": "d619309e9284a6af2f8664864f7acfbedff23b9773a1eeee6359b7ccc683466f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_30/left.png",
+          "sha256": "800f2c33a7d1e978f612653e84325b154ea150da97e1159a6cb72fe82fb53c6b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_30/right.png",
+          "sha256": "c899512170417f98a0e1c745cbde5de29b1b9a49478d4962ef6cff106ce78e5c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_30/three-quarter-front.png",
+          "sha256": "dba0f195fad1a56af29a9a9b470b95f8755e065cecf2b04428380f57ee45b234",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_30/three-quarter-back.png",
+          "sha256": "11518973d23f828e953062e9f891a7591d6ab0e286312464d40475cc5c5ead82",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Zaruun mount needs upward curved gold temple horns, layered armored bat forehead, ragged red/purple membranes and fitted chest drape/chains. Current gold loops sit beside and in front of square muzzle, uniform purple membranes lack ragged lobes, feet are generic blocks. Rider stands rather than source crouch and has brown ram horns rather than small gold crown; double axe shape and tack need source reconstruction.",
+      "initialFindingsSha256": "b3803642a6f91bd00c259981e876106c89d46f92fef3875c3780e5e39adde6b4",
+      "resolution": "All six final source/model pairs show the large storm-wing bat king with dark continuous body, broad red torn membranes, curved gold temple horns, source forehead armor, red layered chest caparison and physical gold chest chains. The crowned green rider keeps the brown strapped vest, fitted red tiered rear mantle and whole held axe. Complete rider seating and anatomical hind legs/wing roots replace the previous disconnected forms; authored boss height retains the immutable V5 minimum.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_34",
+      "source": "public/geometric-turnarounds-v1/enemies/host_34.png",
+      "sourceSha256": "b78cbd8199a82a607ac6cafdf4fa5eac43f9b0b4f94e1e8870707c884859b1da",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_34.glb",
+      "actualGlbSha256": "cd73041ba73a90bf4d030ee9c46827addec5d51db6d7b18a49d5d76c64a71697",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_34.blend",
+      "actualNativeSha256": "a271d01bce4e5a8382b062ad6b5418c50c8ba44b6d1852374838aa37cababe9f",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_34.jpg",
+        "sha256": "49374f209eb36cdcf5be9af5054afad37b28b930b2e344b2fa4659d2bcb97e79"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_34.jpg",
+      "pairedSixViewSheetSha256": "49374f209eb36cdcf5be9af5054afad37b28b930b2e344b2fa4659d2bcb97e79",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_34/front.png",
+          "sha256": "33035f05deea679ddf082f75c64ef2348e68851a03c988db50a2bac3a965b35e",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_34/back.png",
+          "sha256": "7035459e262078a48acd656afacff11dd15c5570e66d01a7a1fe88b9b210b555",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_34/left.png",
+          "sha256": "6ba893970b1aef14181d0901dfc6800a96f7b15479fba98e010b7bcf72d2e576",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_34/right.png",
+          "sha256": "d83f904758789230ccd28dd0dda771609587d93d177b052666cd411de8ef54cb",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_34/three-quarter-front.png",
+          "sha256": "4edc385efd8578c6bcd068181d1c97c1568caecf4b749da92ecef695da2d060d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_34/three-quarter-back.png",
+          "sha256": "0941534eb4efc7523f6c6f72124181e37417127e65e59c4c4b3b073248d9ab09",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Gallows bat source has bone-white wing bones and taupe membranes; current pink angular membranes, block muzzle and claws lose original anatomy. Both skull masks need shaped hollow skull cavities instead of large boxes and pink tooth pieces; hanging goblin legs and rigid straps differ from natural suspended pose.",
+      "initialFindingsSha256": "b370e731429038031f2cb288d688f9b5ee8a43194674e11acfdba12125592709",
+      "resolution": "All six final source/model pairs show a dark bat with actual hollow ivory mount skull mask, separate real mask eye openings, bone wing leading structures and darker taupe membranes matching the source sails. The hanging green scout has the second distinct carved skull mask, brown hood/body/skirt and physical side packs, whole short weapon and contacting brown suspension harness. Entire suspended upper body, hips and limbs form a joined source assembly rather than displaced boots.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_35",
+      "source": "public/geometric-turnarounds-v1/enemies/host_35.png",
+      "sourceSha256": "3ae38b9511cb98e3aabb922a73d989dbc6d18fc62dc902d09d658c9eae6aa854",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_35.glb",
+      "actualGlbSha256": "4a39b4750eaddd3ae2b4946397a842ffee1ddf1eb0a4d8a90f93ec5c46dbb8a9",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_35.blend",
+      "actualNativeSha256": "b1048fb114899997bb4017d6f6f5a8111bf86e74ffaebf6e45eaff98edf70e29",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_35.jpg",
+        "sha256": "210628cf06caf4c23d2a8664b1335f95a9eabc90977b5d5766d8375bdbff120b"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_35.jpg",
+      "pairedSixViewSheetSha256": "210628cf06caf4c23d2a8664b1335f95a9eabc90977b5d5766d8375bdbff120b",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_35/front.png",
+          "sha256": "272c43e2be46b7c6570275bfa6e32aed1e02f35e4ec49d53da989674a0df41c4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_35/back.png",
+          "sha256": "097e7b9e6f9a7c4f57f52eb8a76ea7d01fe74b0a9cfcf5c40bff34dcfdfaa1c2",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_35/left.png",
+          "sha256": "479c71c255602a554a850f1ca3c33ad39a445b709e53291b30800a973baef93b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_35/right.png",
+          "sha256": "3426ab7918d7d6cb83fa663c03219010aca63cfb70a1de12d94adc1b94b3604b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_35/three-quarter-front.png",
+          "sha256": "5fbfcd82e8b8e14d36f0fb9cc80502d3cf4b7fffde8c8888d5b10f929fb58a2a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_35/three-quarter-back.png",
+          "sha256": "5f6d9fec13292ca1eea5cd7265e34415de725fc2506b8e42123deea7d6543cfb",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Eclipse bat needs fitted silver crescent armor following wing shoulders, purple/pink lobed membranes and tapered trunk/tail. Current crescent rings stand in front of wings, uniform purple membrane and long square muzzle/block feet are generic. Rider crown sits on a deep slab helmet; crescent flag and gear mounts need source contact validation.",
+      "initialFindingsSha256": "1936e6b71fdff4071ffa1f3897c901d7f36478dff46d64c9916a719950cf210b",
+      "resolution": "All six final source/model pairs show the eclipse bat's purple body and dusty pink/violet scalloped membranes, source broad open silver crescent wing-root guards, anatomical wing/hind leg interfaces and physical tack. The rider has the deep purple steel cap with continuous contacting temples/cheeks and silver brow/rim, brown leather front/rear vest beneath the silver collar, and a whole purple spear with attached crescent pennant seal. The final source material fix applies to actual exposed fitted plates, so the source brown vest remains visible in front and rear views.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_37",
+      "source": "public/geometric-turnarounds-v1/enemies/host_37.png",
+      "sourceSha256": "ed4d428f094faff8428c0fe63e9384c6e8dca7a2aade40db49c875cce2953a91",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_37.glb",
+      "actualGlbSha256": "cf33ff4749758b45fb975ec0154c3169b65825e68e7d7f5752ccef946bb4dad9",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_37.blend",
+      "actualNativeSha256": "488c06051159d961d9accb772c94258287ac46906a8a7b9f71009ba0eb543729",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_37.jpg",
+        "sha256": "6ceab7281e09dc70ed0ba882aaf98f988c08339167046ed9e215f3dace2e9bf0"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_37.jpg",
+      "pairedSixViewSheetSha256": "6ceab7281e09dc70ed0ba882aaf98f988c08339167046ed9e215f3dace2e9bf0",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_37/front.png",
+          "sha256": "6b6fb0807df75a49a6f1708a586f9a1f2f2ea2807911f8d03d88b97a63e94d91",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_37/back.png",
+          "sha256": "422b667d550cb7111b32853e0a2540b15ed1a21728e87ae0705a88992b9e268f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_37/left.png",
+          "sha256": "ee081207050eab1709eaa5b1a1e91d791c979cd9b8419d0a6116206c6da7069a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_37/right.png",
+          "sha256": "f8fcbbca90552a507c0911b2a316b808c9b18a9ea5fe0d0bf10fa38d5f7f558d",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_37/three-quarter-front.png",
+          "sha256": "f5bb1fa70480a32b8916d5b8b9ebbab86e9c4a389f710694a4743b6e3196fb0f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_37/three-quarter-back.png",
+          "sha256": "f4cdb888463f3a60e64926d5b0f1d556359242eb7a017a18d8b0059107965e3c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Riftwolf source requires purple-grey natural canine neck/muzzle, large bushy ringed tail, fitted grey spiked plates with purple seams/eyes. Current generic grey wolf retains red cube eyes and red dorsal spikes, square muzzle and short thin tail, wrong armor palette. Rider posture/armor and crystal spear shape are simplified; actual neck/paw/tack and seat connections need repair.",
+      "initialFindingsSha256": "4864bddafeffe85b9721a4d182f2076e130a2bd9feaa3fbc8978fde5a57d3323",
+      "resolution": "All six final pairs show the grey-purple rift wolf with shaped snout, recessed eyes, natural canine joints/paws, bushy curled tail, source grey dorsal armor and purple back shards. Its brown strapped rider has the dark hood/ears, source spiked grey shoulder equipment, seated whole body and reins. The final source weapon repair replaces the generic spear head with a real connected forged fork and physically seated purple crystal, visible in front/back/side views.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_39",
+      "source": "public/geometric-turnarounds-v1/enemies/host_39.png",
+      "sourceSha256": "385ce97b68c064f6f3bc026407b38ca7c99c862019b42a0ede62aec5614d8d9a",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_39.glb",
+      "actualGlbSha256": "4983139d15cd8ed35c07b5891af13644290733ca95ef9518e9ddbfa461bfffa3",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_39.blend",
+      "actualNativeSha256": "dacd1a765b9b432ca005572610d4fd096dc1138fc6972d1d5715e37cd9514419",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_39.jpg",
+        "sha256": "81fd2999be12c330bb053b3852e062419f5f1f1c6f763fd7eac41ffe810ac73f"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_39.jpg",
+      "pairedSixViewSheetSha256": "81fd2999be12c330bb053b3852e062419f5f1f1c6f763fd7eac41ffe810ac73f",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_39/front.png",
+          "sha256": "368932eefc34fd60bf8ba328bd5f0e8724866d3bdf672c85d76598a0b6b6ae97",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_39/back.png",
+          "sha256": "d29ce9b24dca5f889abda1c6ff51037e1ddc4f7f8c2ff577aa8cd41a3a48dbd3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_39/left.png",
+          "sha256": "07f8951200cd6f4a8b5cf5145ad83f0a81b894072968202f994bacbaf242c0c3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_39/right.png",
+          "sha256": "12cfd32d701d1c6b11330836040a79d91b0aba7b11067e47b5d92eaff9dd95bb",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_39/three-quarter-front.png",
+          "sha256": "8b1d7458704df3fce056c7a99a37b4762a6744c6108c30f7a9b506a5870ac806",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_39/three-quarter-back.png",
+          "sha256": "e0631bce498a4b676525569d76cf542b8a641f6bd16febcf55ad5dacbc90e7fb",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Thunder manta needs broad curved fins, integrated curled cephalic front fins, long tapering sting tail and fitted layered grey back plates with source runes. Current front pipe rings sit detached-looking from body, tail is a tiny triangle, flat blue back lacks armor and white block runes are generic. Standing rider/red mask slab and rein saddle fit need reconstruction.",
+      "initialFindingsSha256": "be53a05901ed808306c06958d4441f17f5dfe7e928dad0c0b1bc0133f0d95c41",
+      "resolution": "All six final pairs show the thunder manta's continuous flattened curved trunk, rolled cephalic front fins, real long recessed mouth, rectangular recessed eyes, broad swept pectoral fins and long tapering stinging tail. The real fitted overlapping dorsal armor has outward positive-Z thickness and raised caps, replacing previously inward/buried relief; source ivory angular wing runes are physically seated on the fin surface. The source red-masked rider keeps a dark hood, brown strapped vest, whole spear/crimson pennant and joined seated body; hidden depth and camera differences remain authored estimates.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_40",
+      "source": "public/geometric-turnarounds-v1/enemies/host_40.png",
+      "sourceSha256": "02c373208eb310189ad7a1e5db22173e50ebcfeea3628c70c7d5d47a2ab4ea5f",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_40.glb",
+      "actualGlbSha256": "733d5e62186b23d9b7a6cd5682182e463ace31bb64e74afc770382cab4d4ad72",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_40.blend",
+      "actualNativeSha256": "0e40a9a2a3955b6d8b6f492410c8dd64a44f3ea5338403aa74033bc5a1f44b30",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_40.jpg",
+        "sha256": "c7a1a297516f83f7f5b22953b4080582ecb643870c77601a1ac77889a1d7828b"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_40.jpg",
+      "pairedSixViewSheetSha256": "c7a1a297516f83f7f5b22953b4080582ecb643870c77601a1ac77889a1d7828b",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_40/front.png",
+          "sha256": "07ec3cdee33a1fb70bfd2e7938baa2cdf8bbc3375e526759cd4caa9b7f8a4b66",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_40/back.png",
+          "sha256": "a17db6a160afe5a884c53bb6a6f0d86c1289836825804681f4d1d0a01a7eb4cb",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_40/left.png",
+          "sha256": "57655363a42d2cb45344d009882ac1058cf47b57ac7177cb620ce74940f38ca4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_40/right.png",
+          "sha256": "884b61e06791b67612b72488379e1145cd58ab21085e815a7cd17a3f8ce96bbb",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_40/three-quarter-front.png",
+          "sha256": "7323e2159af5020e527b8cf8c2607400c43748e4d7becb6305f3b38c23859ad5",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_40/three-quarter-back.png",
+          "sha256": "9af0ed631752bcadfcbbb23ae9300d17c923fd96009aeca0f50a907dd9c15f64",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Hollow Sky King needs actual hollow dragon skull with projecting teeth, curved horn crown, layered bone neck and curved rib cage enclosing soul gem, source ragged lobed wing membranes, natural digit claws and tapered segmented curled tail. Current box skull, straight ribs, floating uncovered diamond, block feet and uniform membranes differ. Dark broad shoulder mantle is rigid armor around bones (not cloth); retain it pending source armor redesign.",
+      "initialFindingsSha256": "6fa05887819718430700079fd012b2fa4aa5b7655e6965fe011c488b599a633d",
+      "resolution": "All six final pairs show the Hollow Sky King as a true skeletal creature rather than a generic humanoid: real open ribs surrounding the captive green-faced hooded soul and turquoise heart, exposed curved neck/vertebrae, an angular skull with real sockets and open fang-lined lower jaw, swept horn/bone features, grey overlapping back plates and articulated curled armored tail. Source ragged taupe wings and real jointed bone toes are present. Apertures remain physically open and recessed; boss height remains at least the V5 baseline.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_42",
+      "source": "public/geometric-turnarounds-v1/enemies/host_42.png",
+      "sourceSha256": "b0fdbdd76ce9c9ddb1bac85d26813ef19e0683300bd66e4aa8647685c0c6f0e6",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_42.glb",
+      "actualGlbSha256": "92eaa76a2e9de87388bc0423dc6b73279e4dd5d5ca9c0a5df4d1e08860014f63",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_42.blend",
+      "actualNativeSha256": "77f12d06ce974901b0e53d83bc9d74789e8411807fea295b36bfb0560271197c",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_42.jpg",
+        "sha256": "f515c8334ce6de73c442b8ff36204409c9b55e6638ea41d13f46ee989b45eab0"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_42.jpg",
+      "pairedSixViewSheetSha256": "f515c8334ce6de73c442b8ff36204409c9b55e6638ea41d13f46ee989b45eab0",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_42/front.png",
+          "sha256": "cefdb0a2f7ee18b9a0bc4e7ebb06da5d384492967b7c46bfdaf3c7a7c5aa09f3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_42/back.png",
+          "sha256": "eb49642d6773a1bb3f78596db15fb1c7a78e1762fa2174905749b4cea9a58332",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_42/left.png",
+          "sha256": "a01f2ba4a90870b58bb08b262225c9b096a052259fda30a28afe9e868d167548",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_42/right.png",
+          "sha256": "41a42d8071f128a2acb27c20c7886600ddb5568aaac6164bcfcd7fc063ed38e3",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_42/three-quarter-front.png",
+          "sha256": "a7b6957fb5f4cf5d34d6778ce39b1a89a698309047e65d7d7798d7785b6c9c72",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_42/three-quarter-back.png",
+          "sha256": "fbb74fdfc74099a7b52deed827314e0b6368e52cb95367f3fbb8c41cfea3d2ac",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Fire bat lancer source has small rounded armored bat head, lobed orange membranes, tucked claw feet, orange inset rune armor on rider and fitted saddle harness. Current long rectangular bat muzzle, block feet and regular triangle membranes generic; rider is unarmored plain torso under giant slab helmet, spear has simple orange pennant instead of distinctive fire-rune blade and hanging ribbon.",
+      "initialFindingsSha256": "e7f15f50099a5bc071e7a13b9bf9af9f0326a65b26ee3b6c336c3c59e81d880e",
+      "resolution": "All six final pairs show the fire bat with dark body, orange membranes, fitted riveted metal forehead/cheek/belly/wing-root armor, anatomical toes and real wing shoulder/elbow/wrist. The source dark cap has contacting temple/cheek steel and orange rune, with a brown rear vest and crimson pennant. The final physical pike has a real iron diamond blade with attached orange diamond rune in place of the generic gold tip; whole rider and weapon assemblies remain seated and connected.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_45",
+      "source": "public/geometric-turnarounds-v1/enemies/host_45.png",
+      "sourceSha256": "63cdc0295cbcf7aa713dc096bf48f4cb888f5fb80f3023e615282ba695a273ee",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_45.glb",
+      "actualGlbSha256": "62831227e9cd6515925afbc2721ac199399dc5b6853f50cb3943484ff301ef60",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_45.blend",
+      "actualNativeSha256": "36472b009b0779636c091fee06bcf9a8a00135e1005bd948d5df27933c2879c5",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_45.jpg",
+        "sha256": "9384025d4b233b94558f23312041e8a6f9f16f43525d0f3964b1bc2b10e1038d"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_45.jpg",
+      "pairedSixViewSheetSha256": "9384025d4b233b94558f23312041e8a6f9f16f43525d0f3964b1bc2b10e1038d",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_45/front.png",
+          "sha256": "290eb70b00b157005c2ea059a5ed09323ef78249e26673afad76d4dc675a9453",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_45/back.png",
+          "sha256": "dfa642390b445c1d39cb9b7ad65ec41115042f8fd62dfa675f739958add73a4c",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_45/left.png",
+          "sha256": "ee7fc3284eaa3b59b774d8e407f25c69005368ebdad8998175d95534105d52d4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_45/right.png",
+          "sha256": "d13bd08d8f9b5acf22926d5de919094eb045b1d3714c738130d270d81dd33b82",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_45/three-quarter-front.png",
+          "sha256": "d736d46c310b34e6f55402168e199d22e02c9596f19d2f023c49d2bc714b9eaa",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_45/three-quarter-back.png",
+          "sha256": "cf46c75c77256d769d4cbc30109fbc183ea7c71ecd27f80f911e67ad22d9bb8b",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Flying drummers source has two small riders seated around a large strapped wooden cylindrical war drum; current riders stand side by side with giant slab heads and drum becomes a shallow sphere projecting in front. Bat long square muzzle/block feet/angular membranes remain generic. Drum skin/hoop/staves, skull motif, rider mallet grips and actual drum saddle mount need reconstruction.",
+      "initialFindingsSha256": "34d2e3f44173be3e0d5586fd8353c2081cd6625ea36c3a4b552307d2d4cb34e5",
+      "resolution": "All six final pairs show the two distinct green drummers in brown fitted outfits, steel caps, independent seated hips/thighs and arms, beside the actual timber barrel drum with hide heads, steel hoops/staves, skull motif, straps and four whole gripping mallets. The dark bat has red membranes, source ears/nose, continuous torso, real hind joints and wing bones. The former second drummer head gap and missing second-rider scope were resolved through real cervical/body fitting and both complete measured joint chains.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_47",
+      "source": "public/geometric-turnarounds-v1/enemies/host_47.png",
+      "sourceSha256": "2e4f64b055e3735a01e3963951eb95c5018c7d812f842012bcd3d4243549ad79",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_47.glb",
+      "actualGlbSha256": "99d0ac7fa4eed3a2d8ae7e43fd9e2fda0cf81d8cfc3c2847d0b989d464ad8289",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_47.blend",
+      "actualNativeSha256": "ecef4f2ebb39a336fb8f6a42634f71a9c4a4182b88a7d860a4e93fffc5aade1f",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_47.jpg",
+        "sha256": "1e95b2ed7a30740d40cd2caabaf0a21e0e2025f3f4bebc1c6873cc40eb2d29ea"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_47.jpg",
+      "pairedSixViewSheetSha256": "1e95b2ed7a30740d40cd2caabaf0a21e0e2025f3f4bebc1c6873cc40eb2d29ea",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_47/front.png",
+          "sha256": "9fddf0187a30d5fe4d36307e8c9a849cca9028702f8001db1e7aec81469de670",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_47/back.png",
+          "sha256": "a9be80bf0f244ece55e76a53150c849a26c008d0f6074b4720b299f9bb249885",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_47/left.png",
+          "sha256": "8bacbef88a22f8aeb4e64fb3b21e5cc211127228dd744d57a33cea354671e240",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_47/right.png",
+          "sha256": "1ab77691f5c641a6c8d72285cfb29361f8f740d6a6c48b3dd099c5606361c530",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_47/three-quarter-front.png",
+          "sha256": "5db4681399b54948760fb30ea597eaab04bd9496ca1a71aaea365c2a24ba3872",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_47/three-quarter-back.png",
+          "sha256": "523f3062b5142a30cf3975e8acf7d71e597541e35a734cda7575510954a5d7e5",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "All six actual pairs opened. Last Howl wolf rider needs actual fitted ivory canine skull mask with red eye holes, natural thick black fur neck/body and bushy tail, layered brown hide/tack and heavy side bags. Current ivory eye panel, red crest spikes, block muzzle/body/paws and thin stick tail are generic. Rider stands bare-backed under slab helmet, missing source shaggy mantle and dense saddle gear; axe and banner shape/skull/ragged edges need redesign.",
+      "initialFindingsSha256": "63b27827e7dd1e42bec660c51746b3d97f4fb144b95c389ef833bed382888c41",
+      "resolution": "All six final pairs show the Last Howl wolf's dark continuous body, real natural canine joints/paws, curled shaggy tail, fitted fur flank locks and source ivory canine mask with separate recessed red sockets, carved nasal aperture, swept skull ridges and real jaw teeth. The rider has a rounded steel cap, brown outfit, source axe, two actual outer-surface-fitted brown shaggy mantle layers and a strapped back banner with folded red cloth/black wolf insignia. The final mantle correction removes oversized steel shoulder spikes and stale straight rear straps that occluded the hide; the dark/light brown pointed fur layers are visible from the final back/side/three-quarter views.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_48",
+      "source": "public/geometric-turnarounds-v1/enemies/host_48.png",
+      "sourceSha256": "88a96cf30a6324d88f97d49497e811e037cb802744a9640f63f054676e061dde",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_48.glb",
+      "actualGlbSha256": "d9ebeac661bbdc4cbdce4e2dd2cd6eb5e196a9e2f1d4ba8bd2a9617f52cfba68",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_48.blend",
+      "actualNativeSha256": "5140afff61ece10c6d5a80c178e6cf4ccac6f291dcffacbf456561cf188a86b9",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_48.jpg",
+        "sha256": "6d8b733e0db3ab69a5e837a275c7e7fc853d2a40e55f88c1c393f4ed0183de27"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_48.jpg",
+      "pairedSixViewSheetSha256": "6d8b733e0db3ab69a5e837a275c7e7fc853d2a40e55f88c1c393f4ed0183de27",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_48/front.png",
+          "sha256": "36c06bc0c8362e8a161c0d5eb1df9bc7657ad7016f8f0c58a5e2db936dcb41d0",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_48/back.png",
+          "sha256": "d86d1fc951d0a16cc77a16d76c3d501ab056e81f26432940c278cf0e56262ec4",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_48/left.png",
+          "sha256": "3dd5347057d9860550779e3bb9004ad2d1c82b760c45677617d28e967cfaf49a",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_48/right.png",
+          "sha256": "8720c8e6afac32569775fe176147da3009ad1e5a01bb336b8ac5ee81be15c1f1",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_48/three-quarter-front.png",
+          "sha256": "be4d7a05e5476280878fd43ae43836167c7bdfb0bcb99b96607a7a5f51113972",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_48/three-quarter-back.png",
+          "sha256": "0f8bbc97854e895a46e913b715e842f629cacd31b90e04d7e97fcaaa6e2e2a50",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "Six actual pairs opened: rider rear purple cloth now folds around the seated torso and leaves bat wing roots clear. Retained bat head/muzzle, feet, hanging accessories and red scarf/streamer treatment differ from source and are future audit candidates.",
+      "initialFindingsSha256": "ddd34123fd150c23f59a5fc18a32f0a5977cc28e4427436b0594306c2f63b353",
+      "resolution": "All six final pairs show the bat thieves with a dark hood, brown strapped outfit, two short physical daggers, two folded red head-owned scarf streamers and attached gold bells with real open undersides/metal suspension. The source red membranes, purple dark animal body, actual wing roots, toes and fitted source tack replace the generic creature. Scarf roots now follow the whole head assembly and bell supports meet actual thorax surfaces.",
+      "unresolvedSignificantFindings": []
+    },
+    {
+      "id": "host_50",
+      "source": "public/geometric-turnarounds-v1/enemies/host_50.png",
+      "sourceSha256": "f5777e0e3c4cdd7f8f6daecd29b15ec964dcbd5095155230d92c78913c24cef5",
+      "actualGlb": "public/assets/geometric/enemies-v6/host_50.glb",
+      "actualGlbSha256": "db703c1c77e690dbf37b3192cad42e1f11924d2839ef9d46366ad842aac6bc79",
+      "actualNative": "blender/scenes/geometric-game-v6/enemies/host_50.blend",
+      "actualNativeSha256": "e0de1bf9216ff7a677725a6b8899480d97ce9df2f9bca3725eb40295ca3cc03d",
+      "inspectionEvidenceSheet": {
+        "path": "output/design/geometric-game-v6/paired-six-views/enemies/host_50.jpg",
+        "sha256": "572baa1c1fe80ac23528ab2b7c0e21533714903013c9dc2e29c5aadaa0d32ac2"
+      },
+      "pairedSixViewSheet": "output/design/geometric-game-v6/paired-six-views/enemies/host_50.jpg",
+      "pairedSixViewSheetSha256": "572baa1c1fe80ac23528ab2b7c0e21533714903013c9dc2e29c5aadaa0d32ac2",
+      "actualSixViewsInspected": [
+        {
+          "view": "front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_50/front.png",
+          "sha256": "10813ffff2f586c4357c725b5a20f0e65a5480b074867277efe52a3e69c08ed2",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_50/back.png",
+          "sha256": "07774ce22668e84c6b6b3efe2962bf70c9e1a773b6f734ee1e5bbd5e6cee5393",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "left",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_50/left.png",
+          "sha256": "47b82e35749e8641a83bc33f7b9f41a72de0b65c20e7d598f03a22124c5a4742",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "right",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_50/right.png",
+          "sha256": "a6cc581583b62c27d0917c2c6a0508d76fa97159b6310b75534b42a5f52f7c29",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-front",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_50/three-quarter-front.png",
+          "sha256": "1c7c035b696f6d64b97072045959e64860ff3bbeba69b9ea9bf27fd18395e1dd",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        },
+        {
+          "view": "three-quarter-back",
+          "path": "output/design/geometric-game-v6/enemies/renders/host_50/three-quarter-back.png",
+          "sha256": "112d9938a83c30b1c514452d87cdc2eaa2ced59425e801eefa504975a3f9e87f",
+          "actuallyOpenedAndCompared": true,
+          "scopedPass": true,
+          "viewingMethod": "Actual source/render row personally reopened in the final six-view sheet."
+        }
+      ],
+      "passedWithinScope": true,
+      "initialVisualSourceFindings": "Six actual pairs opened: rear rider cloak is fitted around the torso beneath the retained shield/back structure, with nonplanar cloth visible in side views. The prior simplified wyvern head/neck, body armor, tail and rider ornamentation remain materially different from the original source; this V5 cloth check explicitly does not certify full enemy fidelity.",
+      "initialFindingsSha256": "dbf3c26f075ab353e62fbf7edf70f21a41912d7994b8f8a4280ae11987f890b6",
+      "resolution": "All six final source/model pairs show Bernhard on the redesigned dark dragon with exactly two canonical hind legs, a tall curved neck with overlapping light steel-grey throat plates, angular plated snout/jaw, recessed amber eyes, three swept horn pairs with amber insets, dark overlapping scales, bronze strapped chest plates, burnt-orange scalloped wings and a long curled armored tail with orange tip. The crouched dark rider has a whole gold-guarded sword with attached orange flame/rune strips, reins and a physical ornate strapped back throne/tower with finials, skull and chain ensemble visible from the rear. Source identity replaces the generic four-legged mount; physical source contacts and authored V5 boss height are retained. After the final metadata-only scope repair, I personally reopened all six newly rendered source/model rows again: the same geometry, charcoal rider cloth, colors, whole sword and source identity remain intact. The physical cloth audit now selects the actual overlapping mantle and skirt meshes while retaining the historical cape record.",
+      "unresolvedSignificantFindings": []
+    }
+  ]
+}

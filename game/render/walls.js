@@ -4,7 +4,7 @@ import {BATTLEFIELD_UNIT_SCALE} from './battlefield-scale.js';
 
 // Goblin Thornstriders (wave 2), terrain to highest point of the actual head
 // and ears in the native host_02 GLB. The spear is taller than the creature.
-export const WALL_REFERENCE_ENEMY_NATIVE_HEIGHT=1.3236541152000427;
+export const WALL_REFERENCE_ENEMY_NATIVE_HEIGHT=1.294288992881775;
 export const WALL_DECK_HEIGHT=WALL_REFERENCE_ENEMY_NATIVE_HEIGHT*BATTLEFIELD_UNIT_SCALE;
 export const hasWallFoundation=t=>t.state==='ruin'||t.state==='active';
 // Cardinal and diagonal connections. Kept defenders occupy a masonry platform.

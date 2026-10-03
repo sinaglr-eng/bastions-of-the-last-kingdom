@@ -17,7 +17,9 @@ test('fighting deck matches the real wave-two goblin height, excluding its spear
  const feet=new Box3().setFromObject(enemy,true).min.y;
  const headTop=new Box3().setFromObject(enemy.getObjectByName('head_pivot'),true).max.y;
  assert.ok(Math.abs(WALL_DECK_HEIGHT-(headTop-feet))<1e-5);
- assert.ok(new Box3().setFromObject(enemy,true).max.y>headTop+.3,'weapon tip must not set wall height');
+ const spearTop=new Box3().setFromObject(enemy.getObjectByName('weapon_R'),true).max.y;
+ assert.ok(spearTop>headTop,'the actual spear extends above the creature');
+ assert.ok(new Box3().setFromObject(enemy,true).max.y>WALL_DECK_HEIGHT,'weapon tip must not set wall height');
  for(const mask of [0,1,3,10,16,255]){
   const platform=castleWallModel(mask,true),bounds=new Box3().setFromObject(platform,true);
   assert.ok(Math.abs(bounds.max.y-WALL_DECK_HEIGHT)<1e-6,`platform ${mask} has an unobstructed fighting deck`);

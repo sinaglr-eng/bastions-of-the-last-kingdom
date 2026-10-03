@@ -1,0 +1,688 @@
+{
+  "baselineCommit": "5792fa747abab5efe1abec00dfaa25427b54d293",
+  "baselineVersion": "0.3.4",
+  "method": "SHA-256 of actual immutable published Git archive portrait bytes. Existing native/source/manifests remain unchanged.",
+  "models": 136,
+  "entries": [
+    {
+      "id": "archangel",
+      "file": "public/assets/geometric/portraits/archangel.png",
+      "sha256": "bd90ed6805bc108c1c4bed6141cf0018949abc7e4da12fd7cc535f5a337d2ba2"
+    },
+    {
+      "id": "archbishop",
+      "file": "public/assets/geometric/portraits/archbishop.png",
+      "sha256": "df0fa3588b4964f06307adaebc0d6b83e02f66628a128e683b3964fb96f524ea"
+    },
+    {
+      "id": "archer-1",
+      "file": "public/assets/geometric/portraits/archer-1.png",
+      "sha256": "d19375b3abd91faec18a3ef4b63dad7d98b64d84904f67e30276bf275944cf49"
+    },
+    {
+      "id": "archer-2",
+      "file": "public/assets/geometric/portraits/archer-2.png",
+      "sha256": "501fd6fcb4a9a201ae0d931217e89117fe44062fb92cf7187c1bb976219654bb"
+    },
+    {
+      "id": "archer-3",
+      "file": "public/assets/geometric/portraits/archer-3.png",
+      "sha256": "2166a7370daa43af821de4d3d9d99ba9e3bfaa195db1b5a373cde79cbed79eab"
+    },
+    {
+      "id": "archer-4",
+      "file": "public/assets/geometric/portraits/archer-4.png",
+      "sha256": "22a4c76cd2137d9bfd5de4f8cc209f1cb4332a28ee52f61f7b56b1046e223a51"
+    },
+    {
+      "id": "archer-5",
+      "file": "public/assets/geometric/portraits/archer-5.png",
+      "sha256": "b454303b133fce70e5dfd7f36328f1e55de86d1b6d5b0346bdf6a6dc1fd1f7c1"
+    },
+    {
+      "id": "archer-6",
+      "file": "public/assets/geometric/portraits/archer-6.png",
+      "sha256": "68fc54a4d733da11eae532c5fe318f128e13d2465cbb6aefe549c7dc8e23baa3"
+    },
+    {
+      "id": "cleric-1",
+      "file": "public/assets/geometric/portraits/cleric-1.png",
+      "sha256": "c6ad9898935bb7a7e136394644454f4a8e85f1feabfc149652a4b9a27307b402"
+    },
+    {
+      "id": "cleric-2",
+      "file": "public/assets/geometric/portraits/cleric-2.png",
+      "sha256": "06f10bc5f3ebca6ec4af15dfbc6640034aee7c1cdd0355dfa77899b8076d6cea"
+    },
+    {
+      "id": "cleric-3",
+      "file": "public/assets/geometric/portraits/cleric-3.png",
+      "sha256": "59437bfa09a0e0e8fa95dd8fa70208fe0b8fee7f5ded3e2233ca5bbd648bcafd"
+    },
+    {
+      "id": "cleric-4",
+      "file": "public/assets/geometric/portraits/cleric-4.png",
+      "sha256": "32254072f0f1eaa1488e0c817a5cb2691bd36295c3b49dfd9dc36f58dce8895b"
+    },
+    {
+      "id": "cleric-5",
+      "file": "public/assets/geometric/portraits/cleric-5.png",
+      "sha256": "915cd4b6f5b32c082a195c8441cd4c8db36f33ebe4d241e49f63570c6b299629"
+    },
+    {
+      "id": "cleric-6",
+      "file": "public/assets/geometric/portraits/cleric-6.png",
+      "sha256": "3bc61e6f9db695742c5f6b4a1c96b6aa3e70b9aad04fc2476ca25177e16d6878"
+    },
+    {
+      "id": "crownofages",
+      "file": "public/assets/geometric/portraits/crownofages.png",
+      "sha256": "eed8c89a1911c544febfbb1bbed477e32a51833a7cae66dd037dcb6868322e07"
+    },
+    {
+      "id": "dawnspire",
+      "file": "public/assets/geometric/portraits/dawnspire.png",
+      "sha256": "7b2d104ed2bd69bdbaf73219aeff93f7b35a6a69c9d8c0e148349df679da4ab9"
+    },
+    {
+      "id": "druid-1",
+      "file": "public/assets/geometric/portraits/druid-1.png",
+      "sha256": "40d2c1d57b959039e9ac55d43c3dc3b1d6af26a0da595a3cbd9d58e7523d0db0"
+    },
+    {
+      "id": "druid-2",
+      "file": "public/assets/geometric/portraits/druid-2.png",
+      "sha256": "bccf2d9ed5820493488f2a072bd8d29aa16933b1b4a4473dd25f91e5ed166ef5"
+    },
+    {
+      "id": "druid-3",
+      "file": "public/assets/geometric/portraits/druid-3.png",
+      "sha256": "cf824c80c620bd04df79066bfdcbe2797c9e613011b9b5d0175bf8ee6c004d83"
+    },
+    {
+      "id": "druid-4",
+      "file": "public/assets/geometric/portraits/druid-4.png",
+      "sha256": "48f2e811e42b45de953eb7debd3881180039e2b8dc1905ed28e6147cce9f7f61"
+    },
+    {
+      "id": "druid-5",
+      "file": "public/assets/geometric/portraits/druid-5.png",
+      "sha256": "5db9af85d7a3eb4c74937e458ebae91bb52456f2348615c31cd910926970c671"
+    },
+    {
+      "id": "druid-6",
+      "file": "public/assets/geometric/portraits/druid-6.png",
+      "sha256": "2fed0ecf457b7623fb5e0fff25bc1c416fbc4cfb3d1816d9f5c64c12c8983d72"
+    },
+    {
+      "id": "eldergrove",
+      "file": "public/assets/geometric/portraits/eldergrove.png",
+      "sha256": "8d737b7d82a8a0aa614ec8461e96a01d81b73ec8e8df164f57ab96c546e542a4"
+    },
+    {
+      "id": "elvenking",
+      "file": "public/assets/geometric/portraits/elvenking.png",
+      "sha256": "d9000402ef83b5129f008f3a599230bffdd8dc0e561a9c6ea5afded508203fa4"
+    },
+    {
+      "id": "embercrown",
+      "file": "public/assets/geometric/portraits/embercrown.png",
+      "sha256": "17bdab5ef1fc65c33f37200d835ffdda7e418e1330c472dd11329c2f709cb70a"
+    },
+    {
+      "id": "emeraldgolem",
+      "file": "public/assets/geometric/portraits/emeraldgolem.png",
+      "sha256": "cf9ecd4e5d0f124ddd2545494b561e69a5d7b7b3c05a8539a02cfdd6b143c2b4"
+    },
+    {
+      "id": "fireballista",
+      "file": "public/assets/geometric/portraits/fireballista.png",
+      "sha256": "169cb6944ca27a3b34fbe2fa1c7eb6dea35382cdb363ff2b237f2f51971a1e9f"
+    },
+    {
+      "id": "frostblade",
+      "file": "public/assets/geometric/portraits/frostblade.png",
+      "sha256": "0c551ff3da8382174d36225e86f9564fbfc308ed9fc1865e912daa9b8ca262e8"
+    },
+    {
+      "id": "frostwarden-1",
+      "file": "public/assets/geometric/portraits/frostwarden-1.png",
+      "sha256": "d3d769afa2d2014f7ab19cd5e310074fb0e8b68d46b3c82f062c0812d33e6c85"
+    },
+    {
+      "id": "frostwarden-2",
+      "file": "public/assets/geometric/portraits/frostwarden-2.png",
+      "sha256": "4a9ddc1c4857149b2f287738c277a96d4ed91dc50d5da1ee916b2fb9f6231337"
+    },
+    {
+      "id": "frostwarden-3",
+      "file": "public/assets/geometric/portraits/frostwarden-3.png",
+      "sha256": "d98e19c2b556faad7945588e8ec233fba7c58049fe693c05846cf57a2ebabf9b"
+    },
+    {
+      "id": "frostwarden-4",
+      "file": "public/assets/geometric/portraits/frostwarden-4.png",
+      "sha256": "4201d6383b4db41cdecceee184343b7ff4b593517dc872844d7cb15f1618e186"
+    },
+    {
+      "id": "frostwarden-5",
+      "file": "public/assets/geometric/portraits/frostwarden-5.png",
+      "sha256": "0ee27121d990d792e14e5d652ae723e60700d6e3248c8cab915484e86aa1a316"
+    },
+    {
+      "id": "frostwarden-6",
+      "file": "public/assets/geometric/portraits/frostwarden-6.png",
+      "sha256": "f8bc67a03d5c10ba8bdd5e0ac1969fe6f1e76dc8ee3cf622eeef2b441c2069b8"
+    },
+    {
+      "id": "greenheart",
+      "file": "public/assets/geometric/portraits/greenheart.png",
+      "sha256": "80797960d801f10226bc2b2297f3441293327ef4720dc3996e4e828e01427797"
+    },
+    {
+      "id": "griffinbomber",
+      "file": "public/assets/geometric/portraits/griffinbomber.png",
+      "sha256": "97c4d54375df3663232ac5bfe54fb211b88a7be08de03c3d150d8e1b15c86100"
+    },
+    {
+      "id": "highking",
+      "file": "public/assets/geometric/portraits/highking.png",
+      "sha256": "8951a4863f41bcad6c8005fffedabe07d085225039859a6b925d89438dd1e878"
+    },
+    {
+      "id": "host_01",
+      "file": "public/assets/geometric/portraits/host_01.png",
+      "sha256": "05aa98453784f866583e0bbeb3c3e050c8f645c8da5c366d55cee5133deefdcd"
+    },
+    {
+      "id": "host_02",
+      "file": "public/assets/geometric/portraits/host_02.png",
+      "sha256": "01bc9fcfd3ac4510b29110f4933d8628945b81b68a5172ce970b33d5898b0fd3"
+    },
+    {
+      "id": "host_03",
+      "file": "public/assets/geometric/portraits/host_03.png",
+      "sha256": "b7445e14568e6163be3576b80da5b2396d12efb2380b996c118a63dcc6805231"
+    },
+    {
+      "id": "host_04",
+      "file": "public/assets/geometric/portraits/host_04.png",
+      "sha256": "ea6b874d456ab5016afb7922c5dc9dc14ef8d66e0e378fd99bded2acdfefb951"
+    },
+    {
+      "id": "host_05",
+      "file": "public/assets/geometric/portraits/host_05.png",
+      "sha256": "509028f70a7b82ae792c8fb70b57be620616f0eb5f751e98c406795ab1bba87b"
+    },
+    {
+      "id": "host_06",
+      "file": "public/assets/geometric/portraits/host_06.png",
+      "sha256": "bc1589f6e9249b5808cc3d65f3770c7e9b468ff2703db3f1ff0aecd7168f5e2a"
+    },
+    {
+      "id": "host_07",
+      "file": "public/assets/geometric/portraits/host_07.png",
+      "sha256": "5c84f3271ad8d1a03fb8918411e51bf7eb5164b92916d5fd0f34dd1d62e3b5a2"
+    },
+    {
+      "id": "host_08",
+      "file": "public/assets/geometric/portraits/host_08.png",
+      "sha256": "953f277b39ccef6eafef1a31a2767faad7422fb5b7966f9d33295d8d4f89d9e2"
+    },
+    {
+      "id": "host_09",
+      "file": "public/assets/geometric/portraits/host_09.png",
+      "sha256": "6816c580772c9f62fc9474193970a1beac1e5e35eb9d3a0bc76fad7ca8d4f105"
+    },
+    {
+      "id": "host_10",
+      "file": "public/assets/geometric/portraits/host_10.png",
+      "sha256": "5a571191d63524ecb6c330068da4ab66828b33423d09b87f74ae50d273cf62b8"
+    },
+    {
+      "id": "host_11",
+      "file": "public/assets/geometric/portraits/host_11.png",
+      "sha256": "2d850b5e52d7b24f5ce578ad23bc5ed6c6a4322b735ff9438989051127045fcc"
+    },
+    {
+      "id": "host_12",
+      "file": "public/assets/geometric/portraits/host_12.png",
+      "sha256": "d5f2cd49b95dd55f3729c971a6466b330f7b024d70019d3c84be3492bcf1f4bf"
+    },
+    {
+      "id": "host_13",
+      "file": "public/assets/geometric/portraits/host_13.png",
+      "sha256": "10b9a600a9312944bcb00715b546f4278c6e8391ea8b46b50ee820a0cb8f1098"
+    },
+    {
+      "id": "host_14",
+      "file": "public/assets/geometric/portraits/host_14.png",
+      "sha256": "d8895a7d5e60cf2168bb4a0d509ee43bc747b2e01c0f788ee04d96321724c9aa"
+    },
+    {
+      "id": "host_15",
+      "file": "public/assets/geometric/portraits/host_15.png",
+      "sha256": "42243c4726d3b17ecde7edca67857a9e0b4f918186f044e616e8ce39904d404e"
+    },
+    {
+      "id": "host_16",
+      "file": "public/assets/geometric/portraits/host_16.png",
+      "sha256": "ab8ba0b56010b3f37d588e8d07934da59fc6b02211e98625ec46badaebfd43ca"
+    },
+    {
+      "id": "host_17",
+      "file": "public/assets/geometric/portraits/host_17.png",
+      "sha256": "2d1623b0c41908d0a06fbcf11ff7e1aa39f2911ddb122177d2bed2b57f0942d6"
+    },
+    {
+      "id": "host_18",
+      "file": "public/assets/geometric/portraits/host_18.png",
+      "sha256": "7e3e70da86e91003bcb636397b2bf13082707cf7fab7caff6eb6ca4f8ac41901"
+    },
+    {
+      "id": "host_19",
+      "file": "public/assets/geometric/portraits/host_19.png",
+      "sha256": "d78bc2211e768c40df567bb3d66349c39cfccf4cb5824427afe671aeb7bb7d73"
+    },
+    {
+      "id": "host_20",
+      "file": "public/assets/geometric/portraits/host_20.png",
+      "sha256": "13794aca7c8b2128fe366e1728dcfdc58c36ae64f280421664e4aacb1192f865"
+    },
+    {
+      "id": "host_21",
+      "file": "public/assets/geometric/portraits/host_21.png",
+      "sha256": "7b5ac36d6f5f65d913cdec51bd7168e2039ccd9e5fe040496ddc5c6ccabea531"
+    },
+    {
+      "id": "host_22",
+      "file": "public/assets/geometric/portraits/host_22.png",
+      "sha256": "5f031366cae37c6985f86506286f27687d02d601950cadf6949a428c40da8973"
+    },
+    {
+      "id": "host_23",
+      "file": "public/assets/geometric/portraits/host_23.png",
+      "sha256": "0e900a000a4fc47841d9bc46641c9a79bc2da7fcb9526540cf6e7e0a3531c0cd"
+    },
+    {
+      "id": "host_24",
+      "file": "public/assets/geometric/portraits/host_24.png",
+      "sha256": "8f09a8e1fdb32f2ef52ee0ecbbd8730f66864d7cd8ed81a870092bcb5b50a65e"
+    },
+    {
+      "id": "host_25",
+      "file": "public/assets/geometric/portraits/host_25.png",
+      "sha256": "b7e9f38dc9c847a4ef720dd6385be4d1490bdd3b7a47c4948d9971eb53836743"
+    },
+    {
+      "id": "host_26",
+      "file": "public/assets/geometric/portraits/host_26.png",
+      "sha256": "569e54b512cf2c25149c446d94f736d9cd4e2aa68a07ed4ef9efd489e41c96f3"
+    },
+    {
+      "id": "host_27",
+      "file": "public/assets/geometric/portraits/host_27.png",
+      "sha256": "c342d8c182847bdcfdd3148a3ef38f2784ec5b106f1b7b0674338a03af0fdb3c"
+    },
+    {
+      "id": "host_28",
+      "file": "public/assets/geometric/portraits/host_28.png",
+      "sha256": "9a8cc03490f53229ade183d919e423cec7991b13954edd2e567f53782b88dc13"
+    },
+    {
+      "id": "host_29",
+      "file": "public/assets/geometric/portraits/host_29.png",
+      "sha256": "71cd2670d1e8142628e7c47b92f98231b896a1583b2122786bf5c64ac612d860"
+    },
+    {
+      "id": "host_30",
+      "file": "public/assets/geometric/portraits/host_30.png",
+      "sha256": "654f5e4184dc08b40acfedf4a49d52f07d398834c6ebbdbbc1e77700b43082e0"
+    },
+    {
+      "id": "host_31",
+      "file": "public/assets/geometric/portraits/host_31.png",
+      "sha256": "4a972774733d9a65eeb0fcd82a72263f0c768c18b5079c12f53c2533b67a7f5c"
+    },
+    {
+      "id": "host_32",
+      "file": "public/assets/geometric/portraits/host_32.png",
+      "sha256": "d76dea3aaa5649319ce309e4bdcda29fb387d4947e1e0a7101348f0e1a1a8568"
+    },
+    {
+      "id": "host_33",
+      "file": "public/assets/geometric/portraits/host_33.png",
+      "sha256": "545aa28559591b21b805e9ef26a5eff4303377c03ed17a3c3213838604678fc6"
+    },
+    {
+      "id": "host_34",
+      "file": "public/assets/geometric/portraits/host_34.png",
+      "sha256": "20f3a4bb00f952b9f0e32b244af8ff98fd0c919b85498ea27c25a36e87dccf70"
+    },
+    {
+      "id": "host_35",
+      "file": "public/assets/geometric/portraits/host_35.png",
+      "sha256": "20db716f24a88f3c6a7eb1d216d5a5bb7384f3201796427180f9bfa6e0a73e50"
+    },
+    {
+      "id": "host_36",
+      "file": "public/assets/geometric/portraits/host_36.png",
+      "sha256": "f73bfa36d0d9dfcb0c830bf1b8ca812c4e20085127ad4b8b0c7a2e9e335de99c"
+    },
+    {
+      "id": "host_37",
+      "file": "public/assets/geometric/portraits/host_37.png",
+      "sha256": "c0a52a5b6e2b4f4c619b7fd658cb3c61f1322784e1ab9b3d5fbcbcf24da35081"
+    },
+    {
+      "id": "host_38",
+      "file": "public/assets/geometric/portraits/host_38.png",
+      "sha256": "fea1108652ecff0afd260afef4bc98d4434903f684387e1e954b28c29ba4b347"
+    },
+    {
+      "id": "host_39",
+      "file": "public/assets/geometric/portraits/host_39.png",
+      "sha256": "d3a1690209a1a7e0a87072399447bc14bcfff1d218ab35fa094c7a195f515486"
+    },
+    {
+      "id": "host_40",
+      "file": "public/assets/geometric/portraits/host_40.png",
+      "sha256": "59f700d65ac1870eec847d411135ee760e457c036946509e837f67d761414f37"
+    },
+    {
+      "id": "host_41",
+      "file": "public/assets/geometric/portraits/host_41.png",
+      "sha256": "0270d7b34cfcdfc9f017cbdedccfa57b9750141d09c1baa7a2350118ee89abf3"
+    },
+    {
+      "id": "host_42",
+      "file": "public/assets/geometric/portraits/host_42.png",
+      "sha256": "801fb0bb66d5e04b9845435c67a0525fdfea19cb0b7819cc60b73fdbae45eb12"
+    },
+    {
+      "id": "host_43",
+      "file": "public/assets/geometric/portraits/host_43.png",
+      "sha256": "2e32ac1a02be9a9dea7c5c05ee4278020f1049fa809a8e71f27aec60f4dc7e2f"
+    },
+    {
+      "id": "host_44",
+      "file": "public/assets/geometric/portraits/host_44.png",
+      "sha256": "d94abc6fad67ab3fc6e1f111c4f84766119df2dc1355041ad32bd2d0776e3d34"
+    },
+    {
+      "id": "host_45",
+      "file": "public/assets/geometric/portraits/host_45.png",
+      "sha256": "e0b6f2af785482eccceee7f4bcd56de11fbb473f9d005b30cb4f1b81404a32bd"
+    },
+    {
+      "id": "host_46",
+      "file": "public/assets/geometric/portraits/host_46.png",
+      "sha256": "5513f00a38c7afcd2eccb1936ff72b7eb2b074ef6eaebd39b2da0a76e29419cd"
+    },
+    {
+      "id": "host_47",
+      "file": "public/assets/geometric/portraits/host_47.png",
+      "sha256": "7575b419af2623093792af5e08cf2335825b61a68ac5ab0f5a1ffd95fdb11be8"
+    },
+    {
+      "id": "host_48",
+      "file": "public/assets/geometric/portraits/host_48.png",
+      "sha256": "67396715a9c773704b0db0e076474980500a0e173c33e529a3f1ff185b31cc1b"
+    },
+    {
+      "id": "host_49",
+      "file": "public/assets/geometric/portraits/host_49.png",
+      "sha256": "6da91d934841c8608a96ab5bd0877465f2f356d891387f061818b25215eb8d87"
+    },
+    {
+      "id": "host_50",
+      "file": "public/assets/geometric/portraits/host_50.png",
+      "sha256": "5cb204c28e58886b243514fb656cf99af38b63c974d2c558b1723a8ef7258aa9"
+    },
+    {
+      "id": "kingdomprotector",
+      "file": "public/assets/geometric/portraits/kingdomprotector.png",
+      "sha256": "3189c3eea585a86f97beb42b713b28e537233910079a70c56248f04241934367"
+    },
+    {
+      "id": "kingsrangerguard",
+      "file": "public/assets/geometric/portraits/kingsrangerguard.png",
+      "sha256": "b1894fe219b3d7f1e6320f4a724e2ecc2340aff239b2d0e4a5bd202f67c82e85"
+    },
+    {
+      "id": "kingsreach",
+      "file": "public/assets/geometric/portraits/kingsreach.png",
+      "sha256": "855274055ded5d763235716d8de837d908d64b4b18006a4f88779a2968b75a35"
+    },
+    {
+      "id": "ladyclaire",
+      "file": "public/assets/geometric/portraits/ladyclaire.png",
+      "sha256": "48680bfc15c541b9993d1cd8657330ee685716e0bae5a5f4fb1cfd24e932851d"
+    },
+    {
+      "id": "mage-1",
+      "file": "public/assets/geometric/portraits/mage-1.png",
+      "sha256": "a7040538030f0b6942373bf138f7c2c824f0db67bda937e063febd8967811975"
+    },
+    {
+      "id": "mage-2",
+      "file": "public/assets/geometric/portraits/mage-2.png",
+      "sha256": "436d7439576d538e12e099aac039d9d048e35b23b167e34af83ab35f5c3be512"
+    },
+    {
+      "id": "mage-3",
+      "file": "public/assets/geometric/portraits/mage-3.png",
+      "sha256": "63880ae40c7c8329bd15ded8c0fdcd690de0c72e95e5c7ce74bc6805ff53e180"
+    },
+    {
+      "id": "mage-4",
+      "file": "public/assets/geometric/portraits/mage-4.png",
+      "sha256": "f614c7dd38c4285034b82c3e65c729be7c408909ddb33faee5b59d77d80d8e51"
+    },
+    {
+      "id": "mage-5",
+      "file": "public/assets/geometric/portraits/mage-5.png",
+      "sha256": "04fcf5951199a17686643623d24606bccc50cf6b87ebfa79fb6a24833ee41b78"
+    },
+    {
+      "id": "mage-6",
+      "file": "public/assets/geometric/portraits/mage-6.png",
+      "sha256": "c48aa20444c017a4186dab32ee1448a21e2e7b427e1d420dabb1a42dc55ba917"
+    },
+    {
+      "id": "mechanicalgolem",
+      "file": "public/assets/geometric/portraits/mechanicalgolem.png",
+      "sha256": "34de0bec8555a003ed135b7c2b02d5c240bb7c69ea6fe8d3363303797023f57a"
+    },
+    {
+      "id": "monk",
+      "file": "public/assets/geometric/portraits/monk.png",
+      "sha256": "420ee26557d8c49f0fca9f7762089ab0cd22f4f2bec52706beffc667064e8e6f"
+    },
+    {
+      "id": "mothernature",
+      "file": "public/assets/geometric/portraits/mothernature.png",
+      "sha256": "2bddc36e05bfa80ff19e46aa21064c8f31adb1c48d5c6a881bf1f8d6aceeb464"
+    },
+    {
+      "id": "phoenix",
+      "file": "public/assets/geometric/portraits/phoenix.png",
+      "sha256": "52bf682d22e7947e9822a71a531a3bceed934fcbc8ffb2b3d7bbe77111e6e07d"
+    },
+    {
+      "id": "rangermentor",
+      "file": "public/assets/geometric/portraits/rangermentor.png",
+      "sha256": "01df8184e510f9ed534f762b4c5770d3ee7bb95320808eaabe8343704a37fdb7"
+    },
+    {
+      "id": "rimewatch",
+      "file": "public/assets/geometric/portraits/rimewatch.png",
+      "sha256": "f6d6de5c8d4e4b376f3e1d5d8f50b8ef4121d70ac94e42e05a4e1b942ec1ed01"
+    },
+    {
+      "id": "roseguard",
+      "file": "public/assets/geometric/portraits/roseguard.png",
+      "sha256": "41982651afe98eb71de734568410c9faa166ad45788268effb9021b3354455d7"
+    },
+    {
+      "id": "royalarsenal",
+      "file": "public/assets/geometric/portraits/royalarsenal.png",
+      "sha256": "01c0012f66fa427ea3b284ef6496a67f8aab9beac8b2b2d3e244d9e413d368e8"
+    },
+    {
+      "id": "royalmarshal",
+      "file": "public/assets/geometric/portraits/royalmarshal.png",
+      "sha256": "0313e29b011f33f6ccac693f3daad2c8c835d8f18fc1c036c036707e02f925c5"
+    },
+    {
+      "id": "royalranger",
+      "file": "public/assets/geometric/portraits/royalranger.png",
+      "sha256": "960aa323b62deb2f8cd504d5eedcda6c0aaf9d0f080d2a2295eb141cd622099b"
+    },
+    {
+      "id": "runebreaker-1",
+      "file": "public/assets/geometric/portraits/runebreaker-1.png",
+      "sha256": "501f019ffe1301dc3da997f1191948f9d255d51fa1b5e2042896fbf52c97567f"
+    },
+    {
+      "id": "runebreaker-2",
+      "file": "public/assets/geometric/portraits/runebreaker-2.png",
+      "sha256": "41729a941a66fb1ee32e4afa298dedeaf02bbc57a79ce702aa641a38d6b73c67"
+    },
+    {
+      "id": "runebreaker-3",
+      "file": "public/assets/geometric/portraits/runebreaker-3.png",
+      "sha256": "fa951c70d41f836d2dd6b0a1a359152626d8d31e522404cb6427dbb788fd35b3"
+    },
+    {
+      "id": "runebreaker-4",
+      "file": "public/assets/geometric/portraits/runebreaker-4.png",
+      "sha256": "41c610e6e5d14600eea8cd853c3484473eb4ec2410f69078323da0930b162a50"
+    },
+    {
+      "id": "runebreaker-5",
+      "file": "public/assets/geometric/portraits/runebreaker-5.png",
+      "sha256": "8c380f503178893d3d18639731d904449126302cf62da78964f3e74b96d58b41"
+    },
+    {
+      "id": "runebreaker-6",
+      "file": "public/assets/geometric/portraits/runebreaker-6.png",
+      "sha256": "f0ee409fbf3e3c0e9e6a29a10e8b9472b1ac4c8a52ecbd8514023c2c89621cf5"
+    },
+    {
+      "id": "soldier-1",
+      "file": "public/assets/geometric/portraits/soldier-1.png",
+      "sha256": "5530d0a27dfb6ede3ca839c436ebc998eef259946596f26f65997ded45af9d3b"
+    },
+    {
+      "id": "soldier-2",
+      "file": "public/assets/geometric/portraits/soldier-2.png",
+      "sha256": "cdfa884a41bbaed2b6e40fb8f137ec6a465e2e4f041184a02a27db0b42456f63"
+    },
+    {
+      "id": "soldier-3",
+      "file": "public/assets/geometric/portraits/soldier-3.png",
+      "sha256": "449de2c137af22cbb09bbeca60e0bd2804144ea0b24af4abd4b1fe7726274537"
+    },
+    {
+      "id": "soldier-4",
+      "file": "public/assets/geometric/portraits/soldier-4.png",
+      "sha256": "161c1595a71c23a632a319dec0736e41599dab394f0f350445db2eb7a6b24537"
+    },
+    {
+      "id": "soldier-5",
+      "file": "public/assets/geometric/portraits/soldier-5.png",
+      "sha256": "79519b92a7a84f2d89c7d54beee208c2088c929e43bf55a9cccd0ec1f63e0e02"
+    },
+    {
+      "id": "soldier-6",
+      "file": "public/assets/geometric/portraits/soldier-6.png",
+      "sha256": "69eb6c411e090e7969a29650d8a1b7c29c3d7a4f08040c76a6b83703228a3b04"
+    },
+    {
+      "id": "starfall",
+      "file": "public/assets/geometric/portraits/starfall.png",
+      "sha256": "95ba31010946dd180b29804c4ae2397a436d2f27c93a4cf47e2d3ba988e31c17"
+    },
+    {
+      "id": "stonewarden",
+      "file": "public/assets/geometric/portraits/stonewarden.png",
+      "sha256": "332df1d2cf6c6f010afac189e8cafbe0957e1bd506bd360178d524c1dd6d061c"
+    },
+    {
+      "id": "stormcaller-1",
+      "file": "public/assets/geometric/portraits/stormcaller-1.png",
+      "sha256": "c3c7e8d83643787a1c8a95aca8b8c2001579224b6a0eea9e24900490a43050fc"
+    },
+    {
+      "id": "stormcaller-2",
+      "file": "public/assets/geometric/portraits/stormcaller-2.png",
+      "sha256": "f4c1cb2853e7961833fb2888c67b968711054187efc7bcb1e7b560dab4785362"
+    },
+    {
+      "id": "stormcaller-3",
+      "file": "public/assets/geometric/portraits/stormcaller-3.png",
+      "sha256": "6c6ce6748163380d244a282351e5a475d4f532a4342c6c4ef20fc2b32f08cb11"
+    },
+    {
+      "id": "stormcaller-4",
+      "file": "public/assets/geometric/portraits/stormcaller-4.png",
+      "sha256": "43103f36c8d3999b4c4e0a5ccbb665bb1434734960e2155660f5326ab6a253cf"
+    },
+    {
+      "id": "stormcaller-5",
+      "file": "public/assets/geometric/portraits/stormcaller-5.png",
+      "sha256": "791bd84614e8af273881a380fc2c0272eebcc4d7095a665c3ec6d91174369ba5"
+    },
+    {
+      "id": "stormcaller-6",
+      "file": "public/assets/geometric/portraits/stormcaller-6.png",
+      "sha256": "802a2f174c3f0c34c2d2517e3588217809ded78abdd217ba16ba05514639c412"
+    },
+    {
+      "id": "stormcitadel",
+      "file": "public/assets/geometric/portraits/stormcitadel.png",
+      "sha256": "7f5e1f3bd5926e87f27a3f1852b828fa784a6ad71def064d8ccf1efd2224b1a1"
+    },
+    {
+      "id": "sunward",
+      "file": "public/assets/geometric/portraits/sunward.png",
+      "sha256": "def5a54c796ab55360f79a29e0b671d7161a5d050fd3cfe1494944da5ede5737"
+    },
+    {
+      "id": "tempest",
+      "file": "public/assets/geometric/portraits/tempest.png",
+      "sha256": "ec5747ba2a4d74c4c5fb5fc7083899c43b480c875ebbf1efbbfcef6d7a6ddba9"
+    },
+    {
+      "id": "thornwarden",
+      "file": "public/assets/geometric/portraits/thornwarden.png",
+      "sha256": "14fb6189c5d7b53fdae3802aa85b176b101389bcdbd088c4a21818f3f461dbcc"
+    },
+    {
+      "id": "thunderheart",
+      "file": "public/assets/geometric/portraits/thunderheart.png",
+      "sha256": "5d305ae89e9a7d95d78fff76282a8783a6261702be119ffe1e72c752899c6ef4"
+    },
+    {
+      "id": "verdantguard",
+      "file": "public/assets/geometric/portraits/verdantguard.png",
+      "sha256": "d48d8794e89d305442ac6655f12be02e7bf8d482d22aad23f3feb90858c921ea"
+    },
+    {
+      "id": "winterhold",
+      "file": "public/assets/geometric/portraits/winterhold.png",
+      "sha256": "fb203f381bb41c6db5eb3d3c025b61c8da62d3711c45e3a731c2b0ce5558f6a5"
+    },
+    {
+      "id": "worldfire",
+      "file": "public/assets/geometric/portraits/worldfire.png",
+      "sha256": "f26cd554514e666707f40b1d2e7c088d8f6cc34e71ff5393af6342cae4114f2a"
+    },
+    {
+      "id": "wyvernhunter",
+      "file": "public/assets/geometric/portraits/wyvernhunter.png",
+      "sha256": "d1e26ad3ff1b567347d0ef7f2afa44f4a683e3903a743d4cbc51e215642cde03"
+    }
+  ]
+}
