@@ -9,6 +9,8 @@ export const CHAMPION_AURA_COLORS=Object.freeze({
 });
 export const CHAMPION_AURA_STYLE=Object.freeze({strength:.50,radius:.92,rings:3,particles:18,wisps:6,height:.94});
 export const SECRET_CHAMPION_AURA_STYLE=Object.freeze({strength:.80,radius:1.03,rings:4,particles:30,wisps:8,height:1.18});
+// The Archangel's requested ivory/gold presentation remains an Advanced unit.
+export const DIVINE_CHAMPION_AURA_STYLE=Object.freeze({strength:.58,radius:1,rings:3,particles:24,wisps:8,height:1.85});
 export const CHAMPION_AURA_TIERS=Object.freeze({0:CHAMPION_AURA_STYLE,1:CHAMPION_AURA_STYLE,2:CHAMPION_AURA_STYLE,3:CHAMPION_AURA_STYLE,4:SECRET_CHAMPION_AURA_STYLE});
 
 const vertex=`
@@ -73,10 +75,11 @@ export function createChampionAura(family,{phase=0}={}){
   const classification=championClassification(family);
   if(!classification)return null;
   const level=championAuraLevel(family);
-  const tier=CHAMPION_AURA_TIERS[level],color=CHAMPION_AURA_COLORS[classification],secret=classification==='Secret';
+  const divine=family==='archangel',secret=classification==='Secret';
+  const tier=divine?DIVINE_CHAMPION_AURA_STYLE:CHAMPION_AURA_TIERS[level],color=divine?'#ffe5a3':CHAMPION_AURA_COLORS[classification];
   const aura=new THREE.Group();aura.name='Champion classification aura';
   const data=aura.userData;
-  Object.assign(data,{family,classification,level,tier,color,
+  Object.assign(data,{family,classification,level,tier,color,divine,
     phase:Number.isFinite(phase)?phase:0,disposed:false,rings:[],wisps:[]});
   const glow=new THREE.Mesh(new THREE.PlaneGeometry(tier.radius*2,tier.radius*2),cosmeticMaterial(color,tier.strength,groundFragment));
   glow.name='Fading champion ground glow';glow.rotation.x=-Math.PI/2;glow.position.y=.183;

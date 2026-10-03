@@ -17,6 +17,9 @@ import historicalTowers from '../data/towers.json';
 import historicalEnemies from '../data/enemies.json';
 import historicalWaves from '../data/waves.json';
 import originalSources from '../public/assets/geometric/source-manifest.json';
+import basicManifest from '../public/assets/geometric/geometric-defenders.json';
+import {geometricEntries} from './render/geometric-assets.js';
+import {basicFamilyFrame} from './render/atelier-framing.js';
 import {campaignTowers,campaignEnemies,campaignWaves} from './core/campaign-roster.js';
 import {atelierEnemyRoster,atelierSelection,atelierSelectionQuery,atelierEnemyProperties} from './core/atelier-roster.js';
 import {createAtelierEnemyPreview,updateAtelierEnemyPreview,disposeAtelierEnemyPreview} from './render/atelier-enemy-preview.js';
@@ -29,6 +32,7 @@ import {defenderCode} from './core/unit-label.js';
 import {releaseAsset,defenderPortrait,enemyPortrait,GAME_VERSION} from './release.js';
 
 const towers=campaignTowers(historicalTowers);
+const basicFrames=geometricEntries(basicManifest);
 const enemyRows=atelierEnemyRoster(campaignEnemies(historicalEnemies),campaignWaves(historicalWaves));
 const enemies=Object.fromEntries(enemyRows.map(row=>[row.id,row]));
 const initial=atelierSelection(location.search,towers,enemies);
@@ -137,7 +141,7 @@ async function showRank(rank){
  history.replaceState(null,'',location.pathname+atelierSelectionQuery({roster,id:family,tier:rank}));
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelector('#selected-rank').textContent=enemy?`VLNA ${definition.wave} · ${definition.flying?'LET':'CHŮZE'}`:advanced?`${championClassification(family).toUpperCase()} · ŠAMPION`:`${defenderCode(definition,rank)} · ${colors[rank-1].toUpperCase()}`;
- document.querySelector('#rank-detail').textContent=enemy?`${definition.hp} HP · ${definition.armor||0} zbroj · rychlost ${definition.speed}. ${atelierEnemyProperties(definition).join(' · ')||'Bez zvláštních odolností.'}`:advanced?`${auraDescriptions[championAuraLevel(family)]} Recept najdeš v herním Grimoáru.`:`${rankEquipment[family]?.[rank-1]||''} ${rank===6?'Světle zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`}`;
+ document.querySelector('#rank-detail').textContent=enemy?`${definition.hp} HP · ${definition.armor||0} zbroj · rychlost ${definition.speed}. ${atelierEnemyProperties(definition).join(' · ')||'Bez zvláštních odolností.'}`:advanced?`${family==='archangel'?'Majestátní zlatá a slonovinová zbroj, božský meč a vysoká zlatá světelná aura.':auraDescriptions[championAuraLevel(family)]} Recept najdeš v herním Grimoáru.`:`${rankEquipment[family]?.[rank-1]||''} ${rank===6?'Světle zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`}`;
  const requestedAppearance={stormcaller:'Upravený návrh: přirozené vlasy a blesková koruna podle úrovně.',royalranger:'Upravená výstroj: kuše držená zadní rukou u spouště a přední rukou pod pažbou.',mothernature:'Upravená podoba: lesní duch s listovou maskou a zářícíma očima.',thunderheart:'Upravená výstroj: rytíř v ocelové a tmavomodré zbroji odlišné od fialového draka.'};
  if(!enemy&&requestedAppearance[family])document.querySelector('#rank-detail').textContent+=' '+requestedAppearance[family];
  document.querySelector('#download-model').href=url;document.querySelector('#download-portrait').href=portrait(family,rank);
@@ -153,7 +157,8 @@ async function showRank(rank){
   else{model=cloneDefenderTemplate(gltf.scene);modelAttack=attackRig(model,family,definition);}
   model.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});
   animationControls.hidden=!(enemy||modelAttack?.native||modelAttack?.geometric);previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');
-  const bounds=new THREE.Box3().setFromObject(model),size=bounds.getSize(new THREE.Vector3());viewCentre=bounds.getCenter(new THREE.Vector3());viewRadius=Math.max(1,size.y/2.2,size.x/2.1,size.z/2.1);
+  const bounds=new THREE.Box3().setFromObject(model),size=bounds.getSize(new THREE.Vector3()),frame=!enemy&&!advanced?basicFamilyFrame(basicFrames,family):null;
+  viewCentre=frame?new THREE.Vector3(...frame.centre):bounds.getCenter(new THREE.Vector3());viewRadius=frame?.radius??Math.max(1,size.y/2.2,size.x/2.1,size.z/2.1);
   controls.minDistance=Math.min(2.4,viewRadius*1.5);controls.maxDistance=Math.max(14,viewRadius*12);camera.far=Math.max(50,viewRadius*30);camera.updateProjectionMatrix();
   if(!enemy){if(!advanced)model.add(rankAdornment(rank));modelAura=createChampionAura(family);if(modelAura)model.add(modelAura);}
   model.visible=!wallsVisible;scene.add(model);setEffectVisibility();reset(wallsVisible);status();

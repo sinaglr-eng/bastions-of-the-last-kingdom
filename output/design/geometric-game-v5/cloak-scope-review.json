@@ -1,0 +1,5034 @@
+{
+  "scope": "All 48 basic, 38 champion and 50 enemy native scenes; name inventory plus explicit rear-mane selector, with actual six-view reviews separately bound.",
+  "nativeSubjectsScanned": 136,
+  "candidateSubjects": 58,
+  "candidateParts": 217,
+  "unclassifiedCandidates": 0,
+  "inventorySha256": "d128328294328eea7587bb2b85d969660f3a1195638263f25d53f7b0519e67f9",
+  "manifests": {
+    "defenders": {
+      "path": "public/assets/geometric/geometric-defenders.json",
+      "sha256": "4003c85dc4e4676c2182b3ab711e261c57c77ac620d2e42911eee1bbf0c93dfc",
+      "nativeSubjectsScanned": 48
+    },
+    "champions": {
+      "path": "public/assets/geometric/geometric-champions.json",
+      "sha256": "6d7b205a71990f84afd941107f0e38275337781372748bced51e6c42c4e0c5b5",
+      "nativeSubjectsScanned": 38
+    },
+    "enemies": {
+      "path": "public/assets/geometric/geometric-enemies.json",
+      "sha256": "dcda07b57b9f4a876eb8edcc46e0325d99ee6e5a5404c9e81271e61b017a9002",
+      "nativeSubjectsScanned": 50
+    }
+  },
+  "dispositionCounts": {
+    "cloth-attachment-or-decoration": 69,
+    "folded-closed-cloth": 45,
+    "source-shaped-mage-fabric": 20,
+    "retained-layered-source-cloth": 15,
+    "retained-folded-shoulder-cloth": 48,
+    "rigid-armor": 4,
+    "retained-structured-gown": 15,
+    "drum": 1
+  },
+  "missedFlatPanelsFixed": [
+    "host_08: Frost troll large dark shaggy rear mane replaced by fitted folded rear pelt.",
+    "host_33: Real rear cape replaced by fitted folded purple cloak.",
+    "soldier-6: Two old Cape gold edged panel planes removed; new gold edging follows actual drape."
+  ],
+  "limitations": "Semantic inventory is not proof of comprehensive V6 enemy source fidelity; enemy armor/anatomy/source redesign is outside this V5 cloth scope. Fresh visual comparison is recorded only in the separate source-six-review reports.",
+  "candidates": [
+    {
+      "id": "soldier-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/soldier-6.blend",
+      "nativeSha256": "ac0cf39d88bc5dfea49ff87cd310b0ab7c65a1aa1483ceb0f62ac5c659c33983",
+      "name": "Cape brooch raised center Left",
+      "semantic": "Cape brooch raised center Left",
+      "parent": "torso_pivot",
+      "height": 0.08803331851959229,
+      "boundsMin": [
+        -0.27000001072883606,
+        0.34664398431777954,
+        1.1085963249206543
+      ],
+      "boundsMax": [
+        -0.18000000715255737,
+        0.3852769136428833,
+        1.1966296434402466
+      ],
+      "vertices": 24,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "soldier-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/soldier-6.blend",
+      "nativeSha256": "ac0cf39d88bc5dfea49ff87cd310b0ab7c65a1aa1483ceb0f62ac5c659c33983",
+      "name": "Cape brooch raised center Right",
+      "semantic": "Cape brooch raised center Right",
+      "parent": "torso_pivot",
+      "height": 0.08803331851959229,
+      "boundsMin": [
+        0.18000000715255737,
+        0.34664398431777954,
+        1.0981405973434448
+      ],
+      "boundsMax": [
+        0.27000001072883606,
+        0.3852769136428833,
+        1.186173915863037
+      ],
+      "vertices": 24,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "soldier-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/soldier-6.blend",
+      "nativeSha256": "ac0cf39d88bc5dfea49ff87cd310b0ab7c65a1aa1483ceb0f62ac5c659c33983",
+      "name": "Cape gold round brooch Left",
+      "semantic": "Cape gold round brooch Left",
+      "parent": "torso_pivot",
+      "height": 0.1278362274169922,
+      "boundsMin": [
+        -0.28600001335144043,
+        0.3083173930644989,
+        1.085506558418274
+      ],
+      "boundsMax": [
+        -0.164000004529953,
+        0.3736826181411743,
+        1.2133427858352661
+      ],
+      "vertices": 24,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "soldier-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/soldier-6.blend",
+      "nativeSha256": "ac0cf39d88bc5dfea49ff87cd310b0ab7c65a1aa1483ceb0f62ac5c659c33983",
+      "name": "Cape gold round brooch Right",
+      "semantic": "Cape gold round brooch Right",
+      "parent": "torso_pivot",
+      "height": 0.1278362274169922,
+      "boundsMin": [
+        0.164000004529953,
+        0.3083173930644989,
+        1.0750508308410645
+      ],
+      "boundsMax": [
+        0.28600001335144043,
+        0.3736826181411743,
+        1.2028870582580566
+      ],
+      "vertices": 24,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "soldier-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/soldier-6.blend",
+      "nativeSha256": "ac0cf39d88bc5dfea49ff87cd310b0ab7c65a1aa1483ceb0f62ac5c659c33983",
+      "name": "Cape shoulder attachment Left",
+      "semantic": "Cape shoulder attachment Left",
+      "parent": "torso_pivot",
+      "height": 0.15639472007751465,
+      "boundsMin": [
+        -0.2915000021457672,
+        -0.22611652314662933,
+        1.087241530418396
+      ],
+      "boundsMax": [
+        -0.15850000083446503,
+        0.3259304165840149,
+        1.2436362504959106
+      ],
+      "vertices": 16,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "soldier-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/soldier-6.blend",
+      "nativeSha256": "ac0cf39d88bc5dfea49ff87cd310b0ab7c65a1aa1483ceb0f62ac5c659c33983",
+      "name": "Cape shoulder attachment Right",
+      "semantic": "Cape shoulder attachment Right",
+      "parent": "torso_pivot",
+      "height": 0.1563587188720703,
+      "boundsMin": [
+        0.15850000083446503,
+        -0.22611652314662933,
+        1.087241530418396
+      ],
+      "boundsMax": [
+        0.2915000021457672,
+        0.326464980840683,
+        1.2436002492904663
+      ],
+      "vertices": 16,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "soldier-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/soldier-6.blend",
+      "nativeSha256": "ac0cf39d88bc5dfea49ff87cd310b0ab7c65a1aa1483ceb0f62ac5c659c33983",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 1.0927251745015383,
+      "boundsMin": [
+        -0.42398154735565186,
+        0.01877748593688011,
+        0.0176530908793211
+      ],
+      "boundsMax": [
+        -0.2849317193031311,
+        0.05669546127319336,
+        1.1103782653808594
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "soldier-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/soldier-6.blend",
+      "nativeSha256": "ac0cf39d88bc5dfea49ff87cd310b0ab7c65a1aa1483ceb0f62ac5c659c33983",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 1.0927251745015383,
+      "boundsMin": [
+        0.2849317193031311,
+        0.01877748593688011,
+        0.0176530908793211
+      ],
+      "boundsMax": [
+        0.42398154735565186,
+        0.05669546127319336,
+        1.1103782653808594
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "soldier-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/soldier-6.blend",
+      "nativeSha256": "ac0cf39d88bc5dfea49ff87cd310b0ab7c65a1aa1483ceb0f62ac5c659c33983",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 1.090374557301402,
+      "boundsMin": [
+        -0.43960142135620117,
+        -0.33657315373420715,
+        0.01882842369377613
+      ],
+      "boundsMax": [
+        0.4567108452320099,
+        0.047170594334602356,
+        1.1092029809951782
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "archer-2",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-2.blend",
+      "nativeSha256": "dd655fa08dfe2f9204c85d56bc962baf5a1b3ec178f18f42a6177acf71f14e65",
+      "name": "Mantle silver brooch",
+      "semantic": "Mantle silver brooch",
+      "parent": "torso_pivot",
+      "height": 0.07798665761947632,
+      "boundsMin": [
+        -0.04100000113248825,
+        0.21799999475479126,
+        0.9387015700340271
+      ],
+      "boundsMax": [
+        0.04100000113248825,
+        0.24699999392032623,
+        1.0166882276535034
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "archer-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-3.blend",
+      "nativeSha256": "7b427ef5d2c30436c1c1ddb70ff7ec76943a2a65a174c992b19f6603866e965a",
+      "name": "Mantle silver brooch",
+      "semantic": "Mantle silver brooch",
+      "parent": "torso_pivot",
+      "height": 0.07798665761947632,
+      "boundsMin": [
+        -0.04100000113248825,
+        0.21799999475479126,
+        0.9347209334373474
+      ],
+      "boundsMax": [
+        0.04100000113248825,
+        0.24699999392032623,
+        1.0127075910568237
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "archer-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-4.blend",
+      "nativeSha256": "dbc762c5c71a0fe03fa687f2c509d2280ec3c4e90d0522c686c577b1c09d322a",
+      "name": "Mantle silver brooch",
+      "semantic": "Mantle silver brooch",
+      "parent": "torso_pivot",
+      "height": 0.07798665761947632,
+      "boundsMin": [
+        -0.04100000113248825,
+        0.21799999475479126,
+        0.9454099535942078
+      ],
+      "boundsMax": [
+        0.04100000113248825,
+        0.24699999392032623,
+        1.023396611213684
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "archer-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-4.blend",
+      "nativeSha256": "dbc762c5c71a0fe03fa687f2c509d2280ec3c4e90d0522c686c577b1c09d322a",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.9580335691571236,
+      "boundsMin": [
+        -0.39869424700737,
+        -0.29750481247901917,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.41421154141426086,
+        0.041556328535079956,
+        1.0780335664749146
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "archer-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-5.blend",
+      "nativeSha256": "4aa12c8b243f4cd72b5312c94be26602e2bc141c7217b2952a43e483b4b6389c",
+      "name": "Mantle silver brooch",
+      "semantic": "Mantle silver brooch",
+      "parent": "torso_pivot",
+      "height": 0.07798665761947632,
+      "boundsMin": [
+        -0.04100000113248825,
+        0.21799999475479126,
+        0.9685856699943542
+      ],
+      "boundsMax": [
+        0.04100000113248825,
+        0.24699999392032623,
+        1.0465723276138306
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "archer-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-5.blend",
+      "nativeSha256": "4aa12c8b243f4cd72b5312c94be26602e2bc141c7217b2952a43e483b4b6389c",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.9867886528372765,
+      "boundsMin": [
+        -0.3697298467159271,
+        0.015408883802592754,
+        0.11886880546808243
+      ],
+      "boundsMax": [
+        -0.24606260657310486,
+        0.05108130723237991,
+        1.1056574583053589
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "archer-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-5.blend",
+      "nativeSha256": "4aa12c8b243f4cd72b5312c94be26602e2bc141c7217b2952a43e483b4b6389c",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.9867886528372765,
+      "boundsMin": [
+        0.24606260657310486,
+        0.015408883802592754,
+        0.11886880546808243
+      ],
+      "boundsMax": [
+        0.3697298467159271,
+        0.05108130723237991,
+        1.1056574583053589
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "archer-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-5.blend",
+      "nativeSha256": "4aa12c8b243f4cd72b5312c94be26602e2bc141c7217b2952a43e483b4b6389c",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.9845262840390205,
+      "boundsMin": [
+        -0.38185662031173706,
+        -0.2960435748100281,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.3967186212539673,
+        0.04155636951327324,
+        1.1045262813568115
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "archer-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-6.blend",
+      "nativeSha256": "e35388803f00103ca3eba5c166b27363205ea17e55761166c91fc359934acea4",
+      "name": "Mantle silver brooch",
+      "semantic": "Mantle silver brooch",
+      "parent": "torso_pivot",
+      "height": 0.07798665761947632,
+      "boundsMin": [
+        -0.04100000113248825,
+        0.21799999475479126,
+        0.886186957359314
+      ],
+      "boundsMax": [
+        0.04100000113248825,
+        0.24699999392032623,
+        0.9641736149787903
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "archer-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-6.blend",
+      "nativeSha256": "e35388803f00103ca3eba5c166b27363205ea17e55761166c91fc359934acea4",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.8994507491588593,
+      "boundsMin": [
+        -0.37255868315696716,
+        0.015409115701913834,
+        0.11875000596046448
+      ],
+      "boundsMax": [
+        -0.24811112880706787,
+        0.051080964505672455,
+        1.0182007551193237
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "archer-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-6.blend",
+      "nativeSha256": "e35388803f00103ca3eba5c166b27363205ea17e55761166c91fc359934acea4",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.8994507491588593,
+      "boundsMin": [
+        0.24811112880706787,
+        0.015409115701913834,
+        0.11875000596046448
+      ],
+      "boundsMax": [
+        0.37255868315696716,
+        0.051080964505672455,
+        1.0182007551193237
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "archer-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/archer-6.blend",
+      "nativeSha256": "e35388803f00103ca3eba5c166b27363205ea17e55761166c91fc359934acea4",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.8969507291913033,
+      "boundsMin": [
+        -0.3848811089992523,
+        -0.29630568623542786,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.39986082911491394,
+        0.04155630245804787,
+        1.0169507265090942
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "mage-1",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-1.blend",
+      "nativeSha256": "bb2f77ee09286691e436224cdc4e442722839945c4ed265a190fb93e5fd048f8",
+      "name": "V5 source cowl draped back",
+      "semantic": "V5 source cowl draped back",
+      "parent": "torso_pivot",
+      "height": 0.10609197616577148,
+      "boundsMin": [
+        -0.24500000476837158,
+        -0.22104300558567047,
+        0.7879999876022339
+      ],
+      "boundsMax": [
+        0.24500000476837158,
+        -0.14800000190734863,
+        0.8940919637680054
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-2",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-2.blend",
+      "nativeSha256": "543a28105d4c0228fa107bcf8caf541f0faedc1484ff32449ca9a031a1c31256",
+      "name": "V5 source cowl draped back",
+      "semantic": "V5 source cowl draped back",
+      "parent": "torso_pivot",
+      "height": 0.10609197616577148,
+      "boundsMin": [
+        -0.24500000476837158,
+        -0.22104300558567047,
+        0.7879999876022339
+      ],
+      "boundsMax": [
+        0.24500000476837158,
+        -0.14800000190734863,
+        0.8940919637680054
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-3.blend",
+      "nativeSha256": "c6662ffcc8a1c130e22b17dfe9c311fa3ee5dae5686f389024de61cd2ef57793",
+      "name": "V5 source draped rear mantle",
+      "semantic": "V5 source draped rear mantle",
+      "parent": "torso_pivot",
+      "height": 0.10711497068405151,
+      "boundsMin": [
+        -0.36000001430511475,
+        -0.2598249018192291,
+        0.7770000100135803
+      ],
+      "boundsMax": [
+        0.36000001430511475,
+        -0.14800000190734863,
+        0.8841149806976318
+      ],
+      "vertices": 15,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-3.blend",
+      "nativeSha256": "c6662ffcc8a1c130e22b17dfe9c311fa3ee5dae5686f389024de61cd2ef57793",
+      "name": "V5 source ivory rear mantle hem",
+      "semantic": "V5 source ivory rear mantle hem",
+      "parent": "torso_pivot",
+      "height": 0.05352485179901123,
+      "boundsMin": [
+        -0.362896591424942,
+        -0.2624126672744751,
+        0.767289936542511
+      ],
+      "boundsMax": [
+        0.362896591424942,
+        -0.20475822687149048,
+        0.8208147883415222
+      ],
+      "vertices": 25,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-3.blend",
+      "nativeSha256": "c6662ffcc8a1c130e22b17dfe9c311fa3ee5dae5686f389024de61cd2ef57793",
+      "name": "V5 source narrow ivory mantle hem -1",
+      "semantic": "V5 source narrow ivory mantle hem -1",
+      "parent": "torso_pivot",
+      "height": 0.06820130348205566,
+      "boundsMin": [
+        -0.3728228211402893,
+        0.11391737312078476,
+        0.7574487924575806
+      ],
+      "boundsMax": [
+        -0.0169311985373497,
+        0.2343171387910843,
+        0.8256500959396362
+      ],
+      "vertices": 15,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-3.blend",
+      "nativeSha256": "c6662ffcc8a1c130e22b17dfe9c311fa3ee5dae5686f389024de61cd2ef57793",
+      "name": "V5 source narrow ivory mantle hem 1",
+      "semantic": "V5 source narrow ivory mantle hem 1",
+      "parent": "torso_pivot",
+      "height": 0.06838494539260864,
+      "boundsMin": [
+        0.01700393483042717,
+        0.11391737312078476,
+        0.755001962184906
+      ],
+      "boundsMax": [
+        0.37328746914863586,
+        0.2343171387910843,
+        0.8233869075775146
+      ],
+      "vertices": 15,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-3.blend",
+      "nativeSha256": "c6662ffcc8a1c130e22b17dfe9c311fa3ee5dae5686f389024de61cd2ef57793",
+      "name": "V5 source tailored mantle front -1",
+      "semantic": "V5 source tailored mantle front -1",
+      "parent": "torso_pivot",
+      "height": 0.10400587320327759,
+      "boundsMin": [
+        -0.367000013589859,
+        0.10229194164276123,
+        0.7679941058158875
+      ],
+      "boundsMax": [
+        -0.016347065567970276,
+        0.22200000286102295,
+        0.871999979019165
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-3.blend",
+      "nativeSha256": "c6662ffcc8a1c130e22b17dfe9c311fa3ee5dae5686f389024de61cd2ef57793",
+      "name": "V5 source tailored mantle front 1",
+      "semantic": "V5 source tailored mantle front 1",
+      "parent": "torso_pivot",
+      "height": 0.10400587320327759,
+      "boundsMin": [
+        0.016347065567970276,
+        0.10229194164276123,
+        0.7679941058158875
+      ],
+      "boundsMax": [
+        0.367000013589859,
+        0.22200000286102295,
+        0.871999979019165
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-4.blend",
+      "nativeSha256": "9cc9f77a5e91eae1357740d4f17c556513378fcd0e8449d4948262f74ed031d4",
+      "name": "V5 source draped rear mantle",
+      "semantic": "V5 source draped rear mantle",
+      "parent": "torso_pivot",
+      "height": 0.10711497068405151,
+      "boundsMin": [
+        -0.36000001430511475,
+        -0.2598249018192291,
+        0.7770000100135803
+      ],
+      "boundsMax": [
+        0.36000001430511475,
+        -0.14800000190734863,
+        0.8841149806976318
+      ],
+      "vertices": 15,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-4.blend",
+      "nativeSha256": "9cc9f77a5e91eae1357740d4f17c556513378fcd0e8449d4948262f74ed031d4",
+      "name": "V5 source ivory rear mantle hem",
+      "semantic": "V5 source ivory rear mantle hem",
+      "parent": "torso_pivot",
+      "height": 0.05352485179901123,
+      "boundsMin": [
+        -0.362896591424942,
+        -0.2624126672744751,
+        0.767289936542511
+      ],
+      "boundsMax": [
+        0.362896591424942,
+        -0.20475822687149048,
+        0.8208147883415222
+      ],
+      "vertices": 25,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-4.blend",
+      "nativeSha256": "9cc9f77a5e91eae1357740d4f17c556513378fcd0e8449d4948262f74ed031d4",
+      "name": "V5 source narrow ivory mantle hem -1",
+      "semantic": "V5 source narrow ivory mantle hem -1",
+      "parent": "torso_pivot",
+      "height": 0.06820130348205566,
+      "boundsMin": [
+        -0.3728228211402893,
+        0.11391737312078476,
+        0.7574487924575806
+      ],
+      "boundsMax": [
+        -0.0169311985373497,
+        0.2343171387910843,
+        0.8256500959396362
+      ],
+      "vertices": 15,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-4.blend",
+      "nativeSha256": "9cc9f77a5e91eae1357740d4f17c556513378fcd0e8449d4948262f74ed031d4",
+      "name": "V5 source narrow ivory mantle hem 1",
+      "semantic": "V5 source narrow ivory mantle hem 1",
+      "parent": "torso_pivot",
+      "height": 0.06838494539260864,
+      "boundsMin": [
+        0.01700393483042717,
+        0.11391737312078476,
+        0.755001962184906
+      ],
+      "boundsMax": [
+        0.37328746914863586,
+        0.2343171387910843,
+        0.8233869075775146
+      ],
+      "vertices": 15,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-4.blend",
+      "nativeSha256": "9cc9f77a5e91eae1357740d4f17c556513378fcd0e8449d4948262f74ed031d4",
+      "name": "V5 source tailored mantle front -1",
+      "semantic": "V5 source tailored mantle front -1",
+      "parent": "torso_pivot",
+      "height": 0.10400587320327759,
+      "boundsMin": [
+        -0.367000013589859,
+        0.10229194164276123,
+        0.7679941058158875
+      ],
+      "boundsMax": [
+        -0.016347065567970276,
+        0.22200000286102295,
+        0.871999979019165
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-4.blend",
+      "nativeSha256": "9cc9f77a5e91eae1357740d4f17c556513378fcd0e8449d4948262f74ed031d4",
+      "name": "V5 source tailored mantle front 1",
+      "semantic": "V5 source tailored mantle front 1",
+      "parent": "torso_pivot",
+      "height": 0.10400587320327759,
+      "boundsMin": [
+        0.016347065567970276,
+        0.10229194164276123,
+        0.7679941058158875
+      ],
+      "boundsMax": [
+        0.367000013589859,
+        0.22200000286102295,
+        0.871999979019165
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-5.blend",
+      "nativeSha256": "42406ffae65ef7529339de999511e9ee524dcba59a7c9efc761edea66041881e",
+      "name": "Cape gold brooch -1",
+      "semantic": "Cape gold brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.079487144947052,
+      "boundsMin": [
+        -0.23885716497898102,
+        0.2239999920129776,
+        0.7930706143379211
+      ],
+      "boundsMax": [
+        -0.14514286816120148,
+        0.2529999911785126,
+        0.8725577592849731
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "mage-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-5.blend",
+      "nativeSha256": "42406ffae65ef7529339de999511e9ee524dcba59a7c9efc761edea66041881e",
+      "name": "Cape gold brooch 1",
+      "semantic": "Cape gold brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.079487144947052,
+      "boundsMin": [
+        0.14514286816120148,
+        0.2239999920129776,
+        0.7930706143379211
+      ],
+      "boundsMax": [
+        0.23885716497898102,
+        0.2529999911785126,
+        0.8725577592849731
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "mage-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-5.blend",
+      "nativeSha256": "42406ffae65ef7529339de999511e9ee524dcba59a7c9efc761edea66041881e",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.7592973709106445,
+      "boundsMin": [
+        -0.4286593794822693,
+        0.015409698709845543,
+        0.12240660190582275
+      ],
+      "boundsMax": [
+        -0.28840237855911255,
+        0.05108024924993515,
+        0.8817039728164673
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "mage-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-5.blend",
+      "nativeSha256": "42406ffae65ef7529339de999511e9ee524dcba59a7c9efc761edea66041881e",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.7592973709106445,
+      "boundsMin": [
+        0.28840237855911255,
+        0.015409698709845543,
+        0.12240660190582275
+      ],
+      "boundsMax": [
+        0.4286593794822693,
+        0.05108024924993515,
+        0.8817039728164673
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "mage-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-5.blend",
+      "nativeSha256": "42406ffae65ef7529339de999511e9ee524dcba59a7c9efc761edea66041881e",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.7558894231915474,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.30149349570274353,
+        0.12411057204008102
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.041556216776371,
+        0.8799999952316284
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "mage-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-5.blend",
+      "nativeSha256": "42406ffae65ef7529339de999511e9ee524dcba59a7c9efc761edea66041881e",
+      "name": "V5 source draped rear mantle",
+      "semantic": "V5 source draped rear mantle",
+      "parent": "torso_pivot",
+      "height": 0.10711497068405151,
+      "boundsMin": [
+        -0.36000001430511475,
+        -0.2598249018192291,
+        0.7770000100135803
+      ],
+      "boundsMax": [
+        0.36000001430511475,
+        -0.14800000190734863,
+        0.8841149806976318
+      ],
+      "vertices": 15,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-5.blend",
+      "nativeSha256": "42406ffae65ef7529339de999511e9ee524dcba59a7c9efc761edea66041881e",
+      "name": "V5 source tailored mantle front -1",
+      "semantic": "V5 source tailored mantle front -1",
+      "parent": "torso_pivot",
+      "height": 0.10400587320327759,
+      "boundsMin": [
+        -0.367000013589859,
+        0.10229194164276123,
+        0.7679941058158875
+      ],
+      "boundsMax": [
+        -0.016347065567970276,
+        0.22200000286102295,
+        0.871999979019165
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-5.blend",
+      "nativeSha256": "42406ffae65ef7529339de999511e9ee524dcba59a7c9efc761edea66041881e",
+      "name": "V5 source tailored mantle front 1",
+      "semantic": "V5 source tailored mantle front 1",
+      "parent": "torso_pivot",
+      "height": 0.10400587320327759,
+      "boundsMin": [
+        0.016347065567970276,
+        0.10229194164276123,
+        0.7679941058158875
+      ],
+      "boundsMax": [
+        0.367000013589859,
+        0.22200000286102295,
+        0.871999979019165
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-6.blend",
+      "nativeSha256": "b8d3d82d4c807bea92bbe59d1bdc61046d9caf946f86e3795897f1da151e4ace",
+      "name": "Cape gold brooch -1",
+      "semantic": "Cape gold brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.079487144947052,
+      "boundsMin": [
+        -0.24023529887199402,
+        0.2239999920129776,
+        0.7930706143379211
+      ],
+      "boundsMax": [
+        -0.1437647044658661,
+        0.2529999911785126,
+        0.8725577592849731
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "mage-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-6.blend",
+      "nativeSha256": "b8d3d82d4c807bea92bbe59d1bdc61046d9caf946f86e3795897f1da151e4ace",
+      "name": "Cape gold brooch 1",
+      "semantic": "Cape gold brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.079487144947052,
+      "boundsMin": [
+        0.1437647044658661,
+        0.2239999920129776,
+        0.7930706143379211
+      ],
+      "boundsMax": [
+        0.24023529887199402,
+        0.2529999911785126,
+        0.8725577592849731
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "mage-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-6.blend",
+      "nativeSha256": "b8d3d82d4c807bea92bbe59d1bdc61046d9caf946f86e3795897f1da151e4ace",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.7555739283561707,
+      "boundsMin": [
+        -0.4286580979824066,
+        0.015409720130264759,
+        0.1261383295059204
+      ],
+      "boundsMax": [
+        -0.2884036600589752,
+        0.05108022689819336,
+        0.8817122578620911
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "mage-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-6.blend",
+      "nativeSha256": "b8d3d82d4c807bea92bbe59d1bdc61046d9caf946f86e3795897f1da151e4ace",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.7555739283561707,
+      "boundsMin": [
+        0.2884036600589752,
+        0.015409720130264759,
+        0.1261383295059204
+      ],
+      "boundsMax": [
+        0.4286580979824066,
+        0.05108022689819336,
+        0.8817122578620911
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "mage-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-6.blend",
+      "nativeSha256": "b8d3d82d4c807bea92bbe59d1bdc61046d9caf946f86e3795897f1da151e4ace",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.7521494328975677,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.30149349570274353,
+        0.12785056233406067
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.041556216776371,
+        0.8799999952316284
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "mage-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-6.blend",
+      "nativeSha256": "b8d3d82d4c807bea92bbe59d1bdc61046d9caf946f86e3795897f1da151e4ace",
+      "name": "V5 source draped rear mantle",
+      "semantic": "V5 source draped rear mantle",
+      "parent": "torso_pivot",
+      "height": 0.10711497068405151,
+      "boundsMin": [
+        -0.36000001430511475,
+        -0.2598249018192291,
+        0.7770000100135803
+      ],
+      "boundsMax": [
+        0.36000001430511475,
+        -0.14800000190734863,
+        0.8841149806976318
+      ],
+      "vertices": 15,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-6.blend",
+      "nativeSha256": "b8d3d82d4c807bea92bbe59d1bdc61046d9caf946f86e3795897f1da151e4ace",
+      "name": "V5 source tailored mantle front -1",
+      "semantic": "V5 source tailored mantle front -1",
+      "parent": "torso_pivot",
+      "height": 0.10400587320327759,
+      "boundsMin": [
+        -0.367000013589859,
+        0.10229194164276123,
+        0.7679941058158875
+      ],
+      "boundsMax": [
+        -0.016347065567970276,
+        0.22200000286102295,
+        0.871999979019165
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "mage-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/mage-6.blend",
+      "nativeSha256": "b8d3d82d4c807bea92bbe59d1bdc61046d9caf946f86e3795897f1da151e4ace",
+      "name": "V5 source tailored mantle front 1",
+      "semantic": "V5 source tailored mantle front 1",
+      "parent": "torso_pivot",
+      "height": 0.10400587320327759,
+      "boundsMin": [
+        0.016347065567970276,
+        0.10229194164276123,
+        0.7679941058158875
+      ],
+      "boundsMax": [
+        0.367000013589859,
+        0.22200000286102295,
+        0.871999979019165
+      ],
+      "vertices": 11,
+      "disposition": "source-shaped-mage-fabric",
+      "basis": "Fitted cowl, shaped mantle or folded front sections; actual final basic six-view review records apply."
+    },
+    {
+      "id": "frostwarden-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/frostwarden-5.blend",
+      "nativeSha256": "38955f60d12845734c5e4a37e9e05031f8f65d6d67230af7c5c61fdc9dae84eb",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.8941123187541962,
+      "boundsMin": [
+        -0.4025503098964691,
+        0.015409167855978012,
+        0.1186394989490509
+      ],
+      "boundsMax": [
+        -0.26961714029312134,
+        0.051081009209156036,
+        1.012751817703247
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "frostwarden-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/frostwarden-5.blend",
+      "nativeSha256": "38955f60d12845734c5e4a37e9e05031f8f65d6d67230af7c5c61fdc9dae84eb",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.8941123187541962,
+      "boundsMin": [
+        0.26961714029312134,
+        0.015409167855978012,
+        0.1186394989490509
+      ],
+      "boundsMax": [
+        0.4025503098964691,
+        0.051081009209156036,
+        1.012751817703247
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "frostwarden-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/frostwarden-5.blend",
+      "nativeSha256": "38955f60d12845734c5e4a37e9e05031f8f65d6d67230af7c5c61fdc9dae84eb",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.891391284763813,
+      "boundsMin": [
+        -0.4168151021003723,
+        -0.29907795786857605,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.4330376982688904,
+        0.04155636206269264,
+        1.011391282081604
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "frostwarden-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/frostwarden-6.blend",
+      "nativeSha256": "05e0478aec7f994cd4a8922937be7281e42e840997adb8b4dcb818813deb6efe",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.8397077992558479,
+      "boundsMin": [
+        -0.3880670666694641,
+        0.015409407205879688,
+        0.11860506981611252
+      ],
+      "boundsMax": [
+        -0.25925010442733765,
+        0.05108083039522171,
+        0.9583128690719604
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "frostwarden-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/frostwarden-6.blend",
+      "nativeSha256": "05e0478aec7f994cd4a8922937be7281e42e840997adb8b4dcb818813deb6efe",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.8397077992558479,
+      "boundsMin": [
+        0.25925010442733765,
+        0.015409407205879688,
+        0.11860506981611252
+      ],
+      "boundsMax": [
+        0.3880670666694641,
+        0.05108083039522171,
+        0.9583128690719604
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "frostwarden-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/frostwarden-6.blend",
+      "nativeSha256": "05e0478aec7f994cd4a8922937be7281e42e840997adb8b4dcb818813deb6efe",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.836917944252491,
+      "boundsMin": [
+        -0.4014052748680115,
+        -0.2977406084537506,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.4170280992984772,
+        0.04155639931559563,
+        0.956917941570282
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "stormcaller-2",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-2.blend",
+      "nativeSha256": "39c893638c51128922a34c9aeb8326d62033394207a94eb0cfb06383c5b4485f",
+      "name": "Cape gold brooch -1",
+      "semantic": "Cape gold brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.08749723434448242,
+      "boundsMin": [
+        -0.2608102560043335,
+        0.24399998784065247,
+        0.8536103963851929
+      ],
+      "boundsMax": [
+        -0.16881026327610016,
+        0.27300000190734863,
+        0.9411076307296753
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-2",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-2.blend",
+      "nativeSha256": "39c893638c51128922a34c9aeb8326d62033394207a94eb0cfb06383c5b4485f",
+      "name": "Cape gold brooch 1",
+      "semantic": "Cape gold brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.08749723434448242,
+      "boundsMin": [
+        0.16881026327610016,
+        0.24399998784065247,
+        0.8536103963851929
+      ],
+      "boundsMax": [
+        0.2608102560043335,
+        0.27300000190734863,
+        0.9411076307296753
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-2",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-2.blend",
+      "nativeSha256": "39c893638c51128922a34c9aeb8326d62033394207a94eb0cfb06383c5b4485f",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.6612177193164825,
+      "boundsMin": [
+        -0.4974807798862457,
+        -0.3060796856880188,
+        0.3071412742137909
+      ],
+      "boundsMax": [
+        0.5168429017066956,
+        0.04155634716153145,
+        0.9683589935302734
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "stormcaller-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-3.blend",
+      "nativeSha256": "9daedad21c8ef1958e1f8df543838c211979530c34109b57a0bb6bba6d16c823",
+      "name": "Cape gold brooch -1",
+      "semantic": "Cape gold brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.08749717473983765,
+      "boundsMin": [
+        -0.2765650451183319,
+        0.24399998784065247,
+        0.8488789796829224
+      ],
+      "boundsMax": [
+        -0.18456503748893738,
+        0.27300000190734863,
+        0.93637615442276
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-3.blend",
+      "nativeSha256": "9daedad21c8ef1958e1f8df543838c211979530c34109b57a0bb6bba6d16c823",
+      "name": "Cape gold brooch 1",
+      "semantic": "Cape gold brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.08749717473983765,
+      "boundsMin": [
+        0.18456503748893738,
+        0.24399998784065247,
+        0.8488789796829224
+      ],
+      "boundsMax": [
+        0.2765650451183319,
+        0.27300000190734863,
+        0.93637615442276
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-3",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-3.blend",
+      "nativeSha256": "9daedad21c8ef1958e1f8df543838c211979530c34109b57a0bb6bba6d16c823",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.6559238433837891,
+      "boundsMin": [
+        -0.5339674353599548,
+        -0.30924680829048157,
+        0.3077036738395691
+      ],
+      "boundsMax": [
+        0.554749608039856,
+        0.04155635088682175,
+        0.9636275172233582
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "stormcaller-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-4.blend",
+      "nativeSha256": "737c09340087ee3a879f7679299216963ad4818a7cb7b0ff0b1850d71aba5997",
+      "name": "Cape gold brooch -1",
+      "semantic": "Cape gold brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.08749717473983765,
+      "boundsMin": [
+        -0.2548598349094391,
+        0.24399998784065247,
+        0.8365920782089233
+      ],
+      "boundsMax": [
+        -0.16285982728004456,
+        0.27300000190734863,
+        0.924089252948761
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-4.blend",
+      "nativeSha256": "737c09340087ee3a879f7679299216963ad4818a7cb7b0ff0b1850d71aba5997",
+      "name": "Cape gold brooch 1",
+      "semantic": "Cape gold brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.08749717473983765,
+      "boundsMin": [
+        0.16285982728004456,
+        0.24399998784065247,
+        0.8365920782089233
+      ],
+      "boundsMax": [
+        0.2548598349094391,
+        0.27300000190734863,
+        0.924089252948761
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-4.blend",
+      "nativeSha256": "737c09340087ee3a879f7679299216963ad4818a7cb7b0ff0b1850d71aba5997",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.8313407376408577,
+      "boundsMin": [
+        -0.48370012640953064,
+        -0.30488336086273193,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.5025259256362915,
+        0.04155631735920906,
+        0.9513407349586487
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "stormcaller-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-5.blend",
+      "nativeSha256": "ee53353197fad05fe16f0703b05fffa9ec14cf8c5bdb9a34e9c1bad964b37972",
+      "name": "Cape gold brooch -1",
+      "semantic": "Cape gold brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.08749723434448242,
+      "boundsMin": [
+        -0.26368939876556396,
+        0.24399998784065247,
+        0.844614565372467
+      ],
+      "boundsMax": [
+        -0.17168939113616943,
+        0.27300000190734863,
+        0.9321117997169495
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-5.blend",
+      "nativeSha256": "ee53353197fad05fe16f0703b05fffa9ec14cf8c5bdb9a34e9c1bad964b37972",
+      "name": "Cape gold brooch 1",
+      "semantic": "Cape gold brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.08749723434448242,
+      "boundsMin": [
+        0.17168939113616943,
+        0.24399998784065247,
+        0.844614565372467
+      ],
+      "boundsMax": [
+        0.26368939876556396,
+        0.27300000190734863,
+        0.9321117997169495
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-5.blend",
+      "nativeSha256": "ee53353197fad05fe16f0703b05fffa9ec14cf8c5bdb9a34e9c1bad964b37972",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.8428410664200783,
+      "boundsMin": [
+        -0.4845539629459381,
+        0.015409338288009167,
+        0.11826106160879135
+      ],
+      "boundsMax": [
+        -0.3284498155117035,
+        0.05108078569173813,
+        0.9611021280288696
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-5.blend",
+      "nativeSha256": "ee53353197fad05fe16f0703b05fffa9ec14cf8c5bdb9a34e9c1bad964b37972",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.8428410664200783,
+      "boundsMin": [
+        0.3284498155117035,
+        0.015409338288009167,
+        0.11826106160879135
+      ],
+      "boundsMax": [
+        0.4845539629459381,
+        0.05108078569173813,
+        0.9611021280288696
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-5.blend",
+      "nativeSha256": "ee53353197fad05fe16f0703b05fffa9ec14cf8c5bdb9a34e9c1bad964b37972",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.8393631651997566,
+      "boundsMin": [
+        -0.504148542881012,
+        -0.3066583573818207,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.5237702131271362,
+        0.041556328535079956,
+        0.9593631625175476
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "stormcaller-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-6.blend",
+      "nativeSha256": "7fc1141d04f4edef818f301583af04cc55497536fbe479dfb5cca2dd200f468e",
+      "name": "Cape gold brooch -1",
+      "semantic": "Cape gold brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.08749723434448242,
+      "boundsMin": [
+        -0.23898328840732574,
+        0.24399998784065247,
+        0.8301948308944702
+      ],
+      "boundsMax": [
+        -0.1469832956790924,
+        0.27300000190734863,
+        0.9176920652389526
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-6.blend",
+      "nativeSha256": "7fc1141d04f4edef818f301583af04cc55497536fbe479dfb5cca2dd200f468e",
+      "name": "Cape gold brooch 1",
+      "semantic": "Cape gold brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.08749723434448242,
+      "boundsMin": [
+        0.1469832956790924,
+        0.24399998784065247,
+        0.8301948308944702
+      ],
+      "boundsMax": [
+        0.23898328840732574,
+        0.27300000190734863,
+        0.9176920652389526
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-6.blend",
+      "nativeSha256": "7fc1141d04f4edef818f301583af04cc55497536fbe479dfb5cca2dd200f468e",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.8280878141522408,
+      "boundsMin": [
+        -0.4308188557624817,
+        0.015409387648105621,
+        0.1184278056025505
+      ],
+      "boundsMax": [
+        -0.28991514444351196,
+        0.051080673933029175,
+        0.9465156197547913
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-6.blend",
+      "nativeSha256": "7fc1141d04f4edef818f301583af04cc55497536fbe479dfb5cca2dd200f468e",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.8280878141522408,
+      "boundsMin": [
+        0.28991514444351196,
+        0.015409387648105621,
+        0.1184278056025505
+      ],
+      "boundsMax": [
+        0.4308188557624817,
+        0.051080673933029175,
+        0.9465156197547913
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "stormcaller-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/stormcaller-6.blend",
+      "nativeSha256": "7fc1141d04f4edef818f301583af04cc55497536fbe479dfb5cca2dd200f468e",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.8249434307217598,
+      "boundsMin": [
+        -0.44693151116371155,
+        -0.30169162154197693,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.46432623267173767,
+        0.04155628755688667,
+        0.9449434280395508
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "cleric-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-4.blend",
+      "nativeSha256": "e5010b27b31952ef3b3639453f784b4d56c2053eb6996c28e1e708b98909258f",
+      "name": "Gold cape brooch -1",
+      "semantic": "Gold cape brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.08749717473983765,
+      "boundsMin": [
+        -0.22979237139225006,
+        0.2239999920129776,
+        0.796678900718689
+      ],
+      "boundsMax": [
+        -0.13779236376285553,
+        0.2529999911785126,
+        0.8841760754585266
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-4.blend",
+      "nativeSha256": "e5010b27b31952ef3b3639453f784b4d56c2053eb6996c28e1e708b98909258f",
+      "name": "Gold cape brooch 1",
+      "semantic": "Gold cape brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.08749717473983765,
+      "boundsMin": [
+        0.13779236376285553,
+        0.2239999920129776,
+        0.796678900718689
+      ],
+      "boundsMax": [
+        0.22979237139225006,
+        0.2529999911785126,
+        0.8841760754585266
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-4.blend",
+      "nativeSha256": "e5010b27b31952ef3b3639453f784b4d56c2053eb6996c28e1e708b98909258f",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.7671297863125801,
+      "boundsMin": [
+        -0.42564618587493896,
+        -0.2998436391353607,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.44221246242523193,
+        0.0415562279522419,
+        0.8871297836303711
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "cleric-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-5.blend",
+      "nativeSha256": "a54d5d242070e748c4a8bdf3ee5d59ed5fbb1c39bc4c79dff8dba1ce9af3394d",
+      "name": "Gold cape brooch -1",
+      "semantic": "Gold cape brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.08749717473983765,
+      "boundsMin": [
+        -0.22067669034004211,
+        0.2239999920129776,
+        0.8293942213058472
+      ],
+      "boundsMax": [
+        -0.12867669761180878,
+        0.2529999911785126,
+        0.9168913960456848
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-5.blend",
+      "nativeSha256": "a54d5d242070e748c4a8bdf3ee5d59ed5fbb1c39bc4c79dff8dba1ce9af3394d",
+      "name": "Gold cape brooch 1",
+      "semantic": "Gold cape brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.08749717473983765,
+      "boundsMin": [
+        0.12867669761180878,
+        0.2239999920129776,
+        0.8293942213058472
+      ],
+      "boundsMax": [
+        0.22067669034004211,
+        0.2529999911785126,
+        0.9168913960456848
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-5.blend",
+      "nativeSha256": "a54d5d242070e748c4a8bdf3ee5d59ed5fbb1c39bc4c79dff8dba1ce9af3394d",
+      "name": "Rear cape ivory stole 0 0",
+      "semantic": "Rear cape ivory stole 0 0",
+      "parent": "torso_pivot",
+      "height": 0.37519872188568115,
+      "boundsMin": [
+        -0.09825564175844193,
+        -0.22350549697875977,
+        0.5684210658073425
+      ],
+      "boundsMax": [
+        0.09825564175844193,
+        -0.17091906070709229,
+        0.9436197876930237
+      ],
+      "vertices": 8,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-5.blend",
+      "nativeSha256": "a54d5d242070e748c4a8bdf3ee5d59ed5fbb1c39bc4c79dff8dba1ce9af3394d",
+      "name": "Rear cape ivory stole 0 1",
+      "semantic": "Rear cape ivory stole 0 1",
+      "parent": "torso_pivot",
+      "height": 0.4348863661289215,
+      "boundsMin": [
+        -0.09825564175844193,
+        -0.28712770342826843,
+        0.13580450415611267
+      ],
+      "boundsMax": [
+        0.09825564175844193,
+        -0.2126716822385788,
+        0.5706908702850342
+      ],
+      "vertices": 8,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-5.blend",
+      "nativeSha256": "a54d5d242070e748c4a8bdf3ee5d59ed5fbb1c39bc4c79dff8dba1ce9af3394d",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.8017550632357597,
+      "boundsMin": [
+        -0.3909977376461029,
+        0.015409469604492188,
+        0.11852849274873734
+      ],
+      "boundsMax": [
+        -0.26136666536331177,
+        0.05108046531677246,
+        0.9202835559844971
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-5.blend",
+      "nativeSha256": "a54d5d242070e748c4a8bdf3ee5d59ed5fbb1c39bc4c79dff8dba1ce9af3394d",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.8017550632357597,
+      "boundsMin": [
+        0.26136666536331177,
+        0.015409469604492188,
+        0.11852849274873734
+      ],
+      "boundsMax": [
+        0.3909977376461029,
+        0.05108046531677246,
+        0.9202835559844971
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-5.blend",
+      "nativeSha256": "a54d5d242070e748c4a8bdf3ee5d59ed5fbb1c39bc4c79dff8dba1ce9af3394d",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.7988120391964912,
+      "boundsMin": [
+        -0.4045351445674896,
+        -0.29801106452941895,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.42027977108955383,
+        0.041556209325790405,
+        0.9188120365142822
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Gold cape brooch -1",
+      "semantic": "Gold cape brooch -1",
+      "parent": "torso_pivot",
+      "height": 0.08749723434448242,
+      "boundsMin": [
+        -0.19670280814170837,
+        0.2239999920129776,
+        0.8147066235542297
+      ],
+      "boundsMax": [
+        -0.10470281541347504,
+        0.2529999911785126,
+        0.9022038578987122
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Gold cape brooch 1",
+      "semantic": "Gold cape brooch 1",
+      "parent": "torso_pivot",
+      "height": 0.08749723434448242,
+      "boundsMin": [
+        0.10470281541347504,
+        0.2239999920129776,
+        0.8147066235542297
+      ],
+      "boundsMax": [
+        0.19670280814170837,
+        0.2529999911785126,
+        0.9022038578987122
+      ],
+      "vertices": 21,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Rear cape ivory stole 0 0",
+      "semantic": "Rear cape ivory stole 0 0",
+      "parent": "torso_pivot",
+      "height": 0.3824213147163391,
+      "boundsMin": [
+        -0.17895959317684174,
+        -0.22585183382034302,
+        0.5478261113166809
+      ],
+      "boundsMax": [
+        -0.07535140961408615,
+        -0.12697604298591614,
+        0.93024742603302
+      ],
+      "vertices": 8,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Rear cape ivory stole 0 1",
+      "semantic": "Rear cape ivory stole 0 1",
+      "parent": "torso_pivot",
+      "height": 0.3844718486070633,
+      "boundsMin": [
+        -0.17895959317684174,
+        -0.29122042655944824,
+        0.16591815650463104
+      ],
+      "boundsMax": [
+        -0.07535140961408615,
+        -0.1976635754108429,
+        0.5503900051116943
+      ],
+      "vertices": 8,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Rear cape ivory stole 1 0",
+      "semantic": "Rear cape ivory stole 1 0",
+      "parent": "torso_pivot",
+      "height": 0.3824213147163391,
+      "boundsMin": [
+        -0.05180409178137779,
+        -0.24549731612205505,
+        0.5478261113166809
+      ],
+      "boundsMax": [
+        0.05180409178137779,
+        -0.17756062746047974,
+        0.93024742603302
+      ],
+      "vertices": 8,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Rear cape ivory stole 1 1",
+      "semantic": "Rear cape ivory stole 1 1",
+      "parent": "torso_pivot",
+      "height": 0.3844718486070633,
+      "boundsMin": [
+        -0.05180409178137779,
+        -0.3078494966030121,
+        0.16591815650463104
+      ],
+      "boundsMax": [
+        0.05180409178137779,
+        -0.2066754549741745,
+        0.5503900051116943
+      ],
+      "vertices": 8,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Rear cape ivory stole 2 0",
+      "semantic": "Rear cape ivory stole 2 0",
+      "parent": "torso_pivot",
+      "height": 0.3824213147163391,
+      "boundsMin": [
+        0.07535140961408615,
+        -0.21844340860843658,
+        0.5478261113166809
+      ],
+      "boundsMax": [
+        0.17895959317684174,
+        -0.12697604298591614,
+        0.93024742603302
+      ],
+      "vertices": 8,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Rear cape ivory stole 2 1",
+      "semantic": "Rear cape ivory stole 2 1",
+      "parent": "torso_pivot",
+      "height": 0.3844718486070633,
+      "boundsMin": [
+        0.07535140961408615,
+        -0.2576429843902588,
+        0.16591815650463104
+      ],
+      "boundsMax": [
+        0.17895959317684174,
+        -0.1657160520553589,
+        0.5503900051116943
+      ],
+      "vertices": 8,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Rear cape stole gold cross arm",
+      "semantic": "Rear cape stole gold cross arm",
+      "parent": "torso_pivot",
+      "height": 0.025000005960464478,
+      "boundsMin": [
+        -0.16465549170970917,
+        -0.254008412361145,
+        0.2834181487560272
+      ],
+      "boundsMax": [
+        -0.08965549618005753,
+        -0.21982143819332123,
+        0.3084181547164917
+      ],
+      "vertices": 20,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "Rear cape stole gold cross upright",
+      "semantic": "Rear cape stole gold cross upright",
+      "parent": "torso_pivot",
+      "height": 0.10500000417232513,
+      "boundsMin": [
+        -0.13965550065040588,
+        -0.23528429865837097,
+        0.22341816127300262
+      ],
+      "boundsMax": [
+        -0.114655502140522,
+        -0.2104051113128662,
+        0.32841816544532776
+      ],
+      "vertices": 20,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.7880964279174805,
+      "boundsMin": [
+        -0.3388530910015106,
+        0.015409561805427074,
+        0.11870628595352173
+      ],
+      "boundsMax": [
+        -0.22397616505622864,
+        0.051080409437417984,
+        0.9068027138710022
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.7880964279174805,
+      "boundsMin": [
+        0.22397616505622864,
+        0.015409561805427074,
+        0.11870628595352173
+      ],
+      "boundsMax": [
+        0.3388530910015106,
+        0.051080409437417984,
+        0.9068027138710022
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "cleric-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/cleric-6.blend",
+      "nativeSha256": "24aba0efb46ff2a6392f1100c71614a75d205293bff5f451452e2037f9627a88",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.7855089977383614,
+      "boundsMin": [
+        -0.3490138351917267,
+        -0.29319190979003906,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.36259758472442627,
+        0.041556231677532196,
+        0.9055089950561523
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "druid-4",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/druid-4.blend",
+      "nativeSha256": "609413ff8c087f889af474becfedc4f926a1894d9fd08caea69b0d49b42cbcb5",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.8757857754826546,
+      "boundsMin": [
+        -0.41924551129341125,
+        -0.2992890775203705,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.43556270003318787,
+        0.04155638441443443,
+        0.9957857728004456
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "druid-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/druid-5.blend",
+      "nativeSha256": "5362715c99aebdd1dfc962f86876f634a34300f41005564d9ba346be38081a61",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.8409150466322899,
+      "boundsMin": [
+        -0.4188001751899719,
+        0.015409387648105621,
+        0.1184951439499855
+      ],
+      "boundsMax": [
+        -0.2812896966934204,
+        0.05108082294464111,
+        0.9594101905822754
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "druid-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/druid-5.blend",
+      "nativeSha256": "5362715c99aebdd1dfc962f86876f634a34300f41005564d9ba346be38081a61",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.8409150466322899,
+      "boundsMin": [
+        0.2812896966934204,
+        0.015409387648105621,
+        0.1184951439499855
+      ],
+      "boundsMax": [
+        0.4188001751899719,
+        0.05108082294464111,
+        0.9594101905822754
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "druid-5",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/druid-5.blend",
+      "nativeSha256": "5362715c99aebdd1dfc962f86876f634a34300f41005564d9ba346be38081a61",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.8379053547978401,
+      "boundsMin": [
+        -0.434129923582077,
+        -0.30058103799819946,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.45102643966674805,
+        0.041556380689144135,
+        0.9579053521156311
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "druid-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/druid-6.blend",
+      "nativeSha256": "7dbd26e932a87fea16f1fe4d9ed53783f562d279c01e1eb6e6726a37f3e156e2",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.8359736576676369,
+      "boundsMin": [
+        -0.42122572660446167,
+        0.015409411862492561,
+        0.1184774860739708
+      ],
+      "boundsMax": [
+        -0.2830313444137573,
+        0.05108080431818962,
+        0.9544511437416077
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "druid-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/druid-6.blend",
+      "nativeSha256": "7dbd26e932a87fea16f1fe4d9ed53783f562d279c01e1eb6e6726a37f3e156e2",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.8359736576676369,
+      "boundsMin": [
+        0.2830313444137573,
+        0.015409411862492561,
+        0.1184774860739708
+      ],
+      "boundsMax": [
+        0.42122572660446167,
+        0.05108080431818962,
+        0.9544511437416077
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "druid-6",
+      "category": "defenders",
+      "native": "blender/scenes/geometric-game-v5/defenders/druid-6.blend",
+      "nativeSha256": "7dbd26e932a87fea16f1fe4d9ed53783f562d279c01e1eb6e6726a37f3e156e2",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 0.8329286053776741,
+      "boundsMin": [
+        -0.4367140829563141,
+        -0.30080536007881165,
+        0.11999999731779099
+      ],
+      "boundsMax": [
+        0.4537111520767212,
+        0.04155638441443443,
+        0.9529286026954651
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "frostblade",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/frostblade.blend",
+      "nativeSha256": "fdaa14063f1d8e2ffdfb5ec4aca1757b6c0b709ba1ea87b62dd3343c0276d122",
+      "name": "Horse source fitted three draped caparison sections",
+      "semantic": "Horse source fitted three draped caparison sections",
+      "parent": "mount_torso_pivot",
+      "height": 0.7500000298023224,
+      "boundsMin": [
+        -0.38999998569488525,
+        -0.5600000023841858,
+        0.46000000834465027
+      ],
+      "boundsMax": [
+        -0.210999995470047,
+        0.4000000059604645,
+        1.2100000381469727
+      ],
+      "vertices": 18,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "frostblade",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/frostblade.blend",
+      "nativeSha256": "fdaa14063f1d8e2ffdfb5ec4aca1757b6c0b709ba1ea87b62dd3343c0276d122",
+      "name": "Horse source fitted three draped caparison sections.001",
+      "semantic": "Horse source fitted three draped caparison sections",
+      "parent": "mount_torso_pivot",
+      "height": 0.7500000298023224,
+      "boundsMin": [
+        0.210999995470047,
+        -0.5600000023841858,
+        0.46000000834465027
+      ],
+      "boundsMax": [
+        0.38999998569488525,
+        0.4000000059604645,
+        1.2100000381469727
+      ],
+      "vertices": 18,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "rimewatch",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/rimewatch.blend",
+      "nativeSha256": "71d4a9f293b44354a33aabbce19314df4143e4ab9af801d8a85bedf2d43a0515",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.46398356556892395,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.8839835524559021
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "rimewatch",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/rimewatch.blend",
+      "nativeSha256": "71d4a9f293b44354a33aabbce19314df4143e4ab9af801d8a85bedf2d43a0515",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.7598949074745178
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        0.9249835014343262
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "rimewatch",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/rimewatch.blend",
+      "nativeSha256": "71d4a9f293b44354a33aabbce19314df4143e4ab9af801d8a85bedf2d43a0515",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.7598949074745178
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.9249835014343262
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "roseguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/roseguard.blend",
+      "nativeSha256": "ede166ed3d9bfdc7c1ad909eab06d66da2ef7a21f715a50e0948080d288a1e7a",
+      "name": "Horse source fitted three draped caparison sections",
+      "semantic": "Horse source fitted three draped caparison sections",
+      "parent": "mount_torso_pivot",
+      "height": 0.7500000298023224,
+      "boundsMin": [
+        -0.38999998569488525,
+        -0.5600000023841858,
+        0.46000000834465027
+      ],
+      "boundsMax": [
+        -0.210999995470047,
+        0.4000000059604645,
+        1.2100000381469727
+      ],
+      "vertices": 18,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "roseguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/roseguard.blend",
+      "nativeSha256": "ede166ed3d9bfdc7c1ad909eab06d66da2ef7a21f715a50e0948080d288a1e7a",
+      "name": "Horse source fitted three draped caparison sections.001",
+      "semantic": "Horse source fitted three draped caparison sections",
+      "parent": "mount_torso_pivot",
+      "height": 0.7500000298023224,
+      "boundsMin": [
+        0.210999995470047,
+        -0.5600000023841858,
+        0.46000000834465027
+      ],
+      "boundsMax": [
+        0.38999998569488525,
+        0.4000000059604645,
+        1.2100000381469727
+      ],
+      "vertices": 18,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "roseguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/roseguard.blend",
+      "nativeSha256": "ede166ed3d9bfdc7c1ad909eab06d66da2ef7a21f715a50e0948080d288a1e7a",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.6995999813079834,
+      "boundsMin": [
+        -0.3361586630344391,
+        -0.444659948348999,
+        1.0149999856948853
+      ],
+      "boundsMax": [
+        0.34924206137657166,
+        -0.050131816416978836,
+        1.7145999670028687
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "roseguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/roseguard.blend",
+      "nativeSha256": "ede166ed3d9bfdc7c1ad909eab06d66da2ef7a21f715a50e0948080d288a1e7a",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.13840854167938232,
+      "boundsMin": [
+        -0.3039120137691498,
+        -0.07888177037239075,
+        1.6115914583206177
+      ],
+      "boundsMax": [
+        -0.024482164531946182,
+        0.15199999511241913,
+        1.75
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "roseguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/roseguard.blend",
+      "nativeSha256": "ede166ed3d9bfdc7c1ad909eab06d66da2ef7a21f715a50e0948080d288a1e7a",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.13840854167938232,
+      "boundsMin": [
+        0.024482164531946182,
+        -0.07888177037239075,
+        1.6115914583206177
+      ],
+      "boundsMax": [
+        0.3039120137691498,
+        0.15199999511241913,
+        1.75
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "roseguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/roseguard.blend",
+      "nativeSha256": "ede166ed3d9bfdc7c1ad909eab06d66da2ef7a21f715a50e0948080d288a1e7a",
+      "name": "V5 fitted gold cape edge L",
+      "semantic": "V5 fitted gold cape edge L",
+      "parent": "torso_pivot",
+      "height": 0.702394962310791,
+      "boundsMin": [
+        -0.32676175236701965,
+        -0.07960155606269836,
+        1.0136024951934814
+      ],
+      "boundsMax": [
+        -0.21533691883087158,
+        -0.040609344840049744,
+        1.7159974575042725
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "roseguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/roseguard.blend",
+      "nativeSha256": "ede166ed3d9bfdc7c1ad909eab06d66da2ef7a21f715a50e0948080d288a1e7a",
+      "name": "V5 fitted gold cape edge R",
+      "semantic": "V5 fitted gold cape edge R",
+      "parent": "torso_pivot",
+      "height": 0.702394962310791,
+      "boundsMin": [
+        0.21533691883087158,
+        -0.07960155606269836,
+        1.0136024951934814
+      ],
+      "boundsMax": [
+        0.32676175236701965,
+        -0.040609344840049744,
+        1.7159974575042725
+      ],
+      "vertices": 42,
+      "disposition": "cloth-attachment-or-decoration",
+      "basis": "Attachment, fitted edge or stole follows the associated garment; not an independent rear cloth panel."
+    },
+    {
+      "id": "highking",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/highking.blend",
+      "nativeSha256": "32e43bef6108498a87b779d04aa5bd14a70386b441b474f7c80b3cb333052582",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.8440771996974945,
+      "boundsMin": [
+        -0.5187633633613586,
+        -0.42060184478759766,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.5389537811279297,
+        0.05936688184738159,
+        1.0040771961212158
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "highking",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/highking.blend",
+      "nativeSha256": "32e43bef6108498a87b779d04aa5bd14a70386b441b474f7c80b3cb333052582",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.1654435396194458,
+      "boundsMin": [
+        -0.4690000116825104,
+        0.0248582661151886,
+        0.8796337842941284
+      ],
+      "boundsMax": [
+        -0.031698111444711685,
+        0.30000001192092896,
+        1.0450773239135742
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "highking",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/highking.blend",
+      "nativeSha256": "32e43bef6108498a87b779d04aa5bd14a70386b441b474f7c80b3cb333052582",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.1654435396194458,
+      "boundsMin": [
+        0.031698111444711685,
+        0.0248582661151886,
+        0.8796337842941284
+      ],
+      "boundsMax": [
+        0.4690000116825104,
+        0.30000001192092896,
+        1.0450773239135742
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "crownofages",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/crownofages.blend",
+      "nativeSha256": "bdb6afbb7cc26a0b2481323cefd4656f87e290ad834087d7efd9ef0ddb73b64a",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.9420286118984222,
+      "boundsMin": [
+        -0.5187633633613586,
+        -0.42060184478759766,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.5389537811279297,
+        0.05936688184738159,
+        1.1020286083221436
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "crownofages",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/crownofages.blend",
+      "nativeSha256": "bdb6afbb7cc26a0b2481323cefd4656f87e290ad834087d7efd9ef0ddb73b64a",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16544348001480103,
+      "boundsMin": [
+        -0.4690000116825104,
+        0.02485826425254345,
+        0.9775851368904114
+      ],
+      "boundsMax": [
+        -0.031698115170001984,
+        0.30000001192092896,
+        1.1430286169052124
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "crownofages",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/crownofages.blend",
+      "nativeSha256": "bdb6afbb7cc26a0b2481323cefd4656f87e290ad834087d7efd9ef0ddb73b64a",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16544348001480103,
+      "boundsMin": [
+        0.031698115170001984,
+        0.02485826425254345,
+        0.9775851368904114
+      ],
+      "boundsMax": [
+        0.4690000116825104,
+        0.30000001192092896,
+        1.1430286169052124
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "thornwarden",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/thornwarden.blend",
+      "nativeSha256": "65c2edbc742795ee29deeb0604cc5e408379866ba5c1b88675a2dff5ada50d65",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.8240979611873627,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.984097957611084
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "thornwarden",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/thornwarden.blend",
+      "nativeSha256": "65c2edbc742795ee29deeb0604cc5e408379866ba5c1b88675a2dff5ada50d65",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.8600093722343445
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        1.0250979661941528
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "thornwarden",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/thornwarden.blend",
+      "nativeSha256": "65c2edbc742795ee29deeb0604cc5e408379866ba5c1b88675a2dff5ada50d65",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.8600093722343445
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        1.0250979661941528
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "verdantguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/verdantguard.blend",
+      "nativeSha256": "05497658247d0d07269bf7efb87a7ced73d61e3086664c1741367b4cc860b942",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.5563600361347198,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.976360023021698
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "verdantguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/verdantguard.blend",
+      "nativeSha256": "05497658247d0d07269bf7efb87a7ced73d61e3086664c1741367b4cc860b942",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.8522713780403137
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        1.017359972000122
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "verdantguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/verdantguard.blend",
+      "nativeSha256": "05497658247d0d07269bf7efb87a7ced73d61e3086664c1741367b4cc860b942",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.8522713780403137
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        1.017359972000122
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "stormcitadel",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/stormcitadel.blend",
+      "nativeSha256": "3d36ea183d2ac9037e4d2eeea5c94141696211d1f19dedfc90877a5fe992be73",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.6749485433101654,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.8349485397338867
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "stormcitadel",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/stormcitadel.blend",
+      "nativeSha256": "3d36ea183d2ac9037e4d2eeea5c94141696211d1f19dedfc90877a5fe992be73",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508865356445312,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.7108598947525024
+      ],
+      "boundsMax": [
+        -0.030260726809501648,
+        0.30000001192092896,
+        0.8759485483169556
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "stormcitadel",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/stormcitadel.blend",
+      "nativeSha256": "3d36ea183d2ac9037e4d2eeea5c94141696211d1f19dedfc90877a5fe992be73",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508865356445312,
+      "boundsMin": [
+        0.030260726809501648,
+        0.025005929172039032,
+        0.7108598947525024
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.8759485483169556
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "eldergrove",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/eldergrove.blend",
+      "nativeSha256": "ab7c7f8ce47cd04ee96c38b12d7ba2237230f16e4fbefec8a07d8e339acc32bc",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.6340391337871552,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.7940391302108765
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "eldergrove",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/eldergrove.blend",
+      "nativeSha256": "ab7c7f8ce47cd04ee96c38b12d7ba2237230f16e4fbefec8a07d8e339acc32bc",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.6699504852294922
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        0.8350390791893005
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "eldergrove",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/eldergrove.blend",
+      "nativeSha256": "ab7c7f8ce47cd04ee96c38b12d7ba2237230f16e4fbefec8a07d8e339acc32bc",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.6699504852294922
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.8350390791893005
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "winterhold",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v1/champions/winterhold.blend",
+      "nativeSha256": "adf78865a9d26a0bf4393a92b037df013cc28bfe9f6eb8d55fc91f5f7cd982cd",
+      "name": "Construct continuous rear crystal bearing shoulder mantle",
+      "semantic": "Construct continuous rear crystal bearing shoulder mantle",
+      "parent": "torso_pivot",
+      "height": 0.3799999952316284,
+      "boundsMin": [
+        -0.294827938079834,
+        -0.3399999737739563,
+        0.875
+      ],
+      "boundsMax": [
+        0.294827938079834,
+        0.09999998658895493,
+        1.2549999952316284
+      ],
+      "vertices": 42,
+      "disposition": "rigid-armor",
+      "basis": "Continuous crystal/obsidian armor rather than fabric; source and actual six-view classification retained."
+    },
+    {
+      "id": "wyvernhunter",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/wyvernhunter.blend",
+      "nativeSha256": "262c05338f29c4d000652b6f620c5fa635be103aafcbbea0ca915761bab0d92d",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.7760778367519379,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.9360778331756592
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "wyvernhunter",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/wyvernhunter.blend",
+      "nativeSha256": "262c05338f29c4d000652b6f620c5fa635be103aafcbbea0ca915761bab0d92d",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.8119892477989197
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        0.977077841758728
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "wyvernhunter",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/wyvernhunter.blend",
+      "nativeSha256": "262c05338f29c4d000652b6f620c5fa635be103aafcbbea0ca915761bab0d92d",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.8119892477989197
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.977077841758728
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "rangermentor",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v1/champions/rangermentor.blend",
+      "nativeSha256": "a0cf80081002a46452874744714222a440fc137c61d93de197b23cd76cef9f69",
+      "name": "Bear source contacting green mantle across back",
+      "semantic": "Bear source contacting green mantle across back",
+      "parent": "torso_pivot",
+      "height": 0.1359999179840088,
+      "boundsMin": [
+        -0.1899999976158142,
+        -0.5600000023841858,
+        0.9830000400543213
+      ],
+      "boundsMax": [
+        0.1899999976158142,
+        0.11999999731779099,
+        1.11899995803833
+      ],
+      "vertices": 18,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "kingdomprotector",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/kingdomprotector.blend",
+      "nativeSha256": "276e51656cfc999b7713a9bcbf437246948dcbecf8208fce4882c232724563e1",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.7923445999622345,
+      "boundsMin": [
+        -0.5187633633613586,
+        -0.42060184478759766,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.5389537811279297,
+        0.05936688184738159,
+        0.9523445963859558
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "kingdomprotector",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/kingdomprotector.blend",
+      "nativeSha256": "276e51656cfc999b7713a9bcbf437246948dcbecf8208fce4882c232724563e1",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16544348001480103,
+      "boundsMin": [
+        -0.4690000116825104,
+        0.024858269840478897,
+        0.8279011249542236
+      ],
+      "boundsMax": [
+        -0.031698115170001984,
+        0.30000001192092896,
+        0.9933446049690247
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "kingdomprotector",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/kingdomprotector.blend",
+      "nativeSha256": "276e51656cfc999b7713a9bcbf437246948dcbecf8208fce4882c232724563e1",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16544348001480103,
+      "boundsMin": [
+        0.031698115170001984,
+        0.024858269840478897,
+        0.8279011249542236
+      ],
+      "boundsMax": [
+        0.4690000116825104,
+        0.30000001192092896,
+        0.9933446049690247
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "royalranger",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/royalranger.blend",
+      "nativeSha256": "4a08f672d7556b6553722ec3e58f5f846fcc0df68dc0944d1f9f7961e897d11b",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.7803395688533783,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.9403395652770996
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "kingsrangerguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/kingsrangerguard.blend",
+      "nativeSha256": "dfe88cb209666c5f68c4f6b6eff7c9fa08698d149bdf91a2cc1ca4d4e51ff3cc",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.5117380917072296,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.9317380785942078
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "kingsrangerguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/kingsrangerguard.blend",
+      "nativeSha256": "dfe88cb209666c5f68c4f6b6eff7c9fa08698d149bdf91a2cc1ca4d4e51ff3cc",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.02500593475997448,
+        0.8076494932174683
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        0.9727380871772766
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "kingsrangerguard",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/kingsrangerguard.blend",
+      "nativeSha256": "dfe88cb209666c5f68c4f6b6eff7c9fa08698d149bdf91a2cc1ca4d4e51ff3cc",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.02500593475997448,
+        0.8076494932174683
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.9727380871772766
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "elvenking",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/elvenking.blend",
+      "nativeSha256": "3ed13476080e3aae66d55cfee7d7adaf551241c0a2d790638609941745628e14",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.7939755618572235,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.9539755582809448
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "elvenking",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/elvenking.blend",
+      "nativeSha256": "3ed13476080e3aae66d55cfee7d7adaf551241c0a2d790638609941745628e14",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.8298869729042053
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        0.9949755668640137
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "elvenking",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/elvenking.blend",
+      "nativeSha256": "3ed13476080e3aae66d55cfee7d7adaf551241c0a2d790638609941745628e14",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.8298869729042053
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.9949755668640137
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "emeraldgolem",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v1/champions/emeraldgolem.blend",
+      "nativeSha256": "cb6c01b5209bf69c1aaca2887090005904e0e4fa2873f94108b07de52569eb35",
+      "name": "Construct continuous rear crystal bearing shoulder mantle",
+      "semantic": "Construct continuous rear crystal bearing shoulder mantle",
+      "parent": "torso_pivot",
+      "height": 0.3800000548362732,
+      "boundsMin": [
+        -0.294827938079834,
+        -0.3399999737739563,
+        0.9399999976158142
+      ],
+      "boundsMax": [
+        0.294827938079834,
+        0.09999998658895493,
+        1.3200000524520874
+      ],
+      "vertices": 42,
+      "disposition": "rigid-armor",
+      "basis": "Continuous crystal/obsidian armor rather than fabric; source and actual six-view classification retained."
+    },
+    {
+      "id": "archbishop",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/archbishop.blend",
+      "nativeSha256": "18f3658f4352a8a1fe640543a81186f4df55325d6107aa573b031727f35d1b06",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.7796266973018646,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.1599999964237213
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.9396266937255859
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "archbishop",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/archbishop.blend",
+      "nativeSha256": "18f3658f4352a8a1fe640543a81186f4df55325d6107aa573b031727f35d1b06",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.8155381083488464
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        0.9806267023086548
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "archbishop",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/archbishop.blend",
+      "nativeSha256": "18f3658f4352a8a1fe640543a81186f4df55325d6107aa573b031727f35d1b06",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.8155381083488464
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.9806267023086548
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat L inner gold border",
+      "semantic": "Coat L inner gold border",
+      "parent": "torso_pivot",
+      "height": 0.8229563981294632,
+      "boundsMin": [
+        -0.4546308219432831,
+        0.17000000178813934,
+        0.14477597177028656
+      ],
+      "boundsMax": [
+        -0.08165313303470612,
+        0.3540000021457672,
+        0.9677323698997498
+      ],
+      "vertices": 16,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat L lateral drape",
+      "semantic": "Coat L lateral drape",
+      "parent": "torso_pivot",
+      "height": 0.9384446889162064,
+      "boundsMin": [
+        -0.5374782681465149,
+        -0.12700000405311584,
+        0.15537790954113007
+      ],
+      "boundsMax": [
+        -0.13117028772830963,
+        -0.023000000044703484,
+        1.0938225984573364
+      ],
+      "vertices": 13,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat L long front panel",
+      "semantic": "Coat L long front panel",
+      "parent": "torso_pivot",
+      "height": 0.811332106590271,
+      "boundsMin": [
+        -0.45429709553718567,
+        0.0860000029206276,
+        0.14885419607162476
+      ],
+      "boundsMax": [
+        -0.11517391353845596,
+        0.3310000002384186,
+        0.9601863026618958
+      ],
+      "vertices": 13,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat L outer hem gold",
+      "semantic": "Coat L outer hem gold",
+      "parent": "torso_pivot",
+      "height": 0.11600925773382187,
+      "boundsMin": [
+        -0.48926016688346863,
+        0.2549999952316284,
+        0.12412024289369583
+      ],
+      "boundsMax": [
+        -0.4064393639564514,
+        0.33899998664855957,
+        0.2401295006275177
+      ],
+      "vertices": 12,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat L side gold edging",
+      "semantic": "Coat L side gold edging",
+      "parent": "torso_pivot",
+      "height": 0.859375610947609,
+      "boundsMin": [
+        -0.5605037808418274,
+        -0.07199999690055847,
+        0.21881221234798431
+      ],
+      "boundsMax": [
+        -0.17734849452972412,
+        -0.004000000189989805,
+        1.0781878232955933
+      ],
+      "vertices": 16,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat R inner gold border",
+      "semantic": "Coat R inner gold border",
+      "parent": "torso_pivot",
+      "height": 0.8229563981294632,
+      "boundsMin": [
+        0.08165313303470612,
+        0.17000000178813934,
+        0.14477597177028656
+      ],
+      "boundsMax": [
+        0.4546308219432831,
+        0.3540000021457672,
+        0.9677323698997498
+      ],
+      "vertices": 16,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat R lateral drape",
+      "semantic": "Coat R lateral drape",
+      "parent": "torso_pivot",
+      "height": 0.9384446889162064,
+      "boundsMin": [
+        0.13117028772830963,
+        -0.12700000405311584,
+        0.15537790954113007
+      ],
+      "boundsMax": [
+        0.6206594109535217,
+        -0.023000000044703484,
+        1.0938225984573364
+      ],
+      "vertices": 13,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat R long front panel",
+      "semantic": "Coat R long front panel",
+      "parent": "torso_pivot",
+      "height": 0.811332106590271,
+      "boundsMin": [
+        0.11517391353845596,
+        0.0860000029206276,
+        0.14885419607162476
+      ],
+      "boundsMax": [
+        0.4958876669406891,
+        0.3310000002384186,
+        0.9601863026618958
+      ],
+      "vertices": 13,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat R outer hem gold",
+      "semantic": "Coat R outer hem gold",
+      "parent": "torso_pivot",
+      "height": 0.12091496586799622,
+      "boundsMin": [
+        0.4149153232574463,
+        0.2549999952316284,
+        0.11921454966068268
+      ],
+      "boundsMax": [
+        0.5258881449699402,
+        0.33899998664855957,
+        0.2401295155286789
+      ],
+      "vertices": 12,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Coat R side gold edging",
+      "semantic": "Coat R side gold edging",
+      "parent": "torso_pivot",
+      "height": 0.8626499176025391,
+      "boundsMin": [
+        0.17834097146987915,
+        -0.07199999690055847,
+        0.2188122272491455
+      ],
+      "boundsMax": [
+        0.6431570649147034,
+        -0.004000000189989805,
+        1.0814621448516846
+      ],
+      "vertices": 16,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Mantle L gold lip",
+      "semantic": "Mantle L gold lip",
+      "parent": "torso_pivot",
+      "height": 0.06354701519012451,
+      "boundsMin": [
+        -0.31452417373657227,
+        0.07699999958276749,
+        1.1618146896362305
+      ],
+      "boundsMax": [
+        -0.04793665185570717,
+        0.24199999868869781,
+        1.225361704826355
+      ],
+      "vertices": 16,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Mantle L shoulder leaf",
+      "semantic": "Mantle L shoulder leaf",
+      "parent": "torso_pivot",
+      "height": 0.08872222900390625,
+      "boundsMin": [
+        -0.31032970547676086,
+        0.029999999329447746,
+        1.1642957925796509
+      ],
+      "boundsMax": [
+        -0.051188405603170395,
+        0.2150000035762787,
+        1.2530180215835571
+      ],
+      "vertices": 11,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Mantle R gold lip",
+      "semantic": "Mantle R gold lip",
+      "parent": "torso_pivot",
+      "height": 0.06354701519012451,
+      "boundsMin": [
+        0.04793665185570717,
+        0.07699999958276749,
+        1.1618146896362305
+      ],
+      "boundsMax": [
+        0.31452417373657227,
+        0.24199999868869781,
+        1.225361704826355
+      ],
+      "vertices": 16,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Mantle R shoulder leaf",
+      "semantic": "Mantle R shoulder leaf",
+      "parent": "torso_pivot",
+      "height": 0.08872222900390625,
+      "boundsMin": [
+        0.051188405603170395,
+        0.029999999329447746,
+        1.1642957925796509
+      ],
+      "boundsMax": [
+        0.31032970547676086,
+        0.2150000035762787,
+        1.2530180215835571
+      ],
+      "vertices": 11,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "ladyclaire",
+      "category": "champions",
+      "native": "blender/scenes/geometric-game-v5/champions/ladyclaire.blend",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "name": "Mantle rear ivory collar",
+      "semantic": "Mantle rear ivory collar",
+      "parent": "torso_pivot",
+      "height": 0.2839999198913574,
+      "boundsMin": [
+        -0.3199999928474426,
+        -0.3400000035762787,
+        1.0160000324249268
+      ],
+      "boundsMax": [
+        0.3199999928474426,
+        -0.07999999821186066,
+        1.2999999523162842
+      ],
+      "vertices": 19,
+      "disposition": "retained-structured-gown",
+      "basis": "Existing shaped gown panels, lateral drapes and attached shoulder collar; actual final champion review applies."
+    },
+    {
+      "id": "host_01",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_01.blend",
+      "nativeSha256": "f245f75eb8a326c10d0c9539239b1fbd871bed49f6417aeba4688b1dc6a48f1f",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.5182570517063141,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.9382570385932922
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_01",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_01.blend",
+      "nativeSha256": "f245f75eb8a326c10d0c9539239b1fbd871bed49f6417aeba4688b1dc6a48f1f",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.814168393611908
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        0.9792569875717163
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_01",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_01.blend",
+      "nativeSha256": "f245f75eb8a326c10d0c9539239b1fbd871bed49f6417aeba4688b1dc6a48f1f",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.814168393611908
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.9792569875717163
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20023798942565918,
+      "boundsMin": [
+        -0.30030348896980286,
+        -0.3399970233440399,
+        0.7598392963409424
+      ],
+      "boundsMax": [
+        -0.04500000178813934,
+        -0.2776791751384735,
+        0.9600772857666016
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf.001",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20021110773086548,
+      "boundsMin": [
+        -0.3252955675125122,
+        -0.3399973511695862,
+        0.6298661828041077
+      ],
+      "boundsMax": [
+        -0.04500000178813934,
+        -0.2776786983013153,
+        0.8300772905349731
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf.002",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20018795132637024,
+      "boundsMin": [
+        -0.3502865731716156,
+        -0.33999764919281006,
+        0.4998893439769745
+      ],
+      "boundsMax": [
+        -0.04500000178813934,
+        -0.2776782810688019,
+        0.7000772953033447
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf.003",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20016789436340332,
+      "boundsMin": [
+        -0.37527701258659363,
+        -0.33999788761138916,
+        0.369909405708313
+      ],
+      "boundsMax": [
+        -0.04500000178813934,
+        -0.2776779532432556,
+        0.5700773000717163
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf.004",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20015056431293488,
+      "boundsMin": [
+        -0.40026727318763733,
+        -0.33999812602996826,
+        0.23992671072483063
+      ],
+      "boundsMax": [
+        -0.04500000178813934,
+        -0.27767762541770935,
+        0.4400772750377655
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf.005",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20023798942565918,
+      "boundsMin": [
+        0.04500000178813934,
+        -0.3399970233440399,
+        0.7598392963409424
+      ],
+      "boundsMax": [
+        0.30030348896980286,
+        -0.2776791751384735,
+        0.9600772857666016
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf.006",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20021110773086548,
+      "boundsMin": [
+        0.04500000178813934,
+        -0.3399973511695862,
+        0.6298661828041077
+      ],
+      "boundsMax": [
+        0.3252955675125122,
+        -0.2776786983013153,
+        0.8300772905349731
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf.007",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20018795132637024,
+      "boundsMin": [
+        0.04500000178813934,
+        -0.33999764919281006,
+        0.4998893439769745
+      ],
+      "boundsMax": [
+        0.3502865731716156,
+        -0.2776782810688019,
+        0.7000772953033447
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf.008",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20016789436340332,
+      "boundsMin": [
+        0.04500000178813934,
+        -0.33999788761138916,
+        0.369909405708313
+      ],
+      "boundsMax": [
+        0.37527701258659363,
+        -0.2776779532432556,
+        0.5700773000717163
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Actual layered marsh cloak reed leaf.009",
+      "semantic": "Actual layered marsh cloak reed leaf",
+      "parent": "torso_pivot",
+      "height": 0.20015056431293488,
+      "boundsMin": [
+        0.04500000178813934,
+        -0.33999812602996826,
+        0.23992671072483063
+      ],
+      "boundsMax": [
+        0.40026727318763733,
+        -0.27767762541770935,
+        0.4400772750377655
+      ],
+      "vertices": 9,
+      "disposition": "retained-layered-source-cloth",
+      "basis": "Existing shaped draped sections or overlapping natural layers; retain source anatomy and layering."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.5840772092342377,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        1.0040771961212158
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508865356445312,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.02500593475997448,
+        0.8799886703491211
+      ],
+      "boundsMax": [
+        -0.0302607249468565,
+        0.30000001192092896,
+        1.0450773239135742
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_07",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
+      "nativeSha256": "6306bd5da75b139df9ffd3f2cf9a5d738e202c9ed8e7efaf74eead449df2604f",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508865356445312,
+      "boundsMin": [
+        0.0302607249468565,
+        0.02500593475997448,
+        0.8799886703491211
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        1.0450773239135742
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_08",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_08.blend",
+      "nativeSha256": "18e98ab338e0db6a1c9198e5cdbe56d041679274d9de6afa28bb6512da932a0d",
+      "name": "V5 folded fitted cloak",
+      "semantic": "V5 folded fitted cloak",
+      "parent": "torso_pivot",
+      "height": 1.14248788356781,
+      "boundsMin": [
+        -0.563071072101593,
+        -0.4215959906578064,
+        0.5064465999603271
+      ],
+      "boundsMax": [
+        0.5849859714508057,
+        0.05891609191894531,
+        1.6489344835281372
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_09",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_09.blend",
+      "nativeSha256": "ce8421d2d5a4096e83c3670a5c729f9e9a45ec9121a270b936c876484a60fbe5",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.3803353011608124,
+      "boundsMin": [
+        -0.28161442279815674,
+        -0.400017112493515,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.2925749123096466,
+        0.05936688184738159,
+        0.8003352880477905
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_09",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_09.blend",
+      "nativeSha256": "ce8421d2d5a4096e83c3670a5c729f9e9a45ec9121a270b936c876484a60fbe5",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16306787729263306,
+      "boundsMin": [
+        -0.25459998846054077,
+        0.02589358016848564,
+        0.6782674193382263
+      ],
+      "boundsMax": [
+        -0.024566125124692917,
+        0.30000001192092896,
+        0.8413352966308594
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_09",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_09.blend",
+      "nativeSha256": "ce8421d2d5a4096e83c3670a5c729f9e9a45ec9121a270b936c876484a60fbe5",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16306787729263306,
+      "boundsMin": [
+        0.024566125124692917,
+        0.02589358016848564,
+        0.6782674193382263
+      ],
+      "boundsMax": [
+        0.25459998846054077,
+        0.30000001192092896,
+        0.8413352966308594
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_18",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_18.blend",
+      "nativeSha256": "85c25814e1ec6a67aa9354b7ed33d82d66057fe90dcd79587258a0aa11d36df0",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.540904313325882,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.9609043002128601
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_18",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_18.blend",
+      "nativeSha256": "85c25814e1ec6a67aa9354b7ed33d82d66057fe90dcd79587258a0aa11d36df0",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.8368156552314758
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        1.0019042491912842
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_18",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_18.blend",
+      "nativeSha256": "85c25814e1ec6a67aa9354b7ed33d82d66057fe90dcd79587258a0aa11d36df0",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.8368156552314758
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        1.0019042491912842
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_23",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_23.blend",
+      "nativeSha256": "d70f4f9eb62151173ade64eaf0e59b7cfc2aa74f1c055a690dd35255f110bd8b",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.3945086896419525,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.8145086765289307
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_23",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_23.blend",
+      "nativeSha256": "d70f4f9eb62151173ade64eaf0e59b7cfc2aa74f1c055a690dd35255f110bd8b",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.6904200315475464
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        0.8555086255073547
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_23",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_23.blend",
+      "nativeSha256": "d70f4f9eb62151173ade64eaf0e59b7cfc2aa74f1c055a690dd35255f110bd8b",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.6904200315475464
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.8555086255073547
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_31",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_31.blend",
+      "nativeSha256": "4c98b4fac7cf42806b52f567ac56281ad8150efd2e4886afd84afe60207646ba",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.4958314597606659,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.915831446647644
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_31",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_31.blend",
+      "nativeSha256": "4c98b4fac7cf42806b52f567ac56281ad8150efd2e4886afd84afe60207646ba",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        0.7917428612709045
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        0.9568314552307129
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_31",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_31.blend",
+      "nativeSha256": "4c98b4fac7cf42806b52f567ac56281ad8150efd2e4886afd84afe60207646ba",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508859395980835,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        0.7917428612709045
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        0.9568314552307129
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_33",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_33.blend",
+      "nativeSha256": "f97e09b6aea051c1761468845817960c76ce8a02118173c7a8fb457583bb3225",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.6849684417247772,
+      "boundsMin": [
+        -0.36683982610702515,
+        -0.282097727060318,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.3811173439025879,
+        0.1090422049164772,
+        1.1049684286117554
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_33",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_33.blend",
+      "nativeSha256": "f97e09b6aea051c1761468845817960c76ce8a02118173c7a8fb457583bb3225",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508865356445312,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.025005929172039032,
+        1.025484561920166
+      ],
+      "boundsMax": [
+        -0.030260730534791946,
+        0.30000001192092896,
+        1.1905732154846191
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_33",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_33.blend",
+      "nativeSha256": "f97e09b6aea051c1761468845817960c76ce8a02118173c7a8fb457583bb3225",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508865356445312,
+      "boundsMin": [
+        0.030260730534791946,
+        0.025005929172039032,
+        1.025484561920166
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        1.1905732154846191
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_38",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_38.blend",
+      "nativeSha256": "bba03f97977687997ff365a9ea7e7f2d7b4ef350bc794d6d9e20e7815203bb97",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.5747999250888824,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        0.9947999119758606
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_38",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_38.blend",
+      "nativeSha256": "bba03f97977687997ff365a9ea7e7f2d7b4ef350bc794d6d9e20e7815203bb97",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508853435516357,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.02500593475997448,
+        0.8707113265991211
+      ],
+      "boundsMax": [
+        -0.030260734260082245,
+        0.30000001192092896,
+        1.0357998609542847
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_38",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_38.blend",
+      "nativeSha256": "bba03f97977687997ff365a9ea7e7f2d7b4ef350bc794d6d9e20e7815203bb97",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508853435516357,
+      "boundsMin": [
+        0.030260734260082245,
+        0.02500593475997448,
+        0.8707113265991211
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        1.0357998609542847
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_40",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v1/enemies/host_40.blend",
+      "nativeSha256": "65a1fa172f3844d17f7c30096312670a316e11f53b90564a28067838773665bb",
+      "name": "Sky king broad dark shoulder mantle",
+      "semantic": "Sky king broad dark shoulder mantle",
+      "parent": "torso_pivot",
+      "height": 0.3509831428527832,
+      "boundsMin": [
+        -0.5574116706848145,
+        -0.1673896610736847,
+        1.199016809463501
+      ],
+      "boundsMax": [
+        -0.18000000715255737,
+        0.17000000178813934,
+        1.5499999523162842
+      ],
+      "vertices": 9,
+      "disposition": "rigid-armor",
+      "basis": "Continuous crystal/obsidian armor rather than fabric; source and actual six-view classification retained."
+    },
+    {
+      "id": "host_40",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v1/enemies/host_40.blend",
+      "nativeSha256": "65a1fa172f3844d17f7c30096312670a316e11f53b90564a28067838773665bb",
+      "name": "Sky king broad dark shoulder mantle.001",
+      "semantic": "Sky king broad dark shoulder mantle",
+      "parent": "torso_pivot",
+      "height": 0.3509831428527832,
+      "boundsMin": [
+        0.18000000715255737,
+        -0.1673896610736847,
+        1.199016809463501
+      ],
+      "boundsMax": [
+        0.5574116706848145,
+        0.17000000178813934,
+        1.5499999523162842
+      ],
+      "vertices": 9,
+      "disposition": "rigid-armor",
+      "basis": "Continuous crystal/obsidian armor rather than fabric; source and actual six-view classification retained."
+    },
+    {
+      "id": "host_44",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_44.blend",
+      "nativeSha256": "f63b5d1d65ba337b39024291fe61ee2bfcfb2239ca9e9c9562f90d9fd57fb40c",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.5840772092342377,
+      "boundsMin": [
+        -0.44465434551239014,
+        -0.4141691029071808,
+        0.41999998688697815
+      ],
+      "boundsMax": [
+        0.46196043491363525,
+        0.05936688184738159,
+        1.0040771961212158
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_44",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_44.blend",
+      "nativeSha256": "f63b5d1d65ba337b39024291fe61ee2bfcfb2239ca9e9c9562f90d9fd57fb40c",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.16508865356445312,
+      "boundsMin": [
+        -0.4020000100135803,
+        0.02500593475997448,
+        0.8799886703491211
+      ],
+      "boundsMax": [
+        -0.0302607249468565,
+        0.30000001192092896,
+        1.0450773239135742
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_44",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_44.blend",
+      "nativeSha256": "f63b5d1d65ba337b39024291fe61ee2bfcfb2239ca9e9c9562f90d9fd57fb40c",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.16508865356445312,
+      "boundsMin": [
+        0.0302607249468565,
+        0.02500593475997448,
+        0.8799886703491211
+      ],
+      "boundsMax": [
+        0.4020000100135803,
+        0.30000001192092896,
+        1.0450773239135742
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_45",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v1/enemies/host_45.blend",
+      "nativeSha256": "273d59e8504ac7bff760f1d9dd7caac3e04b9a5410516bbe9b2bd5c3af118dce",
+      "name": "Large shared troll-hide war drum",
+      "semantic": "Large shared troll-hide war drum",
+      "parent": "mount_torso_pivot",
+      "height": 0.5,
+      "boundsMin": [
+        -0.24727469682693481,
+        0.11999999731779099,
+        1.100000023841858
+      ],
+      "boundsMax": [
+        0.24727469682693481,
+        0.41999998688697815,
+        1.600000023841858
+      ],
+      "vertices": 32,
+      "disposition": "drum",
+      "basis": "Troll-hide names the drum skin, not a rear garment."
+    },
+    {
+      "id": "host_48",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_48.blend",
+      "nativeSha256": "1c4e3918e5a2d0a2e2b253fd40de71c0ca1d3a6b0ec1e3967446c37b4af413c8",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.15359997749328613,
+      "boundsMin": [
+        -0.3041435778141022,
+        -0.3818351924419403,
+        1.319200038909912
+      ],
+      "boundsMax": [
+        0.3159809112548828,
+        -0.02488117106258869,
+        1.4728000164031982
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_48",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_48.blend",
+      "nativeSha256": "1c4e3918e5a2d0a2e2b253fd40de71c0ca1d3a6b0ec1e3967446c37b4af413c8",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.12522685527801514,
+      "boundsMin": [
+        -0.2749679982662201,
+        -0.050893042236566544,
+        1.3801730871200562
+      ],
+      "boundsMax": [
+        -0.022150536999106407,
+        0.15800000727176666,
+        1.5053999423980713
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_48",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_48.blend",
+      "nativeSha256": "1c4e3918e5a2d0a2e2b253fd40de71c0ca1d3a6b0ec1e3967446c37b4af413c8",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.12522685527801514,
+      "boundsMin": [
+        0.022150536999106407,
+        -0.050893042236566544,
+        1.3801730871200562
+      ],
+      "boundsMax": [
+        0.2749679982662201,
+        0.15800000727176666,
+        1.5053999423980713
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_50",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_50.blend",
+      "nativeSha256": "9fc8e9ea39013f0fed73d1a72c43caf5e4d74c6f95e39f662c5685ce7f6882ae",
+      "name": "Real rear cape",
+      "semantic": "Real rear cape",
+      "parent": "torso_pivot",
+      "height": 0.3511999845504761,
+      "boundsMin": [
+        -0.3041435778141022,
+        -0.3818351924419403,
+        1.2015999555587769
+      ],
+      "boundsMax": [
+        0.3159809112548828,
+        -0.02488117106258869,
+        1.552799940109253
+      ],
+      "vertices": 350,
+      "disposition": "folded-closed-cloth",
+      "basis": "Actual seven-station, 25-column folded cloth volume; independently checked in proportions-cloak-audit.json."
+    },
+    {
+      "id": "host_50",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_50.blend",
+      "nativeSha256": "9fc8e9ea39013f0fed73d1a72c43caf5e4d74c6f95e39f662c5685ce7f6882ae",
+      "name": "Shoulder folded cape",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_L",
+      "height": 0.12522685527801514,
+      "boundsMin": [
+        -0.2749679982662201,
+        -0.05089303106069565,
+        1.4601731300354004
+      ],
+      "boundsMax": [
+        -0.02215053327381611,
+        0.15800000727176666,
+        1.5853999853134155
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    },
+    {
+      "id": "host_50",
+      "category": "enemies",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_50.blend",
+      "nativeSha256": "9fc8e9ea39013f0fed73d1a72c43caf5e4d74c6f95e39f662c5685ce7f6882ae",
+      "name": "Shoulder folded cape.001",
+      "semantic": "Shoulder folded cape",
+      "parent": "upper_arm_R",
+      "height": 0.12522685527801514,
+      "boundsMin": [
+        0.02215053327381611,
+        -0.05089303106069565,
+        1.4601731300354004
+      ],
+      "boundsMax": [
+        0.2749679982662201,
+        0.15800000727176666,
+        1.5853999853134155
+      ],
+      "vertices": 7,
+      "disposition": "retained-folded-shoulder-cloth",
+      "basis": "Existing shaped shoulder fold retained above rebuilt continuous rear garment."
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "status": "pass",
+  "scope": "0.3.4 gameplay and camp revision; boss +50 percent follow-up",
+  "sourceRoot": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+  "reviewer": "v5_routes_camp",
+  "timestamp": "2026-10-03T14:55:04.977901+00:00",
+  "tests": {
+    "targeted": 39,
+    "passed": 39,
+    "failed": 0,
+    "skipped": 0,
+    "log": "output/design/geometric-game-v5/gameplay-environment-tests.log"
+  },
+  "routes": {
+    "current": "Thin solid gold/cyan ribbon with animated tapered chevrons following actual arc distance",
+    "planned": "Subdued grey fine dashes; separate controls, blocked and matched semantics preserved",
+    "resources": "Existing instanced mesh matrix buffer and materials reused during animation and disposed on rebuild",
+    "reducedMotionAndPaused": "Motion stops while hidden, reduced motion is requested or combat is paused"
+  },
+  "recipeInput": {
+    "singleClick": "Select exact ingredient foundation and preview current recipe",
+    "doubleClick": "Unchanged mouse/touch/pen pair crafts exact current recipe once through Game.craft",
+    "stale": "Round, phase, ingredient identity/state/rank and result coordinates are revalidated",
+    "keyboard": "Preview only; use sidebar Create action for keyboard craft",
+    "portraits": "Current geometric defenderPortrait, not archived army thumbnails"
+  },
+  "camp": {
+    "tents": 22,
+    "treesAdded": 8,
+    "coveredFirewoodStoresAdded": 3,
+    "armoriesAdded": 2,
+    "supplyCartAdded": 1,
+    "preservedLaneSegments": 10,
+    "minimumLaneGapM": 0.22,
+    "protectedOriginalMeshes": 6027,
+    "sourceVerticesMatchedToGLB": 5691,
+    "nativeReadonlyAudit": "output/design/geometric-game-v5/camp-native-audit.json",
+    "triangles": 146123,
+    "materialBatches": 32,
+    "currentTriangleCap": 150000,
+    "currentBatchCap": 36,
+    "historicalV6LimitsUntouched": true,
+    "visuallyInspected": [
+      "blender/renders/fortified-warcamp-v8-review.png",
+      "blender/renders/warcamp-walkways-v8.png",
+      "blender/renders/warcamp-stores-v8.png"
+    ]
+  },
+  "boss": {
+    "multiplier": 1.5,
+    "baseline": "Current imported/fallback battlefield presentation before this revision",
+    "sourceModelScaleUnchanged": true,
+    "applies": "Entire private physical actor, weapons and attached aura; current camp preview; death-only spawn; fallback target height",
+    "idempotent": true
+  },
+  "files": [
+    {
+      "path": "game/main.js",
+      "bytes": 44197,
+      "sha256": "247df036db7bfea633b5dc519489dcaca83ace4852ca09ac937b225c372d1bfc"
+    },
+    {
+      "path": "game/render/world.js",
+      "bytes": 37312,
+      "sha256": "bad3752f31fd6170f1378c280beab2c3bd7f1a58922620ef2bda6d4750b2b339"
+    },
+    {
+      "path": "game/render/route-overlay.js",
+      "bytes": 5866,
+      "sha256": "fc1067817c597e92debdbe35896ff1c1d8a7af8773d7d3f39f26b9fb7dc80920"
+    },
+    {
+      "path": "game/render/draft-markers.js",
+      "bytes": 8175,
+      "sha256": "e705c12c43354f1ad2116137a61712c8e91ff80d082dc9609edae221147ec394"
+    },
+    {
+      "path": "game/render/scenery-landmarks.js",
+      "bytes": 3633,
+      "sha256": "d7b9968a673a11caac81f434f7738740f275b5ae15732116566c6b46bdfe2bc5"
+    },
+    {
+      "path": "game/render/battlefield-scale.js",
+      "bytes": 1027,
+      "sha256": "2857cf86812d4199f0a70b0b857a754d394e989fecd55afc728f5c5e6f6f0f9e"
+    },
+    {
+      "path": "ui/style.css",
+      "bytes": 48683,
+      "sha256": "9daa10c0d580c44a76897c7b8e4eea8b8864bb657e6e8e467fb34e79374105ae"
+    },
+    {
+      "path": "ui/recipe-marker-input.js",
+      "bytes": 1737,
+      "sha256": "964ba91173b612e0de18e479ba2bf7308814cfccd06cec86bac28e4e5102fe7f"
+    },
+    {
+      "path": "tests/recipe-marker-input.test.mjs",
+      "bytes": 3671,
+      "sha256": "cc5f83dfc4ccf11532dfd0dabb99a164764f8c17b3dd7c3139c8b4ef304fe3c7"
+    },
+    {
+      "path": "tests/route-presentation.test.mjs",
+      "bytes": 7599,
+      "sha256": "fe7f4dba5ff1a191e0d80ee6c09e247c2f355be18a863e7f4cd1fbe6891a30b2"
+    },
+    {
+      "path": "tests/scenery-landmarks.test.mjs",
+      "bytes": 11228,
+      "sha256": "6dd0eb29937336c1eee26aa19f339dceba3de497fc68f5b15eba3c7a131aef1c"
+    },
+    {
+      "path": "tests/scenery-v7.test.mjs",
+      "bytes": 7109,
+      "sha256": "11ed3c2bd739b69ead745b0191677198a9d1882fcde12ce8714bc91d41586b03"
+    },
+    {
+      "path": "tests/scenery-v8-camp.test.mjs",
+      "bytes": 6189,
+      "sha256": "c0bf4a20deee49a7c055ade38bc6a8d513b74400132567f369728e41bd5c25f5"
+    },
+    {
+      "path": "tests/boss-scale-v5.test.mjs",
+      "bytes": 4078,
+      "sha256": "44b249eb6ab368e55a5c9d84d9439a34db4942f144b768b1664873188fdb0f26"
+    },
+    {
+      "path": "data/scenery-v8-camp.json",
+      "bytes": 498,
+      "sha256": "940cfc8a04d1719c1711b2068c65e0b1b864e2ffdfbc7c5b23882f42129c0b27"
+    },
+    {
+      "path": "blender/scripts/author_scenery_v8_camp.py",
+      "bytes": 9890,
+      "sha256": "476a827f620fbc8ca5253dc14bab87dd9c57fcb774598dad405abfe10f67fbb1"
+    },
+    {
+      "path": "tools/audit_scenery_v8_camp.py",
+      "bytes": 4659,
+      "sha256": "838f25edfded18ea26f7fed43789d51f7fd4cf3bd5bd75a233ef61b64e441e93"
+    },
+    {
+      "path": "public/assets/scenery/fortified-warcamp-v8.glb",
+      "bytes": 5842184,
+      "sha256": "3a659f8fcf91b22f35d09c9a829eaa1de39b898691245f811e47310b19479076"
+    },
+    {
+      "path": "public/assets/scenery/manifest.json",
+      "bytes": 4770,
+      "sha256": "75570e34c2d3724b27592f09d20138c47291719568d8f9afe9053d608c72dc70"
+    },
+    {
+      "path": "blender/scenes/fortified-warcamp-v8.blend",
+      "bytes": 2071306,
+      "sha256": "6a83214e30f4da46d8a08d830adffb61e0a3ee4b508e67f97afa3fa5fa45d947"
+    },
+    {
+      "path": "blender/renders/fortified-warcamp-v8-review.png",
+      "bytes": 1199298,
+      "sha256": "48b06612e76fd420a0dd6ca5507b60ae480a0d2d752c6e2515baea1ec7542f83"
+    },
+    {
+      "path": "blender/renders/warcamp-walkways-v8.png",
+      "bytes": 1962674,
+      "sha256": "d46575f8b0b66fccb79bc7d92dce1988c1648c97e6f6f2653d7f6dc793c179dc"
+    },
+    {
+      "path": "blender/renders/warcamp-stores-v8.png",
+      "bytes": 2027108,
+      "sha256": "cb8a0a3dd41d906eb1e8f99f4388152ef0bf4b1f2927e69d17cdde8b83f511c6"
+    },
+    {
+      "path": "output/design/geometric-game-v5/camp-native-audit.json",
+      "bytes": 6196,
+      "sha256": "6af066dc45e8ef3b7e739adb7b249466936d4bca026029318fc81c0ea4b57e8f"
+    },
+    {
+      "path": "output/design/geometric-game-v5/gameplay-environment-tests.log",
+      "bytes": 4601,
+      "sha256": "d68562c920d93de5edbffa96a6cf8485b9a6f5c173d35ae13cbd5f8cab9ed678"
+    }
+  ],
+  "limitations": [
+    "These are scoped gameplay/camp checks, not the final complete model/attack or publication certification; root owns final release validation."
+  ],
+  "finalIntegrationRebind": {
+    "timestamp": "2026-10-03T15:01:30.872833+00:00",
+    "reason": "Root final text normalization; existing reviewed gameplay and camp behavior unchanged",
+    "changedFiles": [
+      {
+        "path": "public/assets/scenery/manifest.json",
+        "before": "0fe359daa24206e28963f17937cc08c18f9f510c2919ce33340130ccae4795b5",
+        "after": "75570e34c2d3724b27592f09d20138c47291719568d8f9afe9053d608c72dc70"
+      }
+    ]
+  }
+}

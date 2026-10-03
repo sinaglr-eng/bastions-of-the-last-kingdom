@@ -52,7 +52,10 @@ def main():
         results.append({'id':entry['id'],'nativeFile':str(native.relative_to(ROOT)).replace('\\','/'),'nativeSha256':hashlib.sha256(native.read_bytes()).hexdigest(),'sourceSha256':entry['sourceSha256'],'packedReference':packed[0].name,'nativeExportBoundsError':error,'passed':True})
         print('VERIFIED '+entry['id'],flush=True)
     report={'models':len(results),'passed':sum(row['passed'] for row in results),'repairedPackedReferences':repaired,'allNativeReferencesPacked':True,'allNativeExportGeometryMatched':True,'results':results}
-    path=ROOT/'output/design/geometric-game-v1'/('native-'+category+'-audit.json' if category else 'native-model-audit.json')
+    default=ROOT/'output/design/geometric-game-v1'/('native-'+category+'-audit.json' if category else 'native-model-audit.json')
+    output=next((arg.split('=',1)[1] for arg in sys.argv if arg.startswith('--output=')),None)
+    path=Path(output).resolve() if output else default
+    path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(report,indent=2),encoding='utf-8')
     print(json.dumps({key:value for key,value in report.items() if key!='results'}),flush=True)
 

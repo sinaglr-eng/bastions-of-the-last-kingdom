@@ -60,10 +60,10 @@ export function inspectAppearance(root,{id,criteria=[]}={}){
   measurements.push(measurement);check(criterion.name,Number.isFinite(ratio)&&ratio>=criterion.range[0]&&ratio<=criterion.range[1],measurement);
  }
  if(id==='mothernature'){
-  const flesh=partMeshes(root,/^(Observed face|Face|Scalp|Neck|Construct square eye)(?: |$)/),eyes=partMeshes(root,/^Nature integrated luminous almond eye$/);
+  const flesh=partMeshes(root,/^(Observed face|Face|Scalp|Neck|Construct square eye)(?: |$)/),eyes=partMeshes(root,/^Nature (?:integrated luminous almond eye|V5 flush recessed living almond light)$/);
   check('nature spirit has luminous eyes and no human skin rectangle',flesh.length===0&&eyes.length>=2&&eyes.every(node=>(Array.isArray(node.material)?node.material:[node.material]).some(material=>material.emissiveIntensity>0)),{humanFaceMeshes:flesh.length,glowingEyeMeshes:eyes.length});
   const body=partMeshes(root,/^Nature unified living wood leaf body with integrated face$/),torso=root.getObjectByName('torso_pivot'),head=root.getObjectByName('head_pivot'),bounds=partBounds(root,/^Nature unified living wood leaf body with integrated face$/);
-  const independentFace=head?partMeshes(head,/^(Nature integrated luminous almond eye|Nature unified living wood leaf body with integrated face)$/):[];
+  const independentFace=head?partMeshes(head,/^(Nature integrated luminous almond eye|Nature V5 flush recessed living almond light|Nature unified living wood leaf body with integrated face)$/):[];
   check('spirit face belongs to the continuous torso rather than a separate head',body.length>0&&eyes.length===2&&[...body,...eyes].every(node=>descends(node,torso))&&independentFace.length===0&&!bounds.isEmpty()&&bounds.min.y<.4&&bounds.max.y>1.5,{physicalBodyMeshes:body.length,bodyBounds:bounds.isEmpty()?null:[bounds.min.toArray(),bounds.max.toArray()],independentHeadFaceMeshes:independentFace.length});
  }
  if(id==='thunderheart'){

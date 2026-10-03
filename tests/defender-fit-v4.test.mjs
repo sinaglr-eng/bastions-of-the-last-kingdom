@@ -60,7 +60,7 @@ test('all 48 actual GLBs have directly seated heads; all 6 Engineers and Clerics
   const manifest=JSON.parse(readFileSync('public/assets/geometric/geometric-defenders.json')),results=[];assert.equal(manifest.assets.length,48);
   for(const row of manifest.assets){const {bytes,gltf}=await load(row.id);const r=measureDefenderFitV4(gltf.scene,row.id);assert.deepEqual(r.failures,[],row.id+': actual v4 physical fit');results.push({...r,actualGlbSha256:sha(bytes),sourceSha256:row.sourceSha256});disposeDecodedGeometricAsset(gltf);}
   const report={revision:'actual-defender-fit-v4',createdAtUtc:new Date().toISOString(),method:'Actual imported triangle surfaces; direct jaw/closed helmet to real bodice/yoke, full head to hammer triangle distance, actual shaft end-ring centres, five actual opaque mitre roof rays. No authored passed values or marker-only certification.',models:results.length,checks:results.reduce((n,r)=>n+r.checks.length,0),failures:results.flatMap(r=>r.failures).length,results};
-  mkdirSync('output/design/geometric-game-v4',{recursive:true});writeFileSync('output/design/geometric-game-v4/defender-fit-regression-audit.json',JSON.stringify(report,null,2)+'\n');
+  mkdirSync('output/design/geometric-game-v5',{recursive:true});writeFileSync('output/design/geometric-game-v5/defender-fit-regression-audit.json',JSON.stringify(report,null,2)+'\n');
 });
 test('actual geometry regressions fail: detached head, hammer intersecting head, tilted shaft and missing mitre roofs',async()=>{
   const engineer=await load('runebreaker-1'),scene=engineer.gltf.scene;scene.getObjectByName('head_pivot').position.y+=.15;

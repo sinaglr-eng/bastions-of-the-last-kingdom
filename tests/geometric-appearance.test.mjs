@@ -60,7 +60,7 @@ test('recoloring the real rider torso purple is detected even when the palette m
 });
 test('spirit appearance requires the real integrated body and torso-owned glowing eyes',async()=>{
  const actor=await model('mothernature','champions');assert.deepEqual(inspectAppearance(actor,{id:'mothernature'}).failures,[]);
- const eyes=partMeshes(actor,/^Nature integrated luminous almond eye$/);assert.equal(eyes.length,2);
+ const eyes=partMeshes(actor,/^Nature (?:integrated luminous almond eye|V5 flush recessed living almond light)$/);assert.equal(eyes.length,2);
  actor.getObjectByName('head_pivot').attach(eyes[0]);
  assert.ok(inspectAppearance(actor,{id:'mothernature'}).failures.some(row=>row.name==='spirit face belongs to the continuous torso rather than a separate head'));
  const missingBody=await model('mothernature','champions');for(const mesh of partMeshes(missingBody,/^Nature unified living wood leaf body with integrated face$/))mesh.geometry=new THREE.BufferGeometry();

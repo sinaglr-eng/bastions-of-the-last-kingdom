@@ -1,0 +1,5469 @@
+{
+  "revision": "geometric-game-v5",
+  "subjects": 136,
+  "checks": 293,
+  "failures": 0,
+  "entries": [
+    {
+      "id": "soldier-1",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-1",
+            "actualSizeThreeAxes": [
+              0.7245000004768372,
+              0.7969928979873657,
+              0.6075000166893005
+            ],
+            "expectedNativeAxes": [
+              0.7245000004768372,
+              0.6075000166893005,
+              0.7969928979873657
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-1",
+            "actualBearingBaseM": 1.080291509628296,
+            "previousBearingBaseM": 1.080291509628296,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.32850000262260437,
+              1.080291509628296,
+              -0.2750000096857548,
+              0.32850000262260437,
+              1.537208080291748,
+              0.17500000819563866
+            ],
+            "cover": [
+              -0.3622500002384186,
+              0.947831392288208,
+              -0.3335000313818455,
+              0.3622500002384186,
+              1.7448242902755737,
+              0.27399998530745506
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "1d2a7eb5a940bd053dc7298006c585037ee43840da2de35b34b2a2719da1f73b"
+    },
+    {
+      "id": "soldier-2",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-2",
+            "actualSizeThreeAxes": [
+              0.7823863923549652,
+              0.8935080170631409,
+              0.5973489284515381
+            ],
+            "expectedNativeAxes": [
+              0.7823864221572876,
+              0.5973489284515381,
+              0.8935080170631409
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-2",
+            "actualBearingBaseM": 1.0698357820510864,
+            "previousBearingBaseM": 1.0698357820510864,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.32850000262260437,
+              1.0698357820510864,
+              -0.2750000096857548,
+              0.32850000262260437,
+              1.4820539951324463,
+              0.17500000819563866
+            ],
+            "cover": [
+              -0.3865909278392792,
+              0.9649773240089417,
+              -0.341149989515543,
+              0.39579546451568604,
+              1.8584853410720825,
+              0.2561989389359951
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "a371f6bf58805a6329599051b82089dc4767b0730c4c34051be6851aad630e0d"
+    },
+    {
+      "id": "soldier-3",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-3",
+            "actualSizeThreeAxes": [
+              0.7317613661289215,
+              0.8239771127700806,
+              0.5973024368286133
+            ],
+            "expectedNativeAxes": [
+              0.7317613363265991,
+              0.5973024368286133,
+              0.8239771127700806
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-3",
+            "actualBearingBaseM": 1.1116588115692139,
+            "previousBearingBaseM": 1.1116588115692139,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.32850000262260437,
+              1.1116588115692139,
+              -0.2750000096857548,
+              0.32850000262260437,
+              1.4940781593322754,
+              0.17500000819563866
+            ],
+            "cover": [
+              -0.36357954144477844,
+              1.0117669105529785,
+              -0.341149989515543,
+              0.36818182468414307,
+              1.835744023323059,
+              0.2561524473130703
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "d3ff9514bac2365d523840b6171acc3af94ed2a6a4da0ed1146996b64f4e56ae"
+    },
+    {
+      "id": "soldier-4",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-4",
+            "actualSizeThreeAxes": [
+              0.6995454430580139,
+              0.7892117500305176,
+              0.598628580570221
+            ],
+            "expectedNativeAxes": [
+              0.6995454430580139,
+              0.598628580570221,
+              0.7892117500305176
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-4",
+            "actualBearingBaseM": 1.0959751605987549,
+            "previousBearingBaseM": 1.0959751605987549,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.3050999939441681,
+              1.0959751605987549,
+              -0.29450003802776337,
+              0.3050999939441681,
+              1.4300284385681152,
+              -0.19550000131130219
+            ],
+            "cover": [
+              -0.3267613649368286,
+              0.967583179473877,
+              -0.3606499880552292,
+              0.3727840781211853,
+              1.7567949295043945,
+              0.23662860691547394
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "a5e42dcb39459440d619571164a682d6f0ca6b922db15985056bcccfb4ada549"
+    },
+    {
+      "id": "soldier-5",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-5",
+            "actualSizeThreeAxes": [
+              0.7133522629737854,
+              0.8140442371368408,
+              0.5973367989063263
+            ],
+            "expectedNativeAxes": [
+              0.7133522629737854,
+              0.5973367691040039,
+              0.8140442371368408
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-5",
+            "actualBearingBaseM": 1.1221145391464233,
+            "previousBearingBaseM": 1.1221145391464233,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.32850000262260437,
+              1.1221145391464233,
+              -0.2750000096857548,
+              0.32850000262260437,
+              1.4648017883300781,
+              0.17500000819563866
+            ],
+            "cover": [
+              -0.34517043828964233,
+              1.0172560214996338,
+              -0.341149989515543,
+              0.36818182468414307,
+              1.8313002586364746,
+              0.2561868093907833
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "04a0e3c8c0e22c07cc23fb54ddf646c7092cd9501f5f08476fc1907a36151b92"
+    },
+    {
+      "id": "soldier-6",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-6",
+            "actualSizeM": [
+              0.8963122665882111,
+              1.090374557301402,
+              0.3837437480688095
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "soldier-6",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "06dfcd56c349b4bafe7a5dffde4dc2983e6cd85a4f39f33f678a2199edc95aa2"
+    },
+    {
+      "id": "archer-1",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "archer-1",
+            "actualSizeThreeAxes": [
+              0.8128615021705627,
+              0.8525640964508057,
+              0.607788935303688
+            ],
+            "expectedNativeAxes": [
+              0.8128615021705627,
+              0.6077889204025269,
+              0.8525640964508057
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "archer-1",
+            "actualBearingBaseM": 1.0885640382766724,
+            "previousBearingBaseM": 1.0885640382766724,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.27461540699005127,
+              1.0885640382766724,
+              -0.23075640201568604,
+              0.27461540699005127,
+              1.4344613552093506,
+              -0.13175641000270844
+            ],
+            "cover": [
+              -0.40643075108528137,
+              1.0057435035705566,
+              -0.26495641469955444,
+              0.40643075108528137,
+              1.8583076000213623,
+              0.3428325206041336
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "001373878f737498de21dc38a301fb19e474e83cd42091a80d392846c2bf9330"
+    },
+    {
+      "id": "archer-2",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "archer-2",
+            "actualSizeThreeAxes": [
+              0.8669288158416748,
+              0.7873728275299072,
+              0.6429234147071838
+            ],
+            "expectedNativeAxes": [
+              0.8669288158416748,
+              0.6429234147071838,
+              0.7873728275299072
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "archer-2",
+            "actualBearingBaseM": 1.0639660358428955,
+            "previousBearingBaseM": 1.0639660358428955,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2928813397884369,
+              1.0639660358428955,
+              -0.2476017028093338,
+              0.2928813397884369,
+              1.382779598236084,
+              -0.148601695895195
+            ],
+            "cover": [
+              -0.4334644079208374,
+              0.9818474054336548,
+              -0.281801700592041,
+              0.4334644079208374,
+              1.769220232963562,
+              0.3611217141151428
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "5c184e1003431f4ee047095b8949186296c8090ec443b0608092a61f9a4f235f"
+    },
+    {
+      "id": "archer-3",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "archer-3",
+            "actualSizeThreeAxes": [
+              0.6918788552284241,
+              0.7866001129150391,
+              0.4848776161670685
+            ],
+            "expectedNativeAxes": [
+              0.6918788552284241,
+              0.4848776161670685,
+              0.7866001129150391
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "archer-3",
+            "actualBearingBaseM": 1.0608570575714111,
+            "previousBearingBaseM": 1.0608570575714111,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2337428480386734,
+              1.0608570575714111,
+              -0.19306285679340363,
+              0.2337428480386734,
+              1.3930855989456177,
+              -0.09406284987926483
+            ],
+            "cover": [
+              -0.34593942761421204,
+              0.9777998924255371,
+              -0.22726285457611084,
+              0.34593942761421204,
+              1.7644000053405762,
+              0.25761476159095764
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "4c07dcb2a11025c39a69adca1ef148f048139f368d5b6dddf8df6bc117944040"
+    },
+    {
+      "id": "archer-4",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "archer-4",
+            "actualSizeThreeAxes": [
+              0.6514487266540527,
+              0.7424370050430298,
+              0.4638996422290802
+            ],
+            "expectedNativeAxes": [
+              0.6514487266540527,
+              0.4638996422290802,
+              0.7424370050430298
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "archer-4",
+            "actualBearingBaseM": 1.0700335502624512,
+            "previousBearingBaseM": 1.0700335502624512,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2200840413570404,
+              1.0700335502624512,
+              -0.18046639114618301,
+              0.2200840413570404,
+              1.3861680030822754,
+              -0.08146639168262482
+            ],
+            "cover": [
+              -0.32572436332702637,
+              0.9886049032211304,
+              -0.21466640383005142,
+              0.32572436332702637,
+              1.7310419082641602,
+              0.24923323839902878
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "archer-4",
+            "actualSizeM": [
+              0.8129057884216309,
+              0.9580335691571236,
+              0.3390611410140991
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "archer-4",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "af01976918b7626e47b9e5929449b05c2e07e9e5aad788a1fc00eb229dcd37a6"
+    },
+    {
+      "id": "archer-5",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "archer-5",
+            "actualSizeThreeAxes": [
+              0.6239368319511414,
+              0.7400000095367432,
+              0.46363453567028046
+            ],
+            "expectedNativeAxes": [
+              0.6239368319511414,
+              0.46363455057144165,
+              0.7400000095367432
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "archer-5",
+            "actualBearingBaseM": 1.0965262651443481,
+            "previousBearingBaseM": 1.0965262651443481,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.21078947186470032,
+              1.0965262651443481,
+              -0.17189472913742065,
+              0.21078947186470032,
+              1.3915263414382935,
+              -0.07289473712444305
+            ],
+            "cover": [
+              -0.3119684159755707,
+              1.011526346206665,
+              -0.20609474182128906,
+              0.3119684159755707,
+              1.7515263557434082,
+              0.2575397938489914
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "archer-5",
+            "actualSizeM": [
+              0.7785752415657043,
+              0.9845262840390205,
+              0.3375999443233013
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "archer-5",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "37535b90dc39102c2d59d317528f24bfdb5449a8daadd6da161329dd80e5196a"
+    },
+    {
+      "id": "archer-6",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "archer-6",
+            "actualSizeThreeAxes": [
+              0.628878653049469,
+              0.7475408315658569,
+              0.42317113280296326
+            ],
+            "expectedNativeAxes": [
+              0.628878653049469,
+              0.42317113280296326,
+              0.7475408315658569
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "archer-6",
+            "actualBearingBaseM": 1.0089507102966309,
+            "previousBearingBaseM": 1.0089507102966309,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2124590128660202,
+              1.0089507102966309,
+              -0.17343442142009735,
+              0.2124590128660202,
+              1.307967185974121,
+              -0.07443442940711975
+            ],
+            "cover": [
+              -0.3144393265247345,
+              0.9295245409011841,
+              -0.20763441920280457,
+              0.3144393265247345,
+              1.677065372467041,
+              0.2155367136001587
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "archer-6",
+            "actualSizeM": [
+              0.7847419381141663,
+              0.8969507291913033,
+              0.3378619886934757
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "archer-6",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "4633df0687f0e38c11d6bd281561c4151ca02a35a2a498b87dcd3dc55ab23ed8"
+    },
+    {
+      "id": "mage-1",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "mage-1",
+            "actualSizeThreeAxes": [
+              0.5689799785614014,
+              0.8325499296188354,
+              0.39240002632141113
+            ],
+            "expectedNativeAxes": [
+              0.5689799785614014,
+              0.39240002632141113,
+              0.8325499892234802
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "mage-1",
+            "actualBearingBaseM": 0.871999979019165,
+            "previousBearingBaseM": 0.871999979019165,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.24525000154972076,
+              0.871999979019165,
+              -0.1665000021457672,
+              0.24525000154972076,
+              1.1275500059127808,
+              0.1665000021457672
+            ],
+            "cover": [
+              -0.2844899892807007,
+              1.0813609957695007,
+              -0.19129499793052673,
+              0.2844899892807007,
+              1.6720330119132996,
+              0.19129499793052673
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "f46be6487bc3d43c67cbec1e986cbb3019b8288f0b24d19b6355157aa9e55977"
+    },
+    {
+      "id": "mage-2",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "mage-2",
+            "actualSizeThreeAxes": [
+              0.9613800048828125,
+              0.8492936491966248,
+              0.5689799785614014
+            ],
+            "expectedNativeAxes": [
+              0.9613800048828125,
+              0.5689799785614014,
+              0.8492937088012695
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "mage-2",
+            "actualBearingBaseM": 0.871999979019165,
+            "previousBearingBaseM": 0.871999979019165,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.24525000154972076,
+              0.871999979019165,
+              -0.1665000021457672,
+              0.24525000154972076,
+              1.1275500059127808,
+              0.1665000021457672
+            ],
+            "cover": [
+              -0.48069000244140625,
+              1.0699705481529236,
+              -0.2844899892807007,
+              0.48069000244140625,
+              1.6862830519676208,
+              0.2844899892807007
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "576e45350738309adb2b086a578471fecdc7f7ca9bdeea9baedee8a160db5346"
+    },
+    {
+      "id": "mage-3",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "mage-3",
+            "actualSizeThreeAxes": [
+              0.9613800048828125,
+              0.8233264684677124,
+              0.5689799785614014
+            ],
+            "expectedNativeAxes": [
+              0.9613800048828125,
+              0.5689799785614014,
+              0.8233265280723572
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "mage-3",
+            "actualBearingBaseM": 0.871999979019165,
+            "previousBearingBaseM": 0.871999979019165,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.24525000154972076,
+              0.871999979019165,
+              -0.1665000021457672,
+              0.24525000154972076,
+              1.1275500059127808,
+              0.1665000021457672
+            ],
+            "cover": [
+              -0.48069000244140625,
+              1.0699705481529236,
+              -0.2844899892807007,
+              0.48069000244140625,
+              1.6594693064689636,
+              0.2844899892807007
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "07f1631d8d3e13276e5f999a7ffff69d5ec0b42b3fb21b3226f964238fdcc033"
+    },
+    {
+      "id": "mage-4",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "mage-4",
+            "actualSizeThreeAxes": [
+              0.9613800048828125,
+              0.8587359189987183,
+              0.5689799785614014
+            ],
+            "expectedNativeAxes": [
+              0.9613800048828125,
+              0.5689799785614014,
+              0.858735978603363
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "mage-4",
+            "actualBearingBaseM": 0.871999979019165,
+            "previousBearingBaseM": 0.871999979019165,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.24525000154972076,
+              0.871999979019165,
+              -0.1665000021457672,
+              0.24525000154972076,
+              1.1275500059127808,
+              0.1665000021457672
+            ],
+            "cover": [
+              -0.48069000244140625,
+              1.0699705481529236,
+              -0.2844899892807007,
+              0.48069000244140625,
+              1.6957830786705017,
+              0.2844899892807007
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "05febaf4ad08915519282511675fdd0d83570054191df950827dd8eba54f24b7"
+    },
+    {
+      "id": "mage-5",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "mage-5",
+            "actualSizeThreeAxes": [
+              0.9613800048828125,
+              0.8675814867019653,
+              0.5689799785614014
+            ],
+            "expectedNativeAxes": [
+              0.9613800048828125,
+              0.5689799785614014,
+              0.8675815463066101
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "mage-5",
+            "actualBearingBaseM": 0.871999979019165,
+            "previousBearingBaseM": 0.871999979019165,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.24525000154972076,
+              0.871999979019165,
+              -0.1665000021457672,
+              0.24525000154972076,
+              1.1275500059127808,
+              0.1665000021457672
+            ],
+            "cover": [
+              -0.48069000244140625,
+              1.0699705481529236,
+              -0.2844899892807007,
+              0.48069000244140625,
+              1.7052831053733826,
+              0.2844899892807007
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "mage-5",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.7558894231915474,
+              0.34304971247911453
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "mage-5",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "84cd57397e8b0d1395dcd1ed3433d4d9d99fcf573de5b09326fafb8aa69528bf"
+    },
+    {
+      "id": "mage-6",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "mage-6",
+            "actualSizeThreeAxes": [
+              0.9613800048828125,
+              0.9062690734863281,
+              0.5689799785614014
+            ],
+            "expectedNativeAxes": [
+              0.9613800048828125,
+              0.5689799785614014,
+              0.9062691330909729
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "mage-6",
+            "actualBearingBaseM": 0.871999979019165,
+            "previousBearingBaseM": 0.871999979019165,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.24525000154972076,
+              0.871999979019165,
+              -0.1665000170469284,
+              0.24525000154972076,
+              1.127549946308136,
+              0.16649998724460602
+            ],
+            "cover": [
+              -0.48069000244140625,
+              1.0699705481529236,
+              -0.2844899892807007,
+              0.48069000244140625,
+              1.743282973766327,
+              0.2844899892807007
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "mage-6",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.7521494328975677,
+              0.34304971247911453
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "mage-6",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "5284d2a6fc164444dbcac7ad2c951d34abbcd895418ea167c72cf96a0bdb475f"
+    },
+    {
+      "id": "frostwarden-1",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-1",
+            "actualSizeThreeAxes": [
+              0.691072940826416,
+              0.7845882177352905,
+              0.48432959616184235
+            ],
+            "expectedNativeAxes": [
+              0.691072940826416,
+              0.48432961106300354,
+              0.7845882177352905
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-1",
+            "actualBearingBaseM": 0.9707058668136597,
+            "previousBearingBaseM": 0.9707058668136597,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.23347057402133942,
+              0.9707058668136597,
+              -0.1928117573261261,
+              0.23347057402133942,
+              1.2875587940216064,
+              -0.0938117653131485
+            ],
+            "cover": [
+              -0.345536470413208,
+              0.885205864906311,
+              -0.2270117700099945,
+              0.345536470413208,
+              1.6697940826416016,
+              0.25731782615184784
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "ddbe539550f7419056f90a2ff772964003691b4b921e10da6eb882438c165215"
+    },
+    {
+      "id": "frostwarden-2",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-2",
+            "actualSizeThreeAxes": [
+              0.715805172920227,
+              0.7880869507789612,
+              0.4939894825220108
+            ],
+            "expectedNativeAxes": [
+              0.715805172920227,
+              0.493989497423172,
+              0.7880869507789612
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-2",
+            "actualBearingBaseM": 0.966869592666626,
+            "previousBearingBaseM": 0.966869592666626,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.24182608723640442,
+              0.966869592666626,
+              -0.20051738619804382,
+              0.24182608723640442,
+              1.279130458831787,
+              -0.10151739418506622
+            ],
+            "cover": [
+              -0.3579025864601135,
+              0.8826087117195129,
+              -0.23471739888191223,
+              0.3579025864601135,
+              1.6706956624984741,
+              0.25927208364009857
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "762118282af45785c9a8647a36229a6445352f281631d470ee3a30ff3ce3aba3"
+    },
+    {
+      "id": "frostwarden-3",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-3",
+            "actualSizeThreeAxes": [
+              0.678038477897644,
+              0.7876967787742615,
+              0.5093680918216705
+            ],
+            "expectedNativeAxes": [
+              0.678038477897644,
+              0.5093680620193481,
+              0.7876967787742615
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-3",
+            "actualBearingBaseM": 0.9673410654067993,
+            "previousBearingBaseM": 0.9673410654067993,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.22906705737113953,
+              0.9673410654067993,
+              -0.1887507289648056,
+              0.22906705737113953,
+              1.2614810466766357,
+              -0.08975072205066681
+            ],
+            "cover": [
+              -0.339019238948822,
+              0.882588803768158,
+              -0.22295072674751282,
+              0.339019238948822,
+              1.6702855825424194,
+              0.2864173650741577
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "e5fa81b5f9beccaead5f8b186fee9c027be9a8b2459c396df4f21836eb978410"
+    },
+    {
+      "id": "frostwarden-4",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-4",
+            "actualSizeThreeAxes": [
+              0.6921642422676086,
+              0.7990177869796753,
+              0.526601567864418
+            ],
+            "expectedNativeAxes": [
+              0.6921642422676086,
+              0.5266015529632568,
+              0.7990177869796753
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-4",
+            "actualBearingBaseM": 0.955642819404602,
+            "previousBearingBaseM": 0.955642819404602,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2338392734527588,
+              0.955642819404602,
+              -0.1931517869234085,
+              0.2338392734527588,
+              1.2966248989105225,
+              -0.09415178000926971
+            ],
+            "cover": [
+              -0.3460821211338043,
+              0.8691250085830688,
+              -0.22735178470611572,
+              0.3460821211338043,
+              1.6681427955627441,
+              0.2992497831583023
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "fbd6bfc08f2d0d089a6d21f22fc1d74a175e662d00b68b26f5fd98385afcf00b"
+    },
+    {
+      "id": "frostwarden-5",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-5",
+            "actualSizeThreeAxes": [
+              0.6810573935508728,
+              0.7533912062644958,
+              0.450276717543602
+            ],
+            "expectedNativeAxes": [
+              0.6810573935508728,
+              0.4502767324447632,
+              0.7533912062644958
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-5",
+            "actualBearingBaseM": 1.0033912658691406,
+            "previousBearingBaseM": 1.0033912658691406,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.23008693754673004,
+              1.0033912658691406,
+              -0.18969130516052246,
+              0.23008693754673004,
+              1.3255650997161865,
+              -0.09069129824638367
+            ],
+            "cover": [
+              -0.3405286967754364,
+              0.9191303849220276,
+              -0.22389131784439087,
+              0.3405286967754364,
+              1.6725215911865234,
+              0.22638539969921112
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-5",
+            "actualSizeM": [
+              0.8498528003692627,
+              0.891391284763813,
+              0.3406343199312687
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-5",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "3d245e32bc4a27e7f445a80385572df9b3a95dda89c19a39c6aeb04808aa1a15"
+    },
+    {
+      "id": "frostwarden-6",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-6",
+            "actualSizeThreeAxes": [
+              0.6558784246444702,
+              0.8056230545043945,
+              0.4735149145126343
+            ],
+            "expectedNativeAxes": [
+              0.6558784246444702,
+              0.4735149145126343,
+              0.8056230545043945
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-6",
+            "actualBearingBaseM": 0.9489178657531738,
+            "previousBearingBaseM": 0.9489178657531738,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.22158055007457733,
+              0.9489178657531738,
+              -0.1818465068936348,
+              0.22158055007457733,
+              1.245179295539856,
+              -0.0828465074300766
+            ],
+            "cover": [
+              -0.3279392123222351,
+              0.8605592250823975,
+              -0.2160465195775032,
+              0.3279392123222351,
+              1.666182279586792,
+              0.2574683949351311
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-6",
+            "actualSizeM": [
+              0.8184333741664886,
+              0.836917944252491,
+              0.33929700776934624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "frostwarden-6",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "1941ebb721aa887f451a84054cd523a4dbd717c6925f1b9f862a7c60f42ee443"
+    },
+    {
+      "id": "stormcaller-1",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-1",
+            "actualSizeThreeAxes": [
+              0.6883626282215118,
+              0.6002052426338196,
+              0.49250638484954834
+            ],
+            "expectedNativeAxes": [
+              0.6883625984191895,
+              0.49250638484954834,
+              0.6002052426338196
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-1",
+            "actualBearingBaseM": 0.8984653949737549,
+            "previousBearingBaseM": 0.8984653949737549,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.28047093749046326,
+              0.8984653949737549,
+              -0.19072021543979645,
+              0.28047093749046326,
+              1.3105705976486206,
+              0.19072021543979645
+            ],
+            "cover": [
+              -0.3435545265674591,
+              1.0134252309799194,
+              -0.2168673276901245,
+              0.34480810165405273,
+              1.4611085653305054,
+              0.25811249017715454
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "ff1301b86330470f249b4bb791c1536746bcb1e5d05805cd69afa77b9cc41198"
+    },
+    {
+      "id": "stormcaller-2",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-2",
+            "actualSizeThreeAxes": [
+              0.6757863163948059,
+              0.5471512675285339,
+              0.48246562480926514
+            ],
+            "expectedNativeAxes": [
+              0.6757863163948059,
+              0.48246562480926514,
+              0.5471512675285339
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-2",
+            "actualBearingBaseM": 0.9603589773178101,
+            "previousBearingBaseM": 0.9603589773178101,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.27461540699005127,
+              0.9603589773178101,
+              -0.18673846125602722,
+              0.27461540699005127,
+              1.262410283088684,
+              0.1867384910583496
+            ],
+            "cover": [
+              -0.33726733922958374,
+              1.0432302951812744,
+              -0.21230879426002502,
+              0.33851897716522217,
+              1.4124832153320312,
+              0.25272101163864136
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-2",
+            "actualSizeM": [
+              1.0143236815929413,
+              0.6612177193164825,
+              0.34763603284955025
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-2",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "80a4f8dbe7bd1a87d93fa15a1058eee5dec3209c84f9824c6ab136d35fcab79a"
+    },
+    {
+      "id": "stormcaller-3",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-3",
+            "actualSizeThreeAxes": [
+              0.7188708782196045,
+              0.5825812816619873,
+              0.5430926084518433
+            ],
+            "expectedNativeAxes": [
+              0.7188708782196045,
+              0.5430926084518433,
+              0.5825812816619873
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-3",
+            "actualBearingBaseM": 0.95562744140625,
+            "previousBearingBaseM": 0.95562744140625,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2947564423084259,
+              0.95562744140625,
+              -0.2004343867301941,
+              0.2947564423084259,
+              1.27410888671875,
+              0.2004343867301941
+            ],
+            "cover": [
+              -0.35880985856056213,
+              1.042894721031189,
+              -0.2265922725200653,
+              0.36006101965904236,
+              1.4258103370666504,
+              0.2712559700012207
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-3",
+            "actualSizeM": [
+              1.0887170433998108,
+              0.6559238433837891,
+              0.3508031591773033
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-3",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "4655a1e9c954f2d54680aef4ac44550cbc3b7aae2a9ae25d942d5fc5edbbb412"
+    },
+    {
+      "id": "stormcaller-4",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-4",
+            "actualSizeThreeAxes": [
+              0.6595154404640198,
+              0.5625209808349609,
+              0.49552521109580994
+            ],
+            "expectedNativeAxes": [
+              0.6595154404640198,
+              0.49552521109580994,
+              0.5625209808349609
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-4",
+            "actualBearingBaseM": 0.9433406591415405,
+            "previousBearingBaseM": 0.9433406591415405,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.26700830459594727,
+              0.9433406591415405,
+              -0.18156564235687256,
+              0.26700830459594727,
+              1.2417616844177246,
+              0.18156564235687256
+            ],
+            "cover": [
+              -0.3291317820549011,
+              1.0253102779388428,
+              -0.2069164663553238,
+              0.33038365840911865,
+              1.3912190198898315,
+              0.24572059512138367
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-4",
+            "actualSizeM": [
+              0.9862260520458221,
+              0.8313407376408577,
+              0.346439678221941
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-4",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "a04edc23e763148ddc23171e910d3a0c0c4ef6d7517f0e35896723f8a3152ae4"
+    },
+    {
+      "id": "stormcaller-5",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-5",
+            "actualSizeThreeAxes": [
+              0.6836632788181305,
+              0.6078248023986816,
+              0.5148755013942719
+            ],
+            "expectedNativeAxes": [
+              0.6836632490158081,
+              0.5148755311965942,
+              0.6078248023986816
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-5",
+            "actualBearingBaseM": 0.9513630867004395,
+            "previousBearingBaseM": 0.9513630867004395,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2782960832118988,
+              0.9513630867004395,
+              -0.18924134969711304,
+              0.2782960832118988,
+              1.2618379592895508,
+              0.18924134969711304
+            ],
+            "cover": [
+              -0.34120580554008484,
+              1.0366361141204834,
+              -0.21494290232658386,
+              0.34245747327804565,
+              1.4122083187103271,
+              0.2561084032058716
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-5",
+            "actualSizeM": [
+              1.0279187560081482,
+              0.8393631651997566,
+              0.34821468591690063
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-5",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "1a9aea63b0eb0584190d8a5393fa47aa6efca9a8f9c1475ecef79782a2e9aaf0"
+    },
+    {
+      "id": "stormcaller-6",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-6",
+            "actualSizeThreeAxes": [
+              0.6161032915115356,
+              0.6304773688316345,
+              0.4607316851615906
+            ],
+            "expectedNativeAxes": [
+              0.6161032915115356,
+              0.4607316851615906,
+              0.6304773688316345
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-6",
+            "actualBearingBaseM": 0.9369434118270874,
+            "previousBearingBaseM": 0.9369434118270874,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2467115968465805,
+              0.9369434118270874,
+              -0.16776388883590698,
+              0.2467115968465805,
+              1.2273207902908325,
+              0.1677638590335846
+            ],
+            "cover": [
+              -0.3074253797531128,
+              1.0169838666915894,
+              -0.19250896573066711,
+              0.30867791175842285,
+              1.3751335144042969,
+              0.22704267501831055
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-6",
+            "actualSizeM": [
+              0.9112577438354492,
+              0.8249434307217598,
+              0.3432479090988636
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "stormcaller-6",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "2993ef56eb8f15376a50a3f8f1c95886d1237d809a7c1fb8713d560be02a9b93"
+    },
+    {
+      "id": "cleric-1",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-1",
+            "actualSizeThreeAxes": [
+              0.6682965755462646,
+              0.7419826984405518,
+              0.48889054358005524
+            ],
+            "expectedNativeAxes": [
+              0.6682965755462646,
+              0.48889052867889404,
+              0.7419826984405518
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-1",
+            "actualBearingBaseM": 1.015310287475586,
+            "previousBearingBaseM": 1.015310287475586,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2257758527994156,
+              1.015310287475586,
+              -0.18571551144123077,
+              0.2257758527994156,
+              1.3052241802215576,
+              -0.08671551942825317
+            ],
+            "cover": [
+              -0.3341482877731323,
+              0.9317758083343506,
+              -0.219915509223938,
+              0.3341482877731323,
+              1.6737585067749023,
+              0.26897503435611725
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "dd07ba7c861edfd1094f00b79dc359586dd26e4f8403957a25ae45226adcb4b6"
+    },
+    {
+      "id": "cleric-2",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-2",
+            "actualSizeThreeAxes": [
+              0.6607009172439575,
+              0.8177711367607117,
+              0.5121757090091705
+            ],
+            "expectedNativeAxes": [
+              0.6607009172439575,
+              0.5121756792068481,
+              0.8177711367607117
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-2",
+            "actualBearingBaseM": 0.9145714044570923,
+            "previousBearingBaseM": 0.9145714044570923,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "c06889b3a267bcb1e2f24e25a8be01da145af475441043de2111731a59f9abcf"
+    },
+    {
+      "id": "cleric-3",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-3",
+            "actualSizeThreeAxes": [
+              0.621666669845581,
+              0.8581483960151672,
+              0.5099379420280457
+            ],
+            "expectedNativeAxes": [
+              0.621666669845581,
+              0.5099379420280457,
+              0.8581483960151672
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-3",
+            "actualBearingBaseM": 0.8720824718475342,
+            "previousBearingBaseM": 0.8720824718475342,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "68d22a5628af03724596a558baaefad08be2e5d26918b618606b57f605d33d1d"
+    },
+    {
+      "id": "cleric-4",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-4",
+            "actualSizeThreeAxes": [
+              0.6670029759407043,
+              0.8525258898735046,
+              0.5307202488183975
+            ],
+            "expectedNativeAxes": [
+              0.6670029759407043,
+              0.5307202339172363,
+              0.8525258898735046
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-4",
+            "actualBearingBaseM": 0.8791297674179077,
+            "previousBearingBaseM": 0.8791297674179077,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-4",
+            "actualSizeM": [
+              0.8678586483001709,
+              0.7671297863125801,
+              0.3413998670876026
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-4",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "15f39961ddd7277babbd311b2eeba414c729262c0ee5d48de85adaeeb7267d75"
+    },
+    {
+      "id": "cleric-5",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-5",
+            "actualSizeThreeAxes": [
+              0.6366361379623413,
+              0.8230689167976379,
+              0.5227427184581757
+            ],
+            "expectedNativeAxes": [
+              0.6366361379623413,
+              0.522742748260498,
+              0.8230689167976379
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-5",
+            "actualBearingBaseM": 0.9108120203018188,
+            "previousBearingBaseM": 0.9108120203018188,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-5",
+            "actualSizeM": [
+              0.8248149156570435,
+              0.7988120391964912,
+              0.33956727385520935
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-5",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "4220b10867de1a1962120840683345d5f46c2009fe9dc70c1acc3061fd326625"
+    },
+    {
+      "id": "cleric-6",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-6",
+            "actualSizeThreeAxes": [
+              0.6256907880306244,
+              0.8343943953514099,
+              0.5017707496881485
+            ],
+            "expectedNativeAxes": [
+              0.6256908178329468,
+              0.5017707347869873,
+              0.8343943953514099
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-6",
+            "actualBearingBaseM": 0.897508978843689,
+            "previousBearingBaseM": 0.897508978843689,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-6",
+            "actualSizeM": [
+              0.711611419916153,
+              0.7855089977383614,
+              0.33474814146757126
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "cleric-6",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "9b4d02479708facfe29c47a104f5e27d04063295d8e11fcbb0adfbcf44d4af92"
+    },
+    {
+      "id": "druid-1",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "druid-1",
+            "actualSizeThreeAxes": [
+              0.7592399716377258,
+              0.7647499442100525,
+              0.5230908095836639
+            ],
+            "expectedNativeAxes": [
+              0.7592399716377258,
+              0.5230908393859863,
+              0.7647499442100525
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "druid-1",
+            "actualBearingBaseM": 0.9909999370574951,
+            "previousBearingBaseM": 0.9909999370574951,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2565000057220459,
+              0.9909999370574951,
+              -0.21404999494552612,
+              0.2565000057220459,
+              1.366249918937683,
+              -0.11505000293254852
+            ],
+            "cover": [
+              -0.3796199858188629,
+              0.9102498888969421,
+              -0.24825000762939453,
+              0.3796199858188629,
+              1.6749998331069946,
+              0.2748408019542694
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "9532f261ce697864d3975c80dd3df932c3112ec6316f21aac24252386dd77e7a"
+    },
+    {
+      "id": "druid-2",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "druid-2",
+            "actualSizeThreeAxes": [
+              0.6990087032318115,
+              0.7827113270759583,
+              0.4897259473800659
+            ],
+            "expectedNativeAxes": [
+              0.6990087032318115,
+              0.4897259473800659,
+              0.7827113270759583
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "druid-2",
+            "actualBearingBaseM": 0.9725888967514038,
+            "previousBearingBaseM": 0.9725888967514038,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.23615160584449768,
+              0.9725888967514038,
+              -0.19528424739837646,
+              0.23615160584449768,
+              1.3165831565856934,
+              -0.09628425538539886
+            ],
+            "cover": [
+              -0.34950435161590576,
+              0.887836754322052,
+              -0.22948426008224487,
+              0.34950435161590576,
+              1.6705480813980103,
+              0.26024168729782104
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "678b9f7edb4ea09ab64ef59d2e3100fb3f3fed9cebd9a646049a81b37f907418"
+    },
+    {
+      "id": "druid-3",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "druid-3",
+            "actualSizeThreeAxes": [
+              1.0311651229858398,
+              1.0287374258041382,
+              0.5254108905792236
+            ],
+            "expectedNativeAxes": [
+              1.0311651229858398,
+              0.5254108905792236,
+              1.0287374258041382
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "druid-3",
+            "actualBearingBaseM": 0.9585373401641846,
+            "previousBearingBaseM": 0.9585373401641846,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2466268688440323,
+              0.9585373401641846,
+              -0.20494477450847626,
+              0.2466268688440323,
+              1.3209552764892578,
+              -0.10594478249549866
+            ],
+            "cover": [
+              -0.36500775814056396,
+              0.8717612028121948,
+              -0.23914477229118347,
+              0.36500775814056396,
+              1.6680597066879272,
+              0.28626611828804016
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "8f783250f5049558c48b83b551abcceaca3ef8ed5acba7189f1a92c2a0ed8164"
+    },
+    {
+      "id": "druid-4",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "druid-4",
+            "actualSizeThreeAxes": [
+              0.9855701923370361,
+              1.0006555914878845,
+              0.5007702559232712
+            ],
+            "expectedNativeAxes": [
+              0.9855701923370361,
+              0.5007702112197876,
+              1.0006556510925293
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "druid-4",
+            "actualBearingBaseM": 0.9877856969833374,
+            "previousBearingBaseM": 0.9877856969833374,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2314285784959793,
+              0.9877856969833374,
+              -0.19092856347560883,
+              0.2314285784959793,
+              1.313499927520752,
+              -0.09192857146263123
+            ],
+            "cover": [
+              -0.3425142765045166,
+              0.9012678265571594,
+              -0.22512856125831604,
+              0.3425142765045166,
+              1.6697499752044678,
+              0.27564169466495514
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "druid-4",
+            "actualSizeM": [
+              0.8548082113265991,
+              0.8757857754826546,
+              0.3408454619348049
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "druid-4",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "6aab2b88cdf976fd7cac752b41370fee59e1d02a21b002d6872a3b1c824cdb66"
+    },
+    {
+      "id": "druid-5",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "druid-5",
+            "actualSizeThreeAxes": [
+              1.0102193355560303,
+              1.0367252826690674,
+              0.503850907087326
+            ],
+            "expectedNativeAxes": [
+              1.0102193355560303,
+              0.5038509368896484,
+              1.0367252826690674
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "druid-5",
+            "actualBearingBaseM": 0.949905276298523,
+            "previousBearingBaseM": 0.949905276298523,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.23964497447013855,
+              0.949905276298523,
+              -0.19850590825080872,
+              0.23964497447013855,
+              1.3040472269058228,
+              -0.09950591623783112
+            ],
+            "cover": [
+              -0.3546745479106903,
+              0.8638993501663208,
+              -0.23270592093467712,
+              0.3546745479106903,
+              1.6683075428009033,
+              0.2711449861526489
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "druid-5",
+            "actualSizeM": [
+              0.8851563632488251,
+              0.8379053547978401,
+              0.3421374186873436
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "druid-5",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "5140cf5ff9a72c4b31fc823376a153981362ead9d6ec9cc7a73163ead803a640"
+    },
+    {
+      "id": "druid-6",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "druid-6",
+            "actualSizeThreeAxes": [
+              1.0144988298416138,
+              1.0415383577346802,
+              0.49962857365608215
+            ],
+            "expectedNativeAxes": [
+              1.0144988298416138,
+              0.49962857365608215,
+              1.0415383577346802
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "druid-6",
+            "actualBearingBaseM": 0.9449285268783569,
+            "previousBearingBaseM": 0.9449285268783569,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.241071417927742,
+              0.9449285268783569,
+              -0.19982142746448517,
+              0.241071417927742,
+              1.3011784553527832,
+              -0.10082143545150757
+            ],
+            "cover": [
+              -0.35678571462631226,
+              0.8584107160568237,
+              -0.23402142524719238,
+              0.35678571462631226,
+              1.667607069015503,
+              0.26560714840888977
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "druid-6",
+            "actualSizeM": [
+              0.8904252350330353,
+              0.8329286053776741,
+              0.3423617444932461
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "druid-6",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "dd3af13d87bcc69b1e0bfa3ffc11459d1359fa9341e339cb9f4e25b040a4830a"
+    },
+    {
+      "id": "runebreaker-1",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-1",
+            "actualSizeThreeAxes": [
+              0.7521763443946838,
+              0.8134855031967163,
+              0.6145231127738953
+            ],
+            "expectedNativeAxes": [
+              0.7521763443946838,
+              0.6145231127738953,
+              0.8134855031967163
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-1",
+            "actualBearingBaseM": 1.0732831954956055,
+            "previousBearingBaseM": 1.0732831954956055,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "3151063ceafdeeddf1a158ad4de03d28010593af9bb5cf68468fabbfe36e21a0"
+    },
+    {
+      "id": "runebreaker-2",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-2",
+            "actualSizeThreeAxes": [
+              0.7973337173461914,
+              0.8470554351806641,
+              0.6441220641136169
+            ],
+            "expectedNativeAxes": [
+              0.7973337173461914,
+              0.6441220641136169,
+              0.8470554351806641
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-2",
+            "actualBearingBaseM": 1.0568214654922485,
+            "previousBearingBaseM": 1.0568214654922485,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "98073917ae9be0d953e97bdc99e50d9d56a2d5f7e36696995c82811421a1bc59"
+    },
+    {
+      "id": "runebreaker-3",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-3",
+            "actualSizeThreeAxes": [
+              0.7226237654685974,
+              0.8350420594215393,
+              0.60223388671875
+            ],
+            "expectedNativeAxes": [
+              0.7226237654685974,
+              0.60223388671875,
+              0.8350420594215393
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-3",
+            "actualBearingBaseM": 1.048952579498291,
+            "previousBearingBaseM": 1.048952579498291,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "24fe4fc1d5e4e4ed97fa9bf8102b341ae2ef417fd52c1b296d8aab0ae1220dbf"
+    },
+    {
+      "id": "runebreaker-4",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-4",
+            "actualSizeThreeAxes": [
+              0.7222272753715515,
+              0.8458492159843445,
+              0.6019701063632965
+            ],
+            "expectedNativeAxes": [
+              0.7222272753715515,
+              0.6019700765609741,
+              0.8458492159843445
+            ],
+            "maxDeviationM": 2.9802322387695312e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-4",
+            "actualBearingBaseM": 1.0368107557296753,
+            "previousBearingBaseM": 1.0368107557296753,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "3565e3d2579edfed8ed58271931a2c82160f8adc5fcdfa8785d47b9d72aaf6d2"
+    },
+    {
+      "id": "runebreaker-5",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-5",
+            "actualSizeThreeAxes": [
+              0.7834582328796387,
+              0.8499789237976074,
+              0.6427047252655029
+            ],
+            "expectedNativeAxes": [
+              0.7834582328796387,
+              0.6427047252655029,
+              0.8499789237976074
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-5",
+            "actualBearingBaseM": 1.0430636405944824,
+            "previousBearingBaseM": 1.0430636405944824,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "2e838b768b8fda106ac3493e0cf1c6b683ce7e96915fa15f0132375875e57355"
+    },
+    {
+      "id": "runebreaker-6",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-6",
+            "actualSizeThreeAxes": [
+              0.8195549845695496,
+              0.8999772667884827,
+              0.6667184829711914
+            ],
+            "expectedNativeAxes": [
+              0.8195549845695496,
+              0.6667184829711914,
+              0.8999772667884827
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "runebreaker-6",
+            "actualBearingBaseM": 0.9742352962493896,
+            "previousBearingBaseM": 0.9742352962493896,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "defenders",
+      "actualGlbSha256": "9c29b03b288e0fcf1f81807f4e7faa82b18ec3f58788307cdf6e3bf9d5f2731e"
+    },
+    {
+      "id": "frostblade",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "frostblade",
+            "actualSizeThreeAxes": [
+              0.3636000156402588,
+              0.3895000219345093,
+              0.33570001274347305
+            ],
+            "expectedNativeAxes": [
+              0.3636000156402588,
+              0.33570000529289246,
+              0.3895000219345093
+            ],
+            "maxDeviationM": 7.450580596923828e-9
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "frostblade",
+            "actualBearingBaseM": 1.6890000104904175,
+            "previousBearingBaseM": 1.6890000104904175,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "154ab5c51b2751b07d25f7f55d3f91b81a4042837a5af59adb29c85eac83260a"
+    },
+    {
+      "id": "monk",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "monk",
+            "actualSizeThreeAxes": [
+              0.7015680074691772,
+              0.52348792552948,
+              0.4233599901199341
+            ],
+            "expectedNativeAxes": [
+              0.7015680074691772,
+              0.4233599901199341,
+              0.52348792552948
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "monk",
+            "actualBearingBaseM": 1.0838227272033691,
+            "previousBearingBaseM": 1.0838227272033691,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.30239999294281006,
+              1.0838227272033691,
+              -0.18143999576568604,
+              0.30239999294281006,
+              1.5243186950683594,
+              0.18143999576568604
+            ],
+            "cover": [
+              -0.32659199833869934,
+              1.4509027004241943,
+              -0.21167999505996704,
+              0.32659199833869934,
+              1.5849666595458984,
+              0.21167999505996704
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "36171239beefbff6d3cb574ef83447e32cfba0d7c1fe8d91cf9a272ef5227eee"
+    },
+    {
+      "id": "rimewatch",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "rimewatch",
+            "actualSizeThreeAxes": [
+              0.8150624632835388,
+              0.854263961315155,
+              0.43709737062454224
+            ],
+            "expectedNativeAxes": [
+              0.8150624632835388,
+              0.43709737062454224,
+              0.854263961315155
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "rimewatch",
+            "actualBearingBaseM": 0.8779835104942322,
+            "previousBearingBaseM": 0.8779835104942322,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.27168750762939453,
+              0.8779835104942322,
+              -0.16301250457763672,
+              0.27168750762939453,
+              1.3483047485351562,
+              0.16301250457763672
+            ],
+            "cover": [
+              -0.4075312316417694,
+              0.7980288863182068,
+              -0.21701249480247498,
+              0.4075312316417694,
+              1.6522928476333618,
+              0.22008487582206726
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "rimewatch",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.46398356556892395,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "rimewatch",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "b460344d243fe497c0b9219b0beb872f049021771e43c5d1244e8032a3869d60"
+    },
+    {
+      "id": "roseguard",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "roseguard",
+            "actualSizeThreeAxes": [
+              0.4888295829296112,
+              0.37218713760375977,
+              0.31891682744026184
+            ],
+            "expectedNativeAxes": [
+              0.4888295829296112,
+              0.31891682744026184,
+              0.37218713760375977
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "roseguard",
+            "actualBearingBaseM": 1.7086000442504883,
+            "previousBearingBaseM": 1.7086000442504883,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.20033998787403107,
+              1.7086000442504883,
+              -0.020204000174999237,
+              0.20033998787403107,
+              1.941217064857483,
+              0.22020400315523148
+            ],
+            "cover": [
+              -0.2444147914648056,
+              1.6667289733886719,
+              -0.05161040276288986,
+              0.2444147914648056,
+              2.0389161109924316,
+              0.267306424677372
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "roseguard",
+            "actualSizeM": [
+              0.6854007244110107,
+              0.6995999813079834,
+              0.3945281319320202
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "roseguard",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "d0e8f252270a8843467826093f16f9ebd4c0721e616640b92ae5ec224a7a98ea"
+    },
+    {
+      "id": "highking",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "highking",
+            "actualSizeThreeAxes": [
+              0.42750000953674316,
+              0.5453000068664551,
+              0.35909998416900635
+            ],
+            "expectedNativeAxes": [
+              0.42750000953674316,
+              0.35909998416900635,
+              0.5453000068664551
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "highking",
+            "actualBearingBaseM": 0.9919999837875366,
+            "previousBearingBaseM": 0.9919999837875366,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "highking",
+            "actualSizeM": [
+              1.0577171444892883,
+              0.8440771996974945,
+              0.47996872663497925
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "highking",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "4514ab75ce31988547f2ea3fdd5d764d02fb24d1b707b92aa9c25eb3c92f112c"
+    },
+    {
+      "id": "crownofages",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "crownofages",
+            "actualSizeThreeAxes": [
+              0.7412945032119751,
+              0.7690922021865845,
+              0.605970025062561
+            ],
+            "expectedNativeAxes": [
+              0.7412945032119751,
+              0.605970025062561,
+              0.7690922021865845
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "crownofages",
+            "actualBearingBaseM": 1.0960286855697632,
+            "previousBearingBaseM": 1.0960286855697632,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.24570000171661377,
+              1.0960286855697632,
+              -0.1474200040102005,
+              0.24570000171661377,
+              1.4902406930923462,
+              0.1474200040102005
+            ],
+            "cover": [
+              -0.37064725160598755,
+              0.9123750925064087,
+              -0.21031717956066132,
+              0.37064725160598755,
+              1.5510672330856323,
+              0.2150105983018875
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "crownofages",
+            "actualSizeM": [
+              1.0577171444892883,
+              0.9420286118984222,
+              0.47996872663497925
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "crownofages",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "b901c05f3a3d4379d7c4cf073a47028db78174f35b91508c4f59c20a03a29d30"
+    },
+    {
+      "id": "thornwarden",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "thornwarden",
+            "actualSizeThreeAxes": [
+              0.9948959946632385,
+              0.817008376121521,
+              0.42778439819812775
+            ],
+            "expectedNativeAxes": [
+              0.9948959946632385,
+              0.42778438329696655,
+              0.817008376121521
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "thornwarden",
+            "actualBearingBaseM": 0.9780979156494141,
+            "previousBearingBaseM": 0.9780979156494141,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.26460000872612,
+              0.9780979156494141,
+              -0.15876001119613647,
+              0.26460000872612,
+              1.4138059616088867,
+              0.15876001119613647
+            ],
+            "cover": [
+              -0.3968999981880188,
+              0.9040275812149048,
+              -0.21276000142097473,
+              0.3968999981880188,
+              1.7210359573364258,
+              0.21502439677715302
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "thornwarden",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.8240979611873627,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "thornwarden",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "f9943f7c783e1bc4ac17fcbafe524d0b71bc34eef623d31fd811560197fbc2d0"
+    },
+    {
+      "id": "verdantguard",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "verdantguard",
+            "actualSizeThreeAxes": [
+              1.0748430490493774,
+              0.8947910070419312,
+              0.4557233303785324
+            ],
+            "expectedNativeAxes": [
+              1.0748430490493774,
+              0.4557233452796936,
+              0.8947910070419312
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "verdantguard",
+            "actualBearingBaseM": 0.9703600406646729,
+            "previousBearingBaseM": 0.9703600406646729,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2858624756336212,
+              0.9703600406646729,
+              -0.1715175062417984,
+              0.2858624756336212,
+              1.459185004234314,
+              0.1715175062417984
+            ],
+            "cover": [
+              -0.4287937581539154,
+              0.887259840965271,
+              -0.22551751136779785,
+              0.4287937581539154,
+              1.7820508480072021,
+              0.23020581901073456
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "verdantguard",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.5563600361347198,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "verdantguard",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "bed5c5834deb421fe7b1a3ba349fd3be2b8ea940336afb26c0b73e288abdc395"
+    },
+    {
+      "id": "tempest",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "tempest",
+            "actualSizeThreeAxes": [
+              0.8457597494125366,
+              0.7989257574081421,
+              0.6429780125617981
+            ],
+            "expectedNativeAxes": [
+              0.8457597494125366,
+              0.6429780125617981,
+              0.7989257574081421
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "tempest",
+            "actualBearingBaseM": 0.7592267990112305,
+            "previousBearingBaseM": 0.7592267990112305,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2551499903202057,
+              0.7592267990112305,
+              -0.1530900001525879,
+              0.2551499903202057,
+              1.1470547914505005,
+              0.1530900001525879
+            ],
+            "cover": [
+              -0.4228798747062683,
+              1.0089060068130493,
+              -0.32148900628089905,
+              0.4228798747062683,
+              1.289376974105835,
+              0.32148900628089905
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "55b8c0384355eacf4963815db42a88bc1f7c6a26a2e3183232b8f4d2a372c96d"
+    },
+    {
+      "id": "stormcitadel",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "stormcitadel",
+            "actualSizeThreeAxes": [
+              0.6874874830245972,
+              0.7075875401496887,
+              0.3812195360660553
+            ],
+            "expectedNativeAxes": [
+              0.6874874830245972,
+              0.3812195360660553,
+              0.7075875997543335
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "stormcitadel",
+            "actualBearingBaseM": 0.8289484977722168,
+            "previousBearingBaseM": 0.8289484977722168,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.22916249930858612,
+              0.8289484977722168,
+              -0.13749749958515167,
+              0.22916249930858612,
+              1.2063028216362,
+              0.13749749958515167
+            ],
+            "cover": [
+              -0.3437437415122986,
+              0.7647982835769653,
+              -0.19149750471115112,
+              0.3437437415122986,
+              1.472385823726654,
+              0.18972203135490417
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "stormcitadel",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.6749485433101654,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "stormcitadel",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "edbc9bd55646021df28c96b1937004aaef491103fa8723c2df6c1f791fe61136"
+    },
+    {
+      "id": "embercrown",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "366b6eeb7f5a15c324b8bd9c697653e2d434720d44c2ebf723da5ace5d66d777"
+    },
+    {
+      "id": "worldfire",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "e4522bad4e7648999b6e5f3eac1ade2f460385a4c90e6eda0911ee616e8d6bbb"
+    },
+    {
+      "id": "starfall",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "e43a2a78d17e3044e42e793bffaa9c43966e345feebf0f1dbe96f44b4db3d3c6"
+    },
+    {
+      "id": "thunderheart",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "thunderheart",
+            "actualSizeThreeAxes": [
+              0.37506547570228577,
+              0.3791769742965698,
+              0.28873150050640106
+            ],
+            "expectedNativeAxes": [
+              0.37506547570228577,
+              0.28873151540756226,
+              0.3791769742965698
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "thunderheart",
+            "actualBearingBaseM": 1.3723000288009644,
+            "previousBearingBaseM": 1.3723000288009644,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "e9e37a93e597740f99267719c25feec8922d4e99067c0396ca4bfb8ea44b5f78"
+    },
+    {
+      "id": "phoenix",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "phoenix",
+            "actualSizeThreeAxes": [
+              0.5627956986427307,
+              0.4731341600418091,
+              0.4278581738471985
+            ],
+            "expectedNativeAxes": [
+              0.5627956986427307,
+              0.4278581738471985,
+              0.4731341600418091
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "phoenix",
+            "actualBearingBaseM": 1.3723000288009644,
+            "previousBearingBaseM": 1.3723000288009644,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.16978499293327332,
+              1.3723000288009644,
+              -0.2818710207939148,
+              0.16978499293327332,
+              1.5694392919540405,
+              -0.07812902331352234
+            ],
+            "cover": [
+              -0.28139784932136536,
+              1.4881887435913086,
+              -0.393929123878479,
+              0.28139784932136536,
+              1.6566998958587646,
+              0.03392904996871948
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "a1560923acaa874da07b800d7280981192a5bffa1e1656ddb6abb6ad5bef2b37"
+    },
+    {
+      "id": "greenheart",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "greenheart",
+            "actualSizeThreeAxes": [
+              0.8426052629947662,
+              0.890511691570282,
+              0.3719065487384796
+            ],
+            "expectedNativeAxes": [
+              0.8426052331924438,
+              0.3719065487384796,
+              0.8905116319656372
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "greenheart",
+            "actualBearingBaseM": 0.8401047587394714,
+            "previousBearingBaseM": 0.8401047587394714,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.22207500040531158,
+              0.8401047587394714,
+              -0.13324499130249023,
+              0.22207500040531158,
+              1.196411907672882,
+              0.13324499130249023
+            ],
+            "cover": [
+              -0.333112508058548,
+              0.7795325517654419,
+              -0.18724499642848969,
+              0.333112508058548,
+              1.4589536786079407,
+              0.18466155230998993
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "f71510dbf6b7353fb651fb924fc1a06b42929ba18d21432b8fc7c6ecc12c9bab"
+    },
+    {
+      "id": "eldergrove",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "eldergrove",
+            "actualSizeThreeAxes": [
+              0.8828704059123993,
+              1.1100301146507263,
+              0.46886320412158966
+            ],
+            "expectedNativeAxes": [
+              0.8828704357147217,
+              0.46886318922042847,
+              1.1100300550460815
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "eldergrove",
+            "actualBearingBaseM": 0.7880390882492065,
+            "previousBearingBaseM": 0.7880390882492065,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.21735000610351562,
+              0.7880390882492065,
+              -0.13041000068187714,
+              0.21735000610351562,
+              1.1413536667823792,
+              0.13041000068187714
+            ],
+            "cover": [
+              -0.32602500915527344,
+              0.727975606918335,
+              -0.1844099909067154,
+              0.32602500915527344,
+              1.396015226840973,
+              0.18128789961338043
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "eldergrove",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.6340391337871552,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "eldergrove",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "03ccbb335357b0bbd86ac03a7412b0a4502e9dd016c9ee6cbfde2c2ee9976820"
+    },
+    {
+      "id": "kingsreach",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "8f75edab27b5ddf1441a069edf24a016c3ed572f91e21e9797638767d011779b"
+    },
+    {
+      "id": "sunward",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "sunward",
+            "actualSizeThreeAxes": [
+              0.822654664516449,
+              0.8683576583862305,
+              0.44485239684581757
+            ],
+            "expectedNativeAxes": [
+              0.822654664516449,
+              0.44485241174697876,
+              0.8683576583862305
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "sunward",
+            "actualBearingBaseM": 0.8684083819389343,
+            "previousBearingBaseM": 0.8684083819389343,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.22207500040531158,
+              0.8684083819389343,
+              -0.13324499130249023,
+              0.22207500040531158,
+              1.234091877937317,
+              0.13324499130249023
+            ],
+            "cover": [
+              -0.2842560112476349,
+              0.850124180316925,
+              -0.18627329170703888,
+              0.2842560112476349,
+              1.285287618637085,
+              0.2585791051387787
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "4fa3aa760bebf7af025e7b8e1d07e43af401e4dc34209e133c2c525bdd8cd41a"
+    },
+    {
+      "id": "winterhold",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "f5e1e8e83faaaa717215093bd2e33d47763a3649ac3dfefd411f1ef0238fb221"
+    },
+    {
+      "id": "dawnspire",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "dawnspire",
+            "actualSizeThreeAxes": [
+              0.5163660049438477,
+              0.4947524666786194,
+              0.5163660049438477
+            ],
+            "expectedNativeAxes": [
+              0.5163660049438477,
+              0.5163660049438477,
+              0.4947524070739746
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "dawnspire",
+            "actualBearingBaseM": 0.9632806777954102,
+            "previousBearingBaseM": 0.9632806777954102,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.20317499339580536,
+              0.9632806777954102,
+              -0.12190500646829605,
+              0.20317499339580536,
+              1.302131474018097,
+              0.12190500646829605
+            ],
+            "cover": [
+              -0.20096014440059662,
+              1.1868420243263245,
+              -0.1730961948633194,
+              0.20096014440059662,
+              1.3495705723762512,
+              0.15615899860858917
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "665f896dd35c16c657fe9da4e897659a807f5998df80709831e4e53f7ad6c0be"
+    },
+    {
+      "id": "royalmarshal",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "royalmarshal",
+            "actualSizeThreeAxes": [
+              0.6248340010643005,
+              0.7096531391143799,
+              0.5138955116271973
+            ],
+            "expectedNativeAxes": [
+              0.6248340010643005,
+              0.5138955116271973,
+              0.7096531391143799
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "royalmarshal",
+            "actualBearingBaseM": 1.0410066843032837,
+            "previousBearingBaseM": 1.0410066843032837,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.26932501792907715,
+              1.0410066843032837,
+              -0.16159500181674957,
+              0.26932501792907715,
+              1.3935232162475586,
+              0.16159500181674957
+            ],
+            "cover": [
+              -0.26638904213905334,
+              1.2576724290847778,
+              -0.21921586990356445,
+              0.26638904213905334,
+              1.4428755044937134,
+              0.20114099979400635
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "e945cfa0c34c1439cf6af814e4eb5eda3ffb49cc72d3e19551a282cf10e979e3"
+    },
+    {
+      "id": "stonewarden",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "ee565f46a992cc6b4b1b6ff977be5a9783bf07c564fc1b7a6de9b9d958d1d3e9"
+    },
+    {
+      "id": "wyvernhunter",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "wyvernhunter",
+            "actualSizeThreeAxes": [
+              0.7725375294685364,
+              0.816978394985199,
+              0.41847141087055206
+            ],
+            "expectedNativeAxes": [
+              0.7725375294685364,
+              0.41847139596939087,
+              0.816978394985199
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "wyvernhunter",
+            "actualBearingBaseM": 0.9300777912139893,
+            "previousBearingBaseM": 0.9300777912139893,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.25751250982284546,
+              0.9300777912139893,
+              -0.15450750291347504,
+              0.25751250982284546,
+              1.3867332935333252,
+              0.15450750291347504
+            ],
+            "cover": [
+              -0.3862687647342682,
+              0.8524463772773743,
+              -0.2085074931383133,
+              0.3862687647342682,
+              1.6694247722625732,
+              0.20996391773223877
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "wyvernhunter",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.7760778367519379,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "wyvernhunter",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "f5972d3117e598c0c5d3dfc8b81350998d7e579e8fc2df63e4df2a892b8479b1"
+    },
+    {
+      "id": "royalarsenal",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "710a7647a61d65f5f8456802ab19075a662718e43219fb5bb1397a4357214e74"
+    },
+    {
+      "id": "rangermentor",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "e2b3bf4dfaa956e25e867cac0d4f07df30ec0f2241aefddfbdee4cd5a87936d5"
+    },
+    {
+      "id": "kingdomprotector",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "kingdomprotector",
+            "actualSizeThreeAxes": [
+              0.4833674728870392,
+              0.5203559994697571,
+              0.3515399992465973
+            ],
+            "expectedNativeAxes": [
+              0.4833674728870392,
+              0.3515399992465973,
+              0.5203559994697571
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "kingdomprotector",
+            "actualBearingBaseM": 0.9463445544242859,
+            "previousBearingBaseM": 0.9463445544242859,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "kingdomprotector",
+            "actualSizeM": [
+              1.0577171444892883,
+              0.7923445999622345,
+              0.47996872663497925
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "kingdomprotector",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "268d039ca8b35a38f787f4274c2bc82ee9444679061c4fdbad483eaf38f3f01d"
+    },
+    {
+      "id": "mothernature",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "fea9acf3df2a82a3508f3eb4bd1b581d3c936cf3029d65bcaf9b95d5dc0102ea"
+    },
+    {
+      "id": "royalranger",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "royalranger",
+            "actualSizeThreeAxes": [
+              0.6046087741851807,
+              0.5708891749382019,
+              0.39145126938819885
+            ],
+            "expectedNativeAxes": [
+              0.6046087741851807,
+              0.39145126938819885,
+              0.5708892345428467
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "royalranger",
+            "actualBearingBaseM": 0.9343395233154297,
+            "previousBearingBaseM": 0.9343395233154297,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.2315250039100647,
+              0.9343395233154297,
+              -0.13891500234603882,
+              0.2315250039100647,
+              1.2911452651023865,
+              0.13891500234603882
+            ],
+            "cover": [
+              -0.22900110483169556,
+              1.1649226546287537,
+              -0.19286178052425385,
+              0.22900110483169556,
+              1.5052286982536316,
+              0.17543700337409973
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "royalranger",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.7803395688533783,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "royalranger",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "f9f8afe0da426e9d73d6273f50e3f04e2312b536b9b130ecea4bcdcbb534d594"
+    },
+    {
+      "id": "kingsrangerguard",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "kingsrangerguard",
+            "actualSizeThreeAxes": [
+              0.7441874742507935,
+              0.772962749004364,
+              0.4060541242361069
+            ],
+            "expectedNativeAxes": [
+              0.7441874742507935,
+              0.40605413913726807,
+              0.7729628086090088
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "kingsrangerguard",
+            "actualBearingBaseM": 0.9257380366325378,
+            "previousBearingBaseM": 0.9257380366325378,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.24806249141693115,
+              0.9257380366325378,
+              -0.14883749186992645,
+              0.24806249141693115,
+              1.3446881175041199,
+              0.14883749186992645
+            ],
+            "cover": [
+              -0.37209373712539673,
+              0.8545165061950684,
+              -0.2028374969959259,
+              0.37209373712539673,
+              1.6274792551994324,
+              0.20321662724018097
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "kingsrangerguard",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.5117380917072296,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "kingsrangerguard",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "4d983b7d5a78446b88c76751e5f7e482a2e97bad82b41cb7ed0866b5418a0a47"
+    },
+    {
+      "id": "elvenking",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "elvenking",
+            "actualSizeThreeAxes": [
+              0.9682469964027405,
+              0.8606759309768677,
+              0.6307762861251831
+            ],
+            "expectedNativeAxes": [
+              0.9682469964027405,
+              0.6307762861251831,
+              0.8606759309768677
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "elvenking",
+            "actualBearingBaseM": 0.9479755163192749,
+            "previousBearingBaseM": 0.9479755163192749,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.25751250982284546,
+              0.9479755163192749,
+              -0.15450750291347504,
+              0.25751250982284546,
+              1.4046310186386108,
+              0.15450750291347504
+            ],
+            "cover": [
+              -0.38931500911712646,
+              0.7394193410873413,
+              -0.2204286754131317,
+              0.38931500911712646,
+              1.4685628414154053,
+              0.2253892719745636
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "elvenking",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.7939755618572235,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "elvenking",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "0e308158595941aa7d771ede801b012e446b37b18f66f9da60bb6327acfa74fa"
+    },
+    {
+      "id": "fireballista",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "101b0709bc568679430f50f74886557e6ddf4dd0ac2c87a400965ff1669d0954"
+    },
+    {
+      "id": "emeraldgolem",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "ab239a6909af151c2d51b5fadd844f74f2ee2eee95d49d58fe9cccd5ff6fe866"
+    },
+    {
+      "id": "griffinbomber",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "griffinbomber",
+            "actualSizeThreeAxes": [
+              0.38274478912353516,
+              0.3681333065032959,
+              0.3340957909822464
+            ],
+            "expectedNativeAxes": [
+              0.38274478912353516,
+              0.3340957760810852,
+              0.3681333065032959
+            ],
+            "maxDeviationM": 1.4901161193847656e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "griffinbomber",
+            "actualBearingBaseM": 1.3270000219345093,
+            "previousBearingBaseM": 1.3270000219345093,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.16217999160289764,
+              1.3270000219345093,
+              0.002692006528377533,
+              0.16217999160289764,
+              1.5153090953826904,
+              0.1973080113530159
+            ],
+            "cover": [
+              -0.1604120433330536,
+              1.43770170211792,
+              -0.034452758729457855,
+              0.1604120433330536,
+              1.5416722297668457,
+              0.22252241522073746
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "db3bcd2c19f04f2373dc366ac091da09a66d9109e1e9a78f81bd5ea3a3368346"
+    },
+    {
+      "id": "mechanicalgolem",
+      "checks": [],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "a1331ba9cf1d7e67fcbd3abbb2402e8bf673bf38d9accb2d3087fec87e0200a2"
+    },
+    {
+      "id": "archbishop",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "archbishop",
+            "actualSizeThreeAxes": [
+              0.47391751408576965,
+              0.8037856221199036,
+              0.3473212420940399
+            ],
+            "expectedNativeAxes": [
+              0.47391751408576965,
+              0.3473212420940399,
+              0.8037855625152588
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "archbishop",
+            "actualBearingBaseM": 0.933626651763916,
+            "previousBearingBaseM": 0.933626651763916,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.20081248879432678,
+              0.933626651763916,
+              -0.12048749625682831,
+              0.20081248879432678,
+              1.1879892945289612,
+              0.12048749625682831
+            ],
+            "cover": [
+              -0.1986234039068222,
+              1.0881641507148743,
+              -0.1714489459991455,
+              0.1986234039068222,
+              1.2235999703407288,
+              0.15455250442028046
+            ]
+          }
+        },
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "archbishop",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.7796266973018646,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "archbishop",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "c6455c4ca6f53bc433cd59f8efc382fe82a133e1febbc4aa6d2359fe6e86cb75"
+    },
+    {
+      "id": "archangel",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "archangel",
+            "actualSizeThreeAxes": [
+              0.4725179970264435,
+              0.5374321937561035,
+              0.4725179970264435
+            ],
+            "expectedNativeAxes": [
+              0.4725179970264435,
+              0.4725179970264435,
+              0.5374321937561035
+            ],
+            "maxDeviationM": 0
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "archangel",
+            "actualBearingBaseM": 0.9339404106140137,
+            "previousBearingBaseM": 0.9339404106140137,
+            "driftM": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "298223320965eb264d9f911226fb2f79a15764eb86df2aa461799cd618593429"
+    },
+    {
+      "id": "ladyclaire",
+      "checks": [
+        {
+          "name": "actual whole head and all attached covers retain contracted dimensions",
+          "passed": true,
+          "measurements": {
+            "id": "ladyclaire",
+            "actualSizeThreeAxes": [
+              0.7860619723796844,
+              1.060324490070343,
+              0.6635225117206573
+            ],
+            "expectedNativeAxes": [
+              0.7860620021820068,
+              0.663522481918335,
+              1.0603244304656982
+            ],
+            "maxDeviationM": 5.960464477539063e-8
+          }
+        },
+        {
+          "name": "actual seated jaw or helmet base remains at the real rest bearing elevation",
+          "passed": true,
+          "measurements": {
+            "id": "ladyclaire",
+            "actualBearingBaseM": 1.2400000095367432,
+            "previousBearingBaseM": 1.2400000095367432,
+            "driftM": 0
+          }
+        },
+        {
+          "name": "actual head cover stays registered over the physical face",
+          "passed": true,
+          "measurements": {
+            "face": [
+              -0.21279998938553035,
+              1.2400000095367432,
+              -0.21899998933076859,
+              0.2048000164795667,
+              1.6105000972747803,
+              0.0690000057220459
+            ],
+            "cover": [
+              -0.397750013275072,
+              0.8810977339744568,
+              -0.2883000150322914,
+              0.38831195910461247,
+              1.7182304859161377,
+              0.37522249668836594
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "category": "champions",
+      "actualGlbSha256": "a948a1016210a374c0cf9aeada05a077fbe8c8d7a042dcbe124f9ff8af90cf6b"
+    },
+    {
+      "id": "host_01",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_01",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.5182570517063141,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_01",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "3117a630e2bbe276cb1efbab3c2ef86abd20598e8c3bcd4af71146327b89390d"
+    },
+    {
+      "id": "host_03",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "d32dcbe98b13c45104d107096583170c7cd325e2f37166812a83b37197400e85"
+    },
+    {
+      "id": "host_06",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "f7d3b30c83778f8d5d509d33e69f831735603f5b8b5ac0acd23500b494ce3b06"
+    },
+    {
+      "id": "host_02",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "62e6d11cd5c9bf89484d5fc6df6989ec0eb3856bc3e5a6a99de70172757cd0f0"
+    },
+    {
+      "id": "host_04",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "093c1d6a720d7249308b5a30ed7f25e0a97eaa76da8f2e50c852e4ab3ae76f68"
+    },
+    {
+      "id": "host_05",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "47261478ae49b09a082d2836a1f8e34f3da8e8489518ff6d4c99ac10ecc8e26a"
+    },
+    {
+      "id": "host_07",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_07",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.5840772092342377,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_07",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "691abef8be1e6b25749124ad633728892f59ba64fdee78849561201957dc6db9"
+    },
+    {
+      "id": "host_08",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_08",
+            "actualSizeM": [
+              1.1480570435523987,
+              1.14248788356781,
+              0.4805120825767517
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1338
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_08",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "9a784b914a3a334cc8d6a35086947dd997b10bc9bb4bc464ef4fa60acbaee07d"
+    },
+    {
+      "id": "host_09",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_09",
+            "actualSizeM": [
+              0.5741893351078033,
+              0.3803353011608124,
+              0.4593839943408966
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_09",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "3fde274aa3354860d9ce68ab1a19ef342a64d51643758a2b502e65abc19643c0"
+    },
+    {
+      "id": "host_10",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "8423bc756de9fd75fcc68a8cf6bb4d1510925eb8b8e46902b66647d665f7896a"
+    },
+    {
+      "id": "host_11",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "908704cb82ba117ce4a5aedee43e79a3c4e155b2f3497ae6008c30792f29ca55"
+    },
+    {
+      "id": "host_12",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "6869141e91b26dc392eddc35a391751e113f37570c44d1a8fc00968e680eb6fa"
+    },
+    {
+      "id": "host_13",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "ae83b2facf9534325c7a7464d0a7c53c69dc6d14137ff717e4dc9b499e79634f"
+    },
+    {
+      "id": "host_14",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "d67af1d68d8d5d7d90152ae4e7cd9d6993986c764c210c360648d3b7b42cd71e"
+    },
+    {
+      "id": "host_15",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "c28a4513c38fa4666e6172c8bf433b903dafa14c359e6564302b6e67e7dacca6"
+    },
+    {
+      "id": "host_16",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "a39606dbbb16461d3b94709d0d7a63d5808ca34979dbc0905e7ad0c0d1ecbafd"
+    },
+    {
+      "id": "host_17",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "41182447eb0f7ccad8738f69d93e9aa02b75d1a45d4acd8e7f4f604fc7423e6d"
+    },
+    {
+      "id": "host_18",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_18",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.540904313325882,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_18",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "5ea12a2dcf3cb24620fe5247715f3f54bfc54aad401f5763edde0ae95746dbd0"
+    },
+    {
+      "id": "host_19",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "c6a4122b77494bfb23503eb4bb3ddf5b899eae31b1d0be228cd4e4e9b458c241"
+    },
+    {
+      "id": "host_20",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "4dbae2db388d67b8dcd8882192cf77fb365545ed5479db82c1af54a41db2214c"
+    },
+    {
+      "id": "host_21",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "2051e3ade40f5bc7f3181670f07b23baa7a396bfdf84faa01c9edaaac4542288"
+    },
+    {
+      "id": "host_22",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "4b49d90ff00e7483c71c3a724a0f5bfd779eb8530e787f91f93e7dee43f3c601"
+    },
+    {
+      "id": "host_23",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_23",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.3945086896419525,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_23",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "7d20286c6c3ed081fb6568db48772be099426b6429bbb7cf849df715b22f935c"
+    },
+    {
+      "id": "host_24",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "8cd60f936ff0ea0f8b2837c693ca7f99db88d3a1aa70ad6de557f166ba6eef8b"
+    },
+    {
+      "id": "host_25",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "43de57464faa4f727eca9e68d421d272a46175ab8956604f9d90ae2af5a3f552"
+    },
+    {
+      "id": "host_26",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "8310938ce3d53da685a221069a63a865f0ea6ca17b797f35ad246a2a3cf2df77"
+    },
+    {
+      "id": "host_27",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "9c7c870e5e1a3a239b2616043959f12ec2b156d695f4b3e91ae3c8f2a3fbad5f"
+    },
+    {
+      "id": "host_28",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "15e1fd9f921c6feede068625561da52fb2f328d43903369ae983d97c4a80db2b"
+    },
+    {
+      "id": "host_29",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "ec08feb581a15c1b48bc986d055497cfdf124e9d2656569c586df32cbeb996fb"
+    },
+    {
+      "id": "host_30",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "f9df14fc0fd931df5ca1393446a4fc34d7840b878011982d393e56418d305f5f"
+    },
+    {
+      "id": "host_31",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_31",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.4958314597606659,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_31",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "3cf533d377253bda386441a273e02822b55977e33c0eaba48e9291a0eedabd3e"
+    },
+    {
+      "id": "host_32",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "6c754806ad23eb25aac974ffff460526e50427e73dfc21201fdf71add04455e5"
+    },
+    {
+      "id": "host_33",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_33",
+            "actualSizeM": [
+              0.747957170009613,
+              0.6849684417247772,
+              0.3911399319767952
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_33",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "659bd48c69da28fde6c2fc8b5844619c2a2e9bd70d55eb573f646303cda8cdec"
+    },
+    {
+      "id": "host_34",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "8f547e66643a31d949df622bbac62847ad8412d04518b10ec98a2273f069e42d"
+    },
+    {
+      "id": "host_35",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "a5b2feacc256a1220a961263242563c910d821e1c3359556d552dde5b9c1860a"
+    },
+    {
+      "id": "host_36",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "68093cd185984b1a73d70158680bedb1318012f974e0a925394055872cc50622"
+    },
+    {
+      "id": "host_37",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "295221bbafc60a453b149734e2c276063d781fceda412b217b3d2972e8a62ac8"
+    },
+    {
+      "id": "host_38",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_38",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.5747999250888824,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_38",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "ff26afe8a4cd7bc454ff4d68bdc53d16120047d659e45a1e1cd2110c8a1d458a"
+    },
+    {
+      "id": "host_39",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "ac22d2c850c0407131a84781ab4e403424ed5dc1300fd490dc84fdbb97b497e0"
+    },
+    {
+      "id": "host_40",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "e686f80fc57fcef6b4c480b2816082c70058c7abe32ccc383959636c481f21a2"
+    },
+    {
+      "id": "host_41",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "254170c793d4d4aae6f50ed86b7bd955da12687bb78628c9ceb690627e6dbd03"
+    },
+    {
+      "id": "host_42",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "388935d9f32ff14f553296d789c09288b34076c15b58f7c499da5c0d435c1a2c"
+    },
+    {
+      "id": "host_43",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "56050aa64a9e9b9c370481df8e0510e8cd700b7bc52eb2005e1a3112c9bec98c"
+    },
+    {
+      "id": "host_44",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_44",
+            "actualSizeM": [
+              0.9066147804260254,
+              0.5840772092342377,
+              0.4735359847545624
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_44",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "d424d4f5716d5b9515ff2751a83d9bcfb2751159f6687a547637606cffb4236f"
+    },
+    {
+      "id": "host_45",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "9245bcb6d8823da17bb9d1cda2c4971bc6aae76541ebc12161b3fcdfb8943b90"
+    },
+    {
+      "id": "host_46",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "560502266cd550d844aeaf1795a5cb03f880e61a27d6b66aae0dfa4bb74ebe03"
+    },
+    {
+      "id": "host_47",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "7b289a1dcfc6a52fe86a25b5ce9494552a2a38fc9ade92e01a089d78e28f3744"
+    },
+    {
+      "id": "host_48",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_48",
+            "actualSizeM": [
+              0.620124489068985,
+              0.15359997749328613,
+              0.3569540213793516
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_48",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "f9284981561aa89b9c407700e2327b829a2c49e0c5d13575940efed6ae0ea9f7"
+    },
+    {
+      "id": "host_49",
+      "checks": [],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "e966a9f86d98a3521ce15de3e524e5de838b19fe986a219cdc3cb87fb83938e9"
+    },
+    {
+      "id": "host_50",
+      "checks": [
+        {
+          "name": "cloak has actual wrapped depth and multiple physical drape stations",
+          "passed": true,
+          "measurements": {
+            "id": "host_50",
+            "actualSizeM": [
+              0.620124489068985,
+              0.3511999845504761,
+              0.3569540213793516
+            ],
+            "actualDistinctDrapeHeights": 19,
+            "actualVertices": 1326
+          }
+        },
+        {
+          "name": "folded cloak is actual closed cloth volume",
+          "passed": true,
+          "measurements": {
+            "id": "host_50",
+            "weldedVertices": 350,
+            "triangleEdges": 1044,
+            "unmatchedEdges": 0,
+            "collapsedTriangles": 0
+          }
+        }
+      ],
+      "failures": [],
+      "category": "enemies",
+      "actualGlbSha256": "2acfae1795ae1a22142ed41558f7e9c69337b58ba41dd35dc7148c3062a06007"
+    }
+  ]
+}

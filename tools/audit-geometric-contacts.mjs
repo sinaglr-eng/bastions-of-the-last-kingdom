@@ -26,7 +26,7 @@ export async function auditGeometricContacts(file,{stages=[.21,.42,.58],walking=
   const enemy={...enemyData[id],id:0,type:id,speed:1,traveled:0,statuses:{},flying:metadata.locomotion==='flying'},figure=enemyFigure(enemy,new Map([[id,source]]));
   animateGeometricEnemyMotion(figure,enemy,0,{moving:false});animateGeometricEnemyMotion(figure,enemy,.75,{moving:false});measure('actual-idle',figure.userData.body);
   if(walking){for(const [time,traveled] of [[1,.07],[1.3,.14],[1.6,.23]]){enemy.traveled=traveled;animateGeometricEnemyMotion(figure,enemy,time);measure('actual-gait-'+time,figure.userData.body);}}
-  scaleBattlefieldUnit(figure);animateGeometricEnemyMotion(figure,enemy,2,{moving:false});measure('battlefield-idle-'+BATTLEFIELD_UNIT_SCALE,figure.userData.body);
+  scaleBattlefieldUnit(figure,enemy);animateGeometricEnemyMotion(figure,enemy,2,{moving:false});measure('battlefield-idle-'+BATTLEFIELD_UNIT_SCALE,figure.userData.body);
   const failures=poses.flatMap(pose=>pose.failures.map(failure=>({pose:pose.name,...failure}))),coverageFailures=poses.flatMap(pose=>pose.coverage.failures.map(failure=>({pose:pose.name,...failure}))),changedDuringRead=assetSha256!==sha(readFileSync(file));
   disposeAttack(rig);disposeDefenderInstance(actor);disposeEnemyFigure(figure);disposeDecodedGeometricAsset(gltf);
   return {file:relative(project,file).replaceAll('\\','/'),id,assetSha256,sourceSha256:metadata.sourceSha256,locomotion:metadata.locomotion,attackStyle:metadata.attackStyle,bowPlane:metadata.bowPlane,changedDuringRead,poses,failures,coverageFailures};

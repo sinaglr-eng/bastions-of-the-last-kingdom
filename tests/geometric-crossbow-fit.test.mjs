@@ -87,8 +87,8 @@ test('actual Greenheart staff focus/branches connect to the weapon and Nature Sp
   for(const fork of forks)assert.equal(physicalSurfaceGap(shaft,[fork]).gap,0,'actual wooden fork begins on the shaft');
   assert.ok(descendant(actor.getObjectByName('staff_tip'),weapon)&&descendant(actor.getObjectByName('attack_muzzle'),weapon));
   const spirit=await load('mothernature'),body=cloneDefenderTemplate(spirit.scene),head=body.getObjectByName('head_pivot');
-  const metadata=geometricMetadata(body);assert.equal(metadata.integratedHeadInTorso,true);assert.equal(metadata.natureSpiritFaceContract,'unified-living-wood-leaf-body-face-v4');
-  const torso=body.getObjectByName('torso_pivot'),face=partMeshes(body,/^Nature unified living wood leaf body with integrated face$/i),eyes=partMeshes(body,/^Nature integrated luminous almond eye$/i);
+  const metadata=geometricMetadata(body);assert.equal(metadata.integratedHeadInTorso,true);assert.equal(metadata.natureSpiritFaceContract,'unified-living-body-recessed-almond-eyes-v5');
+  const torso=body.getObjectByName('torso_pivot'),face=partMeshes(body,/^Nature unified living wood leaf body with integrated face$/i),eyes=partMeshes(body,/^Nature (?:integrated luminous almond eye|V5 flush recessed living almond light)$/i);
   assert.ok(face.length>0);assert.equal(eyes.length,2);
   assert.equal(meshes(head,node=>/face|skin|eye/i.test(node.userData.semanticPart||node.name)).length,0,'face and eyes are absent from a separate head');
   assert.ok([...face,...eyes].every(node=>descendant(node,torso)&&!descendant(node,head)),'real face surfaces belong to the living body');

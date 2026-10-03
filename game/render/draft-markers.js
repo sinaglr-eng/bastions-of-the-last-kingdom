@@ -1,12 +1,25 @@
 import * as THREE from 'three';
 import {recipeFamily,recipeLabel} from '../core/recipes.js';
-import {releaseAsset} from '../release.js';
+import {defenderPortrait} from '../release.js';
+import {RecipeMarkerActivation} from '../../ui/recipe-marker-input.js';
+import {PointerTapGesture} from './touch-input.js';
 
 // Independent world-space markers: aiming and recoil never move the round indicators.
 export class DraftMarkers {
   constructor(scene,container){
     this.scene=scene;this.container=container;this.items=new Map();this.badges=new Map();this.reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.layer=document.createElement('div');this.layer.className='recipe-map-badges';container.append(this.layer);
+    this.activation=new RecipeMarkerActivation();this.gesture=new PointerTapGesture();this.pointers=new Map();
+    this.layer.addEventListener('pointerdown',event=>{const button=event.target.closest?.('.recipe-map-badge');if(!button)return;this.gesture.start(event);this.pointers.set(event.pointerId,button);});
+    this.layer.addEventListener('pointermove',event=>this.gesture.move(event));
+    this.layer.addEventListener('pointerup',event=>{
+      const button=this.pointers.get(event.pointerId);this.pointers.delete(event.pointerId);
+      if(!this.gesture.end(event)||button!==event.target.closest?.('.recipe-map-badge')){this.activation.clear();return;}
+      if(button?.dataset.role==='discarded'){this.activation.clear();this.game.select(Number(button.dataset.tower));return;}
+      if(button)this.activation.activate(this.game,Number(button.dataset.tower),button.dataset.recipe,event);
+    });
+    this.cancel=()=>{this.activation.clear();this.gesture.clear();this.pointers.clear();};
+    this.layer.addEventListener('pointercancel',this.cancel);window.addEventListener('blur',this.cancel);
     this.lines=document.createElementNS('http://www.w3.org/2000/svg','svg');this.lines.classList.add('recipe-map-links');this.layer.append(this.lines);
     this.legend=document.createElement('div');this.legend.className='recipe-map-legend';this.legend.hidden=true;container.append(this.legend);
   }
@@ -20,6 +33,7 @@ export class DraftMarkers {
     group.traverse(o=>o.renderOrder=20);group.userData={texture,sprite};this.scene.add(group);return group;
   }
   sync(game,models){
+    this.game=game;
     const candidates=game.roundCandidates,ids=new Set(candidates.map(c=>c.tower.id)),hints=game.combinationHints,hintIds=new Set(hints.map(h=>h.tower.id));
     for(const [id,marker] of this.items)if(!ids.has(id)){this.release(marker);this.items.delete(id);}
     for(const {tower,number} of candidates){
@@ -37,12 +51,18 @@ export class DraftMarkers {
       const number=candidates.find(c=>c.tower.id===tower.id)?.number;
       const name=recipeLabel(recipe,game.data),label=role==='result'?`${name}: result here`:role==='consumed'?`${name}: this ingredient becomes a wall`:role==='discarded'?'Unchosen candidate becomes a wall':`${name}: combination available`;
       badge.el.className=`recipe-map-badge ${role==='result'?'recipe-result':role}`;badge.line.setAttribute('stroke',role==='result'?'#ffdb83':role==='consumed'?'#e89479':'#b9d2c5');badge.el.setAttribute('aria-label',label);badge.el.title=label;
-      badge.el.innerHTML=`<span class="recipe-map-portrait">${role==='discarded'?'<span class="wall-glyph">♜</span>':`<img src="${releaseAsset(`assets/army/${recipeFamily(recipe)}-t1.png`)}" alt="">`}</span><b>${role==='result'?'★':role==='consumed'?'−':role==='discarded'?'×':'+'}</b>${number?`<small>${number}</small>`:''}`;
-      badge.el.onclick=()=>{game.select(tower.id);if(role!=='discarded')game.previewRecipe(recipe.id);};
+      badge.el.dataset.tower=String(tower.id);badge.el.dataset.recipe=recipe.id;badge.el.dataset.role=role;
+      if(role!=='discarded')badge.el.title+=' · Double-click or double-tap to create here';
+      badge.el.innerHTML=`<span class="recipe-map-portrait">${role==='discarded'?'<span class="wall-glyph">♜</span>':`<img src="${defenderPortrait(recipeFamily(recipe),1)}" alt="">`}</span><b>${role==='result'?'★':role==='consumed'?'−':role==='discarded'?'×':'+'}</b>${number?`<small>${number}</small>`:''}`;
+      badge.el.onclick=event=>{
+        if(event.detail>0||this.gesture.suppressClick(event))return;
+        if(role==='discarded'){this.activation.clear();game.select(tower.id);}
+        else this.activation.activate(game,tower.id,recipe.id);
+      };
       const body=models.get(tower.id)?.object;badge.height=body?new THREE.Box3().setFromObject(body).max.y:2;badge.tower=tower;
     }
     const preview=game.recipePreview;this.legend.hidden=!preview;
-    if(preview)this.legend.textContent=`${recipeLabel(preview.recipe,game.data)} · ★ result here · − ingredients → walls${preview.discarded.length?' · × unchosen → walls':''}`;
+    if(preview)this.legend.textContent=`${recipeLabel(preview.recipe,game.data)} · Double-click ★ to create here · − ingredients → walls${preview.discarded.length?' · × unchosen → walls':''}`;
   }
   update(time,camera,viewportHeight){
     for(const [id,marker] of this.items){
@@ -69,5 +89,5 @@ export class DraftMarkers {
     }
   }
   release(marker){this.scene.remove(marker);const materials=new Set();marker.traverse(o=>{o.geometry?.dispose();if(o.material)materials.add(o.material);});materials.forEach(m=>m.dispose());marker.userData.texture.dispose();}
-  dispose(){this.items.forEach(m=>this.release(m));this.items.clear();this.layer.remove();this.legend.remove();}
+  dispose(){this.cancel();window.removeEventListener('blur',this.cancel);this.items.forEach(m=>this.release(m));this.items.clear();this.badges.clear();this.layer.remove();this.legend.remove();}
 }

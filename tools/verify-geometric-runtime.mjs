@@ -9,7 +9,7 @@ import {enemyFigure,disposeEnemyFigure} from '../game/render/enemy-assets.js';
 import {attackRig,previewGeometricAttack,updateGeometricPreview,disposeAttack,beginDeath,animateDeath} from '../game/render/battle-animation.js';
 import {animateEnemyMotion} from '../game/render/enemy-motion.js';
 import {geometricMetadata} from '../game/render/geometric-motion.js';
-import {scaleBattlefieldUnit,BATTLEFIELD_UNIT_SCALE} from '../game/render/battlefield-scale.js';
+import {scaleBattlefieldUnit,BATTLEFIELD_UNIT_SCALE,enemyPresentationMultiplier} from '../game/render/battlefield-scale.js';
 
 const project=resolve(fileURLToPath(new URL('..',import.meta.url))),assetRoot=join(project,'public/assets/geometric');
 const roster=JSON.parse(readFileSync(join(project,'data/towers.json'))),enemyData=JSON.parse(readFileSync(join(project,'data/enemies.json')));
@@ -78,13 +78,13 @@ export async function auditGeometricRuntime(file){
   let minimum=Infinity;for(let i=0;i<26;i++){animateDeath(figure,.04);figure.updateMatrixWorld(true);minimum=Math.min(minimum,new THREE.Box3().setFromObject(figure.userData.body,true).min.y);}
   check('every actual corpse fall pose clears terrain',minimum>=.02499,minimum);check('death keeps every physical mesh',meshCount(figure)===deathCount);check('death preserves imported scale',JSON.stringify(figure.userData.body.scale.toArray())===JSON.stringify(bodyScale));
   const settled=transforms(figure);animateDeath(figure,800);animateEnemyMotion(figure,{...enemy,dead:true},1000);check('corpse remains stationary after settling',transforms(figure)===settled);
-  const scaledFigure=enemyFigure(enemy,new Map([[id,source]]));scaleBattlefieldUnit(scaledFigure);scaleBattlefieldUnit(scaledFigure);
+  const scaledFigure=enemyFigure(enemy,new Map([[id,source]]));scaleBattlefieldUnit(scaledFigure,enemy);scaleBattlefieldUnit(scaledFigure,enemy);const expectedScale=BATTLEFIELD_UNIT_SCALE*enemyPresentationMultiplier(enemy);
   const scaledOpacity=new Map();scaledFigure.userData.body.traverse(node=>{for(const material of Array.isArray(node.material)?node.material:[node.material])if(material)scaledOpacity.set(material,material.opacity);});
-  check('battlefield scale is private and applied exactly once',Math.abs(scaledFigure.scale.y-BATTLEFIELD_UNIT_SCALE)<1e-12&&source.scale.y===1);
+  check('battlefield scale is private and applied exactly once',Math.abs(scaledFigure.scale.y-expectedScale)<1e-12&&source.scale.y===1);
   scaledFigure.position.y=enemy.flying?.7:0;beginDeath(scaledFigure,enemy);let scaledMinimum=Infinity;
   for(let i=0;i<26;i++){animateDeath(scaledFigure,.04);scaledFigure.updateWorldMatrix(true,true);scaledMinimum=Math.min(scaledMinimum,new THREE.Box3().setFromObject(scaledFigure.userData.body,true).min.y);}
   check('every '+BATTLEFIELD_UNIT_SCALE+' battlefield corpse pose clears terrain in world metres',scaledMinimum>=.02499,scaledMinimum);
-  const scaledSettled=transforms(scaledFigure);animateDeath(scaledFigure,800);check('scaled corpse preserves imported opacity and remains stationary',transforms(scaledFigure)===scaledSettled&&scaledFigure.scale.y===BATTLEFIELD_UNIT_SCALE&&[...scaledOpacity].every(([material,opacity])=>material.opacity===opacity));
+  const scaledSettled=transforms(scaledFigure);animateDeath(scaledFigure,800);check('scaled corpse preserves imported opacity and remains stationary',transforms(scaledFigure)===scaledSettled&&scaledFigure.scale.y===expectedScale&&[...scaledOpacity].every(([material,opacity])=>material.opacity===opacity));
   check('cached source and peer clone remain unmodified',transforms(source)===nativeBefore&&transforms(peer)===peerBefore);
   check('shared native vertex buffers unchanged',[...vertices].every(([geometry,array])=>array.every((v,i)=>v===geometry.attributes.position.array[i])));
   const resources=new Set();source.traverse(node=>{if(node.geometry)resources.add(node.geometry);for(const material of Array.isArray(node.material)?node.material:[node.material])if(material)resources.add(material);});

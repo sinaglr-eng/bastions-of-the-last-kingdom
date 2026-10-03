@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "independentExtraction": true,
+  "zip": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v5-complete.zip",
+  "zipSHA256": "a4516a26e00db318d897230d5095e78788167bd1b999c3f84d8184f96f6b7243",
+  "bytes": 1384811170,
+  "entries": 4317,
+  "allInventoryStreamsCRCAndSHA256Verified": true,
+  "allExtractedFileHashesVerified": true,
+  "currentManifestModels": 136,
+  "nativeReplayBaselineModels": 136,
+  "newExtractionDirectory": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\zip-v5-independent-rebuild",
+  "dependencyLockSHA256": "79e11d19632564461493bd3f287f1789dda0c33a78565df737d0252dce06cf53",
+  "dependencyReuse": "Exact-lockfile cached node_modules junction",
+  "commands": [
+    {
+      "command": "pnpm test",
+      "exitCode": 0,
+      "log": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v5\\independent-archive-tests.log",
+      "logSHA": "74a059235e1b4b0e1cdce4def6e586631cfe75f07409de84dc9c026c7287796b",
+      "summary": {
+        "tests": 456,
+        "pass": 456,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "command": "pnpm build",
+      "exitCode": 0,
+      "log": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\output\\design\\geometric-game-v5\\independent-archive-build.log",
+      "logSHA": "8bde271fa03da00e951bb59484c690c5c1e804cc46c998c06db9c413f8e8e5ab"
+    }
+  ],
+  "productionBasePath": "/bastions-of-the-last-kingdom/",
+  "productionEntryPoints": [
+    "index.html",
+    "archer.html"
+  ],
+  "publicOriginalFilesUnchanged": 1970,
+  "archiveImmutableAfterRebuild": true,
+  "timestamp": "2026-10-03T15:34:10.866864+00:00"
+}

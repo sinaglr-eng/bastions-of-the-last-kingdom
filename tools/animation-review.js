@@ -4,6 +4,7 @@ import {attackRig,previewGeometricAttack,updateGeometricPreview,attackMuzzle,dis
 import {geometricMetadata,animateGeometricEnemyMotion} from '../game/render/geometric-motion.js';
 import {CombatEffects} from '../game/render/combat-effects.js';
 const groups={
+ '0.3.4 requested changes':['defenders/mage-1','defenders/mage-5','defenders/mage-6','champions/ladyclaire','champions/frostblade','champions/roseguard','champions/highking','champions/crownofages','champions/thunderheart','champions/phoenix','champions/mothernature','champions/archangel'],
  'Defender weapons':['defenders/soldier-1','defenders/soldier-6','defenders/archer-6','defenders/runebreaker-6','defenders/cleric-6','defenders/mage-6','defenders/druid-6','defenders/frostwarden-6','defenders/stormcaller-6'],
  'Champion weapons':['champions/rimewatch','champions/kingsrangerguard','champions/wyvernhunter','champions/royalranger','champions/mechanicalgolem','champions/emeraldgolem','champions/winterhold','champions/kingdomprotector','champions/kingsreach','champions/stonewarden','champions/griffinbomber','champions/archbishop'],
  'Mounted / flying':['champions/embercrown','champions/worldfire','champions/thunderheart','champions/phoenix','champions/rangermentor','champions/roseguard','champions/frostblade','champions/archangel','champions/starfall','enemies/host_15','enemies/host_28','enemies/host_40'],

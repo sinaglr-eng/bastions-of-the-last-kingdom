@@ -91,14 +91,15 @@ export function attackRig(actor,family,stats={}){
     }
   }
   rig.mouthAttack=rig.attackStyle==='breath'||!rig.attackStyle&&kind==='flame';
-  rig.muzzle=(family==='lordbernhard'?actor.getObjectByName('sword_tip'):rig.mouthAttack?actor.getObjectByName('attack_muzzle'):staffTip||heldMuzzle)||actor.getObjectByName('attack_muzzle')||null;
+  const swordTip=rig.attackStyle==='sword'?actor.getObjectByName('sword_tip'):null;
+  rig.muzzle=(family==='lordbernhard'?actor.getObjectByName('sword_tip'):rig.mouthAttack?actor.getObjectByName('attack_muzzle'):swordTip||staffTip||heldMuzzle)||actor.getObjectByName('attack_muzzle')||null;
   rig.breathMuzzle=actor.getObjectByName('attack_muzzle')||rig.muzzle;
   rig.breathTrack={active:false,elapsed:ATTACK_POSES.flame.duration,duration:ATTACK_POSES.flame.duration,lastRelease:null};
   if(rig.geometric?.greatswordGripContract==='right-lower-left-upper-actual-hilt-v4'){
     const grip=actor.getObjectByName('greatsword_left_grip'),arms=bindRigidArms(rig);
     if(grip&&arms){rig.greatswordArms=arms;rig.greatswordLeftGrip=grip;actor.updateWorldMatrix(true,true);rig.greatswordGripToHand=grip.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(arms.L.hand.node.getWorldQuaternion(new THREE.Quaternion()));rig.greatswordGripOffset=arms.R.hand.node.worldToLocal(grip.getWorldPosition(new THREE.Vector3()));}
   }
-  const tip=['ladyclaire','lordbernhard'].includes(family)?rig.muzzle:staffTip;
+  const tip=['ladyclaire','lordbernhard'].includes(family)||swordTip&&SPELL_KINDS.has(kind)?rig.muzzle:staffTip;
   if(tip&&SPELL_KINDS.has(kind)){
     const color=['ladyclaire','lordbernhard'].includes(family)?'#ffdc78':kind==='holy'?'#ffe7a3':kind==='roots'?'#9bdd67':kind==='frost'?'#a4efff':kind==='lightning'?'#b1ddff':'#cb9fff';
     const glow=new THREE.Group();glow.name='Charging staff focus';glow.visible=false;tip.add(glow);
@@ -384,7 +385,7 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     const cut=progress<.42?smooth(progress/.42):1-smooth((progress-.42)/.58);
     move('torso_pivot',-.025*cut,.035*cut,0);
     if(!reducedMotion&&cut>0)applyGreatswordCut(rig,cut);
-  }else if(rig.kind==='melee'){
+  }else if(rig.kind==='melee'||style==='sword'){
     // Shoulder, elbow and wrist carry the entire weapon through the sweep.
     const sweep=style==='sword'?(progress<.28?smooth(progress/.28):1-smooth((progress-.28)/.72)):slash;
     move('upper_arm_R',-1.05*sweep,.20*stroke,-.43*stroke);move('forearm_R',-.48*draw,.15*stroke,.12*stroke);

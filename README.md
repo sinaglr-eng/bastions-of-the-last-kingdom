@@ -2,7 +2,7 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-Current release: **0.3.3 · Fitted characters and clear routes** — [release notes](CHANGELOG.md) · [model and animation verification](docs/GEOMETRIC_GAME_V4.md).
+Current release: **0.3.4 · Draped characters and living battlefield** — [release notes](CHANGELOG.md) · [model and animation verification](docs/GEOMETRIC_GAME_V5.md).
 
 ## Play
 
@@ -51,6 +51,7 @@ Rank merges require two matching units among the current five candidates. Retain
 | One-finger drag | Pan the map on iPad and other touch screens |
 | Double click / double tap a current-round candidate on the map | Select and keep it after all five defenders have been placed |
 | Double click / double tap a draw card image | Select and keep that placed candidate during keeper selection |
+| Double click / double tap a recommended result portrait | Forge that valid champion at the marked result foundation |
 | Pinch / two-finger drag | Zoom / rotate on touch screens |
 | Home | Reset the camera |
 | Space | Keep / send wave / pause, by phase |

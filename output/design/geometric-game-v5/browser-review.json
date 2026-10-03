@@ -1,0 +1,110 @@
+{
+  "version": "0.3.4",
+  "reviewer": "root",
+  "createdAtUtc": "2026-10-03T15:30:53.621940+00:00",
+  "localBase": "http://127.0.0.1:5177/",
+  "actualBrowserChecks": [
+    {
+      "subject": "Mogrok battlefield boss",
+      "method": "Actual wave-10 boss fixture paused with one enemy remaining and visible 3252/4226 HP; zoomed camera comparison to real defenders. Exact1.5 multiplier independently checked by actual-asset tests.",
+      "passed": true
+    },
+    {
+      "subject": "Recommended champion result portrait",
+      "method": "Actual result portrait double-click changes keeper phase to READY FOR BATTLE,1builtFrostboltWatchmen and4castlewalls; visible forged toast.",
+      "passed": true
+    },
+    {
+      "subject": "Current/future route",
+      "method": "Actual clean Diamond spiral selected:120 current route steps and718 future steps. Viewed gold travel chevrons and subdued grey dashes. A previous construction with off-plan structures showed Plan blocked rather than an invalid complete route.",
+      "passed": true
+    },
+    {
+      "subject": "MageV/VI",
+      "method": "Actual rank switches and front camera in same viewport; saved both final renders and confirmed equal physical body presentation with rank-specific source equipment.",
+      "passed": true
+    },
+    {
+      "subject": "Archangel",
+      "method": "Actual0.3.4atelier screenshot inspected: taller gold/ivory winged figure, sword, empty opposite hand, gold aura.",
+      "passed": true
+    },
+    {
+      "subject": "Actual12-model attack review",
+      "method": "Actual physical GLB gallery manually viewed rest andrelease phase0.42 fromFRONT andLEFT. Complete Claire staff moves asone assembly;Archangel swings sword. Tenphase physical mesh tests separately pass.",
+      "passed": true
+    }
+  ],
+  "limitations": "Browser motion inspection covers the12listed representative actual models andfinite poses. All136source/model six-view comparisons andactual rig/surface audits have separate byte-bound reports. Browser screenshots are evidence of observed UI states,not numerical scale certification.",
+  "screenshots": [
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/archangel-final.png",
+      "sha256": "40719df381dda1cf7a4f9feddf8591edcf7f8b84d5efd2143cda05bbe13fb7fc",
+      "bytes": 74089
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/attack-release-front.png",
+      "sha256": "c3b2ff594977b2aacfc69318db29eca37616d5fc7c82a0688a179dc1cda4193a",
+      "bytes": 57460
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/attack-release-left.png",
+      "sha256": "ca0e2256240304a84737b9931d65400af7febc645f7e73392825383377e2dd88",
+      "bytes": 55924
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/attack-rest-front.png",
+      "sha256": "b94688ddfb55012d15f83826c53d1c8021f8f4670df131643f36f69d5842dd32",
+      "bytes": 57214
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/attack-rest-left.png",
+      "sha256": "24bbe1ffdabd4089ca28f762dc0177165b33a6574f80d67171a3dbe6900db8c1",
+      "bytes": 53681
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/boss-battle.png",
+      "sha256": "fc36278335b1cec0eea6499cb116f68736221e000ca1e3cb1bfd87f2e5706625",
+      "bytes": 123620
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/mage-v-front.png",
+      "sha256": "93c7da0132670b026bbc1a7916c2a109ca3b60b47797f24932209001c5d7fc98",
+      "bytes": 72184
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/mage-vi-front.png",
+      "sha256": "4db12dbd7ef7dd3620d924288db1dc53653fa88aac385d06d901560f1d26d1a1",
+      "bytes": 72335
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/recipe-before.png",
+      "sha256": "3851cbb1c5ee110d6319ea624a04f69af59e330ba44a95b1e6e619a0a578317c",
+      "bytes": 126602
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/recipe-doubleclick-forged.png",
+      "sha256": "f0e97010a09790711f2d47ba372204a08c60e56d8dd1b368fcdfa05c96c4018f",
+      "bytes": 119763
+    },
+    {
+      "file": "output/design/geometric-game-v5/browser-proof/routes-gold-grey.png",
+      "sha256": "fb31f2d6e699ec90d3c0d8f8544e3a2e2374dd5e4ffc686b2c0a68f337ce349f",
+      "bytes": 130062
+    }
+  ],
+  "finalManifestSha256": {
+    "defenders": "4003c85dc4e4676c2182b3ab711e261c57c77ac620d2e42911eee1bbf0c93dfc",
+    "champions": "6d7b205a71990f84afd941107f0e38275337781372748bced51e6c42c4e0c5b5",
+    "enemies": "dcda07b57b9f4a876eb8edcc46e0325d99ee6e5a5404c9e81271e61b017a9002"
+  },
+  "runtimeSha256": {
+    "game/main.js": "247df036db7bfea633b5dc519489dcaca83ace4852ca09ac937b225c372d1bfc",
+    "game/render/world.js": "bad3752f31fd6170f1378c280beab2c3bd7f1a58922620ef2bda6d4750b2b339",
+    "game/render/battlefield-scale.js": "2857cf86812d4199f0a70b0b857a754d394e989fecd55afc728f5c5e6f6f0f9e",
+    "game/render/route-overlay.js": "fc1067817c597e92debdbe35896ff1c1d8a7af8773d7d3f39f26b9fb7dc80920",
+    "game/render/battle-animation.js": "bf9d493cff1d837c466a1b2de986a8c75431da26c2068b31a9bd946806b4e1af",
+    "game/render/atelier-framing.js": "9f6321dea8d3daee6fac28a83747d4681f1941bb46df94d51577a1bcc177ed5b",
+    "tools/animation-review.js": "563b34cdd5762e5c620174fec06a9c425ee22b81d725012cd78509b79d5c0fc0"
+  }
+}

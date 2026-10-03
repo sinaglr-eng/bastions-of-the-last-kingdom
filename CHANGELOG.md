@@ -1,5 +1,16 @@
 # Releases
 
+## 0.3.4 — Draped characters and living battlefield — 3 October 2026
+
+- Slightly smaller complete humanoid head assemblies for defenders, fitted folded cloaks, and a Mage redesign with consistent body proportions and a shared camera across all six ranks.
+- Narrower and taller Knight helmet, one connected Kingslayer helmet, larger King shield, connected Dragonrider/Phoenix rider hips, recessed Nature Spirit eyes, and a closed Archbishop mitre.
+- Taller gold and ivory Archangel with a divine sword and gold aura. Lady Claire moves her complete staff, including its upper ring, through preparation, release and return.
+- Double-click or double-tap a valid recommended result portrait to forge the champion at that location. Moving gold route chevrons show travel direction; the planned route uses subdued grey dashes.
+- Camp trees, covered firewood stores, weapon racks and a supply cart. Tent assemblies and guy ropes sit off the existing walking lanes.
+- All bosses appear 50% larger than their previous battlefield presentation, including their complete physical equipment and attached effects.
+
+Details: [Geometric models and battlefield 0.3.4](docs/GEOMETRIC_GAME_V5.md).
+
 ## 0.3.3 — Fitted characters and clear routes — 3 October 2026
 
 - Conceals humanoid necks, separates Engineer's hammer from the head, straightens Cleric's staff and closes its mitre. Refines mounted animals, rider and wing placement, shaped hair, crossbow grips, Kingslayer's hands and integrated Paladin/Archangel helmets. Nature Spirit's face is part of its living wood and leaf body.

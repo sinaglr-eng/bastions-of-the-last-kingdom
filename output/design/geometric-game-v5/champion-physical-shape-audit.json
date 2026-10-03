@@ -1,0 +1,188 @@
+{
+  "models": 9,
+  "readOnly": true,
+  "results": [
+    {
+      "id": "frostblade",
+      "nativeSha256": "fdaa14063f1d8e2ffdfb5ec4aca1757b6c0b709ba1ea87b62dd3343c0276d122",
+      "glbSha256": "154ab5c51b2751b07d25f7f55d3f91b81a4042837a5af59adb29c85eac83260a",
+      "geometrySha256": "21b05c06d29f983fedeab6d727f4054f8b92dbe04db8e4204885d9d95a65d01e",
+      "checks": {
+        "physicallyConnectedHelmetComponents": 1,
+        "actualVisorOpenings": [
+          {
+            "centreM": [
+              -0.07635600864887238,
+              0.01879959926009178,
+              1.870355486869812
+            ],
+            "firstShellY": -0.23442023992538452
+          },
+          {
+            "centreM": [
+              0.07635600864887238,
+              0.01879959926009178,
+              1.870355486869812
+            ],
+            "firstShellY": -0.23442023992538452
+          }
+        ],
+        "actualChinChestIntersection": true,
+        "headSeatContractBindsActualShell": true
+      },
+      "passed": true
+    },
+    {
+      "id": "highking",
+      "nativeSha256": "32e43bef6108498a87b779d04aa5bd14a70386b441b474f7c80b3cb333052582",
+      "glbSha256": "4514ab75ce31988547f2ea3fdd5d764d02fb24d1b707b92aa9c25eb3c92f112c",
+      "geometrySha256": "9d847c1e68a2cc69c357c147000ef1a73a49fa1596793586918ff3decb6a7a6a",
+      "checks": {
+        "physicallyConnectedHelmetComponents": 1,
+        "actualVisorOpenings": [
+          {
+            "centreM": [
+              -0.08977501094341278,
+              0.15883246064186096,
+              1.2629402875900269
+            ],
+            "firstShellY": -0.11728644371032715
+          },
+          {
+            "centreM": [
+              0.08977500349283218,
+              0.15883246064186096,
+              1.2629402875900269
+            ],
+            "firstShellY": -0.11728650331497192
+          }
+        ],
+        "actualChinChestIntersection": true,
+        "headSeatContractBindsActualShell": true
+      },
+      "passed": true
+    },
+    {
+      "id": "crownofages",
+      "nativeSha256": "bdb6afbb7cc26a0b2481323cefd4656f87e290ad834087d7efd9ef0ddb73b64a",
+      "glbSha256": "b901c05f3a3d4379d7c4cf073a47028db78174f35b91508c4f59c20a03a29d30",
+      "geometrySha256": "e2a42aad78f0b1326fa91c46f2fe1e37a9aa24e536f27468dcd99e7cbf1d6e32",
+      "checks": {
+        "actualShieldXZSizeRatiosToV4": [
+          1.2600000919643952,
+          1.2599999481698727
+        ],
+        "actualShieldPalmIntersection": true,
+        "shieldMountedToRealLeftHand": true
+      },
+      "passed": true
+    },
+    {
+      "id": "thunderheart",
+      "nativeSha256": "1333981284e5e80e46424b6e2fc920931f43b6e1d4321af45f729aaae0db8f77",
+      "glbSha256": "e9e37a93e597740f99267719c25feec8922d4e99067c0396ca4bfb8ea44b5f78",
+      "geometrySha256": "592f44f3bed93ec4956467b6d698a785d265e546c857cf99e4a37269eba24952",
+      "checks": {
+        "actualTorsoPelvisOverlap": true,
+        "legSeams": {
+          "R": {
+            "actualThighPelvisOverlap": true,
+            "hipSpineForwardDifferenceM": 0.007700026035308838
+          },
+          "L": {
+            "actualThighPelvisOverlap": true,
+            "hipSpineForwardDifferenceM": 0.007700026035308838
+          }
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "phoenix",
+      "nativeSha256": "064609289690efca0e7533f2d7770b8f0ab78ccb1d44e8b45075a4f663510647",
+      "glbSha256": "a1560923acaa874da07b800d7280981192a5bffa1e1656ddb6abb6ad5bef2b37",
+      "geometrySha256": "d0d30b57d6997ae1d11b2372276a707fadabbb56acbc211c81fecf6a21810e3b",
+      "checks": {
+        "actualTorsoPelvisOverlap": true,
+        "legSeams": {
+          "R": {
+            "actualThighPelvisOverlap": true,
+            "hipSpineForwardDifferenceM": 0.007700026035308838
+          },
+          "L": {
+            "actualThighPelvisOverlap": true,
+            "hipSpineForwardDifferenceM": 0.007700026035308838
+          }
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "mothernature",
+      "nativeSha256": "a184dab69179640a203a26981b1d21abfd28cfa350107d7c1d61d4f3c9c8330e",
+      "glbSha256": "fea9acf3df2a82a3508f3eb4bd1b581d3c936cf3029d65bcaf9b95d5dc0102ea",
+      "geometrySha256": "dede51aca2ecdf88ec363d6718d77f7f601adfba6d40fe1f75f26d51a942595e",
+      "checks": {
+        "integratedLivingBodyConnectedComponents": 1,
+        "eyeThicknessUnder15mm": true,
+        "eyesOwnedByActualBody": true
+      },
+      "passed": true
+    },
+    {
+      "id": "archbishop",
+      "nativeSha256": "18f3658f4352a8a1fe640543a81186f4df55325d6107aa573b031727f35d1b06",
+      "glbSha256": "c6455c4ca6f53bc433cd59f8efc382fe82a133e1febbc4aa6d2359fe6e86cb75",
+      "geometrySha256": "5b2a5b182923149c434ed6c7fce43cc223a685bc33724e1115f2e0cec76b83a7",
+      "checks": {
+        "opaqueFullCrown": [
+          {
+            "xM": -0.12,
+            "roofHitZ": 1.586745262145996,
+            "missingRoofNegativeDetected": true
+          },
+          {
+            "xM": 0.002,
+            "roofHitZ": 1.716219186782837,
+            "missingRoofNegativeDetected": true
+          },
+          {
+            "xM": 0.12,
+            "roofHitZ": 1.586745262145996,
+            "missingRoofNegativeDetected": true
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "archangel",
+      "nativeSha256": "c8bdf9da7c09704996fa417bb6a5e15cdac75a32d69bfa9d90a140b72184270b",
+      "glbSha256": "298223320965eb264d9f911226fb2f79a15764eb86df2aa461799cd618593429",
+      "geometrySha256": "42a0fa93272b5acf0e6cf2faa5f85ff76a8995dd50f5ca04b74b9ec8c41f5ddd",
+      "checks": {
+        "physicalSwordBladeAttachedToActualHand": true,
+        "oldSpearAndOrbAbsent": true,
+        "swordTipInsideRealBladeBounds": true,
+        "bothEndpointsBindActualBladeApexCentroid": [
+          0.49000000953674316,
+          0.2095000147819519,
+          1.831399917602539
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "ladyclaire",
+      "nativeSha256": "247c05ec72a3e26bd72e525c1f2fe77e0932ddd96d7e649b8601dccb2c18bf5c",
+      "glbSha256": "a948a1016210a374c0cf9aeada05a077fbe8c8d7a042dcbe124f9ff8af90cf6b",
+      "geometrySha256": "bf0d0bfbee9e80b1ec156bc5745d8c55c0b57199dfd01d2a8ca84ed19d4950ea",
+      "checks": {
+        "completePhysicalStaffOwnedByWeapon": true,
+        "realRingSocketOverlap": true,
+        "actualTipInRingBounds": true
+      },
+      "passed": true
+    }
+  ]
+}

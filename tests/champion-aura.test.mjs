@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
 import {CHAMPION_CLASSIFICATIONS,championClassification,championAuraLevel} from '../game/render/champion-classification.js';
-import {CHAMPION_AURA_COLORS,CHAMPION_AURA_STYLE,SECRET_CHAMPION_AURA_STYLE,CHAMPION_AURA_TIERS,createChampionAura,animateChampionAura,disposeChampionAura} from '../game/render/champion-aura.js';
+import {CHAMPION_AURA_COLORS,CHAMPION_AURA_STYLE,SECRET_CHAMPION_AURA_STYLE,DIVINE_CHAMPION_AURA_STYLE,CHAMPION_AURA_TIERS,createChampionAura,animateChampionAura,disposeChampionAura} from '../game/render/champion-aura.js';
 import {towerModel} from '../game/render/models.js';
 import {animateSecretChampion} from '../game/render/secret-champions.js';
 
@@ -88,7 +88,7 @@ test('all 39 champions keep their family classification independent of ascension
       const aura=createChampionAura(family,{phase:rank});
       assert.ok(aura,`${family} has its classification aura at rank ${rank}`);
       assert.equal(aura.userData.classification,classification);
-      assert.equal(aura.userData.level,level);assert.equal(aura.userData.tier,classification==='Secret'?SECRET_CHAMPION_AURA_STYLE:CHAMPION_AURA_STYLE);disposeChampionAura(aura);
+      assert.equal(aura.userData.level,level);assert.equal(aura.userData.tier,family==='archangel'?DIVINE_CHAMPION_AURA_STYLE:classification==='Secret'?SECRET_CHAMPION_AURA_STYLE:CHAMPION_AURA_STYLE);disposeChampionAura(aura);
     }
   }
 });
@@ -112,7 +112,7 @@ test('animation stays finite and reduced motion freezes the complete visual aura
 });
 
 test('removal releases each generated material and geometry exactly once',()=>{
-  for(const family of [examples.TOP,'ladyclaire','lordbernhard']){
+  for(const family of [examples.TOP,'ladyclaire','lordbernhard','archangel']){
   const aura=createChampionAura(family),parent=new THREE.Group();parent.add(aura);
   const resources=new Set(),disposed=new Map();
   aura.traverse(object=>{if(object.geometry)resources.add(object.geometry);if(object.material)resources.add(object.material);});

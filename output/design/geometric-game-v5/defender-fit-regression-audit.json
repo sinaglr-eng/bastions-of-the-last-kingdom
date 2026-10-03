@@ -1,0 +1,1358 @@
+{
+  "revision": "actual-defender-fit-v4",
+  "createdAtUtc": "2026-10-03T15:20:25.129Z",
+  "method": "Actual imported triangle surfaces; direct jaw/closed helmet to real bodice/yoke, full head to hammer triangle distance, actual shaft end-ring centres, five actual opaque mitre roof rays. No authored passed values or marker-only certification.",
+  "models": 48,
+  "checks": 77,
+  "failures": 0,
+  "results": [
+    {
+      "id": "soldier-1",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.080291509628296,
+          "bodyUpperSurfaceM": 1.0942915678024292,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "1d2a7eb5a940bd053dc7298006c585037ee43840da2de35b34b2a2719da1f73b",
+      "sourceSha256": "917ed51ca699f34a3616fbb3c43656818948a00a45d1cfc6828322d03422dfd3"
+    },
+    {
+      "id": "soldier-2",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0698357820510864,
+          "bodyUpperSurfaceM": 1.0838358402252197,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "a371f6bf58805a6329599051b82089dc4767b0730c4c34051be6851aad630e0d",
+      "sourceSha256": "39a4fc30ba8d512b78e8b49505ae7b7e5a3e9db75507c1f936c769fcf37271a9"
+    },
+    {
+      "id": "soldier-3",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.1116588115692139,
+          "bodyUpperSurfaceM": 1.1256588697433472,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "d3ff9514bac2365d523840b6171acc3af94ed2a6a4da0ed1146996b64f4e56ae",
+      "sourceSha256": "4bdbc5edd58a35b2185dd63aab1e75dbf343a82fa7489658f784604191e418aa"
+    },
+    {
+      "id": "soldier-4",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0959751605987549,
+          "bodyUpperSurfaceM": 1.1099752187728882,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "a5e42dcb39459440d619571164a682d6f0ca6b922db15985056bcccfb4ada549",
+      "sourceSha256": "f09f4f5cce5961be363de6895327f460713d90dd4a2e4ae1ba5dd3f051fac3ba"
+    },
+    {
+      "id": "soldier-5",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.1221145391464233,
+          "bodyUpperSurfaceM": 1.1361145973205566,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "04a0e3c8c0e22c07cc23fb54ddf646c7092cd9501f5f08476fc1907a36151b92",
+      "sourceSha256": "7ef08539aaef110495be1f9c94966128f1fa5ebcd5b41c14895104584d6da937"
+    },
+    {
+      "id": "soldier-6",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.1012029647827148,
+          "bodyUpperSurfaceM": 1.1152030229568481,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "06dfcd56c349b4bafe7a5dffde4dc2983e6cd85a4f39f33f678a2199edc95aa2",
+      "sourceSha256": "e792c7774f2bf012411eb15f86a71b1cc8dcdb767d2a90172b7f6724cb835ea3"
+    },
+    {
+      "id": "archer-1",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0885640382766724,
+          "bodyUpperSurfaceM": 1.1025640964508057,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "001373878f737498de21dc38a301fb19e474e83cd42091a80d392846c2bf9330",
+      "sourceSha256": "b1eadab3aa0ef59adc540d5b78ca51b203a0bd39ecd513c7384597152def8538"
+    },
+    {
+      "id": "archer-2",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0639660358428955,
+          "bodyUpperSurfaceM": 1.0779660940170288,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "5c184e1003431f4ee047095b8949186296c8090ec443b0608092a61f9a4f235f",
+      "sourceSha256": "29d04353e68cdcd503f26a200174e81bfc59d11379b552350520bc86dbf9c14a"
+    },
+    {
+      "id": "archer-3",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0608570575714111,
+          "bodyUpperSurfaceM": 1.0748571157455444,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "4c07dcb2a11025c39a69adca1ef148f048139f368d5b6dddf8df6bc117944040",
+      "sourceSha256": "6380faff066acf219b9e17ec1ec6621c50b796729d2a6667cf999c5f14432c7b"
+    },
+    {
+      "id": "archer-4",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0700335502624512,
+          "bodyUpperSurfaceM": 1.0840336084365845,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "af01976918b7626e47b9e5929449b05c2e07e9e5aad788a1fc00eb229dcd37a6",
+      "sourceSha256": "513ed0f555708f9eb0e6710add5336e352cdfd7f4b9f567bd7293119dc1acee7"
+    },
+    {
+      "id": "archer-5",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0965262651443481,
+          "bodyUpperSurfaceM": 1.1105263233184814,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "37535b90dc39102c2d59d317528f24bfdb5449a8daadd6da161329dd80e5196a",
+      "sourceSha256": "c0c441d711f3e4a9d6fb0ac2905113396013d46563e9173942fb8143beef6c8d"
+    },
+    {
+      "id": "archer-6",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0089507102966309,
+          "bodyUpperSurfaceM": 1.0229507684707642,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "4633df0687f0e38c11d6bd281561c4151ca02a35a2a498b87dcd3dc55ab23ed8",
+      "sourceSha256": "1e9e2a4ab9e03f1c9b5e6728b8ed28dd8e545fb1a433167614e68872132f030f"
+    },
+    {
+      "id": "mage-1",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.871999979019165,
+          "bodyUpperSurfaceM": 0.8859999775886536,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "f46be6487bc3d43c67cbec1e986cbb3019b8288f0b24d19b6355157aa9e55977",
+      "sourceSha256": "9e1063d4401efed90166305b0ab0a77ef505e3743061b2e16641bd68207c522e"
+    },
+    {
+      "id": "mage-2",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.871999979019165,
+          "bodyUpperSurfaceM": 0.8859999775886536,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "576e45350738309adb2b086a578471fecdc7f7ca9bdeea9baedee8a160db5346",
+      "sourceSha256": "b0869d7e8f944b48b038015ea0a5dc461c4ae921a7fd7eb4642cd2b5a8c18b70"
+    },
+    {
+      "id": "mage-3",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.871999979019165,
+          "bodyUpperSurfaceM": 0.8859999775886536,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "07f1631d8d3e13276e5f999a7ffff69d5ec0b42b3fb21b3226f964238fdcc033",
+      "sourceSha256": "c1ecc2578a237ed279340993446a518bc2b672150ab7edda1003e74414c1ce39"
+    },
+    {
+      "id": "mage-4",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.871999979019165,
+          "bodyUpperSurfaceM": 0.8859999775886536,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "05febaf4ad08915519282511675fdd0d83570054191df950827dd8eba54f24b7",
+      "sourceSha256": "c4c0b733016fb29d690d6bce644aea7454ce1351beac039a80d88cf44b60cf70"
+    },
+    {
+      "id": "mage-5",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.871999979019165,
+          "bodyUpperSurfaceM": 0.8859999775886536,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "84cd57397e8b0d1395dcd1ed3433d4d9d99fcf573de5b09326fafb8aa69528bf",
+      "sourceSha256": "b05d45b47375162cf1fcb6ae670079d873f21005a74ebc73730aa13e18d3faab"
+    },
+    {
+      "id": "mage-6",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.871999979019165,
+          "bodyUpperSurfaceM": 0.8859999775886536,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "5284d2a6fc164444dbcac7ad2c951d34abbcd895418ea167c72cf96a0bdb475f",
+      "sourceSha256": "e6058a3724acca6c264477aa26463ba9bf87a6d4785dab3d1e4eb8829f81a84c"
+    },
+    {
+      "id": "frostwarden-1",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9707058668136597,
+          "bodyUpperSurfaceM": 0.9847058653831482,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "ddbe539550f7419056f90a2ff772964003691b4b921e10da6eb882438c165215",
+      "sourceSha256": "6a22a699748ad7476d0a2532c1f7a8084431d3be0a6ba6700a5b695db42f3b5e"
+    },
+    {
+      "id": "frostwarden-2",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.966869592666626,
+          "bodyUpperSurfaceM": 0.9808695912361145,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "762118282af45785c9a8647a36229a6445352f281631d470ee3a30ff3ce3aba3",
+      "sourceSha256": "4f5d9c76836b45d5faca3e37e73fe6a54e1d8c26a1341102ee5d50a7938712d6"
+    },
+    {
+      "id": "frostwarden-3",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9673410654067993,
+          "bodyUpperSurfaceM": 0.9813411235809326,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "e5fa81b5f9beccaead5f8b186fee9c027be9a8b2459c396df4f21836eb978410",
+      "sourceSha256": "38ca6afdd78f3f21f98f4bcc7f9ec1ea74352ecce4fe9f28c74ce4ee118e2bdc"
+    },
+    {
+      "id": "frostwarden-4",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.955642819404602,
+          "bodyUpperSurfaceM": 0.9696428775787354,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "fbd6bfc08f2d0d089a6d21f22fc1d74a175e662d00b68b26f5fd98385afcf00b",
+      "sourceSha256": "2ddddad8e912a2c103fcc8beb44fe20873897b7fb66c0ff79ea21496643a73bc"
+    },
+    {
+      "id": "frostwarden-5",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0033912658691406,
+          "bodyUpperSurfaceM": 1.017391324043274,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "3d245e32bc4a27e7f445a80385572df9b3a95dda89c19a39c6aeb04808aa1a15",
+      "sourceSha256": "97b7e03afdea8276141332de49482d35da7c9b3421e0c1d66f742adcfe7afc78"
+    },
+    {
+      "id": "frostwarden-6",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9489178657531738,
+          "bodyUpperSurfaceM": 0.9629179239273071,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "1941ebb721aa887f451a84054cd523a4dbd717c6925f1b9f862a7c60f42ee443",
+      "sourceSha256": "49007ec90f5de6795b93c6dcb1566bab9b9712b4251985571fa5d8828e19f2f0"
+    },
+    {
+      "id": "stormcaller-1",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.8984653949737549,
+          "bodyUpperSurfaceM": 0.9124653935432434,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "ff1301b86330470f249b4bb791c1536746bcb1e5d05805cd69afa77b9cc41198",
+      "sourceSha256": "904eb95be360352cdd982e4746579d2f49ca7021dbd884790e380e9ff0627e9a"
+    },
+    {
+      "id": "stormcaller-2",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9603589773178101,
+          "bodyUpperSurfaceM": 0.9743589758872986,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "80a4f8dbe7bd1a87d93fa15a1058eee5dec3209c84f9824c6ab136d35fcab79a",
+      "sourceSha256": "59790d4ef36a25c1460a8c15b85a6fe0ac0e6f1121b5c70a910d9373217202a4"
+    },
+    {
+      "id": "stormcaller-3",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.95562744140625,
+          "bodyUpperSurfaceM": 0.9696274995803833,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "4655a1e9c954f2d54680aef4ac44550cbc3b7aae2a9ae25d942d5fc5edbbb412",
+      "sourceSha256": "4e891ceed929e0d2a953bb8bcdedd5d264d1df1ddc17c3be8455ea7e1f841c9e"
+    },
+    {
+      "id": "stormcaller-4",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9433406591415405,
+          "bodyUpperSurfaceM": 0.9573407173156738,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "a04edc23e763148ddc23171e910d3a0c0c4ef6d7517f0e35896723f8a3152ae4",
+      "sourceSha256": "f2d05b5a03c09fcbab161bdf38133da1c3addaec4e096dacb17cdd6e7370857e"
+    },
+    {
+      "id": "stormcaller-5",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9513630867004395,
+          "bodyUpperSurfaceM": 0.9653631448745728,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "1a9aea63b0eb0584190d8a5393fa47aa6efca9a8f9c1475ecef79782a2e9aaf0",
+      "sourceSha256": "d84955c7e791a6c22f1eb9feb15baf9f7d18079407ea42c3fc6a4dd350bb04ff"
+    },
+    {
+      "id": "stormcaller-6",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9369434118270874,
+          "bodyUpperSurfaceM": 0.9509434103965759,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "2993ef56eb8f15376a50a3f8f1c95886d1237d809a7c1fb8713d560be02a9b93",
+      "sourceSha256": "ed4ecbabe98d093c47a1e3de1977288ddc1dc973f1805a0c0f07405d0baf7f2c"
+    },
+    {
+      "id": "cleric-1",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.015310287475586,
+          "bodyUpperSurfaceM": 1.0293103456497192,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "actual-vertical-staff-axis",
+          "actualLowerEndCentre": [
+            0.42496034502983093,
+            0.02500000037252903,
+            -0.20000000670552254
+          ],
+          "actualUpperEndCentre": [
+            0.42496034502983093,
+            1.3574137687683105,
+            -0.20000000670552254
+          ],
+          "horizontalAxisDriftM": 0,
+          "pass": true
+        },
+        {
+          "kind": "real-staff-shaft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "dd07ba7c861edfd1094f00b79dc359586dd26e4f8403957a25ae45226adcb4b6",
+      "sourceSha256": "714418ee5ca52796f587c5b4f02f1606298d274f7d75e2e93658c7a83d74b5a7"
+    },
+    {
+      "id": "cleric-2",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9145714044570923,
+          "bodyUpperSurfaceM": 0.9285714030265808,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "actual-vertical-staff-axis",
+          "actualLowerEndCentre": [
+            0.39123332500457764,
+            0.02500000037252903,
+            -0.20000000670552254
+          ],
+          "actualUpperEndCentre": [
+            0.39123332500457764,
+            1.1635714769363403,
+            -0.20000000670552254
+          ],
+          "horizontalAxisDriftM": 0,
+          "pass": true
+        },
+        {
+          "kind": "real-staff-shaft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        },
+        {
+          "kind": "opaque-closed-mitre-roof",
+          "rays": [
+            {
+              "origin": [
+                0,
+                3.197852373123169,
+                -1.4901161193847656e-8
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.5287458595189682,
+              "pass": true
+            },
+            {
+              "origin": [
+                -0.08688428401947022,
+                3.197852373123169,
+                -1.4901161193847656e-8
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof -1",
+              "distanceM": 1.567884898265258,
+              "pass": true
+            },
+            {
+              "origin": [
+                0.08688428401947022,
+                3.197852373123169,
+                -1.4901161193847656e-8
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.567884898265258,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.197852373123169,
+                -0.06318858563899994
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.5265787680683927,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.197852373123169,
+                0.06318855583667755
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.530912950969544,
+              "pass": true
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "c06889b3a267bcb1e2f24e25a8be01da145af475441043de2111731a59f9abcf",
+      "sourceSha256": "205e881c7955f696890568fe791b4c97e77176d08ef1429cf436b293b468d31a"
+    },
+    {
+      "id": "cleric-3",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.8720824718475342,
+          "bodyUpperSurfaceM": 0.8860824704170227,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "actual-vertical-staff-axis",
+          "actualLowerEndCentre": [
+            0.38507938385009766,
+            0.02500000037252903,
+            -0.20000000670552254
+          ],
+          "actualUpperEndCentre": [
+            0.38507938385009766,
+            1.0824227333068848,
+            -0.20000000670552254
+          ],
+          "horizontalAxisDriftM": 0,
+          "pass": true
+        },
+        {
+          "kind": "real-staff-shaft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        },
+        {
+          "kind": "opaque-closed-mitre-roof",
+          "rays": [
+            {
+              "origin": [
+                0,
+                3.153008222579956,
+                -7.450580596923828e-9
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.484276266026554,
+              "pass": true
+            },
+            {
+              "origin": [
+                -0.08551762700080873,
+                3.153008222579956,
+                -7.450580596923828e-9
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof -1",
+              "distanceM": 1.5323206980243154,
+              "pass": true
+            },
+            {
+              "origin": [
+                0.08551762700080873,
+                3.153008222579956,
+                -7.450580596923828e-9
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.5323206980243154,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.153008222579956,
+                -0.062194649875164036
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.4821134566327943,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.153008222579956,
+                0.06219463497400284
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.4864390754203138,
+              "pass": true
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "68d22a5628af03724596a558baaefad08be2e5d26918b618606b57f605d33d1d",
+      "sourceSha256": "668d1953e8e927fe82e233620c17c9b44197056db86a7a2bbb1de4488193fbdb"
+    },
+    {
+      "id": "cleric-4",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.8791297674179077,
+          "bodyUpperSurfaceM": 0.8931297659873962,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "actual-vertical-staff-axis",
+          "actualLowerEndCentre": [
+            0.4422503709793091,
+            0.02500000037252903,
+            -0.20000000670552254
+          ],
+          "actualUpperEndCentre": [
+            0.4422503709793091,
+            1.0869083404541016,
+            -0.20000000670552254
+          ],
+          "horizontalAxisDriftM": 0,
+          "pass": true
+        },
+        {
+          "kind": "real-staff-shaft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        },
+        {
+          "kind": "opaque-closed-mitre-roof",
+          "rays": [
+            {
+              "origin": [
+                0,
+                3.148045063018799,
+                0
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.4781280026863948,
+              "pass": true
+            },
+            {
+              "origin": [
+                -0.09821404814720154,
+                3.148045063018799,
+                0
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof -1",
+              "distanceM": 1.5386681770350406,
+              "pass": true
+            },
+            {
+              "origin": [
+                0.09821404814720154,
+                3.148045063018799,
+                0
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.5386681770350406,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.148045063018799,
+                -0.07142839431762696
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.4759292984701677,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.148045063018799,
+                0.07142839431762696
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.4803267069026218,
+              "pass": true
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "15f39961ddd7277babbd311b2eeba414c729262c0ee5d48de85adaeeb7267d75",
+      "sourceSha256": "a4d40151eaa6e2b323670f3bd083693c4fec8f390730dd68405dd69ff7d70bea"
+    },
+    {
+      "id": "cleric-5",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9108120203018188,
+          "bodyUpperSurfaceM": 0.9248120188713074,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "actual-vertical-staff-axis",
+          "actualLowerEndCentre": [
+            0.42031580209732056,
+            0.02500000037252903,
+            -0.20000000670552254
+          ],
+          "actualUpperEndCentre": [
+            0.42031580209732056,
+            1.1146992444992065,
+            -0.20000000670552254
+          ],
+          "horizontalAxisDriftM": 0,
+          "pass": true
+        },
+        {
+          "kind": "real-staff-shaft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        },
+        {
+          "kind": "opaque-closed-mitre-roof",
+          "rays": [
+            {
+              "origin": [
+                0,
+                3.1631405353546143,
+                0
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.4906549805058715,
+              "pass": true
+            },
+            {
+              "origin": [
+                -0.09334285855293274,
+                3.1631405353546143,
+                0
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof -1",
+              "distanceM": 1.5480871720088922,
+              "pass": true
+            },
+            {
+              "origin": [
+                0.09334285855293274,
+                3.1631405353546143,
+                0
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.5480871720088922,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.1631405353546143,
+                -0.0678857147693634
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.488469028361053,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.1631405353546143,
+                0.0678857147693634
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.49284093265069,
+              "pass": true
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "4220b10867de1a1962120840683345d5f46c2009fe9dc70c1acc3061fd326625",
+      "sourceSha256": "785ae00a2f8f4d37d768ae68b9c8bd26f3cf85a655fe6b633b0c349e9d953897"
+    },
+    {
+      "id": "cleric-6",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.897508978843689,
+          "bodyUpperSurfaceM": 0.9115089774131775,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "actual-vertical-staff-axis",
+          "actualLowerEndCentre": [
+            0.36262863874435425,
+            0.02500000037252903,
+            -0.20000000670552254
+          ],
+          "actualUpperEndCentre": [
+            0.36262863874435425,
+            1.1541815996170044,
+            -0.20000000670552254
+          ],
+          "horizontalAxisDriftM": 0,
+          "pass": true
+        },
+        {
+          "kind": "real-staff-shaft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        },
+        {
+          "kind": "opaque-closed-mitre-roof",
+          "rays": [
+            {
+              "origin": [
+                0,
+                3.1458258628845215,
+                -7.450580596923828e-9
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.4753113683256571,
+              "pass": true
+            },
+            {
+              "origin": [
+                -0.08053181767463685,
+                3.1458258628845215,
+                -7.450580596923828e-9
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof -1",
+              "distanceM": 1.5184355508546004,
+              "pass": true
+            },
+            {
+              "origin": [
+                0.08053181767463685,
+                3.1458258628845215,
+                -7.450580596923828e-9
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.5184355508546004,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.1458258628845215,
+                -0.05856860131025315
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.473165338099236,
+              "pass": true
+            },
+            {
+              "origin": [
+                0,
+                3.1458258628845215,
+                0.058568586409091954
+              ],
+              "actualOpaqueRoofPart": "Mitre closed upper roof 1",
+              "distanceM": 1.4774573985520782,
+              "pass": true
+            }
+          ],
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "9b4d02479708facfe29c47a104f5e27d04063295d8e11fcbb0adfbcf44d4af92",
+      "sourceSha256": "1a7f2529f4d6a2317316b23de38b3507ba09a9b893464e4bf934e440d62ff0f5"
+    },
+    {
+      "id": "druid-1",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9909999370574951,
+          "bodyUpperSurfaceM": 1.0049999952316284,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "9532f261ce697864d3975c80dd3df932c3112ec6316f21aac24252386dd77e7a",
+      "sourceSha256": "c54234fa8e78bfb987fef9e655156969d077093cc7c53879efe2ea3ca15bd8b1"
+    },
+    {
+      "id": "druid-2",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9725888967514038,
+          "bodyUpperSurfaceM": 0.9865888953208923,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "678b9f7edb4ea09ab64ef59d2e3100fb3f3fed9cebd9a646049a81b37f907418",
+      "sourceSha256": "32ece0002ea3336710fb322ae3a3429012b6cf6fec5524e17cbd373310172175"
+    },
+    {
+      "id": "druid-3",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9585373401641846,
+          "bodyUpperSurfaceM": 0.9725373387336731,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "8f783250f5049558c48b83b551abcceaca3ef8ed5acba7189f1a92c2a0ed8164",
+      "sourceSha256": "c6e3d24f64661217c461eea9fd0f9717219a4a15f2706009f253c577da1e9bc8"
+    },
+    {
+      "id": "druid-4",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9877856969833374,
+          "bodyUpperSurfaceM": 1.0017857551574707,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "6aab2b88cdf976fd7cac752b41370fee59e1d02a21b002d6872a3b1c824cdb66",
+      "sourceSha256": "9b789be0711dd88d5f72465d283084e1fbf4dbdc41a3f00819354a183a722e49"
+    },
+    {
+      "id": "druid-5",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.949905276298523,
+          "bodyUpperSurfaceM": 0.9639053344726562,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "5140cf5ff9a72c4b31fc823376a153981362ead9d6ec9cc7a73163ead803a640",
+      "sourceSha256": "855b295f2c3787d32199d3bd3f97d852502475072777b8947edb9356de58d33b"
+    },
+    {
+      "id": "druid-6",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9449285268783569,
+          "bodyUpperSurfaceM": 0.9589285850524902,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "dd3af13d87bcc69b1e0bfa3ffc11459d1359fa9341e339cb9f4e25b040a4830a",
+      "sourceSha256": "2f9bbd6bd4dc8da0f511c147cf4111d1ab42aa40a032bc4fc2a991194edfa086"
+    },
+    {
+      "id": "runebreaker-1",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0732831954956055,
+          "bodyUpperSurfaceM": 1.0872832536697388,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "hammer-clear-of-whole-head",
+          "nearestSurfaceGapM": 0.14587778076637298,
+          "nearestFaceGapM": 0.18881791830062866,
+          "fullHeadLateralClearanceM": 0.12877020239830017,
+          "nearestHeadSurface": [
+            0.3760881721973419,
+            1.3526674509048462,
+            -0.25606900453567505
+          ],
+          "nearestHammerSurface": [
+            0.5048583745956421,
+            1.2841213941574097,
+            -0.25606900453567505
+          ],
+          "pass": true
+        },
+        {
+          "kind": "real-hammer-haft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "3151063ceafdeeddf1a158ad4de03d28010593af9bb5cf68468fabbfe36e21a0",
+      "sourceSha256": "ad248e4acb9d538632864a636b0d2db77923747c094c1505a157bf998746a169"
+    },
+    {
+      "id": "runebreaker-2",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0568214654922485,
+          "bodyUpperSurfaceM": 1.0708215236663818,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "hammer-clear-of-whole-head",
+          "nearestSurfaceGapM": 0.1651626054890529,
+          "nearestFaceGapM": 0.2055569291114807,
+          "fullHeadLateralClearanceM": 0.14190423488616943,
+          "nearestHeadSurface": [
+            0.3986668586730957,
+            1.3593906164169312,
+            -0.2720068693161011
+          ],
+          "nearestHammerSurface": [
+            0.5405710935592651,
+            1.2748810052871704,
+            -0.2720068693161011
+          ],
+          "pass": true
+        },
+        {
+          "kind": "real-hammer-haft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "98073917ae9be0d953e97bdc99e50d9d56a2d5f7e36696995c82811421a1bc59",
+      "sourceSha256": "0faa1b560da909eb89bd6c01477ee8255222de0b77aa0e6d7f6675e96506a11b"
+    },
+    {
+      "id": "runebreaker-3",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.048952579498291,
+          "bodyUpperSurfaceM": 1.0629526376724243,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "hammer-clear-of-whole-head",
+          "nearestSurfaceGapM": 0.12766317457158124,
+          "nearestFaceGapM": 0.17474040389060974,
+          "fullHeadLateralClearanceM": 0.1135120689868927,
+          "nearestHeadSurface": [
+            0.3570994436740875,
+            1.3223621845245361,
+            -0.24266518652439117
+          ],
+          "nearestHammerSurface": [
+            0.4748239517211914,
+            1.2729777097702026,
+            -0.24266518652439117
+          ],
+          "pass": true
+        },
+        {
+          "kind": "real-hammer-haft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "24fe4fc1d5e4e4ed97fa9bf8102b341ae2ef417fd52c1b296d8aab0ae1220dbf",
+      "sourceSha256": "b387bc845fd68f0a8e40e6a5c1dfd26b6c2b38db23c48f74640aa21ee6277935"
+    },
+    {
+      "id": "runebreaker-4",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0368107557296753,
+          "bodyUpperSurfaceM": 1.0508108139038086,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "hammer-clear-of-whole-head",
+          "nearestSurfaceGapM": 0.12268904257845754,
+          "nearestFaceGapM": 0.17459514737129211,
+          "fullHeadLateralClearanceM": 0.1134004294872284,
+          "nearestHeadSurface": [
+            0.3569034934043884,
+            1.306203842163086,
+            -0.24252688884735107
+          ],
+          "nearestHammerSurface": [
+            0.47451406717300415,
+            1.2712702751159668,
+            -0.24252688884735107
+          ],
+          "pass": true
+        },
+        {
+          "kind": "real-hammer-haft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "3565e3d2579edfed8ed58271931a2c82160f8adc5fcdfa8785d47b9d72aaf6d2",
+      "sourceSha256": "af376813a050a375b5ad9ca6b7e8db7a8840b2825c16eef89c7da32990d6c38e"
+    },
+    {
+      "id": "runebreaker-5",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 1.0430636405944824,
+          "bodyUpperSurfaceM": 1.0570636987686157,
+          "restOverlapM": 0.0140000581741333,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "hammer-clear-of-whole-head",
+          "nearestSurfaceGapM": 0.1479431357388565,
+          "nearestFaceGapM": 0.19702771306037903,
+          "fullHeadLateralClearanceM": 0.13064485788345337,
+          "nearestHeadSurface": [
+            0.3871620297431946,
+            1.3290740251541138,
+            -0.26388585567474365
+          ],
+          "nearestHammerSurface": [
+            0.5223739743232727,
+            1.2690331935882568,
+            -0.26388585567474365
+          ],
+          "pass": true
+        },
+        {
+          "kind": "real-hammer-haft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "2e838b768b8fda106ac3493e0cf1c6b683ce7e96915fa15f0132375875e57355",
+      "sourceSha256": "0a6b6f8d1332d15b1845439582d3c0d5a3c9dd37916b6272d287e462582c4dd2"
+    },
+    {
+      "id": "runebreaker-6",
+      "checks": [
+        {
+          "kind": "direct-head-to-real-upper-chest",
+          "headLowerSurfaceM": 0.9742352962493896,
+          "bodyUpperSurfaceM": 0.9882352948188782,
+          "restOverlapM": 0.013999998569488525,
+          "actualTriangleGapM": 0,
+          "joinedYoke": true,
+          "pass": true
+        },
+        {
+          "kind": "hammer-clear-of-whole-head",
+          "nearestSurfaceGapM": 0.11911383367872148,
+          "nearestFaceGapM": 0.18125206232070923,
+          "fullHeadLateralClearanceM": 0.11181071400642395,
+          "nearestHeadSurface": [
+            0.4050000011920929,
+            1.2396928071975708,
+            -0.2764773368835449
+          ],
+          "nearestHammerSurface": [
+            0.5215882062911987,
+            1.2152941226959229,
+            -0.2764773368835449
+          ],
+          "pass": true
+        },
+        {
+          "kind": "real-hammer-haft-grasp",
+          "actualTriangleGapM": 0,
+          "pass": true
+        }
+      ],
+      "failures": [],
+      "actualGlbSha256": "9c29b03b288e0fcf1f81807f4e7faa82b18ec3f58788307cdf6e3bf9d5f2731e",
+      "sourceSha256": "793f71dfe5118150539291b043735e48bd61fc3bebbeca4de863d08af06b99bd"
+    }
+  ]
+}

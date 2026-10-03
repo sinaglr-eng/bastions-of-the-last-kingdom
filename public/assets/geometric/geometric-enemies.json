@@ -1,5 +1,5 @@
 {
-  "revision": "geometric-game-v1",
+  "revision": "geometric-game-v5",
   "entries": [
     {
       "id": "host_01",
@@ -10,13 +10,13 @@
       "portrait": "portraits/host_01.png",
       "source": "enemies/host_01.png",
       "sourceSha256": "a5e72491393d8cd542de1e3c19560f6e7b5d311d14240b3f14619add86db6baf",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_01.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_01.blend",
       "locomotion": "biped",
       "attackStyle": "cleaver",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2508,
+        "triangles": 3190,
         "boundsMin": [
           -0.6084499955177307,
           -0.6102113127708435,
@@ -69,7 +69,6 @@
           "Elbow contacting articulated joint R": 0.005036013335181147,
           "Grasping hand R": 0.00477826273224006,
           "Leather wrist cuff R": 0.0012567383600980975,
-          "Real rear cape": 0.016667979977986153,
           "Shoulder folded cape": 0.00201861142825995,
           "Shoulder folded cape.001": 0.00201861142825995,
           "Crossed leather baldric R": 0.0012527611106634136,
@@ -92,13 +91,14 @@
           "Connected cleaver handle": 0.0010999217241381605,
           "cleaver guard": 0.0009109317228042832,
           "Physical cleaver blade": 0.01213674689643085,
-          "cleaver pommel": 0.0004599328312906437
+          "cleaver pommel": 0.0004599328312906437,
+          "Real rear cape": 0.00740526746934241
         },
         "meshes": 57,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2508,
-        "fileSha256": "07dfc3a007fb777052dbcf0abe12295c28df19ed269bcf6d48dc525658b63ef9",
-        "geometrySha256": "d1164ed3a2633a45c252808933aca99ff2809b3d15deea5906bb44819ef40b93",
+        "roundtripTriangles": 3190,
+        "fileSha256": "3117a630e2bbe276cb1efbab3c2ef86abd20598e8c3bcd4af71146327b89390d",
+        "geometrySha256": "5d626fa3a310256095ff154eacbe047d8e5355bd7674f166fa000e0b65d1d374",
         "namedPivots": [
           "host_01",
           "torso_pivot",
@@ -128,6 +128,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -136,74 +137,112 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 0.9382570209503174,
+              "hemNativeM": 0.41999998688697815,
+              "actualMidDrapeRadiusRangeM": 0.11715128493804344,
+              "shoulderYokeOverlapsTorsoByM": 0.0023000000417232516
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_01/front.png",
-          "geometrySha256": "d1164ed3a2633a45c252808933aca99ff2809b3d15deea5906bb44819ef40b93",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_01/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_01/front.png",
+          "geometrySha256": "5d626fa3a310256095ff154eacbe047d8e5355bd7674f166fa000e0b65d1d374",
+          "sha256": "1290f479561df2d4206ea7f35b11e377948df95e5c5e4a320df83f45c9f3c467",
           "cameraPosition": [
             0.1960035264492035,
             7.695625305175781,
             2.5248520374298096
           ],
-          "orthoScale": 2.102202892303467
+          "orthoScale": 2.2202916145324707
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_01/back.png",
-          "geometrySha256": "d1164ed3a2633a45c252808933aca99ff2809b3d15deea5906bb44819ef40b93",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_01/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_01/back.png",
+          "geometrySha256": "5d626fa3a310256095ff154eacbe047d8e5355bd7674f166fa000e0b65d1d374",
+          "sha256": "3cc99f3a0447a60ac2053ff86541eed5c8f1796579124db1456e7ed934ef949d",
           "cameraPosition": [
             0.1960035264492035,
             -7.954736709594727,
             2.5248520374298096
           ],
-          "orthoScale": 2.102202892303467
+          "orthoScale": 2.2202916145324707
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_01/left.png",
-          "geometrySha256": "d1164ed3a2633a45c252808933aca99ff2809b3d15deea5906bb44819ef40b93",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_01/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_01/left.png",
+          "geometrySha256": "5d626fa3a310256095ff154eacbe047d8e5355bd7674f166fa000e0b65d1d374",
+          "sha256": "7ae8266043ac632042160c1a163b429502ee97dffd40cdaa0b32249d61c71d9c",
           "cameraPosition": [
             -7.629177570343018,
             -0.12955565750598907,
             2.5248520374298096
           ],
-          "orthoScale": 2.102202892303467
+          "orthoScale": 2.2202916145324707
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_01/right.png",
-          "geometrySha256": "d1164ed3a2633a45c252808933aca99ff2809b3d15deea5906bb44819ef40b93",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_01/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_01/right.png",
+          "geometrySha256": "5d626fa3a310256095ff154eacbe047d8e5355bd7674f166fa000e0b65d1d374",
+          "sha256": "3571aa646fac1ec4193ea85cb816ddb2b675a7f0c02afa27bc568aec377421d5",
           "cameraPosition": [
             8.021184921264648,
             -0.12955565750598907,
             2.5248520374298096
           ],
-          "orthoScale": 2.102202892303467
+          "orthoScale": 2.2202916145324707
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_01/three-quarter-front.png",
-          "geometrySha256": "d1164ed3a2633a45c252808933aca99ff2809b3d15deea5906bb44819ef40b93",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_01/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_01/three-quarter-front.png",
+          "geometrySha256": "5d626fa3a310256095ff154eacbe047d8e5355bd7674f166fa000e0b65d1d374",
+          "sha256": "05aa98453784f866583e0bbeb3c3e050c8f645c8da5c366d55cee5133deefdcd",
           "cameraPosition": [
             4.684342861175537,
             6.280457019805908,
             2.5248520374298096
           ],
-          "orthoScale": 2.102202892303467
+          "orthoScale": 2.2202916145324707
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_01/three-quarter-back.png",
-          "geometrySha256": "d1164ed3a2633a45c252808933aca99ff2809b3d15deea5906bb44819ef40b93",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_01/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_01/three-quarter-back.png",
+          "geometrySha256": "5d626fa3a310256095ff154eacbe047d8e5355bd7674f166fa000e0b65d1d374",
+          "sha256": "289f6f9980f5580badec58fb3c7a981623c7d78fee363377df301e20ee5bb350",
           "cameraPosition": [
             4.684342861175537,
             -6.5395684242248535,
             2.5248520374298096
           ],
-          "orthoScale": 2.102202892303467
+          "orthoScale": 2.2202916145324707
         }
       ],
       "accuracy": {
@@ -237,6 +276,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 250.0,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "07dfc3a007fb777052dbcf0abe12295c28df19ed269bcf6d48dc525658b63ef9",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -1438,16 +1483,16 @@
       "portrait": "portraits/host_07.png",
       "source": "enemies/host_07.png",
       "sourceSha256": "f3ecc114d250f3a0d071ebadb7d5d2268db78bd3b3acebc3d114ae4171facb47",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_07.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_07.blend",
       "locomotion": "biped",
       "attackStyle": "spear",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2094,
+        "triangles": 2776,
         "boundsMin": [
           -0.6084499955177307,
-          -0.39500001072883606,
+          -0.4141691029071808,
           0.0
         ],
         "boundsMax": [
@@ -1457,7 +1502,7 @@
         ],
         "boundsSize": [
           1.2168999910354614,
-          0.9199999868869781,
+          0.9391690790653229,
           1.9199999570846558
         ],
         "degenerateTriangles": 0,
@@ -1496,7 +1541,6 @@
           "Elbow contacting articulated joint R": 0.005036012020961304,
           "Grasping hand R": 0.00477826273224006,
           "Leather wrist cuff R": 0.001359440308685104,
-          "Real rear cape": 0.018739114612496145,
           "Shoulder folded cape": 0.002018612103711347,
           "Shoulder folded cape.001": 0.002018612103711347,
           "Layered leaf shoulder": 0.0008735298324609176,
@@ -1532,13 +1576,14 @@
           "Actual layered marsh cloak reed leaf.008": 0.0012734955532020349,
           "Actual layered marsh cloak reed leaf.009": 0.001344726114742419,
           "Connected spear handle": 0.0028923980135004963,
-          "Spear faceted metal tip": 0.0009450040136774378
+          "Spear faceted metal tip": 0.0009450040136774378,
+          "Real rear cape": 0.008360410398533228
         },
         "meshes": 69,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2094,
-        "fileSha256": "4bdb62b381df4ed14ade83ae0949817b5815c6d1774ea317465c406b821f06bb",
-        "geometrySha256": "479b21986dc580fada95bfc9a340e9d6f1d1227b0851e7f9993292ff6691df73",
+        "roundtripTriangles": 2776,
+        "fileSha256": "691abef8be1e6b25749124ad633728892f59ba64fdee78849561201957dc6db9",
+        "geometrySha256": "f7294430fb8c141190f93b448f1ab00504ecb5ce16a5547979f73b6a2e1acc44",
         "namedPivots": [
           "host_07",
           "torso_pivot",
@@ -1560,71 +1605,110 @@
           "attack_muzzle"
         ],
         "coverage": [],
-        "headCoverage": []
+        "jointSurfaceContactsRest": [],
+        "headCoverage": [],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 1.0040772380828857,
+              "hemNativeM": 0.41999998688697815,
+              "actualMidDrapeRadiusRangeM": 0.11715128493804344,
+              "shoulderYokeOverlapsTorsoByM": 0.0023000000417232516
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_07/front.png",
-          "geometrySha256": "479b21986dc580fada95bfc9a340e9d6f1d1227b0851e7f9993292ff6691df73",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_07/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_07/front.png",
+          "geometrySha256": "f7294430fb8c141190f93b448f1ab00504ecb5ce16a5547979f73b6a2e1acc44",
+          "sha256": "28794e570241b5e79cc659b430d3571ec6297de1c837d4064b1e5e3737c0a3f1",
           "cameraPosition": [
             0.0,
-            7.890181064605713,
+            7.88059663772583,
             2.623293399810791
           ],
           "orthoScale": 2.342399835586548
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_07/back.png",
-          "geometrySha256": "479b21986dc580fada95bfc9a340e9d6f1d1227b0851e7f9993292ff6691df73",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_07/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_07/back.png",
+          "geometrySha256": "f7294430fb8c141190f93b448f1ab00504ecb5ce16a5547979f73b6a2e1acc44",
+          "sha256": "38d8e73169d35beabe8cc2fe934144d10dc77a34fd350179ba3d7cdea2aa3560",
           "cameraPosition": [
             9.583083008098082e-16,
-            -7.760180950164795,
+            -7.769765377044678,
             2.623293399810791
           ],
           "orthoScale": 2.342399835586548
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_07/left.png",
-          "geometrySha256": "479b21986dc580fada95bfc9a340e9d6f1d1227b0851e7f9993292ff6691df73",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_07/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_07/left.png",
+          "geometrySha256": "f7294430fb8c141190f93b448f1ab00504ecb5ce16a5547979f73b6a2e1acc44",
+          "sha256": "7376dbe31a53a3a2049b7ae3e68f9d126a45892751b18ab28c2f94aa8231c67e",
           "cameraPosition": [
             -7.825181007385254,
-            0.06499998271465302,
+            0.05541543662548065,
             2.623293399810791
           ],
           "orthoScale": 2.342399835586548
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_07/right.png",
-          "geometrySha256": "479b21986dc580fada95bfc9a340e9d6f1d1227b0851e7f9993292ff6691df73",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_07/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_07/right.png",
+          "geometrySha256": "f7294430fb8c141190f93b448f1ab00504ecb5ce16a5547979f73b6a2e1acc44",
+          "sha256": "165d73342c0a1e1e25e9f2972487adfd6a599880e1eac7ca2c5a3e91566c927e",
           "cameraPosition": [
             7.825181007385254,
-            0.06499998271465302,
+            0.05541543662548065,
             2.623293399810791
           ],
           "orthoScale": 2.342399835586548
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_07/three-quarter-front.png",
-          "geometrySha256": "479b21986dc580fada95bfc9a340e9d6f1d1227b0851e7f9993292ff6691df73",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_07/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_07/three-quarter-front.png",
+          "geometrySha256": "f7294430fb8c141190f93b448f1ab00504ecb5ce16a5547979f73b6a2e1acc44",
+          "sha256": "5c84f3271ad8d1a03fb8918411e51bf7eb5164b92916d5fd0f34dd1d62e3b5a2",
           "cameraPosition": [
             4.488339424133301,
-            6.47501277923584,
+            6.465428352355957,
             2.623293399810791
           ],
           "orthoScale": 2.342399835586548
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_07/three-quarter-back.png",
-          "geometrySha256": "479b21986dc580fada95bfc9a340e9d6f1d1227b0851e7f9993292ff6691df73",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_07/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_07/three-quarter-back.png",
+          "geometrySha256": "f7294430fb8c141190f93b448f1ab00504ecb5ce16a5547979f73b6a2e1acc44",
+          "sha256": "cf4d15c6b3cf6ffbe195a3ed6d59bc506a828792b211547806e67a8c4ec95b79",
           "cameraPosition": [
             4.488339424133301,
-            -6.345012664794922,
+            -6.354597091674805,
             2.623293399810791
           ],
           "orthoScale": 2.342399835586548
@@ -1661,6 +1745,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 255.0,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "4bdb62b381df4ed14ade83ae0949817b5815c6d1774ea317465c406b821f06bb",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -1672,16 +1762,16 @@
       "portrait": "portraits/host_08.png",
       "source": "enemies/host_08.png",
       "sourceSha256": "9c69f7814f50186c666c3e89df9b0774326579a062af9352c3e04990cbf735de",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_08.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_08.blend",
       "locomotion": "biped",
       "attackStyle": "claws",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1662,
+        "triangles": 2332,
         "boundsMin": [
           -0.9254000186920166,
-          -0.5483251810073853,
+          -0.4215959906578064,
           0.0
         ],
         "boundsMax": [
@@ -1691,7 +1781,7 @@
         ],
         "boundsSize": [
           1.8508000373840332,
-          0.9439251720905304,
+          0.8171959817409515,
           1.6489344835281372
         ],
         "degenerateTriangles": 0,
@@ -1747,19 +1837,19 @@
           "Actual teal regeneration arm shard.002": 0.00031199801014736295,
           "Actual teal regeneration arm shard.003": 0.00031199826238056017,
           "Crossed leather baldric R": 0.0019110553742696845,
-          "Frost troll large dark shaggy rear mane": 0.1420615708339028,
           "Frost troll overlapping thick shoulder mane": 0.002834682190344514,
           "Frost troll overlapping thick shoulder mane.001": 0.0029831712805995876,
           "Frost troll overlapping thick shoulder mane.002": 0.003132053460528065,
           "Frost troll overlapping thick shoulder mane.003": 0.0028346820569519577,
           "Frost troll overlapping thick shoulder mane.004": 0.002983168844366446,
-          "Frost troll overlapping thick shoulder mane.005": 0.0031320515530145103
+          "Frost troll overlapping thick shoulder mane.005": 0.0031320515530145103,
+          "V5 folded fitted cloak": 0.018333359456240334
         },
         "meshes": 56,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1662,
-        "fileSha256": "c4729f389e0017de5a3e083470b585c20577712c570ca264581ce184d541d628",
-        "geometrySha256": "c130d966c88c11d73cfb1ab54e0f63c322fe2a6cf13eadbe12fb0c9ed268b0b3",
+        "roundtripTriangles": 2332,
+        "fileSha256": "9a784b914a3a334cc8d6a35086947dd997b10bc9bb4bc464ef4fa60acbaee07d",
+        "geometrySha256": "111579d7fbbec3f6607b3eec83141a17ecdfdd540f8f9ba161acef604ce21521",
         "namedPivots": [
           "host_08",
           "torso_pivot",
@@ -1780,74 +1870,113 @@
           "weapon_R"
         ],
         "coverage": [],
-        "headCoverage": []
+        "jointSurfaceContactsRest": [],
+        "headCoverage": [],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "V5 folded fitted cloak",
+              "replacedParts": [
+                "Frost troll large dark shaggy rear mane"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 1.6489344835281372,
+              "hemNativeM": 0.5299999713897705,
+              "actualMidDrapeRadiusRangeM": 0.22900301191869438,
+              "shoulderYokeOverlapsTorsoByM": 0.002282535582780838
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_08/front.png",
-          "geometrySha256": "c130d966c88c11d73cfb1ab54e0f63c322fe2a6cf13eadbe12fb0c9ed268b0b3",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_08/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_08/front.png",
+          "geometrySha256": "111579d7fbbec3f6607b3eec83141a17ecdfdd540f8f9ba161acef604ce21521",
+          "sha256": "9be1078548384b67fd86e8870061989fe457703952b4a1eb7319c505ddef37e0",
           "cameraPosition": [
             0.0,
-            7.748818397521973,
+            7.812182903289795,
             2.4877607822418213
           ],
-          "orthoScale": 2.2209601402282715
+          "orthoScale": 2.5541040897369385
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_08/back.png",
-          "geometrySha256": "c130d966c88c11d73cfb1ab54e0f63c322fe2a6cf13eadbe12fb0c9ed268b0b3",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_08/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_08/back.png",
+          "geometrySha256": "111579d7fbbec3f6607b3eec83141a17ecdfdd540f8f9ba161acef604ce21521",
+          "sha256": "8a4c384646d88276c74b234231bfa0dd24f74756535b50b62f9f0a8d2f847871",
           "cameraPosition": [
             9.583083008098082e-16,
-            -7.901543617248535,
+            -7.838179111480713,
             2.4877607822418213
           ],
-          "orthoScale": 2.2209601402282715
+          "orthoScale": 2.5541040897369385
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_08/left.png",
-          "geometrySha256": "c130d966c88c11d73cfb1ab54e0f63c322fe2a6cf13eadbe12fb0c9ed268b0b3",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_08/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_08/left.png",
+          "geometrySha256": "111579d7fbbec3f6607b3eec83141a17ecdfdd540f8f9ba161acef604ce21521",
+          "sha256": "869626a04cb309c0b93ecba42f10092397eebd39f5ca3d34bd8396a07dfe0239",
           "cameraPosition": [
             -7.825181007385254,
-            -0.07636259496212006,
+            -0.012997999787330627,
             2.4877607822418213
           ],
-          "orthoScale": 2.2209601402282715
+          "orthoScale": 2.5541040897369385
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_08/right.png",
-          "geometrySha256": "c130d966c88c11d73cfb1ab54e0f63c322fe2a6cf13eadbe12fb0c9ed268b0b3",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_08/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_08/right.png",
+          "geometrySha256": "111579d7fbbec3f6607b3eec83141a17ecdfdd540f8f9ba161acef604ce21521",
+          "sha256": "338874c2455796c1985e0b7d9d1904458684e78168c93a1d70e77f1579783194",
           "cameraPosition": [
             7.825181007385254,
-            -0.07636259496212006,
+            -0.012997999787330627,
             2.4877607822418213
           ],
-          "orthoScale": 2.2209601402282715
+          "orthoScale": 2.5541040897369385
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_08/three-quarter-front.png",
-          "geometrySha256": "c130d966c88c11d73cfb1ab54e0f63c322fe2a6cf13eadbe12fb0c9ed268b0b3",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_08/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_08/three-quarter-front.png",
+          "geometrySha256": "111579d7fbbec3f6607b3eec83141a17ecdfdd540f8f9ba161acef604ce21521",
+          "sha256": "953f277b39ccef6eafef1a31a2767faad7422fb5b7966f9d33295d8d4f89d9e2",
           "cameraPosition": [
             4.488339424133301,
-            6.3336501121521,
+            6.397014617919922,
             2.4877607822418213
           ],
-          "orthoScale": 2.2209601402282715
+          "orthoScale": 2.5541040897369385
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_08/three-quarter-back.png",
-          "geometrySha256": "c130d966c88c11d73cfb1ab54e0f63c322fe2a6cf13eadbe12fb0c9ed268b0b3",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_08/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_08/three-quarter-back.png",
+          "geometrySha256": "111579d7fbbec3f6607b3eec83141a17ecdfdd540f8f9ba161acef604ce21521",
+          "sha256": "69ac3a4ac22178106b198ebb2b72c8312623986de08c65967be29ef40630876a",
           "cameraPosition": [
             4.488339424133301,
-            -6.486375331878662,
+            -6.42301082611084,
             2.4877607822418213
           ],
-          "orthoScale": 2.2209601402282715
+          "orthoScale": 2.5541040897369385
         }
       ],
       "accuracy": {
@@ -1881,6 +2010,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 274.5,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "148e68375820cdf9aae9738e8e889054265985c75bfbc97ecd92cfcfeba48f65",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -1892,16 +2027,16 @@
       "portrait": "portraits/host_09.png",
       "source": "enemies/host_09.png",
       "sourceSha256": "756e1cd62618a1800cfb6345659b45e0c3d8ea178b99439030d26a957af2e479",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_09.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_09.blend",
       "locomotion": "biped",
       "attackStyle": "dagger",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1798,
+        "triangles": 2480,
         "boundsMin": [
           -0.6899999976158142,
-          -0.345640629529953,
+          -0.400017112493515,
           0.0
         ],
         "boundsMax": [
@@ -1911,7 +2046,7 @@
         ],
         "boundsSize": [
           1.3799999952316284,
-          0.645640641450882,
+          0.700017124414444,
           1.5216439962387085
         ],
         "degenerateTriangles": 0,
@@ -1950,7 +2085,6 @@
           "Elbow contacting articulated joint R": 0.000995904488263477,
           "Grasping hand R": 0.0009449350830739907,
           "Leather wrist cuff R": 0.00039485955009392154,
-          "Real rear cape": 0.007814757758751513,
           "Shoulder folded cape": 0.0012738080404233183,
           "Shoulder folded cape.001": 0.0012738080404233183,
           "Crossed leather baldric R": 0.000758001716652264,
@@ -1963,13 +2097,14 @@
           "Connected dagger handle.001": 0.001099920438718982,
           "dagger guard.001": 0.0009109283082580077,
           "Physical dagger blade.001": 0.004557992991370459,
-          "dagger pommel.001": 0.0004599243153885861
+          "dagger pommel.001": 0.0004599243153885861,
+          "Real rear cape": 0.004427729771578015
         },
         "meshes": 46,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1798,
-        "fileSha256": "87585d73099bfe88a82a5d5e5556ab829613c80b00c714c234aa738ea45e1416",
-        "geometrySha256": "0e2c80590ccabe51cf811fe623d1511e23d980208d5b7d32a435be7d32eed8cf",
+        "roundtripTriangles": 2480,
+        "fileSha256": "3fde274aa3354860d9ce68ab1a19ef342a64d51643758a2b502e65abc19643c0",
+        "geometrySha256": "c8fb68a6f4cc06863fdf84f2eb57895b08cb408a11cca6bf9f17828052e0f81a",
         "namedPivots": [
           "host_09",
           "torso_pivot",
@@ -2000,6 +2135,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -2008,74 +2144,112 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 0.8003352704048157,
+              "hemNativeM": 0.41999998688697815,
+              "actualMidDrapeRadiusRangeM": 0.10977656700171387,
+              "shoulderYokeOverlapsTorsoByM": 0.001899999976158142
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_09/front.png",
-          "geometrySha256": "0e2c80590ccabe51cf811fe623d1511e23d980208d5b7d32a435be7d32eed8cf",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_09/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_09/front.png",
+          "geometrySha256": "c8fb68a6f4cc06863fdf84f2eb57895b08cb408a11cca6bf9f17828052e0f81a",
+          "sha256": "7906503c7dab71f610b6cc12a5ea3eac650c22a76dcad7791ee9a92b5668ec59",
           "cameraPosition": [
             0.0,
-            7.802360534667969,
+            7.775172233581543,
             2.4241154193878174
           ],
-          "orthoScale": 1.8564057350158691
+          "orthoScale": 1.9043999910354614
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_09/back.png",
-          "geometrySha256": "0e2c80590ccabe51cf811fe623d1511e23d980208d5b7d32a435be7d32eed8cf",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_09/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_09/back.png",
+          "geometrySha256": "c8fb68a6f4cc06863fdf84f2eb57895b08cb408a11cca6bf9f17828052e0f81a",
+          "sha256": "258e244d13b2deaa62bf2461e98b35d84d8a9d4a3d91d3ec84b76411a694527c",
           "cameraPosition": [
             9.583083008098082e-16,
-            -7.848001480102539,
+            -7.875189781188965,
             2.4241154193878174
           ],
-          "orthoScale": 1.8564057350158691
+          "orthoScale": 1.9043999910354614
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_09/left.png",
-          "geometrySha256": "0e2c80590ccabe51cf811fe623d1511e23d980208d5b7d32a435be7d32eed8cf",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_09/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_09/left.png",
+          "geometrySha256": "c8fb68a6f4cc06863fdf84f2eb57895b08cb408a11cca6bf9f17828052e0f81a",
+          "sha256": "3319fa983b6777738e90db023b036cab5c9608715c09c84587433ec7fbbab51f",
           "cameraPosition": [
             -7.825181007385254,
-            -0.022820308804512024,
+            -0.05000855028629303,
             2.4241154193878174
           ],
-          "orthoScale": 1.8564057350158691
+          "orthoScale": 1.9043999910354614
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_09/right.png",
-          "geometrySha256": "0e2c80590ccabe51cf811fe623d1511e23d980208d5b7d32a435be7d32eed8cf",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_09/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_09/right.png",
+          "geometrySha256": "c8fb68a6f4cc06863fdf84f2eb57895b08cb408a11cca6bf9f17828052e0f81a",
+          "sha256": "d94dae6eb04799b325c7eec2c6f50899c5c83b9b3b67006b4d241a0ccb698588",
           "cameraPosition": [
             7.825181007385254,
-            -0.022820308804512024,
+            -0.05000855028629303,
             2.4241154193878174
           ],
-          "orthoScale": 1.8564057350158691
+          "orthoScale": 1.9043999910354614
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_09/three-quarter-front.png",
-          "geometrySha256": "0e2c80590ccabe51cf811fe623d1511e23d980208d5b7d32a435be7d32eed8cf",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_09/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_09/three-quarter-front.png",
+          "geometrySha256": "c8fb68a6f4cc06863fdf84f2eb57895b08cb408a11cca6bf9f17828052e0f81a",
+          "sha256": "6816c580772c9f62fc9474193970a1beac1e5e35eb9d3a0bc76fad7ca8d4f105",
           "cameraPosition": [
             4.488339424133301,
-            6.387192249298096,
+            6.36000394821167,
             2.4241154193878174
           ],
-          "orthoScale": 1.8564057350158691
+          "orthoScale": 1.9043999910354614
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_09/three-quarter-back.png",
-          "geometrySha256": "0e2c80590ccabe51cf811fe623d1511e23d980208d5b7d32a435be7d32eed8cf",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_09/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_09/three-quarter-back.png",
+          "geometrySha256": "c8fb68a6f4cc06863fdf84f2eb57895b08cb408a11cca6bf9f17828052e0f81a",
+          "sha256": "41c45965341f04860d4b904cfc0448acfeaa02fa628a1b33a3dff3a49f7ed4a5",
           "cameraPosition": [
             4.488339424133301,
-            -6.432833194732666,
+            -6.460021495819092,
             2.4241154193878174
           ],
-          "orthoScale": 1.8564057350158691
+          "orthoScale": 1.9043999910354614
         }
       ],
       "accuracy": {
@@ -2109,6 +2283,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 278.75,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "87585d73099bfe88a82a5d5e5556ab829613c80b00c714c234aa738ea45e1416",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -4056,16 +4236,16 @@
       "portrait": "portraits/host_18.png",
       "source": "enemies/host_18.png",
       "sourceSha256": "c494fbef57f69e5cbb9c51b286db47a0f7837c4a2acfbc5df515efe25fc57a8f",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_18.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_18.blend",
       "locomotion": "biped",
       "attackStyle": "scythe",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1864,
+        "triangles": 2546,
         "boundsMin": [
           -0.8600000143051147,
-          -0.3458193242549896,
+          -0.4141691029071808,
           0.0
         ],
         "boundsMax": [
@@ -4075,7 +4255,7 @@
         ],
         "boundsSize": [
           1.7200000286102295,
-          0.6816193163394928,
+          0.749969094991684,
           1.5339267253875732
         ],
         "degenerateTriangles": 0,
@@ -4110,7 +4290,6 @@
           "Forearm R": 0.006549870578358726,
           "Elbow contacting articulated joint R": 0.005036009048732618,
           "Grasping hand R": 0.004778267757501453,
-          "Real rear cape": 0.017380336343194355,
           "Shoulder folded cape": 0.002018610496937376,
           "Shoulder folded cape.001": 0.002018610496937376,
           "Crossed leather baldric R": 0.0012876384425908325,
@@ -4128,13 +4307,14 @@
           "Connected hook handle.001": 0.0010999249837671718,
           "hook guard.001": 0.0003550865076249465,
           "Physical hook blade.001": 0.006695474953933929,
-          "hook pommel.001": 0.0004599323168198074
+          "hook pommel.001": 0.0004599323168198074,
+          "Real rear cape": 0.007733906821007016
         },
         "meshes": 47,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1864,
-        "fileSha256": "87d5ad7fc267ce2a1e2eb1539a8c513a80a64e5c70add02bad4344d4049e90d7",
-        "geometrySha256": "42954c097be4b07fde56d0d9a62a414eeae6a18cb2da3c7ce461ffd5c8a79b33",
+        "roundtripTriangles": 2546,
+        "fileSha256": "5ea12a2dcf3cb24620fe5247715f3f54bfc54aad401f5763edde0ae95746dbd0",
+        "geometrySha256": "57130c1418f6f1a258a028230ad09c2ab412ea37e76e12bc373ad073f4274ca8",
         "namedPivots": [
           "host_18",
           "torso_pivot",
@@ -4165,6 +4345,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -4173,74 +4354,112 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 0.9609042825698852,
+              "hemNativeM": 0.41999998688697815,
+              "actualMidDrapeRadiusRangeM": 0.11715128493804344,
+              "shoulderYokeOverlapsTorsoByM": 0.0023000000417232516
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_18/front.png",
-          "geometrySha256": "42954c097be4b07fde56d0d9a62a414eeae6a18cb2da3c7ce461ffd5c8a79b33",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_18/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_18/front.png",
+          "geometrySha256": "57130c1418f6f1a258a028230ad09c2ab412ea37e76e12bc373ad073f4274ca8",
+          "sha256": "36a755d27aebd1d6ffd666d69bb78ea61a927475ed4ff7ca841ff9c6a76a1c1d",
           "cameraPosition": [
             0.0,
-            7.820171356201172,
+            7.785996437072754,
             2.4302568435668945
           ],
-          "orthoScale": 2.064000129699707
+          "orthoScale": 2.3736000061035156
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_18/back.png",
-          "geometrySha256": "42954c097be4b07fde56d0d9a62a414eeae6a18cb2da3c7ce461ffd5c8a79b33",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_18/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_18/back.png",
+          "geometrySha256": "57130c1418f6f1a258a028230ad09c2ab412ea37e76e12bc373ad073f4274ca8",
+          "sha256": "3f3878770eb196d78cece9c2d07ff28687a08488a0f41643cf33d0f75fdcb70b",
           "cameraPosition": [
             9.583083008098082e-16,
-            -7.830190658569336,
+            -7.864365577697754,
             2.4302568435668945
           ],
-          "orthoScale": 2.064000129699707
+          "orthoScale": 2.3736000061035156
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_18/left.png",
-          "geometrySha256": "42954c097be4b07fde56d0d9a62a414eeae6a18cb2da3c7ce461ffd5c8a79b33",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_18/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_18/left.png",
+          "geometrySha256": "57130c1418f6f1a258a028230ad09c2ab412ea37e76e12bc373ad073f4274ca8",
+          "sha256": "e5de0557dd6549be40f466a2f20bcf28773d835394cdda9bb5fcf3e4793aff81",
           "cameraPosition": [
             -7.825181007385254,
-            -0.005009666085243225,
+            -0.039184555411338806,
             2.4302568435668945
           ],
-          "orthoScale": 2.064000129699707
+          "orthoScale": 2.3736000061035156
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_18/right.png",
-          "geometrySha256": "42954c097be4b07fde56d0d9a62a414eeae6a18cb2da3c7ce461ffd5c8a79b33",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_18/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_18/right.png",
+          "geometrySha256": "57130c1418f6f1a258a028230ad09c2ab412ea37e76e12bc373ad073f4274ca8",
+          "sha256": "4cc5edbdc3ae138767518e45245b8aba86d6bcf5fc717e75839bc057e89ab039",
           "cameraPosition": [
             7.825181007385254,
-            -0.005009666085243225,
+            -0.039184555411338806,
             2.4302568435668945
           ],
-          "orthoScale": 2.064000129699707
+          "orthoScale": 2.3736000061035156
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_18/three-quarter-front.png",
-          "geometrySha256": "42954c097be4b07fde56d0d9a62a414eeae6a18cb2da3c7ce461ffd5c8a79b33",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_18/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_18/three-quarter-front.png",
+          "geometrySha256": "57130c1418f6f1a258a028230ad09c2ab412ea37e76e12bc373ad073f4274ca8",
+          "sha256": "7e3e70da86e91003bcb636397b2bf13082707cf7fab7caff6eb6ca4f8ac41901",
           "cameraPosition": [
             4.488339424133301,
-            6.405003070831299,
+            6.370828151702881,
             2.4302568435668945
           ],
-          "orthoScale": 2.064000129699707
+          "orthoScale": 2.3736000061035156
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_18/three-quarter-back.png",
-          "geometrySha256": "42954c097be4b07fde56d0d9a62a414eeae6a18cb2da3c7ce461ffd5c8a79b33",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_18/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_18/three-quarter-back.png",
+          "geometrySha256": "57130c1418f6f1a258a028230ad09c2ab412ea37e76e12bc373ad073f4274ca8",
+          "sha256": "bd0a63cfcf89077214bdc419aee0500775b56644a890ecfea6a781df842ac763",
           "cameraPosition": [
             4.488339424133301,
-            -6.415022373199463,
+            -6.449197292327881,
             2.4302568435668945
           ],
-          "orthoScale": 2.064000129699707
+          "orthoScale": 2.3736000061035156
         }
       ],
       "accuracy": {
@@ -4274,6 +4493,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 263.5,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "87d5ad7fc267ce2a1e2eb1539a8c513a80a64e5c70add02bad4344d4049e90d7",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -5448,16 +5673,16 @@
       "portrait": "portraits/host_23.png",
       "source": "enemies/host_23.png",
       "sourceSha256": "c7a366bf166f1bc6f779b5a73cef300a46ec4b9ee00813886f4a77a44647149b",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_23.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_23.blend",
       "locomotion": "biped",
       "attackStyle": "staff",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2024,
+        "triangles": 2706,
         "boundsMin": [
           -0.6084499955177307,
-          -0.3456652760505676,
+          -0.4141691029071808,
           0.0
         ],
         "boundsMax": [
@@ -5467,7 +5692,7 @@
         ],
         "boundsSize": [
           1.2332866191864014,
-          0.6814652681350708,
+          0.749969094991684,
           2.009999990463257
         ],
         "degenerateTriangles": 0,
@@ -5505,7 +5730,6 @@
           "Forearm R": 0.005123942436815318,
           "Elbow contacting articulated joint R": 0.005036013301529844,
           "Grasping hand R": 0.00477826273224006,
-          "Real rear cape": 0.01278294110185622,
           "Shoulder folded cape": 0.0020186087858746755,
           "Shoulder folded cape.001": 0.0020186087858746755,
           "Crossed leather baldric R": 0.0010935617998863259,
@@ -5523,13 +5747,14 @@
           "Warlock branched skull staff.001": 0.0008872507796695571,
           "Staff actual fourth ivory soul mask": 0.001511997931326429,
           "Skull staff mask square aperture": 2.3363844472138837e-05,
-          "Skull staff mask square aperture.001": 2.337446676392576e-05
+          "Skull staff mask square aperture.001": 2.337446676392576e-05,
+          "Real rear cape": 0.005609498748526676
         },
         "meshes": 50,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2024,
-        "fileSha256": "20748323871566099de14d9d8d5600ffacefa92a9c5382193c0bdfcd84df9805",
-        "geometrySha256": "717e6db77f4e0f579bf14ea2e862e43afbf0aa81d7008f22bc0c1dc396951af4",
+        "roundtripTriangles": 2706,
+        "fileSha256": "7d20286c6c3ed081fb6568db48772be099426b6429bbb7cf849df715b22f935c",
+        "geometrySha256": "2b039f9add7cb73418ac6512b0297335d62ec45ba2e7ae6b4232cc7914e819d2",
         "namedPivots": [
           "host_23",
           "torso_pivot",
@@ -5560,6 +5785,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -5568,71 +5794,109 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 0.8145086588859558,
+              "hemNativeM": 0.41999998688697815,
+              "actualMidDrapeRadiusRangeM": 0.11715128493804344,
+              "shoulderYokeOverlapsTorsoByM": 0.0023000000417232516
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_23/front.png",
-          "geometrySha256": "717e6db77f4e0f579bf14ea2e862e43afbf0aa81d7008f22bc0c1dc396951af4",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_23/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_23/front.png",
+          "geometrySha256": "2b039f9add7cb73418ac6512b0297335d62ec45ba2e7ae6b4232cc7914e819d2",
+          "sha256": "f279b919566b6f6a2056d2438632627e17c108abc681a1a863e1049d4f434eb8",
           "cameraPosition": [
             0.00819331407546997,
-            7.820248603820801,
+            7.785996437072754,
             2.6682934761047363
           ],
           "orthoScale": 2.452199935913086
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_23/back.png",
-          "geometrySha256": "717e6db77f4e0f579bf14ea2e862e43afbf0aa81d7008f22bc0c1dc396951af4",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_23/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_23/back.png",
+          "geometrySha256": "2b039f9add7cb73418ac6512b0297335d62ec45ba2e7ae6b4232cc7914e819d2",
+          "sha256": "786f8c5ec0c37f852385a764e935f95e52cb7fb8eeae4e946c5db992ad39bec8",
           "cameraPosition": [
             0.00819331407546997,
-            -7.830113410949707,
+            -7.864365577697754,
             2.6682934761047363
           ],
           "orthoScale": 2.452199935913086
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_23/left.png",
-          "geometrySha256": "717e6db77f4e0f579bf14ea2e862e43afbf0aa81d7008f22bc0c1dc396951af4",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_23/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_23/left.png",
+          "geometrySha256": "2b039f9add7cb73418ac6512b0297335d62ec45ba2e7ae6b4232cc7914e819d2",
+          "sha256": "da7cbe73a2b582d643798498ae8d31da5453db3c7725508ca90e6c4459c4d7db",
           "cameraPosition": [
             -7.81698751449585,
-            -0.0049326419830322266,
+            -0.039184555411338806,
             2.6682934761047363
           ],
           "orthoScale": 2.452199935913086
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_23/right.png",
-          "geometrySha256": "717e6db77f4e0f579bf14ea2e862e43afbf0aa81d7008f22bc0c1dc396951af4",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_23/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_23/right.png",
+          "geometrySha256": "2b039f9add7cb73418ac6512b0297335d62ec45ba2e7ae6b4232cc7914e819d2",
+          "sha256": "a6e9e2b8ee78844e78fea10527e3c26ff7ede7764707c1c8d08e85579e88c019",
           "cameraPosition": [
             7.833374500274658,
-            -0.0049326419830322266,
+            -0.039184555411338806,
             2.6682934761047363
           ],
           "orthoScale": 2.452199935913086
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_23/three-quarter-front.png",
-          "geometrySha256": "717e6db77f4e0f579bf14ea2e862e43afbf0aa81d7008f22bc0c1dc396951af4",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_23/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_23/three-quarter-front.png",
+          "geometrySha256": "2b039f9add7cb73418ac6512b0297335d62ec45ba2e7ae6b4232cc7914e819d2",
+          "sha256": "0e900a000a4fc47841d9bc46641c9a79bc2da7fcb9526540cf6e7e0a3531c0cd",
           "cameraPosition": [
             4.496532917022705,
-            6.4050798416137695,
+            6.370828151702881,
             2.6682934761047363
           ],
           "orthoScale": 2.452199935913086
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_23/three-quarter-back.png",
-          "geometrySha256": "717e6db77f4e0f579bf14ea2e862e43afbf0aa81d7008f22bc0c1dc396951af4",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_23/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_23/three-quarter-back.png",
+          "geometrySha256": "2b039f9add7cb73418ac6512b0297335d62ec45ba2e7ae6b4232cc7914e819d2",
+          "sha256": "164cb83f95dfdc9aedf279a9f036ae7d97d13198478f05beb52d4fb4164265a3",
           "cameraPosition": [
             4.496532917022705,
-            -6.414945602416992,
+            -6.449197292327881,
             2.6682934761047363
           ],
           "orthoScale": 2.452199935913086
@@ -5669,6 +5933,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 297.0,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "20748323871566099de14d9d8d5600ffacefa92a9c5382193c0bdfcd84df9805",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -7621,16 +7891,16 @@
       "portrait": "portraits/host_31.png",
       "source": "enemies/host_31.png",
       "sourceSha256": "7de73f17356ecc13f3b829d20b3b288a30f9e7b2d3bcf3ab4c992bc3db8616cb",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_31.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_31.blend",
       "locomotion": "biped",
       "attackStyle": "staff",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2520,
+        "triangles": 3202,
         "boundsMin": [
           -0.7522000074386597,
-          -0.3457857072353363,
+          -0.4141691029071808,
           0.0
         ],
         "boundsMax": [
@@ -7640,7 +7910,7 @@
         ],
         "boundsSize": [
           1.4142000079154968,
-          0.810785710811615,
+          0.8791691064834595,
           1.8635817766189575
         ],
         "degenerateTriangles": 0,
@@ -7678,7 +7948,6 @@
           "Forearm R": 0.005483330174077612,
           "Elbow contacting articulated joint R": 0.005036013155252779,
           "Grasping hand R": 0.00477826273224006,
-          "Real rear cape": 0.01596292141766753,
           "Shoulder folded cape": 0.0020186083905476453,
           "Shoulder folded cape.001": 0.0020186083905476453,
           "Crossed leather baldric R": 0.0012197724233071008,
@@ -7722,13 +7991,14 @@
           "Inquisitor golden sun seal ray.010": 1.149034748474756e-05,
           "Inquisitor golden sun seal ray.011": 1.1498380141953615e-05,
           "Shield visible rear arm strap": 0.0003042487066219716,
-          "Shield visible rear arm strap.001": 0.00030424507864760625
+          "Shield visible rear arm strap.001": 0.00030424507864760625,
+          "Real rear cape": 0.007079838655045022
         },
         "meshes": 76,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2520,
-        "fileSha256": "d496ac93f520b81df0cd833fc758330161d6ee4d2ab4dd3b40e95dd335ef14fd",
-        "geometrySha256": "df4d39d6afc92ee3fb8ccbe8a9b23b55b70f304a0518335ecef1fcb6a1bc32a0",
+        "roundtripTriangles": 3202,
+        "fileSha256": "3cf533d377253bda386441a273e02822b55977e33c0eaba48e9291a0eedabd3e",
+        "geometrySha256": "953c54ec0ffd21c5755a5b9de863b8e2d9ed49d79c14053a21559f295e7dc559",
         "namedPivots": [
           "host_31",
           "torso_pivot",
@@ -7760,6 +8030,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -7768,71 +8039,109 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 0.9158314290046692,
+              "hemNativeM": 0.41999998688697815,
+              "actualMidDrapeRadiusRangeM": 0.11715128493804344,
+              "shoulderYokeOverlapsTorsoByM": 0.0023000000417232516
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_31/front.png",
-          "geometrySha256": "df4d39d6afc92ee3fb8ccbe8a9b23b55b70f304a0518335ecef1fcb6a1bc32a0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_31/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_31/front.png",
+          "geometrySha256": "953c54ec0ffd21c5755a5b9de863b8e2d9ed49d79c14053a21559f295e7dc559",
+          "sha256": "d6ad772cbe5735f479022f970d6ef1f4fce4099480dac81d8fa2b347c4a6bf49",
           "cameraPosition": [
             -0.045100003480911255,
-            7.8847880363464355,
+            7.8505964279174805,
             2.5950844287872314
           ],
           "orthoScale": 2.2735698223114014
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_31/back.png",
-          "geometrySha256": "df4d39d6afc92ee3fb8ccbe8a9b23b55b70f304a0518335ecef1fcb6a1bc32a0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_31/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_31/back.png",
+          "geometrySha256": "953c54ec0ffd21c5755a5b9de863b8e2d9ed49d79c14053a21559f295e7dc559",
+          "sha256": "bb5b46f5760f6119f18e3e7a0ceb3b77bfd64e65e676f6f7e846d474aab5811a",
           "cameraPosition": [
             -0.045100003480911255,
-            -7.765573978424072,
+            -7.799765586853027,
             2.5950844287872314
           ],
           "orthoScale": 2.2735698223114014
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_31/left.png",
-          "geometrySha256": "df4d39d6afc92ee3fb8ccbe8a9b23b55b70f304a0518335ecef1fcb6a1bc32a0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_31/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_31/left.png",
+          "geometrySha256": "953c54ec0ffd21c5755a5b9de863b8e2d9ed49d79c14053a21559f295e7dc559",
+          "sha256": "53ab1aaa1bf9480412fd7c0451b4c0456d3c51941e29385a914f9ceb42d237fd",
           "cameraPosition": [
             -7.870281219482422,
-            0.05960714817047119,
+            0.02541545033454895,
             2.5950844287872314
           ],
           "orthoScale": 2.2735698223114014
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_31/right.png",
-          "geometrySha256": "df4d39d6afc92ee3fb8ccbe8a9b23b55b70f304a0518335ecef1fcb6a1bc32a0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_31/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_31/right.png",
+          "geometrySha256": "953c54ec0ffd21c5755a5b9de863b8e2d9ed49d79c14053a21559f295e7dc559",
+          "sha256": "3ead40163cdc1fd0df32b2b655c50ab7c0ad369433d1cbb166fe4a2bc193ac3a",
           "cameraPosition": [
             7.780080795288086,
-            0.05960714817047119,
+            0.02541545033454895,
             2.5950844287872314
           ],
           "orthoScale": 2.2735698223114014
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_31/three-quarter-front.png",
-          "geometrySha256": "df4d39d6afc92ee3fb8ccbe8a9b23b55b70f304a0518335ecef1fcb6a1bc32a0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_31/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_31/three-quarter-front.png",
+          "geometrySha256": "953c54ec0ffd21c5755a5b9de863b8e2d9ed49d79c14053a21559f295e7dc559",
+          "sha256": "4a972774733d9a65eeb0fcd82a72263f0c768c18b5079c12f53c2533b67a7f5c",
           "cameraPosition": [
             4.443239212036133,
-            6.4696197509765625,
+            6.435428142547607,
             2.5950844287872314
           ],
           "orthoScale": 2.2735698223114014
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_31/three-quarter-back.png",
-          "geometrySha256": "df4d39d6afc92ee3fb8ccbe8a9b23b55b70f304a0518335ecef1fcb6a1bc32a0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_31/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_31/three-quarter-back.png",
+          "geometrySha256": "953c54ec0ffd21c5755a5b9de863b8e2d9ed49d79c14053a21559f295e7dc559",
+          "sha256": "a660d1f9a9fec5a375621c3a0be2505cc5ede64d7ec180444bdcbe27a99516f2",
           "cameraPosition": [
             4.443239212036133,
-            -6.350405693054199,
+            -6.384597301483154,
             2.5950844287872314
           ],
           "orthoScale": 2.2735698223114014
@@ -7869,6 +8178,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 318.0,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "d496ac93f520b81df0cd833fc758330161d6ee4d2ab4dd3b40e95dd335ef14fd",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -8109,16 +8424,16 @@
       "portrait": "portraits/host_33.png",
       "source": "enemies/host_33.png",
       "sourceSha256": "1e1f8bc5aa7cf1455439275d4600726dc27393907cfe4a5a70c9a1658b4ca9fe",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_33.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_33.blend",
       "locomotion": "biped",
       "attackStyle": "dagger",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1754,
+        "triangles": 2436,
         "boundsMin": [
           -0.6084499955177307,
-          -0.3458997905254364,
+          -0.30000001192092896,
           0.0
         ],
         "boundsMax": [
@@ -8128,7 +8443,7 @@
         ],
         "boundsSize": [
           1.248449981212616,
-          0.6816997826099396,
+          0.6358000040054321,
           1.6638685464859009
         ],
         "degenerateTriangles": 0,
@@ -8165,7 +8480,6 @@
           "Forearm R": 0.008519619991905831,
           "Elbow contacting articulated joint R": 0.005036010473001322,
           "Grasping hand R": 0.004778267757501453,
-          "Real rear cape": 0.023323755815605786,
           "Shoulder folded cape": 0.002018612341089464,
           "Shoulder folded cape.001": 0.002018612341089464,
           "Crossed leather baldric R": 0.0016245791921392085,
@@ -8178,13 +8492,14 @@
           "Connected dagger handle": 0.001099912488522629,
           "dagger guard": 0.0009109505651091846,
           "Physical dagger blade": 0.0028401889139786363,
-          "dagger pommel": 0.00045992815679104143
+          "dagger pommel": 0.00045992815679104143,
+          "Real rear cape": 0.00809273788312718
         },
         "meshes": 44,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1754,
-        "fileSha256": "d7d0a5fde3faa9dc1933ccc8d09f2211fb85385a421e38f592cd303e532d269a",
-        "geometrySha256": "444ed5a270e61e232434a9443600a0bb61a2fd80c780ace129ce683271342ff0",
+        "roundtripTriangles": 2436,
+        "fileSha256": "659bd48c69da28fde6c2fc8b5844619c2a2e9bd70d55eb573f646303cda8cdec",
+        "geometrySha256": "8bace156b255eea1f245a30a6871758ef90492a337299da4e8e629f99de6303f",
         "namedPivots": [
           "host_33",
           "torso_pivot",
@@ -8214,6 +8529,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -8222,71 +8538,109 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 1.1049684705734253,
+              "hemNativeM": 0.41999998688697815,
+              "actualMidDrapeRadiusRangeM": 0.09632823087267262,
+              "shoulderYokeOverlapsTorsoByM": 0.001899999976158142
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_33/front.png",
-          "geometrySha256": "444ed5a270e61e232434a9443600a0bb61a2fd80c780ace129ce683271342ff0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_33/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_33/front.png",
+          "geometrySha256": "8bace156b255eea1f245a30a6871758ef90492a337299da4e8e629f99de6303f",
+          "sha256": "5b4b7641bcea772303f52584ccca2801165b7c2156b84c4c97aace7c120ee452",
           "cameraPosition": [
             0.01577499508857727,
-            7.820131301879883,
+            7.843080997467041,
             2.495227813720703
           ],
           "orthoScale": 2.0299196243286133
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_33/back.png",
-          "geometrySha256": "444ed5a270e61e232434a9443600a0bb61a2fd80c780ace129ce683271342ff0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_33/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_33/back.png",
+          "geometrySha256": "8bace156b255eea1f245a30a6871758ef90492a337299da4e8e629f99de6303f",
+          "sha256": "44f0d2f0b27ff509ca96595dfdebcae6f79f6e97d1006f58c5b90e459bca3213",
           "cameraPosition": [
             0.01577499508857727,
-            -7.830230712890625,
+            -7.807281017303467,
             2.495227813720703
           ],
           "orthoScale": 2.0299196243286133
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_33/left.png",
-          "geometrySha256": "444ed5a270e61e232434a9443600a0bb61a2fd80c780ace129ce683271342ff0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_33/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_33/left.png",
+          "geometrySha256": "8bace156b255eea1f245a30a6871758ef90492a337299da4e8e629f99de6303f",
+          "sha256": "abd08cb13f16a60f15ad74fdc77fc6f6bb0eff27107ad09b44fe7f2deb9459f8",
           "cameraPosition": [
             -7.80940580368042,
-            -0.005049899220466614,
+            0.01789999008178711,
             2.495227813720703
           ],
           "orthoScale": 2.0299196243286133
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_33/right.png",
-          "geometrySha256": "444ed5a270e61e232434a9443600a0bb61a2fd80c780ace129ce683271342ff0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_33/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_33/right.png",
+          "geometrySha256": "8bace156b255eea1f245a30a6871758ef90492a337299da4e8e629f99de6303f",
+          "sha256": "9f37bd71eb3030612beb0685e43712fbf564c935c7e4bfe1ae6da9981ae4ed45",
           "cameraPosition": [
             7.840956211090088,
-            -0.005049899220466614,
+            0.01789999008178711,
             2.495227813720703
           ],
           "orthoScale": 2.0299196243286133
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_33/three-quarter-front.png",
-          "geometrySha256": "444ed5a270e61e232434a9443600a0bb61a2fd80c780ace129ce683271342ff0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_33/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_33/three-quarter-front.png",
+          "geometrySha256": "8bace156b255eea1f245a30a6871758ef90492a337299da4e8e629f99de6303f",
+          "sha256": "545aa28559591b21b805e9ef26a5eff4303377c03ed17a3c3213838604678fc6",
           "cameraPosition": [
             4.504114627838135,
-            6.40496301651001,
+            6.427912712097168,
             2.495227813720703
           ],
           "orthoScale": 2.0299196243286133
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_33/three-quarter-back.png",
-          "geometrySha256": "444ed5a270e61e232434a9443600a0bb61a2fd80c780ace129ce683271342ff0",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_33/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_33/three-quarter-back.png",
+          "geometrySha256": "8bace156b255eea1f245a30a6871758ef90492a337299da4e8e629f99de6303f",
+          "sha256": "ba8da44d4d5b9b2f2e11ab5bc54391c1d8c78122f747afab56dde0394fe8d983",
           "cameraPosition": [
             4.504114627838135,
-            -6.415062427520752,
+            -6.392112731933594,
             2.495227813720703
           ],
           "orthoScale": 2.0299196243286133
@@ -8323,6 +8677,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 297.5,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "d7d0a5fde3faa9dc1933ccc8d09f2211fb85385a421e38f592cd303e532d269a",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -9445,16 +9805,16 @@
       "portrait": "portraits/host_38.png",
       "source": "enemies/host_38.png",
       "sourceSha256": "66fec81fdb7df9ff5efc428c8614efe4821a5226ea3a239567f5ec80099e3c04",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_38.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_38.blend",
       "locomotion": "biped",
       "attackStyle": "dagger",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1828,
+        "triangles": 2510,
         "boundsMin": [
           -0.8299999833106995,
-          -0.3458396792411804,
+          -0.4141691029071808,
           0.0
         ],
         "boundsMax": [
@@ -9464,7 +9824,7 @@
         ],
         "boundsSize": [
           1.659999966621399,
-          0.6816396713256836,
+          0.749969094991684,
           1.652557373046875
         ],
         "degenerateTriangles": 0,
@@ -9501,7 +9861,6 @@
           "Elbow contacting articulated joint R": 0.00503601088786354,
           "Grasping hand R": 0.004778267757501453,
           "Leather wrist cuff R": 0.0015379880933323875,
-          "Real rear cape": 0.018447056883208766,
           "Shoulder folded cape": 0.0020186119139301217,
           "Shoulder folded cape.001": 0.0020186119139301217,
           "Crossed leather baldric R": 0.0013424911303445695,
@@ -9514,13 +9873,14 @@
           "Connected dagger handle.001": 0.0010999249837671718,
           "dagger guard.001": 0.0009109198872465642,
           "Physical dagger blade.001": 0.004557986530320098,
-          "dagger pommel.001": 0.0004599323168198074
+          "dagger pommel.001": 0.0004599323168198074,
+          "Real rear cape": 0.008225784689178303
         },
         "meshes": 44,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1828,
-        "fileSha256": "1881af307f109f69e27ea9933cc1bf2de742c0af594ee3779c82f6b2e66cb3bc",
-        "geometrySha256": "5bd4a9d9af487ae617e9c526d15815e2896cbb3ce3e2c21a9cb602477f7458d5",
+        "roundtripTriangles": 2510,
+        "fileSha256": "ff26afe8a4cd7bc454ff4d68bdc53d16120047d659e45a1e1cd2110c8a1d458a",
+        "geometrySha256": "af02d197ee49df4fefa189e4f7996f279cffdbc8479bed4c84fcf9e91448615e",
         "namedPivots": [
           "host_38",
           "torso_pivot",
@@ -9551,6 +9911,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -9559,74 +9920,112 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 0.9947998943328857,
+              "hemNativeM": 0.41999998688697815,
+              "actualMidDrapeRadiusRangeM": 0.11715128493804344,
+              "shoulderYokeOverlapsTorsoByM": 0.0023000000417232516
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_38/front.png",
-          "geometrySha256": "5bd4a9d9af487ae617e9c526d15815e2896cbb3ce3e2c21a9cb602477f7458d5",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_38/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_38/front.png",
+          "geometrySha256": "af02d197ee49df4fefa189e4f7996f279cffdbc8479bed4c84fcf9e91448615e",
+          "sha256": "dcb056b1838daf3f06c2ea828b807bd40283b73ea63c24bd503594ae9eead579",
           "cameraPosition": [
             0.0,
-            7.82016134262085,
+            7.785996437072754,
             2.489572048187256
           ],
-          "orthoScale": 2.016119956970215
+          "orthoScale": 2.290799856185913
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_38/back.png",
-          "geometrySha256": "5bd4a9d9af487ae617e9c526d15815e2896cbb3ce3e2c21a9cb602477f7458d5",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_38/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_38/back.png",
+          "geometrySha256": "af02d197ee49df4fefa189e4f7996f279cffdbc8479bed4c84fcf9e91448615e",
+          "sha256": "9e12fec6f8a5077a98c02688f40a7cdf6c58ed40295ce187e39e80df55d970bf",
           "cameraPosition": [
             9.583083008098082e-16,
-            -7.830200672149658,
+            -7.864365577697754,
             2.489572048187256
           ],
-          "orthoScale": 2.016119956970215
+          "orthoScale": 2.290799856185913
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_38/left.png",
-          "geometrySha256": "5bd4a9d9af487ae617e9c526d15815e2896cbb3ce3e2c21a9cb602477f7458d5",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_38/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_38/left.png",
+          "geometrySha256": "af02d197ee49df4fefa189e4f7996f279cffdbc8479bed4c84fcf9e91448615e",
+          "sha256": "456cda18a78f24c13b43f6c7187e5fa1fbffb6d3cdca00b1b40137fda68106fa",
           "cameraPosition": [
             -7.825181007385254,
-            -0.005019843578338623,
+            -0.039184555411338806,
             2.489572048187256
           ],
-          "orthoScale": 2.016119956970215
+          "orthoScale": 2.290799856185913
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_38/right.png",
-          "geometrySha256": "5bd4a9d9af487ae617e9c526d15815e2896cbb3ce3e2c21a9cb602477f7458d5",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_38/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_38/right.png",
+          "geometrySha256": "af02d197ee49df4fefa189e4f7996f279cffdbc8479bed4c84fcf9e91448615e",
+          "sha256": "22f0d27a082fb7b83412ff29b74e0b18a01939ce508b049f88f9e8a9c29e4fa0",
           "cameraPosition": [
             7.825181007385254,
-            -0.005019843578338623,
+            -0.039184555411338806,
             2.489572048187256
           ],
-          "orthoScale": 2.016119956970215
+          "orthoScale": 2.290799856185913
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_38/three-quarter-front.png",
-          "geometrySha256": "5bd4a9d9af487ae617e9c526d15815e2896cbb3ce3e2c21a9cb602477f7458d5",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_38/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_38/three-quarter-front.png",
+          "geometrySha256": "af02d197ee49df4fefa189e4f7996f279cffdbc8479bed4c84fcf9e91448615e",
+          "sha256": "fea1108652ecff0afd260afef4bc98d4434903f684387e1e954b28c29ba4b347",
           "cameraPosition": [
             4.488339424133301,
-            6.404993057250977,
+            6.370828151702881,
             2.489572048187256
           ],
-          "orthoScale": 2.016119956970215
+          "orthoScale": 2.290799856185913
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_38/three-quarter-back.png",
-          "geometrySha256": "5bd4a9d9af487ae617e9c526d15815e2896cbb3ce3e2c21a9cb602477f7458d5",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_38/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_38/three-quarter-back.png",
+          "geometrySha256": "af02d197ee49df4fefa189e4f7996f279cffdbc8479bed4c84fcf9e91448615e",
+          "sha256": "795d17f85be0eb883e1d567d7f5e6f751aff978e44e64d847f42d999a89dae43",
           "cameraPosition": [
             4.488339424133301,
-            -6.415032386779785,
+            -6.449197292327881,
             2.489572048187256
           ],
-          "orthoScale": 2.016119956970215
+          "orthoScale": 2.290799856185913
         }
       ],
       "accuracy": {
@@ -9660,6 +10059,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 277.5,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "1881af307f109f69e27ea9933cc1bf2de742c0af594ee3779c82f6b2e66cb3bc",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -11044,16 +11449,16 @@
       "portrait": "portraits/host_44.png",
       "source": "enemies/host_44.png",
       "sourceSha256": "6e1f9a0a440ca261250b267d21dc56fe4803957069288455d4df7f2c6f9f3221",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_44.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_44.blend",
       "locomotion": "biped",
       "attackStyle": "axe",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1908,
+        "triangles": 2590,
         "boundsMin": [
           -0.6084499955177307,
-          -0.3458446264266968,
+          -0.4141691029071808,
           0.0
         ],
         "boundsMax": [
@@ -11063,7 +11468,7 @@
         ],
         "boundsSize": [
           1.5184500217437744,
-          0.6858446300029755,
+          0.7541691064834595,
           1.758377194404602
         ],
         "degenerateTriangles": 0,
@@ -11104,7 +11509,6 @@
           "Forearm R": 0.006069501037321364,
           "Elbow contacting articulated joint R": 0.005036012020961304,
           "Grasping hand R": 0.00477826273224006,
-          "Real rear cape": 0.018739114612496145,
           "Shoulder folded cape": 0.002018612103711347,
           "Shoulder folded cape.001": 0.002018612103711347,
           "Crossed leather baldric R": 0.0013580195760975284,
@@ -11117,13 +11521,14 @@
           "Ash executioner long ivory forehead blade": 0.0008749998814892024,
           "Magic immunity embedded rune": 6.336013514858982e-05,
           "Connected axe handle": 0.0024442845509232334,
-          "Broad axe curved cutting head": 0.018148520650962986
+          "Broad axe curved cutting head": 0.018148520650962986,
+          "Real rear cape": 0.008360410398533228
         },
         "meshes": 48,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1908,
-        "fileSha256": "12f0234e74a4aec13f854be911328e369d53bbf5e89d4242ce7ec724c5cc6b37",
-        "geometrySha256": "a0f594216671d8c236746d261d2980b92a8a39a27e81c9e884422f39aceee178",
+        "roundtripTriangles": 2590,
+        "fileSha256": "d424d4f5716d5b9515ff2751a83d9bcfb2751159f6687a547637606cffb4236f",
+        "geometrySha256": "119053b3104238aae6c4a26a89aa1d1b18c1b36bd9cf004381f82d0c3b82843a",
         "namedPivots": [
           "host_44",
           "torso_pivot",
@@ -11153,6 +11558,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -11161,71 +11567,109 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 1.0040772380828857,
+              "hemNativeM": 0.41999998688697815,
+              "actualMidDrapeRadiusRangeM": 0.11715128493804344,
+              "shoulderYokeOverlapsTorsoByM": 0.0023000000417232516
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_44/front.png",
-          "geometrySha256": "a0f594216671d8c236746d261d2980b92a8a39a27e81c9e884422f39aceee178",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_44/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_44/front.png",
+          "geometrySha256": "119053b3104238aae6c4a26a89aa1d1b18c1b36bd9cf004381f82d0c3b82843a",
+          "sha256": "dc679e3c329ddcf47c3ec07c43a41d35f55ca8ca9e1e8ff1adeb4e38499ebf93",
           "cameraPosition": [
             0.1507750153541565,
-            7.822258472442627,
+            7.7880964279174805,
             2.5424821376800537
           ],
           "orthoScale": 2.1452202796936035
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_44/back.png",
-          "geometrySha256": "a0f594216671d8c236746d261d2980b92a8a39a27e81c9e884422f39aceee178",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_44/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_44/back.png",
+          "geometrySha256": "119053b3104238aae6c4a26a89aa1d1b18c1b36bd9cf004381f82d0c3b82843a",
+          "sha256": "dcadb70c6fb178560dbfe4d140d5166a27842ca275d9ddfc8644c179ef960be4",
           "cameraPosition": [
             0.1507750153541565,
-            -7.828103542327881,
+            -7.862265586853027,
             2.5424821376800537
           ],
           "orthoScale": 2.1452202796936035
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_44/left.png",
-          "geometrySha256": "a0f594216671d8c236746d261d2980b92a8a39a27e81c9e884422f39aceee178",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_44/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_44/left.png",
+          "geometrySha256": "119053b3104238aae6c4a26a89aa1d1b18c1b36bd9cf004381f82d0c3b82843a",
+          "sha256": "661bb3b98140cd8f3d5957134cd636f3ce08b39c32f725853201b764c38cddf4",
           "cameraPosition": [
             -7.674406051635742,
-            -0.0029223114252090454,
+            -0.03708454966545105,
             2.5424821376800537
           ],
           "orthoScale": 2.1452202796936035
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_44/right.png",
-          "geometrySha256": "a0f594216671d8c236746d261d2980b92a8a39a27e81c9e884422f39aceee178",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_44/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_44/right.png",
+          "geometrySha256": "119053b3104238aae6c4a26a89aa1d1b18c1b36bd9cf004381f82d0c3b82843a",
+          "sha256": "4d4c2201f0f10d0af0b9914de565de8929674497aec99ec09f48b57f625fa8dd",
           "cameraPosition": [
             7.975955963134766,
-            -0.0029223114252090454,
+            -0.03708454966545105,
             2.5424821376800537
           ],
           "orthoScale": 2.1452202796936035
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_44/three-quarter-front.png",
-          "geometrySha256": "a0f594216671d8c236746d261d2980b92a8a39a27e81c9e884422f39aceee178",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_44/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_44/three-quarter-front.png",
+          "geometrySha256": "119053b3104238aae6c4a26a89aa1d1b18c1b36bd9cf004381f82d0c3b82843a",
+          "sha256": "d94abc6fad67ab3fc6e1f111c4f84766119df2dc1355041ad32bd2d0776e3d34",
           "cameraPosition": [
             4.6391143798828125,
-            6.407090187072754,
+            6.372928142547607,
             2.5424821376800537
           ],
           "orthoScale": 2.1452202796936035
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_44/three-quarter-back.png",
-          "geometrySha256": "a0f594216671d8c236746d261d2980b92a8a39a27e81c9e884422f39aceee178",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_44/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_44/three-quarter-back.png",
+          "geometrySha256": "119053b3104238aae6c4a26a89aa1d1b18c1b36bd9cf004381f82d0c3b82843a",
+          "sha256": "f348e1c9d2a79e335d8dc44b922d32fe308a7496ec24099343ac5da8f1dc99cc",
           "cameraPosition": [
             4.6391143798828125,
-            -6.412935256958008,
+            -6.447097301483154,
             2.5424821376800537
           ],
           "orthoScale": 2.1452202796936035
@@ -11262,6 +11706,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 255.0,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "12f0234e74a4aec13f854be911328e369d53bbf5e89d4242ce7ec724c5cc6b37",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -12152,13 +12602,13 @@
       "portrait": "portraits/host_48.png",
       "source": "enemies/host_48.png",
       "sourceSha256": "88a96cf30a6324d88f97d49497e811e037cb802744a9640f63f054676e061dde",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_48.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_48.blend",
       "locomotion": "flying",
       "attackStyle": "dagger",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 3434,
+        "triangles": 4116,
         "boundsMin": [
           -1.111621379852295,
           -0.8050194978713989,
@@ -12253,7 +12703,6 @@
           "Elbow contacting articulated joint R": 0.0022106876593473617,
           "Grasping hand R": 0.0020975447332602926,
           "Leather wrist cuff R": 0.0006292426720998868,
-          "Real rear cape": 0.002711879336857237,
           "Shoulder folded cape": 0.0007950729996082369,
           "Shoulder folded cape.001": 0.0007950729996082369,
           "Crossed leather baldric R": 0.0008747303169608733,
@@ -12277,13 +12726,14 @@
           "Thief bell dark hollow mouth": 0.00012861469046280638,
           "Black fire thief long actual scarf.001": 0.0014731592188278833,
           "Thief actual gold runic bell.001": 0.000532086325013855,
-          "Thief bell dark hollow mouth.001": 0.00012861621416959673
+          "Thief bell dark hollow mouth.001": 0.00012861621416959673,
+          "Real rear cape": 0.001540246785604419
         },
         "meshes": 100,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 3434,
-        "fileSha256": "7aba49fcc5eddc9ef7105fa338a706b1b9a2e7c5bad011405b15ea838b03758d",
-        "geometrySha256": "82f36ef04c2cc579a7f51be64ed3f866b74c137b076906484a76ad4d150eac8a",
+        "roundtripTriangles": 4116,
+        "fileSha256": "f9284981561aa89b9c407700e2327b829a2c49e0c5d13575940efed6ae0ea9f7",
+        "geometrySha256": "e60a80b791eec234e9716f4d695fb374b84f04894dcdfcb80b11f10aee1661f1",
         "namedPivots": [
           "host_48",
           "mount_torso_pivot",
@@ -12326,6 +12776,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -12334,74 +12785,112 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 1.4728000583648682,
+              "hemNativeM": 1.319200038909912,
+              "actualMidDrapeRadiusRangeM": 0.05761011339468669,
+              "shoulderYokeOverlapsTorsoByM": 0.0017480000108480453
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_48/front.png",
-          "geometrySha256": "82f36ef04c2cc579a7f51be64ed3f866b74c137b076906484a76ad4d150eac8a",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_48/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_48/front.png",
+          "geometrySha256": "e60a80b791eec234e9716f4d695fb374b84f04894dcdfcb80b11f10aee1661f1",
+          "sha256": "8d96a9f96160c335a3e8c8b7257c12338df3972955887c03c1a472d64cf45578",
           "cameraPosition": [
             0.0,
             7.806972026824951,
             2.7081494331359863
           ],
-          "orthoScale": 2.667891263961792
+          "orthoScale": 3.068074941635132
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_48/back.png",
-          "geometrySha256": "82f36ef04c2cc579a7f51be64ed3f866b74c137b076906484a76ad4d150eac8a",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_48/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_48/back.png",
+          "geometrySha256": "e60a80b791eec234e9716f4d695fb374b84f04894dcdfcb80b11f10aee1661f1",
+          "sha256": "f952a2e1c460a3fc38464418de2f6e83a365a70bf37d17db93629a3713478f3e",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.843389987945557,
             2.7081494331359863
           ],
-          "orthoScale": 2.667891263961792
+          "orthoScale": 3.068074941635132
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_48/left.png",
-          "geometrySha256": "82f36ef04c2cc579a7f51be64ed3f866b74c137b076906484a76ad4d150eac8a",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_48/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_48/left.png",
+          "geometrySha256": "e60a80b791eec234e9716f4d695fb374b84f04894dcdfcb80b11f10aee1661f1",
+          "sha256": "e85a0e11967d8a5eb30f8a1914f66181112205d744c8bc395550d2ad3bc1e4e9",
           "cameraPosition": [
             -7.825181007385254,
             -0.018208980560302734,
             2.7081494331359863
           ],
-          "orthoScale": 2.667891263961792
+          "orthoScale": 3.068074941635132
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_48/right.png",
-          "geometrySha256": "82f36ef04c2cc579a7f51be64ed3f866b74c137b076906484a76ad4d150eac8a",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_48/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_48/right.png",
+          "geometrySha256": "e60a80b791eec234e9716f4d695fb374b84f04894dcdfcb80b11f10aee1661f1",
+          "sha256": "7eba6ee059ff579887d977a7c4980dc71a6d810714ee0c12427ae675e3996a7d",
           "cameraPosition": [
             7.825181007385254,
             -0.018208980560302734,
             2.7081494331359863
           ],
-          "orthoScale": 2.667891263961792
+          "orthoScale": 3.068074941635132
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_48/three-quarter-front.png",
-          "geometrySha256": "82f36ef04c2cc579a7f51be64ed3f866b74c137b076906484a76ad4d150eac8a",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_48/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_48/three-quarter-front.png",
+          "geometrySha256": "e60a80b791eec234e9716f4d695fb374b84f04894dcdfcb80b11f10aee1661f1",
+          "sha256": "67396715a9c773704b0db0e076474980500a0e173c33e529a3f1ff185b31cc1b",
           "cameraPosition": [
             4.488339424133301,
             6.391803741455078,
             2.7081494331359863
           ],
-          "orthoScale": 2.667891263961792
+          "orthoScale": 3.068074941635132
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_48/three-quarter-back.png",
-          "geometrySha256": "82f36ef04c2cc579a7f51be64ed3f866b74c137b076906484a76ad4d150eac8a",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_48/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_48/three-quarter-back.png",
+          "geometrySha256": "e60a80b791eec234e9716f4d695fb374b84f04894dcdfcb80b11f10aee1661f1",
+          "sha256": "1fb826dc169984019d37d711f7dca8dc83fac04cf4b96704a371c34f48dddbec",
           "cameraPosition": [
             4.488339424133301,
             -6.428221702575684,
             2.7081494331359863
           ],
-          "orthoScale": 2.667891263961792
+          "orthoScale": 3.068074941635132
         }
       ],
       "accuracy": {
@@ -12435,6 +12924,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 255.0,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "7aba49fcc5eddc9ef7105fa338a706b1b9a2e7c5bad011405b15ea838b03758d",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     },
     {
@@ -12721,13 +13216,13 @@
       "portrait": "portraits/host_50.png",
       "source": "enemies/host_50.png",
       "sourceSha256": "f5777e0e3c4cdd7f8f6daecd29b15ec964dcbd5095155230d92c78913c24cef5",
-      "native": "blender/scenes/geometric-game-v1/enemies/host_50.blend",
+      "native": "blender/scenes/geometric-game-v5/enemies/host_50.blend",
       "locomotion": "flying",
       "attackStyle": "sword",
       "geometricRig": true,
       "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 3396,
+        "triangles": 4078,
         "boundsMin": [
           -1.3602114915847778,
           -1.26646089553833,
@@ -12815,7 +13310,6 @@
           "Elbow contacting articulated joint R": 0.0022106888363850885,
           "Grasping hand R": 0.002097543838317506,
           "Leather wrist cuff R": 0.0005747351921551548,
-          "Real rear cape": 0.005911496322369201,
           "Shoulder folded cape": 0.0007950761695004387,
           "Shoulder folded cape.001": 0.0007950761695004387,
           "Breastplate fitted shell": 0.00543267604856131,
@@ -12861,13 +13355,14 @@
           "Bernhard amber sword rune channel": 0.00014112233960380166,
           "Bernhard sword rune diamond": 3.9599874677757406e-05,
           "Bernhard chest actual amber focus": 0.00032759989456584054,
-          "Bernhard wyvern chest obsidian harness": 0.03661775816362933
+          "Bernhard wyvern chest obsidian harness": 0.03661775816362933,
+          "Real rear cape": 0.00359462413825895
         },
         "meshes": 115,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 3396,
-        "fileSha256": "1116dccade4ea72ad718205a904b59f5c007d06aad02723a294ae60d9f38e08f",
-        "geometrySha256": "966c33641b7a32b16dc05102a2cc8fd4934eb78ab00eb9372cb3110cba062724",
+        "roundtripTriangles": 4078,
+        "fileSha256": "2acfae1795ae1a22142ed41558f7e9c69337b58ba41dd35dc7148c3062a06007",
+        "geometrySha256": "9522cee2a272d4de2732fdfc70d93174eca1363a301f4a710d3db90a425c1fe6",
         "namedPivots": [
           "host_50",
           "mount_torso_pivot",
@@ -12909,6 +13404,7 @@
             "rule": "Physical thick shell with independently low inner face aperture; hidden scalp omitted"
           }
         ],
+        "jointSurfaceContactsRest": [],
         "headCoverage": [
           {
             "passed": true,
@@ -12917,74 +13413,112 @@
             "sharedHeadPivot": true,
             "method": "BVH outward rays from hidden half, side/top/rear; front aperture exempt"
           }
-        ]
+        ],
+        "baselineContactRevision": "V4 contact records retained as provenance, not asserted as fresh V5 posed contact checks.",
+        "headProportionV5": {
+          "applied": false,
+          "reason": "Enemy head anatomy retained; requested tower proportion change only."
+        },
+        "foldedCloakV5": {
+          "applied": true,
+          "garments": [
+            {
+              "applied": true,
+              "part": "Real rear cape",
+              "replacedParts": [
+                "Real rear cape"
+              ],
+              "drapeStations": 7,
+              "verticalPleats": 6,
+              "closedVolume": true,
+              "clothTriangles": 696,
+              "nativeThicknessM": 0.013,
+              "topNativeM": 1.5527999820709228,
+              "hemNativeM": 1.2015999555587769,
+              "actualMidDrapeRadiusRangeM": 0.05761011339468669,
+              "shoulderYokeOverlapsTorsoByM": 0.0017480000108480453
+            }
+          ]
+        }
       },
       "views": [
         {
           "view": "front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_50/front.png",
-          "geometrySha256": "966c33641b7a32b16dc05102a2cc8fd4934eb78ab00eb9372cb3110cba062724",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_50/front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_50/front.png",
+          "geometrySha256": "9522cee2a272d4de2732fdfc70d93174eca1363a301f4a710d3db90a425c1fe6",
+          "sha256": "183c4e97a559d54392c45809fd450df9fe5d850ac61fdfb4d1554c39b4f6c40f",
           "cameraPosition": [
             0.0,
             7.901950359344482,
             2.7563934326171875
           ],
-          "orthoScale": 3.264507532119751
+          "orthoScale": 3.754183769226074
         },
         {
           "view": "back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_50/back.png",
-          "geometrySha256": "966c33641b7a32b16dc05102a2cc8fd4934eb78ab00eb9372cb3110cba062724",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_50/back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_50/back.png",
+          "geometrySha256": "9522cee2a272d4de2732fdfc70d93174eca1363a301f4a710d3db90a425c1fe6",
+          "sha256": "b4301b76039a6a175f6bde4f5ff0319bfeebfb29f36bdfdbf8489357a25874e0",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.748411655426025,
             2.7563934326171875
           ],
-          "orthoScale": 3.264507532119751
+          "orthoScale": 3.754183769226074
         },
         {
           "view": "left",
-          "file": "blender/renders/geometric-game-v1/enemies/host_50/left.png",
-          "geometrySha256": "966c33641b7a32b16dc05102a2cc8fd4934eb78ab00eb9372cb3110cba062724",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_50/left.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_50/left.png",
+          "geometrySha256": "9522cee2a272d4de2732fdfc70d93174eca1363a301f4a710d3db90a425c1fe6",
+          "sha256": "c9d52f9da9ae4e5a346adfc529289c66848e1af43169ce36647ac9de2a13b1de",
           "cameraPosition": [
             -7.825181007385254,
             0.07676953077316284,
             2.7563934326171875
           ],
-          "orthoScale": 3.264507532119751
+          "orthoScale": 3.754183769226074
         },
         {
           "view": "right",
-          "file": "blender/renders/geometric-game-v1/enemies/host_50/right.png",
-          "geometrySha256": "966c33641b7a32b16dc05102a2cc8fd4934eb78ab00eb9372cb3110cba062724",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_50/right.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_50/right.png",
+          "geometrySha256": "9522cee2a272d4de2732fdfc70d93174eca1363a301f4a710d3db90a425c1fe6",
+          "sha256": "fcbc5bdf614ada75f264e626a995d1249f463e578f5c270ecbac8dd9418ad34e",
           "cameraPosition": [
             7.825181007385254,
             0.07676953077316284,
             2.7563934326171875
           ],
-          "orthoScale": 3.264507532119751
+          "orthoScale": 3.754183769226074
         },
         {
           "view": "three-quarter-front",
-          "file": "blender/renders/geometric-game-v1/enemies/host_50/three-quarter-front.png",
-          "geometrySha256": "966c33641b7a32b16dc05102a2cc8fd4934eb78ab00eb9372cb3110cba062724",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_50/three-quarter-front.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_50/three-quarter-front.png",
+          "geometrySha256": "9522cee2a272d4de2732fdfc70d93174eca1363a301f4a710d3db90a425c1fe6",
+          "sha256": "5cb204c28e58886b243514fb656cf99af38b63c974d2c558b1723a8ef7258aa9",
           "cameraPosition": [
             4.488339424133301,
             6.486782073974609,
             2.7563934326171875
           ],
-          "orthoScale": 3.264507532119751
+          "orthoScale": 3.754183769226074
         },
         {
           "view": "three-quarter-back",
-          "file": "blender/renders/geometric-game-v1/enemies/host_50/three-quarter-back.png",
-          "geometrySha256": "966c33641b7a32b16dc05102a2cc8fd4934eb78ab00eb9372cb3110cba062724",
+          "path": "output/design/geometric-game-v5/enemies/renders/host_50/three-quarter-back.png",
+          "file": "output/design/geometric-game-v5/enemies/renders/host_50/three-quarter-back.png",
+          "geometrySha256": "9522cee2a272d4de2732fdfc70d93174eca1363a301f4a710d3db90a425c1fe6",
+          "sha256": "73516d3fae18b062360673a41d2891984ca804f94dba6f17ca63a752575efc37",
           "cameraPosition": [
             4.488339424133301,
             -6.333243370056152,
             2.7563934326171875
           ],
-          "orthoScale": 3.264507532119751
+          "orthoScale": 3.754183769226074
         }
       ],
       "accuracy": {
@@ -13018,6 +13552,12 @@
         "assumedFrontSoleYpx": 410,
         "frontCentreXpx": 255.0,
         "sourceUncertaintyPx": 5
+      },
+      "proportionRevision": "geometric-game-v5",
+      "baselineGlbSha256": "1116dccade4ea72ad718205a904b59f5c007d06aad02723a294ae60d9f38e08f",
+      "sourceUserOverridesV5": {
+        "humanoidHeadsSlightlySmaller": false,
+        "allCloaksFolded": true
       }
     }
   ]
