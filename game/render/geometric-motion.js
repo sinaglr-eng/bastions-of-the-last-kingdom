@@ -20,7 +20,7 @@ export function createGeometricMotionRig(figure){
   const joints=new Map();
   body.traverse(node=>{if(JOINT.test(node.name)&&!node.isMesh)joints.set(node.name,{node,position:node.position.clone(),rotation:node.rotation.clone(),scale:node.scale.clone()});});
   const locomotion=metadata.locomotion||'biped';
-  const rig={figure,body,metadata,locomotion,joints,bodyRest:{position:body.position.clone(),rotation:body.rotation.clone(),scale:body.scale.clone()},phase:finite(figure.userData.phase,0),clock:null,traveled:null,dead:false};
+  const rig={figure,body,metadata,locomotion,joints,bodyRest:{position:body.position.clone(),rotation:body.rotation.clone(),scale:body.scale.clone()},phase:finite(figure.userData.phase,0),clock:null,traveled:null,dead:false,footTarget:new THREE.Vector3(),footCurrent:new THREE.Vector3(),worldScale:new THREE.Vector3()};
   const legs=locomotion==='quadruped'||locomotion==='flying'&&joints.has('upper_leg_FL')?['FL','FR','BL','BR']:['L','R'];
   rig.legs=legs.map(side=>{
     const hip=joints.get('upper_leg_'+side),knee=joints.get('shin_'+side),foot=joints.get('foot_'+side);
@@ -33,7 +33,9 @@ export function createGeometricMotionRig(figure){
     // Crouched front and rear paws bend in opposite directions. Preserve the
     // authored branch instead of rejecting its slanted shin or inverting it.
     const bendSign=Math.abs(lowerAngle-upperAngle)>.02?Math.sign(lowerAngle-upperAngle):1;
-    return {side,hip,knee,foot,l1,l2,ik,upperAngle,lowerAngle,bendSign,restY:(knee?.position.y||0)+(foot?.position.y||0),restZ:(knee?.position.z||0)+(foot?.position.z||0)};
+    body.updateWorldMatrix(true,true);
+    const restFoot=foot?body.worldToLocal(foot.node.getWorldPosition(new THREE.Vector3())):null;
+    return {side,hip,knee,foot,l1,l2,ik,upperAngle,lowerAngle,bendSign,restFoot,restY:(knee?.position.y||0)+(foot?.position.y||0),restZ:(knee?.position.z||0)+(foot?.position.z||0)};
   }).filter(leg=>leg.hip);
   return rig;
 }
@@ -68,6 +70,18 @@ function solveLeg(leg,phase,stride,lift){
   leg.knee.node.rotation.x=leg.knee.rotation.x+kneeDelta;
   // The sole stays level during support, then the toe clears the ground.
   leg.foot.node.rotation.x=leg.foot.rotation.x-(hipDelta+kneeDelta)+(swinging?.20*Math.sin(Math.PI*p):0);
+  return {z:z-leg.restZ,y:swinging?Math.sin(p*Math.PI)*lift:0};
+}
+
+function retainFootTarget(rig,leg,offset){
+  if(!leg.restFoot||!offset)return;
+  // New creatures attach their legs to the moving torso, whereas a rider's
+  // mount legs attach to its own torso. Preserve the real sole target after
+  // either parent hierarchy's sway; otherwise correctly solved ankles skid.
+  rig.body.updateWorldMatrix(true,false);
+  const desired=rig.footTarget.copy(leg.restFoot);desired.y+=offset.y;desired.z+=offset.z;rig.body.localToWorld(desired);
+  const current=leg.foot.node.getWorldPosition(rig.footCurrent),parent=leg.hip.node.parent;
+  desired.copy(parent.worldToLocal(desired)).sub(parent.worldToLocal(current));leg.hip.node.position.add(desired);
 }
 
 export function animateGeometricEnemyMotion(figure,enemy,time,{moving=true,reducedMotion=false}={}){
@@ -83,12 +97,13 @@ export function animateGeometricEnemyMotion(figure,enemy,time,{moving=true,reduc
   const height=Math.max(.3,finite(rig.metadata.bodyHeight,finite(rig.metadata.bodyHeightMeters,1.8)));
   const legReach=rig.legs.filter(leg=>leg.ik).map(leg=>leg.l1+leg.l2),naturalStride=legReach.length?Math.min(height*.26,Math.min(...legReach)*.85):height*.26;
   const stride=clamp(finite(rig.metadata.strideLength,naturalStride),.15,1.8);
+  const worldStride=stride*Math.max(1e-8,rig.body.getWorldScale(rig.worldScale).y);
   let distance=previousDistance===null?0:Math.max(0,traveled-previousDistance);
   // A blink contributes to combat traveled distance, but cannot cycle the legs
   // through a kilometre of walking in one visual frame.
   const speed=Math.max(0,finite(enemy.speed,1));
-  if(distance>Math.max(stride,dt*speed*3))distance=0;
-  if(active&&!reducedMotion)rig.phase+=distance/stride*TAU;
+  if(distance>Math.max(worldStride,dt*speed*3))distance=0;
+  if(active&&!reducedMotion)rig.phase+=distance/worldStride*TAU;
   const phase=rig.phase+finite(enemy.id)*.91;
   resetGeometricMotion(rig);
   if(reducedMotion)return 0;
@@ -110,10 +125,11 @@ export function animateGeometricEnemyMotion(figure,enemy,time,{moving=true,reduc
     rotate(rig,'tail_pivot',0,Math.sin(clock*2.3)*.13,0);
     return Math.sin(clock*frequency+finite(enemy.id)*1.618)*.075;
   }
+  const footTargets=[];
   if(active){
     for(const leg of rig.legs){
       const offset=locomotion==='quadruped'?(['FL','BR'].includes(leg.side)?0:Math.PI):leg.side==='L'?0:Math.PI;
-      if(leg.ik)solveLeg(leg,phase+offset,stride,height*.055);
+      if(leg.ik)footTargets.push({leg,offset:solveLeg(leg,phase+offset,stride,height*.055)});
       else{rotate(rig,'upper_leg_'+leg.side,Math.sin(phase+offset)*.36);rotate(rig,'shin_'+leg.side,Math.max(0,Math.sin(phase+offset-.45))*.48);rotate(rig,'foot_'+leg.side,-Math.sin(phase+offset)*.14);}
     }
     if(locomotion==='serpent'){rotate(rig,'torso_pivot',0,Math.sin(phase)*.17,0);rotate(rig,'tail_pivot',0,-Math.sin(phase+.6)*.35,0);}
@@ -123,6 +139,7 @@ export function animateGeometricEnemyMotion(figure,enemy,time,{moving=true,reduc
     const torso=rig.joints.get('torso_pivot');if(torso)torso.node.scale.y=torso.scale.y*(1+breathe*.35);
   }
   if(enemy.hit>0)rotate(rig,'torso_pivot',0,0,.07);
+  for(const target of footTargets)retainFootTarget(rig,target.leg,target.offset);
   return active&&locomotion!=='serpent'?Math.abs(Math.sin(phase*2))*height*.004:0;
 }
 

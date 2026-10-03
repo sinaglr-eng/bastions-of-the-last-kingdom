@@ -9,6 +9,8 @@ import {geometricMetadata,createGeometricMotionRig,animateGeometricEnemyMotion} 
 import {attackRig,attackMuzzle,triggerAttack,animateAttack,disposeAttack,previewGeometricAttack,updateGeometricPreview} from '../game/render/battle-animation.js';
 import {CombatEffects,attackVisualKind} from '../game/render/combat-effects.js';
 import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.js';
+import {measureGeometricContacts} from '../game/render/geometric-contacts.js';
+import {scaleBattlefieldUnit} from '../game/render/battlefield-scale.js';
 
 async function load(id){
   const bytes=readFileSync(`public/assets/geometric/champions/${id}.glb`);
@@ -23,18 +25,28 @@ test('actual crouched dragon and bear front/hind knees retain their authored ben
     geometricMetadata(actor).strideLength=.15;
     const rig=createGeometricMotionRig(figure);figure.userData.geometricMotion=rig;rig.phase=.31*Math.PI*2;
     assert.equal(rig.legs.length,4);assert.ok(rig.legs.every(leg=>leg.ik),`${id} actual steep crouched shins must remain eligible for support IK`);
-    const front=rig.legs.find(leg=>leg.side==='FL'),rear=rig.legs.find(leg=>leg.side==='BR');assert.equal(front.bendSign,-1);assert.equal(rear.bendSign,1,'front and rear crouched knees retain opposite anatomical branches');
+    const front=rig.legs.find(leg=>leg.side==='FL'),rear=rig.legs.find(leg=>leg.side==='BR');
+    actor.updateWorldMatrix(true,true);
+    for(const leg of [front,rear]){
+      const hip=actor.worldToLocal(leg.hip.node.getWorldPosition(new THREE.Vector3())),knee=actor.worldToLocal(leg.knee.node.getWorldPosition(new THREE.Vector3())),ankle=actor.worldToLocal(leg.foot.node.getWorldPosition(new THREE.Vector3()));
+      const nativeBranch=Math.sign(knee.clone().sub(hip).cross(ankle.clone().sub(knee)).x);
+      assert.equal(leg.bendSign,nativeBranch,'IK retains the measured native knee/hock branch; new dragon anatomy may differ from the bear');
+    }
     const enemy={id:0,flying:false,traveled:0,speed:1,statuses:{}};animateGeometricEnemyMotion(figure,enemy,0);
     for(const leg of [front,rear]){
       // The bear front paw needs 1.5 mm of hip clearance at the widest end
       // of this stride. All four dragon support legs reach without that drop.
       const adjustment=id==='rangermentor'? .03 : 1e-6;
       assert.ok(Math.abs(leg.hip.node.rotation.x-leg.hip.rotation.x)<adjustment,'stance centre retains the authored crouch instead of straightening its knee');assert.ok(Math.abs(leg.knee.node.rotation.x-leg.knee.rotation.x)<adjustment);
-      assert.ok(leg.hip.node.position.y<=leg.hip.position.y&&leg.hip.position.y-leg.hip.node.position.y<.002,'support IK may lower the crouched hip for reach, but never straighten it by raising the joint');
+      assert.ok(leg.hip.node.position.distanceTo(leg.hip.position)<.04,'compensating the actual moving torso remains a small joint adjustment rather than straightening the animal anatomy');
     }
     figure.updateMatrixWorld(true);const planted=front.foot.node.getWorldPosition(new THREE.Vector3());
     enemy.traveled=.02;figure.position.z=-.02;animateGeometricEnemyMotion(figure,enemy,.02);figure.updateMatrixWorld(true);
-    assert.ok(front.foot.node.getWorldPosition(new THREE.Vector3()).distanceTo(planted)<1e-7,`${id} real support paw cannot skate during world travel`);assert.deepEqual(transforms(gltf.scene),source,'private IK does not change the cached native model');
+    assert.ok(front.foot.node.getWorldPosition(new THREE.Vector3()).distanceTo(planted)<1e-7,`${id} real support paw cannot skate during world travel`);
+    assert.deepEqual(measureGeometricContacts(actor).failures.filter(f=>['shoe-to-shin','knee-link'].includes(f.kind)),[],`${id} actual knee and hock surfaces stay joined`);
+    scaleBattlefieldUnit(figure);rig.phase=.31*Math.PI*2;enemy.traveled=.02;animateGeometricEnemyMotion(figure,enemy,.02);figure.updateMatrixWorld(true);const scaledFoot=front.foot.node.getWorldPosition(new THREE.Vector3());
+    enemy.traveled=.03;figure.position.z=-.03;animateGeometricEnemyMotion(figure,enemy,.03);figure.updateMatrixWorld(true);assert.ok(front.foot.node.getWorldPosition(new THREE.Vector3()).distanceTo(scaledFoot)<1e-7,`${id} the .88 battlefield figure keeps its real support foot planted in world metres`);
+    assert.deepEqual(transforms(gltf.scene),source,'private IK does not change the cached native model');
     disposeDefenderInstance(actor);disposeDecodedGeometricAsset(gltf);
   }
 });
@@ -43,10 +55,17 @@ test('all six actual Archer ranks and four champion bows draw their physical str
   const files=[...Array.from({length:6},(_,i)=>`defenders/archer-${i+1}.glb`),...['thornwarden','verdantguard','royalranger','elvenking'].map(id=>`champions/${id}.glb`)];
   for(const file of files){
     const bytes=readFileSync('public/assets/geometric/'+file),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''),source=transforms(gltf.scene),actor=cloneDefenderTemplate(gltf.scene),peer=cloneDefenderTemplate(gltf.scene),peerBefore=transforms(peer);
-    actor.position.set(3,.8,5);actor.rotation.y=.9;actor.scale.setScalar(.7);
+    actor.position.set(3,.8,5);actor.rotation.y=.9;actor.scale.setScalar(.7);scaleBattlefieldUnit(actor);
     const family=file.includes('defenders/')?'archer':file.split('/').at(-1).replace('.glb',''),stats=JSON.parse(readFileSync('data/towers.json'))[family],rig=attackRig(actor,family,stats),rest=transforms(actor),hand=actor.getObjectByName('hand_R');
     assert.ok(rig.bowArms,`${file} actual shoulder/elbow/hand chains bind to the draw`);assert.equal(rig.string.nock,hand);assert.ok(rig.authoredStrings.length);assert.ok(rig.authoredStrings.every(entry=>entry.node.visible===false),'private animated string replaces the frozen mesh instead of drawing two strings');
+    assert.equal(rig.geometric.bowPlane,'forward-vertical',`${file} all production bows carry the corrected authored plane`);
+    if(rig.geometric.bowPlane==='forward-vertical'){
+      const curve=[];actor.traverse(n=>{if(n.isMesh&&/recurve_bow|open_bow_stave/i.test(n.name)){const p=n.geometry.attributes.position;for(let i=0;i<p.count;i++)curve.push(actor.worldToLocal(new THREE.Vector3().fromBufferAttribute(p,i).applyMatrix4(n.matrixWorld)));}});
+      assert.ok(curve.length>0,'inspect actual authored bow geometry');const box=new THREE.Box3().setFromPoints(curve),size=box.getSize(new THREE.Vector3()),nock=localPosition(actor,rig.string.authoredNock);
+      assert.ok(size.x<size.z*.45&&size.z>.10,`${file} physical rest bow lies in the forward/vertical YZ plane`);assert.ok(box.min.z<nock.z-.05,'curve is ahead of the string along the actual -Z firing direction');
+    }
     previewGeometricAttack(rig,{duration:1});updateGeometricPreview(rig,.42);
+    if(rig.geometric.bowPlane==='forward-vertical'){const pivot=rig.joints.get('bow_pivot')||rig.joints.get('weapon_L');assert.equal(pivot.node.rotation.y,pivot.rotation.y,'already rotated physical bow must not receive another runtime quarter turn');}
     const handPosition=localPosition(actor,hand),nockPosition=localPosition(actor,rig.string.authoredNock),positions=rig.string.object.geometry.attributes.position;
     for(const index of [1,3])assert.ok(new THREE.Vector3().fromBufferAttribute(positions,index).distanceTo(handPosition)<1e-7,'both actual string segments meet the right drawing hand');
     assert.ok(handPosition.z-nockPosition.z>=.0649,'the hand pulls the string back along the actor axis');assert.ok(Math.abs(handPosition.x-nockPosition.x)<1e-7&&Math.abs(handPosition.y-nockPosition.y)<1e-7,'draw hand catches the same nock plane rather than moving on the opposite side of the body');
@@ -100,17 +119,21 @@ test('the real mechanical cannon preserves its forward barrel axis, recoils afte
 
 test('the imported mounted lance thrust moves its actual hand forwards rather than behind the mount',async()=>{
   for(const id of ['frostblade','roseguard']){
-  const gltf=await load(id),actor=cloneDefenderTemplate(gltf.scene),stats=JSON.parse(readFileSync('data/towers.json'))[id];
+  const gltf=await load(id),actor=cloneDefenderTemplate(gltf.scene),peer=cloneDefenderTemplate(gltf.scene),sourceBefore=transforms(gltf.scene),peerBefore=transforms(peer),stats=JSON.parse(readFileSync('data/towers.json'))[id];scaleBattlefieldUnit(actor);
   const rig=attackRig(actor,id,stats),hand=actor.getObjectByName('hand_R'),before=localPosition(actor,hand);
+  assert.deepEqual(measureGeometricContacts(actor).failures.filter(f=>f.kind.startsWith('thrust-')),[],id+' actual forearm/wrist and shoulder surfaces connect at rest');
   assert.ok(['spear','lance'].includes(rig.attackStyle));triggerAttack(rig,{combatTime:1,stats});
   assert.ok(localPosition(actor,hand).z<before.z-.10,'mounted right hand physically thrusts towards the imported -Z front');
+  assert.ok((before.z-localPosition(actor,hand).z)*actor.scale.y>.10,'the smaller battlefield actor still delivers more than 100 mm of real forward hand travel');
+  assert.deepEqual(measureGeometricContacts(actor).failures.filter(f=>f.kind.startsWith('thrust-')),[],id+' actual forearm/wrist and shoulder surfaces connect at release');
   assert.equal(rig.muzzle.parent,actor.getObjectByName('weapon_R'),'mounted lance uses the weapon tip rather than the mount mouth');
   assert.ok(localPosition(actor,rig.muzzle).z<localPosition(actor,hand).z-.5,'held lance point reaches forwards from the actual release hand');
   const fx=new CombatEffects(new THREE.Scene(),{getMuzzle:(_source,out)=>attackMuzzle(rig,out)}),shot={id:7,source:{family:id,x:0,z:0},target:{id:8,x:3,z:-2},stats,progress:.42,duration:.3,start:{x:0,z:0}},packet=structuredClone(shot);
   fx.event('shot',shot);const effect=fx.projectiles.get(7);assert.equal(effect.kind,'thrust');assert.ok(effect.object.getObjectByName('Pointed spear impact'));assert.equal(effect.object.getObjectByName('Blade cut arc'),undefined);assert.deepEqual(shot,packet,'narrow lance impact does not change the physical packet');
   const direction=new THREE.Vector3(0,0,1).applyQuaternion(effect.object.quaternion),towards=fx.point(shot.target,fx.targetHeight(shot.target)).sub(effect.origin).normalize();assert.ok(direction.distanceTo(towards)<1e-8,'the short impact streak points along the actual lance-to-target direction');
   fx.dispose();
-  disposeAttack(rig);disposeDefenderInstance(actor);disposeDecodedGeometricAsset(gltf);
+  assert.deepEqual(transforms(gltf.scene),sourceBefore,'thrust cannot move shared source rig or geometry');assert.deepEqual(transforms(peer),peerBefore,'thrust cannot move a private peer');
+  disposeAttack(rig);disposeDefenderInstance(actor);disposeDefenderInstance(peer);disposeDecodedGeometricAsset(gltf);
   }
 });
 

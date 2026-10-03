@@ -1,5 +1,15 @@
 # Releases
 
+## 0.3.1 — Atelier and fitted models — 3 October 2026
+
+- Adds all 50 campaign enemies to the Royal Atelier, with six camera views, actual walking/flight, rest, pause, speed, optional effects and GLB/portrait downloads. Selection URLs preserve the precise enemy or defender rank for appearance comments.
+- Corrects bow orientation and grip motion, fitted hats/caps/hood trim, connected necks, gorgets and boots; adds Frost Warden I's white collar and reshapes Stormcaller hair and clothing.
+- Reworks mounted horses, segmented dragon anatomy and seated riders, Thunderbird feathers and talons, Kingslayer's helmet and sword, and King's Ranger Guard's back-mounted shield.
+- Reduces private battlefield unit scale to 88%, with scale-aware stride and grounded corpses. Combat stats, abilities, recipes and wave rules are retained.
+- Adds actual surface-contact checks and fresh source comparisons; preserves the 0.3.0 native archive and delivers the corrected editables separately.
+
+Details: [Geometric models 0.3.1](docs/GEOMETRIC_GAME_V2.md).
+
 ## 0.3.0 — Geometric Army — 3 October 2026
 
 - Replaces all active unit visuals with 136 articulated geometric Blender models: 48 basic ranks, 38 champions and 50 enemies, with matching portraits and six review views per model.

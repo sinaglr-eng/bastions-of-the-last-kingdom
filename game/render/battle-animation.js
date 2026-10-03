@@ -81,7 +81,7 @@ export function attackRig(actor,family,stats={}){
     glow.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.095,1),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})),new THREE.Mesh(new THREE.TorusGeometry(.14,.012,4,20),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.7,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})));
     glow.traverse(node=>node.raycast=noPick);rig.glow=glow;rig.owned.push(glow);
   }
-  let top=actor.getObjectByName('bow_tip_upper'),bottom=actor.getObjectByName('bow_tip_lower'),nock=actor.getObjectByName('bow_nock');
+  let top=actor.getObjectByName('bow_tip_upper')||actor.getObjectByName('bow_string_top'),bottom=actor.getObjectByName('bow_tip_lower')||actor.getObjectByName('bow_string_bottom'),nock=actor.getObjectByName('bow_nock');
   const namedStrings=[];actor.traverse(node=>{if(!node.isLine&&/bow_?string/i.test(node.name))namedStrings.push(node);});
   const physicalStrings=namedStrings.filter(node=>node.isMesh);
   if(rig.attackStyle==='bow'&&physicalStrings.length&&!top){
@@ -162,15 +162,16 @@ function applyBreath(rig,reducedMotion=false){
     if(track.active)pivot.node.rotation.x-=.36*stroke;
   }
 }
-function advanceHand(rig,distance){
-  const hand=rig.joints.get('hand_R')?.node;if(!hand?.parent)return;
+function advanceJoint(rig,name,distance){
+  const joint=rig.joints.get(name)?.node;if(!joint?.parent)return;
   // Advance along the character's front, not the already-bent elbow's local
   // Z axis (which otherwise sends an authored raised lance upwards).
   rig.actor.updateMatrixWorld(true);
-  hand.parent.worldToLocal(rig.actor.localToWorld(handAdvanceOrigin.set(0,0,0)));
-  hand.parent.worldToLocal(rig.actor.localToWorld(handAdvancePoint.set(0,0,-distance)));
-  hand.position.add(handAdvancePoint.sub(handAdvanceOrigin));
+  joint.parent.worldToLocal(rig.actor.localToWorld(handAdvanceOrigin.set(0,0,0)));
+  joint.parent.worldToLocal(rig.actor.localToWorld(handAdvancePoint.set(0,0,-distance)));
+  joint.position.add(handAdvancePoint.sub(handAdvanceOrigin));
 }
+function advanceHand(rig,distance){advanceJoint(rig,'hand_R',distance);}
 function solveBowArm(rig,side,target){
   const arm=rig.bowArms[side],{shoulder,elbow,hand}=arm;
   rig.actor.updateMatrixWorld(true);
@@ -194,7 +195,12 @@ function applyBowDraw(rig,draw){
   const right=rig.actor.worldToLocal(R.shoulder.node.getWorldPosition(new THREE.Vector3())),left=rig.actor.worldToLocal(L.shoulder.node.getWorldPosition(new THREE.Vector3())),mid=right.clone().add(left).multiplyScalar(.5),halfWidth=Math.abs(right.x-left.x)/2,drop=reach*.20;
   const forward=Math.sqrt(Math.max(.0025,reach*reach*.96-halfWidth*halfWidth-drop*drop))*.86;
   const bowGoal=mid.clone().add(new THREE.Vector3(0,-drop,-forward)),leftTarget=L.restTarget.clone().lerp(bowGoal,draw);solveBowArm(rig,'L',leftTarget);
-  const pivot=rig.joints.get('bow_pivot')||rig.joints.get('weapon_L');if(pivot)pivot.node.rotation.y=pivot.rotation.y+Math.PI/2*draw;
+  const pivot=rig.joints.get('bow_pivot')||rig.joints.get('weapon_L');
+  // Current exports carry a forward/vertical bow plane in their actual rest
+  // geometry. Only older front-facing bows need the historical quarter turn;
+  // applying it again would make the new string draw sideways across the bow.
+  const plane=rig.geometric?.bowPlane||pivot?.node.userData.bowPlane;
+  if(pivot&&plane!=='forward-vertical')pivot.node.rotation.y=pivot.rotation.y+Math.PI/2*draw;
   rig.actor.updateMatrixWorld(true);const nock=rig.actor.worldToLocal(rig.string.authoredNock.getWorldPosition(new THREE.Vector3())),rightGoal=nock.add(new THREE.Vector3(0,0,Math.min(.18,Math.max(.065,forward*.34)))),rightTarget=R.restTarget.clone().lerp(rightGoal,draw);solveBowArm(rig,'R',rightTarget);
 }
 export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={}){
@@ -284,7 +290,9 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     const lift=rig.forwardArmLift??1.2;
     move('upper_arm_R',lift*thrust,0,-.05*thrust);move('forearm_R',.15*thrust,0,0);move('hand_R',-(lift+.15)*thrust,0,0);
     move('weapon_R',-1.35*thrust,0,0);
-    if(!reducedMotion)advanceHand(rig,.10*thrust);
+    // Protract the complete arm slightly while the elbow extends. Translating
+    // only the hand detaches the glove from the real forearm in source v2.
+    if(!reducedMotion)advanceJoint(rig,'upper_arm_R',.04*thrust);
     move('torso_pivot',-.055*thrust,.025*thrust,0);
     move('upper_arm_L',.16*stroke,0,.13*stroke);move('forearm_L',.16*stroke,0,0);
   }else if(rig.kind==='melee'){

@@ -12,11 +12,32 @@ export function enemyAuraStage(enemy){
   return THREE.MathUtils.clamp(Number.isInteger(enemy.auraStage)?enemy.auraStage:Number.isFinite(wave)?Math.floor((wave-1)/10):0,0,4);
 }
 
+function boundsInAuraParent(body){
+  body.updateWorldMatrix(true,true);
+  // The aura becomes a sibling of body. World bounds would apply the actor's
+  // scale, heading and flight lift here and then again when the aura is added.
+  const toParent=body.parent?body.parent.matrixWorld.clone().invert():new THREE.Matrix4();
+  const bounds=new THREE.Box3(),part=new THREE.Box3(),transform=new THREE.Matrix4();
+  body.traverse(node=>{
+    if(!node.geometry)return;
+    if(node.boundingBox!==undefined){
+      if(node.boundingBox===null)node.computeBoundingBox();
+      part.copy(node.boundingBox);
+    }else{
+      if(node.geometry.boundingBox===null)node.geometry.computeBoundingBox();
+      part.copy(node.geometry.boundingBox);
+    }
+    transform.multiplyMatrices(toParent,node.matrixWorld);
+    bounds.union(part.applyMatrix4(transform));
+  });
+  return bounds;
+}
+
 // Cosmetic only: the shell follows the authored lower body or wing roots and
 // never changes hit detection, visibility rules, speed, defenses or damage.
 export function createEnemyAura(enemy,body){
   const stage=enemyAuraStage(enemy);if(!stage)return null;
-  const bounds=new THREE.Box3().setFromObject(body),size=bounds.getSize(new THREE.Vector3());
+  const bounds=boundsInAuraParent(body),size=bounds.getSize(new THREE.Vector3());
   const flying=!!enemy.flying,finalBoss=enemy.type==='host_50';
   const radius=Math.max(.28,Math.min(size.x*(flying?.50:.38),flying?5.5:1.15))*(enemy.boss?1.08:1);
   const height=Math.max(.4,size.y*(flying?.48:.40)),y=flying?bounds.min.y+size.y*.47:bounds.min.y+.035;

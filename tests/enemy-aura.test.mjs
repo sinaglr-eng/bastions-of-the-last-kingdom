@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {Group,Mesh,BoxGeometry,MeshStandardMaterial,NormalBlending} from 'three';
+import {Group,Mesh,BoxGeometry,MeshStandardMaterial,NormalBlending,Vector3} from 'three';
 import {createEnemyAura,animateEnemyAura,enemyAuraStage} from '../game/render/enemy-aura.js';
 import {enemyFigure,installEnemyTemplate,animateEnemyCues,disposeEnemyFigure} from '../game/render/enemy-assets.js';
 import {CombatManager} from '../game/core/combat.js';
@@ -32,6 +32,42 @@ test('five visual stages include bare first ten waves, even their boss',()=>{
     assert.equal(aura.children[0].material.blending,NormalBlending,'black smoke must actually darken');
     assert.ok(aura.children.length<=4);assert.equal(aura.userData.vortex!==undefined,wave===50);
   }
+});
+
+test('aura fits the actor once in its parent coordinates through battlefield scale, heading and flight lift',()=>{
+  const template=new Group(),parts=new Group(),mesh=new Mesh(new BoxGeometry(2,3,1),new MeshStandardMaterial());
+  parts.position.set(.11,.2,-.07);parts.rotation.y=.18;parts.scale.set(.9,1.1,.85);mesh.position.set(-.11,1.5,.07);parts.add(mesh);template.add(parts);
+  const disposeAura=aura=>aura.traverse(node=>{node.geometry?.dispose();node.material?.dispose();});
+  try{
+    for(const flying of [false,true]){
+      // These are the actual exhibition/game lifts; neither belongs in the
+      // sibling aura's local geometry or gets multiplied into its placement.
+      const enemy={type:'host_50',visualAsset:'host_50-tyrant',auraStage:4,boss:true,flying},snapshot=structuredClone(enemy);
+      const nativeActor=new Group(),nativeBody=template.clone(true);nativeActor.add(nativeBody);
+      const nativeAura=createEnemyAura(enemy,nativeBody);nativeActor.add(nativeAura);
+      const expected=nativeAura.children.map(child=>({position:child.position.clone(),scale:child.scale.clone(),height:child.geometry?.parameters?.height,radius:child.geometry?.parameters?.radiusBottom}));
+      for(const [scale,lift] of [[1,flying?.65:0],[.88,flying?.8:0]]){
+        const container=new Group(),actor=new Group(),actualBody=template.clone(true);
+        container.position.set(-5,2,7);container.rotation.y=-.47;container.scale.setScalar(1.15);
+        actor.scale.setScalar(scale);actor.rotation.set(.13,.73,-.11);actor.position.set(9,lift,-4);actor.add(actualBody);container.add(actor);
+        // The real UI bar is a sibling and must never enlarge body bounds.
+        const bar=new Mesh(new BoxGeometry(100,100,100),mesh.material);bar.position.y=50;actor.add(bar);
+        const nativeTransform=actualBody.position.clone(),aura=createEnemyAura(enemy,actualBody);actor.add(aura);container.updateMatrixWorld(true);
+        assert.equal(aura.userData.stage,enemy.auraStage,'the actual variant stage is preserved');
+        assert.ok(aura.userData.vortex,'host_50 variants retain the final-boss vortex');
+        for(const [index,child] of aura.children.entries()){
+          const reference=expected[index];assert.ok(child.position.distanceTo(reference.position)<1e-9);assert.ok(child.scale.distanceTo(reference.scale)<1e-12);
+          if(reference.height!==undefined)assert.ok(Math.abs(child.geometry.parameters.height-reference.height)<1e-9);
+          if(reference.radius!==undefined)assert.ok(Math.abs(child.geometry.parameters.radiusBottom-reference.radius)<1e-9);
+          const expectedWorld=actor.localToWorld(reference.position.clone());assert.ok(child.getWorldPosition(new Vector3()).distanceTo(expectedWorld)<1e-9,'flight lift and actor transform apply once');
+        }
+        assert.ok(Math.abs(aura.children[0].getWorldScale(new Vector3()).x-scale*1.15)<1e-12);
+        assert.deepEqual(actualBody.position,nativeTransform);assert.deepEqual(enemy,snapshot);
+        disposeAura(aura);bar.geometry.dispose();
+      }
+      disposeAura(nativeAura);
+    }
+  }finally{mesh.geometry.dispose();mesh.material.dispose();}
 });
 test('native variant selection refreshes a live fallback immediately and keeps unrelated actors',()=>{
   const live=new Group(),unrelated=new Group(),enemies=[{id:1,type:'host_31',visualAsset:'host_31-wraith'},{id:2,type:'host_01'}];

@@ -6,6 +6,7 @@ import {createChampionAura,animateChampionAura,disposeChampionAura} from './cham
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
 import {animateEnemyMotion} from './enemy-motion.js';
+import {scaleBattlefieldUnit,animateBattlefieldIdleScale} from './battlefield-scale.js';
 import {animateSecretChampion} from './secret-champions.js';
 import {animateGeometricOrbits} from './geometric-orbits.js';
 import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
@@ -191,6 +192,7 @@ export class Battlefield {
       if(!value||value.signature!==signature){
         if(value){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeDefenderInstance(value.actor);this.scene.remove(value.object);}
         const object=new THREE.Group(),actor=cloneDefenderTemplate(this.template(t));
+        if(t.state!=='ruin')scaleBattlefieldUnit(actor);
         if(t.state==='active'){
           const mask=wallConnections(t,this.game.towers),key='platform:'+mask;
           if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask,true));
@@ -265,7 +267,7 @@ export class Battlefield {
     if(type==='death'){
       const enemy=payload.enemy;let figure=this.enemies.get(enemy.id);
       if(payload.visible===false){if(figure){this.scene.remove(figure);disposeEnemyFigure(figure);this.enemies.delete(enemy.id);}return;}
-      if(!figure){figure=enemyFigure(enemy,this.enemyTemplates);figure.position.copy(v3(enemy.x,enemy.flying?.8:0,enemy.z));this.scene.add(figure);}
+      if(!figure){figure=scaleBattlefieldUnit(enemyFigure(enemy,this.enemyTemplates));figure.position.copy(v3(enemy.x,enemy.flying?.8:0,enemy.z));this.scene.add(figure);}
       figure.position.x=enemy.x-HALF;figure.position.z=enemy.z-HALF;
       figure.visible=true;this.enemies.delete(enemy.id);beginDeath(figure,enemy);this.corpses.set(enemy.id,figure);
       this.burst(enemy.x,enemy.z,'#bcc6a1',.35);
@@ -299,7 +301,7 @@ export class Battlefield {
     if(this.compass)this.compass.style.transform=`rotate(${compassBearing(this.camera.position,this.controls.target)}rad)`;
     const active=new Set(this.game.combat.enemies.map(e=>e.id));
     for(const [id,m]of this.enemies)if(!active.has(id)){this.scene.remove(m);disposeEnemyFigure(m);this.enemies.delete(id);}
-    for(const e of this.game.combat.enemies){if(e.dead)continue;let m=this.enemies.get(e.id);if(!m){m=enemyFigure(e,this.enemyTemplates);this.scene.add(m);this.enemies.set(e.id,m);const bg=new THREE.Mesh(new THREE.PlaneGeometry(0.7,0.065),new THREE.MeshBasicMaterial({color:'#232e24',depthTest:false}));const fill=new THREE.Mesh(new THREE.PlaneGeometry(0.67,0.045),new THREE.MeshBasicMaterial({color:e.boss?'#e2b362':'#94c888',depthTest:false}));bg.add(fill);fill.position.z=0.003;m.add(bg);m.userData.bar=bg;m.userData.fill=fill;const aura=createEnemyAura(e,m.userData.body);if(aura){m.add(aura);m.userData.aura=aura;}}
+    for(const e of this.game.combat.enemies){if(e.dead)continue;let m=this.enemies.get(e.id);if(!m){m=scaleBattlefieldUnit(enemyFigure(e,this.enemyTemplates));this.scene.add(m);this.enemies.set(e.id,m);const bg=new THREE.Mesh(new THREE.PlaneGeometry(0.7,0.065),new THREE.MeshBasicMaterial({color:'#232e24',depthTest:false}));const fill=new THREE.Mesh(new THREE.PlaneGeometry(0.67,0.045),new THREE.MeshBasicMaterial({color:e.boss?'#e2b362':'#94c888',depthTest:false}));bg.add(fill);fill.position.z=0.003;m.add(bg);m.userData.bar=bg;m.userData.fill=fill;const aura=createEnemyAura(e,m.userData.body);if(aura){m.add(aura);m.userData.aura=aura;}}
       const flying=e.flying?.8:0;const bob=animateEnemyMotion(m,e,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches});m.position.copy(v3(e.x,flying+bob,e.z));const to=e.route[Math.min(e.pathIndex,e.route.length-1)];m.rotation.y=Math.atan2(to.x-e.x,to.z-e.z)+Math.PI;
       animateEnemyAura(m.userData.aura,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches});
       animateEnemyCues(m,e,this.game.combat.elapsed,{reducedMotion:!!this.reducedMotion?.matches});
@@ -309,7 +311,7 @@ export class Battlefield {
     for(const value of this.models.values()){
       const articulated=value.attack?.native||value.attack?.geometric,context=articulated?secretAttackContext(value.tower,this.game):{};
       const idle=value.hero&&!articulated?Math.sin(this.time*2.8+value.phase)*.018:0;
-      if(!articulated)value.actor.scale.set(1,1+idle,1);
+      if(!articulated)animateBattlefieldIdleScale(value.actor,idle);
       if(articulated&&(value.attack.native?.stage??value.attack.stage)!=='recovery'&&context.target)value.actor.rotation.y=Math.atan2(context.target.x-value.tower.x,context.target.z-value.tower.z)+Math.PI;
       if(!value.attack?.geometric)animateSiege(value.siege,battleDt);
       animateAttack(value.attack,battleDt,this.motionTime,{...context,reducedMotion:!!this.reducedMotion?.matches});

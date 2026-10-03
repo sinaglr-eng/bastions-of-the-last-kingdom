@@ -9,6 +9,7 @@ import {enemyFigure,disposeEnemyFigure} from '../game/render/enemy-assets.js';
 import {attackRig,previewGeometricAttack,updateGeometricPreview,disposeAttack,beginDeath,animateDeath} from '../game/render/battle-animation.js';
 import {animateEnemyMotion} from '../game/render/enemy-motion.js';
 import {geometricMetadata} from '../game/render/geometric-motion.js';
+import {scaleBattlefieldUnit,BATTLEFIELD_UNIT_SCALE} from '../game/render/battlefield-scale.js';
 
 const project=resolve(fileURLToPath(new URL('..',import.meta.url))),assetRoot=join(project,'public/assets/geometric');
 const roster=JSON.parse(readFileSync(join(project,'data/towers.json'))),enemyData=JSON.parse(readFileSync(join(project,'data/enemies.json')));
@@ -26,6 +27,10 @@ export async function auditGeometricRuntime(file){
   const nativeBefore=transforms(source),peerBefore=transforms(peer),vertices=new Map();source.traverse(node=>{if(node.isMesh)vertices.set(node.geometry,Array.from(node.geometry.attributes.position.array));});
   check('geometric metadata',metadata?.geometricRig);check('canonical six-view source',metadata?.sourceViews===6||metadata?.sourceFile&&metadata?.sourceSha256);
   const family=metadata?.family||file.split(/[\\/]/).at(-1).replace('.glb','').replace(/-\d$/,''),isEnemy=file.includes('enemies'),head=actor.getObjectByName('head_pivot');
+  if(metadata?.locomotion!=='flying'){
+    const minimum=new THREE.Box3().setFromObject(actor,true).min.y;
+    check('actual authored ground geometry rests on terrain without buried ankle parts',Math.abs(minimum)<.002,minimum);
+  }
   const human=!!actor.getObjectByName('upper_arm_R')||!!actor.getObjectByName('upper_arm_L'),mechanical=metadata?.attackStyle==='siege'&&!human;
   check('real physical meshes',meshCount(actor)>0);if(!mechanical)check('one canonical head pivot',!!head&&!head.isMesh);
   const names=new Map();actor.traverse(node=>names.set(node.name,(names.get(node.name)||0)+1));
@@ -34,8 +39,10 @@ export async function auditGeometricRuntime(file){
     const arm=actor.getObjectByName('upper_arm_'+side),forearm=actor.getObjectByName('forearm_'+side),hand=actor.getObjectByName('hand_'+side),weapon=actor.getObjectByName('weapon_'+side);
     check(side+' arm carries actual parts',meshCount(arm)>0);check(side+' elbow stays under shoulder',descendant(forearm,arm));check(side+' wrist stays under elbow',descendant(hand,forearm));check(side+' weapon stays under hand',descendant(weapon,hand));
   }
-  const localR=actor.getObjectByName('hand_R')?.getWorldPosition(new THREE.Vector3()),localL=actor.getObjectByName('hand_L')?.getWorldPosition(new THREE.Vector3());
-  if(human)check('anatomical right stays +X',localR&&localL&&localR.x>localL.x,{right:localR?.x,left:localL?.x});
+  const localR=actor.getObjectByName('upper_arm_R')?.getWorldPosition(new THREE.Vector3()),localL=actor.getObjectByName('upper_arm_L')?.getWorldPosition(new THREE.Vector3());
+  // Two-handed source grips can cross the chest centre. Anatomical ownership
+  // is determined at the shoulders and canonical elbow/wrist chains above.
+  if(human)check('anatomical right shoulder stays +X',localR&&localL&&localR.x>localL.x,{right:localR?.x,left:localL?.x});
   const eyeNodes=[];actor.traverse(node=>{if(node.isMesh&&/^Eye[ _]|^eye[ _]/i.test(node.name))eyeNodes.push(node);});
   if(head&&eyeNodes.length){const centre=head.getWorldPosition(new THREE.Vector3());for(const eye of eyeNodes){const position=new THREE.Box3().setFromObject(eye,true).getCenter(new THREE.Vector3());check(eye.name+' front faces -Z',position.z<centre.z,{eyeZ:position.z,headZ:centre.z});}}
   if(head){
@@ -71,10 +78,17 @@ export async function auditGeometricRuntime(file){
   let minimum=Infinity;for(let i=0;i<26;i++){animateDeath(figure,.04);figure.updateMatrixWorld(true);minimum=Math.min(minimum,new THREE.Box3().setFromObject(figure.userData.body,true).min.y);}
   check('every actual corpse fall pose clears terrain',minimum>=.02499,minimum);check('death keeps every physical mesh',meshCount(figure)===deathCount);check('death preserves imported scale',JSON.stringify(figure.userData.body.scale.toArray())===JSON.stringify(bodyScale));
   const settled=transforms(figure);animateDeath(figure,800);animateEnemyMotion(figure,{...enemy,dead:true},1000);check('corpse remains stationary after settling',transforms(figure)===settled);
+  const scaledFigure=enemyFigure(enemy,new Map([[id,source]]));scaleBattlefieldUnit(scaledFigure);scaleBattlefieldUnit(scaledFigure);
+  const scaledOpacity=new Map();scaledFigure.userData.body.traverse(node=>{for(const material of Array.isArray(node.material)?node.material:[node.material])if(material)scaledOpacity.set(material,material.opacity);});
+  check('battlefield scale is private and applied exactly once',Math.abs(scaledFigure.scale.y-BATTLEFIELD_UNIT_SCALE)<1e-12&&source.scale.y===1);
+  scaledFigure.position.y=enemy.flying?.7:0;beginDeath(scaledFigure,enemy);let scaledMinimum=Infinity;
+  for(let i=0;i<26;i++){animateDeath(scaledFigure,.04);scaledFigure.updateWorldMatrix(true,true);scaledMinimum=Math.min(scaledMinimum,new THREE.Box3().setFromObject(scaledFigure.userData.body,true).min.y);}
+  check('every .88 battlefield corpse pose clears terrain in world metres',scaledMinimum>=.02499,scaledMinimum);
+  const scaledSettled=transforms(scaledFigure);animateDeath(scaledFigure,800);check('scaled corpse preserves imported opacity and remains stationary',transforms(scaledFigure)===scaledSettled&&scaledFigure.scale.y===BATTLEFIELD_UNIT_SCALE&&[...scaledOpacity].every(([material,opacity])=>material.opacity===opacity));
   check('cached source and peer clone remain unmodified',transforms(source)===nativeBefore&&transforms(peer)===peerBefore);
   check('shared native vertex buffers unchanged',[...vertices].every(([geometry,array])=>array.every((v,i)=>v===geometry.attributes.position.array[i])));
   const resources=new Set();source.traverse(node=>{if(node.geometry)resources.add(node.geometry);for(const material of Array.isArray(node.material)?node.material:[node.material])if(material)resources.add(material);});
-  disposeAttack(rig);disposeDefenderInstance(actor);disposeDefenderInstance(peer);disposeEnemyFigure(figure);resources.forEach(resource=>resource.dispose());
+  disposeAttack(rig);disposeDefenderInstance(actor);disposeDefenderInstance(peer);disposeEnemyFigure(figure);disposeEnemyFigure(scaledFigure);resources.forEach(resource=>resource.dispose());
   return {file:relative(project,file).replaceAll('\\','/'),fileSha256:createHash('sha256').update(bytes).digest('hex'),family,locomotion:metadata?.locomotion,attackStyle:metadata?.attackStyle,meshCount:deathCount,passed:checks.filter(c=>c.pass).length,total:checks.length,checks};
 }
 
@@ -82,8 +96,8 @@ if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   const files=process.argv.slice(2).filter(arg=>!arg.startsWith('--'));
   const selected=files.length?files.map(file=>resolve(file)):['defenders','champions','enemies'].flatMap(folder=>{try{return readdirSync(join(assetRoot,folder)).filter(file=>file.endsWith('.glb')).map(file=>join(assetRoot,folder,file));}catch{return [];}});
   const models=[];for(const file of selected)models.push(await auditGeometricRuntime(file));
-  const runtimeModules=['battle-animation.js','combat-effects.js','enemy-motion.js','geometric-motion.js','geometric-enemy-effects.js','geometric-orbits.js','geometric-resources.js','geometric-batching.js'].map(name=>{const file=join(project,'game/render',name);return {file:relative(project,file).replaceAll('\\','/'),sha256:createHash('sha256').update(readFileSync(file)).digest('hex')};});
+  const runtimeModules=['battle-animation.js','combat-effects.js','enemy-motion.js','enemy-aura.js','geometric-motion.js','geometric-enemy-effects.js','geometric-orbits.js','geometric-resources.js','geometric-batching.js','geometric-contacts.js','battlefield-scale.js','atelier-enemy-preview.js'].map(name=>{const file=join(project,'game/render',name);return {file:relative(project,file).replaceAll('\\','/'),sha256:createHash('sha256').update(readFileSync(file)).digest('hex')};});
   const report={revision:'geometric-runtime-audit-v1',runtimeModules,models:models.length,passed:models.reduce((sum,m)=>sum+m.passed,0),total:models.reduce((sum,m)=>sum+m.total,0),limitations:'Head articulation checks prove coherent physical hierarchies, not source silhouette accuracy or zero geometric penetration. Source-to-model renders and independent coverage probes are assessed separately.',results:models};
-  const output=join(project,'output/design/geometric-game-v1/runtime-model-audit.json');mkdirSync(resolve(output,'..'),{recursive:true});writeFileSync(output,JSON.stringify(report,null,2));
+  const outputArg=process.argv.find(arg=>arg.startsWith('--output=')),output=outputArg?resolve(outputArg.slice('--output='.length)):join(project,'output/design/geometric-game-v1/runtime-model-audit.json');mkdirSync(resolve(output,'..'),{recursive:true});writeFileSync(output,JSON.stringify(report,null,2));
   console.log(JSON.stringify({models:report.models,passed:report.passed,total:report.total,failures:models.flatMap(m=>m.checks.filter(c=>!c.pass).map(c=>({file:m.file,...c}))),output}));if(report.passed!==report.total)process.exitCode=1;
 }

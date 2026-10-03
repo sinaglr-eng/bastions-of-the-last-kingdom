@@ -2,6 +2,7 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {geometricEntries} from '../game/render/geometric-assets.js';
+import {GAME_VERSION} from '../game/release.js';
 
 const args=process.argv.slice(2),base=new URL(args[0]),reportIndex=args.indexOf('--report'),commitIndex=args.indexOf('--commit');
 if(!base.pathname.endsWith('/'))throw new Error('Base URL must end with /');
@@ -35,7 +36,7 @@ for(const file of ['index.html','archer.html']){
   while(pending.length){
     const url=pending.pop();if(seen.has(String(url)))continue;seen.add(String(url));
     if(seen.size>30)throw new Error(`${file}: unexpected module graph`);
-    const code=(await request(url)).toString();versionFound ||= code.includes('0.3.0');
+    const code=(await request(url)).toString();versionFound ||= code.includes(GAME_VERSION);
     for(const match of code.matchAll(/(?:from|import)\s*["'](\.[^"']+\.js)["']/g))pending.push(new URL(match[1],url));
   }
   if(!versionFound)throw new Error(`${file}: current release version absent`);
