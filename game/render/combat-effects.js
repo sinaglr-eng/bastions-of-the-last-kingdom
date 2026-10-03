@@ -72,6 +72,12 @@ function arrow(color,toxic=false){
   const feathers=mesh(new THREE.BoxGeometry(.08,.01,.12),material(toxic?color:'#d8d9c8'),'Arrow fletching');feathers.position.z=-.22;object.add(feathers);
   if(toxic){object.name='Venom-coated royal arrow';const coating=mesh(new THREE.CylinderGeometry(.013,.013,.11,5),material(color,.85),'Green venom arrow coating');coating.rotation.x=Math.PI/2;coating.position.z=.22;object.add(coating);}return object;
 }
+function frostBolt(color){
+  const object=arrow(color);object.name='Frost-coated crossbow bolt';
+  const frost=mesh(new THREE.CylinderGeometry(.015,.021,.16,5),material(color,.92),'Ice-lined bolt shaft');frost.rotation.x=Math.PI/2;frost.position.z=.18;object.add(frost);
+  for(const side of [-1,1]){const crystal=mesh(new THREE.ConeGeometry(.025,.11,3),material('#d3f8ff',.88),'Crossbow bolt ice accent');crystal.rotation.x=Math.PI/2;crystal.position.set(side*.023,0,.245);object.add(crystal);}
+  return object;
+}
 function runicBolt(color){
   const object=new THREE.Group();object.name='Physical armor-breaking rune bolt';
   const core=mesh(new THREE.CylinderGeometry(.045,.075,.34,6),material('#a5adb0'),'Forged runic bolt');core.rotation.x=Math.PI/2;object.add(core);
@@ -182,12 +188,12 @@ export class CombatEffects{
     // combat packet and timing while displaying a narrow forward impact.
     const spear=damageKind==='melee'&&(['frostblade','roseguard'].includes(shot.source.family)||shot.source.family==='soldier'&&shot.source.tier===1);
     const kind=spear?'thrust':damageKind,color=attackVisualColor(shot.source.family,kind);
-    const lobbed=kind==='siege'&&LOBBED.has(shot.source.family);
-    const object=kind==='roots'?thorns(color):kind==='flame'?flameStream(color):kind==='lightning'?zigzag(color):kind==='melee'?slash(color):kind==='thrust'?spearImpact(color):kind==='hammer'?hammerStrike(color):kind==='runic'?runicBolt(color):kind==='stone'?stoneShard(color):kind==='dart'?toxicDart(color):kind==='venomArrow'?arrow(color,true):lobbed?bomb(color):kind==='arrow'||kind==='siege'?arrow(color):spell(kind,color);
+    const lobbed=kind==='siege'&&LOBBED.has(shot.source.family),physicalBolt=kind==='frost'&&shot.source.family==='rimewatch';
+    const object=physicalBolt?frostBolt(color):kind==='roots'?thorns(color):kind==='flame'?flameStream(color):kind==='lightning'?zigzag(color):kind==='melee'?slash(color):kind==='thrust'?spearImpact(color):kind==='hammer'?hammerStrike(color):kind==='runic'?runicBolt(color):kind==='stone'?stoneShard(color):kind==='dart'?toxicDart(color):kind==='venomArrow'?arrow(color,true):lobbed?bomb(color):kind==='arrow'||kind==='siege'?arrow(color):spell(kind,color);
     if(secretFamily(shot.source.family))object.name=shot.source.family==='lordbernhard'?'Sword-released golden magical bolt':'Staff-released golden spell';
     if(kind==='siege'&&!lobbed)object.scale.setScalar(1.4);
-    sealMaterials(object);this.scene.add(object);const record={object,kind,shot,stats,color,lobbed,origin:this.muzzle(shot.source,shot.start||shot.source)};this.projectiles.set(shot.id,record);this.poseProjectile(record,this.time);
-    if(['arcane','holy','frost'].includes(kind))this.magicWave(record.origin,this.point(shot.target,this.targetHeight(shot.target)),color,shot.target);
+    sealMaterials(object);this.scene.add(object);const record={object,kind,shot,stats,color,lobbed,physicalBolt,origin:this.muzzle(shot.source,shot.start||shot.source)};this.projectiles.set(shot.id,record);this.poseProjectile(record,this.time);
+    if(['arcane','holy','frost'].includes(kind)&&!physicalBolt)this.magicWave(record.origin,this.point(shot.target,this.targetHeight(shot.target)),color,shot.target);
     return record;
   }
   magicWave(start,end,color,target){
@@ -218,7 +224,7 @@ export class CombatEffects{
       if(lobbed)object.position.y+=Math.sin(p*Math.PI)*Math.min(2.3,1+start.distanceTo(end)*.12);
       else object.position.y+=Math.sin(p*Math.PI)*.13;
       object.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),new THREE.Vector3().subVectors(end,start).normalize());
-      if(motion&&!['arrow','venomArrow','dart'].includes(kind)&&(kind!=='siege'||lobbed))object.rotateZ(time*(kind==='siege'?5:2));
+      if(motion&&!record.physicalBolt&&!['arrow','venomArrow','dart'].includes(kind)&&(kind!=='siege'||lobbed))object.rotateZ(time*(kind==='siege'?5:2));
     }
   }
   syncProjectiles(shots,time=this.time){

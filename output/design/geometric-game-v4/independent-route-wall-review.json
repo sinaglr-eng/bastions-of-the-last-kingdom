@@ -1,0 +1,98 @@
+{
+  "revision": "independent-route-wall-review-v4",
+  "reviewer": "v4_defenders",
+  "recordedAtUtc": "2026-10-03T11:55:52.1067130Z",
+  "checkout": "C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower Defense game",
+  "files": [
+    {
+      "path": "game/core/blueprints.js",
+      "sha256": "787c4c60d0a81f89423d9698b6fe7db7644a52b80c152bdc558ca93d2359d94c"
+    },
+    {
+      "path": "game/render/route-overlay.js",
+      "sha256": "b82fbe651d38d5d3367c40e165ab30787097990ca7d7b046193451e96cd689f9"
+    },
+    {
+      "path": "game/render/maze-planner.js",
+      "sha256": "db7ea176a67fb6e98348f59c102608dd9153a2474bfbf63e498906c5e66960b1"
+    },
+    {
+      "path": "game/render/world.js",
+      "sha256": "48483d653336e3f87c6daceb56cac601b4c5d454fec6ab5d522cbac5ea0baa2e"
+    },
+    {
+      "path": "game/render/walls.js",
+      "sha256": "1007857a600768ed3bc9cdb701d02f8e9ad328f2660dd1a68816660bd3048cf1"
+    },
+    {
+      "path": "game/render/battlefield-scale.js",
+      "sha256": "34b54892140c8d0fa79c739f15eca07ff3d17385eda59d4407d4bad70a94ea27"
+    },
+    {
+      "path": "tests/route-presentation.test.mjs",
+      "sha256": "aba55ec5a61ca35c8a6d6b416a77b7a5d8b8bf43a4a67953a2d9601817be1ad9"
+    },
+    {
+      "path": "tests/geometric-wall-height.test.mjs",
+      "sha256": "eece63a243cbf04f7d3355c57cfaab96a5a14c2150054a394c93791a8d265d5d"
+    },
+    {
+      "path": "tests/atelier-roster.test.mjs",
+      "sha256": "85e223c517e42a458bb8dc5431d791b33978c9f26649de55e3646c1e00fa4daf"
+    }
+  ],
+  "productFilesModified": false,
+  "scopedPass": true,
+  "actionableIssues": [],
+  "checks": {
+    "sourceRead": "Completed-route occupied union and off-plan conflict handling; current live/queued enemy selection; event route revision; legend and blueprint visibility; overlay disposal; scale and wall/deck geometry.",
+    "existingTests": {
+      "failed": 0,
+      "files": [
+        "tests/route-presentation.test.mjs",
+        "tests/geometric-wall-height.test.mjs",
+        "tests/atelier-roster.test.mjs"
+      ],
+      "passed": 10
+    },
+    "independentPlanner": {
+      "visibilityCombinations": 8,
+      "instancedBuffersDisposed": 2,
+      "actualSourceExecuted": true,
+      "rebuiltMaterialsDisposed": 4,
+      "matchedCompletedRouteSuppressed": true,
+      "rebuiltGeometriesDisposed": 4
+    },
+    "independentCampaignRouting": {
+      "actualWavesQueuedAndAliveSelections": 50,
+      "rngDrawsForPresentation": 0
+    },
+    "independentWorldEventRouting": {
+      "matchedBlockedEditingLegendStates": 3,
+      "spawnDeathLeakTransitions": 4,
+      "actualSourceExecuted": true
+    },
+    "actualChampionFootSupport": {
+      "actorScale": 0.704,
+      "actualSoleCenterDowncasts": 28,
+      "isolatedPlatformConnectionMask": 0,
+      "height": 0.9318524971008301,
+      "assets": [
+        "frostblade",
+        "roseguard",
+        "thunderheart",
+        "phoenix",
+        "griffinbomber",
+        "rangermentor",
+        "worldfire"
+      ],
+      "description": "Current decoded native GLB grounded animal soles independently downcast against actual merged deck triangles, with a 20 mm finite cast around deck height.",
+      "unsupportedSoleCenters": 0
+    }
+  },
+  "limits": [
+    "Headless planner and world-method checks use minimal DOM stubs, so visual browser layout is not newly certified by this review.",
+    "Source identity and native geometry were accepted separately in the SHA-bound native136 and priority14 reports.",
+    "Foot support check records actual grounded sole centers of seven priority mounts; it does not claim every arbitrary animated pose was deck-ray tested."
+  ]
+}

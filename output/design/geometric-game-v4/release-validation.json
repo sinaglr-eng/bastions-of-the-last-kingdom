@@ -1,0 +1,100 @@
+{
+  "edition": "0.3.3",
+  "createdAtUtc": "2026-10-03T12:02:59.892352+00:00",
+  "models": 136,
+  "tests": 436,
+  "passedTests": 436,
+  "failedTests": 0,
+  "buildPassed": true,
+  "buildBase": "/bastions-of-the-last-kingdom/",
+  "battlefieldScale": 0.704,
+  "unitReductionFromPrevious": 0.2,
+  "checkpointIncrease": 0.15,
+  "actualWaveTwoEnemyNativeHeight": 1.3236541152000427,
+  "deckHeight": 0.9318524971008301,
+  "productionDefenderAttacks": 86,
+  "productionEnemies": 50,
+  "enemyVisualVariants": 300,
+  "productionAnimationChecks": 10628,
+  "animationFailures": 0,
+  "runtimeChecks": 5258,
+  "surfaceInterfaces": 9460,
+  "protectedCoverageRays": 25443,
+  "surfaceAndCoverageFailures": 0,
+  "nativeScenesIndependentlyReopened": 136,
+  "changedModelsActuallyCompared": 124,
+  "newSixViewPairsActuallyOpened": 744,
+  "unchangedModelsInheritedFromVerifiedPriorInspection": 12,
+  "inheritedPairs": 72,
+  "extraIndependentPriorityPairsActuallyOpened": 84,
+  "appearanceProportionChecks": 64,
+  "knownSourceLimitations": [
+    "host_50 rider head/chest fit corrected; retained wyvern head/neck armor/tail remain simplified relative to source. Broad source-detail fidelity is not certified."
+  ],
+  "browserProofs": [
+    {
+      "file": "output/design/geometric-game-v4/browser-proof/attack-return-final.png",
+      "sha256": "f2a6682d1e650e58c619db6000d44fb4bcfc85cb07f5a440936574966cfa28fe"
+    },
+    {
+      "file": "output/design/geometric-game-v4/browser-proof/champion-release-final.png",
+      "sha256": "77a956d3f67f438083168026f29dbb6fe4b17d11a583b4e72e00829c68d1ffaa"
+    },
+    {
+      "file": "output/design/geometric-game-v4/browser-proof/defender-release-final.png",
+      "sha256": "ffc05aefc27c88be4a75d9f20fd9a8588bd29a72db9ccc0332a5f5024fb33e6f"
+    },
+    {
+      "file": "output/design/geometric-game-v4/browser-proof/mounted-release-final.png",
+      "sha256": "0f244d8b43cb62eba97d952284206300147f50c4dde6c254505be957081039fd"
+    },
+    {
+      "file": "output/design/geometric-game-v4/browser-proof/routes-both-final.png",
+      "sha256": "329b81ca2374b6d49da800ba2ca253beb22013e5733eac5ec16390d63c834909"
+    }
+  ],
+  "browserScope": "Final imported representatives observed through visible controls: Clearance/spirit11 at preparation.21(side), recovery.58(side), return.85(3/4); Champion12, Mounted/Flying12 and Defender9 at release.42(3/4). Current/final route visibility independently toggled; blocked route correctly suppressed after real placement. Does not claim personal visual playback of all136.",
+  "reports": [
+    {
+      "file": "output/design/geometric-game-v4/attack-animation-audit.json",
+      "sha256": "7ea86bb1eff6d2b066f52a2cdcdc3b7ef9454ea9b89af6f6a41cba81ac340df4"
+    },
+    {
+      "file": "output/design/geometric-game-v4/actual-surface-contact-audit.json",
+      "sha256": "abefd4732c672cdeea8382d3eefcf1555cd715500e921df5466b0868deda8ee9"
+    },
+    {
+      "file": "output/design/geometric-game-v4/runtime-model-audit.json",
+      "sha256": "df74e284b1c56030382ca6abaac5245753afeead6510ec3ab320bf7e8e5e8208"
+    },
+    {
+      "file": "output/design/geometric-game-v4/native-model-audit.json",
+      "sha256": "6fe27e7ce9702a49281ba5906b8a4af2ce65de217a25d56507f0226ca784433a"
+    },
+    {
+      "file": "output/design/geometric-game-v4/appearance-proportion-audit.json",
+      "sha256": "57f035a16c3b1252361e8ff0a9cbf5a24c6a4785615b061b034179421794597d"
+    },
+    {
+      "file": "output/design/geometric-game-v4/source-six-review-defenders.json",
+      "sha256": "4daf545bdf890cae2c5da9ce0a3404aa61cd6516dbb9c3718513dbbc87ee8113"
+    },
+    {
+      "file": "output/design/geometric-game-v4/source-six-review-champions.json",
+      "sha256": "44cdb26f0532d3aa4798eb3adb230beb1163247744b75c7d10d6e90821809011"
+    },
+    {
+      "file": "output/design/geometric-game-v4/source-six-review-enemies.json",
+      "sha256": "c4e523458f72086fab7f3c7774d2081fc4f06c5799a813a34c689f7e3aabd0d5"
+    },
+    {
+      "file": "output/design/geometric-game-v4/priority14-independent-inspections.json",
+      "sha256": "230ff8114345265be11d9fbaa03431a71043cb1218413430b753143929b9306b"
+    },
+    {
+      "file": "output/design/geometric-game-v4/independent-route-wall-review.json",
+      "sha256": "ccd2a5b1f09cd5653136feeb4185713157e11a2296e53302db4dd3344a8fa0cf"
+    }
+  ],
+  "limitations": "Finite geometry, effect and view samples do not certify all camera silhouettes, arbitrary poses or 1% source dimension accuracy."
+}

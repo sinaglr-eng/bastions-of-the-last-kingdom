@@ -399,6 +399,8 @@ def humanoid(b,row,mounted=False,origin=(0,0,0),scale=1,seat=False,custom=None):
  if b.id in ('rimewatch','greenheart','royalranger'):
   from geometric_champion_fit_v3 import apply_source_fit_v3
   apply_source_fit_v3(b,row,ctx)
+ if not hasattr(b,'humanContexts'):b.humanContexts=[]
+ b.humanContexts.append(ctx)
  return ctx
 
 def decoration(b,row,c):
@@ -798,6 +800,7 @@ def equipment(b,row,c):
   elif kind=='bomb':
    pos=(x,y+.07*scale,z+.13*scale) if b.id=='griffinbomber' else ((hands['R'][0]+hands['L'][0])/2,max(hands['R'][1],hands['L'][1])+.04,(hands['R'][2]+hands['L'][2])/2)
    ell(b,'Physical held hex bomb',pos,(.22*scale,.22*scale,.22*scale),'steel_dark',pa,8,3);b.rod('Bomb wick',(pos[0],pos[1],pos[2]+.20*scale),(pos[0]+.07*scale,pos[1],pos[2]+.31*scale),.020*scale,'wood',pa,5);b.jewel('Bomb small flame',(pos[0]+.07*scale,pos[1],pos[2]+.33*scale),.035*scale,.065*scale,.035*scale,'orange',pa)
+   b.pivot('attack_muzzle',pos,pa)
   elif kind=='greatsword':
    a=Vector(hands['L']);grip=Vector(hands['R']);d=(grip-a).normalized();u=Vector((d.z,0,-d.x));base=a-d*.10*scale;guard=grip+d*.15*scale
    b.rod('Two handed sword actual hilt',base,guard,.043*scale,'leather',pa,10)
@@ -1349,7 +1352,10 @@ def goblin_machine(b,row):
 
 def build(row):
  b=Builder(row['id'],palette(row));s=row['spec'];kind=s.get('bodyKind','humanoid')
- if s.get('wave') in (22,26,43):
+ if b.id=='mothernature':
+  from geometric_champion_creature_fit_v4 import build_integrated_nature_v4
+  build_integrated_nature_v4(b,row)
+ elif s.get('wave') in (22,26,43):
   from geometric_heavy_orc_source_v1 import build_source_heavy_orc
   build_source_heavy_orc(b,row,ell,cone,leaf,annulus,gear)
  elif s.get('wave') in (24,28):goblin_machine(b,row)
@@ -1361,8 +1367,7 @@ def build(row):
  b.root['locomotion']=b.root.get('locomotion','flying' if flying else 'quadruped' if kind in ('horse','dragon','beast') else 'crawler' if kind=='siege' else 'biped')
  b.root['attackStyle']=b.root.get('attackStyle','siege' if kind=='siege' else 'breath' if kind in ('dragon','bird','beast','wyvern') and not s.get('mounted') else s.get('weapon','staff'))
  b.root['sourceRevision']='geometric-turnarounds-v1';b.root['sourceFile']=row['source'];b.root['sourceSha256']=row['sha256'];b.root['scaleAssumption']='Source has no dimensions; human scale approx 1.8m, species anatomy retained.'
- if b.id=='mothernature':
-  from geometric_champion_fit_v3 import apply_source_fit_v3
-  apply_source_fit_v3(b,row,None)
+ from geometric_champion_creature_fit_v4 import apply_source_fit_v4
+ apply_source_fit_v4(b,row)
  b.root['anatomyRevision']=b.root.get('anatomyRevision','geometric-contact-anatomy-v2')
  return b

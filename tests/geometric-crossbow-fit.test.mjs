@@ -10,6 +10,7 @@ import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.j
 import {geometricMetadata} from '../game/render/geometric-motion.js';
 import {scaleBattlefieldUnit} from '../game/render/battlefield-scale.js';
 import {optimizeGeometricSiblings} from '../game/render/geometric-batching.js';
+import {partMeshes} from '../tools/audit-geometric-appearance.mjs';
 
 async function load(id){
   const root=process.env.GEOMETRIC_V3_FIXTURE_DIR||'public/assets/geometric/champions',bytes=readFileSync(`${root}/${id}.glb`);
@@ -77,7 +78,7 @@ test('actual Rimewatch and Royalranger crossbows have distinct rear trigger/fron
   }
 });
 
-test('actual Greenheart staff focus/branches are physically connected under the weapon and Nature Spirit has a recessed nonhuman leaf face',async()=>{
+test('actual Greenheart staff focus/branches connect to the weapon and Nature Spirit has a nonhuman face integrated into its body',async()=>{
   const green=await load('greenheart'),actor=cloneDefenderTemplate(green.scene),weapon=actor.getObjectByName('weapon_R');
   actor.updateWorldMatrix(true,true);
   const shaft=meshes(weapon,node=>/continuous_curved_staff_shaft/i.test(node.name)),forks=meshes(weapon,node=>/connected_branch_fork/i.test(node.name)),focus=meshes(weapon,node=>/broad_connected_faceted_staff_leaf/i.test(node.name));
@@ -86,14 +87,16 @@ test('actual Greenheart staff focus/branches are physically connected under the 
   for(const fork of forks)assert.equal(physicalSurfaceGap(shaft,[fork]).gap,0,'actual wooden fork begins on the shaft');
   assert.ok(descendant(actor.getObjectByName('staff_tip'),weapon)&&descendant(actor.getObjectByName('attack_muzzle'),weapon));
   const spirit=await load('mothernature'),body=cloneDefenderTemplate(spirit.scene),head=body.getObjectByName('head_pivot');
-  assert.equal(geometricMetadata(body).faceOverrideV3,'ethereal-leaf-spirit');
-  const face=meshes(head,node=>node.userData.natureSpiritFace),eyes=meshes(head,node=>node.userData.visualCue==='natureSpiritEyes');
-  assert.equal(face.length,1);assert.equal(eyes.length,2);
-  assert.equal(meshes(head,node=>/observed_face|construct_square_eye/i.test(node.name)).length,0,'human skin cube and square eyes really are absent');
+  const metadata=geometricMetadata(body);assert.equal(metadata.integratedHeadInTorso,true);assert.equal(metadata.natureSpiritFaceContract,'unified-living-wood-leaf-body-face-v4');
+  const torso=body.getObjectByName('torso_pivot'),face=partMeshes(body,/^Nature unified living wood leaf body with integrated face$/i),eyes=partMeshes(body,/^Nature integrated luminous almond eye$/i);
+  assert.ok(face.length>0);assert.equal(eyes.length,2);
+  assert.equal(meshes(head,node=>/face|skin|eye/i.test(node.userData.semanticPart||node.name)).length,0,'face and eyes are absent from a separate head');
+  assert.ok([...face,...eyes].every(node=>descendant(node,torso)&&!descendant(node,head)),'real face surfaces belong to the living body');
+  assert.equal(meshes(body,node=>/observed_face|construct_square_eye/i.test(node.name)).length,0,'human skin cube and square eyes really are absent');
   for(const eye of eyes){assert.ok(eye.material.emissiveIntensity>0);assert.ok(!/skin/i.test(eye.material.name));}
-  const cavity=meshes(head,node=>/deep_opaque_face_cavity/i.test(node.name));assert.equal(cavity.length,1);
-  body.updateWorldMatrix(true,true);const hull=new THREE.Box3().setFromObject(face[0]),recess=new THREE.Box3().setFromObject(cavity[0]);
-  assert.ok(recess.min.z>hull.min.z+.05,'actual dark cavity is behind the outer mask lip along +Z/back');
+  body.updateWorldMatrix(true,true);const unified=new THREE.Box3();for(const part of face)unified.union(new THREE.Box3().setFromObject(part,true));
+  assert.ok(unified.max.y>1.5&&unified.min.y<.4,'same living body geometry includes the face and roots');
+  for(const eye of eyes)assert.ok(physicalSurfaceGap([eye],face).gap<.02,'luminous eyes actually meet the living body surface');
   disposeDefenderInstance(actor);disposeDefenderInstance(body);disposeDecodedGeometricAsset(green);disposeDecodedGeometricAsset(spirit);
 });
 

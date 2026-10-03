@@ -16,6 +16,7 @@ import {castleWallModel,wallConnections,WALL_DECK_HEIGHT} from './render/walls.j
 import historicalTowers from '../data/towers.json';
 import historicalEnemies from '../data/enemies.json';
 import historicalWaves from '../data/waves.json';
+import originalSources from '../public/assets/geometric/source-manifest.json';
 import {campaignTowers,campaignEnemies,campaignWaves} from './core/campaign-roster.js';
 import {atelierEnemyRoster,atelierSelection,atelierSelectionQuery,atelierEnemyProperties} from './core/atelier-roster.js';
 import {createAtelierEnemyPreview,updateAtelierEnemyPreview,disposeAtelierEnemyPreview} from './render/atelier-enemy-preview.js';
@@ -140,7 +141,8 @@ async function showRank(rank){
  const requestedAppearance={stormcaller:'Upravený návrh: přirozené vlasy a blesková koruna podle úrovně.',royalranger:'Upravená výstroj: kuše držená zadní rukou u spouště a přední rukou pod pažbou.',mothernature:'Upravená podoba: lesní duch s listovou maskou a zářícíma očima.',thunderheart:'Upravená výstroj: rytíř v ocelové a tmavomodré zbroji odlišné od fialového draka.'};
  if(!enemy&&requestedAppearance[family])document.querySelector('#rank-detail').textContent+=' '+requestedAppearance[family];
  document.querySelector('#download-model').href=url;document.querySelector('#download-portrait').href=portrait(family,rank);
- referenceLink.href=siteUrl(`geometric-turnarounds-v1/${enemy?'enemies':advanced?'champions':'towers'}/${family}${!enemy&&!advanced?'-'+rank:''}.png`);
+ const sourceId=!enemy&&!advanced?`${family}-${rank}`:family,source=originalSources.find(row=>row.id===sourceId);
+ referenceLink.href=siteUrl(`geometric-turnarounds-v1/${source.file}`);
  referenceLink.title='Původní geometrický návrh. Novější výslovné změny výstroje a podoby jsou uvedeny v popisu postavy.';
  document.querySelector('#load-status').textContent='Načítám model z Blenderu…';
  try{

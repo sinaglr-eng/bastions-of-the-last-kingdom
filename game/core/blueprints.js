@@ -56,7 +56,8 @@ export function blueprintProgress(plan,grid,budget,limit=250){
   // Only report progress and conflicts. Never relocate a chosen blueprint cell.
   const union=new GridManager();union.occupied=new Map(grid.occupied);
   for(const p of walls)union.occupied.set(cellKey(p.x,p.z),'plan');
-  return {walls,missing,built:walls.length-missing.length,projected:union.occupied.size,limit,overBudget:missing.length>budget||union.occupied.size>limit,conflict:!union.findRoute(),offPlan:[...grid.occupied.keys()].filter(k=>!keys.has(k)).length};
+  const route=union.findRoute();
+  return {walls,missing,route,built:walls.length-missing.length,projected:union.occupied.size,limit,overBudget:missing.length>budget||union.occupied.size>limit,conflict:!route,offPlan:[...grid.occupied.keys()].filter(k=>!keys.has(k)).length};
 }
 export class BlueprintEditor {
   constructor(walls=[]){this.cells=new Map(walls.filter(validPlanCell).map(p=>[cellKey(p.x,p.z),{...p}]));this.undoStack=[];this.redoStack=[];this.stroke=null;}

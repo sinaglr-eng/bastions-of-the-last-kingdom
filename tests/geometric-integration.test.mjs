@@ -30,7 +30,7 @@ function blinkFixture(game,{stealth=false,petrified=false,freeze=false,clock=.01
   const enemy=game.combat.spawn('host_33');Object.assign(enemy,{x:20,z:20,route:[{x:20,z:20},{x:20,z:22},{x:23,z:22},{x:23,z:27}],pathIndex:1,pathLength:10,traveled:0,speed:2,blink:4,blinkClock:clock,stealth,cloaked:stealth,statuses:{...(petrified?{petrify:{time:2}}:{}),...(freeze?{freeze:{time:2}}:{})}});return enemy;
 }
 function corpseField(game){
-  const field=Object.create(Battlefield.prototype);Object.assign(field,{game,scene:new THREE.Scene(),enemies:new Map(),enemyTemplates:new Map(),corpses:new Map(),models:new Map(),effects:[],combatEffects:{event(){}},sync(){},burst(){}});
+  const field=Object.create(Battlefield.prototype);Object.assign(field,{game,scene:new THREE.Scene(),enemies:new Map(),enemyTemplates:new Map(),corpses:new Map(),models:new Map(),effects:[],combatEffects:{event(){}},pathGroup:new THREE.Group(),maze:{sync(){}},updateRouteLegend(){},sync(){},burst(){}});
   field.enemyAbilityEffects=new EnemyAbilityEffects(field.scene,{isVisible:e=>game.combat.isRevealed(e)});
   const off=game.on((type,payload)=>field.event(type,payload));return {field,off};
 }

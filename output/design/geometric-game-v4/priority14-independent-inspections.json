@@ -1,0 +1,792 @@
+{
+  "revision": "independent-priority14-source-review-v4",
+  "reviewer": "v4_defenders",
+  "requestedModels": [
+    "mothernature",
+    "highking",
+    "kingdomprotector",
+    "archangel",
+    "crownofages",
+    "elvenking",
+    "royalranger",
+    "frostblade",
+    "roseguard",
+    "thunderheart",
+    "phoenix",
+    "griffinbomber",
+    "rangermentor",
+    "host_50"
+  ],
+  "entries": {
+    "mothernature": {
+      "id": "mothernature",
+      "recordedAtUtc": "2026-10-03T11:45:33.140150+00:00",
+      "sourceFile": "champions/mothernature.png",
+      "sourceSha256": "bd16a9eb1b7347161efd279ad5f3a8fa3858c601791178e0b5d1b17e00c24e0b",
+      "actualGlbSha256": "4fa9be950db01283ed373acdb9433461d5d61e831070721eb558b4816f6391fe",
+      "actualNativeSha256": "a0618da265031e77489de841a96fd3f7a833075a8b591f2b9b28926576dbd5c6",
+      "actualGeometrySha256": "e6fc5a54bdb6065213eddae1dc723bc0608133e1a39386cbcef44f1b85285aa8",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/mothernature.jpg",
+      "comparisonSha256": "1c162e1c9c3a3165cfbb619b6d353e569f84676527d94adda47b8bb75a00dd23",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/mothernature/front.png",
+          "sha256": "f85dc0ff96e427a2cca6e2f00df87f6559c2d55efdc8fc506d0f97c9ea12bde7",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/mothernature/back.png",
+          "sha256": "a75b75ff97e43a14d5dade719f15a254cd4dd3dab408282ac148f929508512c8",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/mothernature/left.png",
+          "sha256": "2b818ccbef96be5dc759ffd05c9de9aea7a59a3bae331ff27a583ec68fe6d561",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/mothernature/right.png",
+          "sha256": "7b0c9f7f0529a81f25ee645abf6a4d7fa34e4775e957e0fdb4d0f6943d06905c",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/mothernature/three-quarter-front.png",
+          "sha256": "bead695773ef7c80402c1dc3e74a008cb332a413bb2cd621070cb5d8505bb06e",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/mothernature/three-quarter-back.png",
+          "sha256": "bb9cb68e4a9ddb7a7935b4004ed5cb45bd19fd8282edb62ced29820e421a97ef",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Face is integrated into the continuous living trunk/leaf silhouette; recessed luminous leaf eyes replace the human flesh face by explicit user request. Bent branch arms, leafy hand crystals, multi-fork crown buds, layered rear foliage and floating root crystals are visible. Side views have continuous living volume rather than a separate head or neck. No significant scoped regression; leaf thickness and trunk depth are estimates.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "highking": {
+      "id": "highking",
+      "recordedAtUtc": "2026-10-03T11:45:33.681687+00:00",
+      "sourceFile": "champions/highking.png",
+      "sourceSha256": "3bdd0a05e94d5439842476a19e35ef71ee454e1ec4c426ddb02b232a5b811695",
+      "actualGlbSha256": "1f4f5137070e720581170af8ac310fd090e3544016adfe9cf65cdc216eff454d",
+      "actualNativeSha256": "675557b8ccd205b1c545679b91fa16860604aa3820ba67af635b331dcfc54422",
+      "actualGeometrySha256": "e41c87af48bef5bfbaf19ebe874f390753a28a653d9202207a6821029eb9d10b",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/highking.jpg",
+      "comparisonSha256": "184d36ab528b5d4671301e8b7c8929e6a0b8514e7735eeddb105d7fa2ad15fa3",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/highking/front.png",
+          "sha256": "ea25491b688114da0c98081ed780f9771442dc27135a6b3fdfd52752da4bd227",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/highking/back.png",
+          "sha256": "95fc19b64529723521191bd316f25d742dd508b7311ec469210a9c3847780eaa",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/highking/left.png",
+          "sha256": "9fa63e99cdef81f021d1e7de331c0dd8b79d5e26887743bf9895c6484368ef78",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/highking/right.png",
+          "sha256": "1cafef75b51d3df71c8065bbc302b432ecc5187a82a5436e59704eec6bc48fdb",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/highking/three-quarter-front.png",
+          "sha256": "a7d123dfc66e8bf1ff8cfaaa2db2a84920b75aeb5fa8a99637eb1876a6fcbe73",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/highking/three-quarter-back.png",
+          "sha256": "2c4bc69edfce1bb03958d4358f495eb119aafca997890d96b8674fb71522c3a6",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Both gauntlets occupy the sword hilt; front/three-quarter views expose the grasp instead of the old rectangle over the hand. Arms bend as connected limbs, head sits against chest armor. Broad blade and angled guard, angular dark armor, blue cape and shoulder spikes preserve identity. Compact-head style overrides former exposed neck. No significant scoped regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "kingdomprotector": {
+      "id": "kingdomprotector",
+      "recordedAtUtc": "2026-10-03T11:45:34.155088+00:00",
+      "sourceFile": "champions/kingdomprotector.png",
+      "sourceSha256": "f87b5e20d321b18b0b62c6ddc22088c0191f9cd0cf1321774885a5f22cec3444",
+      "actualGlbSha256": "7dfffb0c3373d7a8b409cddbfb5eef7cf9e47e77155b40efcd50b142a2181fcd",
+      "actualNativeSha256": "05fa05b9984f3a459b40764b84ffb632bd47dbeeb19ab7510008a2146d52b3e7",
+      "actualGeometrySha256": "5a2723cc1c92ae4c89d8c82ca09ddcb28277a6827a658750b916472612fa5b97",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/kingdomprotector.jpg",
+      "comparisonSha256": "1e83a979d547f3414ae810aed50ce0161be01b04a71812fef8d4befc71fba314",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/kingdomprotector/front.png",
+          "sha256": "cdf8847119f6af68d736a83157f58a5eb575d7579bef7a1f2dcf266e3892e54a",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/kingdomprotector/back.png",
+          "sha256": "85b84579c8f0df98456dc2fb66ce67834a905a579940a40ef89fb66604862613",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/kingdomprotector/left.png",
+          "sha256": "84303122f2426d4044649aa279c8887cd6c15d6cb0c905cbd2078af0eadcc99a",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/kingdomprotector/right.png",
+          "sha256": "57a8e94b65be5a6e9cc1b60697c967a26649a46c81a8bd8c447b0792995a6716",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/kingdomprotector/three-quarter-front.png",
+          "sha256": "3940747f52a73a149706ffd584b2e3a07ac4c6d74de52ecec60b86315b3279c6",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/kingdomprotector/three-quarter-back.png",
+          "sha256": "bd736934ae85ab90b982c73eb03ec3480eb47885a63b50e13ac106a112a207f1",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Helmet reads as one continuous closed shell with integrated eye openings; no separate visor floats in front of an oval. Lower shell rests against upper armor. Gold cross, blue cloth, shield, hammer, cape, steel pauldrons and gauntlets stay distinct. Rectangular shield/blockier hammer are existing geometric simplifications and are not newly certified exact source silhouettes. Requested helmet/neck fit has no significant regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "archangel": {
+      "id": "archangel",
+      "recordedAtUtc": "2026-10-03T11:45:34.714173+00:00",
+      "sourceFile": "champions/archangel.png",
+      "sourceSha256": "e5aa49f2d46c01552475382db7cf230cbc78c7dab95002020a17f50a3c283a5d",
+      "actualGlbSha256": "d3144a81ea3d51d48a522b7d68d09eefbd1189e53d56ec0f4b3ef29899432b74",
+      "actualNativeSha256": "357fa89b3bc7c8ccab06c1a5488db3d124570a4f6693703bfb686f97c0f6a431",
+      "actualGeometrySha256": "d5222e3b0beaddd0a90a8f8a18435d858cf2c5c344b3d9e6350aba050d125370",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/archangel.jpg",
+      "comparisonSha256": "f5259506c0605bb25efbad50ff2fad94c72ef3306df30a5404f2e49657cc5679",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/archangel/front.png",
+          "sha256": "acef783f22db7f27192c4aa746c73144dfe0983f16776cc2bf80264a03366460",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/archangel/back.png",
+          "sha256": "d5fb22fd91303da5d77949b2ae9f840258ae5cd5d6e68c1ebcfd9d878c86e77a",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/archangel/left.png",
+          "sha256": "ee9dfb3eeca01af7d7a8654eb628e71b7257a5998743aefbdc09a7ba5f3d1778",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/archangel/right.png",
+          "sha256": "0e1bc5f3612b170455f1c39ad1b3734dc0eacff2040c6eaa28161f20fcca9830",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/archangel/three-quarter-front.png",
+          "sha256": "97a8b8e91f57f0b509b80a91f6a68d9430ccb292e146efc41046dee95b9a6197",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/archangel/three-quarter-back.png",
+          "sha256": "f4141a0047eae9ec5489f57d975093c82674c7f3f48bed89a53d375c2189c99b",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Single continuous blue helmet shell and integrated eye apertures replace the separate forward mask/oval; lower shell is seated against chest armor. Halo, broad segmented ivory wing fans, crystal staff and orb remain visible and distinct. Source details are simplified geometrically, but no floating visor or exposed human neck remains.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "crownofages": {
+      "id": "crownofages",
+      "recordedAtUtc": "2026-10-03T11:45:35.259598+00:00",
+      "sourceFile": "champions/crownofages.png",
+      "sourceSha256": "5ab3d0b859ab5a63a04003d33a2d4ef4904d4a540a23468614a227de2060ea74",
+      "actualGlbSha256": "4915290d07afe541704f231d6535b1438be628962bf29ea9e018d4b19b3e35ea",
+      "actualNativeSha256": "65f819718206fb4f144639d0cdfd7b4305430b46d3f705416ff7d1729c6e85ea",
+      "actualGeometrySha256": "def786e98c3da155449834b141f188295d6bfc69cad753e13e7d93d4aa583d78",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/crownofages.jpg",
+      "comparisonSha256": "c21ceb8244bd43449ea918c89e3537c00847ced8becf19bc9a5d151229812534",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/crownofages/front.png",
+          "sha256": "4178a44d67ce47a0a3ea6700c2a1ab08b0b25f166ccbce0ddbee5fcb9dd02e23",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/crownofages/back.png",
+          "sha256": "42eb3ac2aaa6f98b6123df1c364e9b9f4a9d0f447261120a7d5427edb0841c81",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/crownofages/left.png",
+          "sha256": "b2ce6e1536c85a8835454fcc46a406c7b90475fe1a310a909b41f32fdf46da0f",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/crownofages/right.png",
+          "sha256": "394b6d2720a1831e51b3d16ed247c8c43b8117ee98b51febeb2384a2f0d228da",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/crownofages/three-quarter-front.png",
+          "sha256": "b41908462183d6c2f94ed2ed9791731f6761c31de84feb2d0f4a2412c698ee38",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/crownofages/three-quarter-back.png",
+          "sha256": "1959b84318099bdb3beb64dfe88ceb4111c6eb137ac93dd3f929afe1d73c6c0c",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Face rests directly against armor neckline. New rounded layered ivory hair fits under the crown; side/back views show several curved strands rather than flat sheets. Crown, purple clothing, gold trims, sword and round shield remain. Longer visible hair is the explicit user realism refinement; no significant scoped regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "elvenking": {
+      "id": "elvenking",
+      "recordedAtUtc": "2026-10-03T11:45:35.808184+00:00",
+      "sourceFile": "champions/elvenking.png",
+      "sourceSha256": "dd99107d500b1824293ddc00b6680d41016586c0305bd3801d09084468613b62",
+      "actualGlbSha256": "e43e76a31d7736d62b139caeb37fd721fdbd77277d8669ea63da31c3a69e85b4",
+      "actualNativeSha256": "cd7bea3fe99eb1a10ba9b3976bd80d1e21d50c5c4377ee79fa87ad0719920cfa",
+      "actualGeometrySha256": "4b27138ecd7df95d92a6cc951bd53fb8bec8a33638c62b419289f05fbe911d15",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/elvenking.jpg",
+      "comparisonSha256": "dc500165855b316d1534971ad4fd71b87ce27a87fe0604419a4397eebbbc927b",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/elvenking/front.png",
+          "sha256": "ecae100ef1485882f13892d238e03c5d0cbad6e79680a453c2daac0ea7670b4c",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/elvenking/back.png",
+          "sha256": "d3a563da1543883888d73f5fac2892155ddd16fb2f04a133c8fcf2f3517f81b3",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/elvenking/left.png",
+          "sha256": "6b1786c6fd215dde709d0c5c4955a6e77e1308934183b1020c11c3b6518ab7a1",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/elvenking/right.png",
+          "sha256": "56102869c92b13bc8a358a5f158209261dfa1adb7431ba1a3edb7df2d9431e2a",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/elvenking/three-quarter-front.png",
+          "sha256": "bf8b4d70c738b1e4687d9392293d80d84695d63c19947e9f586cef04546fb2be",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/elvenking/three-quarter-back.png",
+          "sha256": "08c916fddf64f2271ea96344d00668571259aa24e49e579ec45831059d9e7392",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Curved fitted ivory scalp/fringe and separate layered side/nape locks replace the former flat vertical boards; crown and pointed ears stay distinct. Face sits directly against upper clothing. Gold bow, quiver, green cloth and cape retain identity. Hair is shorter/thicker than stylized source taper by the requested hair refinement; no significant scoped regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "royalranger": {
+      "id": "royalranger",
+      "recordedAtUtc": "2026-10-03T11:45:54.645510+00:00",
+      "sourceFile": "champions/royalranger.png",
+      "sourceSha256": "3dd2189603fd47d895ea9b16df4160931ba49b147ec8be55f9bb511655338066",
+      "actualGlbSha256": "cceaf76d5367d37fbae12d10ee7b111110854196da5760f977ff297521a18201",
+      "actualNativeSha256": "5fe70b6570e7b666c54216a6a74842d1b5ed1cd381be69357cbe619afe924ca6",
+      "actualGeometrySha256": "35d73e207a575ca9654504ae50cb476930bbbd7314747a9f2a8a0e4a5ad7c88c",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/royalranger.jpg",
+      "comparisonSha256": "36831fd4017bebb7e1cc404fd31fee94e98d79857fe4a1f9dedfc9bf63bf1273",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/royalranger/front.png",
+          "sha256": "3c800d821a6e1d8d7c89cc9b2f1c7318aaefd0ad4fe5ad43eb0183f248c38ad8",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/royalranger/back.png",
+          "sha256": "34c60be587e0f32d6cb9b7ac4551ccd0817d2c3af1583703495510170f2a5164",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/royalranger/left.png",
+          "sha256": "2ff6f6ffbf2af276aefb60e04f98aed8401dd00ceed82f7ada46bad80a512b1b",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/royalranger/right.png",
+          "sha256": "39eb59b929c9e02679bcbf762c881442b0188df3952009e7efd18557db73ae26",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/royalranger/three-quarter-front.png",
+          "sha256": "a59b3550e6e4345898e627a088b645e79ace4ea52835b050b271b1f3e7b3a40d",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/royalranger/three-quarter-back.png",
+          "sha256": "c5ad92d2d119af845fa653f9d667b8955697778e9cf60ab8a43ac5b274be7a70",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Crossbow replaces source longbow by explicit user instruction; side views show rear trigger/front support palms and a straight aimed bolt. Chest collar triangles are replaced by a compact fitted blue neckline; cap, feather, quiver, blue cape and gold lower trims remain. Face sits directly on clothing. No significant scoped regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "frostblade": {
+      "id": "frostblade",
+      "recordedAtUtc": "2026-10-03T11:45:55.185353+00:00",
+      "sourceFile": "champions/frostblade.png",
+      "sourceSha256": "bf2f4bb1ce6ecefb3c54230cad57d4cba9fe37a8d42c8ec167255e10a4b73869",
+      "actualGlbSha256": "04bd681009091d8f9ddbc854e41baa223b881b2955a0e1b3073b2e2dc4e99457",
+      "actualNativeSha256": "e1e9784ed298aafc13fa641417b93df0d0c44b74deceef17bab744cd6cbec793",
+      "actualGeometrySha256": "6dce2b11cd326b74474c1646f8a651fae949915e837ec163a0c85744fa1a6cac",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/frostblade.jpg",
+      "comparisonSha256": "4d12929140bc7e5a5a1630375a3c3547653baaf1743f6b5cc32f187d3444380d",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/frostblade/front.png",
+          "sha256": "e5a8b469ac291fb8cf7fb251ba17ec8a0f789451a8803c8d035b63ffc35b5a25",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/frostblade/back.png",
+          "sha256": "a9cd8a468141fb2b0dabf476e2521405782c52bda6c52325a88f1179ecd8e58c",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/frostblade/left.png",
+          "sha256": "886e64d2bc132b1336d6c8acf2de199cb61aafaaa1b7c3f19b0668cc7b5aa3f3",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/frostblade/right.png",
+          "sha256": "82b0caf6af4dd9274b67cf69313138cf4540ccf329becefe7dcf7e6b42d6d850",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/frostblade/three-quarter-front.png",
+          "sha256": "f29a5aa8478b85f8d1a58800c49bdba055e17a567c0c88921b4653239a5b7aca",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/frostblade/three-quarter-back.png",
+          "sha256": "d452401935fa97359abedcaefeaaa3e0cc42ee84b4f04e0ce67727be3628aa22",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Equine muzzle is tapered with fitted nostrils, jaw mass, short bridle and mane/forelock; four grounded legs, fetlocks and hoof clefts are visible in source-matching stance. Saddle, stirrups, blue/ivory caparison, lance and left shield remain coherent. Rider helmet lower edge sits on upper armor and its visor is fitted; no visible neck column. No significant scoped regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "roseguard": {
+      "id": "roseguard",
+      "recordedAtUtc": "2026-10-03T11:45:55.736680+00:00",
+      "sourceFile": "champions/roseguard.png",
+      "sourceSha256": "4cd225bb92226ad1bcd1831a5c783c5ccbe8f635ff2b5d7413a52a579098956d",
+      "actualGlbSha256": "8edf3a122613fcd3568439832557b0332ebee02777c67ef3f4ac54114dfa9ec8",
+      "actualNativeSha256": "6b0c9aba17eafcc209b6fb8737ad95485a3be4e9e10e6273df402b8479b1d2ce",
+      "actualGeometrySha256": "b5f1c432cb1af5fe11b3e6dc065915bd1222f968cda55c16a3e73bd1b8d9cbfa",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/roseguard.jpg",
+      "comparisonSha256": "2a2297b5d5be2a9ec4205c967e4fbdd94108429b2c8a870fe818d99b044f0735",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/roseguard/front.png",
+          "sha256": "afb4729bc4ae6d22599fbebb999ea3da2142974cb2528bf78baa7c2b64242227",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/roseguard/back.png",
+          "sha256": "fc60e6982a54cfd7d3ff4d6b2cd83040f79f59a38bfe30dc3f2b0045a164d9c8",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/roseguard/left.png",
+          "sha256": "b23ab7a8cfeeadbe03d6ab2727a81e5606fe1a957c902fdb76dc06a721c12eae",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/roseguard/right.png",
+          "sha256": "50192337d9f2895173d00003a9bfdacc2b047edd06bb378c937f9993505486d7",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/roseguard/three-quarter-front.png",
+          "sha256": "68365657f44450de721e9ac3183f081eb81efd4ebc07a889aad06967958419b2",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/roseguard/three-quarter-back.png",
+          "sha256": "185c918533609f975a676dcff73d20b0052d188e2fc1736147a8ae33648844ea",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Chestnut horse retains distinct burgundy/gold lion caparison, fitted saddle/bridle, tapered pale muzzle, mane/forelock, four legs and tail. New rounded jaw/fetlock/heel detail remains joined to actual equine anatomy. Rider compact head and lion equipment preserve identity; body colors remain distinct from Knight. No significant scoped regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "thunderheart": {
+      "id": "thunderheart",
+      "recordedAtUtc": "2026-10-03T11:46:37.596921+00:00",
+      "sourceFile": "champions/thunderheart.png",
+      "sourceSha256": "61f6525c8d719e3a4988d532669d8e2f48cfe82d9b331113e5884af5522b8d92",
+      "actualGlbSha256": "99c9d4d6f2597114fab66060ec00794b93e6228cf111e7d7bc9264e7af618627",
+      "actualNativeSha256": "67876d7adff3e23dfdd1945d90afe59069bcf1543587249d0e4332eb5381ef22",
+      "actualGeometrySha256": "c205942cddb245a0e4d8d9840c55ce74162fbf58810d0590a61a31d9eee9da2a",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/thunderheart.jpg",
+      "comparisonSha256": "4d15bd39729489f01284b97759dd6acb444e88aebc98106bfa4ac0e5ef4a4169",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/thunderheart/front.png",
+          "sha256": "c426ba420bae81f233b1af5ea2b1889f7bfc53eb4fa5088935ac8b86fccc6d6d",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/thunderheart/back.png",
+          "sha256": "59148f149385a9657a3e744ac9e9282cecf8ec4e3f3e977488dff7622eb8bf41",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/thunderheart/left.png",
+          "sha256": "1f106e99e62d9746ac669580952b42a42b17d83e063a240a45ced26e5136474c",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/thunderheart/right.png",
+          "sha256": "965a993a1870fa3c05135dacf92234a02f829075c0422b60a7c9dc63bf9e934e",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/thunderheart/three-quarter-front.png",
+          "sha256": "2841d0881cb0d58a6fcd67928900e21de9b9baf7993ba0dbe83eee2adb3103de",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/thunderheart/three-quarter-back.png",
+          "sha256": "610fe0136f8fb95b3eef38f28e7ce0651bb9157060821318b47ace4267d45b19",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Dragon retains recognizable violet quadruped anatomy, broad short snout, ivory throat, swept horn pair, bent limbs/claws and curved lightning-tail tip. Larger membrane wing fans follow the explicit size override. Side/three-quarter views show rider thighs, boots and stirrups ahead of wing roots; blue/silver rider is visibly distinct from violet dragon as requested. Helmet sits on armor. No significant scoped regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "phoenix": {
+      "id": "phoenix",
+      "recordedAtUtc": "2026-10-03T11:46:38.129120+00:00",
+      "sourceFile": "champions/phoenix.png",
+      "sourceSha256": "c4b503e03dd046acd9ffc6e01c27e4711406eb8f21feb8bf5893aebcfd3c2f57",
+      "actualGlbSha256": "39274fe1cde1198387942457007864fac30c3ec692f02fb0bf7f3eee487ebdae",
+      "actualNativeSha256": "93a8e420924b7d9f15a9da444fe295a53ecc8c6f2a58b45982a8849d1e765337",
+      "actualGeometrySha256": "19bbcb9afae2500090c767e4cce0b9c87448ca2e3b2499d1b3b02608419a5202",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/phoenix.jpg",
+      "comparisonSha256": "0ca95c4d56b2c7c349ee21078aa6479b3d09c45740786587d831b68c6a964e1d",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/phoenix/front.png",
+          "sha256": "33f676c7c4005853aad814d840a64961f162770336399d05e1b5b0919e4cb9f7",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/phoenix/back.png",
+          "sha256": "95e5e8ba7b850a8c37c4417bc1a3da12d58c2e8ad5105b1992ab44e1fb653198",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/phoenix/left.png",
+          "sha256": "3c2915d6ece8ec180bd898627eb93f977609ac109130ff6ac0a3a62700f78259",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/phoenix/right.png",
+          "sha256": "27538eff672eb9080e223ad784588415e82afff282cf033bc894159f3e8125dd",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/phoenix/three-quarter-front.png",
+          "sha256": "efbfbb52ff637b396b628153f9f21f407117fa1ee229cf29d407058fa046bdea",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/phoenix/three-quarter-back.png",
+          "sha256": "c1fabdcdfa69c4803d79be33c800797dd4e8b0503990bfe2e6db502a3edb0550",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Orange quadruped dragon, ivory throat, horn arrangement, crouched four-legged stance, long curved tail and membrane fans retain source identity; fan area is larger by user request. Purple mage stays seated, and front thighs/boots/stirrups precede wing attachments. Complete hat/face assembly sits on clothing. No significant scoped regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "griffinbomber": {
+      "id": "griffinbomber",
+      "recordedAtUtc": "2026-10-03T11:46:38.645603+00:00",
+      "sourceFile": "champions/griffinbomber.png",
+      "sourceSha256": "fb14d59086c919ce6dea83cac77f61ca0229968c2471517589f882537d4acc83",
+      "actualGlbSha256": "3b459e1a935c3f3c294d76398910da5850df10c4fef4dd200eff7e55788d5739",
+      "actualNativeSha256": "56d0a7122dd00a7e766e109e378267acc9b8eb9d6f83a85b442d003d63a5acb6",
+      "actualGeometrySha256": "087a7529a3193dd7357cba4600807e36fc42b35b9d339896b3ee0e03f36ea495",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/griffinbomber.jpg",
+      "comparisonSha256": "6a8e85d804c7264ef913b475d8ba9833541a0bbb77f64b617b1f7fd301e80942",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/griffinbomber/front.png",
+          "sha256": "de93a4cfbd79dab39dd64d8b96b6449ab6024e57c8fb34ec3fa5a19241e97fa4",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/griffinbomber/back.png",
+          "sha256": "8fb9b49242b091b815b79da6fba65ef7dc1fa5da0789200f3adbe76b3762ff6f",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/griffinbomber/left.png",
+          "sha256": "276b0560e5589304115a4aba4a70bfe5dafc8b126aeb622c7df4dfd12bb833cb",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/griffinbomber/right.png",
+          "sha256": "12d4dcdfb29024fad616c8f0836122c33f2c2c2b2e1d4d39d8b9e822679b2050",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/griffinbomber/three-quarter-front.png",
+          "sha256": "fb473d115a116685908aba8106a498fd04777fbe08516a528322398f73cae064",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/griffinbomber/three-quarter-back.png",
+          "sha256": "0d3d926528c4c9355380e72861fb6f6322cafee8f2d1054a6c11632218481318",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six final source/model pairs. Griffin reads as ivory eagle head with hooked gold beak and layered white head/neck feathers over a gold lion quadruped body and tufted tail. Broad feather fans remain at the shoulder; rider boots/stirrups sit ahead of the wing roots, seen from both sides and three-quarter views. Bomb, side panniers, brown seated dwarf and orange beard stay distinct. Feather depth and animal bulk are geometric estimates; no significant scoped regression.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "rangermentor": {
+      "id": "rangermentor",
+      "recordedAtUtc": "2026-10-03T11:47:36.451370+00:00",
+      "sourceFile": "champions/rangermentor.png",
+      "sourceSha256": "74aba5f2b339c18dea3a99e1dd6c63c84f6c3cc1996d4d8724e5f56a1cc31e83",
+      "actualGlbSha256": "e2b3bf4dfaa956e25e867cac0d4f07df30ec0f2241aefddfbdee4cd5a87936d5",
+      "actualNativeSha256": "a0cf80081002a46452874744714222a440fc137c61d93de197b23cd76cef9f69",
+      "actualGeometrySha256": "ad7fb21afd084579e6d1aeb4196da2d02a086ecd99038595c81c1e4446639392",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/champions/rangermentor.jpg",
+      "comparisonSha256": "8a4704e4583a94be379609eaf78df830821755085b339c5f52f155ca8386256d",
+      "ownerSheetBytesMatchCurrent": false,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/rangermentor/front.png",
+          "sha256": "cf6d3a85fc858c3b5b6201ed1acbc56eefcbcb0f8a94fe81e9117eb622f5ced6",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/champions/rangermentor/back.png",
+          "sha256": "4a0d6c285bbfc6af096dbdfa1226a7f1b955dff583ad7129813ca334a4a5641f",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/champions/rangermentor/left.png",
+          "sha256": "3b0249df60620ca03960ff9ef5fd3d583ffe6f4eb241cc673ae413c164c67f93",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/champions/rangermentor/right.png",
+          "sha256": "846e1666b33447e3748d1490169a88c3fc8d23ca3220f85aaee7fc1c6ab28d24",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/champions/rangermentor/three-quarter-front.png",
+          "sha256": "01df8184e510f9ed534f762b4c5770d3ee7bb95320808eaabe8343704a37fdb7",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/champions/rangermentor/three-quarter-back.png",
+          "sha256": "dbfaf8f072202fe3f3e8392af1f3f7887305389cfdd5e0ff1cd68536513584c8",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six independently recomposed current source/model pairs; current GLB/native/render/source SHA verified against all136 audit snapshot. Wide brown quadruped body and head, short pale bear muzzle, round ears, small crown, short tail and green/gold draped mantle retain Bearking identity. Gold side leaf motifs and forward green collar are visible. All four planted paws and bent knees remain joined; no significant source-identity regression. This model is preserved rather than newly rewritten; mantle geometry remains a deliberate angular simplification.",
+      "unresolvedFinding": null,
+      "passedWithinScope": true
+    },
+    "host_50": {
+      "id": "host_50",
+      "recordedAtUtc": "2026-10-03T11:47:36.935896+00:00",
+      "sourceFile": "enemies/host_50.png",
+      "sourceSha256": "f5777e0e3c4cdd7f8f6daecd29b15ec964dcbd5095155230d92c78913c24cef5",
+      "actualGlbSha256": "1116dccade4ea72ad718205a904b59f5c007d06aad02723a294ae60d9f38e08f",
+      "actualNativeSha256": "230691534527e51abfca56adbdd7d8e82be36a96c2167ebefaa4378d1fd28762",
+      "actualGeometrySha256": "966c33641b7a32b16dc05102a2cc8fd4934eb78ab00eb9372cb3110cba062724",
+      "comparison": "output/design/geometric-game-v4/independent-priority14-review/paired-six-views/enemies/host_50.jpg",
+      "comparisonSha256": "777498ef42b6dafd72d4ec868d7332d66c51eb6fd16481f6e0616d467b5933e7",
+      "ownerSheetBytesMatchCurrent": true,
+      "actualSixViewsInspected": [
+        {
+          "view": "FRONT",
+          "path": "blender/renders/geometric-game-v1/enemies/host_50/front.png",
+          "sha256": "48410b35ff823a9d6fa56b5435c59abc14df032e8482cfcec833be88fb268cb1",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "BACK",
+          "path": "blender/renders/geometric-game-v1/enemies/host_50/back.png",
+          "sha256": "33eeeaf43f2cda88e2473e2d1a50525aceacd6440e55fd2a7c0b73a560e7c339",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "LEFT",
+          "path": "blender/renders/geometric-game-v1/enemies/host_50/left.png",
+          "sha256": "7f5bc1d16882927c9b03a4622a35ed342ec9e4de387a7b0d64bddff1c226dc07",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "RIGHT",
+          "path": "blender/renders/geometric-game-v1/enemies/host_50/right.png",
+          "sha256": "a3510e02fdf983bd99e4f021c1a04b2497962b039906b8ee496db9fe281a7e7c",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 FRONT",
+          "path": "blender/renders/geometric-game-v1/enemies/host_50/three-quarter-front.png",
+          "sha256": "27b433f704ea8798e71275cb47b0e7539e8aa21f019f03d61c130deff83716da",
+          "actuallyOpenedAndCompared": true
+        },
+        {
+          "view": "3/4 BACK",
+          "path": "blender/renders/geometric-game-v1/enemies/host_50/three-quarter-back.png",
+          "sha256": "ad221e3f0a902d2ae3e61785bd1cbb7fdf58487c6338f02f35d1d8a2c9128ac1",
+          "actuallyOpenedAndCompared": true
+        }
+      ],
+      "scopeFindings": "Opened all six independently recomposed current source/model pairs. The changed sorcerer head/hair/hood assembly is seated directly against the bodice; no exposed human neck shaft remains. The hood stays fitted around and over the face in front, side and three-quarter views. Dark hooded sorcerer, tall throne/saddle, right magical sword, black/violet two-legged wyvern and orange membrane wings retain source identity. The wyvern animal head, neck and tail anatomy were retained from the baseline, rather than the whole native asset being unchanged. Their existing source-detail differences remain conspicuous: broad boxlike animal head, plain angular animal neck and simplified tail/throne surfaces.",
+      "changedInV4": true,
+      "changedAssembly": "Sorcerer humanoid head/hair/hood assembly and direct fit against the actual bodice; animal neck anatomy was retained.",
+      "requestedAssemblyAcceptance": {
+        "riderDirectHeadBodyFit": {
+          "passed": true,
+          "evidence": "The actual current six-view comparison shows the changed complete rider head assembly seated against upper clothing with no visible human neck shaft."
+        },
+        "riderHeadcoverFit": {
+          "passed": true,
+          "evidence": "The actual current front, side and three-quarter comparisons show the hood fitted around and over the rider face; no detached headcover is visible. This is a visual acceptance, separate from the runtime triangle contact audit."
+        },
+        "currentSourceIdentity": true,
+        "fullSourceSilhouetteOrDetailCertified": false
+      },
+      "unresolvedFinding": "Retained wyvern anatomy baseline limitation: the current broad rectangular animal head, plain angular animal neck and simplified tail/throne differ materially from the original tapering horned head, layered neck/body armor and hooked segmented tail. The rider head fit changed in 0.3.3 and passes the requested direct head/body and hood fit review. This does not certify full wyvern source silhouette or detail fidelity.",
+      "passedWithinScope": false
+    }
+  },
+  "modelsActuallyOpened": 14,
+  "sourceModelPairsActuallyInspected": 84,
+  "unresolvedFindings": [
+    {
+      "id": "host_50",
+      "finding": "Retained wyvern anatomy baseline limitation: the current broad rectangular animal head, plain angular animal neck and simplified tail/throne differ materially from the original tapering horned head, layered neck/body armor and hooked segmented tail. The rider head fit changed in 0.3.3 and passes the requested direct head/body and hood fit review. This does not certify full wyvern source silhouette or detail fidelity."
+    }
+  ],
+  "limitations": [
+    "Only explicitly recorded models and six-view pairs are claimed newly independently opened.",
+    "Compact humanoid neck, larger wings, rider leg placement and nonhuman integrated nature face follow explicit user overrides to old art.",
+    "Original raster art cannot certify exact physical scale, hidden depth, 1% landmarks or0.97 silhouette IoU.",
+    "Rest-view visual comparison is separate from actual runtime animation and surface contact audits."
+  ]
+}

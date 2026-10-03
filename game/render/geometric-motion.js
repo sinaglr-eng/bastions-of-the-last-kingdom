@@ -140,14 +140,16 @@ export function animateGeometricEnemyMotion(figure,enemy,time,{moving=true,reduc
       else{rotate(rig,'upper_leg_'+leg.side,Math.sin(phase+offset)*.36);rotate(rig,'shin_'+leg.side,Math.max(0,Math.sin(phase+offset-.45))*.48);rotate(rig,'foot_'+leg.side,-Math.sin(phase+offset)*.14);}
     }
     if(locomotion==='serpent'){rotate(rig,'torso_pivot',0,Math.sin(phase)*.17,0);rotate(rig,'tail_pivot',0,-Math.sin(phase+.6)*.35,0);}
-    else{rotate(rig,'upper_arm_L',-Math.sin(phase)*.21,0,.025);rotate(rig,'upper_arm_R',Math.sin(phase)*.21,0,-.025);rotate(rig,'torso_pivot',0,Math.sin(phase)*.035,Math.sin(phase)*.015);rotate(rig,'head_pivot',0,-Math.sin(phase)*.025,0);}
+    else{rotate(rig,'upper_arm_L',-Math.sin(phase)*.21,0,.025);rotate(rig,'upper_arm_R',Math.sin(phase)*.21,0,-.025);rotate(rig,'torso_pivot',0,Math.sin(phase)*.035,Math.sin(phase)*.015);if(!rig.metadata.integratedHeadInTorso)rotate(rig,'head_pivot',0,-Math.sin(phase)*.025,0);}
   }else if(!enemy.statuses?.freeze&&!enemy.statuses?.petrify){
     const breathe=Math.sin(clock*2.1+finite(enemy.id))*.012;
     const torso=rig.joints.get('torso_pivot');if(torso)torso.node.scale.y=torso.scale.y*(1+breathe*.35);
   }
   if(enemy.hit>0)rotate(rig,'torso_pivot',0,0,.07);
   for(const target of footTargets)retainFootTarget(rig,target.leg,target.offset);
-  return active&&locomotion!=='serpent'?Math.abs(Math.sin(phase*2))*height*.004:0;
+  // Grounded support IK already retains each planted foot in world space.
+  // Moving the whole root vertically afterwards would lift that support foot.
+  return 0;
 }
 
 // Shared geometry is never disposed or recolored by death. Terrain contact is

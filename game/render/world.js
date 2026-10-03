@@ -6,7 +6,7 @@ import {createChampionAura,animateChampionAura,disposeChampionAura} from './cham
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
 import {animateEnemyMotion} from './enemy-motion.js';
-import {scaleBattlefieldUnit,animateBattlefieldIdleScale} from './battlefield-scale.js';
+import {BATTLEFIELD_UNIT_SCALE,scaleBattlefieldUnit,animateBattlefieldIdleScale} from './battlefield-scale.js';
 import {animateSecretChampion} from './secret-champions.js';
 import {animateGeometricOrbits} from './geometric-orbits.js';
 import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
@@ -24,6 +24,7 @@ import {siteUrl} from '../site-url.js';
 import {releaseAsset,defenderPortrait,enemyPortrait} from '../release.js';
 import {SIZE} from '../core/grid.js';
 import {MazePlanner} from './maze-planner.js';
+import {currentEnemyRoute,createRouteOverlay,disposeRouteOverlay,routeDistance,sameRoute,CHECKPOINT_MARKER_SCALE} from './route-overlay.js';
 import {edgePan,compassBearing} from './navigation.js';
 import {configureTouchControls,PointerTapGesture,SelectedTowerDoubleTap,cancelPointerGesture} from './touch-input.js';
 import {upcomingInvader} from './warcamp-preview.js';
@@ -49,7 +50,7 @@ export class Battlefield {
     this.scene.add(new THREE.HemisphereLight('#e0eee0','#465847',2));
     const sun=new THREE.DirectionalLight('#fff0cc',3.4);sun.position.set(-18,38,13);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-35;sun.shadow.camera.right=35;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;sun.shadow.camera.far=100;sun.shadow.normalBias=0.04;sun.shadow.bias=-0.0001;this.scene.add(sun);
     this.scene.add(new THREE.AmbientLight('#b2c6c6',0.25));
-    this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5+WALL_DECK_HEIGHT,getStats:t=>towerStats(t,this.game.data),getMuzzle:(source,out,options)=>attackMuzzle(this.models.get(source?.id)?.attack,out,options),getSimulationTime:()=>this.motionTime||0,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
+    this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5*BATTLEFIELD_UNIT_SCALE+WALL_DECK_HEIGHT,targetHeight:e=>(e?.flying?.8:0)+(e?.boss?1.4:1)*BATTLEFIELD_UNIT_SCALE,getStats:t=>towerStats(t,this.game.data),getMuzzle:(source,out,options)=>attackMuzzle(this.models.get(source?.id)?.attack,out,options),getSimulationTime:()=>this.motionTime||0,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
     this.supportEffects=new SupportEffects(this.scene,{position:v3,baseHeight:WALL_DECK_HEIGHT+.15,pedestalHeight:WALL_DECK_HEIGHT,reducedMotion:()=>!!this.reducedMotion?.matches,isVisible:e=>this.game.combat.isRevealed(e)});
     this.enemyAbilityEffects=new EnemyAbilityEffects(this.scene,{position:v3,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
     this.createEnvironment();this.createOverlays();this.maze=new MazePlanner(this);this.draftMarkers=new DraftMarkers(this.scene,this.container);
@@ -156,7 +157,7 @@ export class Battlefield {
     const checkpointGroup=new THREE.Group();
     this.game.grid.checkpoints.forEach((p,i)=>{
       const marker=new THREE.Group();cylinder(marker,0.48,0.55,0.07,i===0?'#9b5444':'#b9a16e',[0,0.1,0],8);
-      banner(marker,0.25,0.1,0.15,i===0?'#923e34':'#366c87',0.85);marker.position.copy(v3(p.x,0,p.z));checkpointGroup.add(marker);
+      banner(marker,0.25,0.1,0.15,i===0?'#923e34':'#366c87',0.85);marker.scale.setScalar(CHECKPOINT_MARKER_SCALE);marker.position.copy(v3(p.x,0,p.z));checkpointGroup.add(marker);
     });this.scene.add(optimize(checkpointGroup));
     this.grid=interiorGrid(SIZE);this.grid.position.y=0.045;this.grid.material.transparent=true;this.grid.material.opacity=0.14;this.grid.material.depthWrite=false;this.scene.add(this.grid);
   }
@@ -166,6 +167,13 @@ export class Battlefield {
     this.selectionRing=new THREE.Mesh(new THREE.RingGeometry(0.56,0.61,4),new THREE.MeshBasicMaterial({color:'#ffe4a1',side:THREE.DoubleSide,transparent:true,opacity:0.9}));this.selectionRing.rotation.set(-Math.PI/2,0,Math.PI/4);this.selectionRing.visible=false;this.scene.add(this.selectionRing);
     this.ghost=new THREE.Group();this.scene.add(this.ghost);
     this.pathGroup=new THREE.Group();this.scene.add(this.pathGroup);
+    this.routeLegend=document.createElement('div');this.routeLegend.className='route-legend';this.routeLegend.setAttribute('aria-label','Enemy route legend');this.container.append(this.routeLegend);
+    this.routeLegend.addEventListener('click',event=>{
+      const action=event.target.closest('[data-route]')?.dataset.route;
+      if(action==='current')this.showPath=!this.showPath;
+      if(action==='planned')this.maze.showFinalRoute=!this.maze.showFinalRoute;
+      if(action){this.sync();const button=document.querySelector('[data-action="path"]');button?.classList.toggle('active',this.showPath);button?.setAttribute('aria-pressed',String(this.showPath));}
+    });
     this.rangeGroup=new THREE.Group();this.scene.add(this.rangeGroup);
     this.healthBars=new THREE.Group();this.scene.add(this.healthBars);
     this.labels=document.createElement('div');this.labels.className='map-labels';this.container.append(this.labels);
@@ -178,7 +186,7 @@ export class Battlefield {
     if(!enemy)return;
     const figure=enemyFigure(enemy,this.enemyTemplates);figure.name=`Wave ${enemy.previewRound}: ${enemy.name}`;
     const height=new THREE.Box3().setFromObject(figure).getSize(new THREE.Vector3()).y;
-    figure.scale.setScalar(THREE.MathUtils.clamp(2.35/Math.max(.5,height),.55,1.7));
+    figure.scale.setScalar(THREE.MathUtils.clamp(2.35/Math.max(.5,height),.55,1.7)*.8);
     figure.userData.previewEnemy=enemy;figure.position.y=enemy.flying?.5:0;figure.rotation.y=-Math.PI/2;
     this.landmarks.previewAnchor.add(figure);this.campPreview=figure;
   }
@@ -207,7 +215,8 @@ export class Battlefield {
       }
     }
     this.draftMarkers.sync(this.game,this.models);
-    if(this.pathRevision!==this.game.grid.revision){this.pathRevision=this.game.grid.revision;this.rebuildPath();}
+    const routeState=currentEnemyRoute(this.game),routeRevision=`${this.game.grid.revision}:${this.game.round}:${this.game.phase}:${routeState.flying}`;
+    if(this.pathRevision!==routeRevision){this.pathRevision=routeRevision;this.rebuildPath(routeState);}
     const selected=this.game.selection;
     this.supportEffects.sync(this.game.towers,this.game.data,{selected,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase});
     this.selectionRing.visible=!!selected;
@@ -217,13 +226,21 @@ export class Battlefield {
     this.grid.visible=this.showGrid&&this.game.phase!=='combat';
     this.pathGroup.visible=this.showPath&&!this.maze.editing;
     this.maze.sync();
+    this.updateRouteLegend(routeState);
     this.ghost.visible=false;
     if(this.showRanges)this.rebuildRanges();else this.rangeGroup.visible=false;
   }
-  rebuildPath() {
-    this.pathGroup.children.slice().forEach(o=>{this.pathGroup.remove(o);o.geometry.dispose();o.material.dispose();});
-    const points=this.game.grid.route.map(p=>v3(p.x,0.075,p.z));
-    const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineDashedMaterial({color:'#edd6a0',transparent:true,opacity:0.8,dashSize:0.24,gapSize:0.35}));line.computeLineDistances();this.pathGroup.add(line);
+  rebuildPath(state=currentEnemyRoute(this.game)) {
+    disposeRouteOverlay(this.pathGroup);this.pathGroup.add(createRouteOverlay(state.points,{flying:state.flying}));
+  }
+  updateRouteLegend(state=currentEnemyRoute(this.game)){
+    const plan=this.maze.plan,finalRoute=this.maze.progress?.route;
+    this.routeLegend.classList.toggle('with-plan',!!plan&&!this.maze.editing);
+    const matched=!state.flying&&sameRoute(state.points,finalRoute);
+    const current=`Now · ${state.flying?'flying':'ground'} · ${Math.round(routeDistance(state.points))} steps`;
+    const planned=this.maze.editing?'Preview while editing':this.maze.progress?.conflict?'Plan blocked · no completed route':matched?'Maze complete · routes match':`After maze · ground · ${Math.round(routeDistance(finalRoute||[]))} steps`;
+    const html=`<button data-route="current" aria-pressed="${this.showPath}" ${this.maze.editing?'disabled':''}><span class="route-swatch ${state.flying?'flying':'current'}"></span>${current}</button>${plan||this.maze.editing?`<button data-route="planned" aria-pressed="${this.maze.showFinalRoute}" ${this.maze.editing||this.maze.progress?.conflict||matched?'disabled':''}><span class="route-swatch planned"></span>${planned}</button>${this.maze.visible||this.maze.editing?'<span class="route-wall-key"><i></i> Walls to build</span>':''}`:''}`;
+    if(this.routeLegend.innerHTML!==html)this.routeLegend.innerHTML=html;
   }
   rebuildRanges() {
     this.rangeGroup.children.slice().forEach(o=>{this.rangeGroup.remove(o);o.geometry.dispose();o.material.dispose();});
@@ -246,6 +263,10 @@ export class Battlefield {
   }
   event(type,payload) {
     if(type==='change')this.sync();
+    if(['spawn','death','leak'].includes(type)){
+      const state=currentEnemyRoute(this.game),revision=`${this.game.grid.revision}:${this.game.round}:${this.game.phase}:${state.flying}`;
+      if(this.pathRevision!==revision){this.pathRevision=revision;this.rebuildPath(state);this.maze.sync();this.updateRouteLegend(state);}
+    }
     if(type==='wave-complete'){this.clearCorpses();this.enemyAbilityEffects?.clear();}
     if(type==='won'||type==='lost')this.enemyAbilityEffects?.clear();
     if(type==='shot'||type==='aura-attack'){
@@ -340,7 +361,7 @@ export class Battlefield {
     disposeGeometricResources([...this.imported.values(),...this.enemyTemplates.values(),...this.templates.values()]);
     this.imported.clear();this.enemyTemplates.clear();this.templates.clear();this.models.clear();
     for(const effect of this.effects){effect.object.geometry.dispose();effect.object.material.dispose();effect.object.removeFromParent();}
-    this.effects=[];this.draftMarkers.dispose();this.unsubscribe();this.resizeObserver.disconnect();this.controls.dispose();this.maze.dispose();
+    this.effects=[];this.draftMarkers.dispose();this.unsubscribe();this.resizeObserver.disconnect();this.controls.dispose();this.maze.dispose();disposeRouteOverlay(this.pathGroup);this.routeLegend.remove();
     document.removeEventListener('pointermove',this.trackPointer);window.removeEventListener('blur',this.cancelInput);this.renderer.dispose();
   }
 }

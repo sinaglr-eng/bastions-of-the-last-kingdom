@@ -14,9 +14,9 @@
       "locomotion": "quadruped",
       "attackStyle": "lance",
       "geometricRig": true,
-      "anatomyRevision": "geometric-source-anatomy-v3",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 5578,
+        "triangles": 6498,
         "boundsMin": [
           -0.5418000221252441,
           -0.9134517312049866,
@@ -151,13 +151,27 @@
           "Rider actual fitted hanging stirrup.001": 7.681246218756617e-05,
           "Rider stirrup suspension on saddle.001": 0.0003854101474113727,
           "Horse rider contacting actual leather rein": 0.00024256729936193242,
-          "Horse rider contacting actual leather rein.001": 0.0002650852754110626
+          "Horse rider contacting actual leather rein.001": 0.0002650852754110626,
+          "Horse source anatomical rounded jaw mass": 0.0025442122205276974,
+          "Horse actual lower jaw tendon": 0.0018139378137978686,
+          "Horse actual fitted split forelock": 0.00048548323078042216,
+          "Horse source anatomical rounded jaw mass.001": 0.0025442065901491637,
+          "Horse actual lower jaw tendon.001": 0.0016008760115558593,
+          "Horse actual fitted split forelock.001": 0.00045458994403209846,
+          "Horse anatomical hoof central dark cleft": 1.0970311478786242e-05,
+          "Horse anatomical fitted rounded heel bulb": 0.0006514421816063987,
+          "Horse anatomical hoof central dark cleft.001": 1.0971347336408147e-05,
+          "Horse anatomical fitted rounded heel bulb.001": 0.0006514418781383332,
+          "Horse anatomical hoof central dark cleft.002": 1.0971410411878916e-05,
+          "Horse anatomical fitted rounded heel bulb.002": 0.0006514422517890732,
+          "Horse anatomical hoof central dark cleft.003": 1.0971394495721633e-05,
+          "Horse anatomical fitted rounded heel bulb.003": 0.0006514422905941804
         },
-        "meshes": 116,
+        "meshes": 130,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 5578,
-        "fileSha256": "3ac4aac6f86463a1217c3299f745a1ff70146b251a92eb95cea3835659965499",
-        "geometrySha256": "dbc3228ffa79f31fb8dc08d124939be0af68fa49d912f01ae2ab307571157e65",
+        "roundtripTriangles": 6498,
+        "fileSha256": "04bd681009091d8f9ddbc854e41baa223b881b2955a0e1b3073b2e2dc4e99457",
+        "geometrySha256": "6dce2b11cd326b74474c1646f8a651fae949915e837ec163a0c85744fa1a6cac",
         "namedPivots": [
           "frostblade",
           "mount_torso_pivot",
@@ -215,7 +229,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/frostblade/front.png",
-          "geometrySha256": "dbc3228ffa79f31fb8dc08d124939be0af68fa49d912f01ae2ab307571157e65",
+          "geometrySha256": "6dce2b11cd326b74474c1646f8a651fae949915e837ec163a0c85744fa1a6cac",
           "cameraPosition": [
             0.0,
             7.876455307006836,
@@ -226,7 +240,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/frostblade/back.png",
-          "geometrySha256": "dbc3228ffa79f31fb8dc08d124939be0af68fa49d912f01ae2ab307571157e65",
+          "geometrySha256": "6dce2b11cd326b74474c1646f8a651fae949915e837ec163a0c85744fa1a6cac",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.773906707763672,
@@ -237,7 +251,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/frostblade/left.png",
-          "geometrySha256": "dbc3228ffa79f31fb8dc08d124939be0af68fa49d912f01ae2ab307571157e65",
+          "geometrySha256": "6dce2b11cd326b74474c1646f8a651fae949915e837ec163a0c85744fa1a6cac",
           "cameraPosition": [
             -7.825181007385254,
             0.05127415060997009,
@@ -248,7 +262,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/frostblade/right.png",
-          "geometrySha256": "dbc3228ffa79f31fb8dc08d124939be0af68fa49d912f01ae2ab307571157e65",
+          "geometrySha256": "6dce2b11cd326b74474c1646f8a651fae949915e837ec163a0c85744fa1a6cac",
           "cameraPosition": [
             7.825181007385254,
             0.05127415060997009,
@@ -259,7 +273,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/frostblade/three-quarter-front.png",
-          "geometrySha256": "dbc3228ffa79f31fb8dc08d124939be0af68fa49d912f01ae2ab307571157e65",
+          "geometrySha256": "6dce2b11cd326b74474c1646f8a651fae949915e837ec163a0c85744fa1a6cac",
           "cameraPosition": [
             4.488339424133301,
             6.461287021636963,
@@ -270,7 +284,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/frostblade/three-quarter-back.png",
-          "geometrySha256": "dbc3228ffa79f31fb8dc08d124939be0af68fa49d912f01ae2ab307571157e65",
+          "geometrySha256": "6dce2b11cd326b74474c1646f8a651fae949915e837ec163a0c85744fa1a6cac",
           "cameraPosition": [
             4.488339424133301,
             -6.358738422393799,
@@ -314,9 +328,9 @@
       "locomotion": "biped",
       "attackStyle": "cross",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2274,
+        "triangles": 2246,
         "boundsMin": [
           -0.7341526746749878,
           -0.45398885011672974,
@@ -325,12 +339,12 @@
         "boundsMax": [
           0.7271992564201355,
           0.4869999885559082,
-          1.7118626832962036
+          1.6348626613616943
         ],
         "boundsSize": [
           1.4613519310951233,
           0.9409888386726379,
-          1.7118626832962036
+          1.6348626613616943
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -342,7 +356,6 @@
           "Gilded front garment trim.001": 0.00040853282553143805,
           "Continuous leather waist belt": 0.020020781511751313,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004416996622846151,
           "Observed face": 0.12204980074117582,
           "Eye L": 0.00010171066408778035,
           "Eye R": 0.00010170985766914482,
@@ -390,11 +403,11 @@
           "Closed leather prayer book": 0.004973611621001813,
           "Book gilded spine": 0.0001621796033456727
         },
-        "meshes": 53,
+        "meshes": 52,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2274,
-        "fileSha256": "9bb8c7dfe2e3741000f0c36f7d3131a21151aaa0159e4a294c1fa08fe31acdd1",
-        "geometrySha256": "5e689efb162b2e3a3b29ef3096463976bea004b93a776b10fc8b0cb7ceb4e58d",
+        "roundtripTriangles": 2246,
+        "fileSha256": "d81c099074541aac1e359666030da90858b565eb4164f67d0ec9e478bdfd2a83",
+        "geometrySha256": "dc15ca87e3ff56a29ea41d4ef575edb30f225e126070dc7b8dadc4974da712f3",
         "namedPivots": [
           "monk",
           "torso_pivot",
@@ -422,68 +435,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/monk/front.png",
-          "geometrySha256": "5e689efb162b2e3a3b29ef3096463976bea004b93a776b10fc8b0cb7ceb4e58d",
+          "geometrySha256": "dc15ca87e3ff56a29ea41d4ef575edb30f225e126070dc7b8dadc4974da712f3",
           "cameraPosition": [
             -0.0034767091274261475,
             7.841686725616455,
-            2.5192248821258545
+            2.480724811553955
           ],
-          "orthoScale": 2.088472366333008
+          "orthoScale": 1.9945324659347534
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/monk/back.png",
-          "geometrySha256": "5e689efb162b2e3a3b29ef3096463976bea004b93a776b10fc8b0cb7ceb4e58d",
+          "geometrySha256": "dc15ca87e3ff56a29ea41d4ef575edb30f225e126070dc7b8dadc4974da712f3",
           "cameraPosition": [
             -0.0034767091274261475,
             -7.808675289154053,
-            2.5192248821258545
+            2.480724811553955
           ],
-          "orthoScale": 2.088472366333008
+          "orthoScale": 1.9945324659347534
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/monk/left.png",
-          "geometrySha256": "5e689efb162b2e3a3b29ef3096463976bea004b93a776b10fc8b0cb7ceb4e58d",
+          "geometrySha256": "dc15ca87e3ff56a29ea41d4ef575edb30f225e126070dc7b8dadc4974da712f3",
           "cameraPosition": [
             -7.828657627105713,
             0.016505569219589233,
-            2.5192248821258545
+            2.480724811553955
           ],
-          "orthoScale": 2.088472366333008
+          "orthoScale": 1.9945324659347534
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/monk/right.png",
-          "geometrySha256": "5e689efb162b2e3a3b29ef3096463976bea004b93a776b10fc8b0cb7ceb4e58d",
+          "geometrySha256": "dc15ca87e3ff56a29ea41d4ef575edb30f225e126070dc7b8dadc4974da712f3",
           "cameraPosition": [
             7.821704387664795,
             0.016505569219589233,
-            2.5192248821258545
+            2.480724811553955
           ],
-          "orthoScale": 2.088472366333008
+          "orthoScale": 1.9945324659347534
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/monk/three-quarter-front.png",
-          "geometrySha256": "5e689efb162b2e3a3b29ef3096463976bea004b93a776b10fc8b0cb7ceb4e58d",
+          "geometrySha256": "dc15ca87e3ff56a29ea41d4ef575edb30f225e126070dc7b8dadc4974da712f3",
           "cameraPosition": [
             4.484862804412842,
             6.426518440246582,
-            2.5192248821258545
+            2.480724811553955
           ],
-          "orthoScale": 2.088472366333008
+          "orthoScale": 1.9945324659347534
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/monk/three-quarter-back.png",
-          "geometrySha256": "5e689efb162b2e3a3b29ef3096463976bea004b93a776b10fc8b0cb7ceb4e58d",
+          "geometrySha256": "dc15ca87e3ff56a29ea41d4ef575edb30f225e126070dc7b8dadc4974da712f3",
           "cameraPosition": [
             4.484862804412842,
             -6.39350700378418,
-            2.5192248821258545
+            2.480724811553955
           ],
-          "orthoScale": 2.088472366333008
+          "orthoScale": 1.9945324659347534
         }
       ],
       "accuracy": {
@@ -497,12 +510,12 @@
         "Eye L": [
           -0.1579200178384781,
           0.21159997582435608,
-          1.4390308856964111
+          1.3620308637619019
         ],
         "Eye R": [
           0.1579200029373169,
           0.21159997582435608,
-          1.4390308856964111
+          1.3620308637619019
         ]
       },
       "landmarksSource": {
@@ -532,9 +545,9 @@
       "locomotion": "biped",
       "attackStyle": "crossbow",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2248,
+        "triangles": 2220,
         "boundsMin": [
           -0.48499998450279236,
           -0.34575599431991577,
@@ -543,12 +556,12 @@
         "boundsMax": [
           0.48499998450279236,
           0.9160000085830688,
-          1.7700459957122803
+          1.693045973777771
         ],
         "boundsSize": [
           0.9699999690055847,
           1.2617560029029846,
-          1.7700459957122803
+          1.693045973777771
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -560,7 +573,6 @@
           "Gilded front garment trim.001": 0.00013924585073255002,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004560891436995007,
           "Observed face": 0.1048832335897411,
           "Eye L": 9.756533275625169e-05,
           "Eye R": 9.756157714946312e-05,
@@ -609,11 +621,11 @@
           "Crossbow source frost crystal bolt tip": 0.0002150166158874831,
           "Crossbow physical trigger guard": 6.098395488152161e-05
         },
-        "meshes": 54,
+        "meshes": 53,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2248,
-        "fileSha256": "79636e376d126e6ea051ff4d02252e105aef438fc17047d993c8491bfbe9cd6f",
-        "geometrySha256": "520a82fb06f5c952a381ec08c08424503a3bb78f7b85c22228a550e3d38eed2b",
+        "roundtripTriangles": 2220,
+        "fileSha256": "30397d1f31feed0d331f1dea1fc3ec33e98ded2b61d42d0ced573671c322ee36",
+        "geometrySha256": "118a6c76e390a024a5423b392397f51de5a47c6307cc9078a026e0835b5d8bb5",
         "namedPivots": [
           "rimewatch",
           "torso_pivot",
@@ -662,68 +674,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/rimewatch/front.png",
-          "geometrySha256": "520a82fb06f5c952a381ec08c08424503a3bb78f7b85c22228a550e3d38eed2b",
+          "geometrySha256": "118a6c76e390a024a5423b392397f51de5a47c6307cc9078a026e0835b5d8bb5",
           "cameraPosition": [
             0.0,
             8.110302925109863,
-            2.548316478729248
+            2.5098164081573486
           ],
-          "orthoScale": 2.1594560146331787
+          "orthoScale": 2.0655159950256348
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/rimewatch/back.png",
-          "geometrySha256": "520a82fb06f5c952a381ec08c08424503a3bb78f7b85c22228a550e3d38eed2b",
+          "geometrySha256": "118a6c76e390a024a5423b392397f51de5a47c6307cc9078a026e0835b5d8bb5",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.5400590896606445,
-            2.548316478729248
+            2.5098164081573486
           ],
-          "orthoScale": 2.1594560146331787
+          "orthoScale": 2.0655159950256348
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/rimewatch/left.png",
-          "geometrySha256": "520a82fb06f5c952a381ec08c08424503a3bb78f7b85c22228a550e3d38eed2b",
+          "geometrySha256": "118a6c76e390a024a5423b392397f51de5a47c6307cc9078a026e0835b5d8bb5",
           "cameraPosition": [
             -7.825181007385254,
             0.28512200713157654,
-            2.548316478729248
+            2.5098164081573486
           ],
-          "orthoScale": 2.1594560146331787
+          "orthoScale": 2.0655159950256348
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/rimewatch/right.png",
-          "geometrySha256": "520a82fb06f5c952a381ec08c08424503a3bb78f7b85c22228a550e3d38eed2b",
+          "geometrySha256": "118a6c76e390a024a5423b392397f51de5a47c6307cc9078a026e0835b5d8bb5",
           "cameraPosition": [
             7.825181007385254,
             0.28512200713157654,
-            2.548316478729248
+            2.5098164081573486
           ],
-          "orthoScale": 2.1594560146331787
+          "orthoScale": 2.0655159950256348
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/rimewatch/three-quarter-front.png",
-          "geometrySha256": "520a82fb06f5c952a381ec08c08424503a3bb78f7b85c22228a550e3d38eed2b",
+          "geometrySha256": "118a6c76e390a024a5423b392397f51de5a47c6307cc9078a026e0835b5d8bb5",
           "cameraPosition": [
             4.488339424133301,
             6.69513463973999,
-            2.548316478729248
+            2.5098164081573486
           ],
-          "orthoScale": 2.1594560146331787
+          "orthoScale": 2.0655159950256348
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/rimewatch/three-quarter-back.png",
-          "geometrySha256": "520a82fb06f5c952a381ec08c08424503a3bb78f7b85c22228a550e3d38eed2b",
+          "geometrySha256": "118a6c76e390a024a5423b392397f51de5a47c6307cc9078a026e0835b5d8bb5",
           "cameraPosition": [
             4.488339424133301,
             -6.1248908042907715,
-            2.548316478729248
+            2.5098164081573486
           ],
-          "orthoScale": 2.1594560146331787
+          "orthoScale": 2.0655159950256348
         }
       ],
       "accuracy": {
@@ -737,12 +749,12 @@
         "Eye L": [
           -0.14188125729560852,
           0.19112494587898254,
-          1.252028465270996
+          1.175028681755066
         ],
         "Eye R": [
           0.14188125729560852,
           0.19112494587898254,
-          1.252028465270996
+          1.175028681755066
         ]
       },
       "landmarksSource": {
@@ -772,9 +784,9 @@
       "locomotion": "quadruped",
       "attackStyle": "lance",
       "geometricRig": true,
-      "anatomyRevision": "geometric-source-anatomy-v3",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 7382,
+        "triangles": 8274,
         "boundsMin": [
           -0.5418000221252441,
           -0.9134517312049866,
@@ -907,7 +919,6 @@
           "Gilded front garment trim.001": 8.569765729286394e-05,
           "Continuous leather waist belt": 0.009206669303239323,
           "Belt buckle": 0.00033960466923114535,
-          "Connected neck inside collar": 0.0029118472084519458,
           "Observed face": 0.02757463311597045,
           "Eye L": 2.9840351146503953e-05,
           "Eye R": 2.9840756061124347e-05,
@@ -995,13 +1006,27 @@
           "Lionheart cape wide contacting gold hem.003": 0.0004312212104196077,
           "Lionheart cape wide contacting gold hem.004": 0.00043121843752184463,
           "Lionheart cape wide contacting gold hem.005": 0.00034160546889931237,
-          "Lionheart cape wide contacting gold hem.006": 0.000723187724361196
+          "Lionheart cape wide contacting gold hem.006": 0.000723187724361196,
+          "Horse source anatomical rounded jaw mass": 0.0025442122205276974,
+          "Horse actual lower jaw tendon": 0.0018139378137978686,
+          "Horse actual fitted split forelock": 0.00048548323078042216,
+          "Horse source anatomical rounded jaw mass.001": 0.0025442065901491637,
+          "Horse actual lower jaw tendon.001": 0.0016008760115558593,
+          "Horse actual fitted split forelock.001": 0.00045458994403209846,
+          "Horse anatomical hoof central dark cleft": 1.0970311478786242e-05,
+          "Horse anatomical fitted rounded heel bulb": 0.0006514421816063987,
+          "Horse anatomical hoof central dark cleft.001": 1.0971347336408147e-05,
+          "Horse anatomical fitted rounded heel bulb.001": 0.0006514418781383332,
+          "Horse anatomical hoof central dark cleft.002": 1.0971410411878916e-05,
+          "Horse anatomical fitted rounded heel bulb.002": 0.0006514422517890732,
+          "Horse anatomical hoof central dark cleft.003": 1.0971394495721633e-05,
+          "Horse anatomical fitted rounded heel bulb.003": 0.0006514422905941804
         },
-        "meshes": 202,
+        "meshes": 215,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 7382,
-        "fileSha256": "2d9f9805dd529338e43039fb95eb6d8efb17997abe4340c683066b8f581bac42",
-        "geometrySha256": "b045601b13b74afa6a912320a2d14da70d22d7364f11b8aba8a0be0a5ba25719",
+        "roundtripTriangles": 8274,
+        "fileSha256": "8edf3a122613fcd3568439832557b0332ebee02777c67ef3f4ac54114dfa9ec8",
+        "geometrySha256": "b5f1c432cb1af5fe11b3e6dc065915bd1222f968cda55c16a3e73bd1b8d9cbfa",
         "namedPivots": [
           "roseguard",
           "mount_torso_pivot",
@@ -1069,7 +1094,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/roseguard/front.png",
-          "geometrySha256": "b045601b13b74afa6a912320a2d14da70d22d7364f11b8aba8a0be0a5ba25719",
+          "geometrySha256": "b5f1c432cb1af5fe11b3e6dc065915bd1222f968cda55c16a3e73bd1b8d9cbfa",
           "cameraPosition": [
             0.0,
             7.876455307006836,
@@ -1080,7 +1105,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/roseguard/back.png",
-          "geometrySha256": "b045601b13b74afa6a912320a2d14da70d22d7364f11b8aba8a0be0a5ba25719",
+          "geometrySha256": "b5f1c432cb1af5fe11b3e6dc065915bd1222f968cda55c16a3e73bd1b8d9cbfa",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.773906707763672,
@@ -1091,7 +1116,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/roseguard/left.png",
-          "geometrySha256": "b045601b13b74afa6a912320a2d14da70d22d7364f11b8aba8a0be0a5ba25719",
+          "geometrySha256": "b5f1c432cb1af5fe11b3e6dc065915bd1222f968cda55c16a3e73bd1b8d9cbfa",
           "cameraPosition": [
             -7.825181007385254,
             0.05127415060997009,
@@ -1102,7 +1127,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/roseguard/right.png",
-          "geometrySha256": "b045601b13b74afa6a912320a2d14da70d22d7364f11b8aba8a0be0a5ba25719",
+          "geometrySha256": "b5f1c432cb1af5fe11b3e6dc065915bd1222f968cda55c16a3e73bd1b8d9cbfa",
           "cameraPosition": [
             7.825181007385254,
             0.05127415060997009,
@@ -1113,7 +1138,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/roseguard/three-quarter-front.png",
-          "geometrySha256": "b045601b13b74afa6a912320a2d14da70d22d7364f11b8aba8a0be0a5ba25719",
+          "geometrySha256": "b5f1c432cb1af5fe11b3e6dc065915bd1222f968cda55c16a3e73bd1b8d9cbfa",
           "cameraPosition": [
             4.488339424133301,
             6.461287021636963,
@@ -1124,7 +1149,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/roseguard/three-quarter-back.png",
-          "geometrySha256": "b045601b13b74afa6a912320a2d14da70d22d7364f11b8aba8a0be0a5ba25719",
+          "geometrySha256": "b5f1c432cb1af5fe11b3e6dc065915bd1222f968cda55c16a3e73bd1b8d9cbfa",
           "cameraPosition": [
             4.488339424133301,
             -6.358738422393799,
@@ -1144,12 +1169,12 @@
         "Eye L": [
           -0.1046219915151596,
           0.04196000099182129,
-          1.9550862312316895
+          1.855515480041504
         ],
         "Eye R": [
           0.1046219989657402,
           0.04196000099182129,
-          1.9550862312316895
+          1.855515480041504
         ]
       },
       "landmarksSource": {
@@ -1179,23 +1204,23 @@
       "locomotion": "biped",
       "attackStyle": "greatsword",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2066,
+        "triangles": 2452,
         "boundsMin": [
-          -0.7710000276565552,
+          -0.7427171468734741,
           -0.3957236111164093,
           0.0
         ],
         "boundsMax": [
-          0.5993714928627014,
-          0.3357999920845032,
-          1.7086998224258423
+          0.5799999833106995,
+          0.5520352721214294,
+          1.8045951128005981
         ],
         "boundsSize": [
-          1.3703715205192566,
-          0.7315236032009125,
-          1.7086998224258423
+          1.3227171301841736,
+          0.9477588832378387,
+          1.8045951128005981
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -1229,36 +1254,42 @@
           "Knee contacting articulated joint R": 0.004748332368156601,
           "Ankle contacting boot joint R": 0.002958720458385263,
           "Grounded boot R": 0.01578540523405536,
-          "Connected shoulder L": 0.009531189265544526,
-          "Upper arm L": 0.009163520863997597,
-          "Forearm L": 0.01879104737236048,
-          "Elbow contacting articulated joint L": 0.005036013183295533,
-          "Grasping hand L": 0.0047782639727908345,
-          "Connected shoulder R": 0.009531189265544526,
-          "Upper arm R": 0.005496445390842078,
-          "Forearm R": 0.01776117447540552,
-          "Elbow contacting articulated joint R": 0.005036012684286106,
-          "Grasping hand R": 0.004778266507249403,
           "Real rear cape": 0.03249484723467807,
           "Shoulder folded cape": 0.0023681085452456796,
           "Shoulder folded cape.001": 0.0023681085452456796,
-          "Breastplate fitted shell": 0.012243154441724377,
           "Shoulder plate -1": 0.014077305546379648,
           "Armor shoulder spike": 0.000847592755841712,
           "Shoulder plate 1": 0.014077304265811108,
           "Armor shoulder spike.001": 0.000847593997605145,
           "Fitted knee armor -1": 0.0024234553560139225,
           "Fitted knee armor 1": 0.0024234568954852875,
-          "Two handed sword actual hilt": 0.002988742906988288,
-          "Kingslayer long diagonal blade": 0.016511291575928528,
-          "Greatsword guard": 0.002126976225554244,
-          "Greatsword round contacting pommel": 0.0009178803811664693
+          "Kingslayer contacting armored shoulder R": 0.009031077776550472,
+          "Kingslayer anatomically fitted upper arm R": 0.009637434475128732,
+          "Kingslayer real angled armored forearm R": 0.00896176014066441,
+          "Kingslayer contacting elbow R": 0.004451807758111196,
+          "Kingslayer actual gripping gauntlet R": 0.0024506066874891985,
+          "Kingslayer visible curled knuckle R": 0.0001244863475828121,
+          "Kingslayer visible curled knuckle R.001": 0.00012448311705763143,
+          "Kingslayer visible curled knuckle R.002": 0.00012448391862562858,
+          "Kingslayer contacting armored shoulder L": 0.009031077776550472,
+          "Kingslayer anatomically fitted upper arm L": 0.00998507377820109,
+          "Kingslayer real angled armored forearm L": 0.008126993282833913,
+          "Kingslayer contacting elbow L": 0.0044518016948131844,
+          "Kingslayer actual gripping gauntlet L": 0.0024506071015366615,
+          "Kingslayer visible curled knuckle L": 0.0001244859548326834,
+          "Kingslayer visible curled knuckle L.001": 0.0001244840154868143,
+          "Kingslayer visible curled knuckle L.002": 0.00012448572811270725,
+          "Kingslayer two hands continuous actual hilt": 0.002033070052372447,
+          "Kingslayer source straight broad true greatsword": 0.011379735001052419,
+          "Kingslayer fitted source crossguard": 0.0013732661900576202,
+          "Kingslayer source round pommel": 0.0007699596108068363,
+          "Kingslayer source contoured chest armor": 0.01114211295498535
         },
-        "meshes": 52,
+        "meshes": 58,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2066,
-        "fileSha256": "9b46ab636e427c32b729f56f48e45c62544ed68f6c8a523ac1d465f59fdd55de",
-        "geometrySha256": "8f56122a6250c145df5988dba76cd1e82bf2e7dfb225de8fa698a2d2f828fa51",
+        "roundtripTriangles": 2452,
+        "fileSha256": "1f4f5137070e720581170af8ac310fd090e3544016adfe9cf65cdc216eff454d",
+        "geometrySha256": "e41c87af48bef5bfbaf19ebe874f390753a28a653d9202207a6821029eb9d10b",
         "namedPivots": [
           "highking",
           "torso_pivot",
@@ -1276,7 +1307,10 @@
           "upper_arm_R",
           "forearm_R",
           "hand_R",
-          "weapon_R"
+          "weapon_R",
+          "greatsword_right_grip",
+          "greatsword_left_grip",
+          "attack_muzzle"
         ],
         "coverage": [
           {
@@ -1299,68 +1333,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/highking/front.png",
-          "geometrySha256": "8f56122a6250c145df5988dba76cd1e82bf2e7dfb225de8fa698a2d2f828fa51",
+          "geometrySha256": "e41c87af48bef5bfbaf19ebe874f390753a28a653d9202207a6821029eb9d10b",
           "cameraPosition": [
-            -0.08581426739692688,
-            7.795219421386719,
-            2.517643451690674
+            -0.08135858178138733,
+            7.903337001800537,
+            2.5655910968780518
           ],
-          "orthoScale": 2.084613800048828
+          "orthoScale": 2.201606035232544
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/highking/back.png",
-          "geometrySha256": "8f56122a6250c145df5988dba76cd1e82bf2e7dfb225de8fa698a2d2f828fa51",
+          "geometrySha256": "e41c87af48bef5bfbaf19ebe874f390753a28a653d9202207a6821029eb9d10b",
           "cameraPosition": [
-            -0.08581426739692688,
-            -7.855142593383789,
-            2.517643451690674
+            -0.08135858178138733,
+            -7.747025012969971,
+            2.5655910968780518
           ],
-          "orthoScale": 2.084613800048828
+          "orthoScale": 2.201606035232544
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/highking/left.png",
-          "geometrySha256": "8f56122a6250c145df5988dba76cd1e82bf2e7dfb225de8fa698a2d2f828fa51",
+          "geometrySha256": "e41c87af48bef5bfbaf19ebe874f390753a28a653d9202207a6821029eb9d10b",
           "cameraPosition": [
-            -7.9109954833984375,
-            -0.029961809515953064,
-            2.517643451690674
+            -7.906539440155029,
+            0.07815583050251007,
+            2.5655910968780518
           ],
-          "orthoScale": 2.084613800048828
+          "orthoScale": 2.201606035232544
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/highking/right.png",
-          "geometrySha256": "8f56122a6250c145df5988dba76cd1e82bf2e7dfb225de8fa698a2d2f828fa51",
+          "geometrySha256": "e41c87af48bef5bfbaf19ebe874f390753a28a653d9202207a6821029eb9d10b",
           "cameraPosition": [
-            7.73936653137207,
-            -0.029961809515953064,
-            2.517643451690674
+            7.7438225746154785,
+            0.07815583050251007,
+            2.5655910968780518
           ],
-          "orthoScale": 2.084613800048828
+          "orthoScale": 2.201606035232544
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/highking/three-quarter-front.png",
-          "geometrySha256": "8f56122a6250c145df5988dba76cd1e82bf2e7dfb225de8fa698a2d2f828fa51",
+          "geometrySha256": "e41c87af48bef5bfbaf19ebe874f390753a28a653d9202207a6821029eb9d10b",
           "cameraPosition": [
-            4.402524948120117,
-            6.380051136016846,
-            2.517643451690674
+            4.406980991363525,
+            6.488168716430664,
+            2.5655910968780518
           ],
-          "orthoScale": 2.084613800048828
+          "orthoScale": 2.201606035232544
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/highking/three-quarter-back.png",
-          "geometrySha256": "8f56122a6250c145df5988dba76cd1e82bf2e7dfb225de8fa698a2d2f828fa51",
+          "geometrySha256": "e41c87af48bef5bfbaf19ebe874f390753a28a653d9202207a6821029eb9d10b",
           "cameraPosition": [
-            4.402524948120117,
-            -6.439974308013916,
-            2.517643451690674
+            4.406980991363525,
+            -6.331856727600098,
+            2.5655910968780518
           ],
-          "orthoScale": 2.084613800048828
+          "orthoScale": 2.201606035232544
         }
       ],
       "accuracy": {
@@ -1398,9 +1432,9 @@
       "locomotion": "biped",
       "attackStyle": "sword",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2230,
+        "triangles": 2852,
         "boundsMin": [
           -0.8024916052818298,
           -0.345939576625824,
@@ -1426,14 +1460,11 @@
           "Gilded front garment trim.001": 0.00015324117945662394,
           "Continuous leather waist belt": 0.02013584307860583,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004193688626401127,
           "Observed face": 0.0712525467776383,
           "Eye L": 7.390905761894828e-05,
           "Eye R": 7.39095629948376e-05,
           "Observed small anatomical ear": 0.0006735762641862191,
           "Observed small anatomical ear.001": 0.0006735775435420995,
-          "Hair closed faceted cap": 0.022784278318188928,
-          "Hair parted fringe": 0.0009418275391605376,
           "Crown continuous band": 0.005901410632456337,
           "Crown tall tooth": 0.0003877554554492234,
           "Crown tall tooth.001": 0.00027852606338759256,
@@ -1464,8 +1495,6 @@
           "Shoulder folded cape": 0.0023681141174165528,
           "Shoulder folded cape.001": 0.0023681141174165528,
           "Signature chest diamond": 0.0007799999099612858,
-          "Royal flowing ivory side hair": 0.01495618741804113,
-          "Royal flowing ivory side hair.001": 0.014956188077727953,
           "King actual purple crown jewel": 0.00041800054411093385,
           "Connected sword handle": 0.0010999229464990399,
           "sword guard": 0.0009109308375627736,
@@ -1478,13 +1507,25 @@
           "Royal fleur-de-lis curled broad petal relief": 0.0004781667666975409,
           "Royal fleur-de-lis curled broad petal relief.001": 0.0004781788908682454,
           "Shield visible rear arm strap": 0.0003042450650051857,
-          "Shield visible rear arm strap.001": 0.0003042474393926873
+          "Shield visible rear arm strap.001": 0.0003042474393926873,
+          "Royal layered hair contacting sculpted crown": 0.029433052601537685,
+          "Royal curved layered ivory hair lock": 0.002585604591937833,
+          "Royal curved layered ivory hair lock.001": 0.0037264796055751508,
+          "Royal curved layered ivory hair lock.002": 0.0037056284442466376,
+          "Royal curved layered ivory hair lock.003": 0.00262040923917084,
+          "Royal curved layered ivory hair lock.004": 0.0036603173039111425,
+          "Royal curved layered ivory hair lock.005": 0.0037028458076141155,
+          "Royal curved overlapping ivory rear hair lock": 0.0034152258643492437,
+          "Royal curved overlapping ivory rear hair lock.001": 0.0034045190671652867,
+          "Royal curved overlapping ivory rear hair lock.002": 0.00348014039749008,
+          "Royal curved overlapping ivory rear hair lock.003": 0.0034067007651780537,
+          "Royal curved overlapping ivory rear hair lock.004": 0.0034195295714501603
         },
-        "meshes": 59,
+        "meshes": 66,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2230,
-        "fileSha256": "3b6f78813ddd9e37cc9205883363621e6d474899ada283fb025e76b376638e23",
-        "geometrySha256": "76cf2654d34e7b0b4e0789d9726b7b1b9719ee97c2c61846c45801f401171a28",
+        "roundtripTriangles": 2852,
+        "fileSha256": "4915290d07afe541704f231d6535b1438be628962bf29ea9e018d4b19b3e35ea",
+        "geometrySha256": "def786e98c3da155449834b141f188295d6bfc69cad753e13e7d93d4aa583d78",
         "namedPivots": [
           "crownofages",
           "torso_pivot",
@@ -1512,7 +1553,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/crownofages/front.png",
-          "geometrySha256": "76cf2654d34e7b0b4e0789d9726b7b1b9719ee97c2c61846c45801f401171a28",
+          "geometrySha256": "def786e98c3da155449834b141f188295d6bfc69cad753e13e7d93d4aa583d78",
           "cameraPosition": [
             -0.05624580383300781,
             7.88421106338501,
@@ -1523,7 +1564,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/crownofages/back.png",
-          "geometrySha256": "76cf2654d34e7b0b4e0789d9726b7b1b9719ee97c2c61846c45801f401171a28",
+          "geometrySha256": "def786e98c3da155449834b141f188295d6bfc69cad753e13e7d93d4aa583d78",
           "cameraPosition": [
             -0.05624580383300781,
             -7.766150951385498,
@@ -1534,7 +1575,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/crownofages/left.png",
-          "geometrySha256": "76cf2654d34e7b0b4e0789d9726b7b1b9719ee97c2c61846c45801f401171a28",
+          "geometrySha256": "def786e98c3da155449834b141f188295d6bfc69cad753e13e7d93d4aa583d78",
           "cameraPosition": [
             -7.881426811218262,
             0.05903021991252899,
@@ -1545,7 +1586,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/crownofages/right.png",
-          "geometrySha256": "76cf2654d34e7b0b4e0789d9726b7b1b9719ee97c2c61846c45801f401171a28",
+          "geometrySha256": "def786e98c3da155449834b141f188295d6bfc69cad753e13e7d93d4aa583d78",
           "cameraPosition": [
             7.768935203552246,
             0.05903021991252899,
@@ -1556,7 +1597,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/crownofages/three-quarter-front.png",
-          "geometrySha256": "76cf2654d34e7b0b4e0789d9726b7b1b9719ee97c2c61846c45801f401171a28",
+          "geometrySha256": "def786e98c3da155449834b141f188295d6bfc69cad753e13e7d93d4aa583d78",
           "cameraPosition": [
             4.432093620300293,
             6.469042778015137,
@@ -1567,7 +1608,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/crownofages/three-quarter-back.png",
-          "geometrySha256": "76cf2654d34e7b0b4e0789d9726b7b1b9719ee97c2c61846c45801f401171a28",
+          "geometrySha256": "def786e98c3da155449834b141f188295d6bfc69cad753e13e7d93d4aa583d78",
           "cameraPosition": [
             4.432093620300293,
             -6.350982666015625,
@@ -1587,12 +1628,12 @@
         "Eye L": [
           -0.12831002473831177,
           0.17379999160766602,
-          1.4220044612884521
+          1.3450047969818115
         ],
         "Eye R": [
           0.12831002473831177,
           0.17379999160766602,
-          1.4220044612884521
+          1.3450047969818115
         ]
       },
       "landmarksSource": {
@@ -1622,9 +1663,9 @@
       "locomotion": "biped",
       "attackStyle": "bow",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1766,
+        "triangles": 1738,
         "boundsMin": [
           -0.6084499955177307,
           -0.45500001311302185,
@@ -1633,12 +1674,12 @@
         "boundsMax": [
           0.6084499955177307,
           0.3357999920845032,
-          1.8371379375457764
+          1.760137915611267
         ],
         "boundsSize": [
           1.2168999910354614,
           0.790800005197525,
-          1.8371379375457764
+          1.760137915611267
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -1650,7 +1691,6 @@
           "Gilded front garment trim.001": 0.00013924585073255002,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.0043938940604372565,
           "Observed face": 0.09190037637017667,
           "Eye L": 8.800260468433406e-05,
           "Eye R": 8.800480323619314e-05,
@@ -1695,11 +1735,11 @@
           "Bow contacting wrapped grip": 0.0009775028738658873,
           "Physical bowstring": 9.504027451839868e-05
         },
-        "meshes": 50,
+        "meshes": 49,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1766,
-        "fileSha256": "dfd0bbb97437fa438498bb114a83792787037fed82f44cb1b16ee902576d89e2",
-        "geometrySha256": "1d3dc8c283de614a5e9edcfd23e215ca42a23253e212308ce0046d2afafe6e6f",
+        "roundtripTriangles": 1738,
+        "fileSha256": "0bc45a504eae6431c64bcd1e4ccbe4ae60bdc13c4850fc1d90187ddf13c55f2f",
+        "geometrySha256": "7ac12f62a436dd045331173df0a53a06d38a14fcc2e3ba404c0a2e69361a1fa1",
         "namedPivots": [
           "thornwarden",
           "torso_pivot",
@@ -1747,68 +1787,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/thornwarden/front.png",
-          "geometrySha256": "1d3dc8c283de614a5e9edcfd23e215ca42a23253e212308ce0046d2afafe6e6f",
+          "geometrySha256": "7ac12f62a436dd045331173df0a53a06d38a14fcc2e3ba404c0a2e69361a1fa1",
           "cameraPosition": [
             0.0,
             7.765581130981445,
-            2.581862449645996
+            2.5433623790740967
           ],
-          "orthoScale": 2.2413082122802734
+          "orthoScale": 2.1473681926727295
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/thornwarden/back.png",
-          "geometrySha256": "1d3dc8c283de614a5e9edcfd23e215ca42a23253e212308ce0046d2afafe6e6f",
+          "geometrySha256": "7ac12f62a436dd045331173df0a53a06d38a14fcc2e3ba404c0a2e69361a1fa1",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.8847808837890625,
-            2.581862449645996
+            2.5433623790740967
           ],
-          "orthoScale": 2.2413082122802734
+          "orthoScale": 2.1473681926727295
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/thornwarden/left.png",
-          "geometrySha256": "1d3dc8c283de614a5e9edcfd23e215ca42a23253e212308ce0046d2afafe6e6f",
+          "geometrySha256": "7ac12f62a436dd045331173df0a53a06d38a14fcc2e3ba404c0a2e69361a1fa1",
           "cameraPosition": [
             -7.825181007385254,
             -0.05960001051425934,
-            2.581862449645996
+            2.5433623790740967
           ],
-          "orthoScale": 2.2413082122802734
+          "orthoScale": 2.1473681926727295
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/thornwarden/right.png",
-          "geometrySha256": "1d3dc8c283de614a5e9edcfd23e215ca42a23253e212308ce0046d2afafe6e6f",
+          "geometrySha256": "7ac12f62a436dd045331173df0a53a06d38a14fcc2e3ba404c0a2e69361a1fa1",
           "cameraPosition": [
             7.825181007385254,
             -0.05960001051425934,
-            2.581862449645996
+            2.5433623790740967
           ],
-          "orthoScale": 2.2413082122802734
+          "orthoScale": 2.1473681926727295
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/thornwarden/three-quarter-front.png",
-          "geometrySha256": "1d3dc8c283de614a5e9edcfd23e215ca42a23253e212308ce0046d2afafe6e6f",
+          "geometrySha256": "7ac12f62a436dd045331173df0a53a06d38a14fcc2e3ba404c0a2e69361a1fa1",
           "cameraPosition": [
             4.488339424133301,
             6.350412845611572,
-            2.581862449645996
+            2.5433623790740967
           ],
-          "orthoScale": 2.2413082122802734
+          "orthoScale": 2.1473681926727295
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/thornwarden/three-quarter-back.png",
-          "geometrySha256": "1d3dc8c283de614a5e9edcfd23e215ca42a23253e212308ce0046d2afafe6e6f",
+          "geometrySha256": "7ac12f62a436dd045331173df0a53a06d38a14fcc2e3ba404c0a2e69361a1fa1",
           "cameraPosition": [
             4.488339424133301,
             -6.4696125984191895,
-            2.581862449645996
+            2.5433623790740967
           ],
-          "orthoScale": 2.2413082122802734
+          "orthoScale": 2.1473681926727295
         }
       ],
       "accuracy": {
@@ -1822,12 +1862,12 @@
         "Eye L": [
           -0.1381799876689911,
           0.18639996647834778,
-          1.3302819728851318
+          1.253282070159912
         ],
         "Eye R": [
           0.13818000257015228,
           0.18639996647834778,
-          1.3302819728851318
+          1.253282070159912
         ]
       },
       "landmarksSource": {
@@ -1857,9 +1897,9 @@
       "locomotion": "biped",
       "attackStyle": "bow",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1904,
+        "triangles": 1876,
         "boundsMin": [
           -0.6084499955177307,
           -0.45500001311302185,
@@ -1868,12 +1908,12 @@
         "boundsMax": [
           0.6084499955177307,
           0.3357999920845032,
-          1.9017713069915771
+          1.8247714042663574
         ],
         "boundsSize": [
           1.2168999910354614,
           0.790800005197525,
-          1.9017713069915771
+          1.8247714042663574
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -1885,7 +1925,6 @@
           "Gilded front garment trim.001": 0.00013924585073255002,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004650167660050405,
           "Observed face": 0.12102127738762647,
           "Eye L": 0.00010670713773682415,
           "Eye R": 0.00010670848621430201,
@@ -1942,11 +1981,11 @@
           "Bow contacting wrapped grip": 0.0009775028738658873,
           "Physical bowstring": 9.504027451839868e-05
         },
-        "meshes": 62,
+        "meshes": 61,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1904,
-        "fileSha256": "83032b119d9666da05b7ec6a9e95f34e5d614d65d5a189c406829944cf7b261b",
-        "geometrySha256": "72d30bf995af56c67dfd377174382d20766e88e61a91844d8e34a2196bb678f5",
+        "roundtripTriangles": 1876,
+        "fileSha256": "a807fe3a313da2a3779d4138fb6022c537d8ca6e154a832774c630708e7b9e9b",
+        "geometrySha256": "8cbdf6f62c6ea98ec92f0c2e70c2783b838b6d2165f37bac64fd6006b6d8affa",
         "namedPivots": [
           "verdantguard",
           "torso_pivot",
@@ -1994,68 +2033,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/verdantguard/front.png",
-          "geometrySha256": "72d30bf995af56c67dfd377174382d20766e88e61a91844d8e34a2196bb678f5",
+          "geometrySha256": "8cbdf6f62c6ea98ec92f0c2e70c2783b838b6d2165f37bac64fd6006b6d8affa",
           "cameraPosition": [
             0.0,
             7.765581130981445,
-            2.6141791343688965
+            2.575679302215576
           ],
-          "orthoScale": 2.3201611042022705
+          "orthoScale": 2.2262210845947266
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/verdantguard/back.png",
-          "geometrySha256": "72d30bf995af56c67dfd377174382d20766e88e61a91844d8e34a2196bb678f5",
+          "geometrySha256": "8cbdf6f62c6ea98ec92f0c2e70c2783b838b6d2165f37bac64fd6006b6d8affa",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.8847808837890625,
-            2.6141791343688965
+            2.575679302215576
           ],
-          "orthoScale": 2.3201611042022705
+          "orthoScale": 2.2262210845947266
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/verdantguard/left.png",
-          "geometrySha256": "72d30bf995af56c67dfd377174382d20766e88e61a91844d8e34a2196bb678f5",
+          "geometrySha256": "8cbdf6f62c6ea98ec92f0c2e70c2783b838b6d2165f37bac64fd6006b6d8affa",
           "cameraPosition": [
             -7.825181007385254,
             -0.05960001051425934,
-            2.6141791343688965
+            2.575679302215576
           ],
-          "orthoScale": 2.3201611042022705
+          "orthoScale": 2.2262210845947266
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/verdantguard/right.png",
-          "geometrySha256": "72d30bf995af56c67dfd377174382d20766e88e61a91844d8e34a2196bb678f5",
+          "geometrySha256": "8cbdf6f62c6ea98ec92f0c2e70c2783b838b6d2165f37bac64fd6006b6d8affa",
           "cameraPosition": [
             7.825181007385254,
             -0.05960001051425934,
-            2.6141791343688965
+            2.575679302215576
           ],
-          "orthoScale": 2.3201611042022705
+          "orthoScale": 2.2262210845947266
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/verdantguard/three-quarter-front.png",
-          "geometrySha256": "72d30bf995af56c67dfd377174382d20766e88e61a91844d8e34a2196bb678f5",
+          "geometrySha256": "8cbdf6f62c6ea98ec92f0c2e70c2783b838b6d2165f37bac64fd6006b6d8affa",
           "cameraPosition": [
             4.488339424133301,
             6.350412845611572,
-            2.6141791343688965
+            2.575679302215576
           ],
-          "orthoScale": 2.3201611042022705
+          "orthoScale": 2.2262210845947266
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/verdantguard/three-quarter-back.png",
-          "geometrySha256": "72d30bf995af56c67dfd377174382d20766e88e61a91844d8e34a2196bb678f5",
+          "geometrySha256": "8cbdf6f62c6ea98ec92f0c2e70c2783b838b6d2165f37bac64fd6006b6d8affa",
           "cameraPosition": [
             4.488339424133301,
             -6.4696125984191895,
-            2.6141791343688965
+            2.575679302215576
           ],
-          "orthoScale": 2.3201611042022705
+          "orthoScale": 2.2262210845947266
         }
       ],
       "accuracy": {
@@ -2069,12 +2108,12 @@
         "Eye L": [
           -0.1492837518453598,
           0.20057497918605804,
-          1.3560914993286133
+          1.279091715812683
         ],
         "Eye R": [
           0.1492837518453598,
           0.20057497918605804,
-          1.3560914993286133
+          1.279091715812683
         ]
       },
       "landmarksSource": {
@@ -2104,9 +2143,9 @@
       "locomotion": "biped",
       "attackStyle": "staff",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1978,
+        "triangles": 1950,
         "boundsMin": [
           -0.8149999976158142,
           -0.3572100102901459,
@@ -2132,7 +2171,6 @@
           "Gilded front garment trim.001": 0.0004037107064505108,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004162886330353407,
           "Observed face": 0.07570975923833126,
           "Eye L": 7.551343321665623e-05,
           "Eye R": 7.551092543659854e-05,
@@ -2182,11 +2220,11 @@
           "Tempest actual wood fork supporting purple crystal": 0.0006583838354951392,
           "Tempest actual wood fork supporting purple crystal.001": 0.0006583672366105019
         },
-        "meshes": 55,
+        "meshes": 54,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1978,
-        "fileSha256": "911bc056b79e9c7afa6d1ec5e5df504cb922f22a988a4f916fd4fb58eb06b275",
-        "geometrySha256": "15c1e025cd0a077fc8da4e73d22352dcbbcd0d3b5a14a22485222150f55254ad",
+        "roundtripTriangles": 1950,
+        "fileSha256": "87877048d114039f9b469f495df12a08a13b4f99021aff90dcc90072c3f784cf",
+        "geometrySha256": "0c33f60e4a73636ef4c7e29c53ad7746129acc998d5dc4eb34e4518bd55098a1",
         "namedPivots": [
           "tempest",
           "torso_pivot",
@@ -2215,7 +2253,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/tempest/front.png",
-          "geometrySha256": "15c1e025cd0a077fc8da4e73d22352dcbbcd0d3b5a14a22485222150f55254ad",
+          "geometrySha256": "0c33f60e4a73636ef4c7e29c53ad7746129acc998d5dc4eb34e4518bd55098a1",
           "cameraPosition": [
             -0.050000011920928955,
             7.825181007385254,
@@ -2226,7 +2264,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/tempest/back.png",
-          "geometrySha256": "15c1e025cd0a077fc8da4e73d22352dcbbcd0d3b5a14a22485222150f55254ad",
+          "geometrySha256": "0c33f60e4a73636ef4c7e29c53ad7746129acc998d5dc4eb34e4518bd55098a1",
           "cameraPosition": [
             -0.050000011920928955,
             -7.825181007385254,
@@ -2237,7 +2275,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/tempest/left.png",
-          "geometrySha256": "15c1e025cd0a077fc8da4e73d22352dcbbcd0d3b5a14a22485222150f55254ad",
+          "geometrySha256": "0c33f60e4a73636ef4c7e29c53ad7746129acc998d5dc4eb34e4518bd55098a1",
           "cameraPosition": [
             -7.875181198120117,
             4.791541504049041e-16,
@@ -2248,7 +2286,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/tempest/right.png",
-          "geometrySha256": "15c1e025cd0a077fc8da4e73d22352dcbbcd0d3b5a14a22485222150f55254ad",
+          "geometrySha256": "0c33f60e4a73636ef4c7e29c53ad7746129acc998d5dc4eb34e4518bd55098a1",
           "cameraPosition": [
             7.775180816650391,
             4.791541504049041e-16,
@@ -2259,7 +2297,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/tempest/three-quarter-front.png",
-          "geometrySha256": "15c1e025cd0a077fc8da4e73d22352dcbbcd0d3b5a14a22485222150f55254ad",
+          "geometrySha256": "0c33f60e4a73636ef4c7e29c53ad7746129acc998d5dc4eb34e4518bd55098a1",
           "cameraPosition": [
             4.4383392333984375,
             6.410012722015381,
@@ -2270,7 +2308,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/tempest/three-quarter-back.png",
-          "geometrySha256": "15c1e025cd0a077fc8da4e73d22352dcbbcd0d3b5a14a22485222150f55254ad",
+          "geometrySha256": "0c33f60e4a73636ef4c7e29c53ad7746129acc998d5dc4eb34e4518bd55098a1",
           "cameraPosition": [
             4.4383392333984375,
             -6.410012722015381,
@@ -2290,12 +2328,12 @@
         "Eye L": [
           -0.13324499130249023,
           0.1800999790430069,
-          1.081170916557312
+          1.0041711330413818
         ],
         "Eye R": [
           0.13324502110481262,
           0.1800999790430069,
-          1.081170916557312
+          1.0041711330413818
         ]
       },
       "landmarksSource": {
@@ -2325,9 +2363,9 @@
       "locomotion": "flying",
       "attackStyle": "staff",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1254,
+        "triangles": 1226,
         "boundsMin": [
           -0.7149999737739563,
           -0.39559945464134216,
@@ -2353,7 +2391,6 @@
           "Gilded front garment trim.001": 0.00033798192695636925,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004112355047330615,
           "Observed face": 0.0590235414953592,
           "Eye L": 6.596843714608745e-05,
           "Eye R": 6.59683816669106e-05,
@@ -2388,11 +2425,11 @@
           "Staff fork prong.001": 0.0008213457476813348,
           "Fork staff crystal": 0.0007280024389425912
         },
-        "meshes": 40,
+        "meshes": 39,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1254,
-        "fileSha256": "765045c925343005c7868b3a3b68bc3080fde5d430f0929ce85bf175c2606e8e",
-        "geometrySha256": "a911c8e8ac22e8d26f96c0c804d4f6056a1ae769c7a60436c489c9efba43c9e5",
+        "roundtripTriangles": 1226,
+        "fileSha256": "6078870436167049d3873156389a7b0066e9110eeb0caedbb39eaad5efb73556",
+        "geometrySha256": "29dab47635f0649a96fec0a6c49b136c661033407e8e8b2205d57d03937f9ce7",
         "namedPivots": [
           "stormcitadel",
           "torso_pivot",
@@ -2431,7 +2468,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/stormcitadel/front.png",
-          "geometrySha256": "a911c8e8ac22e8d26f96c0c804d4f6056a1ae769c7a60436c489c9efba43c9e5",
+          "geometrySha256": "29dab47635f0649a96fec0a6c49b136c661033407e8e8b2205d57d03937f9ce7",
           "cameraPosition": [
             0.0,
             7.795281410217285,
@@ -2442,7 +2479,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/stormcitadel/back.png",
-          "geometrySha256": "a911c8e8ac22e8d26f96c0c804d4f6056a1ae769c7a60436c489c9efba43c9e5",
+          "geometrySha256": "29dab47635f0649a96fec0a6c49b136c661033407e8e8b2205d57d03937f9ce7",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.855080604553223,
@@ -2453,7 +2490,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/stormcitadel/left.png",
-          "geometrySha256": "a911c8e8ac22e8d26f96c0c804d4f6056a1ae769c7a60436c489c9efba43c9e5",
+          "geometrySha256": "29dab47635f0649a96fec0a6c49b136c661033407e8e8b2205d57d03937f9ce7",
           "cameraPosition": [
             -7.825181007385254,
             -0.029899731278419495,
@@ -2464,7 +2501,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/stormcitadel/right.png",
-          "geometrySha256": "a911c8e8ac22e8d26f96c0c804d4f6056a1ae769c7a60436c489c9efba43c9e5",
+          "geometrySha256": "29dab47635f0649a96fec0a6c49b136c661033407e8e8b2205d57d03937f9ce7",
           "cameraPosition": [
             7.825181007385254,
             -0.029899731278419495,
@@ -2475,7 +2512,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/stormcitadel/three-quarter-front.png",
-          "geometrySha256": "a911c8e8ac22e8d26f96c0c804d4f6056a1ae769c7a60436c489c9efba43c9e5",
+          "geometrySha256": "29dab47635f0649a96fec0a6c49b136c661033407e8e8b2205d57d03937f9ce7",
           "cameraPosition": [
             4.488339424133301,
             6.380113124847412,
@@ -2486,7 +2523,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/stormcitadel/three-quarter-back.png",
-          "geometrySha256": "a911c8e8ac22e8d26f96c0c804d4f6056a1ae769c7a60436c489c9efba43c9e5",
+          "geometrySha256": "29dab47635f0649a96fec0a6c49b136c661033407e8e8b2205d57d03937f9ce7",
           "cameraPosition": [
             4.488339424133301,
             -6.43991231918335,
@@ -2506,12 +2543,12 @@
         "Eye L": [
           -0.11967374384403229,
           0.16277502477169037,
-          1.1442776918411255
+          1.0672773122787476
         ],
         "Eye R": [
           0.11967374384403229,
           0.16277502477169037,
-          1.1442776918411255
+          1.0672773122787476
         ]
       },
       "landmarksSource": {
@@ -3200,21 +3237,21 @@
       "locomotion": "quadruped",
       "attackStyle": "spear",
       "geometricRig": true,
-      "anatomyRevision": "geometric-source-anatomy-v3",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
         "triangles": 8022,
         "boundsMin": [
-          -1.138518214225769,
+          -1.292966365814209,
           -1.343999981880188,
           0.0
         ],
         "boundsMax": [
-          1.138518214225769,
+          1.292966365814209,
           0.875,
           2.2544000148773193
         ],
         "boundsSize": [
-          2.277036428451538,
+          2.585932731628418,
           2.218999981880188,
           2.2544000148773193
         ],
@@ -3275,18 +3312,18 @@
           "Dragon fitted cream plate transverse seam.005": 1.3349945258293402e-05,
           "Dragon source continuously curved faceted tail": 0.02366283588889928,
           "Dragon source gold lightning tail tip": 0.0009315172889425118,
-          "Dragon source broad scalloped closed wing membrane": -0.0011142385471127143,
-          "Dragon wing shoulder elbow wrist leading edge": 0.012682662707807898,
-          "Dragon source fitted wing finger strut": 0.0023500280794905844,
-          "Dragon source fitted wing finger strut.001": 0.00195312518189894,
-          "Dragon source fitted wing finger strut.002": 0.001850199832309348,
-          "Dragon contacting wing thumb": 8.398965534676489e-05,
-          "Dragon source broad scalloped closed wing membrane.001": -0.0002618882705670944,
-          "Dragon wing shoulder elbow wrist leading edge.001": 0.012568645593361202,
-          "Dragon source fitted wing finger strut.003": 0.0023500518891523816,
-          "Dragon source fitted wing finger strut.004": 0.0019530805875547228,
-          "Dragon source fitted wing finger strut.005": 0.0018502014912276836,
-          "Dragon contacting wing thumb.001": 8.399502015284571e-05,
+          "Dragon source broad scalloped closed wing membrane": -0.0014600788927054942,
+          "Dragon wing shoulder elbow wrist leading edge": 0.01661934773399783,
+          "Dragon source fitted wing finger strut": 0.0030794466829320286,
+          "Dragon source fitted wing finger strut.001": 0.0025593032526861252,
+          "Dragon source fitted wing finger strut.002": 0.0024245018515406023,
+          "Dragon contacting wing thumb": 0.00011005778651451689,
+          "Dragon source broad scalloped closed wing membrane.001": -0.0003431691123599493,
+          "Dragon wing shoulder elbow wrist leading edge.001": 0.016469943009004357,
+          "Dragon source fitted wing finger strut.003": 0.003079475651247776,
+          "Dragon source fitted wing finger strut.004": 0.0025593610140883043,
+          "Dragon source fitted wing finger strut.005": 0.0024244983530176496,
+          "Dragon contacting wing thumb.001": 0.00011008121752335376,
           "Rider fitted saddle cushion contacting back": 0.02290050123610854,
           "Rider contacting saddle pommel and cantle": 0.0021388794393715216,
           "Rider contacting saddle pommel and cantle.001": 0.002138881326876193,
@@ -3347,8 +3384,8 @@
         "meshes": 121,
         "roundtripBoundsError": 0.0,
         "roundtripTriangles": 8022,
-        "fileSha256": "6bd09913eb6eaa501adb4ed62dabaa123fdf843a04a4708d4e2f308846668299",
-        "geometrySha256": "285b66724d3bd69b8fb86b936cb98d712cda771cc17ff52262305e2aa3cc2f7d",
+        "fileSha256": "99c9d4d6f2597114fab66060ec00794b93e6228cf111e7d7bc9264e7af618627",
+        "geometrySha256": "c205942cddb245a0e4d8d9840c55ce74162fbf58810d0590a61a31d9eee9da2a",
         "namedPivots": [
           "thunderheart",
           "mount_torso_pivot",
@@ -3408,68 +3445,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/thunderheart/front.png",
-          "geometrySha256": "285b66724d3bd69b8fb86b936cb98d712cda771cc17ff52262305e2aa3cc2f7d",
+          "geometrySha256": "c205942cddb245a0e4d8d9840c55ce74162fbf58810d0590a61a31d9eee9da2a",
           "cameraPosition": [
             0.0,
             7.590681076049805,
             2.7904934883117676
           ],
-          "orthoScale": 2.750368118286133
+          "orthoScale": 3.103119373321533
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/thunderheart/back.png",
-          "geometrySha256": "285b66724d3bd69b8fb86b936cb98d712cda771cc17ff52262305e2aa3cc2f7d",
+          "geometrySha256": "c205942cddb245a0e4d8d9840c55ce74162fbf58810d0590a61a31d9eee9da2a",
           "cameraPosition": [
             9.583083008098082e-16,
             -8.059680938720703,
             2.7904934883117676
           ],
-          "orthoScale": 2.750368118286133
+          "orthoScale": 3.103119373321533
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/thunderheart/left.png",
-          "geometrySha256": "285b66724d3bd69b8fb86b936cb98d712cda771cc17ff52262305e2aa3cc2f7d",
+          "geometrySha256": "c205942cddb245a0e4d8d9840c55ce74162fbf58810d0590a61a31d9eee9da2a",
           "cameraPosition": [
             -7.825181007385254,
             -0.234499990940094,
             2.7904934883117676
           ],
-          "orthoScale": 2.750368118286133
+          "orthoScale": 3.103119373321533
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/thunderheart/right.png",
-          "geometrySha256": "285b66724d3bd69b8fb86b936cb98d712cda771cc17ff52262305e2aa3cc2f7d",
+          "geometrySha256": "c205942cddb245a0e4d8d9840c55ce74162fbf58810d0590a61a31d9eee9da2a",
           "cameraPosition": [
             7.825181007385254,
             -0.234499990940094,
             2.7904934883117676
           ],
-          "orthoScale": 2.750368118286133
+          "orthoScale": 3.103119373321533
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/thunderheart/three-quarter-front.png",
-          "geometrySha256": "285b66724d3bd69b8fb86b936cb98d712cda771cc17ff52262305e2aa3cc2f7d",
+          "geometrySha256": "c205942cddb245a0e4d8d9840c55ce74162fbf58810d0590a61a31d9eee9da2a",
           "cameraPosition": [
             4.488339424133301,
             6.175512790679932,
             2.7904934883117676
           ],
-          "orthoScale": 2.750368118286133
+          "orthoScale": 3.103119373321533
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/thunderheart/three-quarter-back.png",
-          "geometrySha256": "285b66724d3bd69b8fb86b936cb98d712cda771cc17ff52262305e2aa3cc2f7d",
+          "geometrySha256": "c205942cddb245a0e4d8d9840c55ce74162fbf58810d0590a61a31d9eee9da2a",
           "cameraPosition": [
             4.488339424133301,
             -6.64451265335083,
             2.7904934883117676
           ],
-          "orthoScale": 2.750368118286133
+          "orthoScale": 3.103119373321533
         }
       ],
       "accuracy": {
@@ -3507,9 +3544,9 @@
       "locomotion": "quadruped",
       "attackStyle": "staff",
       "geometricRig": true,
-      "anatomyRevision": "geometric-source-anatomy-v3",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 7702,
+        "triangles": 7674,
         "boundsMin": [
           -1.138518214225769,
           -1.409999966621399,
@@ -3606,7 +3643,6 @@
           "Gilded front garment trim.001": 7.201091648312286e-05,
           "Continuous leather waist belt": 0.007091490420862099,
           "Belt buckle": 0.0002615822874455868,
-          "Connected neck inside collar": 0.002361241437029094,
           "Observed face": 0.01663098554854514,
           "Eye L": 1.9636945580714382e-05,
           "Eye R": 1.9637022887764026e-05,
@@ -3646,11 +3682,11 @@
           "Rider actual fitted hanging stirrup.001": 7.681134108376378e-05,
           "Rider stirrup suspension on saddle.001": 0.0003652751814324043
         },
-        "meshes": 116,
+        "meshes": 115,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 7702,
-        "fileSha256": "24c48d8ac58ee67b72f670993f4e911b45c2d617f9cd4e1460e68458479a7d18",
-        "geometrySha256": "bcf30f3ec68446e1bdf773b572ab8ba7a028c0a89299864d9f2fe507c1c5bb54",
+        "roundtripTriangles": 7674,
+        "fileSha256": "39274fe1cde1198387942457007864fac30c3ec692f02fb0bf7f3eee487ebdae",
+        "geometrySha256": "19bbcb9afae2500090c767e4cce0b9c87448ca2e3b2499d1b3b02608419a5202",
         "namedPivots": [
           "phoenix",
           "mount_torso_pivot",
@@ -3697,7 +3733,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/phoenix/front.png",
-          "geometrySha256": "bcf30f3ec68446e1bdf773b572ab8ba7a028c0a89299864d9f2fe507c1c5bb54",
+          "geometrySha256": "19bbcb9afae2500090c767e4cce0b9c87448ca2e3b2499d1b3b02608419a5202",
           "cameraPosition": [
             0.0,
             7.557681083679199,
@@ -3708,7 +3744,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/phoenix/back.png",
-          "geometrySha256": "bcf30f3ec68446e1bdf773b572ab8ba7a028c0a89299864d9f2fe507c1c5bb54",
+          "geometrySha256": "19bbcb9afae2500090c767e4cce0b9c87448ca2e3b2499d1b3b02608419a5202",
           "cameraPosition": [
             9.583083008098082e-16,
             -8.092680931091309,
@@ -3719,7 +3755,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/phoenix/left.png",
-          "geometrySha256": "bcf30f3ec68446e1bdf773b572ab8ba7a028c0a89299864d9f2fe507c1c5bb54",
+          "geometrySha256": "19bbcb9afae2500090c767e4cce0b9c87448ca2e3b2499d1b3b02608419a5202",
           "cameraPosition": [
             -7.825181007385254,
             -0.26749998331069946,
@@ -3730,7 +3766,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/phoenix/right.png",
-          "geometrySha256": "bcf30f3ec68446e1bdf773b572ab8ba7a028c0a89299864d9f2fe507c1c5bb54",
+          "geometrySha256": "19bbcb9afae2500090c767e4cce0b9c87448ca2e3b2499d1b3b02608419a5202",
           "cameraPosition": [
             7.825181007385254,
             -0.26749998331069946,
@@ -3741,7 +3777,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/phoenix/three-quarter-front.png",
-          "geometrySha256": "bcf30f3ec68446e1bdf773b572ab8ba7a028c0a89299864d9f2fe507c1c5bb54",
+          "geometrySha256": "19bbcb9afae2500090c767e4cce0b9c87448ca2e3b2499d1b3b02608419a5202",
           "cameraPosition": [
             4.488339424133301,
             6.142512798309326,
@@ -3752,7 +3788,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/phoenix/three-quarter-back.png",
-          "geometrySha256": "bcf30f3ec68446e1bdf773b572ab8ba7a028c0a89299864d9f2fe507c1c5bb54",
+          "geometrySha256": "19bbcb9afae2500090c767e4cce0b9c87448ca2e3b2499d1b3b02608419a5202",
           "cameraPosition": [
             4.488339424133301,
             -6.6775126457214355,
@@ -3772,12 +3808,12 @@
         "Eye L": [
           -0.08866550028324127,
           0.020889999344944954,
-          1.5975512266159058
+          1.4968087673187256
         ],
         "Eye R": [
           0.08866550028324127,
           0.020889999344944954,
-          1.5975512266159058
+          1.4968087673187256
         ]
       },
       "landmarksSource": {
@@ -3807,9 +3843,9 @@
       "locomotion": "biped",
       "attackStyle": "staff",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1986,
+        "triangles": 1958,
         "boundsMin": [
           -0.668512225151062,
           -0.30000001192092896,
@@ -3835,7 +3871,6 @@
           "Gilded front garment trim.001": 0.0004037107064505108,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004010808416448223,
           "Observed face": 0.05213815189199522,
           "Eye L": 6.03473685032441e-05,
           "Eye R": 6.034861845212917e-05,
@@ -3890,11 +3925,11 @@
           "Greenheart source connected branch fork.001": 0.0005313903869440157,
           "Greenheart source broad connected faceted staff leaf": 0.0028503310750238597
         },
-        "meshes": 60,
+        "meshes": 59,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1986,
-        "fileSha256": "077b3106bc9acebe9ce68038bd5b04cf4a26e580210e527a1c1ad41d2a415030",
-        "geometrySha256": "4509d9559940f7a91a7b71881b422cf7358e5379f768e9a6fee88f42aebce4fc",
+        "roundtripTriangles": 1958,
+        "fileSha256": "21ad839c42640bbc172ba1629afae33dd63dee06d9680c1d8a1e9c01b278bcab",
+        "geometrySha256": "5e90cb89c6f311ddd6501151e8456bb953aa8eb1b698ccecbbf2e6fe4c028944",
         "namedPivots": [
           "greenheart",
           "torso_pivot",
@@ -3939,7 +3974,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/greenheart/front.png",
-          "geometrySha256": "4509d9559940f7a91a7b71881b422cf7358e5379f768e9a6fee88f42aebce4fc",
+          "geometrySha256": "5e90cb89c6f311ddd6501151e8456bb953aa8eb1b698ccecbbf2e6fe4c028944",
           "cameraPosition": [
             0.004925251007080078,
             7.880180835723877,
@@ -3950,7 +3985,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/greenheart/back.png",
-          "geometrySha256": "4509d9559940f7a91a7b71881b422cf7358e5379f768e9a6fee88f42aebce4fc",
+          "geometrySha256": "5e90cb89c6f311ddd6501151e8456bb953aa8eb1b698ccecbbf2e6fe4c028944",
           "cameraPosition": [
             0.004925251007080078,
             -7.770181179046631,
@@ -3961,7 +3996,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/greenheart/left.png",
-          "geometrySha256": "4509d9559940f7a91a7b71881b422cf7358e5379f768e9a6fee88f42aebce4fc",
+          "geometrySha256": "5e90cb89c6f311ddd6501151e8456bb953aa8eb1b698ccecbbf2e6fe4c028944",
           "cameraPosition": [
             -7.820255756378174,
             0.05499999225139618,
@@ -3972,7 +4007,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/greenheart/right.png",
-          "geometrySha256": "4509d9559940f7a91a7b71881b422cf7358e5379f768e9a6fee88f42aebce4fc",
+          "geometrySha256": "5e90cb89c6f311ddd6501151e8456bb953aa8eb1b698ccecbbf2e6fe4c028944",
           "cameraPosition": [
             7.830106258392334,
             0.05499999225139618,
@@ -3983,7 +4018,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/greenheart/three-quarter-front.png",
-          "geometrySha256": "4509d9559940f7a91a7b71881b422cf7358e5379f768e9a6fee88f42aebce4fc",
+          "geometrySha256": "5e90cb89c6f311ddd6501151e8456bb953aa8eb1b698ccecbbf2e6fe4c028944",
           "cameraPosition": [
             4.493264675140381,
             6.465012550354004,
@@ -3994,7 +4029,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/greenheart/three-quarter-back.png",
-          "geometrySha256": "4509d9559940f7a91a7b71881b422cf7358e5379f768e9a6fee88f42aebce4fc",
+          "geometrySha256": "5e90cb89c6f311ddd6501151e8456bb953aa8eb1b698ccecbbf2e6fe4c028944",
           "cameraPosition": [
             4.493264675140381,
             -6.355012893676758,
@@ -4014,12 +4049,12 @@
         "Eye L": [
           -0.11597248166799545,
           0.1580500304698944,
-          1.1421406269073486
+          1.065140724182129
         ],
         "Eye R": [
           0.11597248166799545,
           0.1580500304698944,
-          1.1421406269073486
+          1.065140724182129
         ]
       },
       "landmarksSource": {
@@ -4049,9 +4084,9 @@
       "locomotion": "biped",
       "attackStyle": "staff",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2068,
+        "triangles": 2040,
         "boundsMin": [
           -0.6739301681518555,
           -0.3458678126335144,
@@ -4077,7 +4112,6 @@
           "Gilded front garment trim.001": 0.0004037107064505108,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.003996369764839377,
           "Observed face": 0.04943875753087923,
           "Eye L": 5.8564620000349065e-05,
           "Eye R": 5.8561685060946424e-05,
@@ -4142,11 +4176,11 @@
           "Staff leaf focus.001": 0.001320001669228077,
           "Staff leaf focus.002": 0.0013382105777661006
         },
-        "meshes": 70,
+        "meshes": 69,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2068,
-        "fileSha256": "04b8162e3819dd8bfed6dc9070850ad16ab69f8aea420ed1edd380888f5042d6",
-        "geometrySha256": "36c0fb9584a3fbf23f1973aaee07c4b9602330a51fce2f0effe6a4f37ef3892b",
+        "roundtripTriangles": 2040,
+        "fileSha256": "296574796d0a41396f363e07cf0ab393e7a5e02fcc9add62da51ffc4796eaf4b",
+        "geometrySha256": "ec82d3942b3e5f1498f7472bad2267e60682ec7ea9f2074f8ca137872bf2c965",
         "namedPivots": [
           "eldergrove",
           "torso_pivot",
@@ -4191,7 +4225,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/eldergrove/front.png",
-          "geometrySha256": "36c0fb9584a3fbf23f1973aaee07c4b9602330a51fce2f0effe6a4f37ef3892b",
+          "geometrySha256": "ec82d3942b3e5f1498f7472bad2267e60682ec7ea9f2074f8ca137872bf2c965",
           "cameraPosition": [
             0.02025461196899414,
             7.8201470375061035,
@@ -4202,7 +4236,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/eldergrove/back.png",
-          "geometrySha256": "36c0fb9584a3fbf23f1973aaee07c4b9602330a51fce2f0effe6a4f37ef3892b",
+          "geometrySha256": "ec82d3942b3e5f1498f7472bad2267e60682ec7ea9f2074f8ca137872bf2c965",
           "cameraPosition": [
             0.02025461196899414,
             -7.830214977264404,
@@ -4213,7 +4247,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/eldergrove/left.png",
-          "geometrySha256": "36c0fb9584a3fbf23f1973aaee07c4b9602330a51fce2f0effe6a4f37ef3892b",
+          "geometrySha256": "ec82d3942b3e5f1498f7472bad2267e60682ec7ea9f2074f8ca137872bf2c965",
           "cameraPosition": [
             -7.80492639541626,
             -0.005033910274505615,
@@ -4224,7 +4258,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/eldergrove/right.png",
-          "geometrySha256": "36c0fb9584a3fbf23f1973aaee07c4b9602330a51fce2f0effe6a4f37ef3892b",
+          "geometrySha256": "ec82d3942b3e5f1498f7472bad2267e60682ec7ea9f2074f8ca137872bf2c965",
           "cameraPosition": [
             7.845435619354248,
             -0.005033910274505615,
@@ -4235,7 +4269,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/eldergrove/three-quarter-front.png",
-          "geometrySha256": "36c0fb9584a3fbf23f1973aaee07c4b9602330a51fce2f0effe6a4f37ef3892b",
+          "geometrySha256": "ec82d3942b3e5f1498f7472bad2267e60682ec7ea9f2074f8ca137872bf2c965",
           "cameraPosition": [
             4.508594036102295,
             6.4049787521362305,
@@ -4246,7 +4280,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/eldergrove/three-quarter-back.png",
-          "geometrySha256": "36c0fb9584a3fbf23f1973aaee07c4b9602330a51fce2f0effe6a4f37ef3892b",
+          "geometrySha256": "ec82d3942b3e5f1498f7472bad2267e60682ec7ea9f2074f8ca137872bf2c965",
           "cameraPosition": [
             4.508594036102295,
             -6.415046691894531,
@@ -4266,12 +4300,12 @@
         "Eye L": [
           -0.11350500583648682,
           0.15490002930164337,
-          1.08818519115448
+          1.0111850500106812
         ],
         "Eye R": [
           0.11350499838590622,
           0.15490002930164337,
-          1.08818519115448
+          1.0111850500106812
         ]
       },
       "landmarksSource": {
@@ -4528,9 +4562,9 @@
       "locomotion": "biped",
       "attackStyle": "staff",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2104,
+        "triangles": 2076,
         "boundsMin": [
           -0.6732693910598755,
           -0.30000001192092896,
@@ -4556,7 +4590,6 @@
           "Gilded front garment trim.001": 0.0004037107064505108,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004056047781584008,
           "Observed face": 0.05355621462998291,
           "Eye L": 6.194038625532507e-05,
           "Eye R": 6.193897168789893e-05,
@@ -4628,11 +4661,11 @@
           "Staff solar disk ray.010": 1.4249584637582302e-05,
           "Staff solar disk ray.011": 1.4237749079863194e-05
         },
-        "meshes": 77,
+        "meshes": 76,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2104,
-        "fileSha256": "5f6504d51bc696eceb695c23c6c72a91f6b55ce924b33210cbcb843880525f89",
-        "geometrySha256": "44bc257129ff345b58ea6f6c6b6184dabbe788fe240056199d30ac9f3d42302f",
+        "roundtripTriangles": 2076,
+        "fileSha256": "d4a5daa4f7d6706be9138cbb852dde4380add83158f30a475cf4408d2875c654",
+        "geometrySha256": "89dbdfe62beb5e2936671e67ddd905d92dba96aa0d7ccc0ecd571302bb7cfbe5",
         "namedPivots": [
           "sunward",
           "torso_pivot",
@@ -4661,7 +4694,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/sunward/front.png",
-          "geometrySha256": "44bc257129ff345b58ea6f6c6b6184dabbe788fe240056199d30ac9f3d42302f",
+          "geometrySha256": "89dbdfe62beb5e2936671e67ddd905d92dba96aa0d7ccc0ecd571302bb7cfbe5",
           "cameraPosition": [
             0.0149402916431427,
             7.843080997467041,
@@ -4672,7 +4705,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/sunward/back.png",
-          "geometrySha256": "44bc257129ff345b58ea6f6c6b6184dabbe788fe240056199d30ac9f3d42302f",
+          "geometrySha256": "89dbdfe62beb5e2936671e67ddd905d92dba96aa0d7ccc0ecd571302bb7cfbe5",
           "cameraPosition": [
             0.0149402916431427,
             -7.807281017303467,
@@ -4683,7 +4716,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/sunward/left.png",
-          "geometrySha256": "44bc257129ff345b58ea6f6c6b6184dabbe788fe240056199d30ac9f3d42302f",
+          "geometrySha256": "89dbdfe62beb5e2936671e67ddd905d92dba96aa0d7ccc0ecd571302bb7cfbe5",
           "cameraPosition": [
             -7.810240745544434,
             0.01789999008178711,
@@ -4694,7 +4727,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/sunward/right.png",
-          "geometrySha256": "44bc257129ff345b58ea6f6c6b6184dabbe788fe240056199d30ac9f3d42302f",
+          "geometrySha256": "89dbdfe62beb5e2936671e67ddd905d92dba96aa0d7ccc0ecd571302bb7cfbe5",
           "cameraPosition": [
             7.840121269226074,
             0.01789999008178711,
@@ -4705,7 +4738,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/sunward/three-quarter-front.png",
-          "geometrySha256": "44bc257129ff345b58ea6f6c6b6184dabbe788fe240056199d30ac9f3d42302f",
+          "geometrySha256": "89dbdfe62beb5e2936671e67ddd905d92dba96aa0d7ccc0ecd571302bb7cfbe5",
           "cameraPosition": [
             4.503279685974121,
             6.427912712097168,
@@ -4716,7 +4749,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/sunward/three-quarter-back.png",
-          "geometrySha256": "44bc257129ff345b58ea6f6c6b6184dabbe788fe240056199d30ac9f3d42302f",
+          "geometrySha256": "89dbdfe62beb5e2936671e67ddd905d92dba96aa0d7ccc0ecd571302bb7cfbe5",
           "cameraPosition": [
             4.503279685974121,
             -6.392112731933594,
@@ -4736,12 +4769,12 @@
         "Eye L": [
           -0.11597248166799545,
           0.1580500304698944,
-          1.1763665676116943
+          1.099366545677185
         ],
         "Eye R": [
           0.11597248166799545,
           0.1580500304698944,
-          1.1763665676116943
+          1.099366545677185
         ]
       },
       "landmarksSource": {
@@ -4964,9 +4997,9 @@
       "locomotion": "biped",
       "attackStyle": "staff",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2904,
+        "triangles": 2876,
         "boundsMin": [
           -1.1011947393417358,
           -0.41062915325164795,
@@ -4992,7 +5025,6 @@
           "Gilded front garment trim.001": 0.0004037107064505108,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.003926587426879753,
           "Observed face": 0.04116864793468267,
           "Eye L": 5.248807288656583e-05,
           "Eye R": 5.248930222023773e-05,
@@ -5051,11 +5083,11 @@
           "Orb crown gilded support.001": 0.000421647277107695,
           "Orb crown gilded support.002": 0.00043679076225089375
         },
-        "meshes": 64,
+        "meshes": 63,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2904,
-        "fileSha256": "0132a39f442bbd82fe2c1d27bbb81b8f1870cf6bb22847dc00191834f3d39e4c",
-        "geometrySha256": "56285c127f685e07737972266801a0a0b5d573c9142e76d6bf58fd27b5e109ef",
+        "roundtripTriangles": 2876,
+        "fileSha256": "eed4cc811fd8a84a5f235c52cf44a969b87b522eb46e334b257eb5f550f6ed70",
+        "geometrySha256": "a94a16991ad0f58741b42c2adda1d3e4e09642f88697d602e3aac30252ce0c74",
         "namedPivots": [
           "dawnspire",
           "torso_pivot",
@@ -5086,7 +5118,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/dawnspire/front.png",
-          "geometrySha256": "56285c127f685e07737972266801a0a0b5d573c9142e76d6bf58fd27b5e109ef",
+          "geometrySha256": "a94a16991ad0f58741b42c2adda1d3e4e09642f88697d602e3aac30252ce0c74",
           "cameraPosition": [
             0.0,
             7.824581146240234,
@@ -5097,7 +5129,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/dawnspire/back.png",
-          "geometrySha256": "56285c127f685e07737972266801a0a0b5d573c9142e76d6bf58fd27b5e109ef",
+          "geometrySha256": "a94a16991ad0f58741b42c2adda1d3e4e09642f88697d602e3aac30252ce0c74",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.825780868530273,
@@ -5108,7 +5140,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/dawnspire/left.png",
-          "geometrySha256": "56285c127f685e07737972266801a0a0b5d573c9142e76d6bf58fd27b5e109ef",
+          "geometrySha256": "a94a16991ad0f58741b42c2adda1d3e4e09642f88697d602e3aac30252ce0c74",
           "cameraPosition": [
             -7.825181007385254,
             -0.0006000101566314697,
@@ -5119,7 +5151,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/dawnspire/right.png",
-          "geometrySha256": "56285c127f685e07737972266801a0a0b5d573c9142e76d6bf58fd27b5e109ef",
+          "geometrySha256": "a94a16991ad0f58741b42c2adda1d3e4e09642f88697d602e3aac30252ce0c74",
           "cameraPosition": [
             7.825181007385254,
             -0.0006000101566314697,
@@ -5130,7 +5162,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/dawnspire/three-quarter-front.png",
-          "geometrySha256": "56285c127f685e07737972266801a0a0b5d573c9142e76d6bf58fd27b5e109ef",
+          "geometrySha256": "a94a16991ad0f58741b42c2adda1d3e4e09642f88697d602e3aac30252ce0c74",
           "cameraPosition": [
             4.488339424133301,
             6.409412860870361,
@@ -5141,7 +5173,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/dawnspire/three-quarter-back.png",
-          "geometrySha256": "56285c127f685e07737972266801a0a0b5d573c9142e76d6bf58fd27b5e109ef",
+          "geometrySha256": "a94a16991ad0f58741b42c2adda1d3e4e09642f88697d602e3aac30252ce0c74",
           "cameraPosition": [
             4.488339424133301,
             -6.4106125831604,
@@ -5161,12 +5193,12 @@
         "Eye L": [
           -0.10610248148441315,
           0.14544998109340668,
-          1.2542914152145386
+          1.1772915124893188
         ],
         "Eye R": [
           0.10610248148441315,
           0.14544998109340668,
-          1.2542914152145386
+          1.1772915124893188
         ]
       },
       "landmarksSource": {
@@ -5196,9 +5228,9 @@
       "locomotion": "biped",
       "attackStyle": "bomb",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1924,
+        "triangles": 1896,
         "boundsMin": [
           -0.6553714871406555,
           -0.43299999833106995,
@@ -5207,12 +5239,12 @@
         "boundsMax": [
           0.6553714871406555,
           0.49000000953674316,
-          1.6486366987228394
+          1.5716367959976196
         ],
         "boundsSize": [
           1.310742974281311,
           0.9230000078678131,
-          1.6486366987228394
+          1.5716367959976196
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -5224,7 +5256,6 @@
           "Gilded front garment trim.001": 0.00016975216324984407,
           "Continuous leather waist belt": 0.023357578669674698,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.003992523542062068,
           "Observed face": 0.07668141756827633,
           "Eye L": 7.244257922896699e-05,
           "Eye R": 7.244209537778563e-05,
@@ -5264,11 +5295,11 @@
           "Bomb wick": 0.00012400245517104247,
           "Bomb small flame": 0.00010616510796050232
         },
-        "meshes": 45,
+        "meshes": 44,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1924,
-        "fileSha256": "3d404d9e74c7cee35d3bb5e0c3e9f0070b0e4c217e2d747a8b86b55a9c767360",
-        "geometrySha256": "2f9c38c97b0591b356e4eeccaabaf00940205dd2cafbc94577efee65d7f15697",
+        "roundtripTriangles": 1896,
+        "fileSha256": "5173b5fb71a79e0d40ad60fa2ec24c6473b2d83c0265ed897726ee21b35be1db",
+        "geometrySha256": "b715de403fb50263f40b4240163771b77bfbf6ab986a7ce7a0edfb3b8dc94a0f",
         "namedPivots": [
           "royalmarshal",
           "torso_pivot",
@@ -5286,7 +5317,8 @@
           "upper_arm_R",
           "forearm_R",
           "hand_R",
-          "weapon_R"
+          "weapon_R",
+          "attack_muzzle"
         ],
         "coverage": [],
         "headCoverage": []
@@ -5295,68 +5327,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/royalmarshal/front.png",
-          "geometrySha256": "2f9c38c97b0591b356e4eeccaabaf00940205dd2cafbc94577efee65d7f15697",
+          "geometrySha256": "b715de403fb50263f40b4240163771b77bfbf6ab986a7ce7a0edfb3b8dc94a0f",
           "cameraPosition": [
             0.0,
             7.8536810874938965,
-            2.487611770629883
+            2.4491119384765625
           ],
-          "orthoScale": 2.0113368034362793
+          "orthoScale": 1.917396903038025
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/royalmarshal/back.png",
-          "geometrySha256": "2f9c38c97b0591b356e4eeccaabaf00940205dd2cafbc94577efee65d7f15697",
+          "geometrySha256": "b715de403fb50263f40b4240163771b77bfbf6ab986a7ce7a0edfb3b8dc94a0f",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.796680927276611,
-            2.487611770629883
+            2.4491119384765625
           ],
-          "orthoScale": 2.0113368034362793
+          "orthoScale": 1.917396903038025
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/royalmarshal/left.png",
-          "geometrySha256": "2f9c38c97b0591b356e4eeccaabaf00940205dd2cafbc94577efee65d7f15697",
+          "geometrySha256": "b715de403fb50263f40b4240163771b77bfbf6ab986a7ce7a0edfb3b8dc94a0f",
           "cameraPosition": [
             -7.825181007385254,
             0.02850000560283661,
-            2.487611770629883
+            2.4491119384765625
           ],
-          "orthoScale": 2.0113368034362793
+          "orthoScale": 1.917396903038025
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/royalmarshal/right.png",
-          "geometrySha256": "2f9c38c97b0591b356e4eeccaabaf00940205dd2cafbc94577efee65d7f15697",
+          "geometrySha256": "b715de403fb50263f40b4240163771b77bfbf6ab986a7ce7a0edfb3b8dc94a0f",
           "cameraPosition": [
             7.825181007385254,
             0.02850000560283661,
-            2.487611770629883
+            2.4491119384765625
           ],
-          "orthoScale": 2.0113368034362793
+          "orthoScale": 1.917396903038025
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/royalmarshal/three-quarter-front.png",
-          "geometrySha256": "2f9c38c97b0591b356e4eeccaabaf00940205dd2cafbc94577efee65d7f15697",
+          "geometrySha256": "b715de403fb50263f40b4240163771b77bfbf6ab986a7ce7a0edfb3b8dc94a0f",
           "cameraPosition": [
             4.488339424133301,
             6.438512802124023,
-            2.487611770629883
+            2.4491119384765625
           ],
-          "orthoScale": 2.0113368034362793
+          "orthoScale": 1.917396903038025
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/royalmarshal/three-quarter-back.png",
-          "geometrySha256": "2f9c38c97b0591b356e4eeccaabaf00940205dd2cafbc94577efee65d7f15697",
+          "geometrySha256": "b715de403fb50263f40b4240163771b77bfbf6ab986a7ce7a0edfb3b8dc94a0f",
           "cameraPosition": [
             4.488339424133301,
             -6.381512641906738,
-            2.487611770629883
+            2.4491119384765625
           ],
-          "orthoScale": 2.0113368034362793
+          "orthoScale": 1.917396903038025
         }
       ],
       "accuracy": {
@@ -5370,12 +5402,12 @@
         "Eye L": [
           -0.1406475007534027,
           0.18954998254776,
-          1.340648889541626
+          1.2636491060256958
         ],
         "Eye R": [
           0.1406475007534027,
           0.18954998254776,
-          1.340648889541626
+          1.2636491060256958
         ]
       },
       "landmarksSource": {
@@ -5628,23 +5660,23 @@
       "locomotion": "biped",
       "attackStyle": "crossbow",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1748,
+        "triangles": 2326,
         "boundsMin": [
-          -0.5493714809417725,
+          -0.48499998450279236,
           -0.45500001311302185,
           0.0
         ],
         "boundsMax": [
-          0.5493714809417725,
-          1.0099999904632568,
-          1.7853378057479858
+          0.48499998450279236,
+          0.9160000085830688,
+          1.7083377838134766
         ],
         "boundsSize": [
-          1.098742961883545,
-          1.4650000035762787,
-          1.7853378057479858
+          0.9699999690055847,
+          1.3710000216960907,
+          1.7083377838134766
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -5656,7 +5688,6 @@
           "Gilded front garment trim.001": 0.00013924585073255002,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.00449496002693195,
           "Observed face": 0.09121183236129582,
           "Eye L": 8.976954291028961e-05,
           "Eye R": 8.976549778102098e-05,
@@ -5673,16 +5704,6 @@
           "Knee contacting articulated joint R": 0.004748332197777927,
           "Ankle contacting boot joint R": 0.0029587205450904244,
           "Grounded boot R": 0.015785406294526183,
-          "Connected shoulder L": 0.009531191273708828,
-          "Upper arm L": 0.004059394293714528,
-          "Forearm L": 0.009815309282809418,
-          "Elbow contacting articulated joint L": 0.0050360099806615235,
-          "Grasping hand L": 0.004778266077967904,
-          "Connected shoulder R": 0.009531191273708828,
-          "Upper arm R": 0.0040593946720643235,
-          "Forearm R": 0.0098153115977766,
-          "Elbow contacting articulated joint R": 0.005036012627291106,
-          "Grasping hand R": 0.0047782642068341374,
           "Real rear cape": 0.025619967222155537,
           "Shoulder folded cape": 0.002018613649852342,
           "Shoulder folded cape.001": 0.002018613649852342,
@@ -5693,17 +5714,40 @@
           "Quiver arrow broad fletch.001": 0.0002475574243968975,
           "Separate quiver arrow shaft.002": 0.00021843307573969165,
           "Quiver arrow broad fletch.002": 0.00024755438789725293,
-          "Crossbow connected stock": 0.01225195767256082,
-          "Crossbow transverse bow limbs": 0.00365583506936673,
-          "Crossbow taut string": 0.0001295855424056451,
-          "Loaded crossbow bolt": 0.0003530800486259979,
-          "Crossbow bolt crystal tip": 0.0004713260180627308
+          "Crossbow contacting shoulder R": 0.006779110350180418,
+          "Crossbow fitted sleeve upper arm R": 0.0057654076681501465,
+          "Crossbow physical forearm sleeve R": 0.005593147316631074,
+          "Crossbow contacting elbow R": 0.0032186271419050176,
+          "Crossbow gripping palm R": 0.0023978948215699347,
+          "Crossbow source cuff R": 0.0009391331101748315,
+          "Crossbow contacting shoulder L": 0.006779110350180418,
+          "Crossbow fitted sleeve upper arm L": 0.009322430147828223,
+          "Crossbow physical forearm sleeve L": 0.007615838714021568,
+          "Crossbow contacting elbow L": 0.003218630411235305,
+          "Crossbow gripping palm L": 0.0023978918228143202,
+          "Crossbow source cuff L": 0.0012787600793065697,
+          "Crossbow connected fore-stock": 0.011960549116944701,
+          "Crossbow shaped rear shoulder butt": 0.0059299999365975955,
+          "Crossbow rear butt binding": 0.0015189912061638704,
+          "Crossbow right trigger grip": 0.000715772536447427,
+          "Crossbow front supported hand grip": 0.0016121117541842978,
+          "Crossbow stock top metal binding": 0.001051829261389988,
+          "Crossbow stock top metal binding.001": 0.0010518295615232396,
+          "Crossbow visible recessed bolt rail": 0.00021082203644103492,
+          "Crossbow physically curved transverse limb": 0.0017885699802112263,
+          "Crossbow bow-tip string binding": 0.00026890062023691524,
+          "Crossbow physically curved transverse limb.001": 0.0017955088680234135,
+          "Crossbow bow-tip string binding.001": 0.0002689310276764445,
+          "Crossbow cocked two-segment physical string": 5.9577621868811514e-05,
+          "Loaded crossbow straight bolt": 0.0002669578858937407,
+          "Crossbow source frost crystal bolt tip": 0.0002150166158874831,
+          "Crossbow physical trigger guard": 6.098395488152161e-05
         },
-        "meshes": 48,
+        "meshes": 60,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1748,
-        "fileSha256": "1d425d91693d03177920e5ea23360998e828f2c0da1f544923b46d7d623dd5a8",
-        "geometrySha256": "4f79993098af0137c25aad38219575a19ead100b7c35ba1febb3734a69cd1339",
+        "roundtripTriangles": 2326,
+        "fileSha256": "2bcea57071ab786ae734fe2277d7a85afa1c07ebcda345d763410a410209c20f",
+        "geometrySha256": "94fdf2d49b520370f1cfd08a4acca401cfac1bd732da6ac54d16ce0d211f580f",
         "namedPivots": [
           "wyvernhunter",
           "torso_pivot",
@@ -5722,7 +5766,12 @@
           "forearm_R",
           "hand_R",
           "weapon_R",
-          "attack_muzzle"
+          "attack_muzzle",
+          "crossbow_trigger_grip",
+          "crossbow_foregrip",
+          "crossbow_string_left",
+          "crossbow_string_right",
+          "crossbow_nock"
         ],
         "coverage": [
           {
@@ -5747,68 +5796,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/wyvernhunter/front.png",
-          "geometrySha256": "4f79993098af0137c25aad38219575a19ead100b7c35ba1febb3734a69cd1339",
+          "geometrySha256": "94fdf2d49b520370f1cfd08a4acca401cfac1bd732da6ac54d16ce0d211f580f",
           "cameraPosition": [
             0.0,
-            8.102681159973145,
-            2.555962324142456
+            8.055681228637695,
+            2.5174622535705566
           ],
-          "orthoScale": 2.178112030029297
+          "orthoScale": 2.084172010421753
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/wyvernhunter/back.png",
-          "geometrySha256": "4f79993098af0137c25aad38219575a19ead100b7c35ba1febb3734a69cd1339",
+          "geometrySha256": "94fdf2d49b520370f1cfd08a4acca401cfac1bd732da6ac54d16ce0d211f580f",
           "cameraPosition": [
             9.583083008098082e-16,
-            -7.547680854797363,
-            2.555962324142456
+            -7.5946807861328125,
+            2.5174622535705566
           ],
-          "orthoScale": 2.178112030029297
+          "orthoScale": 2.084172010421753
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/wyvernhunter/left.png",
-          "geometrySha256": "4f79993098af0137c25aad38219575a19ead100b7c35ba1febb3734a69cd1339",
+          "geometrySha256": "94fdf2d49b520370f1cfd08a4acca401cfac1bd732da6ac54d16ce0d211f580f",
           "cameraPosition": [
             -7.825181007385254,
-            0.2774999737739563,
-            2.555962324142456
+            0.2304999977350235,
+            2.5174622535705566
           ],
-          "orthoScale": 2.178112030029297
+          "orthoScale": 2.084172010421753
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/wyvernhunter/right.png",
-          "geometrySha256": "4f79993098af0137c25aad38219575a19ead100b7c35ba1febb3734a69cd1339",
+          "geometrySha256": "94fdf2d49b520370f1cfd08a4acca401cfac1bd732da6ac54d16ce0d211f580f",
           "cameraPosition": [
             7.825181007385254,
-            0.2774999737739563,
-            2.555962324142456
+            0.2304999977350235,
+            2.5174622535705566
           ],
-          "orthoScale": 2.178112030029297
+          "orthoScale": 2.084172010421753
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/wyvernhunter/three-quarter-front.png",
-          "geometrySha256": "4f79993098af0137c25aad38219575a19ead100b7c35ba1febb3734a69cd1339",
+          "geometrySha256": "94fdf2d49b520370f1cfd08a4acca401cfac1bd732da6ac54d16ce0d211f580f",
           "cameraPosition": [
             4.488339424133301,
-            6.6875128746032715,
-            2.555962324142456
+            6.640512943267822,
+            2.5174622535705566
           ],
-          "orthoScale": 2.178112030029297
+          "orthoScale": 2.084172010421753
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/wyvernhunter/three-quarter-back.png",
-          "geometrySha256": "4f79993098af0137c25aad38219575a19ead100b7c35ba1febb3734a69cd1339",
+          "geometrySha256": "94fdf2d49b520370f1cfd08a4acca401cfac1bd732da6ac54d16ce0d211f580f",
           "cameraPosition": [
             4.488339424133301,
-            -6.13251256942749,
-            2.555962324142456
+            -6.1795125007629395,
+            2.5174622535705566
           ],
-          "orthoScale": 2.178112030029297
+          "orthoScale": 2.084172010421753
         }
       ],
       "accuracy": {
@@ -5822,12 +5871,12 @@
         "Eye L": [
           -0.13447874784469604,
           0.181674987077713,
-          1.295491337776184
+          1.218491554260254
         ],
         "Eye R": [
           0.13447873294353485,
           0.181674987077713,
-          1.295491337776184
+          1.218491554260254
         ]
       },
       "landmarksSource": {
@@ -6331,9 +6380,9 @@
       "locomotion": "biped",
       "attackStyle": "hammer",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2524,
+        "triangles": 2446,
         "boundsMin": [
           -0.7699999809265137,
           -0.3459148705005646,
@@ -6342,12 +6391,12 @@
         "boundsMax": [
           0.8050000071525574,
           0.44850000739097595,
-          1.6453393697738647
+          1.524999976158142
         ],
         "boundsSize": [
           1.574999988079071,
           0.7944148778915405,
-          1.6453393697738647
+          1.524999976158142
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -6359,19 +6408,6 @@
           "Gilded front garment trim.001": 0.00015324117945662394,
           "Continuous leather waist belt": 0.02013584307860583,
           "Belt buckle": 0.0005729772081698078,
-          "Helmet solid crown shell": 0.044589424574041914,
-          "Helmet opaque faceted visor": 0.0066199844574536355,
-          "Helmet chin guard": 0.009025969969419139,
-          "Helmet brow visor ridge": 0.0020909928910744684,
-          "Helmet cheek -1": 0.0007448669348377733,
-          "Helmet eye square recess": 8.827326989073e-05,
-          "Helmet cheek 1": 0.0007448669348377733,
-          "Helmet eye square recess.001": 8.827369553425042e-05,
-          "Helmet nose visor bridge": 0.00019294342261370423,
-          "Helmet contacting armored neck gorget": 0.008851284173336658,
-          "Helmet articulated rounded lower collar": 0.0029246252646165254,
-          "Helmet contacting transverse crest support": 0.00020973615513260796,
-          "Helmet transverse crest": 0.003507978234362478,
           "Upper leg L": 0.0076115641980626005,
           "Lower leg L": 0.005201995543757221,
           "Knee contacting articulated joint L": 0.004748331727872331,
@@ -6411,13 +6447,18 @@
           "Shield Latin cross tall shaft": 0.0011627465170628661,
           "Shield Latin cross short bar": 0.0007696730165965469,
           "Shield visible rear arm strap": 0.0003042450650051857,
-          "Shield visible rear arm strap.001": 0.0003042474393926873
+          "Shield visible rear arm strap.001": 0.0003042474393926873,
+          "Helmet single integrated hollow armored visor shell": 0.017675896644504974,
+          "Helmet recessed aperture interior": 0.00010977752253893411,
+          "Helmet recessed aperture interior.001": 0.00010977724514305008,
+          "Helmet touching source transverse gold crest": 0.0013289946606770788,
+          "Helmet touching source crest upright": 0.0007162713130431562
         },
-        "meshes": 59,
+        "meshes": 51,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2524,
-        "fileSha256": "6db304f088a25bed503a96b5c3334bde6b531e674ae23c57438c8ff633ba8817",
-        "geometrySha256": "00dca21f8d88d18533fcf47456ec46761ff1cf438f3eee8a76b1e81cc305446d",
+        "roundtripTriangles": 2446,
+        "fileSha256": "7dfffb0c3373d7a8b409cddbfb5eef7cf9e47e77155b40efcd50b142a2181fcd",
+        "geometrySha256": "5a2723cc1c92ae4c89d8c82ca09ddcb28277a6827a658750b916472612fa5b97",
         "namedPivots": [
           "kingdomprotector",
           "torso_pivot",
@@ -6441,9 +6482,9 @@
         "coverage": [
           {
             "type": "closed-helmet",
-            "shell": "Helmet solid crown shell",
+            "shell": "Helmet single integrated hollow armored visor shell",
             "hiddenSkinMeshes": 0,
-            "rule": "Hidden scalp/skin omitted; opaque visor recess. No skin can protrude."
+            "rule": "One hollow closed manifold shell with two physical visor eye apertures; no underlying skin or oval cap."
           }
         ],
         "headCoverage": [
@@ -6459,68 +6500,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/kingdomprotector/front.png",
-          "geometrySha256": "00dca21f8d88d18533fcf47456ec46761ff1cf438f3eee8a76b1e81cc305446d",
+          "geometrySha256": "5a2723cc1c92ae4c89d8c82ca09ddcb28277a6827a658750b916472612fa5b97",
           "cameraPosition": [
             0.01750001311302185,
             7.876473426818848,
-            2.4859631061553955
+            2.425793409347534
           ],
-          "orthoScale": 2.0073139667510986
+          "orthoScale": 1.8899999856948853
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/kingdomprotector/back.png",
-          "geometrySha256": "00dca21f8d88d18533fcf47456ec46761ff1cf438f3eee8a76b1e81cc305446d",
+          "geometrySha256": "5a2723cc1c92ae4c89d8c82ca09ddcb28277a6827a658750b916472612fa5b97",
           "cameraPosition": [
             0.01750001311302185,
             -7.77388858795166,
-            2.4859631061553955
+            2.425793409347534
           ],
-          "orthoScale": 2.0073139667510986
+          "orthoScale": 1.8899999856948853
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/kingdomprotector/left.png",
-          "geometrySha256": "00dca21f8d88d18533fcf47456ec46761ff1cf438f3eee8a76b1e81cc305446d",
+          "geometrySha256": "5a2723cc1c92ae4c89d8c82ca09ddcb28277a6827a658750b916472612fa5b97",
           "cameraPosition": [
             -7.807681083679199,
             0.05129256844520569,
-            2.4859631061553955
+            2.425793409347534
           ],
-          "orthoScale": 2.0073139667510986
+          "orthoScale": 1.8899999856948853
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/kingdomprotector/right.png",
-          "geometrySha256": "00dca21f8d88d18533fcf47456ec46761ff1cf438f3eee8a76b1e81cc305446d",
+          "geometrySha256": "5a2723cc1c92ae4c89d8c82ca09ddcb28277a6827a658750b916472612fa5b97",
           "cameraPosition": [
             7.842680931091309,
             0.05129256844520569,
-            2.4859631061553955
+            2.425793409347534
           ],
-          "orthoScale": 2.0073139667510986
+          "orthoScale": 1.8899999856948853
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/kingdomprotector/three-quarter-front.png",
-          "geometrySha256": "00dca21f8d88d18533fcf47456ec46761ff1cf438f3eee8a76b1e81cc305446d",
+          "geometrySha256": "5a2723cc1c92ae4c89d8c82ca09ddcb28277a6827a658750b916472612fa5b97",
           "cameraPosition": [
             4.5058393478393555,
             6.461305141448975,
-            2.4859631061553955
+            2.425793409347534
           ],
-          "orthoScale": 2.0073139667510986
+          "orthoScale": 1.8899999856948853
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/kingdomprotector/three-quarter-back.png",
-          "geometrySha256": "00dca21f8d88d18533fcf47456ec46761ff1cf438f3eee8a76b1e81cc305446d",
+          "geometrySha256": "5a2723cc1c92ae4c89d8c82ca09ddcb28277a6827a658750b916472612fa5b97",
           "cameraPosition": [
             4.5058393478393555,
             -6.358720302581787,
-            2.4859631061553955
+            2.425793409347534
           ],
-          "orthoScale": 2.0073139667510986
+          "orthoScale": 1.8899999856948853
         }
       ],
       "accuracy": {
@@ -6558,110 +6599,112 @@
       "locomotion": "flying",
       "attackStyle": "staff",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1408,
+        "triangles": 2144,
         "boundsMin": [
-          -0.796558678150177,
-          -0.3603297472000122,
-          0.03999999910593033
+          -0.7379999756813049,
+          -0.34838083386421204,
+          0.029999999329447746
         ],
         "boundsMax": [
-          0.796558678150177,
-          0.28976380825042725,
-          2.180428981781006
+          0.7379999756813049,
+          0.272599995136261,
+          2.0329999923706055
         ],
         "boundsSize": [
-          1.593117356300354,
-          0.6500935554504395,
-          2.1404289826750755
+          1.4759999513626099,
+          0.620980829000473,
+          2.0029999930411577
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
         "nonManifoldEdges": 0,
         "meshSignedVolumesM3": {
-          "Distinct floating lower crystal": 0.002529999823309481,
-          "Distinct floating lower crystal.001": 0.002529999939724803,
-          "Distinct floating lower crystal.002": 0.002529999823309481,
-          "Intertwined curved nature root trunk": 0.03236649147993376,
-          "Intertwined curved nature root trunk.001": 0.03334407246419128,
-          "Intertwined curved nature root trunk.002": 0.0329172301314126,
-          "Nature layered leaf shoulder collar": 0.0009369756686889258,
-          "Nature layered leaf shoulder collar.001": 0.0013023098629976935,
-          "Nature layered leaf shoulder collar.002": 0.0016702453091662997,
-          "Nature layered leaf shoulder collar.003": 0.0009369747131131589,
-          "Nature layered leaf shoulder collar.004": 0.0013023139326833189,
-          "Nature layered leaf shoulder collar.005": 0.00167024774903742,
-          "Continuous wrapped hood nature leaf shell": 0.10748854706374307,
-          "Nature real overlapping side and rear head leaf": 0.0009567882225383074,
-          "Nature real overlapping side and rear head leaf.001": 0.0009574594829852382,
-          "Nature real overlapping side and rear head leaf.002": 0.0009548877133056521,
-          "Nature real overlapping side and rear head leaf.003": 0.0009533256886082506,
-          "Nature real overlapping side and rear head leaf.004": 0.000954900635406375,
-          "Nature real overlapping side and rear head leaf.005": 0.0009574567957315594,
-          "Nature real overlapping side and rear head leaf.006": 0.0009567818293968836,
-          "Nature real overlapping side and rear head leaf.007": 0.0009567837308471405,
-          "Nature real overlapping side and rear head leaf.008": 0.0009574571643800784,
-          "Nature real overlapping side and rear head leaf.009": 0.0009548944071866568,
-          "Nature real overlapping side and rear head leaf.010": 0.0009533248689743944,
-          "Nature real overlapping side and rear head leaf.011": 0.0009548954937296608,
-          "Nature real overlapping side and rear head leaf.012": 0.0009574607344499482,
-          "Nature real overlapping side and rear head leaf.013": 0.0009567814364951728,
-          "Nature real overlapping side and rear head leaf.014": 0.000956782828628396,
-          "Nature real overlapping side and rear head leaf.015": 0.0009574592259014025,
-          "Nature real overlapping side and rear head leaf.016": 0.0009548990055918696,
-          "Nature real overlapping side and rear head leaf.017": 0.0009533246751593795,
-          "Nature real overlapping side and rear head leaf.018": 0.0009548926027491691,
-          "Nature real overlapping side and rear head leaf.019": 0.0009574579453328627,
-          "Nature real overlapping side and rear head leaf.020": 0.000956783544097561,
-          "Construct angular shoulder": 0.023222668596038908,
-          "Construct upper arm": 0.012009740302649638,
-          "Construct forearm": 0.01750689752710362,
-          "Nature rounded bark palm": 0.002808955924895902,
-          "Nature held green elemental jewel": 0.0018133285144964855,
-          "Nature hand leaf fingers": 0.0002477863478513124,
-          "Nature hand leaf fingers.001": 0.00024404238865827205,
-          "Nature hand leaf fingers.002": 0.00024777975098307553,
-          "Construct angular shoulder.001": 0.023222668596038908,
-          "Construct upper arm.001": 0.012009739914598564,
-          "Construct forearm.001": 0.01750689729427298,
-          "Nature rounded bark palm.001": 0.0028089478000765666,
-          "Nature held green elemental jewel.001": 0.0018133378277222312,
-          "Nature hand leaf fingers.003": 0.0002477940700676602,
-          "Nature hand leaf fingers.004": 0.00024404749759317698,
-          "Nature hand leaf fingers.005": 0.0002477878297213465,
-          "Large shoulder crystal": 0.005339484040935834,
-          "Large shoulder crystal.001": 0.005485334666445851,
-          "Large shoulder crystal.002": 0.005339481091747681,
-          "Layered leaf shoulder": 0.0008735300943953916,
-          "Layered leaf shoulder.001": 0.0010415194847155358,
-          "Layered leaf shoulder.002": 0.0012178792579409983,
-          "Layered leaf shoulder.003": 0.0008735320055469251,
-          "Layered leaf shoulder.004": 0.001041526164044626,
-          "Layered leaf shoulder.005": 0.0012178796023363248,
-          "Branched antler main": 0.0021255636477993303,
-          "Antler side fork": 0.0006393421014460423,
-          "Antler side fork.001": 0.0005853832408320163,
-          "Antler side fork.002": 0.0005332513925774642,
-          "Antler side fork.003": 0.0004835507910077772,
-          "Branched antler main.001": 0.002122733455204677,
-          "Antler side fork.004": 0.0006393396567242842,
-          "Antler side fork.005": 0.0005853796416583163,
-          "Antler side fork.006": 0.0005332514895902325,
-          "Antler side fork.007": 0.0004835504514630886,
-          "Nature spirit physical leaf head mask with hollow recess": 0.00473027294598675,
-          "Nature spirit deep opaque face cavity": 0.001596198790745499,
-          "Nature spirit concealed root neck branch": 0.002946781954960898,
-          "Nature spirit luminous almond leaf eye": 2.3361527079638733e-05,
-          "Nature spirit carved brow root": 7.160898026844129e-05,
-          "Nature spirit luminous almond leaf eye.001": 2.3361527079638733e-05,
-          "Nature spirit carved brow root.001": 7.160712993936616e-05
+          "Nature unified living wood leaf body with integrated face": 0.1510574607399834,
+          "Nature integrated recessed leaf eye socket": 0.00013965893961180123,
+          "Nature integrated luminous almond eye": 2.475391238476735e-05,
+          "Nature living layered leaf shoulder collar": 0.0009176810126518831,
+          "Nature living layered leaf shoulder collar.001": 0.0010213305310268577,
+          "Nature living layered leaf shoulder collar.002": 0.0011257249110106689,
+          "Nature living layered leaf shoulder collar.003": 0.0012306715094988858,
+          "Nature integrated broad layered side back living leaf": 0.0011869602700850619,
+          "Nature integrated broad layered side back living leaf.001": 0.0011885744048356626,
+          "Nature integrated broad layered side back living leaf.002": 0.0011871976336503092,
+          "Nature integrated broad layered side back living leaf.003": 0.0011839597573271021,
+          "Nature integrated broad layered side back living leaf.004": 0.001181501282189856,
+          "Nature integrated broad layered side back living leaf.005": 0.0011869578447658569,
+          "Nature integrated broad layered side back living leaf.006": 0.0011885746757040276,
+          "Nature integrated broad layered side back living leaf.007": 0.0011872021883997759,
+          "Nature integrated broad layered side back living leaf.008": 0.0011839616345241666,
+          "Nature integrated broad layered side back living leaf.009": 0.0011815027943763807,
+          "Nature integrated broad layered side back living leaf.010": 0.0011869587566858777,
+          "Nature integrated broad layered side back living leaf.011": 0.0011885748984354903,
+          "Nature integrated broad layered side back living leaf.012": 0.001187202700142128,
+          "Nature integrated broad layered side back living leaf.013": 0.0011839593256202838,
+          "Nature integrated broad layered side back living leaf.014": 0.0011815037102375454,
+          "Nature living wood crown branching antler": 0.003599365389770052,
+          "Nature actual crooked source woody antler fork": 0.0012088755946327483,
+          "Nature actual green branch bud": 0.00034272104191283403,
+          "Nature actual crooked source woody antler fork.001": 0.0009606821895431495,
+          "Nature actual green branch bud.001": 0.00034271428982416796,
+          "Nature actual crooked source woody antler fork.002": 0.001148049970827477,
+          "Nature actual green branch bud.002": 0.00034272047923877835,
+          "Nature terminal green source antler bud": 0.00032558385282754876,
+          "Nature integrated living root upper arm L": 0.00827833923782843,
+          "Nature living curved branch forearm L": 0.006722820272746806,
+          "Nature actual contacting branch elbow L": 0.003690173170374085,
+          "Nature actual root palm L": 0.0027054669917561114,
+          "Nature living leaf hand fingers": 0.00024832532411285985,
+          "Nature living leaf hand fingers.001": 0.00024472830773447646,
+          "Nature living leaf hand fingers.002": 0.0002483201969880611,
+          "Nature source held green living elemental crystal": 0.002306881050268809,
+          "Nature integrated recessed leaf eye socket.001": 0.00013965743528387972,
+          "Nature integrated luminous almond eye.001": 2.4756760315843428e-05,
+          "Nature living layered leaf shoulder collar.004": 0.0009176802705042062,
+          "Nature living layered leaf shoulder collar.005": 0.0010213322190490244,
+          "Nature living layered leaf shoulder collar.006": 0.0011257242877036333,
+          "Nature living layered leaf shoulder collar.007": 0.0012306688319464834,
+          "Nature integrated broad layered side back living leaf.015": 0.0011869522568304092,
+          "Nature integrated broad layered side back living leaf.016": 0.0011885732564564933,
+          "Nature integrated broad layered side back living leaf.017": 0.0011872043833136556,
+          "Nature integrated broad layered side back living leaf.018": 0.001183956618964051,
+          "Nature integrated broad layered side back living leaf.019": 0.0011814988538390028,
+          "Nature integrated broad layered side back living leaf.020": 0.0011869547985649358,
+          "Nature integrated broad layered side back living leaf.021": 0.0011885742738115825,
+          "Nature integrated broad layered side back living leaf.022": 0.0011872001826607932,
+          "Nature integrated broad layered side back living leaf.023": 0.0011839596457624186,
+          "Nature integrated broad layered side back living leaf.024": 0.001181502842882765,
+          "Nature integrated broad layered side back living leaf.025": 0.0011869532948670287,
+          "Nature integrated broad layered side back living leaf.026": 0.0011885745801691883,
+          "Nature integrated broad layered side back living leaf.027": 0.0011872018900855132,
+          "Nature integrated broad layered side back living leaf.028": 0.0011839585592194148,
+          "Nature integrated broad layered side back living leaf.029": 0.001181505037796645,
+          "Nature living wood crown branching antler.001": 0.003600215946789831,
+          "Nature actual crooked source woody antler fork.003": 0.0012029593690764766,
+          "Nature actual green branch bud.003": 0.00034271886882682656,
+          "Nature actual crooked source woody antler fork.004": 0.0009692301634155831,
+          "Nature actual green branch bud.004": 0.0003427248448133472,
+          "Nature actual crooked source woody antler fork.005": 0.0011403615132129135,
+          "Nature actual green branch bud.005": 0.0003427195091110966,
+          "Nature terminal green source antler bud.001": 0.000325583852827549,
+          "Nature integrated living root upper arm R": 0.008190455979274702,
+          "Nature living curved branch forearm R": 0.006784967714338563,
+          "Nature actual contacting branch elbow R": 0.0036901735899543078,
+          "Nature actual root palm R": 0.0027054618415907803,
+          "Nature living leaf hand fingers.003": 0.00024831777166885643,
+          "Nature living leaf hand fingers.004": 0.0002447207589284518,
+          "Nature living leaf hand fingers.005": 0.00024831570529689384,
+          "Nature source held green living elemental crystal.001": 0.002306879498064517,
+          "Nature source floating root crystal": 0.0023582807431618375,
+          "Nature source floating root crystal.001": 0.0023582799864622457,
+          "Nature source floating root crystal.002": 0.002358280122280121
         },
-        "meshes": 76,
+        "meshes": 78,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1408,
-        "fileSha256": "bdb9497979e30829fc6f1bd35ff1bfa7b2b4aef195be27a6b5a2cffe6fd2fa7d",
-        "geometrySha256": "90a34be789d30d744a03725d15bcff0ee6926a9de2874916937c5ba849afc82b",
+        "roundtripTriangles": 2144,
+        "fileSha256": "4fa9be950db01283ed373acdb9433461d5d61e831070721eb558b4816f6391fe",
+        "geometrySha256": "e6fc5a54bdb6065213eddae1dc723bc0608133e1a39386cbcef44f1b85285aa8",
         "namedPivots": [
           "mothernature",
           "torso_pivot",
@@ -6670,96 +6713,82 @@
           "forearm_L",
           "hand_L",
           "weapon_L",
+          "attack_muzzle",
           "upper_arm_R",
           "forearm_R",
           "hand_R",
-          "weapon_R"
+          "weapon_R",
+          "attack_muzzle.001"
         ],
-        "coverage": [
-          {
-            "shell": "Continuous wrapped hood nature leaf shell",
-            "type": "hood",
-            "front": 0.28,
-            "rear": -0.28,
-            "apertureWidth": 0.556,
-            "apertureHeight": 0.3799999999999999,
-            "sideCutbackM": 0,
-            "center": [
-              0,
-              0,
-              1.33
-            ],
-            "rule": "Only observed face in aperture; full hidden scalp omitted"
-          }
-        ],
+        "coverage": [],
         "headCoverage": []
       },
       "views": [
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/mothernature/front.png",
-          "geometrySha256": "90a34be789d30d744a03725d15bcff0ee6926a9de2874916937c5ba849afc82b",
+          "geometrySha256": "e6fc5a54bdb6065213eddae1dc723bc0608133e1a39386cbcef44f1b85285aa8",
           "cameraPosition": [
             0.0,
-            7.789897918701172,
-            2.773508071899414
+            7.787290573120117,
+            2.694793462753296
           ],
-          "orthoScale": 2.611323356628418
+          "orthoScale": 2.443660020828247
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/mothernature/back.png",
-          "geometrySha256": "90a34be789d30d744a03725d15bcff0ee6926a9de2874916937c5ba849afc82b",
+          "geometrySha256": "e6fc5a54bdb6065213eddae1dc723bc0608133e1a39386cbcef44f1b85285aa8",
           "cameraPosition": [
             9.583083008098082e-16,
-            -7.860464096069336,
-            2.773508071899414
+            -7.863071441650391,
+            2.694793462753296
           ],
-          "orthoScale": 2.611323356628418
+          "orthoScale": 2.443660020828247
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/mothernature/left.png",
-          "geometrySha256": "90a34be789d30d744a03725d15bcff0ee6926a9de2874916937c5ba849afc82b",
+          "geometrySha256": "e6fc5a54bdb6065213eddae1dc723bc0608133e1a39386cbcef44f1b85285aa8",
           "cameraPosition": [
             -7.825181007385254,
-            -0.03528296947479248,
-            2.773508071899414
+            -0.037890419363975525,
+            2.694793462753296
           ],
-          "orthoScale": 2.611323356628418
+          "orthoScale": 2.443660020828247
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/mothernature/right.png",
-          "geometrySha256": "90a34be789d30d744a03725d15bcff0ee6926a9de2874916937c5ba849afc82b",
+          "geometrySha256": "e6fc5a54bdb6065213eddae1dc723bc0608133e1a39386cbcef44f1b85285aa8",
           "cameraPosition": [
             7.825181007385254,
-            -0.03528296947479248,
-            2.773508071899414
+            -0.037890419363975525,
+            2.694793462753296
           ],
-          "orthoScale": 2.611323356628418
+          "orthoScale": 2.443660020828247
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/mothernature/three-quarter-front.png",
-          "geometrySha256": "90a34be789d30d744a03725d15bcff0ee6926a9de2874916937c5ba849afc82b",
+          "geometrySha256": "e6fc5a54bdb6065213eddae1dc723bc0608133e1a39386cbcef44f1b85285aa8",
           "cameraPosition": [
             4.488339424133301,
-            6.374729633331299,
-            2.773508071899414
+            6.372122287750244,
+            2.694793462753296
           ],
-          "orthoScale": 2.611323356628418
+          "orthoScale": 2.443660020828247
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/mothernature/three-quarter-back.png",
-          "geometrySha256": "90a34be789d30d744a03725d15bcff0ee6926a9de2874916937c5ba849afc82b",
+          "geometrySha256": "e6fc5a54bdb6065213eddae1dc723bc0608133e1a39386cbcef44f1b85285aa8",
           "cameraPosition": [
             4.488339424133301,
-            -6.445295810699463,
-            2.773508071899414
+            -6.447903156280518,
+            2.694793462753296
           ],
-          "orthoScale": 2.611323356628418
+          "orthoScale": 2.443660020828247
         }
       ],
       "accuracy": {
@@ -6797,9 +6826,9 @@
       "locomotion": "biped",
       "attackStyle": "crossbow",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 2394,
+        "triangles": 2414,
         "boundsMin": [
           -0.48499998450279236,
           -0.45500001311302185,
@@ -6808,12 +6837,12 @@
         "boundsMax": [
           0.48499998450279236,
           0.9160000085830688,
-          1.6122756004333496
+          1.5352755784988403
         ],
         "boundsSize": [
           0.9699999690055847,
           1.3710000216960907,
-          1.6122756004333496
+          1.5352755784988403
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -6821,11 +6850,8 @@
         "meshSignedVolumesM3": {
           "Tailored continuous bodice": 0.0653382307694604,
           "Continuous flared garment hem": 0.025828752239855625,
-          "Gilded front garment trim": 0.00013924411420399949,
-          "Gilded front garment trim.001": 0.00013924585073255002,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004013213387224824,
           "Observed face": 0.056901479217534266,
           "Eye L": 6.301250338462222e-05,
           "Eye R": 6.301165543239524e-05,
@@ -6844,8 +6870,6 @@
           "Ankle contacting boot joint R": 0.0029587205450904244,
           "Grounded boot R": 0.015785406294526183,
           "Real rear cape": 0.024924816027729925,
-          "Shoulder folded cape": 0.002018612023675813,
-          "Shoulder folded cape.001": 0.002018612023675813,
           "Real back quiver": 0.01786789915058762,
           "Separate quiver arrow shaft": 0.00021843178668253435,
           "Quiver arrow broad fletch": 0.0002475548681104556,
@@ -6878,13 +6902,17 @@
           "Crossbow cocked two-segment physical string": 5.9577621868811514e-05,
           "Loaded crossbow straight bolt": 0.0002669578858937407,
           "Crossbow royal bolt point": 0.0002150166158874831,
-          "Crossbow physical trigger guard": 6.098395488152161e-05
+          "Crossbow physical trigger guard": 6.098395488152161e-05,
+          "Royal ranger fitted blue folded source collar": 0.0013561734352454855,
+          "Royal ranger actual gold tunic edge": 6.213825023830093e-05,
+          "Royal ranger fitted blue folded source collar.001": 0.0013561734352454855,
+          "Royal ranger actual gold tunic edge.001": 6.647519997689719e-05
         },
-        "meshes": 60,
+        "meshes": 59,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2394,
-        "fileSha256": "586eddddfd6d5b0d0d6298de873de02080cbd5430c12726d8f856839f6d86813",
-        "geometrySha256": "44ee13e4da6bae87ed4f628b67c6cf86f5f620df1e8bd5cf0d27e21f3f42ec72",
+        "roundtripTriangles": 2414,
+        "fileSha256": "cceaf76d5367d37fbae12d10ee7b111110854196da5760f977ff297521a18201",
+        "geometrySha256": "35d73e207a575ca9654504ae50cb476930bbbd7314747a9f2a8a0e4a5ad7c88c",
         "namedPivots": [
           "royalranger",
           "torso_pivot",
@@ -6917,68 +6945,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/royalranger/front.png",
-          "geometrySha256": "44ee13e4da6bae87ed4f628b67c6cf86f5f620df1e8bd5cf0d27e21f3f42ec72",
+          "geometrySha256": "35d73e207a575ca9654504ae50cb476930bbbd7314747a9f2a8a0e4a5ad7c88c",
           "cameraPosition": [
             0.0,
             8.055681228637695,
-            2.4694314002990723
+            2.430931329727173
           ],
-          "orthoScale": 1.966976284980774
+          "orthoScale": 1.8730361461639404
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/royalranger/back.png",
-          "geometrySha256": "44ee13e4da6bae87ed4f628b67c6cf86f5f620df1e8bd5cf0d27e21f3f42ec72",
+          "geometrySha256": "35d73e207a575ca9654504ae50cb476930bbbd7314747a9f2a8a0e4a5ad7c88c",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.5946807861328125,
-            2.4694314002990723
+            2.430931329727173
           ],
-          "orthoScale": 1.966976284980774
+          "orthoScale": 1.8730361461639404
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/royalranger/left.png",
-          "geometrySha256": "44ee13e4da6bae87ed4f628b67c6cf86f5f620df1e8bd5cf0d27e21f3f42ec72",
+          "geometrySha256": "35d73e207a575ca9654504ae50cb476930bbbd7314747a9f2a8a0e4a5ad7c88c",
           "cameraPosition": [
             -7.825181007385254,
             0.2304999977350235,
-            2.4694314002990723
+            2.430931329727173
           ],
-          "orthoScale": 1.966976284980774
+          "orthoScale": 1.8730361461639404
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/royalranger/right.png",
-          "geometrySha256": "44ee13e4da6bae87ed4f628b67c6cf86f5f620df1e8bd5cf0d27e21f3f42ec72",
+          "geometrySha256": "35d73e207a575ca9654504ae50cb476930bbbd7314747a9f2a8a0e4a5ad7c88c",
           "cameraPosition": [
             7.825181007385254,
             0.2304999977350235,
-            2.4694314002990723
+            2.430931329727173
           ],
-          "orthoScale": 1.966976284980774
+          "orthoScale": 1.8730361461639404
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/royalranger/three-quarter-front.png",
-          "geometrySha256": "44ee13e4da6bae87ed4f628b67c6cf86f5f620df1e8bd5cf0d27e21f3f42ec72",
+          "geometrySha256": "35d73e207a575ca9654504ae50cb476930bbbd7314747a9f2a8a0e4a5ad7c88c",
           "cameraPosition": [
             4.488339424133301,
             6.640512943267822,
-            2.4694314002990723
+            2.430931329727173
           ],
-          "orthoScale": 1.966976284980774
+          "orthoScale": 1.8730361461639404
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/royalranger/three-quarter-back.png",
-          "geometrySha256": "44ee13e4da6bae87ed4f628b67c6cf86f5f620df1e8bd5cf0d27e21f3f42ec72",
+          "geometrySha256": "35d73e207a575ca9654504ae50cb476930bbbd7314747a9f2a8a0e4a5ad7c88c",
           "cameraPosition": [
             4.488339424133301,
             -6.1795125007629395,
-            2.4694314002990723
+            2.430931329727173
           ],
-          "orthoScale": 1.966976284980774
+          "orthoScale": 1.8730361461639404
         }
       ],
       "accuracy": {
@@ -6992,12 +7020,12 @@
         "Eye L": [
           -0.1209074854850769,
           0.1643500179052353,
-          1.2366904020309448
+          1.1596906185150146
         ],
         "Eye R": [
           0.1209074929356575,
           0.1643500179052353,
-          1.2366904020309448
+          1.1596906185150146
         ]
       },
       "landmarksSource": {
@@ -7027,23 +7055,23 @@
       "locomotion": "biped",
       "attackStyle": "crossbow",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1936,
+        "triangles": 2514,
         "boundsMin": [
-          -0.5493714809417725,
+          -0.48499998450279236,
           -0.5300000309944153,
           0.0
         ],
         "boundsMax": [
-          0.5493714809417725,
-          1.0099999904632568,
-          1.7414131164550781
+          0.48499998450279236,
+          0.9160000085830688,
+          1.6644129753112793
         ],
         "boundsSize": [
-          1.098742961883545,
-          1.5400000214576721,
-          1.7414131164550781
+          0.9699999690055847,
+          1.4460000395774841,
+          1.6644129753112793
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -7055,7 +7083,6 @@
           "Gilded front garment trim.001": 0.00013924585073255002,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.00431304136630691,
           "Observed face": 0.07735016973068318,
           "Eye L": 7.93158244884277e-05,
           "Eye R": 7.931461304148489e-05,
@@ -7072,16 +7099,6 @@
           "Knee contacting articulated joint R": 0.004748332197777927,
           "Ankle contacting boot joint R": 0.0029587205450904244,
           "Grounded boot R": 0.015785406294526183,
-          "Connected shoulder L": 0.009531188528247487,
-          "Upper arm L": 0.004031163349130415,
-          "Forearm L": 0.009804370669371565,
-          "Elbow contacting articulated joint L": 0.0050360135501250625,
-          "Grasping hand L": 0.004778266077967904,
-          "Connected shoulder R": 0.009531188528247487,
-          "Upper arm R": 0.00403116525179333,
-          "Forearm R": 0.009804363047199635,
-          "Elbow contacting articulated joint R": 0.005036008574582714,
-          "Grasping hand R": 0.0047782642068341374,
           "Real rear cape": 0.01646299701921331,
           "Shoulder folded cape": 0.002018613149023926,
           "Shoulder folded cape.001": 0.002018613149023926,
@@ -7090,24 +7107,47 @@
           "Quiver arrow broad fletch": 0.0002475501969456672,
           "Separate quiver arrow shaft.001": 0.0002184362044014658,
           "Quiver arrow broad fletch.001": 0.0002475543296895922,
-          "Crossbow connected stock": 0.01225195767256082,
-          "Crossbow transverse bow limbs": 0.00365583506936673,
-          "Crossbow taut string": 0.0001295855424056451,
-          "Loaded crossbow bolt": 0.0003530800486259979,
-          "Crossbow bolt crystal tip": 0.0004713260180627308,
           "Shield real back and rim": 0.030556266661733385,
           "Shield inset front": 0.011924801161512733,
           "Royal ranger guard visible gold crown shield crest": 0.0016584001380882305,
           "Shield visible rear arm strap": 0.0003042464995814951,
           "Shield visible rear arm strap.001": 0.000304248213069513,
           "Back shield contacting leather suspension strap": 0.000285038007859839,
-          "Back shield contacting leather suspension strap.001": 0.0002850357062319138
+          "Back shield contacting leather suspension strap.001": 0.0002850357062319138,
+          "Crossbow contacting shoulder R": 0.006779113517647299,
+          "Crossbow fitted sleeve upper arm R": 0.005741080050938763,
+          "Crossbow physical forearm sleeve R": 0.005593147316631074,
+          "Crossbow contacting elbow R": 0.0032186271419050176,
+          "Crossbow gripping palm R": 0.0023978948215699347,
+          "Crossbow source cuff R": 0.0009391331101748315,
+          "Crossbow contacting shoulder L": 0.006779113517647299,
+          "Crossbow fitted sleeve upper arm L": 0.009311710840847809,
+          "Crossbow physical forearm sleeve L": 0.007615838714021568,
+          "Crossbow contacting elbow L": 0.003218630411235305,
+          "Crossbow gripping palm L": 0.0023978918228143202,
+          "Crossbow source cuff L": 0.0012787600793065697,
+          "Crossbow connected fore-stock": 0.011960549116944701,
+          "Crossbow shaped rear shoulder butt": 0.0059299999365975955,
+          "Crossbow rear butt binding": 0.0015189912061638704,
+          "Crossbow right trigger grip": 0.000715772536447427,
+          "Crossbow front supported hand grip": 0.0016121117541842978,
+          "Crossbow stock top metal binding": 0.001051829261389988,
+          "Crossbow stock top metal binding.001": 0.0010518295615232396,
+          "Crossbow visible recessed bolt rail": 0.00021082203644103492,
+          "Crossbow physically curved transverse limb": 0.0017885699802112263,
+          "Crossbow bow-tip string binding": 0.00026890062023691524,
+          "Crossbow physically curved transverse limb.001": 0.0017955088680234135,
+          "Crossbow bow-tip string binding.001": 0.0002689310276764445,
+          "Crossbow cocked two-segment physical string": 5.9577621868811514e-05,
+          "Loaded crossbow straight bolt": 0.0002669578858937407,
+          "Crossbow source frost crystal bolt tip": 0.0002150166158874831,
+          "Crossbow physical trigger guard": 6.098395488152161e-05
         },
-        "meshes": 53,
+        "meshes": 65,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1936,
-        "fileSha256": "b142719e2a2b7b7d83708dbc35954b1c7586b21824b685a1b6289a986570e240",
-        "geometrySha256": "d2ba07afcc781b1cebfde4b8691a52857c99d1b6316ca778ab0c392ceb00860d",
+        "roundtripTriangles": 2514,
+        "fileSha256": "241eaaea2172b3ce07d8fa78d6a91dc969cee89acc36207159f945d1fa135329",
+        "geometrySha256": "5996003de2d87a8724f927512d3ba4d6ba2646716f160b6081044d1301c3b980",
         "namedPivots": [
           "kingsrangerguard",
           "torso_pivot",
@@ -7127,7 +7167,12 @@
           "hand_R",
           "weapon_R",
           "attack_muzzle",
-          "back_shield_pivot"
+          "back_shield_pivot",
+          "crossbow_trigger_grip",
+          "crossbow_foregrip",
+          "crossbow_string_left",
+          "crossbow_string_right",
+          "crossbow_nock"
         ],
         "coverage": [
           {
@@ -7152,68 +7197,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/kingsrangerguard/front.png",
-          "geometrySha256": "d2ba07afcc781b1cebfde4b8691a52857c99d1b6316ca778ab0c392ceb00860d",
+          "geometrySha256": "5996003de2d87a8724f927512d3ba4d6ba2646716f160b6081044d1301c3b980",
           "cameraPosition": [
             0.0,
-            8.065180778503418,
-            2.5339999198913574
+            8.018180847167969,
+            2.495500087738037
           ],
-          "orthoScale": 2.1245241165161133
+          "orthoScale": 2.0305838584899902
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/kingsrangerguard/back.png",
-          "geometrySha256": "d2ba07afcc781b1cebfde4b8691a52857c99d1b6316ca778ab0c392ceb00860d",
+          "geometrySha256": "5996003de2d87a8724f927512d3ba4d6ba2646716f160b6081044d1301c3b980",
           "cameraPosition": [
             9.583083008098082e-16,
-            -7.58518123626709,
-            2.5339999198913574
+            -7.632181167602539,
+            2.495500087738037
           ],
-          "orthoScale": 2.1245241165161133
+          "orthoScale": 2.0305838584899902
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/kingsrangerguard/left.png",
-          "geometrySha256": "d2ba07afcc781b1cebfde4b8691a52857c99d1b6316ca778ab0c392ceb00860d",
+          "geometrySha256": "5996003de2d87a8724f927512d3ba4d6ba2646716f160b6081044d1301c3b980",
           "cameraPosition": [
             -7.825181007385254,
-            0.23999997973442078,
-            2.5339999198913574
+            0.19299998879432678,
+            2.495500087738037
           ],
-          "orthoScale": 2.1245241165161133
+          "orthoScale": 2.0305838584899902
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/kingsrangerguard/right.png",
-          "geometrySha256": "d2ba07afcc781b1cebfde4b8691a52857c99d1b6316ca778ab0c392ceb00860d",
+          "geometrySha256": "5996003de2d87a8724f927512d3ba4d6ba2646716f160b6081044d1301c3b980",
           "cameraPosition": [
             7.825181007385254,
-            0.23999997973442078,
-            2.5339999198913574
+            0.19299998879432678,
+            2.495500087738037
           ],
-          "orthoScale": 2.1245241165161133
+          "orthoScale": 2.0305838584899902
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/kingsrangerguard/three-quarter-front.png",
-          "geometrySha256": "d2ba07afcc781b1cebfde4b8691a52857c99d1b6316ca778ab0c392ceb00860d",
+          "geometrySha256": "5996003de2d87a8724f927512d3ba4d6ba2646716f160b6081044d1301c3b980",
           "cameraPosition": [
             4.488339424133301,
-            6.650012493133545,
-            2.5339999198913574
+            6.603012561798096,
+            2.495500087738037
           ],
-          "orthoScale": 2.1245241165161133
+          "orthoScale": 2.0305838584899902
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/kingsrangerguard/three-quarter-back.png",
-          "geometrySha256": "d2ba07afcc781b1cebfde4b8691a52857c99d1b6316ca778ab0c392ceb00860d",
+          "geometrySha256": "5996003de2d87a8724f927512d3ba4d6ba2646716f160b6081044d1301c3b980",
           "cameraPosition": [
             4.488339424133301,
-            -6.170012950897217,
-            2.5339999198913574
+            -6.217012882232666,
+            2.495500087738037
           ],
-          "orthoScale": 2.1245241165161133
+          "orthoScale": 2.0305838584899902
         }
       ],
       "accuracy": {
@@ -7227,12 +7272,12 @@
         "Eye L": [
           -0.12954376637935638,
           0.17537499964237213,
-          1.2673383951187134
+          1.190337896347046
         ],
         "Eye R": [
           0.12954378128051758,
           0.17537499964237213,
-          1.2673383951187134
+          1.190337896347046
         ]
       },
       "landmarksSource": {
@@ -7262,9 +7307,9 @@
       "locomotion": "biped",
       "attackStyle": "bow",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1984,
+        "triangles": 2588,
         "boundsMin": [
           -0.6084499955177307,
           -0.5450000166893005,
@@ -7290,14 +7335,11 @@
           "Gilded front garment trim.001": 0.00013924585073255002,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.004494960308268977,
           "Observed face": 0.0912118434983616,
           "Eye L": 8.976786345253152e-05,
           "Eye R": 8.976768973904349e-05,
           "Pointed anatomical ear": 0.002426764151702324,
           "Pointed anatomical ear.001": 0.0024267626771082465,
-          "Hair closed faceted cap": 0.028992146127469216,
-          "Hair parted fringe": 0.0010351022153069307,
           "Crown continuous band": 0.0061851039839287535,
           "Crown tall tooth": 0.00038775467934707797,
           "Crown tall tooth.001": 0.00027852909018596017,
@@ -7340,19 +7382,28 @@
           "Quiver arrow broad fletch.002": 0.0002475564057628313,
           "Separate quiver arrow shaft.003": 0.00021843497718994812,
           "Quiver arrow broad fletch.003": 0.00024755077599062725,
-          "Elven king broad long ivory hair": 0.024212506056452792,
-          "Elven king broad long ivory hair.001": 0.02421250904444605,
-          "Elven king flowing ivory rear hair": 0.033517068300473817,
           "Elven crown green royal stone": 0.0003266664959179859,
           "Continuous open bow stave": 0.00807221036317666,
           "Bow contacting wrapped grip": 0.0009775028738658873,
-          "Physical bowstring": 0.00012830424720332753
+          "Physical bowstring": 0.00012830424720332753,
+          "Royal layered hair contacting sculpted crown": 0.03745246672284944,
+          "Royal curved layered ivory hair lock": 0.0030752498960282537,
+          "Royal curved layered ivory hair lock.001": 0.0046675002771128975,
+          "Royal curved layered ivory hair lock.002": 0.004677557823015377,
+          "Royal curved layered ivory hair lock.003": 0.0031145473700841344,
+          "Royal curved layered ivory hair lock.004": 0.004600278722743194,
+          "Royal curved layered ivory hair lock.005": 0.004674855454747255,
+          "Royal curved overlapping ivory rear hair lock": 0.004335907561956749,
+          "Royal curved overlapping ivory rear hair lock.001": 0.00432471145359159,
+          "Royal curved overlapping ivory rear hair lock.002": 0.00442159928449352,
+          "Royal curved overlapping ivory rear hair lock.003": 0.0043269838373210705,
+          "Royal curved overlapping ivory rear hair lock.004": 0.00434041287129124
         },
-        "meshes": 63,
+        "meshes": 69,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1984,
-        "fileSha256": "df371ec03e2a5995ec5169de6978a75eabdfc1cf3d4d5b725cf5ffc2cd9fbe81",
-        "geometrySha256": "4652b88259dffaa1d94f98c5c7b5eb1f5ac5f40bb6e05b91c4c33955c1b7216e",
+        "roundtripTriangles": 2588,
+        "fileSha256": "e43e76a31d7736d62b139caeb37fd721fdbd77277d8669ea63da31c3a69e85b4",
+        "geometrySha256": "4b27138ecd7df95d92a6cc951bd53fb8bec8a33638c62b419289f05fbe911d15",
         "namedPivots": [
           "elvenking",
           "torso_pivot",
@@ -7384,7 +7435,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/elvenking/front.png",
-          "geometrySha256": "4652b88259dffaa1d94f98c5c7b5eb1f5ac5f40bb6e05b91c4c33955c1b7216e",
+          "geometrySha256": "4b27138ecd7df95d92a6cc951bd53fb8bec8a33638c62b419289f05fbe911d15",
           "cameraPosition": [
             0.0,
             7.732035160064697,
@@ -7395,7 +7446,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/elvenking/back.png",
-          "geometrySha256": "4652b88259dffaa1d94f98c5c7b5eb1f5ac5f40bb6e05b91c4c33955c1b7216e",
+          "geometrySha256": "4b27138ecd7df95d92a6cc951bd53fb8bec8a33638c62b419289f05fbe911d15",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.9183268547058105,
@@ -7406,7 +7457,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/elvenking/left.png",
-          "geometrySha256": "4652b88259dffaa1d94f98c5c7b5eb1f5ac5f40bb6e05b91c4c33955c1b7216e",
+          "geometrySha256": "4b27138ecd7df95d92a6cc951bd53fb8bec8a33638c62b419289f05fbe911d15",
           "cameraPosition": [
             -7.825181007385254,
             -0.09314562380313873,
@@ -7417,7 +7468,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/elvenking/right.png",
-          "geometrySha256": "4652b88259dffaa1d94f98c5c7b5eb1f5ac5f40bb6e05b91c4c33955c1b7216e",
+          "geometrySha256": "4b27138ecd7df95d92a6cc951bd53fb8bec8a33638c62b419289f05fbe911d15",
           "cameraPosition": [
             7.825181007385254,
             -0.09314562380313873,
@@ -7428,7 +7479,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/elvenking/three-quarter-front.png",
-          "geometrySha256": "4652b88259dffaa1d94f98c5c7b5eb1f5ac5f40bb6e05b91c4c33955c1b7216e",
+          "geometrySha256": "4b27138ecd7df95d92a6cc951bd53fb8bec8a33638c62b419289f05fbe911d15",
           "cameraPosition": [
             4.488339424133301,
             6.316866874694824,
@@ -7439,7 +7490,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/elvenking/three-quarter-back.png",
-          "geometrySha256": "4652b88259dffaa1d94f98c5c7b5eb1f5ac5f40bb6e05b91c4c33955c1b7216e",
+          "geometrySha256": "4b27138ecd7df95d92a6cc951bd53fb8bec8a33638c62b419289f05fbe911d15",
           "cameraPosition": [
             4.488339424133301,
             -6.5031585693359375,
@@ -7459,12 +7510,12 @@
         "Eye L": [
           -0.13447874784469604,
           0.181674987077713,
-          1.313389539718628
+          1.2363897562026978
         ],
         "Eye R": [
           0.13447873294353485,
           0.181674987077713,
-          1.313389539718628
+          1.2363897562026978
         ]
       },
       "landmarksSource": {
@@ -7922,9 +7973,9 @@
       "locomotion": "quadruped",
       "attackStyle": "bomb",
       "geometricRig": true,
-      "anatomyRevision": "geometric-source-anatomy-v3",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 7204,
+        "triangles": 7176,
         "boundsMin": [
           -1.1654506921768188,
           -1.2246161699295044,
@@ -8042,7 +8093,6 @@
           "Gilded front garment trim.001": 7.78050683341765e-05,
           "Continuous leather waist belt": 0.005879103691161921,
           "Belt buckle": 0.00018016205528207743,
-          "Connected neck inside collar": 0.0019565158982004505,
           "Observed face": 0.014628454242483713,
           "Eye L": 2.5107004072803345e-05,
           "Eye R": 2.5107197340427465e-05,
@@ -8091,11 +8141,11 @@
           "Griffin source contacting fitted chest harness.001": 0.0019336447876412421,
           "Griffin source harness gold chest diamond": 0.00022766929275045794
         },
-        "meshes": 146,
+        "meshes": 145,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 7204,
-        "fileSha256": "cb05ef1d47abbbb05da58bacfffec715572260f02ffce108e4287afe2d0200f3",
-        "geometrySha256": "441aac61336724f56c1fb293a88bedb1f8812df835b2e66def444faeb3bfa605",
+        "roundtripTriangles": 7176,
+        "fileSha256": "3b459e1a935c3f3c294d76398910da5850df10c4fef4dd200eff7e55788d5739",
+        "geometrySha256": "087a7529a3193dd7357cba4600807e36fc42b35b9d339896b3ee0e03f36ea495",
         "namedPivots": [
           "griffinbomber",
           "mount_torso_pivot",
@@ -8131,7 +8181,8 @@
           "upper_arm_R",
           "forearm_R",
           "hand_R",
-          "weapon_R"
+          "weapon_R",
+          "attack_muzzle.001"
         ],
         "coverage": [],
         "headCoverage": []
@@ -8140,7 +8191,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/griffinbomber/front.png",
-          "geometrySha256": "441aac61336724f56c1fb293a88bedb1f8812df835b2e66def444faeb3bfa605",
+          "geometrySha256": "087a7529a3193dd7357cba4600807e36fc42b35b9d339896b3ee0e03f36ea495",
           "cameraPosition": [
             0.0,
             7.6503729820251465,
@@ -8151,7 +8202,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/griffinbomber/back.png",
-          "geometrySha256": "441aac61336724f56c1fb293a88bedb1f8812df835b2e66def444faeb3bfa605",
+          "geometrySha256": "087a7529a3193dd7357cba4600807e36fc42b35b9d339896b3ee0e03f36ea495",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.999989032745361,
@@ -8162,7 +8213,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/griffinbomber/left.png",
-          "geometrySha256": "441aac61336724f56c1fb293a88bedb1f8812df835b2e66def444faeb3bfa605",
+          "geometrySha256": "087a7529a3193dd7357cba4600807e36fc42b35b9d339896b3ee0e03f36ea495",
           "cameraPosition": [
             -7.825181007385254,
             -0.1748080849647522,
@@ -8173,7 +8224,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/griffinbomber/right.png",
-          "geometrySha256": "441aac61336724f56c1fb293a88bedb1f8812df835b2e66def444faeb3bfa605",
+          "geometrySha256": "087a7529a3193dd7357cba4600807e36fc42b35b9d339896b3ee0e03f36ea495",
           "cameraPosition": [
             7.825181007385254,
             -0.1748080849647522,
@@ -8184,7 +8235,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/griffinbomber/three-quarter-front.png",
-          "geometrySha256": "441aac61336724f56c1fb293a88bedb1f8812df835b2e66def444faeb3bfa605",
+          "geometrySha256": "087a7529a3193dd7357cba4600807e36fc42b35b9d339896b3ee0e03f36ea495",
           "cameraPosition": [
             4.488339424133301,
             6.235204696655273,
@@ -8195,7 +8246,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/griffinbomber/three-quarter-back.png",
-          "geometrySha256": "441aac61336724f56c1fb293a88bedb1f8812df835b2e66def444faeb3bfa605",
+          "geometrySha256": "087a7529a3193dd7357cba4600807e36fc42b35b9d339896b3ee0e03f36ea495",
           "cameraPosition": [
             4.488339424133301,
             -6.584820747375488,
@@ -8215,12 +8266,12 @@
         "Eye L": [
           -0.0846940129995346,
           0.014919997192919254,
-          1.5560216903686523
+          1.4459317922592163
         ],
         "Eye R": [
           0.0846940204501152,
           0.014919997192919254,
-          1.5560216903686523
+          1.4459317922592163
         ]
       },
       "landmarksSource": {
@@ -8493,9 +8544,9 @@
       "locomotion": "biped",
       "attackStyle": "crozier",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 1912,
+        "triangles": 1884,
         "boundsMin": [
           -0.6799451112747192,
           -0.3459120988845825,
@@ -8521,7 +8572,6 @@
           "Gilded front garment trim.001": 0.0004037107064505108,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Connected neck inside collar": 0.003518955471614997,
           "Observed face": 0.02977219606206442,
           "Eye L": 3.8906909973472154e-05,
           "Eye R": 3.89068381233907e-05,
@@ -8567,11 +8617,11 @@
           "Connected crozier handle": 0.0028923980135004963,
           "Staff genuine hollow ring": 0.0012426516671742622
         },
-        "meshes": 51,
+        "meshes": 50,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 1912,
-        "fileSha256": "e796a91bead49bc9936116257ff233f299ddf7d4450ea291fb8680df01eeaae4",
-        "geometrySha256": "133ab7153a0ed664678a53abb5cd45a2a8f6016969b2e9c45f675e33696c79c3",
+        "roundtripTriangles": 1884,
+        "fileSha256": "22eaadc54cb04b1485e4ac6ccf82726592928a1937a7f4a8c0dd2e4763eaedfc",
+        "geometrySha256": "009b79f12e42439bf879a0ef0e05ee926bb21db8c1d8ad73d7dc3c5794491099",
         "namedPivots": [
           "archbishop",
           "torso_pivot",
@@ -8600,7 +8650,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/archbishop/front.png",
-          "geometrySha256": "133ab7153a0ed664678a53abb5cd45a2a8f6016969b2e9c45f675e33696c79c3",
+          "geometrySha256": "009b79f12e42439bf879a0ef0e05ee926bb21db8c1d8ad73d7dc3c5794491099",
           "cameraPosition": [
             -0.006384551525115967,
             7.822302341461182,
@@ -8611,7 +8661,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/archbishop/back.png",
-          "geometrySha256": "133ab7153a0ed664678a53abb5cd45a2a8f6016969b2e9c45f675e33696c79c3",
+          "geometrySha256": "009b79f12e42439bf879a0ef0e05ee926bb21db8c1d8ad73d7dc3c5794491099",
           "cameraPosition": [
             -0.006384551525115967,
             -7.828059673309326,
@@ -8622,7 +8672,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/archbishop/left.png",
-          "geometrySha256": "133ab7153a0ed664678a53abb5cd45a2a8f6016969b2e9c45f675e33696c79c3",
+          "geometrySha256": "009b79f12e42439bf879a0ef0e05ee926bb21db8c1d8ad73d7dc3c5794491099",
           "cameraPosition": [
             -7.8315653800964355,
             -0.0028785765171051025,
@@ -8633,7 +8683,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/archbishop/right.png",
-          "geometrySha256": "133ab7153a0ed664678a53abb5cd45a2a8f6016969b2e9c45f675e33696c79c3",
+          "geometrySha256": "009b79f12e42439bf879a0ef0e05ee926bb21db8c1d8ad73d7dc3c5794491099",
           "cameraPosition": [
             7.818796634674072,
             -0.0028785765171051025,
@@ -8644,7 +8694,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/archbishop/three-quarter-front.png",
-          "geometrySha256": "133ab7153a0ed664678a53abb5cd45a2a8f6016969b2e9c45f675e33696c79c3",
+          "geometrySha256": "009b79f12e42439bf879a0ef0e05ee926bb21db8c1d8ad73d7dc3c5794491099",
           "cameraPosition": [
             4.481955051422119,
             6.407134056091309,
@@ -8655,7 +8705,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/archbishop/three-quarter-back.png",
-          "geometrySha256": "133ab7153a0ed664678a53abb5cd45a2a8f6016969b2e9c45f675e33696c79c3",
+          "geometrySha256": "009b79f12e42439bf879a0ef0e05ee926bb21db8c1d8ad73d7dc3c5794491099",
           "cameraPosition": [
             4.481955051422119,
             -6.412891387939453,
@@ -8675,12 +8725,12 @@
         "Eye L": [
           -0.10486873984336853,
           0.14387498795986176,
-          1.171276569366455
+          1.0942766666412354
         ],
         "Eye R": [
           0.10486873984336853,
           0.14387498795986176,
-          1.171276569366455
+          1.0942766666412354
         ]
       },
       "landmarksSource": {
@@ -8710,9 +8760,9 @@
       "locomotion": "biped",
       "attackStyle": "spear",
       "geometricRig": true,
-      "anatomyRevision": "geometric-contact-anatomy-v2",
+      "anatomyRevision": "geometric-source-fit-v4",
       "qa": {
-        "triangles": 3058,
+        "triangles": 2958,
         "boundsMin": [
           -1.1011947393417358,
           -0.41062915325164795,
@@ -8738,17 +8788,6 @@
           "Gilded front garment trim.001": 0.00013924585073255002,
           "Continuous leather waist belt": 0.017259292343320944,
           "Belt buckle": 0.0005729772081698078,
-          "Helmet solid crown shell": 0.02630672870145645,
-          "Helmet opaque faceted visor": 0.004484506034107956,
-          "Helmet chin guard": 0.005325110435175399,
-          "Helmet brow visor ridge": 0.0014317832149875658,
-          "Helmet cheek -1": 0.0005352506899119665,
-          "Helmet eye square recess": 6.172982648422475e-05,
-          "Helmet cheek 1": 0.0005352506899119665,
-          "Helmet eye square recess.001": 6.172971855752013e-05,
-          "Helmet nose visor bridge": 0.00013697326176043131,
-          "Helmet contacting armored neck gorget": 0.005621796408983452,
-          "Helmet articulated rounded lower collar": 0.0017254659251193505,
           "Upper leg L": 0.007584362826795162,
           "Lower leg L": 0.005198662249010037,
           "Knee contacting articulated joint L": 0.004748331932205474,
@@ -8797,13 +8836,17 @@
           "Bird overlapping rounded wing covert.006": 0.00643984372709383,
           "Bird overlapping rounded wing covert.007": 0.007386734484801612,
           "Connected spear handle": 0.0028923980135004963,
-          "Spear faceted metal tip": 0.0009450040136774378
+          "Spear faceted metal tip": 0.0009450040136774378,
+          "Helmet single integrated hollow armored visor shell": 0.012211030275163163,
+          "Helmet recessed aperture interior": 7.701204898088083e-05,
+          "Helmet recessed aperture interior.001": 7.701015177493295e-05,
+          "Helmet fitted source blue fin crest": 0.0003931440032829413
         },
-        "meshes": 66,
+        "meshes": 59,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 3058,
-        "fileSha256": "080695b7ee9d908ff05842346571c33fc9720529b421a32c4a36c17c064cee19",
-        "geometrySha256": "8d973f3a968a4a3e2388d5c5987f642004fd4ab02d66d2b84c32125524b0f8cd",
+        "roundtripTriangles": 2958,
+        "fileSha256": "d3144a81ea3d51d48a522b7d68d09eefbd1189e53d56ec0f4b3ef29899432b74",
+        "geometrySha256": "d5222e3b0beaddd0a90a8f8a18435d858cf2c5c344b3d9e6350aba050d125370",
         "namedPivots": [
           "archangel",
           "torso_pivot",
@@ -8829,9 +8872,9 @@
         "coverage": [
           {
             "type": "closed-helmet",
-            "shell": "Helmet solid crown shell",
+            "shell": "Helmet single integrated hollow armored visor shell",
             "hiddenSkinMeshes": 0,
-            "rule": "Hidden scalp/skin omitted; opaque visor recess. No skin can protrude."
+            "rule": "One hollow closed manifold shell with two physical visor eye apertures; no underlying skin or oval cap."
           }
         ],
         "headCoverage": [
@@ -8847,7 +8890,7 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/archangel/front.png",
-          "geometrySha256": "8d973f3a968a4a3e2388d5c5987f642004fd4ab02d66d2b84c32125524b0f8cd",
+          "geometrySha256": "d5222e3b0beaddd0a90a8f8a18435d858cf2c5c344b3d9e6350aba050d125370",
           "cameraPosition": [
             0.0,
             7.814674377441406,
@@ -8858,7 +8901,7 @@
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/archangel/back.png",
-          "geometrySha256": "8d973f3a968a4a3e2388d5c5987f642004fd4ab02d66d2b84c32125524b0f8cd",
+          "geometrySha256": "d5222e3b0beaddd0a90a8f8a18435d858cf2c5c344b3d9e6350aba050d125370",
           "cameraPosition": [
             9.583083008098082e-16,
             -7.835687637329102,
@@ -8869,7 +8912,7 @@
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/archangel/left.png",
-          "geometrySha256": "8d973f3a968a4a3e2388d5c5987f642004fd4ab02d66d2b84c32125524b0f8cd",
+          "geometrySha256": "d5222e3b0beaddd0a90a8f8a18435d858cf2c5c344b3d9e6350aba050d125370",
           "cameraPosition": [
             -7.825181007385254,
             -0.010506466031074524,
@@ -8880,7 +8923,7 @@
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/archangel/right.png",
-          "geometrySha256": "8d973f3a968a4a3e2388d5c5987f642004fd4ab02d66d2b84c32125524b0f8cd",
+          "geometrySha256": "d5222e3b0beaddd0a90a8f8a18435d858cf2c5c344b3d9e6350aba050d125370",
           "cameraPosition": [
             7.825181007385254,
             -0.010506466031074524,
@@ -8891,7 +8934,7 @@
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/archangel/three-quarter-front.png",
-          "geometrySha256": "8d973f3a968a4a3e2388d5c5987f642004fd4ab02d66d2b84c32125524b0f8cd",
+          "geometrySha256": "d5222e3b0beaddd0a90a8f8a18435d858cf2c5c344b3d9e6350aba050d125370",
           "cameraPosition": [
             4.488339424133301,
             6.399506092071533,
@@ -8902,7 +8945,7 @@
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/archangel/three-quarter-back.png",
-          "geometrySha256": "8d973f3a968a4a3e2388d5c5987f642004fd4ab02d66d2b84c32125524b0f8cd",
+          "geometrySha256": "d5222e3b0beaddd0a90a8f8a18435d858cf2c5c344b3d9e6350aba050d125370",
           "cameraPosition": [
             4.488339424133301,
             -6.4205193519592285,
@@ -8948,7 +8991,7 @@
       "geometricRig": true,
       "anatomyRevision": "geometric-contact-anatomy-v2",
       "qa": {
-        "triangles": 2298,
+        "triangles": 2270,
         "boundsMin": [
           -0.6483731865882874,
           -0.4252472519874573,
@@ -8957,12 +9000,12 @@
         "boundsMax": [
           0.7379528880119324,
           0.3540000021457672,
-          2.103131055831909
+          1.9783391952514648
         ],
         "boundsSize": [
           1.3863260746002197,
           0.7792472541332245,
-          2.103131055831909
+          1.9783391952514648
         ],
         "degenerateTriangles": 0,
         "degenerateParts": [],
@@ -8991,7 +9034,6 @@
           "Gown rear golden hem 10": 0.00020759575302993957,
           "Gown rear golden hem 11": 0.00018997804727405318,
           "Bodice": 0.02933817173470743,
-          "Neck": 0.002499920360908921,
           "Collar R turned ivory": 0.00019858060113620037,
           "Mantle R shoulder leaf": 0.00034046178916469254,
           "Mantle R gold lip": 0.00012673965102294455,
@@ -9041,11 +9083,11 @@
           "Claire covered anatomical shin R": 0.0021124678032246416,
           "Claire contacting covered ankle shaft R": 0.0006905746484212235
         },
-        "meshes": 72,
+        "meshes": 71,
         "roundtripBoundsError": 0.0,
-        "roundtripTriangles": 2298,
-        "fileSha256": "bf019acd5a9ee63c84b33db4b020f7d12d8c013a1e98a9e271e0f4675991168a",
-        "geometrySha256": "57eaddf1863c04ed7caa097d6210bb100a38085a3cc53dd655b4edbb35fbf6f1",
+        "roundtripTriangles": 2270,
+        "fileSha256": "ff553274749dfa8d1b4d032b5afcf26d0b4f764fa1081c2aef250e68b03d26b2",
+        "geometrySha256": "0063819254bdf525e89b9a3c7ddeb19cbd237d149d135801db9954cae9c081a6",
         "namedPivots": [
           "ladyclaire",
           "staff_tip",
@@ -9076,68 +9118,68 @@
         {
           "view": "front",
           "file": "blender/renders/geometric-game-v1/champions/ladyclaire/front.png",
-          "geometrySha256": "57eaddf1863c04ed7caa097d6210bb100a38085a3cc53dd655b4edbb35fbf6f1",
+          "geometrySha256": "0063819254bdf525e89b9a3c7ddeb19cbd237d149d135801db9954cae9c081a6",
           "cameraPosition": [
             0.04478985071182251,
             7.789557456970215,
-            2.7148590087890625
+            2.652462959289551
           ],
-          "orthoScale": 2.5658199787139893
+          "orthoScale": 2.413573741912842
         },
         {
           "view": "back",
           "file": "blender/renders/geometric-game-v1/champions/ladyclaire/back.png",
-          "geometrySha256": "57eaddf1863c04ed7caa097d6210bb100a38085a3cc53dd655b4edbb35fbf6f1",
+          "geometrySha256": "0063819254bdf525e89b9a3c7ddeb19cbd237d149d135801db9954cae9c081a6",
           "cameraPosition": [
             0.04478985071182251,
             -7.860804557800293,
-            2.7148590087890625
+            2.652462959289551
           ],
-          "orthoScale": 2.5658199787139893
+          "orthoScale": 2.413573741912842
         },
         {
           "view": "left",
           "file": "blender/renders/geometric-game-v1/champions/ladyclaire/left.png",
-          "geometrySha256": "57eaddf1863c04ed7caa097d6210bb100a38085a3cc53dd655b4edbb35fbf6f1",
+          "geometrySha256": "0063819254bdf525e89b9a3c7ddeb19cbd237d149d135801db9954cae9c081a6",
           "cameraPosition": [
             -7.780391216278076,
             -0.03562362492084503,
-            2.7148590087890625
+            2.652462959289551
           ],
-          "orthoScale": 2.5658199787139893
+          "orthoScale": 2.413573741912842
         },
         {
           "view": "right",
           "file": "blender/renders/geometric-game-v1/champions/ladyclaire/right.png",
-          "geometrySha256": "57eaddf1863c04ed7caa097d6210bb100a38085a3cc53dd655b4edbb35fbf6f1",
+          "geometrySha256": "0063819254bdf525e89b9a3c7ddeb19cbd237d149d135801db9954cae9c081a6",
           "cameraPosition": [
             7.869970798492432,
             -0.03562362492084503,
-            2.7148590087890625
+            2.652462959289551
           ],
-          "orthoScale": 2.5658199787139893
+          "orthoScale": 2.413573741912842
         },
         {
           "view": "three-quarter-front",
           "file": "blender/renders/geometric-game-v1/champions/ladyclaire/three-quarter-front.png",
-          "geometrySha256": "57eaddf1863c04ed7caa097d6210bb100a38085a3cc53dd655b4edbb35fbf6f1",
+          "geometrySha256": "0063819254bdf525e89b9a3c7ddeb19cbd237d149d135801db9954cae9c081a6",
           "cameraPosition": [
             4.5331292152404785,
             6.374389171600342,
-            2.7148590087890625
+            2.652462959289551
           ],
-          "orthoScale": 2.5658199787139893
+          "orthoScale": 2.413573741912842
         },
         {
           "view": "three-quarter-back",
           "file": "blender/renders/geometric-game-v1/champions/ladyclaire/three-quarter-back.png",
-          "geometrySha256": "57eaddf1863c04ed7caa097d6210bb100a38085a3cc53dd655b4edbb35fbf6f1",
+          "geometrySha256": "0063819254bdf525e89b9a3c7ddeb19cbd237d149d135801db9954cae9c081a6",
           "cameraPosition": [
             4.5331292152404785,
             -6.44563627243042,
-            2.7148590087890625
+            2.652462959289551
           ],
-          "orthoScale": 2.5658199787139893
+          "orthoScale": 2.413573741912842
         }
       ],
       "accuracy": {

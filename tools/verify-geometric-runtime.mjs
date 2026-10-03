@@ -83,7 +83,7 @@ export async function auditGeometricRuntime(file){
   check('battlefield scale is private and applied exactly once',Math.abs(scaledFigure.scale.y-BATTLEFIELD_UNIT_SCALE)<1e-12&&source.scale.y===1);
   scaledFigure.position.y=enemy.flying?.7:0;beginDeath(scaledFigure,enemy);let scaledMinimum=Infinity;
   for(let i=0;i<26;i++){animateDeath(scaledFigure,.04);scaledFigure.updateWorldMatrix(true,true);scaledMinimum=Math.min(scaledMinimum,new THREE.Box3().setFromObject(scaledFigure.userData.body,true).min.y);}
-  check('every .88 battlefield corpse pose clears terrain in world metres',scaledMinimum>=.02499,scaledMinimum);
+  check('every '+BATTLEFIELD_UNIT_SCALE+' battlefield corpse pose clears terrain in world metres',scaledMinimum>=.02499,scaledMinimum);
   const scaledSettled=transforms(scaledFigure);animateDeath(scaledFigure,800);check('scaled corpse preserves imported opacity and remains stationary',transforms(scaledFigure)===scaledSettled&&scaledFigure.scale.y===BATTLEFIELD_UNIT_SCALE&&[...scaledOpacity].every(([material,opacity])=>material.opacity===opacity));
   check('cached source and peer clone remain unmodified',transforms(source)===nativeBefore&&transforms(peer)===peerBefore);
   check('shared native vertex buffers unchanged',[...vertices].every(([geometry,array])=>array.every((v,i)=>v===geometry.attributes.position.array[i])));

@@ -110,7 +110,7 @@ def fitted_boot(b, side, ankle, knee, foot, shin, width, top, material='leather'
     return lower, upper
 
 
-def fitted_neck(b, face, torso_top, torso, head, material='cloth'):
+def fitted_neck(b, face, torso_top, torso, head, material='cloth', centered=False):
     """A short tailored neck enters jaw and torso, including head tilt range."""
     low, high = bounds(face)
     width = high.x-low.x
@@ -118,18 +118,18 @@ def fitted_neck(b, face, torso_top, torso, head, material='cloth'):
     # The head can be forward of the torso. Bridge that actual surface offset.
     bottom = torso_top-.050
     top = low.z+.045
-    cy = min(.105, max(.025, face_y*.62))
+    cy = face_y if centered else min(.105, max(.025, face_y*.62))
     radius = width*.24
     # A hood aperture has a shallow face solid. Its neckline must enter that
     # actual jaw, rather than project through the opening as a separate block.
     jaw_depth = min(.135, (high.y-low.y)*.43)
     mid_depth = min(.150, max(jaw_depth, (high.y-low.y)*.65))
     neck = b.loft('Fitted neckline core', [
-        b.ring(0, .020, bottom, radius*1.05, .130, 10),
+        b.ring(0, face_y if centered else .020, bottom, radius*1.05, .130, 10),
         b.ring(0, cy, low.z-.025, radius, mid_depth, 10),
         b.ring(0, face_y, top, radius*.92, jaw_depth, 10)], material, head)
     collar = b.loft('Continuous tailored neckline', [
-        b.ring(0, .015, torso_top-.025, radius*1.18, .165, 10),
+        b.ring(0, face_y if centered else .015, torso_top-.025, radius*1.18, .165, 10),
         b.ring(0, cy, min(top-.015, torso_top+.045), radius*1.17, .168, 10)],
         [material, 'clothLight'] if material=='cloth' else material, torso)
     return neck, collar

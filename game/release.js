@@ -1,7 +1,7 @@
 import {siteUrl} from './site-url.js';
 
-export const GAME_VERSION='0.3.2';
-export const DEFENDER_ART_VERSION='geometric-game-v3';
+export const GAME_VERSION='0.3.3';
+export const DEFENDER_ART_VERSION='geometric-game-v4';
 export const CHAMPION_ART_VERSION=DEFENDER_ART_VERSION;
 // Updated assets must replace cached portraits and models from earlier editions.
 export const releaseAsset=path=>`${siteUrl(path)}?v=${CHAMPION_ART_VERSION}`;

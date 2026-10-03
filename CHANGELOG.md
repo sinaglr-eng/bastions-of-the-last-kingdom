@@ -1,5 +1,14 @@
 # Releases
 
+## 0.3.3 — Fitted characters and clear routes — 3 October 2026
+
+- Conceals humanoid necks, separates Engineer's hammer from the head, straightens Cleric's staff and closes its mitre. Refines mounted animals, rider and wing placement, shaped hair, crossbow grips, Kingslayer's hands and integrated Paladin/Archangel helmets. Nature Spirit's face is part of its living wood and leaf body.
+- Reduces battlefield defenders and enemies by another 20%, narrows masonry above the first course, and adds dressed corbelled fighting platforms. Wall height remains tied to the real second-wave enemy.
+- Enlarges checkpoints by 15%. Distinguishes the current solid gold/cyan route from the completed blueprint's purple dashed ground route with independent controls. Final plans include off-plan structures and blocked plans show no invalid route.
+- Adds actual-asset fit and production motion checks, source/model comparisons and a separate native archive. Preserves all three earlier archives and campaign statistics.
+
+Details: [Geometric models and battlefield 0.3.3](docs/GEOMETRIC_GAME_V4.md).
+
 ## 0.3.2 — Source proportions and raised walls — 3 October 2026
 
 - Centers 23 basic defenders' complete heads above their actual torsos, restores Engineer III–V's orange nape hair and gives Stormcaller natural fitted hair, six distinct lightning crowns and continuous lightning focuses.

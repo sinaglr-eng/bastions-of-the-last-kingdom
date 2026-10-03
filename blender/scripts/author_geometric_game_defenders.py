@@ -13,6 +13,7 @@ ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(Path(__file__).pa
 from geometric_game_common import Builder,metrics,export_and_check,render_views,head_coverage,geometry_digest
 from geometric_defender_fit_v2 import fitted_boot,fitted_neck,sculpt_facets,bow_forward_plane,bounds,remove,contact,storm_hair_and_focus,soldier_fit,fitted_arm_joints,rest_contact_checks
 from geometric_defender_fit_v3 import center_full_head_on_torso,storm_natural_hair_and_focus,engineer_source_nape_hair
+from geometric_defender_fit_v4 import seated_head_without_exposed_neck,tool_rest_checks
 FAMILIES=['soldier','archer','mage','frostwarden','stormcaller','cleric','druid','runebreaker']
 OUT=ROOT/'output/design/geometric-game-v1/defenders';SCENES=ROOT/'blender/scenes/geometric-game-v1/defenders';EXPORTS=ROOT/'public/assets/geometric/defenders'
 for p in (OUT,SCENES,EXPORTS):p.mkdir(parents=True,exist_ok=True)
@@ -77,6 +78,9 @@ def body(b,f,r):
  shoulderz=torso_top-.025
  handz=(sole-(bb[3]+(75 if f=='stormcaller' else 85)))*S
  rightx=b.bodyw*.77;leftx=-b.bodyw*.78
+ # Carry the hammer beside the head. The hand/weapon move together and the
+ # actual shoulder/elbow sleeves are authored to that resting grasp.
+ if f=='runebreaker':rightx+=.20
  if f=='archer':handcoords={'R':(rightx,.05,handz-.10),'L':(leftx,.21,handz+.12)}
  elif f=='stormcaller':handcoords={'R':(rightx,.18,handz+.07),'L':(leftx,.10,handz-.06)}
  elif f in ('mage','cleric') and r>=4:handcoords={'R':(rightx,.20,handz+.01),'L':(leftx,.22,handz-.025)}
@@ -221,7 +225,8 @@ def staff(b,f,r):
  wp=b.joints['R'][3];ha=b.joints['R'][6];x,y,z=ha;tipheight=1.55 if f=='mage' else 1.80
  if f=='cleric':
   cross_top_px=[80,94,112,110,103,100][r-1];tipheight=(b.sole-cross_top_px)*b.S-.205
- b.rod('Staff shaft',(x+.04,y,.025),(x-.045,y,tipheight-.16),.027,'ice' if f=='frostwarden' else 'wood',wp)
+ shaft_x=x if f=='cleric' else None
+ b.rod('Staff shaft',(shaft_x if shaft_x is not None else x+.04,y,.025),(shaft_x if shaft_x is not None else x-.045,y,tipheight-.16),.027,'ice' if f=='frostwarden' else 'wood',wp)
  if f=='mage':
   hz=.23 if r>=5 else .16;cx=x-.045;verts=[(cx-.015,y,tipheight-hz)];rings=[]
   for j in range(8):
@@ -243,10 +248,11 @@ def staff(b,f,r):
     b.rod('Ice fork '+str(sg),(x-.045,y,tipheight-.13),(x-.045+sg*.13,y,tipheight-.01),.025,'ice',wp)
     b.jewel('Side ice prong '+str(sg),(x-.045+sg*.13,y,tipheight+.11),.045,.17,.04,'ice',wp)
  elif f=='cleric':
-  b.box('Latin cross vertical',(x-.045,y,tipheight-.005),(.075,.075,.42),'gold',.006,wp)
-  b.box('Latin cross horizontal',(x-.045,y,tipheight+.035),(.31,.085,.073),'gold',.006,wp)
-  for zz in (.07,tipheight-.25):b.box('Staff gold ferrule',(x+.04 if zz<.2 else x-.04,y,zz),(.075,.075,.09),'gold',.007,wp)
- b.pivot('attack_muzzle',(x-.045,y+.04,tipheight),wp);b.pivot('staff_tip',(x-.045,y,tipheight),wp)
+  b.box('Latin cross vertical',(x,y,tipheight-.005),(.075,.075,.42),'gold',.006,wp)
+  b.box('Latin cross horizontal',(x,y,tipheight+.035),(.31,.085,.073),'gold',.006,wp)
+  for zz in (.07,tipheight-.25):b.box('Staff gold ferrule',(x,y,zz),(.075,.075,.09),'gold',.007,wp)
+  b.root['staffRestAxis']='native-Z-vertical-through-right-grasp-v4'
+ b.pivot('attack_muzzle',(x if f=='cleric' else x-.045,y+.04,tipheight),wp);b.pivot('staff_tip',(x if f=='cleric' else x-.045,y,tipheight),wp)
 
 def bow(b,r):
  ha=b.joints['L'][6];x,y,z=ha;wp=b.joints['L'][3];bp=b.pivot('bow_pivot',ha,wp)
@@ -351,6 +357,10 @@ def equipment(b,f,r):
    b.panel('Bishop mitre front peak',[(x,mitre_front,z) for x,z in uv],.065,['cloth','clothLight'],b.head,relief=.014)
    b.panel('Bishop mitre rear peak',[(x,mitre_rear,z-.012 if z>base else z) for x,z in uv],.055,['cloth','clothLight'],b.head,relief=.008)
    for sg in (-1,1):b.panel('Mitre side wall '+str(sg),[(sg*w,mitre_front,base),(sg*w,mitre_rear,base),(sg*w*1.10,mitre_rear,corner),(sg*w*1.10,mitre_front,corner)],.035,'cloth',b.head)
+   # Real cloth spans the two peaks, closing the entire upper opening. These
+   # two sloping roof volumes also read naturally from the game camera above.
+   for sg in (-1,1):
+    b.panel('Mitre closed upper roof '+str(sg),[(sg*w*1.10,mitre_front,corner),(0,mitre_front,1.8),(0,mitre_rear,1.788),(sg*w*1.10,mitre_rear,corner)],.034,['cloth','clothLight'],b.head)
    b.box('Mitre lower band',(0,(mitre_front+mitre_rear)/2,base+.018),(w*2.0,mitre_front-mitre_rear+.025,.065),'gold',.011,b.head)
    for sg in (-1,1):
     b.rod('Mitre gold edge '+str(sg),(sg*w*1.10,mitre_front+.035,corner),(0,mitre_front+.035,1.8),.016,'gold',b.head,6)
@@ -522,11 +532,14 @@ def author(f,r,args):
   b.root['measuredSource']=json.dumps(b.cfg)
   if b.coverSkin:b.coverage.append(head_coverage(b.coverSkin,b.coverShell))
   else:b.coverage.append({'passed':True,'method':'Open face cap/hat geometry; skin head stays below brim. No hood/closed helmet in this rank.'})
+ seated_head_without_exposed_neck(b)
+ tool_rest_checks(b,f,r)
  sculpt_facets(b)
  b.contactChecks=rest_contact_checks(b)
  if hasattr(b,'stormContactChecks'):b.contactChecks+=b.stormContactChecks
+ b.contactChecks+=b.seatChecks+b.toolRestChecks
  assert all(v['passed'] for v in b.contactChecks),(f,r,'Actual surface joint separation',b.contactChecks)
- b.root['assetRevision']='geometric-game-v3';b.root['jointFitRevision']='surface-fit-v3'
+ b.root['assetRevision']='geometric-game-v4';b.root['jointFitRevision']='surface-fit-v4'
  b.root['jointSurfaceContactQa']=json.dumps(b.contactChecks)
  sheet=next(v for v in SOURCES['sheets'] if v['id']==f'{f}-{r}' and v['category']=='towers');save_reference(b,sheet)
  for result in b.coverage:
@@ -551,5 +564,5 @@ args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv els
 if manifest.exists():previous={v['id']:v for v in json.loads(manifest.read_text())['assets']}
 pairs=[(v.rsplit('-',1)[0],int(v.rsplit('-',1)[1])) for v in args.ids.split(',')] if args.ids else [(f,r) for f in args.families.split(',') for r in map(int,args.ranks.split(','))]
 for f,r in pairs:
- row=author(f,r,args);previous[row['id']]=row;manifest.write_text(json.dumps({'revision':'geometric-game-v3','count':len(previous),'assets':list(previous.values())},indent=2),encoding='utf-8',newline='\n')
+ row=author(f,r,args);previous[row['id']]=row;manifest.write_text(json.dumps({'revision':'geometric-game-v4','count':len(previous),'assets':list(previous.values())},indent=2),encoding='utf-8',newline='\n')
 print('ALL_DEFENDERS_COMPLETE '+str(len(previous)),flush=True)

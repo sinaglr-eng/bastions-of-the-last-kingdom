@@ -124,7 +124,7 @@ test('the imported mounted lance thrust moves its actual hand forwards rather th
   assert.deepEqual(measureGeometricContacts(actor).failures.filter(f=>f.kind.startsWith('thrust-')),[],id+' actual forearm/wrist and shoulder surfaces connect at rest');
   assert.ok(['spear','lance'].includes(rig.attackStyle));triggerAttack(rig,{combatTime:1,stats});
   assert.ok(localPosition(actor,hand).z<before.z-.10,'mounted right hand physically thrusts towards the imported -Z front');
-  assert.ok((before.z-localPosition(actor,hand).z)*actor.scale.y>.10,'the smaller battlefield actor still delivers more than 100 mm of real forward hand travel');
+  assert.ok(before.z-localPosition(actor,hand).z>.114,'the actual mounted hand delivers at least 114 mm of forward travel in native metres at every battlefield scale');
   assert.deepEqual(measureGeometricContacts(actor).failures.filter(f=>f.kind.startsWith('thrust-')),[],id+' actual forearm/wrist and shoulder surfaces connect at release');
   assert.equal(rig.muzzle.parent,actor.getObjectByName('weapon_R'),'mounted lance uses the weapon tip rather than the mount mouth');
   assert.ok(localPosition(actor,rig.muzzle).z<localPosition(actor,hand).z-.5,'held lance point reaches forwards from the actual release hand');

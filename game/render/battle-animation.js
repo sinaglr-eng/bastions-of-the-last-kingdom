@@ -80,15 +80,30 @@ export function attackRig(actor,family,stats={}){
   rig.native=createSecretAnimation(actor,family);
   let heldMuzzle=null;const heldWeapon=actor.getObjectByName('weapon_R');
   heldWeapon?.traverse(node=>{if(!heldMuzzle&&/^attack_muzzle(?:_?\d+)?$/.test(node.name))heldMuzzle=node;});
-  rig.muzzle=(family==='lordbernhard'?actor.getObjectByName('sword_tip'):kind==='flame'?actor.getObjectByName('attack_muzzle'):actor.getObjectByName('staff_tip')||heldMuzzle)||actor.getObjectByName('attack_muzzle')||null;
+  let staffTip=actor.getObjectByName('staff_tip');
+  if(staffTip&&heldWeapon&&rig.attackStyle==='staff'&&!rig.native){
+    let held=false;for(let p=staffTip;p;p=p.parent)if(p===heldWeapon)held=true;
+    if(!held){
+      // Some rigid exports retain a root-level semantic tip while the complete
+      // physical staff is carried by weapon_R. Bind that exact rest endpoint
+      // to this private held instance so cast and charge follow the real staff.
+      actor.updateWorldMatrix(true,true);const bound=new THREE.Group();bound.name='Runtime held staff tip';bound.position.copy(heldWeapon.worldToLocal(staffTip.getWorldPosition(new THREE.Vector3())));heldWeapon.add(bound);rig.owned.push(bound);staffTip=bound;
+    }
+  }
+  rig.mouthAttack=rig.attackStyle==='breath'||!rig.attackStyle&&kind==='flame';
+  rig.muzzle=(family==='lordbernhard'?actor.getObjectByName('sword_tip'):rig.mouthAttack?actor.getObjectByName('attack_muzzle'):staffTip||heldMuzzle)||actor.getObjectByName('attack_muzzle')||null;
   rig.breathMuzzle=actor.getObjectByName('attack_muzzle')||rig.muzzle;
   rig.breathTrack={active:false,elapsed:ATTACK_POSES.flame.duration,duration:ATTACK_POSES.flame.duration,lastRelease:null};
-  const tip=['ladyclaire','lordbernhard'].includes(family)?rig.muzzle:actor.getObjectByName('staff_tip');
+  if(rig.geometric?.greatswordGripContract==='right-lower-left-upper-actual-hilt-v4'){
+    const grip=actor.getObjectByName('greatsword_left_grip'),arms=bindRigidArms(rig);
+    if(grip&&arms){rig.greatswordArms=arms;rig.greatswordLeftGrip=grip;actor.updateWorldMatrix(true,true);rig.greatswordGripToHand=grip.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(arms.L.hand.node.getWorldQuaternion(new THREE.Quaternion()));rig.greatswordGripOffset=arms.R.hand.node.worldToLocal(grip.getWorldPosition(new THREE.Vector3()));}
+  }
+  const tip=['ladyclaire','lordbernhard'].includes(family)?rig.muzzle:staffTip;
   if(tip&&SPELL_KINDS.has(kind)){
     const color=['ladyclaire','lordbernhard'].includes(family)?'#ffdc78':kind==='holy'?'#ffe7a3':kind==='roots'?'#9bdd67':kind==='frost'?'#a4efff':kind==='lightning'?'#b1ddff':'#cb9fff';
     const glow=new THREE.Group();glow.name='Charging staff focus';glow.visible=false;tip.add(glow);
     glow.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.095,1),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})),new THREE.Mesh(new THREE.TorusGeometry(.14,.012,4,20),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.7,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})));
-    glow.traverse(node=>node.raycast=noPick);rig.glow=glow;rig.owned.push(glow);
+    glow.traverse(node=>node.raycast=noPick);rig.glow=glow;if(!rig.owned.includes(tip))rig.owned.push(glow);
   }
   const crossbow=rig.attackStyle==='crossbow'&&rig.geometric?.crossbowGripContract==='rear-trigger-front-support-v3';
   let top=actor.getObjectByName(crossbow?'crossbow_string_left':'bow_tip_upper')||(!crossbow&&actor.getObjectByName('bow_string_top')),bottom=actor.getObjectByName(crossbow?'crossbow_string_right':'bow_tip_lower')||(!crossbow&&actor.getObjectByName('bow_string_bottom')),nock=actor.getObjectByName(crossbow?'crossbow_nock':'bow_nock');
@@ -107,7 +122,7 @@ export function attackRig(actor,family,stats={}){
     if(rig.geometric&&handR&&handL){
       const arms=bindRigidArms(rig);
       if(arms&&crossbow){rig.crossbowArms=arms;rig.crossbowForegrip=actor.getObjectByName('crossbow_foregrip');}
-      else if(arms){rig.bowArms=arms;restStraight=true;}
+      else if(arms){rig.bowArms=arms;restStraight=true;rig.bowNockOffset=actor.worldToLocal(nock.getWorldPosition(new THREE.Vector3())).sub(arms.L.restTarget);}
     }
     rig.authoredStrings=namedStrings.map(node=>({node,visible:node.visible}));for(const entry of rig.authoredStrings)entry.node.visible=false;
     const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(12),3));
@@ -165,7 +180,7 @@ function applyBreath(rig,reducedMotion=false){
   const p=track.duration>0?track.elapsed/track.duration:1,stroke=reducedMotion||!track.active?0:Math.sin(Math.PI*p)*Math.pow(Math.max(0,1-(p-.42)/.58),.4);
   for(const name of ['dragon_jaw','jaw_pivot','mouth_pivot']){
     const pivot=rig.joints.get(name);if(!pivot)continue;
-    if(track.active||rig.kind!=='flame'||!rig.active)pivot.node.rotation.copy(pivot.rotation);
+    if(track.active||!rig.mouthAttack||!rig.active)pivot.node.rotation.copy(pivot.rotation);
     if(track.active)pivot.node.rotation.x-=.36*stroke;
   }
 }
@@ -184,7 +199,7 @@ function solveBowArm(rig,side,target,arms=rig.bowArms){
   rig.actor.updateMatrixWorld(true);
   const origin=shoulder.node.getWorldPosition(new THREE.Vector3()),end=rig.actor.localToWorld(target.clone()),elbowRest=elbow.node.getWorldPosition(new THREE.Vector3()),handRest=hand.node.getWorldPosition(new THREE.Vector3());
   const l1=origin.distanceTo(elbowRest),l2=elbowRest.distanceTo(handRest),delta=end.clone().sub(origin),r=THREE.MathUtils.clamp(delta.length(),Math.abs(l1-l2)+.0001,l1+l2-.0001),direction=delta.normalize();
-  const normal=arms===rig.crossbowArms?rig.actor.localToWorld(arm.restElbow.clone()).sub(origin):rig.actor.localToWorld(new THREE.Vector3(0,-1,0)).sub(rig.actor.getWorldPosition(new THREE.Vector3()));normal.addScaledVector(direction,-normal.dot(direction)).normalize();
+  const normal=arms===rig.crossbowArms||arms===rig.greatswordArms?rig.actor.localToWorld(arm.restElbow.clone()).sub(origin):rig.actor.localToWorld(new THREE.Vector3(0,-1,0)).sub(rig.actor.getWorldPosition(new THREE.Vector3()));normal.addScaledVector(direction,-normal.dot(direction)).normalize();
   const along=(l1*l1-l2*l2+r*r)/(2*r),height=Math.sqrt(Math.max(0,l1*l1-along*along)),bend=origin.clone().addScaledVector(direction,along).addScaledVector(normal,height);
   const upperDirection=shoulder.node.parent.worldToLocal(bend.clone()).sub(shoulder.node.position).normalize(),upperRest=elbow.position.clone().applyEuler(shoulder.rotation).normalize();
   shoulder.node.quaternion.setFromUnitVectors(upperRest,upperDirection).multiply(new THREE.Quaternion().setFromEuler(shoulder.rotation));rig.actor.updateMatrixWorld(true);
@@ -210,23 +225,62 @@ function applyCrossbowPose(rig,recoil,progress){
     nock.node.position.lerpVectors(forward,nock.position,cocked);
   }
 }
+function applyGreatswordGrip(rig){
+  // The right lower palm carries the continuous physical hilt. The left upper
+  // palm follows its moving grip, including roll, through the complete sweep.
+  rig.actor.updateWorldMatrix(true,true);
+  const target=rig.actor.worldToLocal(rig.greatswordLeftGrip.getWorldPosition(new THREE.Vector3()));
+  solveBowArm(rig,'L',target,rig.greatswordArms);
+  const hand=rig.greatswordArms.L.hand.node;
+  hand.quaternion.copy(hand.parent.getWorldQuaternion(new THREE.Quaternion()).invert()).multiply(rig.greatswordLeftGrip.getWorldQuaternion(new THREE.Quaternion())).multiply(rig.greatswordGripToHand);
+}
+function applyGreatswordCut(rig,cut){
+  const arms=rig.greatswordArms,orientation=arms.R.handOrientation.clone().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1,0,0),-1.2*cut));
+  // Brace the upper palm near its actual guard. The lower palm moves around it
+  // while rolling the complete glove and sword forwards, keeping both arms
+  // within their authored reach without translating shoulders off the chest.
+  const upper=arms.L.restTarget.clone().add(new THREE.Vector3(-.02*cut,0,.025*cut)),lower=upper.sub(rig.greatswordGripOffset.clone().applyQuaternion(orientation));
+  solveBowArm(rig,'R',lower,arms);
+  const hand=arms.R.hand.node;
+  hand.quaternion.copy(hand.parent.getWorldQuaternion(new THREE.Quaternion()).invert()).multiply(rig.actor.getWorldQuaternion(new THREE.Quaternion())).multiply(orientation);
+}
 function applyBowDraw(rig,draw){
   if(!draw||!rig.bowArms)return;
   const {R,L}=rig.bowArms,worldScale=rig.actor.getWorldScale(new THREE.Vector3()).y,reach=Math.min(R.reach,L.reach)/worldScale;
+  const torso=rig.joints.get('torso_pivot'),head=rig.joints.get('head_pivot'),yaw=-.85*draw**2;
+  if(torso)torso.node.rotation.y+=yaw;if(head&&!rig.geometric?.integratedHeadInTorso)head.node.rotation.y-=yaw;
   // Bring the shoulders in naturally, then solve the real elbow chains. The
   // lowered neutral hand cannot be approximated by twisting a bow-side nock.
-  R.shoulder.node.position.x-=reach*.20*draw;L.shoulder.node.position.x+=reach*.20*draw;
-  R.shoulder.node.position.z-=reach*.20*draw;L.shoulder.node.position.z-=reach*.20*draw;rig.actor.updateMatrixWorld(true);
-  const right=rig.actor.worldToLocal(R.shoulder.node.getWorldPosition(new THREE.Vector3())),left=rig.actor.worldToLocal(L.shoulder.node.getWorldPosition(new THREE.Vector3())),mid=right.clone().add(left).multiplyScalar(.5),halfWidth=Math.abs(right.x-left.x)/2,drop=reach*.20;
-  const forward=Math.sqrt(Math.max(.0025,reach*reach*.96-halfWidth*halfWidth-drop*drop))*.86;
-  const bowGoal=mid.clone().add(new THREE.Vector3(0,-drop,-forward)),leftTarget=L.restTarget.clone().lerp(bowGoal,draw);solveBowArm(rig,'L',leftTarget);
+  R.shoulder.node.position.x-=reach*.40*draw;L.shoulder.node.position.x+=reach*.20*draw;
+  R.shoulder.node.position.z-=reach*.30*draw;L.shoulder.node.position.z-=reach*.30*draw;rig.actor.updateMatrixWorld(true);
+  const plannedShoulder=(arm,side)=>{
+    if(!torso||arm.shoulder.node.parent!==torso.node)return rig.actor.worldToLocal(arm.shoulder.node.getWorldPosition(new THREE.Vector3()));
+    const rotation=torso.node.rotation.clone();rotation.y+=-.85-yaw;
+    const matrix=new THREE.Matrix4().compose(torso.node.position,new THREE.Quaternion().setFromEuler(rotation),torso.node.scale).premultiply(torso.node.parent.matrixWorld),point=arm.shoulder.position.clone();
+    point.x+=reach*(side==='R'?-.40:.20);point.z-=reach*.30;
+    return rig.actor.worldToLocal(point.applyMatrix4(matrix));
+  };
+  const right=plannedShoulder(R,'R'),left=plannedShoulder(L,'L'),mid=right.clone().add(left).multiplyScalar(.5),drop=reach*.12,bowX=mid.x*.2;
+  const forward=Math.sqrt(Math.max(.0025,reach*reach*.96-(bowX-left.x)**2-drop*drop))*.98;
+  const bowGoal=mid.clone().add(new THREE.Vector3(bowX-mid.x,-drop,0)),drawDistance=Math.min(.18,Math.max(.065,reach*.45)),offset=rig.bowNockOffset||new THREE.Vector3(),rightReach=R.reach/worldScale;
+  bowGoal.z=left.z-forward;
+  const rightForward=Math.sqrt(Math.max(.0025,rightReach*rightReach*.98-(bowX+offset.x-right.x)**2-(bowGoal.y+offset.y-right.y)**2));
+  bowGoal.z=Math.max(bowGoal.z,right.z-rightForward-offset.z-drawDistance);
+  const leftTarget=L.restTarget.clone().lerp(bowGoal,draw);
+  // Raise the real bow ahead of the hood before bringing it across the chest.
+  // A straight diagonal from the lowered source grip sweeps the upper stave
+  // through the face during preparation even when the final pose is clear.
+  leftTarget.z=THREE.MathUtils.lerp(L.restTarget.z,bowGoal.z,smooth(Math.min(1,draw*2)));
+  leftTarget.x=THREE.MathUtils.lerp(L.restTarget.x,bowGoal.x,draw**3);
+  leftTarget.y=THREE.MathUtils.lerp(L.restTarget.y,bowGoal.y,draw**2);
+  solveBowArm(rig,'L',leftTarget);
   const pivot=rig.joints.get('bow_pivot')||rig.joints.get('weapon_L');
   // Current exports carry a forward/vertical bow plane in their actual rest
   // geometry. Only older front-facing bows need the historical quarter turn;
   // applying it again would make the new string draw sideways across the bow.
   const plane=rig.geometric?.bowPlane||pivot?.node.userData.bowPlane;
   if(pivot&&plane!=='forward-vertical')pivot.node.rotation.y=pivot.rotation.y+Math.PI/2*draw;
-  rig.actor.updateMatrixWorld(true);const nock=rig.actor.worldToLocal(rig.string.authoredNock.getWorldPosition(new THREE.Vector3())),rightGoal=nock.add(new THREE.Vector3(0,0,Math.min(.18,Math.max(.065,forward*.34)))),rightTarget=R.restTarget.clone().lerp(rightGoal,draw);solveBowArm(rig,'R',rightTarget);
+  rig.actor.updateMatrixWorld(true);const nock=rig.actor.worldToLocal(rig.string.authoredNock.getWorldPosition(new THREE.Vector3())),rightGoal=nock.add(new THREE.Vector3(0,0,drawDistance)),rightTarget=R.restTarget.clone().lerp(rightGoal,draw);solveBowArm(rig,'R',rightTarget);
 }
 export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={}){
   if(!rig||rig.disposed)return;
@@ -262,8 +316,8 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
   };
   for(const pivot of rig.pivots){pivot.node.rotation.copy(pivot.rotation);pivot.node.position.copy(pivot.position);}
   const mechanical=rig.kind==='siege'&&!rig.joints.has('upper_arm_R'),style=rig.attackStyle;
-  if(!mechanical)move('torso_pivot',-.045*stroke,rig.kind==='melee'?.18*slash:-.035*stroke,.045*stroke);
-  move('head_pivot',-.055*stroke,0,0);
+  if(!mechanical&&style!=='bow')move('torso_pivot',-.045*stroke,rig.kind==='melee'?.18*slash:-.035*stroke,.045*stroke);
+  if(!rig.geometric?.integratedHeadInTorso&&rig.attackStyle!=='bow')move('head_pivot',-.055*stroke,0,0);
   if(mechanical){
     const lobbed=['stonewarden','royalmarshal','griffinbomber','royalarsenal'].includes(rig.family);
     if(lobbed){move('weapon_R',-.95*cast,0,0);move('siege_arm',-.95*cast,0,0);}
@@ -324,10 +378,17 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     if(!reducedMotion)advanceJoint(rig,'upper_arm_R',.045*thrust);
     move('torso_pivot',-.055*thrust,.025*thrust,0);
     move('upper_arm_L',.16*stroke,0,.13*stroke);move('forearm_L',.16*stroke,0,0);
+  }else if(style==='greatsword'&&rig.greatswordArms){
+    // A two-handed blade cuts forwards from its upright guard. Reversing the
+    // one-handed wrist sweep drives its long blade back through the helmet.
+    const cut=progress<.42?smooth(progress/.42):1-smooth((progress-.42)/.58);
+    move('torso_pivot',-.025*cut,.035*cut,0);
+    if(!reducedMotion&&cut>0)applyGreatswordCut(rig,cut);
   }else if(rig.kind==='melee'){
     // Shoulder, elbow and wrist carry the entire weapon through the sweep.
-    move('upper_arm_R',-1.05*slash,.20*stroke,-.43*stroke);move('forearm_R',-.48*draw,.15*stroke,.12*stroke);
-    move('hand_R',-.12*stroke,0,.22*slash);move('weapon_R',0,-.65*slash,0);
+    const sweep=style==='sword'?(progress<.28?smooth(progress/.28):1-smooth((progress-.28)/.72)):slash;
+    move('upper_arm_R',-1.05*sweep,.20*stroke,-.43*stroke);move('forearm_R',-.48*draw,.15*stroke,.12*stroke);
+    move('hand_R',-.12*stroke,0,.22*sweep);move('weapon_R',0,-.65*sweep,0);
     move('upper_arm_L',-.16*stroke,0,.13*stroke);move('forearm_L',-.16*stroke,0,0);
   }else if(SPELL_KINDS.has(rig.kind)||['staff','cross','orb'].includes(style)){
     move('upper_arm_R',-.28*cast,-.07*cast,-.22*cast);move('forearm_R',-.35*cast,0,.12*cast);
@@ -337,10 +398,11 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     move('weapon_pivot',.085*stroke,0,0);move('upper_arm_R',-.55*stroke,0,-.16*stroke);move('forearm_R',-.35*stroke,0,0);
     move('upper_arm_L',-.25*stroke,0,.10*stroke);
   }
+  if(rig.greatswordArms&&!reducedMotion&&progress>0&&progress<1)applyGreatswordGrip(rig);
   const recoil=rig.joints.get('weapon_pivot');if(recoil&&!reducedMotion)recoil.node.position.z+=.11*stroke;
   for(const pivot of rig.pivots){
     const jaw=['dragon_jaw','jaw_pivot','mouth_pivot'].includes(pivot.name),wing=pivot.name.includes('wing');
-    if(jaw)move(pivot.name,rig.kind==='flame'?-.36*stroke:0,0,0);
+    if(jaw)move(pivot.name,rig.mouthAttack&&rig.kind==='flame'?-.36*stroke:0,0,0);
     else if(wing)move(pivot.name,.12*stroke,0,stroke*(pivot.name.startsWith('left')||pivot.name.endsWith('_L')?.20:-.20));
     else if(['attack_arm','bow_arm'].includes(pivot.name))move(pivot.name,-.34*stroke,0,0);
   }

@@ -33,7 +33,7 @@ function intersects(a,b){
 }
 function inside(point,triangles){
   const ray=new THREE.Ray(point,new THREE.Vector3(.913,.271,.303).normalize()),hit=new THREE.Vector3(),distances=[];
-  for(const {triangle:t} of triangles){if(ray.intersectTriangle(t.a,t.b,t.c,false,hit)){const d=hit.distanceTo(point);if(d<1e-7)return true;distances.push(d);}}
+  for(const {triangle:t} of triangles){if(intersectRayTriangleSeam(ray,t,hit)){const d=hit.distanceTo(point);if(d<1e-7)return true;distances.push(d);}}
   distances.sort((a,b)=>a-b);let unique=0,last=-Infinity;
   for(const d of distances)if(d-last>1e-6){unique++;last=d;}
   return unique%2===1;
@@ -151,14 +151,28 @@ export function measureGeometricContacts(actor,{tolerance=.004}={}){
   return {scale,toleranceNativeM:tolerance,interfaces,failures:interfaces.filter(c=>!c.pass)};
 }
 function hasLimbAncestor(node,stop){for(let p=node.parent;p&&p!==stop;p=p.parent)if(isJoint(p.name)&&p.name!==stop.name)return true;return false;}
+function intersectRayTriangleSeam(ray,triangle,target){
+  // World -> head-local matrix multiplication can place an exact ridge/diagonal
+  // sample a few ulps outside BOTH adjacent triangles. Strict edge tests then
+  // miss a closed roof or skip the upper skin and hit its lower face instead.
+  // Moller-Trumbore keeps the same actual plane and forward ray, accepting only
+  // 1e-10 dimensionless barycentric rounding at triangle boundaries. This is
+  // many orders smaller than the unchanged physical/coverage tolerances.
+  const edge1=triangle.b.clone().sub(triangle.a),edge2=triangle.c.clone().sub(triangle.a),cross=ray.direction.clone().cross(edge2),det=edge1.dot(cross);
+  if(Math.abs(det)<=1e-14*edge1.length()*edge2.length()*ray.direction.length())return null;
+  const inverse=1/det,relative=ray.origin.clone().sub(triangle.a),u=relative.dot(cross)*inverse,q=relative.clone().cross(edge1),v=ray.direction.dot(q)*inverse,seam=1e-10;
+  if(u<-seam||v<-seam||u+v>1+seam)return null;
+  const distance=edge2.dot(q)*inverse;if(distance<0)return null;
+  return ray.at(distance,target);
+}
 function firstRayHit(origin,direction,triangles){
   const ray=new THREE.Ray(origin,direction),point=new THREE.Vector3();let nearest=Infinity;
-  for(const {triangle:t} of triangles)if(ray.intersectTriangle(t.a,t.b,t.c,false,point)){const distance=origin.distanceTo(point);if(distance<nearest)nearest=distance;}
+  for(const {triangle:t} of triangles)if(intersectRayTriangleSeam(ray,t,point)){const distance=origin.distanceTo(point);if(distance<nearest)nearest=distance;}
   return nearest;
 }
 function lastRayHit(origin,direction,triangles){
   const ray=new THREE.Ray(origin,direction),point=new THREE.Vector3();let furthest=-Infinity;
-  for(const {triangle:t} of triangles)if(ray.intersectTriangle(t.a,t.b,t.c,false,point))furthest=Math.max(furthest,origin.distanceTo(point));
+  for(const {triangle:t} of triangles)if(intersectRayTriangleSeam(ray,t,point))furthest=Math.max(furthest,origin.distanceTo(point));
   return furthest;
 }
 function capSeatGap(flesh,caps,head){

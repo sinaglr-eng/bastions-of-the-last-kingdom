@@ -102,6 +102,10 @@ def main():
  entries=[]
  for row in selected:
   clear();cat='enemies' if row['category']=='enemies' else 'champions';b=claire(row) if row['id']=='ladyclaire' else build(row)
+  if b.id=='ladyclaire':
+   from geometric_champion_creature_fit_v4 import flush_human_head
+   seat=flush_human_head(b,bpy.data.objects.get('head_pivot'),bpy.data.objects.get('torso_pivot'))
+   b.root['humanoidHeadFitDetailsV4']=json.dumps([seat]);b.root['sourceFitV4']='review-0.3.3';b.root['sourceHumanoidNeckUserOverrideV4']='Approved outer meshes retain their shape; only entire head placement seats directly on the bodice under the user all-humanoid no-neck override.'
   native=metrics(b.objects);assert native['degenerateTriangles']==0,(b.id,native);assert native['nonManifoldEdges']==0,(b.id,native)
   # Ground every grounded assembly once. Flying mounts keep their intentional
   # gap; their death pose is grounded independently in game.

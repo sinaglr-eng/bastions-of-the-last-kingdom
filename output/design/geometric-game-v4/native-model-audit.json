@@ -1,0 +1,2619 @@
+{
+  "models": 136,
+  "passed": 136,
+  "repairedPackedReferences": 0,
+  "allNativeReferencesPacked": true,
+  "allNativeExportGeometryMatched": true,
+  "results": [
+    {
+      "id": "soldier-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-1.blend",
+      "nativeSha256": "548b77b34fbd39e30dc48281ebba7b14086df5c4bf971bf2f82b9ae466144a3b",
+      "sourceSha256": "917ed51ca699f34a3616fbb3c43656818948a00a45d1cfc6828322d03422dfd3",
+      "packedReference": "soldier-1.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "soldier-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-2.blend",
+      "nativeSha256": "3d9ab0cc04ba6693d910da4d17fcc9c8b83728a78b5090ec104501f8c820c535",
+      "sourceSha256": "39a4fc30ba8d512b78e8b49505ae7b7e5a3e9db75507c1f936c769fcf37271a9",
+      "packedReference": "soldier-2.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "soldier-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-3.blend",
+      "nativeSha256": "18348e41ffc410bf8398294735b4c45feeb975a4a715bb0a763fd373cf4d6f02",
+      "sourceSha256": "4bdbc5edd58a35b2185dd63aab1e75dbf343a82fa7489658f784604191e418aa",
+      "packedReference": "soldier-3.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "soldier-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-4.blend",
+      "nativeSha256": "0ee7b28f5dfaf631e8fa3042d652ca6533d5fafeff300db3f17ca831e802d65e",
+      "sourceSha256": "f09f4f5cce5961be363de6895327f460713d90dd4a2e4ae1ba5dd3f051fac3ba",
+      "packedReference": "soldier-4.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "soldier-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-5.blend",
+      "nativeSha256": "e4aef3163992e58572a0c547fcf5a3d78da31794a4a2cf81a9e3b31b67e6f7ec",
+      "sourceSha256": "7ef08539aaef110495be1f9c94966128f1fa5ebcd5b41c14895104584d6da937",
+      "packedReference": "soldier-5.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "soldier-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-6.blend",
+      "nativeSha256": "333052c4eb6f99ce879bd2a90525caa0f5f26264f84dc859b71789c4ebb103f6",
+      "sourceSha256": "e792c7774f2bf012411eb15f86a71b1cc8dcdb767d2a90172b7f6724cb835ea3",
+      "packedReference": "soldier-6.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "archer-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-1.blend",
+      "nativeSha256": "f92d3dd900caf8c84bc23a7613f92d1f86582b5eacd293feaf243869e1b14cfd",
+      "sourceSha256": "b1eadab3aa0ef59adc540d5b78ca51b203a0bd39ecd513c7384597152def8538",
+      "packedReference": "archer-1.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "archer-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-2.blend",
+      "nativeSha256": "6f03a5aad5d650d6566a7e1595edc5dcf1fb38c27567f7d88aa388d30ba9a8b7",
+      "sourceSha256": "29d04353e68cdcd503f26a200174e81bfc59d11379b552350520bc86dbf9c14a",
+      "packedReference": "archer-2.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "archer-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-3.blend",
+      "nativeSha256": "3f879241e834e8cf34eec6d15222ca24e51cda5d0f000ac1f1a7e85e97490081",
+      "sourceSha256": "6380faff066acf219b9e17ec1ec6621c50b796729d2a6667cf999c5f14432c7b",
+      "packedReference": "archer-3.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "archer-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-4.blend",
+      "nativeSha256": "b5320065e811c09529e87b8dbad5996e09b50ba57fae6443e032795c17a993bc",
+      "sourceSha256": "513ed0f555708f9eb0e6710add5336e352cdfd7f4b9f567bd7293119dc1acee7",
+      "packedReference": "archer-4.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "archer-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-5.blend",
+      "nativeSha256": "0c23befbeffdb402c98322f89f5f9a1a4eb1ad6b8b20d8dbc051a16b934c8dd5",
+      "sourceSha256": "c0c441d711f3e4a9d6fb0ac2905113396013d46563e9173942fb8143beef6c8d",
+      "packedReference": "archer-5.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "archer-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-6.blend",
+      "nativeSha256": "bef4c1556f3701ca9a270351d171256eb8d45ecec540e54b966e3db0489bc6f1",
+      "sourceSha256": "1e9e2a4ab9e03f1c9b5e6728b8ed28dd8e545fb1a433167614e68872132f030f",
+      "packedReference": "archer-6.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "mage-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-1.blend",
+      "nativeSha256": "a17d1b100ea8e13d2d7e5a09d2c1b656354e04d510686d82b7aa38f80acda65c",
+      "sourceSha256": "9e1063d4401efed90166305b0ab0a77ef505e3743061b2e16641bd68207c522e",
+      "packedReference": "mage-1.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "mage-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-2.blend",
+      "nativeSha256": "e775f18a4fc056db49d94ee2fa7b68991fe061bb85716d8c09204e0ffd4832d4",
+      "sourceSha256": "b0869d7e8f944b48b038015ea0a5dc461c4ae921a7fd7eb4642cd2b5a8c18b70",
+      "packedReference": "mage-2.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "mage-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-3.blend",
+      "nativeSha256": "eebd77ed51bbb0fc1c1637090087e28e17ab4d431df67b148ae351cc474a8aa7",
+      "sourceSha256": "c1ecc2578a237ed279340993446a518bc2b672150ab7edda1003e74414c1ce39",
+      "packedReference": "mage-3.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "mage-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-4.blend",
+      "nativeSha256": "36b6e2ea914608361e5f692824754c2e1718fb0865806eec99e2a4ab9b940291",
+      "sourceSha256": "c4c0b733016fb29d690d6bce644aea7454ce1351beac039a80d88cf44b60cf70",
+      "packedReference": "mage-4.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "mage-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-5.blend",
+      "nativeSha256": "9b82c2eef6901cb6086910cf27a8815c12d0dcd34c8ac077b780a290fc99a024",
+      "sourceSha256": "b05d45b47375162cf1fcb6ae670079d873f21005a74ebc73730aa13e18d3faab",
+      "packedReference": "mage-5.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "mage-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-6.blend",
+      "nativeSha256": "3fd638e0af1062c03b032260e60c97810f9971801f1bce218d756d282301c765",
+      "sourceSha256": "e6058a3724acca6c264477aa26463ba9bf87a6d4785dab3d1e4eb8829f81a84c",
+      "packedReference": "mage-6.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "frostwarden-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-1.blend",
+      "nativeSha256": "aa2efb0731c0f20161ba0fedff2025488e5a5d03ead6a0f42b51a6f5e5f61e6d",
+      "sourceSha256": "6a22a699748ad7476d0a2532c1f7a8084431d3be0a6ba6700a5b695db42f3b5e",
+      "packedReference": "frostwarden-1.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "frostwarden-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-2.blend",
+      "nativeSha256": "2f102bc8cbc50fb9553b40ee98de8a6cc1b3d966a4b89350b58fae3b71490bd9",
+      "sourceSha256": "4f5d9c76836b45d5faca3e37e73fe6a54e1d8c26a1341102ee5d50a7938712d6",
+      "packedReference": "frostwarden-2.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "frostwarden-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-3.blend",
+      "nativeSha256": "8b45faa28e9b31e7b1a922fd03c611f3951efd21a2ad41b7781f05e823ad9621",
+      "sourceSha256": "38ca6afdd78f3f21f98f4bcc7f9ec1ea74352ecce4fe9f28c74ce4ee118e2bdc",
+      "packedReference": "frostwarden-3.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "frostwarden-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-4.blend",
+      "nativeSha256": "6bb8dcf6ac3a7bcab700b80ddeb8e2060654df08bc7262a3ab5c7ab3578d7b21",
+      "sourceSha256": "2ddddad8e912a2c103fcc8beb44fe20873897b7fb66c0ff79ea21496643a73bc",
+      "packedReference": "frostwarden-4.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "frostwarden-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-5.blend",
+      "nativeSha256": "abc25d9434a1d1059b4bc00c74f56dd18a7bfcee5601fc269bf16f55eb19dc50",
+      "sourceSha256": "97b7e03afdea8276141332de49482d35da7c9b3421e0c1d66f742adcfe7afc78",
+      "packedReference": "frostwarden-5.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "frostwarden-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-6.blend",
+      "nativeSha256": "f17dd471da1ded1d276bcc1e954ddea08869b058952b9e67465651e7fa7be41e",
+      "sourceSha256": "49007ec90f5de6795b93c6dcb1566bab9b9712b4251985571fa5d8828e19f2f0",
+      "packedReference": "frostwarden-6.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "stormcaller-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-1.blend",
+      "nativeSha256": "2e1efecabfc0b1b6b29b71c6d3509bbad077ad17dfbd11df8a3498daf580afbb",
+      "sourceSha256": "904eb95be360352cdd982e4746579d2f49ca7021dbd884790e380e9ff0627e9a",
+      "packedReference": "stormcaller-1.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "stormcaller-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-2.blend",
+      "nativeSha256": "8f3981eb4bd1532cedc500919af896ba3650cdfd0530593223fe3ad9bb65610d",
+      "sourceSha256": "59790d4ef36a25c1460a8c15b85a6fe0ac0e6f1121b5c70a910d9373217202a4",
+      "packedReference": "stormcaller-2.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "stormcaller-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-3.blend",
+      "nativeSha256": "e9897429f13493e0ff643ec89e9e6e7a74ad04736cf990900bd417b286af42c7",
+      "sourceSha256": "4e891ceed929e0d2a953bb8bcdedd5d264d1df1ddc17c3be8455ea7e1f841c9e",
+      "packedReference": "stormcaller-3.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "stormcaller-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-4.blend",
+      "nativeSha256": "9147faca75ba4b03fe33ccf8d7d368f64e93a74530cf5c797036271af340838c",
+      "sourceSha256": "f2d05b5a03c09fcbab161bdf38133da1c3addaec4e096dacb17cdd6e7370857e",
+      "packedReference": "stormcaller-4.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "stormcaller-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-5.blend",
+      "nativeSha256": "5946cca5800b06b2aac9073d0c16e63f2019ef866cf57785150adae7703f770b",
+      "sourceSha256": "d84955c7e791a6c22f1eb9feb15baf9f7d18079407ea42c3fc6a4dd350bb04ff",
+      "packedReference": "stormcaller-5.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "stormcaller-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-6.blend",
+      "nativeSha256": "d129189dd4586988a2a4280e6619bf9db2d4758e7e443e7ad19def898d84eb20",
+      "sourceSha256": "ed4ecbabe98d093c47a1e3de1977288ddc1dc973f1805a0c0f07405d0baf7f2c",
+      "packedReference": "stormcaller-6.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "cleric-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-1.blend",
+      "nativeSha256": "50f2d81abb229992c3b0f00824b118584c87fe57cc1d02c3bb4a43af1758b2f4",
+      "sourceSha256": "714418ee5ca52796f587c5b4f02f1606298d274f7d75e2e93658c7a83d74b5a7",
+      "packedReference": "cleric-1.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "cleric-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-2.blend",
+      "nativeSha256": "e74e45be5f010a1a33d2b79a988e6a6bfda3f773fd8d28d5efbc05f98b69ac13",
+      "sourceSha256": "205e881c7955f696890568fe791b4c97e77176d08ef1429cf436b293b468d31a",
+      "packedReference": "cleric-2.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "cleric-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-3.blend",
+      "nativeSha256": "c4afc8d1aba329a1a9731c48724a9e01fb94a88f8b402e0ce94467ed3ce491a1",
+      "sourceSha256": "668d1953e8e927fe82e233620c17c9b44197056db86a7a2bbb1de4488193fbdb",
+      "packedReference": "cleric-3.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "cleric-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-4.blend",
+      "nativeSha256": "81a97509944bee8c4886a55918c1da87b05dae1960d8d531c051180df3ab2322",
+      "sourceSha256": "a4d40151eaa6e2b323670f3bd083693c4fec8f390730dd68405dd69ff7d70bea",
+      "packedReference": "cleric-4.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "cleric-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-5.blend",
+      "nativeSha256": "9a89e297be72d4a9a751de41966176ecd2a3b742ec9648d17f9c3d6a766cc9f8",
+      "sourceSha256": "785ae00a2f8f4d37d768ae68b9c8bd26f3cf85a655fe6b633b0c349e9d953897",
+      "packedReference": "cleric-5.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "cleric-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-6.blend",
+      "nativeSha256": "9f4807bb48534264be79dfc5dee9062ef758066ca723c6dc761e91fc96e3e588",
+      "sourceSha256": "1a7f2529f4d6a2317316b23de38b3507ba09a9b893464e4bf934e440d62ff0f5",
+      "packedReference": "cleric-6.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "druid-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-1.blend",
+      "nativeSha256": "9582084faf4da314bf335fef387c9e84faf5378caca64f75c2fc1bfb44df379c",
+      "sourceSha256": "c54234fa8e78bfb987fef9e655156969d077093cc7c53879efe2ea3ca15bd8b1",
+      "packedReference": "druid-1.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "druid-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-2.blend",
+      "nativeSha256": "9a5095638d3c3d5f128144ed674be24b16122636c83cc74ee0b5a5ed28a9f63e",
+      "sourceSha256": "32ece0002ea3336710fb322ae3a3429012b6cf6fec5524e17cbd373310172175",
+      "packedReference": "druid-2.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "druid-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-3.blend",
+      "nativeSha256": "1bdc10ec6f50f4c2faf6921c7ee76f1d98b383520b73dc838dba7b92ea973efe",
+      "sourceSha256": "c6e3d24f64661217c461eea9fd0f9717219a4a15f2706009f253c577da1e9bc8",
+      "packedReference": "druid-3.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "druid-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-4.blend",
+      "nativeSha256": "4a9da7f1a0fc478813e15f35680f3333bf60b1383e4c11b95807c87c0f344d56",
+      "sourceSha256": "9b789be0711dd88d5f72465d283084e1fbf4dbdc41a3f00819354a183a722e49",
+      "packedReference": "druid-4.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "druid-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-5.blend",
+      "nativeSha256": "4e687012b5c2945e06afaf0cc012edc8a1d9037d2471add98f0876eed4ef785f",
+      "sourceSha256": "855b295f2c3787d32199d3bd3f97d852502475072777b8947edb9356de58d33b",
+      "packedReference": "druid-5.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "druid-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-6.blend",
+      "nativeSha256": "a66d18661382f6c6c3b64bba1fb42b36f1344c62f6df5064702a5f851ee3b857",
+      "sourceSha256": "2f9bbd6bd4dc8da0f511c147cf4111d1ab42aa40a032bc4fc2a991194edfa086",
+      "packedReference": "druid-6.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "runebreaker-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-1.blend",
+      "nativeSha256": "606a26a7dc28c27672dbc37fe6bb45251c2956021cbf075409366b46c69b7a62",
+      "sourceSha256": "ad248e4acb9d538632864a636b0d2db77923747c094c1505a157bf998746a169",
+      "packedReference": "runebreaker-1.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "runebreaker-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-2.blend",
+      "nativeSha256": "81afdcc15f67313426bc45529b1eda128d0a1fb2b55c3e4257b08d250ad44588",
+      "sourceSha256": "0faa1b560da909eb89bd6c01477ee8255222de0b77aa0e6d7f6675e96506a11b",
+      "packedReference": "runebreaker-2.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "runebreaker-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-3.blend",
+      "nativeSha256": "de0dc72d957bec734ff80cda5d1dcff19424f2175bbddae7bbc55f5c6f2be60a",
+      "sourceSha256": "b387bc845fd68f0a8e40e6a5c1dfd26b6c2b38db23c48f74640aa21ee6277935",
+      "packedReference": "runebreaker-3.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "runebreaker-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-4.blend",
+      "nativeSha256": "ceb2e4bf98377eb3ad8ff0535df49393b3576af3e506814c781710f35c6cbcbf",
+      "sourceSha256": "af376813a050a375b5ad9ca6b7e8db7a8840b2825c16eef89c7da32990d6c38e",
+      "packedReference": "runebreaker-4.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "runebreaker-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-5.blend",
+      "nativeSha256": "aadc6ab5797e65acf4ffedc421ae6f65919169960478f2c98cee94e17b95b7e4",
+      "sourceSha256": "0a6b6f8d1332d15b1845439582d3c0d5a3c9dd37916b6272d287e462582c4dd2",
+      "packedReference": "runebreaker-5.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "runebreaker-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-6.blend",
+      "nativeSha256": "655bf5f199ce94dbd46c1adaab282c807e05bbb0a6ada5d8d44407371371b3b0",
+      "sourceSha256": "793f71dfe5118150539291b043735e48bd61fc3bebbeca4de863d08af06b99bd",
+      "packedReference": "runebreaker-6.png",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "frostblade",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/frostblade.blend",
+      "nativeSha256": "e1e9784ed298aafc13fa641417b93df0d0c44b74deceef17bab744cd6cbec793",
+      "sourceSha256": "bf2f4bb1ce6ecefb3c54230cad57d4cba9fe37a8d42c8ec167255e10a4b73869",
+      "packedReference": "REFERENCE six views frostblade",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "monk",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/monk.blend",
+      "nativeSha256": "526478492fa2e01e55124d2ff97d6b2edaa6c0d34b78558fb3ca1ef6b2a1cd66",
+      "sourceSha256": "618c469620670d4a558d3ffb62e50aa090646a4444be2022702a83cccb625db1",
+      "packedReference": "REFERENCE six views monk",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "rimewatch",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/rimewatch.blend",
+      "nativeSha256": "7653f012fa3f53f64d9c3f91481f804bd165196835796f764eb55df42d2a5d13",
+      "sourceSha256": "713a3b05ea4cf903d64997d9519079c4b1256df6426ddb7dc2bf90bbae4268e9",
+      "packedReference": "REFERENCE six views rimewatch",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "roseguard",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/roseguard.blend",
+      "nativeSha256": "6b0c9aba17eafcc209b6fb8737ad95485a3be4e9e10e6273df402b8479b1d2ce",
+      "sourceSha256": "4cd225bb92226ad1bcd1831a5c783c5ccbe8f635ff2b5d7413a52a579098956d",
+      "packedReference": "REFERENCE six views roseguard",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "highking",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/highking.blend",
+      "nativeSha256": "675557b8ccd205b1c545679b91fa16860604aa3820ba67af635b331dcfc54422",
+      "sourceSha256": "3bdd0a05e94d5439842476a19e35ef71ee454e1ec4c426ddb02b232a5b811695",
+      "packedReference": "REFERENCE six views highking",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "crownofages",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/crownofages.blend",
+      "nativeSha256": "65f819718206fb4f144639d0cdfd7b4305430b46d3f705416ff7d1729c6e85ea",
+      "sourceSha256": "5ab3d0b859ab5a63a04003d33a2d4ef4904d4a540a23468614a227de2060ea74",
+      "packedReference": "REFERENCE six views crownofages",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "thornwarden",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/thornwarden.blend",
+      "nativeSha256": "5ae82972bece398b986b982b69271ef489cb3286508683cbe706fa57c9e4e4ca",
+      "sourceSha256": "10faee180a2f6d8f35cb6c711c47d4701c0c520873e7060a68728b27e8d312d8",
+      "packedReference": "REFERENCE six views thornwarden",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "verdantguard",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/verdantguard.blend",
+      "nativeSha256": "45c71bbacc0b066e94b0dd7da84ea6523449eef74bdbffcb4d51a042bc210e6c",
+      "sourceSha256": "a2ce020bc0c144f0b248e2031e820413e0003495a5264f986d629e25d20a0518",
+      "packedReference": "REFERENCE six views verdantguard",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "tempest",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/tempest.blend",
+      "nativeSha256": "a9c74923206071826793f7438606d203aadfe7f3ab43d13c83feb57977c65145",
+      "sourceSha256": "47c69a62935ab7252276be8a919b286db11cfa6a6f38aa0362d045a345cba310",
+      "packedReference": "REFERENCE six views tempest",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "stormcitadel",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/stormcitadel.blend",
+      "nativeSha256": "a51ac30ae99659925b4120a4d86cde2cff19b0d4d1f980e86841bf68fc0053bd",
+      "sourceSha256": "62d8f228487de99bcc276871fa86103b3cfcb82625f6beb74b0614e4f7cb8846",
+      "packedReference": "REFERENCE six views stormcitadel",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "embercrown",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/embercrown.blend",
+      "nativeSha256": "cd09814a3847452f0dfda697d2401a84fde7510b9b6fb570d6cab3634ff304dd",
+      "sourceSha256": "b4d9e7e81f0ca92d187c10b1de3544f791d981fa5fabf4d36b17ee2ed3763cdf",
+      "packedReference": "REFERENCE six views embercrown",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "worldfire",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/worldfire.blend",
+      "nativeSha256": "965f236a81545dd1b61cdee9341ddee38c905a5343bf5ad8e6b5ca60242cf23b",
+      "sourceSha256": "fb54857e7ba421844ba0584771f3f3021d2eecbea723d51f982c4d3ed1db0974",
+      "packedReference": "REFERENCE six views worldfire",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "starfall",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/starfall.blend",
+      "nativeSha256": "91ed9316b1dd6aebd21ee8e3952ea5aea9be0af23baeb9bafe5688ddba27c758",
+      "sourceSha256": "ba1bc363b4191ea8592198a3a993200f8538959723aa6dcd559f796fc67dc214",
+      "packedReference": "REFERENCE six views starfall",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "thunderheart",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/thunderheart.blend",
+      "nativeSha256": "67876d7adff3e23dfdd1945d90afe59069bcf1543587249d0e4332eb5381ef22",
+      "sourceSha256": "61f6525c8d719e3a4988d532669d8e2f48cfe82d9b331113e5884af5522b8d92",
+      "packedReference": "REFERENCE six views thunderheart",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "phoenix",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/phoenix.blend",
+      "nativeSha256": "93a8e420924b7d9f15a9da444fe295a53ecc8c6f2a58b45982a8849d1e765337",
+      "sourceSha256": "c4b503e03dd046acd9ffc6e01c27e4711406eb8f21feb8bf5893aebcfd3c2f57",
+      "packedReference": "REFERENCE six views phoenix",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "greenheart",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/greenheart.blend",
+      "nativeSha256": "9dbf67171bf699bf1392c49eec952a081d83ca291b7d1b4fd75d002609f59103",
+      "sourceSha256": "cb347b67017ced5d505c631b39f444437b750571e2bf62e467bbcef012de6476",
+      "packedReference": "REFERENCE six views greenheart",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "eldergrove",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/eldergrove.blend",
+      "nativeSha256": "fb538ba3de38182781312a48b2f0093791bbea3135ac73a5ef4c4e694bb914e4",
+      "sourceSha256": "9d380d63c89fb4945b66b867259446a329d7b752e1e0fabfff93ddeab7dceee5",
+      "packedReference": "REFERENCE six views eldergrove",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "kingsreach",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/kingsreach.blend",
+      "nativeSha256": "4c56660fcc530fa3731a8623909ae77bfd5f8c296bba03a1b878b0a67ab4affb",
+      "sourceSha256": "b1da16de6fb679301ee8b1a2a67b310c1d47a45d81847e7e36bbf77fc9bfd191",
+      "packedReference": "REFERENCE six views kingsreach",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "sunward",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/sunward.blend",
+      "nativeSha256": "56e007063791029c0f56c645e7b5a8963cce07d939c27c964bfe5d90a3f8bc0b",
+      "sourceSha256": "90c99d47626a56df9b47051ceb019d2479f96ca695f3d984e2c0d4c47e216635",
+      "packedReference": "REFERENCE six views sunward",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "winterhold",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/winterhold.blend",
+      "nativeSha256": "adf78865a9d26a0bf4393a92b037df013cc28bfe9f6eb8d55fc91f5f7cd982cd",
+      "sourceSha256": "d30337f0315f4575b67fce38ab7baf59f0f81bc2eb89bcc24c97ef86acf5827e",
+      "packedReference": "REFERENCE six views winterhold",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "dawnspire",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/dawnspire.blend",
+      "nativeSha256": "acae02688d8dac8048187c14d10f9208e8a74daa4f9f0011a63275862d9cf291",
+      "sourceSha256": "0584ade6158fa200130ffab25575516027affae779edb938be8c61495d09af99",
+      "packedReference": "REFERENCE six views dawnspire",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "royalmarshal",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/royalmarshal.blend",
+      "nativeSha256": "5a3daf7147d253367fec4b5e5fa2679e938ad3e7db3119cc6a20ea7717a94c50",
+      "sourceSha256": "9b5e0f9b11f19ce53807ea0f72bcd3e13cfaad0bc1611ab6fd96700d837fbecd",
+      "packedReference": "REFERENCE six views royalmarshal",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "stonewarden",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/stonewarden.blend",
+      "nativeSha256": "6da3e9c343df9881c47af86e8aa910834632d4a7333be3f44c615e5081159f5f",
+      "sourceSha256": "529cc5c494fbcf377842a07c55b7222a2affbdf920f2f430ad16eeb118ba956a",
+      "packedReference": "REFERENCE six views stonewarden",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "wyvernhunter",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/wyvernhunter.blend",
+      "nativeSha256": "8d1e98f2a1fdbf70922e8081a8d60687d616e86fc3e964637b727319f82605f0",
+      "sourceSha256": "40ceb4f257a986556836210ca62a48285b02c466d64762131f4d04251e015555",
+      "packedReference": "REFERENCE six views wyvernhunter",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "royalarsenal",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/royalarsenal.blend",
+      "nativeSha256": "aa52c69c3ba28808a36ffbe0f44ea4891eaa14a78bf1115aadc1ce0b914a0c7e",
+      "sourceSha256": "1d7cb99743ba134061bb49fc9f4239a7b4f2d631733f4c41e16fc363a9c28483",
+      "packedReference": "REFERENCE six views royalarsenal",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "rangermentor",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/rangermentor.blend",
+      "nativeSha256": "a0cf80081002a46452874744714222a440fc137c61d93de197b23cd76cef9f69",
+      "sourceSha256": "74aba5f2b339c18dea3a99e1dd6c63c84f6c3cc1996d4d8724e5f56a1cc31e83",
+      "packedReference": "REFERENCE six views rangermentor",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "kingdomprotector",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/kingdomprotector.blend",
+      "nativeSha256": "05fa05b9984f3a459b40764b84ffb632bd47dbeeb19ab7510008a2146d52b3e7",
+      "sourceSha256": "f87b5e20d321b18b0b62c6ddc22088c0191f9cd0cf1321774885a5f22cec3444",
+      "packedReference": "REFERENCE six views kingdomprotector",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "mothernature",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/mothernature.blend",
+      "nativeSha256": "a0618da265031e77489de841a96fd3f7a833075a8b591f2b9b28926576dbd5c6",
+      "sourceSha256": "bd16a9eb1b7347161efd279ad5f3a8fa3858c601791178e0b5d1b17e00c24e0b",
+      "packedReference": "REFERENCE six views mothernature",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "royalranger",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/royalranger.blend",
+      "nativeSha256": "5fe70b6570e7b666c54216a6a74842d1b5ed1cd381be69357cbe619afe924ca6",
+      "sourceSha256": "3dd2189603fd47d895ea9b16df4160931ba49b147ec8be55f9bb511655338066",
+      "packedReference": "REFERENCE six views royalranger",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "kingsrangerguard",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/kingsrangerguard.blend",
+      "nativeSha256": "ab78595656878ac98c554985788976e14b4b5432c9f60355f8fdd15eae563a03",
+      "sourceSha256": "08284f7b706baec934fab87df128bbfb17b9e37dd93cfbfff4ecd782ab96ffe5",
+      "packedReference": "REFERENCE six views kingsrangerguard",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "elvenking",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/elvenking.blend",
+      "nativeSha256": "cd7bea3fe99eb1a10ba9b3976bd80d1e21d50c5c4377ee79fa87ad0719920cfa",
+      "sourceSha256": "dd99107d500b1824293ddc00b6680d41016586c0305bd3801d09084468613b62",
+      "packedReference": "REFERENCE six views elvenking",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "fireballista",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/fireballista.blend",
+      "nativeSha256": "2371c5e545e4f048b78916c15724fbb145652d27d8f5fe63b6e05d59a6bd5046",
+      "sourceSha256": "c51c9a4344ec991281b3f1b907e40b331bc8697d956985bd50793dc2bf3e41b7",
+      "packedReference": "REFERENCE six views fireballista",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "emeraldgolem",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/emeraldgolem.blend",
+      "nativeSha256": "cb6c01b5209bf69c1aaca2887090005904e0e4fa2873f94108b07de52569eb35",
+      "sourceSha256": "d3808f874d4bc93374b34c936e8a97020c7a19d1eb6bc8f1acfa8e1ed6a5cc41",
+      "packedReference": "REFERENCE six views emeraldgolem",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "griffinbomber",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/griffinbomber.blend",
+      "nativeSha256": "56d0a7122dd00a7e766e109e378267acc9b8eb9d6f83a85b442d003d63a5acb6",
+      "sourceSha256": "fb14d59086c919ce6dea83cac77f61ca0229968c2471517589f882537d4acc83",
+      "packedReference": "REFERENCE six views griffinbomber",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "mechanicalgolem",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/mechanicalgolem.blend",
+      "nativeSha256": "f722e759c0f9307762ac90b6a008cce9e3facf900c309ff856d8320edeb19a1e",
+      "sourceSha256": "ce3d40bb2167c7debe42a0e416600498943606f4da1d81d08ba50678d6b4a66a",
+      "packedReference": "REFERENCE six views mechanicalgolem",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "archbishop",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/archbishop.blend",
+      "nativeSha256": "9d04ec9c04d70111d7965768187ba9d4bbd43721701137e1803602630eb9b030",
+      "sourceSha256": "48395b5f070d440bde26e5158e4f88e69f75604edc92425ee2c267b4b19d48d6",
+      "packedReference": "REFERENCE six views archbishop",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "archangel",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/archangel.blend",
+      "nativeSha256": "357fa89b3bc7c8ccab06c1a5488db3d124570a4f6693703bfb686f97c0f6a431",
+      "sourceSha256": "e5aa49f2d46c01552475382db7cf230cbc78c7dab95002020a17f50a3c283a5d",
+      "packedReference": "REFERENCE six views archangel",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "ladyclaire",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/ladyclaire.blend",
+      "nativeSha256": "31f39adbb4e3ffaa69b192cc2bd7f973f19a011345f161511c46cb6bbd3db60d",
+      "sourceSha256": "76839ba14c587c5b51f851e319b845633f60974b21ac8902dde0b36771041d6f",
+      "packedReference": "REFERENCE six views ladyclaire",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_01",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_01.blend",
+      "nativeSha256": "6290a44c03d19b97c337c2eceb78664af6b4d35010450cae476ad8fb3d0c6c70",
+      "sourceSha256": "a5e72491393d8cd542de1e3c19560f6e7b5d311d14240b3f14619add86db6baf",
+      "packedReference": "REFERENCE six views host_01",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_03",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_03.blend",
+      "nativeSha256": "a98a18175259613acbb844497780b17c57d2c87050cc8eb3855bddc86ed639c2",
+      "sourceSha256": "e088f7023e011ed88ae66147fd6721bde53fbb3454b71d4212a005fde3786fc2",
+      "packedReference": "REFERENCE six views host_03",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_06",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_06.blend",
+      "nativeSha256": "34db2607c5d3b1451162bfe06934e564e3df980339ac519955fcfe16b241dd96",
+      "sourceSha256": "607a95bbd91dd7393aa1c2a4d50894cfc9f38eaa8198b7c34fe82d4ecdb60be8",
+      "packedReference": "REFERENCE six views host_06",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_02",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_02.blend",
+      "nativeSha256": "74d683090eabeda300c68015e519e20f17095a0aac00706b4f16cb7d97157969",
+      "sourceSha256": "7a89aafc9fa34fee0156fb45c3ff3067bc83d734e51b1bd76c1bdeca0ebf20ac",
+      "packedReference": "REFERENCE six views host_02",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_04",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_04.blend",
+      "nativeSha256": "83e4edfa4087592dcbf824b449501a4ec515f0cad42fc4d1cd67aa75d53a81e2",
+      "sourceSha256": "d5205cc58789195a3884e000f9063825a1ec0817f468ff26472bec6d0b2e4286",
+      "packedReference": "REFERENCE six views host_04",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_05",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_05.blend",
+      "nativeSha256": "37cd3ca86de9d4acf09d21de71914a3a2b59da7f12004e93fbd13e78d5599d08",
+      "sourceSha256": "6bd7be7b195147f6ae8073d1a3e7efef1d481b689485f36ed93bc626abf20758",
+      "packedReference": "REFERENCE six views host_05",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_07",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_07.blend",
+      "nativeSha256": "22c88ed6ddf5aa825a0b8770e57e46b0e613e59ae825e2d4effe866d3aee79f1",
+      "sourceSha256": "f3ecc114d250f3a0d071ebadb7d5d2268db78bd3b3acebc3d114ae4171facb47",
+      "packedReference": "REFERENCE six views host_07",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_08",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_08.blend",
+      "nativeSha256": "a019387979d3daac18dc44a6247cfc12076307e5940f181e46d83096a35a71f9",
+      "sourceSha256": "9c69f7814f50186c666c3e89df9b0774326579a062af9352c3e04990cbf735de",
+      "packedReference": "REFERENCE six views host_08",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_09",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_09.blend",
+      "nativeSha256": "8ec20c6b93cc307cdf4a050b944f3842a31813756da0ca41ad1f8695fd4d83b3",
+      "sourceSha256": "756e1cd62618a1800cfb6345659b45e0c3d8ea178b99439030d26a957af2e479",
+      "packedReference": "REFERENCE six views host_09",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_10",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_10.blend",
+      "nativeSha256": "81d376ee866cf8c576463d4d0a2a3be2974be9bdfcaf178d8999353ebf6d4693",
+      "sourceSha256": "83a7bf2065fe495d0cb7045486a519c14b832f92faad39050fe5d813898a8349",
+      "packedReference": "REFERENCE six views host_10",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_11",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_11.blend",
+      "nativeSha256": "878341b14d2643a5c0ab49bb63c37627523ff6846a6b1d85ed7e47a00dd5f1e4",
+      "sourceSha256": "7307a7130e655b8b68b256b4e37af08da83ae6bcf17497519f4ff12921cd8896",
+      "packedReference": "REFERENCE six views host_11",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_12",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_12.blend",
+      "nativeSha256": "c1cb652997be869f4104a253ff0f664dd3ecdb6510fea99cc30435779dce096b",
+      "sourceSha256": "096f26fc2ebd4179940718af33ebf08fd7d747034468fabdea4116371d42000c",
+      "packedReference": "REFERENCE six views host_12",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_13",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_13.blend",
+      "nativeSha256": "3dbcf3e13106d44756c63f07cab60a2c6b185827557975309b760ea66a1a98d9",
+      "sourceSha256": "50760b74929008293b7c36006a7d96fca2f46c0b6807cebce14028ef9e471e6a",
+      "packedReference": "REFERENCE six views host_13",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_14",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_14.blend",
+      "nativeSha256": "7da9baaab0d0a7d56611fb9a651f61ec8f6b7270d8b314c1240f64c0efe19f30",
+      "sourceSha256": "a27eec893daf407c03c55e724689c305e5f434dd9d976a43c571ca37baeff7be",
+      "packedReference": "REFERENCE six views host_14",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_15",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_15.blend",
+      "nativeSha256": "5da16164672104dd77ac7d272faaa6e6949a5ad0fa31a899d2a86d90e4d70122",
+      "sourceSha256": "5efa290a33703575775ca96ed3acb3ec06f8c77573977449a42686bb9c16b89a",
+      "packedReference": "REFERENCE six views host_15",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_16",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_16.blend",
+      "nativeSha256": "b39a2d56200e9e52003603d880b678e9091d33f75fb4e2c7e033ba6c2198d82a",
+      "sourceSha256": "54e34d00a320a7fc96e878a2e363fc2c2314a80fa9d2766f0273c7f87eb6d1de",
+      "packedReference": "REFERENCE six views host_16",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_17",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_17.blend",
+      "nativeSha256": "69d423be78ae7f2754438296ddec9d5aec2a489388ed972532e252602d818a73",
+      "sourceSha256": "ba9a2cd6b05d0273acf4866f3db4d7710c7669a08f6d4e34881d28ba2d37ae22",
+      "packedReference": "REFERENCE six views host_17",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_18",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_18.blend",
+      "nativeSha256": "788edb980c805f4811696f5fbcab8f53c30f102f12f27c32d4cc0e0d954c7267",
+      "sourceSha256": "c494fbef57f69e5cbb9c51b286db47a0f7837c4a2acfbc5df515efe25fc57a8f",
+      "packedReference": "REFERENCE six views host_18",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_19",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_19.blend",
+      "nativeSha256": "6ec93f50158d0ffbf380658b7342995cf0cf23af3de971677baee8d1a4a6bb9e",
+      "sourceSha256": "cb6f179ae6d96254d2c1402bb7afbedb7d345dfc0565d816d67a402b905d2450",
+      "packedReference": "REFERENCE six views host_19",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_20",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_20.blend",
+      "nativeSha256": "04a0da5d8e160cc9ae9927ef06be15740cbff21bc33b802b5fdb56c0de2bc44f",
+      "sourceSha256": "7d35d96387d95997fd01cb312b736955f880e8f6b7d5afc5638123b616ef1270",
+      "packedReference": "REFERENCE six views host_20",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_21",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_21.blend",
+      "nativeSha256": "8a5d0d03b49ab947062948c62236b6bec82d9f1e4e82594c1c69281af658c2ea",
+      "sourceSha256": "c62135e61cb901eecbea78a75b1dea026177aa61e7c4eecad8d8bd277f180687",
+      "packedReference": "REFERENCE six views host_21",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_22",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_22.blend",
+      "nativeSha256": "9a9671f6bb595b180369e151b390f3d39d3b63db79c1bbcad919a0d439cfffb2",
+      "sourceSha256": "de8a10851446a9dbdc1130e11d22185b7d2665caa59576473e2c101134c26d17",
+      "packedReference": "REFERENCE six views host_22",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_23",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_23.blend",
+      "nativeSha256": "3b53c7d2626513c0db4175bbdd5302eaf4361345eeefcd53d010f65bde49b89b",
+      "sourceSha256": "c7a366bf166f1bc6f779b5a73cef300a46ec4b9ee00813886f4a77a44647149b",
+      "packedReference": "REFERENCE six views host_23",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_24",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_24.blend",
+      "nativeSha256": "9c37ffc55abf6a0a58a074a21114441a8f8b5ad0a3c499ca906fe11818db0985",
+      "sourceSha256": "3a2e5ec81c3a262bde3f736ce9a54ff27dd5fd8d43d66bf6c48e9c0e8dd89f5e",
+      "packedReference": "REFERENCE six views host_24",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_25",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_25.blend",
+      "nativeSha256": "303ddea2faf8b32f77a6e59ca54066173ac19cf4a8378d078ade3bf80697657a",
+      "sourceSha256": "6d3deadf5bf7e2272beab1a46387b5fabe78df4d073f96383bb907cf6504e5e3",
+      "packedReference": "REFERENCE six views host_25",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_26",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_26.blend",
+      "nativeSha256": "b29381f198c1785af359f26729ecd1e5635774a35febd4b940665eeb02a7a386",
+      "sourceSha256": "4e6a8bc1328b0e53596d3bc2f45fb05ba791aead3f2ca4beeb168f2e35a1667d",
+      "packedReference": "REFERENCE six views host_26",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_27",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_27.blend",
+      "nativeSha256": "eceb8e1ade4d238de126806229e6319d8ff420c5fa22e0c6901466f6002c61a4",
+      "sourceSha256": "c80e819748ff125ac9a63dec674ec9eb8cba6ce2746a59fbe87a6e9f97a39d8c",
+      "packedReference": "REFERENCE six views host_27",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_28",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_28.blend",
+      "nativeSha256": "c67d223c0a9b3083c98e0079b9827fb896302766787fa5df0154e0250b8bdd02",
+      "sourceSha256": "ba184c715414486bae297f8e54b384e41c139639241fbabda6d3220c7a443cda",
+      "packedReference": "REFERENCE six views host_28",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_29",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_29.blend",
+      "nativeSha256": "531faa115c8edfee16c6708249cb77fa1982d9b7516ccf874e11e4ca9a1687b7",
+      "sourceSha256": "1a8773b991cf02d8ef00f0d1b9b46a30228490d10b67c1c80904ff1f7880a344",
+      "packedReference": "REFERENCE six views host_29",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_30",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_30.blend",
+      "nativeSha256": "ea6f452eee57fc333ed49e2e24fff801ca9028dfcbd493befc98c6ac9e4926e3",
+      "sourceSha256": "0a9305f5ef43f791a959abe2f81effb5c5eb9cfc88c3a5e16054a3a5e21df689",
+      "packedReference": "REFERENCE six views host_30",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_31",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_31.blend",
+      "nativeSha256": "74cd242efbddea87aef34f32059f57fa9e33c16fe6ffb61db5938595af3f6c3e",
+      "sourceSha256": "7de73f17356ecc13f3b829d20b3b288a30f9e7b2d3bcf3ab4c992bc3db8616cb",
+      "packedReference": "REFERENCE six views host_31",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_32",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_32.blend",
+      "nativeSha256": "d456489a56650143d147b6f024d21af9aab045fb5c92bd25b244d5d85424e7df",
+      "sourceSha256": "f0114906482e4e3be10d5b4e227ee80018b4ee9f44f6697ec539045d430c11c7",
+      "packedReference": "REFERENCE six views host_32",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_33",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_33.blend",
+      "nativeSha256": "99846050cf669e2d44ed7b1cc3172d108161c9cbc936fbd943b4e243da20a701",
+      "sourceSha256": "1e1f8bc5aa7cf1455439275d4600726dc27393907cfe4a5a70c9a1658b4ca9fe",
+      "packedReference": "REFERENCE six views host_33",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_34",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_34.blend",
+      "nativeSha256": "b36885d736e0e6e233030fa7e7d3c607280cc00f8a45605e247c20d834aaaa12",
+      "sourceSha256": "b78cbd8199a82a607ac6cafdf4fa5eac43f9b0b4f94e1e8870707c884859b1da",
+      "packedReference": "REFERENCE six views host_34",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_35",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_35.blend",
+      "nativeSha256": "9fc6773e743c790449c3bb61a5b20a099331f5017f58d5445317771baaf7fc94",
+      "sourceSha256": "3ae38b9511cb98e3aabb922a73d989dbc6d18fc62dc902d09d658c9eae6aa854",
+      "packedReference": "REFERENCE six views host_35",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_36",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_36.blend",
+      "nativeSha256": "72090d8b6867bb02e14de49fea0d05f2342be65eef92661a9dfe366926c20bcf",
+      "sourceSha256": "6898d21bad29df4985f0ff4e55384b17affd625d862b3dc5a3a3599cf9831a89",
+      "packedReference": "REFERENCE six views host_36",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_37",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_37.blend",
+      "nativeSha256": "f419bd8075d0fde69258fa551cb37ebec233bddca7b58b41eb07d15a55a53842",
+      "sourceSha256": "ed4d428f094faff8428c0fe63e9384c6e8dca7a2aade40db49c875cce2953a91",
+      "packedReference": "REFERENCE six views host_37",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_38",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_38.blend",
+      "nativeSha256": "ed12e7c7b28a9d2888fe2a2ae97af3206ce92fd52fe7efc52ae91de68a8047fb",
+      "sourceSha256": "66fec81fdb7df9ff5efc428c8614efe4821a5226ea3a239567f5ec80099e3c04",
+      "packedReference": "REFERENCE six views host_38",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_39",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_39.blend",
+      "nativeSha256": "447186867fd995583290c677b91d64b2dbc05d3784c8b6e02f2d04ea2aefa6bf",
+      "sourceSha256": "385ce97b68c064f6f3bc026407b38ca7c99c862019b42a0ede62aec5614d8d9a",
+      "packedReference": "REFERENCE six views host_39",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_40",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_40.blend",
+      "nativeSha256": "65a1fa172f3844d17f7c30096312670a316e11f53b90564a28067838773665bb",
+      "sourceSha256": "02c373208eb310189ad7a1e5db22173e50ebcfeea3628c70c7d5d47a2ab4ea5f",
+      "packedReference": "REFERENCE six views host_40",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_41",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_41.blend",
+      "nativeSha256": "05a5e72291f9eddfa0995c0c5dc3034aa72786164a47175808049412d8dcbd7c",
+      "sourceSha256": "4eea18cf33680a965dfb51a285bd4b0299076023bae5e4f100b5b523bde02882",
+      "packedReference": "REFERENCE six views host_41",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_42",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_42.blend",
+      "nativeSha256": "daba3a1f6d2127b83146624d2fea0d309c14f24826c7a58472d2b47d5f2557d2",
+      "sourceSha256": "b0fdbdd76ce9c9ddb1bac85d26813ef19e0683300bd66e4aa8647685c0c6f0e6",
+      "packedReference": "REFERENCE six views host_42",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_43",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_43.blend",
+      "nativeSha256": "f7f9e2d7fd84203787ed1f37a1909acc956c5eb3d80856a5147d8c35707db8a0",
+      "sourceSha256": "57ad6b0d09ed99269672ba09f47b59aeda7c1233379cf87736a8083f3d68e008",
+      "packedReference": "REFERENCE six views host_43",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_44",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_44.blend",
+      "nativeSha256": "d5efc7fb5e1372424a04d40d3b0669b4f6726d231616b9b24051d971853709d9",
+      "sourceSha256": "6e1f9a0a440ca261250b267d21dc56fe4803957069288455d4df7f2c6f9f3221",
+      "packedReference": "REFERENCE six views host_44",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_45",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_45.blend",
+      "nativeSha256": "273d59e8504ac7bff760f1d9dd7caac3e04b9a5410516bbe9b2bd5c3af118dce",
+      "sourceSha256": "63cdc0295cbcf7aa713dc096bf48f4cb888f5fb80f3023e615282ba695a273ee",
+      "packedReference": "REFERENCE six views host_45",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_46",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_46.blend",
+      "nativeSha256": "4172a42e503406c39e4a7db1465dcac868bf6dadb21a1ce023d523fbbe8e7f39",
+      "sourceSha256": "d9319e94ae2f233e28713e80abc7f4619bcdc426a65b5184b390fbec370f3abd",
+      "packedReference": "REFERENCE six views host_46",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_47",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_47.blend",
+      "nativeSha256": "c90e4c7475a5dc52388e4699eeb5b5e225ab6086ced69d1e27381ee31523d420",
+      "sourceSha256": "2e4f64b055e3735a01e3963951eb95c5018c7d812f842012bcd3d4243549ad79",
+      "packedReference": "REFERENCE six views host_47",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_48",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_48.blend",
+      "nativeSha256": "1b8914a329f73a886af4610ce713eefe743e64d6afad84567764c6eac742c308",
+      "sourceSha256": "88a96cf30a6324d88f97d49497e811e037cb802744a9640f63f054676e061dde",
+      "packedReference": "REFERENCE six views host_48",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_49",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_49.blend",
+      "nativeSha256": "5a7caa822dae0e35d3793b61d8c3ec2ef50e67e003a7a44991705cb79ab91186",
+      "sourceSha256": "55637bd24f0276d7882795aa0dfbd0846c610215be7929e53de5dc1d65729fff",
+      "packedReference": "REFERENCE six views host_49",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    },
+    {
+      "id": "host_50",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_50.blend",
+      "nativeSha256": "230691534527e51abfca56adbdd7d8e82be36a96c2167ebefaa4378d1fd28762",
+      "sourceSha256": "f5777e0e3c4cdd7f8f6daecd29b15ec964dcbd5095155230d92c78913c24cef5",
+      "packedReference": "REFERENCE six views host_50",
+      "nativeExportBoundsError": 0.0,
+      "passed": true
+    }
+  ],
+  "revision": "actual-read-only-native-audit-v4",
+  "createdAtUtc": "2026-10-03T11:42:55.276825+00:00",
+  "auditScript": {
+    "file": "tools/verify_geometric_native_v1.py",
+    "sha256": "260690e476b3a3b919d32637b5194c491a941f45c6c9df641ebe14307e209bc4"
+  },
+  "inputBindingFile": "output/design/geometric-game-v4/native-model-audit-input-bindings.json",
+  "inputBindingSha256": "5f9be38e30de0d438df221d38dbc83b1340f40baaf49e14d436510326e1cb080",
+  "inputBindingsUnchangedDuringReopen": true,
+  "sourceManifestSha256": "1ec5ba12b3bd5e2be1b3c53afee4a57b77e514ce4c81f7b1bb09db00b34d61b5",
+  "manifests": [
+    {
+      "file": "public/assets/geometric/geometric-defenders.json",
+      "sha256": "953a00ff8564d2990851764c1e5b1c0bda0a507268990623f4af6e39794edfef"
+    },
+    {
+      "file": "public/assets/geometric/geometric-champions.json",
+      "sha256": "e4f86b19fdba8184b9117b6ef176677a5ad09b504f75ec42e8a03b7e4edfa762"
+    },
+    {
+      "file": "public/assets/geometric/geometric-enemies.json",
+      "sha256": "aeac2572bbb96eb4d83d2a72fec234a47092dd1ec448f3c07e61fd02e20115b5"
+    }
+  ],
+  "bindings": [
+    {
+      "id": "soldier-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-1.blend",
+      "nativeSha256": "548b77b34fbd39e30dc48281ebba7b14086df5c4bf971bf2f82b9ae466144a3b",
+      "glbFile": "public/assets/geometric/defenders/soldier-1.glb",
+      "glbSha256": "1eb43fca5bc1f4989bfe52e08c181fca2a8e917102f17d59eb0e9c22f69ca2a2",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/soldier-1.png",
+      "sourceSha256": "917ed51ca699f34a3616fbb3c43656818948a00a45d1cfc6828322d03422dfd3",
+      "geometrySha256": "62526f8c2ff2403d698167378f1d3a68d8a6f880d20641ee8201c55f82928f89"
+    },
+    {
+      "id": "soldier-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-2.blend",
+      "nativeSha256": "3d9ab0cc04ba6693d910da4d17fcc9c8b83728a78b5090ec104501f8c820c535",
+      "glbFile": "public/assets/geometric/defenders/soldier-2.glb",
+      "glbSha256": "6b817529449a51ad320cbd75bfab1c32d27c8be7ec64dfab176e29b29c354c79",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/soldier-2.png",
+      "sourceSha256": "39a4fc30ba8d512b78e8b49505ae7b7e5a3e9db75507c1f936c769fcf37271a9",
+      "geometrySha256": "21501155caebf6da969e874ad0a821d3cddf0cb4f1fb21b2795e9e988cccb34d"
+    },
+    {
+      "id": "soldier-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-3.blend",
+      "nativeSha256": "18348e41ffc410bf8398294735b4c45feeb975a4a715bb0a763fd373cf4d6f02",
+      "glbFile": "public/assets/geometric/defenders/soldier-3.glb",
+      "glbSha256": "bacbbaa38487631ee66b5aea71061f2a4ae5d22691b03c77a8a2446ad26b435c",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/soldier-3.png",
+      "sourceSha256": "4bdbc5edd58a35b2185dd63aab1e75dbf343a82fa7489658f784604191e418aa",
+      "geometrySha256": "b41bc1a41d80cb9400bbc3c623ac4bf7858b384eecb78f1bb28d8d11d91399a8"
+    },
+    {
+      "id": "soldier-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-4.blend",
+      "nativeSha256": "0ee7b28f5dfaf631e8fa3042d652ca6533d5fafeff300db3f17ca831e802d65e",
+      "glbFile": "public/assets/geometric/defenders/soldier-4.glb",
+      "glbSha256": "b8fa1a2cf7dede215646319dafdb1911d90e9ee068c246445f17069bb82dee30",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/soldier-4.png",
+      "sourceSha256": "f09f4f5cce5961be363de6895327f460713d90dd4a2e4ae1ba5dd3f051fac3ba",
+      "geometrySha256": "0b2d5f25567a152fc5f926b640b30eeb219f8485a676a0ebe3ab5106abeca451"
+    },
+    {
+      "id": "soldier-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-5.blend",
+      "nativeSha256": "e4aef3163992e58572a0c547fcf5a3d78da31794a4a2cf81a9e3b31b67e6f7ec",
+      "glbFile": "public/assets/geometric/defenders/soldier-5.glb",
+      "glbSha256": "4ad4094b370141e34b32ce3f21e816f9c1595678b85a679cab29d1c77cf0237d",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/soldier-5.png",
+      "sourceSha256": "7ef08539aaef110495be1f9c94966128f1fa5ebcd5b41c14895104584d6da937",
+      "geometrySha256": "16eb76558ca30d4cd53b15e15fe5269cb2f2db9226bf6fa96bfc19ffd0aeb360"
+    },
+    {
+      "id": "soldier-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/soldier-6.blend",
+      "nativeSha256": "333052c4eb6f99ce879bd2a90525caa0f5f26264f84dc859b71789c4ebb103f6",
+      "glbFile": "public/assets/geometric/defenders/soldier-6.glb",
+      "glbSha256": "7562ad611ec515f8ee55741e8606e62d878e4b2ab18dd8d033e805a01ff6b702",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/soldier-6.png",
+      "sourceSha256": "e792c7774f2bf012411eb15f86a71b1cc8dcdb767d2a90172b7f6724cb835ea3",
+      "geometrySha256": "3fd992a46e9e331bad55f50c5ed427ddd4fb290ef4b8b83f09a55790ef2a692f"
+    },
+    {
+      "id": "archer-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-1.blend",
+      "nativeSha256": "f92d3dd900caf8c84bc23a7613f92d1f86582b5eacd293feaf243869e1b14cfd",
+      "glbFile": "public/assets/geometric/defenders/archer-1.glb",
+      "glbSha256": "87eca0b709d43d3f21a9bf1134f6dea76f28a3ab581cd8eb4cef21781eb3f302",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/archer-1.png",
+      "sourceSha256": "b1eadab3aa0ef59adc540d5b78ca51b203a0bd39ecd513c7384597152def8538",
+      "geometrySha256": "f306e60c3cc03e5b7dc334dafc529baa2007d84c9bb7e1ae684a0517deec30b2"
+    },
+    {
+      "id": "archer-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-2.blend",
+      "nativeSha256": "6f03a5aad5d650d6566a7e1595edc5dcf1fb38c27567f7d88aa388d30ba9a8b7",
+      "glbFile": "public/assets/geometric/defenders/archer-2.glb",
+      "glbSha256": "cdec7395d212684459e8b1eda25adfebfb59def74fc3ba5fbb365159d538d723",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/archer-2.png",
+      "sourceSha256": "29d04353e68cdcd503f26a200174e81bfc59d11379b552350520bc86dbf9c14a",
+      "geometrySha256": "e6b9639b72469b11bc1173c1d1f6b8a4beb2b2fe3c3fda88c3a271da0c452989"
+    },
+    {
+      "id": "archer-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-3.blend",
+      "nativeSha256": "3f879241e834e8cf34eec6d15222ca24e51cda5d0f000ac1f1a7e85e97490081",
+      "glbFile": "public/assets/geometric/defenders/archer-3.glb",
+      "glbSha256": "b243aea6d1df690ecd4a72a8d3c055c8cbd5338facf7fea329bc195e7c3b24cd",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/archer-3.png",
+      "sourceSha256": "6380faff066acf219b9e17ec1ec6621c50b796729d2a6667cf999c5f14432c7b",
+      "geometrySha256": "fe798629cb6e683f48d2cec50a240f0e64edb80f2f2243d2c4789f2d83a41015"
+    },
+    {
+      "id": "archer-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-4.blend",
+      "nativeSha256": "b5320065e811c09529e87b8dbad5996e09b50ba57fae6443e032795c17a993bc",
+      "glbFile": "public/assets/geometric/defenders/archer-4.glb",
+      "glbSha256": "b69493076c343e9e2691e7631a0451fdae650b0cc74ef602d8660c40cc9da54e",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/archer-4.png",
+      "sourceSha256": "513ed0f555708f9eb0e6710add5336e352cdfd7f4b9f567bd7293119dc1acee7",
+      "geometrySha256": "354af5693e90ef8b9f92dae16b4e9362deffcc27c6443b3b33ef3316f6d76f84"
+    },
+    {
+      "id": "archer-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-5.blend",
+      "nativeSha256": "0c23befbeffdb402c98322f89f5f9a1a4eb1ad6b8b20d8dbc051a16b934c8dd5",
+      "glbFile": "public/assets/geometric/defenders/archer-5.glb",
+      "glbSha256": "27a0fff4622b46cbc76c6d8b4017f08a41995f2565ea7043675f81dd0d8dff5b",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/archer-5.png",
+      "sourceSha256": "c0c441d711f3e4a9d6fb0ac2905113396013d46563e9173942fb8143beef6c8d",
+      "geometrySha256": "5e1e518ed6dfb6405c1829d80222e4dd5e48ddafba9a9b178caef05d8c5e5880"
+    },
+    {
+      "id": "archer-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/archer-6.blend",
+      "nativeSha256": "bef4c1556f3701ca9a270351d171256eb8d45ecec540e54b966e3db0489bc6f1",
+      "glbFile": "public/assets/geometric/defenders/archer-6.glb",
+      "glbSha256": "4cb81d1657822ab27860b932f8e70e159e778f3baa7bd5ede447bd884a9751c6",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/archer-6.png",
+      "sourceSha256": "1e9e2a4ab9e03f1c9b5e6728b8ed28dd8e545fb1a433167614e68872132f030f",
+      "geometrySha256": "99b406abbe7bd3e9a9f83251167cac218d9669019deb0faaf10e0882fd8696e9"
+    },
+    {
+      "id": "mage-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-1.blend",
+      "nativeSha256": "a17d1b100ea8e13d2d7e5a09d2c1b656354e04d510686d82b7aa38f80acda65c",
+      "glbFile": "public/assets/geometric/defenders/mage-1.glb",
+      "glbSha256": "0af8f02c6cec3a42be256fe9b5f3d80bb284e865a092768607698bf6f5328539",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/mage-1.png",
+      "sourceSha256": "9e1063d4401efed90166305b0ab0a77ef505e3743061b2e16641bd68207c522e",
+      "geometrySha256": "d0adac279923c05ee1766a1a5b290890381541bb7c0e037ee7c25ba8a0cfa641"
+    },
+    {
+      "id": "mage-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-2.blend",
+      "nativeSha256": "e775f18a4fc056db49d94ee2fa7b68991fe061bb85716d8c09204e0ffd4832d4",
+      "glbFile": "public/assets/geometric/defenders/mage-2.glb",
+      "glbSha256": "4099bf39812281bf4d15e74dfcbb19e88bf4339757ca40331b813864ca7d3fb7",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/mage-2.png",
+      "sourceSha256": "b0869d7e8f944b48b038015ea0a5dc461c4ae921a7fd7eb4642cd2b5a8c18b70",
+      "geometrySha256": "8550f2c74b9dc9715cbc81a01d6ccd2f42591d8939071707af946884574a83c8"
+    },
+    {
+      "id": "mage-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-3.blend",
+      "nativeSha256": "eebd77ed51bbb0fc1c1637090087e28e17ab4d431df67b148ae351cc474a8aa7",
+      "glbFile": "public/assets/geometric/defenders/mage-3.glb",
+      "glbSha256": "849cf6620ea26a9bb730ea446c8aab60a11fdd4fec6147b4d3570935291fcebe",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/mage-3.png",
+      "sourceSha256": "c1ecc2578a237ed279340993446a518bc2b672150ab7edda1003e74414c1ce39",
+      "geometrySha256": "f22c7b4ea56dadb4ff9b6339e57d496f3282b13d0f611ddd9cef5c668d824fe9"
+    },
+    {
+      "id": "mage-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-4.blend",
+      "nativeSha256": "36b6e2ea914608361e5f692824754c2e1718fb0865806eec99e2a4ab9b940291",
+      "glbFile": "public/assets/geometric/defenders/mage-4.glb",
+      "glbSha256": "ca18adc553087c128d2bb13f69814c0db08548ca35f3e596ddaec67da2f91022",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/mage-4.png",
+      "sourceSha256": "c4c0b733016fb29d690d6bce644aea7454ce1351beac039a80d88cf44b60cf70",
+      "geometrySha256": "5fc3a9fe300835c850646c1a8cb3a15dc52c19eb11b323e857ec94725c969578"
+    },
+    {
+      "id": "mage-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-5.blend",
+      "nativeSha256": "9b82c2eef6901cb6086910cf27a8815c12d0dcd34c8ac077b780a290fc99a024",
+      "glbFile": "public/assets/geometric/defenders/mage-5.glb",
+      "glbSha256": "377e6aa5f237f33b02a9f315ed0f63d7a17db7b3fd65125bcb47796367aecec3",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/mage-5.png",
+      "sourceSha256": "b05d45b47375162cf1fcb6ae670079d873f21005a74ebc73730aa13e18d3faab",
+      "geometrySha256": "748bf9ec8805165e44dc4bb12cd9c858258a918137e275c83dbd05bf285750ed"
+    },
+    {
+      "id": "mage-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/mage-6.blend",
+      "nativeSha256": "3fd638e0af1062c03b032260e60c97810f9971801f1bce218d756d282301c765",
+      "glbFile": "public/assets/geometric/defenders/mage-6.glb",
+      "glbSha256": "ec329d388ec30a74fcc326cd3f15b9e2650c70f1e19e288b9c6ce8590ae892e3",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/mage-6.png",
+      "sourceSha256": "e6058a3724acca6c264477aa26463ba9bf87a6d4785dab3d1e4eb8829f81a84c",
+      "geometrySha256": "0d3d556884c3eb7a91456e0871340c770b6454df48070410b2497fabc507b55b"
+    },
+    {
+      "id": "frostwarden-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-1.blend",
+      "nativeSha256": "aa2efb0731c0f20161ba0fedff2025488e5a5d03ead6a0f42b51a6f5e5f61e6d",
+      "glbFile": "public/assets/geometric/defenders/frostwarden-1.glb",
+      "glbSha256": "f839cbde6b6f03438933863706c3febbb70c5eec1028cd6d9b4c96032f2c445e",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/frostwarden-1.png",
+      "sourceSha256": "6a22a699748ad7476d0a2532c1f7a8084431d3be0a6ba6700a5b695db42f3b5e",
+      "geometrySha256": "e4592163f8b262ba3524410d55007f0c2149ce8870cb7d9a99decc22792e0691"
+    },
+    {
+      "id": "frostwarden-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-2.blend",
+      "nativeSha256": "2f102bc8cbc50fb9553b40ee98de8a6cc1b3d966a4b89350b58fae3b71490bd9",
+      "glbFile": "public/assets/geometric/defenders/frostwarden-2.glb",
+      "glbSha256": "50f81073ba28a858f50a93fc55869eadf4d2a8ec149ddd4eb54aa4c892bee3ed",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/frostwarden-2.png",
+      "sourceSha256": "4f5d9c76836b45d5faca3e37e73fe6a54e1d8c26a1341102ee5d50a7938712d6",
+      "geometrySha256": "e9f006aaa16f56495a8d20cb151bb91e2a015c0a9524052e9d32eb9cd9702566"
+    },
+    {
+      "id": "frostwarden-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-3.blend",
+      "nativeSha256": "8b45faa28e9b31e7b1a922fd03c611f3951efd21a2ad41b7781f05e823ad9621",
+      "glbFile": "public/assets/geometric/defenders/frostwarden-3.glb",
+      "glbSha256": "e5d051927e85e2dbcf5ea19fa58df1ca77e5aa8de99ac6780f74702ec24cac25",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/frostwarden-3.png",
+      "sourceSha256": "38ca6afdd78f3f21f98f4bcc7f9ec1ea74352ecce4fe9f28c74ce4ee118e2bdc",
+      "geometrySha256": "1153bfabbabede7c9beb1b97ffd172e85462aae82facfa0d31d30917f5d21633"
+    },
+    {
+      "id": "frostwarden-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-4.blend",
+      "nativeSha256": "6bb8dcf6ac3a7bcab700b80ddeb8e2060654df08bc7262a3ab5c7ab3578d7b21",
+      "glbFile": "public/assets/geometric/defenders/frostwarden-4.glb",
+      "glbSha256": "5889696143e9407c081117b5f6ed1e16c13f0633d7742ee2a8d5c29ad676a26f",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/frostwarden-4.png",
+      "sourceSha256": "2ddddad8e912a2c103fcc8beb44fe20873897b7fb66c0ff79ea21496643a73bc",
+      "geometrySha256": "55654702d72faba2593a5761b17fc1224c553b10610fd889009718774c87a7ef"
+    },
+    {
+      "id": "frostwarden-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-5.blend",
+      "nativeSha256": "abc25d9434a1d1059b4bc00c74f56dd18a7bfcee5601fc269bf16f55eb19dc50",
+      "glbFile": "public/assets/geometric/defenders/frostwarden-5.glb",
+      "glbSha256": "2bc9f7f978ce5bebb3f17c08b73f91c7cd50740c6c410422703b0feec7534e68",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/frostwarden-5.png",
+      "sourceSha256": "97b7e03afdea8276141332de49482d35da7c9b3421e0c1d66f742adcfe7afc78",
+      "geometrySha256": "60f8602042941b41bd4b90007d22dc30af8c9c15d37518c01f2c2bcb9bf33b10"
+    },
+    {
+      "id": "frostwarden-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/frostwarden-6.blend",
+      "nativeSha256": "f17dd471da1ded1d276bcc1e954ddea08869b058952b9e67465651e7fa7be41e",
+      "glbFile": "public/assets/geometric/defenders/frostwarden-6.glb",
+      "glbSha256": "c676cab2f7944e7e83b3f2aec65f78dc673e3cf99c2c1e8ffe555a66c98479e1",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/frostwarden-6.png",
+      "sourceSha256": "49007ec90f5de6795b93c6dcb1566bab9b9712b4251985571fa5d8828e19f2f0",
+      "geometrySha256": "a3041d3caec40b7456d3a5a0c98b886a23b029d42084e95b3e786beb14a77b0e"
+    },
+    {
+      "id": "stormcaller-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-1.blend",
+      "nativeSha256": "2e1efecabfc0b1b6b29b71c6d3509bbad077ad17dfbd11df8a3498daf580afbb",
+      "glbFile": "public/assets/geometric/defenders/stormcaller-1.glb",
+      "glbSha256": "ada39c08a9007e2ced4708471bdcee3ab3c905f243c03d45d5dc7894dafe7083",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/stormcaller-1.png",
+      "sourceSha256": "904eb95be360352cdd982e4746579d2f49ca7021dbd884790e380e9ff0627e9a",
+      "geometrySha256": "a29751d9b1a073b150e56fb502fabbb9709bb0bc91b0c914c184dbd89a23d0c1"
+    },
+    {
+      "id": "stormcaller-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-2.blend",
+      "nativeSha256": "8f3981eb4bd1532cedc500919af896ba3650cdfd0530593223fe3ad9bb65610d",
+      "glbFile": "public/assets/geometric/defenders/stormcaller-2.glb",
+      "glbSha256": "9e5ef8f12482c159a85512c1801532b0953316c2a96615cc422c40a9fcfb7c94",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/stormcaller-2.png",
+      "sourceSha256": "59790d4ef36a25c1460a8c15b85a6fe0ac0e6f1121b5c70a910d9373217202a4",
+      "geometrySha256": "399366569d409234623839508890aae3666abcf67c6bfb75bf1bacf45c8b0b91"
+    },
+    {
+      "id": "stormcaller-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-3.blend",
+      "nativeSha256": "e9897429f13493e0ff643ec89e9e6e7a74ad04736cf990900bd417b286af42c7",
+      "glbFile": "public/assets/geometric/defenders/stormcaller-3.glb",
+      "glbSha256": "27b5168b7318697ed2905fd39f510cfb866761c624aea03dd2fd8d4a6ab8e40a",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/stormcaller-3.png",
+      "sourceSha256": "4e891ceed929e0d2a953bb8bcdedd5d264d1df1ddc17c3be8455ea7e1f841c9e",
+      "geometrySha256": "f1855092cd079e946c241e814b51546b779d23c9c0e05c9cadd965f28b698859"
+    },
+    {
+      "id": "stormcaller-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-4.blend",
+      "nativeSha256": "9147faca75ba4b03fe33ccf8d7d368f64e93a74530cf5c797036271af340838c",
+      "glbFile": "public/assets/geometric/defenders/stormcaller-4.glb",
+      "glbSha256": "7b829a273757ea9372c29eaf87f74f37c07667f67c543a8d3717a836c263d5c3",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/stormcaller-4.png",
+      "sourceSha256": "f2d05b5a03c09fcbab161bdf38133da1c3addaec4e096dacb17cdd6e7370857e",
+      "geometrySha256": "97fc1c7b0676722078562d322ba2a30f6f3f78f3ee1959fef04d4102bd3bd175"
+    },
+    {
+      "id": "stormcaller-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-5.blend",
+      "nativeSha256": "5946cca5800b06b2aac9073d0c16e63f2019ef866cf57785150adae7703f770b",
+      "glbFile": "public/assets/geometric/defenders/stormcaller-5.glb",
+      "glbSha256": "c5d474af2f14d58d2e3245409d14b56440f5c0fe07194d951cdd18d1b7898b7a",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/stormcaller-5.png",
+      "sourceSha256": "d84955c7e791a6c22f1eb9feb15baf9f7d18079407ea42c3fc6a4dd350bb04ff",
+      "geometrySha256": "0b570ea970c03e2ef788015b68dcfa1b9f10424a4e6e6edd15466ed17af6c085"
+    },
+    {
+      "id": "stormcaller-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/stormcaller-6.blend",
+      "nativeSha256": "d129189dd4586988a2a4280e6619bf9db2d4758e7e443e7ad19def898d84eb20",
+      "glbFile": "public/assets/geometric/defenders/stormcaller-6.glb",
+      "glbSha256": "3e2266fad985c24eef8b2ef99cfd0ef57d4e41ee3cc6039f1358c17d136fd1cb",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/stormcaller-6.png",
+      "sourceSha256": "ed4ecbabe98d093c47a1e3de1977288ddc1dc973f1805a0c0f07405d0baf7f2c",
+      "geometrySha256": "b23f75482fe82aded3393431dccb1fa2f69a070d152b6ec0c48ac83a03ad45a3"
+    },
+    {
+      "id": "cleric-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-1.blend",
+      "nativeSha256": "50f2d81abb229992c3b0f00824b118584c87fe57cc1d02c3bb4a43af1758b2f4",
+      "glbFile": "public/assets/geometric/defenders/cleric-1.glb",
+      "glbSha256": "df437d6a3289acbc3b7281b9df5fc98c68438674cf3fbdaa9b2b9fbe4d148f6e",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/cleric-1.png",
+      "sourceSha256": "714418ee5ca52796f587c5b4f02f1606298d274f7d75e2e93658c7a83d74b5a7",
+      "geometrySha256": "94b218fc55ba6365fee376c6496c117a8f3234c81399790d137e6e0917e64b4f"
+    },
+    {
+      "id": "cleric-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-2.blend",
+      "nativeSha256": "e74e45be5f010a1a33d2b79a988e6a6bfda3f773fd8d28d5efbc05f98b69ac13",
+      "glbFile": "public/assets/geometric/defenders/cleric-2.glb",
+      "glbSha256": "2d1079f72c71ac7a7c9330b1b0e26025cfe4315de5cb4aabdd67ec8a974975c2",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/cleric-2.png",
+      "sourceSha256": "205e881c7955f696890568fe791b4c97e77176d08ef1429cf436b293b468d31a",
+      "geometrySha256": "b5885366ba160429abada730bde6d568aa303b9dcadd3e6f08a2e3dc14b9ab06"
+    },
+    {
+      "id": "cleric-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-3.blend",
+      "nativeSha256": "c4afc8d1aba329a1a9731c48724a9e01fb94a88f8b402e0ce94467ed3ce491a1",
+      "glbFile": "public/assets/geometric/defenders/cleric-3.glb",
+      "glbSha256": "4350a71892c2e128aac7475dbbd60c95e11c9b221da673e95928151543252ac5",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/cleric-3.png",
+      "sourceSha256": "668d1953e8e927fe82e233620c17c9b44197056db86a7a2bbb1de4488193fbdb",
+      "geometrySha256": "004a1e9420715a827bc4ccbc4cfbe0e030a0e9fbcb650815fe75d7e18217d02c"
+    },
+    {
+      "id": "cleric-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-4.blend",
+      "nativeSha256": "81a97509944bee8c4886a55918c1da87b05dae1960d8d531c051180df3ab2322",
+      "glbFile": "public/assets/geometric/defenders/cleric-4.glb",
+      "glbSha256": "3c00c2598c0cbbce5f0530991ab2e57086a132f940e240c7772d475afeaa8d9d",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/cleric-4.png",
+      "sourceSha256": "a4d40151eaa6e2b323670f3bd083693c4fec8f390730dd68405dd69ff7d70bea",
+      "geometrySha256": "18e87e4ddd6cf9b568f4e4e389eae10aeaaa3f5c8664376fce059ea05080f9ff"
+    },
+    {
+      "id": "cleric-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-5.blend",
+      "nativeSha256": "9a89e297be72d4a9a751de41966176ecd2a3b742ec9648d17f9c3d6a766cc9f8",
+      "glbFile": "public/assets/geometric/defenders/cleric-5.glb",
+      "glbSha256": "8f5a60e5a62a02302854eec0af145fbdc15718ab511847130b322e96634d6dd5",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/cleric-5.png",
+      "sourceSha256": "785ae00a2f8f4d37d768ae68b9c8bd26f3cf85a655fe6b633b0c349e9d953897",
+      "geometrySha256": "61c91eca76fca550340ab56e72fa9fdea348d54c8e182b6dc7fc2b713095765a"
+    },
+    {
+      "id": "cleric-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/cleric-6.blend",
+      "nativeSha256": "9f4807bb48534264be79dfc5dee9062ef758066ca723c6dc761e91fc96e3e588",
+      "glbFile": "public/assets/geometric/defenders/cleric-6.glb",
+      "glbSha256": "11a0bdda1f102e6e1cdaaacd942dd08a627968d8caa946c66c308a4ae8663d17",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/cleric-6.png",
+      "sourceSha256": "1a7f2529f4d6a2317316b23de38b3507ba09a9b893464e4bf934e440d62ff0f5",
+      "geometrySha256": "ec0ce66e38718250865520835697839e5a4329fcf64b8b041452c1b39dc2a0a4"
+    },
+    {
+      "id": "druid-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-1.blend",
+      "nativeSha256": "9582084faf4da314bf335fef387c9e84faf5378caca64f75c2fc1bfb44df379c",
+      "glbFile": "public/assets/geometric/defenders/druid-1.glb",
+      "glbSha256": "e497dabb8f4a975e47eef21bb60502be06da71c96dcf17a3e8d34b6108be6a4b",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/druid-1.png",
+      "sourceSha256": "c54234fa8e78bfb987fef9e655156969d077093cc7c53879efe2ea3ca15bd8b1",
+      "geometrySha256": "aeb1ebd03757bf0d26c6f3d3ef7a759a1a1d55e59721ce319d9bb4deaa32ec57"
+    },
+    {
+      "id": "druid-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-2.blend",
+      "nativeSha256": "9a5095638d3c3d5f128144ed674be24b16122636c83cc74ee0b5a5ed28a9f63e",
+      "glbFile": "public/assets/geometric/defenders/druid-2.glb",
+      "glbSha256": "374743b6be530cbab4574e34c16aea1dd1858f5f03c85f1e2f3b1962ccc8419f",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/druid-2.png",
+      "sourceSha256": "32ece0002ea3336710fb322ae3a3429012b6cf6fec5524e17cbd373310172175",
+      "geometrySha256": "01f6f19d323b811d1a1cf5c56daed54f98e8224ccb9794d30d698a62c19eb649"
+    },
+    {
+      "id": "druid-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-3.blend",
+      "nativeSha256": "1bdc10ec6f50f4c2faf6921c7ee76f1d98b383520b73dc838dba7b92ea973efe",
+      "glbFile": "public/assets/geometric/defenders/druid-3.glb",
+      "glbSha256": "c443964aa09f3fa81e91cf226caa3fc61d7e7179f51806486f7332ed442582bd",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/druid-3.png",
+      "sourceSha256": "c6e3d24f64661217c461eea9fd0f9717219a4a15f2706009f253c577da1e9bc8",
+      "geometrySha256": "7184c1c11115932ea183fa6aef7e0af40c6837b3a080568d7f39e983f6cf94ea"
+    },
+    {
+      "id": "druid-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-4.blend",
+      "nativeSha256": "4a9da7f1a0fc478813e15f35680f3333bf60b1383e4c11b95807c87c0f344d56",
+      "glbFile": "public/assets/geometric/defenders/druid-4.glb",
+      "glbSha256": "04f16151c6f11143249c504763171e0e25b1c29d4860b28b82eadc98efbc3be2",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/druid-4.png",
+      "sourceSha256": "9b789be0711dd88d5f72465d283084e1fbf4dbdc41a3f00819354a183a722e49",
+      "geometrySha256": "b4ab48caadfcfdab072582815d7a8333fe83c532f264ee98b00dafeeb34f2ffd"
+    },
+    {
+      "id": "druid-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-5.blend",
+      "nativeSha256": "4e687012b5c2945e06afaf0cc012edc8a1d9037d2471add98f0876eed4ef785f",
+      "glbFile": "public/assets/geometric/defenders/druid-5.glb",
+      "glbSha256": "2b6396e623f758d0bd427cc16fbc023e5f63ff68d053e068003c67e8e4679157",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/druid-5.png",
+      "sourceSha256": "855b295f2c3787d32199d3bd3f97d852502475072777b8947edb9356de58d33b",
+      "geometrySha256": "c5d442b0c63863e5fefd69cb682f1dc3a2f6ff5a6229ba5d04848bf3c1f72983"
+    },
+    {
+      "id": "druid-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/druid-6.blend",
+      "nativeSha256": "a66d18661382f6c6c3b64bba1fb42b36f1344c62f6df5064702a5f851ee3b857",
+      "glbFile": "public/assets/geometric/defenders/druid-6.glb",
+      "glbSha256": "301f17dac715de847f13e0bf848098d09d666fc175d12224a47bef4271d6151a",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/druid-6.png",
+      "sourceSha256": "2f9bbd6bd4dc8da0f511c147cf4111d1ab42aa40a032bc4fc2a991194edfa086",
+      "geometrySha256": "0b839b5cfe5f14ebbe05c9400941aa61bf92337f89609fde92fd5b51e00666ee"
+    },
+    {
+      "id": "runebreaker-1",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-1.blend",
+      "nativeSha256": "606a26a7dc28c27672dbc37fe6bb45251c2956021cbf075409366b46c69b7a62",
+      "glbFile": "public/assets/geometric/defenders/runebreaker-1.glb",
+      "glbSha256": "59b202ca9ea5a24cede25c2dc193c749e0d823ccdc64acbedb3f98760cc55642",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/runebreaker-1.png",
+      "sourceSha256": "ad248e4acb9d538632864a636b0d2db77923747c094c1505a157bf998746a169",
+      "geometrySha256": "105e2256ae24d0b9f3c3ad184e6fdbe271f0cbf1cc587695541067bfaf11223f"
+    },
+    {
+      "id": "runebreaker-2",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-2.blend",
+      "nativeSha256": "81afdcc15f67313426bc45529b1eda128d0a1fb2b55c3e4257b08d250ad44588",
+      "glbFile": "public/assets/geometric/defenders/runebreaker-2.glb",
+      "glbSha256": "f253027dbb0d16b2cf155167623a4d5e6a4d38c50692642277a46e668f85decb",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/runebreaker-2.png",
+      "sourceSha256": "0faa1b560da909eb89bd6c01477ee8255222de0b77aa0e6d7f6675e96506a11b",
+      "geometrySha256": "fed9fc3848ad957c32b88ba9b52b6d4db077b5a009882183b79e4c120f0b1884"
+    },
+    {
+      "id": "runebreaker-3",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-3.blend",
+      "nativeSha256": "de0dc72d957bec734ff80cda5d1dcff19424f2175bbddae7bbc55f5c6f2be60a",
+      "glbFile": "public/assets/geometric/defenders/runebreaker-3.glb",
+      "glbSha256": "7b54cbe802bde7ad0172337e3983d682e1d57c6f5aaa44f1c61eb34ba8e568ef",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/runebreaker-3.png",
+      "sourceSha256": "b387bc845fd68f0a8e40e6a5c1dfd26b6c2b38db23c48f74640aa21ee6277935",
+      "geometrySha256": "737e3807a777d77e7337ea7dd6839495cecb98d2f70ee4baec9f77d2a796e0f0"
+    },
+    {
+      "id": "runebreaker-4",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-4.blend",
+      "nativeSha256": "ceb2e4bf98377eb3ad8ff0535df49393b3576af3e506814c781710f35c6cbcbf",
+      "glbFile": "public/assets/geometric/defenders/runebreaker-4.glb",
+      "glbSha256": "8b827ae7f2cf3badfc5fa3512ffebbf5739852630a6488475c712a3f9c5cdb2d",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/runebreaker-4.png",
+      "sourceSha256": "af376813a050a375b5ad9ca6b7e8db7a8840b2825c16eef89c7da32990d6c38e",
+      "geometrySha256": "13d1df7fb2e38006d4f7d26714f1a984417b6055df124f28c26cea1448bc6831"
+    },
+    {
+      "id": "runebreaker-5",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-5.blend",
+      "nativeSha256": "aadc6ab5797e65acf4ffedc421ae6f65919169960478f2c98cee94e17b95b7e4",
+      "glbFile": "public/assets/geometric/defenders/runebreaker-5.glb",
+      "glbSha256": "b59ce284864ba0c777affe5d2c754512a38f89b12421ba1d3c1b8ea356f1252d",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/runebreaker-5.png",
+      "sourceSha256": "0a6b6f8d1332d15b1845439582d3c0d5a3c9dd37916b6272d287e462582c4dd2",
+      "geometrySha256": "3026a9dddc63f7ab967f35ecc2ee573f1c462d25a0df0d0b1f4b8ce5335f8eda"
+    },
+    {
+      "id": "runebreaker-6",
+      "nativeFile": "blender/scenes/geometric-game-v1/defenders/runebreaker-6.blend",
+      "nativeSha256": "655bf5f199ce94dbd46c1adaab282c807e05bbb0a6ada5d8d44407371371b3b0",
+      "glbFile": "public/assets/geometric/defenders/runebreaker-6.glb",
+      "glbSha256": "d59e2e2e5fa480d2f90302a7ba937c2b16473c7a52ca03e92649bf97a8cad109",
+      "sourceFile": "public/geometric-turnarounds-v1/towers/runebreaker-6.png",
+      "sourceSha256": "793f71dfe5118150539291b043735e48bd61fc3bebbeca4de863d08af06b99bd",
+      "geometrySha256": "eb1b5fc31c05b7733d0695ae28f05b02280814bc0739f240e1769dd05ccfc8f3"
+    },
+    {
+      "id": "frostblade",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/frostblade.blend",
+      "nativeSha256": "e1e9784ed298aafc13fa641417b93df0d0c44b74deceef17bab744cd6cbec793",
+      "glbFile": "public/assets/geometric/champions/frostblade.glb",
+      "glbSha256": "04bd681009091d8f9ddbc854e41baa223b881b2955a0e1b3073b2e2dc4e99457",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/frostblade.png",
+      "sourceSha256": "bf2f4bb1ce6ecefb3c54230cad57d4cba9fe37a8d42c8ec167255e10a4b73869",
+      "geometrySha256": "6dce2b11cd326b74474c1646f8a651fae949915e837ec163a0c85744fa1a6cac"
+    },
+    {
+      "id": "monk",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/monk.blend",
+      "nativeSha256": "526478492fa2e01e55124d2ff97d6b2edaa6c0d34b78558fb3ca1ef6b2a1cd66",
+      "glbFile": "public/assets/geometric/champions/monk.glb",
+      "glbSha256": "d81c099074541aac1e359666030da90858b565eb4164f67d0ec9e478bdfd2a83",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/monk.png",
+      "sourceSha256": "618c469620670d4a558d3ffb62e50aa090646a4444be2022702a83cccb625db1",
+      "geometrySha256": "dc15ca87e3ff56a29ea41d4ef575edb30f225e126070dc7b8dadc4974da712f3"
+    },
+    {
+      "id": "rimewatch",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/rimewatch.blend",
+      "nativeSha256": "7653f012fa3f53f64d9c3f91481f804bd165196835796f764eb55df42d2a5d13",
+      "glbFile": "public/assets/geometric/champions/rimewatch.glb",
+      "glbSha256": "30397d1f31feed0d331f1dea1fc3ec33e98ded2b61d42d0ced573671c322ee36",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/rimewatch.png",
+      "sourceSha256": "713a3b05ea4cf903d64997d9519079c4b1256df6426ddb7dc2bf90bbae4268e9",
+      "geometrySha256": "118a6c76e390a024a5423b392397f51de5a47c6307cc9078a026e0835b5d8bb5"
+    },
+    {
+      "id": "roseguard",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/roseguard.blend",
+      "nativeSha256": "6b0c9aba17eafcc209b6fb8737ad95485a3be4e9e10e6273df402b8479b1d2ce",
+      "glbFile": "public/assets/geometric/champions/roseguard.glb",
+      "glbSha256": "8edf3a122613fcd3568439832557b0332ebee02777c67ef3f4ac54114dfa9ec8",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/roseguard.png",
+      "sourceSha256": "4cd225bb92226ad1bcd1831a5c783c5ccbe8f635ff2b5d7413a52a579098956d",
+      "geometrySha256": "b5f1c432cb1af5fe11b3e6dc065915bd1222f968cda55c16a3e73bd1b8d9cbfa"
+    },
+    {
+      "id": "highking",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/highking.blend",
+      "nativeSha256": "675557b8ccd205b1c545679b91fa16860604aa3820ba67af635b331dcfc54422",
+      "glbFile": "public/assets/geometric/champions/highking.glb",
+      "glbSha256": "1f4f5137070e720581170af8ac310fd090e3544016adfe9cf65cdc216eff454d",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/highking.png",
+      "sourceSha256": "3bdd0a05e94d5439842476a19e35ef71ee454e1ec4c426ddb02b232a5b811695",
+      "geometrySha256": "e41c87af48bef5bfbaf19ebe874f390753a28a653d9202207a6821029eb9d10b"
+    },
+    {
+      "id": "crownofages",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/crownofages.blend",
+      "nativeSha256": "65f819718206fb4f144639d0cdfd7b4305430b46d3f705416ff7d1729c6e85ea",
+      "glbFile": "public/assets/geometric/champions/crownofages.glb",
+      "glbSha256": "4915290d07afe541704f231d6535b1438be628962bf29ea9e018d4b19b3e35ea",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/crownofages.png",
+      "sourceSha256": "5ab3d0b859ab5a63a04003d33a2d4ef4904d4a540a23468614a227de2060ea74",
+      "geometrySha256": "def786e98c3da155449834b141f188295d6bfc69cad753e13e7d93d4aa583d78"
+    },
+    {
+      "id": "thornwarden",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/thornwarden.blend",
+      "nativeSha256": "5ae82972bece398b986b982b69271ef489cb3286508683cbe706fa57c9e4e4ca",
+      "glbFile": "public/assets/geometric/champions/thornwarden.glb",
+      "glbSha256": "0bc45a504eae6431c64bcd1e4ccbe4ae60bdc13c4850fc1d90187ddf13c55f2f",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/thornwarden.png",
+      "sourceSha256": "10faee180a2f6d8f35cb6c711c47d4701c0c520873e7060a68728b27e8d312d8",
+      "geometrySha256": "7ac12f62a436dd045331173df0a53a06d38a14fcc2e3ba404c0a2e69361a1fa1"
+    },
+    {
+      "id": "verdantguard",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/verdantguard.blend",
+      "nativeSha256": "45c71bbacc0b066e94b0dd7da84ea6523449eef74bdbffcb4d51a042bc210e6c",
+      "glbFile": "public/assets/geometric/champions/verdantguard.glb",
+      "glbSha256": "a807fe3a313da2a3779d4138fb6022c537d8ca6e154a832774c630708e7b9e9b",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/verdantguard.png",
+      "sourceSha256": "a2ce020bc0c144f0b248e2031e820413e0003495a5264f986d629e25d20a0518",
+      "geometrySha256": "8cbdf6f62c6ea98ec92f0c2e70c2783b838b6d2165f37bac64fd6006b6d8affa"
+    },
+    {
+      "id": "tempest",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/tempest.blend",
+      "nativeSha256": "a9c74923206071826793f7438606d203aadfe7f3ab43d13c83feb57977c65145",
+      "glbFile": "public/assets/geometric/champions/tempest.glb",
+      "glbSha256": "87877048d114039f9b469f495df12a08a13b4f99021aff90dcc90072c3f784cf",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/tempest.png",
+      "sourceSha256": "47c69a62935ab7252276be8a919b286db11cfa6a6f38aa0362d045a345cba310",
+      "geometrySha256": "0c33f60e4a73636ef4c7e29c53ad7746129acc998d5dc4eb34e4518bd55098a1"
+    },
+    {
+      "id": "stormcitadel",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/stormcitadel.blend",
+      "nativeSha256": "a51ac30ae99659925b4120a4d86cde2cff19b0d4d1f980e86841bf68fc0053bd",
+      "glbFile": "public/assets/geometric/champions/stormcitadel.glb",
+      "glbSha256": "6078870436167049d3873156389a7b0066e9110eeb0caedbb39eaad5efb73556",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/stormcitadel.png",
+      "sourceSha256": "62d8f228487de99bcc276871fa86103b3cfcb82625f6beb74b0614e4f7cb8846",
+      "geometrySha256": "29dab47635f0649a96fec0a6c49b136c661033407e8e8b2205d57d03937f9ce7"
+    },
+    {
+      "id": "embercrown",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/embercrown.blend",
+      "nativeSha256": "cd09814a3847452f0dfda697d2401a84fde7510b9b6fb570d6cab3634ff304dd",
+      "glbFile": "public/assets/geometric/champions/embercrown.glb",
+      "glbSha256": "366b6eeb7f5a15c324b8bd9c697653e2d434720d44c2ebf723da5ace5d66d777",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/embercrown.png",
+      "sourceSha256": "b4d9e7e81f0ca92d187c10b1de3544f791d981fa5fabf4d36b17ee2ed3763cdf",
+      "geometrySha256": "54c8ffa2e5d1099ae8350b300acec58232fb033cc1b9ebca543f8bb62a2c464c"
+    },
+    {
+      "id": "worldfire",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/worldfire.blend",
+      "nativeSha256": "965f236a81545dd1b61cdee9341ddee38c905a5343bf5ad8e6b5ca60242cf23b",
+      "glbFile": "public/assets/geometric/champions/worldfire.glb",
+      "glbSha256": "e4522bad4e7648999b6e5f3eac1ade2f460385a4c90e6eda0911ee616e8d6bbb",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/worldfire.png",
+      "sourceSha256": "fb54857e7ba421844ba0584771f3f3021d2eecbea723d51f982c4d3ed1db0974",
+      "geometrySha256": "41fd2c344e3acdcc70b9eb6b5de75af08e32d33a95233c71ee016ace060ab91b"
+    },
+    {
+      "id": "starfall",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/starfall.blend",
+      "nativeSha256": "91ed9316b1dd6aebd21ee8e3952ea5aea9be0af23baeb9bafe5688ddba27c758",
+      "glbFile": "public/assets/geometric/champions/starfall.glb",
+      "glbSha256": "e43a2a78d17e3044e42e793bffaa9c43966e345feebf0f1dbe96f44b4db3d3c6",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/starfall.png",
+      "sourceSha256": "ba1bc363b4191ea8592198a3a993200f8538959723aa6dcd559f796fc67dc214",
+      "geometrySha256": "f5e07c354de8c7e85ee2a4d5826cb74b2278c0b983677238a1fb41235d5f69cd"
+    },
+    {
+      "id": "thunderheart",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/thunderheart.blend",
+      "nativeSha256": "67876d7adff3e23dfdd1945d90afe59069bcf1543587249d0e4332eb5381ef22",
+      "glbFile": "public/assets/geometric/champions/thunderheart.glb",
+      "glbSha256": "99c9d4d6f2597114fab66060ec00794b93e6228cf111e7d7bc9264e7af618627",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/thunderheart.png",
+      "sourceSha256": "61f6525c8d719e3a4988d532669d8e2f48cfe82d9b331113e5884af5522b8d92",
+      "geometrySha256": "c205942cddb245a0e4d8d9840c55ce74162fbf58810d0590a61a31d9eee9da2a"
+    },
+    {
+      "id": "phoenix",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/phoenix.blend",
+      "nativeSha256": "93a8e420924b7d9f15a9da444fe295a53ecc8c6f2a58b45982a8849d1e765337",
+      "glbFile": "public/assets/geometric/champions/phoenix.glb",
+      "glbSha256": "39274fe1cde1198387942457007864fac30c3ec692f02fb0bf7f3eee487ebdae",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/phoenix.png",
+      "sourceSha256": "c4b503e03dd046acd9ffc6e01c27e4711406eb8f21feb8bf5893aebcfd3c2f57",
+      "geometrySha256": "19bbcb9afae2500090c767e4cce0b9c87448ca2e3b2499d1b3b02608419a5202"
+    },
+    {
+      "id": "greenheart",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/greenheart.blend",
+      "nativeSha256": "9dbf67171bf699bf1392c49eec952a081d83ca291b7d1b4fd75d002609f59103",
+      "glbFile": "public/assets/geometric/champions/greenheart.glb",
+      "glbSha256": "21ad839c42640bbc172ba1629afae33dd63dee06d9680c1d8a1e9c01b278bcab",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/greenheart.png",
+      "sourceSha256": "cb347b67017ced5d505c631b39f444437b750571e2bf62e467bbcef012de6476",
+      "geometrySha256": "5e90cb89c6f311ddd6501151e8456bb953aa8eb1b698ccecbbf2e6fe4c028944"
+    },
+    {
+      "id": "eldergrove",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/eldergrove.blend",
+      "nativeSha256": "fb538ba3de38182781312a48b2f0093791bbea3135ac73a5ef4c4e694bb914e4",
+      "glbFile": "public/assets/geometric/champions/eldergrove.glb",
+      "glbSha256": "296574796d0a41396f363e07cf0ab393e7a5e02fcc9add62da51ffc4796eaf4b",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/eldergrove.png",
+      "sourceSha256": "9d380d63c89fb4945b66b867259446a329d7b752e1e0fabfff93ddeab7dceee5",
+      "geometrySha256": "ec82d3942b3e5f1498f7472bad2267e60682ec7ea9f2074f8ca137872bf2c965"
+    },
+    {
+      "id": "kingsreach",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/kingsreach.blend",
+      "nativeSha256": "4c56660fcc530fa3731a8623909ae77bfd5f8c296bba03a1b878b0a67ab4affb",
+      "glbFile": "public/assets/geometric/champions/kingsreach.glb",
+      "glbSha256": "8f75edab27b5ddf1441a069edf24a016c3ed572f91e21e9797638767d011779b",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/kingsreach.png",
+      "sourceSha256": "b1da16de6fb679301ee8b1a2a67b310c1d47a45d81847e7e36bbf77fc9bfd191",
+      "geometrySha256": "7bd712d4f631278641be8aa27426789d61a1ffea98368e821fbc33198f325583"
+    },
+    {
+      "id": "sunward",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/sunward.blend",
+      "nativeSha256": "56e007063791029c0f56c645e7b5a8963cce07d939c27c964bfe5d90a3f8bc0b",
+      "glbFile": "public/assets/geometric/champions/sunward.glb",
+      "glbSha256": "d4a5daa4f7d6706be9138cbb852dde4380add83158f30a475cf4408d2875c654",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/sunward.png",
+      "sourceSha256": "90c99d47626a56df9b47051ceb019d2479f96ca695f3d984e2c0d4c47e216635",
+      "geometrySha256": "89dbdfe62beb5e2936671e67ddd905d92dba96aa0d7ccc0ecd571302bb7cfbe5"
+    },
+    {
+      "id": "winterhold",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/winterhold.blend",
+      "nativeSha256": "adf78865a9d26a0bf4393a92b037df013cc28bfe9f6eb8d55fc91f5f7cd982cd",
+      "glbFile": "public/assets/geometric/champions/winterhold.glb",
+      "glbSha256": "f5e1e8e83faaaa717215093bd2e33d47763a3649ac3dfefd411f1ef0238fb221",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/winterhold.png",
+      "sourceSha256": "d30337f0315f4575b67fce38ab7baf59f0f81bc2eb89bcc24c97ef86acf5827e",
+      "geometrySha256": "d502fa09d172a341a4eb65dba5ae9a153008d4471cf6809ddea2b9ff853af429"
+    },
+    {
+      "id": "dawnspire",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/dawnspire.blend",
+      "nativeSha256": "acae02688d8dac8048187c14d10f9208e8a74daa4f9f0011a63275862d9cf291",
+      "glbFile": "public/assets/geometric/champions/dawnspire.glb",
+      "glbSha256": "eed4cc811fd8a84a5f235c52cf44a969b87b522eb46e334b257eb5f550f6ed70",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/dawnspire.png",
+      "sourceSha256": "0584ade6158fa200130ffab25575516027affae779edb938be8c61495d09af99",
+      "geometrySha256": "a94a16991ad0f58741b42c2adda1d3e4e09642f88697d602e3aac30252ce0c74"
+    },
+    {
+      "id": "royalmarshal",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/royalmarshal.blend",
+      "nativeSha256": "5a3daf7147d253367fec4b5e5fa2679e938ad3e7db3119cc6a20ea7717a94c50",
+      "glbFile": "public/assets/geometric/champions/royalmarshal.glb",
+      "glbSha256": "5173b5fb71a79e0d40ad60fa2ec24c6473b2d83c0265ed897726ee21b35be1db",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/royalmarshal.png",
+      "sourceSha256": "9b5e0f9b11f19ce53807ea0f72bcd3e13cfaad0bc1611ab6fd96700d837fbecd",
+      "geometrySha256": "b715de403fb50263f40b4240163771b77bfbf6ab986a7ce7a0edfb3b8dc94a0f"
+    },
+    {
+      "id": "stonewarden",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/stonewarden.blend",
+      "nativeSha256": "6da3e9c343df9881c47af86e8aa910834632d4a7333be3f44c615e5081159f5f",
+      "glbFile": "public/assets/geometric/champions/stonewarden.glb",
+      "glbSha256": "ee565f46a992cc6b4b1b6ff977be5a9783bf07c564fc1b7a6de9b9d958d1d3e9",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/stonewarden.png",
+      "sourceSha256": "529cc5c494fbcf377842a07c55b7222a2affbdf920f2f430ad16eeb118ba956a",
+      "geometrySha256": "67a4deadcb8daeef93858302b51c50509b61bf0a42930f4241eb15be4dd55d05"
+    },
+    {
+      "id": "wyvernhunter",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/wyvernhunter.blend",
+      "nativeSha256": "8d1e98f2a1fdbf70922e8081a8d60687d616e86fc3e964637b727319f82605f0",
+      "glbFile": "public/assets/geometric/champions/wyvernhunter.glb",
+      "glbSha256": "2bcea57071ab786ae734fe2277d7a85afa1c07ebcda345d763410a410209c20f",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/wyvernhunter.png",
+      "sourceSha256": "40ceb4f257a986556836210ca62a48285b02c466d64762131f4d04251e015555",
+      "geometrySha256": "94fdf2d49b520370f1cfd08a4acca401cfac1bd732da6ac54d16ce0d211f580f"
+    },
+    {
+      "id": "royalarsenal",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/royalarsenal.blend",
+      "nativeSha256": "aa52c69c3ba28808a36ffbe0f44ea4891eaa14a78bf1115aadc1ce0b914a0c7e",
+      "glbFile": "public/assets/geometric/champions/royalarsenal.glb",
+      "glbSha256": "710a7647a61d65f5f8456802ab19075a662718e43219fb5bb1397a4357214e74",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/royalarsenal.png",
+      "sourceSha256": "1d7cb99743ba134061bb49fc9f4239a7b4f2d631733f4c41e16fc363a9c28483",
+      "geometrySha256": "ec7bbc47e11b5d9d24079c67d8b88d592e43126575d78f3d1394c967e396ecf6"
+    },
+    {
+      "id": "rangermentor",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/rangermentor.blend",
+      "nativeSha256": "a0cf80081002a46452874744714222a440fc137c61d93de197b23cd76cef9f69",
+      "glbFile": "public/assets/geometric/champions/rangermentor.glb",
+      "glbSha256": "e2b3bf4dfaa956e25e867cac0d4f07df30ec0f2241aefddfbdee4cd5a87936d5",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/rangermentor.png",
+      "sourceSha256": "74aba5f2b339c18dea3a99e1dd6c63c84f6c3cc1996d4d8724e5f56a1cc31e83",
+      "geometrySha256": "ad7fb21afd084579e6d1aeb4196da2d02a086ecd99038595c81c1e4446639392"
+    },
+    {
+      "id": "kingdomprotector",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/kingdomprotector.blend",
+      "nativeSha256": "05fa05b9984f3a459b40764b84ffb632bd47dbeeb19ab7510008a2146d52b3e7",
+      "glbFile": "public/assets/geometric/champions/kingdomprotector.glb",
+      "glbSha256": "7dfffb0c3373d7a8b409cddbfb5eef7cf9e47e77155b40efcd50b142a2181fcd",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/kingdomprotector.png",
+      "sourceSha256": "f87b5e20d321b18b0b62c6ddc22088c0191f9cd0cf1321774885a5f22cec3444",
+      "geometrySha256": "5a2723cc1c92ae4c89d8c82ca09ddcb28277a6827a658750b916472612fa5b97"
+    },
+    {
+      "id": "mothernature",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/mothernature.blend",
+      "nativeSha256": "a0618da265031e77489de841a96fd3f7a833075a8b591f2b9b28926576dbd5c6",
+      "glbFile": "public/assets/geometric/champions/mothernature.glb",
+      "glbSha256": "4fa9be950db01283ed373acdb9433461d5d61e831070721eb558b4816f6391fe",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/mothernature.png",
+      "sourceSha256": "bd16a9eb1b7347161efd279ad5f3a8fa3858c601791178e0b5d1b17e00c24e0b",
+      "geometrySha256": "e6fc5a54bdb6065213eddae1dc723bc0608133e1a39386cbcef44f1b85285aa8"
+    },
+    {
+      "id": "royalranger",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/royalranger.blend",
+      "nativeSha256": "5fe70b6570e7b666c54216a6a74842d1b5ed1cd381be69357cbe619afe924ca6",
+      "glbFile": "public/assets/geometric/champions/royalranger.glb",
+      "glbSha256": "cceaf76d5367d37fbae12d10ee7b111110854196da5760f977ff297521a18201",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/royalranger.png",
+      "sourceSha256": "3dd2189603fd47d895ea9b16df4160931ba49b147ec8be55f9bb511655338066",
+      "geometrySha256": "35d73e207a575ca9654504ae50cb476930bbbd7314747a9f2a8a0e4a5ad7c88c"
+    },
+    {
+      "id": "kingsrangerguard",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/kingsrangerguard.blend",
+      "nativeSha256": "ab78595656878ac98c554985788976e14b4b5432c9f60355f8fdd15eae563a03",
+      "glbFile": "public/assets/geometric/champions/kingsrangerguard.glb",
+      "glbSha256": "241eaaea2172b3ce07d8fa78d6a91dc969cee89acc36207159f945d1fa135329",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/kingsrangerguard.png",
+      "sourceSha256": "08284f7b706baec934fab87df128bbfb17b9e37dd93cfbfff4ecd782ab96ffe5",
+      "geometrySha256": "5996003de2d87a8724f927512d3ba4d6ba2646716f160b6081044d1301c3b980"
+    },
+    {
+      "id": "elvenking",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/elvenking.blend",
+      "nativeSha256": "cd7bea3fe99eb1a10ba9b3976bd80d1e21d50c5c4377ee79fa87ad0719920cfa",
+      "glbFile": "public/assets/geometric/champions/elvenking.glb",
+      "glbSha256": "e43e76a31d7736d62b139caeb37fd721fdbd77277d8669ea63da31c3a69e85b4",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/elvenking.png",
+      "sourceSha256": "dd99107d500b1824293ddc00b6680d41016586c0305bd3801d09084468613b62",
+      "geometrySha256": "4b27138ecd7df95d92a6cc951bd53fb8bec8a33638c62b419289f05fbe911d15"
+    },
+    {
+      "id": "fireballista",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/fireballista.blend",
+      "nativeSha256": "2371c5e545e4f048b78916c15724fbb145652d27d8f5fe63b6e05d59a6bd5046",
+      "glbFile": "public/assets/geometric/champions/fireballista.glb",
+      "glbSha256": "101b0709bc568679430f50f74886557e6ddf4dd0ac2c87a400965ff1669d0954",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/fireballista.png",
+      "sourceSha256": "c51c9a4344ec991281b3f1b907e40b331bc8697d956985bd50793dc2bf3e41b7",
+      "geometrySha256": "1209ba96ac8d42d9f5d3883ae63164d4d3528a89207f62cd1857cdb5e14c88ed"
+    },
+    {
+      "id": "emeraldgolem",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/emeraldgolem.blend",
+      "nativeSha256": "cb6c01b5209bf69c1aaca2887090005904e0e4fa2873f94108b07de52569eb35",
+      "glbFile": "public/assets/geometric/champions/emeraldgolem.glb",
+      "glbSha256": "ab239a6909af151c2d51b5fadd844f74f2ee2eee95d49d58fe9cccd5ff6fe866",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/emeraldgolem.png",
+      "sourceSha256": "d3808f874d4bc93374b34c936e8a97020c7a19d1eb6bc8f1acfa8e1ed6a5cc41",
+      "geometrySha256": "1d371f7d74da64f2deef9159cd0a5b102565514d267661e328ceb212f084c2e3"
+    },
+    {
+      "id": "griffinbomber",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/griffinbomber.blend",
+      "nativeSha256": "56d0a7122dd00a7e766e109e378267acc9b8eb9d6f83a85b442d003d63a5acb6",
+      "glbFile": "public/assets/geometric/champions/griffinbomber.glb",
+      "glbSha256": "3b459e1a935c3f3c294d76398910da5850df10c4fef4dd200eff7e55788d5739",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/griffinbomber.png",
+      "sourceSha256": "fb14d59086c919ce6dea83cac77f61ca0229968c2471517589f882537d4acc83",
+      "geometrySha256": "087a7529a3193dd7357cba4600807e36fc42b35b9d339896b3ee0e03f36ea495"
+    },
+    {
+      "id": "mechanicalgolem",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/mechanicalgolem.blend",
+      "nativeSha256": "f722e759c0f9307762ac90b6a008cce9e3facf900c309ff856d8320edeb19a1e",
+      "glbFile": "public/assets/geometric/champions/mechanicalgolem.glb",
+      "glbSha256": "a1331ba9cf1d7e67fcbd3abbb2402e8bf673bf38d9accb2d3087fec87e0200a2",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/mechanicalgolem.png",
+      "sourceSha256": "ce3d40bb2167c7debe42a0e416600498943606f4da1d81d08ba50678d6b4a66a",
+      "geometrySha256": "d825116454451233ef1c3f3131e92a15217f4cbf903ac083058d1ac38a20188f"
+    },
+    {
+      "id": "archbishop",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/archbishop.blend",
+      "nativeSha256": "9d04ec9c04d70111d7965768187ba9d4bbd43721701137e1803602630eb9b030",
+      "glbFile": "public/assets/geometric/champions/archbishop.glb",
+      "glbSha256": "22eaadc54cb04b1485e4ac6ccf82726592928a1937a7f4a8c0dd2e4763eaedfc",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/archbishop.png",
+      "sourceSha256": "48395b5f070d440bde26e5158e4f88e69f75604edc92425ee2c267b4b19d48d6",
+      "geometrySha256": "009b79f12e42439bf879a0ef0e05ee926bb21db8c1d8ad73d7dc3c5794491099"
+    },
+    {
+      "id": "archangel",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/archangel.blend",
+      "nativeSha256": "357fa89b3bc7c8ccab06c1a5488db3d124570a4f6693703bfb686f97c0f6a431",
+      "glbFile": "public/assets/geometric/champions/archangel.glb",
+      "glbSha256": "d3144a81ea3d51d48a522b7d68d09eefbd1189e53d56ec0f4b3ef29899432b74",
+      "sourceFile": "public/geometric-turnarounds-v1/champions/archangel.png",
+      "sourceSha256": "e5aa49f2d46c01552475382db7cf230cbc78c7dab95002020a17f50a3c283a5d",
+      "geometrySha256": "d5222e3b0beaddd0a90a8f8a18435d858cf2c5c344b3d9e6350aba050d125370"
+    },
+    {
+      "id": "ladyclaire",
+      "nativeFile": "blender/scenes/geometric-game-v1/champions/ladyclaire.blend",
+      "nativeSha256": "31f39adbb4e3ffaa69b192cc2bd7f973f19a011345f161511c46cb6bbd3db60d",
+      "glbFile": "public/assets/geometric/champions/ladyclaire.glb",
+      "glbSha256": "ff553274749dfa8d1b4d032b5afcf26d0b4f764fa1081c2aef250e68b03d26b2",
+      "sourceFile": "public/geometric-turnarounds-v1/claire/ladyclaire.png",
+      "sourceSha256": "76839ba14c587c5b51f851e319b845633f60974b21ac8902dde0b36771041d6f",
+      "geometrySha256": "0063819254bdf525e89b9a3c7ddeb19cbd237d149d135801db9954cae9c081a6"
+    },
+    {
+      "id": "host_01",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_01.blend",
+      "nativeSha256": "6290a44c03d19b97c337c2eceb78664af6b4d35010450cae476ad8fb3d0c6c70",
+      "glbFile": "public/assets/geometric/enemies/host_01.glb",
+      "glbSha256": "07dfc3a007fb777052dbcf0abe12295c28df19ed269bcf6d48dc525658b63ef9",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_01.png",
+      "sourceSha256": "a5e72491393d8cd542de1e3c19560f6e7b5d311d14240b3f14619add86db6baf",
+      "geometrySha256": "d1164ed3a2633a45c252808933aca99ff2809b3d15deea5906bb44819ef40b93"
+    },
+    {
+      "id": "host_03",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_03.blend",
+      "nativeSha256": "a98a18175259613acbb844497780b17c57d2c87050cc8eb3855bddc86ed639c2",
+      "glbFile": "public/assets/geometric/enemies/host_03.glb",
+      "glbSha256": "d32dcbe98b13c45104d107096583170c7cd325e2f37166812a83b37197400e85",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_03.png",
+      "sourceSha256": "e088f7023e011ed88ae66147fd6721bde53fbb3454b71d4212a005fde3786fc2",
+      "geometrySha256": "273260343300b9da698c5a28327e316bba0effc5ac579b579cb1d544ba8898a2"
+    },
+    {
+      "id": "host_06",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_06.blend",
+      "nativeSha256": "34db2607c5d3b1451162bfe06934e564e3df980339ac519955fcfe16b241dd96",
+      "glbFile": "public/assets/geometric/enemies/host_06.glb",
+      "glbSha256": "f7d3b30c83778f8d5d509d33e69f831735603f5b8b5ac0acd23500b494ce3b06",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_06.png",
+      "sourceSha256": "607a95bbd91dd7393aa1c2a4d50894cfc9f38eaa8198b7c34fe82d4ecdb60be8",
+      "geometrySha256": "230e227d09d9b5dd571d413f02fe38aeed00aa6a8eca4b04ef64727afc1d48a8"
+    },
+    {
+      "id": "host_02",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_02.blend",
+      "nativeSha256": "74d683090eabeda300c68015e519e20f17095a0aac00706b4f16cb7d97157969",
+      "glbFile": "public/assets/geometric/enemies/host_02.glb",
+      "glbSha256": "62e6d11cd5c9bf89484d5fc6df6989ec0eb3856bc3e5a6a99de70172757cd0f0",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_02.png",
+      "sourceSha256": "7a89aafc9fa34fee0156fb45c3ff3067bc83d734e51b1bd76c1bdeca0ebf20ac",
+      "geometrySha256": "3b2c4be9a5f07e1cbdb6420e80cf0bdc53e6f6713e1e536910105e375bcaff2d"
+    },
+    {
+      "id": "host_04",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_04.blend",
+      "nativeSha256": "83e4edfa4087592dcbf824b449501a4ec515f0cad42fc4d1cd67aa75d53a81e2",
+      "glbFile": "public/assets/geometric/enemies/host_04.glb",
+      "glbSha256": "093c1d6a720d7249308b5a30ed7f25e0a97eaa76da8f2e50c852e4ab3ae76f68",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_04.png",
+      "sourceSha256": "d5205cc58789195a3884e000f9063825a1ec0817f468ff26472bec6d0b2e4286",
+      "geometrySha256": "69eda4a3e64ad1aad3e477cf97323a048ce562dfc3654c4558303a65ecee77e4"
+    },
+    {
+      "id": "host_05",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_05.blend",
+      "nativeSha256": "37cd3ca86de9d4acf09d21de71914a3a2b59da7f12004e93fbd13e78d5599d08",
+      "glbFile": "public/assets/geometric/enemies/host_05.glb",
+      "glbSha256": "47261478ae49b09a082d2836a1f8e34f3da8e8489518ff6d4c99ac10ecc8e26a",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_05.png",
+      "sourceSha256": "6bd7be7b195147f6ae8073d1a3e7efef1d481b689485f36ed93bc626abf20758",
+      "geometrySha256": "e7bf4fd2e21588e9c87047109da96d2462f2591dbcba6787c3c677029f31d5a4"
+    },
+    {
+      "id": "host_07",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_07.blend",
+      "nativeSha256": "22c88ed6ddf5aa825a0b8770e57e46b0e613e59ae825e2d4effe866d3aee79f1",
+      "glbFile": "public/assets/geometric/enemies/host_07.glb",
+      "glbSha256": "4bdb62b381df4ed14ade83ae0949817b5815c6d1774ea317465c406b821f06bb",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_07.png",
+      "sourceSha256": "f3ecc114d250f3a0d071ebadb7d5d2268db78bd3b3acebc3d114ae4171facb47",
+      "geometrySha256": "479b21986dc580fada95bfc9a340e9d6f1d1227b0851e7f9993292ff6691df73"
+    },
+    {
+      "id": "host_08",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_08.blend",
+      "nativeSha256": "a019387979d3daac18dc44a6247cfc12076307e5940f181e46d83096a35a71f9",
+      "glbFile": "public/assets/geometric/enemies/host_08.glb",
+      "glbSha256": "c4729f389e0017de5a3e083470b585c20577712c570ca264581ce184d541d628",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_08.png",
+      "sourceSha256": "9c69f7814f50186c666c3e89df9b0774326579a062af9352c3e04990cbf735de",
+      "geometrySha256": "c130d966c88c11d73cfb1ab54e0f63c322fe2a6cf13eadbe12fb0c9ed268b0b3"
+    },
+    {
+      "id": "host_09",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_09.blend",
+      "nativeSha256": "8ec20c6b93cc307cdf4a050b944f3842a31813756da0ca41ad1f8695fd4d83b3",
+      "glbFile": "public/assets/geometric/enemies/host_09.glb",
+      "glbSha256": "87585d73099bfe88a82a5d5e5556ab829613c80b00c714c234aa738ea45e1416",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_09.png",
+      "sourceSha256": "756e1cd62618a1800cfb6345659b45e0c3d8ea178b99439030d26a957af2e479",
+      "geometrySha256": "0e2c80590ccabe51cf811fe623d1511e23d980208d5b7d32a435be7d32eed8cf"
+    },
+    {
+      "id": "host_10",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_10.blend",
+      "nativeSha256": "81d376ee866cf8c576463d4d0a2a3be2974be9bdfcaf178d8999353ebf6d4693",
+      "glbFile": "public/assets/geometric/enemies/host_10.glb",
+      "glbSha256": "8423bc756de9fd75fcc68a8cf6bb4d1510925eb8b8e46902b66647d665f7896a",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_10.png",
+      "sourceSha256": "83a7bf2065fe495d0cb7045486a519c14b832f92faad39050fe5d813898a8349",
+      "geometrySha256": "392c7e200ce32be033236387206970757d2a94c669dfeea76ed0732050d333b1"
+    },
+    {
+      "id": "host_11",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_11.blend",
+      "nativeSha256": "878341b14d2643a5c0ab49bb63c37627523ff6846a6b1d85ed7e47a00dd5f1e4",
+      "glbFile": "public/assets/geometric/enemies/host_11.glb",
+      "glbSha256": "908704cb82ba117ce4a5aedee43e79a3c4e155b2f3497ae6008c30792f29ca55",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_11.png",
+      "sourceSha256": "7307a7130e655b8b68b256b4e37af08da83ae6bcf17497519f4ff12921cd8896",
+      "geometrySha256": "1258347a7676b09d0edb2835aa845fa7cacf6048ee5d21794f84d08d4129128f"
+    },
+    {
+      "id": "host_12",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_12.blend",
+      "nativeSha256": "c1cb652997be869f4104a253ff0f664dd3ecdb6510fea99cc30435779dce096b",
+      "glbFile": "public/assets/geometric/enemies/host_12.glb",
+      "glbSha256": "6869141e91b26dc392eddc35a391751e113f37570c44d1a8fc00968e680eb6fa",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_12.png",
+      "sourceSha256": "096f26fc2ebd4179940718af33ebf08fd7d747034468fabdea4116371d42000c",
+      "geometrySha256": "cfd694bb6dfb458f1c1c0e713399f9bb0f6f542a3139f82e1162fd1bba0e03bb"
+    },
+    {
+      "id": "host_13",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_13.blend",
+      "nativeSha256": "3dbcf3e13106d44756c63f07cab60a2c6b185827557975309b760ea66a1a98d9",
+      "glbFile": "public/assets/geometric/enemies/host_13.glb",
+      "glbSha256": "ae83b2facf9534325c7a7464d0a7c53c69dc6d14137ff717e4dc9b499e79634f",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_13.png",
+      "sourceSha256": "50760b74929008293b7c36006a7d96fca2f46c0b6807cebce14028ef9e471e6a",
+      "geometrySha256": "9587bb10431d776dbf70abd1bdb769d7518047778d21c56855b64301a1a78840"
+    },
+    {
+      "id": "host_14",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_14.blend",
+      "nativeSha256": "7da9baaab0d0a7d56611fb9a651f61ec8f6b7270d8b314c1240f64c0efe19f30",
+      "glbFile": "public/assets/geometric/enemies/host_14.glb",
+      "glbSha256": "d67af1d68d8d5d7d90152ae4e7cd9d6993986c764c210c360648d3b7b42cd71e",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_14.png",
+      "sourceSha256": "a27eec893daf407c03c55e724689c305e5f434dd9d976a43c571ca37baeff7be",
+      "geometrySha256": "43a25e7455942896bfc9daacb2c2a6699c2b54e208077fc09dfcb38757cea286"
+    },
+    {
+      "id": "host_15",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_15.blend",
+      "nativeSha256": "5da16164672104dd77ac7d272faaa6e6949a5ad0fa31a899d2a86d90e4d70122",
+      "glbFile": "public/assets/geometric/enemies/host_15.glb",
+      "glbSha256": "c28a4513c38fa4666e6172c8bf433b903dafa14c359e6564302b6e67e7dacca6",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_15.png",
+      "sourceSha256": "5efa290a33703575775ca96ed3acb3ec06f8c77573977449a42686bb9c16b89a",
+      "geometrySha256": "45bb97b717e32e4dbe98c5f2487ad42045bdd4715d5e7592e7550bcb6c3061ec"
+    },
+    {
+      "id": "host_16",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_16.blend",
+      "nativeSha256": "b39a2d56200e9e52003603d880b678e9091d33f75fb4e2c7e033ba6c2198d82a",
+      "glbFile": "public/assets/geometric/enemies/host_16.glb",
+      "glbSha256": "a39606dbbb16461d3b94709d0d7a63d5808ca34979dbc0905e7ad0c0d1ecbafd",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_16.png",
+      "sourceSha256": "54e34d00a320a7fc96e878a2e363fc2c2314a80fa9d2766f0273c7f87eb6d1de",
+      "geometrySha256": "d6be9c5e483fcced1615fc710d6ab1d805221ec28028646e35df575413e9eb1e"
+    },
+    {
+      "id": "host_17",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_17.blend",
+      "nativeSha256": "69d423be78ae7f2754438296ddec9d5aec2a489388ed972532e252602d818a73",
+      "glbFile": "public/assets/geometric/enemies/host_17.glb",
+      "glbSha256": "41182447eb0f7ccad8738f69d93e9aa02b75d1a45d4acd8e7f4f604fc7423e6d",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_17.png",
+      "sourceSha256": "ba9a2cd6b05d0273acf4866f3db4d7710c7669a08f6d4e34881d28ba2d37ae22",
+      "geometrySha256": "2de0439e70d13d242d078fbdecc22e6460e2564d45dc72efc6997a3103be8cba"
+    },
+    {
+      "id": "host_18",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_18.blend",
+      "nativeSha256": "788edb980c805f4811696f5fbcab8f53c30f102f12f27c32d4cc0e0d954c7267",
+      "glbFile": "public/assets/geometric/enemies/host_18.glb",
+      "glbSha256": "87d5ad7fc267ce2a1e2eb1539a8c513a80a64e5c70add02bad4344d4049e90d7",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_18.png",
+      "sourceSha256": "c494fbef57f69e5cbb9c51b286db47a0f7837c4a2acfbc5df515efe25fc57a8f",
+      "geometrySha256": "42954c097be4b07fde56d0d9a62a414eeae6a18cb2da3c7ce461ffd5c8a79b33"
+    },
+    {
+      "id": "host_19",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_19.blend",
+      "nativeSha256": "6ec93f50158d0ffbf380658b7342995cf0cf23af3de971677baee8d1a4a6bb9e",
+      "glbFile": "public/assets/geometric/enemies/host_19.glb",
+      "glbSha256": "c6a4122b77494bfb23503eb4bb3ddf5b899eae31b1d0be228cd4e4e9b458c241",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_19.png",
+      "sourceSha256": "cb6f179ae6d96254d2c1402bb7afbedb7d345dfc0565d816d67a402b905d2450",
+      "geometrySha256": "e18fcaa069d6ef8569b966e986b77cf64135e934a2ce4da749a38fddee1f7c34"
+    },
+    {
+      "id": "host_20",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_20.blend",
+      "nativeSha256": "04a0da5d8e160cc9ae9927ef06be15740cbff21bc33b802b5fdb56c0de2bc44f",
+      "glbFile": "public/assets/geometric/enemies/host_20.glb",
+      "glbSha256": "4dbae2db388d67b8dcd8882192cf77fb365545ed5479db82c1af54a41db2214c",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_20.png",
+      "sourceSha256": "7d35d96387d95997fd01cb312b736955f880e8f6b7d5afc5638123b616ef1270",
+      "geometrySha256": "761a2609d80c082f1dddb52e1cf7c25657f4c97ef6840a19edf2a95553328915"
+    },
+    {
+      "id": "host_21",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_21.blend",
+      "nativeSha256": "8a5d0d03b49ab947062948c62236b6bec82d9f1e4e82594c1c69281af658c2ea",
+      "glbFile": "public/assets/geometric/enemies/host_21.glb",
+      "glbSha256": "2051e3ade40f5bc7f3181670f07b23baa7a396bfdf84faa01c9edaaac4542288",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_21.png",
+      "sourceSha256": "c62135e61cb901eecbea78a75b1dea026177aa61e7c4eecad8d8bd277f180687",
+      "geometrySha256": "8f36d832352bb57ec2e925ed57d1e75623189cb6f6879648becde8464bdf1517"
+    },
+    {
+      "id": "host_22",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_22.blend",
+      "nativeSha256": "9a9671f6bb595b180369e151b390f3d39d3b63db79c1bbcad919a0d439cfffb2",
+      "glbFile": "public/assets/geometric/enemies/host_22.glb",
+      "glbSha256": "4b49d90ff00e7483c71c3a724a0f5bfd779eb8530e787f91f93e7dee43f3c601",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_22.png",
+      "sourceSha256": "de8a10851446a9dbdc1130e11d22185b7d2665caa59576473e2c101134c26d17",
+      "geometrySha256": "6f2bdf0c145c0f5ed35d2577b438bb23412d5044aa1850e1340b430ac347a123"
+    },
+    {
+      "id": "host_23",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_23.blend",
+      "nativeSha256": "3b53c7d2626513c0db4175bbdd5302eaf4361345eeefcd53d010f65bde49b89b",
+      "glbFile": "public/assets/geometric/enemies/host_23.glb",
+      "glbSha256": "20748323871566099de14d9d8d5600ffacefa92a9c5382193c0bdfcd84df9805",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_23.png",
+      "sourceSha256": "c7a366bf166f1bc6f779b5a73cef300a46ec4b9ee00813886f4a77a44647149b",
+      "geometrySha256": "717e6db77f4e0f579bf14ea2e862e43afbf0aa81d7008f22bc0c1dc396951af4"
+    },
+    {
+      "id": "host_24",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_24.blend",
+      "nativeSha256": "9c37ffc55abf6a0a58a074a21114441a8f8b5ad0a3c499ca906fe11818db0985",
+      "glbFile": "public/assets/geometric/enemies/host_24.glb",
+      "glbSha256": "8cd60f936ff0ea0f8b2837c693ca7f99db88d3a1aa70ad6de557f166ba6eef8b",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_24.png",
+      "sourceSha256": "3a2e5ec81c3a262bde3f736ce9a54ff27dd5fd8d43d66bf6c48e9c0e8dd89f5e",
+      "geometrySha256": "ed4cf3ba212f1c38c3eb9d33cee473bd0cfd51743c31e3b799e6461d96e9178e"
+    },
+    {
+      "id": "host_25",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_25.blend",
+      "nativeSha256": "303ddea2faf8b32f77a6e59ca54066173ac19cf4a8378d078ade3bf80697657a",
+      "glbFile": "public/assets/geometric/enemies/host_25.glb",
+      "glbSha256": "43de57464faa4f727eca9e68d421d272a46175ab8956604f9d90ae2af5a3f552",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_25.png",
+      "sourceSha256": "6d3deadf5bf7e2272beab1a46387b5fabe78df4d073f96383bb907cf6504e5e3",
+      "geometrySha256": "f13a8ca1fca9ee68d4c75707678b42d565fd7bd77780dfda46e6f218e498ff90"
+    },
+    {
+      "id": "host_26",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_26.blend",
+      "nativeSha256": "b29381f198c1785af359f26729ecd1e5635774a35febd4b940665eeb02a7a386",
+      "glbFile": "public/assets/geometric/enemies/host_26.glb",
+      "glbSha256": "8310938ce3d53da685a221069a63a865f0ea6ca17b797f35ad246a2a3cf2df77",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_26.png",
+      "sourceSha256": "4e6a8bc1328b0e53596d3bc2f45fb05ba791aead3f2ca4beeb168f2e35a1667d",
+      "geometrySha256": "9d1e743bee0bda6758889f6a1bfe24cbfd8c5701dd704640b209b247797efc1f"
+    },
+    {
+      "id": "host_27",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_27.blend",
+      "nativeSha256": "eceb8e1ade4d238de126806229e6319d8ff420c5fa22e0c6901466f6002c61a4",
+      "glbFile": "public/assets/geometric/enemies/host_27.glb",
+      "glbSha256": "9c7c870e5e1a3a239b2616043959f12ec2b156d695f4b3e91ae3c8f2a3fbad5f",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_27.png",
+      "sourceSha256": "c80e819748ff125ac9a63dec674ec9eb8cba6ce2746a59fbe87a6e9f97a39d8c",
+      "geometrySha256": "e78338478d390e4ff80004a33f4935fc3647e849743ebedb858a5964ab3e43a7"
+    },
+    {
+      "id": "host_28",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_28.blend",
+      "nativeSha256": "c67d223c0a9b3083c98e0079b9827fb896302766787fa5df0154e0250b8bdd02",
+      "glbFile": "public/assets/geometric/enemies/host_28.glb",
+      "glbSha256": "15e1fd9f921c6feede068625561da52fb2f328d43903369ae983d97c4a80db2b",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_28.png",
+      "sourceSha256": "ba184c715414486bae297f8e54b384e41c139639241fbabda6d3220c7a443cda",
+      "geometrySha256": "1b50c51e70f7c26bde80821df1a9e58093660a005e027376248c6dcb643acc87"
+    },
+    {
+      "id": "host_29",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_29.blend",
+      "nativeSha256": "531faa115c8edfee16c6708249cb77fa1982d9b7516ccf874e11e4ca9a1687b7",
+      "glbFile": "public/assets/geometric/enemies/host_29.glb",
+      "glbSha256": "ec08feb581a15c1b48bc986d055497cfdf124e9d2656569c586df32cbeb996fb",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_29.png",
+      "sourceSha256": "1a8773b991cf02d8ef00f0d1b9b46a30228490d10b67c1c80904ff1f7880a344",
+      "geometrySha256": "849f903d52caec2892b791f4319ee31708de8885d071392fbcfce5681fc08f65"
+    },
+    {
+      "id": "host_30",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_30.blend",
+      "nativeSha256": "ea6f452eee57fc333ed49e2e24fff801ca9028dfcbd493befc98c6ac9e4926e3",
+      "glbFile": "public/assets/geometric/enemies/host_30.glb",
+      "glbSha256": "f9df14fc0fd931df5ca1393446a4fc34d7840b878011982d393e56418d305f5f",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_30.png",
+      "sourceSha256": "0a9305f5ef43f791a959abe2f81effb5c5eb9cfc88c3a5e16054a3a5e21df689",
+      "geometrySha256": "fdd24964d16db9d9a589cb2fe12d6f4b66c30b437a4baaad21d246b9a4e0bb88"
+    },
+    {
+      "id": "host_31",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_31.blend",
+      "nativeSha256": "74cd242efbddea87aef34f32059f57fa9e33c16fe6ffb61db5938595af3f6c3e",
+      "glbFile": "public/assets/geometric/enemies/host_31.glb",
+      "glbSha256": "d496ac93f520b81df0cd833fc758330161d6ee4d2ab4dd3b40e95dd335ef14fd",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_31.png",
+      "sourceSha256": "7de73f17356ecc13f3b829d20b3b288a30f9e7b2d3bcf3ab4c992bc3db8616cb",
+      "geometrySha256": "df4d39d6afc92ee3fb8ccbe8a9b23b55b70f304a0518335ecef1fcb6a1bc32a0"
+    },
+    {
+      "id": "host_32",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_32.blend",
+      "nativeSha256": "d456489a56650143d147b6f024d21af9aab045fb5c92bd25b244d5d85424e7df",
+      "glbFile": "public/assets/geometric/enemies/host_32.glb",
+      "glbSha256": "6c754806ad23eb25aac974ffff460526e50427e73dfc21201fdf71add04455e5",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_32.png",
+      "sourceSha256": "f0114906482e4e3be10d5b4e227ee80018b4ee9f44f6697ec539045d430c11c7",
+      "geometrySha256": "a1443f0eaa69c3c6a4bda87b24d4a1c5c2abc0e7c5e7209d226f12200d59aeb2"
+    },
+    {
+      "id": "host_33",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_33.blend",
+      "nativeSha256": "99846050cf669e2d44ed7b1cc3172d108161c9cbc936fbd943b4e243da20a701",
+      "glbFile": "public/assets/geometric/enemies/host_33.glb",
+      "glbSha256": "d7d0a5fde3faa9dc1933ccc8d09f2211fb85385a421e38f592cd303e532d269a",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_33.png",
+      "sourceSha256": "1e1f8bc5aa7cf1455439275d4600726dc27393907cfe4a5a70c9a1658b4ca9fe",
+      "geometrySha256": "444ed5a270e61e232434a9443600a0bb61a2fd80c780ace129ce683271342ff0"
+    },
+    {
+      "id": "host_34",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_34.blend",
+      "nativeSha256": "b36885d736e0e6e233030fa7e7d3c607280cc00f8a45605e247c20d834aaaa12",
+      "glbFile": "public/assets/geometric/enemies/host_34.glb",
+      "glbSha256": "8f547e66643a31d949df622bbac62847ad8412d04518b10ec98a2273f069e42d",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_34.png",
+      "sourceSha256": "b78cbd8199a82a607ac6cafdf4fa5eac43f9b0b4f94e1e8870707c884859b1da",
+      "geometrySha256": "b701016c596a0fb9ccd00cdeb5aa2799ecb308ea8906878a0d3ce4cda3c20a49"
+    },
+    {
+      "id": "host_35",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_35.blend",
+      "nativeSha256": "9fc6773e743c790449c3bb61a5b20a099331f5017f58d5445317771baaf7fc94",
+      "glbFile": "public/assets/geometric/enemies/host_35.glb",
+      "glbSha256": "a5b2feacc256a1220a961263242563c910d821e1c3359556d552dde5b9c1860a",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_35.png",
+      "sourceSha256": "3ae38b9511cb98e3aabb922a73d989dbc6d18fc62dc902d09d658c9eae6aa854",
+      "geometrySha256": "55c9b11740d0785042f674d71c15d6d4801bf9af23792e43738d0e8580af2574"
+    },
+    {
+      "id": "host_36",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_36.blend",
+      "nativeSha256": "72090d8b6867bb02e14de49fea0d05f2342be65eef92661a9dfe366926c20bcf",
+      "glbFile": "public/assets/geometric/enemies/host_36.glb",
+      "glbSha256": "68093cd185984b1a73d70158680bedb1318012f974e0a925394055872cc50622",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_36.png",
+      "sourceSha256": "6898d21bad29df4985f0ff4e55384b17affd625d862b3dc5a3a3599cf9831a89",
+      "geometrySha256": "de0a5bee2f3bfe092b6b25799d0a050dde1d4b3ca1b1335f259f0e6f017b1da3"
+    },
+    {
+      "id": "host_37",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_37.blend",
+      "nativeSha256": "f419bd8075d0fde69258fa551cb37ebec233bddca7b58b41eb07d15a55a53842",
+      "glbFile": "public/assets/geometric/enemies/host_37.glb",
+      "glbSha256": "295221bbafc60a453b149734e2c276063d781fceda412b217b3d2972e8a62ac8",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_37.png",
+      "sourceSha256": "ed4d428f094faff8428c0fe63e9384c6e8dca7a2aade40db49c875cce2953a91",
+      "geometrySha256": "75b5ee7abbf5c56a5225fc656534a4aec81fb16a35996d596c271c5645a7d732"
+    },
+    {
+      "id": "host_38",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_38.blend",
+      "nativeSha256": "ed12e7c7b28a9d2888fe2a2ae97af3206ce92fd52fe7efc52ae91de68a8047fb",
+      "glbFile": "public/assets/geometric/enemies/host_38.glb",
+      "glbSha256": "1881af307f109f69e27ea9933cc1bf2de742c0af594ee3779c82f6b2e66cb3bc",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_38.png",
+      "sourceSha256": "66fec81fdb7df9ff5efc428c8614efe4821a5226ea3a239567f5ec80099e3c04",
+      "geometrySha256": "5bd4a9d9af487ae617e9c526d15815e2896cbb3ce3e2c21a9cb602477f7458d5"
+    },
+    {
+      "id": "host_39",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_39.blend",
+      "nativeSha256": "447186867fd995583290c677b91d64b2dbc05d3784c8b6e02f2d04ea2aefa6bf",
+      "glbFile": "public/assets/geometric/enemies/host_39.glb",
+      "glbSha256": "ac22d2c850c0407131a84781ab4e403424ed5dc1300fd490dc84fdbb97b497e0",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_39.png",
+      "sourceSha256": "385ce97b68c064f6f3bc026407b38ca7c99c862019b42a0ede62aec5614d8d9a",
+      "geometrySha256": "b63e63e932cdc679f97089d6e5f65489707abfbfe96bad17bedf81c94e5cff69"
+    },
+    {
+      "id": "host_40",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_40.blend",
+      "nativeSha256": "65a1fa172f3844d17f7c30096312670a316e11f53b90564a28067838773665bb",
+      "glbFile": "public/assets/geometric/enemies/host_40.glb",
+      "glbSha256": "e686f80fc57fcef6b4c480b2816082c70058c7abe32ccc383959636c481f21a2",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_40.png",
+      "sourceSha256": "02c373208eb310189ad7a1e5db22173e50ebcfeea3628c70c7d5d47a2ab4ea5f",
+      "geometrySha256": "2e1950fc1182c334e38eb32c83c03c641b4c16e41ea2069ecf36bc0b22a3dbae"
+    },
+    {
+      "id": "host_41",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_41.blend",
+      "nativeSha256": "05a5e72291f9eddfa0995c0c5dc3034aa72786164a47175808049412d8dcbd7c",
+      "glbFile": "public/assets/geometric/enemies/host_41.glb",
+      "glbSha256": "254170c793d4d4aae6f50ed86b7bd955da12687bb78628c9ceb690627e6dbd03",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_41.png",
+      "sourceSha256": "4eea18cf33680a965dfb51a285bd4b0299076023bae5e4f100b5b523bde02882",
+      "geometrySha256": "31ed4222ed758c0d6a1752f55aa2ff10cbf8545bde4cce9777c7662b185b9edf"
+    },
+    {
+      "id": "host_42",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_42.blend",
+      "nativeSha256": "daba3a1f6d2127b83146624d2fea0d309c14f24826c7a58472d2b47d5f2557d2",
+      "glbFile": "public/assets/geometric/enemies/host_42.glb",
+      "glbSha256": "388935d9f32ff14f553296d789c09288b34076c15b58f7c499da5c0d435c1a2c",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_42.png",
+      "sourceSha256": "b0fdbdd76ce9c9ddb1bac85d26813ef19e0683300bd66e4aa8647685c0c6f0e6",
+      "geometrySha256": "494bfa42b28e3734c029a3452f15f225f2e1205cb3ec4134eff68e89eecef136"
+    },
+    {
+      "id": "host_43",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_43.blend",
+      "nativeSha256": "f7f9e2d7fd84203787ed1f37a1909acc956c5eb3d80856a5147d8c35707db8a0",
+      "glbFile": "public/assets/geometric/enemies/host_43.glb",
+      "glbSha256": "56050aa64a9e9b9c370481df8e0510e8cd700b7bc52eb2005e1a3112c9bec98c",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_43.png",
+      "sourceSha256": "57ad6b0d09ed99269672ba09f47b59aeda7c1233379cf87736a8083f3d68e008",
+      "geometrySha256": "e5c0809aa0efc04dcc98d7c8ee4b9c587e2339b4129382ee54253b668e94451f"
+    },
+    {
+      "id": "host_44",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_44.blend",
+      "nativeSha256": "d5efc7fb5e1372424a04d40d3b0669b4f6726d231616b9b24051d971853709d9",
+      "glbFile": "public/assets/geometric/enemies/host_44.glb",
+      "glbSha256": "12f0234e74a4aec13f854be911328e369d53bbf5e89d4242ce7ec724c5cc6b37",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_44.png",
+      "sourceSha256": "6e1f9a0a440ca261250b267d21dc56fe4803957069288455d4df7f2c6f9f3221",
+      "geometrySha256": "a0f594216671d8c236746d261d2980b92a8a39a27e81c9e884422f39aceee178"
+    },
+    {
+      "id": "host_45",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_45.blend",
+      "nativeSha256": "273d59e8504ac7bff760f1d9dd7caac3e04b9a5410516bbe9b2bd5c3af118dce",
+      "glbFile": "public/assets/geometric/enemies/host_45.glb",
+      "glbSha256": "9245bcb6d8823da17bb9d1cda2c4971bc6aae76541ebc12161b3fcdfb8943b90",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_45.png",
+      "sourceSha256": "63cdc0295cbcf7aa713dc096bf48f4cb888f5fb80f3023e615282ba695a273ee",
+      "geometrySha256": "e7a9413810774ce7bfe25f243175ae6432e86f1cb169ef4f70032548dfdce774"
+    },
+    {
+      "id": "host_46",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_46.blend",
+      "nativeSha256": "4172a42e503406c39e4a7db1465dcac868bf6dadb21a1ce023d523fbbe8e7f39",
+      "glbFile": "public/assets/geometric/enemies/host_46.glb",
+      "glbSha256": "560502266cd550d844aeaf1795a5cb03f880e61a27d6b66aae0dfa4bb74ebe03",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_46.png",
+      "sourceSha256": "d9319e94ae2f233e28713e80abc7f4619bcdc426a65b5184b390fbec370f3abd",
+      "geometrySha256": "97b0277acbee232e6bec6d6018a869e2f4748117fd143a7ce6eacf63c461247f"
+    },
+    {
+      "id": "host_47",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_47.blend",
+      "nativeSha256": "c90e4c7475a5dc52388e4699eeb5b5e225ab6086ced69d1e27381ee31523d420",
+      "glbFile": "public/assets/geometric/enemies/host_47.glb",
+      "glbSha256": "7b289a1dcfc6a52fe86a25b5ce9494552a2a38fc9ade92e01a089d78e28f3744",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_47.png",
+      "sourceSha256": "2e4f64b055e3735a01e3963951eb95c5018c7d812f842012bcd3d4243549ad79",
+      "geometrySha256": "934498e31b5c986d298d9b4e7e295c01adfd8f7fdfdcd6eb5755eab8f84c6865"
+    },
+    {
+      "id": "host_48",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_48.blend",
+      "nativeSha256": "1b8914a329f73a886af4610ce713eefe743e64d6afad84567764c6eac742c308",
+      "glbFile": "public/assets/geometric/enemies/host_48.glb",
+      "glbSha256": "7aba49fcc5eddc9ef7105fa338a706b1b9a2e7c5bad011405b15ea838b03758d",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_48.png",
+      "sourceSha256": "88a96cf30a6324d88f97d49497e811e037cb802744a9640f63f054676e061dde",
+      "geometrySha256": "82f36ef04c2cc579a7f51be64ed3f866b74c137b076906484a76ad4d150eac8a"
+    },
+    {
+      "id": "host_49",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_49.blend",
+      "nativeSha256": "5a7caa822dae0e35d3793b61d8c3ec2ef50e67e003a7a44991705cb79ab91186",
+      "glbFile": "public/assets/geometric/enemies/host_49.glb",
+      "glbSha256": "e966a9f86d98a3521ce15de3e524e5de838b19fe986a219cdc3cb87fb83938e9",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_49.png",
+      "sourceSha256": "55637bd24f0276d7882795aa0dfbd0846c610215be7929e53de5dc1d65729fff",
+      "geometrySha256": "db877b0f4df37cd5cf79b704c862a5eb4fb6175a1b62fe9c9d51bbae4a634fb2"
+    },
+    {
+      "id": "host_50",
+      "nativeFile": "blender/scenes/geometric-game-v1/enemies/host_50.blend",
+      "nativeSha256": "230691534527e51abfca56adbdd7d8e82be36a96c2167ebefaa4378d1fd28762",
+      "glbFile": "public/assets/geometric/enemies/host_50.glb",
+      "glbSha256": "1116dccade4ea72ad718205a904b59f5c007d06aad02723a294ae60d9f38e08f",
+      "sourceFile": "public/geometric-turnarounds-v1/enemies/host_50.png",
+      "sourceSha256": "f5777e0e3c4cdd7f8f6daecd29b15ec964dcbd5095155230d92c78913c24cef5",
+      "geometrySha256": "966c33641b7a32b16dc05102a2cc8fd4934eb78ab00eb9372cb3110cba062724"
+    }
+  ]
+}
