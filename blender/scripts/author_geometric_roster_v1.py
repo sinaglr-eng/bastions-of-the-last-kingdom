@@ -128,6 +128,6 @@ def main():
   entries.append(rowout);print('FINISHED '+b.id+' '+json.dumps({'triangles':q['triangles'],'headCoverage':q['headCoverage']}),flush=True)
   for group in ['enemies','champions']:
    if not any(r['file'].startswith(group+'/') for r in entries):continue
-   path=OUT/('geometric-'+group+'.json');old=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {'entries':[]};maps={r['id']:r for r in old['entries']};maps.update({r['id']:r for r in entries if r['file'].startswith(group+'/')});path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps({'revision':'geometric-game-v1','entries':list(maps.values())},ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
+   path=OUT/('geometric-'+group+'.json');old=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {'entries':[]};maps={r['id']:r for r in old['entries']};maps.update({r['id']:r for r in entries if r['file'].startswith(group+'/')});path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps({'revision':'geometric-game-v1','entries':list(maps.values())},ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 
 if __name__=='__main__':main()

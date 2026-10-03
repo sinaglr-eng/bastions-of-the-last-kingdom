@@ -12,6 +12,7 @@ from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(Path(__file__).parent))
 from geometric_game_common import Builder,metrics,export_and_check,render_views,head_coverage,geometry_digest
 from geometric_defender_fit_v2 import fitted_boot,fitted_neck,sculpt_facets,bow_forward_plane,bounds,remove,contact,storm_hair_and_focus,soldier_fit,fitted_arm_joints,rest_contact_checks
+from geometric_defender_fit_v3 import center_full_head_on_torso,storm_natural_hair_and_focus,engineer_source_nape_hair
 FAMILIES=['soldier','archer','mage','frostwarden','stormcaller','cleric','druid','runebreaker']
 OUT=ROOT/'output/design/geometric-game-v1/defenders';SCENES=ROOT/'blender/scenes/geometric-game-v1/defenders';EXPORTS=ROOT/'public/assets/geometric/defenders'
 for p in (OUT,SCENES,EXPORTS):p.mkdir(parents=True,exist_ok=True)
@@ -47,7 +48,7 @@ HOOD_DEPTH_RATIOS={'archer':[.73,.725,.68,.69,.72,.65],
 
 def palette(f,r):
  return {'cloth':COLORS[r-1],'clothLight':''.join(f'{min(255,round(int(COLORS[r-1][i:i+2],16)*1.06)):02x}' for i in (0,2,4)),
- 'skin':'EFC291','eyes':'282522','wood':'795536','leather':'694B35','leatherLight':'84613F','steel':'989BA2','steelLight':'BDC0C5','steelDark':'6D7179','gold':'D8AC52','goldLight':'F4CA67','goldDark':'B68431','ivory':'F1E4C9','ice':'79C8E6','iceLight':'C1EBEE','leaf':'829259','violet':'8743CB','hair':'98999D','hairLight':'BCBDC2','hairDark':'75767C','beard':'BF6C33','recess':'2F2B26','circletGreen':'3C6938'}
+ 'skin':'EFC291','eyes':'282522','wood':'795536','leather':'694B35','leatherLight':'84613F','steel':'989BA2','steelLight':'BDC0C5','steelDark':'6D7179','gold':'D8AC52','goldLight':'F4CA67','goldDark':'B68431','ivory':'F1E4C9','ice':'79C8E6','iceLight':'C1EBEE','leaf':'829259','violet':'8743CB','hair':'98999D','hairLight':'BCBDC2','hairDark':'75767C','beard':'BF6C33','recess':'2F2B26','circletGreen':'3C6938','copper':'B97B4F'}
 
 def plan(b,f,r):
  bb=FACES[f][r-1];top=TOPS[f][r-1];sole=SOLES[f][r-1];S=1.8/(sole-top);cx=(bb[0]+bb[2])/2
@@ -368,7 +369,7 @@ def equipment(b,f,r):
    x,y,z=b.joints['L'][6];b.attach(round_brooch(b,'Prayer book gold seal',x,y+.157,z+.12,.047,'gold'),b.joints['L'][3])
   if r in (2,3,5,6):cleric_rear_stole(b,r)
  elif f=='stormcaller':
-  storm_hair_and_focus(b,r)
+  storm_natural_hair_and_focus(b,r)
   if r>=2:cape(b,r,bottom=.31 if r<4 else .12)
   if r>=2:
    brooch_z=min(b.shoulderz+.055,b.facez-b.faceh*.5-.063)
@@ -514,6 +515,8 @@ def author(f,r,args):
   b.coverage=[head_coverage(skin,covers,r==6)] if covers else [{'passed':True,'method':'Bare head with physically fitted neckline'}]
  else:
   b=Builder(f'{f}-{r}',palette(f,r));body(b,f,r);equipment(b,f,r)
+  if f in ('runebreaker','mage','stormcaller') or (f=='cleric' and r>=2):center_full_head_on_torso(b)
+  if f=='runebreaker':engineer_source_nape_hair(b,r)
   fitted_arm_joints(b)
   b.root['family']=f;b.root['tier']=r;b.root['locomotion']='biped';b.root['attackStyle']='bow' if f=='archer' else ('hammer' if f=='runebreaker' else 'staff');b.root['bodyHeightMeters']=1.8
   b.root['measuredSource']=json.dumps(b.cfg)
@@ -521,8 +524,9 @@ def author(f,r,args):
   else:b.coverage.append({'passed':True,'method':'Open face cap/hat geometry; skin head stays below brim. No hood/closed helmet in this rank.'})
  sculpt_facets(b)
  b.contactChecks=rest_contact_checks(b)
+ if hasattr(b,'stormContactChecks'):b.contactChecks+=b.stormContactChecks
  assert all(v['passed'] for v in b.contactChecks),(f,r,'Actual surface joint separation',b.contactChecks)
- b.root['assetRevision']='geometric-game-v2';b.root['jointFitRevision']='surface-fit-v2'
+ b.root['assetRevision']='geometric-game-v3';b.root['jointFitRevision']='surface-fit-v3'
  b.root['jointSurfaceContactQa']=json.dumps(b.contactChecks)
  sheet=next(v for v in SOURCES['sheets'] if v['id']==f'{f}-{r}' and v['category']=='towers');save_reference(b,sheet)
  for result in b.coverage:
@@ -538,6 +542,8 @@ def author(f,r,args):
   metric['views']=cached['views']
  bpy.ops.wm.save_as_mainfile(filepath=str(SCENES/f'{f}-{r}.blend'))
  row={'id':f'{f}-{r}','kind':'tower','family':f,'rank':r,'tier':r,'file':f'defenders/{f}-{r}.glb','portrait':f'portraits/{f}-{r}.png','locomotion':'biped','attackStyle':'spear' if f=='soldier' and r==1 else ('sword' if f=='soldier' else ('bow' if f=='archer' else ('hammer' if f=='runebreaker' else 'staff'))),'runtimePath':f'/assets/geometric/defenders/{f}-{r}.glb','nativeFile':str(SCENES/f'{f}-{r}.blend'),'sourceFile':sheet['file'],'sourceSha256':sheet['sha256'],'metrics':metric,'sourceMeasurements':getattr(b,'cfg',None),'sourceSixViewBoxes':MEAS.get((f,r),{}).get('sourceViewBoxes'),'qualityLimits':'Hidden depth/camera estimate, six consistent views; IoU and 1% goals must be independently measured before being claimed.'}
+ if hasattr(b,'axisFit'):row['headAxisFit']=b.axisFit
+ if hasattr(b,'stormDesign'):row['stormV3DesignOverride']=b.stormDesign
  print('DEFENDER_COMPLETE '+json.dumps({'id':row['id'],'triangles':metric['triangles'],'coverage':metric['coverage']}),flush=True);return row
 
 parser=argparse.ArgumentParser();parser.add_argument('--families',default=','.join(FAMILIES));parser.add_argument('--ranks',default='1,2,3,4,5,6');parser.add_argument('--no-render',action='store_true');parser.add_argument('--preserve-renders',action='store_true');parser.add_argument('--size',type=int,default=300);parser.add_argument('--manifest-name',default='geometric-defenders.json');parser.add_argument('--ids',default='')
@@ -545,5 +551,5 @@ args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv els
 if manifest.exists():previous={v['id']:v for v in json.loads(manifest.read_text())['assets']}
 pairs=[(v.rsplit('-',1)[0],int(v.rsplit('-',1)[1])) for v in args.ids.split(',')] if args.ids else [(f,r) for f in args.families.split(',') for r in map(int,args.ranks.split(','))]
 for f,r in pairs:
- row=author(f,r,args);previous[row['id']]=row;manifest.write_text(json.dumps({'revision':'geometric-game-v2','count':len(previous),'assets':list(previous.values())},indent=2),encoding='utf-8',newline='\n')
+ row=author(f,r,args);previous[row['id']]=row;manifest.write_text(json.dumps({'revision':'geometric-game-v3','count':len(previous),'assets':list(previous.values())},indent=2),encoding='utf-8',newline='\n')
 print('ALL_DEFENDERS_COMPLETE '+str(len(previous)),flush=True)

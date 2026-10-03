@@ -12,7 +12,7 @@ import {towerStats} from './core/math.js';
 import balance from '../data/balance.json';
 import {previewSecretAttack,updateSecretPreview,resetSecretAnimation} from './render/secret-animation.js';
 import {CombatEffects} from './render/combat-effects.js';
-import {castleWallModel,wallConnections} from './render/walls.js';
+import {castleWallModel,wallConnections,WALL_DECK_HEIGHT} from './render/walls.js';
 import historicalTowers from '../data/towers.json';
 import historicalEnemies from '../data/enemies.json';
 import historicalWaves from '../data/waves.json';
@@ -43,7 +43,7 @@ const rankEquipment={
  cleric:['Prostá kapuce a hůl s latinským křížem.','Mitra, světlá štóla a kříž.','Fialová mitra se zlatou obrubou.','Navíc plášť a zavřená kniha.','Zlatá mitra a delší plášť.','Zlatý kříž a otevřená kniha.'],
  runebreaker:['Dřevěné kladivo a pravítko.','Kožená zástěra a železné kladivo.','Pracovní brýle a nátepník.','Delší zástěra a tesařské kladivo.','Kovové chrániče a zesílená zástěra.','Mistrovské kladivo a ochranný plát.'],
  frostwarden:['Kapuce a malý ledový krystal.','Široký zimní límec.','Navíc malý ledový štít.','Kovové nátepníky a větší krystal.','Velký ledový štít a těžší plášť.','Ramenní ochrana a mistrovský krystal.'],
- stormcaller:['Prostá tunika a malý blesk.','Čelenka a krátký plášť.','Sesílací nátepník a větší blesk.','Dlouhý plášť a druhý nátepník.','Širší čelenka a trojramenný blesk.','Ramenní ochrana a mistrovská rukavice.'],
+ stormcaller:['Prostá tunika, přirozené vlasy a malá blesková koruna.','Krátký plášť a trojramenná blesková koruna.','Sesílací nátepník, větší blesk a vyšší trojramenná koruna s krystalem.','Dlouhý plášť, druhý nátepník a pětiramenná koruna s bočními blesky.','Vyšší zlatá blesková koruna a větvený držený blesk.','Ramenní ochrana, mistrovská rukavice a sedmiramenná zlatá koruna.'],
 };
 const portrait=(id,tier=1)=>enemies[id]?enemyPortrait(id):defenderPortrait(id,tier);
 const asset=(id,rank)=>releaseAsset(isEnemy()?`assets/geometric/enemies/${id}.glb`:geometricModelPath(id,rank,towers[id].advanced));
@@ -62,7 +62,7 @@ const camera=new THREE.PerspectiveCamera(33,1,.1,50),controls=new OrbitControls(
 let viewRadius=1,viewCentre=new THREE.Vector3(0,1,0);
 function reset(wallView=false){
  document.querySelectorAll('.view-presets button').forEach(button=>button.setAttribute('aria-pressed','false'));
- if(wallView){camera.position.set(-3.5,3.4,-5.4);controls.target.set(0,.3,0);}
+ if(wallView){camera.position.set(-3.5,3.4,-5.4);controls.target.set(0,WALL_DECK_HEIGHT/2,0);}
  else{controls.target.copy(viewCentre);camera.position.copy(viewCentre).add(new THREE.Vector3(-2.5,1.45,-4.5).multiplyScalar(viewRadius));}
  controls.update();
 }reset();
@@ -77,6 +77,7 @@ let modelAttack=null,enemyPreview=null,effectsVisible=true,previewPaused=false,p
 const animationControls=document.createElement('span');animationControls.id='native-animation-controls';animationControls.hidden=true;
 animationControls.innerHTML='<button id="animation-idle">Klidová animace</button><button id="animation-attack">Přehrát útok</button><button id="animation-pause" aria-pressed="false">Pozastavit</button><label>Rychlost <select id="animation-speed" aria-label="Rychlost animace"><option value="0.5">½×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="3">3×</option></select></label>';
 document.querySelector('.view-controls').append(animationControls);
+const referenceLink=document.createElement('a');referenceLink.id='view-reference';referenceLink.target='_blank';referenceLink.rel='noopener';referenceLink.textContent='Šest pohledů předlohy ↗';document.querySelector('.asset-links').append(referenceLink);
 const viewPresets=document.createElement('div');viewPresets.className='view-presets';viewPresets.setAttribute('aria-label','Šest kontrolních pohledů');
 viewPresets.innerHTML=[['front','Zepředu',0],['back','Zezadu',180],['left','Levý bok',-90],['right','Pravý bok',90],['three-quarter-front','¾ zepředu',35],['three-quarter-back','¾ zezadu',145]].map(([id,label,angle])=>`<button data-view="${id}" data-angle="${angle}" aria-pressed="false">${label}</button>`).join('');
 document.querySelector('.stage-heading').append(viewPresets);
@@ -136,7 +137,11 @@ async function showRank(rank){
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelector('#selected-rank').textContent=enemy?`VLNA ${definition.wave} · ${definition.flying?'LET':'CHŮZE'}`:advanced?`${championClassification(family).toUpperCase()} · ŠAMPION`:`${defenderCode(definition,rank)} · ${colors[rank-1].toUpperCase()}`;
  document.querySelector('#rank-detail').textContent=enemy?`${definition.hp} HP · ${definition.armor||0} zbroj · rychlost ${definition.speed}. ${atelierEnemyProperties(definition).join(' · ')||'Bez zvláštních odolností.'}`:advanced?`${auraDescriptions[championAuraLevel(family)]} Recept najdeš v herním Grimoáru.`:`${rankEquipment[family]?.[rank-1]||''} ${rank===6?'Světle zlatá látka, světelná aura a pomalu obíhající jiskry. Mýtická úroveň získaná sloučením dvou jednotek V.':`${colors[rank-1]} látka a barevná obruba podstavce. Stejnou barvu používá karta jednotky.`}`;
+ const requestedAppearance={stormcaller:'Upravený návrh: přirozené vlasy a blesková koruna podle úrovně.',royalranger:'Upravená výstroj: kuše držená zadní rukou u spouště a přední rukou pod pažbou.',mothernature:'Upravená podoba: lesní duch s listovou maskou a zářícíma očima.',thunderheart:'Upravená výstroj: rytíř v ocelové a tmavomodré zbroji odlišné od fialového draka.'};
+ if(!enemy&&requestedAppearance[family])document.querySelector('#rank-detail').textContent+=' '+requestedAppearance[family];
  document.querySelector('#download-model').href=url;document.querySelector('#download-portrait').href=portrait(family,rank);
+ referenceLink.href=siteUrl(`geometric-turnarounds-v1/${enemy?'enemies':advanced?'champions':'towers'}/${family}${!enemy&&!advanced?'-'+rank:''}.png`);
+ referenceLink.title='Původní geometrický návrh. Novější výslovné změny výstroje a podoby jsou uvedeny v popisu postavy.';
  document.querySelector('#load-status').textContent='Načítám model z Blenderu…';
  try{
   if(!cache.has(url))cache.set(url,loader.loadAsync(url).then(decoded=>{if(atelierDisposed){disposeDecodedGeometricAsset(decoded);throw new Error('Atelier closed');}decoded.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});optimizeGeometricSiblings(decoded.scene,{animations:decoded.animations});return decoded;}).catch(error=>{cache.delete(url);throw error;}));

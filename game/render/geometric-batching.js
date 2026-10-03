@@ -3,7 +3,7 @@ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 
 const optimized=new WeakMap(),retired=new WeakMap();
 const dynamicName=/^(?:torso_pivot|head_pivot|mount_head_pivot|mount_torso_pivot|upper_arm_[RL]|forearm_[RL]|hand_[RL]|weapon_[RL]|upper_leg_(?:[RL]|[FB][RL])|shin_(?:[RL]|[FB][RL])|foot_(?:[RL]|[FB][RL])|wing_[RL]|tail_pivot|jaw_pivot|mouth_pivot|siege_arm|bow_pivot|weapon_pivot|attack_arm|bow_arm|dragon_jaw|left_wing_pivot|right_wing_pivot)$/;
-const protectedName=/^(?:refraction_shards|authored_bowstring|bow_tip_upper|bow_tip_lower|bow_nock|attack_muzzle|staff_tip|sword_tip)(?:_?\d+)?$|bow_?string/i;
+const protectedName=/^(?:refraction_shards|authored_bowstring|bow_tip_upper|bow_tip_lower|bow_nock|attack_muzzle|staff_tip|sword_tip)(?:_?\d+)?$|bow_?string|crossbow.*string/i;
 const layout=geometry=>Object.entries(geometry.attributes).map(([name,attribute])=>`${name}:${attribute.itemSize}:${attribute.normalized}:${attribute.array.constructor.name}`).sort().join('|');
 const calls=root=>{let count=0;root.traverse(node=>{if(node.isMesh)count+=Array.isArray(node.material)?node.geometry.groups.length||node.material.length:1;});return count;};
 

@@ -1,0 +1,437 @@
+{
+  "revision": "0.3.2",
+  "method": "Source-first manual raster landmarks from all six original PNG panels before v3 export; tolerant shape regression only.",
+  "coordinateContract": "Native +Yfront,+X own-right,Zup; native front horizontal x, native z maps GLB yheight. Repeated semanticPart names select union.",
+  "limitations": "No absolute source dimensions; generated six views vary. Ranges include 5–10px raster uncertainty and perspective; numerical ratios cannot certify overall appearance.",
+  "entries": [
+    {
+      "id": "embercrown",
+      "source": "champions/embercrown.png",
+      "sourceSha256": "b4d9e7e81f0ca92d187c10b1de3544f791d981fa5fabf4d36b17ee2ed3763cdf",
+      "ratioChecks": [
+        {
+          "name": "baby_head_width_over_wing_span",
+          "numerator": {
+            "parts": [
+              "Dragon sculpted faceted cranial volume source broad wedge",
+              "Dragon source short broad flattened upper muzzle"
+            ],
+            "axis": "x"
+          },
+          "denominator": {
+            "parts": [
+              "Dragon source broad scalloped closed wing membrane",
+              "Dragon wing shoulder elbow wrist leading edge",
+              "Dragon source fitted wing finger strut"
+            ],
+            "axis": "x"
+          },
+          "sourcePixels": {
+            "numerator": 161,
+            "denominator": 349,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "range": [
+            0.36,
+            0.56
+          ],
+          "sourceLandmarks": [
+            {
+              "label": "Cranium incl cheeks, excluding horns and tail flame",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                176,
+                155,
+                337,
+                301
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "Both wing extreme points, excluding body/feet",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                81,
+                198,
+                430,
+                342
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Orthographic native front bounds union. Do not include horns, rider, tail or flame in head/wing selectors."
+        },
+        {
+          "name": "baby_short_muzzle_width_over_head_width",
+          "numerator": {
+            "parts": [
+              "Dragon source short broad flattened upper muzzle"
+            ],
+            "axis": "x"
+          },
+          "denominator": {
+            "parts": [
+              "Dragon sculpted faceted cranial volume source broad wedge",
+              "Dragon source short broad flattened upper muzzle"
+            ],
+            "axis": "x"
+          },
+          "sourcePixels": {
+            "numerator": 90,
+            "denominator": 161,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "range": [
+            0.45,
+            0.67
+          ],
+          "sourceLandmarks": [
+            {
+              "label": "Central short flattened muzzle excluding outer cheek plates",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                210,
+                229,
+                300,
+                300
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "Cranium/cheeks excluding horns",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                176,
+                155,
+                337,
+                301
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Front muzzle only; source cheek transitions uncertain. Native upper muzzle is distinct closed volume connected to skull."
+        },
+        {
+          "name": "baby_tail_flame_width_over_head_width",
+          "numerator": {
+            "parts": [
+              "Baby source contacting amber flame volume"
+            ],
+            "axis": "x"
+          },
+          "denominator": {
+            "parts": [
+              "Dragon sculpted faceted cranial volume source broad wedge",
+              "Dragon source short broad flattened upper muzzle"
+            ],
+            "axis": "x"
+          },
+          "sourcePixels": {
+            "numerator": 68,
+            "denominator": 161,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete measured width extent +/-10px."
+          },
+          "range": [
+            0.31,
+            0.54
+          ],
+          "sourceLandmarks": [
+            {
+              "label": "Orange tail flame, excluding brown supporting tail",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                203,
+                74,
+                271,
+                149
+              ],
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Actual closed elongated faceted flame width, not glow/FX sprites. Source flame volume contacts curved tail; height/width source approx110/68."
+        }
+      ],
+      "sourceSpecificVisualCheckpoints": [
+        "Short broad flattened wedge muzzle, not cylindrical protruding tube",
+        "Flat fitted cream plate band follows actual neck/chest to belly, not white spherical breast",
+        "Baby wing span smaller than MotherDragon; continuous scalloped membranes",
+        "Swept crouched hindlegs/segmented knees+hocks, wide grounded paws",
+        "Nine-section curved tail with inner cream strip and contacting orange flame"
+      ]
+    },
+    {
+      "id": "rangermentor",
+      "source": "champions/rangermentor.png",
+      "sourceSha256": "74aba5f2b339c18dea3a99e1dd6c63c84f6c3cc1996d4d8724e5f56a1cc31e83",
+      "ratioChecks": [
+        {
+          "name": "bear_head_width_over_front_paw_span",
+          "numerator": {
+            "parts": [
+              "Bear source wide rounded faceted cranium"
+            ],
+            "axis": "x"
+          },
+          "denominator": {
+            "parts": [
+              "Animal grounded foot FL",
+              "Animal grounded foot FR"
+            ],
+            "axis": "x"
+          },
+          "sourcePixels": {
+            "numerator": 231,
+            "denominator": 257,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "range": [
+            0.8,
+            1.01
+          ],
+          "sourceLandmarks": [
+            {
+              "label": "Bear cranial cheeks excluding separate ears/crown",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                139,
+                122,
+                370,
+                285
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "Front paw external contact edges",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                124,
+                334,
+                381,
+                401
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Head shape includes all cheek fur mass but excludes crown/ears/muzzle; paw span uses both grounded front feet only, excluding claw tips."
+        },
+        {
+          "name": "bear_short_cream_muzzle_width_over_head_width",
+          "numerator": {
+            "parts": [
+              "Bear source short rounded cream muzzle"
+            ],
+            "axis": "x"
+          },
+          "denominator": {
+            "parts": [
+              "Bear source wide rounded faceted cranium"
+            ],
+            "axis": "x"
+          },
+          "sourcePixels": {
+            "numerator": 112,
+            "denominator": 231,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "range": [
+            0.39,
+            0.58
+          ],
+          "sourceLandmarks": [
+            {
+              "label": "Cream muzzle frontal contour",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                197,
+                193,
+                309,
+                284
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "Cranial fur cheeks",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                139,
+                122,
+                370,
+                285
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Short cream muzzle with wide pentagonal black nose; do not include whole fur head."
+        }
+      ],
+      "sourceSpecificVisualCheckpoints": [
+        "Broad rounded faceted bear skull, solid rounded cupped ears, short cream muzzle and broad black nose",
+        "Heavy low four-leg body; knee/ankle/paw continuity",
+        "Fitted green mantle with broad golden hem across back and both sides; leaf crest visibly on each side",
+        "Source golden crown contacts head; no human torso proportions"
+      ]
+    },
+    {
+      "id": "griffinbomber",
+      "source": "champions/griffinbomber.png",
+      "sourceSha256": "fb14d59086c919ce6dea83cac77f61ca0229968c2471517589f882537d4acc83",
+      "ratioChecks": [
+        {
+          "name": "griffin_wing_span_over_white_head_ruff_width",
+          "numerator": {
+            "parts": [
+              "Griffin source broad overlapping ivory primary feather",
+              "Griffin source rounded layered wing covert",
+              "Griffin full feathered shoulder elbow wrist"
+            ],
+            "axis": "x"
+          },
+          "denominator": {
+            "parts": [
+              "Griffin source rounded faceted avian cranium",
+              "Griffin source layered white cheek ruff",
+              "Griffin dense broad ivory throat feather ruff"
+            ],
+            "axis": "x"
+          },
+          "sourcePixels": {
+            "numerator": 373,
+            "denominator": 120,
+            "uncertaintyPx": 10,
+            "uncertaintyMeaning": "Complete width extent +/-10px; boundary placement approximately +/-5px each."
+          },
+          "range": [
+            2.63,
+            3.65
+          ],
+          "sourceLandmarks": [
+            {
+              "label": "Both ivory wing external tips",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                73,
+                79,
+                446,
+                347
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            },
+            {
+              "label": "White cranium and collar/cheek feather silhouette, not golden beak",
+              "panel": "FRONT",
+              "globalBoxPx": [
+                207,
+                180,
+                327,
+                320
+              ],
+              "measurement": "Manual raster reading; generated drawing perspective and rounded facets make boundary approximate.",
+              "boundaryUncertaintyPx": 5,
+              "extentUncertaintyPx": 10
+            }
+          ],
+          "note": "Union of repeated semantic parts, actual front x range. Source feather ruff has ±10px uncertain boundaries against wings."
+        }
+      ],
+      "sourceSpecificVisualCheckpoints": [
+        "Long lion quadruped body and four lion paws, curved lion tail with tuft",
+        "Hooked yellow eagle beak with downward curved end, compact avian cranium",
+        "Dense broad white cheek+throat feather ruff, broad overlapping upward wing fans",
+        "Short stocky leather-clad dwarf with full copper beard and silver forehead goggles",
+        "Raised right-hand bomb plus two hanging side bombs, contacting saddle and real seated thigh/boot posture"
+      ]
+    },
+    {
+      "id": "frostblade",
+      "source": "champions/frostblade.png",
+      "sourceSha256": "bf2f4bb1ce6ecefb3c54230cad57d4cba9fe37a8d42c8ec167255e10a4b73869",
+      "ratioChecks": [],
+      "sourceSpecificVisualCheckpoints": [
+        "Defined barrel/chest/withers/croup and swept muscular horse neck",
+        "Tapered equine cheek/forehead down to short pale muzzle; visible side eyes, short nostrils, ears",
+        "Four muscular upper legs with actual knees/hocks/fetlocks/socks/hooves; not tiny rigid rods",
+        "Fitted blue/ivory or maroon/gold segmented caparison with real fabric drape",
+        "Rider visor is integrated into closed helmet shell and hinge/contacting gorget, no separate floating visor",
+        "Actual seated pelvis/thighs, saddle/stirrups/reins; proper lance grip"
+      ]
+    },
+    {
+      "id": "roseguard",
+      "source": "champions/roseguard.png",
+      "sourceSha256": "4cd225bb92226ad1bcd1831a5c783c5ccbe8f635ff2b5d7413a52a579098956d",
+      "ratioChecks": [],
+      "sourceSpecificVisualCheckpoints": [
+        "Defined barrel/chest/withers/croup and swept muscular horse neck",
+        "Tapered equine cheek/forehead down to short pale muzzle; visible side eyes, short nostrils, ears",
+        "Four muscular upper legs with actual knees/hocks/fetlocks/socks/hooves; not tiny rigid rods",
+        "Fitted blue/ivory or maroon/gold segmented caparison with real fabric drape",
+        "Rider visor is integrated into closed helmet shell and hinge/contacting gorget, no separate floating visor",
+        "Actual seated pelvis/thighs, saddle/stirrups/reins; proper lance grip"
+      ]
+    },
+    {
+      "id": "thunderheart",
+      "source": "champions/thunderheart.png",
+      "sourceSha256": "61f6525c8d719e3a4988d532669d8e2f48cfe82d9b331113e5884af5522b8d92",
+      "ratioChecks": [],
+      "sourceSpecificVisualCheckpoints": [
+        "Species source broad faceted head and swept neck, fitted flat segmented ivory belly",
+        "Crouched muscled articulated legs, connected ankle/paw surfaces",
+        "Broad continuous scalloped membrane wings, fitted digit struts, source tail adornments",
+        "Actual mount/rider joint contract preserved; proper seated hips/thighs and saddle"
+      ],
+      "userOverrides": [
+        "Thunderheart entire rider armor navy/steel/ivory/gold contrasting purple mount, superseding source purple armor."
+      ]
+    },
+    {
+      "id": "worldfire",
+      "source": "champions/worldfire.png",
+      "sourceSha256": "fb54857e7ba421844ba0584771f3f3021d2eecbea723d51f982c4d3ed1db0974",
+      "ratioChecks": [],
+      "sourceSpecificVisualCheckpoints": [
+        "Species source broad faceted head and swept neck, fitted flat segmented ivory belly",
+        "Crouched muscled articulated legs, connected ankle/paw surfaces",
+        "Broad continuous scalloped membrane wings, fitted digit struts, source tail adornments",
+        "Source longer mother neck, ivory membranes/gold dorsal plates; larger wings than BabyDragon"
+      ]
+    },
+    {
+      "id": "phoenix",
+      "source": "champions/phoenix.png",
+      "sourceSha256": "c4b503e03dd046acd9ffc6e01c27e4711406eb8f21feb8bf5893aebcfd3c2f57",
+      "ratioChecks": [],
+      "sourceSpecificVisualCheckpoints": [
+        "Species source broad faceted head and swept neck, fitted flat segmented ivory belly",
+        "Crouched muscled articulated legs, connected ankle/paw surfaces",
+        "Broad continuous scalloped membrane wings, fitted digit struts, source tail adornments",
+        "Actual mount/rider joint contract preserved; proper seated hips/thighs and saddle"
+      ]
+    }
+  ],
+  "uncertaintyDefinition": "uncertaintyPx=10 denotes +/-10 px on the complete measured extent, approximately +/-5 px per boundary, NOT +/-10 px independently on each boundary."
+}

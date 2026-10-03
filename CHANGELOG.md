@@ -1,5 +1,16 @@
 # Releases
 
+## 0.3.2 — Source proportions and raised walls — 3 October 2026
+
+- Centers 23 basic defenders' complete heads above their actual torsos, restores Engineer III–V's orange nape hair and gives Stormcaller natural fitted hair, six distinct lightning crowns and continuous lightning focuses.
+- Reworks 12 champions against all six source views, especially broad dragon anatomy, swept wings, Griffin feathers and dwarf, BearKing's head, fitted horse muzzles/legs and seated riders. Dragonrider wears contrasting navy and steel armor.
+- Gives Rimewatch and Royal Ranger separate front/rear crossbow grips that remain connected through recoil, connects Greenheart's staff and replaces Nature Spirit's human face with a luminous leaf mask.
+- Raises the wall fighting deck to the real second-wave goblin's scaled head height; retained defenders stand above enemies. Tile width and brick proportions remain consistent.
+- Adds the selected six-view source link to the Atelier and actual-vertex appearance regression checks, including deliberate failures. Keeps the older native archives and delivers current editables separately.
+- Preserves all 50 enemy models, Lady Claire, statistics, abilities, auras and wave rules.
+
+Details: [Geometric models 0.3.2](docs/GEOMETRIC_GAME_V3.md).
+
 ## 0.3.1 — Atelier and fitted models — 3 October 2026
 
 - Adds all 50 campaign enemies to the Royal Atelier, with six camera views, actual walking/flight, rest, pause, speed, optional effects and GLB/portrait downloads. Selection URLs preserve the precise enemy or defender rank for appearance comments.

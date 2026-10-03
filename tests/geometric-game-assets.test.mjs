@@ -7,6 +7,7 @@ import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
 import {geometricEntries} from '../game/render/geometric-assets.js';
 import {geometricMetadata} from '../game/render/geometric-motion.js';
 import {campaignTowers} from '../game/core/campaign-roster.js';
+import {partMeshes} from '../tools/audit-geometric-appearance.mjs';
 const root=new URL('../public/assets/geometric/',import.meta.url);
 const rosters=['defenders','champions','enemies'].map(kind=>geometricEntries(JSON.parse(readFileSync(new URL(`geometric-${kind}.json`,root)))));
 const entries=rosters.flat(),towers=campaignTowers(JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url))));
@@ -48,7 +49,15 @@ test('actual Three.js imports preserve finite closed model geometry, source prov
     const {scene}=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
     scene.updateMatrixWorld(true);
     let protectedCover=false;scene.traverse(node=>{if(node.isMesh&&/Continuous_wrapped_hood|Thick_pointed_hood|Helmet_/i.test(node.name))protectedCover=true;});
-    if(protectedCover)assert.ok(checks.length,entry.id+' protected covering has an actual coverage check');
+    if(protectedCover){
+      const humanFace=partMeshes(scene,/^(Observed face|Face)/),spiritMask=partMeshes(scene,/^Nature spirit .*mask/i);
+      if(humanFace.length)assert.ok(checks.length,entry.id+' protected human face has an actual coverage check');
+      else if(entry.id==='mothernature'){
+        assert.ok(spiritMask.length,'nonhuman spirit has a physical leaf mask instead of a flesh coverage target');
+        const eyes=partMeshes(scene,/^Nature spirit .*eye/i);assert.equal(eyes.length,2);
+        for(const eye of eyes)assert.ok(eye.material.emissiveIntensity>0&&eye.material.emissive.getHex()>0,'actual leaf eyes emit light');
+      }else assert.ok(checks.length,entry.id+' protected covering has an actual coverage check');
+    }
     const meta=geometricMetadata(scene);assert.ok(meta,entry.id+' exported motion metadata');
     assert.equal(meta.locomotion,entry.locomotion,entry.id);
     assert.equal(meta.attackStyle,entry.attackStyle,entry.id);

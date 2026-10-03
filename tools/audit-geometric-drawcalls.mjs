@@ -8,7 +8,7 @@ import {disposeGeometricResources} from '../game/render/geometric-resources.js';
 
 const root=resolve(fileURLToPath(new URL('..',import.meta.url))),assetRoot=join(root,'public/assets/geometric');
 const protectedNode=node=>{
-  for(let current=node;current;current=current.parent)if(current.userData.visualCue||/^(refraction_shards|authored_bowstring|bow_tip_upper|bow_tip_lower|bow_nock|attack_muzzle|staff_tip|sword_tip)(?:_?\d+)?$|bow_?string/i.test(current.name))return true;
+  for(let current=node;current;current=current.parent)if(current.userData.visualCue||/^(refraction_shards|authored_bowstring|bow_tip_upper|bow_tip_lower|bow_nock|attack_muzzle|staff_tip|sword_tip)(?:_?\d+)?$|bow_?string|crossbow.*string/i.test(current.name))return true;
   return false;
 };
 const layout=geometry=>Object.entries(geometry.attributes).map(([name,attribute])=>`${name}:${attribute.itemSize}:${attribute.normalized}:${attribute.array?.constructor.name}`).sort().join('|');

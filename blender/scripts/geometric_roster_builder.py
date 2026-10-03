@@ -267,6 +267,8 @@ def humanoid(b,row,mounted=False,origin=(0,0,0),scale=1,seat=False,custom=None):
  if not enemy:tw=.30 if not s.get('bulky') else .35
  if compact:tw*=1.16
  if mounted:tw=.27;shoulder=.63;belt=.12
+ if custom.get('sourceCompactTorso'):
+  tw=.325;shoulder=.59;belt=.18
  if wave==12:fw=.45;fh=.35;facez=.67;shoulder=.45;belt=.29
  ox,oy,oz=origin
  def P(q):return (ox+q[0]*scale,oy+q[1]*scale,oz+q[2]*scale)
@@ -394,6 +396,9 @@ def humanoid(b,row,mounted=False,origin=(0,0,0),scale=1,seat=False,custom=None):
  if wave in (4,10,20,36,41):
   from geometric_enemy_equipment_final_v1 import apply_source_equipment_final
   apply_source_equipment_final(b,row,ctx)
+ if b.id in ('rimewatch','greenheart','royalranger'):
+  from geometric_champion_fit_v3 import apply_source_fit_v3
+  apply_source_fit_v3(b,row,ctx)
  return ctx
 
 def decoration(b,row,c):
@@ -637,7 +642,7 @@ def decoration(b,row,c):
    for j in range(8):
     a=j/8*math.tau;b.jewel('Separate elemental focus crystal',P((math.sin(a)*.64,.03,fz+.12+math.cos(a)*.32)),.075*scale,.14*scale,.055*scale,'iceblue',b.root)
  if b.id=='greenheart':
-  x,y,z=c['hands']['L'];b.jewel('Offered druid thorn',(x,y+.025,z+.14*scale),.07*scale,.12*scale,.07*scale,'moss',c['weapons']['L'])
+  x,y,z=c['hands']['L'];b.jewel('Offered druid thorn',(x,y+.11*scale,z+.23*scale),.07*scale,.12*scale,.07*scale,'moss',c['weapons']['L'])
  if wave==8:
   b.panel('Frost troll large dark shaggy rear mane',[P(q) for q in [(-fw*.55,-.27,fz+c['fh']*.54),(fw*.55,-.27,fz+c['fh']*.54),(tw+.22,-.36,sh-.07),(tw+.16,-.37,belt+.04),(0,-.43,belt-.09),(-tw-.16,-.37,belt+.04),(-tw-.22,-.36,sh-.07)]],.12*scale,'dark',head,.07*scale)
   for side in (-1,1):
@@ -876,6 +881,9 @@ def wings(b,kind='bat',origin=(0,0,1),span=1.05,height=.55,parent=None,material=
 
 def beast(b,row):
  s=row['spec'];identity=b.id;wave=s.get('wave',0);kind=s['bodyKind'];enemy=row['category']=='enemies';mounted=bool(s.get('mounted')) and wave!=40;horse=kind=='horse';wolf=s.get('beastKind')=='wolf';bear=s.get('species')=='bear';griffin=s.get('species')=='griffin';bird=kind=='bird';bat=kind=='bat';wyvern=kind=='wyvern'
+ if identity in ('frostblade','roseguard','embercrown','worldfire','thunderheart','phoenix','griffinbomber','rangermentor'):
+  from geometric_creature_anatomy_v3 import build_source_creature_v3
+  return build_source_creature_v3(b,row,ell,cone,leaf,annulus,humanoid,lion)
  if identity in ('frostblade','roseguard','embercrown','worldfire','starfall','thunderheart','phoenix'):
   from geometric_creature_anatomy_v2 import build_refined_creature
   return build_refined_creature(b,row,ell,cone,leaf,annulus,humanoid,lion)
@@ -1353,5 +1361,8 @@ def build(row):
  b.root['locomotion']=b.root.get('locomotion','flying' if flying else 'quadruped' if kind in ('horse','dragon','beast') else 'crawler' if kind=='siege' else 'biped')
  b.root['attackStyle']=b.root.get('attackStyle','siege' if kind=='siege' else 'breath' if kind in ('dragon','bird','beast','wyvern') and not s.get('mounted') else s.get('weapon','staff'))
  b.root['sourceRevision']='geometric-turnarounds-v1';b.root['sourceFile']=row['source'];b.root['sourceSha256']=row['sha256'];b.root['scaleAssumption']='Source has no dimensions; human scale approx 1.8m, species anatomy retained.'
- b.root['anatomyRevision']='geometric-contact-anatomy-v2'
+ if b.id=='mothernature':
+  from geometric_champion_fit_v3 import apply_source_fit_v3
+  apply_source_fit_v3(b,row,None)
+ b.root['anatomyRevision']=b.root.get('anatomyRevision','geometric-contact-anatomy-v2')
  return b

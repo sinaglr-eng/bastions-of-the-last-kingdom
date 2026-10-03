@@ -53,10 +53,19 @@ const ATTACK_POSES={
   dart:{x:-.015,z:0,duration:.28},venomArrow:{x:-.065,z:.085,duration:.48},
   hammer:{x:-.085,z:.035,duration:.44},
 };
-const JOINT_NAMES=['torso_pivot','head_pivot','upper_arm_L','upper_arm_R','forearm_L','forearm_R','hand_L','hand_R','weapon_L','weapon_R','bow_pivot','weapon_pivot','siege_arm','attack_arm','bow_arm','dragon_jaw','jaw_pivot','mouth_pivot','left_wing_pivot','right_wing_pivot','wing_L','wing_R'];
+const JOINT_NAMES=['torso_pivot','head_pivot','upper_arm_L','upper_arm_R','forearm_L','forearm_R','hand_L','hand_R','weapon_L','weapon_R','bow_pivot','weapon_pivot','crossbow_nock','siege_arm','attack_arm','bow_arm','dragon_jaw','jaw_pivot','mouth_pivot','left_wing_pivot','right_wing_pivot','wing_L','wing_R'];
 const SPELL_KINDS=new Set(['arcane','holy','frost','roots','lightning']);
 const smooth=p=>{p=THREE.MathUtils.clamp(p,0,1);return p*p*(3-2*p);};
 const noPick=()=>{};
+function bindRigidArms(rig){
+  const arms={};for(const side of ['R','L']){
+    const shoulder=rig.joints.get('upper_arm_'+side),elbow=rig.joints.get('forearm_'+side),hand=rig.joints.get('hand_'+side);
+    if(!shoulder||!elbow||!hand)continue;
+    rig.actor.updateWorldMatrix(true,true);
+    arms[side]={shoulder,elbow,hand,restTarget:rig.actor.worldToLocal(hand.node.getWorldPosition(new THREE.Vector3())),restElbow:rig.actor.worldToLocal(elbow.node.getWorldPosition(new THREE.Vector3())),handOrientation:rig.actor.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(hand.node.getWorldQuaternion(new THREE.Quaternion())),reach:shoulder.node.getWorldPosition(new THREE.Vector3()).distanceTo(elbow.node.getWorldPosition(new THREE.Vector3()))+elbow.node.getWorldPosition(new THREE.Vector3()).distanceTo(hand.node.getWorldPosition(new THREE.Vector3()))};
+  }
+  return arms.R&&arms.L?arms:null;
+}
 export function attackRig(actor,family,stats={}){
   if(!actor)return null;
   const kind=attackVisualKind(family,stats),pose=ATTACK_POSES[kind],pivots=[];
@@ -81,8 +90,9 @@ export function attackRig(actor,family,stats={}){
     glow.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.095,1),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})),new THREE.Mesh(new THREE.TorusGeometry(.14,.012,4,20),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.7,depthWrite:false,blending:THREE.AdditiveBlending,toneMapped:false})));
     glow.traverse(node=>node.raycast=noPick);rig.glow=glow;rig.owned.push(glow);
   }
-  let top=actor.getObjectByName('bow_tip_upper')||actor.getObjectByName('bow_string_top'),bottom=actor.getObjectByName('bow_tip_lower')||actor.getObjectByName('bow_string_bottom'),nock=actor.getObjectByName('bow_nock');
-  const namedStrings=[];actor.traverse(node=>{if(!node.isLine&&/bow_?string/i.test(node.name))namedStrings.push(node);});
+  const crossbow=rig.attackStyle==='crossbow'&&rig.geometric?.crossbowGripContract==='rear-trigger-front-support-v3';
+  let top=actor.getObjectByName(crossbow?'crossbow_string_left':'bow_tip_upper')||(!crossbow&&actor.getObjectByName('bow_string_top')),bottom=actor.getObjectByName(crossbow?'crossbow_string_right':'bow_tip_lower')||(!crossbow&&actor.getObjectByName('bow_string_bottom')),nock=actor.getObjectByName(crossbow?'crossbow_nock':'bow_nock');
+  const namedStrings=[];actor.traverse(node=>{if(!node.isLine&&(/bow_?string/i.test(node.name)||crossbow&&/crossbow.*string/i.test(node.name)))namedStrings.push(node);});
   const physicalStrings=namedStrings.filter(node=>node.isMesh);
   if(rig.attackStyle==='bow'&&physicalStrings.length&&!top){
     // Champion exports have a real string mesh, but no semantic endpoints.
@@ -95,12 +105,9 @@ export function attackRig(actor,family,stats={}){
     let restStraight=false;actor.traverse(node=>{if(node.userData.bowRestPose==='lowered-hand')restStraight=true;});
     const handR=actor.getObjectByName('hand_R'),handL=actor.getObjectByName('hand_L');
     if(rig.geometric&&handR&&handL){
-      const arms={};for(const side of ['R','L']){
-        const shoulder=rig.joints.get('upper_arm_'+side),elbow=rig.joints.get('forearm_'+side),hand=rig.joints.get('hand_'+side);
-        if(!shoulder||!elbow||!hand)continue;
-        actor.updateMatrixWorld(true);arms[side]={shoulder,elbow,hand,restTarget:actor.worldToLocal(hand.node.getWorldPosition(new THREE.Vector3())),handOrientation:actor.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(hand.node.getWorldQuaternion(new THREE.Quaternion())),reach:shoulder.node.getWorldPosition(new THREE.Vector3()).distanceTo(elbow.node.getWorldPosition(new THREE.Vector3()))+elbow.node.getWorldPosition(new THREE.Vector3()).distanceTo(hand.node.getWorldPosition(new THREE.Vector3()))};
-      }
-      if(arms.R&&arms.L){rig.bowArms=arms;restStraight=true;}
+      const arms=bindRigidArms(rig);
+      if(arms&&crossbow){rig.crossbowArms=arms;rig.crossbowForegrip=actor.getObjectByName('crossbow_foregrip');}
+      else if(arms){rig.bowArms=arms;restStraight=true;}
     }
     rig.authoredStrings=namedStrings.map(node=>({node,visible:node.visible}));for(const entry of rig.authoredStrings)entry.node.visible=false;
     const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(12),3));
@@ -172,18 +179,36 @@ function advanceJoint(rig,name,distance){
   joint.position.add(handAdvancePoint.sub(handAdvanceOrigin));
 }
 function advanceHand(rig,distance){advanceJoint(rig,'hand_R',distance);}
-function solveBowArm(rig,side,target){
-  const arm=rig.bowArms[side],{shoulder,elbow,hand}=arm;
+function solveBowArm(rig,side,target,arms=rig.bowArms){
+  const arm=arms[side],{shoulder,elbow,hand}=arm;
   rig.actor.updateMatrixWorld(true);
   const origin=shoulder.node.getWorldPosition(new THREE.Vector3()),end=rig.actor.localToWorld(target.clone()),elbowRest=elbow.node.getWorldPosition(new THREE.Vector3()),handRest=hand.node.getWorldPosition(new THREE.Vector3());
   const l1=origin.distanceTo(elbowRest),l2=elbowRest.distanceTo(handRest),delta=end.clone().sub(origin),r=THREE.MathUtils.clamp(delta.length(),Math.abs(l1-l2)+.0001,l1+l2-.0001),direction=delta.normalize();
-  const normal=rig.actor.localToWorld(new THREE.Vector3(0,-1,0)).sub(rig.actor.getWorldPosition(new THREE.Vector3()));normal.addScaledVector(direction,-normal.dot(direction)).normalize();
+  const normal=arms===rig.crossbowArms?rig.actor.localToWorld(arm.restElbow.clone()).sub(origin):rig.actor.localToWorld(new THREE.Vector3(0,-1,0)).sub(rig.actor.getWorldPosition(new THREE.Vector3()));normal.addScaledVector(direction,-normal.dot(direction)).normalize();
   const along=(l1*l1-l2*l2+r*r)/(2*r),height=Math.sqrt(Math.max(0,l1*l1-along*along)),bend=origin.clone().addScaledVector(direction,along).addScaledVector(normal,height);
   const upperDirection=shoulder.node.parent.worldToLocal(bend.clone()).sub(shoulder.node.position).normalize(),upperRest=elbow.position.clone().applyEuler(shoulder.rotation).normalize();
   shoulder.node.quaternion.setFromUnitVectors(upperRest,upperDirection).multiply(new THREE.Quaternion().setFromEuler(shoulder.rotation));rig.actor.updateMatrixWorld(true);
   const lowerDirection=elbow.node.parent.worldToLocal(end.clone()).sub(elbow.node.position).normalize(),lowerRest=hand.position.clone().applyEuler(elbow.rotation).normalize();
   elbow.node.quaternion.setFromUnitVectors(lowerRest,lowerDirection).multiply(new THREE.Quaternion().setFromEuler(elbow.rotation));rig.actor.updateMatrixWorld(true);
   hand.node.quaternion.copy(hand.node.parent.getWorldQuaternion(new THREE.Quaternion()).invert()).multiply(rig.actor.getWorldQuaternion(new THREE.Quaternion())).multiply(arm.handOrientation);
+}
+function applyCrossbowPose(rig,recoil,progress){
+  const arms=rig.crossbowArms;
+  // The right rear grip carries the entire rigid stock, butt and limbs. Solve
+  // its arm backwards into recoil, then solve the support wrist onto that
+  // actual moving fore-stock. Translating just weapon_R breaks the palm grip.
+  solveBowArm(rig,'R',arms.R.restTarget.clone().add(new THREE.Vector3(0,0,.035*recoil)),arms);
+  rig.actor.updateWorldMatrix(true,true);
+  const support=rig.actor.worldToLocal(rig.crossbowForegrip.getWorldPosition(new THREE.Vector3()));
+  solveBowArm(rig,'L',support,arms);
+  const nock=rig.joints.get('crossbow_nock'),string=rig.string;
+  if(nock&&string){
+    // Release the cocked V-string along the bolt rail; recock during recovery.
+    // The physical endpoints stay on their actual transverse wooden limbs.
+    const cocked=progress<.42?1:progress<.50?1-smooth((progress-.42)/.08):progress<.72?0:smooth((progress-.72)/.28);
+    const forward=string.top.position.clone().add(string.bottom.position).multiplyScalar(.5);
+    nock.node.position.lerpVectors(forward,nock.position,cocked);
+  }
 }
 function applyBowDraw(rig,draw){
   if(!draw||!rig.bowArms)return;
@@ -265,9 +290,13 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     move('upper_arm_L',-.075*stroke,0,.045*stroke);
   }else if(style==='crossbow'){
     const recoil=progress<.42?0:Math.sin(Math.PI*Math.min(1,(progress-.42)/.32));
+    if(rig.crossbowArms&&rig.crossbowForegrip){
+      if(!reducedMotion)applyCrossbowPose(rig,recoil,progress);
+    }else{
     move('upper_arm_R',-.12*stroke,0,-.035*stroke);move('forearm_R',-.17*draw,0,0);
     move('upper_arm_L',-.05*stroke,0,.02*stroke);move('weapon_pivot',.065*recoil,0,0);
     const weapon=rig.joints.get('weapon_R')||rig.joints.get('weapon_pivot');if(weapon&&!reducedMotion)weapon.node.position.z+=.07*recoil;
+    }
   }else if(rig.string||style==='bow'||['arrow','venomArrow'].includes(rig.kind)&&!['staff','cross','orb'].includes(style)){
     if(rig.bowArms&&!reducedMotion)applyBowDraw(rig,draw);
     else{
@@ -292,7 +321,7 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     move('weapon_R',-1.35*thrust,0,0);
     // Protract the complete arm slightly while the elbow extends. Translating
     // only the hand detaches the glove from the real forearm in source v2.
-    if(!reducedMotion)advanceJoint(rig,'upper_arm_R',.04*thrust);
+    if(!reducedMotion)advanceJoint(rig,'upper_arm_R',.045*thrust);
     move('torso_pivot',-.055*thrust,.025*thrust,0);
     move('upper_arm_L',.16*stroke,0,.13*stroke);move('forearm_L',.16*stroke,0,0);
   }else if(rig.kind==='melee'){

@@ -357,5 +357,5 @@ export function makeThumbnails(data) {
   camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,.95,0);
   for(const id of Object.keys(data.enemies).filter(id=>id.startsWith('host_')))images['enemy:'+id]=enemyPortrait(id);
   camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,.95,0);
-  const wall=castleWallModel(10);scene.add(wall);camera.lookAt(0,.4,0);renderer.render(scene,camera);images.ruin=renderer.domElement.toDataURL('image/png');wall.traverse(o=>o.geometry?.dispose());renderer.dispose();return images;
+  const wall=castleWallModel(10);scene.add(wall);camera.lookAt(0,WALL_DECK_HEIGHT/2,0);renderer.render(scene,camera);images.ruin=renderer.domElement.toDataURL('image/png');wall.traverse(o=>o.geometry?.dispose());renderer.dispose();return images;
 }

@@ -51,8 +51,8 @@ test('actual crouched dragon and bear front/hind knees retain their authored ben
   }
 });
 
-test('all six actual Archer ranks and four champion bows draw their physical string onto the right hand and release at the world muzzle',async()=>{
-  const files=[...Array.from({length:6},(_,i)=>`defenders/archer-${i+1}.glb`),...['thornwarden','verdantguard','royalranger','elvenking'].map(id=>`champions/${id}.glb`)];
+test('all six actual Archer ranks and three champion bows draw their physical string onto the right hand and release at the world muzzle',async()=>{
+  const files=[...Array.from({length:6},(_,i)=>`defenders/archer-${i+1}.glb`),...['thornwarden','verdantguard','elvenking'].map(id=>`champions/${id}.glb`)];
   for(const file of files){
     const bytes=readFileSync('public/assets/geometric/'+file),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''),source=transforms(gltf.scene),actor=cloneDefenderTemplate(gltf.scene),peer=cloneDefenderTemplate(gltf.scene),peerBefore=transforms(peer);
     actor.position.set(3,.8,5);actor.rotation.y=.9;actor.scale.setScalar(.7);scaleBattlefieldUnit(actor);

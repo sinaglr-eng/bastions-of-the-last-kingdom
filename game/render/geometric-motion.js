@@ -20,7 +20,7 @@ export function createGeometricMotionRig(figure){
   const joints=new Map();
   body.traverse(node=>{if(JOINT.test(node.name)&&!node.isMesh)joints.set(node.name,{node,position:node.position.clone(),rotation:node.rotation.clone(),scale:node.scale.clone()});});
   const locomotion=metadata.locomotion||'biped';
-  const rig={figure,body,metadata,locomotion,joints,bodyRest:{position:body.position.clone(),rotation:body.rotation.clone(),scale:body.scale.clone()},phase:finite(figure.userData.phase,0),clock:null,traveled:null,dead:false,footTarget:new THREE.Vector3(),footCurrent:new THREE.Vector3(),worldScale:new THREE.Vector3()};
+  const rig={figure,body,metadata,locomotion,joints,bodyRest:{position:body.position.clone(),rotation:body.rotation.clone(),scale:body.scale.clone()},phase:finite(figure.userData.phase,0),clock:null,traveled:null,dead:false,footTarget:new THREE.Vector3(),footCurrent:new THREE.Vector3(),parentFromBody:new THREE.Matrix4(),worldScale:new THREE.Vector3()};
   const legs=locomotion==='quadruped'||locomotion==='flying'&&joints.has('upper_leg_FL')?['FL','FR','BL','BR']:['L','R'];
   rig.legs=legs.map(side=>{
     const hip=joints.get('upper_leg_'+side),knee=joints.get('shin_'+side),foot=joints.get('foot_'+side);
@@ -57,9 +57,11 @@ function solveLeg(leg,phase,stride,lift){
   // cancelling actor translation exactly; a full-stride sweep would skid.
   const sweep=stride*stance;
   const z=leg.restZ+(swinging?THREE.MathUtils.lerp(sweep/2,-sweep/2,smooth(p)):THREE.MathUtils.lerp(-sweep/2,sweep/2,p));
-  const length=leg.l1+leg.l2,maximumForward=Math.abs(leg.restZ)+sweep/2,supportReach=Math.min(-leg.restY,Math.sqrt(Math.max(length*length*.994*.994-maximumForward*maximumForward,length*length*.55)));
-  // Lower the hip by the flexion needed for the entire stance sweep. Soles
-  // then retain their authored height instead of bobbing at unreachable reach.
+  const length=leg.l1+leg.l2,maximumReach=length-.0001,supportReach=Math.min(-leg.restY,Math.sqrt(Math.max(0,maximumReach*maximumReach-z*z)));
+  // Lower the hip only when this actual ankle target exceeds the two links'
+  // reach. Planning that drop for the furthest future step alters the native
+  // crouch even at stance centre, where its authored target already fits.
+  // The foot target remains fixed while the hip supplies needed clearance.
   leg.hip.node.position.y=leg.hip.position.y-(-leg.restY-supportReach);
   const y=-supportReach+(swinging?Math.sin(p*Math.PI)*lift:0);
   const r=clamp(Math.hypot(y,z),Math.abs(leg.l1-leg.l2)+.0001,leg.l1+leg.l2-.0001);
@@ -78,10 +80,15 @@ function retainFootTarget(rig,leg,offset){
   // New creatures attach their legs to the moving torso, whereas a rider's
   // mount legs attach to its own torso. Preserve the real sole target after
   // either parent hierarchy's sway; otherwise correctly solved ankles skid.
-  rig.body.updateWorldMatrix(true,false);
-  const desired=rig.footTarget.copy(leg.restFoot);desired.y+=offset.y;desired.z+=offset.z;rig.body.localToWorld(desired);
-  const current=leg.foot.node.getWorldPosition(rig.footCurrent),parent=leg.hip.node.parent;
-  desired.copy(parent.worldToLocal(desired)).sub(parent.worldToLocal(current));leg.hip.node.position.add(desired);
+  const parent=leg.hip.node.parent,transform=rig.parentFromBody.identity();
+  // Solve inside the body hierarchy. A world-to-local round trip depends on
+  // the actor's previous bob height at machine precision, so even a paused
+  // frame can otherwise change its pose despite identical motion inputs.
+  for(let node=parent;node&&node!==rig.body;node=node.parent){node.updateMatrix();transform.premultiply(node.matrix);}
+  const desired=rig.footTarget.copy(leg.restFoot);desired.y+=offset.y;desired.z+=offset.z;desired.applyMatrix4(transform.invert());
+  leg.knee.node.updateMatrix();leg.hip.node.updateMatrix();
+  const current=rig.footCurrent.copy(leg.foot.node.position).applyMatrix4(leg.knee.node.matrix).applyMatrix4(leg.hip.node.matrix);
+  leg.hip.node.position.add(desired.sub(current));
 }
 
 export function animateGeometricEnemyMotion(figure,enemy,time,{moving=true,reducedMotion=false}={}){
