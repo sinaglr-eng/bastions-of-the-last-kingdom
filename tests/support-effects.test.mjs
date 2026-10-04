@@ -110,6 +110,16 @@ test('actual periodic disarm has one hovering broken sword and matching bounded 
   }finally{fx.dispose();}
 });
 
+test('paused combat preserves the real disarm window while an unpaused cosmetic clock keeps its sword orbit moving',()=>{
+  const g=arena(),target=unit('archer'),enemy=foe(g),fx=new SupportEffects(new THREE.Scene());g.towers=[target];enemy.disarm=true;g.combat.elapsed=.23;g.combat.update(0);g.paused=true;
+  try{
+    fx.sync(g.towers,data,{combat:g.combat,phase:g.phase,time:10});const orbit=fx.batches.get('disarm:orbit'),first=Array.from(orbit.instanceMatrix.array),elapsed=g.combat.elapsed;
+    g.tick(1);fx.sync(g.towers,data,{combat:g.combat,phase:g.phase,time:11});assert.equal(g.combat.elapsed,elapsed);assert.equal(target.disarmed,true);assert.equal(orbit.count,1);assert.notDeepEqual(Array.from(orbit.instanceMatrix.array),first,'Cosmetics continue while combat/status time stays frozen');
+    fx.update(12,{reducedMotion:true});const still=Array.from(orbit.instanceMatrix.array);fx.update(13,{reducedMotion:true});assert.deepEqual(Array.from(orbit.instanceMatrix.array),still);
+    g.paused=false;g.tick(1.1);fx.sync(g.towers,data,{combat:g.combat,phase:g.phase,time:14});assert.equal(target.disarmed,false);assert.equal(orbit.count,0);assert.equal(fx.batches.get('disarm:aura').count,0);
+  }finally{fx.dispose();}
+});
+
 test('reduced motion freezes instance matrices/materials; cleanup is idempotent and never mutates defender materials',()=>{
   const scene=new THREE.Scene(),fx=new SupportEffects(scene),towers=[unit('archer'),unit('monk',2)];fx.sync(towers,data,{selected:towers[1]});
   fx.update(3,{reducedMotion:true});const snapshot=()=>[...fx.batches.values()].map(o=>({matrix:Array.from(o.instanceMatrix.array),opacity:o.material.opacity})),still=snapshot();fx.update(10000,{reducedMotion:true});assert.deepEqual(snapshot(),still);

@@ -214,6 +214,11 @@ dialog{border:1px solid #9a8b6077;background:linear-gradient(145deg,#243132,#152
 .support-map-legend p{font-size:9px;line-height:1.6;margin:4px 0 8px}
 .support-map-legend ul{grid-template-columns:1fr 1fr;gap:6px}
 .support-map-legend .support-glyph{width:16px;height:16px}
+.has-effect-tooltip{position:relative;cursor:help}
+.has-effect-tooltip:focus-visible{outline:1px solid #d8c594;outline-offset:3px;border-radius:2px}
+.support-effect-tooltip{display:none;position:absolute;z-index:30;right:0;bottom:calc(100% + 8px);width:min(260px,70vw);padding:10px 12px;border:1px solid #657568;border-radius:5px;background:#172622;color:#e6e7cf;font-size:11px;line-height:1.6;font-weight:400;box-shadow:0 5px 15px #07100e66;pointer-events:none}
+.has-effect-tooltip:hover>.support-effect-tooltip,.has-effect-tooltip:focus>.support-effect-tooltip{display:block}
+.support-map-legend li:nth-child(odd)>.support-effect-tooltip{right:auto;left:0}
 .help-grid .support-map-legend{font-size:12px}.help-grid .support-map-legend p{font-size:11px}
 .help-grid .support-map-legend li{font-size:11px;line-height:1.5}
 @media(max-width:1150px){.draft-panel{padding:10px 12px;grid-template-columns:minmax(0,1fr) 184px;gap:12px}.draft-mastery{padding-left:12px}.draft-mastery .mastery-heading{font-size:10px}.draft-heading h3{font-size:12px}.draft-heading .draft-sub{font-size:8px}.draw-card .draw-name{font-size:10px}.sidebar-recipe{padding:10px 14px}}

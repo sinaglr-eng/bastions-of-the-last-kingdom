@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {checkpointVignetteGeometries} from './checkpoint-vignettes.js';
 
 export const CHECKPOINT_ROMAN_LABELS=Object.freeze(['I','II','III','IV','V']);
 const colors={spawn:'#923e34',checkpoint:'#366c87',keep:'#b99b4c'};
@@ -100,6 +101,7 @@ export function createCheckpointMarker({label='',kind='checkpoint'}={}){
   }
   add(new THREE.CylinderGeometry(.478,.466,.024,8),light,[0,.152,0]);
   add(new THREE.TorusGeometry(.475,.007,4,8),metal,[0,.161,0],[Math.PI/2,0,0]);
+  if(kind==='checkpoint')for(const part of checkpointVignetteGeometries(label))add(part.geometry,material(part.color,part.metalness,part.roughness));
   add(new THREE.CylinderGeometry(.047,.056,.054,8),metal,[.18,.18,.15]);
   add(new THREE.CylinderGeometry(.019,.024,1.43,6),wood,[.18,.865,.15]);
   for(const y of [.25,1.395,1.535])add(new THREE.CylinderGeometry(.026,.026,.035,6),metal,[.18,y,.15]);

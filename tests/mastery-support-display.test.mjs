@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {EconomyManager} from '../game/core/progression.js';
 import {Game} from '../game/core/game.js';
 import {masteryPanelMarkup} from '../ui/mastery-panel.js';
-import {selectedSupportMarkup,supportEffectsMarkup,supportMapLegendMarkup} from '../ui/support-guide.js';
+import {selectedSupportMarkup,supportEffectsMarkup,supportMapLegendMarkup,SUPPORT_EFFECT_DESCRIPTIONS} from '../ui/support-guide.js';
 import {SUPPORT_EFFECT_STYLES} from '../game/render/support-effects.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
@@ -91,4 +91,18 @@ test('map legend names every shared support shape so color alone is not necessar
   }
   assert.match(html,/wall color follows the first listed effect; separate symbols show every active effect/);
   assert.match(html,/selected provider’s dashed circle/);
+});
+
+test('every map support symbol exposes a keyboard accessible description of its actual rule',()=>{
+  const html=supportMapLegendMarkup();
+  for(const key of Object.keys(SUPPORT_EFFECT_STYLES)){
+    const item=html.match(new RegExp(`<li[^>]*data-effect="${key}"[\\s\\S]*?</li>`))[0];
+    assert.match(item,/tabindex="0"/);assert.match(item,/role="tooltip"/);
+    assert.ok(item.includes(SUPPORT_EFFECT_DESCRIPTIONS[key]));
+  }
+  assert.match(SUPPORT_EFFECT_DESCRIPTIONS.weakened,/2 tiles.*15%/);
+  const game=new Game(data,{seed:1}),target=unit('soldier',90,1,20),ruin={id:91,state:'ruin',x:target.x+1,z:target.z,weakened:3};
+  const state=supportEffectsMarkup(target,[target,ruin],data,{phase:'combat',combat:game.combat});
+  assert.match(state,/Barricade disruption · attack speed −15%/);
+  assert.match(state,/Multiple penalties multiply/);
 });

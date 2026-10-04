@@ -2,7 +2,7 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-Current release: **0.3.7 · Active defenses and battlefield signals** — [release notes](CHANGELOG.md) · [enemy model and animation verification](docs/GEOMETRIC_GAME_V6.md).
+Current release: **0.3.8 · Checkpoint stories and floating magic** — [release notes](CHANGELOG.md) · [enemy model and animation verification](docs/GEOMETRIC_GAME_V6.md).
 
 ## Play
 

@@ -19,7 +19,7 @@ for(const [id,flying] of [['host_13',false],['host_15',true]])test(`actual Ateli
   updateAtelierEnemyPreview(a,0);const rest=transforms(a.figure.userData.body);a.moving=true;updateAtelierEnemyPreview(a,.1);updateAtelierEnemyPreview(a,.2);const animated=transforms(a.figure.userData.body);
   assert.notDeepEqual(animated,rest,'the actual imported meshes move');assert.ok(a.figure.userData.geometricMotion,'canonical live motion rig is used');const paused=transforms(a.figure),time=a.time,traveled=a.enemy.traveled;
   updateAtelierEnemyPreview(a,0);assert.deepEqual(transforms(a.figure),paused);assert.equal(a.time,time);assert.equal(a.enemy.traveled,traveled);
-  if(aura){assert.equal(aura.visible,true);assert.equal(aura.userData.uniforms.time.value,time,'a paused preview preserves the actual aura clock');assert.equal(a.effects.batches.get('regen').glyph.count,1,'the real regeneration keeps its symbol');}
+  if(aura){assert.equal(aura.visible,true);assert.equal(aura.userData.uniforms.time.value,time,'a paused preview preserves the actual aura clock');assert.equal(a.effects.batches.get('regen').glyph.count,3,'the real regeneration keeps several small crosses');}
   else{assert.equal(a.figure.userData.aura,null);assert.equal(a.effects.batches.size,0,'ordinary enemies allocate no rings or shields');}
   a.moving=false;updateAtelierEnemyPreview(a,.1,{showEffects:false});assert.deepEqual(transforms(a.figure.userData.body),rest,'rest mode returns the actual authored articulated pose');
   if(aura)assert.equal(aura.visible,false,'effects toggle hides a genuine special aura');

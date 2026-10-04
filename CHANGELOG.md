@@ -1,5 +1,13 @@
 # Releases
 
+## 0.3.8 — Checkpoint stories and floating magic — 4 October 2026
+
+- Gives checkpoint I–V distinct small scenes: a fallen soldier against a rock, stacked powder barrels, a semicircle of crates, a campfire and campsite, and a ruined forward wall. Roman flags and playable route positions remain intact; the route legend is removed.
+- Replaces large backed enemy icons with small colored symbols and matching particles that orbit and change height. Simultaneous resistance layers remain separately visible, including magic immunity plus magic resistance. Cosmetic effects continue during pause while combat timing stays frozen.
+- Adds hover and keyboard focus descriptions for every support symbol, including the actual 15% attack penalty from each nearby disrupted barricade.
+- Enlarges concealment smoke to cover the last publicly visible whole body without following a hidden enemy.
+- Refits Goblin Dust Dancers’ actual leg surfaces and joints to a narrower stance, preserving their hips, grounded soles, height, movement speed, and immutable V6 native source. The editable correction is saved separately in `blender/scenes/geometric-game-v7/enemies/host_09.blend`.
+
 ## 0.3.7 — Active defenses and battlefield signals — 4 October 2026
 
 - Stronger moving route arrows sit above a quieter guide line. Stone and brass checkpoint markers carry physical Roman I–V on both sides of their flags.

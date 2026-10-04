@@ -35,7 +35,7 @@ test('Melancholy has its own moon, actual combat-time countdown and disappears e
  const claire={id:1,family:'ladyclaire',tier:1,state:'active',x:10,z:10,melancholyUntil:10},combat={elapsed:7.5,enemies:[]};
  const state=towerSupportState(claire,[claire],data,{combat,phase:'combat'});
  assert.equal(state.byKey.melancholy.value,2.5);assert.equal(state.byKey.melancholy.glyph,'moon');assert.deepEqual(state.byKey.melancholy.sourceIds,[1]);
- const html=supportEffectsMarkup(claire,[claire],data,{combat,phase:'combat'});assert.match(html,/data-effect="melancholy"/);assert.match(html,/2.5s remaining/);assert.match(html,/class="negative"/);
+ const html=supportEffectsMarkup(claire,[claire],data,{combat,phase:'combat'});assert.match(html,/data-effect="melancholy"/);assert.match(html,/2.5s remaining/);assert.match(html,/class="[^"]*\bnegative\b[^"]*"/);
  combat.elapsed=10;assert.equal(towerSupportState(claire,[claire],data,{combat,phase:'combat'}).byKey.melancholy,undefined);
  combat.elapsed=7.5;assert.equal(towerSupportState(claire,[claire],data,{combat,phase:'ready'}).byKey.melancholy,undefined);
 });

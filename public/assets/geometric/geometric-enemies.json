@@ -7662,7 +7662,7 @@
       "portrait": "portraits/host_09.png",
       "source": "enemies/host_09.png",
       "sourceSha256": "756e1cd62618a1800cfb6345659b45e0c3d8ea178b99439030d26a957af2e479",
-      "native": "blender/scenes/geometric-game-v6/enemies/host_09.blend",
+      "native": "blender/scenes/geometric-game-v7/enemies/host_09.blend",
       "locomotion": "biped",
       "attackStyle": "dagger",
       "geometricRig": true,
@@ -7691,16 +7691,16 @@
           "Tailored continuous bodice": 0.02407603072545801,
           "Continuous leather waist belt": 0.010930888102545092,
           "Belt buckle": 0.0005729772081698078,
-          "Upper leg L": 0.0031778888405824546,
-          "Lower leg L": 0.002441161124465907,
-          "Knee contacting articulated joint L": 0.0011592609985200397,
-          "Ankle contacting boot joint L": 0.0007223438480347492,
-          "Grounded boot L": 0.009595791457589561,
-          "Upper leg R": 0.0031778891607245896,
-          "Lower leg R": 0.0024411609595063055,
-          "Knee contacting articulated joint R": 0.0011592607996059694,
-          "Ankle contacting boot joint R": 0.0007223440256893809,
-          "Grounded boot R": 0.009595791150180352,
+          "Upper leg L": 0.0031613058357227906,
+          "Lower leg L": 0.002300584872159561,
+          "Knee contacting articulated joint L": 0.001159261006705492,
+          "Ankle contacting boot joint L": 0.000722343732832087,
+          "Grounded boot L": 0.009595790898856649,
+          "Upper leg R": 0.0031490385748232557,
+          "Lower leg R": 0.0023080207052620003,
+          "Knee contacting articulated joint R": 0.001159260985862905,
+          "Ankle contacting boot joint R": 0.0007223438953284737,
+          "Grounded boot R": 0.009595791410599,
           "Connected shoulder L": 0.0018848545575262203,
           "Forearm L": 0.001762949861586094,
           "Elbow contacting articulated joint L": 0.000995905031534979,
@@ -7749,8 +7749,8 @@
         "meshes": 57,
         "roundtripBoundsError": 0.0,
         "roundtripTriangles": 2732,
-        "fileSha256": "66cfca5fbc72a8ed3ba1c14f2bba824619dc26ccd947af7c6f78a0445b0e2fb4",
-        "geometrySha256": "5919f4f491e227b2734a9c27d7d0f55db3bf2931b6b1b23441043497b34ba8d8",
+        "fileSha256": "20196844542e145dac8bb2960b4cc752f06eff2fe7d9da8ada5eaa9ba435a5b8",
+        "geometrySha256": "51613b4dc8cc6246fcae42b26c479c51e21874f14bbdf7fb4ce5dc4ee51650d8",
         "namedPivots": [
           "host_09",
           "torso_pivot",
@@ -7774,90 +7774,46 @@
           "sword_tip",
           "sword_tip.001"
         ],
-        "coverage": [
-          {
-            "type": "hood",
-            "shell": "V6 source fitted domed cloth hood",
-            "actualFaceBearing": "Observed face",
-            "sourceMode": "hood-mask",
-            "rule": "Genuine aperture; protected top/back/side actual skin rays required, no hidden scalp proxy."
-          }
-        ],
+        "coverage": [],
         "baselineJointContactsV5": [],
         "baselineContactsAreFreshV6": false
       },
       "views": [
         {
           "view": "front",
-          "path": "output/design/geometric-game-v6/enemies/renders/host_09/front.png",
-          "sha256": "67728f1610bb183a9946810654318ff41dca9fd2e695cc223b615fe2629d043d",
-          "geometrySha256": "5919f4f491e227b2734a9c27d7d0f55db3bf2931b6b1b23441043497b34ba8d8",
-          "cameraPosition": [
-            -0.06760071218013763,
-            7.803940296173096,
-            2.208315372467041
-          ],
-          "orthoScale": 1.471777081489563
+          "geometrySha256": "51613b4dc8cc6246fcae42b26c479c51e21874f14bbdf7fb4ce5dc4ee51650d8",
+          "path": "output/design/battlefield-effects-v9/host_09-six-views/front.png",
+          "sha256": "4b2d64cebd350e3bfe0bb2461caa435da7d76c51d80ed3f625a2f02628daa9ab"
         },
         {
           "view": "back",
-          "path": "output/design/geometric-game-v6/enemies/renders/host_09/back.png",
-          "sha256": "7293e8cf422036c67a7a2a3426f6b81d6e52dfb70e8436cb1175009439bd31e4",
-          "geometrySha256": "5919f4f491e227b2734a9c27d7d0f55db3bf2931b6b1b23441043497b34ba8d8",
-          "cameraPosition": [
-            -0.06760071218013763,
-            -7.846421718597412,
-            2.208315372467041
-          ],
-          "orthoScale": 1.471777081489563
+          "geometrySha256": "51613b4dc8cc6246fcae42b26c479c51e21874f14bbdf7fb4ce5dc4ee51650d8",
+          "path": "output/design/battlefield-effects-v9/host_09-six-views/back.png",
+          "sha256": "3dbe11deb9c0a74b605ccdfc8945c1d29b0b03a88b8267c64f6d9c9b4736c191"
         },
         {
           "view": "left",
-          "path": "output/design/geometric-game-v6/enemies/renders/host_09/left.png",
-          "sha256": "64d49fe988177192bb10fc25511958de2549b87605c5295cf7b5b0410fa6c14c",
-          "geometrySha256": "5919f4f491e227b2734a9c27d7d0f55db3bf2931b6b1b23441043497b34ba8d8",
-          "cameraPosition": [
-            -7.892781734466553,
-            -0.02124069631099701,
-            2.208315372467041
-          ],
-          "orthoScale": 1.471777081489563
+          "geometrySha256": "51613b4dc8cc6246fcae42b26c479c51e21874f14bbdf7fb4ce5dc4ee51650d8",
+          "path": "output/design/battlefield-effects-v9/host_09-six-views/left.png",
+          "sha256": "05953ab046cc7cfea2d27a5a284f804657bdf46bc37c9f466667d35d8016908f"
         },
         {
           "view": "right",
-          "path": "output/design/geometric-game-v6/enemies/renders/host_09/right.png",
-          "sha256": "997d7a8731ad75c731b89f5d24580de538001a00dcd9bb9c2ebe3f588e84e428",
-          "geometrySha256": "5919f4f491e227b2734a9c27d7d0f55db3bf2931b6b1b23441043497b34ba8d8",
-          "cameraPosition": [
-            7.757580280303955,
-            -0.02124069631099701,
-            2.208315372467041
-          ],
-          "orthoScale": 1.471777081489563
+          "geometrySha256": "51613b4dc8cc6246fcae42b26c479c51e21874f14bbdf7fb4ce5dc4ee51650d8",
+          "path": "output/design/battlefield-effects-v9/host_09-six-views/right.png",
+          "sha256": "23604a33049c4b1788399ab6da597cee70aeeb0711903cbb4e5e58f7c1a0d493"
         },
         {
           "view": "three-quarter-front",
-          "path": "output/design/geometric-game-v6/enemies/renders/host_09/three-quarter-front.png",
-          "sha256": "5429547743facaed30562e52dfa24174c23c3ea36cbe878991e8e219d46aac0b",
-          "geometrySha256": "5919f4f491e227b2734a9c27d7d0f55db3bf2931b6b1b23441043497b34ba8d8",
-          "cameraPosition": [
-            4.420738697052002,
-            6.388772010803223,
-            2.208315372467041
-          ],
-          "orthoScale": 1.471777081489563
+          "geometrySha256": "51613b4dc8cc6246fcae42b26c479c51e21874f14bbdf7fb4ce5dc4ee51650d8",
+          "path": "output/design/battlefield-effects-v9/host_09-six-views/three-quarter-front.png",
+          "sha256": "3b250245031c93fa78407ba77ae8f3086c614aaa3a1698fcf4957e82f01fd3cd"
         },
         {
           "view": "three-quarter-back",
-          "path": "output/design/geometric-game-v6/enemies/renders/host_09/three-quarter-back.png",
-          "sha256": "a9cc49aa28a4779c7e181e42af5012cc89a7888f651b342d8960e64b4c44b749",
-          "geometrySha256": "5919f4f491e227b2734a9c27d7d0f55db3bf2931b6b1b23441043497b34ba8d8",
-          "cameraPosition": [
-            4.420738697052002,
-            -6.431253433227539,
-            2.208315372467041
-          ],
-          "orthoScale": 1.471777081489563
+          "geometrySha256": "51613b4dc8cc6246fcae42b26c479c51e21874f14bbdf7fb4ce5dc4ee51650d8",
+          "path": "output/design/battlefield-effects-v9/host_09-six-views/three-quarter-back.png",
+          "sha256": "12770462e3035fcc929217b376f504f85be65eccd44b3f0da038bcf45707a369"
         }
       ],
       "accuracy": {
@@ -7898,7 +7854,7 @@
         "humanoidHeadsSlightlySmaller": false,
         "allCloaksFolded": true
       },
-      "sourceRepairRevision": "geometric-game-v6",
+      "sourceRepairRevision": "geometric-game-v7",
       "baselineNativeSha256": "ce8421d2d5a4096e83c3670a5c729f9e9a45ec9121a270b936c876484a60fbe5",
       "sourceRepairsV6": {
         "anatomy": {
@@ -8151,7 +8107,8 @@
             }
           }
         }
-      }
+      },
+      "stanceRevision": "geometric-game-v7"
     },
     {
       "id": "host_10",

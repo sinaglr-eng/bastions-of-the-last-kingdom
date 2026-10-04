@@ -26,7 +26,7 @@ import {siteUrl} from '../site-url.js';
 import {releaseAsset,defenderPortrait,enemyPortrait} from '../release.js';
 import {SIZE} from '../core/grid.js';
 import {MazePlanner} from './maze-planner.js';
-import {currentEnemyRoute,createRouteOverlay,animateRouteOverlay,disposeRouteOverlay,routeDistance,sameRoute,CHECKPOINT_MARKER_SCALE} from './route-overlay.js';
+import {currentEnemyRoute,createRouteOverlay,animateRouteOverlay,disposeRouteOverlay,CHECKPOINT_MARKER_SCALE} from './route-overlay.js';
 import {edgePan,compassBearing} from './navigation.js';
 import {configureTouchControls,PointerTapGesture,SelectedTowerDoubleTap,cancelPointerGesture} from './touch-input.js';
 import {upcomingInvader} from './warcamp-preview.js';
@@ -173,13 +173,6 @@ export class Battlefield {
     this.selectionRing=new THREE.Mesh(new THREE.RingGeometry(0.56,0.61,4),new THREE.MeshBasicMaterial({color:'#ffe4a1',side:THREE.DoubleSide,transparent:true,opacity:0.9}));this.selectionRing.rotation.set(-Math.PI/2,0,Math.PI/4);this.selectionRing.visible=false;this.scene.add(this.selectionRing);
     this.ghost=new THREE.Group();this.scene.add(this.ghost);
     this.pathGroup=new THREE.Group();this.scene.add(this.pathGroup);
-    this.routeLegend=document.createElement('div');this.routeLegend.className='route-legend';this.routeLegend.setAttribute('aria-label','Enemy route legend');this.container.append(this.routeLegend);
-    this.routeLegend.addEventListener('click',event=>{
-      const action=event.target.closest('[data-route]')?.dataset.route;
-      if(action==='current')this.showPath=!this.showPath;
-      if(action==='planned')this.maze.showFinalRoute=!this.maze.showFinalRoute;
-      if(action){this.sync();const button=document.querySelector('[data-action="path"]');button?.classList.toggle('active',this.showPath);button?.setAttribute('aria-pressed',String(this.showPath));}
-    });
     this.rangeGroup=new THREE.Group();this.scene.add(this.rangeGroup);
     this.healthBars=new THREE.Group();this.scene.add(this.healthBars);
     this.labels=document.createElement('div');this.labels.className='map-labels';this.container.append(this.labels);
@@ -232,21 +225,11 @@ export class Battlefield {
     this.grid.visible=this.showGrid&&this.game.phase!=='combat';
     this.pathGroup.visible=this.showPath&&!this.maze.editing;
     this.maze.sync();
-    this.updateRouteLegend(routeState);
     this.ghost.visible=false;
     if(this.showRanges)this.rebuildRanges();else this.rangeGroup.visible=false;
   }
   rebuildPath(state=currentEnemyRoute(this.game)) {
     disposeRouteOverlay(this.pathGroup);this.pathGroup.add(createRouteOverlay(state.points,{flying:state.flying}));
-  }
-  updateRouteLegend(state=currentEnemyRoute(this.game)){
-    const plan=this.maze.plan,finalRoute=this.maze.progress?.route;
-    this.routeLegend.classList.toggle('with-plan',!!plan&&!this.maze.editing);
-    const matched=!state.flying&&sameRoute(state.points,finalRoute);
-    const current=`Now · ${state.flying?'flying':'ground'} · ${Math.round(routeDistance(state.points))} steps`;
-    const planned=this.maze.editing?'Preview while editing':this.maze.progress?.conflict?'Plan blocked · no completed route':matched?'Maze complete · routes match':`After maze · ground · ${Math.round(routeDistance(finalRoute||[]))} steps`;
-    const html=`<button data-route="current" aria-pressed="${this.showPath}" ${this.maze.editing?'disabled':''}><span class="route-swatch ${state.flying?'flying':'current'}"></span>${current}</button>${plan||this.maze.editing?`<button data-route="planned" aria-pressed="${this.maze.showFinalRoute}" ${this.maze.editing||this.maze.progress?.conflict||matched?'disabled':''}><span class="route-swatch planned"></span>${planned}</button>${this.maze.visible||this.maze.editing?'<span class="route-wall-key"><i></i> Walls to build</span>':''}`:''}`;
-    if(this.routeLegend.innerHTML!==html)this.routeLegend.innerHTML=html;
   }
   rebuildRanges() {
     this.rangeGroup.children.slice().forEach(o=>{this.rangeGroup.remove(o);o.geometry.dispose();o.material.dispose();});
@@ -271,7 +254,7 @@ export class Battlefield {
     if(type==='change')this.sync();
     if(['spawn','death','leak'].includes(type)){
       const state=currentEnemyRoute(this.game),revision=`${this.game.grid.revision}:${this.game.round}:${this.game.phase}:${state.flying}`;
-      if(this.pathRevision!==revision){this.pathRevision=revision;this.rebuildPath(state);this.maze.sync();this.updateRouteLegend(state);}
+      if(this.pathRevision!==revision){this.pathRevision=revision;this.rebuildPath(state);this.maze.sync();}
     }
     if(type==='wave-complete'){this.clearCorpses();this.enemyAbilityEffects?.clear();}
     if(type==='won'||type==='lost')this.enemyAbilityEffects?.clear();
@@ -313,7 +296,7 @@ export class Battlefield {
     const battleDt=this.game.paused?0:dt*this.game.speed;
     this.motionTime=(this.motionTime||0)+battleDt;
     if(this.campPreview){const enemy=this.campPreview.userData.previewEnemy;this.campPreview.position.y=(enemy.flying?.5:0)+animateEnemyMotion(this.campPreview,enemy,this.time,{moving:false,reducedMotion:!!this.reducedMotion?.matches});}
-    for(const v of this.models.values()){animateRank(v.object,this.time);animateChampionAura(v.aura,v.attack?.native||v.attack?.geometric?this.motionTime:this.time,{reducedMotion:!!this.reducedMotion?.matches});}
+    for(const v of this.models.values()){animateRank(v.object,this.time);animateChampionAura(v.aura,this.time,{reducedMotion:!!this.reducedMotion?.matches});}
     this.valley.update(dt,this.time,this.camera.position.distanceTo(this.controls.target));
     this.landmarks.update?.(dt,this.time);
     for(const corpse of this.corpses.values())animateDeath(corpse,battleDt);
@@ -347,11 +330,11 @@ export class Battlefield {
       if(value.attack?.geometric)animateGeometricOrbits(value.actor,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches,melancholy});
       else if(this.game.data.towers[value.tower.family]?.secret)animateSecretChampion(value.actor,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches,melancholy});
     }
-    this.enemyAbilityEffects?.sync(this.game.combat.enemies,this.enemies,this.motionTime);
-    this.enemyConcealmentEffects?.sync(this.game.combat.enemies,{time:this.motionTime,active:this.game.phase==='combat'});
+    this.enemyAbilityEffects?.sync(this.game.combat.enemies,this.enemies,this.time);
+    this.enemyConcealmentEffects?.sync(this.game.combat.enemies,{time:this.motionTime,cosmeticTime:this.time,figures:this.enemies,active:this.game.phase==='combat'});
     this.enemyAbilityEffects?.update(battleDt);
     this.combatEffects.syncProjectiles(this.game.combat.projectiles,this.time);this.combatEffects.update(battleDt,this.time);
-    this.supportEffects.sync(this.game.towers,this.game.data,{selected:this.game.selection,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase,time:this.motionTime});
+    this.supportEffects.sync(this.game.towers,this.game.data,{selected:this.game.selection,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase,time:this.time});
     for(const fx of this.effects){fx.life-=dt;fx.object.material.opacity=Math.max(0,fx.life/fx.max)*0.75;if(!fx.line)fx.object.scale.setScalar(0.5+(1-fx.life/fx.max)*fx.size*3);}
     this.effects=this.effects.filter(fx=>{if(fx.life>0)return true;this.scene.remove(fx.object);fx.object.geometry.dispose();fx.object.material.dispose();return false;});
     for(const p of this.labelItems){const v=new THREE.Vector3(p.x,p.height,p.z).project(this.camera);p.el.style.transform=`translate(${(v.x+1)*this.container.clientWidth/2}px,${(-v.y+1)*this.container.clientHeight/2}px) translate(-50%,-100%)`;p.el.style.display=Math.abs(v.x)>1||Math.abs(v.y)>1?'none':'';}
@@ -372,7 +355,7 @@ export class Battlefield {
     disposeGeometricResources([...this.imported.values(),...this.enemyTemplates.values(),...this.templates.values()]);
     this.imported.clear();this.enemyTemplates.clear();this.templates.clear();this.models.clear();
     for(const effect of this.effects){effect.object.geometry.dispose();effect.object.material.dispose();effect.object.removeFromParent();}
-    this.effects=[];this.draftMarkers.dispose();this.unsubscribe();this.resizeObserver.disconnect();this.controls.dispose();this.maze.dispose();disposeRouteOverlay(this.pathGroup);this.routeLegend.remove();
+    this.effects=[];this.draftMarkers.dispose();this.unsubscribe();this.resizeObserver.disconnect();this.controls.dispose();this.maze.dispose();disposeRouteOverlay(this.pathGroup);
     document.removeEventListener('pointermove',this.trackPointer);window.removeEventListener('blur',this.cancelInput);this.renderer.dispose();
   }
 }

@@ -38,15 +38,17 @@ export function enemyDefenseVisualState(enemy,{balance}={}){
   const reactive=Math.max(0,finite(enemy.reactiveArmor)*finite(enemy.reactiveStacks));
   const armor=Math.max(0,finite(enemy.armor)+reactive-finite(enemy.armorShred));
   if(enemy.physicalImmune)states.push({kind:'physicalImmune',amount:1});
-  else if(reactive>0&&armor>0)states.push({kind:'reactive',amount:clamp(armor/rules.armorConstant,.15,1),armor,stacks:finite(enemy.reactiveStacks)});
+  if(reactive>0&&armor>0)states.push({kind:'reactive',amount:clamp(armor/rules.armorConstant,.15,1),armor,stacks:finite(enemy.reactiveStacks)});
   if(enemy.magicImmune)states.push({kind:'magicImmune',amount:1});
-  else{
-    const common=clamp(finite(resists.magic)+finite(enemy.ward)-finite(enemy.magicShred),0,rules.maxResistance);
-    if(common>0)states.push({kind:'magic',amount:common});
-    for(const kind of typedKinds){
-      const effective=1-damageAfterDefense(1,kind,enemy,{},rules);
-      if(finite(resists[kind])>0&&effective>0)states.push({kind,amount:effective});
-    }
+  // Immunity is a separate defense, not a replacement for configured active
+  // resistance. Measure that layer with the same damage formula, without the
+  // immunity shortcut, so real shred/ward still suppresses and restores it.
+  const resistanceEnemy=enemy.magicImmune?{...enemy,magicImmune:false}:enemy;
+  const common=clamp(finite(resists.magic)+finite(enemy.ward)-finite(enemy.magicShred),0,rules.maxResistance);
+  if(common>0)states.push({kind:'magic',amount:common});
+  for(const kind of typedKinds){
+    const effective=1-damageAfterDefense(1,kind,resistanceEnemy,{},rules);
+    if(finite(resists[kind])>0&&effective>0)states.push({kind,amount:effective});
   }
   const charges=Math.max(0,Math.ceil(finite(enemy.shields)));
   if(charges>0)states.push({kind:'refraction',amount:charges,count:charges});
@@ -54,6 +56,7 @@ export function enemyDefenseVisualState(enemy,{balance}={}){
   if(finite(enemy.recharge)>0&&!enemy.statuses?.healBlock)states.push({kind:'recharge',amount:1,fraction:enemy.recharge,remainingSeconds:Math.max(0,finite(enemy.rechargeClock))});
   if(finite(enemy.evasion)>0)states.push({kind:'evasion',amount:clamp(enemy.evasion,0,1)});
   if(finite(enemy.krakenShell)>0)states.push({kind:'krakenShell',amount:1,perHit:enemy.krakenShell});
+  if(finite(enemy.untouchable)>0)states.push({kind:'untouchable',amount:clamp(enemy.untouchable,0,1)});
   return states;
 }
 
@@ -63,7 +66,6 @@ export function enemyDefenseDescriptions(definition,{balance}={}){
   if(!definition)return [];
   const initial={...definition,dead:false,statuses:{},armorShred:0,magicShred:0,ward:0,shields:finite(definition.refraction),reactiveStacks:finite(definition.reactiveArmor)>0?1:0,rechargeClock:8};
   const states=enemyDefenseVisualState(initial,{balance});
-  if(finite(definition.untouchable)>0)states.push({kind:'untouchable',amount:clamp(definition.untouchable,0,1)});
   return states.map(state=>{
     const percent=Math.round(state.amount*100);
     const detail=state.kind==='refraction'?state.count+' direct-hit charges; recharge every 8s':

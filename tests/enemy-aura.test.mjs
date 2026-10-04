@@ -75,7 +75,7 @@ test('actual armor-only campaign spawns have no aura, shield, ring or glyph whil
     assert.deepEqual(enemyDefenseVisualState(special[4]).map(s=>s.kind),['fire'],'an actual typed modifier retains its symbol');
     effects.sync([...ordinary,...special]);
     assert.equal(effects.batches.has('armor'),false);
-    for(const kind of ['magicImmune','physicalImmune','refraction','reactive','fire'])assert.equal(effects.batches.get(kind).glyph.count,1,kind+' keeps a meaningful symbol');
+    for(const kind of ['magicImmune','physicalImmune','refraction','reactive','fire']){assert.equal(effects.batches.get(kind).glyph.count,3,kind+' keeps several small symbols');assert.equal(effects.batches.get(kind).dots.count,6,kind+' keeps matching colored dots');}
     assert.equal(effects.batches.get('refraction').crystals.count,3);
     special[2].shields=0;special[3].reactiveStacks=0;special[4].magicShred=.5;
     effects.sync([...ordinary,...special]);

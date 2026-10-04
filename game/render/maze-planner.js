@@ -39,7 +39,7 @@ export class MazePlanner {
     this.panel.hidden=!this.panelOpen;
     const button=document.querySelector('[data-action="maze"]');button?.classList.toggle('active',this.panelOpen);button?.setAttribute('aria-pressed',String(this.panelOpen));
     this.chip.hidden=!this.plan||this.editing;this.group.visible=this.visible||this.showFinalRoute||this.editing;
-    if(this.editing){this.world.updateRouteLegend();return;}
+    if(this.editing)return;
     if(!this.plan){this.clear();return;}
     const revision=`${this.game.grid.revision}:${this.game.round}:${this.budget}:${this.plan.id}`;
     if(revision!==this.revision){
@@ -50,7 +50,6 @@ export class MazePlanner {
     }
     for(const child of this.group.children)if(child!==this.finalRoute)child.visible=this.visible;
     if(this.finalRoute)this.finalRoute.visible=this.showFinalRoute&&!sameRoute(currentEnemyRoute(this.game).points,this.progress?.route);
-    this.world.updateRouteLegend();
   }
   renderPanel(){
     this.panel.hidden=!this.panelOpen;if(this.editing)return;
