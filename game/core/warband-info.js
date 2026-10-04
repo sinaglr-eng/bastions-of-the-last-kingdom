@@ -1,4 +1,4 @@
-import {ENEMY_RULES as R,enemyNumber} from './enemy-rules.js';
+import {ENEMY_RULES as R,enemyNumber,enemyRegenerationPerSecond} from './enemy-rules.js';
 
 const percent=value=>`${enemyNumber(value*100)}%`;
 
@@ -6,24 +6,35 @@ const percent=value=>`${enemyNumber(value*100)}%`;
 // live enemy. The guide and upcoming-wave cards can display the same values.
 export function configuredWarbandInfo(definition,modifiers={}){
   const selected={...definition,...modifiers.variant};
-  const enemy={...selected,resists:{...selected.resists,...modifiers.resists}};
+  const maxHp=selected.hp*(modifiers.hp||1);
+  const enemy={...selected,hp:maxHp,maxHp,armor:selected.armor+(modifiers.armor||0),speed:selected.speed*(modifiers.speed||1),resists:{...selected.resists,...modifiers.resists}};
   const traitDetails=warbandTraitDetails(enemy);
-  return {name:enemy.name,maxHp:enemy.hp*(modifiers.hp||1),armor:enemy.armor+(modifiers.armor||0),speed:enemy.speed*(modifiers.speed||1),flying:!!enemy.flying,traits:traitDetails.map(trait=>trait.text),traitDetails};
+  return {name:enemy.name,maxHp,armor:enemy.armor,speed:enemy.speed,flying:!!enemy.flying,traits:traitDetails.map(trait=>trait.text),traitDetails};
 }
 
 export function warbandVariantInfo(definition,modifiers={}){
   return (definition.variants||[{}]).map(variant=>configuredWarbandInfo(definition,{...modifiers,variant}));
 }
 
-// Read the chosen variant from the actual wave, rather than listing every possible variant.
+// Summarize actual live and queued invaders separately by their effective
+// variant/stat profile. This is remaining composition, not a forced wave ratio.
 export function currentWarbandInfo(game) {
-  return game.wave.groups.map(group=>{
-    const queued=game.combat.spawnQueue.find(q=>q.type===group.type);
-    const live=game.combat.enemies.find(e=>e.type===group.type&&!e.dead);
-    const base={...game.data.enemies[group.type],type:group.type},modifiers=queued?.modifiers||{...game.wave,...group};
-    const info=live?{name:live.name,maxHp:live.maxHp,armor:live.armor,speed:live.speed,flying:!!live.flying,traits:warbandTraits(live),traitDetails:warbandTraitDetails(live)}:configuredWarbandInfo(base,modifiers);
-    return {type:group.type,count:group.count,...info};
-  });
+  const rows=new Map(),types=new Set(game.wave.groups.map(group=>group.type));
+  const add=(type,info,source)=>{
+    const key=JSON.stringify([type,info.name,info.maxHp,info.armor,info.speed,info.flying,info.traitDetails]);
+    if(!rows.has(key))rows.set(key,{type,count:0,liveCount:0,queuedCount:0,...info});
+    const row=rows.get(key);row.count++;row[source+'Count']++;
+  };
+  for(const type of types){
+    for(const enemy of game.combat.enemies)if(enemy.type===type&&!enemy.dead){
+      const traitDetails=warbandTraitDetails(enemy);
+      add(type,{name:enemy.name,maxHp:enemy.maxHp,armor:enemy.armor,speed:enemy.speed,flying:!!enemy.flying,traits:traitDetails.map(trait=>trait.text),traitDetails},'live');
+    }
+    for(const queued of game.combat.spawnQueue)if(queued.type===type)add(type,configuredWarbandInfo({...game.data.enemies[type],type},queued.modifiers),'queued');
+  }
+  if(rows.size||game.phase==='combat')return [...rows.values()];
+  // Before any actual selection exists, callers may request configured stats.
+  return game.wave.groups.map(group=>({type:group.type,count:group.count,liveCount:0,queuedCount:0,...configuredWarbandInfo({...game.data.enemies[group.type],type:group.type},{...game.wave,...group})}));
 }
 
 export function warbandTraits(enemy) {
@@ -37,12 +48,12 @@ export function warbandTraitDetails(enemy) {
   if(enemy.magicImmune)add('Immune to magic and magical effects','magicImmune');
   if(enemy.physicalImmune)add('Immune to physical and piercing damage','physicalImmune');
   for(const [type,value] of Object.entries(enemy.resists||{}))if(value>0)add(`${percent(value)} ${type} resistance`,type);
-  if(enemy.regen>0)add(`Regenerates ${enemyNumber(enemy.regen)} HP/s · healing block prevents regeneration`,'regen');
+  if(enemy.regen>0)add(`Regenerates ${percent(enemy.regen)} maximum health/s (${enemyNumber(enemyRegenerationPerSecond(enemy))} HP/s) · healing block prevents regeneration`,'regen');
   if(enemy.evasion>0)add(`${percent(enemy.evasion)} chance to evade physical/piercing direct hits · True Strike bypasses evasion`,'evasion');
   if(enemy.refraction>0)add(`${enemyNumber(enemy.refraction)} hit-blocking shields · refresh every ${R.refraction.period}s · damage-over-time and auras bypass shields`,'refraction');
   if(enemy.krakenShell>0)add(`Shell blocks ${enemyNumber(enemy.krakenShell)} damage per non-pure direct hit`,'krakenShell');
   if(enemy.reactiveArmor>0)add(`Reactive armor · +${enemyNumber(enemy.reactiveArmor)} armor per direct hit · maximum ${R.reactive.maxStacks} stacks (${enemyNumber(enemy.reactiveArmor*R.reactive.maxStacks)} armor) · decays ${R.reactive.decayPerSecond} stacks/s`,'reactive');
-  if(enemy.recharge>0)add(`Restores ${percent(enemy.recharge)} maximum health every ${R.recharge.period}s · healing block prevents recharge`,'recharge');
+  if(enemy.recharge>0)add(`Restores ${percent(enemy.recharge)} missing health every ${R.recharge.period}s · healing block prevents recharge`,'recharge');
   if(enemy.stealth||enemy.cloakDaggers){
     const cloak=enemy.stealth?'Cloaked continuously':`Cloaked for ${R.cloak.hiddenDuration}s, visible for ${R.cloak.period-R.cloak.hiddenDuration}s, every ${R.cloak.period}s`;
     add(`${cloak} · revealed within ${R.reveal.checkpointRadius} tiles of checkpoints, ${R.reveal.defenderRadius} of defenders, or ${R.reveal.clericRadius} of Clerics (detector abilities may reach farther)`);

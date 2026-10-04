@@ -57,8 +57,8 @@ const rows=[
  ['Deepmaw Soulkeepers','ogre','Drodo','ground','krakenShell,recharge'],
  ['Ghorun, Emperor of Ash','dragon','Baby / Golden / Platinum Baby Roshan','flying','krakenShell']
 ];
-const labels={vitality:'Vitality',stealth:'Veil',evasion:'Evasion',disarm:'Disarm',refraction:'Mirror shields',magicImmune:'Magic immunity',physicalImmune:'Physical immunity',thief:'Plunder',untouchable:'Dread aura',rush:'Blood rush',highArmor:'Iron plate',reactiveArmor:'Reactive armor',recharge:'Soul recharge',blink:'Rift step',cloakDaggers:'Cloak & daggers',krakenShell:'Deep shell',splitImmunity:'Alternating immunity',warDrums:'War drums'};
-const counters={vitality:'Regenerates health; focus damage.',stealth:'Cloaked beyond 2 tiles; Clerics reveal within 6.',evasion:'Can evade direct physical hits; use magic.',disarm:'Briefly disarms nearby defenders every 8 seconds.',refraction:'Shields absorb three direct hits; poison ticks and burning auras bypass them.',magicImmune:'Magic and magical status immunity; physical or pure damage wins.',physicalImmune:'Physical immunity; use magic or pure damage.',thief:'Steals gold on reaching the keep.',untouchable:'Nearby defenders attack more slowly.',rush:'Periodic bursts of movement speed.',highArmor:'Heavy armor; use armor reduction or magic.',reactiveArmor:'Direct hits build temporary armor.',recharge:'Periodically restores health.',blink:'Dashes forward along the route, still visiting checkpoints.',cloakDaggers:'Cycles between cloak and short close-range disarms.',krakenShell:'Reduces damage from individual direct hits.',splitImmunity:'This wave rolls either magic or physical immunity.',warDrums:'Pulses haste to nearby allies.'};
+const labels={vitality:'Vitality',stealth:'Veil',evasion:'Evasion',disarm:'Disarm',refraction:'Mirror shields',magicImmune:'Magic immunity',physicalImmune:'Physical immunity',thief:'Plunder',untouchable:'Dread aura',rush:'Blood rush',highArmor:'Iron plate',reactiveArmor:'Reactive armor',recharge:'Soul recharge',blink:'Rift step',cloakDaggers:'Cloak & daggers',krakenShell:'Deep shell',splitImmunity:'Mixed immunity variants',warDrums:'War drums'};
+const counters={vitality:'Regenerates health; focus damage.',stealth:'Cloaked beyond 2 tiles; Clerics reveal within 6.',evasion:'Can evade direct physical hits; use magic.',disarm:'Briefly disarms nearby defenders every 8 seconds.',refraction:'Shields absorb three direct hits; poison ticks and burning auras bypass them.',magicImmune:'Magic and magical status immunity; physical or pure damage wins.',physicalImmune:'Physical immunity; use magic or pure damage.',thief:'Steals gold on reaching the keep.',untouchable:'Nearby defenders attack more slowly.',rush:'Periodic bursts of movement speed.',highArmor:'Heavy armor; use armor reduction or magic.',reactiveArmor:'Direct hits build temporary armor.',recharge:'Periodically restores health.',blink:'Dashes forward along the route, still visiting checkpoints.',cloakDaggers:'Cycles between cloak and short close-range disarms.',krakenShell:'Reduces damage from individual direct hits.',splitImmunity:'Each invader independently has magic or physical immunity. Mix physical and magical damage, or use pure damage against both.',warDrums:'Pulses haste to nearby allies.'};
 const waves=[];
 // Only the first patrol gives a Tier I support defender time to hold a crossing.
 // Counts, rewards and movement stay on the curve; waves two/three ease durability.
@@ -84,25 +84,48 @@ rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   }
   if(['wolf','bat','wyvern','dragon'].includes(model))enemy.beast=true;
   enemy.counter=enemy.counter.trim();
-  if(traits.includes('vitality'))enemy.regen=+(hp*.006).toFixed(3);
+  if(traits.includes('vitality'))enemy.regen=.05;
   if(traits.includes('stealth'))enemy.stealth=true;
   if(traits.includes('evasion'))enemy.evasion=.25;
   if(traits.includes('disarm'))enemy.disarm=true;
   if(traits.includes('refraction'))enemy.refraction=3;
   if(traits.includes('magicImmune'))enemy.magicImmune=true;
   if(traits.includes('physicalImmune'))enemy.physicalImmune=true;
-  if(traits.includes('thief'))enemy.thief=8+Math.floor(wave/3);
+  if(traits.includes('thief'))enemy.thief=50;
   if(traits.includes('untouchable'))enemy.untouchable=.35;
-  if(traits.includes('rush'))enemy.rush=1.7;
+  if(traits.includes('rush'))enemy.rush=5;
   if(traits.includes('highArmor'))enemy.armor+=50;
-  if(traits.includes('reactiveArmor'))enemy.reactiveArmor=3;
+  if(traits.includes('reactiveArmor'))enemy.reactiveArmor=8;
   if(traits.includes('recharge'))enemy.recharge=.12;
   if(traits.includes('blink'))enemy.blink=3;
-  if(traits.includes('cloakDaggers')){enemy.cloakDaggers=true;enemy.disarm=true;enemy.variants=[{}, {name:'Blackmire Blooddrinkers',cloakDaggers:false,disarm:false,regen:+(hp*.006).toFixed(3)}];}
+  if(traits.includes('cloakDaggers')){enemy.cloakDaggers=true;enemy.disarm=true;enemy.variants=[{}, {name:'Blackmire Blooddrinkers',cloakDaggers:false,disarm:false,regen:.05}];}
   if(traits.includes('krakenShell'))enemy.krakenShell=8+wave*1.5;
   if(traits.includes('splitImmunity'))enemy.variants=[{magicImmune:true,physicalImmune:false,name:name+' · Cinder seal'},{physicalImmune:true,magicImmune:false,name:name+' · Wraith seal'}];
   if(traits.includes('warDrums'))enemy.hasteAura=1.18;
-  if([5,15,27,28,29,30,41].includes(wave))enemy.variants=[{}, {name:`${name} · Moonclaw clan`,color:'#667e91',model:wave===5?'balloon':model}];
+  if([5,15,27,28,29,41].includes(wave))enemy.variants=[{}, {name:`${name} · Moonclaw clan`,color:'#667e91',model:wave===5?'balloon':model}];
+  // Each queued invader rolls its own variant. Keep both alternatives explicit
+  // in authored descriptions rather than implying one form for the whole wave.
+  if(wave===28){
+    Object.assign(enemy.variants[1],{reactiveArmor:0,stealth:true,traits:['stealth']});
+    enemy.threat='Reactive armor / Cloaked Moon Clan';
+    enemy.counter='Each invader independently has reactive armor or continuous cloak. Direct hits build armor on normal Scrapwings; reveal Moon Clan Scrapwings near defenders, checkpoints or detectors.';
+  }
+  if(wave===31){
+    enemy.threat='Mixed immunity variants · Mirror shields';
+    enemy.counter='Each invader independently has magic or physical immunity. Mix physical and magical damage, or use pure damage against both. Three shields block direct hits; effective damage-over-time and auras bypass those shields.';
+  }
+  if(wave===35){
+    enemy.threat='Mixed immunity variants';
+    enemy.counter='Each invader independently has magic or physical immunity. Mix physical and magical damage, or use pure damage against both.';
+  }
+  if(wave===36){
+    enemy.threat='Mixed immunity variants';
+    enemy.counter='Each invader independently has magic or physical immunity. Reduce armor against Ashen fighters; use magic against Spectral fighters, or pure damage against both.';
+  }
+  if(wave===38){
+    enemy.threat='Cloak & daggers / Regeneration';
+    enemy.counter='Each invader independently becomes a cloaked Knifeman with close-range disarms or a regenerating Blood-Leech. Reveal Knifemen and block Blood-Leech healing.';
+  }
   if(wave===50)enemy.variants=[{}, {name:'Ghorun, the Gilded Tyrant',magicImmune:true,color:'#b99d57'},{name:'Ghorun, the Pale Devourer',krakenShell:enemy.krakenShell*1.3,color:'#a4b9b5'}];
   enemies[id]=enemy;
   const count=boss?1:flying?8+Math.floor(wave*.22):8+Math.floor(wave*.48);
@@ -111,5 +134,5 @@ rows.forEach(([name,model,referenceName,movement,skills],i)=>{
 applyEnemyDesigns(enemies,waves);
 writeFileSync('data/enemies.json',JSON.stringify(enemies,null,2)+'\n');
 writeFileSync('data/waves.json',JSON.stringify(waves,null,2)+'\n');
-writeFileSync('docs/WAVE_REFERENCE.md',`# Fifty-wave orc campaign\n\nReference: [Gem TD](${source}), inspected 29 September 2026. Movement classes, tenth-wave bosses and trait order follow its wave table. Names, HP, speed, rewards, counters and exact ability timings are original browser-game adaptations. The undefined wave-45 ability becomes War Drums; ambiguous alternatives choose a deterministic seeded variant per wave. Flying units follow ordered checkpoints directly.\n\n| Wave | Orc warband | Movement | Traits |\n|---:|---|---|---|\n`+waves.map(w=>{const e=enemies[w.groups[0].type];return `| ${w.reference.wave} | ${e.name} | ${e.boss?'Boss · ':''}${e.flying?'Flying':'Ground'} | ${e.traits.map(t=>labels[t]).join(', ')||'—'} |`;}).join('\n')+'\n');
+writeFileSync('docs/WAVE_REFERENCE.md',`# Fifty-wave orc campaign\n\nReference: [Gem TD](${source}), inspected 29 September 2026. Movement classes, tenth-wave bosses and trait order follow its wave table. Names, HP, speed, rewards, counters and exact ability timings are original browser-game adaptations. The undefined wave-45 ability becomes War Drums; ambiguous alternatives choose a deterministic seeded variant independently for each invader. Flying units follow ordered checkpoints directly.\n\n| Wave | Orc warband | Movement | Traits |\n|---:|---|---|---|\n`+waves.map(w=>{const e=enemies[w.groups[0].type];return `| ${w.reference.wave} | ${e.name} | ${e.boss?'Boss · ':''}${e.flying?'Flying':'Ground'} | ${e.traits.map(t=>labels[t]).join(', ')||'—'} |`;}).join('\n')+'\n');
 console.log('Authored 50 orc waves, 5 bosses, movement/traits from the supplied reference.');

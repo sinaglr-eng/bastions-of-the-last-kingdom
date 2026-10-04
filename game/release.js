@@ -1,6 +1,6 @@
 import {siteUrl} from './site-url.js';
 
-export const GAME_VERSION='0.3.10';
+export const GAME_VERSION='0.3.11';
 export const DEFENDER_ART_VERSION='geometric-game-v6';
 export const CHAMPION_ART_VERSION=DEFENDER_ART_VERSION;
 export const ENEMY_ART_VERSION='geometric-game-v7';

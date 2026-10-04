@@ -1,5 +1,13 @@
 # Releases
 
+## 0.3.11 — Mixed warbands and revised abilities — 4 October 2026
+
+- Rank comparisons update Potential Combinations for the previewed tier while retaining actual owned/candidate ingredient progress and field commands.
+- Raises rank V draw odds to 20% at maximum construction mastery with a gradual late-mastery curve; rank VI remains available through merging.
+- Sets all regeneration to 5% maximum health per second, all disarms to five seconds, theft to 50 gold per escaped thief, blood rush to five times normal speed, and reactive armor to eight armor per hit up to fifteen stacks.
+- Changes periodic soul recharge to restore 12% missing health every five seconds, including correct healing-block timing and health caps.
+- Rolls variants independently for every invader, shows the actual mixed wave composition and remaining counts, gives Moon Clan Scrapwings cloak instead of reactive armor, and removes Zaruun's second active variant. Numerical descriptions follow the same combat rules.
+
 ## 0.3.10 — Textured earth and ruined watchtower — 4 October 2026
 
 - Replaces translucent checkpoint ground with opaque, textured soil: varied earth grain, compacted scuffs, small stone flecks and irregular eroded edges, seated flush with the meadow.

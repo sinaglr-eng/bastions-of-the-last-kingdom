@@ -5,6 +5,7 @@ import {Group,Mesh,BoxGeometry,MeshStandardMaterial,NormalBlending,Vector3} from
 import {createEnemyAura,animateEnemyAura,enemyAuraStage} from '../game/render/enemy-aura.js';
 import {enemyFigure,installEnemyTemplate,animateEnemyCues,disposeEnemyFigure} from '../game/render/enemy-assets.js';
 import {CombatManager} from '../game/core/combat.js';
+import {ENEMY_RULES as R} from '../game/core/enemy-rules.js';
 import {EnemyAbilityEffects,enemyDefenseVisualState,hasEnemySpecialMechanic} from '../game/render/geometric-enemy-effects.js';
 const body=()=>{const root=new Group(),mesh=new Mesh(new BoxGeometry(.6,2,.6),new MeshStandardMaterial({emissive:'#553311',emissiveIntensity:.1}));mesh.position.y=1;root.add(mesh);return root;};
 const cueFixture=kinds=>{
@@ -130,7 +131,8 @@ test('actual cue state animates private materials and disposal leaves templates 
   const template=body(),mesh=template.children[0];mesh.userData.visualCue='reactiveArmor';
   const root=enemyFigure({type:'host_36'},new Map([['host_36',template]]));
   const cloned=root.userData.body.children[0];assert.notEqual(mesh.material,cloned.material);assert.equal(mesh.geometry,cloned.geometry);
-  animateEnemyCues(root,{reactiveStacks:12},4);assert.ok(cloned.material.emissiveIntensity>.7);assert.equal(mesh.material.emissiveIntensity,.1);
+  animateEnemyCues(root,{reactiveStacks:R.reactive.maxStacks},4);assert.ok(cloned.material.emissiveIntensity>.7);assert.equal(mesh.material.emissiveIntensity,.1);
+  animateEnemyCues(root,{reactiveStacks:12},4);assert.ok(Math.abs(cloned.material.emissiveIntensity-(.1+12/15*.7))<1e-8,'Twelve actual stacks represent only 80% of the new 15-stack limit');
   animateEnemyCues(root,{reactiveStacks:0},4);assert.equal(cloned.material.emissiveIntensity,.1);
   let sharedDisposed=false,ownedDisposed=false;mesh.geometry.addEventListener('dispose',()=>sharedDisposed=true);cloned.material.addEventListener('dispose',()=>ownedDisposed=true);
   disposeEnemyFigure(root);assert.equal(sharedDisposed,false);assert.equal(ownedDisposed,true);

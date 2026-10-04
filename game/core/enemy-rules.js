@@ -1,16 +1,16 @@
 // Timing and reach used by combat, native cues and the numerical warband guide.
 const rule=values=>Object.freeze(values);
 export const ENEMY_RULES=Object.freeze({
-  disarm:rule({duration:3,period:8,radius:3,phasePerId:.37}),
+  disarm:rule({duration:5,period:8,radius:3,phasePerId:.37}),
   dread:rule({radius:4}),
   refraction:rule({period:8}),
-  recharge:rule({period:8}),
+  recharge:rule({period:5}),
   blink:rule({period:6}),
   cloak:rule({period:6,hiddenDuration:4}),
   reveal:rule({checkpointRadius:1.5,defenderRadius:2,clericRadius:6}),
   support:rule({radius:3.5,hasteDuration:3,hastePeriod:6,shamanHaste:1.15,warlockWard:.18}),
   rush:rule({duration:2,period:6,berserkerThreshold:.5,berserkerSpeed:1.65}),
-  reactive:rule({maxStacks:12,decayPerSecond:.7}),
+  reactive:rule({maxStacks:15,decayPerSecond:.7}),
   sapper:rule({radius:1.5,duration:3,defenderRadius:2,attackPenalty:.15}),
 });
 
@@ -19,6 +19,12 @@ export const ENEMY_RULES=Object.freeze({
 export function enemyDisarmActive(enemy,elapsed,controlResistance=0){
   const r=ENEMY_RULES.disarm;
   return !!enemy.disarm&&(elapsed+enemy.id*r.phasePerId)%r.period<r.duration*(1-controlResistance);
+}
+
+// regen is a fraction of actual maximum health, including variant and wave
+// modifiers. Definitions use hp; live enemies retain their modified maxHp.
+export function enemyRegenerationPerSecond(enemy){
+  return Math.max(0,enemy.maxHp??enemy.hp??0)*Math.max(0,enemy.regen||0);
 }
 
 export const enemyNumber=value=>Number(value.toFixed(3)).toLocaleString('en-US',{maximumFractionDigits:3});

@@ -7,6 +7,7 @@ import {Game} from '../game/core/game.js';
 import {supportBonuses,towerStats} from '../game/core/math.js';
 import {SupportEffects,SUPPORT_EFFECT_STYLES,ENEMY_EFFECT_STYLES,towerSupportState,supportLegend,supportSourceAreas,enemyStatusState,supportTintKey} from '../game/render/support-effects.js';
 import {castleWallModel,WALL_DECK_HEIGHT} from '../game/render/walls.js';
+import {ENEMY_RULES as R} from '../game/core/enemy-rules.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
 const unit=(family,id=1,tier=1,x=10,z=10)=>({id,family,tier,state:'active',x,z,kills:0,cooldown:999});
@@ -102,7 +103,7 @@ test('actual periodic disarm has one hovering broken sword and matching bounded 
     fx.update(.23);orbit.getMatrixAt(0,matrix);assert.deepEqual(matrix.elements,first.elements,'Paused simulation keeps the complete orbit still');
     fx.update(.45);orbit.getMatrixAt(0,matrix);assert.notDeepEqual(matrix.elements,first.elements);
     fx.update(1,{reducedMotion:true});const still=Array.from(orbit.instanceMatrix.array);fx.update(100,{reducedMotion:true});assert.deepEqual(Array.from(orbit.instanceMatrix.array),still);
-    sample(3-enemy.id*.37);assert.equal(target.disarmed,false);assert.equal(orbit.count,0);assert.equal(aura.count,0,'No lingering aura after the actual disarm window');
+    sample(R.disarm.duration-enemy.id*R.disarm.phasePerId);assert.equal(target.disarmed,false);assert.equal(orbit.count,0);assert.equal(aura.count,0,'No lingering aura after the actual disarm window');
     sample(8.23);assert.equal(target.disarmed,true);assert.equal(orbit.count,1,'A later real window reactivates exactly once');
     g.towers.push(unit('kingdomprotector',9));sample(8.24);assert.equal(target.disarmed,false);assert.equal(orbit.count,0);assert.equal(aura.count,0);
     g.towers.pop();enemy.dead=true;sample(8.25);assert.equal(orbit.count,0);
@@ -116,7 +117,7 @@ test('paused combat preserves the real disarm window while an unpaused cosmetic 
     fx.sync(g.towers,data,{combat:g.combat,phase:g.phase,time:10});const orbit=fx.batches.get('disarm:orbit'),first=Array.from(orbit.instanceMatrix.array),elapsed=g.combat.elapsed;
     g.tick(1);fx.sync(g.towers,data,{combat:g.combat,phase:g.phase,time:11});assert.equal(g.combat.elapsed,elapsed);assert.equal(target.disarmed,true);assert.equal(orbit.count,1);assert.notDeepEqual(Array.from(orbit.instanceMatrix.array),first,'Cosmetics continue while combat/status time stays frozen');
     fx.update(12,{reducedMotion:true});const still=Array.from(orbit.instanceMatrix.array);fx.update(13,{reducedMotion:true});assert.deepEqual(Array.from(orbit.instanceMatrix.array),still);
-    g.paused=false;g.tick(2.5);fx.sync(g.towers,data,{combat:g.combat,phase:g.phase,time:14});assert.equal(target.disarmed,false);assert.equal(orbit.count,0);assert.equal(fx.batches.get('disarm:aura').count,0);
+    g.paused=false;g.tick(R.disarm.duration);fx.sync(g.towers,data,{combat:g.combat,phase:g.phase,time:14});assert.equal(target.disarmed,false);assert.equal(orbit.count,0);assert.equal(fx.batches.get('disarm:aura').count,0);
   }finally{fx.dispose();}
 });
 

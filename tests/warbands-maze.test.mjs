@@ -22,13 +22,16 @@ test('rounds hold no rolled identities and invalid placement consumes no randomn
   a.economy.reward(0,90);a.place(19,18);assert.equal(a.towers[1].tier,1,'quality odds fixed for current round');
 });
 
-test('50 waves preserve reference movement classes, five bosses, and selected variant per wave',()=>{
+test('50 waves preserve reference movement classes, five bosses, and deterministic independent variant snapshots per invader',()=>{
   assert.equal(make().waveLimit,50);
   const air=[5,15,25,27,28,29,30,34,35,39,40,42,45,48,50];
   for(const [i,w]of data.waves.entries()){const e=data.enemies[w.groups[0].type];assert.equal(e.flying,air.includes(i+1));assert.equal(e.boss,(i+1)%10===0);assert.equal(w.reference.wave,i+1);}
   const a=make(),b=make();a.combat.start(data.waves[30]);b.combat.start(data.waves[30]);
   assert.deepEqual(a.combat.spawnQueue,b.combat.spawnQueue);
-  assert.ok(a.combat.spawnQueue.every(q=>q.modifiers.variant===a.combat.spawnQueue[0].modifiers.variant));
+  const variants=data.enemies.host_31.variants;
+  for(const item of a.combat.spawnQueue)assert.ok(variants.some(variant=>JSON.stringify(variant)===JSON.stringify(item.modifiers.variant)),'Every snapshot is an actual configured variant');
+  assert.notEqual(a.combat.spawnQueue[0].modifiers.variant,a.combat.spawnQueue[1].modifiers.variant,'Invaders own their variant snapshots');
+  assert.equal(new Set(a.combat.spawnQueue.map(item=>item.modifiers.variant.name)).size,2,'The fixed seed gives a real mixed immunity wave');
   const q=a.combat.spawnQueue[0],e=a.combat.spawn(q.type,q.modifiers);assert.notEqual(!!e.magicImmune,!!e.physicalImmune);
 });
 
@@ -65,7 +68,7 @@ test('disarm pauses nearby attacks, dread reduces cadence, recharge heals and th
   const g=fight(),e=g.combat.spawn('host_12');Object.assign(e,{x:12,z:12,speed:0});
   const t={id:1,family:'archer',tier:1,state:'active',x:11,z:12,cooldown:0,kills:0};g.towers=[t];g.combat.update(.01);assert.equal(t.disarmed,true);assert.equal(g.combat.projectiles.length,0);
   e.disarm=false;e.untouchable=.35;t.cooldown=1;g.combat.update(.1);assert.ok(Math.abs(t.cooldown-.935)<1e-8);
-  g.towers=[];const r=g.combat.spawn('host_32');r.speed=0;r.hp=r.maxHp*.5;g.combat.update(8);assert.ok(Math.abs(r.hp-r.maxHp*.62)<1e-6);
+  g.towers=[];const r=g.combat.spawn('host_32');r.speed=0;r.hp=r.maxHp*.5;g.combat.update(5);assert.ok(Math.abs(r.hp-r.maxHp*.56)<1e-6);
   const thief=g.combat.spawn('host_16');thief.pathIndex=thief.route.length;const gold=g.economy.gold;g.combat.update(.01);assert.equal(g.economy.gold,gold-thief.thief);
 });
 

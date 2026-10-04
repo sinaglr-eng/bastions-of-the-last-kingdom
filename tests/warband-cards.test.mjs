@@ -25,8 +25,8 @@ test('all 50 actual guide cards preserve portraits/flavor while displaying every
   assert.equal(JSON.stringify({enemies,waves,images}),before,'rendering guide cards never mutates authoritative data');
 });
 
-test('actual wave 17 dread, 12 disarm and 8 fractional regeneration details remain visible in guide and upcoming cards',()=>{
-  for(const [index,expected]of [[16,/within 4 tiles lose 35% attack speed/],[11,/within 3 tiles for 3s every 8s/],[7,/Regenerates 1\.536 HP\/s/]]){
+test('actual wave 17 dread, 12 disarm and 8 proportional regeneration details remain visible in guide and upcoming cards',()=>{
+  for(const [index,expected]of [[16,/within 4 tiles lose 35% attack speed/],[11,/within 3 tiles for 5s every 8s/],[7,/Regenerates 5% maximum health\/s \(12\.8 HP\/s\)/]]){
     const wave=waves[index];for(const markup of [warbandCardsMarkup([wave],enemies,images),upcomingWarbandMarkup(wave,enemies)]){
       assert.match(markup,expected);assert.ok(!markup.includes('title='),'numbers are readable text, including on touch devices');
     }
@@ -39,8 +39,8 @@ test('wave38 describes separate real Knifeman and Blood-Leech variants, not a fi
   const wave=waves[37];
   for(const markup of [warbandCardsMarkup([wave],enemies,images),upcomingWarbandMarkup(wave,enemies)]){
     const sections=[...markup.matchAll(/<section class="warband-variant"[^>]*>([\s\S]*?)<\/section>/g)].map(match=>match[1]);assert.equal(sections.length,2);
-    assert.ok(sections[0].includes(escape(enemies.host_38.variants[0].name)));assert.match(sections[0],/Cloaked for 4s, visible for 2s, every 6s/);assert.match(sections[0],/Disarms defenders within 3 tiles for 3s every 8s/);assert.ok(!sections[0].includes('HP/s'));
-    assert.ok(sections[1].includes('Blood-Leech Trolls'));assert.match(sections[1],/Regenerates 188\.214 HP\/s/);assert.ok(!sections[1].includes('Cloaked')&&!sections[1].includes('Disarms'));
+    assert.ok(sections[0].includes(escape(enemies.host_38.variants[0].name)));assert.match(sections[0],/Cloaked for 4s, visible for 2s, every 6s/);assert.match(sections[0],/Disarms defenders within 3 tiles for 5s every 8s/);assert.ok(!sections[0].includes('HP/s'));
+    assert.ok(sections[1].includes('Blood-Leech Trolls'));assert.match(sections[1],/Regenerates 5% maximum health\/s \(1,568\.45 HP\/s\)/);assert.ok(!sections[1].includes('Cloaked')&&!sections[1].includes('Disarms'));
   }
 });
 
@@ -53,4 +53,18 @@ test('guide health/speed/armor/resistance group overrides match actual spawn, an
   for(const field of ['name','appearance','counter','threat'])assert.ok(safe.includes(escape(unsafe[field])));
   assert.ok(!safe.includes('<script>')&&!safe.includes('src="" onerror='));assert.ok(safe.includes('src="&quot; onerror=&quot;bad"'));
   assert.equal(upcomingWarbandMarkup(null,enemies),'');
+});
+
+test('variant guide describes independent enemy choices and Zaruun has no inactive second variant',()=>{
+  for(const index of [4,14,26,27,28,30,34,35,37,40,49])for(const markup of [warbandCardsMarkup([waves[index]],enemies,images),upcomingWarbandMarkup(waves[index],enemies)]){
+    assert.match(markup,/Each enemy independently chooses a random variant; the wave may contain a mix/);
+    assert.ok(!/One variant is chosen|This wave rolls either/.test(markup),'The guide never presents a group-wide single roll');
+  }
+  for(const markup of [warbandCardsMarkup([waves[29]],enemies,images),upcomingWarbandMarkup(waves[29],enemies)]){
+    assert.ok(!markup.includes('Variant 2')&&!markup.includes('Moon Clan')&&!markup.includes('random variant'));assert.match(markup,/Zaruun, Lord of Storm Wings/);
+    assert.equal((markup.match(/class="warband-variant"/g)||[]).length,1,'Only active normal Zaruun stats are rendered');
+  }
+  const scrap=upcomingWarbandMarkup(waves[27],enemies),sections=[...scrap.matchAll(/<section class="warband-variant"[^>]*>([\s\S]*?)<\/section>/g)].map(match=>match[1]);
+  assert.match(sections[0],/Reactive armor[^]*\+8 armor per direct hit/);assert.ok(!sections[0].includes('Cloaked continuously'));
+  assert.match(sections[1],/Cloaked continuously/);assert.ok(!sections[1].includes('Reactive armor'));
 });

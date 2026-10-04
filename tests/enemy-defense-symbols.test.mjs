@@ -132,7 +132,8 @@ test('shared UI paths remain distinctive and configured wave descriptions never 
     assert.ok(symbol.svgPaths.every(path=>path.startsWith('M')));
   }
   const reactive=data.enemies.host_24;assert.deepEqual(enemyDefenseVisualState({...reactive,reactiveStacks:0}),[]);
-  assert.ok(enemyDefenseDescriptions(reactive).some(row=>row.kind==='reactive'&&row.detail.includes('12 stacks')));
+  const reactiveDescription=enemyDefenseDescriptions(reactive).find(row=>row.kind==='reactive');
+  assert.match(reactiveDescription.detail,/8 armor per direct hit, up to 15 stacks \(120 armor\)/);
   const exhausted={...data.enemies.host_14,shields:0};assert.equal(enemyDefenseVisualState(exhausted).some(row=>row.kind==='refraction'),false);
   assert.equal(enemyDefenseDescriptions(exhausted).find(row=>row.kind==='refraction').count,3);
 });

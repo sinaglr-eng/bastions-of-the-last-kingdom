@@ -1,5 +1,5 @@
 import {damageAfterDefense} from '../core/math.js';
-import {ENEMY_RULES as R,enemyNumber} from '../core/enemy-rules.js';
+import {ENEMY_RULES as R,enemyNumber,enemyRegenerationPerSecond} from '../core/enemy-rules.js';
 
 const finite=(value,fallback=0)=>Number.isFinite(value)?value:fallback;
 const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
@@ -53,7 +53,7 @@ export function enemyDefenseVisualState(enemy,{balance}={}){
   }
   const charges=Math.max(0,Math.ceil(finite(enemy.shields)));
   if(charges>0)states.push({kind:'refraction',amount:charges,count:charges});
-  if(finite(enemy.regen)>0&&!enemy.statuses?.healBlock)states.push({kind:'regen',amount:1,perSecond:enemy.regen});
+  if(finite(enemy.regen)>0&&!enemy.statuses?.healBlock)states.push({kind:'regen',amount:1,fraction:enemy.regen,perSecond:enemyRegenerationPerSecond(enemy)});
   if(finite(enemy.recharge)>0&&!enemy.statuses?.healBlock)states.push({kind:'recharge',amount:1,fraction:enemy.recharge,remainingSeconds:Math.max(0,finite(enemy.rechargeClock))});
   if(finite(enemy.evasion)>0)states.push({kind:'evasion',amount:clamp(enemy.evasion,0,1)});
   if(finite(enemy.krakenShell)>0)states.push({kind:'krakenShell',amount:1,perHit:enemy.krakenShell});
@@ -70,9 +70,9 @@ export function enemyDefenseDescriptions(definition,{balance}={}){
   return states.map(state=>{
     const percent=Math.round(state.amount*100);
     const detail=state.kind==='refraction'?state.count+' direct-hit charges; recharge every '+R.refraction.period+'s':
-      state.kind==='regen'?enemyNumber(state.perSecond)+' HP/s; disabled by healing block':
-      state.kind==='recharge'?Math.round(state.fraction*100)+'% maximum HP every '+R.recharge.period+'s; disabled by healing block':
-      state.kind==='reactive'?definition.reactiveArmor+' armor per direct hit, up to '+R.reactive.maxStacks+' stacks; decays '+R.reactive.decayPerSecond+' stacks/s':
+      state.kind==='regen'?enemyNumber(state.fraction*100)+'% maximum HP/s ('+enemyNumber(state.perSecond)+' HP/s); disabled by healing block':
+      state.kind==='recharge'?enemyNumber(state.fraction*100)+'% missing HP every '+R.recharge.period+'s; disabled by healing block':
+      state.kind==='reactive'?definition.reactiveArmor+' armor per direct hit, up to '+R.reactive.maxStacks+' stacks ('+enemyNumber(definition.reactiveArmor*R.reactive.maxStacks)+' armor); decays '+R.reactive.decayPerSecond+' stacks/s':
       state.kind==='krakenShell'?state.perHit+' damage removed from each non-pure direct hit':
       state.kind==='evasion'?percent+'% chance against physical/piercing direct hits; True Strike bypasses it':
       state.kind==='untouchable'?percent+'% attack slowing within '+R.dread.radius+' tiles; control resistance counters it':

@@ -9,8 +9,13 @@ export class CombatManager {
     let time=0.25;
     for(const group of wave.groups) {
       const variants=this.game.data.enemies[group.type].variants;
-      const variant=variants?.[Math.floor(this.game.rng()*variants.length)];
-      for(let i=0;i<group.count;i++){this.spawnQueue.push({time,type:group.type,modifiers:{...wave,...group,variant}});time+=group.interval;}
+      const modifiers={...wave,...group};
+      for(let i=0;i<group.count;i++){
+        // Each queued invader gets its own seeded choice. An explicit preview
+        // or scenario variant is preserved without consuming another roll.
+        const variant=Object.hasOwn(modifiers,'variant')?modifiers.variant:variants?.[Math.floor(this.game.rng()*variants.length)];
+        this.spawnQueue.push({time,type:group.type,modifiers:{...modifiers,variant:variant?structuredClone(variant):variant}});time+=group.interval;
+      }
     }
     this.total=this.spawnQueue.length;
     for(const t of this.game.towers){t.cooldown=0;t.melancholy=0;t.melancholyUntil=0;}
@@ -163,7 +168,6 @@ export class CombatManager {
       enemy.cloaked=!!(enemy.stealth||(enemy.cloakDaggers&&this.elapsed%R.cloak.period<R.cloak.hiddenDuration));
       enemy.reactiveStacks=Math.max(0,enemy.reactiveStacks-dt*R.reactive.decayPerSecond);
       if(enemy.refraction){enemy.shieldClock-=dt;while(enemy.shieldClock<=0){enemy.shields=enemy.refraction;enemy.shieldClock+=R.refraction.period;}}
-      if(enemy.recharge){enemy.rechargeClock-=dt;while(enemy.rechargeClock<=0){if(!enemy.statuses.healBlock)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.maxHp*enemy.recharge);enemy.rechargeClock+=R.recharge.period;}}
       let blinkTravel=0;
       if(enemy.blink){enemy.blinkClock-=dt;while(enemy.blinkClock<=0){blinkTravel+=enemy.blink;enemy.blinkClock+=R.blink.period;}}
 
@@ -174,12 +178,13 @@ export class CombatManager {
         if(supporter.type==='warlock')enemy.ward=R.support.warlockWard;
       }
       enemy.armorShred=enemy.statuses.shred?.amount||0;enemy.magicShred=enemy.statuses.shredMagic?.amount||0;
+      const healingBlockedFor=Math.max(0,enemy.statuses.healBlock?.time||0);
       for(const [key,status] of Object.entries(enemy.statuses)) {
         if(status.dps)this.damage(enemy,status.dps*Math.min(dt,status.time),key==='burn'?'fire':key==='bleed'?'physical':'poison',{},status.source);
         status.time-=dt;if(status.time<=0)delete enemy.statuses[key];
       }
       if(enemy.dead)continue;
-      if(enemy.regen&&!enemy.statuses.healBlock)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.regen*dt);
+      this.updateEnemyHealing(enemy,dt,healingBlockedFor);
       if(enemy.type==='sapper')for(const ruin of this.game.towers)if(ruin.state==='ruin'&&distance(ruin,enemy)<R.sapper.radius)ruin.weakened=R.sapper.duration;
       const frenzy=enemy.rush&&this.elapsed%R.rush.period<R.rush.duration?enemy.rush:enemy.type==='berserker'&&enemy.hp<enemy.maxHp*R.rush.berserkerThreshold?R.rush.berserkerSpeed:1;
       let slow=Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
@@ -257,6 +262,26 @@ export class CombatManager {
     this.enemies=this.enemies.filter(e=>!e.dead);
     if(this.game.lives<=0)this.game.end(false);
     else if(!this.spawnQueue.length&&!this.enemies.length)this.game.completeWave();
+  }
+  updateEnemyHealing(enemy,dt,blockedFor){
+    const clockEpsilon=1e-9;
+    const regenerate=(from,to)=>{
+      const active=Math.max(0,to-Math.max(from,blockedFor));
+      if(enemy.regen>0&&active>0)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.maxHp*enemy.regen*active);
+    };
+    let cursor=0;
+    if(enemy.recharge>0){
+      let deadline=enemy.rechargeClock??R.recharge.period;
+      while(deadline<=dt+clockEpsilon){
+        const at=Math.min(dt,Math.max(0,deadline));regenerate(cursor,at);
+        // Compare each real deadline with expiry, instead of sampling a block
+        // at the beginning/end of a large tick and losing eligible pulses.
+        if(at+clockEpsilon>=blockedFor)enemy.hp=Math.min(enemy.maxHp,enemy.hp+Math.max(0,enemy.maxHp-enemy.hp)*enemy.recharge);
+        cursor=at;deadline+=R.recharge.period;
+      }
+      enemy.rechargeClock=deadline-dt;
+    }
+    regenerate(cursor,dt);
   }
   get remaining(){return this.spawnQueue.length+this.enemies.filter(e=>!e.dead).length;}
 }

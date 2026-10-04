@@ -37,21 +37,43 @@ const variantMap={
  host_50:[['Ghorun the Ashen','host_50'],['Ghorun the Gold-Cursed','host_50-tyrant'],['Ghorun the Pale Devourer','host_50-devourer']],
 };
 
-test('only the seven approved V10 balance values differ from the original Dark Host gameplay fingerprint',()=>{
+test('only the approved balance, variant and matching description changes differ from the original Dark Host gameplay fingerprint',()=>{
  const historical=structuredClone(enemies);
  const approvedBalanceChanges=[
-  [['troll','regen'],5,7.5],
+  [['troll','regen'],5,.05],
   [['host_02','hp'],61,52],
   [['host_03','hp'],80,68],
-  [['host_08','regen'],1.024,1.536],
-  [['host_15','regen'],3.9,5.85],
-  [['host_21','regen'],10.732000000000001,16.098],
-  [['host_38','variants',1,'regen'],125.476,188.214],
+  [['host_08','regen'],1.024,.05],
+  [['host_15','regen'],3.9,.05],
+  [['host_21','regen'],10.732000000000001,.05],
+  [['host_38','variants',1,'regen'],125.476,.05],
+  [['host_16','thief'],13,50],
+  [['host_34','thief'],19,50],
+  [['host_48','thief'],24,50],
+  [['host_19','rush'],1.7,5],
+  [['host_42','rush'],1.7,5],
+  [['host_47','rush'],1.7,5],
+  [['host_24','reactiveArmor'],3,8],
+  [['host_28','reactiveArmor'],3,8],
  ];
  for(const [path,before,after]of approvedBalanceChanges){
   const parent=path.slice(0,-1).reduce((value,key)=>value[key],historical),key=path.at(-1);
   assert.equal(parent[key],after,path.join('.')+' approved current value');parent[key]=before;
  }
+ const moon=historical.host_28.variants[1];assert.equal(moon.reactiveArmor,0);assert.equal(moon.stealth,true);assert.deepEqual(moon.traits,['stealth']);
+ for(const key of ['reactiveArmor','stealth','traits'])delete moon[key];
+ assert.equal(Object.hasOwn(historical.host_30,'variants'),false,'Zaruun has no alternate active wave variant');
+ historical.host_30.variants=[{name:'Zaruun, Lord of Storm Wings',visualAsset:'host_30'},{name:'Zaruun, Lord of Storm Wings · Moon Clan',color:'#667e91',model:'dragon',visualAsset:'host_30'}];
+ // Descriptions of the specifically changed mixed squads also change. Restore
+ // only these exact historical fields for the original recursive fingerprint.
+ const descriptions={
+  host_28:['Reactive armor','Direct hits build temporary armor.'],
+  host_31:['Alternating immunity · Mirror shields','This wave rolls either magic or physical immunity. Shields absorb three direct hits; poison ticks and burning auras bypass them. Ritual wards resist magic; physical and pure attacks remain effective.'],
+  host_35:['Alternating immunity','This wave rolls either magic or physical immunity.'],
+  host_36:['Alternating immunity','This wave rolls either magic or physical immunity. Plated armor reduces physical damage; break armor or add magic.'],
+  host_38:['Cloak & daggers','Cycles between cloak and short close-range disarms.'],
+ };
+ for(const [id,[threat,counter]]of Object.entries(descriptions)){historical[id].threat=threat;historical[id].counter=counter;}
  assert.equal(fingerprint(historical),'e380e30df148e6d6f07d52bfad14ea15ec0cc1a2d35d34c4dddf6da7c950c4ac','every other gameplay field stays byte-for-byte in the original recursive projection');
  assert.equal(fingerprint(waves),'1aa5d616e192d31d04c50ad5cf0a5012878f1b89c6ce41055f7dc1badcfcb737');
 });

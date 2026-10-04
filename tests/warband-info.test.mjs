@@ -8,12 +8,13 @@ import {loadProfile,saveProfile} from '../game/core/save.js';
 
 test('combat guide describes the chosen queued variant and actual wave modifiers',()=>{
   const enemy={name:'Ash dragon',boss:true,hp:100,armor:8,magicImmune:true,resists:{magic:.2}};
-  const game={wave:{boss:true,groups:[{type:'dragon',count:1}]},data:{enemies:{dragon:enemy}},combat:{enemies:[],spawnQueue:[{type:'dragon',modifiers:{hp:2,armor:5,resists:{fire:.35},variant:{name:'Pale dragon',magicImmune:false,physicalImmune:true,regen:5}}}]}};
+  const game={wave:{boss:true,groups:[{type:'dragon',count:1}]},data:{enemies:{dragon:enemy}},combat:{enemies:[],spawnQueue:[{type:'dragon',modifiers:{hp:2,armor:5,resists:{fire:.35},variant:{name:'Pale dragon',magicImmune:false,physicalImmune:true,regen:.05}}}]}};
   const [info]=currentWarbandInfo(game);
   assert.equal(info.name,'Pale dragon');assert.equal(info.maxHp,200);assert.equal(info.armor,13);
   assert.ok(info.traits.includes('Immune to physical and piercing damage'));
   assert.ok(!info.traits.some(s=>s.startsWith('Immune to magic')));
   assert.ok(info.traits.includes('35% fire resistance'));
+  assert.ok(info.traits.includes('Regenerates 5% maximum health/s (10 HP/s) · healing block prevents regeneration'),'Queued modified maximum health drives the same effective rate as spawn');
   assert.deepEqual(bossHealth(game),{hp:200,maxHp:200,approaching:true});
   game.combat.spawnQueue=[];game.combat.enemies=[{...enemy,type:'dragon',hp:42.2,maxHp:200,armor:13,dead:false}];
   assert.deepEqual(bossHealth(game),{hp:43,maxHp:200,approaching:false});

@@ -37,7 +37,7 @@
     "hp": 270,
     "speed": 1.3,
     "armor": 9,
-    "regen": 7.5,
+    "regen": 0.05,
     "gold": 9,
     "xp": 7,
     "color": "#737f76",
@@ -341,7 +341,7 @@
     "clan": 0,
     "threat": "Vitality · Veil",
     "counter": "Regenerates health; focus damage. Cloaked beyond 2 tiles; Clerics reveal within 6.",
-    "regen": 1.536,
+    "regen": 0.05,
     "stealth": true,
     "appearance": "Slender, grey-blue trolls with exceptionally long arms. Their bodies dissolve into smoke; glowing blood seeps from wounds and seals them shut.",
     "visualAsset": "host_08",
@@ -512,7 +512,7 @@
     "threat": "Vitality",
     "counter": "Regenerates health; focus damage.",
     "beast": true,
-    "regen": 5.85,
+    "regen": 0.05,
     "variants": [
       {
         "name": "Blood Bat Riders",
@@ -554,7 +554,7 @@
       "magic": 0.168
     },
     "magicImmune": true,
-    "thief": 13,
+    "thief": 50,
     "appearance": "Gaunt orcs with ash-covered skin, copper masks and bulging purses. A burned rune on the chest signals their magical immunity.",
     "visualAsset": "host_16",
     "designArchetype": "ash-thief",
@@ -635,7 +635,7 @@
     "threat": "Blood rush",
     "counter": "Periodic bursts of movement speed.",
     "beast": true,
-    "rush": 1.7,
+    "rush": 5,
     "appearance": "Low riders crouch over red-eyed wolves. During a charge the wolves lower their heads, their eyes flare and dust trails behind their paws.",
     "visualAsset": "host_19",
     "designArchetype": "blood-wolf",
@@ -685,7 +685,7 @@
     "resists": {
       "magic": 0.183
     },
-    "regen": 16.098,
+    "regen": 0.05,
     "appearance": "Massive marsh trolls with roots growing through their bodies. Fresh shoots cover wounds; protective runes are carved into their woody skin.",
     "visualAsset": "host_21",
     "designArchetype": "root-troll",
@@ -764,7 +764,7 @@
     "clan": 2,
     "threat": "Reactive armor",
     "counter": "Direct hits build temporary armor.",
-    "reactiveArmor": 3,
+    "reactiveArmor": 8,
     "appearance": "Goblins trapped inside living iron frames. Each hit draws more metal plates toward their bodies before the plates loosen again.",
     "visualAsset": "host_24",
     "designArchetype": "rivet-mutant",
@@ -877,9 +877,9 @@
     "flying": true,
     "leak": 1,
     "clan": 2,
-    "threat": "Reactive armor",
-    "counter": "Direct hits build temporary armor.",
-    "reactiveArmor": 3,
+    "threat": "Reactive armor / Cloaked Moon Clan",
+    "counter": "Each invader independently has reactive armor or continuous cloak. Direct hits build armor on normal Scrapwings; reveal Moon Clan Scrapwings near defenders, checkpoints or detectors.",
+    "reactiveArmor": 8,
     "variants": [
       {
         "name": "Goblin Scrapwings",
@@ -889,10 +889,15 @@
         "name": "Goblin Scrapwings · Moon Clan",
         "color": "#667e91",
         "model": "balloon",
-        "visualAsset": "host_28"
+        "visualAsset": "host_28",
+        "reactiveArmor": 0,
+        "stealth": true,
+        "traits": [
+          "stealth"
+        ]
       }
     ],
-    "appearance": "Goblins in flying harnesses with bat wings and riveted hulls. Reactive armor visibly closes around each pilot when struck.",
+    "appearance": "Goblins in flying harnesses with bat wings and riveted hulls. Normal Scrapwings build reactive armor when struck; Moon Clan Scrapwings are continuously cloaked.",
     "visualAsset": "host_28",
     "designArchetype": "wing-scrapper",
     "auraStage": 2
@@ -955,18 +960,6 @@
     "threat": "Airborne raiders · guard the checkpoint crossings",
     "counter": "",
     "beast": true,
-    "variants": [
-      {
-        "name": "Zaruun, Lord of Storm Wings",
-        "visualAsset": "host_30"
-      },
-      {
-        "name": "Zaruun, Lord of Storm Wings · Moon Clan",
-        "color": "#667e91",
-        "model": "dragon",
-        "visualAsset": "host_30"
-      }
-    ],
     "appearance": "An orc warlord rides an enormous storm bat with torn wings, copper horns and lightning scars. Electrical flashes are cosmetic.",
     "visualAsset": "host_30",
     "designArchetype": "storm-bat-lord",
@@ -990,8 +983,8 @@
     "flying": false,
     "leak": 1,
     "clan": 3,
-    "threat": "Alternating immunity · Mirror shields",
-    "counter": "This wave rolls either magic or physical immunity. Shields absorb three direct hits; poison ticks and burning auras bypass them. Ritual wards resist magic; physical and pure attacks remain effective.",
+    "threat": "Mixed immunity variants · Mirror shields",
+    "counter": "Each invader independently has magic or physical immunity. Mix physical and magical damage, or use pure damage against both. Three shields block direct hits; effective damage-over-time and auras bypass those shields.",
     "resists": {
       "magic": 0.213
     },
@@ -1092,7 +1085,7 @@
     "counter": "Can evade direct physical hits; use magic. Steals gold on reaching the keep.",
     "beast": true,
     "evasion": 0.25,
-    "thief": 19,
+    "thief": 50,
     "appearance": "Goblins on gaunt bats with bone masks. Stolen purses and ropes dangle from the harnesses; riders swing beneath the bats during evasive movements.",
     "visualAsset": "host_34",
     "designArchetype": "gallows-bat",
@@ -1115,8 +1108,8 @@
     "flying": true,
     "leak": 1,
     "clan": 3,
-    "threat": "Alternating immunity",
-    "counter": "This wave rolls either magic or physical immunity.",
+    "threat": "Mixed immunity variants",
+    "counter": "Each invader independently has magic or physical immunity. Mix physical and magical damage, or use pure damage against both.",
     "beast": true,
     "variants": [
       {
@@ -1154,8 +1147,8 @@
     "flying": false,
     "leak": 1,
     "clan": 3,
-    "threat": "Alternating immunity",
-    "counter": "This wave rolls either magic or physical immunity. Plated armor reduces physical damage; break armor or add magic.",
+    "threat": "Mixed immunity variants",
+    "counter": "Each invader independently has magic or physical immunity. Reduce armor against Ashen fighters; use magic against Spectral fighters, or pure damage against both.",
     "variants": [
       {
         "magicImmune": true,
@@ -1218,8 +1211,8 @@
     "flying": false,
     "leak": 1,
     "clan": 3,
-    "threat": "Cloak & daggers",
-    "counter": "Cycles between cloak and short close-range disarms.",
+    "threat": "Cloak & daggers / Regeneration",
+    "counter": "Each invader independently becomes a cloaked Knifeman with close-range disarms or a regenerating Blood-Leech. Reveal Knifemen and block Blood-Leech healing.",
     "cloakDaggers": true,
     "disarm": true,
     "variants": [
@@ -1232,7 +1225,7 @@
         "name": "Blood-Leech Trolls",
         "cloakDaggers": false,
         "disarm": false,
-        "regen": 188.214,
+        "regen": 0.05,
         "visualAsset": "host_38-wraith",
         "designArchetype": "blood-leech-troll"
       }
@@ -1357,7 +1350,7 @@
     "counter": "Magic and magical status immunity; physical or pure damage wins. Periodic bursts of movement speed.",
     "beast": true,
     "magicImmune": true,
-    "rush": 1.7,
+    "rush": 5,
     "appearance": "Riders on black bats with orange veins in their wings. Ashen runes mark magical immunity; the wings glow during a charge.",
     "visualAsset": "host_42",
     "designArchetype": "fire-bat",
@@ -1497,7 +1490,7 @@
     "counter": "Magic and magical status immunity; physical or pure damage wins. Nearby defenders attack more slowly. Periodic bursts of movement speed.",
     "magicImmune": true,
     "untouchable": 0.35,
-    "rush": 1.7,
+    "rush": 5,
     "appearance": "Fanatical riders on huge black wolves with bone masks. Burning runes signal magical immunity; charges bring red eyes and an intimidating shadow.",
     "visualAsset": "host_47",
     "designArchetype": "last-howl-wolf",
@@ -1529,7 +1522,7 @@
     "evasion": 0.25,
     "disarm": true,
     "magicImmune": true,
-    "thief": 24,
+    "thief": 50,
     "appearance": "The sorcerer’s personal raiders on slender black bats. Long scarves, gold purses and disruptive rune bells accompany agile, restless flight.",
     "visualAsset": "host_48",
     "designArchetype": "blackfire-bat",

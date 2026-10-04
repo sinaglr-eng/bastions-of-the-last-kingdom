@@ -4,9 +4,10 @@ import {createGeometricMotionRig,resetGeometricMotion} from './geometric-motion.
 import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
 import {animateGeometricOrbits} from './geometric-orbits.js';
+import {ENEMY_RULES as R} from '../core/enemy-rules.js';
 
 export function createAtelierEnemyPreview(scene,definition,template,{camera,balance}={}){
-  const enemy={...definition,id:definition.wave,x:0,z:0,traveled:0,dead:false,statuses:{},shields:definition.refraction||0,rechargeClock:8,blinkClock:0};
+  const enemy={...definition,id:definition.wave,x:0,z:0,traveled:0,dead:false,statuses:{},shields:definition.refraction||0,rechargeClock:R.recharge.period,blinkClock:0};
   const figure=enemyFigure(enemy,new Map([[definition.visualAsset,template]]));
   figure.userData.geometricMotion=createGeometricMotionRig(figure);
   figure.userData.aura=createEnemyAura(enemy,figure.userData.body);
