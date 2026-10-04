@@ -1,5 +1,11 @@
 # Releases
 
+## 0.3.10 — Textured earth and ruined watchtower — 4 October 2026
+
+- Replaces translucent checkpoint ground with opaque, textured soil: varied earth grain, compacted scuffs, small stone flecks and irregular eroded edges, seated flush with the meadow.
+- Completes checkpoint V as a broken watchtower with three connected stone sides, varied fractured crowns and scattered masonry, preserving its flag and walking passage.
+- Enlarges the construction mastery odds label, colored distribution bar and rank percentages to use the space released by the removed notices, with layouts for smaller screens.
+
 ## 0.3.9 — Grounded checkpoints and clearer warbands — 4 October 2026
 
 - Removes checkpoint slabs in favor of worn earth, retaining the five Roman flags and themed props. Crates stack in several tiers, the forward ruin reaches its flag, and the campfire flickers with rising embers. Two small guard towers replace the final bridge flag and platform.

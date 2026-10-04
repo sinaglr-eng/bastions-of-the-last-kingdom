@@ -86,14 +86,26 @@ export function checkpointVignetteGeometries(label){
     cylinder('Rolled campsite blanket',.036,.16,'cloth',[-.27,deck+.036,.205],[Math.PI/2,0,0],8);
     for(const offset of [-.052,.052])cylinder('Blanket binding '+offset,.039,.014,'wood',[-.27,deck+.036,.205+offset],[Math.PI/2,0,0],8);
   }else if(label==='V'){
-    for(let i=0;i<3;i++)box('Broken wall foundation '+i,[.137,.10,.13],i===1?'light':'stone',[-.34+i*.145,deck+.05,-.19]);
-    for(let column=0;column<3;column++)for(let row=1;row<[17,14,8][column];row++){
-      const position=[-.34+column*.145,deck+.05+row*.103,-.19],color=(row+column)%3===0?'light':'stone';
-      if(row===[16,13,7][column]){
-        const shape=new THREE.Shape();shape.moveTo(-.0685,-.05);shape.lineTo(.0685,-.05);shape.lineTo(.0685,.01);shape.lineTo(.035,.032);shape.lineTo(.015,.012);shape.lineTo(-.02,.065);shape.lineTo(-.0685,.036);shape.closePath();
-        const geometry=new THREE.ExtrudeGeometry(shape,{depth:.13,bevelEnabled:true,bevelSize:.002,bevelThickness:.002,bevelSegments:1,steps:1});geometry.translate(0,0,-.065);add('Fractured wall crown '+column,geometry,color,position);
-      }else box('Ruined wall course '+column+' '+row,[.137,.100,.13],color,position);
-    }
+    // Three connected masonry faces enclose a small open tower chamber. Each
+    // course has offset joints, and the surviving skyline steps down toward the
+    // collapsed front. The chamber and all tall stone stay left of the route.
+    const towerFace=(name,a,b,profile)=>{
+      const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz),rotation=-Math.atan2(dz,dx),heightAt=u=>profile.find(([end])=>u<=end+1e-6)?.[1]??0;
+      for(let row=0;row<Math.max(...profile.map(([,height])=>height));row++){
+        const extent=Math.max(...profile.filter(([,height])=>height>row).map(([end])=>end));let start=0,brick=0;
+        while(start<extent-.008){
+          const end=Math.min(extent,brick===0&&row%2?.065:start+.13),width=end-start-.003,u=(start+end)/2,position=[a[0]+dx*u/length,deck+.05+row*.103,a[1]+dz*u/length],color=(row*3+brick)%5===0?'light':'stone';
+          if(row===heightAt(u)-1){
+            const shape=new THREE.Shape();shape.moveTo(-width/2,-.05);shape.lineTo(width/2,-.05);shape.lineTo(width/2,.01);shape.lineTo(width*.25,.032);shape.lineTo(width*.10,.012);shape.lineTo(-width*.15,.065);shape.lineTo(-width/2,.036);shape.closePath();
+            const geometry=new THREE.ExtrudeGeometry(shape,{depth:.10,bevelEnabled:true,bevelSize:.001,bevelThickness:.001,bevelSegments:1,steps:1});geometry.translate(0,0,-.05);add(name+' fractured crown '+row+' '+brick,geometry,color,position,[0,rotation,0]);
+          }else box(name+' course '+row+' stone '+brick,[width,.100,.10],color,position,[0,rotation,0]);
+          start=end;brick++;
+        }
+      }
+    };
+    towerFace('Tower rear',[-.41,-.31],[-.12,-.31],[[.11,17],[.20,15],[.29,12]]);
+    towerFace('Tower left',[-.41,-.31],[-.41,.16],[[.115,17],[.245,14],[.375,11],[.47,8]]);
+    towerFace('Tower return',[-.12,-.31],[-.12,-.16],[[.075,12],[.15,8]]);
     const start=new THREE.Vector3(-.22,deck+.292,-.183),end=new THREE.Vector3(-.22,deck+.029,.221),length=start.distanceTo(end);
     const tilt=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),start.clone().sub(end).normalize()),centre=start.clone().add(end).multiplyScalar(.5).toArray();
     const fallenStone=(name,outline,color)=>{
@@ -107,7 +119,7 @@ export function checkpointVignetteGeometries(label){
       fallenStone('Forward fallen masonry '+row+' '+side,[[left,low],[right,low],[right,high],[left,high]],row===0&&side===1?'stone':'light');
     }
     fallenStone('Forward broken masonry crown',[[-.083,length/6+.003],[.083,length/6+.003],[.083,length/2-.032],[.028,length/2-.032],[.007,length/2],[-.055,length/2],[-.083,length/2-.017]],'light');
-    rock('Scattered rubble left',-.382,.092,.039,.035,.042);
+    rock('Scattered rubble left',-.45,.26,.039,.035,.042);
     rock('Scattered rubble rear',.038,-.285,.052,.035,.037,'light');
   }
   return parts;

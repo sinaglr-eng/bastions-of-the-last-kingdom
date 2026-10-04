@@ -55,10 +55,10 @@ test('grounded decorations retain safe footprints and cannot intercept terrain o
   }
   assert.throws(()=>createCheckpointMarker({label:'VI'}),RangeError);assert.throws(()=>createCheckpointMarker({kind:'enemy'}),RangeError);
 });
-test('Roman embroidery survives the production scenery merge without new textures or excessive batches',()=>{
+test('Roman embroidery and textured earth survive the production scenery merge within bounded batches',()=>{
   const group=new THREE.Group(),effects=[];for(const [i,label] of CHECKPOINT_ROMAN_LABELS.entries()){const marker=createCheckpointMarker({label});marker.position.x=i*2;group.add(marker);const effect=takeCheckpointEffects(marker);if(effect)effects.push(effect);}
   group.add(createCheckpointMarker({kind:'spawn'}),createCheckpointMarker({kind:'keep'}));
-  const merged=optimize(group);assert.ok(merged.children.length<=12,'Five scenes and both endpoints share a bounded scenery palette');let triangles=0;merged.traverse(node=>{if(node.isMesh){node.raycast=()=>{};assert.equal(node.material.map,null);assert.ok(node.geometry.attributes.position.array.every(Number.isFinite));triangles+=(node.geometry.index?.count??node.geometry.attributes.position.count)/3;}});assert.ok(triangles<9500,'The complete seven-marker decoration remains a small static scenery batch');
+  const merged=optimize(group);assert.ok(merged.children.length<=12,'Five scenes and both endpoints share a bounded scenery palette');let triangles=0,texturedBatches=0;merged.traverse(node=>{if(node.isMesh){node.raycast=()=>{};if(node.material.map){texturedBatches++;assert.ok(node.material.map.isDataTexture&&node.material.bumpMap?.isDataTexture,'Only shared soil uses actual color and grain maps');assert.ok(node.geometry.attributes.uv);assert.equal(node.material.transparent,false);}else assert.equal(node.material.bumpMap,null);assert.ok(node.geometry.attributes.position.array.every(Number.isFinite));triangles+=(node.geometry.index?.count??node.geometry.attributes.position.count)/3;}});assert.equal(texturedBatches,1,'Every soil patch shares one textured scenery batch');assert.ok(triangles<9500,'The complete seven-marker decoration remains a small static scenery batch');
   const ink=merged.children.find(node=>node.material.color.getHexString()==='f1e6c7');assert.ok(ink);assert.ok(new THREE.Box3().setFromObject(ink,true).getSize(new THREE.Vector3()).x>8,'The final material batch retains every physical label');dispose(merged);effects.forEach(disposeCheckpointEffects);
 });
 
@@ -99,7 +99,7 @@ function floorSupported(part,floor){
   return false;
 }
 test('load-bearing vignette props meet the actual meadow instead of floating',()=>{
-  const floor=meadowTerrain(),names={I:['Soldier supporting rock','Grounded boot -1','Grounded boot 1'],II:['Left powder barrel end -1','Right powder barrel end -1'],III:[0,1,2,3,4].map(i=>'Crate '+i+' dark core'),IV:['Firepit stone 0','Firepit stone 3','Rolled campsite blanket'],V:['Broken wall foundation 0','Broken wall foundation 1','Broken wall foundation 2','Scattered rubble left']};
+  const floor=meadowTerrain(),names={I:['Soldier supporting rock','Grounded boot -1','Grounded boot 1'],II:['Left powder barrel end -1','Right powder barrel end -1'],III:[0,1,2,3,4].map(i=>'Crate '+i+' dark core'),IV:['Firepit stone 0','Firepit stone 3','Rolled campsite blanket'],V:['Tower rear course 0 stone 0','Tower left course 0 stone 0','Tower return course 0 stone 0','Scattered rubble left','Scattered rubble rear']};
   for(const [label,required] of Object.entries(names)){
     const parts=checkpointVignetteGeometries(label);for(const name of required){const part=parts.find(candidate=>candidate.name===name);assert.ok(part&&floorSupported(part,floor),name+' has physical floor support');}
     if(label==='III'){
@@ -119,6 +119,49 @@ test('crates stack in several supported tiers and the ruined wall is at least as
   const marker=createCheckpointMarker({label:'V'}),cloth=marker.getObjectByName('Faceted checkpoint cloth');marker.updateMatrixWorld(true);const clothTop=new THREE.Box3().setFromObject(cloth,true).max.y;
   const masonry=checkpointVignetteGeometries('V');const top=Math.max(...masonry.map(part=>{part.geometry.computeBoundingBox();return part.geometry.boundingBox.max.y;}));assert.ok(top>=1.675&&top>clothTop,'Actual stone geometry exceeds the flag finial, rather than just a metadata height');assert.ok(passageClear(marker));
   for(const part of [...parts,...masonry])part.geometry.dispose();dispose(marker);
+});
+
+function distanceToStone(geometry,point){
+  const positions=geometry.attributes.position,index=geometry.index,triangle=new THREE.Triangle(),closest=new THREE.Vector3();let distance=Infinity;
+  for(let offset=0;offset<(index?.count??positions.count);offset+=3){
+    [triangle.a,triangle.b,triangle.c].forEach((vertex,i)=>vertex.fromBufferAttribute(positions,index?index.getX(offset+i):offset+i));triangle.closestPointToPoint(point,closest);distance=Math.min(distance,point.distanceTo(closest));
+  }
+  return distance;
+}
+function chamberHasThreeFaces(root){
+  // Probe the actual open chamber, rather than accepting three labelled parts.
+  const origin=new THREE.Vector3(-.265,.49,-.20),probes=[
+    {direction:[0,0,-1],normal:[0,0,1]},
+    {direction:[-1,0,0],normal:[1,0,0]},
+    {direction:[1,0,0],normal:[-1,0,0]},
+  ];
+  return probes.every(({direction,normal})=>{
+    const hit=rawHits(root,origin,new THREE.Vector3(...direction))[0];return hit&&hit.distance<.115&&hit.face.normal.dot(new THREE.Vector3(...normal))>.99;
+  })&&!rawHits(root,origin,new THREE.Vector3(0,0,1)).length;
+}
+test('the tower ruin has three real joined faces, staggered joints, a broken skyline and an open chamber',()=>{
+  const parts=checkpointVignetteGeometries('V'),group=new THREE.Group(),material=new THREE.MeshStandardMaterial();
+  for(const part of parts)group.add(new THREE.Mesh(part.geometry,material));
+  assert.ok(chamberHasThreeFaces(group),'Two opposing stone faces and a rear face enclose the open tower chamber');
+  const at=name=>parts.find(part=>part.name===name).geometry;
+  const rear=at('Tower rear course 3 stone 0'),rearCourse=parts.filter(part=>part.name.startsWith('Tower rear course 3 stone ')),left=at('Tower left course 3 stone 0'),right=at('Tower return course 3 stone 0');
+  for(const geometry of [rear,left,right])geometry.computeBoundingBox();
+  for(const [side,x] of [[left,left.boundingBox.max.x],[right,right.boundingBox.min.x]]){
+    const joint=new THREE.Vector3(x,rear.boundingBox.getCenter(new THREE.Vector3()).y,rear.boundingBox.max.z);
+    assert.ok(Math.min(...rearCourse.map(part=>distanceToStone(part.geometry,joint)))<.004&&distanceToStone(side,joint)<.004,'Actual masonry surfaces meet at both tower corners');
+  }
+  const base=at('Tower rear course 0 stone 0'),next=at('Tower rear course 1 stone 0');base.computeBoundingBox();next.computeBoundingBox();
+  assert.ok(Math.abs(base.boundingBox.max.x-next.boundingBox.max.x)>.045,'Neighbouring courses visibly offset their vertical mortar joints');
+  const heights=[-.36,-.25,-.17].map(x=>rawHits(group,new THREE.Vector3(x,2,-.31),new THREE.Vector3(0,-1,0))[0]?.point.y);
+  assert.ok(heights.every(Number.isFinite)&&heights[0]-heights[2]>.40,'The actual rear skyline breaks down toward the collapsed side');
+  const crown=parts.filter(part=>part.name.includes('fractured crown'));assert.ok(crown.length);
+  assert.ok(crown.every(part=>{part.geometry.computeBoundingBox();const position=part.geometry.attributes.position,top=part.geometry.boundingBox.max.y;return Array.from({length:position.count},(_,i)=>position.getY(i)).some(y=>y>top-.05&&y<top-.015);}), 'Surviving crown stones have fractured peaks rather than flat box tops');
+  assert.ok(passageClear(group),'The logical route centre stays open through the full ruined tower footprint');
+  // Move real stone while preserving every name and all other geometry. A
+  // detached third face must fail the same physical chamber probe.
+  for(const part of parts)if(part.name.startsWith('Tower return'))part.geometry.translate(.24,0,0);
+  assert.equal(chamberHasThreeFaces(group),false,'A physically detached return is rejected despite unchanged part identities');
+  dispose(group);material.dispose();
 });
 
 test('the keep has exactly two flanking lookouts and a completely clear bridge approach',()=>{

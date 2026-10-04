@@ -139,7 +139,7 @@ function hud(){
 }
 
 function render(){renderSidebar();renderRecipeBrowser();renderEconomy();renderDraft();renderMapAction();hud();tour.refresh();}
-function openDialog(html){draftCardActivation.clear();draftPointerGesture.clear();pointerDraws.clear();const dialog=$('dialog');if(!dialog.open){modalPaused=game.paused;game.paused=true;dialog.showModal();}world.keys.clear();$('dialog-content').innerHTML=html;if(debug&&html.includes('Commander’s tools'))$('dialog-content').insertAdjacentHTML('beforeend','<div class="dialog-body debug-row"><button class="text-button" data-action="debug-review">Review corpses and catapult</button><button class="text-button" data-action="debug-boss-review">Review boss battle</button><button class="text-button" data-action="debug-enemies-review">Review Dark Host and auras</button><button class="text-button" data-action="debug-markers-review">Review recipe portraits</button><button class="text-button" data-action="debug-secret-claire">Review Lady Claire draft</button><button class="text-button" data-action="debug-merge-review">Review rank merge buttons</button></div>');}
+function openDialog(html){draftCardActivation.clear();draftPointerGesture.clear();pointerDraws.clear();const dialog=$('dialog');if(!dialog.open){modalPaused=game.paused;game.paused=true;dialog.showModal();}world.keys.clear();$('dialog-content').innerHTML=html;if(debug&&html.includes('Commander’s tools'))$('dialog-content').insertAdjacentHTML('beforeend','<div class="dialog-body debug-row"><button class="text-button" data-action="debug-review">Review corpses and catapult</button><button class="text-button" data-action="debug-boss-review">Review boss battle</button><button class="text-button" data-action="debug-enemies-review">Review Dark Host and auras</button><button class="text-button" data-action="debug-markers-review">Review recipe portraits</button><button class="text-button" data-action="debug-secret-claire">Review Lady Claire draft</button><button class="text-button" data-action="debug-merge-review">Review rank merge buttons</button><button class="text-button" data-action="debug-soil-review">Review checkpoint soil</button><button class="text-button" data-action="debug-ruin-review">Review broken tower</button></div>');}
 function closeDialog(){if($('dialog').open)$('dialog').close();}
 $('dialog').addEventListener('close',()=>{game.paused=modalPaused;render();});
 function dialogHeader(label,title){return `<div class="dialog-header"><div><div class="eyebrow">${label}</div><h2>${title}</h2></div><button class="icon-button" data-action="close" aria-label="Close">${icon('close')}</button></div>`;}
@@ -202,6 +202,10 @@ function handleCommand(e){
     if(action==='debug-secret-claire'){prepareSecretDraftReview(game,'ladyclaire');modalPaused=false;closeDialog();}
     if(action==='debug-markers-review'){prepareRecipeMarkerReview(game);closeDialog();}
     if(action==='debug-merge-review'){prepareMergeReview(game);closeDialog();}
+    if(action==='debug-soil-review'||action==='debug-ruin-review'){
+      const point=game.grid.checkpoints[action==='debug-soil-review'?1:5],half=(game.grid.size-1)/2;
+      closeDialog();world.clearPointer();world.controls.target.set(point.x-half,.55,point.z-half);world.camera.position.set(point.x-half+3.7,9.6,point.z-half+8.1);world.controls.update();
+    }
     if(action==='debug-spell-review'){prepareSpellReview(game);closeDialog();}
     if(action==='debug-support-review'){prepareSupportReview(game);closeDialog();}
     if(action==='debug-defense-review'){modalPaused=true;closeDialog();prepareDefenseReview(game);}

@@ -2,21 +2,13 @@ import * as THREE from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {checkpointVignetteGeometries,keepWatchtowerGeometries,CHECKPOINT_GROUND_Y} from './checkpoint-vignettes.js';
 import {createCheckpointFire} from './checkpoint-fire.js';
+import {createCheckpointGround} from './checkpoint-ground.js';
 export {animateCheckpointEffects,disposeCheckpointEffects} from './checkpoint-fire.js';
 
 export const CHECKPOINT_ROMAN_LABELS=Object.freeze(['I','II','III','IV','V']);
 const colors={spawn:'#923e34',checkpoint:'#366c87',keep:'#b99b4c'};
 const materials=new Map();
 const noPick=()=>{};
-function dirtMaterial(){
-  const key='trampled-ground';if(!materials.has(key))materials.set(key,new THREE.MeshStandardMaterial({color:'#76664b',roughness:1,transparent:true,opacity:.42,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-1}));return materials.get(key);
-}
-function dirtPatchGeometry(){
-  const points=[[0,0]],radii=[.43,.47,.42,.46,.44,.40,.47,.42,.46,.44,.41,.45];
-  for(let i=0;i<radii.length;i++){const angle=i*Math.PI*2/radii.length;points.push([Math.cos(angle)*radii[i],Math.sin(angle)*radii[i]]);}
-  const vertices=[],uv=[];for(let i=1;i<=radii.length;i++)for(const index of [0,i===radii.length?1:i+1,i]){const [x,z]=points[index];vertices.push(x,CHECKPOINT_GROUND_Y,z);uv.push(x+.5,z+.5);}
-  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geometry.computeVertexNormals();return geometry;
-}
 
 // Detach before optimize(). The wrapper preserves the marker's complete world
 // transform while static scenery can be merged and its source meshes disposed.
@@ -110,7 +102,7 @@ export function createCheckpointMarker({label='',kind='checkpoint'}={}){
     for(const part of keepWatchtowerGeometries())add(part.geometry,material(part.color,part.metalness,part.roughness));
   }else{
   const wood=material('#66543d'),metal=material('#b8a36e',.65,.38),ink=material('#f1e6c7',.05,.85);
-  const dirt=new THREE.Mesh(dirtPatchGeometry(),dirtMaterial());dirt.name='Flush trampled ground';root.add(dirt);
+  root.add(createCheckpointGround());
   if(kind==='checkpoint')for(const part of checkpointVignetteGeometries(label))add(part.geometry,material(part.color,part.metalness,part.roughness));
   if(kind==='checkpoint'&&label==='IV')root.add(createCheckpointFire());
   add(new THREE.CylinderGeometry(.047,.056,.036,8),metal,[.18,CHECKPOINT_GROUND_Y+.018,.15]);
