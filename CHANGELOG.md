@@ -1,5 +1,14 @@
 # Releases
 
+## 0.3.7 — Active defenses and battlefield signals — 4 October 2026
+
+- Stronger moving route arrows sit above a quieter guide line. Stone and brass checkpoint markers carry physical Roman I–V on both sides of their flags.
+- Special defenses use distinct, separated orbiting symbols, with the same shapes and colors in current and upcoming wave descriptions and the Warbands guide. Ordinary armor retains no defense aura.
+- Every remaining direct-hit shield is visible from spawn, including native models with their own crystals. Consumed charges disappear and return only with the actual eight-second refresh. Resistance, reactive armor and healing symbols follow actual combat suppression and recovery.
+- A short smoke cloud marks concealment at the last visible position, without following or exposing hidden invaders. Disarmed defenders carry a red broken sword and aura only during the active effect.
+- More visible champion classification rings preserve Basic blue, Intermediate green, Advanced purple, TOP and Secret gold, and Archangel’s existing divine gold treatment.
+- Preserves all 136 native character models, existing movement speeds, boss scale, combat balance and rank comparison controls.
+
 ## 0.3.6 — Readable battlefield and defender rank comparison — 4 October 2026
 
 - Quieter route guides with smaller moving direction markers, and stone slab structure on defender platforms.

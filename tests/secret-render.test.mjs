@@ -29,7 +29,7 @@ test('the white horse uses native weighted idle motion and both secrets preserve
  const neck=actor.getObjectByName('horse_neck'),before=neck.quaternion.clone();updateSecretAnimation(rig,.3);assert.ok(neck.quaternion.angleTo(before)>.001);
  assert.deepEqual(pose(source),original);const frozen=neck.quaternion.toArray();updateSecretAnimation(rig,0);assert.deepEqual(neck.quaternion.toArray(),frozen);
  disposeSecretAnimation(rig);disposeDefenderInstance(actor);
- for(const family of ['ladyclaire','lordbernhard']){const aura=createChampionAura(family);assert.equal(aura.userData.classification,'Secret');assert.equal(aura.userData.color,'#ffd969');disposeChampionAura(aura);}
+ for(const family of ['ladyclaire','lordbernhard']){const aura=createChampionAura(family);assert.equal(aura.userData.classification,'Secret');assert.equal(aura.userData.color,'#ffcf36');disposeChampionAura(aura);}
 });
 test('Melancholy has its own moon, actual combat-time countdown and disappears exactly at recovery or outside combat',()=>{
  const claire={id:1,family:'ladyclaire',tier:1,state:'active',x:10,z:10,melancholyUntil:10},combat={elapsed:7.5,enemies:[]};

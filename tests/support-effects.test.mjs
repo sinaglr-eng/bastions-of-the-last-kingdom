@@ -78,13 +78,36 @@ test('all persistent enemy statuses and effective debuff auras have distinct gly
 test('owned instanced overlays have bounded counts, visible independent glyph geometry, no picking and no hidden-enemy leaks',()=>{
   const scene=new THREE.Scene(),fx=new SupportEffects(scene,{baseHeight:1,position:(x,y,z)=>new THREE.Vector3(x-18,y,z-18),isVisible:e=>!e.cloaked,maxTowers:4,maxEnemies:3}),target=unit('archer'),support=unit('monk',2),nature=unit('mothernature',3);
   const towers=[target,support,nature,...Array.from({length:10},(_,i)=>unit('archer',20+i))],enemies=Array.from({length:12},(_,i)=>({id:i,x:10,z:10,statuses:{poison:{time:2,dps:5}},dead:false,cloaked:i===0}));
-  fx.sync(towers,data,{selected:support,combat:{enemies,elapsed:0},phase:'combat'});assert.equal(fx.batches.size,18);assert.equal(fx.group.children.length,20);
+  fx.sync(towers,data,{selected:support,combat:{enemies,elapsed:0},phase:'combat'});assert.equal(fx.batches.size,20);assert.equal(fx.group.children.length,22);
   assert.equal(fx.batches.get('haste').count,4);assert.equal(fx.batches.get('enemy:poison').count,3);assert.equal(fx.enemyStates.has(0),false);assert.ok(fx.radius.visible);assert.equal(fx.tint.count,4);
   const signatures=new Set();for(const key of styleKeys){const mesh=fx.batches.get(key);signatures.add(Array.from(mesh.geometry.attributes.position.array).join(','));assert.equal(mesh.geometry.userData.glyph,SUPPORT_EFFECT_STYLES[key].glyph);assert.ok(mesh.geometry.userData.glyphVertexStart>0);}
   assert.equal(signatures.size,9,'Shapes differ as well as colors');
   fx.group.traverse(o=>{assert.equal(o.raycast(),undefined);assert.ok(!o.isLight);if(o.geometry)assert.ok(o.geometry.attributes.position.array.every(Number.isFinite));if(o.material)assert.equal(o.material.depthWrite,false);});
   const position=fx.radius.geometry.attributes.position;fx.sync(towers,data,{selected:nature});assert.equal(fx.radius.geometry.attributes.position,position,'Selected radius buffer is reused');
   support.state='ruin';nature.state='draft';fx.sync(towers,data);assert.ok([...fx.batches.values()].every(m=>m.count===0));assert.equal(fx.radius.visible,false);assert.equal(fx.tint.count,0);fx.dispose();
+});
+
+test('actual periodic disarm has one hovering broken sword and matching bounded red aura only while combat blocks attacks',()=>{
+  const g=arena(),target=unit('archer'),enemy=foe(g),fx=new SupportEffects(new THREE.Scene(),{pedestalHeight:.8});g.towers=[target];enemy.disarm=true;enemy.cloaked=true;
+  const orbit=fx.batches.get('disarm:orbit'),aura=fx.batches.get('disarm:aura'),matrix=new THREE.Matrix4();
+  const sample=elapsed=>{g.combat.elapsed=elapsed;g.combat.update(0);fx.sync(g.towers,data,{combat:g.combat,phase:g.phase,time:elapsed});};
+  try{
+    sample(.23);assert.equal(target.disarmed,true);assert.equal(orbit.count,1);assert.equal(aura.count,1);
+    assert.equal(orbit.geometry.userData.glyph,'brokenSword');assert.equal(orbit.material.color.getHex(),new THREE.Color(SUPPORT_EFFECT_STYLES.disarm.color).getHex());
+    orbit.getMatrixAt(0,matrix);const first=matrix.clone(),centre=new THREE.Vector3().setFromMatrixPosition(matrix);
+    assert.ok(centre.y>fx.pedestalHeight+.85&&centre.y<fx.pedestalHeight+1);
+    assert.ok(Math.abs(Math.hypot(centre.x-target.x,centre.z-target.z)-.65)<1e-5);
+    orbit.geometry.computeBoundingBox();assert.ok(orbit.geometry.boundingBox.getSize(new THREE.Vector3()).y>.5,'The hovering marker is a physical sword silhouette');
+    assert.ok(aura.geometry.parameters.outerRadius<.8,'Aura stays local to its affected defender');
+    fx.update(.23);orbit.getMatrixAt(0,matrix);assert.deepEqual(matrix.elements,first.elements,'Paused simulation keeps the complete orbit still');
+    fx.update(.45);orbit.getMatrixAt(0,matrix);assert.notDeepEqual(matrix.elements,first.elements);
+    fx.update(1,{reducedMotion:true});const still=Array.from(orbit.instanceMatrix.array);fx.update(100,{reducedMotion:true});assert.deepEqual(Array.from(orbit.instanceMatrix.array),still);
+    sample(1.25-enemy.id*.37);assert.equal(target.disarmed,false);assert.equal(orbit.count,0);assert.equal(aura.count,0,'No lingering aura after the actual disarm window');
+    sample(8.23);assert.equal(target.disarmed,true);assert.equal(orbit.count,1,'A later real window reactivates exactly once');
+    g.towers.push(unit('kingdomprotector',9));sample(8.24);assert.equal(target.disarmed,false);assert.equal(orbit.count,0);assert.equal(aura.count,0);
+    g.towers.pop();enemy.dead=true;sample(8.25);assert.equal(orbit.count,0);
+    enemy.dead=false;g.phase='ready';sample(8.26);assert.equal(orbit.count,0);assert.equal(aura.count,0);
+  }finally{fx.dispose();}
 });
 
 test('reduced motion freezes instance matrices/materials; cleanup is idempotent and never mutates defender materials',()=>{

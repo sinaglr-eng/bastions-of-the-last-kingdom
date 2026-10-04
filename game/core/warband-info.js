@@ -10,28 +10,34 @@ export function currentWarbandInfo(game) {
     const enemy=live||{...selected,resists:{...selected.resists,...modifiers.resists}};
     const maxHp=live?.maxHp??enemy.hp*(modifiers.hp||1);
     const armor=live?.armor??enemy.armor+(modifiers.armor||0);
-    return {type:group.type,name:enemy.name,count:group.count,maxHp,armor,flying:!!enemy.flying,traits:warbandTraits(enemy)};
+    return {type:group.type,name:enemy.name,count:group.count,maxHp,armor,flying:!!enemy.flying,traits:warbandTraits(enemy),traitDetails:warbandTraitDetails(enemy)};
   });
 }
 
 export function warbandTraits(enemy) {
+  return warbandTraitDetails(enemy).map(trait=>trait.text);
+}
+
+// Explicit keys pair a description with the same silhouette used in combat.
+export function warbandTraitDetails(enemy) {
   const traits=[];
-  if(enemy.magicImmune)traits.push('Immune to magic and magical effects');
-  if(enemy.physicalImmune)traits.push('Immune to physical and piercing damage');
-  for(const [type,value] of Object.entries(enemy.resists||{}))if(value>0)traits.push(`${percent(value)} ${type} resistance`);
-  if(enemy.regen)traits.push(`Regenerates ${Math.round(enemy.regen).toLocaleString()} HP/s`);
-  if(enemy.evasion)traits.push(`${percent(enemy.evasion)} chance to evade direct physical hits`);
-  if(enemy.refraction)traits.push(`${enemy.refraction} hit-blocking shields · refresh every 8s`);
-  if(enemy.krakenShell)traits.push(`Shell blocks ${Math.round(enemy.krakenShell)} damage per direct hit`);
-  if(enemy.reactiveArmor)traits.push(`Reactive armor · +${enemy.reactiveArmor} per hit`);
-  if(enemy.recharge)traits.push(`Restores ${percent(enemy.recharge)} health every 8s`);
-  if(enemy.stealth||enemy.cloakDaggers)traits.push(enemy.cloakDaggers?'Cycles cloak and close-range disarms':'Cloaked beyond 2 tiles · Clerics reveal within 6');
-  if(enemy.disarm&&!enemy.cloakDaggers)traits.push('Disarms nearby defenders every 8s');
-  if(enemy.blink)traits.push(`Blinks ${enemy.blink} tiles every 6s`);
-  if(enemy.rush)traits.push(`Blood rush · ×${enemy.rush} speed for 2s every 6s`);
-  if(enemy.hasteAura)traits.push(`Nearby invaders gain ${percent(enemy.hasteAura-1)} movement speed for 3s every 6s`);
-  if(enemy.untouchable)traits.push(`Dread aura · nearby defenders lose ${percent(enemy.untouchable)} attack speed`);
-  if(enemy.thief)traits.push(`Steals ${enemy.thief} gold on reaching the keep`);
+  const add=(text,kind=null)=>traits.push({text,kind});
+  if(enemy.magicImmune)add('Immune to magic and magical effects','magicImmune');
+  if(enemy.physicalImmune)add('Immune to physical and piercing damage','physicalImmune');
+  for(const [type,value] of Object.entries(enemy.resists||{}))if(value>0)add(`${percent(value)} ${type} resistance`,type);
+  if(enemy.regen)add(`Regenerates ${Math.round(enemy.regen).toLocaleString()} HP/s`,'regen');
+  if(enemy.evasion)add(`${percent(enemy.evasion)} chance to evade direct physical hits`,'evasion');
+  if(enemy.refraction)add(`${enemy.refraction} hit-blocking shields · refresh every 8s`,'refraction');
+  if(enemy.krakenShell)add(`Shell blocks ${Math.round(enemy.krakenShell)} damage per direct hit`,'krakenShell');
+  if(enemy.reactiveArmor)add(`Reactive armor · +${enemy.reactiveArmor} per hit`,'reactive');
+  if(enemy.recharge)add(`Restores ${percent(enemy.recharge)} health every 8s`,'recharge');
+  if(enemy.stealth||enemy.cloakDaggers)add(enemy.cloakDaggers?'Cycles cloak and close-range disarms':'Cloaked beyond 2 tiles · Clerics reveal within 6');
+  if(enemy.disarm&&!enemy.cloakDaggers)add('Disarms nearby defenders every 8s');
+  if(enemy.blink)add(`Blinks ${enemy.blink} tiles every 6s`);
+  if(enemy.rush)add(`Blood rush · ×${enemy.rush} speed for 2s every 6s`);
+  if(enemy.hasteAura)add(`Nearby invaders gain ${percent(enemy.hasteAura-1)} movement speed for 3s every 6s`);
+  if(enemy.untouchable)add(`Dread aura · nearby defenders lose ${percent(enemy.untouchable)} attack speed`,'untouchable');
+  if(enemy.thief)add(`Steals ${enemy.thief} gold on reaching the keep`);
   return traits;
 }
 

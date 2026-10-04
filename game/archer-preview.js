@@ -153,7 +153,7 @@ async function showRank(rank){
   if(!cache.has(url))cache.set(url,loader.loadAsync(url).then(decoded=>{if(atelierDisposed){disposeDecodedGeometricAsset(decoded);throw new Error('Atelier closed');}decoded.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});optimizeGeometricSiblings(decoded.scene,{animations:decoded.animations});return decoded;}).catch(error=>{cache.delete(url);throw error;}));
   const gltf=await cache.get(url);if(request!==sequence||atelierDisposed)return;
   gltf.scene.animations=gltf.animations;
-  if(enemy){enemyPreview=createAtelierEnemyPreview(scene,definition,gltf.scene);model=enemyPreview.figure;}
+  if(enemy){enemyPreview=createAtelierEnemyPreview(scene,definition,gltf.scene,{camera,balance});model=enemyPreview.figure;}
   else{model=cloneDefenderTemplate(gltf.scene);modelAttack=attackRig(model,family,definition);}
   model.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});
   animationControls.hidden=!(enemy||modelAttack?.native||modelAttack?.geometric);previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');

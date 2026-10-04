@@ -53,7 +53,9 @@ test('negative effects follow the combat clock and never persist in preparation 
   const html=supportEffectsMarkup(target,stock,data,{phase:'combat',combat});
   assert.match(html,/Dread · attack speed −40%/);assert.match(html,/Disarmed · cannot attack/);
   assert.match(html,/Barricade disruption · attack speed −15%/);assert.match(html,/From Warlord #1/);
-  assert.match(html,/data-glyph="spiral"/);assert.match(html,/data-glyph="cross"/);assert.match(html,/data-glyph="crack"/);
+  assert.match(html,/data-glyph="spiral"/);assert.match(html,/data-glyph="brokenSword"/);assert.match(html,/data-glyph="crack"/);
+  const disarmSvg=html.match(/<svg[^>]*data-glyph="brokenSword"[^>]*>(.*?)<\/svg>/)?.[1];
+  assert.ok(disarmSvg);assert.match(disarmSvg,/<path/);assert.doesNotMatch(disarmSvg,/<circle/,'Legend shows a broken sword rather than the generic target fallback');
   assert.doesNotMatch(supportEffectsMarkup(target,stock,data,{phase:'ready',combat}),/Warlord|Disarmed|−40%/);
   assert.match(supportEffectsMarkup({...target,state:'draft'},stock,data,{phase:'combat',combat}),/Retain this defender/);
 });

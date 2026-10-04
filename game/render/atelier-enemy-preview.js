@@ -5,13 +5,13 @@ import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
 import {animateGeometricOrbits} from './geometric-orbits.js';
 
-export function createAtelierEnemyPreview(scene,definition,template){
+export function createAtelierEnemyPreview(scene,definition,template,{camera,balance}={}){
   const enemy={...definition,id:definition.wave,x:0,z:0,traveled:0,dead:false,statuses:{},shields:definition.refraction||0,rechargeClock:8,blinkClock:0};
   const figure=enemyFigure(enemy,new Map([[definition.visualAsset,template]]));
   figure.userData.geometricMotion=createGeometricMotionRig(figure);
   figure.userData.aura=createEnemyAura(enemy,figure.userData.body);
   if(figure.userData.aura)figure.add(figure.userData.aura);
-  const effects=new EnemyAbilityEffects(scene,{maxEnemies:1,maxEffects:4});
+  const effects=new EnemyAbilityEffects(scene,{maxEnemies:1,maxEffects:4,camera,balance});
   const preview={enemy,figure,effects,time:0,moving:false,flightLift:enemy.flying?.65:0,disposed:false};
   figure.position.y=preview.flightLift;
   return preview;

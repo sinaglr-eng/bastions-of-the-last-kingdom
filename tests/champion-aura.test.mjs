@@ -23,10 +23,10 @@ test('ordinary basic defenders and unknown families create exactly no champion a
   animateChampionAura(null,4);disposeChampionAura(null);
 });
 
-test('ordinary champion classifications keep the same former TOP size, materials and animation, differing only in color',()=>{
+test('champion class colors use saturated thicker rings without changing bounded size or class hierarchy',()=>{
   let previousGeometry=null,previousAnimation=null;
-  assert.deepEqual(CHAMPION_AURA_STYLE,{strength:.50,radius:.92,rings:3,particles:18,wisps:6,height:.94});
-  assert.deepEqual(CHAMPION_AURA_COLORS,{Basic:'#3989ed',Intermediate:'#3eac63',Advanced:'#9555d8',TOP:'#ffd969',Secret:'#ffd969'});
+  assert.deepEqual(CHAMPION_AURA_STYLE,{strength:.64,radius:.92,rings:3,particles:18,wisps:6,height:.94});
+  assert.deepEqual(CHAMPION_AURA_COLORS,{Basic:'#247cff',Intermediate:'#24cd63',Advanced:'#a743f5',TOP:'#ffcf36',Secret:'#ffcf36'});
   for(const [classification,level] of [['Basic',0],['Intermediate',1],['Advanced',2],['TOP',3]]){
     const family=examples[classification],aura=createChampionAura(family),tier=aura.userData.tier;
     assert.equal(aura.userData.classification,classification);assert.equal(aura.userData.level,level);
@@ -35,14 +35,15 @@ test('ordinary champion classifications keep the same former TOP size, materials
     assert.equal(aura.userData.ground.geometry.parameters.width,1.84);
     aura.userData.rings.forEach((ring,i)=>{
       assert.equal(ring.geometry.parameters.innerRadius,.445+i*.15);
-      assert.equal(ring.geometry.parameters.outerRadius,.445+i*.15+.021);
+      assert.equal(ring.geometry.parameters.outerRadius,.445+i*.15+.033);
+      assert.equal(ring.material.blending,THREE.NormalBlending,'Colored rings retain hue instead of washing out to additive white');
     });
     assert.equal(aura.userData.particles.geometry.attributes.position.count,tier.particles);
     const color=new THREE.Color(CHAMPION_AURA_COLORS[classification]);
     assert.equal(aura.userData.ground.material.uniforms.tint.value.getHexString(),color.getHexString());
     for(const ring of aura.userData.rings)assert.equal(ring.material.color.getHexString(),color.getHexString());
     for(const wisp of aura.userData.wisps)assert.equal(wisp.material.uniforms.tint.value.getHexString(),color.getHexString());
-    assert.equal(aura.userData.wisps[0].material.uniforms.opacity.value,.50*.88);
+    assert.equal(aura.userData.wisps[0].material.uniforms.opacity.value,.64*.88);
     assert.equal(aura.userData.particles.material.uniforms.opacity.value,.83);
     assert.equal(aura.userData.particles.material.uniforms.pointScale.value,.115);
     assert.equal(aura.userData.particles.material.uniforms.minPointSize.value,1.6);
@@ -63,15 +64,15 @@ test('both Secret champions have visibly stronger gold ground, rings, wisps and 
       const d=aura.userData,base=ordinary.userData;
       assert.equal(d.tier,SECRET_CHAMPION_AURA_STYLE);assert.equal(CHAMPION_AURA_TIERS[4],d.tier);
       assert.equal(d.color,CHAMPION_AURA_COLORS.TOP);
-      assert.ok(d.ground.material.uniforms.opacity.value>base.ground.material.uniforms.opacity.value*1.5);
+      assert.ok(d.ground.material.uniforms.opacity.value>base.ground.material.uniforms.opacity.value*1.4);
       assert.ok(d.ground.geometry.parameters.width>base.ground.geometry.parameters.width);
       assert.ok(d.rings[0].material.opacity>base.rings[0].material.opacity);
-      assert.ok(d.wisps[0].material.uniforms.opacity.value>base.wisps[0].material.uniforms.opacity.value*1.5);
+      assert.ok(d.wisps[0].material.uniforms.opacity.value>base.wisps[0].material.uniforms.opacity.value*1.4);
       assert.ok(d.wisps[0].geometry.boundingSphere.radius>base.wisps[0].geometry.boundingSphere.radius);
       for(const uniform of ['opacity','pointScale','minPointSize','maxPointSize'])assert.ok(d.particles.material.uniforms[uniform].value>base.particles.material.uniforms[uniform].value);
       assert.equal(d.particles.geometry.attributes.position.count,30);assert.equal(d.rings.length,4);assert.equal(d.wisps.length,8);
       assert.equal(aura.children.length,14);let triangles=0;
-      aura.traverse(o=>{assert.equal(!!o.isLight,false);if(o.isMesh)triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3;if(o.material){assert.equal(o.material.blending,THREE.AdditiveBlending);assert.equal(o.material.depthWrite,false);assert.equal(o.raycast(),undefined);}});
+      aura.traverse(o=>{assert.equal(!!o.isLight,false);if(o.isMesh)triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3;if(o.material){assert.equal(o.material.blending,d.rings.includes(o)?THREE.NormalBlending:THREE.AdditiveBlending);assert.equal(o.material.depthWrite,false);assert.equal(o.raycast(),undefined);}});
       assert.ok(triangles<500,'The brighter style uses a small local mesh budget');
     }
     const resources=aura=>{const found=new Set();aura.traverse(o=>{if(o.geometry)found.add(o.geometry);if(o.material)found.add(o.material);});return found;};
@@ -104,6 +105,8 @@ test('animation stays finite and reduced motion freezes the complete visual aura
         if(object.geometry)for(const value of object.geometry.attributes.position.array)assert.ok(Number.isFinite(value));
       });
       assert.ok(Number.isFinite(aura.userData.ground.material.uniforms.opacity.value));
+      assert.ok(aura.userData.ground.material.uniforms.opacity.value<=1);
+      assert.ok(aura.userData.rings.every(ring=>ring.material.opacity>0&&ring.material.opacity<=1));
     }
     animateChampionAura(aura,3,{reducedMotion:true});const still=state(aura);
     animateChampionAura(aura,300,{reducedMotion:true});assert.deepEqual(state(aura),still);

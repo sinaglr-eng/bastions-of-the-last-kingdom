@@ -13,6 +13,8 @@ import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
 import {beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from './battle-animation.js';
 import {CombatEffects} from './combat-effects.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
+import {EnemyConcealmentEffects} from './enemy-concealment-effects.js';
+import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS} from './checkpoint-marker.js';
 import {fetchGeometricEntries,geometricEntryUrl,loadModelEntries} from './geometric-assets.js';
 import {disposeGeometricResources,adoptDecodedGeometricAsset} from './geometric-resources.js';
 import {optimizeGeometricSiblings} from './geometric-batching.js';
@@ -32,7 +34,7 @@ import {createLandmarkScenery} from './scenery-landmarks.js';
 import {valleyEnvironment} from './environment.js';
 import {meadowTerrain,interiorGrid} from './terrain.js';
 import {towerStats,supportBonuses} from '../core/math.js';
-import {towerModel,cylinder,banner,optimize} from './models.js';
+import {towerModel,optimize} from './models.js';
 
 const HALF=(SIZE-1)/2;
 const v3=(x,y,z)=>new THREE.Vector3(x-HALF,y,z-HALF);
@@ -52,7 +54,8 @@ export class Battlefield {
     this.scene.add(new THREE.AmbientLight('#b2c6c6',0.25));
     this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5*BATTLEFIELD_UNIT_SCALE+WALL_DECK_HEIGHT,targetHeight:e=>(e?.flying?.8:0)+(e?.boss?1.4:1)*BATTLEFIELD_UNIT_SCALE*enemyPresentationMultiplier(e),getStats:t=>towerStats(t,this.game.data),getMuzzle:(source,out,options)=>attackMuzzle(this.models.get(source?.id)?.attack,out,options),getSimulationTime:()=>this.motionTime||0,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
     this.supportEffects=new SupportEffects(this.scene,{position:v3,baseHeight:WALL_DECK_HEIGHT+.15,pedestalHeight:WALL_DECK_HEIGHT,reducedMotion:()=>!!this.reducedMotion?.matches,isVisible:e=>this.game.combat.isRevealed(e)});
-    this.enemyAbilityEffects=new EnemyAbilityEffects(this.scene,{position:v3,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
+    this.enemyAbilityEffects=new EnemyAbilityEffects(this.scene,{position:v3,camera:()=>this.camera,balance:()=>this.game.data.balance,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
+    this.enemyConcealmentEffects=new EnemyConcealmentEffects(this.scene,{position:v3,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
     this.createEnvironment();this.createOverlays();this.maze=new MazePlanner(this);this.draftMarkers=new DraftMarkers(this.scene,this.container);
     this.raycaster=new THREE.Raycaster();this.pointer=new THREE.Vector2();this.plane=new THREE.Plane(new THREE.Vector3(0,1,0),-0.03);this.tapGesture=new PointerTapGesture();this.doubleTap=new SelectedTowerDoubleTap();
     this.clearPointer=()=>{this.edgePointer=null;this.hover=null;this.cursor.visible=false;this.ghost.visible=false;this.maze.endStroke();};
@@ -156,9 +159,12 @@ export class Battlefield {
     this.valley=valleyEnvironment();this.scene.add(this.valley.staticGroup,this.valley.water);if(this.valley.clouds)this.scene.add(this.valley.clouds);
     const checkpointGroup=new THREE.Group();
     this.game.grid.checkpoints.forEach((p,i)=>{
-      const marker=new THREE.Group();cylinder(marker,0.48,0.55,0.07,i===0?'#9b5444':'#b9a16e',[0,0.1,0],8);
-      banner(marker,0.25,0.1,0.15,i===0?'#923e34':'#366c87',0.85);marker.scale.setScalar(CHECKPOINT_MARKER_SCALE);marker.position.copy(v3(p.x,0,p.z));checkpointGroup.add(marker);
-    });this.scene.add(optimize(checkpointGroup));
+      const marker=createCheckpointMarker({label:CHECKPOINT_ROMAN_LABELS[i-1]||'',kind:i===0?'spawn':i===this.game.grid.checkpoints.length-1?'keep':'checkpoint'});
+      marker.scale.setScalar(CHECKPOINT_MARKER_SCALE);marker.position.copy(v3(p.x,0,p.z));checkpointGroup.add(marker);
+    });
+    const checkpointMeshes=optimize(checkpointGroup);
+    checkpointMeshes.traverse(object=>{if(object.isMesh)object.raycast=()=>{};});
+    this.checkpointMeshes=checkpointMeshes;this.scene.add(checkpointMeshes);
     this.grid=interiorGrid(SIZE);this.grid.position.y=0.045;this.grid.material.transparent=true;this.grid.material.opacity=0.14;this.grid.material.depthWrite=false;this.scene.add(this.grid);
   }
   createOverlays() {
@@ -177,7 +183,7 @@ export class Battlefield {
     this.rangeGroup=new THREE.Group();this.scene.add(this.rangeGroup);
     this.healthBars=new THREE.Group();this.scene.add(this.healthBars);
     this.labels=document.createElement('div');this.labels.className='map-labels';this.container.append(this.labels);
-    this.labelItems=[{...this.landmarks.sites.camp,title:'ORC WARCAMP',className:'enemy',height:this.landmarks.sites.camp.labelHeight},{...this.landmarks.sites.keep,title:'THE LAST KEEP',className:'keep',height:this.landmarks.sites.keep.labelHeight},...this.game.grid.checkpoints.slice(1,-1).map((p,i)=>({x:p.x-HALF,z:p.z-HALF,title:`${i+1}`,className:'checkpoint-label',height:2}))].map(p=>{const el=document.createElement('span');el.className=`map-label ${p.className}`;el.textContent=p.title;this.labels.append(el);return {...p,el};});
+    this.labelItems=[{...this.landmarks.sites.camp,title:'ORC WARCAMP',className:'enemy',height:this.landmarks.sites.camp.labelHeight},{...this.landmarks.sites.keep,title:'THE LAST KEEP',className:'keep',height:this.landmarks.sites.keep.labelHeight},...this.game.grid.checkpoints.slice(1,-1).map((p,i)=>({x:p.x-HALF,z:p.z-HALF,title:CHECKPOINT_ROMAN_LABELS[i],className:'checkpoint-label',height:2}))].map(p=>{const el=document.createElement('span');el.className=`map-label ${p.className}`;el.textContent=p.title;this.labels.append(el);return {...p,el};});
   }
   updateCampPreview(){
     const enemy=upcomingInvader(this.game),key=enemy?`${enemy.previewRound}:${enemy.type}:${enemy.visualAsset||enemy.model||''}`:'none';
@@ -342,9 +348,10 @@ export class Battlefield {
       else if(this.game.data.towers[value.tower.family]?.secret)animateSecretChampion(value.actor,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches,melancholy});
     }
     this.enemyAbilityEffects?.sync(this.game.combat.enemies,this.enemies,this.motionTime);
+    this.enemyConcealmentEffects?.sync(this.game.combat.enemies,{time:this.motionTime,active:this.game.phase==='combat'});
     this.enemyAbilityEffects?.update(battleDt);
     this.combatEffects.syncProjectiles(this.game.combat.projectiles,this.time);this.combatEffects.update(battleDt,this.time);
-    this.supportEffects.sync(this.game.towers,this.game.data,{selected:this.game.selection,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase,time:this.time});
+    this.supportEffects.sync(this.game.towers,this.game.data,{selected:this.game.selection,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase,time:this.motionTime});
     for(const fx of this.effects){fx.life-=dt;fx.object.material.opacity=Math.max(0,fx.life/fx.max)*0.75;if(!fx.line)fx.object.scale.setScalar(0.5+(1-fx.life/fx.max)*fx.size*3);}
     this.effects=this.effects.filter(fx=>{if(fx.life>0)return true;this.scene.remove(fx.object);fx.object.geometry.dispose();fx.object.material.dispose();return false;});
     for(const p of this.labelItems){const v=new THREE.Vector3(p.x,p.height,p.z).project(this.camera);p.el.style.transform=`translate(${(v.x+1)*this.container.clientWidth/2}px,${(-v.y+1)*this.container.clientHeight/2}px) translate(-50%,-100%)`;p.el.style.display=Math.abs(v.x)>1||Math.abs(v.y)>1?'none':'';}
@@ -353,7 +360,10 @@ export class Battlefield {
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
-    this.disposed=true;this.combatEffects.dispose();this.supportEffects.dispose();this.enemyAbilityEffects.dispose();this.clearCorpses();
+    this.disposed=true;this.combatEffects.dispose();this.supportEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
+    const checkpointMaterials=new Set();
+    this.checkpointMeshes?.traverse(object=>{if(object.isMesh){object.geometry.dispose();checkpointMaterials.add(object.material);}});
+    checkpointMaterials.forEach(material=>material.dispose());this.checkpointMeshes?.removeFromParent();
     for(const enemy of this.enemies.values())disposeEnemyFigure(enemy);this.enemies.clear();
     if(this.campPreview)disposeEnemyFigure(this.campPreview);this.landmarks.dispose();
     for(const value of this.models.values()){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeDefenderInstance(value.actor);}

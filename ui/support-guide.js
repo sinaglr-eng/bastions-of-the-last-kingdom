@@ -10,6 +10,7 @@ const paths={
   target:'<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v20M2 12h20"/>',
   spiral:'<path d="M12 12c-3-3 3-5 4-1 2 6-7 9-10 3C1 4 17 0 21 10c3 9-7 14-14 11"/>',
   cross:'<path d="m5 5 14 14M5 19 19 5"/>',
+  brokenSword:'<path d="m3 21 4-4m-2-3 5 5m-3-4 5-5 3 1-1-4-2 1-3 5m7-8 2-3 4-1-1 4-2 2-1-3-2 1Z"/>',
   crack:'<path d="m5 3 8 7-4 4 10 7M3 14v7h18v-7"/>',
   snowflake:'<path d="M12 2v20M3 7l18 10M3 17 21 7"/>',
   moon:'<path d="M19 16A9 9 0 0 1 8 3a9 9 0 1 0 11 13Z"/>',

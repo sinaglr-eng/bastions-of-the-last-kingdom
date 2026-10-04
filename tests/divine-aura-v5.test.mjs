@@ -12,7 +12,7 @@ test('Archangel has a gold divine aura around its taller figure while other Adva
   const gold=new THREE.Color('#ffe5a3');assert.equal(divine.userData.ground.material.uniforms.tint.value.getHex(),gold.getHex());
   for(const ring of divine.userData.rings)assert.equal(ring.material.color.getHex(),gold.getHex());
   assert.ok(divine.userData.wisps[0].geometry.boundingSphere.radius>ordinary.userData.wisps[0].geometry.boundingSphere.radius*1.5,'divine light reaches around the upper body');
-  assert.equal(ordinary.userData.ground.material.uniforms.tint.value.getHex(),new THREE.Color('#9555d8').getHex());
+  assert.equal(ordinary.userData.ground.material.uniforms.tint.value.getHex(),new THREE.Color('#a743f5').getHex());
   animateChampionAura(divine,3,{reducedMotion:true});const positions=Array.from(divine.userData.particles.geometry.attributes.position.array);
   animateChampionAura(divine,300,{reducedMotion:true});assert.deepEqual(Array.from(divine.userData.particles.geometry.attributes.position.array),positions);
   assert.deepEqual(readFileSync(new URL('../data/towers.json',import.meta.url)),before,'the requested appearance change does not change abilities or damage');

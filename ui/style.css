@@ -3,7 +3,7 @@
 .route-legend button{display:flex;align-items:center;gap:9px;padding:2px 0;text-align:left;background:none;border:0;font:inherit;color:inherit}
 .route-legend.with-plan{top:142px}
 .route-legend button[aria-pressed="false"]{opacity:.42}.route-legend button:disabled{opacity:.65}
-.route-swatch{display:inline-block;flex:none;width:28px;height:0;border-top:2px solid #c8ac74}.route-swatch.flying{border-color:#66dbea}.route-swatch.planned{border-top:2px dashed #9baba5;opacity:.75}
+.route-swatch{display:inline-block;flex:none;width:28px;height:0;border-top:2px solid #9b783f}.route-swatch.flying{border-color:#66dbea}.route-swatch.planned{border-top:2px dashed #9baba5;opacity:.75}
 .route-wall-key{display:flex;align-items:center;gap:9px;padding-top:2px;color:#b5c8bb;font-size:10px}.route-wall-key i{width:13px;height:10px;display:inline-block;margin-left:7px;margin-right:8px;background:#65dce966;border:1px solid #65dce9aa}
 .checkpoint-label{font-size:11px;min-width:24px;text-align:center;border:1px solid #dfc87aaa;box-shadow:0 2px 6px #17332c55}
 @media(max-width:580px){.route-legend,.route-legend.with-plan{left:12px;top:106px;padding:7px 8px;font-size:9px;gap:3px}.route-wall-key{font-size:9px}.route-swatch{width:22px}}
@@ -237,3 +237,10 @@ dialog{border:1px solid #9a8b6077;background:linear-gradient(145deg,#243132,#152
 .rank-preview-caption{font-size:10px;line-height:1.45;color:#a9b8a6;margin:7px 0 0;min-height:15px}
 .rank-field-note{margin-top:15px;padding-top:10px;border-top:1px solid var(--border);font-size:9px;letter-spacing:.7px;color:#d3c6a4}
 @media(any-pointer:coarse){.rank-preview-buttons button{min-height:44px}}
+.enemy-defense-glyph{width:23px;height:23px;flex:0 0 23px;padding:3px;border-radius:50%;background:#0c161ecc;border:1px solid currentColor;box-sizing:content-box}
+.current-warband .enemy-trait-list{list-style:none;padding:0;display:grid;gap:9px;line-height:1.45}
+.enemy-trait-list li{display:flex;align-items:center;gap:8px}
+.current-warband .enemy-trait-list li+li{margin:0}
+.wave-defense-legend{list-style:none;padding:0;margin:9px 0;display:flex;flex-wrap:wrap;gap:6px 10px;font-size:10px;line-height:1.25;color:#c2d0c0}
+.wave-defense-legend li{display:flex;align-items:center;gap:5px}
+.wave-defense-legend .enemy-defense-glyph{width:17px;height:17px;flex-basis:17px;padding:2px}
