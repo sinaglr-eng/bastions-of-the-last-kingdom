@@ -7,6 +7,8 @@ const finite=(value,fallback=0)=>Number.isFinite(value)?value:fallback;
 const clamp=(value,min,max)=>Math.min(max,Math.max(min,value));
 const smooth=value=>{value=clamp(value,0,1);return value*value*(3-2*value);};
 const TAU=Math.PI*2;
+export const ENEMY_WALK_CADENCE_SCALE=.25;
+export const ENEMY_WALK_MAX_CYCLES_PER_SECOND=1.1;
 const JOINT=/^(torso_pivot|head_pivot|upper_arm_[RL]|forearm_[RL]|hand_[RL]|upper_leg_(?:[RL]|[FB][RL])|shin_(?:[RL]|[FB][RL])|foot_(?:[RL]|[FB][RL])|wing_[RL]|tail_pivot|jaw_pivot|mouth_pivot)$/;
 
 export function geometricMetadata(actor){
@@ -40,24 +42,31 @@ export function createGeometricMotionRig(figure){
   }).filter(leg=>leg.hip);
   return rig;
 }
-export function resetGeometricMotion(rig){
+export function resetGeometricMotion(rig,{retainSupport=false}={}){
   if(!rig)return;
   const {body,bodyRest}=rig;
   body.position.copy(bodyRest.position);body.rotation.copy(bodyRest.rotation);body.scale.copy(bodyRest.scale);
   for(const joint of rig.joints.values()){joint.node.position.copy(joint.position);joint.node.rotation.copy(joint.rotation);joint.node.scale.copy(joint.scale);}
+  if(!retainSupport)for(const leg of rig.legs)leg.supportZ=null;
 }
 function rotate(rig,name,x=0,y=0,z=0){
   const joint=rig.joints.get(name);if(!joint)return;
   joint.node.rotation.set(joint.rotation.x+x,joint.rotation.y+y,joint.rotation.z+z,joint.rotation.order);
 }
-function solveLeg(leg,phase,stride,lift){
+function solveLeg(leg,phase,stride,lift,travel){
   const cycle=((phase/TAU)%1+1)%1,stance=.62;
   const swinging=cycle>=stance,p=swinging?(cycle-stance)/(1-stance):cycle/stance;
-  // Phase completes one cycle per stride of world travel. During the 62%
-  // support interval the ankle therefore sweeps 62% of that distance locally,
-  // cancelling actor translation exactly; a full-stride sweep would skid.
+  // A slower visual cycle must not demand a several-body-length stride from
+  // short native legs. Retain actual travel during early support, then keep
+  // the target inside its authored sweep until the slow alternating swing.
   const sweep=stride*stance;
-  const z=leg.restZ+(swinging?THREE.MathUtils.lerp(sweep/2,-sweep/2,smooth(p)):THREE.MathUtils.lerp(-sweep/2,sweep/2,p));
+  let z;
+  if(swinging){leg.supportZ=null;z=leg.restZ+THREE.MathUtils.lerp(sweep/2,-sweep/2,smooth(p));}
+  else{
+    if(leg.supportZ==null)leg.supportZ=THREE.MathUtils.lerp(-sweep/2,sweep/2,p);
+    else leg.supportZ=Math.min(sweep/2,leg.supportZ+travel);
+    z=leg.restZ+leg.supportZ;
+  }
   const length=leg.l1+leg.l2,maximumReach=length-.0001,supportReach=Math.min(-leg.restY,Math.sqrt(Math.max(0,maximumReach*maximumReach-z*z)));
   // Lower the hip only when this actual ankle target exceeds the two links'
   // reach. Planning that drop for the furthest future step alters the native
@@ -104,16 +113,25 @@ export function animateGeometricEnemyMotion(figure,enemy,time,{moving=true,reduc
   const locomotion=rig.locomotion==='flying'&&!flying?(rig.legs.length===4?'quadruped':'biped'):rig.locomotion;
   const height=Math.max(.3,finite(rig.metadata.bodyHeight,finite(rig.metadata.bodyHeightMeters,1.8)));
   const legReach=rig.legs.filter(leg=>leg.ik).map(leg=>leg.l1+leg.l2),naturalStride=legReach.length?Math.min(height*.26,Math.min(...legReach)*.85):height*.26;
-  const stride=clamp(finite(rig.metadata.strideLength,naturalStride),.15,1.8);
-  const worldStride=stride*Math.max(1e-8,rig.body.getWorldScale(rig.worldScale).y);
+  // Tiny authored legs need a tiny sweep and clearance. A 150 mm minimum
+  // stride or body-height lift can force a short asymmetric knee chain to
+  // switch its bend abruptly, even when the visual cadence is slow.
+  const maximumStride=legReach.length?Math.min(1.8,Math.min(...legReach)*.85):1.8;
+  const stride=clamp(finite(rig.metadata.strideLength,naturalStride),.002,maximumStride);
+  const lift=legReach.length?Math.min(height*.055,Math.min(...legReach)*.20):height*.055;
+  const worldScale=Math.max(1e-8,rig.body.getWorldScale(rig.worldScale).y),worldStride=stride*worldScale;
   let distance=previousDistance===null?0:Math.max(0,traveled-previousDistance);
   // A blink contributes to combat traveled distance, but cannot cycle the legs
   // through a kilometre of walking in one visual frame.
   const speed=Math.max(0,finite(enemy.speed,1));
   if(distance>Math.max(worldStride,dt*speed*3))distance=0;
-  if(active&&!reducedMotion)rig.phase+=distance/worldStride*TAU;
+  if(active&&!reducedMotion){
+    const advance=distance/worldStride*TAU;
+    rig.phase+=flying?advance:Math.min(advance*ENEMY_WALK_CADENCE_SCALE,dt*ENEMY_WALK_MAX_CYCLES_PER_SECOND*TAU);
+  }
   const phase=rig.phase+finite(enemy.id)*.91;
-  resetGeometricMotion(rig);
+  resetGeometricMotion(rig,{retainSupport:true});
+  if(!active||reducedMotion||previous===null||previousDistance===null)for(const leg of rig.legs)leg.supportZ=null;
   if(reducedMotion)return 0;
   if(flying&&(enemy.statuses?.freeze||enemy.statuses?.petrify))return 0;
   if(flying){
@@ -137,7 +155,7 @@ export function animateGeometricEnemyMotion(figure,enemy,time,{moving=true,reduc
   if(active){
     for(const leg of rig.legs){
       const offset=locomotion==='quadruped'?(['FL','BR'].includes(leg.side)?0:Math.PI):leg.side.endsWith('L')?0:Math.PI;
-      if(leg.ik)footTargets.push({leg,offset:solveLeg(leg,phase+offset,stride,height*.055)});
+      if(leg.ik)footTargets.push({leg,offset:solveLeg(leg,phase+offset,stride,lift,distance/worldScale)});
       else{rotate(rig,'upper_leg_'+leg.side,Math.sin(phase+offset)*.36);rotate(rig,'shin_'+leg.side,Math.max(0,Math.sin(phase+offset-.45))*.48);rotate(rig,'foot_'+leg.side,-Math.sin(phase+offset)*.14);}
     }
     if(locomotion==='serpent'){rotate(rig,'torso_pivot',0,Math.sin(phase)*.17,0);rotate(rig,'tail_pivot',0,-Math.sin(phase+.6)*.35,0);}

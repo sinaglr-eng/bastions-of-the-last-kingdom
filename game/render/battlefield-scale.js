@@ -1,6 +1,6 @@
 // Game tiles are presentation space. Native Blender and Atelier sizes stay intact.
 export const BATTLEFIELD_UNIT_SCALE=.88*.8;
-export const BATTLEFIELD_BOSS_MULTIPLIER=1.5;
+export const BATTLEFIELD_BOSS_MULTIPLIER=1.5*1.25;
 export const enemyPresentationMultiplier=enemy=>enemy?.boss?BATTLEFIELD_BOSS_MULTIPLIER:1;
 const baseScales=new WeakMap(),authoredScales=new WeakMap(),bossMultipliers=new WeakMap();
 export function scaleBattlefieldUnit(actor,enemy=null){

@@ -3,7 +3,7 @@
 .route-legend button{display:flex;align-items:center;gap:9px;padding:2px 0;text-align:left;background:none;border:0;font:inherit;color:inherit}
 .route-legend.with-plan{top:142px}
 .route-legend button[aria-pressed="false"]{opacity:.42}.route-legend button:disabled{opacity:.65}
-.route-swatch{display:inline-block;flex:none;width:28px;height:0;border-top:2px solid #e9b75f}.route-swatch.flying{border-color:#66dbea}.route-swatch.planned{border-top:2px dashed #9baba5;opacity:.75}
+.route-swatch{display:inline-block;flex:none;width:28px;height:0;border-top:2px solid #c8ac74}.route-swatch.flying{border-color:#66dbea}.route-swatch.planned{border-top:2px dashed #9baba5;opacity:.75}
 .route-wall-key{display:flex;align-items:center;gap:9px;padding-top:2px;color:#b5c8bb;font-size:10px}.route-wall-key i{width:13px;height:10px;display:inline-block;margin-left:7px;margin-right:8px;background:#65dce966;border:1px solid #65dce9aa}
 .checkpoint-label{font-size:11px;min-width:24px;text-align:center;border:1px solid #dfc87aaa;box-shadow:0 2px 6px #17332c55}
 @media(max-width:580px){.route-legend,.route-legend.with-plan{left:12px;top:106px;padding:7px 8px;font-size:9px;gap:3px}.route-wall-key{font-size:9px}.route-swatch{width:22px}}
@@ -223,3 +223,17 @@ dialog{border:1px solid #9a8b6077;background:linear-gradient(145deg,#243132,#152
 
 /* Automatic Kingdom-based draw quality. */
 .mastery-auto{display:flex;justify-content:space-between;gap:7px;flex-wrap:wrap;align-items:center;padding:7px 8px;border:1px solid #8c9b7550;border-radius:4px;background:#29372d;color:#d3d7ba;font-size:10px}.mastery-auto small{color:#94a99b;font-size:9px}.draft-mastery .mastery-auto{padding:5px 7px;line-height:1.2}.maze-option .maze-core-metrics{color:#b9cbaa}.maze-reference-label{margin:9px 0 5px!important;font-size:9px!important;letter-spacing:.9px;color:#c5af79!important}.maze-performance{margin:8px 0;padding:8px;border:1px solid #8aa28133;background:#21382d33;border-radius:4px}.maze-performance b{color:#d2dfbd;font-size:12px}.maze-performance span{display:block;font-size:10px;line-height:1.5;color:#afc1b1}.maze-option span+span{margin-top:3px}.maze-option b{white-space:normal}@media(max-width:580px){.draft-mastery .mastery-auto{grid-column:3;grid-row:1 / span 2;font-size:9px;align-self:center}.mastery-auto small{font-size:8px}}
+
+/* Compare rank stats while field commands remain bound to the selected unit. */
+.rank-preview{margin:12px 0 14px;padding:10px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.rank-preview-heading{display:flex;justify-content:space-between;gap:6px;font-size:9px;letter-spacing:.8px;color:var(--muted);margin-bottom:8px}
+.rank-preview-heading span:last-child{letter-spacing:0;color:#d3c6a4}
+.rank-preview-buttons{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+.rank-preview-buttons button{position:relative;min-height:38px;padding:5px 0;border:1px solid #9aab8f33;background:#25333066;color:#aab9ae;border-radius:3px;font:12px Georgia,serif;cursor:pointer}
+.rank-preview-buttons button:hover{background:#45504355;color:#eee1bf}
+.rank-preview-buttons button[aria-pressed="true"]{border-color:#bca16a;color:#f3dfaa;background:#6d5d3733}
+.rank-preview-buttons button[data-current="true"]::after{content:"";position:absolute;bottom:4px;left:calc(50% - 2px);width:4px;height:2px;border-radius:1px;background:#c1c9b4}
+.rank-preview-buttons button:focus-visible{outline:2px solid #e6ce90;outline-offset:2px}
+.rank-preview-caption{font-size:10px;line-height:1.45;color:#a9b8a6;margin:7px 0 0;min-height:15px}
+.rank-field-note{margin-top:15px;padding-top:10px;border-top:1px solid var(--border);font-size:9px;letter-spacing:.7px;color:#d3c6a4}
+@media(any-pointer:coarse){.rank-preview-buttons button{min-height:44px}}

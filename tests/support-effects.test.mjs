@@ -6,6 +6,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {Game} from '../game/core/game.js';
 import {supportBonuses,towerStats} from '../game/core/math.js';
 import {SupportEffects,SUPPORT_EFFECT_STYLES,ENEMY_EFFECT_STYLES,towerSupportState,supportLegend,supportSourceAreas,enemyStatusState,supportTintKey} from '../game/render/support-effects.js';
+import {castleWallModel,WALL_DECK_HEIGHT} from '../game/render/walls.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
 const unit=(family,id=1,tier=1,x=10,z=10)=>({id,family,tier,state:'active',x,z,kills:0,cooldown:999});
@@ -95,7 +96,7 @@ test('reduced motion freezes instance matrices/materials; cleanup is idempotent 
   assert.equal(scene.children.length,0);assert.ok([...counts.values()].every(n=>n===1));assert.equal(cachedMaterial.color.getHex(),before);cachedMaterial.dispose();
 });
 
-test('wall-cap top and side tint stays outside the miniature pedestal, uses one stable hue, and covers negative-only defenders without mutating GLB materials',async()=>{
+test('wall-cap edge tint leaves stone paving unobstructed, uses one stable hue, and covers negative-only defenders without mutating GLB materials',async()=>{
   const bytes=readFileSync(new URL('../public/assets/models/human_cleric_t1.glb',import.meta.url)),template=(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene;
   const cached=new Set();template.traverse(o=>{if(o.material)cached.add(o.material);});
   const before=[...cached].map(m=>[m.color?.getHex(),m.opacity,m.transparent]);
@@ -103,8 +104,15 @@ test('wall-cap top and side tint stays outside the miniature pedestal, uses one 
   const fx=new SupportEffects(scene,{baseHeight:1.4,pedestalHeight:1.2}),target=unit('archer'),support=unit('monk',2),nature=unit('mothernature',3),towers=[target,support,nature];
   const geometry=fx.tint.geometry,material=fx.tint.material;geometry.computeBoundingBox();
   const size=geometry.boundingBox.getSize(new THREE.Vector3());assert.ok(Math.abs(size.x-.97)<1e-6&&Math.abs(size.z-.97)<1e-6&&Math.abs(size.y-.12)<1e-6);
-  assert.equal(material.opacity,.32);assert.equal(material.depthWrite,false);assert.equal(material.side,THREE.FrontSide);
-  fx.sync(towers,data);assert.equal(fx.tint.count,3);const matrix=new THREE.Matrix4();fx.tint.getMatrixAt(0,matrix);assert.ok(Math.abs(matrix.elements[13]-1.16)<1e-6);
+  assert.ok(material.opacity>0&&material.opacity<=.18,'The exposed edge tint remains subtle');assert.equal(material.depthWrite,false);assert.equal(material.side,THREE.FrontSide);
+  fx.sync(towers,data);assert.equal(fx.tint.count,3);const matrix=new THREE.Matrix4();fx.tint.getMatrixAt(0,matrix);assert.ok(geometry.boundingBox.clone().applyMatrix4(matrix).max.y<fx.pedestalHeight,'Tint cannot occupy the fighting deck or the defender soles');
+  const platform=castleWallModel(0,true);platform.position.set(target.x,fx.pedestalHeight-WALL_DECK_HEIGHT,target.z);platform.updateMatrixWorld(true);
+  const tintSurface=new THREE.Mesh(geometry,material);tintSurface.matrixAutoUpdate=false;tintSurface.matrix.copy(matrix);tintSurface.updateMatrixWorld(true);
+  for(const x of [-.3,0,.3])for(const z of [-.3,0,.3]){
+    const hit=new THREE.Raycaster(new THREE.Vector3(target.x+x,fx.pedestalHeight+.1,target.z+z),new THREE.Vector3(0,-1,0)).intersectObjects([platform,tintSurface],true)[0];
+    assert.ok(hit&&hit.object!==tintSurface&&Math.abs(hit.point.y-fx.pedestalHeight)<1e-6,'Actual level stone stays in front of the color band');
+  }
+  platform.traverse(node=>node.geometry?.dispose());
   const color=new THREE.Color();fx.tint.getColorAt(0,color);
   const expected=new THREE.Color(SUPPORT_EFFECT_STYLES.haste.color);assert.ok(Math.abs(color.r-expected.r)<1e-6&&Math.abs(color.g-expected.g)<1e-6&&Math.abs(color.b-expected.b)<1e-6);assert.equal(supportTintKey(fx.states.get(target.id)),'haste');assert.equal(fx.states.get(target.id).effects.length,5,'Other simultaneous glyphs stay present');
   fx.sync([target],data,{combat:{elapsed:0,enemies:[{id:1,x:11,z:10,untouchable:.4,disarm:true}]},phase:'combat'});assert.equal(fx.tint.count,1);assert.equal(supportTintKey(fx.states.get(target.id)),'dread');fx.tint.getColorAt(0,color);const danger=new THREE.Color(SUPPORT_EFFECT_STYLES.dread.color);assert.ok(Math.abs(color.r-danger.r)<1e-6&&Math.abs(color.b-danger.b)<1e-6);

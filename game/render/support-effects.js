@@ -187,7 +187,7 @@ export class SupportEffects{
     for(const [key,style]of Object.entries(SUPPORT_EFFECT_STYLES))this.batch(key,style,maxTowers,negativeKeys.includes(key)?{inner:.83,outer:.90,glyphRadius:1.04}:{});
     for(const [key,style]of Object.entries(ENEMY_EFFECT_STYLES))this.batch(`enemy:${key}`,style,maxEnemies,{inner:.34,outer:.39,glyphRadius:.54,angle:.57});
     const wallBand=new THREE.BoxGeometry(.97,.12,.97);
-    this.tint=new THREE.InstancedMesh(wallBand,new THREE.MeshBasicMaterial({color:'#ffffff',transparent:true,opacity:.32,depthWrite:false,toneMapped:false}),maxTowers);this.tint.name='Owned wall-cap top and side color bands';this.tint.count=0;this.tint.instanceMatrix.setUsage(THREE.DynamicDrawUsage);this.tint.raycast=noPick;this.tint.frustumCulled=false;this.tint.renderOrder=4;this.group.add(this.tint);
+    this.tint=new THREE.InstancedMesh(wallBand,new THREE.MeshBasicMaterial({color:'#ffffff',transparent:true,opacity:.14,depthWrite:false,toneMapped:false}),maxTowers);this.tint.name='Owned wall-cap edge color bands';this.tint.count=0;this.tint.instanceMatrix.setUsage(THREE.DynamicDrawUsage);this.tint.raycast=noPick;this.tint.frustumCulled=false;this.tint.renderOrder=4;this.group.add(this.tint);
     const unitRadius=dashedRadius();this.radiusBase=Array.from(unitRadius.attributes.position.array);unitRadius.dispose();
     const radiusGeometry=new THREE.BufferGeometry(),radiusCapacity=this.radiusBase.length*8;
     radiusGeometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(radiusCapacity),3).setUsage(THREE.DynamicDrawUsage));radiusGeometry.setAttribute('color',new THREE.Float32BufferAttribute(new Float32Array(radiusCapacity),3).setUsage(THREE.DynamicDrawUsage));radiusGeometry.setDrawRange(0,0);
@@ -207,7 +207,9 @@ export class SupportEffects{
       if(tintKey)tints.push({tower,color:new THREE.Color(SUPPORT_EFFECT_STYLES[tintKey].color)});
     }
     this.tint.count=Math.min(tints.length,this.maxTowers);
-    for(let i=0;i<this.tint.count;i++){const {tower,color}=tints[i];this.matrix.makeTranslation(...this.position(tower.x,this.pedestalHeight-.04,tower.z).toArray());this.tint.setMatrixAt(i,this.matrix);this.tint.setColorAt(i,color);}
+    // The band ends below the stone deck, leaving its paving and the defender's
+    // soles unobstructed. Its side tint complements the independent glyphs.
+    for(let i=0;i<this.tint.count;i++){const {tower,color}=tints[i];this.matrix.makeTranslation(...this.position(tower.x,this.pedestalHeight-.062,tower.z).toArray());this.tint.setMatrixAt(i,this.matrix);this.tint.setColorAt(i,color);}
     this.tint.instanceMatrix.needsUpdate=true;if(this.tint.instanceColor)this.tint.instanceColor.needsUpdate=true;
     if(combatActive(options)){
       const statCache=new Map(),statsFor=tower=>{const key=`${tower.family}:${tower.tier}:${tower.upgrades||0}`;if(!statCache.has(key))statCache.set(key,towerStats(tower,data));return statCache.get(key);};

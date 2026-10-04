@@ -1,14 +1,14 @@
 import * as THREE from 'three';
 import {SIZE} from '../core/grid.js';
 
-export const ROUTE_COLORS={current:'#e9b75f',flying:'#66dbea',planned:'#9baba5'};
+export const ROUTE_COLORS={current:'#c8ac74',flying:'#66dbea',planned:'#9baba5'};
 export const CHECKPOINT_MARKER_SCALE=1.15;
 const half=(SIZE-1)/2;
-const motion=new WeakMap(),arrowPitch=3.2,arrowSpeed=.72;
+const motion=new WeakMap(),arrowPitch=5.2,arrowSpeed=.64;
 function placeArrows(state){
   const {arrows,segments,total,matrix}=state;
   for(let i=0;i<arrows.count;i++){
-    const distance=(1.6+i*arrowPitch+state.elapsed*arrowSpeed)%total;
+    const distance=(arrowPitch/2+i*arrowPitch+state.elapsed*arrowSpeed)%total;
     let low=0,high=segments.length-1;
     while(low<high){const middle=(low+high)>>1;if(distance<segments[middle].end)high=middle;else low=middle+1;}
     const segment=segments[low],along=distance-segment.start;
@@ -66,7 +66,7 @@ export function createRouteOverlay(points,{planned=false,flying=false}={}){
         offset+=step;
       }
     }else{
-      quad(border,a,b,.125,y-.002);quad(stroke,a,b,.057);
+      quad(border,a,b,.065,y-.002);quad(stroke,a,b,.034);
     }
     traveled+=length;
   }
@@ -77,15 +77,15 @@ export function createRouteOverlay(points,{planned=false,flying=false}={}){
     mesh.name=name;mesh.raycast=()=>{};group.add(mesh);
   };
   const color=planned?ROUTE_COLORS.planned:flying?ROUTE_COLORS.flying:ROUTE_COLORS.current;
-  add(border,planned?'#46544d':'#695038',planned?.24:.44,planned?'Planned route dash edges':'Current route edge');add(stroke,color,planned?.44:.84,planned?'Planned route dashes':'Current route continuous ribbon');
+  add(border,planned?'#46544d':'#59604c',planned?.24:.18,planned?'Planned route dash edges':'Current route edge');add(stroke,color,planned?.44:.48,planned?'Planned route dashes':'Current route continuous ribbon');
   if(!planned&&traveled){
     // Two tapered strokes form an open chevron; the slim continuous guide below
-    // it remains readable while the bright direction markers flow forward.
+    // it remains readable while small, widely spaced markers flow forward.
     const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute([
-      -.15,0,.145,.19,0,0,.085,0,0, -.15,0,.145,.085,0,0,-.13,0,.073,
-      -.15,0,-.145,-.13,0,-.073,.085,0,0, -.15,0,-.145,.085,0,0,.19,0,0
+      -.105,0,.095,.135,0,0,.066,0,0, -.105,0,.095,.066,0,0,-.094,0,.051,
+      -.105,0,-.095,-.094,0,-.051,.066,0,0, -.105,0,-.095,.066,0,0,.135,0,0
     ],3));
-    const arrows=new THREE.InstancedMesh(geometry,new THREE.MeshBasicMaterial({color:flying?'#b2f3f4':'#ffe2a0',side:THREE.DoubleSide,transparent:true,opacity:.94,depthWrite:false,toneMapped:false}),Math.max(1,Math.floor(traveled/arrowPitch)));
+    const arrows=new THREE.InstancedMesh(geometry,new THREE.MeshBasicMaterial({color:flying?'#a4d6d2':'#d9c397',side:THREE.DoubleSide,transparent:true,opacity:.76,depthWrite:false,toneMapped:false}),Math.max(1,Math.floor(traveled/arrowPitch)));
     arrows.name='Current route direction arrows';arrows.raycast=()=>{};arrows.frustumCulled=false;group.add(arrows);
     const state={arrows,segments,total:traveled,elapsed:0,matrix:new THREE.Matrix4()};motion.set(group,state);placeArrows(state);
   }

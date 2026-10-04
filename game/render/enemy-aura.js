@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {hasEnemySpecialMechanic} from './geometric-enemy-effects.js';
 
 export const ENEMY_AURA_STAGES = Object.freeze([
   {name:'No aura',color:'#ffffff',smoke:false},
@@ -8,6 +9,7 @@ export const ENEMY_AURA_STAGES = Object.freeze([
   {name:'Black smoke · violet edge',color:'#9253d4',smoke:true},
 ]);
 export function enemyAuraStage(enemy){
+  if(!hasEnemySpecialMechanic(enemy))return 0;
   const wave=Number(/^host_(\d+)/.exec(enemy.type||'')?.[1]);
   return THREE.MathUtils.clamp(Number.isInteger(enemy.auraStage)?enemy.auraStage:Number.isFinite(wave)?Math.floor((wave-1)/10):0,0,4);
 }

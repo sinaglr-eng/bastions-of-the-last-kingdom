@@ -1,9 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {Group,Mesh,BoxGeometry,MeshStandardMaterial,NormalBlending,Vector3} from 'three';
 import {createEnemyAura,animateEnemyAura,enemyAuraStage} from '../game/render/enemy-aura.js';
 import {enemyFigure,installEnemyTemplate,animateEnemyCues,disposeEnemyFigure} from '../game/render/enemy-assets.js';
 import {CombatManager} from '../game/core/combat.js';
+import {EnemyAbilityEffects,enemyDefenseVisualState,hasEnemySpecialMechanic} from '../game/render/geometric-enemy-effects.js';
 const body=()=>{const root=new Group(),mesh=new Mesh(new BoxGeometry(.6,2,.6),new MeshStandardMaterial({emissive:'#553311',emissiveIntensity:.1}));mesh.position.y=1;root.add(mesh);return root;};
 const cueFixture=kinds=>{
   const template=new Group();
@@ -21,17 +23,65 @@ const combatFixture=(time,traits={},dt=.005)=>{
   const combat=new CombatManager(game);combat.enemies=[enemy];combat.elapsed=time-dt;combat.update(dt);
   return {enemy,tower,elapsed:combat.elapsed,dt};
 };
-test('five visual stages include bare first ten waves, even their boss',()=>{
-  for(let wave=1;wave<=50;wave++)assert.equal(enemyAuraStage({type:`host_${String(wave).padStart(2,'0')}`}),Math.floor((wave-1)/10));
+test('five visual stages apply only to real special mechanics, with the first ten waves still bare',()=>{
+  for(let wave=1;wave<=50;wave++){
+    const type=`host_${String(wave).padStart(2,'0')}`;
+    assert.equal(enemyAuraStage({type,armor:100}),0,'wave rank and armor alone do not create an aura');
+    assert.equal(enemyAuraStage({type,regen:1}),Math.floor((wave-1)/10));
+  }
   assert.equal(createEnemyAura({type:'host_10',boss:true},body()),null);
   for(const wave of [11,21,31,41,50]){
-    const enemy={type:`host_${wave}`,boss:wave===50,flying:wave===50,hp:120,speed:1},snapshot=structuredClone(enemy);
+    const enemy={type:`host_${wave}`,boss:wave===50,flying:wave===50,hp:120,speed:1,regen:1},snapshot=structuredClone(enemy);
     const aura=createEnemyAura(enemy,body());assert.ok(aura);assert.deepEqual(enemy,snapshot);
     animateEnemyAura(aura,10);assert.equal(aura.userData.uniforms.time.value,10);
     animateEnemyAura(aura,20,{reducedMotion:true});assert.equal(aura.userData.uniforms.time.value,0);
     assert.equal(aura.children[0].material.blending,NormalBlending,'black smoke must actually darken');
     assert.ok(aura.children.length<=4);assert.equal(aura.userData.vortex!==undefined,wave===50);
   }
+});
+
+test('actual armor-only campaign spawns have no aura, shield, ring or glyph while special variants keep their protection',()=>{
+  const definitions=JSON.parse(readFileSync(new URL('../data/enemies.json',import.meta.url)));
+  const route=[{x:0,z:0},{x:10,z:0}],game={data:{enemies:definitions},grid:{route,checkpoints:route},emit(){}},combat=new CombatManager(game);
+  const scene=new Group(),effects=new EnemyAbilityEffects(scene);
+  const ordinary=['host_01','host_02','host_03','host_04','host_05','host_07','host_10','host_11','host_13','host_20','host_22','host_25','host_30'].map(type=>combat.spawn(type));
+  const plainBefore=structuredClone(ordinary),shape=body();
+  try{
+    assert.equal(ordinary.find(e=>e.type==='host_02').armor,1,'the reported wave-two armor value is exercised');
+    for(const enemy of ordinary){
+      assert.equal(hasEnemySpecialMechanic(enemy),false,enemy.type+' armor alone is ordinary');
+      assert.equal(enemyAuraStage(enemy),0);
+      assert.equal(createEnemyAura(enemy,shape),null);
+      assert.deepEqual(enemyDefenseVisualState(enemy),[]);
+      assert.equal(createEnemyAura({...enemy,auraStage:4},shape),null,'an authored wave color cannot bypass the no-ability rule');
+    }
+    effects.sync(ordinary);
+    assert.equal(effects.batches.size,0,'no rings, floating shields, glyphs or crystals are allocated');
+    assert.equal(effects.group.children.length,0);
+    assert.deepEqual(ordinary,plainBefore,'appearance does not change defenses or spawn data');
+    const special=[
+      combat.spawn('host_35',{variant:definitions.host_35.variants[0]}),
+      combat.spawn('host_35',{variant:definitions.host_35.variants[1]}),
+      combat.spawn('host_14'),combat.spawn('host_24'),
+      combat.spawn('host_02',{resists:{fire:.35}}),
+    ];
+    assert.equal(enemyAuraStage(special[0]),3);assert.equal(enemyAuraStage(special[1]),3);
+    assert.deepEqual(enemyDefenseVisualState(special[0]).map(s=>s.kind),['magicImmune']);
+    assert.deepEqual(enemyDefenseVisualState(special[1]).map(s=>s.kind),['physicalImmune']);
+    assert.deepEqual(enemyDefenseVisualState(special[2]).map(s=>s.kind),['refraction']);
+    assert.deepEqual(enemyDefenseVisualState(special[3]),[],'reactive armor is not active before a direct hit');
+    special[3].reactiveStacks=1;
+    assert.deepEqual(enemyDefenseVisualState(special[3]).map(s=>s.kind),['reactive']);
+    assert.deepEqual(enemyDefenseVisualState(special[4]).map(s=>s.kind),['fire'],'an actual typed modifier retains its symbol');
+    effects.sync([...ordinary,...special]);
+    assert.equal(effects.batches.has('armor'),false);
+    for(const kind of ['magicImmune','physicalImmune','refraction','reactive','fire'])assert.equal(effects.batches.get(kind).glyph.count,1,kind+' keeps a meaningful symbol');
+    assert.equal(effects.batches.get('refraction').crystals.count,3);
+    special[2].shields=0;special[3].reactiveStacks=0;special[4].magicShred=.5;
+    effects.sync([...ordinary,...special]);
+    for(const kind of ['refraction','reactive','fire'])assert.equal(effects.batches.get(kind).glyph.count,0,kind+' disappears when its real protection is depleted');
+    assert.deepEqual(enemyDefenseVisualState({...ordinary[1],reactiveStacks:5}),[],'stale stack markers do not invent a reactive ability');
+  }finally{effects.dispose();shape.traverse(node=>{node.geometry?.dispose();node.material?.dispose();});}
 });
 
 test('aura fits the actor once in its parent coordinates through battlefield scale, heading and flight lift',()=>{
@@ -42,7 +92,7 @@ test('aura fits the actor once in its parent coordinates through battlefield sca
     for(const flying of [false,true]){
       // These are the actual exhibition/game lifts; neither belongs in the
       // sibling aura's local geometry or gets multiplied into its placement.
-      const enemy={type:'host_50',visualAsset:'host_50-tyrant',auraStage:4,boss:true,flying},snapshot=structuredClone(enemy);
+      const enemy={type:'host_50',visualAsset:'host_50-tyrant',auraStage:4,boss:true,flying,krakenShell:83},snapshot=structuredClone(enemy);
       const nativeActor=new Group(),nativeBody=template.clone(true);nativeActor.add(nativeBody);
       const nativeAura=createEnemyAura(enemy,nativeBody);nativeActor.add(nativeAura);
       const expected=nativeAura.children.map(child=>({position:child.position.clone(),scale:child.scale.clone(),height:child.geometry?.parameters?.height,radius:child.geometry?.parameters?.radiusBottom}));

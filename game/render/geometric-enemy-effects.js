@@ -3,16 +3,26 @@ import * as THREE from 'three';
 const finite=(v,f=0)=>Number.isFinite(v)?v:f;
 const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
 const noPick=()=>{};
-const styles=Object.freeze({armor:'#bfd0d9',physicalImmune:'#fff0bd',magicImmune:'#cda8ff',magic:'#b59df5',fire:'#ffac64',frost:'#8be2f1',poison:'#a1d975',holy:'#fff3b5',arcane:'#c8a6ff',refraction:'#9aedeb',reactive:'#f1c17b',regen:'#91d978',recharge:'#6adcca'});
+const styles=Object.freeze({physicalImmune:'#fff0bd',magicImmune:'#cda8ff',magic:'#b59df5',fire:'#ffac64',frost:'#8be2f1',poison:'#a1d975',holy:'#fff3b5',arcane:'#c8a6ff',refraction:'#9aedeb',reactive:'#f1c17b',regen:'#91d978',recharge:'#6adcca'});
+
+// A wave number, boss flag, flying model or ordinary armor value does not
+// describe a special mechanic. Read the spawned variant's real combat fields.
+export function hasEnemySpecialMechanic(enemy){
+  if(!enemy||enemy.dead)return false;
+  if(enemy.physicalImmune||enemy.magicImmune||enemy.stealth||enemy.cloakDaggers||enemy.disarm)return true;
+  if(['magic','fire','frost','poison','holy','arcane'].some(kind=>finite(enemy.resists?.[kind])>0)||finite(enemy.ward)>0)return true;
+  if(['reactiveArmor','refraction','regen','recharge','evasion','untouchable','krakenShell','blink','thief'].some(kind=>finite(enemy[kind])>0))return true;
+  return finite(enemy.rush)>1||finite(enemy.hasteAura)>1;
+}
 
 // These symbols describe actual defenses, independently of wave-colour auras
 // and existing positive/negative support bands. No effect changes combat data.
 export function enemyDefenseVisualState(enemy){
   if(!enemy||enemy.dead)return [];
   const states=[],resists=enemy.resists||{};
-  const armor=Math.max(0,finite(enemy.armor)+finite(enemy.reactiveArmor)*finite(enemy.reactiveStacks)-finite(enemy.armorShred));
+  const reactive=Math.max(0,finite(enemy.reactiveArmor)*finite(enemy.reactiveStacks)),armor=Math.max(0,finite(enemy.armor)+reactive-finite(enemy.armorShred));
   if(enemy.physicalImmune)states.push({kind:'physicalImmune',amount:1});
-  else if(armor>0)states.push({kind:enemy.reactiveStacks>0?'reactive':'armor',amount:clamp(armor/30,.15,1)});
+  else if(reactive>0&&armor>0)states.push({kind:'reactive',amount:clamp(armor/30,.15,1)});
   if(enemy.magicImmune)states.push({kind:'magicImmune',amount:1});
   else{
     const common=finite(resists.magic)+finite(enemy.ward)-finite(enemy.magicShred),magic=clamp(common,0,.85);
@@ -30,7 +40,7 @@ export function enemyDefenseVisualState(enemy){
 function lineGlyph(kind){
   const shield=[[-.12,.12],[.12,.12],[.10,-.055],[0,-.15],[-.10,-.055],[-.12,.12]];
   const rune=[[-.14,0],[0,.16],[.14,0],[0,-.16],[-.14,0]];
-  const paths=kind==='armor'||kind==='physicalImmune'||kind==='reactive'?[shield]:kind==='regen'||kind==='recharge'?[[[-.13,0],[.13,0]],[[0,-.13],[0,.13]]]:[rune,[[-.085,0],[.085,0]],[[0,-.095],[0,.095]]];
+  const paths=kind==='physicalImmune'||kind==='reactive'?[shield]:kind==='regen'||kind==='recharge'?[[[-.13,0],[.13,0]],[[0,-.13],[0,.13]]]:[rune,[[-.085,0],[.085,0]],[[0,-.095],[0,.095]]];
   if(kind.endsWith('Immune'))paths.push([[-.12,-.14],[.12,.14]]);
   const vertices=[];
   for(const path of paths)for(let i=1;i<path.length;i++){

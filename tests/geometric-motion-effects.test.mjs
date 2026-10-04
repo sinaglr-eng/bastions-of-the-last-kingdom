@@ -127,12 +127,12 @@ test('Engineer emits a forged physical runic bolt from its moving hammer without
 test('bounded enemy effects preserve concealment, expire teleport endpoints together, release resources once and never mutate game rules',()=>{
   const scene=new THREE.Scene(),fx=new EnemyAbilityEffects(scene,{position:(x,y,z)=>new THREE.Vector3(x-18,y,z-18),isVisible:e=>!e?.hidden,maxEnemies:2,maxEffects:2}),enemy={id:1,x:3,z:4,armor:5,resists:{magic:.2},refraction:3,shields:2,statuses:{}},hidden={...enemy,id:2,hidden:true};
   const before=structuredClone(enemy);fx.sync([enemy,hidden,...Array.from({length:10},(_,i)=>({...enemy,id:i+3}))],new Map(),1);
-  assert.equal(fx.batches.get('armor').ring.count,2);assert.equal(fx.batches.get('refraction').crystals.count,4);fx.event('teleport',{enemy:hidden,from:{x:0,z:0},to:{x:5,z:6},visible:false});assert.equal(fx.effects.length,0);
+  assert.equal(fx.batches.has('armor'),false,'ordinary armor has no decorative shield');assert.equal(fx.batches.get('magic').ring.count,2);assert.equal(fx.batches.get('refraction').crystals.count,4);fx.event('teleport',{enemy:hidden,from:{x:0,z:0},to:{x:5,z:6},visible:false});assert.equal(fx.effects.length,0);
   fx.event('teleport',{enemy,from:{x:3,z:4},to:{x:8,z:9},visible:true});assert.deepEqual(fx.effects.map(e=>e.object.name),['Rift departure','Rift arrival']);assert.deepEqual(fx.effects[0].object.position.toArray(),[-15,0,-14]);assert.deepEqual(fx.effects[1].object.position.toArray(),[-10,0,-9]);
   const old=fx.effects[0].object,disposals=new Map();old.traverse(node=>{for(const resource of [node.geometry,node.material].filter(Boolean)){disposals.set(resource,0);resource.addEventListener('dispose',()=>disposals.set(resource,disposals.get(resource)+1));}});
   fx.event('deflect',{enemy});assert.equal(fx.effects.length,2);for(const n of disposals.values())assert.equal(n,1);
   fx.update(.7);assert.equal(fx.effects.length,0);assert.deepEqual(enemy,before);
-  enemy.hidden=true;fx.sync([enemy],new Map(),2);assert.equal(fx.batches.get('armor').ring.count,0);assert.equal(fx.batches.get('refraction').crystals.count,0);
+  enemy.hidden=true;fx.sync([enemy],new Map(),2);assert.equal(fx.batches.get('magic').ring.count,0);assert.equal(fx.batches.get('refraction').crystals.count,0);
   finiteScene(scene);fx.dispose();fx.dispose();assert.equal(scene.children.length,0);for(const n of disposals.values())assert.equal(n,1);
 });
 

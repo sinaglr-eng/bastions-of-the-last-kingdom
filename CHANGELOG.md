@@ -1,5 +1,14 @@
 # Releases
 
+## 0.3.6 — Readable battlefield and defender rank comparison — 4 October 2026
+
+- Quieter route guides with smaller moving direction markers, and stone slab structure on defender platforms.
+- Ordinary enemy armor no longer shows unexplained white shield symbols. Auras require actual special resistances or abilities, including the selected spawned variant.
+- Slower, readable alternating ground steps while enemy travel speed and combat statistics stay unchanged.
+- All five bosses are another 25% larger than their 0.3.5 presentation: 1.875× the original battlefield multiplier.
+- Six rank previews in the selected basic defender's command panel compare portraits, stats and abilities. Actual keep, merge, downgrade, targeting and support still use the selected field unit.
+- Preserves all 136 character models and original Blender scenes from 0.3.5.
+
 ## 0.3.5 — Dark Host source reconstruction — 3 October 2026
 
 - Fresh comparisons of all fifty campaign enemies against their original six-view designs, with source-specific anatomy, fitted equipment and complete physical assemblies in new native scenes.

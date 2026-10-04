@@ -17,7 +17,8 @@ export function animateEnemyMotion(figure,enemy,time,{moving=true,reducedMotion=
     const side=wing.userData.wingSide??(wing.name.endsWith('_L')?-1:wing.name.endsWith('_R')?1:index%2?1:-1);
     wing.rotation.z=(wing.userData.restRotation||0)+stroke*amplitude*side;
   }
-  const pace=clock*Math.max(.3,Number(enemy.speed)||1)*6+phase;
+  const walkFrequency=Math.min(Math.max(.3,Number(enemy.speed)||1)*6*ENEMY_WALK_CADENCE_SCALE,ENEMY_WALK_MAX_CYCLES_PER_SECOND*Math.PI*2);
+  const pace=clock*walkFrequency+phase;
   for(const [index,limb]of (figure.userData.limbs||[]).entries()){
     const rest=limb.userData.restRotation??0;
     const gait=limb.userData.gaitPhase??(index%2)*Math.PI;
@@ -31,4 +32,4 @@ export function animateEnemyMotion(figure,enemy,time,{moving=true,reducedMotion=
     (flying?.028:moving?.018:.012)*motion;
   return flying?Math.sin(clock*frequency+phase)*.075*motion:moving?Math.abs(Math.sin(pace))*.028*motion:0;
 }
-import {animateGeometricEnemyMotion} from './geometric-motion.js';
+import {animateGeometricEnemyMotion,ENEMY_WALK_CADENCE_SCALE,ENEMY_WALK_MAX_CYCLES_PER_SECOND} from './geometric-motion.js';
