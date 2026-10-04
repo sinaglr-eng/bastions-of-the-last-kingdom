@@ -46,6 +46,7 @@ dialog{border:1px solid #9a8b6077;background:linear-gradient(145deg,#243132,#152
 .maze-guide{max-height:52%;overflow:auto;scrollbar-width:thin}.maze-options{display:grid;gap:5px;margin-top:10px}.maze-option{background:#1b3336;border:1px solid #58737555;border-radius:3px;padding:7px 9px;text-align:left;color:#d0dcce}.maze-option.active{border-color:#b7c978;background:#344237}.maze-option b{display:block;font:13px Georgia}.maze-option span{display:block;font:10px Arial;color:#9bbaac;margin-top:4px}.blueprint-core{background:#ffcf69}.maze-math{font-size:10px;line-height:1.7;color:#aec3b8;margin-top:10px}.maze-math summary{cursor:pointer}.maze-math div{display:flex;justify-content:space-between}.maze-refine{margin-top:8px;font-size:10px}.maze-guide small{display:block}
 
 .warband-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}.warband-card{position:relative;min-height:165px;padding:18px;background:#1b2929;border:1px solid #344747;border-radius:5px}.warband-card.boss{border-color:#b69b62;background:linear-gradient(135deg,#34382b,#1b2929)}.warband-card img{float:right;width:96px;height:92px;object-fit:contain;margin:-8px -8px 2px 5px}.warband-card h3{font:19px Georgia,serif;color:var(--cream);margin:10px 0 6px}.warband-card p{font-size:11px;line-height:1.6;margin:8px 0}.warband-traits{font-size:11px;color:#d5b775;font-weight:500}.warband-card small{font-size:10px;color:#90a6a1;display:block}.wave-counter{font-size:11px!important;line-height:1.6;color:#a3b7ad!important}.dialog-body a{color:#debd7d}@media(max-width:680px){.warband-grid{grid-template-columns:1fr}}
+.warband-variant+.warband-variant{border-top:1px solid #53676466;margin-top:12px;padding-top:10px}.warband-variant>strong{display:block;font-size:11px;color:var(--cream)}.warband-group+.warband-group{clear:both;border-top:1px solid #53676466;margin-top:16px;padding-top:12px}
 
 .header-actions a{text-decoration:none}.tier-pips{color:var(--tower-color);font-weight:700}.draw-card.placed{border-bottom:3px solid var(--tower-color)}
 
@@ -249,3 +250,16 @@ dialog{border:1px solid #9a8b6077;background:linear-gradient(145deg,#243132,#152
 .wave-defense-legend{list-style:none;padding:0;margin:9px 0;display:flex;flex-wrap:wrap;gap:6px 10px;font-size:10px;line-height:1.25;color:#c2d0c0}
 .wave-defense-legend li{display:flex;align-items:center;gap:5px}
 .wave-defense-legend .enemy-defense-glyph{width:17px;height:17px;flex-basis:17px;padding:2px}
+
+/* V10: actual merge controls and the compact odds-only mastery panel. */
+.draw-card.mergeable:after{content:none;display:none}
+.draw-merge{position:absolute;right:4px;top:22px;max-width:calc(100% - 8px);min-height:28px;padding:4px 5px;display:flex;align-items:center;justify-content:center;gap:3px;border:1px solid #ffe0a1;border-radius:4px;background:#c8ad6b;color:#17251c;font-size:8px;font-weight:700;letter-spacing:.4px;touch-action:manipulation;z-index:2;box-shadow:0 2px 5px #0005}
+.draw-merge .icon{width:12px;height:12px;flex:none}
+.draw-merge:hover{background:#ffe0a1}
+.draw-merge:focus-visible,.merge-map-badge:focus-visible{outline:3px solid #fff1bf;outline-offset:2px}
+.merge-map-badge{border:2px solid #ffdb83;background:#25372bef;box-shadow:0 0 9px #fbd47455}
+.merge-map-badge b{background:#ffdb83}
+.merge-map-label{position:absolute;bottom:3px;left:3px;right:3px;font-size:8px;font-weight:700;letter-spacing:.5px;line-height:12px;border-radius:2px;background:#182b28eb;color:#ffe3a1;pointer-events:none}
+.draft-mastery{grid-template-rows:auto minmax(0,1fr)}
+@media(any-pointer:coarse){.draw-merge{min-height:32px}}
+@media(max-width:580px){.merge-map-badge{width:44px;height:50px}.draw-merge{padding:4px 3px;gap:2px;font-size:7px}.draw-merge .icon{width:10px;height:10px}.draft-mastery{grid-template-columns:100px minmax(0,1fr);grid-template-rows:auto}.draft-mastery .mastery-odds{grid-row:1}}

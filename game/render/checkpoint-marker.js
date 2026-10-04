@@ -1,11 +1,29 @@
 import * as THREE from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
-import {checkpointVignetteGeometries} from './checkpoint-vignettes.js';
+import {checkpointVignetteGeometries,keepWatchtowerGeometries,CHECKPOINT_GROUND_Y} from './checkpoint-vignettes.js';
+import {createCheckpointFire} from './checkpoint-fire.js';
+export {animateCheckpointEffects,disposeCheckpointEffects} from './checkpoint-fire.js';
 
 export const CHECKPOINT_ROMAN_LABELS=Object.freeze(['I','II','III','IV','V']);
 const colors={spawn:'#923e34',checkpoint:'#366c87',keep:'#b99b4c'};
 const materials=new Map();
 const noPick=()=>{};
+function dirtMaterial(){
+  const key='trampled-ground';if(!materials.has(key))materials.set(key,new THREE.MeshStandardMaterial({color:'#76664b',roughness:1,transparent:true,opacity:.42,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-1}));return materials.get(key);
+}
+function dirtPatchGeometry(){
+  const points=[[0,0]],radii=[.43,.47,.42,.46,.44,.40,.47,.42,.46,.44,.41,.45];
+  for(let i=0;i<radii.length;i++){const angle=i*Math.PI*2/radii.length;points.push([Math.cos(angle)*radii[i],Math.sin(angle)*radii[i]]);}
+  const vertices=[],uv=[];for(let i=1;i<=radii.length;i++)for(const index of [0,i===radii.length?1:i+1,i]){const [x,z]=points[index];vertices.push(x,CHECKPOINT_GROUND_Y,z);uv.push(x+.5,z+.5);}
+  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geometry.computeVertexNormals();return geometry;
+}
+
+// Detach before optimize(). The wrapper preserves the marker's complete world
+// transform while static scenery can be merged and its source meshes disposed.
+export function takeCheckpointEffects(marker){
+  const fire=marker.children.find(node=>node.userData.checkpointPart==='fire');if(!fire)return null;
+  marker.updateWorldMatrix(true,false);const wrapper=new THREE.Group();wrapper.name='Checkpoint cosmetic effects';wrapper.matrixAutoUpdate=false;wrapper.matrix.copy(marker.matrixWorld);wrapper.matrix.decompose(wrapper.position,wrapper.quaternion,wrapper.scale);marker.remove(fire);wrapper.add(fire);return wrapper;
+}
 function material(color,metalness=0,roughness=.9){
   const key=`${color}:${metalness}:${roughness}`;
   if(!materials.has(key))materials.set(key,new THREE.MeshStandardMaterial({color,metalness,roughness,flatShading:true}));
@@ -88,23 +106,16 @@ export function createCheckpointMarker({label='',kind='checkpoint'}={}){
     const matrix=new THREE.Matrix4().compose(new THREE.Vector3(...position),new THREE.Quaternion().setFromEuler(new THREE.Euler(...rotation)),new THREE.Vector3(1,1,1));prepared.applyMatrix4(matrix);
     if(!batches.has(mat))batches.set(mat,[]);batches.get(mat).push(prepared);
   };
-  const stone=material('#899181'),light=material('#abb39d'),dark=material('#4d594d'),wood=material('#66543d'),metal=material('#b8a36e',.65,.38),ink=material('#f1e6c7',.05,.85);
-  add(new THREE.CylinderGeometry(.51,.53,.038,8),stone,[0,.054,0]);
-  add(new THREE.CylinderGeometry(.445,.455,.067,8),dark,[0,.1065,0]);
-  // Eight fitted stone faces have real chisel notches, with the recessed core
-  // visible inside them. The octagonal foot stays inside the old marker plate.
-  const width=.345,height=.067;
-  for(let i=0;i<8;i++){
-    const shape=new THREE.Shape();shape.moveTo(-width/2,-height/2);shape.lineTo(width/2,-height/2);shape.lineTo(width/2,height/2);shape.lineTo(.022,height/2);shape.lineTo(0,height/2-.016);shape.lineTo(-.022,height/2);shape.lineTo(-width/2,height/2);shape.closePath();
-    const angle=i*Math.PI/4;
-    add(new THREE.ExtrudeGeometry(shape,{depth:.025,bevelEnabled:true,bevelSize:.002,bevelThickness:.002,bevelSegments:1,steps:1}),i%3===0?light:stone,[Math.sin(angle)*.435,.1065,Math.cos(angle)*.435],[0,angle,0]);
-  }
-  add(new THREE.CylinderGeometry(.478,.466,.024,8),light,[0,.152,0]);
-  add(new THREE.TorusGeometry(.475,.007,4,8),metal,[0,.161,0],[Math.PI/2,0,0]);
+  if(kind==='keep'){
+    for(const part of keepWatchtowerGeometries())add(part.geometry,material(part.color,part.metalness,part.roughness));
+  }else{
+  const wood=material('#66543d'),metal=material('#b8a36e',.65,.38),ink=material('#f1e6c7',.05,.85);
+  const dirt=new THREE.Mesh(dirtPatchGeometry(),dirtMaterial());dirt.name='Flush trampled ground';root.add(dirt);
   if(kind==='checkpoint')for(const part of checkpointVignetteGeometries(label))add(part.geometry,material(part.color,part.metalness,part.roughness));
-  add(new THREE.CylinderGeometry(.047,.056,.054,8),metal,[.18,.18,.15]);
-  add(new THREE.CylinderGeometry(.019,.024,1.43,6),wood,[.18,.865,.15]);
-  for(const y of [.25,1.395,1.535])add(new THREE.CylinderGeometry(.026,.026,.035,6),metal,[.18,y,.15]);
+  if(kind==='checkpoint'&&label==='IV')root.add(createCheckpointFire());
+  add(new THREE.CylinderGeometry(.047,.056,.036,8),metal,[.18,CHECKPOINT_GROUND_Y+.018,.15]);
+  add(new THREE.CylinderGeometry(.019,.024,1.54,6),wood,[.18,CHECKPOINT_GROUND_Y+.77,.15]);
+  for(const y of [CHECKPOINT_GROUND_Y+.10,1.395,1.535])add(new THREE.CylinderGeometry(.026,.026,.035,6),metal,[.18,y,.15]);
   const header=[{x:.18,z:.15},...clothX.map((x,i)=>({x,z:clothZ[i]}))];
   for(let i=1;i<header.length;i++){const a=header[i-1],b=header[i],dx=b.x-a.x,dz=b.z-a.z;add(new THREE.BoxGeometry(Math.hypot(dx,dz),.023,.023),metal,[(a.x+b.x)/2,1.429,(a.z+b.z)/2],[0,-Math.atan2(dz,dx),0]);}
   add(new THREE.ConeGeometry(.049,.10,4),metal,[.18,1.625,.15]);
@@ -116,7 +127,8 @@ export function createCheckpointMarker({label='',kind='checkpoint'}={}){
     const outlines=label?numeralOutlines(label):[stroke([labelX-.062,labelY+.085],[labelX,labelY-.065],.022),stroke([labelX,labelY-.065],[labelX+.062,labelY+.085],.022)];
     const glyph=new THREE.Mesh(surfacePatches(outlines,side),ink);glyph.name=`Checkpoint ${label||kind} ${side===1?'front':'back'} embroidery`;glyph.userData.checkpointPart=side===1?'frontNumeral':'backNumeral';root.add(glyph);
   }
+  }
   for(const [mat,geometries] of batches){const mesh=new THREE.Mesh(mergeGeometries(geometries),mat);mesh.name='Checkpoint stone and fittings';root.add(mesh);for(const geometry of geometries)geometry.dispose();}
-  root.traverse(node=>{node.raycast=noPick;if(node.isMesh){node.castShadow=node.receiveShadow=true;}});
+  root.traverse(node=>{node.raycast=noPick;if(node.isMesh&&!node.userData.checkpointEffect){node.castShadow=node.receiveShadow=true;}});
   return root;
 }

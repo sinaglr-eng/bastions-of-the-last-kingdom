@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {distance,towerStats} from '../core/math.js';
+import {ENEMY_RULES as R,enemyDisarmActive} from '../core/enemy-rules.js';
 
 // Read-only display of the actual rules in supportBonuses/CombatManager.
 // A source includes itself in the current game. Maxima win inside each haste
@@ -93,15 +94,15 @@ export function towerSupportState(tower,towers,data,options={}){
     for(const enemy of combat.enemies||[]){
       if(enemy.dead)continue;const d=distance(tower,enemy);
       const amount=(enemy.untouchable||0)*(1-resist);
-      if(amount>0&&d<4)dread.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:amount});
-      if(enemy.disarm&&d<3&&((combat.elapsed||0)+enemy.id*.37)%8<1.25*(1-resist))disarm.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:true});
+      if(amount>0&&d<R.dread.radius)dread.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:amount});
+      if(d<R.disarm.radius&&enemyDisarmActive(enemy,combat.elapsed||0,resist))disarm.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:true});
     }
     if(dread.length){const strongest=Math.max(...dread.map(s=>s.value));state.effects.push(effect('dread',strongest,strongest,dread.filter(s=>s.value===strongest)));}
     if(disarm.length)state.effects.push(effect('disarm',true,1,disarm));
     const remaining=Math.max(0,(tower.melancholyUntil||0)-(combat.elapsed||0));
     if(remaining)state.effects.push(effect('melancholy',remaining,1,[{id:tower.id,family:tower.family,name:data.towers[tower.family].name,value:remaining}],{label:`Melancholy · cannot attack · ${remaining.toFixed(1)}s remaining`}));
-    for(const ruin of towers)if(ruin.state==='ruin'&&ruin.weakened>0&&distance(tower,ruin)<2)ruins.push({id:ruin.id,family:ruin.family,name:'Scorched barricade',value:.15});
-    if(ruins.length){const penalty=1-Math.pow(.85,ruins.length);state.effects.push(effect('weakened',penalty,penalty,ruins));}
+    for(const ruin of towers)if(ruin.state==='ruin'&&ruin.weakened>0&&distance(tower,ruin)<R.sapper.defenderRadius)ruins.push({id:ruin.id,family:ruin.family,name:'Scorched barricade',value:R.sapper.attackPenalty});
+    if(ruins.length){const penalty=1-Math.pow(1-R.sapper.attackPenalty,ruins.length);state.effects.push(effect('weakened',penalty,penalty,ruins));}
   }
   state.byKey=Object.fromEntries(state.effects.map(e=>[e.key,e]));return state;
 }
@@ -116,8 +117,8 @@ export function supportSourceAreas(tower,data,{towers=[]}={}){
     const radius=prop==='burnAura'?s.range+towerSupportState(tower,towers,data).bonuses.range:(prop==='slowAura'?s.range:s.effectRange??s.range);
     areas.push({key,keys:[key],radius,label:`${label} · ${radius} tiles`,color,glyph:ENEMY_EFFECT_STYLES[key].glyph});
   }
-  const detection=tower.family==='cleric'?6:s.detectionRange||0;
-  if(detection)areas.push({key:'detection',keys:['detection'],radius:Math.max(2,detection),label:`Hidden-enemy detection · ${Math.max(2,detection)} tiles`,color:'#fff8e4',glyph:'target'});
+  const detection=tower.family==='cleric'?R.reveal.clericRadius:s.detectionRange||0;
+  if(detection)areas.push({key:'detection',keys:['detection'],radius:Math.max(R.reveal.defenderRadius,detection),label:`Hidden-enemy detection · ${Math.max(R.reveal.defenderRadius,detection)} tiles`,color:'#fff8e4',glyph:'target'});
   if(s.bouncingFrostTrigger==='nearby-ally-magic-hit')areas.push({key:'reaction',keys:['reaction'],radius:s.bouncingFrostTriggerRange||6,label:`Reacts to allied magic hits · ${s.bouncingFrostTriggerRange||6} tiles`,color:'#a5ddff',glyph:'snowflake'});
   return areas;
 }

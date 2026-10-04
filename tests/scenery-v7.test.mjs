@@ -69,7 +69,7 @@ test('V7 inherits all original royal geometry and V6 landscape coordinates witho
     const records=scene=>role(scene,kind).map(o=>({name:o.name,position:o.getWorldPosition(new THREE.Vector3()).toArray(),data:o.userData}));
     assert.deepEqual(records(newScene),records(oldScene),kind+' stays unchanged');
   }
-  assert.equal(LANDMARK_SITES.keep.file,'royal-castle-v7.glb');assert.equal(LANDMARK_SITES.camp.file,'fortified-warcamp-v8.glb');
+  assert.equal(LANDMARK_SITES.keep.file,'royal-castle-v9.glb');assert.equal(LANDMARK_SITES.camp.file,'fortified-warcamp-v8.glb');
   dispose(oldScene);dispose(newScene);
 });
 

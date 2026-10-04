@@ -15,7 +15,7 @@ for(const [id,flying] of [['host_13',false],['host_15',true]])test(`actual Ateli
   const original=transforms(gltf.scene),a=createAtelierEnemyPreview(scene,definition,gltf.scene),b=createAtelierEnemyPreview(scene,definition,gltf.scene),peer=transforms(b.figure);
   const aura=a.figure.userData.aura;
   if(id==='host_13')assert.equal(aura,null,'ordinary armor cannot create an Atelier aura');
-  else{assert.equal(definition.regen,3.9,'the real Blood Bat regeneration is exercised');assert.ok(aura,'the actual special ability retains its wave aura');assert.equal(aura.visible,true);}
+  else{assert.equal(definition.regen,5.85,'the real Blood Bat regeneration is exercised');assert.ok(aura,'the actual special ability retains its wave aura');assert.equal(aura.visible,true);}
   updateAtelierEnemyPreview(a,0);const rest=transforms(a.figure.userData.body);a.moving=true;updateAtelierEnemyPreview(a,.1);updateAtelierEnemyPreview(a,.2);const animated=transforms(a.figure.userData.body);
   assert.notDeepEqual(animated,rest,'the actual imported meshes move');assert.ok(a.figure.userData.geometricMotion,'canonical live motion rig is used');const paused=transforms(a.figure),time=a.time,traveled=a.enemy.traveled;
   updateAtelierEnemyPreview(a,0);assert.deepEqual(transforms(a.figure),paused);assert.equal(a.time,time);assert.equal(a.enemy.traveled,traveled);

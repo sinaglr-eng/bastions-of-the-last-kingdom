@@ -1,4 +1,5 @@
-import {ENEMY_DEFENSE_SYMBOLS,enemyDefenseDescriptions} from '../game/render/enemy-defense-symbols.js';
+import {ENEMY_DEFENSE_SYMBOLS} from '../game/render/enemy-defense-symbols.js';
+import {warbandTraitDetails} from '../game/core/warband-info.js';
 
 const escape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function enemyDefenseGlyph(kind){
@@ -10,8 +11,8 @@ export function enemyTraitsMarkup(traits){
   if(!traits?.length)return '<ul class="enemy-trait-list"><li>No special resistances or abilities</li></ul>';
   return `<ul class="enemy-trait-list">${traits.map(trait=>`<li>${enemyDefenseGlyph(trait.kind)}<span>${escape(trait.text)}</span></li>`).join('')}</ul>`;
 }
-export function waveDefenseLegendMarkup(definition,options){
-  const descriptions=enemyDefenseDescriptions(definition,options);
-  if(!descriptions.length)return '';
-  return `<ul class="wave-defense-legend" aria-label="Enemy defense symbols">${descriptions.map(description=>`<li title="${escape(description.detail)}">${enemyDefenseGlyph(description.kind)}<span>${escape(description.label)}</span></li>`).join('')}</ul>`;
+export function waveDefenseLegendMarkup(definition){
+  const traits=warbandTraitDetails(definition);
+  if(!traits.length)return '';
+  return `<ul class="wave-defense-legend" aria-label="Enemy abilities and defenses">${traits.map(trait=>`<li>${enemyDefenseGlyph(trait.kind)}<span>${ENEMY_DEFENSE_SYMBOLS[trait.kind]?escape(ENEMY_DEFENSE_SYMBOLS[trait.kind].label)+' · ':''}${escape(trait.text)}</span></li>`).join('')}</ul>`;
 }

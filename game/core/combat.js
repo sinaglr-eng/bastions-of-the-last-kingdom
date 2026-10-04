@@ -1,5 +1,6 @@
 import {distance, damageAfterDefense, towerStats,supportBonuses} from './math.js';
 import {enemyRevealed} from './visibility.js';
+import {ENEMY_RULES as R,enemyDisarmActive} from './enemy-rules.js';
 
 export class CombatManager {
   constructor(game) {this.game=game;this.enemies=[];this.projectiles=[];this.spawnQueue=[];this.elapsed=0;this.serial=0;this.shotSerial=0;this.spawned=0;this.total=0;}
@@ -18,7 +19,7 @@ export class CombatManager {
     const base={...this.game.data.enemies[type],...modifiers.variant};
     const route=(base.flying?this.game.grid.checkpoints:this.game.grid.route).map(p=>({...p}));
     let pathLength=0;for(let i=1;i<route.length;i++)pathLength+=distance(route[i-1],route[i]);
-    const enemy={...structuredClone(base),id:++this.serial,type,maxHp:base.hp*(modifiers.hp||1),hp:base.hp*(modifiers.hp||1),speed:base.speed*(modifiers.speed||1),armor:base.armor+(modifiers.armor||0),resists:{...base.resists,...modifiers.resists},...route[0],route,pathLength,pathIndex:1,traveled:0,statuses:{},dead:false,hit:0,shields:base.refraction||0,shieldClock:8,rechargeClock:8,blinkClock:6,reactiveStacks:0,cloaked:!!(base.stealth||base.cloakDaggers)};
+    const enemy={...structuredClone(base),id:++this.serial,type,maxHp:base.hp*(modifiers.hp||1),hp:base.hp*(modifiers.hp||1),speed:base.speed*(modifiers.speed||1),armor:base.armor+(modifiers.armor||0),resists:{...base.resists,...modifiers.resists},...route[0],route,pathLength,pathIndex:1,traveled:0,statuses:{},dead:false,hit:0,shields:base.refraction||0,shieldClock:R.refraction.period,rechargeClock:R.recharge.period,blinkClock:R.blink.period,reactiveStacks:0,cloaked:!!(base.stealth||base.cloakDaggers)};
     this.enemies.push(enemy);this.spawned++;this.game.emit('spawn',{enemy});return enemy;
   }
   isRevealed(enemy){return enemyRevealed(enemy,this.game);}
@@ -49,7 +50,7 @@ export class CombatManager {
     const petrified=enemy.statuses.petrify&&['physical','piercing'].includes(type)?1+(enemy.statuses.petrify.physicalBonus||0):1;
     let dealt=damageAfterDefense(amount*frozen*bonus*petrified,type,enemy,stats,this.game.data.balance);
     if(stats.directHit&&type!=='pure')dealt=Math.max(0,dealt-(enemy.krakenShell||0));
-    if(stats.directHit&&enemy.reactiveArmor)enemy.reactiveStacks=Math.min(12,enemy.reactiveStacks+1);
+    if(stats.directHit&&enemy.reactiveArmor)enemy.reactiveStacks=Math.min(R.reactive.maxStacks,enemy.reactiveStacks+1);
     if(dealt<=0)return 0;
     enemy.hp-=dealt;enemy.hit=0.16;
     this.game.emit('hit',{enemy,source,type,damage:dealt,directHit:!!stats.directHit,visible:this.isRevealed(enemy)});
@@ -159,18 +160,18 @@ export class CombatManager {
       if(enemy.dead)continue;
       enemy.hit=Math.max(0,enemy.hit-dt);
       enemy.ward=0;
-      enemy.cloaked=!!(enemy.stealth||(enemy.cloakDaggers&&this.elapsed%6<4));
-      enemy.reactiveStacks=Math.max(0,enemy.reactiveStacks-dt*.7);
-      if(enemy.refraction){enemy.shieldClock-=dt;while(enemy.shieldClock<=0){enemy.shields=enemy.refraction;enemy.shieldClock+=8;}}
-      if(enemy.recharge){enemy.rechargeClock-=dt;while(enemy.rechargeClock<=0){if(!enemy.statuses.healBlock)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.maxHp*enemy.recharge);enemy.rechargeClock+=8;}}
+      enemy.cloaked=!!(enemy.stealth||(enemy.cloakDaggers&&this.elapsed%R.cloak.period<R.cloak.hiddenDuration));
+      enemy.reactiveStacks=Math.max(0,enemy.reactiveStacks-dt*R.reactive.decayPerSecond);
+      if(enemy.refraction){enemy.shieldClock-=dt;while(enemy.shieldClock<=0){enemy.shields=enemy.refraction;enemy.shieldClock+=R.refraction.period;}}
+      if(enemy.recharge){enemy.rechargeClock-=dt;while(enemy.rechargeClock<=0){if(!enemy.statuses.healBlock)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.maxHp*enemy.recharge);enemy.rechargeClock+=R.recharge.period;}}
       let blinkTravel=0;
-      if(enemy.blink){enemy.blinkClock-=dt;while(enemy.blinkClock<=0){blinkTravel+=enemy.blink;enemy.blinkClock+=6;}}
+      if(enemy.blink){enemy.blinkClock-=dt;while(enemy.blinkClock<=0){blinkTravel+=enemy.blink;enemy.blinkClock+=R.blink.period;}}
 
       let haste=1;
-      for(const supporter of this.enemies)if(!supporter.dead&&distance(enemy,supporter)<3.5) {
-        if(supporter.type==='shaman')haste=Math.max(haste,1.15);
-        if(supporter.hasteAura&&this.elapsed%6<3)haste=Math.max(haste,supporter.hasteAura);
-        if(supporter.type==='warlock')enemy.ward=0.18;
+      for(const supporter of this.enemies)if(!supporter.dead&&distance(enemy,supporter)<R.support.radius) {
+        if(supporter.type==='shaman')haste=Math.max(haste,R.support.shamanHaste);
+        if(supporter.hasteAura&&this.elapsed%R.support.hastePeriod<R.support.hasteDuration)haste=Math.max(haste,supporter.hasteAura);
+        if(supporter.type==='warlock')enemy.ward=R.support.warlockWard;
       }
       enemy.armorShred=enemy.statuses.shred?.amount||0;enemy.magicShred=enemy.statuses.shredMagic?.amount||0;
       for(const [key,status] of Object.entries(enemy.statuses)) {
@@ -179,8 +180,8 @@ export class CombatManager {
       }
       if(enemy.dead)continue;
       if(enemy.regen&&!enemy.statuses.healBlock)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.regen*dt);
-      if(enemy.type==='sapper')for(const ruin of this.game.towers)if(ruin.state==='ruin'&&distance(ruin,enemy)<1.5)ruin.weakened=3;
-      const frenzy=enemy.rush&&this.elapsed%6<2?enemy.rush:enemy.type==='berserker'&&enemy.hp<enemy.maxHp*0.5?1.65:1;
+      if(enemy.type==='sapper')for(const ruin of this.game.towers)if(ruin.state==='ruin'&&distance(ruin,enemy)<R.sapper.radius)ruin.weakened=R.sapper.duration;
+      const frenzy=enemy.rush&&this.elapsed%R.rush.period<R.rush.duration?enemy.rush:enemy.type==='berserker'&&enemy.hp<enemy.maxHp*R.rush.berserkerThreshold?R.rush.berserkerSpeed:1;
       let slow=Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
       enemy.armorShred=enemy.statuses.shred?.amount||0;
       for(const t of this.game.towers)if(t.state==='active'){const s=towerStats(t,this.game.data);if(!enemy.magicImmune&&s.slowAura&&distance(t,enemy)<=s.range)slow=Math.max(slow,s.slowAura);if((!enemy.magicImmune||s.auraPiercesImmunity)&&distance(t,enemy)<=(s.effectRange??s.range)){if(s.armorShredAura)enemy.armorShred=Math.max(enemy.armorShred,s.armorShredAura);if(s.magicShredAura)enemy.magicShred=Math.max(enemy.magicShred,s.magicShredAura);}}
@@ -213,13 +214,13 @@ export class CombatManager {
       tower.disarmed=tower.melancholy>0;
       for(const enemy of this.enemies)if(!enemy.dead){
         const range=distance(tower,enemy);
-        if(enemy.untouchable&&range<4)dread=Math.max(dread,enemy.untouchable*(1-(bonuses.controlResistance||0)));
-        if(enemy.disarm&&range<3&&(this.elapsed+enemy.id*.37)%8<1.25*(1-(bonuses.controlResistance||0)))tower.disarmed=true;
+        if(enemy.untouchable&&range<R.dread.radius)dread=Math.max(dread,enemy.untouchable*(1-(bonuses.controlResistance||0)));
+        if(range<R.disarm.radius&&enemyDisarmActive(enemy,this.elapsed,bonuses.controlResistance||0))tower.disarmed=true;
       }
       boost*=1-dread;
       for(const other of this.game.towers) {
         // Sapper-scorched barricades briefly disrupt adjacent defensive positions.
-        if(other.state==='ruin'&&other.weakened>0&&distance(tower,other)<2)boost*=0.85;
+        if(other.state==='ruin'&&other.weakened>0&&distance(tower,other)<R.sapper.defenderRadius)boost*=1-R.sapper.attackPenalty;
       }
       if(stats.burnAura){
         const victims=this.enemies.filter(e=>!e.dead&&this.canSee(e,tower)&&distance(e,tower)<=stats.range);

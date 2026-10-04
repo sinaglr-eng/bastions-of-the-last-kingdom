@@ -61,15 +61,16 @@ const labels={vitality:'Vitality',stealth:'Veil',evasion:'Evasion',disarm:'Disar
 const counters={vitality:'Regenerates health; focus damage.',stealth:'Cloaked beyond 2 tiles; Clerics reveal within 6.',evasion:'Can evade direct physical hits; use magic.',disarm:'Briefly disarms nearby defenders every 8 seconds.',refraction:'Shields absorb three direct hits; poison ticks and burning auras bypass them.',magicImmune:'Magic and magical status immunity; physical or pure damage wins.',physicalImmune:'Physical immunity; use magic or pure damage.',thief:'Steals gold on reaching the keep.',untouchable:'Nearby defenders attack more slowly.',rush:'Periodic bursts of movement speed.',highArmor:'Heavy armor; use armor reduction or magic.',reactiveArmor:'Direct hits build temporary armor.',recharge:'Periodically restores health.',blink:'Dashes forward along the route, still visiting checkpoints.',cloakDaggers:'Cycles between cloak and short close-range disarms.',krakenShell:'Reduces damage from individual direct hits.',splitImmunity:'This wave rolls either magic or physical immunity.',warDrums:'Pulses haste to nearby allies.'};
 const waves=[];
 // Only the first patrol gives a Tier I support defender time to hold a crossing.
-// Counts and rewards stay on the campaign curve; normal pressure resumes at wave two.
+// Counts, rewards and movement stay on the curve; waves two/three ease durability.
 const openingPatrols=[
   {hp:9,speed:1.3,interval:2.4}
 ];
+const earlyDurability={2:52,3:68};
 rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   const wave=i+1,boss=wave%10===0,flying=movement==='flying',traits=skills?skills.split(','):[],id=`host_${String(wave).padStart(2,'0')}`;
   const opening=openingPatrols[i];
   const pressure=1.15+Math.min(1.85,wave*.055);
-  const hp=opening?.hp??Math.round((32+wave*6)*Math.pow(1.105,wave-1)*(boss?11:1)*pressure),skin=['#72815b','#7f8861','#6a8378','#8a775d','#7a697d'][Math.floor(i/10)];
+  const hp=opening?.hp??earlyDurability[wave]??Math.round((32+wave*6)*Math.pow(1.105,wave-1)*(boss?11:1)*pressure),skin=['#72815b','#7f8861','#6a8378','#8a775d','#7a697d'][Math.floor(i/10)];
   const enemy={name,model,traits,hp,speed:boss?1.65:flying?2.5:2.05+(i%3)*.16,armor:Math.round(wave*.55),gold:boss?70+wave*4:3+Math.floor(wave/5),xp:boss?60:3+Math.floor(wave/10),color:skin,size:boss?1.75:model==='goblin'?.66:model==='troll'||model==='ogre'?1.15:.9,boss,flying,leak:boss?10:1,clan:Math.floor(i/10),threat:traits.length?traits.map(t=>labels[t]).join(' · '):flying?'Airborne raiders · guard the checkpoint crossings':'Ground warband · shape the route',counter:traits.map(t=>counters[t]).join(' ')};
   const plated=['shield','ogre','grunt'].includes(model),caster=['shaman','warlock','troll'].includes(model);
   enemy.armor=Math.round(wave*.65+(plated?5+wave*.22:0));
@@ -83,7 +84,7 @@ rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   }
   if(['wolf','bat','wyvern','dragon'].includes(model))enemy.beast=true;
   enemy.counter=enemy.counter.trim();
-  if(traits.includes('vitality'))enemy.regen=hp*.004;
+  if(traits.includes('vitality'))enemy.regen=+(hp*.006).toFixed(3);
   if(traits.includes('stealth'))enemy.stealth=true;
   if(traits.includes('evasion'))enemy.evasion=.25;
   if(traits.includes('disarm'))enemy.disarm=true;
@@ -97,7 +98,7 @@ rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   if(traits.includes('reactiveArmor'))enemy.reactiveArmor=3;
   if(traits.includes('recharge'))enemy.recharge=.12;
   if(traits.includes('blink'))enemy.blink=3;
-  if(traits.includes('cloakDaggers')){enemy.cloakDaggers=true;enemy.disarm=true;enemy.variants=[{}, {name:'Blackmire Blooddrinkers',cloakDaggers:false,disarm:false,regen:hp*.004}];}
+  if(traits.includes('cloakDaggers')){enemy.cloakDaggers=true;enemy.disarm=true;enemy.variants=[{}, {name:'Blackmire Blooddrinkers',cloakDaggers:false,disarm:false,regen:+(hp*.006).toFixed(3)}];}
   if(traits.includes('krakenShell'))enemy.krakenShell=8+wave*1.5;
   if(traits.includes('splitImmunity'))enemy.variants=[{magicImmune:true,physicalImmune:false,name:name+' · Cinder seal'},{physicalImmune:true,magicImmune:false,name:name+' · Wraith seal'}];
   if(traits.includes('warDrums'))enemy.hasteAura=1.18;

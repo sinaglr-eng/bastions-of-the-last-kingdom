@@ -1,6 +1,8 @@
 import * as THREE from 'three';
+import {CHECKPOINT_MARKER_SCALE} from './route-overlay.js';
 
-const deck=.164;
+export const CHECKPOINT_GROUND_Y=.031/CHECKPOINT_MARKER_SCALE;
+const deck=CHECKPOINT_GROUND_Y;
 const palette={stone:'#899181',light:'#abb39d',dark:'#4d594d',wood:'#66543d',timber:'#9b774b',metal:'#b8a36e',ivory:'#f1e6c7',cloth:'#526a70',fire:'#d97532'};
 // Parts own only transient geometry. The marker transfers them to its existing
 // shared material batches; no prop mesh survives the world scenery merge.
@@ -59,25 +61,24 @@ export function checkpointVignetteGeometries(label){
   }else if(label==='III'){
     for(let i=0;i<5;i++){
       const angle=Math.PI+.18+i*(Math.PI-.36)/4,x=Math.cos(angle)*.30,z=Math.sin(angle)*.30,rotation=Math.PI/2-angle,height=i%2?.142:.16;
-      const local=(dx,dy,dz)=>[x+Math.cos(rotation)*dx+Math.sin(rotation)*dz,deck+dy,z-Math.sin(rotation)*dx+Math.cos(rotation)*dz];
-      box('Crate '+i+' dark core',[.144,height,.13],'wood',local(0,height/2,0),[0,rotation,0]);
+      for(let tier=0;tier<(i===2?3:i%2?2:1);tier++){
+      const bottom=deck+tier*(height+.0115),local=(dx,dy,dz)=>[x+Math.cos(rotation)*dx+Math.sin(rotation)*dz,bottom+dy,z-Math.sin(rotation)*dx+Math.cos(rotation)*dz],name='Crate '+i+(tier?' tier '+tier:'');
+      box(name+' dark core',[.144,height,.13],'wood',local(0,height/2,0),[0,rotation,0]);
       for(const side of [-1,1]){
-        for(let plank=0;plank<3;plank++)box('Crate '+i+' plank '+side+' '+plank,[.043,height-.014,.012],'timber',local((plank-1)*.046,height/2,side*.069),[0,rotation,0]);
+        for(let plank=0;plank<3;plank++)box(name+' plank '+side+' '+plank,[.043,height-.014,.012],'timber',local((plank-1)*.046,height/2,side*.069),[0,rotation,0]);
         for(const diagonal of [-1,1]){
-          const a=local(-.060,.018,side*.077),b=local(.060,height-.018,side*.077);if(diagonal===-1){a[1]=deck+height-.018;b[1]=deck+.018;}
-          beam('Crate '+i+' brace '+side+' '+diagonal,a,b,.013,'timber',.013);
+          const a=local(-.060,.018,side*.077),b=local(.060,height-.018,side*.077);if(diagonal===-1){a[1]=bottom+height-.018;b[1]=bottom+.018;}
+          beam(name+' brace '+side+' '+diagonal,a,b,.013,'timber',.013);
         }
       }
-      box('Crate '+i+' plank lid',[.144,.013,.13],'timber',local(0,height+.005,0),[0,rotation,0]);
+      box(name+' plank lid',[.144,.013,.13],'timber',local(0,height+.005,0),[0,rotation,0]);
+      }
     }
   }else if(label==='IV'){
     const x=-.27,z=-.12;
     for(let i=0;i<8;i++){const angle=i*Math.PI/4;rock('Firepit stone '+i,x+Math.cos(angle)*.10,z+Math.sin(angle)*.10,.039,.027,.039,i%2?'light':'stone');}
     cylinder('Crossed firewood A',.017,.155,'wood',[x,deck+.023,z],[Math.PI/2,0,.18],6);
     cylinder('Crossed firewood B',.017,.155,'wood',[x,deck+.046,z],[0,0,Math.PI/2],6);
-    add('Low ember bed',new THREE.IcosahedronGeometry(1,0),'fire',[x,deck+.035,z],undefined,[.066,.015,.058]);
-    add('Outer fire tongue',new THREE.ConeGeometry(.064,.24,5),'fire',[x,deck+.166,z],[.07,0,-.14]);
-    add('Pale fire core',new THREE.ConeGeometry(.032,.17,5),'ivory',[x-.013,deck+.134,z+.020],[-.10,0,.10]);
     for(let i=0;i<3;i++){const angle=i*Math.PI*2/3;beam('Cooking tripod leg '+i,[x+Math.cos(angle)*.14,deck+.012,z+Math.sin(angle)*.14],[x,deck+.35,z],.017,'wood');}
     cylinder('Cooking pot',.05,.060,'dark',[x,deck+.255,z]);
     add('Pot handle',new THREE.TorusGeometry(.047,.006,3,8,Math.PI),'metal',[x,deck+.285,z],[0,0,0]);
@@ -86,8 +87,13 @@ export function checkpointVignetteGeometries(label){
     for(const offset of [-.052,.052])cylinder('Blanket binding '+offset,.039,.014,'wood',[-.27,deck+.036,.205+offset],[Math.PI/2,0,0],8);
   }else if(label==='V'){
     for(let i=0;i<3;i++)box('Broken wall foundation '+i,[.137,.10,.13],i===1?'light':'stone',[-.34+i*.145,deck+.05,-.19]);
-    for(let i=0;i<2;i++)box('Remaining wall course '+i,[.139,.10,.125],i?'stone':'light',[-.315+i*.145,deck+.151,-.188],[0,.02*(i?1:-1),0]);
-    rock('Jagged wall crown',-.315,-.188,.075,.055,.062,'light',deck+.201);
+    for(let column=0;column<3;column++)for(let row=1;row<[17,14,8][column];row++){
+      const position=[-.34+column*.145,deck+.05+row*.103,-.19],color=(row+column)%3===0?'light':'stone';
+      if(row===[16,13,7][column]){
+        const shape=new THREE.Shape();shape.moveTo(-.0685,-.05);shape.lineTo(.0685,-.05);shape.lineTo(.0685,.01);shape.lineTo(.035,.032);shape.lineTo(.015,.012);shape.lineTo(-.02,.065);shape.lineTo(-.0685,.036);shape.closePath();
+        const geometry=new THREE.ExtrudeGeometry(shape,{depth:.13,bevelEnabled:true,bevelSize:.002,bevelThickness:.002,bevelSegments:1,steps:1});geometry.translate(0,0,-.065);add('Fractured wall crown '+column,geometry,color,position);
+      }else box('Ruined wall course '+column+' '+row,[.137,.100,.13],color,position);
+    }
     const start=new THREE.Vector3(-.22,deck+.292,-.183),end=new THREE.Vector3(-.22,deck+.029,.221),length=start.distanceTo(end);
     const tilt=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),start.clone().sub(end).normalize()),centre=start.clone().add(end).multiplyScalar(.5).toArray();
     const fallenStone=(name,outline,color)=>{
@@ -103,6 +109,30 @@ export function checkpointVignetteGeometries(label){
     fallenStone('Forward broken masonry crown',[[-.083,length/6+.003],[.083,length/6+.003],[.083,length/2-.032],[.028,length/2-.032],[.007,length/2],[-.055,length/2],[-.083,length/2-.017]],'light');
     rock('Scattered rubble left',-.382,.092,.039,.035,.042);
     rock('Scattered rubble rear',.038,-.285,.052,.035,.037,'light');
+  }
+  return parts;
+}
+
+// A pair of compact lookouts flank the bridge. The middle remains open all the
+// way through; these feet belong to the towers, rather than a shared platform.
+export function keepWatchtowerGeometries(){
+  const parts=[];
+  const add=(name,size,color,position)=>{
+    const geometry=new THREE.BoxGeometry(...size);geometry.translate(...position);parts.push({name,geometry,color:palette[color],metalness:0,roughness:.9});
+  };
+  for(const side of [-1,1]){
+    const x=.31,z=side*.80,prefix='Bridge watchtower '+side;
+    add(prefix+' grounded foot',[.32,.08,.32],'stone',[x,deck+.04,z]);
+    add(prefix+' mortar core',[.25,.715,.25],'dark',[x,deck+.4375,z]);
+    for(let row=0;row<4;row++)add(prefix+' stone course '+row,[.278,.175,.278],row%2?'stone':'light',[x,deck+.08+.0875+row*.178,z]);
+    add(prefix+' lookout deck',[.35,.055,.35],'wood',[x,deck+.8195,z]);
+    for(const dx of [-.145,.145])for(const dz of [-.145,.145])add(prefix+' timber post '+dx+' '+dz,[.032,.30,.032],'wood',[x+dx,deck+.997,z+dz]);
+    for(const direction of [-1,1]){
+      add(prefix+' front rail '+direction,[.030,.038,.32],'timber',[x+direction*.145,deck+1.047,z]);
+      add(prefix+' side rail '+direction,[.32,.038,.030],'timber',[x,deck+1.047,z+direction*.145]);
+    }
+    const roof=new THREE.ConeGeometry(.29,.20,4);roof.rotateY(Math.PI/4);roof.translate(x,deck+1.247,z);parts.push({name:prefix+' peaked roof',geometry:roof,color:palette.dark,metalness:0,roughness:.9});
+    add(prefix+' roof beam',[.34,.024,.34],'wood',[x,deck+1.135,z]);
   }
   return parts;
 }

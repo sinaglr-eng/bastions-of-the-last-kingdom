@@ -149,7 +149,8 @@ test('actual defense draw queues contain only colored small particles and charge
     const coloredParticlesOnly=list=>list.opaque.length===0&&list.transparent.length>0&&list.transparent.every(({object,material})=>material.color.getHex()!==0x0a151c&&!['CircleGeometry','RingGeometry'].includes(object.geometry.type));
     const list=drawList();assert.ok(coloredParticlesOnly(list));
     for(const batch of fx.batches.values()){
-      assert.equal(batch.root.children.length,batch.panels?3:2);assert.equal(batch.backing,undefined);assert.equal(batch.ring,undefined);
+      assert.equal(batch.root.children.length,batch.panels?4:2);assert.equal(batch.backing,undefined);assert.equal(batch.ring,undefined);
+      if(batch.shell){assert.equal(batch.shell.geometry.type,'SphereGeometry');assert.equal(batch.shell.count,3);assert.ok(batch.shell.material.opacity<.3);}
       assert.equal(batch.glyph.material.opacity,1);assert.equal(batch.glyph.material.blending,THREE.NormalBlending);
       assert.equal(batch.dots.material.color.getHex(),batch.glyph.material.color.getHex());
     }

@@ -5,6 +5,7 @@ import {createHash} from 'node:crypto';
 import {Box3,Vector3} from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {enemyAssetKey} from '../game/render/enemy-assets.js';
+import {applyEnemyDesigns} from '../tools/enemy-designs.mjs';
 
 const read=file=>JSON.parse(readFileSync(new URL(file,import.meta.url)));
 const enemies=read('../data/enemies.json'),waves=read('../data/waves.json'),designs=read('../data/enemy-designs.json');
@@ -36,9 +37,36 @@ const variantMap={
  host_50:[['Ghorun the Ashen','host_50'],['Ghorun the Gold-Cursed','host_50-tyrant'],['Ghorun the Pale Devourer','host_50-devourer']],
 };
 
-test('Dark Host changes only the five allowed visual fields and preserves every other enemy and wave field recursively',()=>{
- assert.equal(fingerprint(enemies),'e380e30df148e6d6f07d52bfad14ea15ec0cc1a2d35d34c4dddf6da7c950c4ac');
+test('only the seven approved V10 balance values differ from the original Dark Host gameplay fingerprint',()=>{
+ const historical=structuredClone(enemies);
+ const approvedBalanceChanges=[
+  [['troll','regen'],5,7.5],
+  [['host_02','hp'],61,52],
+  [['host_03','hp'],80,68],
+  [['host_08','regen'],1.024,1.536],
+  [['host_15','regen'],3.9,5.85],
+  [['host_21','regen'],10.732000000000001,16.098],
+  [['host_38','variants',1,'regen'],125.476,188.214],
+ ];
+ for(const [path,before,after]of approvedBalanceChanges){
+  const parent=path.slice(0,-1).reduce((value,key)=>value[key],historical),key=path.at(-1);
+  assert.equal(parent[key],after,path.join('.')+' approved current value');parent[key]=before;
+ }
+ assert.equal(fingerprint(historical),'e380e30df148e6d6f07d52bfad14ea15ec0cc1a2d35d34c4dddf6da7c950c4ac','every other gameplay field stays byte-for-byte in the original recursive projection');
  assert.equal(fingerprint(waves),'1aa5d616e192d31d04c50ad5cf0a5012878f1b89c6ce41055f7dc1badcfcb737');
+});
+
+test('actual Dark Host authoring changes only the five visual fields and preserves the current balance and wave rules recursively',()=>{
+ const subjects=structuredClone(enemies),stages=structuredClone(waves),before={enemies:gameplay(subjects),waves:gameplay(stages)};
+ // Exercise real reassignment, rather than an already identical authoring pass.
+ for(const [id,enemy]of Object.entries(subjects))if(id.startsWith('host_')){
+  for(const key of cosmeticFields)enemy[key]='unassigned';
+  for(const variant of enemy.variants||[])for(const key of cosmeticFields)variant[key]='unassigned';
+ }
+ for(const stage of stages)stage.name='unassigned';
+ applyEnemyDesigns(subjects,stages);
+ assert.deepEqual({enemies:gameplay(subjects),waves:gameplay(stages)},before);
+ for(const design of designs.designs){assert.equal(subjects[design.id].name,design.name);assert.equal(subjects[design.id].visualAsset,design.id);}
 });
 
 test('all 50 approved warband names, appearances and five aura stages are assigned to the matching waves and native models',()=>{

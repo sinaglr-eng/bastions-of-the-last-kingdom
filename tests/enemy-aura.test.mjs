@@ -154,7 +154,7 @@ test('reduced motion preserves rush and war-drum windows from actual combat move
 test('reduced motion preserves the real per-enemy disarm phase, including reactivation',()=>{
   const fixture=cueFixture(['disarm']);
   try{
-    for(const id of [1,9])for(const time of [0,.5,.879,.88,1.25,4.66,4.67,5.2,6,7.75,8,9]){
+    for(const id of [1,9])for(const time of [0,.5,1.25,2.629,2.63,4.66,4.67,5.2,6,7.669,7.67,7.75,8,9,10.629,10.63]){
       const {enemy,tower,elapsed}=combatFixture(time,{id,disarm:true}),snapshot=structuredClone(enemy);
       for(const reducedMotion of [false,true]){
         animateEnemyCues(fixture.root,enemy,elapsed,{reducedMotion});

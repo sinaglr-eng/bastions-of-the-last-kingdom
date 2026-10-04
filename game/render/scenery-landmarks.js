@@ -5,7 +5,7 @@ import {keepModel,campModel,optimize} from './models.js';
 
 export const LANDMARK_SITES=Object.freeze({
   camp:Object.freeze({x:-25,y:0,z:-14,file:'fortified-warcamp-v8.glb',labelHeight:4.2}),
-  keep:Object.freeze({x:38,y:0,z:14,file:'royal-castle-v7.glb',labelHeight:19.4})
+  keep:Object.freeze({x:38,y:0,z:14,file:'royal-castle-v9.glb',labelHeight:19.4})
 });
 export const WARCAMP_PREVIEW_LOCAL=Object.freeze({x:2.25,y:.595,z:0});
 

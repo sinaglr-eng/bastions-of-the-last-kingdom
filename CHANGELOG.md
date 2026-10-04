@@ -1,5 +1,14 @@
 # Releases
 
+## 0.3.9 — Grounded checkpoints and clearer warbands — 4 October 2026
+
+- Removes checkpoint slabs in favor of worn earth, retaining the five Roman flags and themed props. Crates stack in several tiers, the forward ruin reaches its flag, and the campfire flickers with rising embers. Two small guard towers replace the final bridge flag and platform.
+- Adds staggered, physically raised limestone courses on both sides of the royal curtain walls, preserving the original editable castle scene and settlement geometry in a separate V9 scene.
+- Gives moving route arrows opaque, slightly larger solid geometry. Makes Merge badges clickable on draw cards and above eligible units; stale or invalid actions cannot consume defenders.
+- Increases every regeneration definition and variant by 50%, sets enemy disarm to three seconds, and shows numerical strength, range and timing for all abilities and variants in current/upcoming panels and the Warbands guide.
+- Adds a body-covering magical shield aura with one sector per remaining blocked hit; its final sector shatters after the third hit, and the real eight-second refresh restores it.
+- Keeps wave 1 unchanged and lowers wave 2/3 health from 61/80 to 52/68, preserving movement, counts, armor and spawn spacing. Removes the automatic mastery notice and next-odds XP line.
+
 ## 0.3.8 — Checkpoint stories and floating magic — 4 October 2026
 
 - Gives checkpoint I–V distinct small scenes: a fallen soldier against a rock, stacked powder barrels, a semicircle of crates, a campfire and campsite, and a ruined forward wall. Roman flags and playable route positions remain intact; the route legend is removed.

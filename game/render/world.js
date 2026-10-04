@@ -14,7 +14,7 @@ import {beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,an
 import {CombatEffects} from './combat-effects.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
 import {EnemyConcealmentEffects} from './enemy-concealment-effects.js';
-import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS} from './checkpoint-marker.js';
+import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS,takeCheckpointEffects,animateCheckpointEffects,disposeCheckpointEffects} from './checkpoint-marker.js';
 import {fetchGeometricEntries,geometricEntryUrl,loadModelEntries} from './geometric-assets.js';
 import {disposeGeometricResources,adoptDecodedGeometricAsset} from './geometric-resources.js';
 import {optimizeGeometricSiblings} from './geometric-batching.js';
@@ -157,10 +157,11 @@ export class Battlefield {
     // Decorative camp and keep sit beyond the left and right board edges.
     this.landmarks=createLandmarkScenery();this.scene.add(this.landmarks.group);this.updateCampPreview();
     this.valley=valleyEnvironment();this.scene.add(this.valley.staticGroup,this.valley.water);if(this.valley.clouds)this.scene.add(this.valley.clouds);
-    const checkpointGroup=new THREE.Group();
+    const checkpointGroup=new THREE.Group();this.checkpointEffects=new THREE.Group();this.scene.add(this.checkpointEffects);
     this.game.grid.checkpoints.forEach((p,i)=>{
       const marker=createCheckpointMarker({label:CHECKPOINT_ROMAN_LABELS[i-1]||'',kind:i===0?'spawn':i===this.game.grid.checkpoints.length-1?'keep':'checkpoint'});
-      marker.scale.setScalar(CHECKPOINT_MARKER_SCALE);marker.position.copy(v3(p.x,0,p.z));checkpointGroup.add(marker);
+      marker.scale.setScalar(CHECKPOINT_MARKER_SCALE);marker.position.copy(v3(p.x,0,p.z));
+      const effects=takeCheckpointEffects(marker);if(effects)this.checkpointEffects.add(effects);checkpointGroup.add(marker);
     });
     const checkpointMeshes=optimize(checkpointGroup);
     checkpointMeshes.traverse(object=>{if(object.isMesh)object.raycast=()=>{};});
@@ -292,6 +293,7 @@ export class Battlefield {
   tileScreen(x,z) {const p=v3(x,0.08,z).project(this.camera),r=this.renderer.domElement.getBoundingClientRect();return {x:r.left+(p.x+1)*r.width/2,y:r.top+(-p.y+1)*r.height/2};}
   update(dt) {
     this.time+=dt;this.draftMarkers.update(this.time,this.camera,this.container.clientHeight);
+    animateCheckpointEffects(this.checkpointEffects,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateRouteOverlay(this.pathGroup,dt,{reducedMotion:!!this.reducedMotion?.matches,paused:this.game.phase==='combat'&&this.game.paused});
     const battleDt=this.game.paused?0:dt*this.game.speed;
     this.motionTime=(this.motionTime||0)+battleDt;
@@ -344,6 +346,7 @@ export class Battlefield {
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
     this.disposed=true;this.combatEffects.dispose();this.supportEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
+    disposeCheckpointEffects(this.checkpointEffects);
     const checkpointMaterials=new Set();
     this.checkpointMeshes?.traverse(object=>{if(object.isMesh){object.geometry.dispose();checkpointMaterials.add(object.material);}});
     checkpointMaterials.forEach(material=>material.dispose());this.checkpointMeshes?.removeFromParent();

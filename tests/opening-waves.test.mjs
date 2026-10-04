@@ -41,7 +41,7 @@ test('opening patrols still punish placing the keeper away from the route',()=>{
   assert.equal(game.lives,data.balance.startingLives-8);
 });
 
-test('waves two and three retain their original normal difficulty while wave one stays introductory',()=>{
+test('waves two and three ease durability while wave one and all movement/count/timing tuning stay unchanged',()=>{
   const patrols=data.waves.slice(0,3).map(w=>data.enemies[w.groups[0].type]);
   assert.deepEqual(data.waves.slice(0,3).map(w=>w.groups[0].count),[8,8,9]);
   assert.deepEqual(data.waves.slice(0,3).map(w=>w.reward),[50,50,50]);
@@ -50,7 +50,7 @@ test('waves two and three retain their original normal difficulty while wave one
     assert.equal(e.flying,false);assert.deepEqual(e.traits,[]);
     assert.ok(!e.resists||Object.values(e.resists).every(r=>r===0));
   }
-  assert.deepEqual(patrols.map(e=>[e.hp,e.armor,e.speed]),[[9,0,1.3],[61,1,2.21],[80,8,2.05+2*.16]]);
+  assert.deepEqual(patrols.map(e=>[e.hp,e.armor,e.speed]),[[9,0,1.3],[52,1,2.21],[68,8,2.05+2*.16]]);
   assert.deepEqual(data.waves.slice(0,3).map(w=>w.groups[0].interval),[2.4,.6,.6]);
   assert.match(patrols[0].threat,/Opening patrol/);
   assert.equal(patrols[1].threat,'Ground warband · shape the route');

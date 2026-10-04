@@ -13,7 +13,7 @@ function placeArrows(state){
     while(low<high){const middle=(low+high)>>1;if(distance<segments[middle].end)high=middle;else low=middle+1;}
     const segment=segments[low],along=distance-segment.start;
     matrix.makeRotationY(Math.atan2(-segment.uz,segment.ux));
-    matrix.setPosition(segment.x+segment.ux*along-half,.17,segment.z+segment.uz*along-half);
+    matrix.setPosition(segment.x+segment.ux*along-half,.18,segment.z+segment.uz*along-half);
     arrows.setMatrixAt(i,matrix);
   }
   arrows.instanceMatrix.needsUpdate=true;
@@ -79,13 +79,13 @@ export function createRouteOverlay(points,{planned=false,flying=false}={}){
   const color=planned?ROUTE_COLORS.planned:flying?ROUTE_COLORS.flying:ROUTE_COLORS.current;
   add(border,planned?'#46544d':'#59604c',planned?.24:.14,planned?'Planned route dash edges':'Current route edge');add(stroke,color,planned?.44:.4,planned?'Planned route dashes':'Current route continuous ribbon');
   if(!planned&&traveled){
-    // Two tapered strokes form an open chevron; the slim continuous guide below
-    // it remains readable while small, widely spaced markers flow forward.
-    const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute([
-      -.126,0,.114,.162,0,0,.0792,0,0, -.126,0,.114,.0792,0,0,-.1128,0,.0612,
-      -.126,0,-.114,-.1128,0,-.0612,.0792,0,0, -.126,0,-.114,.0792,0,0,.162,0,0
-    ],3));
-    const arrows=new THREE.InstancedMesh(geometry,new THREE.MeshBasicMaterial({color:flying?'#b0e3df':'#e6cd9c',side:THREE.DoubleSide,transparent:true,opacity:.86,depthWrite:false,toneMapped:false}),Math.max(1,Math.floor(traveled/arrowPitch)));
+    // Opaque, bevelled miniature arrows float above the quiet route ribbon.
+    // One shared solid mesh keeps even a long maze inexpensive to animate.
+    const outline=new THREE.Shape();outline.moveTo(-.17,-.065);
+    for(const [x,y]of [[.02,-.065],[.02,-.15],[.23,0],[.02,.15],[.02,.065],[-.17,.065]])outline.lineTo(x,y);
+    outline.closePath();
+    const geometry=new THREE.ExtrudeGeometry(outline,{depth:.04,bevelEnabled:true,bevelSize:.007,bevelThickness:.007,bevelSegments:1,steps:1});geometry.rotateX(-Math.PI/2);
+    const arrows=new THREE.InstancedMesh(geometry,new THREE.MeshStandardMaterial({color:flying?'#a6ddd7':'#e6cd9c',roughness:.72,metalness:.08}),Math.max(1,Math.floor(traveled/arrowPitch)));
     arrows.name='Current route direction arrows';arrows.raycast=()=>{};arrows.frustumCulled=false;group.add(arrows);
     const state={arrows,segments,total:traveled,elapsed:0,matrix:new THREE.Matrix4()};motion.set(group,state);placeArrows(state);
   }

@@ -37,7 +37,7 @@ test('guide uses own unit codes and advanced ingredient ranks remain explicit',(
   assert.equal(ingredientName({family:'soldier',tier:3},data),'S III · Soldier');
   const family=Object.keys(data.towers).find(id=>data.towers[id].advanced);
   assert.equal(ingredientName({family,tier:7},data),`VII · ${data.towers[family].name}`);
-  assert.ok(warbandTraits({hasteAura:1.18}).includes('Nearby invaders gain 18% movement speed for 3s every 6s'));
+  assert.ok(warbandTraits({hasteAura:1.18}).includes('Invaders within 3.5 tiles gain 18% movement speed for 3s every 6s'));
 });
 
 test('best score persists while old profiles receive a zero record',()=>{

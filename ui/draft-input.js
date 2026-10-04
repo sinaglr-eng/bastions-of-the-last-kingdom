@@ -18,6 +18,30 @@ export function keepDrawKeeper(game,index,expectedId){
   return game.keep();
 }
 
+const mergeGameIds=new WeakMap();let nextMergeGameId=1;
+// A visible merge button describes a specific current-round inventory. Keep
+// that description with the request so a stale card or pointer release cannot
+// merge a changed pair or use a different result foundation.
+export function mergeTowerKey(game,towerId){
+  if(game.phase!=='select'||game.draft.draws.length!==5||game.draft.draws.some(draw=>!draw.placed))return null;
+  const candidates=game.roundCandidates.map(candidate=>candidate.tower),tower=candidates.find(candidate=>candidate.id===towerId);
+  if(candidates.length!==5||new Set(candidates.map(candidate=>candidate.id)).size!==5||!tower)return null;
+  const partner=game.mergePartner(tower);if(!partner)return null;
+  if(!mergeGameIds.has(game))mergeGameIds.set(game,nextMergeGameId++);
+  return encodeURIComponent(JSON.stringify([mergeGameIds.get(game),game.round,tower.id,partner.id,
+    candidates.map(candidate=>[candidate.id,candidate.family,candidate.tier,candidate.state,candidate.round,candidate.x,candidate.z]),
+    game.draft.draws.map(draw=>draw.towerId)]));
+}
+
+export function mergeTowerFromBadge(game,towerId,expectedKey){
+  if(!expectedKey||mergeTowerKey(game,towerId)!==expectedKey)return false;
+  game.select(towerId);
+  // select() notifies listeners. Recheck before delegating the mutation to the
+  // same core action used by the selected defender's command panel.
+  if(mergeTowerKey(game,towerId)!==expectedKey||game.selected!==towerId)return false;
+  return game.merge();
+}
+
 // Actual accepted pointer releases call this method. Keyboard activation only
 // selects; keeping remains available through the adjacent button or Space.
 export class DraftCardActivation {

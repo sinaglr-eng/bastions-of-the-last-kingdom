@@ -10,14 +10,14 @@ import {SUPPORT_EFFECT_STYLES} from '../game/render/support-effects.js';
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const unit=(family,id,tier=1,x=10)=>({family,id,tier,state:'active',x,z:10});
 
-test('compact automatic mastery display includes every exact future quality weight without changing economy',()=>{
+test('compact odds-only mastery display includes every exact future quality weight without changing economy',()=>{
   const economy=new EconomyManager(data.balance);economy.gold=0;
   for(let rank=0;rank<data.balance.mastery.length;rank++){
     economy.xp=rank*data.balance.xpPerLevel;const before=JSON.stringify(economy),html=masteryPanelMarkup(economy,data.balance);
     assert.match(html,/Future draw odds/);assert.match(html,new RegExp(`${rank} / ${data.balance.mastery.length-1}`));
     const rendered=[...html.matchAll(/<em>(\d+)%<\/em>/g)].map(match=>Number(match[1]));
     assert.deepEqual(rendered,data.balance.mastery[rank].weights.slice(0,5));assert.match(html,/<b>VI<\/b><em>Merge<\/em>/);
-    const next=economy.nextMastery();if(next)assert.match(html,new RegExp(`Next odds at Kingdom ${rank+2}`));else assert.match(html,/Maximum mastery reached/);
+    assert.doesNotMatch(html,/mastery-auto|mastery-help|Automatic|New odds apply|Next odds at Kingdom|Maximum mastery reached/);
     assert.doesNotMatch(html,/<button|data-action="mastery"|gold/);
     assert.equal(JSON.stringify(economy),before);
   }
@@ -27,8 +27,7 @@ test('mastery advances at XP boundaries without gold and clearly applies to next
   const economy=new EconomyManager(data.balance);economy.gold=0;
   economy.reward(0,data.balance.xpPerLevel-1);assert.equal(economy.mastery,0);
   economy.reward(0,1);assert.equal(economy.mastery,1);assert.equal(economy.gold,0);
-  assert.match(masteryPanelMarkup(economy,data.balance),/Automatic · Kingdom 2/);
-  assert.match(masteryPanelMarkup(economy,data.balance),/New odds apply next round/);
+  const markup=masteryPanelMarkup(economy,data.balance);assert.match(markup,/1 \/ 15/);assert.doesNotMatch(markup,/Automatic|New odds apply|Next odds/);
   const game=new Game(data,{seed:42});game.economy.reward(0,90);
   assert.equal(game.economy.mastery,1);assert.equal(game.draft.mastery,0);
   for(let x=10;x<15;x++)assert.ok(game.place(x,10));assert.ok(game.towers.every(t=>t.tier===1));

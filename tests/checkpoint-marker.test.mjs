@@ -1,12 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
-import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS} from '../game/render/checkpoint-marker.js';
-import {checkpointVignetteGeometries} from '../game/render/checkpoint-vignettes.js';
+import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS,takeCheckpointEffects,disposeCheckpointEffects} from '../game/render/checkpoint-marker.js';
+import {checkpointVignetteGeometries,CHECKPOINT_GROUND_Y} from '../game/render/checkpoint-vignettes.js';
 import {CHECKPOINT_MARKER_SCALE} from '../game/render/route-overlay.js';
 import {optimize} from '../game/render/models.js';
+import {meadowTerrain} from '../game/render/terrain.js';
 
-const dispose=root=>root.traverse(node=>node.geometry?.dispose());
+const dispose=root=>{disposeCheckpointEffects(root);root.traverse(node=>node.geometry?.dispose());};
 function glyphMask(mesh,side){
   // A camera behind the flag reverses world X. Ray samples compare actual ink
   // from both viewpoints, including IV, whose character order is asymmetric.
@@ -40,26 +41,25 @@ test('all five Roman numerals are physical readable embroidery on both actual cl
   }
   assert.equal(distinct.size,5,'Actual triangle silhouettes distinguish I through V');
 });
-test('decorative markers retain the old footprint, shallow passage plate and non-picking behavior',()=>{
+test('grounded decorations retain safe footprints and cannot intercept terrain or defender selection',()=>{
   for(const options of [{kind:'spawn'},...CHECKPOINT_ROMAN_LABELS.map(label=>({kind:'checkpoint',label})),{kind:'keep'}]){
     const marker=createCheckpointMarker(options);marker.scale.setScalar(CHECKPOINT_MARKER_SCALE);marker.updateMatrixWorld(true);
-    const bounds=new THREE.Box3().setFromObject(marker,true);assert.ok(bounds.min.x>=-.55*CHECKPOINT_MARKER_SCALE&&bounds.max.x<=.60*CHECKPOINT_MARKER_SCALE);assert.ok(bounds.min.z>=-.55*CHECKPOINT_MARKER_SCALE&&bounds.max.z<=.55*CHECKPOINT_MARKER_SCALE);assert.ok(bounds.max.y<1.70*CHECKPOINT_MARKER_SCALE);
+    const bounds=new THREE.Box3().setFromObject(marker,true);assert.ok(bounds.min.x>=-.55*CHECKPOINT_MARKER_SCALE&&bounds.max.x<=.60*CHECKPOINT_MARKER_SCALE);const depth=options.kind==='keep'?1.01:.55;assert.ok(bounds.min.z>=-depth*CHECKPOINT_MARKER_SCALE&&bounds.max.z<=depth*CHECKPOINT_MARKER_SCALE);assert.ok(bounds.max.y<(options.label==='V'?1.90:1.70)*CHECKPOINT_MARKER_SCALE);
     marker.traverse(node=>{if(node.isMesh){
-      const position=node.geometry.attributes.position,index=node.geometry.index;assert.ok(position.array.every(Number.isFinite));assert.equal(node.raycast(),undefined);assert.ok(node.material.depthWrite);
+      const position=node.geometry.attributes.position,index=node.geometry.index;assert.ok(position.array.every(Number.isFinite));assert.equal(node.raycast(),undefined);if(!node.material.transparent)assert.ok(node.material.depthWrite);
       for(let offset=0;offset<(index?.count??position.count);offset+=3){const vertices=[0,1,2].map(i=>new THREE.Vector3().fromBufferAttribute(position,index?index.getX(offset+i):offset+i));assert.ok(vertices[1].sub(vertices[0]).cross(vertices[2].sub(vertices[0])).length()>2e-11,'Merged fittings and embroidery contain real nondegenerate triangles');}
     }});
     const ray=new THREE.Raycaster(new THREE.Vector3(.39*CHECKPOINT_MARKER_SCALE,1.17*CHECKPOINT_MARKER_SCALE,2),new THREE.Vector3(0,0,-1));assert.deepEqual(ray.intersectObject(marker,true),[],'Flags cannot intercept defender or terrain selection');
-    // Read the physical deck directly while keeping runtime picking disabled.
-    const down=new THREE.Raycaster(new THREE.Vector3(0,1,0),new THREE.Vector3(0,-1,0)),hits=[];marker.traverse(node=>{if(node.isMesh)THREE.Mesh.prototype.raycast.call(node,down,hits);});hits.sort((a,b)=>a.distance-b.distance);assert.ok(hits.length&&hits[0].point.y<.18*CHECKPOINT_MARKER_SCALE,'The central passage remains a low plate');
+    const hits=rawHits(marker,new THREE.Vector3(0,1,0),new THREE.Vector3(0,-1,0));assert.ok(!hits.length||Math.abs(hits[0].point.y-.031)<1e-5,'The centre is actual terrain, with no raised stone plate');
     assert.ok(marker.children.length<=11,'Scenery, stone, poles and trims share material batches');dispose(marker);
   }
   assert.throws(()=>createCheckpointMarker({label:'VI'}),RangeError);assert.throws(()=>createCheckpointMarker({kind:'enemy'}),RangeError);
 });
 test('Roman embroidery survives the production scenery merge without new textures or excessive batches',()=>{
-  const group=new THREE.Group();for(const [i,label] of CHECKPOINT_ROMAN_LABELS.entries()){const marker=createCheckpointMarker({label});marker.position.x=i*2;group.add(marker);}
+  const group=new THREE.Group(),effects=[];for(const [i,label] of CHECKPOINT_ROMAN_LABELS.entries()){const marker=createCheckpointMarker({label});marker.position.x=i*2;group.add(marker);const effect=takeCheckpointEffects(marker);if(effect)effects.push(effect);}
   group.add(createCheckpointMarker({kind:'spawn'}),createCheckpointMarker({kind:'keep'}));
-  const merged=optimize(group);assert.ok(merged.children.length<=12,'Five scenes and both endpoints share twelve scenery materials');let triangles=0;merged.traverse(node=>{if(node.isMesh){node.raycast=()=>{};assert.equal(node.material.map,null);assert.ok(node.geometry.attributes.position.array.every(Number.isFinite));triangles+=(node.geometry.index?.count??node.geometry.attributes.position.count)/3;}});assert.ok(triangles<9500,'The complete seven-marker decoration remains a small static scenery batch');
-  const ink=merged.children.find(node=>node.material.color.getHexString()==='f1e6c7');assert.ok(ink);assert.ok(new THREE.Box3().setFromObject(ink,true).getSize(new THREE.Vector3()).x>8,'The final material batch retains every physical label');dispose(merged);
+  const merged=optimize(group);assert.ok(merged.children.length<=12,'Five scenes and both endpoints share a bounded scenery palette');let triangles=0;merged.traverse(node=>{if(node.isMesh){node.raycast=()=>{};assert.equal(node.material.map,null);assert.ok(node.geometry.attributes.position.array.every(Number.isFinite));triangles+=(node.geometry.index?.count??node.geometry.attributes.position.count)/3;}});assert.ok(triangles<9500,'The complete seven-marker decoration remains a small static scenery batch');
+  const ink=merged.children.find(node=>node.material.color.getHexString()==='f1e6c7');assert.ok(ink);assert.ok(new THREE.Box3().setFromObject(ink,true).getSize(new THREE.Vector3()).x>8,'The final material batch retains every physical label');dispose(merged);effects.forEach(disposeCheckpointEffects);
 });
 
 function rawHits(root,origin,direction){
@@ -69,18 +69,18 @@ function rawHits(root,origin,direction){
 function passageClear(root){
   for(const x of [-.075,0,.075])for(const z of [-.075,0,.075]){
     const hits=rawHits(root,new THREE.Vector3(x,1,z),new THREE.Vector3(0,-1,0));
-    if(!hits.length||hits[0].point.y>.18)return false;
+    if(hits.length&&hits[0].point.y>CHECKPOINT_GROUND_Y+1e-5)return false;
   }
   return true;
 }
 test('all five merged scenes leave a real central walking patch open, and displaced scenery is detected',()=>{
   const profiles=new Set();
   for(const label of CHECKPOINT_ROMAN_LABELS){
-    const marker=createCheckpointMarker({label}),merged=optimize(marker);assert.ok(passageClear(merged),label+' has no raised prop in the centre');
+    const marker=createCheckpointMarker({label}),effect=takeCheckpointEffects(marker),merged=optimize(marker);assert.ok(passageClear(merged),label+' has no raised prop in the centre');
     // Actual off-centre surface heights distinguish the five scenes; labels or
     // part names alone do not make a checkpoint visually distinct.
     const heights=[];for(const x of [-.34,-.24,-.14,.04])for(const z of [-.24,-.12,.04,.20])heights.push(rawHits(merged,new THREE.Vector3(x,.85,z),new THREE.Vector3(0,-1,0))[0]?.point.y.toFixed(3)||'empty');
-    profiles.add(heights.join(','));dispose(merged);
+    profiles.add(heights.join(','));dispose(merged);disposeCheckpointEffects(effect);
   }
   assert.equal(profiles.size,5);
   const marker=createCheckpointMarker({label:'II'}),obstructionMaterial=new THREE.MeshStandardMaterial();
@@ -93,13 +93,13 @@ test('all five merged scenes leave a real central walking patch open, and displa
 function floorSupported(part,floor){
   part.geometry.computeBoundingBox();const bottom=part.geometry.boundingBox.min.y,positions=part.geometry.attributes.position;
   for(let i=0;i<positions.count;i++)if(Math.abs(positions.getY(i)-bottom)<1e-5){
-    const hits=rawHits(floor,new THREE.Vector3(positions.getX(i),.30,positions.getZ(i)),new THREE.Vector3(0,-1,0));
-    if(hits.length&&Math.abs(bottom-hits[0].point.y)<.004)return true;
+    const hits=rawHits(floor,new THREE.Vector3(positions.getX(i)*CHECKPOINT_MARKER_SCALE,.30,positions.getZ(i)*CHECKPOINT_MARKER_SCALE),new THREE.Vector3(0,-1,0));
+    if(hits.length&&Math.abs(bottom*CHECKPOINT_MARKER_SCALE-hits[0].point.y)<.004)return true;
   }
   return false;
 }
-test('load-bearing vignette props meet the actual stone deck instead of floating',()=>{
-  const floor=createCheckpointMarker({kind:'spawn'}),names={I:['Soldier supporting rock','Grounded boot -1','Grounded boot 1'],II:['Left powder barrel end -1','Right powder barrel end -1'],III:[0,1,2,3,4].map(i=>'Crate '+i+' dark core'),IV:['Firepit stone 0','Firepit stone 3','Rolled campsite blanket'],V:['Broken wall foundation 0','Broken wall foundation 1','Broken wall foundation 2','Scattered rubble left']};
+test('load-bearing vignette props meet the actual meadow instead of floating',()=>{
+  const floor=meadowTerrain(),names={I:['Soldier supporting rock','Grounded boot -1','Grounded boot 1'],II:['Left powder barrel end -1','Right powder barrel end -1'],III:[0,1,2,3,4].map(i=>'Crate '+i+' dark core'),IV:['Firepit stone 0','Firepit stone 3','Rolled campsite blanket'],V:['Broken wall foundation 0','Broken wall foundation 1','Broken wall foundation 2','Scattered rubble left']};
   for(const [label,required] of Object.entries(names)){
     const parts=checkpointVignetteGeometries(label);for(const name of required){const part=parts.find(candidate=>candidate.name===name);assert.ok(part&&floorSupported(part,floor),name+' has physical floor support');}
     if(label==='III'){
@@ -107,5 +107,22 @@ test('load-bearing vignette props meet the actual stone deck instead of floating
     }
     for(const part of parts)part.geometry.dispose();
   }
-  dispose(floor);
+  dispose(floor);floor.material.dispose();
+});
+
+test('crates stack in several supported tiers and the ruined wall is at least as tall as its real flag',()=>{
+  const parts=checkpointVignetteGeometries('III'),cores=parts.filter(part=>part.name.endsWith('dark core'));
+  for(const i of [1,2,3]){
+    const upper=cores.find(part=>part.name===`Crate ${i} tier 1 dark core`),lid=parts.find(part=>part.name===`Crate ${i} plank lid`);assert.ok(upper&&lid);upper.geometry.computeBoundingBox();lid.geometry.computeBoundingBox();assert.ok(Math.abs(upper.geometry.boundingBox.min.y-lid.geometry.boundingBox.max.y)<1e-5,'The upper box rests on the actual lower lid');
+  }
+  const highest=cores.map(part=>{part.geometry.computeBoundingBox();return part.geometry.boundingBox.max.y;});assert.ok(Math.max(...highest)-CHECKPOINT_GROUND_Y>.49,'The semicircle has a visibly three-tier pile');
+  const marker=createCheckpointMarker({label:'V'}),cloth=marker.getObjectByName('Faceted checkpoint cloth');marker.updateMatrixWorld(true);const clothTop=new THREE.Box3().setFromObject(cloth,true).max.y;
+  const masonry=checkpointVignetteGeometries('V');const top=Math.max(...masonry.map(part=>{part.geometry.computeBoundingBox();return part.geometry.boundingBox.max.y;}));assert.ok(top>=1.675&&top>clothTop,'Actual stone geometry exceeds the flag finial, rather than just a metadata height');assert.ok(passageClear(marker));
+  for(const part of [...parts,...masonry])part.geometry.dispose();dispose(marker);
+});
+
+test('the keep has exactly two flanking lookouts and a completely clear bridge approach',()=>{
+  const marker=createCheckpointMarker({kind:'keep'});marker.scale.setScalar(CHECKPOINT_MARKER_SCALE);marker.updateMatrixWorld(true);assert.equal(marker.getObjectByName('Faceted checkpoint cloth'),undefined);assert.equal(marker.getObjectByName('Flush trampled ground'),undefined);
+  for(const x of [-.1,.1,.31,.5,.7])for(const z of [-.55,0,.55])assert.equal(rawHits(marker,new THREE.Vector3(x*CHECKPOINT_MARKER_SCALE,2,z*CHECKPOINT_MARKER_SCALE),new THREE.Vector3(0,-1,0)).length,0,'Full-height approach corridor remains clear');
+  const height=[];for(const z of [-.8,.8]){const hits=rawHits(marker,new THREE.Vector3(.31*CHECKPOINT_MARKER_SCALE,2,z*CHECKPOINT_MARKER_SCALE),new THREE.Vector3(0,-1,0));assert.ok(hits.length);height.push(hits[0].point.y);}assert.ok(height.every(y=>y>1.4&&y<1.7),'Two real peaked watchtowers stand on opposite sides');dispose(marker);
 });

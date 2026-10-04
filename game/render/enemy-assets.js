@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {enemyModel} from './models.js';
+import {ENEMY_RULES as R,enemyDisarmActive} from '../core/enemy-rules.js';
 
 export function enemyAssetKey(enemy,templates){
   if(enemy.visualAsset&&templates.has(enemy.visualAsset))return enemy.visualAsset;
@@ -41,13 +42,13 @@ export function animateEnemyCues(root,enemy,elapsed,{reducedMotion=false}={}){
     let active=.2;
     switch(cue.kind){
       case 'regen':active=enemy.statuses?.healBlock?0:.35+.18*Math.sin(pulseTime*2);break;
-      case 'recharge':active=enemy.rechargeClock>7.25&&!enemy.statuses?.healBlock?1:.12;break;
-      case 'blink':active=enemy.blinkClock>5.6?1:.18;break;
-      case 'reactiveArmor':active=Math.min(1,(enemy.reactiveStacks||0)/12);break;
-      case 'rush':active=combatTime%6<2?1:.15;break;
-      case 'disarm':active=(combatTime+enemy.id*.37)%8<1.25?.85:.16;break;
+      case 'recharge':active=enemy.rechargeClock>R.recharge.period-.75&&!enemy.statuses?.healBlock?1:.12;break;
+      case 'blink':active=enemy.blinkClock>R.blink.period-.4?1:.18;break;
+      case 'reactiveArmor':active=Math.min(1,(enemy.reactiveStacks||0)/R.reactive.maxStacks);break;
+      case 'rush':active=combatTime%R.rush.period<R.rush.duration?1:.15;break;
+      case 'disarm':active=enemyDisarmActive(enemy,combatTime)?.85:.16;break;
       case 'refraction':active=enemy.shields>0?.5:0;break;
-      case 'warDrums':active=enemy.hasteAura&&combatTime%6<3?.45+.25*Math.sin(pulseTime*3):.15;break;
+      case 'warDrums':active=enemy.hasteAura&&combatTime%R.support.hastePeriod<R.support.hasteDuration?.45+.25*Math.sin(pulseTime*3):.15;break;
       case 'magicImmune':case 'physicalImmune':active=.6;break;
       case 'evasion':active=.3+.16*Math.sin(pulseTime*2.4);break;
     }

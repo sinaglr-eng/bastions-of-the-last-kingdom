@@ -130,3 +130,21 @@ export function prepareConcealmentReview(game){
   Object.assign(enemy,{x:12,z:18.5,route,pathLength,pathIndex:1,traveled:0,hp:1e8,maxHp:1e8});
   game.combat.total=1;game.selected=1;game.emit('change');return enemy;
 }
+
+// DEV-only caller: five real placements, exactly one available rank-merge pair.
+// Forcing a reveal uses the same draft path as the existing review tools.
+export function prepareMergeReview(game,family='archer',tier=3){
+  const stats=game.data.towers[family];
+  if(!stats||stats.advanced||!Number.isInteger(tier)||tier<1||tier>=game.data.balance.tiers.length)return false;
+  const others=Object.entries(game.data.towers).filter(([id,entry])=>id!==family&&!entry.advanced).slice(0,3).map(([family])=>({family,tier:1}));
+  if(others.length!==3)return false;
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.round=1;game.phase='build';game.nextId=1;game.activeDraw=0;game.previewRecipeId=null;game.paused=false;game.speed=1;
+  game.combat.enemies=[];game.combat.projectiles=[];game.combat.spawnQueue=[];
+  game.draft.roll(0);
+  const recruits=[{family,tier},{family,tier},...others];
+  recruits.forEach((recruit,index)=>{
+    game.draft.roundForced={...recruit};
+    if(!game.place(15+index,18))throw new Error('Merge review placement failed');
+  });
+  game.draft.roundForced=null;game.select(game.towers[0].id);return true;
+}

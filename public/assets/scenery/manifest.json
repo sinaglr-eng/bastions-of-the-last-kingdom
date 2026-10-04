@@ -199,5 +199,42 @@
     "inherits": "fortified-warcamp-v6.blend",
     "gameplayEffect": "none",
     "layout": "scenery-v8-camp.json"
+  },
+  {
+    "file": "royal-castle-v9.glb",
+    "source": "royal-castle-v9.blend",
+    "style": "scenery-v9",
+    "authoring": "Blender 5.2",
+    "triangles": 133786,
+    "roles": {
+      "townBuilding": 20,
+      "quarry": 1,
+      "defensiveThornbrush": 22,
+      "springRock": 3,
+      "street": 7,
+      "animalPen": 2,
+      "settlementTree": 88,
+      "waterwheel": 1,
+      "watermill": 1,
+      "springSource": 1,
+      "sheep": 9,
+      "settlementRock": 14,
+      "palace": 1,
+      "royalGate": 1,
+      "frontierTower": 2,
+      "buildingFootprint": 1,
+      "ashlarCurtainWall": 9,
+      "farmPlot": 7,
+      "wallSoldier": 4,
+      "wallArcher": 13,
+      "royalWallSegment": 7,
+      "cow": 6,
+      "resident": 31,
+      "canalBridge": 3,
+      "defensiveStake": 133
+    },
+    "review": "royal-castle-v9-review.png",
+    "inherits": "royal-castle-v7.blend",
+    "gameplayEffect": "none"
   }
 ]

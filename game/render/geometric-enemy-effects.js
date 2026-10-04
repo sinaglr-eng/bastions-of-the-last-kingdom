@@ -37,7 +37,7 @@ export class EnemyAbilityEffects{
   constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x,y,z),isVisible=()=>true,reducedMotion=false,camera=null,balance=null,maxEnemies=256,maxEffects=48}={}){
     this.scene=scene;this.position=position;this.isVisible=isVisible;this.reducedMotion=reducedMotion;this.camera=camera;this.balance=balance;this.maxEnemies=Math.max(1,Math.floor(maxEnemies));this.maxEffects=Math.max(1,Math.floor(maxEffects));
     this.group=new THREE.Group();this.group.name='Enemy defenses and rifts';scene.add(this.group);this.batches=new Map();this.effects=[];this.measurements=new WeakMap();this.disposed=false;this.pose=new THREE.Object3D();this.up=new THREE.Vector3(0,1,0);
-    this.cameraQuaternion=new THREE.Quaternion();this.centre=new THREE.Vector3();this.worldBounds=new THREE.Box3();
+    this.cameraQuaternion=new THREE.Quaternion();this.centre=new THREE.Vector3();this.worldBounds=new THREE.Box3();this.shieldBounds=new Map();
   }
   still(){return typeof this.reducedMotion==='function'?!!this.reducedMotion():!!this.reducedMotion;}
   batch(kind){
@@ -47,14 +47,16 @@ export class EnemyAbilityEffects{
     glyph.name='Small colored defense glyphs';
     const dots=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,0),new THREE.MeshBasicMaterial({color:styles[kind],transparent:true,opacity:.85,depthTest:false,depthWrite:false,toneMapped:false}),this.maxEnemies*dotsPerDefense);
     dots.name='Matching floating defense dots';
-    let crystals=null;
+    let crystals=null,shell=null;
     if(kind==='refraction'){
       const shield=new THREE.Shape();shield.moveTo(-.32,.34);shield.lineTo(.32,.34);shield.lineTo(.26,-.12);shield.lineTo(0,-.39);shield.lineTo(-.26,-.12);shield.closePath();
       crystals=new THREE.InstancedMesh(new THREE.ShapeGeometry(shield),new THREE.MeshBasicMaterial({color:styles[kind],transparent:true,opacity:.58,depthTest:false,depthWrite:false,side:THREE.DoubleSide,toneMapped:false}),this.maxEnemies*8);
       crystals.name='Remaining direct-hit shield charge panels';
+      shell=new THREE.InstancedMesh(new THREE.SphereGeometry(1,12,8,0,Math.PI*2/3-.025,.06,Math.PI-.12),effectMaterial(styles[kind],.17),this.maxEnemies*8);
+      shell.name='Continuous magical shield charge sectors';shell.renderOrder=4;shell.material.depthTest=true;
     }
-    for(const object of [glyph,dots,crystals].filter(Boolean)){object.count=0;object.raycast=noPick;object.frustumCulled=false;object.renderOrder=5;root.add(object);}
-    this.group.add(root);const batch={root,glyph,dots,crystals,panels:crystals,count:0,glyphCount:0,dotCount:0,crystalCount:0};this.batches.set(kind,batch);return batch;
+    for(const object of [glyph,dots,crystals,shell].filter(Boolean)){object.count=0;object.raycast=noPick;object.frustumCulled=false;object.renderOrder=object===shell?4:5;root.add(object);}
+    this.group.add(root);const batch={root,glyph,dots,crystals,shell,panels:crystals,count:0,glyphCount:0,dotCount:0,crystalCount:0,shellCount:0};this.batches.set(kind,batch);return batch;
   }
   measure(figure){
     if(!figure?.userData.body)return {height:1.5,radius:.38};
@@ -65,7 +67,8 @@ export class EnemyAbilityEffects{
   }
   sync(enemies,figures=new Map(),time=0,{camera,balance}={}){
     if(this.disposed)return;
-    for(const batch of this.batches.values()){batch.count=0;batch.glyphCount=0;batch.dotCount=0;batch.crystalCount=0;}
+    for(const batch of this.batches.values()){batch.count=0;batch.glyphCount=0;batch.dotCount=0;batch.crystalCount=0;batch.shellCount=0;}
+    const living=new Set(enemies.filter(enemy=>!enemy.dead).map(enemy=>enemy.id));for(const id of this.shieldBounds.keys())if(!living.has(id))this.shieldBounds.delete(id);
     const clock=this.still()?0:Math.max(0,finite(time));let count=0;
     const view=camera||(typeof this.camera==='function'?this.camera():this.camera),rules=balance||(typeof this.balance==='function'?this.balance():this.balance);
     if(view)view.getWorldQuaternion(this.cameraQuaternion);else this.cameraQuaternion.identity();
@@ -94,6 +97,16 @@ export class EnemyAbilityEffects{
         if(batch.crystals)for(let n=0;n<Math.min(8,state.count);n++){
           orbit(n,Math.min(8,state.count),glyphScale*1.8,1.05);batch.crystals.setMatrixAt(batch.crystalCount++,this.pose.matrix);
         }
+        if(batch.shell){
+          // The complete measured unit stays inside a three-sector magical
+          // veil. Each blocked hit removes one sector; zero charges removes it.
+          this.shieldBounds.set(enemy.id,this.worldBounds.clone());
+          for(let n=0;n<Math.min(8,state.count);n++){
+            this.pose.position.copy(this.centre);this.pose.rotation.set(0,clock*.18+n*Math.PI*2/3,0);
+            this.pose.scale.set(Math.max(.25,size.x*.56+.075),height*.56+.055,Math.max(.25,size.z*.56+.075));this.pose.updateMatrix();
+            batch.shell.setMatrixAt(batch.shellCount++,this.pose.matrix);
+          }
+        }
       }
     }
     for(const batch of this.batches.values()){
@@ -101,6 +114,7 @@ export class EnemyAbilityEffects{
       batch.glyph.count=batch.glyphCount;batch.dots.count=batch.dotCount;
       for(const object of [batch.glyph,batch.dots])object.instanceMatrix.needsUpdate=true;
       if(batch.crystals){batch.crystals.count=batch.crystalCount;batch.crystals.instanceMatrix.needsUpdate=true;}
+      if(batch.shell){batch.shell.count=batch.shellCount;batch.shell.instanceMatrix.needsUpdate=true;}
     }
   }
   event(type,payload={}){
@@ -123,9 +137,20 @@ export class EnemyAbilityEffects{
     }
   }
   deflection(enemy){
+    if(enemy.refraction&&enemy.shields===0){this.shatterShield(enemy);return;}
     const root=new THREE.Group();root.name='Refraction hit';root.position.copy(this.position(enemy.x,enemy.flying?1.3:.85,enemy.z));
     const shell=new THREE.Mesh(new THREE.IcosahedronGeometry(.54,1),new THREE.MeshBasicMaterial({color:'#b0fff6',transparent:true,opacity:.34,wireframe:true,depthWrite:false,toneMapped:false}));root.add(shell);
     this.add(root,.23,(object,p,still)=>{object.scale.setScalar(still?1:1+p*.32);object.children[0].material.opacity=.34*(1-p);},enemy);
+  }
+  shatterShield(enemy){
+    const bounds=this.shieldBounds.get(enemy.id),centre=bounds?bounds.getCenter(new THREE.Vector3()):this.position(enemy.x,enemy.flying?1.3:.75,enemy.z),size=bounds?bounds.getSize(new THREE.Vector3()):new THREE.Vector3(.6,1.5,.6);
+    const root=new THREE.Group();root.name='Magical shield breaks after its final blocked hit';root.position.copy(centre);
+    const geometry=new THREE.TetrahedronGeometry(.075),material=effectMaterial(styles.refraction,.7);
+    for(let n=0;n<12;n++){
+      const angle=n*Math.PI*2/12,level=(n%3-1)*.3,shard=new THREE.Mesh(geometry,material);shard.userData.start=new THREE.Vector3(Math.cos(angle)*(size.x*.5+.075),level*size.y,Math.sin(angle)*(size.z*.5+.075));
+      shard.position.copy(shard.userData.start);shard.rotation.set(angle,level,n*.7);root.add(shard);
+    }
+    this.add(root,.5,(object,p,still)=>{for(const shard of object.children){shard.position.copy(shard.userData.start).multiplyScalar(still?1:1+p*.6);if(!still)shard.rotation.z+=p*.03;}material.opacity=.7*(1-p);},enemy);
   }
   update(dt){
     if(this.disposed)return;const elapsed=Math.max(0,finite(dt));
@@ -135,6 +160,6 @@ export class EnemyAbilityEffects{
       record.animate(record.object,clamp(record.elapsed/record.duration,0,1),this.still());
     }
   }
-  clear(){for(const effect of [...this.effects])this.remove(effect);for(const batch of this.batches.values()){batch.count=0;batch.glyphCount=0;batch.dotCount=0;batch.crystalCount=0;batch.root.visible=false;batch.glyph.count=0;batch.dots.count=0;if(batch.crystals)batch.crystals.count=0;}}
+  clear(){for(const effect of [...this.effects])this.remove(effect);this.shieldBounds.clear();for(const batch of this.batches.values()){batch.count=0;batch.glyphCount=0;batch.dotCount=0;batch.crystalCount=0;batch.shellCount=0;batch.root.visible=false;batch.glyph.count=0;batch.dots.count=0;if(batch.crystals)batch.crystals.count=0;if(batch.shell)batch.shell.count=0;}}
   dispose(){if(this.disposed)return;this.clear();dispose(this.group);this.batches.clear();this.disposed=true;}
 }
