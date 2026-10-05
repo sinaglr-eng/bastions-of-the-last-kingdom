@@ -15,7 +15,7 @@ export class StatisticsClient {
   checkpoint({abandoned=false,keepalive=false}={}){
     if(!this.enabled||!this.tracker.draws.length)return;const entry={endpoint:this.endpoint,writeToken:this.writeToken,snapshot:this.tracker.snapshot({abandoned})};let queue=this.readQueue();queue=queue.filter(x=>x.snapshot.id!==entry.snapshot.id);queue.push(entry);this.pendingMemory=entry;this.writeQueue(queue);return this.flush({keepalive});
   }
-  sample(dt){this.tracker.sample(dt);if(!this.enabled||this.game.paused)return;this.timer+=dt;if(this.timer>=30){this.timer=0;this.checkpoint();}}
+  sample(dt,elapsedDt=dt){this.tracker.sample(dt);if(!this.enabled||['won','lost'].includes(this.game.phase)||!Number.isFinite(elapsedDt)||elapsedDt<=0)return;this.timer+=elapsedDt;if(this.timer>=30){this.timer=0;this.checkpoint();}}
   async request(path,body=null,{keepalive=false}={}){
     const res=await this.fetcher(`${this.endpoint}${path}`,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined,keepalive});const payload=await res.json();if(!res.ok)throw new Error(payload.error||'The score service is unavailable. Try again.');return payload;
   }

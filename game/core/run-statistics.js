@@ -54,7 +54,11 @@ export class RunStatistics {
     const g=this.game;let waves=this.waves.map(w=>structuredClone(w));
     if(this.current)waves.push({...structuredClone(this.current),endHealth:g.lives,durationMs:Math.round(g.combat.elapsed*1000)});
     waves=waves.map(w=>({...w,effects:Object.fromEntries(Object.entries(w.effects).map(([k,v])=>[k,number(v)])),towers:w.towers.map(t=>({...t,damage:number(t.damage),controlSeconds:number(t.controlSeconds),supportSeconds:number(t.supportSeconds)}))}));
-    return {id:this.id,version:this.version,mode:g.waveLimit,seed:g.seed,sequence:++this.sequence,outcome:abandoned&&this.outcome==='playing'?'abandoned':this.outcome,score:g.score,wavesSurvived:waves.filter(w=>w.completed).length,durationMs:Math.max(0,(this.finishedAt??this.clock())-this.startedAt),kingdomLevel:g.economy.level,health:g.lives,gold:g.economy.gold,draws:structuredClone(this.draws),decisions:structuredClone(this.decisions),waves};
+    // durationMs retains its historical browser-wall-time interpretation.
+    // The optional elapsed-run clock comes only from Game, never from an
+    // old timestamp or a sum of speed-scaled combat waves.
+    const duration=Number.isFinite(g.elapsedSeconds)&&g.elapsedSeconds>=0?{durationSeconds:g.elapsedSeconds}:{};
+    return {id:this.id,version:this.version,mode:g.waveLimit,seed:g.seed,sequence:++this.sequence,outcome:abandoned&&this.outcome==='playing'?'abandoned':this.outcome,score:g.score,wavesSurvived:waves.filter(w=>w.completed).length,durationMs:Math.max(0,(this.finishedAt??this.clock())-this.startedAt),...duration,kingdomLevel:g.economy.level,health:g.lives,gold:g.economy.gold,draws:structuredClone(this.draws),decisions:structuredClone(this.decisions),waves};
   }
   dispose(){this.unsubscribe();}
 }

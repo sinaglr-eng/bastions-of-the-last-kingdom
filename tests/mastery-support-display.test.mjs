@@ -13,7 +13,7 @@ const unit=(family,id,tier=1,x=10)=>({family,id,tier,state:'active',x,z:10});
 test('compact odds-only mastery display includes every exact future quality weight without changing economy',()=>{
   const economy=new EconomyManager(data.balance);economy.gold=0;
   for(let rank=0;rank<data.balance.mastery.length;rank++){
-    economy.xp=rank*data.balance.xpPerLevel;const before=JSON.stringify(economy),html=masteryPanelMarkup(economy,data.balance);
+    economy.setConstructionRound(1+Math.ceil(rank*24/15));const before=JSON.stringify(economy),html=masteryPanelMarkup(economy,data.balance);
     assert.match(html,/Future draw odds/);assert.match(html,new RegExp(`${rank} / ${data.balance.mastery.length-1}`));
     const rendered=[...html.matchAll(/<em>(\d+)%<\/em>/g)].map(match=>Number(match[1]));
     assert.deepEqual(rendered,data.balance.mastery[rank].weights.slice(0,5));assert.match(html,/<b>VI<\/b><em>Merge<\/em>/);
@@ -23,15 +23,17 @@ test('compact odds-only mastery display includes every exact future quality weig
   }
 });
 
-test('mastery advances at XP boundaries without gold and clearly applies to next-round draws',()=>{
+test('mastery advances before construction draws while XP changes leave current odds alone',()=>{
   const economy=new EconomyManager(data.balance);economy.gold=0;
   economy.reward(0,data.balance.xpPerLevel-1);assert.equal(economy.mastery,0);
-  economy.reward(0,1);assert.equal(economy.mastery,1);assert.equal(economy.gold,0);
+  economy.reward(0,1);assert.equal(economy.level,2);assert.equal(economy.mastery,0);assert.equal(economy.gold,0);
+  economy.setConstructionRound(3);assert.equal(economy.mastery,1);
   const markup=masteryPanelMarkup(economy,data.balance);assert.match(markup,/1 \/ 15/);assert.doesNotMatch(markup,/Automatic|New odds apply|Next odds/);
   const game=new Game(data,{seed:42});game.economy.reward(0,90);
-  assert.equal(game.economy.mastery,1);assert.equal(game.draft.mastery,0);
+  assert.equal(game.economy.level,2);assert.equal(game.economy.mastery,0);assert.equal(game.draft.mastery,0);
   for(let x=10;x<15;x++)assert.ok(game.place(x,10));assert.ok(game.towers.every(t=>t.tier===1));
-  game.keep();game.startCombat();game.completeWave();assert.equal(game.draft.mastery,1);
+  game.keep();game.startCombat();game.completeWave();assert.equal(game.round,2);assert.equal(game.draft.mastery,0);
+  game.phase='ready';game.startCombat();game.completeWave();assert.equal(game.round,3);assert.equal(game.economy.mastery,1);assert.equal(game.draft.mastery,1);
 });
 
 test('current friendly effects show exact values and actual named providers alongside different shape icons',()=>{

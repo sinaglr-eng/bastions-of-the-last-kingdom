@@ -1,0 +1,4 @@
+.hud-stat.run-time strong{font-variant-numeric:tabular-nums;white-space:nowrap}
+.hud-stat.run-time{min-width:82px}
+@media(max-width:820px){.hud-stat.run-time{min-width:48px}}
+@media(max-width:580px){.hud-stat.run-time{min-width:48px}.topbar .brand{flex:none}.topbar .brand h1{font-size:13px}.topbar .brand small{font-size:5px}.topbar .top-stats{gap:7px}.topbar .hud-stat{min-width:40px}.topbar{gap:7px;padding:0 9px}}

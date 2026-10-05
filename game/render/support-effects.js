@@ -23,7 +23,7 @@ export const ENEMY_EFFECT_STYLES=Object.freeze({
   poison:Object.freeze({label:'Poison',color:'#a9e363',glyph:'drop'}),
   burn:Object.freeze({label:'Burning',color:'#ff9a51',glyph:'flame'}),
   bleed:Object.freeze({label:'Bleeding',color:'#ff747c',glyph:'drop'}),
-  armor:Object.freeze({label:'Armor reduced',color:'#ffd088',glyph:'crack'}),
+  armor:Object.freeze({label:'Armor reduced',color:'#ffd088',glyph:'brokenShield'}),
   magic:Object.freeze({label:'Magic resistance reduced',color:'#c9a7ff',glyph:'brokenStar'}),
   healBlock:Object.freeze({label:'Healing blocked',color:'#ffc0d0',glyph:'cross'}),
 });
@@ -161,6 +161,10 @@ function geometryFor(glyph,{inner=.51,outer=.58,glyphRadius=.74,angle=.65}={}){
   else if(glyph==='blade'){line([[-.075,sy+.08],[.075,sy-.08]],.022);line([[-.085,sy+.01],[-.01,sy+.075]],.013);line([[-.07,sy+.075],[-.11,sy+.115]],.018);}
   else if(glyph==='arrows'){for(const sign of [-1,1]){line([[0,sy],[sign*.10,sy]],.014);line([[sign*.065,sy-.04],[sign*.105,sy],[sign*.065,sy+.04]],.014);}}
   else if(glyph==='shield'){line([[-.09,sy-.09],[.09,sy-.09],[.07,sy+.035],[0,sy+.105],[-.07,sy+.035],[-.09,sy-.09]],.015);}
+  else if(glyph==='brokenShield'){
+    line([[-.09,sy-.09],[.09,sy-.09],[.07,sy+.035],[0,sy+.105],[-.07,sy+.035],[-.09,sy-.09]],.014);
+    line([[.015,sy-.09],[-.028,sy-.03],[.023,sy-.008],[-.02,sy+.052]],.012);
+  }
   else if(glyph==='target'){circle(.086,0,sy);circle(.035,0,sy);line([[-.115,sy],[.115,sy]],.008);line([[0,sy-.115],[0,sy+.115]],.008);}
   else if(glyph==='spiral'){line(Array.from({length:22},(_,i)=>{const a=i*.48,r=.018+i*.004;return[Math.cos(a)*r,sy+Math.sin(a)*r];}),.013);}
   else if(glyph==='cross'){line([[-.085,sy-.085],[.085,sy+.085]],.023);line([[-.085,sy+.085],[.085,sy-.085]],.023);}

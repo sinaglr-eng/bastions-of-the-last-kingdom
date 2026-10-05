@@ -9,6 +9,7 @@ const integer=(n,min,max)=>Number.isInteger(n)&&n>=min&&n<=max;
 export function validateSnapshot(s,{families,waveDefinitions,enemyDefinitions}){
   if(!s||!validId(s.id)||!integer(s.sequence,1,100000)||!integer(s.mode,1,waveDefinitions.length)||!['playing','abandoned','lost','won'].includes(s.outcome)||!integer(s.score,0,100000000)||!integer(s.durationMs,0,7*86400000)||!integer(s.health,0,30)||!integer(s.kingdomLevel,1,10000)||!integer(s.gold,0,10000000))throw new Error('Invalid run.');
   if(typeof s.version!=='string'||!/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(s.version)||!Number.isFinite(s.seed))throw new Error('Invalid edition.');
+  if(Object.hasOwn(s,'durationSeconds')&&(!Number.isFinite(s.durationSeconds)||s.durationSeconds<0||s.durationSeconds>7*86400))throw new Error('Invalid elapsed run duration.');
   const validUnit=t=>t&&Object.hasOwn(families,t.family)&&integer(t.id,1,250)&&integer(t.tier,1,6)&&integer(t.x,0,36)&&integer(t.z,0,36);
   if(!Array.isArray(s.draws)||s.draws.length>250||s.draws.some(t=>!validUnit(t)||!integer(t.wave,1,s.mode))||new Set(s.draws.map(t=>t.id)).size!==s.draws.length)throw new Error('Invalid draws.');
   if(!Array.isArray(s.decisions)||s.decisions.length>750||s.decisions.some(t=>!validUnit(t)||!integer(t.wave,1,s.mode)||!['keep','combine'].includes(t.action)))throw new Error('Invalid decisions.');
@@ -34,6 +35,7 @@ export function validateSnapshot(s,{families,waveDefinitions,enemyDefinitions}){
   if(s.wavesSurvived!==completed||s.score!==score||(s.outcome==='won'&&(completed!==s.mode||s.health<1))||(s.outcome==='lost'&&s.health!==0))throw new Error('Result does not match the wave history.');
   const pick=(o,keys)=>Object.fromEntries(keys.map(k=>[k,o[k]]));
   const clean=pick(s,['id','version','mode','seed','sequence','outcome','score','wavesSurvived','durationMs','kingdomLevel','health','gold']);
+  if(Object.hasOwn(s,'durationSeconds'))clean.durationSeconds=s.durationSeconds;
   clean.draws=s.draws.map(t=>pick(t,['id','family','tier','x','z','wave']));clean.decisions=s.decisions.map(t=>pick(t,['id','family','tier','x','z','wave','action']));
   clean.waves=s.waves.map(w=>({...pick(w,['index','boss','completed','startHealth','endHealth','healthLost','kills','bossKills','leaks','spawned','durationMs','routeLength','kingdomLevel','mastery']),enemyTypes:Object.fromEntries(Object.entries(w.enemyTypes).map(([key,v])=>[key,pick(v,['spawned','kills','leaks'])])),effects:{...w.effects},towers:w.towers.map(t=>pick(t,['id','family','tier','x','z','damage','hits','shots','kills','controlSeconds','supportSeconds']))}));
   return clean;

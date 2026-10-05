@@ -25,11 +25,12 @@ test('kills grant XP and score once without adding gold; champion procs cannot m
  game.rng=()=>0;game.combat.landedProcs({goldChance:1,goldMin:500,goldMax:500},{id:99});assert.equal(game.economy.gold,gold);
 });
 
-test('Kingdom-based mastery jumps and caps automatically while spending gold cannot alter it',()=>{
+test('Kingdom XP and construction mastery progress separately while spending gold cannot alter either',()=>{
  const game=new Game(data),eco=game.economy;
- eco.reward(0,90*8+89);assert.equal(eco.level,9);assert.equal(eco.mastery,8);
+ eco.reward(0,90*8+89);assert.equal(eco.level,9);assert.equal(eco.mastery,0);
+ eco.setConstructionRound(14);assert.equal(eco.mastery,8);assert.equal(eco.level,9);
  eco.spend(eco.gold);assert.equal(eco.mastery,8);assert.equal(eco.gold,0);
- eco.reward(0,1);assert.equal(eco.level,10);assert.equal(eco.mastery,9);
- eco.reward(0,90*100);assert.equal(eco.mastery,15);assert.equal(eco.nextMastery(),null);
+ eco.reward(0,1);assert.equal(eco.level,10);assert.equal(eco.mastery,8);
+ eco.reward(0,90*100);assert.equal(eco.mastery,8);eco.setConstructionRound(25);assert.equal(eco.mastery,15);assert.equal(eco.nextMastery(),null);
  assert.equal(eco.upgradeMastery(),false);
 });

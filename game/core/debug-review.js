@@ -1,5 +1,11 @@
 import {GridManager} from './grid.js';
 
+// DEV review reaches the actual construction transition into wave 25.
+export function prepareConstructionTimingReview(game){
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.selectedEnemy=null;game.previewRecipeId=null;game.round=24;game.phase='ready';game.lives=30;game.speed=1;game.paused=false;
+  game.economy.setConstructionRound(game.round);game.startCombat();game.combat.enemies=[];game.combat.spawnQueue=[];game.completeWave();game.emit('change');return true;
+}
+
 // Paused, explicit DEV scene for clicking real airborne invaders above a wall.
 // Real damage creates inspectable missing HP; movement and regeneration keep
 // their campaign values when the commander resumes the scene.

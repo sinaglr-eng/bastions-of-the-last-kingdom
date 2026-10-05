@@ -6,9 +6,10 @@ import {sqliteDatabase} from '../backend/sqlite-adapter.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const sections = ['runs', 'waves', 'defenders', 'draws', 'decisions'];
+const durationColumns=['runId','version','mode','outcome','durationSeconds','durationMs'];
 
-export function csvRows(rows) {
-  const columns = [...new Set(rows.flatMap(row => Object.keys(row)))];
+export function csvRows(rows,extraColumns=[]) {
+  const columns = [...new Set([...rows.flatMap(row => Object.keys(row)),...extraColumns])];
   if (!columns.length) return '\uFEFF';
   const cell = value => {
     let text = value === null || value === undefined ? '' : String(value);
@@ -52,18 +53,22 @@ export async function report({apiUrl = process.env.API_URL, adminToken = process
     if (!payload || sections.some(section => !Array.isArray(payload[section]) || payload[section].some(row => !row || typeof row !== 'object' || Array.isArray(row)))) {
       throw new Error('The statistics service returned an unsupported report format.');
     }
+    if (payload.runDurations!==undefined&&(!Array.isArray(payload.runDurations)||payload.runDurations.some(row=>!row||typeof row!=='object'||Array.isArray(row))))throw new Error('The statistics service returned an unsupported duration report format.');
     const timestamp = new Date().toISOString().replaceAll(':', '-').replaceAll('.', '-');
     const destination = path.join(path.resolve(outputDirectory), timestamp);
     await fs.mkdir(destination, {recursive: true});
     await fs.writeFile(path.join(destination, 'statistics.json'), JSON.stringify(payload, null, 2) + '\n', 'utf8');
-    for (const section of sections) await fs.writeFile(path.join(destination, `${section}.csv`), csvRows(payload[section]), 'utf8');
-    return {destination, counts: Object.fromEntries(sections.map(section => [section, payload[section].length]))};
+    // Older services may not expose the new elapsed clock. Keep explicit empty
+    // duration cells rather than deriving them from legacy wall/combat times.
+    for (const section of sections) await fs.writeFile(path.join(destination, `${section}.csv`), csvRows(payload[section],section==='runs'?['timedRuns','totalDurationSeconds','averageDurationSeconds']:[]), 'utf8');
+    await fs.writeFile(path.join(destination,'run-durations.csv'),csvRows(payload.runDurations||[],durationColumns),'utf8');
+    return {destination, counts: {...Object.fromEntries(sections.map(section => [section, payload[section].length])),runDurations:payload.runDurations?.length||0}};
   } finally {database?.sqlite.close();}
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
   if (process.argv.includes('--help')) {
-    console.log('Usage: node tools/statistics-report.mjs\nDefault: local artifacts/statistics/bastions.sqlite\nOptional environment: API_URL + STATISTICS_ADMIN_TOKEN, STATISTICS_DATA_DIR\nOutput: artifacts/statistics-reports/<timestamp>/{statistics.json,runs.csv,waves.csv,defenders.csv,draws.csv,decisions.csv}');
+    console.log('Usage: node tools/statistics-report.mjs\nDefault: local artifacts/statistics/bastions.sqlite\nOptional environment: API_URL + STATISTICS_ADMIN_TOKEN, STATISTICS_DATA_DIR\nOutput: artifacts/statistics-reports/<timestamp>/{statistics.json,runs.csv,run-durations.csv,waves.csv,defenders.csv,draws.csv,decisions.csv}');
   } else {
     try {
       const result = await report();

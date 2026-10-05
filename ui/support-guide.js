@@ -1,4 +1,4 @@
-import {SUPPORT_EFFECT_STYLES,supportLegend,supportSourceAreas} from '../game/render/support-effects.js';
+import {SUPPORT_EFFECT_STYLES,ENEMY_EFFECT_STYLES,supportLegend,supportSourceAreas} from '../game/render/support-effects.js';
 
 // Use the same distinguishable shapes as the world overlays, with text labels
 // alongside them so color is never the sole source of meaning.
@@ -7,6 +7,7 @@ const paths={
   blade:'<path d="M7 17 19 5l-1 6-9 8M4 14l6 6M3 21l3-3"/>',
   arrows:'<path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/>',
   shield:'<path d="M4 4h16l-2 11-6 6-6-6Z"/>',
+  brokenShield:'<path d="M4 4h16l-2 11-6 6-6-6Z"/><path d="m13 4-4 6 5 2-4 6"/>',
   target:'<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v20M2 12h20"/>',
   spiral:'<path d="M12 12c-3-3 3-5 4-1 2 6-7 9-10 3C1 4 17 0 21 10c3 9-7 14-14 11"/>',
   cross:'<path d="m5 5 14 14M5 19 19 5"/>',
@@ -31,7 +32,7 @@ export const SUPPORT_EFFECT_DESCRIPTIONS=Object.freeze({
   support:'Grants the listed support bonuses to active defenders within this source’s reach, including itself.',
   burn:'Burns enemies within this defender’s aura, dealing fire damage over time.',
   slow:'Reduces enemies’ movement speed within this defender’s aura.',
-  armor:'Reduces the armor of nearby enemies, making physical attacks more effective.',
+  armor:'Lowers enemy armor so physical attacks deal more damage. Applied by attacks such as Engineer hits, or by an armor-reducing aura.',
   magic:'Reduces nearby enemies’ magic resistance, making magic attacks more effective.',
   detection:'Reveals cloaked enemies within this defender’s detection radius so allies can target them.',
   reaction:'Reacts to nearby allied magic hits with the defender’s frost response.',
@@ -54,7 +55,8 @@ export function supportEffectsMarkup(tower,towers,data,options){
   return `<ul class="support-effects-list">${effects.map(effect=>`<li ${tooltipAttributes(effect.key,effect.label,['dread','disarm','weakened','melancholy'].includes(effect.key)?'negative':'friendly')} data-effect="${effect.key}">${supportGlyph(effect.glyph,effect.color)}<span><b>${escape(effect.label)}</b><small>From ${labels(effect)}</small></span>${tooltip(effect.key)}</li>`).join('')}</ul>`;
 }
 export function supportMapLegendMarkup(){
-  return `<details class="support-map-legend"><summary>Map effect symbols</summary><p>The wall color follows the first listed effect; separate symbols show every active effect. The selected provider’s dashed circle shows its reach.</p><ul>${Object.entries(SUPPORT_EFFECT_STYLES).map(([key,style])=>`<li ${tooltipAttributes(key,style.label)} data-effect="${key}">${supportGlyph(style.glyph,style.color)}<span>${style.label}</span>${tooltip(key)}</li>`).join('')}</ul></details>`;
+  const armor=ENEMY_EFFECT_STYLES.armor,armorLabel='Enemy armor reduced';
+  return `<details class="support-map-legend"><summary>Map effect symbols</summary><p>The wall color follows the first listed effect; separate symbols show every active effect. The selected provider’s dashed circle shows its reach.</p><ul aria-label="Defender effect symbols">${Object.entries(SUPPORT_EFFECT_STYLES).map(([key,style])=>`<li ${tooltipAttributes(key,style.label)} data-effect="${key}">${supportGlyph(style.glyph,style.color)}<span>${style.label}</span>${tooltip(key)}</li>`).join('')}</ul><p>On enemies</p><ul aria-label="Enemy effect symbols"><li ${tooltipAttributes('armor',armorLabel)} data-effect="armor">${supportGlyph(armor.glyph,armor.color)}<span>${armorLabel}</span>${tooltip('armor')}</li></ul></details>`;
 }
 export function selectedSupportMarkup(tower,towers,data,options){
   const areas=supportSourceAreas(tower,data,{towers});

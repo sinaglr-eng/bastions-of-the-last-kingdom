@@ -1,5 +1,11 @@
 # Releases
 
+## 0.3.14 — Elapsed time and wave mastery — 5 October 2026
+
+- Adds a total real-time clock from the start of each run, including construction and pauses. Combat speed does not change it; victory or defeat freezes it, and run statistics, owner reports and exports retain the same duration.
+- Advances Construction mastery with wave progression, reaching its maximum before construction for wave 25. Existing draw weights, the 20% Royal V cap and merge-only Mythic VI are preserved; Kingdom XP continues to unlock champion recipes.
+- Removes the Kingdom level and XP from the top bar. Separates the enemy armor-reduction symbol used by Engineer hits and armor auras from friendly barricade disruption, with accurate legend descriptions.
+
 ## 0.3.13 — Peak tower DPS and enemy inspection — 5 October 2026
 
 - Retains each defender’s highest actual five-game-second DPS window throughout the current wave and between waves, recording peaks at each hit and sorting by them. Peaks reset only when the next assault begins or a new game starts.

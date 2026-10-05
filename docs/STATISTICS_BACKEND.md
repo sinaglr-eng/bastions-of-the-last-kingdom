@@ -41,7 +41,7 @@ Ve Windows může původní Bash balicí pomocník Sites selhat při předáván
 
 Alternativně lze stejný Worker provozovat přímo nad Cloudflare D1. Místní SQLite server používá `backend/migrations/0000_statistics.sql`; jeho spouštěč není určen jako nezabezpečený veřejný internetový server.
 
-`GET /api/health` kontroluje dostupnost databáze a uvádí aktuální edici `0.2.8` s názvem `Secret Champions`. Veřejný žebříček je `GET /api/leaderboard?mode=10&version=0.2.8`; režim může být `10` nebo `50`. Volitelný `id` vrátí také umístění konkrétní pojmenované hry. Úvodní stránka služby `/` standardně zobrazuje edici **0.2.8 · Secret Champions**. Starší výsledky zůstávají uložené a lze je načíst s `version=0.2.7` nebo `version=0.2.6`; edice mají oddělené pořadí a aktualizace nevyžaduje změnu schématu ani reset databáze. Stránka `/owner` vyžaduje zadání vlastnického tokenu před načtením chráněných statistik. Token se na této stránce neukládá do úložiště prohlížeče.
+`GET /api/health` kontroluje dostupnost databáze a uvádí aktuální edici `0.3.14` s názvem `Elapsed time and wave mastery`. Veřejný žebříček je `GET /api/leaderboard?mode=10&version=0.3.14`; režim může být `10` nebo `50`. Volitelný `id` vrátí také umístění konkrétní pojmenované hry. Úvodní stránka služby `/` standardně zobrazuje edici **0.3.14 · Elapsed time and wave mastery**. Výsledky edice 0.2.8 i starší výsledky zůstávají uložené a lze je načíst s `version=0.2.7` nebo `version=0.2.6`; edice mají oddělené pořadí a aktualizace nevyžaduje změnu schématu ani reset databáze. Stránka `/owner` vyžaduje zadání vlastnického tokenu před načtením chráněných statistik. Token se na této stránce neukládá do úložiště prohlížeče.
 
 ## Životní cyklus a odolnost zápisů
 
@@ -55,7 +55,7 @@ Frontend uchovává v `localStorage` frontu nejvýše 20 her pro aktuální adre
 
 | Oblast | Údaje |
 |---|---|
-| Hra | UUID, verze, režim kampaně, seed, výsledek, skóre, dokončené vlny, čas v milisekundách, zbývající životy, kingdom level, zlato; po uložení skóre také jméno. |
+| Hra | UUID, verze, režim kampaně, seed, výsledek, skóre, dokončené vlny, celkový skutečný čas hry `durationSeconds` a původní čas `durationMs`, zbývající životy, kingdom level, zlato; po uložení skóre také jméno. Starší záznam může mít pouze `durationMs`. |
 | Umístěné tahy (`draws`) | ID, rodina, rank, souřadnice a vlna při skutečném umístění věže. Neumístěné karty nejsou zaznamenány jako tah. |
 | Rozhodnutí (`decisions`) | Stejné údaje a akce `keep` nebo `combine`. Záznam kombinace identifikuje výsledného obránce; nepředstavuje úplný seznam jeho spotřebovaných ingrediencí. |
 | Vlna | Index, boss flag, dokončení, životy před/po, součet poškození uniklými nepřáteli, počty spawnů/zabití/boss killů/úniků, čas boje, délka cesty, kingdom level, construction mastery. |
@@ -65,7 +65,9 @@ Frontend uchovává v `localStorage` frontu nejvýše 20 her pro aktuální adre
 
 Verze 0.2.8 přijímá známé rodiny `ladyclaire` a `lordbernhard` v kombinacích i výkonu obránců. Původní tři tahy zůstávají v `draws`; rozhodnutí `combine` obsahuje výsledného secret šampiona. Melancholie nemá kredit v `controlSeconds`, protože jde o vlastní přerušení útoku. Její čas vychází z překryvu aktivního pětisekundového intervalu s bojovým časem a pauza jej nezvyšuje. Nová pole se ukládají do stávajícího záznamu efektů, bez migrace či resetu databáze.
 
-`durationMs` celé hry je čas podle hodin prohlížeče od vytvoření hry, včetně stavění a pauz. `durationMs` vlny je simulovaný čas boje, který respektuje rychlost hry. `healthLost` je součet síly úniků, nikoli nutně rozdíl mezi počátečními a konečnými životy: poškození se na nule ořízne a některé schopnosti mohou životy obnovovat.
+Od verze 0.3.14 je `durationSeconds` celé hry přesný snímek `Game.elapsedSeconds`: celkový skutečný čas od začátku hry v sekundách včetně stavění, odměn a pauz. Rychlost 3× tento čas nezrychluje a po výhře či prohře se nezvyšuje. Průběžné, konečné i opakovaně doručované checkpointy ukládají tento údaj do existujícího `summary_json`; schéma ani migrace se nemění. Pole je volitelné kvůli starším klientům, ale pokud je přítomné, musí být konečné číslo od 0 do 604 800 sekund. Novější zápis nesmí zaznamenanou dobu snížit ani odstranit; konečný výsledek ji má zmrazenou. Záznamy bez tohoto pole nemají vypočítanou náhradní dobu hry.
+
+Původní `durationMs` celé hry zůstává časem podle hodin prohlížeče od vytvoření hry, včetně stavění a pauz. `durationMs` vlny je simulovaný čas boje, který respektuje rychlost hry. `healthLost` je součet síly úniků, nikoli nutně rozdíl mezi počátečními a konečnými životy: poškození se na nule ořízne a některé schopnosti mohou životy obnovovat. Pro ukládání nového času do veřejné služby je nutné aktualizovat také samostatný Worker; samotné vydání frontendu na GitHub Pages nestačí.
 
 Kontrola a podpora se vzorkují přibližně po 250 ms simulovaného času. U jednoho nepřítele dostane `controlSeconds` v daném vzorku jediný účinný zdroj: petrifikace či freeze, jinak nejsilnější slow nebo slow aura. Slabší překryté zpomalení další kredit nezíská; poškození jedem nebo hořením se za kontrolu nepovažuje. Jde o čas účinku, nikoli přesně vypočítanou vzdálenost, kterou zpomalení ušetřilo. `supportSeconds` zaznamenává dobu přijatého aktivního bonusu na příjemci, nikoli příspěvek konkrétního Clerica. Pauza čas těchto ukazatelů nezvyšuje. Frontend spuštěný s vývojovým debug režimem neposílá online výsledky.
 
@@ -89,6 +91,8 @@ Statistiky pocházejí z klienta. Kontrola prokazuje jejich vnitřní konzistenc
 
 `GET /api/admin/statistics` vrací agregované skupiny `runs`, `waves`, `defenders`, `draws` a `decisions` rozdělené podle verze a režimu. Účast ve vlně je počítána také u rozpracované a neúspěšné vlny; dokončení má samostatný ukazatel. Výkon obránců se agreguje podle rodiny a ranku, ne podle konkrétní receptury. Obsahuje také součet zásahů a `receivedSupportSeconds`, tedy podpory přijaté danou rodinou. Počet účastí ve vlnách není počet unikátních postavených obránců; tahy a volby se sledují zvlášť.
 
+Soukromý přehled `runDurations` uvádí `runId`, verzi, režim, výsledek, `durationSeconds` a původní `durationMs` každé zaznamenané hry. Vlastnický panel jej nabízí jako „Individual run durations“. Chybějící nový čas je v API `null`, v panelu „Not recorded“ a v CSV prázdná buňka. Skupina `runs` navíc obsahuje `timedRuns`, `totalDurationSeconds` a `averageDurationSeconds`; součty a průměry zahrnují jen hry s novým údajem. Tyto údaje ani jednotlivé průběžné hry se nezveřejňují v žebříčku.
+
 Bez běžícího HTTP serveru lze číst místní databázi:
 
 ```powershell
@@ -97,4 +101,4 @@ node tools/statistics-report.mjs
 
 Skript načte soukromý `owner-token.txt` a použije stejný vlastnický endpoint nad lokální databází. Nevytváří prázdnou databázi, pokud dosud žádná neexistuje. Pro vzdálenou službu nastav `API_URL` na základní adresu API a `STATISTICS_ADMIN_TOKEN` na vlastnický token v prostředí a spusť stejný příkaz. `STATISTICS_DATA_DIR` vybírá jiný místní adresář databáze. Token se neukládá do reportů ani netiskne do výstupu.
 
-Výstup je `artifacts/statistics-reports/<čas>/statistics.json` a pět CSV souborů: `runs.csv`, `waves.csv`, `defenders.csv`, `draws.csv`, `decisions.csv`. CSV mají UTF-8 BOM, čárkový oddělovač a ochranu textových buněk proti interpretaci jako vzorce. V Excelu je možné zvolit import UTF-8 a oddělovač čárka. Reporty jsou ignorované Gitem.
+Výstup je `artifacts/statistics-reports/<čas>/statistics.json` a šest CSV souborů: `runs.csv`, `run-durations.csv`, `waves.csv`, `defenders.csv`, `draws.csv`, `decisions.csv`. Export ze staršího API bez `runDurations` ponechá nový CSV pouze s hlavičkou; nevytváří náhradní časy ani smyšlené hry. CSV mají UTF-8 BOM, čárkový oddělovač a ochranu textových buněk proti interpretaci jako vzorce. V Excelu je možné zvolit import UTF-8 a oddělovač čárka. Reporty jsou ignorované Gitem.

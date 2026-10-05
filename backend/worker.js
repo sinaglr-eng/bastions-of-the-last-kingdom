@@ -46,14 +46,18 @@ export async function handle(request,env){
       const s=validateSnapshot(b.snapshot,{families,waveDefinitions,enemyDefinitions});if(s.id!==id||s.mode!==run.mode||s.version!==run.version||String(s.seed)!==run.seed)return response({error:'Run identity cannot change.'},400);
       if(s.sequence<=run.sequence)return response({saved:true,sequence:run.sequence});
       if(s.score<run.score||s.wavesSurvived<run.waves_survived)return response({error:'Invalid progress regression.'},409);
+      const priorDuration=JSON.parse(run.summary_json).durationSeconds;
+      if(Number.isFinite(priorDuration)&&(!Object.hasOwn(s,'durationSeconds')||s.durationSeconds<priorDuration))return response({error:'Invalid playing duration regression.'},409);
       const prior=await db.prepare("SELECT wave, snapshot_json FROM run_waves WHERE run_id = ? AND json_extract(snapshot_json, '$.completed') = 1").bind(id).all();
       if(prior.results.some(w=>JSON.stringify(s.waves[w.wave-1])!==w.snapshot_json))return response({error:'Invalid change to a completed wave.'},409);
       if(['won','lost'].includes(run.outcome)){
         if(s.outcome!==run.outcome||s.score!==run.score||s.wavesSurvived!==run.waves_survived)return response({error:'The result is already final.'},409);
+        if(Number.isFinite(priorDuration)&&s.durationSeconds!==priorDuration)return response({error:'The result duration is already final.'},409);
         return response({saved:true,sequence:run.sequence});
       }
       const finished=['won','lost'].includes(s.outcome);
-      const statements=[db.prepare('UPDATE runs SET sequence = ?, updated_at = ?, outcome = ?, score = ?, waves_survived = ?, duration_ms = ?, health = ?, kingdom_level = ?, gold = ?, summary_json = ?, finished_at = ? WHERE id = ? AND sequence < ? AND outcome NOT IN (?, ?)').bind(s.sequence,Date.now(),s.outcome,s.score,s.wavesSurvived,s.durationMs,s.health,s.kingdomLevel,s.gold,JSON.stringify({draws:s.draws,decisions:s.decisions}),finished?Date.now():null,id,s.sequence,'won','lost')];
+      const summary={draws:s.draws,decisions:s.decisions,...(Object.hasOwn(s,'durationSeconds')?{durationSeconds:s.durationSeconds}:{})};
+      const statements=[db.prepare('UPDATE runs SET sequence = ?, updated_at = ?, outcome = ?, score = ?, waves_survived = ?, duration_ms = ?, health = ?, kingdom_level = ?, gold = ?, summary_json = ?, finished_at = ? WHERE id = ? AND sequence < ? AND outcome NOT IN (?, ?)').bind(s.sequence,Date.now(),s.outcome,s.score,s.wavesSurvived,s.durationMs,s.health,s.kingdomLevel,s.gold,JSON.stringify(summary),finished?Date.now():null,id,s.sequence,'won','lost')];
       // One guarded statement per checkpoint: older retries cannot overwrite newer waves.
       for(const w of s.waves)statements.push(db.prepare('INSERT INTO run_waves (run_id, wave, snapshot_json, sequence) SELECT ?, ?, ?, ? WHERE EXISTS (SELECT 1 FROM runs WHERE id = ? AND sequence = ?) ON CONFLICT(run_id, wave) DO UPDATE SET snapshot_json = excluded.snapshot_json, sequence = excluded.sequence WHERE run_waves.sequence < excluded.sequence').bind(id,w.index,JSON.stringify(w),s.sequence,id,s.sequence));
       await db.batch(statements);return response({saved:true,sequence:s.sequence});
@@ -68,12 +72,13 @@ export async function handle(request,env){
   }
   if(request.method==='GET'&&path==='/api/admin/statistics'){
     if(!env.ADMIN_TOKEN||request.headers.get('Authorization')!==`Bearer ${env.ADMIN_TOKEN}`)return response({error:'Owner access required.'},401);
-    const runs=await db.prepare('SELECT version, mode, outcome, COUNT(*) AS runs, AVG(waves_survived) AS averageWaves, AVG(score) AS averageScore FROM runs GROUP BY version, mode, outcome').all();
+    const runs=await db.prepare("SELECT version, mode, outcome, COUNT(*) AS runs, AVG(waves_survived) AS averageWaves, AVG(score) AS averageScore, COUNT(json_extract(summary_json, '$.durationSeconds')) AS timedRuns, SUM(json_extract(summary_json, '$.durationSeconds')) AS totalDurationSeconds, AVG(json_extract(summary_json, '$.durationSeconds')) AS averageDurationSeconds FROM runs GROUP BY version, mode, outcome").all();
+    const runDurations=await db.prepare("SELECT id AS runId, version, mode, outcome, json_extract(summary_json, '$.durationSeconds') AS durationSeconds, duration_ms AS durationMs FROM runs ORDER BY started_at DESC, id ASC").all();
     const waves=await db.prepare("SELECT r.version, r.mode, w.wave, COUNT(*) AS attempts, SUM(json_extract(snapshot_json, '$.completed')) AS completed, AVG(json_extract(snapshot_json, '$.leaks')) AS averageLeaks, AVG(json_extract(snapshot_json, '$.healthLost')) AS averageHealthLost, AVG(json_extract(snapshot_json, '$.durationMs')) AS averageDurationMs, AVG(json_extract(snapshot_json, '$.routeLength')) AS averageRoute FROM run_waves w JOIN runs r ON r.id=w.run_id GROUP BY r.version, r.mode, w.wave").all();
     const defenders=await db.prepare("SELECT r.version, r.mode, json_extract(t.value, '$.family') AS family, json_extract(t.value, '$.tier') AS tier, COUNT(*) AS waveDeployments, COUNT(DISTINCT w.run_id) AS runsUsing, SUM(json_extract(t.value, '$.damage')) AS damage, SUM(json_extract(t.value, '$.kills')) AS kills, SUM(json_extract(t.value, '$.shots')) AS shots, SUM(json_extract(t.value, '$.hits')) AS hits, SUM(json_extract(t.value, '$.controlSeconds')) AS controlSeconds, SUM(json_extract(t.value, '$.supportSeconds')) AS receivedSupportSeconds FROM run_waves w JOIN runs r ON r.id=w.run_id, json_each(w.snapshot_json, '$.towers') t GROUP BY r.version, r.mode, family, tier").all();
     const draws=await db.prepare("SELECT r.version, r.mode, json_extract(t.value, '$.family') AS family, json_extract(t.value, '$.tier') AS tier, COUNT(*) AS drawn FROM runs r, json_each(r.summary_json, '$.draws') t GROUP BY r.version, r.mode, family, tier").all();
     const decisions=await db.prepare("SELECT r.version, r.mode, json_extract(t.value, '$.family') AS family, json_extract(t.value, '$.tier') AS tier, json_extract(t.value, '$.action') AS action, COUNT(*) AS chosen FROM runs r, json_each(r.summary_json, '$.decisions') t GROUP BY r.version, r.mode, family, tier, action").all();
-    return response({generatedAt:new Date().toISOString(),runs:runs.results,waves:waves.results,defenders:defenders.results,draws:draws.results,decisions:decisions.results});
+    return response({generatedAt:new Date().toISOString(),runs:runs.results,runDurations:runDurations.results,waves:waves.results,defenders:defenders.results,draws:draws.results,decisions:decisions.results});
   }
   return response({error:'Not found.'},404);
 }

@@ -2,7 +2,7 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-Current release: **0.3.13 · Peak tower DPS and enemy inspection** — [release notes](CHANGELOG.md) · [enemy model and animation verification](docs/GEOMETRIC_GAME_V6.md).
+Current release: **0.3.14 · Elapsed time and wave mastery** — [release notes](CHANGELOG.md) · [enemy model and animation verification](docs/GEOMETRIC_GAME_V6.md).
 
 ## Play
 
@@ -33,7 +33,9 @@ Warbands choose a variant independently for each invader and can mix variants in
 
 Checkpoint flags stand directly on opaque, textured worn earth with irregular eroded edges, compacted scuffs and small stone flecks. Their props tell five small stories: a fallen soldier against a rock, stacked powder barrels, tiered supply crates, a campsite with flickering fire and rising embers, and a three-sided ruined watchtower. Two guard towers flank the final bridge approach. Solid moving arrows indicate enemy direction above the subtle route guide.
 
-Construction mastery occupies its own panel beside the compact five-draw strip. Royal rank V reaches a 20% draw chance at maximum mastery; rank VI remains merge-only. Comparing a defender rank also shows the champion recipes that use that rank, with ingredient progress based on actual retained defenders and placed candidates. The selected candidate has its own Keep button; double-clicking or double-tapping its image also keeps it after all five draws have been placed. The next-wave button appears at the top center of the map when defenses are ready. The sidebar can browse all champion recipes with arrows, open a potential combination directly and return to the pinned recipe. Three ingredient branches show the intermediate champions and their nested recipes down to exact basic ranks. Ingredient progress marks retained defenders in green and available placed candidates separately in blue; unrevealed draws remain unknown.
+The TIME clock records total real seconds from the beginning of the run, including construction and pauses; combat speed never changes it. It stops at victory or defeat and is included in run checkpoints, owner reports and CSV exports. The Kingdom HUD is removed; Kingdom XP still unlocks recipes.
+
+Construction mastery occupies its own panel beside the compact five-draw strip. It advances with wave progression from 0 in wave 1 to 15 during construction for wave 25, regardless of kills or leaks. Royal rank V reaches a 20% draw chance at maximum mastery; rank VI remains merge-only. Comparing a defender rank also shows the champion recipes that use that rank, with ingredient progress based on actual retained defenders and placed candidates. The selected candidate has its own Keep button; double-clicking or double-tapping its image also keeps it after all five draws have been placed. The next-wave button appears at the top center of the map when defenses are ready. The sidebar can browse all champion recipes with arrows, open a potential combination directly and return to the pinned recipe. Three ingredient branches show the intermediate champions and their nested recipes down to exact basic ranks. Ingredient progress marks retained defenders in green and available placed candidates separately in blue; unrevealed draws remain unknown.
 
 The Warbands guide and upcoming panels list actual health, armor, movement, resistance, healing, aura penalties, range and timing, separately for each possible variant. Three-hit shields have a complete magical body aura that loses a sector per blocked hit, shatters on the last hit and returns with the real refresh.
 

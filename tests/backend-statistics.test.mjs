@@ -11,10 +11,14 @@ import {RunStatistics} from '../game/core/run-statistics.js';
 import {towerStats} from '../game/core/math.js';
 import {StatisticsClient} from '../game/core/statistics-client.js';
 import {report, csvRows} from '../tools/statistics-report.mjs';
+import {GAME_VERSION} from '../game/release.js';
+import {STATISTICS_RELEASE_NAME} from '../backend/service-page.js';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath,pathToFileURL} from 'node:url';
 
 const data = Object.fromEntries(['balance', 'towers', 'enemies', 'waves', 'recipes'].map(name =>
   [name, JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url)))]));
-const access = 'a'.repeat(64), version = '0.2.8';
+const access = 'a'.repeat(64), version = GAME_VERSION;
 const uuid = number => `12345678-1234-4234-8234-${String(number).padStart(12, '0')}`;
 
 function storage() {
@@ -70,17 +74,17 @@ function run(mode, id, edition=version) {
   return {game, statistics, assault};
 }
 
-test('Secret Champions defaults to edition 0.2.8 while preserving separate Dark Host results', async () => {
+test('statistics default to the actual game edition while preserving separate historical results', async () => {
   const store=storage(), playedRuns=[];
   try {
     const health=await request(store,'/api/health');
     assert.equal(health.status,200);
-    assert.deepEqual(await health.json(),{ok:true,storage:'SQLite',edition:version,releaseName:'Secret Champions'});
+    assert.deepEqual(await health.json(),{ok:true,storage:'SQLite',edition:version,releaseName:STATISTICS_RELEASE_NAME});
     const page=await request(store,'/');
     assert.equal(page.status,200);
     const html=await page.text();
-    assert.ok(html.includes('/api/leaderboard?version=0.2.8&mode='));
-    assert.ok(html.includes('0.2.8 · Secret Champions. Finish a campaign'));
+    assert.ok(html.includes(`/api/leaderboard?version=${version}&mode=`));
+    assert.ok(html.includes(`${version} · ${STATISTICS_RELEASE_NAME}. Finish a campaign`));
     assert.ok(!html.includes('/api/leaderboard?version=0.2.7&mode='));
     for(const [index,edition] of ['0.2.7',version].entries()) {
       const id=uuid(index+2), played=run(10,id,edition); playedRuns.push(played);
@@ -473,7 +477,7 @@ test('new-run rate limiting allows existing-run registration retries throughout 
   } finally {store.close();}
 });
 
-test('owner report exports a persisted SQLite run to JSON and five Excel-safe CSV files without tokens', async () => {
+test('owner report exports a persisted SQLite run to JSON and six Excel-safe CSV files without tokens', async () => {
   const played = run(10, uuid(140)), store = storage();
   const directory = mkdtempSync(join(tmpdir(), 'bastions-statistics-report-'));
   try {
@@ -485,7 +489,7 @@ test('owner report exports a persisted SQLite run to JSON and five Excel-safe CS
     const result = await report({apiUrl: '', dataDirectory: directory, outputDirectory: join(directory, 'reports')});
     assert.equal(result.counts.runs, 1);assert.equal(result.counts.waves, 1);
     const files = readdirSync(result.destination).sort();
-    assert.deepEqual(files, ['decisions.csv', 'defenders.csv', 'draws.csv', 'runs.csv', 'statistics.json', 'waves.csv']);
+    assert.deepEqual(files, ['decisions.csv', 'defenders.csv', 'draws.csv', 'run-durations.csv', 'runs.csv', 'statistics.json', 'waves.csv']);
     for (const filename of files) {
       const contents = readFileSync(join(result.destination, filename), 'utf8');
       assert.ok(!contents.includes('private-report-token') && !contents.includes(access));
@@ -500,4 +504,125 @@ test('owner report exports a persisted SQLite run to JSON and five Excel-safe CS
     // Delete only the fresh temporary directory verified directly under the OS temp root.
     assert.equal(dirname(resolve(directory)), resolve(tmpdir()));rmSync(directory, {recursive: true});
   }
+});
+
+test('run checkpoints include pauses in exact elapsed seconds independently of speed, preserve legacy wall time, and freeze the final accepted duration',async()=>{
+  const played=run(10,uuid(200)),store=storage();let now=1000;played.statistics.clock=()=>now;
+  try{
+    played.game.tick(1.25);played.game.paused=true;now+=20000;played.game.tick(20);
+    assert.equal(played.statistics.snapshot().durationSeconds,21.25);
+    played.game.paused=false;played.game.speed=3;played.game.tick(2.5);
+    const before=played.statistics.snapshot();assert.equal(before.durationSeconds,23.75);assert.equal(before.durationMs,20000,'Legacy browser time keeps its original interpretation');
+    await request(store,'/api/runs',{id:uuid(200),writeToken:access,mode:10,seed:42,version});
+    let final;
+    for(let wave=0;wave<10;wave++)final=played.assault();
+    assert.equal(final.durationSeconds,played.game.elapsedSeconds);assert.equal(final.outcome,'won');
+    assert.equal((await request(store,`/api/runs/${uuid(200)}/checkpoint`,{writeToken:access,snapshot:final})).status,200);
+    const stored=store.sqlite.prepare('SELECT * FROM runs WHERE id = ?').get(uuid(200));assert.equal(JSON.parse(stored.summary_json).durationSeconds,final.durationSeconds);
+    now+=60000;played.game.tick(60);const retry=played.statistics.snapshot();assert.equal(retry.durationSeconds,final.durationSeconds);assert.equal(retry.durationMs,final.durationMs);
+    assert.equal((await request(store,`/api/runs/${uuid(200)}/checkpoint`,{writeToken:access,snapshot:retry})).status,200);assert.deepEqual(store.sqlite.prepare('SELECT * FROM runs WHERE id = ?').get(uuid(200)),stored);
+    const changed={...retry,sequence:retry.sequence+1,durationSeconds:retry.durationSeconds+1};assert.equal((await request(store,`/api/runs/${uuid(200)}/checkpoint`,{writeToken:access,snapshot:changed})).status,409);
+    assert.deepEqual(store.sqlite.prepare('SELECT * FROM runs WHERE id = ?').get(uuid(200)),stored);
+  }finally{played.statistics.dispose();store.close();}
+});
+
+test('optional elapsed duration validation preserves precise zero/fractional values and historical absence while rejecting fabricated invalid types and bounds',()=>{
+  const played=run(10,uuid(201)),rules={families:data.towers,waveDefinitions:data.waves,enemyDefinitions:data.enemies};
+  try{
+    const snapshot=played.assault();
+    for(const durationSeconds of [0,.123456789,7*86400])assert.equal(validateSnapshot({...snapshot,durationSeconds},rules).durationSeconds,durationSeconds);
+    for(const durationSeconds of [-1,NaN,Infinity,'4',null,{},7*86400+.001])assert.throws(()=>validateSnapshot({...snapshot,durationSeconds},rules),/Invalid elapsed run duration/);
+    const historical={...snapshot};delete historical.durationSeconds;const clean=validateSnapshot(historical,rules);assert.equal(Object.hasOwn(clean,'durationSeconds'),false);
+    delete played.game.elapsedSeconds;assert.equal(Object.hasOwn(played.statistics.snapshot(),'durationSeconds'),false,'An old Game object never gets a fake elapsed time derived from timestamps or wave duration');
+  }finally{played.statistics.dispose();}
+});
+
+test('accepted elapsed durations cannot regress or disappear in a newer checkpoint, while older retries remain harmless',async()=>{
+  const played=run(10,uuid(202)),store=storage();
+  try{
+    played.game.tick(4);const first=played.assault();
+    await request(store,'/api/runs',{id:uuid(202),writeToken:access,mode:10,seed:42,version});
+    assert.equal((await request(store,`/api/runs/${uuid(202)}/checkpoint`,{writeToken:access,snapshot:first})).status,200);
+    const saved=store.sqlite.prepare('SELECT * FROM runs WHERE id = ?').get(uuid(202));
+    const lower={...first,sequence:first.sequence+1,durationSeconds:first.durationSeconds-.1};assert.equal((await request(store,`/api/runs/${uuid(202)}/checkpoint`,{writeToken:access,snapshot:lower})).status,409);
+    const omitted={...first,sequence:first.sequence+1};delete omitted.durationSeconds;assert.equal((await request(store,`/api/runs/${uuid(202)}/checkpoint`,{writeToken:access,snapshot:omitted})).status,409);
+    assert.deepEqual(store.sqlite.prepare('SELECT * FROM runs WHERE id = ?').get(uuid(202)),saved);
+    played.game.tick(2.25);const newer=played.statistics.snapshot();assert.equal((await request(store,`/api/runs/${uuid(202)}/checkpoint`,{writeToken:access,snapshot:newer})).status,200);
+    assert.equal((await request(store,`/api/runs/${uuid(202)}/checkpoint`,{writeToken:access,snapshot:first})).status,200);
+    const current=store.sqlite.prepare('SELECT * FROM runs WHERE id = ?').get(uuid(202));assert.equal(current.sequence,newer.sequence);assert.equal(JSON.parse(current.summary_json).durationSeconds,newer.durationSeconds);
+  }finally{played.statistics.dispose();store.close();}
+});
+
+test('real offline StatisticsClient checkpoints retain playing duration in the persisted outbox and upload the exact abandoned clock after reconnecting',async()=>{
+  const game=new Game(data,{seed:42,waveLimit:10}),store=storage(),previousWindow=globalThis.window,values=new Map();
+  globalThis.window={addEventListener(){},removeEventListener(){}};
+  const client=new StatisticsClient(game,{endpoint:'https://statistics.example',storage:{getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,value)},fetcher:async()=>{throw new Error('offline timing fixture');}});
+  client.tracker.id=uuid(203);client.tracker.version=version;
+  try{
+    game.tick(3.5);game.draft.forced={family:'archer',tier:1};assert.equal(game.place(8,19),true);assert.equal(await client.flush(),false);
+    assert.equal(client.readQueue()[0].snapshot.durationSeconds,3.5);
+    game.paused=true;game.tick(.05,20);client.sample(.05,20);assert.equal(game.elapsedSeconds,23.5);assert.equal(client.readQueue()[0].snapshot.durationSeconds,3.5);
+    game.tick(.05,10);client.sample(.05,10);assert.equal(await client.flush(),false);assert.equal(client.readQueue()[0].snapshot.durationSeconds,33.5,'A periodic checkpoint while paused records total real elapsed time despite the capped simulation interval');
+    game.paused=false;game.speed=3;game.tick(.05,.5);client.sample(.05,.5);assert.equal(client.timer,.5);client.checkpoint({abandoned:true});assert.equal(await client.flush(),false);
+    const queued=client.readQueue()[0].snapshot;assert.equal(queued.durationSeconds,34);assert.equal(queued.outcome,'abandoned');
+    client.fetcher=(url,options)=>worker.fetch(new Request(url,options),{DB:store.DB});assert.equal(await client.flush(),true);assert.deepEqual(client.readQueue(),[]);
+    const row=store.sqlite.prepare('SELECT summary_json, outcome FROM runs WHERE id = ?').get(uuid(203));assert.equal(JSON.parse(row.summary_json).durationSeconds,34);assert.equal(row.outcome,'abandoned');
+    const timer=client.timer;for(const interval of [NaN,Infinity,-1,0])client.sample(0,interval);assert.equal(client.timer,timer,'Invalid raw intervals never corrupt checkpoint scheduling');
+    game.phase='won';client.sample(.05,60);assert.equal(client.timer,timer,'The finished result screen does not enqueue periodic duration revisions');
+  }finally{client.dispose();store.close();globalThis.window=previousWindow;}
+});
+
+test('existing SQLite admin/CSV reports retain per-game elapsed times and exclude historical missing times from aggregates without a migration',async()=>{
+  const store=storage(),playedRuns=[],directory=mkdtempSync(join(tmpdir(),'bastions-elapsed-duration-report-'));
+  try{
+    const tables=store.sqlite.prepare("SELECT name FROM sqlite_schema WHERE type='table' ORDER BY name").all();
+    const fixtures=[{id:204,duration:12.5},{id:205,legacy:100000},{id:206,duration:25.125},{id:207,legacy:200000,edition:'0.2.7'}];
+    for(const fixture of fixtures){
+      const played=run(10,uuid(fixture.id),fixture.edition||version);playedRuns.push(played);
+      played.game.draft.forced={family:'archer',tier:1};assert.equal(played.game.place(8,19),true);
+      if(fixture.duration!==undefined)played.game.tick(fixture.duration);
+      const snapshot=played.statistics.snapshot();if(fixture.legacy){delete snapshot.durationSeconds;snapshot.durationMs=fixture.legacy;}
+      await request(store,'/api/runs',{id:snapshot.id,writeToken:access,mode:10,seed:42,version:snapshot.version});
+      assert.equal((await request(store,`/api/runs/${snapshot.id}/checkpoint`,{writeToken:access,snapshot})).status,200);
+      const row=store.sqlite.prepare('SELECT summary_json, duration_ms FROM runs WHERE id = ?').get(snapshot.id),summary=JSON.parse(row.summary_json);
+      if(fixture.duration!==undefined)assert.equal(summary.durationSeconds,fixture.duration);else{assert.equal(Object.hasOwn(summary,'durationSeconds'),false);assert.equal(row.duration_ms,fixture.legacy);}
+    }
+    const response=await request(store,'/api/admin/statistics',null,{headers:{Authorization:'Bearer test-owner-access'}}),analytics=await response.json();
+    const current=analytics.runs.find(row=>row.version===version),older=analytics.runs.find(row=>row.version==='0.2.7');
+    assert.equal(current.runs,3);assert.equal(current.timedRuns,2);assert.equal(current.totalDurationSeconds,37.625);assert.equal(current.averageDurationSeconds,18.8125);
+    assert.equal(older.runs,1);assert.equal(older.timedRuns,0);assert.equal(older.totalDurationSeconds,null);assert.equal(older.averageDurationSeconds,null);
+    assert.equal(analytics.runDurations.length,4);
+    for(const fixture of fixtures){const row=analytics.runDurations.find(row=>row.runId===uuid(fixture.id));assert.equal(row.durationSeconds,fixture.duration??null);if(fixture.legacy)assert.equal(row.durationMs,fixture.legacy);}
+    assert.deepEqual(store.sqlite.prepare("SELECT name FROM sqlite_schema WHERE type='table' ORDER BY name").all(),tables);
+    store.sqlite.prepare('VACUUM INTO ?').run(join(directory,'bastions.sqlite'));writeFileSync(join(directory,'owner-token.txt'),'private-timing-report-token');
+    const exported=await report({apiUrl:'',dataDirectory:directory,outputDirectory:join(directory,'reports')});
+    const json=JSON.parse(readFileSync(join(exported.destination,'statistics.json'),'utf8'));assert.deepEqual(json.runs,analytics.runs);assert.deepEqual(json.runDurations,analytics.runDurations);
+    const csv=readFileSync(join(exported.destination,'runs.csv'),'utf8'),lines=csv.replace(/^\uFEFF/,'').trimEnd().split('\r\n'),columns=lines[0].split(',');
+    const old=lines.slice(1).map(line=>line.split(',')).find(row=>row[columns.indexOf('version')]==='0.2.7');assert.equal(old[columns.indexOf('averageDurationSeconds')],'');assert.equal(old[columns.indexOf('totalDurationSeconds')],'');
+    assert.ok(csv.includes('18.8125'));assert.ok(!csv.includes('private-timing-report-token'));
+    const durationsCsv=readFileSync(join(exported.destination,'run-durations.csv'),'utf8');assert.ok(durationsCsv.includes(`${uuid(204)},${version},10,playing,12.5,0`));assert.ok(durationsCsv.includes(`${uuid(205)},${version},10,playing,,100000`));
+    assert.ok(csvRows([{version:'0.2.7',runs:1}],['timedRuns','totalDurationSeconds','averageDurationSeconds']).includes('0.2.7,1,,,'),'An older API with no timing fields exports blanks, not made-up zero duration');
+    const page=await request(store,'/owner'),html=await page.text();assert.ok(html.includes('Run duration includes pauses'));assert.ok(html.includes('Not recorded'));
+    assert.ok(html.includes('value="runDurations"'));assert.equal((await request(store,'/api/admin/statistics')).status,401);
+    const publicRow=(await (await request(store,`/api/leaderboard?version=${version}&mode=10`)).json());assert.equal(Object.hasOwn(publicRow,'runDurations'),false);
+    const oldAnalytics=structuredClone(analytics);delete oldAnalytics.runDurations;for(const row of oldAnalytics.runs)for(const key of ['timedRuns','totalDurationSeconds','averageDurationSeconds'])delete row[key];
+    const priorFetch=globalThis.fetch;let historicalExport;
+    try{globalThis.fetch=async()=>Response.json(oldAnalytics);historicalExport=await report({apiUrl:'https://legacy-statistics.example',adminToken:'private-legacy-token',outputDirectory:join(directory,'old-service-reports')});}finally{globalThis.fetch=priorFetch;}
+    assert.equal(historicalExport.counts.runDurations,0);assert.equal(readFileSync(join(historicalExport.destination,'run-durations.csv'),'utf8'),'\uFEFFrunId,version,mode,outcome,durationSeconds,durationMs\r\n');
+    assert.equal(Object.hasOwn(JSON.parse(readFileSync(join(historicalExport.destination,'statistics.json'),'utf8')),'runDurations'),false,'Older APIs keep no fabricated individual records');
+  }finally{
+    for(const played of playedRuns)played.statistics.dispose();store.close();
+    assert.equal(dirname(resolve(directory)),resolve(tmpdir()));rmSync(directory,{recursive:true});
+  }
+});
+
+test('a freshly prepared statistics Site includes canonical release dependencies and boots the current-edition Worker',async()=>{
+  const directory=mkdtempSync(join(tmpdir(),'bastions-statistics-template-')),store=storage();
+  try{
+    const result=spawnSync(process.execPath,[fileURLToPath(new URL('../tools/prepare-statistics-site.mjs',import.meta.url)),directory],{encoding:'utf8'});assert.equal(result.status,0,result.stderr);
+    for(const name of ['release.js','site-url.js'])assert.deepEqual(readFileSync(join(directory,'game',name)),readFileSync(new URL('../game/'+name,import.meta.url)));
+    const prepared=await import(pathToFileURL(join(directory,'backend/worker.js')).href);
+    const response=await prepared.default.fetch(new Request('https://prepared-statistics.example/api/health'),{DB:store.DB});assert.equal(response.status,200);assert.deepEqual(await response.json(),{ok:true,storage:'SQLite',edition:GAME_VERSION,releaseName:'Elapsed time and wave mastery'});
+    assert.deepEqual(JSON.parse(readFileSync(join(directory,'.openai/hosting.json'),'utf8')),{d1:'DB',r2:null},'Preparing a template never invents a deployed project identity');
+  }finally{store.close();assert.equal(dirname(resolve(directory)),resolve(tmpdir()));rmSync(directory,{recursive:true});}
 });

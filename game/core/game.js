@@ -10,7 +10,7 @@ export class Game {
     this.data=data;this.seed=seed;this.rng=seededRandom(seed);this.waveLimit=waveLimit;
     this.grid=new GridManager();this.economy=new EconomyManager(data.balance);this.draft=new DraftManager(data,this.rng);this.combat=new CombatManager(this);
     this.towers=[];this.nextId=1;this.round=1;this.lives=data.balance.startingLives;this.kills=0;this.leaks=0;this.phase='build';this.selected=null;this.activeDraw=0;this.speed=1;this.paused=false;this.listeners=new Set();this.discoveries=new Set(discoveries);this.pinned=null;this.lastReward=0;
-    this.selectedEnemy=null;this.score=0;this.draft.roll(0);
+    this.selectedEnemy=null;this.score=0;this.elapsedSeconds=0;this.economy.setConstructionRound(this.round);this.draft.roll(this.economy.mastery);
   }
   on(callback){this.listeners.add(callback);return()=>this.listeners.delete(callback);}
   emit(type,payload={}){
@@ -153,16 +153,16 @@ export class Game {
     this.emit('change');this.message('Castle wall demolished · tile cleared');return true;
   }
   reroll() {
-    return this.message('Defenders are rolled only after placement. Kingdom experience improves future draws automatically.');
+    return this.message('Defenders are rolled only after placement. Wave progression improves future draws automatically.');
   }
-  mastery() {return this.message('Construction mastery advances automatically with Kingdom level.');}
+  mastery() {return this.message('Construction mastery advances automatically with waves, reaching its maximum for wave 25.');}
   repair() {
     return this.message('Lost keep health is permanent.');
   }
   upgradeSpecial() {
     return this.message('Gold is reserved for downgrading a current candidate. Champions improve through recipes.');
   }
-  startCombat() {if(this.phase!=='ready')return false;this.selectedEnemy=null;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
+  startCombat() {if(this.phase!=='ready')return false;this.economy.setConstructionRound(this.round);this.selectedEnemy=null;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
   completeWave() {
     if(this.phase!=='combat')return;
     this.selectedEnemy=null;this.emit('wave-complete',{round:this.round});
@@ -172,7 +172,12 @@ export class Game {
     const round=this.round;this.phase='reward';this.emit('reward',{round,gold:this.lastReward});this.nextRound();
     this.message(`Wave ${round} survived · +${this.lastReward} gold · build five new defenders`);
   }
-  nextRound() {if(this.phase!=='reward')return false;this.round++;this.phase='build';this.draft.roll(this.economy.mastery);this.activeDraw=0;this.selected=null;this.emit('change');return true;}
+  nextRound() {if(this.phase!=='reward')return false;this.round++;this.phase='build';this.economy.setConstructionRound(this.round);this.draft.roll(this.economy.mastery);this.activeDraw=0;this.selected=null;this.emit('change');return true;}
   end(won){this.selectedEnemy=null;this.phase=won?'won':'lost';this.emit(this.phase);this.emit('change');}
-  tick(dt){if(this.phase==='combat'&&!this.paused)this.combat.update(dt*this.speed);this.pruneEnemySelection();}
+  tick(dt,elapsedDt=dt){
+    // Total run time uses real seconds, independently of combat speed and its
+    // frame-step cap. Construction and pauses count; ended runs stay frozen.
+    if(!['won','lost'].includes(this.phase)&&Number.isFinite(elapsedDt)&&elapsedDt>0)this.elapsedSeconds+=elapsedDt;
+    if(this.phase==='combat'&&!this.paused)this.combat.update(dt*this.speed);this.pruneEnemySelection();
+  }
 }

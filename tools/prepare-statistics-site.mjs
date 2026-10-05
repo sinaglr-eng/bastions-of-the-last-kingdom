@@ -6,9 +6,10 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const gameVersion=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
 const destination=path.resolve(process.argv[2]||path.join(root,'artifacts/statistics-template'));
 await mkdir(destination,{recursive:true});
-for(const dir of ['backend','data','db','.openai'])await mkdir(path.join(destination,dir),{recursive:true});
+for(const dir of ['backend','data','game','db','.openai'])await mkdir(path.join(destination,dir),{recursive:true});
 for(const file of ['worker.js','validation.js','service-page.js'])await copyFile(path.join(root,'backend',file),path.join(destination,'backend',file));
 for(const file of ['towers.json','waves.json','enemies.json'])await copyFile(path.join(root,'data',file),path.join(destination,'data',file));
+for(const file of ['release.js','site-url.js'])await copyFile(path.join(root,'game',file),path.join(destination,'game',file));
 await copyFile(path.join(root,'backend/sites-db-schema.ts'),path.join(destination,'db/schema.ts'));
 try{await access(path.join(root,'backend/drizzle'));await cp(path.join(root,'backend/drizzle'),path.join(destination,'drizzle'),{recursive:true});}catch{}
 await writeFile(path.join(destination,'package.json'),JSON.stringify({name:'bastions-statistics',version:gameVersion,private:true,type:'module',packageManager:'pnpm@11.25.0',scripts:{build:'node build.mjs','db:generate':'drizzle-kit generate'},dependencies:{'drizzle-orm':'0.45.2'},devDependencies:{'drizzle-kit':'0.31.10',esbuild:'0.25.12'}},null,2)+'\n');

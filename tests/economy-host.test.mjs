@@ -34,15 +34,18 @@ test('potential combinations use the selected family AND tier, including repeate
  const rime=data.recipes.find(r=>data.towers[r.id].name==='Frostbolt Watchmen');assert.ok(rime);assert.ok(!matches.includes(rime));
  assert.ok(recipesUsing({...soldier,tier:1},data.recipes).includes(rime));assert.deepEqual(recipesUsing({...soldier,state:'ruin'},data.recipes),[]);
 });
-test('fifteen mastery stages follow Kingdom experience automatically without spending gold',()=>{
+test('fifteen mastery stages reach the maximum before wave25 regardless of kill XP without spending gold',()=>{
  const eco=new EconomyManager(data.balance);assert.equal(data.balance.mastery.length,16);
  assert.equal(eco.upgradeMastery(),false);let first=null;
  for(const [i,w] of data.waves.entries()){
+  eco.setConstructionRound(i+1);
+  if(eco.mastery===15&&!first)first=i+1;
+  const masteryBeforeCombat=eco.mastery;
   for(const g of w.groups){const e=data.enemies[g.type];eco.reward(0,g.count*e.xp);}
   eco.reward(w.reward,15);
-  if(eco.mastery===15&&!first)first=i+1;
+  assert.equal(eco.mastery,masteryBeforeCombat,'Kills and wave completion XP cannot change the current construction stage');
  }
- assert.equal(first,22);assert.equal(eco.gold,3340);const gold=eco.gold;assert.equal(eco.upgradeMastery(),false);assert.equal(eco.gold,gold);
+ assert.equal(first,25);assert.equal(eco.gold,3340);assert.ok(eco.level>1);const gold=eco.gold;assert.equal(eco.upgradeMastery(),false);assert.equal(eco.gold,gold);
  for(const [i,row] of data.balance.mastery.entries()){assert.equal(row.level,i+1);assert.equal(row.cost,undefined);assert.equal(row.weights.reduce((a,b)=>a+b,0),100);assert.equal(row.weights[5],0);}
 });
 test('lost lives stay lost in every phase even with unlimited gold',()=>{

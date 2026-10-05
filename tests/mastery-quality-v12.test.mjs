@@ -9,7 +9,7 @@ import {masteryPanelMarkup} from '../ui/mastery-panel.js';
 
 const data=Object.fromEntries(['balance','towers'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 
-test('quality reaches 20% Royal at mastery 15 while preserving costs, progression and all other balance settings',()=>{
+test('quality reaches 20% Royal at construction mastery15 while preserving costs, XP and all balance settings',()=>{
   const {mastery}=data.balance;
   // Pre-V12 settings, including damage/range, fees, XP, cap, seed and row levels.
   // Restore original key order when hashing so only weight changes are excluded.
@@ -18,12 +18,13 @@ test('quality reaches 20% Royal at mastery 15 while preserving costs, progressio
     'aec31935eee9ab73c57b03d40df8d0bf44894f27721cd8dc162308168df88c0c');
   assert.deepEqual(mastery[0].weights,[100,0,0,0,0,0]);
   assert.equal(mastery.length,16);assert.equal(mastery.at(-1).weights[4],20);
-  assert.equal(mastery.findIndex(row=>row.weights[4]>0),11,'Royal unlock remains Kingdom 12/mastery 11');
+  assert.equal(mastery.findIndex(row=>row.weights[4]>0),11,'Royal unlock remains mastery11');
   assert.equal(mastery.findIndex(row=>row.weights[3]>0),6,'Elite unlock milestone is unchanged');
   assert.equal(mastery.findIndex(row=>row.weights[2]>0),2,'Veteran unlock milestone is unchanged');
   const economy=new EconomyManager(data.balance),initialGold=economy.gold;
-  economy.reward(0,15*data.balance.xpPerLevel-1);assert.equal(economy.mastery,14);
-  economy.reward(0,1);assert.equal(economy.mastery,15);assert.equal(economy.gold,initialGold);
+  economy.reward(0,15*data.balance.xpPerLevel);assert.equal(economy.level,16);assert.equal(economy.mastery,0);
+  economy.setConstructionRound(24);assert.equal(economy.mastery,14);
+  economy.setConstructionRound(25);assert.equal(economy.mastery,15);assert.equal(economy.gold,initialGold);
   economy.reward(0,10000);assert.equal(economy.mastery,15);assert.equal(economy.nextMastery(),null);
 });
 
