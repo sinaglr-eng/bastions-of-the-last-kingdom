@@ -1,5 +1,10 @@
 # Releases
 
+## 0.3.17 — Direct Defender Draft — 5 October 2026
+
+- Shows the five defender slots immediately at the start of each construction round, removing the bottom wave-preview section and its opening step.
+- Keeps next-wave intelligence in the sidebar, with unchanged placement-first reveals, fixed-position Reserve and Command Point actions.
+
 ## 0.3.16 — Wave Preview and Enemy Intelligence — 5 October 2026
 
 - Adds a preview before every defender draft, with actual enemy quantities, portraits, deduplicated primary threats and optional detailed stats. Intelligence remains accessible while drafting, keeping, merging, crafting and preparing.

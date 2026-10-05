@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {wavePreviewMarkup,wavePreviewGateMarkup} from '../ui/wave-preview.js';
+import {wavePreviewMarkup} from '../ui/wave-preview.js';
 import {WaveThreatAnalyzer} from '../game/core/wave-threats.js';
 import {ArmyReadiness} from '../game/core/army-readiness.js';
 
@@ -58,7 +58,7 @@ test('immediate boss has a clear boss hierarchy and full optional details',()=>{
   const m=model();m.next.special='boss';m.next.profile='BOSS';m.next.enemies=[enemy('Iron Warlord',1,{boss:true})];m.next.totalCount=1;
   m.boss={number:14,distance:0,visibility:'full',special:'boss',preview:m.next};
   const html=wavePreviewMarkup(m,{},{});assert.match(html,/class="wave-intelligence boss"/);assert.match(html,/Iron Warlord/);assert.match(html,/Boss wave now/);assert.match(html,/1,876 HP/);
-  assert.match(wavePreviewGateMarkup(m,{},{}),/class="wave-preview-gate boss"/);
+  assert.match(html,/1 invader</);assert.doesNotMatch(html,/1 invaders</);
 });
 
 test('primary tags are deduplicated and a standard wave stays readable',()=>{
@@ -90,7 +90,7 @@ test('empty waves, missing future waves and final-wave boundaries create no phan
   assert.equal(wavePreviewMarkup({next:null}, {}, {}),'');assert.equal(wavePreviewMarkup(null,{},{}),'');
   const m=model();delete m.after;delete m.boss;m.next.enemies=[];
   const html=wavePreviewMarkup(m,{},{});assert.match(html,/No enemy composition is available/);assert.doesNotMatch(html,/wave-after-preview|wave-boss-forecast|After ·/);
-  assert.match(wavePreviewGateMarkup({next:null},{},{}),/No upcoming wave is available/);assert.doesNotMatch(wavePreviewGateMarkup({next:null},{},{}),/data-action=/);
+  assert.doesNotMatch(html,/data-action=/);
 });
 
 test('unknown enemies, unavailable portraits and unfamiliar trait glyphs never crash or display broken images',()=>{
@@ -115,11 +115,12 @@ test('compact preview remains available as a native keyboard-accessible details 
   assert.match(wavePreviewMarkup(model(),{}, {},{open:true}),/class="wave-intelligence " open>/);
 });
 
-test('gate offers one immediate draft action and keeps standard numeric stats behind sidebar details',()=>{
-  const html=wavePreviewGateMarkup(model(),{}, {},{headingId:'gate-wave'});
-  assert.match(html,/aria-labelledby="gate-wave"/);assert.match(html,/Before the defender draft/);assert.match(html,/18 × Armored Orc/);assert.match(html,/Anti-armor/);assert.match(html,/>Good</);
-  assert.equal((html.match(/<button\b/g)||[]).length,1);assert.match(html,/data-action="open-defender-draft"/);assert.match(html,/Open defender draft/);assert.match(html,/The preview stays beside the draft/);
-  assert.doesNotMatch(html,/1,876 HP|17 armor|tiles\/s|18% magic resistance|<dialog|data-action="draw"|Best choice/i);
+test('sidebar intelligence has no draft-opening action or duplicate pre-draft section',()=>{
+  const html=wavePreviewMarkup(model(),{}, {},{headingId:'sidebar-wave',open:true});
+  assert.match(html,/id="sidebar-wave"/);assert.match(html,/18 × Armored Orc/);assert.match(html,/Anti-armor/);assert.match(html,/>Good</);
+  assert.equal((html.match(/<button\b/g)||[]).length,0);
+  assert.doesNotMatch(html,/wave-preview-gate|Before the defender draft|Open defender draft|data-action=|<dialog|Best choice/i);
+  for(const summary of summaries(html))assert.doesNotMatch(summary,/1,876 HP|17 armor|tiles\/s|18% magic resistance/);
 });
 
 test('large enemy variety remains summarized with all additional types accessible through native details',()=>{
@@ -130,21 +131,21 @@ test('large enemy variety remains summarized with all additional types accessibl
 
 test('all markup is read-only and cannot reveal hidden defenders or spend Command Points',()=>{
   const m=model();m.hiddenDraft=[{family:'SECRET_MAGE',tier:6}];m.commandPoints=3;const before=JSON.stringify(m);
-  const first=wavePreviewMarkup(m,{},{}),gate=wavePreviewGateMarkup(m,{},{}),second=wavePreviewMarkup(m,{},{});
-  assert.equal(JSON.stringify(m),before);assert.equal(first,second);assert.doesNotMatch(first+gate,/SECRET_MAGE|tier.?6|commandPoints|data-action="reroll"/);
+  const first=wavePreviewMarkup(m,{},{}),second=wavePreviewMarkup(m,{},{});
+  assert.equal(JSON.stringify(m),before);assert.equal(first,second);assert.doesNotMatch(first,/SECRET_MAGE|tier.?6|commandPoints|data-action="reroll"/);
 });
 
 test('the actual campaign analyzer and army evaluator render the same configured variants without future-stat leaks',()=>{
   const data=Object.fromEntries(['balance','enemies','waves','towers'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
   const before=JSON.stringify(data),analyzer=new WaveThreatAnalyzer(data),outlook=analyzer.outlook(34,50);
   const readiness=new ArmyReadiness(data).evaluate(outlook.next,[{family:'engineer',tier:1,state:'active'},{family:'mage',tier:6,state:'reserved'}]);
-  const full=wavePreviewMarkup({...outlook,readiness},data,{}),gate=wavePreviewGateMarkup({...outlook,readiness},data,{});
+  const full=wavePreviewMarkup({...outlook,readiness},data,{});
   const current=outlook.next.enemies[0];
   assert.match(full,new RegExp(`${current.count} × ${current.name}`));
   assert.match(full,/Immune to magic and magical effects/);assert.match(full,/Immune to physical and piercing damage/);
   assert.match(full,/Each enemy independently chooses a variant/);assert.match(full,/1 active defender/);
   assert.ok(full.includes(new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(current.variants[0].maxHp)+' HP'));
-  assert.doesNotMatch(gate,/ HP| armor|tiles\/s|Immune to magic and magical effects/);
+  for(const summary of summaries(full))assert.doesNotMatch(summary,/ HP| armor|tiles\/s|Immune to magic and magical effects/);
   const partial=full.match(/<section class="wave-after-preview"[\s\S]*?<\/section>/)?.[0];
   assert.ok(partial);assert.ok(partial.includes(outlook.after.name));assert.doesNotMatch(partial,/\d[\d,.]* (?:invaders|HP|armor|tiles\/s)| × |wave-enemy-details/);
   assert.equal(JSON.stringify(data),before);assert.strictEqual(analyzer.outlook(34,50).next,outlook.next);
@@ -153,7 +154,7 @@ test('the actual campaign analyzer and army evaluator render the same configured
 test('incomplete imported lists safely omit invalid entries while retaining usable information',()=>{
   const m=model();m.next.enemies=[null,{type:'mystery',name:'Mystery invader',count:2,variants:[null,undefined,{name:'Incomplete profile',traitDetails:[null,{text:'Known trait',kind:'unknown'}]}]}];
   m.readiness.rows=[null,undefined,{label:'Known response',level:'fair',response:'Known ability'}];
-  const full=wavePreviewMarkup(m,{},{}),gate=wavePreviewGateMarkup(m,{},{});
+  const full=wavePreviewMarkup(m,{},{});
   assert.match(full,/2 × Mystery invader/);assert.match(full,/Incomplete profile/);assert.match(full,/Known trait/);assert.match(full,/Known response/);
-  assert.match(gate,/Known response/);assert.doesNotMatch(full+gate,/undefined|NaN|Variant 2|function Object/);
+  assert.doesNotMatch(full,/undefined|NaN|Variant 2|function Object/);
 });

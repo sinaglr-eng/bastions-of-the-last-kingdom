@@ -1,6 +1,6 @@
 # Wave Preview and Enemy Threat Intelligence
 
-Each round starts with a brief view of the forthcoming wave. **Open defender draft** opens the existing placement-first draft. The intelligence remains available in the right sidebar while the player places candidates, uses Command Points, chooses a keeper and prepares for battle. Opening the draft does not reveal a candidate or advance the seeded generator.
+Each round starts directly with the existing five-candidate placement-first draft. There is no preliminary preview screen or extra draft-opening action. The forthcoming wave's intelligence appears in the right sidebar while the player places candidates, uses Command Points, chooses a keeper and prepares for battle. The intelligence does not reveal candidates, advance the seeded generator or occupy the bottom draft area. A carried Reserve remains inactive at its fixed map position and is one of the five choices in the new round.
 
 The sidebar shows the upcoming wave's name, profile, actual total count and enemy composition. It presents a small set of primary threats and a comparison with the current active army. Enemy **Details** controls reveal optional actual health, armor, speed, resistances and abilities. Possible variants appear separately: each enemy can independently choose a variant, so the preview never promises a per-variant count or an exact random mixture.
 
@@ -37,9 +37,9 @@ The comparison accounts for actual damage types, immunity, armor, ranged access 
 
 The scope shown in the panel is: **Composition only; placement, range coverage and maze length are not evaluated.** The evaluator caches by immutable analysis and active family/tier composition plus readiness settings. Moving a defender does not alter this composition-only result.
 
-## Presentation and draft gate
+## Presentation and immediate draft
 
-`ui/wave-preview.js` contains read-only markup helpers:
+`ui/wave-preview.js` contains a read-only markup helper:
 
 ```js
 wavePreviewMarkup(model, data, images, {
@@ -47,18 +47,13 @@ wavePreviewMarkup(model, data, images, {
   open: false,
   headingId: 'wave-preview-title'
 });
-
-wavePreviewGateMarkup(model, data, images, {
-  action: 'open-defender-draft',
-  headingId: 'wave-preview-gate-title'
-});
 ```
 
-`model` is `{ ...outlook, readiness }`. Portraits use `images['enemy:' + type]` with a decorative fallback when unavailable. Existing UI icons and enemy defense glyphs provide the symbols. The helpers escape displayed text and attributes, qualify possible variants, and project partial and boss forecast fields independently of any extra payload passed by a caller.
+`model` is `{ ...outlook, readiness }`. Portraits use `images['enemy:' + type]` with a decorative fallback when unavailable. Existing UI icons and enemy defense glyphs provide the symbols. The helper escapes displayed text and attributes, qualifies possible variants, and projects partial and boss forecast fields independently of any extra payload passed by a caller.
 
-`compact: true` creates a native, keyboard-accessible `<details>` panel. `compact: false` creates an expanded section. Numeric enemy detail is always nested under enemy `<details>` controls. The draft gate contains the current compact composition, threats, army labels and one immediate action. It does not contain hidden candidate data. `ui/wave-preview.css` scopes the new presentation, includes a full-width sidebar host for narrow screens, and bounds the optional detail area with scrolling.
+`compact: true` creates a native, keyboard-accessible `<details>` panel. `compact: false` creates an expanded section. Numeric enemy detail is always nested under enemy `<details>` controls. The sidebar contains composition, threats, army labels and forecasts without hidden candidate data or draft actions. `ui/wave-preview.css` scopes this presentation, includes a full-width sidebar host for narrow screens, and bounds the optional detail area with scrolling.
 
-`ui/wave-preview-flow.js` owns a separate `WavePreviewFlow` view controller. Its `pending`, `open`, `reset` and `nextIndex` methods track whether the current round's draft gate has been opened, while leaving the established Game phases unchanged. In `game/main.js`, the gate replaces the draft cards until opened. The independent `#wave-intelligence` host sits above the selected defender or combat panel and stays accessible after the draft opens. A derived `game.previewPending` guard prevents placement, Command Point actions and recipe crafting before the gate is opened. Gate changes do not mutate the draft, consume CP or sample randomness.
+`ui/wave-preview-flow.js` exports the pure `nextWavePreviewIndex` selector. It maps the established Game phase and round to the forthcoming wave without tracking a separate draft-open state. In `game/main.js`, the independent `#wave-intelligence` host sits above the selected defender or combat panel and stays accessible while the bottom draft area immediately displays the existing candidates. Placement, Command Point actions and recipe crafting follow their established phase rules. Rendering or changing sidebar disclosure does not mutate the draft, consume CP or sample randomness.
 
 ## Configuration
 
@@ -90,10 +85,10 @@ Optional contextual hints on individual draft cards are deferred. Accurate compa
 
 ## Verification
 
-`tests/wave-preview-ui.test.mjs` verifies actual composition and optional stats, known variants and existing glyphs, partial-preview and boss visibility boundaries, deduplication, readiness labels, empty armies, missing data, escaping, native controls, the single draft action, large rosters and read-only behavior. It also renders the actual campaign analyzer and army evaluator together, confirming that reserved defenders are excluded and future numerical detail remains concealed.
+`tests/wave-preview-ui.test.mjs` verifies actual composition and optional stats, known variants and existing glyphs, partial-preview and boss visibility boundaries, deduplication, readiness labels, empty armies, missing data, escaping, native controls, the absence of draft-opening actions, large rosters and read-only behavior. It also renders the actual campaign analyzer and army evaluator together, confirming that reserved defenders are excluded and future numerical detail remains concealed.
 
 ```sh
 node --test tests/wave-preview-ui.test.mjs
 ```
 
-Core analyzer, readiness and view-flow tests cover their respective calculations, cache behavior, invariants and interaction guards. Browser review checks the complete panel and draft gate at desktop and narrow-screen sizes.
+Core analyzer, readiness and wave-selection tests cover their respective calculations, cache behavior, invariants and phase boundaries. Browser review checks the sidebar and immediately available five-candidate draft at desktop and narrow-screen sizes.

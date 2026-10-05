@@ -40,31 +40,30 @@ function variantDetails(variants){
   }).join('');
 }
 
-function enemyRow(enemy,images,{details=true}={}){
+function enemyRow(enemy,images){
   const quantity=finite(enemy.count)?`${number(enemy.count)} × `:'',name=enemy.name||'Unknown enemy';
   const heading=`${portrait(enemy,images)}<span class="wave-enemy-name"><strong>${escape(quantity+name)}</strong><small>${enemy.unknown?'Enemy information unavailable':enemy.flying?'Airborne':enemy.boss?'Warlord':'Ground'}</small></span>`;
-  if(!details)return `<div class="wave-enemy-row">${heading}</div>`;
   return `<details class="wave-enemy-details"><summary>${heading}<span class="wave-enemy-open">Details</span></summary><div class="wave-enemy-detail-body">${Array.isArray(enemy.variants)&&enemy.variants.length>1?'<p class="wave-preview-note">Each enemy independently chooses a variant; the wave may contain a mix.</p>':''}${variantDetails(enemy.variants)}</div></details>`;
 }
 
-function composition(next,images,{details=true}={}){
+function composition(next,images){
   const enemies=(Array.isArray(next?.enemies)?next.enemies:[]).filter(enemy=>enemy&&typeof enemy==='object');
   if(!enemies.length)return '<p class="wave-preview-note">No enemy composition is available.</p>';
-  const first=enemies.slice(0,3).map(enemy=>enemyRow(enemy,images,{details})).join('');
+  const first=enemies.slice(0,3).map(enemy=>enemyRow(enemy,images)).join('');
   if(enemies.length<=3)return first;
-  return `${first}<details class="wave-more-enemies"><summary>${enemies.length-3} more enemy types</summary>${enemies.slice(3).map(enemy=>enemyRow(enemy,images,{details})).join('')}</details>`;
+  return `${first}<details class="wave-more-enemies"><summary>${enemies.length-3} more enemy types</summary>${enemies.slice(3).map(enemy=>enemyRow(enemy,images)).join('')}</details>`;
 }
 
-function armyReadiness(readiness,{compact=false}={}){
+function armyReadiness(readiness){
   if(!readiness)return '<p class="wave-preview-note">Army readiness is unavailable.</p>';
   const count=Number.isSafeInteger(readiness.activeCount)&&readiness.activeCount>=0?readiness.activeCount:null;
   const heading=`<div class="wave-preview-section-heading"><strong>Your army</strong>${count!==null?`<small>${count} active ${count===1?'defender':'defenders'}</small>`:''}</div>`;
-  if(readiness.empty||count===0)return `<section class="wave-readiness ${compact?'compact':''}" aria-label="Active army readiness">${heading}<p class="wave-preview-note">No active defenders yet. Your first keeper begins the army.</p></section>`;
+  if(readiness.empty||count===0)return `<section class="wave-readiness" aria-label="Active army readiness">${heading}<p class="wave-preview-note">No active defenders yet. Your first keeper begins the army.</p></section>`;
   const rows=(Array.isArray(readiness.rows)?readiness.rows:[]).filter(row=>row&&typeof row==='object');
-  return `<section class="wave-readiness ${compact?'compact':''}" aria-label="Active army readiness">${heading}${rows.length?`<ul>${rows.map(row=>{
+  return `<section class="wave-readiness" aria-label="Active army readiness">${heading}${rows.length?`<ul>${rows.map(row=>{
     const known=Object.hasOwn(readinessLevels,row.level),level=known?row.level:'unknown',label=known?readinessLevels[level]:'Not assessed';
-    return `<li><span><strong>${escape(row.label||row.threatId||'Response')}</strong>${!compact&&row.response?`<small>${escape(row.response)}</small>`:''}</span><b class="readiness-level ${level}">${label}</b></li>`;
-  }).join('')}</ul>`:'<p class="wave-preview-note">No specific response category for this wave.</p>'}${!compact&&readiness.scope?`<p class="wave-readiness-scope">${escape(readiness.scope)}</p>`:''}</section>`;
+    return `<li><span><strong>${escape(row.label||row.threatId||'Response')}</strong>${row.response?`<small>${escape(row.response)}</small>`:''}</span><b class="readiness-level ${level}">${label}</b></li>`;
+  }).join('')}</ul>`:'<p class="wave-preview-note">No specific response category for this wave.</p>'}${readiness.scope?`<p class="wave-readiness-scope">${escape(readiness.scope)}</p>`:''}</section>`;
 }
 
 function futureWave(after){
@@ -94,10 +93,4 @@ export function wavePreviewMarkup(model,data={},images={}, {compact=true,heading
   const contents=`<div class="wave-intelligence-body"><h3 class="wave-preview-name">${escape(next.name||'Upcoming wave')}</h3>${intelligenceContents(model,images)}</div>`;
   if(compact)return `<details class="wave-intelligence ${boss?'boss':''}" ${open?'open':''}><summary class="wave-intelligence-summary">${header}<span class="wave-intelligence-toggle">Threats & army</span></summary>${contents}</details>`;
   return `<section class="wave-intelligence expanded ${boss?'boss':''}" aria-labelledby="${escape(headingId)}"><div class="wave-intelligence-summary">${header}</div>${contents}</section>`;
-}
-
-export function wavePreviewGateMarkup(model,data={},images={}, {action='open-defender-draft',headingId='wave-preview-gate-title'}={}){
-  if(!model?.next)return `<section class="wave-preview-gate" aria-label="Wave preview"><p>No upcoming wave is available.</p></section>`;
-  const next=model.next;
-  return `<section class="wave-preview-gate ${next.special==='boss'?'boss':''}" aria-labelledby="${escape(headingId)}"><div class="wave-preview-gate-content"><div class="wave-preview-gate-heading">${icon(next.special==='boss'?'crown':'swords')}<div><small>Before the defender draft</small><h3 id="${escape(headingId)}">${escape(waveLabel(next))} · ${escape(profile(next.profile))}</h3></div></div><div class="wave-gate-enemies" aria-label="Next wave enemy composition">${composition(next,images,{details:false})}</div><div class="wave-threat-tags" aria-label="Primary enemy threats">${threatTags(next.primaryThreats)}</div>${armyReadiness(model.readiness,{compact:true})}</div><div class="wave-preview-gate-action"><button type="button" class="primary-button" data-action="${escape(action)}">${icon('bow')} Open defender draft</button><p>The preview stays beside the draft.</p></div></section>`;
 }

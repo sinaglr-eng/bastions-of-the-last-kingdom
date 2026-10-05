@@ -57,7 +57,6 @@ export class Game {
     return {reroll:{cost:cp.cost('reroll'),available:selecting&&this.draft.canReroll(),reason:rerollReason},reserve:{cost:cp.cost('reserve'),available:selecting&&this.reserveIndex>=0&&this.draft.canReserve(this.reserveIndex),reason:reserveReason},move:{cost:cp.cost('move'),available:!moveReason,reason:moveReason},cancelMove:{available:this.commandMove.active,reason:''}};
   }
   beginMove(){
-    if(this.previewPending)return this.message('Review the next wave, then open the defender draft.');
     if(!this.commandActions.move.available)return this.message(this.commandActions.move.reason);
     if(!this.commandMove.begin())return false;
     this.selected=null;this.selectedEnemy=null;this.previewRecipeId=null;this.emit('change');return true;
@@ -85,7 +84,6 @@ export class Game {
     return {limit,spent,remaining:Math.max(0,limit-spent),occupied:this.grid.occupied.size};
   }
   place(x,z) {
-    if(this.previewPending)return this.message('Review the next wave, then open the defender draft.');
     if(this.commandMove.active)return false;
     if(this.phase!=='build')return this.message('Construction is closed. Select a defense to inspect it.');
     const draw=this.draft.draws[this.activeDraw];
@@ -121,7 +119,7 @@ export class Game {
     t.tier--;this.finishSelection(t);this.emit('keep',{tower:t});
     this.message('Defender downgraded by one rank and kept · 200 gold');return true;
   }
-  canCombine(t) {return !this.previewPending&&!this.commandMove.active&&t&&['active','draft'].includes(t.state)&&['build','select','ready','reward'].includes(this.phase)&&(t.state!=='draft'||this.phase==='select');}
+  canCombine(t) {return !this.commandMove.active&&t&&['active','draft'].includes(t.state)&&['build','select','ready','reward'].includes(this.phase)&&(t.state!=='draft'||this.phase==='select');}
   recipePieces(recipe,anchor=this.selection){
     if(!recipe.currentRoundOnly)return matchingIngredients(recipe,this.towers.filter(t=>this.canCombine(t)),anchor);
     // The five actual, placed draw IDs are the authority. A stray or stale draft
@@ -186,7 +184,6 @@ export class Game {
     this.emit('combine',{tower:t});this.emit('discover',{id:family});this.emit('change');return true;
   }
   remove() {
-    if(this.previewPending)return this.message('Review the next wave, then open the defender draft.');
     if(this.commandMove.active)return this.message('Finish or cancel Move before demolishing a wall.');
     const t=this.selection;
     if(!t)return this.message('Select a castle wall to demolish.');
