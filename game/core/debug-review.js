@@ -1,5 +1,23 @@
 import {GridManager} from './grid.js';
 
+// Paused, explicit DEV scene for clicking real airborne invaders above a wall.
+// Real damage creates inspectable missing HP; movement and regeneration keep
+// their campaign values when the commander resumes the scene.
+export function prepareEnemyInspectionReview(game){
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.previewRecipeId=null;game.round=15;game.phase='ready';game.lives=30;game.speed=1;game.paused=false;
+  for(const [id,family,tier,x,z,state] of [[1,'archer',2,13,17,'active'],[2,'cleric',3,22,17,'active'],[3,'soldier',1,15,20,'ruin']]){
+    if(!game.grid.occupy(x,z,id).ok)throw new Error('Inspection review tile is unavailable');
+    game.towers.push({id,family,tier,x,z,state,round:0,kills:0,priority:'first',cooldown:0});
+  }
+  game.nextId=4;game.startCombat();game.combat.spawnQueue=[{time:99999,type:'host_15',modifiers:{}}];game.combat.enemies=[];
+  for(const [type,x,variant] of [['host_15',15,game.data.enemies.host_15.variants?.[0]],['host_15',22,game.data.enemies.host_15.variants?.[1]],['host_24',28,null]]){
+    const enemy=game.combat.spawn(type,variant?{variant}:{});
+    Object.assign(enemy,{x,z:20,route:[{x,z:20},{x:x+200,z:20}],pathIndex:1,pathLength:200});
+    game.combat.damage(enemy,enemy.maxHp*.35,'pure',{},null);
+  }
+  game.combat.total=4;game.paused=true;game.emit('change');return true;
+}
+
 export function prepareSecretDraftReview(game,family='ladyclaire'){
   const recipe=game.recipes.find(r=>r.id===family&&r.currentRoundOnly);if(!recipe)return false;
   game.grid=new GridManager();game.towers=[];game.selected=null;game.round=16;game.phase='build';game.nextId=1;game.activeDraw=0;game.previewRecipeId=null;game.paused=false;

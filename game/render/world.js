@@ -5,6 +5,7 @@ import {rankAdornment,animateRank} from './ranks.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
+import {pointedEnemy,createEnemySelectionRing,syncEnemySelectionRing,disposeEnemySelectionRing} from './enemy-pointer.js';
 import {animateEnemyMotion} from './enemy-motion.js';
 import {BATTLEFIELD_UNIT_SCALE,enemyPresentationMultiplier,scaleBattlefieldUnit,animateBattlefieldIdleScale} from './battlefield-scale.js';
 import {animateSecretChampion} from './secret-champions.js';
@@ -58,7 +59,7 @@ export class Battlefield {
     this.enemyConcealmentEffects=new EnemyConcealmentEffects(this.scene,{position:v3,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
     this.createEnvironment();this.createOverlays();this.maze=new MazePlanner(this);this.draftMarkers=new DraftMarkers(this.scene,this.container);
     this.raycaster=new THREE.Raycaster();this.pointer=new THREE.Vector2();this.plane=new THREE.Plane(new THREE.Vector3(0,1,0),-0.03);this.tapGesture=new PointerTapGesture();this.doubleTap=new SelectedTowerDoubleTap();
-    this.clearPointer=()=>{this.edgePointer=null;this.hover=null;this.cursor.visible=false;this.ghost.visible=false;this.maze.endStroke();};
+    this.clearPointer=()=>{this.edgePointer=null;this.hover=null;this.hoverEnemy=null;this.cursor.visible=false;this.ghost.visible=false;this.maze.endStroke();};
     this.trackPointer=e=>{
       const rect=this.renderer.domElement.getBoundingClientRect();
       this.edgePointer=e.target===this.renderer.domElement&&e.pointerType!=='touch'&&!e.buttons?{x:e.clientX-rect.left,y:e.clientY-rect.top}:null;
@@ -86,13 +87,7 @@ export class Battlefield {
         if(e.pointerType==='touch'&&tap){this.movePointer(e);this.maze.editor.begin();if(this.hover)this.maze.paint(this.hover.x,this.hover.z);}
         this.maze.endStroke();
       }else if(tap){
-        this.movePointer(e);
-        if(this.hover){
-          const tower=this.game.towers.find(t=>t.x===this.hover.x&&t.z===this.hover.z);
-          const confirm=tower&&this.doubleTap.tap(tower.id,e,{selected:this.game.selected===tower.id,eligible:this.game.phase==='select'&&tower.state==='draft'&&tower.round===this.game.round});
-          if(confirm)this.game.keep();else this.onTile(this.hover.x,this.hover.z);
-          if(!tower)this.doubleTap.clear();
-        }else this.doubleTap.clear();
+        this.selectPointer(e);
       }else this.doubleTap.clear();
       if(e.pointerType==='touch')this.clearPointer();else this.trackPointer(e);
     });
@@ -172,6 +167,7 @@ export class Battlefield {
     this.cursor=new THREE.Mesh(new THREE.PlaneGeometry(0.96,0.96),new THREE.MeshBasicMaterial({color:'#aedeaa',transparent:true,opacity:0.45,depthWrite:false}));this.cursor.rotation.x=-Math.PI/2;this.cursor.visible=false;this.scene.add(this.cursor);
     this.range=new THREE.Mesh(new THREE.RingGeometry(0.985,1,80),new THREE.MeshBasicMaterial({color:'#e6ca88',transparent:true,opacity:0.55,side:THREE.DoubleSide,depthWrite:false}));this.range.rotation.x=-Math.PI/2;this.range.visible=false;this.scene.add(this.range);
     this.selectionRing=new THREE.Mesh(new THREE.RingGeometry(0.56,0.61,4),new THREE.MeshBasicMaterial({color:'#ffe4a1',side:THREE.DoubleSide,transparent:true,opacity:0.9}));this.selectionRing.rotation.set(-Math.PI/2,0,Math.PI/4);this.selectionRing.visible=false;this.scene.add(this.selectionRing);
+    this.enemySelectionRing=createEnemySelectionRing();this.scene.add(this.enemySelectionRing);
     this.ghost=new THREE.Group();this.scene.add(this.ghost);
     this.pathGroup=new THREE.Group();this.scene.add(this.pathGroup);
     this.rangeGroup=new THREE.Group();this.scene.add(this.rangeGroup);
@@ -220,6 +216,7 @@ export class Battlefield {
     const selected=this.game.selection;
     this.supportEffects.sync(this.game.towers,this.game.data,{selected,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase});
     this.selectionRing.visible=!!selected;
+    syncEnemySelectionRing(this.enemySelectionRing,this.game.enemySelection,this.enemies.get(this.game.selectedEnemy));
     if(selected)this.selectionRing.position.copy(v3(selected.x,0.065,selected.z));
     this.range.visible=!!selected&&selected.state!=='ruin';
     if(this.range.visible){this.range.position.copy(v3(selected.x,0.07,selected.z));this.range.scale.setScalar(towerStats(selected,this.game.data).range+supportBonuses(selected,this.game.towers,this.game.data).range);}
@@ -236,9 +233,21 @@ export class Battlefield {
     this.rangeGroup.children.slice().forEach(o=>{this.rangeGroup.remove(o);o.geometry.dispose();o.material.dispose();});
     for(const t of this.game.towers.filter(t=>t.state==='active')){const m=new THREE.Mesh(new THREE.RingGeometry(0.985,1,48),new THREE.MeshBasicMaterial({color:this.game.data.towers[t.family].color,transparent:true,opacity:0.22,side:THREE.DoubleSide}));m.rotation.x=-Math.PI/2;m.position.copy(v3(t.x,0.06,t.z));m.scale.setScalar(towerStats(t,this.game.data).range+supportBonuses(t,this.game.towers,this.game.data).range);this.rangeGroup.add(m);}this.rangeGroup.visible=true;
   }
+  selectPointer(e){
+    this.movePointer(e);
+    if(this.hoverEnemy!=null){this.doubleTap.clear();this.game.selectEnemy(this.hoverEnemy);return;}
+    if(this.hover){
+      const tower=this.game.towers.find(t=>t.x===this.hover.x&&t.z===this.hover.z);
+      const confirm=tower&&this.doubleTap.tap(tower.id,e,{selected:this.game.selected===tower.id,eligible:this.game.phase==='select'&&tower.state==='draft'&&tower.round===this.game.round});
+      if(confirm)this.game.keep();else this.onTile(this.hover.x,this.hover.z);
+      if(!tower)this.doubleTap.clear();
+    }else this.doubleTap.clear();
+  }
   movePointer(e) {
     const rect=this.renderer.domElement.getBoundingClientRect();this.pointer.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);this.raycaster.setFromCamera(this.pointer,this.camera);
-    const p=new THREE.Vector3();if(!this.raycaster.ray.intersectPlane(this.plane,p))return;
+    this.hoverEnemy=this.maze.editing?null:pointedEnemy(this.raycaster,this.enemies,this.game,{occluders:[...this.models.values()].map(model=>model.object)});
+    if(this.hoverEnemy!=null){this.hover=null;this.cursor.visible=false;this.ghost.visible=false;this.renderer.domElement.style.cursor='pointer';return;}
+    const p=new THREE.Vector3();if(!this.raycaster.ray.intersectPlane(this.plane,p)){this.hover=null;this.cursor.visible=false;this.ghost.visible=false;return;}
     const hitId=this.maze.editing?null:pointedTower(this.raycaster,this.models),hitTower=hitId==null?null:this.game.towers.find(t=>t.id===hitId);
     const x=hitTower?.x??Math.round(p.x+HALF),z=hitTower?.z??Math.round(p.z+HALF);
     if(!this.game.grid.inside(x,z)){this.cursor.visible=false;this.ghost.visible=false;this.hover=null;return;}
@@ -321,6 +330,7 @@ export class Battlefield {
       m.visible=this.game.combat.isRevealed(e);
       if(m.userData.shards)m.userData.shards.children.forEach((s,i)=>s.visible=i<e.shields);m.userData.bar.position.set(0,m.userData.barHeight||1.28,0);m.userData.fill.material.color.set(e.cloaked?'#8295c4':e.boss?'#e2b362':'#94c888');m.userData.bar.quaternion.copy(m.quaternion).invert().multiply(this.camera.quaternion);m.userData.fill.scale.x=Math.max(0,e.hp/e.maxHp);m.userData.fill.position.x=-(1-e.hp/e.maxHp)*0.335;
     }
+    syncEnemySelectionRing(this.enemySelectionRing,this.game.enemySelection,this.enemies.get(this.game.selectedEnemy));
     for(const value of this.models.values()){
       const articulated=value.attack?.native||value.attack?.geometric,context=articulated?secretAttackContext(value.tower,this.game):{};
       const idle=value.hero&&!articulated?Math.sin(this.time*2.8+value.phase)*.018:0;
@@ -346,6 +356,7 @@ export class Battlefield {
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
     this.disposed=true;this.combatEffects.dispose();this.supportEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
+    disposeEnemySelectionRing(this.enemySelectionRing);
     disposeCheckpointEffects(this.checkpointEffects);
     const checkpointMaterials=new Set();
     this.checkpointMeshes?.traverse(object=>{if(object.isMesh){object.geometry.dispose();checkpointMaterials.add(object.material);}});

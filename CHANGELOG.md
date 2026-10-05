@@ -1,5 +1,11 @@
 # Releases
 
+## 0.3.13 — Peak tower DPS and enemy inspection — 5 October 2026
+
+- Retains each defender’s highest actual five-game-second DPS window throughout the current wave and between waves, recording peaks at each hit and sorting by them. Peaks reset only when the next assault begins or a new game starts.
+- Makes visible live invaders selectable with a click or tap on their model, including airborne figures above walls. A following selection ring identifies the inspected enemy, and the command panel shows individual remaining health, modified stats, defenses and active effects.
+- Refreshes inspected health and effects during combat while keeping pause and speed controls available. Closing inspection, selecting a defender, death, departure or concealment returns the panel to normal commands.
+
 ## 0.3.12 — Live tower damage ranking — 5 October 2026
 
 - Replaces the map title and selected-maze chip with a compact ranking of individual built defenders by actual damage per second over the last five game seconds. Direct damage, damage over time, auras and triggered attacks count after defenses and remaining-health caps; support-only defenders retain zero rows.

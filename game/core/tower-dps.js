@@ -16,6 +16,7 @@ const validSource=source=>source&&Number.isSafeInteger(source.id)&&source.id>0&&
 // The fixed denominator means the first combat seconds include an empty part
 // of the window. Use combat.elapsed, never wall time or animation time. Call
 // reset at combat start/new game; keep the last combat clock between waves.
+// Peaks are captured by each hit, independently of how often the HUD samples.
 export class TowerDpsTracker{
   constructor({windowSeconds=TOWER_DPS_WINDOW_SECONDS}={}){
     if(!Number.isFinite(windowSeconds)||windowSeconds<=0)throw new RangeError('DPS window must be positive game seconds');
@@ -23,7 +24,7 @@ export class TowerDpsTracker{
   }
   reset(time=0){
     if(!Number.isFinite(time)||time<0)throw new RangeError('DPS time must be nonnegative game seconds');
-    this.time=time;this._buckets=[];this._head=0;this._totals=new Map();
+    this.time=time;this._buckets=[];this._head=0;this._totals=new Map();this._peaks=new Map();
   }
   advance(time){
     if(!Number.isFinite(time)||time<0)return false;
@@ -51,6 +52,7 @@ export class TowerDpsTracker{
     if(!total){total={damage:0,buckets:0};this._totals.set(key,total);}
     if(!bucket.damage.has(key))total.buckets++;
     bucket.damage.set(key,(bucket.damage.get(key)||0)+damage);total.damage+=damage;
+    this._peaks.set(key,Math.max(this._peaks.get(key)||0,total.damage));
     return true;
   }
   snapshot(towers,time=this.time,{includeDraft=true}={}){
@@ -59,7 +61,8 @@ export class TowerDpsTracker{
       // A merge/recipe may reuse the ID. Never transfer an old family's or
       // rank's damage to the new defender, or to a currently placed draft.
       const damage=t.state==='active'?this._totals.get(signature(t))?.damage||0:0;
-      return {id:t.id,family:t.family,tier:t.tier,state:t.state,x:t.x,z:t.z,damage,dps:damage/this.windowSeconds};
+      const peakDamage=t.state==='active'?this._peaks.get(signature(t))||0:0;
+      return {id:t.id,family:t.family,tier:t.tier,state:t.state,x:t.x,z:t.z,damage,dps:peakDamage/this.windowSeconds,currentDps:damage/this.windowSeconds,peakDamage};
     }).sort((a,b)=>b.dps-a.dps||a.id-b.id);
   }
 }

@@ -10,13 +10,31 @@ export class Game {
     this.data=data;this.seed=seed;this.rng=seededRandom(seed);this.waveLimit=waveLimit;
     this.grid=new GridManager();this.economy=new EconomyManager(data.balance);this.draft=new DraftManager(data,this.rng);this.combat=new CombatManager(this);
     this.towers=[];this.nextId=1;this.round=1;this.lives=data.balance.startingLives;this.kills=0;this.leaks=0;this.phase='build';this.selected=null;this.activeDraw=0;this.speed=1;this.paused=false;this.listeners=new Set();this.discoveries=new Set(discoveries);this.pinned=null;this.lastReward=0;
-    this.score=0;this.draft.roll(0);
+    this.selectedEnemy=null;this.score=0;this.draft.roll(0);
   }
   on(callback){this.listeners.add(callback);return()=>this.listeners.delete(callback);}
-  emit(type,payload={}){for(const fn of this.listeners)fn(type,payload);}
+  emit(type,payload={}){
+    // A death/escape event must never expose a stale inspected enemy to a UI
+    // listener. Keep the original combat event ordering, then refresh its panel.
+    const cleared=this.selectedEnemy!==null&&!this.enemySelection;
+    if(cleared)this.selectedEnemy=null;
+    for(const fn of this.listeners)fn(type,payload);
+    if(cleared&&type!=='change')this.emit('change');
+  }
   message(text){this.emit('message',{text});return false;}
-  select(id){this.selected=id;this.previewRecipeId=null;this.emit('change');}
+  select(id){this.selectedEnemy=null;this.selected=id;this.previewRecipeId=null;this.emit('change');}
   get selection(){return this.towers.find(t=>t.id===this.selected)||null;}
+  selectEnemy(id){
+    const enemy=this.phase==='combat'&&Number.isSafeInteger(id)&&this.combat.enemies.find(e=>e.id===id&&!e.dead&&e.hp>0&&this.combat.isRevealed(e));
+    if(!enemy)return false;
+    this.selected=null;this.previewRecipeId=null;this.selectedEnemy=id;this.emit('change');return true;
+  }
+  get enemySelection(){
+    return this.phase==='combat'?this.combat.enemies.find(e=>e.id===this.selectedEnemy&&!e.dead&&e.hp>0&&this.combat.isRevealed(e))||null:null;
+  }
+  pruneEnemySelection(){
+    if(this.selectedEnemy!==null&&!this.enemySelection){this.selectedEnemy=null;this.emit('change');}
+  }
   get roundCandidates(){
     if(!['build','select'].includes(this.phase))return [];
     return this.draft.draws.flatMap((draw,index)=>{
@@ -144,10 +162,10 @@ export class Game {
   upgradeSpecial() {
     return this.message('Gold is reserved for downgrading a current candidate. Champions improve through recipes.');
   }
-  startCombat() {if(this.phase!=='ready')return false;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
+  startCombat() {if(this.phase!=='ready')return false;this.selectedEnemy=null;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
   completeWave() {
     if(this.phase!=='combat')return;
-    this.emit('wave-complete',{round:this.round});
+    this.selectedEnemy=null;this.emit('wave-complete',{round:this.round});
     this.awardScore(this.round*100+(this.wave.boss?this.round*200:0));
     this.lastReward=this.wave.boss?200:50;this.economy.reward(this.lastReward,15);this.combat.projectiles=[];
     if(this.round>=this.waveLimit){this.end(true);return;}
@@ -155,6 +173,6 @@ export class Game {
     this.message(`Wave ${round} survived · +${this.lastReward} gold · build five new defenders`);
   }
   nextRound() {if(this.phase!=='reward')return false;this.round++;this.phase='build';this.draft.roll(this.economy.mastery);this.activeDraw=0;this.selected=null;this.emit('change');return true;}
-  end(won){this.phase=won?'won':'lost';this.emit(this.phase);this.emit('change');}
-  tick(dt){if(this.phase==='combat'&&!this.paused)this.combat.update(dt*this.speed);}
+  end(won){this.selectedEnemy=null;this.phase=won?'won':'lost';this.emit(this.phase);this.emit('change');}
+  tick(dt){if(this.phase==='combat'&&!this.paused)this.combat.update(dt*this.speed);this.pruneEnemySelection();}
 }

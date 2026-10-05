@@ -205,6 +205,8 @@ export class CombatManager {
         move(blinkTravel);
         if(enemy.x!==from.x||enemy.z!==from.z)this.game.emit('teleport',{enemy,from,to:{x:enemy.x,z:enemy.z},visible:visible&&this.isRevealed(enemy)});
       }
+      // Inspection reports the movement rate actually used in this game tick.
+      enemy.currentSpeed=enemy.statuses.petrify?0:enemy.speed*haste*frenzy*(enemy.statuses.freeze?0:1-slow);
       move(enemy.statuses.petrify?0:enemy.speed*dt*haste*frenzy*(enemy.statuses.freeze?0:1-slow));
       if(enemy.pathIndex>=enemy.route.length){enemy.dead=true;this.game.lives=Math.max(0,this.game.lives-(enemy.leak||1));this.game.leaks++;if(enemy.thief)this.game.economy.gold=Math.max(0,this.game.economy.gold-enemy.thief);this.game.emit('leak',{enemy});}
     }
