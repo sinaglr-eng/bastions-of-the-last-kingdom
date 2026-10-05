@@ -1,5 +1,21 @@
 import {GridManager} from './grid.js';
 
+// DEV-only preview scenes retain campaign wave data and real draft/combat paths.
+export function prepareWavePreviewReview(game,round){
+  if(!Number.isInteger(round)||round<1||round>game.waveLimit)return false;
+  game.commandMove.cancel();game.commandPoints.reset();game.draft.discardReserve();
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.selectedEnemy=null;game.previewRecipeId=null;
+  game.round=round;game.phase='build';game.nextId=1;game.activeDraw=0;game.paused=false;game.speed=1;game.lives=30;
+  game.combat.enemies=[];game.combat.spawnQueue=[];
+  game.economy.setConstructionRound(round);game.draft.roll(game.economy.mastery);
+  const guards=[['archer',3,16,17],['mage',3,18,17],['runebreaker',2,20,17],['cleric',2,17,19]];
+  if(round>1)for(const [family,tier,x,z] of guards){
+    const id=game.nextId++;if(!game.grid.occupy(x,z,id).ok)throw Error('Preview review tile unavailable');
+    game.towers.push({id,family,tier,x,z,state:'active',round:0,kills:0,priority:'first',cooldown:0});
+  }
+  game.emit('change');return true;
+}
+
 // DEV-only deterministic choices exercise the real CP actions and boss death.
 export function prepareCommandPointsReview(game){
   game.commandMove.cancel();game.commandPoints.reset();game.draft.discardReserve();

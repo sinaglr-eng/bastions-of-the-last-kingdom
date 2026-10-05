@@ -229,5 +229,37 @@
     },
     "maxReserveCount": 1,
     "maxRerollsPerDraft": 1
+  },
+  "wavePreview": {
+    "fullPreviewWavesAhead": 1,
+    "partialPreviewWavesAhead": 2,
+    "maxPrimaryThreats": 3,
+    "maxComplexPrimaryThreats": 5,
+    "complexThreatCount": 4,
+    "classification": {
+      "minimumPopulationShare": 0.25,
+      "heavyArmor": 30,
+      "fastSpeed": 2.5,
+      "swarmCount": 24,
+      "resistance": 0.2,
+      "highHealthRatio": 2.5,
+      "healthBaselineRadius": 4
+    },
+    "bossForecast": {
+      "markerDistance": 10,
+      "identityDistance": 4,
+      "traitsDistance": 2
+    },
+    "readiness": {
+      "minStrongCoverage": 0.75,
+      "minGoodCoverage": 0.5,
+      "minFairCoverage": 0.25,
+      "damageWindowSeconds": 5,
+      "burstHealthFraction": 0.2,
+      "shieldHitsPerSecond": 2,
+      "minimumUsefulControl": 0.1,
+      "regenerationPressureMultiplier": 1,
+      "areaTargetBudget": 3
+    }
   }
 }

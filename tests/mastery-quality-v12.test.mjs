@@ -13,7 +13,8 @@ test('quality reaches 20% Royal at construction mastery15 while preserving costs
   const {mastery}=data.balance;
   // Pre-V12 settings, including damage/range, fees, XP, cap, seed and row levels.
   // Restore original key order when hashing so only weight changes are excluded.
-  const {commandPoints,...existingBalance}=data.balance;
+  const {commandPoints,wavePreview,...existingBalance}=data.balance;
+  assert.ok(wavePreview&&wavePreview.fullPreviewWavesAhead===1,'preview settings are additive and do not alter historical combat balance');
   assert.deepEqual(commandPoints,{starting:3,bossReward:5,costs:{reroll:1,reserve:1,move:2},maxReserveCount:1,maxRerollsPerDraft:1});
   const canonical={...existingBalance,mastery:mastery.map(({weights,...row})=>row)};
   assert.equal(createHash('sha256').update(JSON.stringify(canonical)).digest('hex'),

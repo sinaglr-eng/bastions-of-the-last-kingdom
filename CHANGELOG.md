@@ -1,5 +1,12 @@
 # Releases
 
+## 0.3.16 — Wave Preview and Enemy Intelligence — 5 October 2026
+
+- Adds a preview before every defender draft, with actual enemy quantities, portraits, deduplicated primary threats and optional detailed stats. Intelligence remains accessible while drafting, keeping, merging, crafting and preparing.
+- Provides partial information for the following wave and progressively reveals an approaching boss: marker, identity, key traits, then full immediate preview.
+- Evaluates active army responses using real rank stats, targeting, damage types and abilities, including immunities and random variant possibilities. WEAK, FAIR, GOOD and STRONG describe available capabilities without predicting victory or choosing a defender.
+- Caches enemy analyses and composition readiness, preserving seeded enemy rolls, fixed-position Reserve, Command Point actions, combat balance, art and gallery content. Preview and readiness settings use the central balance configuration.
+
 ## 0.3.15 — Controlled RNG and Command Points — 5 October 2026
 
 - Adds run-local Command Points: 3 at the start and 5 for each killed boss, with immediate HUD updates and duplicate-death protection.
