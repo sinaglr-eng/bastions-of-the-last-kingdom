@@ -51,7 +51,7 @@ test('only the approved balance, variant and matching description changes differ
   [['host_34','thief'],19,50],
   [['host_48','thief'],24,50],
   [['host_19','rush'],1.7,5],
-  [['host_42','rush'],1.7,5],
+  [['host_42','rush'],1.7,2],
   [['host_47','rush'],1.7,5],
   [['host_24','reactiveArmor'],3,8],
   [['host_28','reactiveArmor'],3,8],

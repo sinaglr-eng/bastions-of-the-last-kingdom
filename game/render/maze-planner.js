@@ -12,7 +12,6 @@ export class MazePlanner {
     this.group=new THREE.Group();world.scene.add(this.group);
     this.panel=document.createElement('div');this.panel.className='maze-guide';this.panel.hidden=true;this.panel.setAttribute('aria-label','Maze planner');
     const sidebar=world.container.parentElement.querySelector('.sidebar');sidebar.insertBefore(this.panel,sidebar.querySelector('.side-body'));
-    this.chip=document.createElement('button');this.chip.className='maze-chip';this.chip.hidden=true;world.container.append(this.chip);this.chip.addEventListener('click',()=>this.togglePanel());
     this.panel.addEventListener('click',e=>{const b=e.target.closest('[data-maze]');if(!b)return;e.stopPropagation();this.action(b.dataset.maze,b.dataset.id);});
   }
   get editing(){return !!this.editor;}
@@ -38,14 +37,12 @@ export class MazePlanner {
   sync(){
     this.panel.hidden=!this.panelOpen;
     const button=document.querySelector('[data-action="maze"]');button?.classList.toggle('active',this.panelOpen);button?.setAttribute('aria-pressed',String(this.panelOpen));
-    this.chip.hidden=!this.plan||this.editing;this.group.visible=this.visible||this.showFinalRoute||this.editing;
+    this.group.visible=this.visible||this.showFinalRoute||this.editing;
     if(this.editing)return;
     if(!this.plan){this.clear();return;}
     const revision=`${this.game.grid.revision}:${this.game.round}:${this.budget}:${this.plan.id}`;
     if(revision!==this.revision){
       this.revision=revision;this.progress=blueprintProgress(this.plan,this.game.grid,this.budget,this.game.constructionBudget.limit);this.draw(this.plan,this.progress.missing);
-      this.chip.textContent=`${this.visible?'▧':'◇'} ${this.plan.name} · ${this.progress.built}/${this.plan.walls.length} · M`;
-      this.chip.title='Fixed blueprint. Click or press M to change it.';
       if(this.panelOpen)this.renderPanel();
     }
     for(const child of this.group.children)if(child!==this.finalRoute)child.visible=this.visible;
@@ -106,5 +103,5 @@ export class MazePlanner {
     if(route?.length){this.finalRoute=createRouteOverlay(route,{planned:true});this.finalRoute.visible=this.editing||this.showFinalRoute&&!sameRoute(currentEnemyRoute(this.game).points,route);this.group.add(this.finalRoute);}
     this.group.visible=this.visible||this.showFinalRoute||this.editing;
   }
-  dispose(){this.clear();this.world.scene.remove(this.group);this.panel.remove();this.chip.remove();}
+  dispose(){this.clear();this.world.scene.remove(this.group);this.panel.remove();}
 }

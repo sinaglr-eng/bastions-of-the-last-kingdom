@@ -47,7 +47,7 @@ Varianta se losuje nezávisle pro každého nepřítele; jedna vlna může obsah
 | 39 | Thunder Manta Orc Riders | Létající | Úhyb 25 % proti přímým fyzickým zásahům; Aura strachu: −35 % rychlosti útoků obránců do 4 polí; Krunýř: −66,5 HP z každého přímého zásahu kromě čistého poškození |
 | 40 | Vorlak, the Hollow Sky King | Boss · Létající | Krunýř: −68 HP z každého přímého zásahu kromě čistého poškození |
 | 41 | Orc Crystal Phalanx<br>Orc Crystal Phalanx · Moon Clan | Pozemní | 3 zásahové štíty, obnova každých 8 s |
-| 42 | Fire Bat Orc Lancers | Létající | Magická imunita včetně magických stavových efektů; Nápor: ×5 rychlost na 2 s každých 6 s |
+| 42 | Fire Bat Orc Lancers | Létající | Magická imunita včetně magických stavových efektů; Nápor: ×2 rychlost na 2 s každých 6 s |
 | 43 | Ogres of the Imprisoned Souls | Pozemní | Úhyb 25 % proti přímým fyzickým zásahům; Aura strachu: −35 % rychlosti útoků obránců do 4 polí; Obnova 12 % chybějícího HP každých 5 s; Odolnost magic: 24 % |
 | 44 | Orc Ash Executioners | Pozemní | Magická imunita včetně magických stavových efektů; Skok o 3 pole každých 6 s, zachovává checkpointy |
 | 45 | Flying Drummers of the Black Horde | Létající | Odzbrojení na 5 s každých 8 s, dosah pod 3 pole; Válečné bubny: +18 % rychlosti spojenců do 3,5 pole na 3 s každých 6 s |

@@ -1,5 +1,11 @@
 # Releases
 
+## 0.3.12 — Live tower damage ranking — 5 October 2026
+
+- Replaces the map title and selected-maze chip with a compact ranking of individual built defenders by actual damage per second over the last five game seconds. Direct damage, damage over time, auras and triggered attacks count after defenses and remaining-health caps; support-only defenders retain zero rows.
+- Pausing freezes DPS; accelerated combat uses game time, so speed changes cannot inflate the meter. The completed wave keeps its final window until the next assault resets it, and each row selects its actual defender.
+- Reduces Blood rush in wave 42 to twice normal speed, retaining its two-second burst and six-second cycle. All ability durations continue to use scaled combat time; the other Blood rush warbands retain five times speed.
+
 ## 0.3.11 — Mixed warbands and revised abilities — 4 October 2026
 
 - Rank comparisons update Potential Combinations for the previewed tier while retaining actual owned/candidate ingredient progress and field commands.

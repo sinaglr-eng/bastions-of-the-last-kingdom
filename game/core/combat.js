@@ -57,8 +57,9 @@ export class CombatManager {
     if(stats.directHit&&type!=='pure')dealt=Math.max(0,dealt-(enemy.krakenShell||0));
     if(stats.directHit&&enemy.reactiveArmor)enemy.reactiveStacks=Math.min(R.reactive.maxStacks,enemy.reactiveStacks+1);
     if(dealt<=0)return 0;
+    const effectiveDamage=Math.min(dealt,Math.max(0,enemy.hp));
     enemy.hp-=dealt;enemy.hit=0.16;
-    this.game.emit('hit',{enemy,source,type,damage:dealt,directHit:!!stats.directHit,visible:this.isRevealed(enemy)});
+    this.game.emit('hit',{enemy,source,type,damage:dealt,effectiveDamage,directHit:!!stats.directHit,visible:this.isRevealed(enemy)});
     if(enemy.hp<=0) {
       enemy.dead=true;this.game.economy.reward(0,enemy.xp);this.game.kills++;
       this.game.awardScore(this.game.round*(enemy.boss?500:10));

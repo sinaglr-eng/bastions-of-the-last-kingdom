@@ -94,6 +94,7 @@ rows.forEach(([name,model,referenceName,movement,skills],i)=>{
   if(traits.includes('thief'))enemy.thief=50;
   if(traits.includes('untouchable'))enemy.untouchable=.35;
   if(traits.includes('rush'))enemy.rush=5;
+  if(wave===42)enemy.rush=2;
   if(traits.includes('highArmor'))enemy.armor+=50;
   if(traits.includes('reactiveArmor'))enemy.reactiveArmor=8;
   if(traits.includes('recharge'))enemy.recharge=.12;

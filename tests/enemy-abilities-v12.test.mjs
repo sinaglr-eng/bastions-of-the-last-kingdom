@@ -79,13 +79,14 @@ test('every authored thief steals exactly 50 gold once on reaching the keep, wit
   }
 });
 
-test('each actual blood-rush warband moves at ×5 during its 2s window and returns to base speed before the 6s repeat',()=>{
+test('each actual blood-rush warband uses its configured multiplier during its 2s window and returns to base speed before the 6s repeat',()=>{
   const types=Object.entries(data.enemies).filter(([,enemy])=>enemy.rush>0).map(([type])=>type);assert.deepEqual(types,['host_19','host_42','host_47']);
+  const multipliers={host_19:5,host_42:2,host_47:5};
   assert.deepEqual([R.rush.duration,R.rush.period],[2,6]);
   for(const type of types){
-    const game=arena(),enemy=game.combat.spawn(type);assert.equal(enemy.rush,5);game.combat.update(1);close(enemy.traveled,enemy.speed*5,'Active rush is five times movement');
+    const multiplier=multipliers[type],game=arena(),enemy=game.combat.spawn(type);assert.equal(enemy.rush,multiplier);game.combat.update(1);close(enemy.traveled,enemy.speed*multiplier,'Active rush uses the actual warband multiplier');
     const previous=enemy.traveled;game.combat.elapsed=2;game.combat.update(1);close(enemy.traveled-previous,enemy.speed,'Between windows uses unchanged movement stat');
-    const next=enemy.traveled;game.combat.elapsed=6;game.combat.update(.1);close(enemy.traveled-next,enemy.speed*.5,'Next period restores×5');
+    const next=enemy.traveled;game.combat.elapsed=6;game.combat.update(.1);close(enemy.traveled-next,enemy.speed*.1*multiplier,'Next period restores the configured multiplier');
   }
 });
 
