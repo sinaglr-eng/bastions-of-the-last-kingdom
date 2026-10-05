@@ -62,6 +62,7 @@ export class CombatManager {
     this.game.emit('hit',{enemy,source,type,damage:dealt,effectiveDamage,directHit:!!stats.directHit,visible:this.isRevealed(enemy)});
     if(enemy.hp<=0) {
       enemy.dead=true;this.game.economy.reward(0,enemy.xp);this.game.kills++;
+      this.game.rewardBossCommandPoints(enemy);
       this.game.awardScore(this.game.round*(enemy.boss?500:10));
       if(source)source.kills++;
       this.game.emit('death',{enemy,type,visible:this.isRevealed(enemy)});

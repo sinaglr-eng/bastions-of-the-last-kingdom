@@ -6,7 +6,7 @@ import {BATTLEFIELD_UNIT_SCALE} from './battlefield-scale.js';
 // and ears in the native host_02 GLB. The spear is taller than the creature.
 export const WALL_REFERENCE_ENEMY_NATIVE_HEIGHT=1.294288992881775;
 export const WALL_DECK_HEIGHT=WALL_REFERENCE_ENEMY_NATIVE_HEIGHT*BATTLEFIELD_UNIT_SCALE;
-export const hasWallFoundation=t=>t.state==='ruin'||t.state==='active';
+export const hasWallFoundation=t=>t.state==='ruin'||t.state==='active'||t.state==='reserved';
 // Cardinal and diagonal connections. Kept defenders occupy a masonry platform.
 export function wallConnections(t,towers){
   let mask=0;

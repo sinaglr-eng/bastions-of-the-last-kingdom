@@ -99,7 +99,7 @@ export function recipeTreeProgress(recipe,towers,data){
   return allocatedRecipeTree(recipe,towers,data).map(node=>describe(node));
 }
 export function recipesUsing(tower,recipes) {
-  return tower&&tower.state!=='ruin'?recipes.filter(r=>(!r.currentRoundOnly||tower.state==='draft')&&r.ingredients.some(i=>i.family===tower.family&&i.tier===tower.tier)):[];
+  return tower&&['active','draft'].includes(tower.state)?recipes.filter(r=>(!r.currentRoundOnly||tower.state==='draft')&&r.ingredients.some(i=>i.family===tower.family&&i.tier===tower.tier)):[];
 }
 // Secret progress never claims previously retained units. Game supplies the
 // authoritative current round when deciding whether the recipe can be crafted.
@@ -109,11 +109,16 @@ function recipeInventory(recipe,towers,round=null){
   return towers.filter(t=>t.state==='draft'&&t.placed!==false&&t.round===current);
 }
 export function matchingIngredients(recipe, towers, requiredAnchor = null, context = null) {
-  let pool=towers.filter(t=>t.state!=='ruin');
+  let pool=towers.filter(t=>['active','draft'].includes(t.state));
   if(recipe.currentRoundOnly){
     if(context?.phase!=='select'||!Number.isInteger(context.round)||recipe.ingredients.length!==3||!requiredAnchor)return null;
     pool=recipeInventory(recipe,pool,context.round);
-    if(pool.length!==5||new Set(pool.map(t=>t.id)).size!==5||!pool.includes(requiredAnchor))return null;
+    // A paid reserve makes one of the five placed choices inactive. Only an
+    // explicit, complete draft identity list can authorize that smaller pool.
+    const reserved=Number.isSafeInteger(context.reservedId)&&context.reservedId>0;
+    const ids=context.drawIds,expected=reserved?4:5;
+    if(reserved&&(!Array.isArray(ids)||ids.length!==5||new Set(ids).size!==5||!ids.includes(context.reservedId)||pool.some(t=>t.id===context.reservedId||!ids.includes(t.id))))return null;
+    if(pool.length!==expected||new Set(pool.map(t=>t.id)).size!==expected||!pool.includes(requiredAnchor))return null;
   }
   if(requiredAnchor&&!pool.some(t=>t.id===requiredAnchor.id))return null;
   // Try every matching slot for the anchor: recipes may contain duplicate ingredients.

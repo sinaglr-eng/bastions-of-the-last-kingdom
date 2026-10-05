@@ -1,5 +1,12 @@
 # Releases
 
+## 0.3.15 — Controlled RNG and Command Points — 5 October 2026
+
+- Adds run-local Command Points: 3 at the start and 5 for each killed boss, with immediate HUD updates and duplicate-death protection.
+- Allows one 1-CP reroll after all five placements, using the existing generator and preserving a returning reserved defender. Reserve costs 1 CP and leaves one defender inactive on its fixed tile, blocking the ground route without attacks or support. It returns already placed as Slot 1 among the next five choices, with four new placements, and must be paid for again to continue.
+- Adds a 2-CP Move between waves: choose a highlighted retained defender, then an existing castle wall. Their positions exchange while the maze, identity and damage records remain intact; invalid choices and cancellation spend nothing.
+- Preserves existing rank probabilities, gold, recipes, enemy abilities and art. Costs and rewards use the central balance configuration.
+
 ## 0.3.14 — Elapsed time and wave mastery — 5 October 2026
 
 - Adds a total real-time clock from the start of each run, including construction and pauses. Combat speed does not change it; victory or defeat freezes it, and run statistics, owner reports and exports retain the same duration.

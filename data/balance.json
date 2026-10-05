@@ -218,5 +218,16 @@
   "maxResistance": 0.85,
   "masteryLevelCap": 15,
   "downgradeCost": 200,
-  "bossSlowMultiplier": 0.5
+  "bossSlowMultiplier": 0.5,
+  "commandPoints": {
+    "starting": 3,
+    "bossReward": 5,
+    "costs": {
+      "reroll": 1,
+      "reserve": 1,
+      "move": 2
+    },
+    "maxReserveCount": 1,
+    "maxRerollsPerDraft": 1
+  }
 }

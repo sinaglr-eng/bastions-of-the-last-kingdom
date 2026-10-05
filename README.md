@@ -2,7 +2,9 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-Current release: **0.3.14 · Elapsed time and wave mastery** — [release notes](CHANGELOG.md) · [enemy model and animation verification](docs/GEOMETRIC_GAME_V6.md).
+Current release: **0.3.15 · Controlled RNG and Command Points** — [release notes](CHANGELOG.md) · [enemy model and animation verification](docs/GEOMETRIC_GAME_V6.md).
+
+Command Points add three tactical choices to the existing placement-first draft. Each run starts with 3 CP; killing a boss earns 5. After placing all five candidates, reroll once for 1 CP, or reserve one for 1 CP before keeping or combining another. The reserved defender stays on its fixed map tile as an inactive wall blocker, without attacks or support. Next draft it is already placed in Slot 1 among five candidates, with four new random placements, and is protected from reroll. Keeping it activates it on that same position. Renewing Reserve costs again. Move costs 2 CP between waves and exchanges a retained defender with an existing wall; canceling or choosing an invalid destination spends nothing. All values live in `data/balance.json` under `commandPoints`. See [Controlled RNG rules and configuration](docs/CONTROLLED_RNG.md).
 
 ## Play
 

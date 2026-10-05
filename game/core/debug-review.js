@@ -1,5 +1,16 @@
 import {GridManager} from './grid.js';
 
+// DEV-only deterministic choices exercise the real CP actions and boss death.
+export function prepareCommandPointsReview(game){
+  game.commandMove.cancel();game.commandPoints.reset();game.draft.discardReserve();
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.selectedEnemy=null;game.previewRecipeId=null;game.round=10;game.phase='build';game.nextId=1;game.activeDraw=0;game.paused=false;game.speed=1;game.lives=30;
+  game.economy.setConstructionRound(game.round);game.draft.roll(game.economy.mastery);
+  const choices=[['soldier',3],['archer',2],['mage',2],['druid',1],['cleric',1]],tiles=[[16,17],[18,17],[20,17],[17,19],[19,19]];
+  choices.forEach(([family,tier],i)=>{game.draft.roundForced={family,tier};game.place(...tiles[i]);});game.draft.roundForced=null;
+  for(const [x,z,state] of [[14,17,'active'],[22,17,'ruin']]){const id=game.nextId++;if(!game.grid.occupy(x,z,id).ok)throw new Error('CP review tile unavailable');game.towers.push({id,family:'soldier',tier:1,x,z,state,round:0,kills:0,priority:'first',cooldown:0});}
+  game.select(game.draft.draws[0].towerId);game.emit('change');return true;
+}
+
 // DEV review reaches the actual construction transition into wave 25.
 export function prepareConstructionTimingReview(game){
   game.grid=new GridManager();game.towers=[];game.selected=null;game.selectedEnemy=null;game.previewRecipeId=null;game.round=24;game.phase='ready';game.lives=30;game.speed=1;game.paused=false;

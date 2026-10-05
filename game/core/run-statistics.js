@@ -9,7 +9,9 @@ export class RunStatistics {
   }
   event(type,p){
     const g=this.game,t=p.tower;
-    if(type==='place')this.draws.push({...unit(t),wave:g.round});
+    // A returning Reserve keeps its original identity. Draw rows record its
+    // birth once; decisions and wave performance record later use and position.
+    if(type==='place'&&!this.draws.some(draw=>draw.id===t.id))this.draws.push({...unit(t),wave:g.round});
     if(type==='keep'||type==='combine')this.decisions.push({...unit(t),wave:g.round,action:type,rank:t.tier});
     if(type==='wave'){
       this.current={index:g.round,boss:!!g.wave.boss,completed:false,startHealth:g.lives,endHealth:g.lives,healthLost:0,kills:0,bossKills:0,leaks:0,spawned:0,durationMs:0,routeLength:g.grid.route.length-1,kingdomLevel:g.economy.level,mastery:g.economy.mastery,enemyTypes:{},towers:g.towers.filter(t=>t.state==='active').map(t=>({...unit(t),damage:0,hits:0,shots:0,kills:0,controlSeconds:0,supportSeconds:0})),effects:{}};
