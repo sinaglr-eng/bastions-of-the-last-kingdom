@@ -1,4 +1,6 @@
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+import {prepareReconstructedDefender} from './reconstruction-adapter.js';
+import {optimizeGeometricSiblings} from './geometric-batching.js';
 
 // A skinned actor needs its own bones and Skeleton. Mesh geometry, textures,
 // materials and immutable AnimationClips remain shared with the cached asset.
@@ -20,6 +22,8 @@ export function disposeDefenderInstance(actor){
 
 export function installDefenderTemplate(field,entry,scene,animations=scene.animations||[]){
   if(field.disposed)return false;
+  prepareReconstructedDefender(scene,entry);
+  optimizeGeometricSiblings(scene,{animations});
   scene.animations=[...animations];
   field.imported.set(`${entry.family}:${entry.tier}`,scene);
   let changed=false;

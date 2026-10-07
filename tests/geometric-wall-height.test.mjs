@@ -4,11 +4,22 @@ import {readFileSync} from 'node:fs';
 import {Box3,Vector3,Raycaster} from 'three';
 import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
 import {castleWallModel,WALL_DECK_HEIGHT} from '../game/render/walls.js';
-import {scaleBattlefieldUnit} from '../game/render/battlefield-scale.js';
+import {scaleBattlefieldUnit,BATTLEFIELD_UNIT_SCALE} from '../game/render/battlefield-scale.js';
+import {prepareReconstructedDefender} from '../game/render/reconstruction-adapter.js';
 
-async function nativeModel(relative){
+const currentEntries=['defenders','champions'].flatMap(category=>JSON.parse(readFileSync(new URL('../public/assets/geometric/geometric-'+category+'.json',import.meta.url))).entries);
+
+async function nativeModel(relative,{adapt=false}={}){
  const bytes=readFileSync(new URL('../public/assets/geometric/'+relative,import.meta.url));
- return (await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene;
+ const scene=(await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene;
+ if(adapt)prepareReconstructedDefender(scene,currentEntries.find(entry=>entry.file===relative));return scene;
+}
+
+function assertApprovedStandingElevation(actor,entry){
+ const bounds=new Box3().setFromObject(actor,true),factor=BATTLEFIELD_UNIT_SCALE*entry.reconstruction.presentationScale;
+ assert.ok(Math.abs(bounds.min.y-WALL_DECK_HEIGHT-entry.metrics.boundsMin[2]*factor)<1e-5,entry.id+' retains its exact approved native ground offset above the deck');
+ assert.ok(Math.abs(bounds.max.y-WALL_DECK_HEIGHT-entry.metrics.boundsMax[2]*factor)<1e-5,entry.id+' retains source height without normalization');
+ assert.ok(bounds.min.y>=WALL_DECK_HEIGHT-1e-5,entry.id+' physical model clears the masonry');
 }
 test('fighting deck matches the real wave-two goblin height, excluding its spear',async()=>{
  const waves=JSON.parse(readFileSync(new URL('../data/waves.json',import.meta.url)));
@@ -30,11 +41,31 @@ test('fighting deck matches the real wave-two goblin height, excluding its spear
   for(const root of [platform,wall])root.traverse(node=>node.geometry?.dispose());
  }
 });
-test('native small defender and large champion stand one goblin-height level above terrain',async()=>{
+test('approved small defender and large champion preserve source-ground placement above the goblin-height deck',async()=>{
  const platform=castleWallModel(0,true);platform.updateMatrixWorld(true);
  for(const file of ['defenders/archer-1.glb','champions/worldfire.glb']){
-  const actor=scaleBattlefieldUnit(await nativeModel(file));actor.position.y=WALL_DECK_HEIGHT;
+  const entry=currentEntries.find(row=>row.file===file),actor=scaleBattlefieldUnit(await nativeModel(file,{adapt:true}));actor.position.y=WALL_DECK_HEIGHT;
   const bottom=new Box3().setFromObject(actor,true).min.y;
+  if(entry.reconstruction){
+   // V8 deliberately retains a positive source-floor clearance and curved
+   // talons. Do not invent flat sole triangles or silently reset its origin.
+   assertApprovedStandingElevation(actor,entry);
+   const support=new Set();actor.updateMatrixWorld(true);
+   actor.traverse(node=>{
+    if(!node.isMesh||!/^(?:boot|foot|claw)\b/i.test(node.userData.semanticPart||''))return;
+    const positions=node.geometry.attributes.position;
+    for(let i=0;i<positions.count;i++){
+     const point=node.getVertexPosition(i,new Vector3()).applyMatrix4(node.matrixWorld);
+     if(point.y>bottom+.005)continue;
+     const hit=new Raycaster(point.clone().add(new Vector3(0,.05,0)),new Vector3(0,-1,0)).intersectObject(platform,true)[0];
+     if(hit&&Math.abs(hit.point.y-WALL_DECK_HEIGHT)<1e-5)support.add(point.x<0?'left':'right');
+    }
+   });
+   assert.deepEqual([...support].sort(),['left','right'],file+' actual lower footwear/talons project onto level paving on both sides');
+   actor.position.y+=.1;assert.throws(()=>assertApprovedStandingElevation(actor,entry),/native ground offset/,'detached placement cannot pass source-offset checks');actor.position.y-=.1;
+   actor.traverse(node=>node.geometry?.dispose());continue;
+  }
+  // Keep the earlier raw zero-origin/flat-sole contract for legacy deliveries.
   assert.ok(Math.abs(bottom-WALL_DECK_HEIGHT)<1e-5,file+' has fitted feet on top of the masonry');
   const support=new Set();actor.updateMatrixWorld(true);
   actor.traverse(node=>{
@@ -49,6 +80,7 @@ test('native small defender and large champion stand one goblin-height level abo
    }
   });
   assert.deepEqual([...support].sort(),['left','right'],file+' has actual sole surfaces in contact with level paving on both sides');
+  actor.traverse(node=>node.geometry?.dispose());
  }
  platform.traverse(node=>node.geometry?.dispose());
 });

@@ -12,7 +12,7 @@ export class Game {
     this.data=data;this.seed=seed;this.rng=seededRandom(seed);this.waveLimit=waveLimit;
     this.grid=new GridManager();this.economy=new EconomyManager(data.balance);this.commandPoints=new CommandPoints(data.balance);this.draft=new DraftManager(data,this.rng,this.commandPoints);this.combat=new CombatManager(this);this.commandMove=new CommandMove(this);
     this.towers=[];this.nextId=1;this.round=1;this.lives=data.balance.startingLives;this.kills=0;this.leaks=0;this.phase='build';this.selected=null;this.activeDraw=0;this.speed=1;this.paused=false;this.listeners=new Set();this.discoveries=new Set(discoveries);this.pinned=null;this.lastReward=0;
-    this.selectedEnemy=null;this.score=0;this.elapsedSeconds=0;this.economy.setConstructionRound(this.round);this.draft.roll(this.economy.mastery);
+    this.selectedEnemy=null;this.selectionVoiceKey=null;this.score=0;this.elapsedSeconds=0;this.economy.setConstructionRound(this.round);this.draft.roll(this.economy.mastery);
   }
   on(callback){this.listeners.add(callback);return()=>this.listeners.delete(callback);}
   emit(type,payload={}){
@@ -24,13 +24,24 @@ export class Game {
     if(cleared&&type!=='change')this.emit('change');
   }
   message(text){this.emit('message',{text});return false;}
-  select(id){if(this.commandMove.active){if(id===null)this.cancelMove();else this.selectMove(id);return;}this.selectedEnemy=null;this.selected=id;this.previewRecipeId=null;this.emit('change');}
+  select(id){
+    if(this.commandMove.active){if(id===null)this.cancelMove();else this.selectMove(id);return;}
+    const previous=this.selected;this.selectedEnemy=null;this.selected=id;this.previewRecipeId=null;
+    const tower=this.selection,draft=tower?.state==='draft'&&tower.round===this.round&&this.draft.draws.some(draw=>draw.placed&&draw.towerId===tower.id&&!draw.reservedForNextDraft);
+    const voiceTower=tower&&this.data.towers[tower.family]&&(tower.state==='active'||draft)?tower:null;
+    const key=voiceTower?JSON.stringify([this.round,voiceTower.id,voiceTower.family,voiceTower.tier]):null;
+    if(key!==this.selectionVoiceKey||(!voiceTower&&previous!==id)){this.selectionVoiceKey=key;this.emit('defender-select',{tower:voiceTower,round:this.round});}
+    this.emit('change');
+  }
   get selection(){return this.towers.find(t=>t.id===this.selected)||null;}
   selectEnemy(id){
     if(this.commandMove.active)return false;
     const enemy=this.phase==='combat'&&Number.isSafeInteger(id)&&this.combat.enemies.find(e=>e.id===id&&!e.dead&&e.hp>0&&this.combat.isRevealed(e));
     if(!enemy)return false;
-    this.selected=null;this.previewRecipeId=null;this.selectedEnemy=id;this.emit('change');return true;
+    const wasDefenderSelected=this.selected!==null||this.selectionVoiceKey!==null;
+    this.selected=null;this.previewRecipeId=null;this.selectedEnemy=id;
+    if(wasDefenderSelected){this.selectionVoiceKey=null;this.emit('defender-select',{tower:null,round:this.round});}
+    this.emit('change');return true;
   }
   get enemySelection(){
     return this.phase==='combat'?this.combat.enemies.find(e=>e.id===this.selectedEnemy&&!e.dead&&e.hp>0&&this.combat.isRevealed(e))||null:null;
@@ -59,7 +70,7 @@ export class Game {
   beginMove(){
     if(!this.commandActions.move.available)return this.message(this.commandActions.move.reason);
     if(!this.commandMove.begin())return false;
-    this.selected=null;this.selectedEnemy=null;this.previewRecipeId=null;this.emit('change');return true;
+    this.selected=null;this.selectedEnemy=null;this.previewRecipeId=null;this.selectionVoiceKey=null;this.emit('defender-select',{tower:null,round:this.round});this.emit('change');return true;
   }
   cancelMove(){if(!this.commandMove.cancel())return false;this.emit('change');return true;}
   selectMove(id){
@@ -67,10 +78,10 @@ export class Game {
     if(this.commandMove.canTarget(id)){
       const tower=this.commandMove.defender;
       if(!this.commandMove.execute(id,()=>this.commandPoints.spend('move')))return false;
-      this.selected=tower.id;this.emit('move',{tower,cost:this.commandPoints.cost('move')});this.emit('change');this.message(`Defender moved · −${this.commandPoints.cost('move')} CP`);return true;
+      this.selected=tower.id;this.selectionVoiceKey=null;this.emit('move',{tower,cost:this.commandPoints.cost('move')});this.emit('change');this.message(`Defender moved · −${this.commandPoints.cost('move')} CP`);return true;
     }
     if(!this.commandMove.select(id))return false;
-    this.selected=id;this.emit('change');return true;
+    this.selected=id;this.selectionVoiceKey=null;this.emit('change');return true;
   }
   rewardBossCommandPoints(enemy){
     if(this.phase!=='combat')return 0;
@@ -94,7 +105,7 @@ export class Game {
     // The successful placement commits the location BEFORE consuming any random draw.
     this.draft.reveal(this.activeDraw);
     const tower={...identity,id,family:draw.family,tier:draw.tier,x,z,state:'draft',round:this.round,kills:identity.kills||0,priority:identity.priority||'first',cooldown:0};this.nextId=Math.max(this.nextId,id+1);
-    this.towers.push(tower);draw.placed=true;draw.towerId=tower.id;this.selected=tower.id;
+    this.towers.push(tower);draw.placed=true;draw.towerId=tower.id;this.selected=tower.id;this.selectionVoiceKey=null;
     this.activeDraw=this.draft.draws.findIndex(d=>!d.placed);
     if(this.activeDraw<0){this.phase='select';this.message('Choose one defense to keep, merge, or combine. The others become barricades.');}
     this.emit('place',{tower});this.emit('change');return true;
@@ -102,7 +113,7 @@ export class Game {
   finishSelection(keep,fallbackIndex=null) {
     this.commandMove.cancel();const index=this.draft.draws.findIndex(draw=>draw.towerId===keep.id);this.draft.finalize(index>=0?index:fallbackIndex,keep);
     for(const t of this.towers)if(t.state==='draft')t.state=t.id===keep.id?'active':'ruin';
-    keep.state='active';this.phase='ready';this.selected=keep.id;this.emit('change');
+    keep.state='active';this.phase='ready';this.selected=keep.id;this.selectionVoiceKey=null;this.emit('change');
   }
   keep() {
     if(this.commandMove.active)return this.message('Finish or cancel Move first.');
@@ -177,11 +188,11 @@ export class Game {
     if(!pieces)return this.message('All three secret ingredients must belong to this round’s five defenders.');
     const draftUsed=pieces.some(p=>p.state==='draft');
     const draftIndex=this.draft.draws.findIndex(draw=>pieces.some(piece=>piece.id===draw.towerId));
-    const kills=pieces.reduce((sum,p)=>sum+(p.kills||0),0),family=recipeFamily(recipe);
+    const kills=pieces.reduce((sum,p)=>sum+(p.kills||0),0),family=recipeFamily(recipe),previousFamily=t.family;
     pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=1;t.state='active';t.upgrades=0;t.kills=kills;
     this.discoveries.add(family);
     if(draftUsed)this.finishSelection(t,draftIndex);
-    this.emit('combine',{tower:t});this.emit('discover',{id:family});this.emit('change');return true;
+    this.emit('combine',{tower:t,previousFamily,crafted:this.data.towers[family]?.advanced===true&&family!==previousFamily});this.emit('discover',{id:family});this.emit('change');return true;
   }
   remove() {
     if(this.commandMove.active)return this.message('Finish or cancel Move before demolishing a wall.');
@@ -198,14 +209,14 @@ export class Game {
     if(!this.commandActions.reroll.available)return this.message(this.commandActions.reroll.reason);
     if(!this.draft.reroll())return false;
     for(const draw of this.draft.draws){const tower=this.towers.find(t=>t.id===draw.towerId);if(tower&&tower.state==='draft'){tower.family=draw.family;tower.tier=draw.tier;}}
-    this.previewRecipeId=null;this.emit('reroll',{cost:this.commandPoints.cost('reroll')});this.emit('change');this.message(`Draft rerolled · −${this.commandPoints.cost('reroll')} CP`);return true;
+    this.previewRecipeId=null;this.selectionVoiceKey=null;this.emit('reroll',{cost:this.commandPoints.cost('reroll')});this.emit('change');this.message(`Draft rerolled · −${this.commandPoints.cost('reroll')} CP`);return true;
   }
   reserve(){
     if(!this.commandActions.reserve.available)return this.message(this.commandActions.reserve.reason);
     const tower=this.selection,index=this.reserveIndex;
     if(!tower||tower.state!=='draft'||tower.round!==this.round||!this.draft.reserve(index,tower))return false;
     // Reservation changes combat eligibility, never the committed foundation or route.
-    tower.state='reserved';this.selected=null;this.previewRecipeId=null;
+    tower.state='reserved';this.selected=null;this.previewRecipeId=null;this.selectionVoiceKey=null;
     this.emit('reserve',{tower,cost:this.commandPoints.cost('reserve')});this.emit('change');this.message(`Defender reserved for the next draft · −${this.commandPoints.cost('reserve')} CP`);return true;
   }
   mastery() {return this.message('Construction mastery advances automatically with waves, reaching its maximum for wave 25.');}
@@ -215,7 +226,7 @@ export class Game {
   upgradeSpecial() {
     return this.message('Gold is reserved for downgrading a current candidate. Champions improve through recipes.');
   }
-  startCombat() {if(this.phase!=='ready')return false;this.commandMove.cancel();this.economy.setConstructionRound(this.round);this.selectedEnemy=null;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
+  startCombat() {if(this.phase!=='ready')return false;this.commandMove.cancel();this.economy.setConstructionRound(this.round);this.selectedEnemy=null;this.selectionVoiceKey=null;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
   completeWave() {
     if(this.phase!=='combat')return;
     this.selectedEnemy=null;this.emit('wave-complete',{round:this.round});

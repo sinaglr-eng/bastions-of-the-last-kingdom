@@ -1,3 +1,5 @@
+import {testApprovedOrLegacy as routeApprovedOrLegacy} from './reconstructed-roster-revision.test.mjs';
+const testApprovedOrLegacy=(ids,currentName,legacyName,legacy)=>routeApprovedOrLegacy(ids,currentName,legacyName,legacy,{fixtureOverride:!!process.env.GEOMETRIC_V3_FIXTURE_DIR});
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -27,7 +29,7 @@ function contact(actor,side){
   return physicalSurfaceGap(sleeves,palm);
 }
 
-test('actual Rimewatch and Royalranger crossbows have distinct rear trigger/front support palms, physical stocks/strings and joined wrists through recoil at .88 scale',async()=>{
+testApprovedOrLegacy(["rimewatch","royalranger"],"Approved Rimewatch/Royal Ranger preserve raw stock/string surfaces and execute isolated projectile attacks","actual Rimewatch and Royalranger crossbows have distinct rear trigger/front support palms, physical stocks/strings and joined wrists through recoil at .88 scale",async()=>{
   for(const id of ['rimewatch','royalranger'])for(const batch of [false,true]){
     const gltf=await load(id),sourceBefore=transforms(gltf.scene);
     if(batch)optimizeGeometricSiblings(gltf.scene);
@@ -78,7 +80,7 @@ test('actual Rimewatch and Royalranger crossbows have distinct rear trigger/fron
   }
 });
 
-test('actual Greenheart staff focus/branches connect to the weapon and Nature Spirit has a nonhuman face integrated into its body',async()=>{
+testApprovedOrLegacy(["greenheart","mothernature"],"Approved Greenheart/Nature Spirit preserve real source surface/material assignments and runtime casting","actual Greenheart staff focus/branches connect to the weapon and Nature Spirit has a nonhuman face integrated into its body",async()=>{
   const green=await load('greenheart'),actor=cloneDefenderTemplate(green.scene),weapon=actor.getObjectByName('weapon_R');
   actor.updateWorldMatrix(true,true);
   const shaft=meshes(weapon,node=>/continuous_curved_staff_shaft/i.test(node.name)),forks=meshes(weapon,node=>/connected_branch_fork/i.test(node.name)),focus=meshes(weapon,node=>/broad_connected_faceted_staff_leaf/i.test(node.name));
@@ -100,7 +102,7 @@ test('actual Greenheart staff focus/branches connect to the weapon and Nature Sp
   disposeDefenderInstance(actor);disposeDefenderInstance(body);disposeDecodedGeometricAsset(green);disposeDecodedGeometricAsset(spirit);
 });
 
-test('the actual three repaired humanoid skin heads sit over the torso axis and Royalranger hair physically supports its cap; displacing a private head is detected',async()=>{
+testApprovedOrLegacy(["rimewatch","royalranger","greenheart"],"Approved Ranger/Greenheart source head surfaces survive explicit runtime adaptation and reset","the actual three repaired humanoid skin heads sit over the torso axis and Royalranger hair physically supports its cap; displacing a private head is detected",async()=>{
   function headOffset(actor){
     actor.updateWorldMatrix(true,true);
     const face=meshes(actor.getObjectByName('head_pivot'),node=>/^Observed_face$/.test(node.name)),bodice=meshes(actor,node=>/^Tailored_continuous_bodice$/.test(node.name));

@@ -5,7 +5,7 @@ import {resolve,extname,sep} from 'node:path';
 import {spawn} from 'node:child_process';
 const root=fileURLToPath(new URL('../dist/',import.meta.url));
 const port=4174,url=`http://127.0.0.1:${port}/`;
-const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.glb':'model/gltf-binary','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2','.wav':'audio/wav'};
+const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.glb':'model/gltf-binary','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2','.wav':'audio/wav','.mp3':'audio/mpeg'};
 try{await stat(resolve(root,'index.html'));}catch{console.error('Production files are missing. Run pnpm install, then pnpm build.');process.exit(1);}
 const server=createServer(async(req,res)=>{
  try{

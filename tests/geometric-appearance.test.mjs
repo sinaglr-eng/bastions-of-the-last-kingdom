@@ -1,3 +1,4 @@
+import {testApprovedOrLegacy} from './reconstructed-roster-revision.test.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -6,7 +7,7 @@ import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
 import {inspectAppearance,partMeshes,projectedConcavity} from '../tools/audit-geometric-appearance.mjs';
 
 async function model(id,category='defenders'){const bytes=readFileSync(new URL('../public/assets/geometric/'+category+'/'+id+'.glb',import.meta.url));return (await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'')).scene;}
-test('appearance audit detects the original 160mm whole-skull displacement in actual vertices',async()=>{
+testApprovedOrLegacy(["runebreaker-1"],"Approved Engineer actual source head/torso surfaces and palette remain unchanged through runtime adaptation","appearance audit detects the original 160mm whole-skull displacement in actual vertices",async()=>{
  const actor=await model('runebreaker-1');
  assert.equal(inspectAppearance(actor,{id:'runebreaker-1'}).failures.length,0);
  const face=partMeshes(actor,/^Observed face$/);assert.equal(face.length,1);
@@ -14,7 +15,7 @@ test('appearance audit detects the original 160mm whole-skull displacement in ac
  const result=inspectAppearance(actor,{id:'runebreaker-1'});
  assert.ok(result.failures.some(row=>row.name==='whole skull stays over actual torso axis'));
 });
-test('lightning audit rejects a convex diamond in place of the actual concave stroke',async()=>{
+testApprovedOrLegacy(["stormcaller-1"],"Approved Stormcaller retains source lightning vertices/normals and material assignments","lightning audit rejects a convex diamond in place of the actual concave stroke",async()=>{
  const actor=await model('stormcaller-1');assert.equal(inspectAppearance(actor,{id:'stormcaller-1'}).failures.length,0);
  const shape=new THREE.Shape();shape.moveTo(0,0);shape.lineTo(.12,.28);shape.lineTo(0,.56);shape.lineTo(-.12,.28);shape.closePath();
  const diamond=new THREE.Mesh(new THREE.ExtrudeGeometry(shape,{depth:.046,bevelEnabled:false}),new THREE.MeshBasicMaterial());diamond.updateMatrixWorld(true);
@@ -24,7 +25,7 @@ test('lightning audit rejects a convex diamond in place of the actual concave st
  const result=inspectAppearance(actor,{id:'stormcaller-1'});
  assert.ok(result.failures.some(row=>row.name==='held focus has one tall concave lightning silhouette'));
 });
-test('all six exported Stormcaller crowns have actual rank-specific geometry and low fitted hair',async()=>{
+testApprovedOrLegacy(["stormcaller-1","stormcaller-2","stormcaller-3","stormcaller-4","stormcaller-5","stormcaller-6"],"All six approved Stormcaller ranks retain distinct approved source exports and execute runtime attacks","all six exported Stormcaller crowns have actual rank-specific geometry and low fitted hair",async()=>{
  const observed=[];
  for(let rank=1;rank<=6;rank++){
   const actor=await model('stormcaller-'+rank),result=inspectAppearance(actor,{id:'stormcaller-'+rank});assert.deepEqual(result.failures,[]);
@@ -34,31 +35,31 @@ test('all six exported Stormcaller crowns have actual rank-specific geometry and
  }
  assert.equal(new Set(observed.map(row=>JSON.stringify(row.actualBounds))).size,6);
 });
-test('names and metadata cannot certify missing physical lightning crown teeth',async()=>{
+testApprovedOrLegacy(["stormcaller-2"],"Approved Stormcaller II keeps every original physical vertex and PBR surface assignment","names and metadata cannot certify missing physical lightning crown teeth",async()=>{
  const actor=await model('stormcaller-2');
  for(const mesh of partMeshes(actor,/^Crown lightning tooth \d+$/))mesh.geometry=new THREE.BufferGeometry();
  const result=inspectAppearance(actor,{id:'stormcaller-2'});
  assert.ok(result.failures.some(row=>row.name==='actual crown teeth distinguish the requested rank'));
 });
-test('low-hair check measures every actual lock instead of just the scalp cap',async()=>{
+testApprovedOrLegacy(["stormcaller-1"],"Approved Stormcaller keeps native hair surfaces and bounded conservative attack transforms","low-hair check measures every actual lock instead of just the scalp cap",async()=>{
  const actor=await model('stormcaller-1'),locks=partMeshes(actor,/^Natural tapered rear hair lock/);
  assert.ok(locks.length>0);for(const mesh of locks)mesh.geometry.translate(0,.8,0);
  assert.ok(inspectAppearance(actor,{id:'stormcaller-1'}).failures.some(row=>row.name==='all actual hair locks stay low around the skull'));
 });
-test('source proportions reject a materially undersized dragon head despite intact connected anatomy',async()=>{
+testApprovedOrLegacy(["embercrown"],"Approved Dragon retains full source proportions and actual physical attack/effect behavior","source proportions reject a materially undersized dragon head despite intact connected anatomy",async()=>{
  const actor=await model('embercrown','champions'),source=JSON.parse(readFileSync(new URL('../output/design/geometric-game-v3/source-creature-checkpoints.json',import.meta.url))),criteria=source.entries.find(row=>row.id==='embercrown').ratioChecks;
  assert.deepEqual(inspectAppearance(actor,{id:'embercrown',criteria}).failures,[]);
  for(const mesh of partMeshes(actor,criteria[0].numerator.parts))mesh.geometry.scale(.55,1,1);
  assert.ok(inspectAppearance(actor,{id:'embercrown',criteria}).failures.some(row=>row.name==='baby_head_width_over_wing_span'));
 });
-test('recoloring the real rider torso purple is detected even when the palette metadata is unchanged',async()=>{
+testApprovedOrLegacy(["thunderheart"],"Approved Thunderheart retains exact rider/mount source PBR factors through runtime attack","recoloring the real rider torso purple is detected even when the palette metadata is unchanged",async()=>{
  const actor=await model('thunderheart','champions');assert.deepEqual(inspectAppearance(actor,{id:'thunderheart'}).failures,[]);
  const mount=partMeshes(actor,/^Dragon sculpted faceted cranial volume source broad wedge$/)[0],torso=partMeshes(actor,/^Tailored continuous bodice$/)[0];assert.ok(torso&&mount);
  const mountMaterial=Array.isArray(mount.material)?mount.material[0]:mount.material;
  torso.material=mountMaterial.clone();
  assert.ok(inspectAppearance(actor,{id:'thunderheart'}).failures.some(row=>row.name==='whole rider armor contrasts with the actual purple dragon'));
 });
-test('spirit appearance requires the real integrated body and torso-owned glowing eyes',async()=>{
+testApprovedOrLegacy(["mothernature"],"Approved Nature Spirit retains exact living-body source surfaces and runtime material ownership","spirit appearance requires the real integrated body and torso-owned glowing eyes",async()=>{
  const actor=await model('mothernature','champions');assert.deepEqual(inspectAppearance(actor,{id:'mothernature'}).failures,[]);
  const eyes=partMeshes(actor,/^Nature (?:integrated luminous almond eye|V5 flush recessed living almond light)$/);assert.equal(eyes.length,2);
  actor.getObjectByName('head_pivot').attach(eyes[0]);

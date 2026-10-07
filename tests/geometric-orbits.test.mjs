@@ -1,3 +1,4 @@
+import {testApprovedOrLegacy} from './reconstructed-roster-revision.test.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -9,7 +10,7 @@ import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.j
 
 const transforms=root=>{const result=[];root.traverse(node=>result.push([node.name,...node.position.toArray(),...node.quaternion.toArray(),...node.scale.toArray()]));return JSON.stringify(result);};
 function centre(node){node.updateWorldMatrix(true,true);return node.parent.worldToLocal(new THREE.Box3().setFromObject(node,true).getCenter(new THREE.Vector3()));}
-test('the three real Claire source diamonds orbit around their baked geometry centres without moving the actor or cached peers',async()=>{
+testApprovedOrLegacy(["ladyclaire"],"Approved Claire preserves current source physical gem surfaces and isolated supported runtime behavior","the three real Claire source diamonds orbit around their baked geometry centres without moving the actor or cached peers",async()=>{
   const bytes=readFileSync('public/assets/geometric/champions/ladyclaire.glb'),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
   const source=gltf.scene,actor=cloneDefenderTemplate(source),peer=cloneDefenderTemplate(source),sourcePose=transforms(source),peerPose=transforms(peer);
   const orbs=[];actor.traverse(node=>{if(node.userData.sourceOrbitGem)orbs.push(node);});assert.equal(orbs.length,3);

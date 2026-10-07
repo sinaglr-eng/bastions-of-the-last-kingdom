@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {attackVisualKind} from './combat-effects.js';
 import {createSecretAnimation,releaseSecretAttack,updateSecretAnimation,resetSecretAnimation,disposeSecretAnimation} from './secret-animation.js';
 import {geometricMetadata,beginGroundedDeath,animateGroundedDeath} from './geometric-motion.js';
+import {applyReconstructedAttack} from './reconstruction-adapter.js';
 
 const CLAN_AURAS=['#c85e43','#77bfd5','#93be69','#b287d3','#e2bb67'];
 export function bossAura(clan=0){
@@ -53,7 +54,7 @@ const ATTACK_POSES={
   dart:{x:-.015,z:0,duration:.28},venomArrow:{x:-.065,z:.085,duration:.48},
   hammer:{x:-.085,z:.035,duration:.44},
 };
-const JOINT_NAMES=['torso_pivot','head_pivot','upper_arm_L','upper_arm_R','forearm_L','forearm_R','hand_L','hand_R','weapon_L','weapon_R','bow_pivot','weapon_pivot','crossbow_nock','siege_arm','attack_arm','bow_arm','dragon_jaw','jaw_pivot','mouth_pivot','left_wing_pivot','right_wing_pivot','wing_L','wing_R'];
+const JOINT_NAMES=['torso_pivot','head_pivot','upper_arm_L','upper_arm_R','forearm_L','forearm_R','hand_L','hand_R','weapon_L','weapon_R','bow_pivot','weapon_pivot','bow_nock','crossbow_nock','siege_arm','attack_arm','bow_arm','dragon_jaw','jaw_pivot','mouth_pivot','left_wing_pivot','right_wing_pivot','wing_L','wing_R'];
 const SPELL_KINDS=new Set(['arcane','holy','frost','roots','lightning']);
 const smooth=p=>{p=THREE.MathUtils.clamp(p,0,1);return p*p*(3-2*p);};
 const noPick=()=>{};
@@ -108,7 +109,7 @@ export function attackRig(actor,family,stats={}){
   }
   const crossbow=rig.attackStyle==='crossbow'&&rig.geometric?.crossbowGripContract==='rear-trigger-front-support-v3';
   let top=actor.getObjectByName(crossbow?'crossbow_string_left':'bow_tip_upper')||(!crossbow&&actor.getObjectByName('bow_string_top')),bottom=actor.getObjectByName(crossbow?'crossbow_string_right':'bow_tip_lower')||(!crossbow&&actor.getObjectByName('bow_string_bottom')),nock=actor.getObjectByName(crossbow?'crossbow_nock':'bow_nock');
-  const namedStrings=[];actor.traverse(node=>{if(!node.isLine&&(/bow_?string/i.test(node.name)||crossbow&&/crossbow.*string/i.test(node.name)))namedStrings.push(node);});
+  const namedStrings=[];actor.traverse(node=>{if(!node.isLine&&(node.userData.reconstructionBowString||/bow_?string/i.test(node.name)||rig.attackStyle==='bow'&&/actual[_ ]drawn[_ ]string[_ ]tip[_ ]to[_ ]nock/i.test(node.name)||crossbow&&/crossbow.*string/i.test(node.name)))namedStrings.push(node);});
   const physicalStrings=namedStrings.filter(node=>node.isMesh);
   if(rig.attackStyle==='bow'&&physicalStrings.length&&!top){
     // Champion exports have a real string mesh, but no semantic endpoints.
@@ -125,15 +126,17 @@ export function attackRig(actor,family,stats={}){
       if(arms&&crossbow){rig.crossbowArms=arms;rig.crossbowForegrip=actor.getObjectByName('crossbow_foregrip');}
       else if(arms){rig.bowArms=arms;restStraight=true;rig.bowNockOffset=actor.worldToLocal(nock.getWorldPosition(new THREE.Vector3())).sub(arms.L.restTarget);}
     }
-    rig.authoredStrings=namedStrings.map(node=>({node,visible:node.visible}));for(const entry of rig.authoredStrings)entry.node.visible=false;
+    const reconstructed=!!rig.geometric?.reconstructionRevision;
+    rig.authoredStrings=namedStrings.map(node=>({node,visible:node.visible}));if(!reconstructed)for(const entry of rig.authoredStrings)entry.node.visible=false;
     const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(12),3));
     const string=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color:'#eee3c9',depthWrite:false,toneMapped:false}));string.name='Articulated taut bowstring';string.raycast=noPick;string.frustumCulled=false;actor.add(string);
-    rig.string={object:string,top,bottom,nock:rig.bowArms?handR:nock,authoredNock:nock,restStraight,draw:0,point:new THREE.Vector3(),topPoint:new THREE.Vector3(),bottomPoint:new THREE.Vector3(),nockPoint:new THREE.Vector3()};rig.owned.push(string);updateBowString(rig);
+    rig.string={object:string,top,bottom,nock:reconstructed?nock:rig.bowArms?handR:nock,authoredNock:nock,restStraight:reconstructed?false:restStraight,keepAuthoredAtRest:reconstructed,draw:0,point:new THREE.Vector3(),topPoint:new THREE.Vector3(),bottomPoint:new THREE.Vector3(),nockPoint:new THREE.Vector3()};rig.owned.push(string);updateBowString(rig);
   }
   return rig;
 }
 function updateBowString(rig){
   if(!rig.string)return;
+  if(rig.string.keepAuthoredAtRest){const active=rig.string.draw>1e-5;rig.string.object.visible=active;for(const entry of rig.authoredStrings)entry.node.visible=active?false:entry.visible;}
   const {object,top,bottom,nock,point,topPoint,bottomPoint,nockPoint,restStraight,draw}=rig.string,positions=object.geometry.attributes.position;rig.actor.updateMatrixWorld(true);
   rig.actor.worldToLocal(top.getWorldPosition(topPoint));rig.actor.worldToLocal(bottom.getWorldPosition(bottomPoint));
   rig.actor.worldToLocal(nock.getWorldPosition(point));nockPoint.copy(point);
@@ -316,6 +319,14 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
     pivot.node.rotation.set(pivot.rotation.x+x,pivot.rotation.y+y,pivot.rotation.z+z,pivot.rotation.order);
   };
   for(const pivot of rig.pivots){pivot.node.rotation.copy(pivot.rotation);pivot.node.position.copy(pivot.position);}
+  if(rig.geometric?.reconstructionRevision){
+    applyReconstructedAttack(rig,{draw,stroke,cast,reducedMotion});
+    updateBowString(rig);
+    if(rig.glow){rig.glow.visible=progress<.42;rig.glow.scale.setScalar(reducedMotion?1:.6+draw*.85);}
+    applyBreath(rig,reducedMotion);
+    if(rig.elapsed>=rig.duration)resetAttack(rig,{preserveBreath:true});
+    return;
+  }
   const mechanical=rig.kind==='siege'&&!rig.joints.has('upper_arm_R'),style=rig.attackStyle;
   if(!mechanical&&style!=='bow')move('torso_pivot',-.045*stroke,rig.kind==='melee'?.18*slash:-.035*stroke,.045*stroke);
   if(!rig.geometric?.integratedHeadInTorso&&rig.attackStyle!=='bow')move('head_pivot',-.055*stroke,0,0);

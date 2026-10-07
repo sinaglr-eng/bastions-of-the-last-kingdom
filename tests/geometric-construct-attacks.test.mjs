@@ -1,3 +1,4 @@
+import {testApprovedOrLegacy} from './reconstructed-roster-revision.test.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -19,7 +20,7 @@ async function load(id){
 function localPosition(actor,node){actor.updateMatrixWorld(true);return actor.worldToLocal(node.getWorldPosition(new THREE.Vector3()));}
 function transforms(root){const result=[];root.traverse(node=>result.push([node.name,...node.position.toArray(),...node.quaternion.toArray(),...node.scale.toArray()].map(value=>typeof value==='number'&&value===0?0:value)));return result;}
 
-test('actual crouched dragon and bear front/hind knees retain their authored bend branch and planted paws',async()=>{
+testApprovedOrLegacy(["embercrown","worldfire","thunderheart","phoenix","rangermentor"],"Approved stationary creatures retain full source poses and execute source-aware isolated attacks","actual crouched dragon and bear front/hind knees retain their authored bend branch and planted paws",async()=>{
   for(const id of ['embercrown','worldfire','thunderheart','phoenix','rangermentor']){
     const gltf=await load(id),source=transforms(gltf.scene),actor=cloneDefenderTemplate(gltf.scene),figure=new THREE.Group();figure.add(actor);figure.userData.body=actor;
     geometricMetadata(actor).strideLength=.15;
@@ -51,7 +52,7 @@ test('actual crouched dragon and bear front/hind knees retain their authored ben
   }
 });
 
-test('all six actual Archer ranks and three champion bows draw their physical string onto the right hand and release at the world muzzle',async()=>{
+testApprovedOrLegacy(["archer-1","archer-2","archer-3","archer-4","archer-5","archer-6","thornwarden","verdantguard","elvenking"],"Approved basic/champion bows preserve source surfaces and emit projectiles from moving runtime endpoints","all six actual Archer ranks and three champion bows draw their physical string onto the right hand and release at the world muzzle",async()=>{
   const files=[...Array.from({length:6},(_,i)=>`defenders/archer-${i+1}.glb`),...['thornwarden','verdantguard','elvenking'].map(id=>`champions/${id}.glb`)];
   for(const file of files){
     const bytes=readFileSync('public/assets/geometric/'+file),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''),source=transforms(gltf.scene),actor=cloneDefenderTemplate(gltf.scene),peer=cloneDefenderTemplate(gltf.scene),peerBefore=transforms(peer);
@@ -75,7 +76,7 @@ test('all six actual Archer ranks and three champion bows draw their physical st
   }
 });
 
-test('real frost/stone construct fists extend toward -Z and launch their own effect without mutating damage or cached actors',async()=>{
+testApprovedOrLegacy(["winterhold","emeraldgolem"],"Approved frost/stone constructs preserve source surfaces and execute their authoritative projectile effects","real frost/stone construct fists extend toward -Z and launch their own effect without mutating damage or cached actors",async()=>{
   for(const [id,kind] of [['winterhold','frost'],['emeraldgolem','stone']]){
     const gltf=await load(id),actor=cloneDefenderTemplate(gltf.scene),peer=cloneDefenderTemplate(gltf.scene);
     const sourceBefore=transforms(gltf.scene),peerBefore=transforms(peer),stats=JSON.parse(readFileSync('data/towers.json'))[id];
@@ -102,7 +103,7 @@ test('real frost/stone construct fists extend toward -Z and launch their own eff
   }
 });
 
-test('the real mechanical cannon preserves its forward barrel axis, recoils after release and emits a physical toxic dart',async()=>{
+testApprovedOrLegacy(["mechanicalgolem"],"Approved mechanical construct preserves cannon surfaces and releases isolated authoritative projectile effects","the real mechanical cannon preserves its forward barrel axis, recoils after release and emits a physical toxic dart",async()=>{
   const gltf=await load('mechanicalgolem'),actor=cloneDefenderTemplate(gltf.scene),stats=JSON.parse(readFileSync('data/towers.json')).mechanicalgolem;
   assert.equal(geometricMetadata(actor).attackStyle,'dartCannon');
   const rig=attackRig(actor,'mechanicalgolem',stats),weapon=actor.getObjectByName('weapon_R'),rest=transforms(actor),restMuzzle=localPosition(actor,rig.muzzle),restWeapon=weapon.position.clone();
@@ -117,7 +118,7 @@ test('the real mechanical cannon preserves its forward barrel axis, recoils afte
   fx.dispose();disposeAttack(rig);disposeDefenderInstance(actor);disposeDecodedGeometricAsset(gltf);
 });
 
-test('the imported mounted lance thrust moves its actual hand forwards rather than behind the mount',async()=>{
+testApprovedOrLegacy(["frostblade","roseguard"],"Approved mounted knights preserve source hand/lance/mount geometry through supported attacks","the imported mounted lance thrust moves its actual hand forwards rather than behind the mount",async()=>{
   for(const id of ['frostblade','roseguard']){
   const gltf=await load(id),actor=cloneDefenderTemplate(gltf.scene),peer=cloneDefenderTemplate(gltf.scene),sourceBefore=transforms(gltf.scene),peerBefore=transforms(peer),stats=JSON.parse(readFileSync('data/towers.json'))[id];scaleBattlefieldUnit(actor);
   const rig=attackRig(actor,id,stats),hand=actor.getObjectByName('hand_R'),before=localPosition(actor,hand);
@@ -137,7 +138,7 @@ test('the imported mounted lance thrust moves its actual hand forwards rather th
   }
 });
 
-test('the spear in Soldier I uses a narrow thrust while the higher sword ranks retain their cut',async()=>{
+testApprovedOrLegacy(["soldier-1","soldier-2","soldier-6"],"Approved Soldier ranks retain original spear/sword surfaces and functional attack endpoints","the spear in Soldier I uses a narrow thrust while the higher sword ranks retain their cut",async()=>{
   const bytes=readFileSync('public/assets/geometric/defenders/soldier-1.glb'),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''),actor=cloneDefenderTemplate(gltf.scene),stats=JSON.parse(readFileSync('data/towers.json')).soldier,rig=attackRig(actor,'soldier',stats),fx=new CombatEffects(new THREE.Scene(),{getMuzzle:(_source,out)=>attackMuzzle(rig,out)});
   assert.equal(rig.attackStyle,'spear');triggerAttack(rig,{combatTime:1,stats});
   const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(`data/${key}.json`))]));
@@ -150,7 +151,7 @@ test('the spear in Soldier I uses a narrow thrust while the higher sword ranks r
   fx.dispose();disposeAttack(rig);disposeDefenderInstance(actor);disposeDecodedGeometricAsset(gltf);
 });
 
-test('the actual dragon rider separates its lightning weapon shot from its burning dragon-mouth aura',async()=>{
+testApprovedOrLegacy(["thunderheart"],"Approved Thunderheart retains source mount/rider surfaces and supported authoritative combat behavior","the actual dragon rider separates its lightning weapon shot from its burning dragon-mouth aura",async()=>{
   const gltf=await load('thunderheart'),actor=cloneDefenderTemplate(gltf.scene),stats=JSON.parse(readFileSync('data/towers.json')).thunderheart,rig=attackRig(actor,'thunderheart',stats);
   assert.equal(stats.type,'arcane');assert.ok(stats.burnAura>0);assert.equal(rig.kind,'lightning');
   assert.equal(rig.muzzle.parent,actor.getObjectByName('weapon_R'));assert.equal(rig.breathMuzzle.parent,actor.getObjectByName('mouth_pivot'));
@@ -168,7 +169,7 @@ test('the actual dragon rider separates its lightning weapon shot from its burni
   fx.dispose();disposeAttack(rig);disposeDefenderInstance(actor);disposeDecodedGeometricAsset(gltf);
 });
 
-test('the imported royal bow emits a poison arrow and the paladin hammer produces an impact instead of a blade slash',async()=>{
+testApprovedOrLegacy(["royalranger","kingdomprotector"],"Approved Royal Ranger/Paladin keep their source weapon surfaces and emit authoritative combat effects","the imported royal bow emits a poison arrow and the paladin hammer produces an impact instead of a blade slash",async()=>{
   for(const [id,kind,name] of [['royalranger','venomArrow','Venom-coated royal arrow'],['kingdomprotector','hammer','Concussive physical hammer blow']]){
     const gltf=await load(id),actor=cloneDefenderTemplate(gltf.scene),stats=JSON.parse(readFileSync('data/towers.json'))[id],rig=attackRig(actor,id,stats),fx=new CombatEffects(new THREE.Scene(),{getMuzzle:(_source,out)=>attackMuzzle(rig,out)});
     triggerAttack(rig,{combatTime:2,stats});const shot={id:1,source:{family:id,x:0,z:0},target:{id:2,x:4,z:2},stats,progress:.5,duration:.3,start:{x:0,z:0}},before=structuredClone(shot);fx.event('shot',shot);const record=fx.projectiles.get(1);

@@ -1,5 +1,11 @@
 # Releases
 
+## 0.3.18 — Reconstructed Defenders and Allied Voices — 7 October 2026
+
+- Integrates the approved 48 basic defender models from V7 and 38 champion models from V8, with matching portraits and independent art cache revisions.
+- Adapts native skeletons and static champion assemblies to gameplay presentation while preserving the exported source models and combat rules.
+- Adds 92 existing ElevenLabs v4 recordings: two English lines per allied identity, chosen randomly on selection or champion creation, with mute and overlap control.
+
 ## 0.3.17 — Direct Defender Draft — 5 October 2026
 
 - Shows the five defender slots immediately at the start of each construction round, removing the bottom wave-preview section and its opening step.

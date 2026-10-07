@@ -21,6 +21,7 @@ import {disposeGeometricResources,adoptDecodedGeometricAsset} from './geometric-
 import {optimizeGeometricSiblings} from './geometric-batching.js';
 import {SupportEffects} from './support-effects.js';
 import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,pointedTower} from './defender-assets.js';
+import {DefenderModelLoader} from './defender-model-loader.js';
 import {secretAttackContext} from './secret-animation.js';
 import {DraftMarkers} from './draft-markers.js';
 import {CommandMoveEffects} from './command-move-effects.js';
@@ -45,6 +46,16 @@ export class Battlefield {
   constructor(container,game,onTile) {
     this.container=container;this.game=game;this.onTile=onTile;this.time=0;this.models=new Map();this.enemies=new Map();this.shots=new Map();this.effects=[];this.templates=new Map();this.imported=new Map();this.enemyTemplates=new Map();this.showPath=true;this.showGrid=true;this.showRanges=false;this.hover=null;this.pathRevision=-1;this.keys=new Set();this.shake=0;
     this.corpses=new Map();this.disposed=false;
+    const defenderGLTF=new GLTFLoader();
+    this.defenderLoader=new DefenderModelLoader({
+      load:entry=>defenderGLTF.loadAsync(geometricEntryUrl(entry)),
+      install:(entry,asset)=>{
+        asset.scene.traverse(object=>{if(object.isMesh)object.castShadow=object.receiveShadow=true;});
+        return installDefenderTemplate(this,entry,asset.scene,asset.animations);
+      },
+      isDisposed:()=>this.disposed,
+      onFailure:(entry,error)=>console.warn(`Defender model could not load: ${entry.file}`,error),
+    });
     this.reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
     this.edgePointer=null;this.compass=container.parentElement.querySelector('.map-compass');
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#9bbcc1');this.scene.fog=new THREE.Fog('#9bbcc1',88,155);
@@ -123,29 +134,15 @@ export class Battlefield {
     }catch(error){if(!this.disposed)console.warn('Geometric enemy assets unavailable.',error);}
   }
   async loadDefenders() {
-    const loader=new GLTFLoader();
-    // The procedural templates make the game immediately playable; generated glTF replaces them when available.
+    // Index every approved model, but decode only placed family/ranks. The
+    // procedural templates remain playable while those few requests finish.
     try {
       const rosters=await Promise.allSettled(['geometric-defenders.json','geometric-champions.json'].map(fetchGeometricEntries));
+      if(this.disposed)return;
       const entries=rosters.flatMap(result=>result.status==='fulfilled'?result.value:[]);
       for(const result of rosters)if(result.status==='rejected')console.warn('Geometric roster unavailable.',result.reason);
-      const failures=await loadModelEntries(entries.filter(e=>e.kind==='tower'&&this.game.data.towers[e.family]),async e=>{
-        let failure;
-        for(let attempt=0;attempt<2&&!this.disposed;attempt++){
-          try {
-            const gltf=await loader.loadAsync(geometricEntryUrl(e));
-            adoptDecodedGeometricAsset(gltf,asset=>{
-              asset.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});
-              optimizeGeometricSiblings(asset.scene,{animations:asset.animations});
-              return installDefenderTemplate(this,e,asset.scene,asset.animations);
-            },{isDisposed:()=>this.disposed});
-            return;
-          }catch(error){failure=error;}
-        }
-        if(failure)throw failure;
-      },{isDisposed:()=>this.disposed});
-      for(const {entry,error} of failures)console.warn(`Defender model could not load: ${entry.file}`,error);
-      if(this.disposed)return;
+      this.defenderLoader.index(entries.filter(entry=>entry.kind==='tower'&&this.game.data.towers[entry.family]));
+      for(const tower of this.game.towers)this.defenderLoader.requestTower(tower,this.game.data.towers);
     }catch(error){if(!this.disposed)console.warn('Defender assets unavailable; using temporary models.',error);}
   }
   createEnvironment() {
@@ -188,7 +185,7 @@ export class Battlefield {
     figure.userData.previewEnemy=enemy;figure.position.y=enemy.flying?.5:0;figure.rotation.y=-Math.PI/2;
     this.landmarks.previewAnchor.add(figure);this.campPreview=figure;
   }
-  template(t) {if(t.state==='ruin'){const mask=wallConnections(t,this.game.towers),key='wall:'+mask;if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask));return this.templates.get(key);}const stats=this.game.data.towers[t.family],key=`${t.family}:${stats?.advanced?1:t.tier}`;if(this.imported.has(key))return this.imported.get(key);if(!this.templates.has(key))this.templates.set(key,towerModel(t.family,stats?.advanced?1:t.tier,stats?.advanced,stats?.model));return this.templates.get(key);}
+  template(t) {if(t.state==='ruin'){const mask=wallConnections(t,this.game.towers),key='wall:'+mask;if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask));return this.templates.get(key);}const stats=this.game.data.towers[t.family],key=`${t.family}:${stats?.advanced?1:t.tier}`;if(this.imported.has(key))return this.imported.get(key);this.defenderLoader.requestTower(t,this.game.data.towers);if(!this.templates.has(key))this.templates.set(key,towerModel(t.family,stats?.advanced?1:t.tier,stats?.advanced,stats?.model));return this.templates.get(key);}
   sync() {
     this.updateCampPreview();
     const ids=new Set(this.game.towers.map(t=>t.id));
@@ -369,7 +366,7 @@ export class Battlefield {
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
-    this.disposed=true;this.combatEffects.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
+    this.disposed=true;this.defenderLoader.dispose();this.combatEffects.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
     disposeEnemySelectionRing(this.enemySelectionRing);
     disposeCheckpointEffects(this.checkpointEffects);
     const checkpointMaterials=new Set();

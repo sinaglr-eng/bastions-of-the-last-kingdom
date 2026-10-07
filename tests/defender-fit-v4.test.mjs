@@ -6,6 +6,8 @@ import * as THREE from 'three';
 import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
 import {physicalSurfaceGap} from '../game/render/geometric-contacts.js';
 import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.js';
+import {geometricEntries} from '../game/render/geometric-assets.js';
+import {auditReconstructedRoster,auditCurrentReconstructionIds,currentReconstructionEntry} from '../tools/audit-reconstructed-roster.mjs';
 
 const label=n=>(n.userData.semanticPart||n.name||'').replaceAll('_',' ').replace(/(?: fitted facets| mesh)(?: \d+)?$/,'');
 const descendants=(n,parent)=>{for(let p=n;p;p=p.parent)if(p===parent)return true;return false;};
@@ -56,13 +58,19 @@ export function measureDefenderFitV4(actor,id){
 }
 
 const load=async id=>{const bytes=readFileSync('public/assets/geometric/defenders/'+id+'.glb'),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');return {bytes,gltf};};
-test('all 48 actual GLBs have directly seated heads; all 6 Engineers and Clerics satisfy carried-tool and roof surfaces',async()=>{
+test('all 48 current approved GLBs preserve source surfaces and functional runtime fit; legacy V4 solids retain their physical fit diagnostics',async()=>{
+  const current=geometricEntries(JSON.parse(readFileSync('public/assets/geometric/geometric-defenders.json')));
+  if(current.every(row=>row.reconstruction)){
+    const report=await auditReconstructedRoster({ids:current.map(row=>row.id),output:'output/design/defenders-voices-v19/independent-basic-fit-runtime.json',quiet:true});
+    assert.equal(report.models,48);assert.equal(report.failures,0,JSON.stringify(report.results.filter(row=>row.failures.length)));return;
+  }
   const manifest=JSON.parse(readFileSync('public/assets/geometric/geometric-defenders.json')),results=[];assert.equal(manifest.assets.length,48);
   for(const row of manifest.assets){const {bytes,gltf}=await load(row.id);const r=measureDefenderFitV4(gltf.scene,row.id);assert.deepEqual(r.failures,[],row.id+': actual v4 physical fit');results.push({...r,actualGlbSha256:sha(bytes),sourceSha256:row.sourceSha256});disposeDecodedGeometricAsset(gltf);}
   const report={revision:'actual-defender-fit-v4',createdAtUtc:new Date().toISOString(),method:'Actual imported triangle surfaces; direct jaw/closed helmet to real bodice/yoke, full head to hammer triangle distance, actual shaft end-ring centres, five actual opaque mitre roof rays. No authored passed values or marker-only certification.',models:results.length,checks:results.reduce((n,r)=>n+r.checks.length,0),failures:results.flatMap(r=>r.failures).length,results};
-  mkdirSync('output/design/geometric-game-v6',{recursive:true});writeFileSync('output/design/geometric-game-v6/defender-fit-regression-audit.json',JSON.stringify(report,null,2)+'\n');
+  mkdirSync('output/design/defenders-voices-v19',{recursive:true});writeFileSync('output/design/defenders-voices-v19/independent-legacy-defender-fit.json',JSON.stringify(report,null,2)+'\n');
 });
-test('actual geometry regressions fail: detached head, hammer intersecting head, tilted shaft and missing mitre roofs',async()=>{
+test('current Engineer/Cleric execute source-preserving attacks; legacy V4 detached-head/tool/roof regressions remain detectable',async()=>{
+  if(currentReconstructionEntry('runebreaker-1')){for(const report of await auditCurrentReconstructionIds(['runebreaker-1','cleric-3']))assert.deepEqual(report.failures,[],report.id+' actual approved geometry/attack/owned-resource assertions');return;}
   const engineer=await load('runebreaker-1'),scene=engineer.gltf.scene;scene.getObjectByName('head_pivot').position.y+=.15;
   assert.ok(measureDefenderFitV4(scene,'runebreaker-1').failures.some(c=>c.kind==='direct-head-to-real-upper-chest'),'a moved actual head must fail despite intact metadata');
   scene.getObjectByName('head_pivot').position.y-=.15;const weapon=scene.getObjectByName('weapon_R');weapon.position.x-=.30;

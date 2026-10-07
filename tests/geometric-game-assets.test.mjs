@@ -27,12 +27,43 @@ test('the current geometric edition covers every approved subject: 48 basic rank
   assert.ok(entries.some(e=>e.id==='host_50'));
 });
 
-test('actual Three.js imports preserve finite closed model geometry, source provenance and articulated hierarchy for all 136 assets',async()=>{
+test('actual Three.js imports preserve approved reconstruction bytes and finite geometry, while enemies retain closed/contact/rig contracts',async()=>{
   const signatures=new Set();
   for(const entry of entries){
     const bytes=readFileSync(new URL(entry.file,root)),qa=entry.metrics||entry.qa;
     assert.equal(bytes.toString('ascii',0,4),'glTF',entry.id);
     assert.equal(bytes.readUInt32LE(8),bytes.length,entry.id);
+    if(entry.reconstruction){
+      assert.equal(hash(bytes),entry.assetSha256,entry.id+' approved export');
+      assert.equal(entry.assetSha256,entry.reconstruction.sourceGlbSha256,entry.id+' approved GLB provenance');
+      assert.equal(entry.sourceSha256,sources.find(e=>e.id===entry.id).sha256,entry.id+' current authoring reference');
+      const portrait=readFileSync(new URL(entry.portrait,root));
+      assert.equal(portrait.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+      assert.equal(hash(portrait),entry.portraitSha256,entry.id+' approved portrait');
+      const gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
+      try{
+        const scene=gltf.scene;scene.updateWorldMatrix(true,true);scene.traverse(node=>{if(node.isSkinnedMesh)node.skeleton.update();});
+        assert.equal(geometricMetadata(scene),null,entry.id+' raw approval is not silently adapted by loader');
+        let count=0,skins=0;const geometryHash=createHash('sha256');
+        scene.traverse(node=>{
+          if(!node.isMesh)return;if(node.isSkinnedMesh){skins++;assert.equal(node.skeleton.bones.length,20);}
+          for(const attribute of [node.geometry.attributes.position,node.geometry.attributes.normal]){assert.ok(attribute);assert.ok(attribute.array.every(Number.isFinite));}
+          const p=node.geometry.attributes.position,index=node.geometry.index;count+=(index?.count??p.count)/3;
+          const vertex=new THREE.Vector3(),worldVertices=new Int32Array(p.count*3);
+          for(let i=0;i<p.count;i++){node.getVertexPosition(i,vertex).applyMatrix4(node.matrixWorld);worldVertices.set(vertex.toArray().map(v=>Math.round(v*1e6)),i*3);}
+          geometryHash.update(Buffer.from(worldVertices.buffer));
+          for(const material of Array.isArray(node.material)?node.material:[node.material])assert.ok(material&&[...material.color.toArray(),material.roughness,material.metalness,material.opacity].every(Number.isFinite),entry.id+' actual PBR factors');
+        });
+        assert.equal(count,qa.triangles,entry.id+' imported approved triangles');
+        assert.equal(skins>0,entry.reconstruction.revision==='basic-defenders-v7');
+        assert.equal(gltf.animations.length,0,entry.id+' approved static/rest export clips');
+        const size=new THREE.Box3().setFromObject(scene,true).getSize(new THREE.Vector3()).toArray();
+        assert.ok(size.every(v=>Number.isFinite(v)&&v>0));
+        assert.ok(size.every((v,i)=>Math.abs(v-[qa.boundsSize[0],qa.boundsSize[2],qa.boundsSize[1]][i])<1e-5),entry.id+' raw approved axis-converted bounds');
+        signatures.add(geometryHash.digest('hex'));
+      }finally{disposeDecodedGeometricAsset(gltf);}
+      continue;
+    }
     assert.equal(hash(bytes),qa.fileSha256,entry.id+' immutable export');
     assert.equal(qa.degenerateTriangles,0,entry.id);
     assert.equal(qa.nonManifoldEdges,0,entry.id);

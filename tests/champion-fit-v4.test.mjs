@@ -1,3 +1,5 @@
+import {testApprovedOrLegacy as routeApprovedOrLegacy} from './reconstructed-roster-revision.test.mjs';
+const testApprovedOrLegacy=(ids,currentName,legacyName,legacy)=>routeApprovedOrLegacy(ids,currentName,legacyName,legacy,{fixtureOverride:!!process.env.GEOMETRIC_V4_FIXTURE_DIR});
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
@@ -10,6 +12,7 @@ import {cloneDefenderTemplate,disposeDefenderInstance} from '../game/render/defe
 import {attackRig,resetAttack,previewGeometricAttack,updateGeometricPreview,disposeAttack} from '../game/render/battle-animation.js';
 import {scaleBattlefieldUnit} from '../game/render/battlefield-scale.js';
 import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.js';
+import {currentReconstructionEntry,auditCurrentReconstructionIds} from '../tools/audit-reconstructed-roster.mjs';
 const assetRoot=process.env.GEOMETRIC_V4_FIXTURE_DIR||'public/assets/geometric';
 const descendant=(node,parent)=>{for(let p=node;p;p=p.parent)if(p===parent)return true;return false;};
 function meshes(root,select=()=>true){const out=[];root.traverse(n=>{if(n.isMesh&&select(n))out.push(n);});return out;}
@@ -20,7 +23,7 @@ function firstHit(parts,start,direction){const ray=new THREE.Ray(start,direction
 
 // Test imported surfaces and meaningful negative variants; author metadata is
 // used only to identify the source-specific assemblies, never as pass proof.
-test('Paladin/Archangel use one physical hollow visor shell with two real open eye apertures; plugged apertures fail',async()=>{
+testApprovedOrLegacy(["kingdomprotector","archangel"],"Approved Paladin/Archangel preserve actual source helmet surfaces and runtime transforms","Paladin/Archangel use one physical hollow visor shell with two real open eye apertures; plugged apertures fail",async()=>{
  for(const id of ['kingdomprotector','archangel']){
   const gltf=await load(id),actor=gltf.scene;actor.updateMatrixWorld(true);
   const shells=nodes(actor,n=>n.userData.singleIntegratedHelmetV4),parts=partMeshes(actor,['Helmet single integrated hollow armored visor shell']),eyes=partMeshes(actor,['Helmet recessed aperture interior']);
@@ -34,11 +37,13 @@ test('Paladin/Archangel use one physical hollow visor shell with two real open e
  }
 });
 
-test('every rebuilt humanoid head physically touches the structural chest with no exposed neck shaft; a detached head fails',async()=>{
+test('approved champions preserve real source surfaces and behavior; unchanged enemies retain physical chest/head seating and detached-head rejection',async()=>{
  let measured=0;
  for(const category of ['champions','enemies']){
   const file=`${assetRoot}/geometric-${category}.json`,mf=JSON.parse(readFileSync(file)),entries=mf.entries||mf;
-  for(const entry of entries){const gltf=await load(entry.id),actor=gltf.scene,meta=geometricMetadata(actor);actor.updateMatrixWorld(true);
+  for(const entry of entries){
+   if(!process.env.GEOMETRIC_V4_FIXTURE_DIR&&entry.reconstruction){const [report]=await auditCurrentReconstructionIds([entry.id]);assert.deepEqual(report.failures,[],entry.id+' real approved source/runtime behavior');continue;}
+   const gltf=await load(entry.id),actor=gltf.scene,meta=geometricMetadata(actor);actor.updateMatrixWorld(true);
    const fits=JSON.parse(meta?.humanoidHeadFitDetailsV4||'[]'),contract=typeof meta?.enemyPhysicalContractV6==='string'?JSON.parse(meta.enemyPhysicalContractV6):meta?.enemyPhysicalContractV6;
    for(const fit of fits){
     // V6 replaced the V4 chest solids. The current contract selects their
@@ -57,7 +62,7 @@ test('every rebuilt humanoid head physically touches the structural chest with n
  assert.ok(measured>=10,'measure actual humanoid assemblies rather than an empty roster');
 });
 
-test('all actual champion/enemy crossbows retain rear trigger/front support and physically joined palms throughout recoil at battlefield scale',async()=>{
+test('approved champion projectiles retain real source/runtime behavior; enemy crossbows retain actual grip/palm/wrist contact through recoil',async()=>{
  // The actual closed palm must enclose the stock's grip. Its anatomical
  // joint origin need not be the centre of that contact volume.
  function containsGrip(parts,point){
@@ -75,6 +80,7 @@ test('all actual champion/enemy crossbows retain rear trigger/front support and 
   return false;
  }
  for(const id of ['rimewatch','wyvernhunter','kingsrangerguard','royalranger','host_25','host_28']){
+  if(!process.env.GEOMETRIC_V4_FIXTURE_DIR&&currentReconstructionEntry(id)){const [report]=await auditCurrentReconstructionIds([id]);assert.deepEqual(report.failures,[],id+' real approved source/runtime recoil and release');continue;}
   if(!existsSync(`${assetRoot}/${id.startsWith('host_')?'enemies':'champions'}/${id}.glb`))continue;
   const gltf=await load(id),actor=cloneDefenderTemplate(gltf.scene);scaleBattlefieldUnit(actor);actor.updateMatrixWorld(true);const meta=geometricMetadata(actor);assert.equal(meta.crossbowGripContract,'rear-trigger-front-support-v3');
   const rig=attackRig(actor,id,{}),rear=actor.getObjectByName('crossbow_trigger_grip'),front=actor.getObjectByName('crossbow_foregrip');assert.ok(rig.crossbowArms&&rear&&front);const worldScale=actor.getWorldScale(new THREE.Vector3()).y;const stock=partBounds(actor,/^Crossbow connected fore-stock$/).getSize(new THREE.Vector3()).z;assert.ok((rear.getWorldPosition(new THREE.Vector3()).z-front.getWorldPosition(new THREE.Vector3()).z)/stock>.30,'support palm is physically forward of trigger relative to actual stock size');
@@ -104,7 +110,7 @@ test('all actual champion/enemy crossbows retain rear trigger/front support and 
  }
 });
 
-test('dragon/griffin rider leg surfaces are forward of physical wing roots; Thunderheart wings are larger while roots stay joined',async()=>{
+testApprovedOrLegacy(["thunderheart","phoenix","griffinbomber"],"Approved mounted creatures preserve source wing/rider surfaces and run conservative attack behavior","dragon/griffin rider leg surfaces are forward of physical wing roots; Thunderheart wings are larger while roots stay joined",async()=>{
  for(const id of ['thunderheart','phoenix','griffinbomber']){
   const gltf=await load(id),actor=gltf.scene;actor.updateMatrixWorld(true);
   for(const side of ['R','L']){const leg=actor.getObjectByName('upper_leg_'+side),wing=actor.getObjectByName('wing_'+side),root=wing.getWorldPosition(new THREE.Vector3()),surface=meshes(wing),samples=[];
@@ -117,13 +123,13 @@ test('dragon/griffin rider leg surfaces are forward of physical wing roots; Thun
  }
 });
 
-test('Kingslayer palms wrap the real continuous hilt behind a proper straight blade; chest plate leaves the grip visible, horses retain actual jointed anatomy',async()=>{
+testApprovedOrLegacy(["highking","frostblade","roseguard"],"Approved Kingslayer/mounted knights preserve full source surfaces and functional isolated attacks","Kingslayer palms wrap the real continuous hilt behind a proper straight blade; chest plate leaves the grip visible, horses retain actual jointed anatomy",async()=>{
  const gltf=await load('highking'),actor=gltf.scene;actor.updateMatrixWorld(true);const hilt=partMeshes(actor,/^Kingslayer two hands continuous actual hilt$/),blade=partMeshes(actor,/^Kingslayer source straight broad true greatsword$/),plate=partMeshes(actor,/^Kingslayer source contoured chest armor$/);assert.ok(hilt.length&&blade.length&&plate.length);
  for(const side of ['R','L']){const hand=actor.getObjectByName('hand_'+side),grip=actor.getObjectByName(side==='R'?'greatsword_right_grip':'greatsword_left_grip'),palm=partMeshes(hand,/^Kingslayer actual gripping gauntlet/);assert.ok(hand.getWorldPosition(new THREE.Vector3()).distanceTo(grip.getWorldPosition(new THREE.Vector3()))<1e-7);assert.equal(physicalSurfaceGap(palm,hilt).gap,0,'palm contains physical hilt');assert.ok(bounds(plate).min.z>bounds(palm).min.z+.10,'chest is behind the visible hand along firing front');}
  assert.equal(partMeshes(actor,/^Breastplate fitted shell$/).length,0,'old blocking rectangle removed');disposeDecodedGeometricAsset(gltf);
  for(const id of ['frostblade','roseguard']){const gltf=await load(id),body=gltf.scene;body.updateMatrixWorld(true);const head=body.getObjectByName('mount_head_pivot'),jaw=partMeshes(head,/^Horse (source anatomical rounded jaw mass|actual lower jaw tendon)$/),skull=partMeshes(head,/^Horse /);assert.ok(jaw.length>=4);for(const mesh of jaw)assert.equal(physicalSurfaceGap([mesh],skull.filter(m=>m!==mesh)).gap,0,'real jaw/tendon contact');for(const side of ['FL','FR','BL','BR']){assert.ok(body.getObjectByName('shin_'+side)&&body.getObjectByName('foot_'+side));assert.ok(partMeshes(body.getObjectByName('foot_'+side),/^Horse anatomical (hoof central dark cleft|fitted rounded heel bulb)$/).length>=2);}disposeDecodedGeometricAsset(gltf);}
 });
 
-test('Nature Spirit integrates the nonhuman face and twisted roots in one continuous physical torso volume',async()=>{
+testApprovedOrLegacy(["mothernature"],"Approved Nature Spirit preserves native continuous body and actual PBR surfaces during runtime casting","Nature Spirit integrates the nonhuman face and twisted roots in one continuous physical torso volume",async()=>{
  const gltf=await load('mothernature'),actor=gltf.scene;actor.updateMatrixWorld(true);const torso=actor.getObjectByName('torso_pivot'),head=actor.getObjectByName('head_pivot'),volume=nodes(actor,n=>n.userData.integratedNatureFaceBody),parts=partMeshes(actor,/^Nature unified living wood leaf body with integrated face$/),eyes=partMeshes(actor,/^Nature (?:integrated luminous almond eye|V5 flush recessed living almond light)$/);assert.equal(volume.length,1);assert.equal(volume[0].parent,torso);assert.ok(parts.length&&eyes.length===2);assert.equal(meshes(head,n=>/face|skin|eye/i.test(n.userData.semanticPart||n.name)).length,0,'no separate physical head or human flesh');assert.ok(volume[0].userData.actualUnifiedRootLobes===3);const bodyBounds=bounds(parts);assert.ok(bodyBounds.max.y>1.5&&bodyBounds.min.y<.40,'same physical mesh spans root tip and full face');for(const eye of eyes){assert.equal(eye.parent,torso);assert.ok(eye.material.emissiveIntensity>0);assert.ok(physicalSurfaceGap([eye],parts).gap<.02,'eyes reside in actual body surface');}disposeDecodedGeometricAsset(gltf);
 });

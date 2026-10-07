@@ -1,0 +1,2613 @@
+{
+  "stage": "Approved source bytes imported; runtime verification pending",
+  "sourceWorkspace": "C:\\Users\\sinag\\.codex\\worktrees\\4a36\\Tower Defense game",
+  "models": 86,
+  "originalsModified": false,
+  "basicApprovalReceiptSha256": "234edfb01c82f04e6e18fe628f01624e906c65f05293ca3b39d6eae67064cdce",
+  "basicApprovedArchive": {
+    "path": "output/design/basic-defenders-I-VI-3D-models-v7.zip",
+    "bytes": 839795814,
+    "sha256": "f693323887ae2be92c08fe704c474278f801cbbb96cbd36cd824ac8f827da86d"
+  },
+  "championPackageAudit": {
+    "language": "en",
+    "passed": true,
+    "archive": "output/design/champions-38-refined-models-v8.zip",
+    "archiveBytes": 628183148,
+    "archiveSha256": "71735247a551fd8c7b807a420b0076f37293f0245df1cbabaff395295b070458",
+    "manifestSha256": "870a51f891d1a525f1b4d385b881147afeb7864e9d8ab1d49e7183f0d636afbc",
+    "files": 1176,
+    "models": 38,
+    "nativeScenes": 38,
+    "portableModels": 38,
+    "renders": 447,
+    "proofs": 38,
+    "actualTriangles": 1174956,
+    "stage": "Source-shaped refinement v8",
+    "approvedV7Unchanged": true,
+    "previousV7Unchanged": true,
+    "originalReferenceFilesUnchanged": true
+  },
+  "receipts": [
+    {
+      "id": "soldier-1",
+      "file": "defenders/soldier-1.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/soldier-1.glb",
+      "sourceGlbSha256": "4d73ffeda6007f2ae8aa08aded1b96abbc23f9cdb77a407dbbe2ada8a26c4b96",
+      "copiedGlbSha256": "4d73ffeda6007f2ae8aa08aded1b96abbc23f9cdb77a407dbbe2ada8a26c4b96",
+      "sourceNativeSha256": "7451cabda402085cb0e67cce3855bbc9cc4b0fa51a5c01eb2290f2813d66837f",
+      "portrait": "portraits/soldier-1.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/soldier-1/isometric.png",
+      "portraitSha256": "70d91206545e8b8d5f1c3b51b1935a0f18e85044b242ca7c768972dc5ec960f3",
+      "oldNativeBounds": [
+        1.0524259507656097,
+        0.6239999830722809,
+        1.906955361366272
+      ],
+      "newNativeBounds": [
+        1.0381618440151215,
+        0.6953046917915344,
+        1.710289716720581
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "spear",
+      "publishedReferenceFile": "reconstruction-references/defenders/917ed51ca699f34a3616fbb3c43656818948a00a45d1cfc6828322d03422dfd3.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/soldier-1.png",
+        "sha256": "917ed51ca699f34a3616fbb3c43656818948a00a45d1cfc6828322d03422dfd3"
+      }
+    },
+    {
+      "id": "soldier-2",
+      "file": "defenders/soldier-2.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/soldier-2.glb",
+      "sourceGlbSha256": "e6466cbcc23a8679b30f777f7679dca932684920c02921a2ed5f108f582a28cd",
+      "copiedGlbSha256": "e6466cbcc23a8679b30f777f7679dca932684920c02921a2ed5f108f582a28cd",
+      "sourceNativeSha256": "f9b90c7811e96542643d54d2c8de9cc6b40b78131d9b37c11d9f2cc5db85256e",
+      "portrait": "portraits/soldier-2.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/soldier-2/isometric.png",
+      "portraitSha256": "8583f5cbe047d631b643d04413b0f0cc4283b774cf1fb7b21dddbe8e046981c9",
+      "oldNativeBounds": [
+        1.1041508316993713,
+        0.6061989367008209,
+        1.8584853410720825
+      ],
+      "newNativeBounds": [
+        1.1112814545631409,
+        0.720929741859436,
+        1.6319999694824219
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "sword",
+      "publishedReferenceFile": "reconstruction-references/defenders/39a4fc30ba8d512b78e8b49505ae7b7e5a3e9db75507c1f936c769fcf37271a9.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/soldier-2.png",
+        "sha256": "39a4fc30ba8d512b78e8b49505ae7b7e5a3e9db75507c1f936c769fcf37271a9"
+      }
+    },
+    {
+      "id": "soldier-3",
+      "file": "defenders/soldier-3.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/soldier-3.glb",
+      "sourceGlbSha256": "f7c4c2795ee248e59ed440d9a23a08940ae1e207eea527503f38283202eb54aa",
+      "copiedGlbSha256": "f7c4c2795ee248e59ed440d9a23a08940ae1e207eea527503f38283202eb54aa",
+      "sourceNativeSha256": "c258779bc86cd59f101b44138d55f8b4ab6670af8ad511f561a1b2c6ff60515d",
+      "portrait": "portraits/soldier-3.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/soldier-3/isometric.png",
+      "portraitSha256": "de665bc72950d06e3d31c91b184ac371a7b8c8c30410c01be893dee49ccfc1ce",
+      "oldNativeBounds": [
+        1.363636314868927,
+        0.8211524486541748,
+        1.835744023323059
+      ],
+      "newNativeBounds": [
+        1.3932862281799316,
+        0.7746484875679016,
+        1.6640000343322754
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "sword",
+      "publishedReferenceFile": "reconstruction-references/defenders/4bdbc5edd58a35b2185dd63aab1e75dbf343a82fa7489658f784604191e418aa.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/soldier-3.png",
+        "sha256": "4bdbc5edd58a35b2185dd63aab1e75dbf343a82fa7489658f784604191e418aa"
+      }
+    },
+    {
+      "id": "soldier-4",
+      "file": "defenders/soldier-4.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/soldier-4.glb",
+      "sourceGlbSha256": "546b41b283253246d1dce651b68802d882e574cb2f728783b5dd0de1535f53d0",
+      "copiedGlbSha256": "546b41b283253246d1dce651b68802d882e574cb2f728783b5dd0de1535f53d0",
+      "sourceNativeSha256": "f1e0bb893ed7c50899093505df0e2638570e341520a0d8e9dbbe3f0e378eef3c",
+      "portrait": "portraits/soldier-4.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/soldier-4/isometric.png",
+      "portraitSha256": "8e25590f207c41dbe9229acb019210799ffad9c3dfc398855c8b210fda0adb4d",
+      "oldNativeBounds": [
+        1.3892045617103577,
+        0.8425000011920929,
+        1.7567949295043945
+      ],
+      "newNativeBounds": [
+        1.424912691116333,
+        0.7895455360412598,
+        1.6959999799728394
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "sword",
+      "publishedReferenceFile": "reconstruction-references/defenders/f09f4f5cce5961be363de6895327f460713d90dd4a2e4ae1ba5dd3f051fac3ba.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/soldier-4.png",
+        "sha256": "f09f4f5cce5961be363de6895327f460713d90dd4a2e4ae1ba5dd3f051fac3ba"
+      }
+    },
+    {
+      "id": "soldier-5",
+      "file": "defenders/soldier-5.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/soldier-5.glb",
+      "sourceGlbSha256": "b0ea7a3ebe8e558ca16186852ad16cbca9e869557757986a524839830695f2d1",
+      "copiedGlbSha256": "b0ea7a3ebe8e558ca16186852ad16cbca9e869557757986a524839830695f2d1",
+      "sourceNativeSha256": "109aaffee3291cd1644d08ead8595615fab9535eec5e262e4ba2aa5d10386ded",
+      "portrait": "portraits/soldier-5.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/soldier-5/isometric.png",
+      "portraitSha256": "aaed879422310d84b07a44d8cb28a4d8f75c3d75911134927614725eb652da92",
+      "oldNativeBounds": [
+        1.3789772391319275,
+        0.8425000011920929,
+        1.8313002586364746
+      ],
+      "newNativeBounds": [
+        1.4587538242340088,
+        0.8044426739215851,
+        1.7280000448226929
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "sword",
+      "publishedReferenceFile": "reconstruction-references/defenders/7ef08539aaef110495be1f9c94966128f1fa5ebcd5b41c14895104584d6da937.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/soldier-5.png",
+        "sha256": "7ef08539aaef110495be1f9c94966128f1fa5ebcd5b41c14895104584d6da937"
+      }
+    },
+    {
+      "id": "soldier-6",
+      "file": "defenders/soldier-6.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/soldier-6.glb",
+      "sourceGlbSha256": "b1fd6dedde342088f639292153e01d40cfa1ee7d9a022b6ab0104e53f1213b7b",
+      "copiedGlbSha256": "b1fd6dedde342088f639292153e01d40cfa1ee7d9a022b6ab0104e53f1213b7b",
+      "sourceNativeSha256": "66fe60c37a1370aa269f925b46fe23a868de904e96be0e0c1a1a7b1984c8eb9a",
+      "portrait": "portraits/soldier-6.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/soldier-6/isometric.png",
+      "portraitSha256": "9ebc8a4d775ba3b80c5f44749286edde56c27d9e7f5c9322c32173b82875d949",
+      "oldNativeBounds": [
+        1.3789772987365723,
+        0.9015731513500214,
+        1.845235824584961
+      ],
+      "newNativeBounds": [
+        1.47177255153656,
+        1.0505197048187256,
+        1.7599999904632568
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "sword",
+      "publishedReferenceFile": "reconstruction-references/defenders/e792c7774f2bf012411eb15f86a71b1cc8dcdb767d2a90172b7f6724cb835ea3.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/soldier-6.png",
+        "sha256": "e792c7774f2bf012411eb15f86a71b1cc8dcdb767d2a90172b7f6724cb835ea3"
+      }
+    },
+    {
+      "id": "archer-1",
+      "file": "defenders/archer-1.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/archer-1.glb",
+      "sourceGlbSha256": "84ee62c04d21217b68d6bfcba2ef9870af84f29319c9eef094469a14ad85407e",
+      "copiedGlbSha256": "84ee62c04d21217b68d6bfcba2ef9870af84f29319c9eef094469a14ad85407e",
+      "sourceNativeSha256": "ca06fcedafdd08fde4f0d77acaaf4b491157878e574bee212a2d9bacbd07fbc6",
+      "portrait": "portraits/archer-1.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/archer-1/isometric.png",
+      "portraitSha256": "d138cea7c83e3c069317f14164cdc8680955ee4315ff1dc756d213f834563e96",
+      "oldNativeBounds": [
+        1.3211897611618042,
+        0.9019084572792053,
+        1.8583076000213623
+      ],
+      "newNativeBounds": [
+        1.0935999751091003,
+        0.9739674925804138,
+        1.600000023841858
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/defenders/b1eadab3aa0ef59adc540d5b78ca51b203a0bd39ecd513c7384597152def8538.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/archer-1.png",
+        "sha256": "b1eadab3aa0ef59adc540d5b78ca51b203a0bd39ecd513c7384597152def8538"
+      }
+    },
+    {
+      "id": "archer-2",
+      "file": "defenders/archer-2.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/archer-2.glb",
+      "sourceGlbSha256": "e239ae42b51fe505c72efd6e5719b08f52b68ad214b5262c06b96939708a843d",
+      "copiedGlbSha256": "e239ae42b51fe505c72efd6e5719b08f52b68ad214b5262c06b96939708a843d",
+      "sourceNativeSha256": "f2c9df9bb01a613d72fc18c7ff769a6adba7c48131c07e3185d6e3b2c898a5ac",
+      "portrait": "portraits/archer-2.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/archer-2/isometric.png",
+      "portraitSha256": "2e09e025c19a27ea1baae601dd2dbf5d61a973ce487600edde2faf5ce95ada56",
+      "oldNativeBounds": [
+        1.3874852061271667,
+        0.9018933176994324,
+        1.769220232963562
+      ],
+      "newNativeBounds": [
+        1.1154719591140747,
+        0.9973061978816986,
+        1.6319999694824219
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/defenders/29d04353e68cdcd503f26a200174e81bfc59d11379b552350520bc86dbf9c14a.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/archer-2.png",
+        "sha256": "29d04353e68cdcd503f26a200174e81bfc59d11379b552350520bc86dbf9c14a"
+      }
+    },
+    {
+      "id": "archer-3",
+      "file": "defenders/archer-3.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/archer-3.glb",
+      "sourceGlbSha256": "d6af3779362528bb13762d281faed7c901fe09d3be4cf57466b376cd250e7a37",
+      "copiedGlbSha256": "d6af3779362528bb13762d281faed7c901fe09d3be4cf57466b376cd250e7a37",
+      "sourceNativeSha256": "d2269674c4431eaf7dc1cdb51e2efc5adf8335628a09403b1697fc61ad104a20",
+      "portrait": "portraits/archer-3.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/archer-3/isometric.png",
+      "portraitSha256": "309a833a0626b5a7b41b7b87681113f46bb6c7baede80b62e90a3fa0e2acae5a",
+      "oldNativeBounds": [
+        1.1760467886924744,
+        0.9019850492477417,
+        1.7644000053405762
+      ],
+      "newNativeBounds": [
+        1.1373440027236938,
+        1.0068772733211517,
+        1.6640000343322754
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/defenders/6380faff066acf219b9e17ec1ec6621c50b796729d2a6667cf999c5f14432c7b.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/archer-3.png",
+        "sha256": "6380faff066acf219b9e17ec1ec6621c50b796729d2a6667cf999c5f14432c7b"
+      }
+    },
+    {
+      "id": "archer-4",
+      "file": "defenders/archer-4.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/archer-4.glb",
+      "sourceGlbSha256": "290aef9097606a374c8ab91e913409a0db7cdb07243329ff08666e705dfe28b2",
+      "copiedGlbSha256": "290aef9097606a374c8ab91e913409a0db7cdb07243329ff08666e705dfe28b2",
+      "sourceNativeSha256": "d5bdd07773113be12c04fd108dbf177b6b1e7671b122f8ffee040458ec3f40d5",
+      "portrait": "portraits/archer-4.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/archer-4/isometric.png",
+      "portraitSha256": "0dc9ccf2daa71dec50d0fe1eca531515b01f04517a95ab0047d593e22cc7cdf1",
+      "oldNativeBounds": [
+        1.1275428533554077,
+        0.9023447632789612,
+        1.9983500242233276
+      ],
+      "newNativeBounds": [
+        1.326881229877472,
+        1.1600639820098877,
+        1.7892800569534302
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/defenders/513ed0f555708f9eb0e6710add5336e352cdfd7f4b9f567bd7293119dc1acee7.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/archer-4.png",
+        "sha256": "513ed0f555708f9eb0e6710add5336e352cdfd7f4b9f567bd7293119dc1acee7"
+      }
+    },
+    {
+      "id": "archer-5",
+      "file": "defenders/archer-5.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/archer-5.glb",
+      "sourceGlbSha256": "5a9ddda7467bcf45722925320194911d06ca929cec34e5a4d2caca82635db57a",
+      "copiedGlbSha256": "5a9ddda7467bcf45722925320194911d06ca929cec34e5a4d2caca82635db57a",
+      "sourceNativeSha256": "16a03acfd9a9b70da327b2e35be64ebce4e0c3ace2cb063c358f56afd751c065",
+      "portrait": "portraits/archer-5.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/archer-5/isometric.png",
+      "portraitSha256": "4dd1170bc44590037165b9c044bd1a8ff5e099051716abcc0d04506330d1f03a",
+      "oldNativeBounds": [
+        1.1045368313789368,
+        0.9112716317176819,
+        1.840563416481018
+      ],
+      "newNativeBounds": [
+        1.351916790008545,
+        1.1957759857177734,
+        1.8472321033477783
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/defenders/c0c441d711f3e4a9d6fb0ac2905113396013d46563e9173942fb8143beef6c8d.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/archer-5.png",
+        "sha256": "c0c441d711f3e4a9d6fb0ac2905113396013d46563e9173942fb8143beef6c8d"
+      }
+    },
+    {
+      "id": "archer-6",
+      "file": "defenders/archer-6.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/archer-6.glb",
+      "sourceGlbSha256": "0589f1cf358362e38a6b141651f6eb98248e917f32347eeb473cacd2d0675161",
+      "copiedGlbSha256": "0589f1cf358362e38a6b141651f6eb98248e917f32347eeb473cacd2d0675161",
+      "sourceNativeSha256": "90d0b7db694046c9793336a70d40d4c360888e835cb691286933d4730faab6a1",
+      "portrait": "portraits/archer-6.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/archer-6/isometric.png",
+      "portraitSha256": "095c7ba87d90fe2c0dc2a1fcd351e6bc7c19be006c9c57e2ee6fdde1b0d371a4",
+      "oldNativeBounds": [
+        1.1104655861854553,
+        0.9112720489501953,
+        1.8540983200073242
+      ],
+      "newNativeBounds": [
+        1.3769522905349731,
+        1.217919945716858,
+        1.8814400434494019
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/defenders/1e9e2a4ab9e03f1c9b5e6728b8ed28dd8e545fb1a433167614e68872132f030f.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/archer-6.png",
+        "sha256": "1e9e2a4ab9e03f1c9b5e6728b8ed28dd8e545fb1a433167614e68872132f030f"
+      }
+    },
+    {
+      "id": "mage-1",
+      "file": "defenders/mage-1.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/mage-1.glb",
+      "sourceGlbSha256": "e4543001b331f0530208c9449425e0788f68197d04ed806007d91ce2fe788748",
+      "copiedGlbSha256": "e4543001b331f0530208c9449425e0788f68197d04ed806007d91ce2fe788748",
+      "sourceNativeSha256": "b80232b68472194e7035f8909f858ca5cb029da4debf4f234635dd6196697b52",
+      "portrait": "portraits/mage-1.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/mage-1/isometric.png",
+      "portraitSha256": "e57af1495e01ae4755495276a9b37f84be388fc386a3f71aac4e5f1c64c603ef",
+      "oldNativeBounds": [
+        1.1242199540138245,
+        0.5276690125465393,
+        1.7101361751556396
+      ],
+      "newNativeBounds": [
+        1.2173675298690796,
+        0.6172165870666504,
+        1.604192994069308
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/9e1063d4401efed90166305b0ab0a77ef505e3743061b2e16641bd68207c522e.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/mage-1.png",
+        "sha256": "9e1063d4401efed90166305b0ab0a77ef505e3743061b2e16641bd68207c522e"
+      }
+    },
+    {
+      "id": "mage-2",
+      "file": "defenders/mage-2.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/mage-2.glb",
+      "sourceGlbSha256": "0fa060480ce82cf7fea110a6d63bcb84b9d50c1d810b43c7edb91a7b5c4a7ee8",
+      "copiedGlbSha256": "0fa060480ce82cf7fea110a6d63bcb84b9d50c1d810b43c7edb91a7b5c4a7ee8",
+      "sourceNativeSha256": "84a93f14dc754a2f8c5df64ac07bd396fed5cc1de4dca18c944fc1ff7ca0ed73",
+      "portrait": "portraits/mage-2.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/mage-2/isometric.png",
+      "portraitSha256": "a1cf1cc738582491d4c3551868fcfc67cfb8956010bd7320b9050603ec13eb04",
+      "oldNativeBounds": [
+        1.1242200136184692,
+        0.5815999805927277,
+        1.7096364498138428
+      ],
+      "newNativeBounds": [
+        1.2444012761116028,
+        0.833648681640625,
+        1.6361280912533402
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/b0869d7e8f944b48b038015ea0a5dc461c4ae921a7fd7eb4642cd2b5a8c18b70.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/mage-2.png",
+        "sha256": "b0869d7e8f944b48b038015ea0a5dc461c4ae921a7fd7eb4642cd2b5a8c18b70"
+      }
+    },
+    {
+      "id": "mage-3",
+      "file": "defenders/mage-3.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/mage-3.glb",
+      "sourceGlbSha256": "36105c0464b161aa412856ea211177ebfcbc1865adf68e3ee0f9f8757feca500",
+      "copiedGlbSha256": "36105c0464b161aa412856ea211177ebfcbc1865adf68e3ee0f9f8757feca500",
+      "sourceNativeSha256": "2dc8dc70420d000f36ac0248516bedfc8c85c3945997a5343e6749221c83ade0",
+      "portrait": "portraits/mage-3.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/mage-3/isometric.png",
+      "portraitSha256": "292d49a1d6c6545db5e674413de13ab9cbd3ceee952935d4f0371ad25e9b1c3c",
+      "oldNativeBounds": [
+        1.124220073223114,
+        0.5781638026237488,
+        1.7144615650177002
+      ],
+      "newNativeBounds": [
+        1.2900353074073792,
+        0.8304110169410706,
+        1.6682091001421213
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/c1ecc2578a237ed279340993446a518bc2b672150ab7edda1003e74414c1ce39.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/mage-3.png",
+        "sha256": "c1ecc2578a237ed279340993446a518bc2b672150ab7edda1003e74414c1ce39"
+      }
+    },
+    {
+      "id": "mage-4",
+      "file": "defenders/mage-4.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/mage-4.glb",
+      "sourceGlbSha256": "31ebed3c3540ad1fffd503212eaf2b0e5dae655bcef93d6b1c5be6d7c976bdf4",
+      "copiedGlbSha256": "31ebed3c3540ad1fffd503212eaf2b0e5dae655bcef93d6b1c5be6d7c976bdf4",
+      "sourceNativeSha256": "86d01513030e973331f00bf80073caa6b4091046f42eb1fd21ba59db4f86c3c9",
+      "portrait": "portraits/mage-4.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/mage-4/isometric.png",
+      "portraitSha256": "3a21ced4ef6fdf7abb8193e37615279e38f2d037edf5de484ff3cb0fbd3b7544",
+      "oldNativeBounds": [
+        1.171727180480957,
+        0.6569899916648865,
+        1.7146528959274292
+      ],
+      "newNativeBounds": [
+        1.359127402305603,
+        0.8570646345615387,
+        1.7002899888902903
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/c4c0b733016fb29d690d6bce644aea7454ce1351beac039a80d88cf44b60cf70.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/mage-4.png",
+        "sha256": "c4c0b733016fb29d690d6bce644aea7454ce1351beac039a80d88cf44b60cf70"
+      }
+    },
+    {
+      "id": "mage-5",
+      "file": "defenders/mage-5.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/mage-5.glb",
+      "sourceGlbSha256": "146250340f7cda2f2ece8befa2a4e742142ada1a46215fd452441ecafdb809e5",
+      "copiedGlbSha256": "146250340f7cda2f2ece8befa2a4e742142ada1a46215fd452441ecafdb809e5",
+      "sourceNativeSha256": "2ec02cdf46df906d61e92cea0166f912ba525cd291bc888806119e569b573736",
+      "portrait": "portraits/mage-5.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/mage-5/isometric.png",
+      "portraitSha256": "43bc27a76312e8dee410f38705e48707692174480c16e90642e142b1b989cb11",
+      "oldNativeBounds": [
+        1.2016358375549316,
+        0.6739934980869293,
+        1.8387272357940674
+      ],
+      "newNativeBounds": [
+        1.4295223951339722,
+        0.9489494264125824,
+        1.7323709977790713
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/b05d45b47375162cf1fcb6ae670079d873f21005a74ebc73730aa13e18d3faab.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/mage-5.png",
+        "sha256": "b05d45b47375162cf1fcb6ae670079d873f21005a74ebc73730aa13e18d3faab"
+      }
+    },
+    {
+      "id": "mage-6",
+      "file": "defenders/mage-6.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/mage-6.glb",
+      "sourceGlbSha256": "fddba35142bddc1315de83e11be30d0d9cfdf4f54552c5b1dea5e18179b0eca6",
+      "copiedGlbSha256": "fddba35142bddc1315de83e11be30d0d9cfdf4f54552c5b1dea5e18179b0eca6",
+      "sourceNativeSha256": "2c83dc74b7f8654cddbdf6b48ed84e3586210de9eb1bc3af00c4391f593a0118",
+      "portrait": "portraits/mage-6.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/mage-6/isometric.png",
+      "portraitSha256": "1c26bb266741254a33a90df9378b31eb2cff763aba1f167784fe8b6c12478449",
+      "oldNativeBounds": [
+        1.3294049501419067,
+        0.7034935057163239,
+        1.9250909090042114
+      ],
+      "newNativeBounds": [
+        1.4269200563430786,
+        1.0476400256156921,
+        1.7599999904632568
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/e6058a3724acca6c264477aa26463ba9bf87a6d4785dab3d1e4eb8829f81a84c.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/mage-6.png",
+        "sha256": "e6058a3724acca6c264477aa26463ba9bf87a6d4785dab3d1e4eb8829f81a84c"
+      }
+    },
+    {
+      "id": "frostwarden-1",
+      "file": "defenders/frostwarden-1.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-1.glb",
+      "sourceGlbSha256": "e1d3d31e2a15a67ea6a7a9fcdb15029c0106fc9ac49b7c0984be5f8c6160c4b1",
+      "copiedGlbSha256": "e1d3d31e2a15a67ea6a7a9fcdb15029c0106fc9ac49b7c0984be5f8c6160c4b1",
+      "sourceNativeSha256": "2f7fb7dddfe86ea3f123927b84cbdccb3d3a81ff030386932a39be5328d01ee5",
+      "portrait": "portraits/frostwarden-1.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/frostwarden-1/isometric.png",
+      "portraitSha256": "5ddf80e1f6783d865cf19980fafc85b9aab91ebf517240f88ce9b3fc7027b8d8",
+      "oldNativeBounds": [
+        1.070612370967865,
+        0.7671439945697784,
+        2.0799999237060547
+      ],
+      "newNativeBounds": [
+        1.165302336215973,
+        0.6927039921283722,
+        1.7264000177383423
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/663b91498efe67257156fc4c8e4e29f5e12b902a6a1e9ec1b7cef636427ce2b9.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/frostwarden-1.png",
+        "sha256": "663b91498efe67257156fc4c8e4e29f5e12b902a6a1e9ec1b7cef636427ce2b9"
+      }
+    },
+    {
+      "id": "frostwarden-2",
+      "file": "defenders/frostwarden-2.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-2.glb",
+      "sourceGlbSha256": "b9e1a28e849cd56a8b499959e1c97060e2e321e013e51eda344798deac0bb2f0",
+      "copiedGlbSha256": "b9e1a28e849cd56a8b499959e1c97060e2e321e013e51eda344798deac0bb2f0",
+      "sourceNativeSha256": "122b227500d85f0ccdf910be08c5eeee8e8787b8463a26088a7ddd8fafbed63f",
+      "portrait": "portraits/frostwarden-2.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/frostwarden-2/isometric.png",
+      "portraitSha256": "84e98ec870a3db75f312bd05bfeb2608008c2fe991119200f7f0b852acae29ed",
+      "oldNativeBounds": [
+        1.1428158283233643,
+        0.7778772115707397,
+        2.0799999237060547
+      ],
+      "newNativeBounds": [
+        1.2049283385276794,
+        0.6975820660591125,
+        1.8523199558258057
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/4f5d9c76836b45d5faca3e37e73fe6a54e1d8c26a1341102ee5d50a7938712d6.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/frostwarden-2.png",
+        "sha256": "4f5d9c76836b45d5faca3e37e73fe6a54e1d8c26a1341102ee5d50a7938712d6"
+      }
+    },
+    {
+      "id": "frostwarden-3",
+      "file": "defenders/frostwarden-3.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-3.glb",
+      "sourceGlbSha256": "35c70b2a23fa2042e28ef6d006b45f50e5484abe4624461ae3a731ce85c3b0dd",
+      "copiedGlbSha256": "35c70b2a23fa2042e28ef6d006b45f50e5484abe4624461ae3a731ce85c3b0dd",
+      "sourceNativeSha256": "d7ed8d769bed4ea767458e6d1b065d78f6a3e53d0dc200b6c6ef9f0438589266",
+      "portrait": "portraits/frostwarden-3.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/frostwarden-3/isometric.png",
+      "portraitSha256": "1e32df3284395201fb8c56226631768df49a8e9e0ece2ae8e73cf28f862547cd",
+      "oldNativeBounds": [
+        1.1035361886024475,
+        0.7949645221233368,
+        2.0799999237060547
+      ],
+      "newNativeBounds": [
+        1.4048495292663574,
+        0.8174459636211395,
+        1.795456051826477
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/38ca6afdd78f3f21f98f4bcc7f9ec1ea74352ecce4fe9f28c74ce4ee118e2bdc.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/frostwarden-3.png",
+        "sha256": "38ca6afdd78f3f21f98f4bcc7f9ec1ea74352ecce4fe9f28c74ce4ee118e2bdc"
+      }
+    },
+    {
+      "id": "frostwarden-4",
+      "file": "defenders/frostwarden-4.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-4.glb",
+      "sourceGlbSha256": "dcf7595e9564999f91e40af07a889c1635d8835b41fcf9ed132a5a35e7a02983",
+      "copiedGlbSha256": "dcf7595e9564999f91e40af07a889c1635d8835b41fcf9ed132a5a35e7a02983",
+      "sourceNativeSha256": "55da47818dfb759e24d6d65c48dae023b1fb099645bf2dab6455f33dc0b2d713",
+      "portrait": "portraits/frostwarden-4.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/frostwarden-4/isometric.png",
+      "portraitSha256": "6d2b49a9228453b94dbeab233a3f1edf2a3ff190038d5867ef094b49d8cfa41d",
+      "oldNativeBounds": [
+        1.123505711555481,
+        0.8141128718852997,
+        2.0799999237060547
+      ],
+      "newNativeBounds": [
+        1.4318658113479614,
+        0.833166092634201,
+        1.8299839496612549
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/2ddddad8e912a2c103fcc8beb44fe20873897b7fb66c0ff79ea21496643a73bc.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/frostwarden-4.png",
+        "sha256": "2ddddad8e912a2c103fcc8beb44fe20873897b7fb66c0ff79ea21496643a73bc"
+      }
+    },
+    {
+      "id": "frostwarden-5",
+      "file": "defenders/frostwarden-5.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-5.glb",
+      "sourceGlbSha256": "21c9c34586a48aa3fb637e631f3a6565036f4d1cfb1280fee3498989a2b850f3",
+      "copiedGlbSha256": "21c9c34586a48aa3fb637e631f3a6565036f4d1cfb1280fee3498989a2b850f3",
+      "sourceNativeSha256": "ba1ee85816b04fe243d98113ca47dca5e414bc2b4ec6a6caa7484d8c9245923d",
+      "portrait": "portraits/frostwarden-5.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/frostwarden-5/isometric.png",
+      "portraitSha256": "eddd2992fa78099afec7133265680a22f46b8888138894ef9a1ba008cf84ebc2",
+      "oldNativeBounds": [
+        1.2139513492584229,
+        0.7646161615848541,
+        2.0799999237060547
+      ],
+      "newNativeBounds": [
+        1.5215473175048828,
+        0.9308510422706604,
+        1.8645120859146118
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/97b7e03afdea8276141332de49482d35da7c9b3421e0c1d66f742adcfe7afc78.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/frostwarden-5.png",
+        "sha256": "97b7e03afdea8276141332de49482d35da7c9b3421e0c1d66f742adcfe7afc78"
+      }
+    },
+    {
+      "id": "frostwarden-6",
+      "file": "defenders/frostwarden-6.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-6.glb",
+      "sourceGlbSha256": "1a4db891328ee77bb2ee7a6ac61a41fa2b8a60bec245e4cf4e7a864f0a88a424",
+      "copiedGlbSha256": "1a4db891328ee77bb2ee7a6ac61a41fa2b8a60bec245e4cf4e7a864f0a88a424",
+      "sourceNativeSha256": "18f8543f34057589b44196a0a5bddefc9f3f406b1c02a386eae5e37bae1824b3",
+      "portrait": "portraits/frostwarden-6.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/frostwarden-6/isometric.png",
+      "portraitSha256": "17c6def8ed6813f291a8eb672e3011a10b5be30f2b84f52b2462146528ca01ce",
+      "oldNativeBounds": [
+        1.220691442489624,
+        0.7982811629772186,
+        2.0799999237060547
+      ],
+      "newNativeBounds": [
+        1.6878840923309326,
+        0.9480889737606049,
+        2.099679946899414
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/49007ec90f5de6795b93c6dcb1566bab9b9712b4251985571fa5d8828e19f2f0.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/frostwarden-6.png",
+        "sha256": "49007ec90f5de6795b93c6dcb1566bab9b9712b4251985571fa5d8828e19f2f0"
+      }
+    },
+    {
+      "id": "stormcaller-1",
+      "file": "defenders/stormcaller-1.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-1.glb",
+      "sourceGlbSha256": "9ef495a0410ba07bf759d38a834a4570223bc59df575bace618984dfb1a6a7b9",
+      "copiedGlbSha256": "9ef495a0410ba07bf759d38a834a4570223bc59df575bace618984dfb1a6a7b9",
+      "sourceNativeSha256": "7d1e7f7ee5be7bbb52673b37d1c38352dee861efe81f0ea30ea6e0284359d194",
+      "portrait": "portraits/stormcaller-1.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/stormcaller-1/isometric.png",
+      "portraitSha256": "3a41500dd619f97474e0a242d17ad80c76d77bf6dfaf0e11037cbcc47d0f75b7",
+      "oldNativeBounds": [
+        1.2846388220787048,
+        0.5490761399269104,
+        1.464470624923706
+      ],
+      "newNativeBounds": [
+        1.2677857875823975,
+        1.0162707567214966,
+        1.600000023841858
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/904eb95be360352cdd982e4746579d2f49ca7021dbd884790e380e9ff0627e9a.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/stormcaller-1.png",
+        "sha256": "904eb95be360352cdd982e4746579d2f49ca7021dbd884790e380e9ff0627e9a"
+      }
+    },
+    {
+      "id": "stormcaller-2",
+      "file": "defenders/stormcaller-2.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-2.glb",
+      "sourceGlbSha256": "9739667c3fa1d2e6801df8f8c76412d3b4318b35c0622dac7c605807a2951029",
+      "copiedGlbSha256": "9739667c3fa1d2e6801df8f8c76412d3b4318b35c0622dac7c605807a2951029",
+      "sourceNativeSha256": "9306021f494fbf7accc41d9d97930ab796f8e9b52ff94fa0fb7d4c8262ff4c1a",
+      "portrait": "portraits/stormcaller-2.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/stormcaller-2/isometric.png",
+      "portraitSha256": "c0548b035d40c0a46470154896224f4f2966bce903cc0959d57b4928fe886a19",
+      "oldNativeBounds": [
+        1.2585334777832031,
+        0.5960796773433685,
+        1.4733102321624756
+      ],
+      "newNativeBounds": [
+        1.2967742085456848,
+        1.0526334643363953,
+        1.6319999694824219
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/59790d4ef36a25c1460a8c15b85a6fe0ac0e6f1121b5c70a910d9373217202a4.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/stormcaller-2.png",
+        "sha256": "59790d4ef36a25c1460a8c15b85a6fe0ac0e6f1121b5c70a910d9373217202a4"
+      }
+    },
+    {
+      "id": "stormcaller-3",
+      "file": "defenders/stormcaller-3.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-3.glb",
+      "sourceGlbSha256": "d1bca9f3ac2205c879f67f20328fd0049d560689b67f927440cc07ea36d539b2",
+      "copiedGlbSha256": "d1bca9f3ac2205c879f67f20328fd0049d560689b67f927440cc07ea36d539b2",
+      "sourceNativeSha256": "eb1970ea1e3a580092badd73bdcb3b2979d4684f2a52be06f50169cfa88da954",
+      "portrait": "portraits/stormcaller-3.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/stormcaller-3/isometric.png",
+      "portraitSha256": "93932bba363e2751a3ce5db52e30b1ba376a95a0fa571c665bbc8e95b40fdb48",
+      "oldNativeBounds": [
+        1.3572608828544617,
+        0.6058622896671295,
+        1.5040087699890137
+      ],
+      "newNativeBounds": [
+        1.3314610123634338,
+        1.0798530876636505,
+        1.6640000343322754
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/4e891ceed929e0d2a953bb8bcdedd5d264d1df1ddc17c3be8455ea7e1f841c9e.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/stormcaller-3.png",
+        "sha256": "4e891ceed929e0d2a953bb8bcdedd5d264d1df1ddc17c3be8455ea7e1f841c9e"
+      }
+    },
+    {
+      "id": "stormcaller-4",
+      "file": "defenders/stormcaller-4.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-4.glb",
+      "sourceGlbSha256": "1a231f66b227cd658f57c5197ecd5552e38cb2194b5e59e5233de13c280c1e6b",
+      "copiedGlbSha256": "1a231f66b227cd658f57c5197ecd5552e38cb2194b5e59e5233de13c280c1e6b",
+      "sourceNativeSha256": "6a70492f375102f44d95f923a1bd346d4cd27e0dbed7b6acc0e02512243788b2",
+      "portrait": "portraits/stormcaller-4.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/stormcaller-4/isometric.png",
+      "portraitSha256": "395a9a6c19f6eb5290600088fb91b3ff35781a3edd2d24f8b4c3c33be56082d9",
+      "oldNativeBounds": [
+        1.2349390983581543,
+        0.5948833525180817,
+        1.4716616868972778
+      ],
+      "newNativeBounds": [
+        1.3910425901412964,
+        1.1522035598754883,
+        1.6959999799728394
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/f2d05b5a03c09fcbab161bdf38133da1c3addaec4e096dacb17cdd6e7370857e.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/stormcaller-4.png",
+        "sha256": "f2d05b5a03c09fcbab161bdf38133da1c3addaec4e096dacb17cdd6e7370857e"
+      }
+    },
+    {
+      "id": "stormcaller-5",
+      "file": "defenders/stormcaller-5.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-5.glb",
+      "sourceGlbSha256": "c2fff595c0ef1f1dd8308ce2555509c453c6f438f57475eab5a72485243c96c5",
+      "copiedGlbSha256": "c2fff595c0ef1f1dd8308ce2555509c453c6f438f57475eab5a72485243c96c5",
+      "sourceNativeSha256": "a2e60953cd6dc3c83789b009bc26cd44d5126144af2cce9a1b8b361afe9fdab2",
+      "portrait": "portraits/stormcaller-5.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/stormcaller-5/isometric.png",
+      "portraitSha256": "6f68c6a67c19fe4937e9385ff095ba9252c5697c170939a5a09d5f713b21edcb",
+      "oldNativeBounds": [
+        1.3361946940422058,
+        0.6016583442687988,
+        1.5249879360198975
+      ],
+      "newNativeBounds": [
+        1.5756089687347412,
+        1.138154149055481,
+        1.7505476474761963
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/d84955c7e791a6c22f1eb9feb15baf9f7d18079407ea42c3fc6a4dd350bb04ff.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/stormcaller-5.png",
+        "sha256": "d84955c7e791a6c22f1eb9feb15baf9f7d18079407ea42c3fc6a4dd350bb04ff"
+      }
+    },
+    {
+      "id": "stormcaller-6",
+      "file": "defenders/stormcaller-6.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-6.glb",
+      "sourceGlbSha256": "f603f6b8fd4fca9fcf751fb84146236304f5b3cd8a1be1ea2466cf6a50f9569c",
+      "copiedGlbSha256": "f603f6b8fd4fca9fcf751fb84146236304f5b3cd8a1be1ea2466cf6a50f9569c",
+      "sourceNativeSha256": "7b9d9610157aaec71cd70b29e64c580de7b2578898a00a6c6f362b28159e40c9",
+      "portrait": "portraits/stormcaller-6.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/stormcaller-6/isometric.png",
+      "portraitSha256": "d1279604e875a87f441fcce0febe1b7d9e0ccf8245a83b7230dce5a2d49cf754",
+      "oldNativeBounds": [
+        1.2035017609596252,
+        0.5966916084289551,
+        1.5332207679748535
+      ],
+      "newNativeBounds": [
+        1.6047869324684143,
+        1.1592309474945068,
+        1.7829651832580566
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/ed4ecbabe98d093c47a1e3de1977288ddc1dc973f1805a0c0f07405d0baf7f2c.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/stormcaller-6.png",
+        "sha256": "ed4ecbabe98d093c47a1e3de1977288ddc1dc973f1805a0c0f07405d0baf7f2c"
+      }
+    },
+    {
+      "id": "cleric-1",
+      "file": "defenders/cleric-1.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/cleric-1.glb",
+      "sourceGlbSha256": "5608af5e191ad52be7e8eb000a71f78a59a371038760d472ae2dcb0870cc76c5",
+      "copiedGlbSha256": "5608af5e191ad52be7e8eb000a71f78a59a371038760d472ae2dcb0870cc76c5",
+      "sourceNativeSha256": "92832c07a56c512738fd841c6686041cf15053d122ece822ddadb0d53e55a9f1",
+      "portrait": "portraits/cleric-1.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/cleric-1/isometric.png",
+      "portraitSha256": "ccf896ff87de30387c1a9af8baf4b9e2953f89e27b0a3eb10e812c649f421656",
+      "oldNativeBounds": [
+        1.1010732650756836,
+        0.5582994818687439,
+        1.7224137783050537
+      ],
+      "newNativeBounds": [
+        1.131667673587799,
+        0.6383999884128571,
+        1.600000023841858
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/714418ee5ca52796f587c5b4f02f1606298d274f7d75e2e93658c7a83d74b5a7.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/cleric-1.png",
+        "sha256": "714418ee5ca52796f587c5b4f02f1606298d274f7d75e2e93658c7a83d74b5a7"
+      }
+    },
+    {
+      "id": "cleric-2",
+      "file": "defenders/cleric-2.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/cleric-2.glb",
+      "sourceGlbSha256": "cfad514093710f2614ce8e156654a1afefbc35ba8b75a30518f97e9b2100ab34",
+      "copiedGlbSha256": "cfad514093710f2614ce8e156654a1afefbc35ba8b75a30518f97e9b2100ab34",
+      "sourceNativeSha256": "80eb281065c412b2214a780a67199713445fc0ccc189170edecb4f9df6894417",
+      "portrait": "portraits/cleric-2.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/cleric-2/isometric.png",
+      "portraitSha256": "7a6413a43e6713b0e0e3535a1cd1ac314946122bca6622babbd5b83cd5a2d994",
+      "oldNativeBounds": [
+        1.0259597897529602,
+        0.6079328656196594,
+        1.6981425285339355
+      ],
+      "newNativeBounds": [
+        1.1543009877204895,
+        0.5614079833030701,
+        1.6319999694824219
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/09b08bdc0227d0c977395187c16aeaccccf81f4e119a945e8621df59098d82e7.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/cleric-2.png",
+        "sha256": "09b08bdc0227d0c977395187c16aeaccccf81f4e119a945e8621df59098d82e7"
+      }
+    },
+    {
+      "id": "cleric-3",
+      "file": "defenders/cleric-3.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/cleric-3.glb",
+      "sourceGlbSha256": "a09b12e126578f400ec678c53b2b6170e3fe50e94604e29cd47179ecbda4e635",
+      "copiedGlbSha256": "a09b12e126578f400ec678c53b2b6170e3fe50e94604e29cd47179ecbda4e635",
+      "sourceNativeSha256": "a926b0087eb6bc8f671f0a62ad93917347c0d7c196bf26683dd105a5e5ee5343",
+      "portrait": "portraits/cleric-3.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/cleric-3/isometric.png",
+      "portraitSha256": "9f0b42cc975c906d95ca7b26d63a14f5e1dabff34a71243336b96b63a0891721",
+      "oldNativeBounds": [
+        1.0121783316135406,
+        0.6079183518886566,
+        1.696030855178833
+      ],
+      "newNativeBounds": [
+        1.1769343614578247,
+        0.5690880119800568,
+        1.6640000343322754
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/668d1953e8e927fe82e233620c17c9b44197056db86a7a2bbb1de4488193fbdb.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/cleric-3.png",
+        "sha256": "668d1953e8e927fe82e233620c17c9b44197056db86a7a2bbb1de4488193fbdb"
+      }
+    },
+    {
+      "id": "cleric-4",
+      "file": "defenders/cleric-4.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/cleric-4.glb",
+      "sourceGlbSha256": "ec54097f060be067c5e7a057f5b57b7e58e8a97e644f8e8455920923eb3b05f7",
+      "copiedGlbSha256": "ec54097f060be067c5e7a057f5b57b7e58e8a97e644f8e8455920923eb3b05f7",
+      "sourceNativeSha256": "e6588e948353dffaf4e655d35602b24a2757d95f8393f043000ce2ae6e115be4",
+      "portrait": "portraits/cleric-4.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/cleric-4/isometric.png",
+      "portraitSha256": "1f5a16dc638bf4934d5509cf03d7044eb5c97d940d4c6114748fa2a17fd5ebd2",
+      "oldNativeBounds": [
+        1.1812443137168884,
+        0.6795462071895599,
+        1.697455644607544
+      ],
+      "newNativeBounds": [
+        1.2999839782714844,
+        0.726245641708374,
+        1.6959999799728394
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/373703111af0d810e01bef90f2ce80b7dde292f59ef2cde060a03a6c28b7a774.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/cleric-4.png",
+        "sha256": "373703111af0d810e01bef90f2ce80b7dde292f59ef2cde060a03a6c28b7a774"
+      }
+    },
+    {
+      "id": "cleric-5",
+      "file": "defenders/cleric-5.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/cleric-5.glb",
+      "sourceGlbSha256": "69ad508eeced095f6317797214b8dbf54350110db4489b836cb14999bb1ad859",
+      "copiedGlbSha256": "69ad508eeced095f6317797214b8dbf54350110db4489b836cb14999bb1ad859",
+      "sourceNativeSha256": "42b6c4bc413431eff739425e8647746a99d8809cfadd8e99a2d61fa7b3d1f676",
+      "portrait": "portraits/cleric-5.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/cleric-5/isometric.png",
+      "portraitSha256": "e9c95e29088187028342c8a238d634d2b638014cc90586fb19a5e0c977447fe0",
+      "oldNativeBounds": [
+        1.1370902061462402,
+        0.6899931132793427,
+        1.6996809244155884
+      ],
+      "newNativeBounds": [
+        1.3245120644569397,
+        0.7399484217166901,
+        1.7280000448226929
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/785ae00a2f8f4d37d768ae68b9c8bd26f3cf85a655fe6b633b0c349e9d953897.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/cleric-5.png",
+        "sha256": "785ae00a2f8f4d37d768ae68b9c8bd26f3cf85a655fe6b633b0c349e9d953897"
+      }
+    },
+    {
+      "id": "cleric-6",
+      "file": "defenders/cleric-6.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/cleric-6.glb",
+      "sourceGlbSha256": "5fd321b35f96841c5fbcb0ae8ae951755e754d5896675b909430e1f0ad66d96d",
+      "copiedGlbSha256": "5fd321b35f96841c5fbcb0ae8ae951755e754d5896675b909430e1f0ad66d96d",
+      "sourceNativeSha256": "5a683153e315cbd076779709c4f3d569bfe6ab7aded38055280e403241352749",
+      "portrait": "portraits/cleric-6.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/cleric-6/isometric.png",
+      "portraitSha256": "e77710102f60acddb1e56f9913f6cc086d494d27cfa3dbc6d30b5cec7843eec6",
+      "oldNativeBounds": [
+        1.1227796077728271,
+        0.7098495066165924,
+        1.6977033615112305
+      ],
+      "newNativeBounds": [
+        1.4918054342269897,
+        0.8908748030662537,
+        1.7599999904632568
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/1a7f2529f4d6a2317316b23de38b3507ba09a9b893464e4bf934e440d62ff0f5.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/cleric-6.png",
+        "sha256": "1a7f2529f4d6a2317316b23de38b3507ba09a9b893464e4bf934e440d62ff0f5"
+      }
+    },
+    {
+      "id": "druid-1",
+      "file": "defenders/druid-1.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/druid-1.glb",
+      "sourceGlbSha256": "a4e9b077bc3866c1cd0c2f8a051220a516f25b1182fd2e83c68d9ea3e121d684",
+      "copiedGlbSha256": "a4e9b077bc3866c1cd0c2f8a051220a516f25b1182fd2e83c68d9ea3e121d684",
+      "sourceNativeSha256": "e366358cff28345a02733a6221050c380bf37d271c09515ef3210cb2b4133c30",
+      "portrait": "portraits/druid-1.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/druid-1/isometric.png",
+      "portraitSha256": "dd33a33e8fb2ae00d146cd94409ab04f1874842d81dde408fe2c68ced377374a",
+      "oldNativeBounds": [
+        1.1748098731040955,
+        0.5763207376003265,
+        1.9600000381469727
+      ],
+      "newNativeBounds": [
+        1.0948676466941833,
+        0.6879999935626984,
+        1.600000023841858
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/806910df23bb2285bcd0b4155cf1323350e39c4af53995221e89721c2c73dc85.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/druid-1.png",
+        "sha256": "806910df23bb2285bcd0b4155cf1323350e39c4af53995221e89721c2c73dc85"
+      }
+    },
+    {
+      "id": "druid-2",
+      "file": "defenders/druid-2.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/druid-2.glb",
+      "sourceGlbSha256": "8a790bea67dedf9e2176b7a09acab88b3ff439d6916e72e332d05def872a6f64",
+      "copiedGlbSha256": "8a790bea67dedf9e2176b7a09acab88b3ff439d6916e72e332d05def872a6f64",
+      "sourceNativeSha256": "cf04459a8f09787c46fe40d4ae7ca140f38b45a8a633f9bd3e31f657c5a939a3",
+      "portrait": "portraits/druid-2.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/druid-2/isometric.png",
+      "portraitSha256": "26cc47dc7310591ba0b844783e255549d5e5013e24b9082f1385e79b6ac3af90",
+      "oldNativeBounds": [
+        1.0827364921569824,
+        0.5647211372852325,
+        1.9600000381469727
+      ],
+      "newNativeBounds": [
+        1.1167649626731873,
+        0.7017599642276764,
+        1.6319999694824219
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/5f95c7dae568cacca1b9128cc3d03656ae274f61693ab8e709a6c4f9ee41913c.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/druid-2.png",
+        "sha256": "5f95c7dae568cacca1b9128cc3d03656ae274f61693ab8e709a6c4f9ee41913c"
+      }
+    },
+    {
+      "id": "druid-3",
+      "file": "defenders/druid-3.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/druid-3.glb",
+      "sourceGlbSha256": "29bacc1cfc40dac62059e984b5a126e66dfd43de8203a6d01617bdfc5b24a29f",
+      "copiedGlbSha256": "29bacc1cfc40dac62059e984b5a126e66dfd43de8203a6d01617bdfc5b24a29f",
+      "sourceNativeSha256": "6489c0a8aaca7df1e4de9161df9d9959270a35c27e03698fb867097713292b1a",
+      "portrait": "portraits/druid-3.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/druid-3/isometric.png",
+      "portraitSha256": "d5f16010f1bfa01afece5daf5bfe42141e8238f76c54538c63906d774fee23e5",
+      "oldNativeBounds": [
+        1.1305977702140808,
+        0.5838399231433868,
+        1.9600000381469727
+      ],
+      "newNativeBounds": [
+        1.1339969038963318,
+        0.7327587604522705,
+        1.6640000343322754
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/c6e3d24f64661217c461eea9fd0f9717219a4a15f2706009f253c577da1e9bc8.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/druid-3.png",
+        "sha256": "c6e3d24f64661217c461eea9fd0f9717219a4a15f2706009f253c577da1e9bc8"
+      }
+    },
+    {
+      "id": "druid-4",
+      "file": "defenders/druid-4.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/druid-4.glb",
+      "sourceGlbSha256": "d7d9345cacde5f33e5d6d5f0d54aaa0c571fef02c600e3c6a7796765ee8efc7f",
+      "copiedGlbSha256": "d7d9345cacde5f33e5d6d5f0d54aaa0c571fef02c600e3c6a7796765ee8efc7f",
+      "sourceNativeSha256": "17c649d5c520d5f473606c3ddc397e363bac694cc7c43051234f8c1a26b7a6ee",
+      "portrait": "portraits/druid-4.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/druid-4/isometric.png",
+      "portraitSha256": "bf2ad963bcc05ef89b69d3acfbf2f9d0ab8af907c54fb4cb6e5329e40493d286",
+      "oldNativeBounds": [
+        1.0768525004386902,
+        0.5908499360084534,
+        1.943750023841858
+      ],
+      "newNativeBounds": [
+        1.251615285873413,
+        0.7938539683818817,
+        1.696000099182129
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/9b789be0711dd88d5f72465d283084e1fbf4dbdc41a3f00819354a183a722e49.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/druid-4.png",
+        "sha256": "9b789be0711dd88d5f72465d283084e1fbf4dbdc41a3f00819354a183a722e49"
+      }
+    },
+    {
+      "id": "druid-5",
+      "file": "defenders/druid-5.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/druid-5.glb",
+      "sourceGlbSha256": "71229e4cfc50e509d278c8ec260734ae11793b616aa7e468274075b6af1a26c2",
+      "copiedGlbSha256": "71229e4cfc50e509d278c8ec260734ae11793b616aa7e468274075b6af1a26c2",
+      "sourceNativeSha256": "2d4d24ddc95aff570524b7c480424f993d1b5fdca61daf248499b06f6927bb55",
+      "portrait": "portraits/druid-5.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/druid-5/isometric.png",
+      "portraitSha256": "ad2b48a10acec37750a0022f2a619f524a1f83fd1621fa297f695c90f466551e",
+      "oldNativeBounds": [
+        1.1109474897384644,
+        0.5953925848007202,
+        1.943750023841858
+      ],
+      "newNativeBounds": [
+        1.2872770428657532,
+        0.8088323175907135,
+        1.7279999256134033
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/855b295f2c3787d32199d3bd3f97d852502475072777b8947edb9356de58d33b.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/druid-5.png",
+        "sha256": "855b295f2c3787d32199d3bd3f97d852502475072777b8947edb9356de58d33b"
+      }
+    },
+    {
+      "id": "druid-6",
+      "file": "defenders/druid-6.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/druid-6.glb",
+      "sourceGlbSha256": "86a56b0a8d017d090326368fc97e5278febe81b3b188052da9dfe1d81e5af74b",
+      "copiedGlbSha256": "86a56b0a8d017d090326368fc97e5278febe81b3b188052da9dfe1d81e5af74b",
+      "sourceNativeSha256": "b505e2e11132925ab2d8ebff4306dc08a80204ee491abaf75879e62caf9750bd",
+      "portrait": "portraits/druid-6.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/druid-6/isometric.png",
+      "portraitSha256": "a12863e76953fe9c40965846bfba9166d9b76240efcbb3ceac9084f13b168efd",
+      "oldNativeBounds": [
+        1.2469256520271301,
+        0.5961812436580658,
+        1.943750023841858
+      ],
+      "newNativeBounds": [
+        1.311115562915802,
+        0.8238107264041901,
+        1.7599999904632568
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/defenders/2f9bbd6bd4dc8da0f511c147cf4111d1ab42aa40a032bc4fc2a991194edfa086.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/druid-6.png",
+        "sha256": "2f9bbd6bd4dc8da0f511c147cf4111d1ab42aa40a032bc4fc2a991194edfa086"
+      }
+    },
+    {
+      "id": "runebreaker-1",
+      "file": "defenders/runebreaker-1.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-1.glb",
+      "sourceGlbSha256": "b8ec609796019e8e3890a951ef80e2b3e0bbc74d1e2853e387b40d00dbcb3182",
+      "copiedGlbSha256": "b8ec609796019e8e3890a951ef80e2b3e0bbc74d1e2853e387b40d00dbcb3182",
+      "sourceNativeSha256": "8dbee5dc9ccb53b73fc4e2ecf5154e55ceb613ce8a67b1bf8dd0785cfc32fca8",
+      "portrait": "portraits/runebreaker-1.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/runebreaker-1/isometric.png",
+      "portraitSha256": "e04e78f286646b4a18b0338d5c193a4bfb9397125ec4162dc3b75e1dda6462f5",
+      "oldNativeBounds": [
+        1.6475144624710083,
+        0.6145231127738953,
+        1.6762311458587646
+      ],
+      "newNativeBounds": [
+        1.24526846408844,
+        0.7928000390529633,
+        1.600000023841858
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "hammer",
+      "publishedReferenceFile": "reconstruction-references/defenders/50bd25d0b4c26a031f99761319715d6dc71994d9a62dd8030aaf9e01584c4979.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/runebreaker-1.png",
+        "sha256": "50bd25d0b4c26a031f99761319715d6dc71994d9a62dd8030aaf9e01584c4979"
+      }
+    },
+    {
+      "id": "runebreaker-2",
+      "file": "defenders/runebreaker-2.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-2.glb",
+      "sourceGlbSha256": "f428bc099a6c910e95b3e033d620274b77c0130842e55217c6fb55631cc88a2d",
+      "copiedGlbSha256": "f428bc099a6c910e95b3e033d620274b77c0130842e55217c6fb55631cc88a2d",
+      "sourceNativeSha256": "afbb9d7e3e05f0c6a03a054dc08cff522f411b2891eb0a6b6d1c149f2ee955c7",
+      "portrait": "portraits/runebreaker-2.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/runebreaker-2/isometric.png",
+      "portraitSha256": "37c43d5a4bea3d1189a9431929c3ec2043ab760875365fd6626be2473d373165",
+      "oldNativeBounds": [
+        1.7344170212745667,
+        0.6441220641136169,
+        1.6768779754638672
+      ],
+      "newNativeBounds": [
+        1.278333842754364,
+        0.8102879822254181,
+        1.6319999694824219
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "hammer",
+      "publishedReferenceFile": "reconstruction-references/defenders/6435d3783c95865956950bf04730421e2728f61a393b1d4cca17c19b567689c4.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/runebreaker-2.png",
+        "sha256": "6435d3783c95865956950bf04730421e2728f61a393b1d4cca17c19b567689c4"
+      }
+    },
+    {
+      "id": "runebreaker-3",
+      "file": "defenders/runebreaker-3.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-3.glb",
+      "sourceGlbSha256": "80867919f404bab8fdfa85f6861ccf2299640a918c7c2b4f54b9a81831038915",
+      "copiedGlbSha256": "80867919f404bab8fdfa85f6861ccf2299640a918c7c2b4f54b9a81831038915",
+      "sourceNativeSha256": "f3df85a9c78d1cc08f56379ca82a24e4742b1e3424d70de60f6755a603525433",
+      "portrait": "portraits/runebreaker-3.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/runebreaker-3/isometric.png",
+      "portraitSha256": "ae78d7fef60c09e60ba8ec45eced0963987041e785a93059dfb8c90bf5420820",
+      "oldNativeBounds": [
+        1.5744293928146362,
+        0.60223388671875,
+        1.677699089050293
+      ],
+      "newNativeBounds": [
+        1.3033993244171143,
+        0.8315814733505249,
+        1.6640000343322754
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "hammer",
+      "publishedReferenceFile": "reconstruction-references/defenders/4b29cfde28866124875357da30ab2f2f2cf4422cb22f5b0f852f6faa451ff9f5.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/runebreaker-3.png",
+        "sha256": "4b29cfde28866124875357da30ab2f2f2cf4422cb22f5b0f852f6faa451ff9f5"
+      }
+    },
+    {
+      "id": "runebreaker-4",
+      "file": "defenders/runebreaker-4.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-4.glb",
+      "sourceGlbSha256": "fe62679938ca2f7f835e656abff344fc36c7e28d72000111c24fca41f4d85b42",
+      "copiedGlbSha256": "fe62679938ca2f7f835e656abff344fc36c7e28d72000111c24fca41f4d85b42",
+      "sourceNativeSha256": "272e5c45faffafff6dcacdadfbe2ac70c87e02d2d7761999d2bdef2a2a2ced0b",
+      "portrait": "portraits/runebreaker-4.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/runebreaker-4/isometric.png",
+      "portraitSha256": "0cff9fd6aa220d20b170687fb0d46996a07cfcd5309d67e77f2409bbc3791ba7",
+      "oldNativeBounds": [
+        1.7150173783302307,
+        0.6019701063632965,
+        1.6792161464691162
+      ],
+      "newNativeBounds": [
+        1.3089606165885925,
+        0.8382454216480255,
+        1.6959999799728394
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "hammer",
+      "publishedReferenceFile": "reconstruction-references/defenders/14437dfe02d9de529dda492879d54c54f2fca0f15424a4340a75b852c069bc43.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/runebreaker-4.png",
+        "sha256": "14437dfe02d9de529dda492879d54c54f2fca0f15424a4340a75b852c069bc43"
+      }
+    },
+    {
+      "id": "runebreaker-5",
+      "file": "defenders/runebreaker-5.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-5.glb",
+      "sourceGlbSha256": "651b5b2573d483df7d27aa32115899ca6b9ca60cf1f960f21e351d8e37972845",
+      "copiedGlbSha256": "651b5b2573d483df7d27aa32115899ca6b9ca60cf1f960f21e351d8e37972845",
+      "sourceNativeSha256": "cee22e7b0e4e3efeaffbb74e427b8683d5586ab4ca1269cf8e97b0d9c7bb0a86",
+      "portrait": "portraits/runebreaker-5.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/runebreaker-5/isometric.png",
+      "portraitSha256": "c7dfaf72ad64421d9c7188ab4626f03b588e665f4939ed9550f32181e71c6530",
+      "oldNativeBounds": [
+        1.839354157447815,
+        0.6427047252655029,
+        1.6778004169464111
+      ],
+      "newNativeBounds": [
+        1.3694769740104675,
+        0.8540613949298859,
+        1.7280000448226929
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "hammer",
+      "publishedReferenceFile": "reconstruction-references/defenders/dd97175837e92aaa2c19c8e8ae4753cddde14ee4be1340a42b9598c828c27545.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/runebreaker-5.png",
+        "sha256": "dd97175837e92aaa2c19c8e8ae4753cddde14ee4be1340a42b9598c828c27545"
+      }
+    },
+    {
+      "id": "runebreaker-6",
+      "file": "defenders/runebreaker-6.glb",
+      "sourceGlbFile": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-6.glb",
+      "sourceGlbSha256": "fbf799adef6967b6a240b99356de7651238cfbffe483112dc792ced940703811",
+      "copiedGlbSha256": "fbf799adef6967b6a240b99356de7651238cfbffe483112dc792ced940703811",
+      "sourceNativeSha256": "f5f53031cbd3b8ae3e8916bda12bf59772be4a6ad9b5250590e057c67bedcaee",
+      "portrait": "portraits/runebreaker-6.png",
+      "sourcePortrait": "output/design/basic-defenders-reconstruction-v7/final/renders/runebreaker-6/isometric.png",
+      "portraitSha256": "205bf0eedb715585df0fcc5f4c2b7df9753ade6005d31cb6faa5683250ba80e2",
+      "oldNativeBounds": [
+        1.769375741481781,
+        0.6667184829711914,
+        1.673563003540039
+      ],
+      "newNativeBounds": [
+        1.3948376774787903,
+        0.8795572817325592,
+        1.7599999904632568
+      ],
+      "presentationScale": 1,
+      "role": "humanoid",
+      "attackStyle": "hammer",
+      "publishedReferenceFile": "reconstruction-references/defenders/fbd63503bcfc84b349a52e0de59709d83d2731c240362893a173d90ed03a3b72.png",
+      "approvedAuthoringReference": {
+        "kind": "six-views",
+        "path": "public/geometric-modeling-references-v2/approved/towers/runebreaker-6.png",
+        "sha256": "fbd63503bcfc84b349a52e0de59709d83d2731c240362893a173d90ed03a3b72"
+      }
+    },
+    {
+      "id": "frostblade",
+      "file": "champions/frostblade.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/frostblade.glb",
+      "sourceGlbSha256": "632bae86e5467b0591732acd35ca45d6cfbe39224c3cdb6e20ebd60b27643d80",
+      "copiedGlbSha256": "632bae86e5467b0591732acd35ca45d6cfbe39224c3cdb6e20ebd60b27643d80",
+      "sourceNativeSha256": "2acaa19d3cc449806150258a0cab14492d3b8f85c21f2a0470d9c740f427cbd0",
+      "portrait": "portraits/frostblade.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/frostblade/isometric.png",
+      "portraitSha256": "8c3ec26d074ce6876347985774dbb2904d78a138bd5dba61a684b17821a71ceb",
+      "oldNativeBounds": [
+        1.0836000442504883,
+        1.9294517636299133,
+        2.510200023651123
+      ],
+      "newNativeBounds": [
+        1.1027343571186066,
+        2.005766987800598,
+        2.4800000190734863
+      ],
+      "presentationScale": 1,
+      "role": "mounted",
+      "attackStyle": "lance",
+      "publishedReferenceFile": "reconstruction-references/champions/999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/01-crown-feedback-v2.png",
+        "sha256": "999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0"
+      }
+    },
+    {
+      "id": "monk",
+      "file": "champions/monk.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/monk.glb",
+      "sourceGlbSha256": "0f41ee6a721dfa395c92516f8b3b0c532bccfe9df29de19ce884589a3d04ade9",
+      "copiedGlbSha256": "0f41ee6a721dfa395c92516f8b3b0c532bccfe9df29de19ce884589a3d04ade9",
+      "sourceNativeSha256": "944f2f13ddaadf9395fd1a03ef6f82380f9aa0d762d7966b9455dd9b5d1b59a4",
+      "portrait": "portraits/monk.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/monk/isometric.png",
+      "portraitSha256": "0e0ce110502fd4e31286b18c00cf13181ee54281c34540457784b7e3632f4ef1",
+      "oldNativeBounds": [
+        1.4613519310951233,
+        0.9409888386726379,
+        1.6073106527328491
+      ],
+      "newNativeBounds": [
+        0.9532490670681,
+        0.9099999964237213,
+        1.207000007852912
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/08-sacred.png",
+        "sha256": "72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3"
+      }
+    },
+    {
+      "id": "rimewatch",
+      "file": "champions/rimewatch.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/rimewatch.glb",
+      "sourceGlbSha256": "1d1179f4ff4f697fe3bdd259b5154eac7c14dc863637708709dfb0668af995f3",
+      "copiedGlbSha256": "1d1179f4ff4f697fe3bdd259b5154eac7c14dc863637708709dfb0668af995f3",
+      "sourceNativeSha256": "2d5e538fed5ff1998f02bc8f0f139401a39ee650ea725ca7892a3e7d52061e5c",
+      "portrait": "portraits/rimewatch.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/rimewatch/isometric.png",
+      "portraitSha256": "698647c2d10b14c312b991d5a00e562b8f870106f9375df1d263cdc6ce14d671",
+      "oldNativeBounds": [
+        0.9699999690055847,
+        1.3301691114902496,
+        1.6522928476333618
+      ],
+      "newNativeBounds": [
+        0.9820436537265778,
+        0.589252158999443,
+        1.4170186519622803
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "sword",
+      "publishedReferenceFile": "reconstruction-references/champions/999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/01-crown-feedback-v2.png",
+        "sha256": "999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0"
+      }
+    },
+    {
+      "id": "roseguard",
+      "file": "champions/roseguard.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/roseguard.glb",
+      "sourceGlbSha256": "5b501c242b280cc707b026ebc053179e7a8e4a67ac01a7722a2f969c07cb73cf",
+      "copiedGlbSha256": "5b501c242b280cc707b026ebc053179e7a8e4a67ac01a7722a2f969c07cb73cf",
+      "sourceNativeSha256": "3e0185cf67730ae9b67f5bb5ffbde76ad7a80495d4f994bfe5e95b6a37e2bb70",
+      "portrait": "portraits/roseguard.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/roseguard/isometric.png",
+      "portraitSha256": "fb8f08c6597d069266962e70823486a351cce55672f01dab4b5acf0262b6bedb",
+      "oldNativeBounds": [
+        1.0836000442504883,
+        1.9294517636299133,
+        2.510200023651123
+      ],
+      "newNativeBounds": [
+        1.6562284231185913,
+        2.005766987800598,
+        2.4173498153686523
+      ],
+      "presentationScale": 1,
+      "role": "mounted",
+      "attackStyle": "lance",
+      "publishedReferenceFile": "reconstruction-references/champions/999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/01-crown-feedback-v2.png",
+        "sha256": "999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0"
+      }
+    },
+    {
+      "id": "highking",
+      "file": "champions/highking.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/highking.glb",
+      "sourceGlbSha256": "6cbb1ac1720ef352534ad90beea266524a0dca37efce3a2f0a9600e0f9adf479",
+      "copiedGlbSha256": "6cbb1ac1720ef352534ad90beea266524a0dca37efce3a2f0a9600e0f9adf479",
+      "sourceNativeSha256": "6c0672ce9d0c61b16573efd0ad7827465b0b136e40832b122210efb7ec7af8f7",
+      "portrait": "portraits/highking.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/highking/isometric.png",
+      "portraitSha256": "9dfe8c2769a5f93c5efde3464481085d05467b02886edbfa5794fae2fb2a41cd",
+      "oldNativeBounds": [
+        1.3227171301841736,
+        0.9726371169090271,
+        1.8045951128005981
+      ],
+      "newNativeBounds": [
+        1.754842460155487,
+        2.0017677545547485,
+        2.222524404525757
+      ],
+      "presentationScale": 1,
+      "role": "mounted",
+      "attackStyle": "sword",
+      "publishedReferenceFile": "reconstruction-references/champions/999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/01-crown-feedback-v2.png",
+        "sha256": "999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0"
+      }
+    },
+    {
+      "id": "crownofages",
+      "file": "champions/crownofages.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/crownofages.glb",
+      "sourceGlbSha256": "0e7a0740cd8bf82285568df9d2fa1464e0be58e6ac0a3475a8fb24c1029a2586",
+      "copiedGlbSha256": "0e7a0740cd8bf82285568df9d2fa1464e0be58e6ac0a3475a8fb24c1029a2586",
+      "sourceNativeSha256": "1d49f7f018218c42d5190fb1fd69e3ceba7939c56f47d766583bc64a7f706fc0",
+      "portrait": "portraits/crownofages.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/crownofages/isometric.png",
+      "portraitSha256": "af34a0c0ccfd0569571a0181c085cfbaf2b3119e8992ed8e165d344d58bf526b",
+      "oldNativeBounds": [
+        1.5607394576072693,
+        0.8846018612384796,
+        1.809999942779541
+      ],
+      "newNativeBounds": [
+        1.591632068157196,
+        2.005766987800598,
+        2.114752769470215
+      ],
+      "presentationScale": 1,
+      "role": "mounted",
+      "attackStyle": "sword",
+      "publishedReferenceFile": "reconstruction-references/champions/999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/01-crown-feedback-v2.png",
+        "sha256": "999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0"
+      }
+    },
+    {
+      "id": "thornwarden",
+      "file": "champions/thornwarden.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/thornwarden.glb",
+      "sourceGlbSha256": "0b84567e4656444a2f52aac635de27406eb1af188c6774b08bff7590980f6602",
+      "copiedGlbSha256": "0b84567e4656444a2f52aac635de27406eb1af188c6774b08bff7590980f6602",
+      "sourceNativeSha256": "3eab8a923a06d659c5ce387a8b51bd2c5fb15d06a7c8a83f4a1a1a5a75996553",
+      "portrait": "portraits/thornwarden.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/thornwarden/isometric.png",
+      "portraitSha256": "ad6772df0b82818d82fab3afd0d8959f3b47c4609c48b8cf1f8cfe31aa266612",
+      "oldNativeBounds": [
+        1.2168999910354614,
+        0.790800005197525,
+        1.7210359573364258
+      ],
+      "newNativeBounds": [
+        0.8364408910274506,
+        0.5371073484420776,
+        1.0274662713054568
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/champions/fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/02-elves-feedback-v2.png",
+        "sha256": "fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5"
+      }
+    },
+    {
+      "id": "verdantguard",
+      "file": "champions/verdantguard.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/verdantguard.glb",
+      "sourceGlbSha256": "c8c1eeec2711255b08c971a6fda1b65f0c55b02a9280af9db8d135c707df9882",
+      "copiedGlbSha256": "c8c1eeec2711255b08c971a6fda1b65f0c55b02a9280af9db8d135c707df9882",
+      "sourceNativeSha256": "f9eda9ca8f440e301f34cc6ec84c30c614674514dbf51baaddef88de32f41de2",
+      "portrait": "portraits/verdantguard.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/verdantguard/isometric.png",
+      "portraitSha256": "dc252f5cc5277d9a8bf5fdde4c8aeba1cceaf8832026defed58904bf87ca59aa",
+      "oldNativeBounds": [
+        1.2168999910354614,
+        0.790800005197525,
+        1.7820508480072021
+      ],
+      "newNativeBounds": [
+        0.8364408910274506,
+        0.545126348733902,
+        1.0274662713054568
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/champions/fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/02-elves-feedback-v2.png",
+        "sha256": "fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5"
+      }
+    },
+    {
+      "id": "tempest",
+      "file": "champions/tempest.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/tempest.glb",
+      "sourceGlbSha256": "612f870f35c7a32a4723163365160a18df0b277426b6a196c19de25e042e4a09",
+      "copiedGlbSha256": "612f870f35c7a32a4723163365160a18df0b277426b6a196c19de25e042e4a09",
+      "sourceNativeSha256": "c662ef04df187ebb282a1f2962adee252e876b87a9801d0178a02989c690eac2",
+      "portrait": "portraits/tempest.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/tempest/isometric.png",
+      "portraitSha256": "36041cd495a8b93959ea234215099c695944bd86eef239a1cbcf0f5e7764ec8d",
+      "oldNativeBounds": [
+        1.5299999713897705,
+        0.6572889983654022,
+        1.9199999570846558
+      ],
+      "newNativeBounds": [
+        0.8913059830665588,
+        0.5044737905263901,
+        1.2900000552181154
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/02-elves-feedback-v2.png",
+        "sha256": "fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5"
+      }
+    },
+    {
+      "id": "stormcitadel",
+      "file": "champions/stormcitadel.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/stormcitadel.glb",
+      "sourceGlbSha256": "fd77d69fc78e7602ccf29d10878f78c9e643bcac9b04f0cd010936d713a28923",
+      "copiedGlbSha256": "fd77d69fc78e7602ccf29d10878f78c9e643bcac9b04f0cd010936d713a28923",
+      "sourceNativeSha256": "e49173713138eb57ef49cce8db10b6118ca239720714526741ea9667958bea4d",
+      "portrait": "portraits/stormcitadel.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/stormcitadel/isometric.png",
+      "portraitSha256": "0ecc2766ce171cdfb274024282cac4b923e0bb14a136824e7d033fa591600294",
+      "oldNativeBounds": [
+        1.4299999475479126,
+        0.749969094991684,
+        1.7800000607967377
+      ],
+      "newNativeBounds": [
+        1.3040000200271606,
+        0.5185455977916718,
+        1.2380000094417483
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/02-elves-feedback-v2.png",
+        "sha256": "fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5"
+      }
+    },
+    {
+      "id": "embercrown",
+      "file": "champions/embercrown.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/embercrown.glb",
+      "sourceGlbSha256": "c104f257648a91d40f5dc8e6560c910364ccaa9715aa0f1ed2da0f709590f908",
+      "copiedGlbSha256": "c104f257648a91d40f5dc8e6560c910364ccaa9715aa0f1ed2da0f709590f908",
+      "sourceNativeSha256": "41188a9f535c719e6f9ad744c4b00a83cebe1def9b1c92af9a4260265a2d7e57",
+      "portrait": "portraits/embercrown.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/embercrown/isometric.png",
+      "portraitSha256": "59ffa59d427266b3b88f1fdc3f40a93067c59bfb6e02864e39ea83ad58533b6a",
+      "oldNativeBounds": [
+        1.4772193431854248,
+        1.9709999561309814,
+        1.7899999618530273
+      ],
+      "newNativeBounds": [
+        1.0233070850372314,
+        1.444380760192871,
+        0.6999758835881948
+      ],
+      "presentationScale": 1,
+      "role": "creature",
+      "attackStyle": "breath",
+      "publishedReferenceFile": "reconstruction-references/champions/9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/03-dragons.png",
+        "sha256": "9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50"
+      }
+    },
+    {
+      "id": "worldfire",
+      "file": "champions/worldfire.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/worldfire.glb",
+      "sourceGlbSha256": "3205bee46d878877dc50074ac126af4b7861d6a6db1c7ccde4f3c6cc74727848",
+      "copiedGlbSha256": "3205bee46d878877dc50074ac126af4b7861d6a6db1c7ccde4f3c6cc74727848",
+      "sourceNativeSha256": "aa1a356bde1acae2aed88251e388a76c1421609eb4702940c078ca4f911eedd4",
+      "portrait": "portraits/worldfire.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/worldfire/isometric.png",
+      "portraitSha256": "fe7ac13355fe407a9898a0421ed28bfffdc35d5814a9129ec353bd387e7ec574",
+      "oldNativeBounds": [
+        2.2783565521240234,
+        2.1888703107833862,
+        1.8792777061462402
+      ],
+      "newNativeBounds": [
+        2.390267491340637,
+        2.099161148071289,
+        1.3586369920521975
+      ],
+      "presentationScale": 1,
+      "role": "creature",
+      "attackStyle": "breath",
+      "publishedReferenceFile": "reconstruction-references/champions/9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/03-dragons.png",
+        "sha256": "9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50"
+      }
+    },
+    {
+      "id": "starfall",
+      "file": "champions/starfall.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/starfall.glb",
+      "sourceGlbSha256": "b0507c6fcc469a6e644b37fb559646e19d8a5cd7daba300431da7704bed3db9c",
+      "copiedGlbSha256": "b0507c6fcc469a6e644b37fb559646e19d8a5cd7daba300431da7704bed3db9c",
+      "sourceNativeSha256": "66c006cd9564f4922a5db3dea64944fbc2fa75ee0eb7e6fb934a38c9c4ed1631",
+      "portrait": "portraits/starfall.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/starfall/isometric.png",
+      "portraitSha256": "29ce9553f9d68931536bd09ecd3518439a24cfcbec7a4cd5c006741f49a760a8",
+      "oldNativeBounds": [
+        2.0902857780456543,
+        0.8355810642242432,
+        1.2518548369407654
+      ],
+      "newNativeBounds": [
+        2.590470552444458,
+        0.5819999873638153,
+        1.6865370646119118
+      ],
+      "presentationScale": 1,
+      "role": "creature",
+      "attackStyle": "breath",
+      "publishedReferenceFile": "reconstruction-references/champions/9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/03-dragons.png",
+        "sha256": "9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50"
+      }
+    },
+    {
+      "id": "thunderheart",
+      "file": "champions/thunderheart.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/thunderheart.glb",
+      "sourceGlbSha256": "12726fa1b5c59f20746e712d9eecf5fa6d68b555bbe51f1ce69175fba13ee95e",
+      "copiedGlbSha256": "12726fa1b5c59f20746e712d9eecf5fa6d68b555bbe51f1ce69175fba13ee95e",
+      "sourceNativeSha256": "9e97c9fd573cc3d41a68d94285867d897154b150b98c7f4b384e2706e3aaf079",
+      "portrait": "portraits/thunderheart.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/thunderheart/isometric.png",
+      "portraitSha256": "e0a25b239ef6fe2782959f6900bf860951abb4b36b1c5e4b4e00a7b1a8ba8b3b",
+      "oldNativeBounds": [
+        2.585932731628418,
+        2.218999981880188,
+        2.2544000148773193
+      ],
+      "newNativeBounds": [
+        3.115389823913574,
+        2.5819682478904724,
+        1.6895224712789059
+      ],
+      "presentationScale": 1,
+      "role": "creature",
+      "attackStyle": "breath",
+      "publishedReferenceFile": "reconstruction-references/champions/9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/03-dragons.png",
+        "sha256": "9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50"
+      }
+    },
+    {
+      "id": "phoenix",
+      "file": "champions/phoenix.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/phoenix.glb",
+      "sourceGlbSha256": "2ca40b96d3d9c4757a477d3984e7ad984dace4b1318b35e074d6678898fca45b",
+      "copiedGlbSha256": "2ca40b96d3d9c4757a477d3984e7ad984dace4b1318b35e074d6678898fca45b",
+      "sourceNativeSha256": "bf735e4cf8d1619ef0913dbfbe9a333594a99fabbe0709e661bb61de2550687f",
+      "portrait": "portraits/phoenix.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/phoenix/isometric.png",
+      "portraitSha256": "882db962f8d6c2c3d2d40c70c72c71bdc99dca6e70e0a2d3b6a739b06fd7aa85",
+      "oldNativeBounds": [
+        2.277036428451538,
+        2.284999966621399,
+        2.108099937438965
+      ],
+      "newNativeBounds": [
+        4.079617738723755,
+        3.0647753477096558,
+        2.0781960785388947
+      ],
+      "presentationScale": 1,
+      "role": "creature",
+      "attackStyle": "breath",
+      "publishedReferenceFile": "reconstruction-references/champions/9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/03-dragons.png",
+        "sha256": "9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50"
+      }
+    },
+    {
+      "id": "greenheart",
+      "file": "champions/greenheart.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/greenheart.glb",
+      "sourceGlbSha256": "4461c41159738f9ba43af51af78110ada8808e7aec542562e8fe43de548bbe3f",
+      "copiedGlbSha256": "4461c41159738f9ba43af51af78110ada8808e7aec542562e8fe43de548bbe3f",
+      "sourceNativeSha256": "618796665b4462016217d7b0e4fb74af4cac416aea9b9f8abd165e592b19265b",
+      "portrait": "portraits/greenheart.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/greenheart/isometric.png",
+      "portraitSha256": "14f4fc2d972d5d6a5f5af5267ecd74e3136b0cd4438a602e46046d7747165600",
+      "oldNativeBounds": [
+        1.3468749523162842,
+        0.7100000083446503,
+        1.875
+      ],
+      "newNativeBounds": [
+        0.8953059911727905,
+        0.49201931059360504,
+        1.1180000046733767
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/05-nature.png",
+        "sha256": "5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1"
+      }
+    },
+    {
+      "id": "eldergrove",
+      "file": "champions/eldergrove.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/eldergrove.glb",
+      "sourceGlbSha256": "99ae37fddd536cdf294f0cb467e83d26c3300f132a34218261b9e28693713f7a",
+      "copiedGlbSha256": "99ae37fddd536cdf294f0cb467e83d26c3300f132a34218261b9e28693713f7a",
+      "sourceNativeSha256": "bea0f7b24cc1018bf8019814affc87b41df30e5286ee2c68204ebd3f855dd092",
+      "portrait": "portraits/eldergrove.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/eldergrove/isometric.png",
+      "portraitSha256": "9de07a26743c447cd3418f443d45bbbcb8a8c45c14c08b9c688222007cd91e64",
+      "oldNativeBounds": [
+        1.3883695602416992,
+        0.749969094991684,
+        1.940000057220459
+      ],
+      "newNativeBounds": [
+        0.8726058304309845,
+        0.5441382527351379,
+        1.2081489304546267
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/05-nature.png",
+        "sha256": "5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1"
+      }
+    },
+    {
+      "id": "kingsreach",
+      "file": "champions/kingsreach.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/kingsreach.glb",
+      "sourceGlbSha256": "c49075e7e8af5ef1d6961804000146b3354de082729ac4efb6031b67fcfd5859",
+      "copiedGlbSha256": "c49075e7e8af5ef1d6961804000146b3354de082729ac4efb6031b67fcfd5859",
+      "sourceNativeSha256": "b51eb9b7c96345ce34cdaa357a2480689d0d97156e9cd6e5f3d50c94122692d8",
+      "portrait": "portraits/kingsreach.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/kingsreach/isometric.png",
+      "portraitSha256": "49104a0bd75f8bfe1eb6fe5840833ab932e2140f9fc9ecc77929565b849dc776",
+      "oldNativeBounds": [
+        1.3209439516067505,
+        1.5580000281333923,
+        0.8500000277999789
+      ],
+      "newNativeBounds": [
+        1.2610000371932983,
+        1.5450000166893005,
+        0.7773826732300222
+      ],
+      "presentationScale": 1,
+      "role": "construct",
+      "attackStyle": "siege",
+      "publishedReferenceFile": "reconstruction-references/champions/d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/07-siege-feedback-v2.png",
+        "sha256": "d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e"
+      }
+    },
+    {
+      "id": "sunward",
+      "file": "champions/sunward.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/sunward.glb",
+      "sourceGlbSha256": "0238f5c9ba7c32be7eaea4ebf74a56acf26cd62498ab6fb7346a615886883cae",
+      "copiedGlbSha256": "0238f5c9ba7c32be7eaea4ebf74a56acf26cd62498ab6fb7346a615886883cae",
+      "sourceNativeSha256": "f619ead5b0ea598d431dcd3fc936022f5bacbacd49cb9ffa2b04585e66541c7b",
+      "portrait": "portraits/sunward.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/sunward/isometric.png",
+      "portraitSha256": "c30aafa00fe2a84a3039a63d756af84cff4268ec372d5546f0a9faf6738bef60",
+      "oldNativeBounds": [
+        1.3764193654060364,
+        0.6358000040054321,
+        1.9131499528884888
+      ],
+      "newNativeBounds": [
+        0.9601694345474243,
+        0.46942803263664246,
+        1.1759999897331
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/08-sacred.png",
+        "sha256": "72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3"
+      }
+    },
+    {
+      "id": "winterhold",
+      "file": "champions/winterhold.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/winterhold.glb",
+      "sourceGlbSha256": "879fe71acf8a8bd8a9e31146b7b9fd287a7b42ff0389f0b2eaed6a0bda7fd940",
+      "copiedGlbSha256": "879fe71acf8a8bd8a9e31146b7b9fd287a7b42ff0389f0b2eaed6a0bda7fd940",
+      "sourceNativeSha256": "8d8bbbc1ef52444d39e08f882b69746243c833b82c77da3047ed11c6693f83e4",
+      "portrait": "portraits/winterhold.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/winterhold/isometric.png",
+      "portraitSha256": "bcdce479848caab9f37b4b2980aa78177992a05fe5a0b7fdc44fd810f8885d7b",
+      "oldNativeBounds": [
+        1.7196558713912964,
+        0.7479999661445618,
+        1.7999999523162842
+      ],
+      "newNativeBounds": [
+        0.9999472200870514,
+        0.4834109991788864,
+        1.3959999717772007
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/04-celestial.png",
+        "sha256": "feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3"
+      }
+    },
+    {
+      "id": "dawnspire",
+      "file": "champions/dawnspire.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/dawnspire.glb",
+      "sourceGlbSha256": "c4bf720dbd869386b17503b17eb63aaf1d4f2c8c5ecb133c80e79087412bf4fd",
+      "copiedGlbSha256": "c4bf720dbd869386b17503b17eb63aaf1d4f2c8c5ecb133c80e79087412bf4fd",
+      "sourceNativeSha256": "725f9a14ff765278a64a2329d4b33278d6c126a8d08aa31df06fbaec287b38cd",
+      "portrait": "portraits/dawnspire.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/dawnspire/isometric.png",
+      "portraitSha256": "f449caf10d068e7d9cac5ed6af89c8d64972af16bdf676890a214c692ef9554d",
+      "oldNativeBounds": [
+        2.2023894786834717,
+        0.820058286190033,
+        1.9450000524520874
+      ],
+      "newNativeBounds": [
+        1.5146509408950806,
+        0.4963182061910629,
+        1.5113799553364515
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/04-celestial.png",
+        "sha256": "feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3"
+      }
+    },
+    {
+      "id": "royalmarshal",
+      "file": "champions/royalmarshal.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/royalmarshal.glb",
+      "sourceGlbSha256": "989069d95dbb826ba5f5267cdf735aa976c8fa60ab00089b8918a1516ae63412",
+      "copiedGlbSha256": "989069d95dbb826ba5f5267cdf735aa976c8fa60ab00089b8918a1516ae63412",
+      "sourceNativeSha256": "50f9f7d5cb4f1fc0bcc34af72e05a4c3b550c9d365a20eed7b528d032878abe1",
+      "portrait": "portraits/royalmarshal.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/royalmarshal/isometric.png",
+      "portraitSha256": "aeb24b3a570b4d1ce432cffd1214e4b9510e9ee0d16058bcf558eb27d9145c60",
+      "oldNativeBounds": [
+        1.310742974281311,
+        0.9230000078678131,
+        1.545105218887329
+      ],
+      "newNativeBounds": [
+        0.7090503573417664,
+        0.7272500097751617,
+        1.087399959564209
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "bomb",
+      "publishedReferenceFile": "reconstruction-references/champions/d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/07-siege-feedback-v2.png",
+        "sha256": "d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e"
+      }
+    },
+    {
+      "id": "stonewarden",
+      "file": "champions/stonewarden.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/stonewarden.glb",
+      "sourceGlbSha256": "7ddf30687ac5c3c789c61b3975811d5e19912c95845a239adaa8bc7f5fadf264",
+      "copiedGlbSha256": "7ddf30687ac5c3c789c61b3975811d5e19912c95845a239adaa8bc7f5fadf264",
+      "sourceNativeSha256": "d43502af5d80ca65009820e8091d7f255c20f2386a8215e9380832d5428d4275",
+      "portrait": "portraits/stonewarden.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/stonewarden/isometric.png",
+      "portraitSha256": "ad38d72fab04ea3b581709526af1f1af034967400c5af455094405c0a0d95ced",
+      "oldNativeBounds": [
+        1.1799999475479126,
+        1.3214982748031616,
+        1.5579999724868685
+      ],
+      "newNativeBounds": [
+        1.027000069618225,
+        1.2558827102184296,
+        1.3735309853218496
+      ],
+      "presentationScale": 1,
+      "role": "construct",
+      "attackStyle": "siege",
+      "publishedReferenceFile": "reconstruction-references/champions/d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/07-siege-feedback-v2.png",
+        "sha256": "d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e"
+      }
+    },
+    {
+      "id": "wyvernhunter",
+      "file": "champions/wyvernhunter.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/wyvernhunter.glb",
+      "sourceGlbSha256": "c63f101634a7c356bfc619f4bf3c58e05359e499229bfb57a2ba5db1848f3c90",
+      "copiedGlbSha256": "c63f101634a7c356bfc619f4bf3c58e05359e499229bfb57a2ba5db1848f3c90",
+      "sourceNativeSha256": "5b35862830ebf35590abe37332f8e3ce656046f356102e1022fdd8a5d83e9945",
+      "portrait": "portraits/wyvernhunter.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/wyvernhunter/isometric.png",
+      "portraitSha256": "a587ff6b85049ba7f24717ed122f3f9013a8c1effe032a4ca9324e685fb1b8da",
+      "oldNativeBounds": [
+        0.9699999690055847,
+        1.3710000216960907,
+        1.6694247722625732
+      ],
+      "newNativeBounds": [
+        1.2043147683143616,
+        0.6798506081104279,
+        1.123992774868384
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/champions/72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/06-rangers.png",
+        "sha256": "72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5"
+      }
+    },
+    {
+      "id": "royalarsenal",
+      "file": "champions/royalarsenal.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/royalarsenal.glb",
+      "sourceGlbSha256": "7dd3168122ed05c72b15d72c151e5af3d11b09d1098c485162463cce3d9d72c6",
+      "copiedGlbSha256": "7dd3168122ed05c72b15d72c151e5af3d11b09d1098c485162463cce3d9d72c6",
+      "sourceNativeSha256": "01b31527be1950aaa6b0cf37f7eb88943cba5bf845de6c7fab091ca5cd33b431",
+      "portrait": "portraits/royalarsenal.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/royalarsenal/isometric.png",
+      "portraitSha256": "2a1c718f30bb24478ac25bdf319784ce85b625ae070928eb7e8a7d75755586bc",
+      "oldNativeBounds": [
+        1.1799999475479126,
+        1.3080000281333923,
+        1.42799997725524
+      ],
+      "newNativeBounds": [
+        1.7061843872070312,
+        0.5185455977916718,
+        1.1820000151637942
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/02-elves-feedback-v2.png",
+        "sha256": "fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5"
+      }
+    },
+    {
+      "id": "rangermentor",
+      "file": "champions/rangermentor.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/rangermentor.glb",
+      "sourceGlbSha256": "e3530b4d47611692301da01762c32760c5ded0b53d564c32f1d3e282783b3158",
+      "copiedGlbSha256": "e3530b4d47611692301da01762c32760c5ded0b53d564c32f1d3e282783b3158",
+      "sourceNativeSha256": "26783b87cf02855a42559d7a2e3f327b073c4a319b7e1bf30e5063604b13d52e",
+      "portrait": "portraits/rangermentor.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/rangermentor/isometric.png",
+      "portraitSha256": "3e2536db48b722c761230a847c8a95d672a8f9a0a89367bb766a6c5a398c8031",
+      "oldNativeBounds": [
+        1.0868773460388184,
+        1.6169999837875366,
+        1.5379999876022339
+      ],
+      "newNativeBounds": [
+        0.8555794656276703,
+        0.5739659667015076,
+        1.1741128638386726
+      ],
+      "presentationScale": 1,
+      "role": "spirit",
+      "attackStyle": "focus",
+      "publishedReferenceFile": "reconstruction-references/champions/5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/05-nature.png",
+        "sha256": "5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1"
+      }
+    },
+    {
+      "id": "kingdomprotector",
+      "file": "champions/kingdomprotector.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/kingdomprotector.glb",
+      "sourceGlbSha256": "618746b4831f1482d192bc197a635007ce44a679c5db6c5194b3ccafad0cad6d",
+      "copiedGlbSha256": "618746b4831f1482d192bc197a635007ce44a679c5db6c5194b3ccafad0cad6d",
+      "sourceNativeSha256": "68c1ac9acd3bce15d6a73a731abdb2400294e18c15eac6dbecef23ed9232b957",
+      "portrait": "portraits/kingdomprotector.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/kingdomprotector/isometric.png",
+      "portraitSha256": "851371a34710b3371eb1a9c8942970235a680cab8ae64b92f66799f8a5dabe88",
+      "oldNativeBounds": [
+        1.574999988079071,
+        0.8691018521785736,
+        1.524999976158142
+      ],
+      "newNativeBounds": [
+        0.9953135848045349,
+        0.5938475430011749,
+        1.169379947707057
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "sword",
+      "publishedReferenceFile": "reconstruction-references/champions/72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/08-sacred.png",
+        "sha256": "72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3"
+      }
+    },
+    {
+      "id": "mothernature",
+      "file": "champions/mothernature.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/mothernature.glb",
+      "sourceGlbSha256": "6517645006ff75cdcdcc49a0e713768b37599ae8ca0136f0d82cc8def48e1ed7",
+      "copiedGlbSha256": "6517645006ff75cdcdcc49a0e713768b37599ae8ca0136f0d82cc8def48e1ed7",
+      "sourceNativeSha256": "9e0d3be11dc9808743703b447db190eef6164eed11b224e02d53c739727c291c",
+      "portrait": "portraits/mothernature.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/mothernature/isometric.png",
+      "portraitSha256": "c07d30c970bd3a46423e92594caec9ddf175bcba5f78cb05d711adaca877d242",
+      "oldNativeBounds": [
+        1.4759999513626099,
+        0.620980829000473,
+        2.0029999930411577
+      ],
+      "newNativeBounds": [
+        1.1772412061691284,
+        0.532679557800293,
+        1.161148879909888
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/05-nature.png",
+        "sha256": "5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1"
+      }
+    },
+    {
+      "id": "royalranger",
+      "file": "champions/royalranger.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/royalranger.glb",
+      "sourceGlbSha256": "013e87f9a6ec5eaf419eb12621b2642b88a7970fdd4b666f683c3e283c95be7f",
+      "copiedGlbSha256": "013e87f9a6ec5eaf419eb12621b2642b88a7970fdd4b666f683c3e283c95be7f",
+      "sourceNativeSha256": "095c33f028930fc4c2d37b191a53e0bd6fa5e5ecc7a01108c41c7e23b0422cf7",
+      "portrait": "portraits/royalranger.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/royalranger/isometric.png",
+      "portraitSha256": "1964b9fb4eb18461960eb6607521bf4a957bc8145f2c92c6e4161aa10dfb856f",
+      "oldNativeBounds": [
+        0.9699999690055847,
+        1.3710000216960907,
+        1.5052287578582764
+      ],
+      "newNativeBounds": [
+        1.2043147683143616,
+        0.6798506081104279,
+        1.1446816662792116
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/champions/72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/06-rangers.png",
+        "sha256": "72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5"
+      }
+    },
+    {
+      "id": "kingsrangerguard",
+      "file": "champions/kingsrangerguard.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/kingsrangerguard.glb",
+      "sourceGlbSha256": "918274128cd45e6636af8346da692457c65e594470dbaefed26c8a655e423f5d",
+      "copiedGlbSha256": "918274128cd45e6636af8346da692457c65e594470dbaefed26c8a655e423f5d",
+      "sourceNativeSha256": "d801711cb31c55063ba8142bb955b8e684ecc760e13be73e36f0a8e271a568a8",
+      "portrait": "portraits/kingsrangerguard.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/kingsrangerguard/isometric.png",
+      "portraitSha256": "40cda05a5b1d34e3c764d19baeebf0bf9b6c2ebcdc62967f26a0072708fc7ed3",
+      "oldNativeBounds": [
+        0.9699999690055847,
+        1.4460000395774841,
+        1.6274793148040771
+      ],
+      "newNativeBounds": [
+        1.258559226989746,
+        0.6990377306938171,
+        1.123992774868384
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/champions/72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/06-rangers.png",
+        "sha256": "72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5"
+      }
+    },
+    {
+      "id": "elvenking",
+      "file": "champions/elvenking.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/elvenking.glb",
+      "sourceGlbSha256": "0ee2f123fc0a68258fb94cc753c7da7530c890612f59a7861928d12baf3ddbea",
+      "copiedGlbSha256": "0ee2f123fc0a68258fb94cc753c7da7530c890612f59a7861928d12baf3ddbea",
+      "sourceNativeSha256": "d54eeeeccfaf3bd71b17b41cf1d4182fb7cd0af349e48ee7058d879da317b470",
+      "portrait": "portraits/elvenking.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/elvenking/isometric.png",
+      "portraitSha256": "e7fa4f13ce8a1a46bc9c6344d449cda4166e7639bf61324df1c57bd057d61b43",
+      "oldNativeBounds": [
+        1.2168999910354614,
+        0.8808000087738037,
+        1.8301752805709839
+      ],
+      "newNativeBounds": [
+        1.3015592694282532,
+        0.7030377388000488,
+        1.1634925345424563
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "bow",
+      "publishedReferenceFile": "reconstruction-references/champions/72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/06-rangers.png",
+        "sha256": "72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5"
+      }
+    },
+    {
+      "id": "fireballista",
+      "file": "champions/fireballista.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/fireballista.glb",
+      "sourceGlbSha256": "d9678ccea4c4405fb2827d97a31239d7b5156215bde72fc138f295734261e723",
+      "copiedGlbSha256": "d9678ccea4c4405fb2827d97a31239d7b5156215bde72fc138f295734261e723",
+      "sourceNativeSha256": "23f96234ab8a651d5f9ae186099ed02f6c8b5400a7486a795f565bc930f01b15",
+      "portrait": "portraits/fireballista.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/fireballista/isometric.png",
+      "portraitSha256": "a84830c2f639c558795a53e354af546beb638db0e8f28a13bd615a8f622a654a",
+      "oldNativeBounds": [
+        1.3209439516067505,
+        1.5580000281333923,
+        1.0479999820236117
+      ],
+      "newNativeBounds": [
+        1.2610000371932983,
+        1.5450000166893005,
+        0.7773826732300222
+      ],
+      "presentationScale": 1,
+      "role": "construct",
+      "attackStyle": "siege",
+      "publishedReferenceFile": "reconstruction-references/champions/d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/07-siege-feedback-v2.png",
+        "sha256": "d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e"
+      }
+    },
+    {
+      "id": "emeraldgolem",
+      "file": "champions/emeraldgolem.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/emeraldgolem.glb",
+      "sourceGlbSha256": "9a4607b5ea87e13fd2ed419741d2c5f58d591bda22c35c8d25a9b1d345989ba8",
+      "copiedGlbSha256": "9a4607b5ea87e13fd2ed419741d2c5f58d591bda22c35c8d25a9b1d345989ba8",
+      "sourceNativeSha256": "e218bfa8e1575978cb8f182a8dd7825615a8d2bd0798a7201fc22f960d3707dd",
+      "portrait": "portraits/emeraldgolem.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/emeraldgolem/isometric.png",
+      "portraitSha256": "026f6f8ca9ade55e98282a6ad4ab86dcb2fcb35f6557508d2d79c1126584b9f1",
+      "oldNativeBounds": [
+        1.7406347393989563,
+        0.7499999403953552,
+        1.7949999570846558
+      ],
+      "newNativeBounds": [
+        1.5289775729179382,
+        1.1357218325138092,
+        1.1948925256729126
+      ],
+      "presentationScale": 1,
+      "role": "construct",
+      "attackStyle": "siege",
+      "publishedReferenceFile": "reconstruction-references/champions/d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/07-siege-feedback-v2.png",
+        "sha256": "d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e"
+      }
+    },
+    {
+      "id": "griffinbomber",
+      "file": "champions/griffinbomber.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/griffinbomber.glb",
+      "sourceGlbSha256": "81459e2b59804c8c08a883909aceb49e5fffa933690e8a7a76c667093c5fb9e7",
+      "copiedGlbSha256": "81459e2b59804c8c08a883909aceb49e5fffa933690e8a7a76c667093c5fb9e7",
+      "sourceNativeSha256": "94bd40e55ae9e9c7ee487eba85b2a0e3b8822ef0e18480550c936d0c69751689",
+      "portrait": "portraits/griffinbomber.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/griffinbomber/isometric.png",
+      "portraitSha256": "4d8586c5a851b9ec3f2567645d9d9891f26f4f795602612721ee74b3200d94c3",
+      "oldNativeBounds": [
+        2.3309013843536377,
+        2.0996161699295044,
+        2.042799949645996
+      ],
+      "newNativeBounds": [
+        3.1534814834594727,
+        1.932687222957611,
+        1.7759139502741164
+      ],
+      "presentationScale": 1,
+      "role": "creature",
+      "attackStyle": "bomb",
+      "publishedReferenceFile": "reconstruction-references/champions/d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/07-siege-feedback-v2.png",
+        "sha256": "d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e"
+      }
+    },
+    {
+      "id": "mechanicalgolem",
+      "file": "champions/mechanicalgolem.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/mechanicalgolem.glb",
+      "sourceGlbSha256": "18f0256519157bb74d5cf6cb642da7639385ca046fe7620082eb7e4f3ae8c90d",
+      "copiedGlbSha256": "18f0256519157bb74d5cf6cb642da7639385ca046fe7620082eb7e4f3ae8c90d",
+      "sourceNativeSha256": "1a7621bbcadf13274b7b13fd0da15a5613833a7225e880312eda224a2bd79cdc",
+      "portrait": "portraits/mechanicalgolem.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/mechanicalgolem/isometric.png",
+      "portraitSha256": "7cd9cb8964b9b3317606941e9c62aa30b61c866064304662f9e079078469c50c",
+      "oldNativeBounds": [
+        1.7919999361038208,
+        1.001920223236084,
+        1.81290602684021
+      ],
+      "newNativeBounds": [
+        1.2160000205039978,
+        2.430000066757202,
+        1.7410000413656235
+      ],
+      "presentationScale": 1,
+      "role": "construct",
+      "attackStyle": "siege",
+      "publishedReferenceFile": "reconstruction-references/champions/d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/07-siege-feedback-v2.png",
+        "sha256": "d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e"
+      }
+    },
+    {
+      "id": "archbishop",
+      "file": "champions/archbishop.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/archbishop.glb",
+      "sourceGlbSha256": "7fe96fcd51cf557a55fdae22a483ca4d2f64a7756195f2086a5df9bfe2790c09",
+      "copiedGlbSha256": "7fe96fcd51cf557a55fdae22a483ca4d2f64a7756195f2086a5df9bfe2790c09",
+      "sourceNativeSha256": "27d8deb953a127aa45068912373de7d2c3ee60f791b7719a01cf4c6bdb199cbd",
+      "portrait": "portraits/archbishop.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/archbishop/isometric.png",
+      "portraitSha256": "747a656436d135904f66092871b3e4373ed66f80ba823f9005ae4b5d9ebba858",
+      "oldNativeBounds": [
+        1.3471211194992065,
+        0.7543240487575531,
+        1.8635817766189575
+      ],
+      "newNativeBounds": [
+        0.9257894158363342,
+        0.47572803497314453,
+        1.1650342848151922
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/08-sacred.png",
+        "sha256": "72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3"
+      }
+    },
+    {
+      "id": "archangel",
+      "file": "champions/archangel.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/archangel.glb",
+      "sourceGlbSha256": "51c6de8df1e35fa73858ae1ef41cd8de4f1ebff528732be4fec3ac15c91aadb6",
+      "copiedGlbSha256": "51c6de8df1e35fa73858ae1ef41cd8de4f1ebff528732be4fec3ac15c91aadb6",
+      "sourceNativeSha256": "2607fd128813854b0ebe37337daa7ad6068735751ff55840bbd41d9a5172fb94",
+      "portrait": "portraits/archangel.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/archangel/isometric.png",
+      "portraitSha256": "49dbc2191f40f4b7c3d249a4a7e2cf4bbc425b83c5539447eb2a336a082a1a54",
+      "oldNativeBounds": [
+        2.2023894786834717,
+        0.7464291453361511,
+        1.860517978668213
+      ],
+      "newNativeBounds": [
+        1.402543067932129,
+        0.47317999601364136,
+        1.141441097483039
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/concepts/04-celestial.png",
+        "sha256": "feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3"
+      }
+    },
+    {
+      "id": "ladyclaire",
+      "file": "champions/ladyclaire.glb",
+      "sourceGlbFile": "output/design/champions-reconstruction-v8/refined/models/ladyclaire.glb",
+      "sourceGlbSha256": "9d63d385620c42a1bc4b7588b58dd9a80eee4379e9aa2989da1353f8ec0b7075",
+      "copiedGlbSha256": "9d63d385620c42a1bc4b7588b58dd9a80eee4379e9aa2989da1353f8ec0b7075",
+      "sourceNativeSha256": "f88b5511a0889b0280ef25eda9485a56310b296d60b4a1b26350f55bdb2a2705",
+      "portrait": "portraits/ladyclaire.png",
+      "sourcePortrait": "output/design/champions-reconstruction-v8/refined/renders/ladyclaire/isometric.png",
+      "portraitSha256": "8677d1bc96a8830caa1c67f9e39e2d22398b71b3fd9435089702185f47f8fa2c",
+      "oldNativeBounds": [
+        1.3863260746002197,
+        0.7292225062847137,
+        1.9414222240447998
+      ],
+      "newNativeBounds": [
+        0.9919999837875366,
+        0.46466000378131866,
+        1.0720000173896551
+      ],
+      "presentationScale": 1.6,
+      "role": "humanoid",
+      "attackStyle": "staff",
+      "publishedReferenceFile": "reconstruction-references/champions/fe3efca32ea3dca269f1f6b64213197526dc4e3641e78553eaf82fa3c3a8bc56.png",
+      "approvedAuthoringReference": {
+        "role": "Current concept",
+        "file": "references/references/ladyclaire.png",
+        "sha256": "fe3efca32ea3dca269f1f6b64213197526dc4e3641e78553eaf82fa3c3a8bc56"
+      }
+    }
+  ]
+}

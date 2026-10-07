@@ -11,6 +11,8 @@ import {enemyFigure} from '../game/render/enemy-assets.js';
 import {animateEnemyMotion} from '../game/render/enemy-motion.js';
 import {attackRig,attackMuzzle,previewGeometricAttack,updateGeometricPreview,disposeAttack,beginDeath,animateDeath} from '../game/render/battle-animation.js';
 import {geometricMetadata} from '../game/render/geometric-motion.js';
+import {prepareReconstructedDefender} from '../game/render/reconstruction-adapter.js';
+import {currentReconstructionEntry} from '../tools/audit-reconstructed-roster.mjs';
 
 const towers=JSON.parse(readFileSync('data/towers.json'));
 const descendant=(node,parent)=>{for(let n=node;n;n=n.parent)if(n===parent)return true;return false;};
@@ -73,11 +75,13 @@ test('batching keeps protected meshes, exact parent/material boundaries, semanti
   equalGeometry(before,worldVertices(root),'fixture rest');assert.equal(retiredGeometricBuffers(root).has(geometry),true);assert.equal(optimizeGeometricSiblings(root),stats,'optimization is idempotent');disposeGeometricResources(root);
 });
 
-for(const [folder,expected] of [['defenders',48],['champions',38],['enemies',50]])test(`all ${expected} actual ${folder} retain rest, attack/muzzle, gait, corpse geometry and owned resources after sibling batching`,async()=>{
+for(const [folder,expected] of [['defenders',48],['champions',38],['enemies',50]])test(`all ${expected} actual ${folder} retain ${folder==='enemies'?'rest, gait, grounded corpse':'rest and attack/muzzle'} geometry and owned resources after sibling batching`,async()=>{
   const directory=resolve('public/assets/geometric',folder),files=readdirSync(directory).filter(file=>file.endsWith('.glb')).sort();assert.equal(files.length,expected);let saved=0;
   for(const file of files){
     const bytes=readFileSync(resolve(directory,file)),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
-    const source=gltf.scene,raw=source.clone(true),metadata=geometricMetadata(source),family=metadata.family||file.replace('.glb','').replace(/-\d$/,'');
+    const source=gltf.scene,reconstruction=folder==='enemies'?null:currentReconstructionEntry(file.replace('.glb',''));source.animations=gltf.animations;
+    if(reconstruction)prepareReconstructedDefender(source,reconstruction);
+    const raw=source.clone(true),metadata=geometricMetadata(source),family=metadata.family||file.replace('.glb','').replace(/-\d$/,'');
     const originalVertices=new Map(),disposals=new Map();source.traverse(node=>{if(node.geometry&&!originalVertices.has(node.geometry)){originalVertices.set(node.geometry,node.geometry.attributes.position.array.slice());disposals.set(node.geometry,0);node.geometry.addEventListener('dispose',()=>disposals.set(node.geometry,disposals.get(node.geometry)+1));}});
     const before=worldVertices(raw),stats=optimizeGeometricSiblings(source,{animations:gltf.animations});saved+=stats.before-stats.after;
     source.traverse(node=>{if(node.userData.geometricBatch){disposals.set(node.geometry,0);node.geometry.addEventListener('dispose',()=>disposals.set(node.geometry,disposals.get(node.geometry)+1));}});
@@ -88,9 +92,11 @@ for(const [folder,expected] of [['defenders',48],['champions',38],['enemies',50]
       for(const dt of [.42,.16,.5]){updateGeometricPreview(a,dt);updateGeometricPreview(b,dt);equalGeometry(worldVertices(originalActor,a.owned),worldVertices(batchedActor,b.owned),file+' attack');const muzzleA=attackMuzzle(a),muzzleB=attackMuzzle(b);assert.equal(!!muzzleA,!!muzzleB);if(muzzleA)assert.ok(muzzleA.distanceTo(muzzleB)<1e-5,file+' moving muzzle');}
       disposeAttack(a);disposeAttack(b);
     }
+    if(!reconstruction){
     const enemy={id:0,type:'actual',speed:1,traveled:0,statuses:{},flying:metadata.locomotion==='flying'},a=enemyFigure(enemy,new Map([['actual',raw]])),b=enemyFigure(enemy,new Map([['actual',source]]));
     for(const time of [0,.04,.15]){enemy.traveled=time;animateEnemyMotion(a,enemy,time);animateEnemyMotion(b,enemy,time);equalGeometry(worldVertices(a),worldVertices(b),file+' gait');}
     beginDeath(a,enemy);beginDeath(b,enemy);for(const dt of [.2,.3,.6]){animateDeath(a,dt);animateDeath(b,dt);equalGeometry(worldVertices(a),worldVertices(b),file+' grounded corpse');assert.ok(new THREE.Box3().setFromObject(b.userData.body,true).min.y>=.02499);}
+    }
     assert.equal(transforms(source),sourcePose,file+' cached source unchanged');assert.equal(transforms(peer),peerPose,file+' private peer unchanged');for(const [geometry,vertices] of originalVertices)assert.deepEqual(geometry.attributes.position.array,vertices);
     disposeGeometricResources([source,raw]);disposeGeometricResources([source,raw]);assert.ok([...disposals.values()].every(count=>count===1),file+' every original/merged buffer releases exactly once');
   }

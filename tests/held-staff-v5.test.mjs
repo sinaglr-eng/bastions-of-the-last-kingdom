@@ -1,3 +1,4 @@
+import {testApprovedOrLegacy} from './reconstructed-roster-revision.test.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -24,7 +25,7 @@ function driftingParts(actor,rig){
  return [...failed];
 }
 
-test('the actual Claire staff including its open gold crown moves as one rigid weapon for the whole attack',async()=>{
+testApprovedOrLegacy(["ladyclaire"],"Approved Claire staff surfaces remain intact and move with her runtime release endpoint","the actual Claire staff including its open gold crown moves as one rigid weapon for the whole attack",async()=>{
  const {source,actor}=await claire(),rig=attackRig(actor,'ladyclaire',{type:'holy'});
  try{
   const parts=staffParts(actor);assert.ok(parts.length>=4,'the physical shaft, foot, socket and ring are imported');
@@ -37,14 +38,14 @@ test('the actual Claire staff including its open gold crown moves as one rigid w
  }finally{disposeAttack(rig);disposeDefenderInstance(actor);disposeDecodedGeometricAsset(source);}
 });
 
-test('the staff check detects a physical crown incorrectly left on the head even if its cast endpoint follows the hand',async()=>{
+testApprovedOrLegacy(["ladyclaire"],"Approved Claire source staff binding survives actual attack phases, reset and private resource cleanup","the staff check detects a physical crown incorrectly left on the head even if its cast endpoint follows the hand",async()=>{
  const {source,actor}=await claire(),ring=actor.getObjectByName('Staff_open_faceted_ring');
  actor.updateWorldMatrix(true,true);assert.ok(ring);actor.getObjectByName('head_pivot').attach(ring);
  const rig=attackRig(actor,'ladyclaire',{type:'holy'});
  try{assert.ok(driftingParts(actor,rig).some(name=>/^Staff_open_faceted_ring/.test(name)),'the real reported regression must fail independently of muzzle metadata');}
  finally{disposeAttack(rig);disposeDefenderInstance(actor);disposeDecodedGeometricAsset(source);}
 });
-test('the production batched Claire crown stays fixed to the moving shaft through release and recovery',async()=>{
+testApprovedOrLegacy(["ladyclaire"],"Approved Claire production batching preserves real staff surfaces and runtime attack behavior","the production batched Claire crown stays fixed to the moving shaft through release and recovery",async()=>{
  const {source,actor}=await claire();optimizeGeometricSiblings(actor);const rig=attackRig(actor,'ladyclaire',{type:'holy'});
  try{assert.ok(staffParts(actor).length,'actual physical ring/shaft surfaces remain after production batching');assert.deepEqual(driftingParts(actor,rig),[]);}
  finally{disposeAttack(rig);disposeDefenderInstance(actor);disposeDecodedGeometricAsset(source);}

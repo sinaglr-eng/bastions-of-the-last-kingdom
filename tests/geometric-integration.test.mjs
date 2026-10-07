@@ -14,6 +14,8 @@ import {installEnemyTemplate} from '../game/render/enemy-assets.js';
 import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
 import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.js';
 import {towerStats} from '../game/core/math.js';
+import {prepareReconstructedDefender} from '../game/render/reconstruction-adapter.js';
+import {currentReconstructionEntry} from '../tools/audit-reconstructed-roster.mjs';
 
 // Browser/Vite JSON imports are loaded as read-only modules in this test process
 // so the actual Battlefield methods can run without constructing WebGL or DOM.
@@ -93,7 +95,8 @@ test('the real renderer death event retains grounded corpses until the single wa
 });
 
 test('the real battlefield keeps the mounted lightning cast aim and arm progress while its fire aura attacks another target',async()=>{
-  const bytes=readFileSync('public/assets/geometric/champions/thunderheart.glb'),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''),actor=cloneDefenderTemplate(gltf.scene);
+  const bytes=readFileSync('public/assets/geometric/champions/thunderheart.glb'),gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
+  const reconstructed=currentReconstructionEntry('thunderheart');if(reconstructed)prepareReconstructedDefender(gltf.scene,reconstructed);const actor=cloneDefenderTemplate(gltf.scene);
   const game=fighting(),source={id:70,family:'thunderheart',tier:1,state:'active',x:15,z:15,cooldown:.05};game.towers=[source];
   const {field,off}=corpseField(game),stats=towerStats(source,data),rig=attackRig(actor,source.family,stats),hand=actor.getObjectByName('hand_R');field.models.set(source.id,{actor,attack:rig,tower:source});
   const castTarget={id:1,x:17,z:15},auraTarget={id:2,x:15,z:18};

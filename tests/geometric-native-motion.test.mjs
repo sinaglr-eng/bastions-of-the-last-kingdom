@@ -7,15 +7,23 @@ import {auditGeometricRuntime} from '../tools/verify-geometric-runtime.mjs';
 import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
 import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.js';
 import {partMeshes} from '../tools/audit-geometric-appearance.mjs';
+import {currentReconstructionEntry,auditCurrentReconstructionIds} from '../tools/audit-reconstructed-roster.mjs';
 
 // Exercise the production files, not substitute boxes bearing the same joint
 // names. Animated instances must preserve authored geometry and their peers.
 for(const [folder,expected] of [['defenders',48],['champions',38],['enemies',50]]){
-  test(`all ${expected} actual ${folder} GLBs articulate and settle on terrain`,async()=>{
+  test(`all ${expected} actual ${folder} GLBs ${folder==='enemies'?'articulate and settle on terrain':'preserve native source surfaces and execute supported runtime attacks'}`,async()=>{
     const directory=resolve('public/assets/geometric',folder);
     const files=readdirSync(directory).filter(file=>file.endsWith('.glb')).sort();
     assert.equal(files.length,expected,'production roster is complete');
     for(const file of files){
+      if(folder!=='enemies'&&currentReconstructionEntry(file.replace(/\.glb$/,''))){
+        const [result]=await auditCurrentReconstructionIds([file.replace(/\.glb$/,'')]);
+        assert.deepEqual(result.failures,[],file+' actual raw-source/adaptation/runtime verification');
+        assert.ok(result.maximumPhysicalTravel>1e-5,file+' actual approved mesh vertices move');
+        assert.ok(result.checks.length>=50,file+' nonempty surface, attack and lifecycle checks');
+        continue;
+      }
       const result=await auditGeometricRuntime(resolve(directory,file));
       const failures=result.checks.filter(check=>!check.pass);
       assert.deepEqual(failures,[],`${file}: ${JSON.stringify(failures)}`);
