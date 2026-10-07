@@ -3,3 +3,6 @@
 *.blend binary
 *.glb binary
 *.png binary
+# The exported recording receipt is immutable; its original bytes determine
+# the independent audio cache revision on Windows and Linux alike.
+docs/audio/generated-allied-audio.json -text
