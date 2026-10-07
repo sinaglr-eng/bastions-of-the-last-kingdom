@@ -8,7 +8,7 @@ export class AudioManager{
     this.channels={Music:.1,Ambience:.12,Attacks:.085,Impacts:.07,Magic:.075,UI:.12,Boss:.12,Victory:.14,Defeat:.12,Voices:.08};
     this.last=new Map();this.recent=[];this.voices=new Set();this.maxVoices=28;this.maxEventsPerSecond=16;this.noiseBuffer=null;this.disposed=false;
     this.voiceRandom=voiceRandom;this.fetchAudio=fetchAudio;this.selectionCatalogue=new Map();this.audioBuffers=new Map();this.audioLoads=new Set();
-    this.selectionVoice=null;this.selectionRequest=0;this.selectionKey=null;this.craftVoiceKeys=new WeakMap();this.catalogueRequest=0;this.resumePromise=null;this.setSelectionCatalogue(selectionCatalogue);
+    this.selectionVoice=null;this.selectionRequest=0;this.selectionKey=null;this.committedVoiceKeys=new WeakMap();this.catalogueRequest=0;this.resumePromise=null;this.setSelectionCatalogue(selectionCatalogue);
   }
   get muted(){return this._muted;}
   set muted(value){
@@ -98,22 +98,27 @@ export class AudioManager{
     if(this.disposed||!this.context)return Promise.resolve([]);
     return Promise.all([...this.selectionCatalogue.values()].flat().map(clip=>this.loadSelectionClip(clip)));
   }
-  async playSelectionVoice(payload={},kind='selection'){
+  async playSelectionVoice(payload={}){
     const tower=payload.tower;
-    if(!tower?.family||!['draft','active'].includes(tower.state)){this.cancelSelectionVoice();return false;}
-    const key=JSON.stringify([kind,payload.round??tower.round,tower.id,tower.family,tower.tier]);
-    if(this.selectionKey===key)return false;
+    if(!tower?.family||tower.state!=='active'||payload.visible===false)return false;
+    const family=tower.family,tier=tower.tier,key=JSON.stringify([payload.round??tower.round,family,tier]);
+    // Only the final committed result announces itself. Remember the real
+    // defender independently of the current transport so duplicate delivery
+    // cannot replay a line after a wave, mute, or newer commit interrupts it.
+    if(this.committedVoiceKeys.get(tower)===key)return false;
+    this.committedVoiceKeys.set(tower,key);
     this.cancelSelectionVoice();this.selectionKey=key;
-    const pair=this.selectionCatalogue.get(tower.family),context=this.context;
+    const pair=this.selectionCatalogue.get(family),context=this.context;
     if(!pair||this.muted||this.disposed||!context)return false;
     const request=this.selectionRequest;
     // A fresh independent 50/50 choice; repeated B or A is allowed.
     const clip=pair[this.voiceRandom()<.5?0:1];
     try{
       const [buffer]=await Promise.all([this.loadSelectionClip(clip),this.resumePromise]);
-      if(!buffer||this.muted||this.disposed||request!==this.selectionRequest||context!==this.context||context.state!=='running')return false;
+      if(!buffer||this.muted||this.disposed||request!==this.selectionRequest||context!==this.context||context.state!=='running'||tower.state!=='active'||tower.family!==family||tower.tier!==tier)return false;
       if(this.voices.size>=this.maxVoices)return false;
       const source=context.createBufferSource(),gain=context.createGain();source.buffer=buffer;
+      source.playbackRate.setValueAtTime(1,context.currentTime);
       gain.gain.setValueAtTime(this.channels.Voices,context.currentTime);source.connect(gain);gain.connect(context.destination);
       const voice=this.register(source,gain);this.selectionVoice=voice;
       const ended=source.onended;source.onended=()=>{ended();if(this.selectionVoice===voice)this.selectionVoice=null;};
@@ -173,8 +178,9 @@ export class AudioManager{
     else{this.noise(.065,'Impacts',1200,{gain:.75});this.tone(140,.08,'Impacts','triangle',68,{gain:.35});}
   }
   play(event,payload={}){
+    if(event==='defender-committed')return this.playSelectionVoice(payload);
     if(this.muted||this.disposed||!this.context||payload.visible===false)return;
-    if(event==='defender-select')return this.playSelectionVoice(payload);
+    if(event==='defender-select')return;
     if(['wave','won','lost','reroll','reserve','move'].includes(event))this.cancelSelectionVoice();
     if(event==='shot'||event==='aura-attack'){
       const kind=soundKind(payload);if(this.allow('attack:'+kind,INTERVALS.attack))this.attack(kind);return;
@@ -188,20 +194,9 @@ export class AudioManager{
       if(this.allow('death',INTERVALS.death)){this.noise(payload.enemy?.boss ? .42 : .20,'Voices',190,{gain:.8,type:'lowpass'});this.tone(payload.enemy?.boss?95:150,.24,'Voices','triangle',45,{gain:.45});}return;
     }
     if(['place','keep','remove'].includes(event)){
-      if(event==='place')void this.playSelectionVoice(payload,'reveal');
       if(this.allow('build',INTERVALS.build)){this.noise(.07,'UI',event==='remove'?350:700,{gain:.6,type:'lowpass'});this.tone(event==='keep'?520:310,event==='keep' ? .20 : .08,'UI','triangle',event==='keep'?660:130,{gain:.6});}return;
     }
     if(event==='combine'||event==='upgrade'){
-      if(event==='combine'){
-        const tower=payload.tower;
-        if(payload.crafted===true&&tower?.state==='active'&&tower.family!==payload.previousFamily){
-          // The game verifies a successful family-changing advanced recipe.
-          // Remember its result on the real tower so duplicate event delivery
-          // cannot restart speech, even after another selection interrupts it.
-          const key=JSON.stringify([payload.round??tower.round,tower.family,tower.tier,payload.previousFamily]);
-          if(this.craftVoiceKeys.get(tower)!==key){this.craftVoiceKeys.set(tower,key);void this.playSelectionVoice(payload,'craft');}
-        }else this.cancelSelectionVoice();
-      }
       if(this.allow('combine',INTERVALS.magic)){[440,554,659,880].forEach((freq,i)=>this.tone(freq,.32,'Magic','sine',null,{delay:i*.065,gain:.7}));}return;
     }
     if(event==='wave'&&this.allow('wave',1))this.tone(110,.65,'Boss','triangle',82,{gain:.7});

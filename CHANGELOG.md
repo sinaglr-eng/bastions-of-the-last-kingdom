@@ -1,5 +1,11 @@
 # Releases
 
+## 0.3.20 — Final Defender Selection Voices — 7 October 2026
+
+- Plays one allied voice line only after a successful final keep, downgrade-and-keep, rank merge or champion recipe, using the resulting defender identity.
+- Keeps candidate placement, inspections, previews, rerolls, moves and inactive reservations silent. Duplicate confirmations cannot restart a committed line.
+- Preserves original recordings, synthesized build and combat sounds, classification size and auras, and gameplay rules.
+
 ## 0.3.19 — Champion Classification Scale — 7 October 2026
 
 - Adds a uniform 10% size increase between champion classifications: Basic 1.0×, Intermediate 1.1×, Advanced 1.21×, TOP 1.331× and Secret 1.4641× over each model's existing presentation size.

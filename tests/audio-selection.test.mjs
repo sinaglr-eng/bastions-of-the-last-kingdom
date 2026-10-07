@@ -27,7 +27,7 @@ class Context{
   get speech(){return this.nodes.filter(node=>node.buffer?.clip!==undefined&&node.started);}
 }
 const catalogue={soldier:[{id:'soldier_a',url:'/soldier-a.wav'},{id:'soldier_b',url:'/soldier-b.wav'}]};
-const tower=(id=1,family='soldier')=>({id,family,tier:1,state:'draft',round:1});
+const tower=(id=1,family='soldier')=>({id,family,tier:1,state:'active',round:1});
 const bytes=value=>new Uint8Array([value]).buffer;
 const response=value=>({ok:true,arrayBuffer:async()=>bytes(value)});
 const defer=()=>{let resolve;const promise=new Promise(r=>resolve=r);return {promise,resolve};};
@@ -71,27 +71,27 @@ test('missing, malformed or superseded catalogue loads fail softly and preserve 
   pending.resolve({ok:true,json:async()=>catalogue});assert.equal(await loading,false);assert.equal(h.audio.selectionCatalogue.size,0);h.audio.dispose();
 });
 
-test('each accepted selection independently chooses A/B and permits B twice in a row',async()=>{
+test('each committed defender independently chooses A/B and permits B twice in a row',async()=>{
   const choices=[.1,.9,.9,.1],h=harness({voiceRandom:()=>choices.shift()});h.audio.unlock();
-  for(let id=1;id<=4;id++)assert.equal(await h.audio.play('defender-select',{tower:tower(id)}),true);
+  for(let id=1;id<=4;id++)assert.equal(await h.audio.play('defender-committed',{tower:tower(id)}),true);
   assert.deepEqual(h.context.speech.map(source=>source.buffer.clip),[1,2,2,1]);
   assert.equal(h.requests.length,2);assert.equal(h.audio.voices.size,1,'only the latest speech source remains');
   assert.ok(h.context.speech.slice(0,-1).every(source=>source.stopped&&source.disconnected));h.audio.dispose();
 });
 
-test('duplicate selection gestures do not restart speech; switching to an unknown identity cancels it',async()=>{
-  const h=harness({voiceRandom:()=>.1});h.audio.unlock();
-  assert.equal(await h.audio.play('defender-select',{tower:tower()}),true);
-  assert.equal(await h.audio.play('defender-select',{tower:tower()}),false);assert.equal(h.context.speech.length,1);
-  assert.equal(await h.audio.play('defender-select',{tower:tower(2,'unrecorded')}),false);
+test('duplicate commits do not restart speech; a new unrecorded final identity cancels it',async()=>{
+  const h=harness({voiceRandom:()=>.1}),defender=tower();h.audio.unlock();
+  assert.equal(await h.audio.play('defender-committed',{tower:defender}),true);
+  assert.equal(await h.audio.play('defender-committed',{tower:defender}),false);assert.equal(h.context.speech.length,1);
+  assert.equal(await h.audio.play('defender-committed',{tower:tower(2,'unrecorded')}),false);
   assert.equal(h.audio.selectionVoice,null);assert.equal(h.audio.voices.size,0);assert.equal(h.context.speech[0].stopped,true);
   h.audio.dispose();
 });
 
-test('latest selection wins even if earlier fetch/decode completes later',async()=>{
+test('latest committed defender wins even if earlier fetch/decode completes later',async()=>{
   const pendingA=defer(),pendingB=defer(),choices=[.1,.9];
   const h=harness({voiceRandom:()=>choices.shift(),fetchAudio:url=>url.includes('-a.')?pendingA.promise:pendingB.promise});h.audio.unlock();
-  const first=h.audio.play('defender-select',{tower:tower(1)}),second=h.audio.play('defender-select',{tower:tower(2)});
+  const first=h.audio.play('defender-committed',{tower:tower(1)}),second=h.audio.play('defender-committed',{tower:tower(2)});
   pendingB.resolve(response(2));assert.equal(await second,true);pendingA.resolve(response(1));assert.equal(await first,false);
   assert.deepEqual(h.context.speech.map(source=>source.buffer.clip),[2]);h.audio.dispose();
 });
@@ -100,7 +100,7 @@ test('mute, catalogue replacement and dispose suppress pending speech and dispos
   for(const action of ['mute','replace','dispose']){
     const pending=defer();let signal;
     const h=harness({voiceRandom:()=>.1,fetchAudio:(url,options)=>{signal=options.signal;return pending.promise;}});h.audio.unlock();
-    const selection=h.audio.play('defender-select',{tower:tower()});
+    const selection=h.audio.play('defender-committed',{tower:tower()});
     if(action==='mute')h.audio.muted=true;
     if(action==='replace')h.audio.setSelectionCatalogue({});
     if(action==='dispose'){h.audio.dispose();assert.equal(signal.aborted,true);}
@@ -112,54 +112,72 @@ test('iPad gesture resumes the context synchronously, pending resume precedes sp
   const pendingResume=defer(),h=harness({voiceRandom:()=>.1});
   h.context.resume=()=>{h.context.resumes++;return pendingResume.promise.then(()=>{h.context.state='running';});};
   h.audio.unlock();assert.equal(h.context.resumes,1,'resume is invoked before any asynchronous asset work');
-  const selection=h.audio.play('defender-select',{tower:tower()});await flush();assert.equal(h.context.speech.length,0);
+  const selection=h.audio.play('defender-committed',{tower:tower()});await flush();assert.equal(h.context.speech.length,0);
   pendingResume.resolve();assert.equal(await selection,true);h.audio.dispose();
   const rejected=harness();rejected.context.resume=()=>Promise.reject(new Error('gesture unavailable'));
-  rejected.audio.unlock();assert.equal(await rejected.audio.play('defender-select',{tower:tower()}),false);rejected.audio.dispose();
+  rejected.audio.unlock();assert.equal(await rejected.audio.play('defender-committed',{tower:tower()}),false);rejected.audio.dispose();
 });
 
-test('missing or undecodable recordings fail softly and a later selection can retry',async()=>{
+test('missing or undecodable recordings fail softly and a later committed defender can retry',async()=>{
   let attempts=0;
   const h=harness({voiceRandom:()=>.1,fetchAudio:async()=>++attempts===1?{ok:false}:response(1)});h.audio.unlock();
-  assert.equal(await h.audio.play('defender-select',{tower:tower(1)}),false);
-  assert.equal(await h.audio.play('defender-select',{tower:tower(2)}),true);assert.equal(attempts,2);
+  assert.equal(await h.audio.play('defender-committed',{tower:tower(1)}),false);
+  assert.equal(await h.audio.play('defender-committed',{tower:tower(2)}),true);assert.equal(attempts,2);
   h.context.decodeAudioData=()=>Promise.reject(new Error('bad audio'));
   h.audio.setSelectionCatalogue({soldier:['/bad-a.wav','/bad-b.wav']});
-  assert.equal(await h.audio.play('defender-select',{tower:tower(3)}),false);h.audio.dispose();
+  assert.equal(await h.audio.play('defender-committed',{tower:tower(3)}),false);h.audio.dispose();
 });
 
-test('revealing a defender keeps its synthetic build sound and plays one line; keeper confirmation does not repeat it',async()=>{
-  const h=harness({voiceRandom:()=>.1});h.audio.unlock();h.audio.play('place',{tower:tower()});await flush();
-  assert.equal(h.context.speech.length,1);assert.ok(h.context.nodes.some(node=>node.kind==='oscillator'));
-  h.audio.play('keep',{tower:{...tower(),state:'active'}});await flush();assert.equal(h.context.speech.length,1);
+test('place, keep and combine retain synthetic sounds while inspection never starts or interrupts committed speech',async()=>{
+  const h=harness({voiceRandom:()=>.1}),defender=tower();h.audio.unlock();
+  h.audio.play('place',{tower:{...defender,state:'draft'}});h.audio.play('defender-select',{tower:defender});
+  h.audio.play('keep',{tower:defender});h.audio.play('combine',{tower:defender,crafted:true,previousFamily:'archer'});
+  await flush();assert.equal(h.context.speech.length,0);assert.equal(h.requests.length,0);
+  assert.ok(h.context.nodes.some(node=>node.kind==='oscillator'),'construction and combination still synthesize their sounds');
+  assert.equal(await h.audio.play('defender-committed',{tower:defender,action:'keep'}),true);
+  const source=h.audio.selectionVoice.source;
+  for(const inspected of [defender,{...defender,id:2,state:'draft'},null])h.audio.play('defender-select',{tower:inspected});
+  h.audio.play('combine',{tower:defender});await flush();
+  assert.equal(h.context.speech.length,1);assert.equal(source.stopped,false);assert.equal(h.audio.selectionVoice.source,source);
   h.audio.play('wave');assert.equal(h.audio.selectionVoice,null);h.audio.dispose();
 });
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
-test('five real reveals and explicit draft choices speak; duplicate taps, mystery slots and rank previews do not',()=>{
-  const game=new Game(data,{seed:42});const events=[];game.on((type,payload)=>events.push({type,payload}));
+const familyCatalogue=(...families)=>Object.fromEntries([...new Set(families)].map(family=>[family,[`/${family}-a.wav`,`/${family}-b.wav`]]));
+const placeFive=(game,z=3)=>{for(let x=3;x<8;x++)assert.equal(game.place(x,z),true);};
+const finishWave=game=>{assert.equal(game.startCombat(),true);game.combat.enemies=[];game.combat.spawnQueue=[];game.completeWave();};
+const listen=(game,audio)=>{
+  const events=[];game.on((type,payload={})=>{events.push({type,payload,state:payload.tower?.state,family:payload.tower?.family,tier:payload.tower?.tier});audio.play(type,payload);});return events;
+};
+test('real draft reveals, explicit choices and rank previews stay silent until a double tap keeps the final defender',async()=>{
+  const game=new Game(data,{seed:42}),h=harness({selectionCatalogue:familyCatalogue(...Object.keys(data.towers)),voiceRandom:()=>.1});h.audio.unlock();
+  const events=listen(game,h.audio);
   const mysteryInput=new DraftCardActivation();assert.equal(mysteryInput.activate(game,0),false);
-  assert.equal(events.filter(event=>event.type==='defender-select').length,0,'unrevealed slots have no voice identity');
+  assert.equal(events.filter(event=>event.type==='defender-committed').length,0);
   assert.equal(game.place(-1,-1),false);assert.equal(events.filter(event=>event.type==='place').length,0);
-  for(let x=3;x<8;x++)assert.equal(game.place(x,3),true);
+  placeFive(game);
   const reveals=events.filter(event=>event.type==='place');assert.equal(reveals.length,5);assert.ok(reveals.every(event=>event.payload.tower.family));
-  assert.equal(events.filter(event=>event.type==='defender-select').length,0,'automatic selection is not an explicit candidate choice');
   let now=1000;const input=new DraftCardActivation(()=>now),pointer={pointerType:'touch',button:0,clientX:100,clientY:100};
-  input.activate(game,4,pointer);assert.equal(events.filter(event=>event.type==='defender-select').length,1,'first explicit choice of auto-selected fifth recruit speaks');
-  game.select(game.selected);assert.equal(events.filter(event=>event.type==='defender-select').length,1,'same candidate does not repeat');
+  input.activate(game,4,pointer);game.select(game.selected);
   const preview=new DefenderRankPreview();preview.select(game.selection,6,data);
-  assert.equal(events.filter(event=>event.type==='defender-select').length,1,'preview has no selection event');
+  await flush();assert.equal(h.context.speech.length,0);assert.equal(h.requests.length,0,'latent and inspected candidates never load a recording');
+  const keeper=game.selection;
   now+=150;assert.equal(input.activate(game,4,pointer),true);
-  assert.equal(events.filter(event=>event.type==='defender-select').length,1,'confirming a double tap does not repeat');
+  await flush();const commits=events.filter(event=>event.type==='defender-committed');
+  assert.equal(commits.length,1);assert.equal(commits[0].payload.tower,keeper);assert.equal(commits[0].state,'active');assert.equal(commits[0].payload.action,'keep');
+  assert.ok(events.findIndex(event=>event.type==='keep')<events.findIndex(event=>event.type==='defender-committed'));
+  assert.equal(h.context.speech.length,1);assert.equal(h.requests[0].url,`/${keeper.family}-a.wav`);
+  const source=h.audio.selectionVoice.source;assert.equal(game.keep(),false);
   const ruin=game.towers.find(unit=>unit.state==='ruin');game.select(ruin.id);
-  assert.equal(events.filter(event=>event.type==='defender-select').at(-1).payload.tower,null,'a wall only cancels speech');
+  await flush();assert.equal(source.stopped,false);assert.equal(h.context.speech.length,1);h.audio.dispose();
 });
 
-test('deselecting immediately after a reveal cancels pending speech even before any explicit choice',()=>{
-  const game=new Game(data,{seed:42}),events=[];game.on((type,payload)=>events.push({type,payload}));
-  game.place(3,3);assert.equal(game.selectionVoiceKey,null);game.select(null);
-  const selections=events.filter(event=>event.type==='defender-select');assert.equal(selections.length,1);assert.equal(selections[0].payload.tower,null);
-  game.select(null);assert.equal(events.filter(event=>event.type==='defender-select').length,1,'repeat deselection is deduplicated');
+test('inspection and deselection during a pending final line do not invalidate its load',async()=>{
+  const pending=defer(),game=new Game(data,{seed:42}),h=harness({selectionCatalogue:familyCatalogue(...Object.keys(data.towers)),voiceRandom:()=>.1,fetchAudio:()=>pending.promise});h.audio.unlock();listen(game,h.audio);
+  placeFive(game);const kept=game.selection;assert.equal(game.keep(),true);
+  game.select(null);game.select(game.towers.find(unit=>unit.state==='ruin').id);game.select(kept.id);
+  await flush();assert.equal(h.context.speech.length,0);
+  pending.resolve(response(1));await flush();assert.equal(h.context.speech.length,1);assert.equal(h.context.speech[0].stopped,false);h.audio.dispose();
 });
 
 test('successful advanced crafting and Lady Claire speak once, while recipe previews and rejected crafts remain silent',async()=>{
@@ -172,8 +190,11 @@ test('successful advanced crafting and Lady Claire speak once, while recipe prev
     game.on((type,payload)=>{events.push({type,payload});h.audio.play(type,payload);});
     assert.equal(game.previewRecipe(recipe.id),true);await flush();assert.equal(h.context.speech.length,0);
     assert.equal(game.craft(recipe.id),true);await flush();
-    const combine=events.find(event=>event.type==='combine');
+    const combine=events.find(event=>event.type==='combine'),committed=events.find(event=>event.type==='defender-committed');
     assert.equal(combine.payload.tower,game.selection);assert.equal(combine.payload.previousFamily,previousFamily);assert.equal(combine.payload.crafted,true);
+    assert.equal(committed.payload.tower,game.selection);assert.equal(committed.payload.action,'craft');assert.equal(committed.payload.round,game.round);
+    assert.equal(committed.payload.tower.state,'active');assert.equal(committed.payload.tower.family,family);assert.equal(committed.payload.tower.tier,1);
+    assert.ok(events.indexOf(combine)<events.indexOf(committed),'the committed announcement follows the existing combination sound');
     assert.equal(h.context.speech.length,1);assert.equal(h.context.speech[0].buffer.clip,choice<.5?1:2);
     assert.equal(h.requests[0].url,`/${family}-${choice<.5?'a':'b'}.wav`);
     assert.ok(h.context.nodes.some(node=>node.kind==='oscillator'),'the synthetic combination chord remains');
@@ -181,27 +202,31 @@ test('successful advanced crafting and Lady Claire speak once, while recipe prev
   }
 });
 
-test('duplicate advanced combine delivery cannot restart a pending or interrupted crafting line',async()=>{
+test('duplicate commits cannot restart a pending or interrupted line, regardless of action labels',async()=>{
   const pending=defer();let choices=0;
   const h=harness({selectionCatalogue:{rimewatch:['/rimewatch-a.wav','/rimewatch-b.wav']},voiceRandom:()=>{choices++;return .1;},fetchAudio:()=>pending.promise});h.audio.unlock();
-  const crafted={...tower(1,'rimewatch'),state:'active'},payload={tower:crafted,previousFamily:'frostwarden',crafted:true};
-  h.audio.play('combine',payload);h.audio.play('combine',payload);assert.equal(choices,1);
+  const crafted=tower(1,'rimewatch'),payload={tower:crafted,round:1,action:'craft'};
+  const first=h.audio.play('defender-committed',payload);assert.equal(await h.audio.play('defender-committed',{...payload,action:'keep'}),false);assert.equal(choices,1);
   pending.resolve(response(1));await flush();assert.equal(h.context.speech.length,1);
-  h.audio.play('defender-select',{tower:null});assert.equal(h.context.speech[0].stopped,true);
-  h.audio.play('combine',payload);await flush();assert.equal(choices,1);assert.equal(h.context.speech.length,1);
-  assert.equal(await h.audio.play('defender-select',{tower:crafted}),true,'a later explicit champion selection still gets its own A/B choice');
-  h.audio.play('combine',payload);await flush();assert.equal(choices,2);assert.equal(h.context.speech.length,2);assert.equal(h.context.speech[1].stopped,false);h.audio.dispose();
+  assert.equal(await first,true);h.audio.play('reserve');assert.equal(h.context.speech[0].stopped,true);
+  assert.equal(await h.audio.play('defender-committed',payload),false);assert.equal(choices,1);assert.equal(h.context.speech.length,1);
+  assert.equal(await h.audio.play('defender-committed',{...payload,round:2}),true,'a later round is a separate final commitment');
+  h.audio.play('wave');assert.equal(await h.audio.play('defender-committed',{...payload,round:2}),false);
+  crafted.tier=2;assert.equal(await h.audio.play('defender-committed',{...payload,round:2}),true,'a genuinely new final rank is distinct');
+  assert.equal(choices,3);assert.equal(h.context.speech.length,3);h.audio.dispose();
 });
 
-test('ordinary basic rank merging keeps the combination chord and cancels speech without announcing a new identity',async()=>{
+test('ordinary basic merging announces the final higher rank once after the combination chord',async()=>{
   const game=new Game(data,{seed:42});for(let x=3;x<8;x++)assert.equal(game.place(x,3),true);
   game.towers.forEach(tower=>Object.assign(tower,{family:'soldier',tier:1}));game.select(game.towers[0].id);
-  const h=harness({voiceRandom:()=>.1});h.audio.unlock();assert.equal(await h.audio.play('defender-select',{tower:game.selection}),true);
-  const events=[];game.on((type,payload)=>{events.push({type,payload});h.audio.play(type,payload);});
+  const h=harness({voiceRandom:()=>.1});h.audio.unlock();const events=listen(game,h.audio);
+  h.audio.play('defender-select',{tower:game.selection});assert.equal(h.context.speech.length,0);
   assert.equal(game.merge(),true);await flush();
-  const combine=events.find(event=>event.type==='combine');assert.equal(combine.payload.crafted,undefined);
+  const combine=events.find(event=>event.type==='combine'),committed=events.find(event=>event.type==='defender-committed');assert.equal(combine.payload.crafted,undefined);
   assert.equal(game.selection.family,'soldier');assert.equal(game.selection.tier,2);
-  assert.equal(h.context.speech.length,1);assert.equal(h.context.speech[0].stopped,true);
+  assert.equal(committed.payload.action,'merge');assert.equal(committed.state,'active');assert.equal(committed.tier,2);assert.ok(events.indexOf(combine)<events.indexOf(committed));
+  assert.equal(h.context.speech.length,1);assert.equal(h.context.speech[0].stopped,false);
+  assert.equal(game.merge(),false);assert.equal(events.filter(event=>event.type==='defender-committed').length,1);
   assert.ok(h.context.nodes.some(node=>node.kind==='oscillator'));h.audio.dispose();
 });
 
@@ -218,14 +243,21 @@ test('catalogue and both MP3s retain their independent audio revision under each
   }
 });
 
-test('reserved inactive blockers cancel speech while their known returning candidate can be selected normally',async()=>{
-  const game=new Game(data,{seed:42});for(let x=3;x<8;x++)assert.equal(game.place(x,3),true);
-  const reserved=game.towers[0],h=harness({selectionCatalogue:{[reserved.family]:['/reserved-a.wav','/reserved-b.wav']},voiceRandom:()=>.1});h.audio.unlock();
-  game.on((type,payload)=>h.audio.play(type,payload));game.select(reserved.id);await flush();assert.equal(h.context.speech.length,1);
-  assert.equal(game.reserve(),true);game.select(reserved.id);await flush();assert.equal(h.context.speech.length,1);assert.equal(h.audio.selectionVoice,null);
-  game.select(game.towers.find(tower=>tower.state==='draft').id);game.keep();game.startCombat();game.combat.enemies=[];game.combat.spawnQueue=[];game.completeWave();
-  assert.equal(reserved.state,'draft');assert.equal(game.draft.draws[0].fixedPosition,true);
-  game.select(reserved.id);await flush();assert.equal(h.context.speech.length,2);h.audio.dispose();
+test('paid reserve and returning fixed-position candidate remain silent until the returning defender is kept',async()=>{
+  const game=new Game(data,{seed:42}),h=harness({selectionCatalogue:familyCatalogue(...Object.keys(data.towers)),voiceRandom:()=>.1});h.audio.unlock();const events=listen(game,h.audio);
+  placeFive(game);const reserved=game.towers[0],position=[reserved.x,reserved.z];game.select(reserved.id);
+  assert.equal(game.reserve(),true);game.select(reserved.id);await flush();
+  assert.equal(reserved.state,'reserved');assert.equal(h.context.speech.length,0);assert.equal(events.filter(event=>event.type==='defender-committed').length,0);
+  assert.equal(await h.audio.play('defender-committed',{tower:reserved,round:1}),false,'inactive blockers cannot announce themselves');
+  game.select(game.towers.find(tower=>tower.state==='draft').id);assert.equal(game.keep(),true);await flush();assert.equal(h.context.speech.length,1);
+  finishWave(game);assert.equal(h.audio.selectionVoice,null);
+  assert.equal(reserved.state,'draft');assert.equal(game.draft.draws[0].fixedPosition,true);assert.deepEqual([reserved.x,reserved.z],position);
+  game.select(reserved.id);assert.equal(game.keep(),false,'four new placements are still required');
+  for(let x=3;x<7;x++)assert.equal(game.place(x,4),true);
+  game.select(reserved.id);await flush();assert.equal(h.context.speech.length,1,'returning candidate inspection is silent');
+  assert.equal(game.keep(),true);await flush();assert.equal(h.context.speech.length,2);
+  const committed=events.filter(event=>event.type==='defender-committed').at(-1);
+  assert.equal(committed.payload.tower,reserved);assert.equal(committed.payload.round,2);assert.equal(committed.state,'active');assert.equal(h.requests.at(-1).url,`/${reserved.family}-a.wav`);h.audio.dispose();
 });
 
 test('render changes stay silent and voices never consume seeded gameplay randomness',async()=>{
@@ -233,14 +265,79 @@ test('render changes stay silent and voices never consume seeded gameplay random
   const families=[...new Set(game.towers.map(tower=>tower.family))],h=harness({selectionCatalogue:Object.fromEntries(families.map(family=>[family,[`/${family}-a.wav`,`/${family}-b.wav`]])),voiceRandom:()=>.9});h.audio.unlock();
   game.on((type,payload)=>h.audio.play(type,payload));
   for(let index=0;index<20;index++){game.select(game.towers[index%5].id);await flush();}
-  const spoken=h.context.speech.length;for(let index=0;index<20;index++)game.emit('change');await flush();
-  assert.equal(h.context.speech.length,spoken);assert.equal(game.rng(),control.rng());h.audio.dispose();
+  assert.equal(h.context.speech.length,0);game.select(game.towers[0].id);control.select(control.towers[0].id);assert.equal(game.keep(),true);assert.equal(control.keep(),true);await flush();
+  const source=h.audio.selectionVoice.source;
+  for(let index=0;index<20;index++){game.select(game.towers[index%5].id);game.emit('change');}await flush();
+  assert.equal(h.context.speech.length,1);assert.equal(source.stopped,false);assert.equal(game.rng(),control.rng());h.audio.dispose();
 });
 
-test('explicit inspection while combat is paused speaks at ordinary playback rate, without combat sound events',async()=>{
-  const game=new Game(data,{seed:42});for(let x=3;x<8;x++)game.place(x,3);game.select(game.towers[0].id);game.keep();game.startCombat();game.paused=true;game.speed=3;
-  const active=game.towers.find(tower=>tower.state==='active'),h=harness({selectionCatalogue:{[active.family]:['/active-a.wav','/active-b.wav']},voiceRandom:()=>.1});h.audio.unlock();
-  const events=[];game.on((type,payload)=>{events.push(type);h.audio.play(type,payload);});game.select(active.id);await flush();game.tick(.2);
+test('final line uses ordinary playback rate at 3x game speed and paused combat inspection stays silent',async()=>{
+  const game=new Game(data,{seed:42}),h=harness({selectionCatalogue:familyCatalogue(...Object.keys(data.towers)),voiceRandom:()=>.1});h.audio.unlock();const events=listen(game,h.audio);
+  placeFive(game);game.speed=3;const active=game.selection;assert.equal(game.keep(),true);await flush();
   assert.equal(h.context.speech.length,1);assert.equal(h.context.speech[0].playbackRate.value,1);
-  assert.ok(!events.some(type=>['shot','impact','hit','death','aura-attack'].includes(type)));h.audio.dispose();
+  game.select(null);game.select(active.id);assert.equal(h.context.speech[0].stopped,false);
+  assert.equal(game.startCombat(),true);game.paused=true;game.select(null);game.select(active.id);await flush();game.tick(.2);
+  assert.equal(h.context.speech.length,1);assert.equal(h.audio.selectionVoice,null);
+  assert.ok(!events.some(event=>['shot','impact','hit','death','aura-attack'].includes(event.type)));h.audio.dispose();
+});
+
+test('downgrade rejects insufficient gold silently and announces only the paid final lower rank',async()=>{
+  const game=new Game(data,{seed:42}),h=harness({voiceRandom:()=>.1});h.audio.unlock();const events=listen(game,h.audio);placeFive(game);
+  const candidate=game.towers[0];Object.assign(candidate,{family:'soldier',tier:3});game.select(candidate.id);
+  game.economy.gold=data.balance.downgradeCost-1;assert.equal(game.downgrade(),false);await flush();assert.equal(h.context.speech.length,0);
+  assert.equal(candidate.state,'draft');assert.equal(candidate.tier,3);assert.equal(events.filter(event=>event.type==='defender-committed').length,0);
+  game.economy.gold=data.balance.downgradeCost;assert.equal(game.downgrade(),true);await flush();
+  const committed=events.find(event=>event.type==='defender-committed');
+  assert.equal(committed.payload.action,'downgrade');assert.equal(committed.state,'active');assert.equal(committed.family,'soldier');assert.equal(committed.tier,2);
+  assert.ok(events.findIndex(event=>event.type==='keep')<events.indexOf(committed));assert.equal(h.context.speech.length,1);assert.equal(game.economy.gold,0);h.audio.dispose();
+});
+
+test('null, unrevealed, reserved and ruin commit payloads never load speech or interrupt a valid line',async()=>{
+  const h=harness({voiceRandom:()=>.1}),active=tower();h.audio.unlock();assert.equal(await h.audio.play('defender-committed',{tower:active}),true);
+  const source=h.audio.selectionVoice.source;
+  for(const invalid of [null,{},...['draft','reserved','ruin'].map(state=>({...tower(2),state}))])assert.equal(await h.audio.play('defender-committed',{tower:invalid}),false);
+  assert.equal(await h.audio.play('defender-committed',{tower:tower(3),visible:false}),false);
+  assert.equal(h.requests.length,1);assert.equal(h.context.speech.length,1);assert.equal(source.stopped,false);h.audio.dispose();
+});
+
+test('wave, endgame and command actions cancel pending and playing speech without permitting duplicate replay',async()=>{
+  for(const event of ['wave','won','lost','reroll','reserve','move']){
+    const pending=defer(),defender=tower(),h=harness({voiceRandom:()=>.1,fetchAudio:()=>pending.promise});h.audio.unlock();
+    const loading=h.audio.play('defender-committed',{tower:defender});h.audio.play(event);pending.resolve(response(1));
+    assert.equal(await loading,false,event);assert.equal(await h.audio.play('defender-committed',{tower:defender}),false,event);assert.equal(h.context.speech.length,0);h.audio.dispose();
+    const playing=harness({voiceRandom:()=>.1}),other=tower();playing.audio.unlock();assert.equal(await playing.audio.play('defender-committed',{tower:other}),true);
+    playing.audio.play(event);assert.equal(playing.context.speech[0].stopped,true,event);assert.equal(playing.audio.selectionVoice,null);
+    assert.equal(await playing.audio.play('defender-committed',{tower:other}),false,event);assert.equal(playing.context.speech.length,1);playing.audio.dispose();
+  }
+});
+
+test('muted or locked commitment does not queue a line for a later gesture',async()=>{
+  const h=harness({voiceRandom:()=>.1}),locked=tower();assert.equal(await h.audio.play('defender-committed',{tower:locked}),false);
+  h.audio.unlock();assert.equal(await h.audio.play('defender-committed',{tower:locked}),false);assert.equal(h.requests.length,0);
+  const muted=tower(2);h.audio.muted=true;assert.equal(await h.audio.play('defender-committed',{tower:muted}),false);
+  h.audio.muted=false;assert.equal(await h.audio.play('defender-committed',{tower:muted}),false);assert.equal(h.requests.length,0);
+  const next=tower(3);assert.equal(await h.audio.play('defender-committed',{tower:next}),true);h.audio.muted=true;h.audio.muted=false;
+  assert.equal(await h.audio.play('defender-committed',{tower:next}),false);assert.equal(h.context.speech.length,1);h.audio.dispose();
+});
+
+test('a pending line cannot play after its committed tower becomes inactive or changes identity',async()=>{
+  for(const mutation of [{state:'reserved'},{family:'archer'},{tier:2}]){
+    const pending=defer(),defender=tower(),h=harness({voiceRandom:()=>.1,fetchAudio:()=>pending.promise});h.audio.unlock();
+    const loading=h.audio.play('defender-committed',{tower:defender});Object.assign(defender,mutation);pending.resolve(response(1));
+    assert.equal(await loading,false);assert.equal(h.context.speech.length,0);h.audio.dispose();
+  }
+});
+
+test('crafting an existing active army between waves announces its actual new champion rather than an ingredient',async()=>{
+  const game=new Game(data,{seed:42}),recipe=game.recipes.find(recipe=>recipe.id==='rimewatch');
+  const families=[...recipe.ingredients.map(piece=>piece.family),'rimewatch'],h=harness({selectionCatalogue:familyCatalogue(...families),voiceRandom:()=>.1});h.audio.unlock();const events=listen(game,h.audio),army=[];
+  for(const [index,piece] of recipe.ingredients.entries()){
+    placeFive(game,3+index);const candidate=game.towers.find(unit=>unit.state==='draft');Object.assign(candidate,piece);game.select(candidate.id);assert.equal(game.keep(),true);army.push(candidate);await flush();
+    if(index<recipe.ingredients.length-1){finishWave(game);h.context.nodes.forEach(node=>node.finish());}
+  }
+  game.select(army[0].id);await flush();assert.equal(h.context.speech.length,recipe.ingredients.length);
+  assert.equal(game.phase,'ready');assert.equal(game.craft(recipe.id),true);await flush();
+  const committed=events.filter(event=>event.type==='defender-committed').at(-1);
+  assert.equal(committed.payload.action,'craft');assert.equal(committed.payload.tower,army[0]);assert.equal(committed.state,'active');assert.equal(committed.family,'rimewatch');assert.equal(committed.tier,1);
+  assert.equal(h.context.speech.length,recipe.ingredients.length+1);assert.equal(h.requests.at(-1).url,'/rimewatch-a.wav');assert.equal(army[1].state,'ruin');assert.equal(army[2].state,'ruin');h.audio.dispose();
 });

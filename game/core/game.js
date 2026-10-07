@@ -119,7 +119,7 @@ export class Game {
     if(this.commandMove.active)return this.message('Finish or cancel Move first.');
     const t=this.selection;
     if(this.phase!=='select'||t?.state!=='draft')return this.message('Select one of this round’s five defenses.');
-    this.finishSelection(t);this.emit('keep',{tower:t});return true;
+    this.finishSelection(t);this.emit('keep',{tower:t});this.emit('defender-committed',{tower:t,round:this.round,action:'keep'});return true;
   }
   downgrade() {
     if(this.commandMove.active)return this.message('Finish or cancel Move first.');
@@ -127,7 +127,7 @@ export class Game {
     if(this.phase!=='select'||!this.roundCandidates.some(c=>c.tower===t))return this.message('Select one of this round’s five candidates.');
     if(this.data.towers[t.family].advanced||t.tier<=1)return this.message('Only a basic candidate above Tier I can be downgraded.');
     if(!this.economy.spend(this.data.balance.downgradeCost))return this.message('Downgrading and keeping a defender costs 200 gold.');
-    t.tier--;this.finishSelection(t);this.emit('keep',{tower:t});
+    t.tier--;this.finishSelection(t);this.emit('keep',{tower:t});this.emit('defender-committed',{tower:t,round:this.round,action:'downgrade'});
     this.message('Defender downgraded by one rank and kept · 200 gold');return true;
   }
   canCombine(t) {return !this.commandMove.active&&t&&['active','draft'].includes(t.state)&&['build','select','ready','reward'].includes(this.phase)&&(t.state!=='draft'||this.phase==='select');}
@@ -149,7 +149,7 @@ export class Game {
     if(this.phase==='select'&&t.state!=='draft'&&draftUsed)return this.message('Select the new tower to choose its result location.');
     partner.state='ruin';t.tier++;t.kills+=partner.kills;t.state='active';
     if(draftUsed)this.finishSelection(t);
-    this.emit('combine',{tower:t});this.emit('change');return true;
+    this.emit('combine',{tower:t});this.emit('defender-committed',{tower:t,round:this.round,action:'merge'});this.emit('change');return true;
   }
   availableRecipes(t=this.selection) {
     if(!this.canCombine(t))return [];
@@ -192,7 +192,7 @@ export class Game {
     pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=1;t.state='active';t.upgrades=0;t.kills=kills;
     this.discoveries.add(family);
     if(draftUsed)this.finishSelection(t,draftIndex);
-    this.emit('combine',{tower:t,previousFamily,crafted:this.data.towers[family]?.advanced===true&&family!==previousFamily});this.emit('discover',{id:family});this.emit('change');return true;
+    this.emit('combine',{tower:t,previousFamily,crafted:this.data.towers[family]?.advanced===true&&family!==previousFamily});this.emit('defender-committed',{tower:t,round:this.round,action:'craft'});this.emit('discover',{id:family});this.emit('change');return true;
   }
   remove() {
     if(this.commandMove.active)return this.message('Finish or cancel Move before demolishing a wall.');
