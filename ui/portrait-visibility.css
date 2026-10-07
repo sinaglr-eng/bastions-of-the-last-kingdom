@@ -1,0 +1,4 @@
+img[data-approved-portrait-state="loading"],
+img[data-approved-portrait-state="unavailable"] {
+  visibility: hidden;
+}

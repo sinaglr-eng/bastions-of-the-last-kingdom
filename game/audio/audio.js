@@ -104,7 +104,7 @@ export class AudioManager{
     const family=tower.family,tier=tower.tier,key=JSON.stringify([payload.round??tower.round,family,tier]);
     // Only the final committed result announces itself. Remember the real
     // defender independently of the current transport so duplicate delivery
-    // cannot replay a line after a wave, mute, or newer commit interrupts it.
+    // cannot replay a line after mute or a newer commit interrupts it.
     if(this.committedVoiceKeys.get(tower)===key)return false;
     this.committedVoiceKeys.set(tower,key);
     this.cancelSelectionVoice();this.selectionKey=key;
@@ -181,7 +181,7 @@ export class AudioManager{
     if(event==='defender-committed')return this.playSelectionVoice(payload);
     if(this.muted||this.disposed||!this.context||payload.visible===false)return;
     if(event==='defender-select')return;
-    if(['wave','won','lost','reroll','reserve','move'].includes(event))this.cancelSelectionVoice();
+    if(['won','lost','reroll','reserve','move'].includes(event))this.cancelSelectionVoice();
     if(event==='shot'||event==='aura-attack'){
       const kind=soundKind(payload);if(this.allow('attack:'+kind,INTERVALS.attack))this.attack(kind);return;
     }

@@ -34,6 +34,8 @@ import '../ui/atelier.css';
 import {siteUrl} from './site-url.js';
 import {defenderCode} from './core/unit-label.js';
 import {releaseAsset,defenderPortrait,enemyPortrait,GAME_VERSION} from './release.js';
+import {connectApprovedPortraitVisibility} from '../ui/portrait-visibility.js';
+import '../ui/portrait-visibility.css';
 
 const basicFrames=geometricEntries(basicManifest);
 const modelEntries=new Map([...basicFrames,...geometricEntries(championManifest)].map(entry=>[entry.id,entry]));
@@ -56,6 +58,8 @@ document.querySelector('#atelier').innerHTML=`
 <footer class="atelier-footer"><span>BLENDER 5.2 · v${GAME_VERSION} <b>${variantCount} VARIANTS</b></span><p>37 × 37 tiles · Crenellated walls · Spiral paths around the center</p><span>BASTIONS / ASHEN VALE</span></footer>`;
 
 const host=document.querySelector('#model-canvas'),scene=new THREE.Scene();
+const portraitVisibility=connectApprovedPortraitVisibility(document.querySelector('#atelier'));
+window.addEventListener('pagehide',()=>portraitVisibility.dispose(),{once:true});
 const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;host.append(renderer.domElement);
 renderer.domElement.setAttribute('aria-label','Rotate the 3D character model');
 const camera=new THREE.PerspectiveCamera(33,1,.1,50),controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.minDistance=2.4;controls.maxDistance=14;controls.maxPolarAngle=Math.PI*.49;controls.autoRotateSpeed=.7;
@@ -131,8 +135,8 @@ function setEffectVisibility(){
  if(enemyPreview)updateAtelierEnemyPreview(enemyPreview,0,{reducedMotion:!!reducedMotion?.matches,showEffects:effectsVisible});
 }
 async function showRank(rank){
- selected=rank;const request=++sequence,definition=members()[family],enemy=isEnemy(),advanced=!enemy&&definition.advanced,url=asset(family,rank),entry=enemy?null:modelEntries.get(advanced?family:`${family}-${rank}`);
- clearModel();animationControls.hidden=true;document.title=`${definition.name}${enemy?` · wave ${definition.wave}`:advanced?'':` ${roman[rank-1]}`} · Royal Atelier`;
+ selected=rank;const request=++sequence,selectedFamily=family,selectedRoster=roster,definition=members()[family],enemy=isEnemy(),advanced=!enemy&&definition.advanced,url=asset(family,rank),entry=enemy?null:modelEntries.get(advanced?family:`${family}-${rank}`);
+ clearModel();host.dataset.modelIdentity='';host.setAttribute('aria-busy','true');renderer.render(scene,camera);animationControls.hidden=true;document.title=`${definition.name}${enemy?` · wave ${definition.wave}`:advanced?'':` ${roman[rank-1]}`} · Royal Atelier`;
  history.replaceState(null,'',location.pathname+atelierSelectionQuery({roster,id:family,tier:rank}));
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelector('#selected-rank').textContent=enemy?`WAVE ${definition.wave} · ${definition.flying?'FLIGHT':'WALK'}`:advanced?`${championClassification(family).toUpperCase()} · CHAMPION`:`${defenderCode(definition,rank)} · ${colors[rank-1].toUpperCase()}`;
@@ -144,7 +148,7 @@ async function showRank(rank){
  document.querySelector('#load-status').textContent='Loading approved Blender model…';
  try{
   if(!cache.has(url))cache.set(url,loader.loadAsync(url).then(decoded=>{if(atelierDisposed){disposeDecodedGeometricAsset(decoded);throw new Error('Atelier closed');}decoded.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});prepareReconstructedDefender(decoded.scene,entry);optimizeGeometricSiblings(decoded.scene,{animations:decoded.animations});return decoded;}).catch(error=>{cache.delete(url);throw error;}));
-  const gltf=await cache.get(url);if(request!==sequence||atelierDisposed)return;
+  const gltf=await cache.get(url);if(request!==sequence||selectedFamily!==family||selectedRoster!==roster||atelierDisposed)return;
   gltf.scene.animations=gltf.animations;
   if(enemy){enemyPreview=createAtelierEnemyPreview(scene,definition,gltf.scene,{camera,balance});model=enemyPreview.figure;}
   else{model=applyDefenderClassificationScale(cloneDefenderTemplate(gltf.scene),family);modelAttack=attackRig(model,family,definition);}
@@ -154,8 +158,8 @@ async function showRank(rank){
   viewCentre=frame?new THREE.Vector3(...frame.centre):bounds.getCenter(new THREE.Vector3());viewRadius=frame?.radius??Math.max(1,size.y/2.2,size.x/2.1,size.z/2.1);
   controls.minDistance=Math.min(2.4,viewRadius*1.5);controls.maxDistance=Math.max(14,viewRadius*12);camera.far=Math.max(50,viewRadius*30);camera.updateProjectionMatrix();
   if(!enemy){if(!advanced)model.add(rankAdornment(rank));modelAura=createChampionAura(family);if(modelAura)model.add(modelAura);}
-  model.visible=!wallsVisible;scene.add(model);setEffectVisibility();reset(wallsVisible);status();
- }catch{if(request===sequence&&!atelierDisposed)document.querySelector('#load-status').textContent='The model could not be loaded. Choose another character or reload the page.';}
+  model.visible=!wallsVisible;scene.add(model);setEffectVisibility();reset(wallsVisible);host.dataset.modelIdentity=entry?.id||selectedFamily;host.setAttribute('aria-busy','false');renderer.render(scene,camera);status();
+ }catch{if(request===sequence&&!atelierDisposed){host.setAttribute('aria-busy','false');document.querySelector('#load-status').textContent='The model could not be loaded. Choose another character or reload the page.';}}
 }
 function status(){const d=members()[family];document.querySelector('#load-status').textContent=wallsVisible?'Walls · joined sections and corner crenellations':`${d.name} · ${isEnemy()?`Wave ${d.wave} · ${d.flying?'Flight':'Walk'}`:d.advanced?championClassification(family):`${defenderCode(d,selected)} · ${colors[selected-1]}`} · Blender GLB`;}
 function showFamily(id,rank=1){if(!Object.hasOwn(members(),id))return;family=id;lastSelection[roster]=id;document.querySelector('#family-picker').value=id;if(wallsVisible)toggleWalls();rankButtons();showRank(rank);}

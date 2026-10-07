@@ -1,5 +1,11 @@
 # Releases
 
+## 0.3.21 — Approved Defender Display — 7 October 2026
+
+- Uses only the exact approved V7 basic rank or V8 champion on the battlefield. Neutral loading markers replace temporary procedural characters; bounded recovery and an explicit Retry control recover failed appearances.
+- Clears previous Atelier models immediately and displays defender portraits only after their current source decodes, preventing stale model or miniature flashes.
+- Preserves final-choice voice lines when a wave begins, including pending downloads and playback at accelerated combat speed. Original assets, classification sizes and auras, and gameplay rules remain unchanged.
+
 ## 0.3.20 — Final Defender Selection Voices — 7 October 2026
 
 - Plays one allied voice line only after a successful final keep, downgrade-and-keep, rank merge or champion recipe, using the resulting defender identity.

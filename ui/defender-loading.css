@@ -1,0 +1,29 @@
+.defender-loading-status {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  max-width: calc(100% - 2rem);
+  padding: .6rem .85rem;
+  transform: translateX(-50%);
+  border: 1px solid #b6ab82;
+  border-radius: .6rem;
+  background: #1e2a24ed;
+  color: #f5efd7;
+  font-size: .8rem;
+  box-shadow: 0 .3rem 1rem #0004;
+}
+.defender-loading-status[hidden], .defender-loading-status button[hidden] { display: none; }
+.defender-loading-status button {
+  min-height: 2.25rem;
+  padding: .35rem .7rem;
+  border: 1px solid #d2c89e;
+  border-radius: .35rem;
+  background: #414f3c;
+  color: #fff7dd;
+  cursor: pointer;
+}
+.defender-loading-status button:focus-visible { outline: 2px solid #f6dea2; outline-offset: 3px; }

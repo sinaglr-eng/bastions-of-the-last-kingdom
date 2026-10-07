@@ -1,6 +1,21 @@
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+import {Group,Mesh,RingGeometry,BoxGeometry,MeshBasicMaterial,DoubleSide} from 'three';
 import {prepareReconstructedDefender} from './reconstruction-adapter.js';
 import {optimizeGeometricSiblings} from './geometric-batching.js';
+
+// A pending asset must not impersonate a defender from a different renderer
+// or rank. This low, selectable dial retains the occupied tile while the
+// exact approved figure loads. It has no character rig or source materials.
+export function defenderLoadingTemplate(status='loading'){
+  const root=new Group();root.name=status==='unavailable'?'Defender model unavailable':'Loading approved defender model';
+  root.userData.defenderModelStatus=status;
+  const material=new MeshBasicMaterial({color:status==='unavailable'?'#e09a7c':'#e6d7a9',side:DoubleSide});
+  const ring=new Mesh(new RingGeometry(.20,.27,24),material);ring.rotation.x=-Math.PI/2;ring.position.y=.06;root.add(ring);
+  const bar=(length,angle)=>{const mesh=new Mesh(new BoxGeometry(.028,.035,length),material);mesh.position.set(Math.sin(angle)*length/2,.08,Math.cos(angle)*length/2);mesh.rotation.y=angle;root.add(mesh);};
+  if(status==='unavailable'){bar(.16,Math.PI/4);bar(.16,-Math.PI/4);}
+  else {bar(.15,0);bar(.11,-Math.PI/2);}
+  return root;
+}
 
 // A skinned actor needs its own bones and Skeleton. Mesh geometry, textures,
 // materials and immutable AnimationClips remain shared with the cached asset.
@@ -25,6 +40,7 @@ export function installDefenderTemplate(field,entry,scene,animations=scene.anima
   prepareReconstructedDefender(scene,entry);
   optimizeGeometricSiblings(scene,{animations});
   scene.animations=[...animations];
+  scene.userData.defenderModelStatus='ready';scene.userData.defenderModelKey=`${entry.family}:${entry.tier}`;
   field.imported.set(`${entry.family}:${entry.tier}`,scene);
   let changed=false;
   for(const tower of field.game.towers){

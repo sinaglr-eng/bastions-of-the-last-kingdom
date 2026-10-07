@@ -50,6 +50,9 @@ import {selectedSupportMarkup,supportEffectsMarkup,supportMapLegendMarkup} from 
 import {DefenderRankPreview,defenderRankPreviewMarkup} from '../ui/defender-rank-preview.js';
 import {enemyTraitsMarkup} from '../ui/enemy-trait-symbols.js';
 import {warbandCardsMarkup} from '../ui/warband-cards.js';
+import {connectApprovedPortraitVisibility} from '../ui/portrait-visibility.js';
+import '../ui/portrait-visibility.css';
+import '../ui/defender-loading.css';
 
 const towers=campaignTowers(historicalTowers),recipes=campaignRecipes(historicalRecipes),enemies=campaignEnemies(historicalEnemies),waves=campaignWaves(historicalWaves);
 const data={balance,towers,enemies,waves,recipes},profile=loadProfile(),audio=new AudioManager(profile.muted),roman=ROMAN;
@@ -57,6 +60,8 @@ void audio.loadSelectionCatalogue(new URL(siteUrl(ALLIED_VOICE_CATALOGUE),docume
 const params=new URLSearchParams(location.search);const debug=import.meta.env.DEV&&params.has('debug');
 let game,world,statistics,images,dpsTracker,dpsWave=null,toastTimer,uiClock=0,previous=performance.now(),modalPaused=false,mode=waves.length,recipeFocus=null;
 const app=document.getElementById('app');
+const portraitVisibility=connectApprovedPortraitVisibility(app);
+window.addEventListener('pagehide',()=>portraitVisibility.dispose(),{once:true});
 const rankPreview=new DefenderRankPreview();
 const threatAnalyzer=new WaveThreatAnalyzer(data),armyReadiness=new ArmyReadiness(data);
 let intelligenceModel=null,intelligenceKey=null,intelligenceIndex=null,intelligenceRound=null;

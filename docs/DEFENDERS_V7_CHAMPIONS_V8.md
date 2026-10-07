@@ -6,13 +6,15 @@ Classification presentation update: **0.3.19 — Champion Classification Scale**
 
 Voice timing update: **0.3.20 — Final Defender Selection Voices**.
 
+Display and wave-start update: **0.3.21 — Approved Defender Display**.
+
 The release uses all 48 approved basic defender models from `basic-defenders-reconstruction-v7` and all 38 champion exports from `champions-reconstruction-v8`. The original Blender scenes, approval records, source references and exported GLB files remain unchanged. Runtime adapters provide game orientation, presentation and attack movement separately from those frozen files.
 
 Each stable game family retains its existing recipes, damage, range and abilities. Basic ranks I–VI use the corresponding V7 model; each champion uses its V8 identity. Lady Claire remains the playable Secret champion, while Lord Bernhard remains the hostile final boss. The enemy and scenery revisions are unchanged.
 
 ## Loading and presentation
 
-The battlefield requests a defender model only after that known family and rank exists on the field. Requests share cached templates, are deduplicated and have bounded concurrency. Temporary procedural figures keep construction immediately available while the selected model loads. Loading does not reveal an unknown draw or advance gameplay randomness. The Royal atelier loads its selected model directly.
+The battlefield requests a defender model only after that known family and rank exists on the field. Requests share cached templates, are deduplicated and have bounded concurrency. A neutral tile marker keeps construction immediately available until that exact approved model loads; older procedural characters are never substituted. Failed requests have bounded recovery and an explicit Retry control. Late loads can populate their own cached identity but cannot replace another currently selected family or rank. Loading does not reveal an unknown draw or advance gameplay randomness. The Royal atelier loads its selected model directly and clears the previous canvas synchronously before changing the selection. Defender portraits stay hidden until the exact current image source is decoded, preserving their layout while preventing a previous image from flashing.
 
 The V7 exports use native rigid skinning; V8 champions are static assemblies. Adaptation respects their exported rest pose and uses the actual skeleton or semantic components rather than assuming the older model hierarchy. Champion front orientation is corrected in a presentation wrapper. The wrapper applies a uniform 1.6 presentation scale to stationary humanoid champions; basic defenders, mounts, creatures and siege models retain their native relative scale. These transforms do not alter the approved GLB bytes.
 
@@ -26,7 +28,7 @@ There are 92 English `eleven_v4` MP3 recordings: A and B for all 46 allied ident
 
 A voice line plays only after a successful final choice: keeping a defender, downgrading and keeping it, rank merging, or crafting a champion. The line uses the resulting active defender identity and chooses A or B independently. Placing or inspecting candidates, inspecting retained defenders, unknown draft slots, rank comparisons, recipe previews, rerolls, moves and inactive reservations stay silent. A returning reserved defender speaks only if it is finally kept or combined. Duplicate confirmations and render updates do not restart speech.
 
-The latest final choice replaces an earlier pending or playing line; inspecting another defender does not interrupt it. Mute, a new run and disposal cancel pending speech. Playback starts only after a user gesture unlocks browser audio; speech keeps normal playback speed when combat is accelerated or paused. Existing synthesized combat effects remain available. Background music, attack effects and enemy lines from the other chat were proposals, not exported recordings in this delivery.
+The latest final choice replaces an earlier pending or playing line; inspecting another defender does not interrupt it. Starting a wave preserves both pending and playing final-choice speech. Mute, a new run and disposal cancel pending speech. Playback starts only after a user gesture unlocks browser audio; speech keeps normal playback speed when combat is accelerated or paused. Existing synthesized combat effects remain available. Background music, attack effects and enemy lines from the other chat were proposals, not exported recordings in this delivery.
 
 The catalogue and its MP3 URLs carry an independent audio revision and resolve under both a root URL and the GitHub project path. The local production launcher serves MP3 files with `audio/mpeg`.
 
@@ -36,4 +38,4 @@ Current integration evidence is saved under `output/design/defenders-voices-v19/
 
 The DEV-only **Check recorded voices** control in the Commander’s tools decodes the complete catalogue with the browser's real `decodeAudioData`. The native check passed for all 92 recordings at 48,000 Hz, totaling 209.04 seconds. The control is absent from the public production game.
 
-Historical model reviews and earlier release proofs remain separate from the current integration evidence.
+Current display verification is saved under `output/design/defender-display-v22/`, including independent provenance and runtime checks for all 86 approved defenders, portrait race tests, wave-start voice tests, production builds, native browser inspection and delivered-file checks. Historical model reviews and earlier release proofs remain separate from the current integration evidence.

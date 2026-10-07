@@ -20,9 +20,9 @@ import {fetchGeometricEntries,geometricEntryUrl,loadModelEntries} from './geomet
 import {disposeGeometricResources,adoptDecodedGeometricAsset} from './geometric-resources.js';
 import {optimizeGeometricSiblings} from './geometric-batching.js';
 import {SupportEffects} from './support-effects.js';
-import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,pointedTower} from './defender-assets.js';
+import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,pointedTower,defenderLoadingTemplate} from './defender-assets.js';
 import {applyDefenderClassificationScale} from './defender-classification-scale.js';
-import {DefenderModelLoader} from './defender-model-loader.js';
+import {DefenderModelLoader,defenderTemplateKey} from './defender-model-loader.js';
 import {secretAttackContext} from './secret-animation.js';
 import {DraftMarkers} from './draft-markers.js';
 import {CommandMoveEffects} from './command-move-effects.js';
@@ -39,7 +39,7 @@ import {createLandmarkScenery} from './scenery-landmarks.js';
 import {valleyEnvironment} from './environment.js';
 import {meadowTerrain,interiorGrid} from './terrain.js';
 import {towerStats,supportBonuses} from '../core/math.js';
-import {towerModel,optimize} from './models.js';
+import {optimize} from './models.js';
 
 const HALF=(SIZE-1)/2;
 const v3=(x,y,z)=>new THREE.Vector3(x-HALF,y,z-HALF);
@@ -47,6 +47,7 @@ export class Battlefield {
   constructor(container,game,onTile) {
     this.container=container;this.game=game;this.onTile=onTile;this.time=0;this.models=new Map();this.enemies=new Map();this.shots=new Map();this.effects=[];this.templates=new Map();this.imported=new Map();this.enemyTemplates=new Map();this.showPath=true;this.showGrid=true;this.showRanges=false;this.hover=null;this.pathRevision=-1;this.keys=new Set();this.shake=0;
     this.corpses=new Map();this.disposed=false;
+    this.defenderRecoveryAt=0;this.defenderManifestRetryAt=Infinity;this.defenderManifestAttempts=0;
     const defenderGLTF=new GLTFLoader();
     this.defenderLoader=new DefenderModelLoader({
       load:entry=>defenderGLTF.loadAsync(geometricEntryUrl(entry)),
@@ -55,7 +56,9 @@ export class Battlefield {
         return installDefenderTemplate(this,entry,asset.scene,asset.animations);
       },
       isDisposed:()=>this.disposed,
+      isNeeded:key=>this.game.towers.some(tower=>defenderTemplateKey(tower,this.game.data.towers)===key),
       onFailure:(entry,error)=>console.warn(`Defender model could not load: ${entry.file}`,error),
+      onStateChange:()=>this.queueDefenderRefresh(),
     });
     this.reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
     this.edgePointer=null;this.compass=container.parentElement.querySelector('.map-compass');
@@ -63,6 +66,10 @@ export class Battlefield {
     this.camera=new THREE.PerspectiveCamera(38,1,0.1,210);this.camera.position.set(7,53,41);
     this.renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.18;container.append(this.renderer.domElement);
     this.renderer.domElement.setAttribute('aria-label','3D battlefield. Tap to place or select; drag one finger to pan; use two fingers to rotate or pinch to zoom.');this.renderer.domElement.tabIndex=0;
+    this.defenderLoadingStatus=document.createElement('div');this.defenderLoadingStatus.className='defender-loading-status';this.defenderLoadingStatus.hidden=true;
+    this.defenderLoadingLabel=document.createElement('span');this.defenderLoadingLabel.setAttribute('role','status');this.defenderLoadingLabel.setAttribute('aria-live','polite');
+    this.defenderRetryButton=document.createElement('button');this.defenderRetryButton.type='button';this.defenderRetryButton.textContent='Retry';this.defenderRetryButton.setAttribute('aria-label','Retry loading defender models');
+    this.defenderRetryButton.addEventListener('click',()=>this.retryDefenderModels());this.defenderLoadingStatus.append(this.defenderLoadingLabel,this.defenderRetryButton);container.append(this.defenderLoadingStatus);
     this.controls=new OrbitControls(this.camera,this.renderer.domElement);this.controls.target.set(1,1,-1);this.controls.enableDamping=true;this.controls.dampingFactor=0.09;this.controls.minDistance=12;this.controls.maxDistance=130;this.controls.maxPolarAngle=Math.PI*0.43;this.controls.minPolarAngle=Math.PI*0.12;this.controls.mouseButtons={LEFT:null,MIDDLE:THREE.MOUSE.ROTATE,RIGHT:THREE.MOUSE.PAN};configureTouchControls(this.controls);
     this.scene.add(new THREE.HemisphereLight('#e0eee0','#465847',2));
     const sun=new THREE.DirectionalLight('#fff0cc',3.4);sun.position.set(-18,38,13);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-35;sun.shadow.camera.right=35;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;sun.shadow.camera.far=100;sun.shadow.normalBias=0.04;sun.shadow.bias=-0.0001;this.scene.add(sun);
@@ -135,8 +142,10 @@ export class Battlefield {
     }catch(error){if(!this.disposed)console.warn('Geometric enemy assets unavailable.',error);}
   }
   async loadDefenders() {
-    // Index every approved model, but decode only placed family/ranks. The
-    // procedural templates remain playable while those few requests finish.
+    if(this.defenderManifestLoading||this.disposed)return;
+    this.defenderManifestLoading=true;this.defenderManifestAttempts=(this.defenderManifestAttempts||0)+1;
+    // Index only; a placed unit retains a neutral tile marker until its own
+    // approved family/rank has decoded. Never substitute a procedural figure.
     try {
       const rosters=await Promise.allSettled(['geometric-defenders.json','geometric-champions.json'].map(fetchGeometricEntries));
       if(this.disposed)return;
@@ -144,7 +153,44 @@ export class Battlefield {
       for(const result of rosters)if(result.status==='rejected')console.warn('Geometric roster unavailable.',result.reason);
       this.defenderLoader.index(entries.filter(entry=>entry.kind==='tower'&&this.game.data.towers[entry.family]));
       for(const tower of this.game.towers)this.defenderLoader.requestTower(tower,this.game.data.towers);
-    }catch(error){if(!this.disposed)console.warn('Defender assets unavailable; using temporary models.',error);}
+      this.defenderManifestRetryAt=rosters.some(result=>result.status==='rejected')&&this.defenderManifestAttempts<3?Date.now()+15000*this.defenderManifestAttempts:Infinity;
+    }catch(error){
+      if(!this.disposed){console.warn('Defender assets unavailable.',error);if(!this.defenderLoader.indexed)this.defenderLoader.index([]);this.defenderManifestRetryAt=this.defenderManifestAttempts<3?Date.now()+15000*this.defenderManifestAttempts:Infinity;}
+    }finally{this.defenderManifestLoading=false;}
+  }
+  queueDefenderRefresh(){
+    if(this.disposed||this.defenderRefreshPending)return;
+    this.defenderRefreshPending=true;
+    queueMicrotask(()=>{this.defenderRefreshPending=false;if(!this.disposed)this.sync();});
+  }
+  recoverDefenderModels(now=Date.now()){
+    if(this.disposed||now<(this.defenderRecoveryAt||0))return;
+    this.defenderRecoveryAt=now+1000;
+    for(const tower of this.game.towers){
+      const key=defenderTemplateKey(tower,this.game.data.towers);
+      if(key&&!this.imported.has(key))this.defenderLoader.requestTower(tower,this.game.data.towers);
+    }
+    if(now>=this.defenderManifestRetryAt)void this.loadDefenders();
+  }
+  retryDefenderModels(){
+    if(this.disposed)return;
+    this.defenderManifestAttempts=0;
+    for(const tower of this.game.towers){
+      const key=defenderTemplateKey(tower,this.game.data.towers);
+      if(key&&!this.imported.has(key))this.defenderLoader.retryTower(tower,this.game.data.towers);
+    }
+    void this.loadDefenders();
+  }
+  updateDefenderLoadingStatus(){
+    if(!this.defenderLoadingStatus)return;
+    let pending=0,unavailable=0;
+    for(const tower of this.game.towers){
+      const key=defenderTemplateKey(tower,this.game.data.towers);if(!key||this.imported.has(key))continue;
+      pending++;if(this.defenderLoader.statusFor(tower,this.game.data.towers)==='unavailable')unavailable++;
+    }
+    this.defenderLoadingStatus.hidden=pending===0;
+    this.defenderLoadingLabel.textContent=unavailable?'Defender appearance unavailable':'Loading defenders…';
+    this.defenderRetryButton.hidden=unavailable===0;
   }
   createEnvironment() {
     // The entire 37 × 37 playfield is open; only player-built defenses obstruct it.
@@ -186,17 +232,27 @@ export class Battlefield {
     figure.userData.previewEnemy=enemy;figure.position.y=enemy.flying?.5:0;figure.rotation.y=-Math.PI/2;
     this.landmarks.previewAnchor.add(figure);this.campPreview=figure;
   }
-  template(t) {if(t.state==='ruin'){const mask=wallConnections(t,this.game.towers),key='wall:'+mask;if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask));return this.templates.get(key);}const stats=this.game.data.towers[t.family],key=`${t.family}:${stats?.advanced?1:t.tier}`;if(this.imported.has(key))return this.imported.get(key);this.defenderLoader.requestTower(t,this.game.data.towers);if(!this.templates.has(key))this.templates.set(key,towerModel(t.family,stats?.advanced?1:t.tier,stats?.advanced,stats?.model));return this.templates.get(key);}
+  template(t) {
+    if(t.state==='ruin'){const mask=wallConnections(t,this.game.towers),key='wall:'+mask;if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask));return this.templates.get(key);}
+    const key=defenderTemplateKey(t,this.game.data.towers);
+    if(key&&this.imported.has(key))return this.imported.get(key);
+    this.defenderLoader.requestTower(t,this.game.data.towers);
+    const status=this.defenderLoader.statusFor(t,this.game.data.towers)==='unavailable'?'unavailable':'loading',markerKey=`defender-marker:${status}`;
+    if(!this.templates.has(markerKey))this.templates.set(markerKey,defenderLoadingTemplate(status));
+    return this.templates.get(markerKey);
+  }
   sync() {
     this.updateCampPreview();
     const ids=new Set(this.game.towers.map(t=>t.id));
     for(const [id,value]of this.models)if(!ids.has(id)){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);this.scene.remove(value.object);this.models.delete(id);}
     for(const t of this.game.towers) {
-      const signature=`${t.family}:${t.tier}:${t.state}:${t.upgrades||0}:${hasWallFoundation(t)?wallConnections(t,this.game.towers):''}`;let value=this.models.get(t.id);
+      const source=this.template(t),modelKey=defenderTemplateKey(t,this.game.data.towers),status=t.state==='ruin'?'wall':source.userData.defenderModelStatus||'ready',ready=status==='ready';
+      const signature=`${t.family}:${t.tier}:${t.state}:${t.upgrades||0}:${hasWallFoundation(t)?wallConnections(t,this.game.towers):''}:${t.state==='ruin'?'wall':status}`;let value=this.models.get(t.id);
       if(!value||value.signature!==signature){
         if(value){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);this.scene.remove(value.object);}
-        const object=new THREE.Group(),actor=cloneDefenderTemplate(this.template(t));
-        if(t.state!=='ruin'){applyDefenderClassificationScale(actor,t.family);scaleBattlefieldUnit(actor);}
+        const object=new THREE.Group(),actor=cloneDefenderTemplate(source);
+        actor.userData.defenderModelKey=modelKey;
+        if(ready){applyDefenderClassificationScale(actor,t.family);scaleBattlefieldUnit(actor);}
         if(t.state==='active'||t.state==='reserved'){
           const mask=wallConnections(t,this.game.towers),key='platform:'+mask;
           if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask,true));
@@ -204,15 +260,16 @@ export class Battlefield {
         }
         object.add(actor);object.position.copy(v3(t.x,0,t.z));this.scene.add(object);
         actor.rotation.y=t.state==='ruin'?0:Math.PI;
-        if(t.state!=='ruin'&&(!this.game.data.towers[t.family]?.advanced||t.tier>1))actor.add(rankAdornment(Math.min(6,t.tier)));
-        const aura=t.state==='active'?createChampionAura(t.family,{phase:t.id*1.7}):null;
+        if(ready&&(!this.game.data.towers[t.family]?.advanced||t.tier>1))actor.add(rankAdornment(Math.min(6,t.tier)));
+        const aura=ready&&t.state==='active'?createChampionAura(t.family,{phase:t.id*1.7}):null;
         if(aura)actor.add(aura);
-        value={object,actor,aura,signature,tower:t,siege:t.state==='reserved'?null:siegeRig(actor),attack:['ruin','reserved'].includes(t.state)?null:attackRig(actor,t.family,towerStats(t,this.game.data)),hero:this.game.data.towers[t.family]?.unitKind!=='siege'&&!['ruin','reserved'].includes(t.state),phase:t.id*1.7};this.models.set(t.id,value);
+        value={object,actor,aura,signature,tower:t,modelKey,modelStatus:t.state==='ruin'?'wall':ready?'ready':actor.userData.defenderModelStatus,siege:!ready||t.state==='reserved'?null:siegeRig(actor),attack:!ready||['ruin','reserved'].includes(t.state)?null:attackRig(actor,t.family,towerStats(t,this.game.data)),hero:ready&&this.game.data.towers[t.family]?.unitKind!=='siege'&&!['ruin','reserved'].includes(t.state),phase:t.id*1.7};this.models.set(t.id,value);
       }
       // A Command Move retains identities and often the same wall-connection
       // signature. Position must still follow the authoritative board object.
       value.object.position.copy(v3(t.x,0,t.z));
     }
+    this.updateDefenderLoadingStatus();
     this.draftMarkers.sync(this.game,this.models);
     this.commandMoveEffects.sync(this.game);
     this.reservedDefenderEffects.sync(this.game,this.models);
@@ -311,6 +368,7 @@ export class Battlefield {
   resetCamera(){const factor=THREE.MathUtils.clamp(1.1/this.camera.aspect,1,1.32);this.controls.target.set(1,1,-1);this.camera.position.set(1+6*factor,1+52*factor,-1+42*factor);this.controls.update();}
   tileScreen(x,z) {const p=v3(x,0.08,z).project(this.camera),r=this.renderer.domElement.getBoundingClientRect();return {x:r.left+(p.x+1)*r.width/2,y:r.top+(-p.y+1)*r.height/2};}
   update(dt) {
+    this.recoverDefenderModels();
     this.time+=dt;this.draftMarkers.update(this.time,this.camera,this.container.clientHeight);
     animateCheckpointEffects(this.checkpointEffects,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateRouteOverlay(this.pathGroup,dt,{reducedMotion:!!this.reducedMotion?.matches,paused:this.game.phase==='combat'&&this.game.paused});
@@ -343,7 +401,7 @@ export class Battlefield {
     }
     syncEnemySelectionRing(this.enemySelectionRing,this.game.enemySelection,this.enemies.get(this.game.selectedEnemy));
     for(const value of this.models.values()){
-      if(value.tower.state==='reserved')continue;
+      if(value.tower.state==='reserved'||value.modelStatus!=='ready')continue;
       const articulated=value.attack?.native||value.attack?.geometric,context=articulated?secretAttackContext(value.tower,this.game):{};
       const idle=value.hero&&!articulated?Math.sin(this.time*2.8+value.phase)*.018:0;
       if(!articulated)animateBattlefieldIdleScale(value.actor,idle);
@@ -368,6 +426,7 @@ export class Battlefield {
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
     this.disposed=true;this.defenderLoader.dispose();this.combatEffects.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
+    this.defenderLoadingStatus?.remove();
     disposeEnemySelectionRing(this.enemySelectionRing);
     disposeCheckpointEffects(this.checkpointEffects);
     const checkpointMaterials=new Set();
