@@ -163,6 +163,16 @@ test('enemy, data wall, unknown and unrelated images are untouched while portabl
   assert.equal(portable.getAttribute(state),'loading');assert.equal(portable.requests.length,1);connection.dispose();
 });
 
+test('all 50 real campaign host_NN enemy paths bypass defender gating, including source changes and inserted enemy nodes',async()=>{
+  const {root,Image}=documentFixture(),enemies=Array.from({length:50},(_,index)=>new Image(portrait(`host_${String(index+1).padStart(2,'0')}`,'enemy-release')));
+  const defender=new Image(portrait('soldier-1'));root.append(...enemies,defender);const connection=connectApprovedPortraitVisibility(root);
+  for(const enemy of enemies){assert.equal(enemy.getAttribute(state),null);assert.equal(enemy.requests.length,0);assert.equal(enemy.listenerCount,0);}
+  assert.equal(defender.getAttribute(state),'loading');assert.equal(defender.requests.length,1);
+  defender.setAttribute('src',portrait('host_02','enemy-release'));const inserted=new Image(portrait('host_50','enemy-release'));root.append(inserted);await flush();
+  assert.equal(defender.getAttribute(state),null);assert.equal(inserted.getAttribute(state),null);assert.equal(inserted.requests.length,0);
+  defender.requests[0].resolve();await flush();assert.equal(defender.getAttribute(state),null,'an obsolete defender decode cannot gate or reveal the replacement enemy');connection.dispose();
+});
+
 test('dispose disconnects once, removes listeners, invalidates pending decodes and prevents later node binding',async()=>{
   const {root,Image,document}=documentFixture(),native=new Image(portrait()),fallback=new Image(portrait('mage-2'),{decode:false});root.append(native,fallback);
   const connection=connectApprovedPortraitVisibility(root);connection.dispose();connection.dispose();assert.equal(document.observers[0].disconnects,1);assert.equal(fallback.listenerCount,0);

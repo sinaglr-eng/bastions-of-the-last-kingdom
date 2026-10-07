@@ -6,7 +6,7 @@ function sourceOf(image){
   if(!attribute||!source)return null;
   try{
     const url=new URL(source,image.ownerDocument?.baseURI),match=url.pathname.match(/\/assets\/geometric\/portraits\/([^/]+)$/i);
-    if(!match||/^host_enemy(?:[_\-.]|$)/i.test(match[1]))return null;
+    if(!match||/^host_enemy(?:[_\-.]|$)/i.test(match[1])||/^host_\d+\.png$/i.test(match[1]))return null;
     return {attribute,source:url.href};
   }catch{return null;}
 }
