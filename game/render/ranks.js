@@ -14,6 +14,17 @@ export function applyRankCloth(root,family,tier){
 }
 
 let glowTexture;
+const ownedRankAdornments=new WeakMap();
+function rememberRankAdornment(root){
+  const geometries=new Set(),materials=new Set();
+  root.traverse(object=>{
+    // THREE.Sprite borrows one globally shared quad; only generated mesh
+    // geometry belongs to this particular decoration.
+    if(object.isMesh&&object.geometry)geometries.add(object.geometry);
+    for(const material of Array.isArray(object.material)?object.material:[object.material])if(material)materials.add(material);
+  });
+  ownedRankAdornments.set(root,{geometries,materials,disposed:false});return root;
+}
 function radialGlow(){
   if(glowTexture)return glowTexture;
   const c=document.createElement('canvas');c.width=c.height=128;const ctx=c.getContext('2d'),g=ctx.createRadialGradient(64,64,3,64,64,64);
@@ -23,11 +34,26 @@ function radialGlow(){
 export function rankAdornment(tier){
   const root=new THREE.Group();root.name='Rank signal';
   const ring=new THREE.Mesh(new THREE.RingGeometry(.40,.46,32),new THREE.MeshBasicMaterial({color:rankColor(tier),side:THREE.DoubleSide}));ring.rotation.x=-Math.PI/2;ring.position.y=.172;root.add(ring);
-  if(tier!==6)return root;
+  if(tier!==6)return rememberRankAdornment(root);
   root.name='Mythic aura';
   const halo=new THREE.Sprite(new THREE.SpriteMaterial({map:radialGlow(),transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.8}));halo.position.y=.75;halo.scale.set(1.65,2.05,1);root.add(halo);
   const stars=new THREE.Group();stars.name='Orbiting radiance';root.add(stars);
   for(let i=0;i<8;i++){const a=i*Math.PI/4;const star=new THREE.Mesh(new THREE.OctahedronGeometry(.027),new THREE.MeshBasicMaterial({color:'#fff1b7'}));star.position.set(Math.cos(a)*.51,.3+(i%3)*.28,Math.sin(a)*.51);stars.add(star);}
-  return root;
+  return rememberRankAdornment(root);
 }
 export function animateRank(root,time){const stars=root.getObjectByName('Orbiting radiance');if(stars){stars.rotation.y=time*.65;stars.position.y=Math.sin(time*2)*.04;}}
+
+// Only decorations created by rankAdornment own these resources. Actor clones
+// borrow their GLB buffers, and every Mythic halo shares the cached glow map.
+// Neither shared source buffers nor that texture belong to this cleanup.
+export function disposeRankAdornment(root){
+  const adornments=[];
+  root?.traverse(object=>{if(ownedRankAdornments.has(object))adornments.push(object);});
+  for(const adornment of adornments){
+    const owned=ownedRankAdornments.get(adornment);if(owned.disposed)continue;
+    owned.disposed=true;
+    owned.geometries.forEach(geometry=>geometry.dispose());
+    owned.materials.forEach(material=>material.dispose());
+    adornment.removeFromParent();
+  }
+}

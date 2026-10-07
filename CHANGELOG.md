@@ -1,5 +1,11 @@
 # Releases
 
+## 0.3.19 — Champion Classification Scale — 7 October 2026
+
+- Adds a uniform 10% size increase between champion classifications: Basic 1.0×, Intermediate 1.1×, Advanced 1.21×, TOP 1.331× and Secret 1.4641× over each model's existing presentation size.
+- Preserves classification aura colors, the enhanced Secret and divine effects, and ordinary rank signals. Auras follow the scaled actors in the battlefield and Royal atelier.
+- Keeps approved source models, native relative proportions, ordinary defender rank sizes, enemies, audio and combat statistics unchanged.
+
 ## 0.3.18 — Reconstructed Defenders and Allied Voices — 7 October 2026
 
 - Integrates the approved 48 basic defender models from V7 and 38 champion models from V8, with matching portraits and independent art cache revisions.

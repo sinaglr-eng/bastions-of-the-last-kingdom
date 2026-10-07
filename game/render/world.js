@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {rankAdornment,animateRank} from './ranks.js';
+import {rankAdornment,animateRank,disposeRankAdornment} from './ranks.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
@@ -21,6 +21,7 @@ import {disposeGeometricResources,adoptDecodedGeometricAsset} from './geometric-
 import {optimizeGeometricSiblings} from './geometric-batching.js';
 import {SupportEffects} from './support-effects.js';
 import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,pointedTower} from './defender-assets.js';
+import {applyDefenderClassificationScale} from './defender-classification-scale.js';
 import {DefenderModelLoader} from './defender-model-loader.js';
 import {secretAttackContext} from './secret-animation.js';
 import {DraftMarkers} from './draft-markers.js';
@@ -189,13 +190,13 @@ export class Battlefield {
   sync() {
     this.updateCampPreview();
     const ids=new Set(this.game.towers.map(t=>t.id));
-    for(const [id,value]of this.models)if(!ids.has(id)){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeDefenderInstance(value.actor);this.scene.remove(value.object);this.models.delete(id);}
+    for(const [id,value]of this.models)if(!ids.has(id)){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);this.scene.remove(value.object);this.models.delete(id);}
     for(const t of this.game.towers) {
       const signature=`${t.family}:${t.tier}:${t.state}:${t.upgrades||0}:${hasWallFoundation(t)?wallConnections(t,this.game.towers):''}`;let value=this.models.get(t.id);
       if(!value||value.signature!==signature){
-        if(value){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeDefenderInstance(value.actor);this.scene.remove(value.object);}
+        if(value){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);this.scene.remove(value.object);}
         const object=new THREE.Group(),actor=cloneDefenderTemplate(this.template(t));
-        if(t.state!=='ruin')scaleBattlefieldUnit(actor);
+        if(t.state!=='ruin'){applyDefenderClassificationScale(actor,t.family);scaleBattlefieldUnit(actor);}
         if(t.state==='active'||t.state==='reserved'){
           const mask=wallConnections(t,this.game.towers),key='platform:'+mask;
           if(!this.templates.has(key))this.templates.set(key,castleWallModel(mask,true));
@@ -374,7 +375,7 @@ export class Battlefield {
     checkpointMaterials.forEach(material=>material.dispose());this.checkpointMeshes?.removeFromParent();
     for(const enemy of this.enemies.values())disposeEnemyFigure(enemy);this.enemies.clear();
     if(this.campPreview)disposeEnemyFigure(this.campPreview);this.landmarks.dispose();
-    for(const value of this.models.values()){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeDefenderInstance(value.actor);}
+    for(const value of this.models.values()){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);}
     // Imported actor clones borrow these sources. Release only after every
     // actor and corpse is gone; renderer.dispose alone leaves their buffers.
     disposeGeometricResources([...this.imported.values(),...this.enemyTemplates.values(),...this.templates.values()]);

@@ -1,8 +1,9 @@
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {rankColor,rankAdornment,animateRank} from './render/ranks.js';
+import {rankColor,rankAdornment,animateRank,disposeRankAdornment} from './render/ranks.js';
 import {championClassification,championAuraLevel} from './render/champion-classification.js';
+import {applyDefenderClassificationScale} from './render/defender-classification-scale.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './render/champion-aura.js';
 import {animateSecretChampion} from './render/secret-champions.js';
 import {animateGeometricOrbits} from './render/geometric-orbits.js';
@@ -120,7 +121,7 @@ function clearShot(){
 }
 function clearModel(){
  if(enemyPreview){disposeAtelierEnemyPreview(enemyPreview);enemyPreview=null;}
- else if(model){disposeAttack(modelAttack);disposeDefenderInstance(model);disposeChampionAura(modelAura);const adornment=model.getObjectByName('Mythic aura')||model.getObjectByName('Rank signal');adornment?.traverse(o=>{o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();});model.removeFromParent();}
+ else if(model){disposeAttack(modelAttack);disposeDefenderInstance(model);disposeChampionAura(modelAura);disposeRankAdornment(model);model.removeFromParent();}
  model=null;modelAttack=null;modelAura=null;clearShot();
 }
 function setEffectVisibility(){
@@ -146,7 +147,7 @@ async function showRank(rank){
   const gltf=await cache.get(url);if(request!==sequence||atelierDisposed)return;
   gltf.scene.animations=gltf.animations;
   if(enemy){enemyPreview=createAtelierEnemyPreview(scene,definition,gltf.scene,{camera,balance});model=enemyPreview.figure;}
-  else{model=cloneDefenderTemplate(gltf.scene);modelAttack=attackRig(model,family,definition);}
+  else{model=applyDefenderClassificationScale(cloneDefenderTemplate(gltf.scene),family);modelAttack=attackRig(model,family,definition);}
   model.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});
   animationControls.hidden=!(enemy||modelAttack?.native||modelAttack?.geometric);previewPaused=false;document.querySelector('#animation-pause').setAttribute('aria-pressed','false');
   const bounds=new THREE.Box3().setFromObject(model),size=bounds.getSize(new THREE.Vector3()),frame=!enemy&&!advanced?basicFamilyFrame(basicFrames,family):null;

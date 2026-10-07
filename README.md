@@ -2,7 +2,7 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-Current release: **0.3.18 · Reconstructed Defenders and Allied Voices** — [release notes](CHANGELOG.md) · [current defender and voice integration](docs/DEFENDERS_V7_CHAMPIONS_V8.md) · [enemy model and animation verification](docs/GEOMETRIC_GAME_V6.md).
+Current release: **0.3.19 · Champion Classification Scale** — [release notes](CHANGELOG.md) · [current defender and voice integration](docs/DEFENDERS_V7_CHAMPIONS_V8.md) · [enemy model and animation verification](docs/GEOMETRIC_GAME_V6.md).
 
 The five defender slots are available immediately at the start of every construction round. Wave Preview shows the forthcoming wave's real composition, its main threats and the active army's available responses in the sidebar above defender details throughout drafting and preparation. The following wave provides partial intelligence, while boss identity and traits appear progressively as it approaches. Readiness is directional, never a battle prediction or a recommended keeper. Random enemy variants remain independent rolls at combat start. Preview distances, classification and readiness thresholds live under `wavePreview` in `data/balance.json`. See [Wave Preview rules and configuration](docs/WAVE_PREVIEW.md).
 

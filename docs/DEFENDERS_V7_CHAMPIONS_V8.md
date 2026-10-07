@@ -2,6 +2,8 @@
 
 Release: **0.3.18 — Reconstructed Defenders and Allied Voices**.
 
+Classification presentation update: **0.3.19 — Champion Classification Scale**.
+
 The release uses all 48 approved basic defender models from `basic-defenders-reconstruction-v7` and all 38 champion exports from `champions-reconstruction-v8`. The original Blender scenes, approval records, source references and exported GLB files remain unchanged. Runtime adapters provide game orientation, presentation and attack movement separately from those frozen files.
 
 Each stable game family retains its existing recipes, damage, range and abilities. Basic ranks I–VI use the corresponding V7 model; each champion uses its V8 identity. Lady Claire remains the playable Secret champion, while Lord Bernhard remains the hostile final boss. The enemy and scenery revisions are unchanged.
@@ -13,6 +15,8 @@ The battlefield requests a defender model only after that known family and rank 
 The V7 exports use native rigid skinning; V8 champions are static assemblies. Adaptation respects their exported rest pose and uses the actual skeleton or semantic components rather than assuming the older model hierarchy. Champion front orientation is corrected in a presentation wrapper. The wrapper applies a uniform 1.6 presentation scale to stationary humanoid champions; basic defenders, mounts, creatures and siege models retain their native relative scale. These transforms do not alter the approved GLB bytes.
 
 Basic and champion models, portraits and manifests use separate revision cache keys. The combined source manifest follows the game release key.
+
+Each higher champion classification adds a uniform 10% size increase over the previous classification: Basic 1.0×, Intermediate 1.1×, Advanced 1.21×, TOP 1.331× and Secret 1.4641×. These factors multiply each model's existing source and presentation scale on its private runtime clone. Ordinary basic equipment ranks keep their native sizes. The same factors apply in the battlefield and Royal atelier; preview framing includes the resulting bounds. Classification auras remain blue, green, purple and gold, with the existing enhanced Secret gold and divine ivory/gold exception. Aura geometry grows with its actor, and the effects toggle still controls visibility. This cosmetic scale does not change range, damage, grid occupancy, movement, recipes or enemy/boss sizes.
 
 ## Existing ElevenLabs recordings
 
