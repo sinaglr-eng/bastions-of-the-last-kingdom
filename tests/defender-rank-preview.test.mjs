@@ -73,7 +73,9 @@ test('new selections and transformed units reset previews; champions, walls and 
 // Exercise the actual sidebar renderer, without booting WebGL, the animation
 // loop or command delegation. This catches a renderer that still uses field rank.
 const mainSource=readFileSync(new URL('../game/main.js',import.meta.url),'utf8');
-const panelSource=mainSource.slice(mainSource.indexOf('function towerPanel(t)'),mainSource.indexOf('function waveTraitsPanel'));
+const panelStart=mainSource.indexOf('function towerPanel(t)'),panelEnd=mainSource.indexOf('function enemyInspectionOptions');
+assert.ok(panelStart>=0&&panelEnd>panelStart,'production tower panel has an explicit following function boundary');
+const panelSource=mainSource.slice(panelStart,panelEnd);
 const qualitySource=mainSource.slice(mainSource.indexOf('function quality(t)'),mainSource.indexOf('function notice('));
 const campaignData={...data,towers:campaignTowers(data.towers),recipes:campaignRecipes(data.recipes)};
 function productionPanel(game,preview){

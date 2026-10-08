@@ -1,5 +1,11 @@
 # Releases
 
+## 0.3.22 — Compact Battlefield Overviews — 8 October 2026
+
+- Moves full enemy statistics, variants, army readiness, forecasts and current combat details into Warbands; completed waves are hidden with original wave numbering and campaign limits preserved.
+- Adds a concise next-wave count, resistance and ability summary below peak DPS. Both map panels independently collapse into slim lines and keep their disclosure state through gameplay updates.
+- Places Demolish wall immediately below the selected wall’s title, while preserving individual enemy inspection, draft controls, approved media and game rules.
+
 ## 0.3.21 — Approved Defender Display — 7 October 2026
 
 - Uses only the exact approved V7 basic rank or V8 champion on the battlefield. Neutral loading markers replace temporary procedural characters; bounded recovery and an explicit Retry control recover failed appearances.

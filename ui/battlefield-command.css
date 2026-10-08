@@ -1,0 +1,15 @@
+.selected-wall .wall-primary-actions{margin-top:12px;margin-bottom:8px}
+.selected-wall .tower-portrait{margin-top:18px}
+.selected-wall .stat-grid{margin-top:20px}
+@media(max-width:580px){
+  .topbar{display:grid;grid-template-columns:92px minmax(0,1fr);grid-template-rows:28px 25px;column-gap:6px;row-gap:1px;padding:5px 9px}
+  .topbar .brand{grid-column:1;grid-row:1 / span 2;min-width:0}
+  .topbar .top-stats{grid-column:2;grid-row:1;min-width:0;gap:4px;justify-content:space-between}
+  .topbar .hud-stat{min-width:0}
+  .topbar .hud-stat small{font-size:6px;letter-spacing:.7px;margin-bottom:2px}
+  .topbar .hud-stat strong{font-size:12px}
+  .topbar .header-actions{grid-column:2;grid-row:2;justify-content:flex-end;gap:4px}
+  .header-actions [data-action="warbands"]{display:inline-flex}
+  .header-actions{gap:4px}
+  .header-actions [data-action="warbands"] span{display:none}
+}
