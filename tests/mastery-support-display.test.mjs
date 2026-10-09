@@ -14,7 +14,7 @@ test('compact odds-only mastery display includes every exact future quality weig
   const economy=new EconomyManager(data.balance);economy.gold=0;
   for(let rank=0;rank<data.balance.mastery.length;rank++){
     economy.setConstructionRound(1+Math.ceil(rank*24/15));const before=JSON.stringify(economy),html=masteryPanelMarkup(economy,data.balance);
-    assert.match(html,/Future draw odds/);assert.match(html,new RegExp(`${rank} / ${data.balance.mastery.length-1}`));
+    assert.match(html,/Future draw odds/);assert.doesNotMatch(html,/Construction mastery|mastery-heading|\d+ \/ 15/);
     const rendered=[...html.matchAll(/<em>(\d+)%<\/em>/g)].map(match=>Number(match[1]));
     assert.deepEqual(rendered,data.balance.mastery[rank].weights.slice(0,5));assert.match(html,/<b>VI<\/b><em>Merge<\/em>/);
     assert.doesNotMatch(html,/mastery-auto|mastery-help|Automatic|New odds apply|Next odds at Kingdom|Maximum mastery reached/);
@@ -28,7 +28,7 @@ test('mastery advances before construction draws while XP changes leave current 
   economy.reward(0,data.balance.xpPerLevel-1);assert.equal(economy.mastery,0);
   economy.reward(0,1);assert.equal(economy.level,2);assert.equal(economy.mastery,0);assert.equal(economy.gold,0);
   economy.setConstructionRound(3);assert.equal(economy.mastery,1);
-  const markup=masteryPanelMarkup(economy,data.balance);assert.match(markup,/1 \/ 15/);assert.doesNotMatch(markup,/Automatic|New odds apply|Next odds/);
+  const markup=masteryPanelMarkup(economy,data.balance);assert.deepEqual([...markup.matchAll(/<em>(\d+)%<\/em>/g)].map(match=>Number(match[1])),data.balance.mastery[1].weights.slice(0,5));assert.doesNotMatch(markup,/Construction mastery|mastery-heading|1 \/ 15|Automatic|New odds apply|Next odds/);
   const game=new Game(data,{seed:42});game.economy.reward(0,90);
   assert.equal(game.economy.level,2);assert.equal(game.economy.mastery,0);assert.equal(game.draft.mastery,0);
   for(let x=10;x<15;x++)assert.ok(game.place(x,10));assert.ok(game.towers.every(t=>t.tier===1));

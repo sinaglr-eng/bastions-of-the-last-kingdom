@@ -4,8 +4,12 @@ import {readFileSync} from 'node:fs';
 import {towerDpsContents,updateTowerDpsPanel} from '../ui/tower-dps.js';
 import {nextWaveSummaryMarkup,updateNextWaveSummaryPanel} from '../ui/next-wave-summary.js';
 import {WaveThreatAnalyzer} from '../game/core/wave-threats.js';
+import {Game} from '../game/core/game.js';
+import {campaignEnemies,campaignWaves,campaignTowers,campaignRecipes} from '../game/core/campaign-roster.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
+const campaign={...data,enemies:campaignEnemies(data.enemies),waves:campaignWaves(data.waves),towers:campaignTowers(data.towers),recipes:campaignRecipes(data.recipes)};
+const hpNumber=value=>new Intl.NumberFormat('en-US',{maximumFractionDigits:3}).format(value);
 const row=(id,dps=10,family='soldier')=>({id,dps,family,tier:1,state:'active'});
 const sample=()=>({next:{number:14,name:'Armored assault',totalCount:12,enemies:[{type:'orc',name:'Armored Orc',count:12,variants:[{name:'Armored Orc',armor:8,maxHp:98765,speed:2.345,traitDetails:[{kind:'magic',text:'20% magic resistance'}]}]}]},after:{name:'Hidden following wave'},boss:{name:'Hidden boss forecast'},readiness:{score:999,label:'Hidden readiness'}});
 
@@ -78,11 +82,45 @@ test('unchanged damage contents leave real row and summary nodes alone',()=>{
   assert.equal(updateTowerDpsPanel(panel,rows,data,{}),false);assert.equal(body.writes,0);assert.equal(panel.querySelector('[data-overlay-focus]'),button);
 });
 
-test('the next-wave summary contains only immediate identity, group counts and configured defenses',()=>{
+test('the next-wave summary puts its wave number in the heading and shows individual effective HP without forecast details',()=>{
   const html=nextWaveSummaryMarkup(sample(),data,{});
-  assert.match(html,/^<details class="battlefield-overlay-disclosure next-wave-summary-disclosure" open>/);assert.match(html,/Next wave/);assert.match(html,/14 · 12 invaders/);
+  assert.match(html,/^<details class="battlefield-overlay-disclosure next-wave-summary-disclosure" open>/);assert.match(html,/<strong>Next wave 14<\/strong><small>12 invaders<\/small>/);
   assert.match(html,/Armored assault/);assert.match(html,/12 × Armored Orc/);assert.match(html,/8 armor/);assert.match(html,/20% magic resistance/);assert.match(html,/data-defense="magic"/);
-  assert.doesNotMatch(html,/98,765|98765|2\.345|tiles\/s|Hidden following wave|Hidden boss forecast|Hidden readiness|999|readiness|army|profile/i);
+  assert.match(html,/98,765 HP each/);assert.doesNotMatch(html,/1,185,180|2\.345|tiles\/s|Hidden following wave|Hidden boss forecast|Hidden readiness|999|readiness|army|profile/i);
+});
+
+test('identical HP across possible variants is stated once and varying HP stays tied to named possible profiles',()=>{
+  const model=sample(),enemy=model.next.enemies[0];enemy.variants=[{name:'Ashen',maxHp:400,traitDetails:[]},{name:'Spectral',maxHp:400,traitDetails:[]}];
+  const common=nextWaveSummaryMarkup(model,data,{});assert.equal((common.match(/400 HP each/g)||[]).length,1);assert.doesNotMatch(common,/Possible · Ashen|Possible · Spectral|4,800 HP/);
+  enemy.variants.push({name:'<Heavy> & "Chief"',maxHp:600.125,traitDetails:[]});
+  const different=nextWaveSummaryMarkup(model,data,{});assert.match(different,/400 HP each<small>Possible · Ashen, Spectral<\/small>/);assert.match(different,/600\.125 HP each<small>Possible · &lt;Heavy&gt; &amp; &quot;Chief&quot;<\/small>/);
+  assert.doesNotMatch(different,/6 × Ashen|6 × Spectral|50%|7,201\.5 HP|<Heavy>/);
+});
+
+test('effective variant and group HP overrides match actual individual spawns instead of base health or group totals',()=>{
+  const local=structuredClone(campaign);local.enemies.probe={name:'Probe',hp:111,armor:0,speed:1,variants:[{name:'Light',hp:222},{name:'Heavy',hp:333}]};
+  local.waves=[{name:'Modifier test',hp:2,groups:[{type:'probe',count:8,hp:3,interval:.1}]}];
+  const game=new Game(local,{seed:406}),analyzer=new WaveThreatAnalyzer(local),next=analyzer.analyze(0),before=JSON.stringify(local),html=nextWaveSummaryMarkup(next,local,{});
+  assert.match(html,/8 × Probe/);assert.match(html,/666 HP each<small>Possible · Light/);assert.match(html,/999 HP each<small>Possible · Heavy/);
+  assert.doesNotMatch(html,/111 HP|222 HP|333 HP|444 HP|5,328 HP|7,992 HP/);
+  for(const variant of local.enemies.probe.variants){const spawned=game.combat.spawn('probe',{...local.waves[0],...local.waves[0].groups[0],variant});assert.equal(spawned.maxHp,variant.hp*3);assert.ok(html.includes(`${hpNumber(spawned.maxHp)} HP each`));}
+  assert.equal(JSON.stringify(local),before);
+});
+
+test('explicit group variants retain their actual HP when the analyzer combines multiple groups of one enemy type',()=>{
+  const local=structuredClone(campaign);local.enemies.probe={name:'Probe',hp:111,armor:0,speed:1,variants:[{name:'Unselected',hp:98765}]};
+  local.waves=[{name:'Explicit profiles',hp:4,groups:[{type:'probe',count:3,hp:2,interval:.1,variant:{name:'Scout',hp:100}},{type:'probe',count:5,hp:3,interval:.1,variant:{name:'Captain',hp:300}}]}];
+  const game=new Game(local,{seed:474}),next=new WaveThreatAnalyzer(local).analyze(0),html=nextWaveSummaryMarkup(next,local,{});assert.equal(next.enemies.length,1);
+  assert.match(html,/8 × Probe/);assert.match(html,/200 HP each<small>Possible · Scout/);assert.match(html,/900 HP each<small>Possible · Captain/);assert.doesNotMatch(html,/98,765|3 × Scout|5 × Captain|4,?\d+ HP/);
+  for(const group of local.waves[0].groups){const spawned=game.combat.spawn('probe',{...local.waves[0],...group});assert.equal(spawned.maxHp,group.variant.hp*group.hp);assert.ok(html.includes(`${hpNumber(spawned.maxHp)} HP each`));}
+});
+
+test('unavailable individual HP remains explicit and invalid values cannot become a fabricated health value',()=>{
+  const model=sample(),enemy=model.next.enemies[0];enemy.variants=[{name:'Known',maxHp:25,traitDetails:[]},{name:'Unknown',traitDetails:[]},{name:'Invalid',maxHp:NaN},{name:'Infinite',maxHp:Infinity},{name:'Negative',maxHp:-2},{name:'Text',maxHp:'100'}];
+  const partial=nextWaveSummaryMarkup(model,data,{});assert.match(partial,/25 HP each<small>Possible · Known/);assert.match(partial,/HP per invader unavailable<small>Possible · Other variants/);assert.doesNotMatch(partial,/NaN|Infinity|-2 HP|100 HP/);
+  enemy.unknown=true;assert.doesNotMatch(nextWaveSummaryMarkup(model,data,{}),/25 HP each/);
+  enemy.unknown=false;enemy.variants=[];assert.match(nextWaveSummaryMarkup(model,data,{}),/HP per invader unavailable/);
+  model.next.number=1;model.next.totalCount=1;assert.match(nextWaveSummaryMarkup(model,data,{}),/<strong>Next wave 1<\/strong><small>1 invader<\/small>/);
 });
 
 test('common variant abilities are deduplicated and variant-only defenses are explicitly possible with no invented split',()=>{
@@ -95,8 +133,9 @@ test('common variant abilities are deduplicated and variant-only defenses are ex
 test('independent next-wave collapse and scroll persist across new wave models, while DPS stays open',()=>{
   const next=panelFixture(),dps=panelFixture();updateNextWaveSummaryPanel(next.panel,sample(),data,{});updateTowerDpsPanel(dps.panel,[row(1)],data,{});
   const details=next.panel.querySelector('details'),summary=next.panel.querySelector('summary'),body=next.panel.querySelector('.next-wave-summary-body');body.scrollTop=37;body.dispatch('scroll');details.open=false;summary.focus();
-  const changed=sample();changed.next.number=15;changed.next.name='New incoming wave';updateNextWaveSummaryPanel(next.panel,changed,data,{});
+  const changed=sample();changed.next.number=15;changed.next.name='New incoming wave';changed.next.enemies[0].variants[0].maxHp=123;updateNextWaveSummaryPanel(next.panel,changed,data,{});
   assert.equal(next.panel.querySelector('details'),details);assert.equal(details.open,false);assert.equal(next.document.activeElement,summary);assert.equal(dps.panel.querySelector('details').open,true);
+  assert.match(next.panel.querySelector('.next-wave-summary-body').innerHTML,/123 HP each/);assert.doesNotMatch(next.panel.querySelector('.next-wave-summary-body').innerHTML,/98,765 HP each/);
   details.open=true;assert.equal(next.panel.querySelector('.next-wave-summary-body').scrollTop,37);
 });
 
@@ -117,23 +156,48 @@ test('unknown and incomplete enemy entries remain safe and all text and image at
   const model=sample();model.next.name='<Wave> "chief"';model.next.enemies=[null,{type:'mystery',name:'<Unknown>',count:1,unknown:true,variants:[null,{name:'<Profile>',traitDetails:[null,{text:'<Trait>',kind:'constructor'}]}]}];
   const html=nextWaveSummaryMarkup(model,{}, {'enemy:mystery':'portrait.png" onerror="bad()'});
   assert.match(html,/&lt;Wave&gt; &quot;chief&quot;/);assert.match(html,/1 × &lt;Unknown&gt;/);assert.match(html,/&lt;Trait&gt;/);assert.match(html,/portrait\.png&quot; onerror=&quot;bad\(\)/);
-  assert.doesNotMatch(html,/<Wave>|<Trait>| onerror="|undefined|NaN|data-defense="constructor"/);
+  assert.doesNotMatch(html,/<Wave>|<Trait>| onerror="|undefined|NaN|data-defense="constructor"/);assert.match(html,/HP per invader unavailable/);
   assert.match(nextWaveSummaryMarkup({number:1,totalCount:1,enemies:[{name:'Unknown',count:1,unknown:true}]},{},{}),/Enemy ability information unavailable/);
 });
 
 test('real campaign mixed immunity wave reports actual possible defenses with full group count and consumes no game RNG',()=>{
   const analyzer=new WaveThreatAnalyzer(data),before=JSON.stringify(data),outlook=analyzer.outlook(34,50),wave=outlook.next,html=nextWaveSummaryMarkup(outlook,data,{});
   assert.match(html,/Immune to magic and magical effects/);assert.match(html,/Immune to physical and piercing damage/);assert.match(html,/Possible · Ashen/);assert.match(html,/Possible · Spectral/);
-  assert.ok(html.includes(`${wave.enemies[0].count} × ${wave.enemies[0].name}`));assert.doesNotMatch(html,/tiles\/s|Army readiness|Boss in|After ·|\d[\d,.]* HP(?:\s|<)/);
+  assert.ok(html.includes(`${wave.enemies[0].count} × ${wave.enemies[0].name}`));assert.match(html,/21,640 HP each/);assert.equal((html.match(/21,640 HP each/g)||[]).length,1);assert.doesNotMatch(html,/tiles\/s|Army readiness|Boss in|After ·/);
   assert.equal(JSON.stringify(data),before);assert.equal(nextWaveSummaryMarkup(outlook,data,{}),html);assert.strictEqual(analyzer.outlook(34,50).next,wave);
 });
 
-test('every real campaign trait survives compact rendering, while base HP and speed never enter the panel',()=>{
-  const analyzer=new WaveThreatAnalyzer(data);for(let index=0;index<data.waves.length;index++){
-    const next=analyzer.analyze(index),html=nextWaveSummaryMarkup(next,data,{});assert.ok(html.includes(next.name));
+test('all 50 real campaign summaries show each effective individual HP and trait without exposing base speed',()=>{
+  const analyzer=new WaveThreatAnalyzer(campaign);assert.equal(campaign.waves.length,50);for(let index=0;index<campaign.waves.length;index++){
+    const next=analyzer.analyze(index),html=nextWaveSummaryMarkup(next,campaign,{});assert.ok(html.includes(next.name));assert.ok(html.includes(`<strong>Next wave ${index+1}</strong><small>${next.totalCount} ${next.totalCount===1?'invader':'invaders'}</small>`));
     for(const enemy of next.enemies)for(const variant of enemy.variants)for(const trait of variant.traitDetails)assert.ok(html.includes(trait.text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;')),`Wave ${index+1}: ${trait.text}`);
-    assert.doesNotMatch(html,/tiles\/s|\d[\d,.]* HP(?:\s|<)/);
+    const articles=html.match(/<article class="next-wave-group">[\s\S]*?<\/article>/g)||[];assert.equal(articles.length,next.enemies.length);
+    next.enemies.forEach((enemy,group)=>{for(const variant of enemy.variants)assert.ok(articles[group].includes(`${hpNumber(variant.maxHp)} HP each`),`Wave ${index+1} ${variant.name}: ${variant.maxHp} individual HP`);});
+    assert.doesNotMatch(html,/tiles\/s|Army readiness|Boss in|After ·/);
   }
+});
+
+test('all 50 campaign HP previews agree with every possible and actually queued spawn without consuming variant RNG',()=>{
+  const game=new Game(campaign,{seed:951}),control=new Game(campaign,{seed:951}),analyzer=new WaveThreatAnalyzer(campaign),sourceBefore=JSON.stringify(campaign);let checkedProfiles=0,checkedSpawns=0;
+  for(let index=0;index<campaign.waves.length;index++){
+    game.round=control.round=index+1;const wave=campaign.waves[index],next=analyzer.analyze(index),html=nextWaveSummaryMarkup({next},campaign,{});
+    assert.equal(nextWaveSummaryMarkup({next},campaign,{}),html);
+    for(const group of wave.groups){
+      const modifiers={...wave,...group},definition=campaign.enemies[group.type],choices=Object.hasOwn(modifiers,'variant')?[modifiers.variant]:definition.variants?.length?definition.variants:[undefined];
+      for(const variant of choices){
+        const spawned=game.combat.spawn(group.type,{...modifiers,variant}),profiles=next.enemies.find(enemy=>enemy.type===group.type).variants;
+        assert.ok(profiles.some(profile=>profile.name===spawned.name&&profile.maxHp===spawned.maxHp),`Wave ${index+1}: ${spawned.name} must have actual spawn HP ${spawned.maxHp}`);
+        assert.ok(html.includes(`${hpNumber(spawned.maxHp)} HP each`));checkedProfiles++;
+      }
+    }
+    game.combat.start(wave);control.combat.start(wave);assert.deepEqual(game.combat.spawnQueue,control.combat.spawnQueue,`Wave ${index+1}: preview must not change any seeded variant choice`);
+    for(const queued of game.combat.spawnQueue.splice(0)){
+      const spawned=game.combat.spawn(queued.type,queued.modifiers),profiles=next.enemies.find(enemy=>enemy.type===queued.type).variants;
+      assert.ok(profiles.some(profile=>profile.name===spawned.name&&profile.maxHp===spawned.maxHp),`Wave ${index+1}: actual queued spawn HP`);checkedSpawns++;
+    }
+  }
+  assert.ok(checkedProfiles>=50);assert.ok(checkedSpawns>50);assert.equal(game.rng(),control.rng());assert.equal(JSON.stringify(campaign),sourceBefore);
+  const goblins=nextWaveSummaryMarkup(analyzer.analyze(1),campaign,{});assert.match(goblins,/8 × Goblin Thornstriders/);assert.match(goblins,/52 HP each/);assert.doesNotMatch(goblins,/416 HP each/);
 });
 
 test('shared stack CSS owns position and responsive height limits, collapsed content is hidden, and scroll cannot chain',()=>{

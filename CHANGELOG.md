@@ -1,5 +1,19 @@
 # Releases
 
+## 0.3.23 — Battlefield Interface Polish — 9 October 2026
+
+- Removes the route tile count from the draft strip.
+- Enlarges Future draw odds and removes the Construction mastery title and numeric mastery counter, preserving progression and probabilities.
+- Expands each defender portrait to fill its draft card.
+- Shows effective HP per enemy in the next-wave summary, qualifying differing possible profiles without inventing variant counts.
+- Places the wave number directly in the bold Next wave N heading, with only the invader count below.
+- Moves Potential combinations immediately after Compare ranks.
+- Places global Pause / Resume and game speed controls beside TIME, removing duplicates from the sidebar, enemy inspection and draft area.
+- Removes the Royal atelier link from the game header; the separate gallery remains available.
+- Renames Warbands to Enemy Waves.
+- Renames Grimoire to Recipes.
+- Removes the projected completed-blueprint route from gameplay and the maze editor, preserving the actual enemy path, direction arrows and blueprint validation.
+
 ## 0.3.22 — Compact Battlefield Overviews — 8 October 2026
 
 - Moves full enemy statistics, variants, army readiness, forecasts and current combat details into Warbands; completed waves are hidden with original wave numbering and campaign limits preserved.

@@ -21,7 +21,7 @@ test('the current route follows real ground routing, queued flying variants and 
  assert.ok(routeDistance(game.grid.checkpoints)>game.grid.checkpoints.length-1,'flight distance measures actual segments');
 });
 
-test('the completed blueprint route includes existing off-plan structures and never fabricates a blocked route',()=>{
+test('completed-blueprint validation still includes off-plan structures and detects blocked routes',()=>{
  const plan=preparedBlueprints([])[0],grid=new GridManager(),snapshot=JSON.stringify(plan);
  const union=new GridManager();for(const p of plan.walls)union.occupied.set(cellKey(p.x,p.z),'plan');
  const detour=plan.route.find(p=>grid.canPlace(p.x,p.z).ok&&union.findRoute(cellKey(p.x,p.z)));
@@ -32,19 +32,17 @@ test('the completed blueprint route includes existing off-plan structures and ne
  const blocked=blueprintProgress(plan,grid,250);assert.equal(blocked.conflict,true);assert.equal(blocked.route,null);assert.equal(JSON.stringify(plan),snapshot);
 });
 
-test('actual current geometry is continuous with direction arrows and stays above dashed future geometry',()=>{
- const points=[{x:0,z:0},{x:1,z:0},{x:7,z:0},{x:7,z:5}],now=createRouteOverlay(points),future=createRouteOverlay(points,{planned:true}),air=createRouteOverlay(points,{flying:true});
- const line=now.getObjectByName('Current route continuous ribbon'),dashes=future.getObjectByName('Planned route dashes'),arrows=now.getObjectByName('Current route direction arrows');
+test('actual current ground and flying routes remain continuous with physical direction arrows',()=>{
+ const points=[{x:0,z:0},{x:1,z:0},{x:7,z:0},{x:7,z:5}],now=createRouteOverlay(points),air=createRouteOverlay(points,{flying:true});
+ const line=now.getObjectByName('Current route continuous ribbon'),arrows=now.getObjectByName('Current route direction arrows');
  assert.equal(line.geometry.attributes.position.count,18,'each segment is a complete ribbon rectangle');assert.ok(arrows.count>0&&arrows.count<=Math.floor(routeDistance(points)/5),'direction markers remain sparse on a twelve-metre route');assert.ok(arrows.geometry.attributes.position.count>24,'solid arrows include side and bevel faces');
  const edgeA=new Vector3().fromBufferAttribute(line.geometry.attributes.position,0),edgeB=new Vector3().fromBufferAttribute(line.geometry.attributes.position,1);assert.ok(edgeA.distanceTo(edgeB)<.04,'continuous guide leaves most of the ground visible');
  arrows.geometry.computeBoundingBox();const arrowSize=arrows.geometry.boundingBox.getSize(new Vector3());assert.ok(arrowSize.x>.39&&arrowSize.x<.44&&arrowSize.z>.29&&arrowSize.z<.33&&arrowSize.y>.04,'slightly larger arrows have a physical thickness');assert.ok(line.material.opacity<.45);assert.equal(arrows.material.opacity,1);assert.equal(arrows.material.transparent,false);assert.equal(arrows.material.depthWrite,true,'opaque direction markers correctly occlude through depth');
  const arrowMatrix=new Matrix4();arrows.getMatrixAt(0,arrowMatrix);const arrowFloor=arrows.geometry.boundingBox.clone().applyMatrix4(arrowMatrix).min.y;assert.ok(arrowFloor>line.geometry.attributes.position.getY(0)+.015,'moving arrows are physically above the baseline ribbon');
- assert.equal(line.material.color.getHexString(),ROUTE_COLORS.current.slice(1));assert.equal(air.getObjectByName(line.name).material.color.getHexString(),ROUTE_COLORS.flying.slice(1));assert.equal(dashes.material.color.getHexString(),ROUTE_COLORS.planned.slice(1));
- assert.ok(line.geometry.attributes.position.getY(0)>dashes.geometry.attributes.position.getY(0));assert.equal(future.getObjectByName(arrows.name),undefined);
- // Each dash rectangle is shorter than its period, even across tile boundaries.
- const attr=dashes.geometry.attributes.position;for(let i=0;i<attr.count;i+=6){const a=new Vector3().fromBufferAttribute(attr,i),b=new Vector3().fromBufferAttribute(attr,i+2);assert.ok(a.distanceTo(b)<=.23+1e-5);}
+ assert.equal(line.material.color.getHexString(),ROUTE_COLORS.current.slice(1));assert.equal(air.getObjectByName(line.name).material.color.getHexString(),ROUTE_COLORS.flying.slice(1));
+ assert.equal(line.geometry.attributes.position.getY(0),Math.fround(.136));assert.equal(air.children.length,3);assert.equal(now.children.length,3);assert.equal(now.getObjectByName('Planned route dashes'),undefined);assert.equal(air.getObjectByName('Planned route dashes'),undefined);
  assert.equal(now.userData.distance,12);assert.equal(CHECKPOINT_MARKER_SCALE,1.15);assert.ok(Math.abs(BATTLEFIELD_UNIT_SCALE/.88-.8)<1e-12);
- const all=new Group();all.add(now,future,air);let disposed=0;all.traverse(n=>n.geometry?.addEventListener('dispose',()=>disposed++));disposeRouteOverlay(all);assert.equal(disposed,8);assert.equal(all.children.length,0);
+ const all=new Group();all.add(now,air);let disposed=0;all.traverse(n=>n.geometry?.addEventListener('dispose',()=>disposed++));disposeRouteOverlay(all);assert.equal(disposed,6);assert.equal(all.children.length,0);
 });
 
 test('all connection masks have finite geometry, narrower upper courses and solid corbelled fighting decks',()=>{

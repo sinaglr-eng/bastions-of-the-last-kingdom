@@ -18,7 +18,7 @@ test('inspection uses the actual variant, modified maximum HP, live HP and indiv
   assert.ok(html.includes(`aria-valuemax="${enemy.maxHp}"`)&&html.includes(`aria-valuenow="${enemy.hp}"`));assert.ok(html.includes('width:40%'));
   assert.ok(html.includes('Cloaked continuously'));assert.ok(!html.includes('Reactive armor ·'));
   assert.ok(!html.includes('POTENTIAL COMBINATIONS')&&!html.includes('ON THE HORIZON'));
-  for(const action of ['enemy-inspect-close','pause','speed'])assert.ok(html.includes(`data-action="${action}"`));
+  assert.ok(html.includes('data-action="enemy-inspect-close"'));assert.doesNotMatch(html,/data-action="(?:pause|speed)"/);
   enemy.hp-=1;const changed=selectedEnemyMarkup(enemy,options(game));assert.notEqual(changed,html);assert.ok(changed.includes(`aria-valuenow="${enemy.hp}"`));
 });
 
@@ -107,8 +107,9 @@ test('dynamic refresh caches source markup and preserves sidebar scroll plus the
   assert.equal(updateSelectedEnemyPanel(panel,enemy,options(game)),true);assert.equal(panel.writes,1);assert.equal(body.scrollTop,240);
   assert.ok(panel.markup.includes('</path>'),'A real immunity SVG has browser-like serialization different from the source string');
   assert.equal(updateSelectedEnemyPanel(panel,enemy,options(game)),false);assert.equal(panel.writes,1);
-  const focused=panel.buttons.find(button=>button.action==='speed');document.activeElement=focused;body.scrollTop=360;
+  const focused=panel.buttons.find(button=>button.action==='enemy-inspect-close');document.activeElement=focused;body.scrollTop=360;
   enemy.hp-=1;game.paused=true;assert.equal(updateSelectedEnemyPanel(panel,enemy,options(game)),true);
-  assert.equal(body.scrollTop,360);assert.notEqual(document.activeElement,focused);assert.equal(document.activeElement.action,'speed');assert.ok(panel.markup.includes('Resume'));
+  assert.equal(body.scrollTop,360);assert.notEqual(document.activeElement,focused);assert.equal(document.activeElement.action,'enemy-inspect-close');assert.doesNotMatch(panel.markup,/data-action="(?:pause|speed)"|>Resume<|3× speed/);
+  game.paused=false;game.speed=3;assert.equal(updateSelectedEnemyPanel(panel,enemy,options(game)),false,'global controls no longer require rewriting unchanged individual enemy data');assert.equal(body.scrollTop,360);
   enemy.dead=true;assert.equal(updateSelectedEnemyPanel(panel,enemy,options(game)),true);assert.equal(panel.markup,'');
 });

@@ -1,14 +1,14 @@
 import * as THREE from 'three';
 import presets from '../../data/maze-blueprints.json';
 import {preparedBlueprints,loadBlueprintLibrary,saveBlueprintLibrary,blueprintProgress,BlueprintEditor} from '../core/blueprints.js';
-import {currentEnemyRoute,createRouteOverlay,disposeRouteOverlay,sameRoute} from './route-overlay.js';
+import {disposeRouteOverlay} from './route-overlay.js';
 const escape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 export class MazePlanner {
   constructor(world){
     this.world=world;this.game=world.game;this.presets=preparedBlueprints(presets);
     const library=loadBlueprintLibrary(localStorage);this.saved=library.plans;this.plan=[...this.presets,...this.saved].find(p=>p.id===library.selected)||null;
-    this.panelOpen=false;this.visible=!!this.plan;this.showFinalRoute=true;this.editor=null;this.revision='';this.brush='draw';
+    this.panelOpen=false;this.visible=!!this.plan;this.editor=null;this.revision='';this.brush='draw';
     this.group=new THREE.Group();world.scene.add(this.group);
     this.panel=document.createElement('div');this.panel.className='maze-guide';this.panel.hidden=true;this.panel.setAttribute('aria-label','Maze planner');
     const sidebar=world.container.parentElement.querySelector('.sidebar');sidebar.insertBefore(this.panel,sidebar.querySelector('.side-body'));
@@ -37,7 +37,7 @@ export class MazePlanner {
   sync(){
     this.panel.hidden=!this.panelOpen;
     const button=document.querySelector('[data-action="maze"]');button?.classList.toggle('active',this.panelOpen);button?.setAttribute('aria-pressed',String(this.panelOpen));
-    this.group.visible=this.visible||this.showFinalRoute||this.editing;
+    this.group.visible=this.visible||this.editing;
     if(this.editing)return;
     if(!this.plan){this.clear();return;}
     const revision=`${this.game.grid.revision}:${this.game.round}:${this.budget}:${this.plan.id}`;
@@ -45,8 +45,7 @@ export class MazePlanner {
       this.revision=revision;this.progress=blueprintProgress(this.plan,this.game.grid,this.budget,this.game.constructionBudget.limit);this.draw(this.plan,this.progress.missing);
       if(this.panelOpen)this.renderPanel();
     }
-    for(const child of this.group.children)if(child!==this.finalRoute)child.visible=this.visible;
-    if(this.finalRoute)this.finalRoute.visible=this.showFinalRoute&&!sameRoute(currentEnemyRoute(this.game).points,this.progress?.route);
+    for(const child of this.group.children)child.visible=this.visible;
   }
   renderPanel(){
     this.panel.hidden=!this.panelOpen;if(this.editing)return;
@@ -92,7 +91,7 @@ export class MazePlanner {
   finishEditor(){
     if(!this.editor)return;this.editor=null;this.strokePoint=null;this.world.pathGroup.visible=this.world.showPath;this.game.paused=this.wasPaused;this.panelOpen=false;this.revision='';this.world.hover=null;this.sync();
   }
-  clear(){disposeRouteOverlay(this.group);this.finalRoute=null;}
+  clear(){disposeRouteOverlay(this.group);}
   draw(plan,missing=plan.walls,invalid=false){
     this.clear();const matrix=new THREE.Matrix4(),rotation=new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI/2,0,0));
     for(const [cells,color,opacity] of [[missing,invalid?'#ef806b':'#65dce9',.38],[plan.core||[],'#ffcf69',.72]]){
@@ -100,9 +99,7 @@ export class MazePlanner {
       const mesh=new THREE.InstancedMesh(new THREE.PlaneGeometry(.86,.86),new THREE.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false}),cells.length);
       cells.forEach((p,i)=>{matrix.compose(new THREE.Vector3(p.x-18,.096,p.z-18),rotation,new THREE.Vector3(1,1,1));mesh.setMatrixAt(i,matrix);});this.group.add(mesh);
     }
-    const route=this.editing?plan.route:this.progress?.route;
-    if(route?.length){this.finalRoute=createRouteOverlay(route,{planned:true});this.finalRoute.visible=this.editing||this.showFinalRoute&&!sameRoute(currentEnemyRoute(this.game).points,route);this.group.add(this.finalRoute);}
-    this.group.visible=this.visible||this.showFinalRoute||this.editing;
+    this.group.visible=this.visible||this.editing;
   }
   dispose(){this.clear();this.world.scene.remove(this.group);this.panel.remove();}
 }

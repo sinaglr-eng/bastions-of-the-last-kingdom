@@ -38,7 +38,7 @@ export function selectedEnemyView(enemy,{data,combat}={}){
     rechargeRemaining:enemy.recharge>0&&Number.isFinite(enemy.rechargeClock)?Math.max(0,enemy.rechargeClock):null};
 }
 
-export function selectedEnemyMarkup(enemy,{data,images={},combat,paused=false,speed=1}={}){
+export function selectedEnemyMarkup(enemy,{data,images={},combat}={}){
   const view=selectedEnemyView(enemy,{data,combat});if(!view)return '';
   const hpText=Math.ceil(view.hp),maxHpText=Math.ceil(view.maxHp),portrait=images['enemy:'+view.type];
   const resistanceRows=view.resistances.map(row=>`<div><dt>${escape(row.name)} resistance</dt><dd>${percent(row.value)}</dd></div>`).join('');
@@ -48,7 +48,6 @@ export function selectedEnemyMarkup(enemy,{data,images={},combat,paused=false,sp
     ${portrait?`<div class="enemy-inspection-portrait"><img src="${escape(portrait)}" alt="${escape(view.name)} portrait"></div>`:''}
     <p class="enemy-inspection-identity">${view.flying?'AIRBORNE':'GROUND'} · INDIVIDUAL #${view.id}</p><h2>${escape(view.name)}</h2>
     <div class="enemy-inspection-health"><div><span>Health</span><strong>${number(hpText)} / ${number(maxHpText)} HP</strong></div><div class="enemy-inspection-health-bar" role="progressbar" aria-label="Remaining enemy health" aria-valuemin="0" aria-valuemax="${view.maxHp||1}" aria-valuenow="${view.hp}" aria-valuetext="${number(hpText)} of ${number(maxHpText)} HP"><span style="width:${view.healthPercent}%"></span></div></div>
-    <div class="enemy-inspection-commands"><button type="button" class="text-button" data-action="pause" aria-pressed="${!!paused}">${paused?'Resume':'Pause'}</button><button type="button" class="text-button gold" data-action="speed">${number(Math.max(1,finite(speed,1)))}× speed</button></div>
     <dl class="enemy-inspection-stats"><div><dt>Current armor</dt><dd>${number(view.armor)}</dd></div><div><dt>Base speed</dt><dd>${number(view.baseSpeed)} tiles/s</dd></div>${view.currentSpeed!==null?`<div><dt>Current speed</dt><dd>${number(view.currentSpeed)} tiles/s</dd></div>`:''}${resistanceRows}</dl>
     <p class="enemy-inspection-armor">Base ${number(view.baseArmor)} · Reactive +${number(view.reactive)}${view.shred?' · Shred −'+number(view.shred):''}</p>
     <p class="enemy-inspection-live-note">Speeds and effect durations use game time.</p>
