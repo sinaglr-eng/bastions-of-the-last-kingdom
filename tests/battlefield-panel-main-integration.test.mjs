@@ -14,6 +14,7 @@ import {WaveThreatAnalyzer} from '../game/core/wave-threats.js';
 import {ArmyReadiness} from '../game/core/army-readiness.js';
 import {nextWavePreviewIndex} from '../ui/wave-preview-flow.js';
 import {updateHeaderCombatControls} from '../ui/header-combat-controls.js';
+import {currentWavePanelMarkup,updateCurrentWavePanel} from '../ui/current-wave-panel.js';
 
 const source=readFileSync(new URL('../game/main.js',import.meta.url),'utf8');
 const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
@@ -27,11 +28,12 @@ function compile(names,bindings,prefix=''){
 }
 const bodyNode=()=>({innerHTML:'',dataset:{},scrollTop:0,scrollLeft:0,insertAdjacentHTML(where,markup){this.innerHTML=where==='afterbegin'?markup+this.innerHTML:this.innerHTML+markup;}});
 function sidebarFixture(game){
-  const body=bodyNode(),nodes=new Map([['side-top',bodyNode()],['side-body',body]]),images={ruin:'approved-wall.png'},inspection=bodyNode();
+  const body=bodyNode(),nodes=new Map([['side-top',bodyNode()],['side-body',body]]),images={ruin:'approved-wall.png'},inspection=bodyNode(),currentWave=bodyNode();
   inspection.closest=()=>body;inspection.ownerDocument={activeElement:null};inspection.querySelectorAll=()=>[];
-  const $=id=>id==='selected-enemy-panel'?(body.innerHTML.includes('id="selected-enemy-panel"')?inspection:null):nodes.get(id)||null;
-  const functions=compile(['towerPanel','enemyInspectionOptions','combatPanel','renderSidebar'],{game,$,data,images,icon,rankPreview:{clear(){}},selectedEnemyMarkup,commandPointsMarkup,wallPanelMarkup,tutorial:()=>'<h2>Construction</h2>'});
-  return {body,nodes,inspection,$,images,...functions};
+  currentWave.closest=()=>body;
+  const $=id=>id==='selected-enemy-panel'?(body.innerHTML.includes('id="selected-enemy-panel"')?inspection:null):id==='current-wave-panel'?(body.innerHTML.includes('id="current-wave-panel"')?currentWave:null):nodes.get(id)||null;
+  const functions=compile(['towerPanel','enemyInspectionOptions','combatPanel','renderSidebar'],{game,$,data,images,icon,rankPreview:{clear(){}},selectedEnemyMarkup,currentWavePanelMarkup,commandPointsMarkup,wallPanelMarkup,tutorial:()=>'<h2>Construction</h2>'});
+  return {body,nodes,inspection,currentWave,$,images,...functions};
 }
 function headerHost(){
   const element=(text='')=>({textContent:text,innerHTML:'',attributes:new Map(),setAttribute(name,value){this.attributes.set(name,value);},getAttribute(name){return this.attributes.get(name)||null;}}),label=element('Pause'),glyph=element(),pause=element(),speed=element('1×');pause.setAttribute('aria-label','Pause game');pause.querySelector=selector=>selector==='.header-pause-label'?label:glyph;
@@ -52,12 +54,12 @@ function keepDraft(game){
 // separate browser checklist; this is not a replacement for that inspection.
 test('actual main sidebar keeps individual live enemy HP and close control without duplicating global combat controls',()=>{
   const game=new Game(data,{seed:475});prepareEnemyInspectionReview(game);const ui=sidebarFixture(game);
-  ui.renderSidebar();assert.match(ui.body.innerHTML,/The siege is underway/);assert.doesNotMatch(ui.body.innerHTML,/data-action="(?:pause|speed)"/);
+  ui.renderSidebar();assert.match(ui.body.innerHTML,/current-wave-panel/);assert.ok(ui.body.innerHTML.includes(game.wave.name));assert.match(ui.body.innerHTML,/invaders remaining/);assert.doesNotMatch(ui.body.innerHTML,/data-action="(?:pause|speed)"/);
   assert.doesNotMatch(ui.body.innerHTML,/current-warband|boss-health|enemy-count|wave-intelligence|Remaining enemy health/);
   const enemy=game.combat.enemies.find(candidate=>game.combat.isRevealed(candidate));assert.ok(enemy);assert.equal(game.selectEnemy(enemy.id),true);
   ui.renderSidebar();assert.match(ui.body.innerHTML,new RegExp(`data-inspected-enemy="${enemy.id}"`));assert.match(ui.body.innerHTML,/Remaining enemy health/);assert.match(ui.body.innerHTML,/ HP/);
   const hp=enemy.hp;game.combat.damage(enemy,Math.min(20,hp/10),'pure',{});ui.body.scrollTop=83;ui.renderSidebar();assert.equal(ui.body.scrollTop,83);assert.ok(enemy.hp<hp);assert.equal(game.enemySelection,enemy);
-  game.select(null);ui.renderSidebar();assert.equal(ui.body.scrollTop,0);assert.doesNotMatch(ui.body.innerHTML,/data-inspected-enemy|enemy-inspection-health|current-warband|boss-health|data-action="(?:pause|speed)"/);assert.match(ui.body.innerHTML,/The siege is underway/);
+  game.select(null);ui.renderSidebar();assert.equal(ui.body.scrollTop,0);assert.doesNotMatch(ui.body.innerHTML,/data-inspected-enemy|enemy-inspection-health|current-warband|boss-health|data-action="(?:pause|speed)"/);assert.match(ui.body.innerHTML,/current-wave-panel|invaders remaining/);
 });
 
 test('actual main HUD follows real damage, pause and death while retaining individual scroll, peak DPS and persistent header controls',()=>{
@@ -65,7 +67,7 @@ test('actual main HUD follows real damage, pause and death while retaining indiv
   tracker.reset(game.combat.elapsed);game.on((type,payload)=>{if(type==='hit')tracker.recordHit(payload,game.combat.elapsed);});
   for(const id of ['hud-wave','hud-lives','hud-gold','hud-time','hud-cp','hud-score','tower-dps'])ui.nodes.set(id,{textContent:'',innerHTML:'',parentElement:{parentElement:{classList:{add(){},remove(){}}}}});
   const header=headerHost();ui.nodes.set('header-combat-controls',header);
-  const {hud}=compile(['hud'],{game,$:ui.$,updateHeaderCombatControls,updateSelectedEnemyPanel,enemyInspectionOptions:ui.enemyInspectionOptions,renderSidebar:ui.renderSidebar,renderRecipeBrowser(){},updateTowerDpsPanel:(panel,rows,...rest)=>samples.push({rows,options:rest.at(-1)}),dpsTracker:tracker,dpsWave:game.round,data,images:ui.images,balance:data.balance,formatRunDuration,profile:{bestScore:0},renderWarbandsOverview(){},supportEffectsMarkup(){throw new Error('No defender is selected');}});
+  const {hud}=compile(['hud'],{game,$:ui.$,updateHeaderCombatControls,updateSelectedEnemyPanel,updateCurrentWavePanel,enemyInspectionOptions:ui.enemyInspectionOptions,renderSidebar:ui.renderSidebar,renderRecipeBrowser(){},updateTowerDpsPanel:(panel,rows,...rest)=>samples.push({rows,options:rest.at(-1)}),dpsTracker:tracker,dpsWave:game.round,data,images:ui.images,balance:data.balance,formatRunDuration,profile:{bestScore:0},renderWarbandsOverview(){},supportEffectsMarkup(){throw new Error('No defender is selected');}});
   const enemy=game.combat.enemies.find(candidate=>game.combat.isRevealed(candidate)),attacker=game.towers.find(t=>t.state==='active');assert.equal(game.selectEnemy(enemy.id),true);ui.renderSidebar();ui.body.scrollTop=107;
   for(let n=0;n<8;n++){
     game.combat.damage(enemy,Math.min(3,enemy.hp/100),'pure',{},attacker);hud();assert.equal(ui.body.scrollTop,107);
@@ -73,7 +75,7 @@ test('actual main HUD follows real damage, pause and death while retaining indiv
   }
   assert.ok(samples.at(-1).rows.some(row=>row.id===attacker.id&&row.dps>0));assert.equal(samples.at(-1).options.wave,15);
   game.paused=true;game.speed=3;const pausedHP=enemy.hp;game.tick(.5);hud();assert.equal(enemy.hp,pausedHP);assert.equal(samples.at(-1).options.paused,true);assert.equal(header.label.textContent,'Resume');assert.equal(header.speed.textContent,'3×');assert.equal(header.hidden,false);assert.equal(header.writes,1);assert.doesNotMatch(ui.inspection.innerHTML,/data-action="(?:pause|speed)"/);
-  game.combat.damage(enemy,enemy.maxHp*10,'pure',{},attacker);hud();assert.equal(game.enemySelection,null);assert.doesNotMatch(ui.body.innerHTML,/id="selected-enemy-panel"|current-warband|boss-health|data-action="(?:pause|speed)"/);assert.match(ui.body.innerHTML,/The siege is underway/);assert.equal(header.writes,1);
+  game.combat.damage(enemy,enemy.maxHp*10,'pure',{},attacker);hud();assert.equal(game.enemySelection,null);assert.doesNotMatch(ui.body.innerHTML,/id="selected-enemy-panel"|current-warband|boss-health|data-action="(?:pause|speed)"/);assert.match(ui.body.innerHTML,/current-wave-panel/);assert.match(ui.currentWave.innerHTML,/invaders remaining/);assert.equal(header.writes,1);
   const draftMarkup=compile(['renderDraft'],{game,$:id=>id==='draft'?ui.body:null,icon,commandPointsMarkup,data,images:ui.images,draftCardsMarkup:()=>'<div>Current draft controls</div>'});draftMarkup.renderDraft();assert.doesNotMatch(ui.body.innerHTML,/draft-combat-actions|data-action="(?:pause|speed)"/);assert.match(ui.body.innerHTML,/Current draft controls/);
 });
 

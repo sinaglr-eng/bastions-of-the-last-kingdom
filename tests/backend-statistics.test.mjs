@@ -83,7 +83,8 @@ test('statistics default to the actual game edition while preserving separate hi
     const page=await request(store,'/');
     assert.equal(page.status,200);
     const html=await page.text();
-    assert.ok(html.includes(`/api/leaderboard?version=${version}&mode=`));
+    assert.ok(html.includes('<option value="all">All game versions</option>'));
+    assert.ok(html.includes(`/api/leaderboard?version='+encodeURIComponent(document.getElementById('edition').value)+'&mode=`));
     assert.ok(html.includes(`${version} · ${STATISTICS_RELEASE_NAME}. Finish a campaign`));
     assert.ok(!html.includes('/api/leaderboard?version=0.2.7&mode='));
     for(const [index,edition] of ['0.2.7',version].entries()) {
@@ -622,7 +623,7 @@ test('a freshly prepared statistics Site includes canonical release dependencies
     const result=spawnSync(process.execPath,[fileURLToPath(new URL('../tools/prepare-statistics-site.mjs',import.meta.url)),directory],{encoding:'utf8'});assert.equal(result.status,0,result.stderr);
     for(const name of ['release.js','site-url.js'])assert.deepEqual(readFileSync(join(directory,'game',name)),readFileSync(new URL('../game/'+name,import.meta.url)));
     const prepared=await import(pathToFileURL(join(directory,'backend/worker.js')).href);
-    const response=await prepared.default.fetch(new Request('https://prepared-statistics.example/api/health'),{DB:store.DB});assert.equal(response.status,200);assert.deepEqual(await response.json(),{ok:true,storage:'SQLite',edition:GAME_VERSION,releaseName:'Elapsed time and wave mastery'});
+    const response=await prepared.default.fetch(new Request('https://prepared-statistics.example/api/health'),{DB:store.DB});assert.equal(response.status,200);assert.deepEqual(await response.json(),{ok:true,storage:'SQLite',edition:GAME_VERSION,releaseName:STATISTICS_RELEASE_NAME});
     assert.deepEqual(JSON.parse(readFileSync(join(directory,'.openai/hosting.json'),'utf8')),{d1:'DB',r2:null},'Preparing a template never invents a deployed project identity');
   }finally{store.close();assert.equal(dirname(resolve(directory)),resolve(tmpdir()));rmSync(directory,{recursive:true});}
 });

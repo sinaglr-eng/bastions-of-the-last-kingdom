@@ -13,6 +13,7 @@ import {animateGeometricOrbits} from './geometric-orbits.js';
 import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
 import {beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from './battle-animation.js';
 import {CombatEffects} from './combat-effects.js';
+import {CriticalHitLabels} from './critical-hit-labels.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
 import {EnemyConcealmentEffects} from './enemy-concealment-effects.js';
 import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS,takeCheckpointEffects,animateCheckpointEffects,disposeCheckpointEffects} from './checkpoint-marker.js';
@@ -219,6 +220,7 @@ export class Battlefield {
     this.rangeGroup=new THREE.Group();this.scene.add(this.rangeGroup);
     this.healthBars=new THREE.Group();this.scene.add(this.healthBars);
     this.labels=document.createElement('div');this.labels.className='map-labels';this.container.append(this.labels);
+    this.criticalHitLabels=new CriticalHitLabels(this.container,{half:HALF});
     this.labelItems=[{...this.landmarks.sites.camp,title:'ORC WARCAMP',className:'enemy',height:this.landmarks.sites.camp.labelHeight},{...this.landmarks.sites.keep,title:'THE LAST KEEP',className:'keep',height:this.landmarks.sites.keep.labelHeight},...this.game.grid.checkpoints.slice(1,-1).map((p,i)=>({x:p.x-HALF,z:p.z-HALF,title:CHECKPOINT_ROMAN_LABELS[i],className:'checkpoint-label',height:2}))].map(p=>{const el=document.createElement('span');el.className=`map-label ${p.className}`;el.textContent=p.title;this.labels.append(el);return {...p,el};});
   }
   updateCampPreview(){
@@ -328,6 +330,7 @@ export class Battlefield {
     if(valid){const draw=this.game.draft.draws[this.game.activeDraw];if(draw){this.ghost.traverse(o=>{if(o.isMesh)o.material.dispose();});this.ghost.clear();const t=this.template({family:'ruin',tier:1,state:'ruin'}).clone(true);t.traverse(o=>{if(o.isMesh){o.material=o.material.clone();o.material.transparent=true;o.material.opacity=0.45;o.castShadow=false;}});this.ghost.add(t);this.ghost.position.copy(v3(x,0.04,z));this.ghost.visible=true;}}
   }
   event(type,payload) {
+    this.criticalHitLabels?.event(type,payload);
     if(type==='change')this.sync();
     if(['spawn','death','leak'].includes(type)){
       const state=currentEnemyRoute(this.game),revision=`${this.game.grid.revision}:${this.game.round}:${this.game.phase}:${state.flying}`;
@@ -416,6 +419,7 @@ export class Battlefield {
     this.enemyConcealmentEffects?.sync(this.game.combat.enemies,{time:this.motionTime,cosmeticTime:this.time,figures:this.enemies,active:this.game.phase==='combat'});
     this.enemyAbilityEffects?.update(battleDt);
     this.combatEffects.syncProjectiles(this.game.combat.projectiles,this.time);this.combatEffects.update(battleDt,this.time);
+    this.criticalHitLabels?.update(battleDt,this.camera,this.container.clientWidth,this.container.clientHeight,{reducedMotion:!!this.reducedMotion?.matches,isRevealed:enemy=>this.game.combat.isRevealed(enemy)});
     this.supportEffects.sync(this.game.towers,this.game.data,{selected:this.game.selection,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase,time:this.time});
     for(const fx of this.effects){fx.life-=dt;fx.object.material.opacity=Math.max(0,fx.life/fx.max)*0.75;if(!fx.line)fx.object.scale.setScalar(0.5+(1-fx.life/fx.max)*fx.size*3);}
     this.effects=this.effects.filter(fx=>{if(fx.life>0)return true;this.scene.remove(fx.object);fx.object.geometry.dispose();fx.object.material.dispose();return false;});
@@ -425,6 +429,7 @@ export class Battlefield {
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
+    this.criticalHitLabels?.dispose();
     this.disposed=true;this.defenderLoader.dispose();this.combatEffects.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
     this.defenderLoadingStatus?.remove();
     disposeEnemySelectionRing(this.enemySelectionRing);

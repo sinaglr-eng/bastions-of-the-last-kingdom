@@ -13,7 +13,7 @@ import {geometricMetadata} from '../game/render/geometric-motion.js';
 import {optimizeGeometricSiblings} from '../game/render/geometric-batching.js';
 import {cloneDefenderTemplate,disposeDefenderInstance} from '../game/render/defender-assets.js';
 import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.js';
-import {DEFENDER_CLASSIFICATION_SCALE_STEP,defenderClassificationMultiplier,applyDefenderClassificationScale} from '../game/render/defender-classification-scale.js';
+import {DEFENDER_CLASSIFICATION_SCALE_STEP,defenderClassificationMultiplier,defenderPresentationMultiplier,applyDefenderClassificationScale} from '../game/render/defender-classification-scale.js';
 import {championClassification,CLASSIFICATION_LEVELS} from '../game/render/champion-classification.js';
 import {CHAMPION_AURA_COLORS,CHAMPION_AURA_STYLE,SECRET_CHAMPION_AURA_STYLE,DIVINE_CHAMPION_AURA_STYLE,createChampionAura,disposeChampionAura} from '../game/render/champion-aura.js';
 import {BATTLEFIELD_UNIT_SCALE,BATTLEFIELD_BOSS_MULTIPLIER,scaleBattlefieldUnit,animateBattlefieldIdleScale} from '../game/render/battlefield-scale.js';
@@ -102,7 +102,7 @@ test('all 86 actual battlefield clones preserve source shapes, class auras, rank
   const observedClasses=new Set();
   for(const entry of entries){
     const {bytes,decoded}=await decode(entry),source=decoded.scene;source.animations=[...decoded.animations];let value,baseline,baselineRig,comparisonAura;
-    const item={id:entry.id,family:entry.family,tier:entry.tier,classification:championClassification(entry.family),multiplier:defenderClassificationMultiplier(entry.family),presentationScale:entry.reconstruction.presentationScale,assetSha256:hash(bytes)};
+    const item={id:entry.id,family:entry.family,tier:entry.tier,classification:championClassification(entry.family),multiplier:defenderClassificationMultiplier(entry.family)*defenderPresentationMultiplier(entry.family),presentationScale:entry.reconstruction.presentationScale,assetSha256:hash(bytes)};
     const label=entry.id+': ';
     try{
       check(item.assetSha256===entry.assetSha256&&item.assetSha256===entry.reconstruction.sourceGlbSha256,label+'exact approved GLB bytes');
@@ -155,6 +155,9 @@ test('all 86 actual battlefield clones preserve source shapes, class auras, rank
     finally{disposeChampionAura(comparisonAura);disposeChampionAura(value?.aura);disposeRankAdornment(value?.actor);disposeAttack(value?.attack);disposeAttack(baselineRig);disposeDefenderInstance(value?.actor);disposeDefenderInstance(baseline);disposeDecodedGeometricAsset(decoded);}
   }
   check(observedClasses.size===5&&Object.keys(CLASSIFICATION_LEVELS).every(c=>observedClasses.has(c)),'Actual roster exercises all five classifications');check(JSON.stringify(data)===dataBefore,'Classification and attacks preserve original game balance data');
+  const height=family=>report.models.find(item=>item.family===family&&item.tier===1).battlefieldBounds.size[1];
+  check(Math.abs(height('embercrown')/height('archer')-1)<.03,'Actual Baby Fire Dragon is within 3% of ordinary Archer I height');
+  for(const [before,after]of [['embercrown','worldfire'],['worldfire','thunderheart'],['thunderheart','phoenix']])check(height(after)>height(before)*1.1,'Real dragon descendants grow by at least 10%: '+before+' → '+after,{before:height(before),after:height(after)});
 });
 
 test('nonuniform authored outer transforms and private clone state preserve each original component',async()=>{

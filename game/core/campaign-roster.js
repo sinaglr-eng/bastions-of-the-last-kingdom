@@ -3,11 +3,19 @@
 // his former friendly recipe and unit.
 import {APPROVED_DEFENDER_NAMES,APPROVED_CHAMPION_DESCRIPTIONS} from './approved-defender-names.js';
 // Approved V7/V8 identity copy follows the reconstructed artwork and voices.
-// Archived source definitions retain their original names and every gameplay
-// property remains the same on the current playable definition.
+// Archived source definitions remain verbatim. Current combat adjustments are
+// explicit overrides on the playable roster, separate from reference values.
+export const CAMPAIGN_COMBAT_OVERRIDES=Object.freeze({
+  wyvernhunter:Object.freeze({antiAirBypassesDefenses:true}),
+  royalranger:Object.freeze({antiAirBypassesDefenses:true}),
+  kingsrangerguard:Object.freeze({antiAirBypassesDefenses:true}),
+  elvenking:Object.freeze({antiAirBypassesDefenses:true}),
+  rangermentor:Object.freeze({poisonDps:96}),
+  mothernature:Object.freeze({poisonDps:1898.4}),
+});
 export const campaignTowers = towers => Object.fromEntries(Object.entries(towers).filter(([id]) => id !== 'lordbernhard').map(([id,definition])=>{
   const name=APPROVED_DEFENDER_NAMES[id];
-  return [id,name?{...definition,name,short:name,...(APPROVED_CHAMPION_DESCRIPTIONS[id]?{description:APPROVED_CHAMPION_DESCRIPTIONS[id]}:{})}:definition];
+  return [id,name?{...definition,name,short:name,...(APPROVED_CHAMPION_DESCRIPTIONS[id]?{description:APPROVED_CHAMPION_DESCRIPTIONS[id]}:{}),...(CAMPAIGN_COMBAT_OVERRIDES[id]||{})}:definition];
 }));
 export const campaignRecipes = recipes => recipes.filter(recipe => (recipe.resultFamily || recipe.id) !== 'lordbernhard');
 export const campaignWaves = waves => waves.map((wave,index)=>index===49?{...wave,name:'Lord Bernhard, the Black Sorcerer on the Wyvern Queen'}:wave);

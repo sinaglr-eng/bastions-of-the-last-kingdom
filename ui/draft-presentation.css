@@ -1,12 +1,14 @@
 /* The portrait uses the complete card; commitment actions remain separate taps. */
-:root{--construction-height:270px}
+:root{--construction-height:209px}
 .draft-panel{align-items:stretch}
-.draft-panel .draft-main{height:100%;min-height:0;display:flex;flex-direction:column}
-.draft-panel .draft-heading{flex:none;min-height:20px;margin-bottom:4px}
-.draft-panel .draft-command-actions{flex:none}
-.draft-panel .draws{flex:1;min-height:0;height:auto;align-items:stretch}
-.draft-panel .draw-slot{height:auto;min-height:0;display:flex;flex-direction:column;gap:4px}
-.draft-panel .draw-slot .draw-card{flex:1;min-height:72px;height:auto;padding:0;transform:none}
+.draft-panel .draft-main{height:100%;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto minmax(0,1fr);gap:6px 12px}
+.draft-panel .draft-heading{grid-column:1;grid-row:1;min-height:20px;height:auto;align-self:center;margin:0}
+.draft-panel .draft-command-actions{grid-column:2;grid-row:1;margin:0;align-self:start}
+.draft-panel .draws{grid-column:1 / -1;grid-row:2;min-height:0;height:auto;align-items:stretch}
+.draft-panel .draft-ended{grid-column:1 / -1;grid-row:2;min-height:0;height:auto}
+.draft-panel .draw-slot{height:auto;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(64px,1fr);gap:4px}
+.draft-panel .draw-slot:has(.draw-merge,.draw-keep){grid-template-rows:minmax(64px,1fr) 44px}
+.draft-panel .draw-slot .draw-card{grid-column:1 / -1;grid-row:1;min-height:64px;height:auto;padding:0;transform:none}
 .draft-panel .draw-card.placed:not(.active){opacity:1}
 .draft-panel .draw-card img{inset:0;left:0;transform:none;width:100%;height:100%;object-fit:contain;object-position:center;max-width:none;max-height:none}
 .draft-panel .draw-card .index,.draft-panel .draw-card .tier-pips{z-index:1;top:5px;padding:3px 4px;border-radius:3px;background:#10201eeb;line-height:1.15}
@@ -18,6 +20,10 @@
 .draft-panel .draw-reservation.pending{background:#3a3422f5}
 .draft-panel .draw-reservation small{font-size:8px;line-height:1.2}
 .draft-panel .draw-merge,.draft-panel .draw-keep{position:static;inset:auto;flex:none;width:100%;max-width:none;height:44px;min-height:44px;padding:5px;display:flex;align-items:center;justify-content:center;gap:5px;font-size:11px;line-height:1.1;letter-spacing:.2px;box-shadow:none;touch-action:manipulation}
+.draft-panel .draw-merge{grid-column:1 / -1;grid-row:2}
+.draft-panel .draw-keep{grid-column:1 / -1;grid-row:2}
+.draft-panel .has-keep .draw-merge{grid-column:1}
+.draft-panel .has-keep:has(.draw-merge) .draw-keep{grid-column:2}
 .draft-panel .draw-merge .icon,.draft-panel .draw-keep .icon{width:14px;height:14px}
 .draft-panel .draw-merge:focus-visible,.draft-panel .draw-keep:focus-visible{outline-offset:1px}
 
@@ -41,10 +47,14 @@
   .draft-panel .prob-labels span{padding:4px;gap:4px}
   .draft-panel .prob-labels b{font-size:12px}.draft-panel .prob-labels em{font-size:14px}
 }
-@media(any-pointer:coarse){:root{--construction-height:284px}}
+@media(any-pointer:coarse){:root{--construction-height:223px}}
 @media(max-width:580px){
-  :root{--construction-height:364px}
+  :root{--construction-height:300px}
   .draft-panel{grid-template-rows:minmax(0,1fr) 80px;gap:8px}
+  .draft-panel .draft-main{gap:6px 8px}
+  .draft-panel .draft-command-actions{gap:5px;max-width:216px}
+  .draft-panel .draft-command-actions .command-button{font-size:10px;padding:4px 6px;gap:4px}
+  .draft-panel .draws{grid-template-columns:repeat(5,minmax(96px,1fr));gap:5px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#6c795c transparent;padding-bottom:3px}
   .draft-panel .draw-card .draw-name{font-size:9px;line-height:1.15}
   .draft-panel .draw-merge,.draft-panel .draw-keep{font-size:10px;gap:3px;padding:4px 2px}
   .draft-panel .draw-merge .icon,.draft-panel .draw-keep .icon{width:12px;height:12px}

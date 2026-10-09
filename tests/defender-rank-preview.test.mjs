@@ -56,6 +56,18 @@ test('downgrade uses the real selected rank even while Tier VI is displayed',()=
   assert.equal(game.selection.state,'active');assert.equal(preview.view(game.selection,data).tier,2);
 });
 
+test('production downgrade-and-keep is the first native action after the portrait and follows actual rank, gold and reserve guards',()=>{
+  const game=candidates(),preview=new DefenderRankPreview(),render=productionPanel(game,preview),tower=game.selection;
+  preview.select(tower,6,campaignData);game.economy.gold=data.balance.downgradeCost-1;
+  let html=render(tower),button=html.match(/<button[^>]*data-action="downgrade"[^>]*>/)?.[0];assert.ok(button);
+  assert.match(html,/<div class="tower-portrait"><img[^>]*><\/div><button type="button" class="secondary-button tower-downgrade-keep"/);
+  assert.match(button,/disabled/);assert.match(html,/Downgrade to Tier II &amp; keep/);
+  assert.equal((html.match(/data-action="downgrade"/g)||[]).length,1);assert.equal(game.downgrade(),false);assert.equal(tower.tier,3);assert.equal(tower.state,'draft');
+  game.economy.gold=data.balance.downgradeCost;html=render(tower);button=html.match(/<button[^>]*data-action="downgrade"[^>]*>/)[0];assert.doesNotMatch(button,/disabled/);
+  assert.equal(game.downgrade(),true);assert.equal(tower.tier,2);assert.equal(tower.state,'active');assert.equal(game.economy.gold,0);assert.doesNotMatch(render(tower),/data-action="downgrade"/);
+  const reserved=candidates(),reservedTower=reserved.selection;assert.equal(reserved.reserve(),true);assert.doesNotMatch(productionPanel(reserved,new DefenderRankPreview())(reservedTower),/data-action="downgrade"/);
+});
+
 test('new selections and transformed units reset previews; champions, walls and invalid ranks cannot acquire one',()=>{
   const preview=new DefenderRankPreview(),tower={id:1,family:'druid',tier:3,state:'active'};
   preview.select(tower,6,data);

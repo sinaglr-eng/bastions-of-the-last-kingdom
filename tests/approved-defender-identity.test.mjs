@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {campaignTowers,campaignRecipes} from '../game/core/campaign-roster.js';
+import {campaignTowers,campaignRecipes,CAMPAIGN_COMBAT_OVERRIDES} from '../game/core/campaign-roster.js';
 import {APPROVED_DEFENDER_NAMES,APPROVED_CHAMPION_DESCRIPTIONS} from '../game/core/approved-defender-names.js';
 const load=file=>JSON.parse(readFileSync(new URL('../'+file,import.meta.url),'utf8'));
 const historical=load('data/towers.json'),recordings=load('docs/audio/generated-allied-audio.json');
@@ -13,7 +13,7 @@ test('all 46 live identities match the approved reconstruction names and all 92 
   assert.equal(new Set(Object.values(APPROVED_DEFENDER_NAMES)).size,46);
   for(const [id,name] of Object.entries(APPROVED_DEFENDER_NAMES)){
     assert.equal(live[id].name,name,id);assert.equal(live[id].short,name,id);
-    assert.deepEqual(gameplay(live[id]),gameplay(historical[id]),id+' gameplay properties');
+    assert.deepEqual(gameplay(live[id]),{...gameplay(historical[id]),...(CAMPAIGN_COMBAT_OVERRIDES[id]||{})},id+' gameplay properties and explicit campaign overrides');
     const clips=recordings.clips.filter(clip=>clip.character_id===id);assert.equal(clips.length,2,id);
     for(const clip of clips)assert.equal(clip.character,name,id+' approved recorded identity');
   }

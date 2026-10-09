@@ -1,4 +1,21 @@
 import {GridManager} from './grid.js';
+import {seededRandom} from './math.js';
+
+// DEV-only native review: the first real attack is critical under seed 7.
+// Lionheart's chance/multiplier and the invader's defenses stay authored.
+export function prepareCriticalReview(game){
+  game.commandMove.cancel();game.draft.discardReserve();
+  game.grid=new GridManager();game.towers=[];game.selected=null;game.selectedEnemy=null;game.previewRecipeId=null;game.round=6;game.phase='ready';game.nextId=2;game.activeDraw=0;game.paused=false;game.speed=1;game.lives=30;
+  if(!game.grid.occupy(18,17,1).ok)throw new Error('Critical review defender tile unavailable');
+  const tower={id:1,family:'roseguard',tier:1,x:18,z:17,state:'active',round:0,kills:0,priority:'first',cooldown:0};game.towers.push(tower);
+  game.startCombat();game.combat.spawnQueue=[];game.combat.enemies=[];game.combat.projectiles=[];
+  const enemy=game.combat.spawn('host_06');
+  Object.assign(enemy,{x:18,z:18,speed:0,hp:1e7,maxHp:1e7,route:[{x:18,z:18},{x:18,z:19}],pathIndex:1,pathLength:1,traveled:0});
+  game.combat.total=1;game.selected=null;game.selectedEnemy=null;
+  // Reset after scene setup so queued variant selection cannot spend the
+  // explicitly chosen first critical roll (0.011704753153...).
+  game.rng=seededRandom(7);game.emit('change');return {tower,enemy};
+}
 
 // DEV-only preview scenes retain campaign wave data and real draft/combat paths.
 export function prepareWavePreviewReview(game,round){

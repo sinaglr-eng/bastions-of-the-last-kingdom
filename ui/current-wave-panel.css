@@ -1,0 +1,21 @@
+.current-wave-panel h2{font-size:24px;line-height:1.15;margin-bottom:15px}
+.current-wave-remaining{display:flex;align-items:baseline;gap:9px;color:#e8ddba}
+.current-wave-remaining strong{font-size:28px;font-weight:600;font-variant-numeric:tabular-nums}
+.current-wave-remaining span{font-size:12px}
+.current-wave-counts{font-size:11px;line-height:1.4;color:#a6b9ab;margin:4px 0 15px}
+.current-wave-profile{padding:13px 0;border-top:1px solid var(--border)}
+.current-wave-profile-heading{display:flex;align-items:center;gap:10px;min-width:0}
+.current-wave-profile-heading>img{width:63px;height:72px;object-fit:contain;flex:none}
+.current-wave-profile-heading>div{min-width:0}
+.current-wave-profile-heading h3{font:17px Georgia,serif;line-height:1.2;color:#ece5ce;overflow-wrap:anywhere}
+.current-wave-profile-heading p{font-size:10px;color:#a9baad;line-height:1.5;margin-top:5px}
+.current-wave-profile-movement{display:block;font-size:9px;letter-spacing:1px;color:#c2b383;margin-bottom:5px}
+.current-wave-profile-stats{display:grid;gap:5px;margin:12px 0;font-size:11px;line-height:1.35}
+.current-wave-profile-stats>div{display:flex;justify-content:space-between;gap:8px}
+.current-wave-profile-stats dt{color:#a9bbac}.current-wave-profile-stats dd{margin:0;color:#e2ddc9;white-space:nowrap;font-variant-numeric:tabular-nums}
+.current-wave-panel .enemy-trait-list{list-style:none;padding:0;margin:9px 0 0;display:grid;gap:9px;font-size:11px;line-height:1.5;color:#d2dbc9}
+.current-wave-panel .enemy-trait-list li{margin:0;align-items:flex-start}
+.current-wave-panel .enemy-defense-glyph{width:18px;height:18px;flex-basis:18px}
+.current-wave-empty,.current-wave-inspection-note{font-size:11px;line-height:1.5;color:#a5b7a7;margin-top:13px}
+.tower-downgrade-keep{margin:8px 0 12px;min-height:44px;width:100%;font-size:12px;line-height:1.35;text-align:center}
+@media(max-width:580px){.current-wave-panel h2{font-size:22px}.current-wave-profile-heading>img{width:60px;height:66px}}

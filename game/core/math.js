@@ -19,8 +19,9 @@ export function weightedIndex(weights, rng = Math.random) {
   return weights.findLastIndex(n => n > 0);
 }
 export const distance = (a, b) => Math.hypot(a.x - b.x, a.z - b.z);
+export const bypassesAirDefenses = (enemy, stats) => !!(enemy.flying && stats.antiAirBypassesDefenses);
 export function damageAfterDefense(amount, type, enemy, stats, balance) {
-  if(type==='pure')return amount;
+  if(type==='pure'||bypassesAirDefenses(enemy,stats))return amount;
   if (type === 'physical' || type === 'piercing') {
     if(enemy.physicalImmune)return 0;
     const armor = Math.max(0, (enemy.armor || 0) + (enemy.reactiveStacks||0)*(enemy.reactiveArmor||0) - (enemy.armorShred || 0)) * (1 - (stats.penetration || 0));

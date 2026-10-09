@@ -1,6 +1,12 @@
-import {distance, damageAfterDefense, towerStats,supportBonuses} from './math.js';
+import {distance, damageAfterDefense, towerStats,supportBonuses,bypassesAirDefenses} from './math.js';
 import {enemyRevealed} from './visibility.js';
 import {ENEMY_RULES as R,enemyDisarmActive} from './enemy-rules.js';
+
+const leadingPoison=applications=>applications.reduce((strongest,application)=>!strongest||application.dps>strongest.dps?application:strongest,null);
+const poisonStatus=applications=>{
+  const strongest=leadingPoison(applications);
+  return {dps:strongest.dps,time:Math.max(...applications.map(application=>application.time)),source:strongest.source,applications};
+};
 
 export class CombatManager {
   constructor(game) {this.game=game;this.enemies=[];this.projectiles=[];this.spawnQueue=[];this.elapsed=0;this.serial=0;this.shotSerial=0;this.spawned=0;this.total=0;}
@@ -36,7 +42,7 @@ export class CombatManager {
     const ordered=candidates.sort(sorters[priority]||sorters.first),effect=stats.spreadEffect;
     if(!effect)return ordered;
     // Pending projectiles reserve their effect so rapid or allied shots spread first.
-    const unmarked=ordered.filter(e=>!(e.statuses?.[effect]?.time>0)&&!(effect==='poison'&&e.magicImmune)&&!(effect==='shred'&&e.physicalImmune));
+    const unmarked=ordered.filter(e=>!(e.statuses?.[effect]?.time>0)&&!(effect==='poison'&&e.magicImmune&&!bypassesAirDefenses(e,stats))&&!(effect==='shred'&&e.physicalImmune&&!bypassesAirDefenses(e,stats)));
     const untouched=unmarked.filter(e=>!this.projectiles.some(s=>s.progress<1&&s.target===e&&(effect==='poison'?(s.stats.poisonDps||s.stats.poison):s.stats.shred)));
     if(untouched.length)return [...untouched,...ordered.filter(e=>!untouched.includes(e))];
     // Wait for the last unmarked targets' shots to land before ordinary targeting.
@@ -44,9 +50,12 @@ export class CombatManager {
   }
   damage(enemy,amount,type,stats,source) {
     if(enemy.dead)return 0;
+    const bypass=bypassesAirDefenses(enemy,stats);
     if(stats.directHit){
-      if(enemy.evasion&&!stats.trueStrike&&['physical','piercing'].includes(type)&&this.game.rng()<enemy.evasion)return 0;
-      if(enemy.shields>0){enemy.shields--;this.game.emit('deflect',{enemy});return 0;}
+      // Preserve the existing seeded evasion roll, even when its result is
+      // bypassed, so the new damage rule does not shift subsequent crit rolls.
+      if(enemy.evasion&&!stats.trueStrike&&['physical','piercing'].includes(type)&&this.game.rng()<enemy.evasion&&!bypass)return 0;
+      if(enemy.shields>0&&!bypass){enemy.shields--;this.game.emit('deflect',{enemy});return 0;}
     }
     const frozen=enemy.statuses.freeze && type==='physical' ? 1.25:1;
     let bonus=1;
@@ -54,12 +63,13 @@ export class CombatManager {
     if(stats.bossBonus && (enemy.boss||enemy.type==='shaman'))bonus*=stats.bossBonus;
     const petrified=enemy.statuses.petrify&&['physical','piercing'].includes(type)?1+(enemy.statuses.petrify.physicalBonus||0):1;
     let dealt=damageAfterDefense(amount*frozen*bonus*petrified,type,enemy,stats,this.game.data.balance);
-    if(stats.directHit&&type!=='pure')dealt=Math.max(0,dealt-(enemy.krakenShell||0));
+    if(stats.directHit&&type!=='pure'&&!bypass)dealt=Math.max(0,dealt-(enemy.krakenShell||0));
     if(stats.directHit&&enemy.reactiveArmor)enemy.reactiveStacks=Math.min(R.reactive.maxStacks,enemy.reactiveStacks+1);
     if(dealt<=0)return 0;
     const effectiveDamage=Math.min(dealt,Math.max(0,enemy.hp));
     enemy.hp-=dealt;enemy.hit=0.16;
     this.game.emit('hit',{enemy,source,type,damage:dealt,effectiveDamage,directHit:!!stats.directHit,visible:this.isRevealed(enemy)});
+    if(stats.critical)this.game.emit('critical-hit',{enemy,source,type,amount:dealt,effectiveDamage,multiplier:stats.critMultiplier,directHit:!!stats.directHit,visible:this.isRevealed(enemy)});
     if(enemy.hp<=0) {
       enemy.dead=true;this.game.economy.reward(0,enemy.xp);this.game.kills++;
       this.game.rewardBossCommandPoints(enemy);
@@ -71,18 +81,39 @@ export class CombatManager {
   }
   applyEffects(enemy,stats,source) {
     if(enemy.dead)return;
-    if(enemy.magicImmune){stats={...stats,slow:0,antiAirSlow:stats.antiAirPiercesImmunity?stats.antiAirSlow:0,antiAirMagicShred:stats.antiAirPiercesImmunity?stats.antiAirMagicShred:0,freeze:0,burn:0,poison:0,poisonDps:0,shredMagic:0,healingBlockDuration:0};}
+    if(enemy.magicImmune&&!bypassesAirDefenses(enemy,stats)){stats={...stats,slow:0,antiAirSlow:stats.antiAirPiercesImmunity?stats.antiAirSlow:0,antiAirMagicShred:stats.antiAirPiercesImmunity?stats.antiAirMagicShred:0,freeze:0,burn:0,poison:0,poisonDps:0,shredMagic:0,healingBlockDuration:0};}
     if(enemy.flying)stats={...stats,shred:Math.max(stats.shred||0,stats.antiAirShred||0),slow:Math.max(stats.slow||0,stats.antiAirSlow||0),shredMagic:Math.max(stats.shredMagic||0,stats.antiAirMagicShred||0)};
     if(stats.slow){const previous=enemy.statuses.slow;enemy.statuses.slow={amount:Math.max(stats.slow,previous?.amount||0),time:stats.slowDuration||2,source:stats.slow>=(previous?.amount||0)?source:previous.source};}
     if(stats.freeze&&this.elapsed>=(enemy.stunRecoveryUntil||0)&&this.game.rng()<stats.freeze){enemy.statuses.freeze={time:(stats.freezeDuration||.8)*(enemy.boss ? .5 : 1),source};enemy.stunRecoveryUntil=this.elapsed+(stats.stunRecovery||0);}
     for(const key of ['burn','poison','bleed'])if(stats[key]||(key==='poison'&&stats.poisonDps)) {
       const previous=enemy.statuses[key];
       const dps=key==='poison'&&stats.poisonDps?stats.poisonDps:stats.damage*stats[key];
-      enemy.statuses[key]={dps:Math.max(dps,previous?.dps||0),time:stats.dotDuration||3,source:dps>=(previous?.dps||0)?source:previous.source};
+      if(key==='poison'){
+        // Different defenders retain their own expiry. A weak refresh cannot
+        // keep a stronger defender's poison or DPS credit alive indefinitely.
+        const applications=(previous?.applications||(previous?.time>0?[previous]:[])).filter(application=>application.time>0);
+        const own=applications.find(application=>application.source===source);
+        const application={dps:Math.max(dps,own?.dps||0),time:stats.dotDuration||3,source,
+          damageStats:{antiAirBypassesDefenses:!!stats.antiAirBypassesDefenses}};
+        enemy.statuses.poison=poisonStatus([application,...applications.filter(application=>application.source!==source)]);
+      }else enemy.statuses[key]={dps:Math.max(dps,previous?.dps||0),time:stats.dotDuration||3,source:dps>=(previous?.dps||0)?source:previous.source};
     }
     if(stats.shred){const previous=enemy.statuses.shred;enemy.statuses.shred={amount:Math.max(stats.shred,previous?.amount||0),time:4,source:stats.shred>=(previous?.amount||0)?source:previous.source};}
     if(stats.shredMagic)enemy.statuses.shredMagic={amount:stats.shredMagic,time:4,source};
     if(stats.healingBlockDuration)enemy.statuses.healBlock={time:stats.healingBlockDuration,source};
+  }
+  updatePoison(enemy,status,dt){
+    let applications=status.applications,remaining=dt;
+    // Split at actual expiry boundaries, including when one coarse tick spans
+    // the transition from a stronger poison to a still-active weaker source.
+    while(remaining>0&&applications.length&&!enemy.dead){
+      const strongest=leadingPoison(applications),slice=Math.min(remaining,...applications.map(application=>application.time));
+      this.damage(enemy,strongest.dps*slice,'poison',strongest.damageStats||{},strongest.source);
+      for(const application of applications)application.time-=slice;
+      applications=applications.filter(application=>application.time>1e-9);remaining-=slice;
+    }
+    if(applications.length&&!enemy.dead)enemy.statuses.poison=poisonStatus(applications);
+    else delete enemy.statuses.poison;
   }
   landedProcs(stats,source) {
     if(stats.recoverChance&&this.game.rng()<stats.recoverChance){this.game.lives=Math.min(this.game.data.balance.startingLives,this.game.lives+(stats.recoverLives||1));this.game.emit('recover',{source});}
@@ -129,12 +160,13 @@ export class CombatManager {
     // hidden position through impact particles. Existing damage-over-time stays.
     if(!this.canSee(target,source))return;
     const victims=stats.splash ? this.enemies.filter(e=>!e.dead&&(!stats.melee||(!e.flying&&distance(e,source)<=stats.range+.25))&&distance(e,target)<=stats.splash) : target.dead||(stats.melee&&(target.flying||distance(source,target)>stats.range+.25))?[]:[target];
-    const hitDamage=stats.damage*(stats.critChance&&this.game.rng()<stats.critChance?stats.critMultiplier:1);
+    const critical=!!(stats.critChance&&this.game.rng()<stats.critChance);
+    const hitDamage=stats.damage*(critical?stats.critMultiplier:1),hitStats={...stats,directHit:true,critical};
     const landed=[];
-    for(const enemy of victims) {if(this.canSee(enemy,source)&&this.damage(enemy,hitDamage,stats.type,{...stats,directHit:true},source)>0){this.applyEffects(enemy,stats,source);landed.push(enemy);}}
+    for(const enemy of victims) {if(this.canSee(enemy,source)&&this.damage(enemy,hitDamage,stats.type,hitStats,source)>0){this.applyEffects(enemy,stats,source);landed.push(enemy);}}
     for(const enemy of landed)this.nearbyMagicProcs(source,enemy,stats);
     if(landed.length)this.landedProcs(stats,source);
-    if(stats.cleave&&victims.length)for(const e of this.enemies)if(e!==target&&!e.dead&&this.canSee(e,source)&&distance(e,target)<=stats.cleaveRadius)this.damage(e,hitDamage*stats.cleave,stats.cleaveType||stats.type,stats,source);
+    if(stats.cleave&&victims.length)for(const e of this.enemies)if(e!==target&&!e.dead&&this.canSee(e,source)&&distance(e,target)<=stats.cleaveRadius)this.damage(e,hitDamage*stats.cleave,stats.cleaveType||stats.type,{...stats,critical},source);
     if(landed.length&&stats.effectsRadius)for(const e of this.enemies)if(!e.dead&&this.canSee(e,source)&&distance(e,target)<=stats.effectsRadius)this.applyEffects(e,{slow:stats.slow,slowDuration:stats.slowDuration,healingBlockDuration:stats.healingBlockDuration},source);
     if(stats.chain&&(!stats.chainSequential||landed.length)&&(!stats.chainChance||this.game.rng()<stats.chainChance)) {
       if(stats.chainSequential){
@@ -182,6 +214,7 @@ export class CombatManager {
       enemy.armorShred=enemy.statuses.shred?.amount||0;enemy.magicShred=enemy.statuses.shredMagic?.amount||0;
       const healingBlockedFor=Math.max(0,enemy.statuses.healBlock?.time||0);
       for(const [key,status] of Object.entries(enemy.statuses)) {
+        if(key==='poison'&&status.applications){this.updatePoison(enemy,status,dt);continue;}
         if(status.dps)this.damage(enemy,status.dps*Math.min(dt,status.time),key==='burn'?'fire':key==='bleed'?'physical':'poison',{},status.source);
         status.time-=dt;if(status.time<=0)delete enemy.statuses[key];
       }

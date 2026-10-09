@@ -17,7 +17,7 @@ export class StatisticsClient {
   }
   sample(dt,elapsedDt=dt){this.tracker.sample(dt);if(!this.enabled||['won','lost'].includes(this.game.phase)||!Number.isFinite(elapsedDt)||elapsedDt<=0)return;this.timer+=elapsedDt;if(this.timer>=30){this.timer=0;this.checkpoint();}}
   async request(path,body=null,{keepalive=false}={}){
-    const res=await this.fetcher(`${this.endpoint}${path}`,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined,keepalive});const payload=await res.json();if(!res.ok)throw new Error(payload.error||'The score service is unavailable. Try again.');return payload;
+    const res=await this.fetcher(`${this.endpoint}${path}`,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined,keepalive});const payload=await res.json();if(!res.ok){const error=new Error(payload.error||'The score service is unavailable. Try again.');error.status=res.status;throw error;}return payload;
   }
   flush(options={}){
     if(!this.enabled)return Promise.resolve(false);if(this.busy)return this.busy;
@@ -28,13 +28,19 @@ export class StatisticsClient {
       }return true;
     }catch(error){if(this.lastError!==error.message)console.warn('Statistics sync postponed; the result remains queued on this device.',error.message);this.lastError=error.message;return false;}finally{this.busy=null;}});return this.busy;
   }
-  async leaderboard(){if(!this.enabled)throw new Error('The online leaderboard is not connected yet.');return this.request(`/api/leaderboard?mode=${this.game.waveLimit}&version=${encodeURIComponent(this.tracker.version)}&id=${this.tracker.id}`);}
+  async leaderboard(){
+    if(!this.enabled)throw new Error('The online leaderboard is not connected yet.');
+    const load=version=>this.request(`/api/leaderboard?mode=${this.game.waveLimit}&version=${encodeURIComponent(version)}&id=${this.tracker.id}`);
+    if(this.supportsAllVersions!==false)try{const result=await load('all');this.supportsAllVersions=true;return result;}catch(error){if(error.status!==400)throw error;this.supportsAllVersions=false;}
+    const result=await load(this.tracker.version);return {...result,olderService:true};
+  }
   async saveScore(name){
     if(!this.enabled)throw new Error('The online leaderboard is not connected yet.');
     this.checkpoint();if(!await this.flush())throw new Error(this.lastError||'Your result could not be uploaded. Try again.');
     // A newer checkpoint may have arrived while the first flush was in progress.
     if(this.pendingMemory&&!await this.flush())throw new Error(this.lastError);
-    return this.request(`/api/runs/${this.tracker.id}/score`,{writeToken:this.writeToken,name});
+    const result=await this.request(`/api/runs/${this.tracker.id}/score`,{writeToken:this.writeToken,name,leaderboardVersion:'all'});
+    return result.version==='all'?result:this.leaderboard();
   }
   dispose(){this.unsubscribe();this.tracker.dispose();window.removeEventListener('online',this.online);}
 }

@@ -20,9 +20,11 @@ async function rateLimit(request,env,kind,max,windowMs){
   return (await env.DB.prepare('SELECT hits FROM request_limits WHERE key = ?').bind(key).first()).hits<=max;
 }
 async function standings(db,mode,version,id=null){
-  const top=await db.prepare('SELECT id, name, score, waves_survived AS wavesSurvived, outcome FROM runs WHERE mode = ? AND version = ? AND name IS NOT NULL ORDER BY score DESC, finished_at ASC, id ASC LIMIT 10').bind(mode,version).all();
-  let current=null;if(id){const own=await db.prepare('SELECT id, name, score, waves_survived AS wavesSurvived, outcome, finished_at FROM runs WHERE id = ? AND mode = ? AND version = ? AND name IS NOT NULL').bind(id,mode,version).first();if(own){const row=await db.prepare('SELECT COUNT(*) + 1 AS rank FROM runs WHERE mode = ? AND version = ? AND name IS NOT NULL AND (score > ? OR (score = ? AND (finished_at < ? OR (finished_at = ? AND id < ?))))').bind(mode,version,own.score,own.score,own.finished_at,own.finished_at,own.id).first();current={...own,rank:row.rank};delete current.finished_at;}}
-  return {top:top.results.map((x,i)=>({...x,rank:i+1})),current,mode,version};
+  const scope=version==='all'?'mode = ?':'mode = ? AND version = ?',parameters=version==='all'?[mode]:[mode,version];
+  const top=await db.prepare(`SELECT id, name, version, score, waves_survived AS wavesSurvived, outcome FROM runs WHERE ${scope} AND name IS NOT NULL ORDER BY score DESC, finished_at ASC, id ASC LIMIT 10`).bind(...parameters).all();
+  let current=null;if(id){const own=await db.prepare(`SELECT id, name, version, score, waves_survived AS wavesSurvived, outcome, finished_at FROM runs WHERE id = ? AND ${scope} AND name IS NOT NULL`).bind(id,...parameters).first();if(own){const row=await db.prepare(`SELECT COUNT(*) + 1 AS rank FROM runs WHERE ${scope} AND name IS NOT NULL AND (score > ? OR (score = ? AND (finished_at < ? OR (finished_at = ? AND id < ?))))`).bind(...parameters,own.score,own.score,own.finished_at,own.finished_at,own.id).first();current={...own,rank:row.rank};delete current.finished_at;}}
+  const versions=await db.prepare('SELECT DISTINCT version FROM runs WHERE mode = ? AND name IS NOT NULL ORDER BY version').bind(mode).all();
+  return {top:top.results.map((x,i)=>({...x,rank:i+1})),current,mode,version,versions:versions.results.map(row=>row.version)};
 }
 export async function handle(request,env){
   const url=new URL(request.url),db=env.DB,path=url.pathname;
@@ -64,10 +66,10 @@ export async function handle(request,env){
     }
     if(!['won','lost'].includes(run.outcome))return response({error:'Finish the run before saving a score.'},409);
     const name=playerName(b.name);if(run.name&&run.name!==name)return response({error:'This score has already been saved.'},409);
-    await db.prepare('UPDATE runs SET name = ? WHERE id = ? AND name IS NULL').bind(name,id).run();return response(await standings(db,run.mode,run.version,id));
+    await db.prepare('UPDATE runs SET name = ? WHERE id = ? AND name IS NULL').bind(name,id).run();return response(await standings(db,run.mode,b.leaderboardVersion==='all'?'all':run.version,id));
   }
   if(request.method==='GET'&&path==='/api/leaderboard'){
-    const mode=Number(url.searchParams.get('mode')),version=url.searchParams.get('version');if(![10,50].includes(mode)||!/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(version||''))return response({error:'Choose a valid campaign and edition.'},400);
+    const mode=Number(url.searchParams.get('mode')),version=url.searchParams.get('version');if(![10,50].includes(mode)||!(version==='all'||/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(version||'')))return response({error:'Choose a valid campaign and edition.'},400);
     return response(await standings(db,mode,version,url.searchParams.get('id')));
   }
   if(request.method==='GET'&&path==='/api/admin/statistics'){

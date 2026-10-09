@@ -15,7 +15,7 @@ import {disposeGeometricResources} from '../game/render/geometric-resources.js';
 import {disposeAttack} from '../game/render/battle-animation.js';
 import {disposeRankAdornment} from '../game/render/ranks.js';
 import {disposeChampionAura} from '../game/render/champion-aura.js';
-import {defenderClassificationMultiplier} from '../game/render/defender-classification-scale.js';
+import {defenderClassificationMultiplier,defenderPresentationMultiplier} from '../game/render/defender-classification-scale.js';
 import {BATTLEFIELD_UNIT_SCALE} from '../game/render/battlefield-scale.js';
 import {WALL_DECK_HEIGHT} from '../game/render/walls.js';
 
@@ -78,7 +78,7 @@ test('all 48 approved basic ranks and 38 champions pass the actual battlefield p
       assert.notEqual(ready.actor,loading);assert.equal(loading.parent.parent,null,'obsolete dial is off scene before the approved figure renders');
       assert.equal(meta.id,entry.id);assert.equal(meta.family,entry.family);assert.equal(meta.tier,entry.tier);assert.equal(meta.sourceGlbSha256,entry.assetSha256);
       assert.equal(ready.actor.position.y,WALL_DECK_HEIGHT);assert.ok(ready.attack?.geometric,'the real source rig is installed, not a decorative replacement');
-      assert.ok(Math.abs(ready.actor.scale.x-BATTLEFIELD_UNIT_SCALE*defenderClassificationMultiplier(entry.family))<1e-12);
+      assert.ok(Math.abs(ready.actor.scale.x-BATTLEFIELD_UNIT_SCALE*defenderClassificationMultiplier(entry.family)*defenderPresentationMultiplier(entry.family))<1e-12);
       assert.equal(!!ready.aura,!!data.towers[entry.family].advanced);
       const source=field.imported.get(key),sourceParts=new Map();source.traverse(node=>{if(node.isMesh)sourceParts.set(node.geometry,node.material);});
       let borrowed=0;ready.actor.traverse(node=>{if(node.isMesh&&sourceParts.has(node.geometry)){borrowed++;assert.equal(node.material,sourceParts.get(node.geometry));}});assert.ok(borrowed>0);

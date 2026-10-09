@@ -1,5 +1,21 @@
 # Releases
 
+## 0.3.24 — Combat Clarity and Recipe Filters — 9 October 2026
+
+- Lowers the draft strip and keeps separate, usable Keep and Merge actions on mobile.
+- Enlarges Pause / Resume and speed, placing them beside Enemy Waves.
+- Shows current live and queued enemies, statistics, resistances and abilities in the unselected battle panel.
+- Moves paid draft downgrade immediately beneath the portrait.
+- Enlarges Baby Fire Dragon to ordinary character height and grows its three descendants, preserving classification auras and approved model bytes.
+- Makes the Ranger recipe chain bypass every damage defense of flying enemies; ground and concealment rules remain.
+- Corrects independent poison expiry and source attribution; all damaging abilities continue to feed actual peak DPS.
+- Raises Nature Spirit poison to 96/s and Mother Nature poison to 1,898.4/s.
+- Displays small red Crit! labels only when real critical damage lands.
+- Adds combined damage, ability and resistance filters to Recipes, including basic rank rows and secondary damage.
+- Records original score versions and preserves old online and local scores through updates.
+
+See [Combat Clarity implementation rules](docs/COMBAT_CLARITY.md).
+
 ## 0.3.23 — Battlefield Interface Polish — 9 October 2026
 
 - Removes the route tile count from the draft strip.

@@ -4,6 +4,7 @@ import {rankLabel,recipeFamily,recipeTier,recipeLabel,recipeProgress,expandedRec
 import {defenderCode} from '../game/core/unit-label.js';
 import {championClassification} from '../game/render/champion-classification.js';
 import {builtTowerCount} from '../game/core/warband-info.js';
+import {ENEMY_RULES} from '../game/core/enemy-rules.js';
 import {icon} from './icons.js';
 export const ROMAN=['I','II','III','IV','V','VI'];
 export const BASE_DPS_NOTE='Base DPS is damage per hit ÷ attack interval for one target, before armor or resistance. It excludes critical hits, poison, auras, extra targets and ally bonuses.';
@@ -19,6 +20,7 @@ export function abilityLines(s){
   if(s.spreadEffect)parts.push(`Unmarked targets first; then selected priority`);
   if(s.armorShredAura)parts.push(`−${s.armorShredAura} enemy armor aura · ${s.effectRange??s.range} tiles`);
   if(s.magicShredAura)parts.push(`−${Math.round(s.magicShredAura*100)}% enemy magic resistance aura · ${s.effectRange??s.range} tiles${s.auraPiercesImmunity?' · affects magic-immune enemies':''}`);
+  if(s.antiAirBypassesDefenses)parts.push('Flying targets: ignores armor, all resistances, immunities, evasion and hit-blocking shields');
   if(s.antiAirShred)parts.push(`Flying targets: −${s.antiAirShred} armor · ${Math.round(s.antiAirSlow*100)}% slow`);
   else if(s.antiAirSlow)parts.push(`Flying targets: ${Math.round(s.antiAirSlow*100)}% slow`);
   if(s.antiAirMagicShred)parts.push(`Flying targets: −${Math.round(s.antiAirMagicShred*100)}% magic resistance`);
@@ -47,7 +49,8 @@ export function abilityLines(s){
   if(s.stoneGazeChance)parts.push(`${Math.round(s.stoneGazeChance*100)}% Stone Gaze lasting ${s.stoneGazeDuration||6}s within ${s.stoneGazeRange||10} tiles · ${Math.round((s.stoneGazeSlow||.8)*100)}% slow; face the golem ${s.stoneGazeFacingTime||2}s to petrify for ${s.petrifyDuration||3}s · +${Math.round((s.petrifyPhysicalBonus??1)*100)}% physical damage taken`);
   if(s.healingBlockDuration)parts.push(`Prevents healing for ${s.healingBlockDuration}s`);
   if(s.burnedChance)parts.push(`${Math.round(s.burnedChance*100)}% chance of ×${s.burnedMultiplier} fire splash · ${formatTowerNumber(s.damage*s.burnedMultiplier)} magic damage within ${s.burnedRadius} tiles`);
-  if(s.detectionRange)parts.push(`Reveals hidden enemies within ${s.detectionRange} tiles`);
+  const detectionRange=s.detectionRange||(!s.advanced&&s.unitCode==='C'?ENEMY_RULES.reveal.clericRadius:0);
+  if(detectionRange)parts.push(`Reveals hidden enemies within ${detectionRange} tiles`);
   return parts.length?parts:['Single-target attack'];
 }
 export const abilityText=s=>abilityLines(s).join(' · ');
@@ -78,5 +81,5 @@ export function championRecipeCard(recipe,data,images,{towerList=[],pinned=false
   </article>`;
 }
 export function defenderGuide(data,images){
-  return `<section class="defender-guide"><h3>Eight defenders. Six ranks.</h3><p>Open a defender to compare every rank. Merge two matching current-round recruits to advance one rank. Two Royal V units create a Mythic VI; Mythic units are earned through merging.</p><div class="defender-roster">${Object.entries(data.towers).filter(([,s])=>!s.advanced).map(([family,s])=>`<details class="defender-entry"><summary><img src="${images[family]}" alt="${s.name}"><span><strong>${s.name}</strong><small>${defenderCode(s)}</small><em>${s.role}</em></span></summary><p>${s.description}</p><div class="rank-scroll"><table><thead><tr><th>Rank</th><th>Damage</th><th>Base DPS</th><th>Interval</th><th>Range</th><th>Ability</th></tr></thead><tbody>${s.levels.map((_,i)=>{const t=towerStats({family,tier:i+1},data);return `<tr><td style="color:${rankColor(i+1)}"><img class="rank-mini" src="${images[`${family}:${i+1}`]}" alt="${s.name}, rank ${ROMAN[i]}">${defenderCode(s,i+1)}</td><td>${formatTowerNumber(t.damage)}</td><td>${formatTowerNumber(baseAttackDps(t))}</td><td>${formatTowerNumber(t.interval)}s</td><td>${t.range}</td><td>${abilityText(t)}</td></tr>`;}).join('')}</tbody></table></div></details>`).join('')}</div></section><h3 class="recipe-title">Champion recipes</h3><p>${Object.values(data.towers).filter(s=>s.advanced).length} champions. Each recipe consumes exactly three defenders of the stated ranks. Secret champions require all three ingredients among the current round’s five new defenders; ordinary recipes can use previously retained units.</p><p class="dps-explanation">${BASE_DPS_NOTE}</p>`;
+  return `<section class="defender-guide"><h3>Eight defenders. Six ranks.</h3><p>Open a defender to compare every rank. Merge two matching current-round recruits to advance one rank. Two Royal V units create a Mythic VI; Mythic units are earned through merging.</p><div class="defender-roster">${Object.entries(data.towers).filter(([,s])=>!s.advanced).map(([family,s])=>`<details class="defender-entry" data-filter-family="${family}"><summary><img src="${images[family]}" alt="${s.name}"><span><strong>${s.name}</strong><small>${defenderCode(s)}</small><em>${s.role}</em></span></summary><p>${s.description}</p><div class="rank-scroll"><table><thead><tr><th>Rank</th><th>Damage</th><th>Base DPS</th><th>Interval</th><th>Range</th><th>Ability</th></tr></thead><tbody>${s.levels.map((_,i)=>{const t=towerStats({family,tier:i+1},data);return `<tr data-filter-tier="${i+1}"><td style="color:${rankColor(i+1)}"><img class="rank-mini" src="${images[`${family}:${i+1}`]}" alt="${s.name}, rank ${ROMAN[i]}">${defenderCode(s,i+1)}</td><td>${formatTowerNumber(t.damage)}</td><td>${formatTowerNumber(baseAttackDps(t))}</td><td>${formatTowerNumber(t.interval)}s</td><td>${t.range}</td><td>${abilityText(t)}</td></tr>`;}).join('')}</tbody></table></div></details>`).join('')}</div></section><h3 class="recipe-title">Champion recipes</h3><p>${Object.values(data.towers).filter(s=>s.advanced).length} champions. Each recipe consumes exactly three defenders of the stated ranks. Secret champions require all three ingredients among the current round’s five new defenders; ordinary recipes can use previously retained units.</p><p class="dps-explanation">${BASE_DPS_NOTE}</p>`;
 }

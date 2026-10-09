@@ -6,6 +6,8 @@ import {defenderCode} from '../game/core/unit-label.js';
 import {defenderPortrait} from '../game/release.js';
 import {draftCardsMarkup} from '../ui/draft-cards.js';
 import {masteryPanelMarkup} from '../ui/mastery-panel.js';
+import {commandPointsMarkup} from '../ui/command-points.js';
+import {icon} from '../ui/icons.js';
 import {drawnTower,drawKeeperKey,keepDrawKeeper,mergeTowerKey,mergeTowerFromBadge} from '../ui/draft-input.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
@@ -99,4 +101,22 @@ test('a committed champion and discarded castle walls retain their existing sepa
   const before=state(game),html=draftCardsMarkup(game,data,images);
   assert.deepEqual(sources(html),[defenderPortrait(family,1),...Array(4).fill(images.ruin)]);
   assert.doesNotMatch(html,/wrong-family-only-fallback/);assert.equal(state(game),before);
+});
+
+test('production draft refresh retains local horizontal scroll and reveals a newly selected card without moving the page or using RNG',()=>{
+  const source=readFileSync(new URL('../game/main.js',import.meta.url),'utf8'),start=source.indexOf('function renderDraft('),end=source.indexOf('\nfunction ',start+1);
+  assert.ok(start>=0&&end>start);
+  const game=new Game(data,{seed:137}),control=new Game(data,{seed:137}),host={dataset:{},writes:0};let strip;
+  const createStrip=()=>{
+    let left=0;return {get scrollLeft(){return left;},set scrollLeft(value){left=Math.max(0,Math.min(130,value));},getBoundingClientRect:()=>({left:10,right:380}),querySelector(selector){
+      const index=Number(selector.match(/data-index="(\d+)"/)?.[1]);return Number.isInteger(index)?{closest:()=>({getBoundingClientRect:()=>({left:10+index*101-left,right:106+index*101-left})})}:null;
+    }};
+  };
+  Object.defineProperty(host,'innerHTML',{get:()=>host.markup||'',set:markup=>{host.writes++;host.markup=markup;strip=createStrip();}});host.querySelector=selector=>selector==='.draws'?strip:null;
+  const render=new Function('game','$','icon','commandPointsMarkup','data','images','draftCardsMarkup',source.slice(start,end)+';return renderDraft;')(game,()=>host,icon,commandPointsMarkup,data,images,draftCardsMarkup);
+  const before=state(game);render();assert.equal(strip.scrollLeft,0);strip.scrollLeft=113;
+  for(let pass=0;pass<20;pass++){render();assert.equal(strip.scrollLeft,113);assert.equal((host.innerHTML.match(/class="draw-slot/g)||[]).length,5);assert.doesNotMatch(host.innerHTML,/<img/);}
+  assert.equal(state(game),before);assert.equal(game.rng(),control.rng());
+  game.activeDraw=4;render();assert.equal(strip.scrollLeft,130,'Newly chosen last slot is exposed within the local strip');
+  game.activeDraw=0;render();assert.equal(strip.scrollLeft,0,'Choosing the first slot exposes it without page scrolling');
 });

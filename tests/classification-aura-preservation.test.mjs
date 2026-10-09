@@ -11,7 +11,7 @@ import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../g
 import {towerStats,supportBonuses,damageAfterDefense} from '../game/core/math.js';
 import {CHAMPION_CLASSIFICATIONS,championClassification} from '../game/render/champion-classification.js';
 import {CHAMPION_AURA_COLORS,createChampionAura,animateChampionAura,disposeChampionAura} from '../game/render/champion-aura.js';
-import {applyDefenderClassificationScale,defenderClassificationMultiplier} from '../game/render/defender-classification-scale.js';
+import {applyDefenderClassificationScale,defenderClassificationMultiplier,defenderPresentationMultiplier} from '../game/render/defender-classification-scale.js';
 import {BATTLEFIELD_UNIT_SCALE,scaleBattlefieldUnit,animateBattlefieldIdleScale} from '../game/render/battlefield-scale.js';
 import {rankAdornment,rankColor,animateRank,disposeRankAdornment} from '../game/render/ranks.js';
 import {WALL_DECK_HEIGHT} from '../game/render/walls.js';
@@ -60,7 +60,7 @@ verify('all champion aura classes retain existing hues under the separate multip
     applyDefenderClassificationScale(actor,family);scaleBattlefieldUnit(actor);scaleBattlefieldUnit(reference);
     const aura=createChampionAura(family,{phase:.25}),base=createChampionAura(family,{phase:.25});actor.add(aura);reference.add(base);animateChampionAura(aura,5.25);animateChampionAura(base,5.25);
     try{
-      const factor=1.1**levels[classification],color=family==='archangel'?'#ffe5a3':expectedColors[classification];near(defenderClassificationMultiplier(family),factor);ensureColors(aura,color);assert.deepEqual(buffers(aura),buffers(base));assert.equal(aura.children.length,base.children.length);
+      const classFactor=1.1**levels[classification],factor=classFactor*defenderPresentationMultiplier(family),color=family==='archangel'?'#ffe5a3':expectedColors[classification];near(defenderClassificationMultiplier(family),classFactor);near(actor.userData.classificationScale,classFactor);ensureColors(aura,color);assert.deepEqual(buffers(aura),buffers(base));assert.equal(aura.children.length,base.children.length);
       actor.updateMatrixWorld(true);reference.updateMatrixWorld(true);
       const point=new THREE.Vector3().fromBufferAttribute(aura.userData.rings[0].geometry.attributes.position,0),world=aura.userData.rings[0].localToWorld(point.clone()).sub(actor.position),ordinary=base.userData.rings[0].localToWorld(point.clone()).sub(reference.position);
       assert.ok(world.distanceTo(ordinary.multiplyScalar(factor))<1e-8,family+' actual ring vertices retain the scaled world transform');
