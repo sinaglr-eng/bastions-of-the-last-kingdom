@@ -2,6 +2,12 @@
 .current-wave-remaining{display:flex;align-items:baseline;gap:9px;color:#e8ddba}
 .current-wave-remaining strong{font-size:28px;font-weight:600;font-variant-numeric:tabular-nums}
 .current-wave-remaining span{font-size:12px}
+.current-wave-boss-health{margin:0 0 9px}
+.current-wave-boss-heading{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 10px;color:#f4ddc1;font-size:12px;line-height:1.5}
+.current-wave-boss-heading strong{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
+.current-wave-boss-track{height:14px;margin-top:7px;overflow:hidden;border:1px solid #a47058;border-radius:3px;background:#211d1a}
+.current-wave-boss-fill{display:block;height:100%;background:linear-gradient(90deg,#a74634,#e08058)}
+.current-wave-boss-status{font-size:11px;line-height:1.4;color:#c3b8a1;margin-top:5px}
 .current-wave-counts{font-size:11px;line-height:1.4;color:#a6b9ab;margin:4px 0 15px}
 .current-wave-profile{padding:13px 0;border-top:1px solid var(--border)}
 .current-wave-profile-heading{display:flex;align-items:center;gap:10px;min-width:0}

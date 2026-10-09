@@ -1,5 +1,12 @@
 # Releases
 
+## 0.3.25 — Boss Health and Touch Selection — 9 October 2026
+
+- Moves Pause / Resume and speed immediately to the left of Enemy Waves.
+- Repairs draft-card selection through accepted touch releases and a safe native-click fallback, retaining drag, multitouch, stale-card and keeper guards.
+- Replaces boss-wave remaining-count headlines with a live HP bar and current / maximum health; approaching and concealed bosses remain separate.
+- Preserves ordinary wave counts, existing scores, approved models, portraits, auras and audio.
+
 ## 0.3.24 — Combat Clarity and Recipe Filters — 9 October 2026
 
 - Lowers the draft strip and keeps separate, usable Keep and Merge actions on mobile.

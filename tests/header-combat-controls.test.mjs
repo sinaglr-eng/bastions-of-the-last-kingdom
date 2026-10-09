@@ -25,11 +25,11 @@ function actionBoundary(game,header){
  return {world,dialog,functions,get renders(){return renders;},get unlocks(){return unlocks;},click(button){callbacks.get('click')({target:{closest:()=>button},detail:1});},keydown(event){callbacks.get('keydown')(event);}};
 }
 
-test('production header mounts combat controls inside the right action group immediately after Enemy Waves and leaves TIME in stats',()=>{
+test('production header mounts combat controls inside the right action group immediately before Enemy Waves and leaves TIME in stats',()=>{
  const start=source.indexOf('app.innerHTML=`'),end=source.indexOf('\nconst $=',start);assert.ok(start>=0&&end>start);
  const app={innerHTML:''};new Function('app','icon','profile','balance',source.slice(start,end))(app,icon,{muted:false},data.balance);
  const header=app.innerHTML.slice(0,app.innerHTML.indexOf('</header>')),actions=header.slice(header.indexOf('class="header-actions"'));
- assert.ok(actions.indexOf('id="header-combat-controls"')>actions.indexOf('data-action="warbands"'));assert.ok(actions.indexOf('id="header-combat-controls"')<actions.indexOf('data-action="codex"'));
+ assert.ok(actions.indexOf('id="header-combat-controls"')<actions.indexOf('data-action="warbands"'));assert.ok(actions.indexOf('id="header-combat-controls"')<actions.indexOf('data-action="codex"'));
  assert.match(actions,/role="group" aria-label="Combat controls"/);assert.doesNotMatch(header.slice(0,header.indexOf('class="header-actions"')),/id="header-combat-controls"/);
  assert.match(header.slice(0,header.indexOf('class="header-actions"')),/hud-stat run-time[\s\S]*<small>TIME<\/small>/);
 });
@@ -73,7 +73,7 @@ test('actual modal open and close restore the previous pause state while keeping
  for(const initiallyPaused of [false,true]){
   const game=new Game(data,{seed:880}),control=new Game(data,{seed:880}),header=headerFixture();game.phase=control.phase='combat';game.paused=initiallyPaused;game.speed=3;updateHeaderCombatControls(header.host,game);header.speed.focus();const pause=header.pause,speed=header.speed,callbacks=new Map();
   const dialog={open:false,shows:0,showModal(){this.open=true;this.shows++;},close(){this.open=false;callbacks.get('close')();},addEventListener:(type,fn)=>callbacks.set(type,fn)},content={innerHTML:''},world={keys:new Set(['w'])},noop=()=>{},before=state(game);let renders=0;
-  const functions=compile(['openDialog','closeDialog'],{game,$:id=>id==='dialog'?dialog:content,world,draftCardActivation:{clear:noop},draftPointerGesture:{clear:noop},pointerDraws:{clear:noop},debug:false,render(){renders++;updateHeaderCombatControls(header.host,game);}},'let modalPaused=false,recipeFilterConnection=null;');
+  const functions=compile(['openDialog','closeDialog'],{game,$:id=>id==='dialog'?dialog:content,world,draftCardActivation:{clear:noop},draftPointerInput:{clear:noop},debug:false,render(){renders++;updateHeaderCombatControls(header.host,game);}},'let modalPaused=false,recipeFilterConnection=null;');
   functions.openDialog('<p>Wave overview</p>');assert.equal(game.paused,true);assert.equal(dialog.open,true);assert.equal(world.keys.size,0);updateHeaderCombatControls(header.host,game);assert.equal(header.pause.label.textContent,'Resume');
   functions.openDialog('<p>Another overview</p>');assert.equal(dialog.shows,1,'replacing an open modal must not overwrite the saved pre-modal pause state');functions.closeDialog();assert.equal(game.paused,initiallyPaused);assert.equal(game.speed,3);assert.equal(dialog.open,false);assert.equal(renders,1);assert.strictEqual(header.pause,pause);assert.strictEqual(header.speed,speed);assert.strictEqual(header.document.activeElement,speed);assert.equal(header.host.writes,1);assert.equal(state(game),before);assert.equal(game.rng(),control.rng());
  }

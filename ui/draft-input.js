@@ -1,3 +1,5 @@
+import {PointerTapGesture} from '../game/render/touch-input.js';
+
 export function drawnTower(game,index){
   if(!Number.isInteger(index)||index<0)return null;
   const draw=game.draft.draws[index];
@@ -72,4 +74,69 @@ export class DraftCardActivation {
     game.select(tower.id);return false;
   }
   clear(){this.last=null;}
+}
+
+const drawCard=target=>target?.closest?.('[data-action="draw"]')||null;
+function drawIdentity(game,index){
+  const draw=game.draft.draws[index];if(!draw)return null;
+  const tower=drawnTower(game,index);
+  // Latent draws stay latent: only a placed defender contributes its identity.
+  return JSON.stringify([game.round,index,!!draw.placed,draw.towerId??null,!!draw.reservedForNextDraft,
+    game.draft.rerollsUsed||0,game.draft.reserveSelection?.index??null,
+    tower?[tower.id,tower.family,tower.tier,tower.state,tower.round,tower.x,tower.z]:null]);
+}
+
+// Pointer capture can retarget a touch release away from its visible card.
+// Resolve the release by its viewport position, then consume its compatibility
+// click. A click-only browser/accessibility action selects without confirming.
+export class DraftCardPointerInput {
+  constructor({now=()=>performance.now(),hitTest=null,activate,clearActivation=()=>{}}={}){
+    this.now=now;this.hitTest=hitTest;this.activate=activate;this.clearActivation=clearActivation;
+    this.gesture=new PointerTapGesture(now);this.origins=new Map();this.lastRelease=-Infinity;
+  }
+  start(game,event){
+    this.gesture.start(event);const card=drawCard(event.target),index=Number(card?.dataset.index);
+    if(card&&!card.disabled&&card.isConnected!==false&&Number.isInteger(index)){
+      const identity=drawIdentity(game,index);
+      if(identity)this.origins.set(event.pointerId,{game,index,identity,button:event.button,type:event.pointerType});
+    }
+    if(this.gesture.navigating(event.pointerId))this.clearActivation();
+  }
+  move(event){this.gesture.move(event);if(this.gesture.navigating(event.pointerId))this.clearActivation();}
+  valid(game,origin,card){
+    return !!origin&&origin.game===game&&!!card&&!card.disabled&&card.isConnected!==false&&
+      Number(card.dataset.index)===origin.index&&drawIdentity(game,origin.index)===origin.identity;
+  }
+  end(game,event){
+    const origin=this.origins.get(event.pointerId),active=this.gesture.active(event.pointerId),tap=this.gesture.end(event);
+    this.origins.delete(event.pointerId);if(active)this.lastRelease=this.now();
+    const card=drawCard(this.hitTest?this.hitTest(event.clientX,event.clientY):event.target);
+    if(!tap||!this.valid(game,origin,card)){this.clearActivation();return false;}
+    this.activate(origin.index,{pointerType:origin.type,button:origin.button,clientX:event.clientX,clientY:event.clientY});return true;
+  }
+  click(game,event){
+    const card=drawCard(event.target),index=Number(card?.dataset.index);
+    if(!card||card.disabled||card.isConnected===false||!Number.isInteger(index)||!drawIdentity(game,index))return false;
+    const physical=event.detail>0||event.pointerType==='touch'||event.sourceCapabilities?.firesTouchEvents;
+    if(physical){
+      // A pending primary press must still be unchanged and unmoved. Without
+      // a pointer stream, a native click remains a selection-only fallback.
+      const pending=[...this.origins.entries()].find(([,origin])=>origin.index===index);
+      if(pending){
+        const [pointerId,origin]=pending;
+        const tap=this.gesture.end({pointerId,clientX:event.clientX,clientY:event.clientY});this.origins.delete(pointerId);this.lastRelease=this.now();
+        if(!tap||!this.valid(game,origin,card)){this.clearActivation();return false;}
+      }else if(this.now()-this.lastRelease<800)return false;
+    }
+    this.activate(index,null);return true;
+  }
+  cancel(event){
+    if(this.gesture.active(event.pointerId))this.lastRelease=this.now();
+    this.gesture.cancel(event);this.origins.delete(event.pointerId);this.clearActivation();
+  }
+  lostCapture(event){if(this.gesture.active(event.pointerId)||this.origins.has(event.pointerId))this.cancel(event);}
+  clear(){
+    if(this.gesture.pointers.size||this.origins.size)this.lastRelease=this.now();
+    this.gesture.clear();this.origins.clear();this.clearActivation();
+  }
 }
