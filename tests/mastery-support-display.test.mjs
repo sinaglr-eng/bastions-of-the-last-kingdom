@@ -49,9 +49,10 @@ test('current friendly effects show exact values and actual named providers alon
 });
 
 test('negative effects follow the combat clock and never persist in preparation or reveal hidden draft information',()=>{
-  const target=unit('archer',1),enemy={id:1,name:'Warlord',type:'host_17',x:11,z:10,untouchable:.4,disarm:true};
+  const target=unit('archer',1),game=new Game(data,{seed:7});game.phase='combat';game.combat.spawnQueue=[{time:9999,type:'host_01'}];
+  const enemy=game.combat.spawn('host_17');Object.assign(enemy,{name:'Warlord',x:11,z:10,untouchable:.4,disarm:true,speed:0,hp:1e6,maxHp:1e6});
   const ruin={...unit('soldier',2),state:'ruin',weakened:2};
-  const combat={elapsed:0,enemies:[enemy]},stock=[target,ruin];
+  const combat=game.combat,stock=[target,ruin];game.towers=stock;assert.doesNotMatch(supportEffectsMarkup(target,stock,data,{phase:'combat',combat}),/Dread · attack speed/);game.combat.damage(enemy,1,'holy',{},target);
   const html=supportEffectsMarkup(target,stock,data,{phase:'combat',combat});
   assert.match(html,/Dread · attack speed −40%/);assert.match(html,/Disarmed · cannot attack/);
   assert.match(html,/Barricade disruption · attack speed −15%/);assert.match(html,/From Warlord #1/);
@@ -60,6 +61,7 @@ test('negative effects follow the combat clock and never persist in preparation 
   assert.ok(disarmSvg);assert.match(disarmSvg,/<path/);assert.doesNotMatch(disarmSvg,/<circle/,'Legend shows a broken sword rather than the generic target fallback');
   assert.doesNotMatch(supportEffectsMarkup(target,stock,data,{phase:'ready',combat}),/Warlord|Disarmed|−40%/);
   assert.match(supportEffectsMarkup({...target,state:'draft'},stock,data,{phase:'combat',combat}),/Retain this defender/);
+  game.tick(3);assert.doesNotMatch(supportEffectsMarkup(target,stock,data,{phase:'combat',combat}),/Dread · attack speed/,'The real on-hit deadline expires while ordinary disarm remains independent');
 });
 
 test('strongest standard providers are named once, tied providers remain visible and weaker tiers do not pretend to contribute',()=>{

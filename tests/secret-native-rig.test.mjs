@@ -110,6 +110,10 @@ test('native presentation preserves real combat cadence, damage, targets, poison
   const games=[new Game(data,{seed:730}),new Game(data,{seed:730})],events=[[],[]],source=assetFixture(),models=new Map(),fx=new CombatEffects(new THREE.Scene(),{getMuzzle:(tower,out)=>attackMuzzle(models.get(tower.id),out)});
   for(let index=0;index<games.length;index++){
     const game=games[index];game.phase='combat';game.combat.spawnQueue=[{time:9999,type:'grunt'}];
+    // Force the first actual legacy chance roll to land without changing its
+    // approved probability or skipping a seeded draw. Both real Games receive
+    // the same fixture roll; presentation must not alter any later draw.
+    const seeded=game.rng;let firstRoll=true;game.rng=()=>{const value=seeded();if(firstRoll){firstRoll=false;return 0;}return value;};
     game.towers=[{id:1,family:'ladyclaire',tier:1,state:'active',x:17,z:17,cooldown:0,kills:0},{id:2,family:'lordbernhard',tier:1,state:'active',x:18,z:17,cooldown:0,kills:0},{id:3,family:'cleric',tier:4,state:'active',x:17,z:18,cooldown:0,kills:0}];
     for(let id=0;id<8;id++){const enemy=game.combat.spawn('grunt');enemy.x=17+id*.2;enemy.z=13+id*.2;enemy.speed=0;enemy.hp=enemy.maxHp=1e9;enemy.untouchable=id===0?.12:0;}
     if(index===1)for(const tower of game.towers.slice(0,2)){const actor=cloneDefenderTemplate(source);models.set(tower.id,attackRig(actor,tower.family,data.towers[tower.family]));}

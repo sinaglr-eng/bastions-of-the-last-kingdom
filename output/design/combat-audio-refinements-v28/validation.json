@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "version": "0.3.27",
+  "checkedAt": "2026-10-11T17:30:50.385Z",
+  "fullSuite": {
+    "tests": 1203,
+    "passed": 1203,
+    "failed": 0,
+    "skipped": 0,
+    "log": "full-tests.txt"
+  },
+  "productionBuild": {
+    "status": "passed",
+    "base": "/bastions-of-the-last-kingdom/",
+    "log": "production-build.txt"
+  },
+  "nativeChecks": {
+    "defenderNarrationRemoved": 4,
+    "retainedRankVMerge": "VI result preserves current 0/5 draft",
+    "audioClips": 113,
+    "musicCacheBuffers": 2,
+    "backgroundHudUpdates": true
+  },
+  "protectedAssets": "No changes to public/assets, docs/audio or archived data; checked against baseline by audio and combat audits",
+  "mainMirror": {
+    "paths": 61,
+    "threeWayPreserved": [
+      "CHANGELOG.md",
+      "README.md"
+    ]
+  },
+  "statisticsBackend": {
+    "version": "0.3.27",
+    "deployment": "appgdep_6acbc345c1e48191be8687365f914411",
+    "status": "succeeded"
+  }
+}

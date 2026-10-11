@@ -2,10 +2,10 @@
 const rule=values=>Object.freeze(values);
 export const ENEMY_RULES=Object.freeze({
   disarm:rule({duration:5,period:8,radius:3,phasePerId:.37}),
-  dread:rule({radius:4}),
-  refraction:rule({period:5}),
-  recharge:rule({period:5}),
-  blink:rule({period:6}),
+  dread:rule({duration:3}),
+  refraction:rule({period:2}),
+  recharge:rule({period:4}),
+  blink:rule({period:5}),
   cloak:rule({period:6,hiddenDuration:4}),
   reveal:rule({checkpointRadius:1.5,defenderRadius:2,clericRadius:6}),
   support:rule({radius:3.5,hasteDuration:3,hastePeriod:6,shamanHaste:1.5}),
@@ -29,6 +29,12 @@ export function enemyRulesFor(gameOrData){
 export function enemyDisarmActive(enemy,elapsed,controlResistance=0,rules=ENEMY_RULES){
   const r=rules.disarm;
   return !!enemy.disarm&&(elapsed+enemy.id*r.phasePerId)%r.period<r.duration*(1-controlResistance);
+}
+
+export function defenderDreadState(tower,elapsed,controlResistance=0){
+  const status=tower?.dread,remaining=Math.max(0,(status?.until||0)-elapsed);
+  const amount=remaining?Math.max(0,Math.min(1,status.amount||0))*(1-Math.max(0,Math.min(1,controlResistance))):0;
+  return {amount,remaining,source:status?.source||null};
 }
 
 // regen is a fraction of actual maximum health, including variant and wave

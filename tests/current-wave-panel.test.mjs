@@ -52,7 +52,7 @@ test('effective queued modifiers and the actual selected variant drive regenerat
   const roster=structuredClone(data);roster.waves[0]={name:'Modified assault',boss:false,groups:[{type:'host_01',count:2,interval:1,hp:2,armor:7,resists:{fire:.35},variant:{name:'Moon profile',regen:.05,physicalImmune:true}}]};
   const game=combat(1,17,roster),row=currentWarbandInfo(game)[0],html=currentWavePanelMarkup(game);
   assert.equal(row.maxHp,roster.enemies.host_01.hp*2);assert.equal(row.armor,roster.enemies.host_01.armor+7);
-  assert.match(html,/Moon profile/);assert.doesNotMatch(html,/fire resistance|data-defense="fire"/);assert.match(html,/Regenerates 5% maximum health\/s/);assert.match(html,/Immune to Physical damage, slowing and freezing; Holy effects ignore this immunity/);
+  assert.match(html,/Moon profile/);assert.doesNotMatch(html,/fire resistance|data-defense="fire"/);assert.match(html,/Regenerates 5% maximum health\/s/);assert.match(html,/Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity/);
   assert.ok(html.includes('2 remaining · 0 on field · 2 approaching'));
   const enemy=spawnQueued(game);assert.equal(enemy.maxHp,row.maxHp);assert.equal(enemy.armor,row.armor);assert.equal(enemy.resists,undefined);assert.equal(enemy.physicalImmune,true);assert.ok(row.traitDetails.every(trait=>!trait.text.includes('resistance')));
   assert.equal(currentWarbandInfo(game).length,1,'The live and scheduled form of the same real profile share one count');

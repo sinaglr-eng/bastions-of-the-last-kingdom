@@ -7,13 +7,20 @@ export function damageType(type,fallback='magical'){
   if(type==='pure')return fallback==='pure'?'magical':damageType(fallback);
   return 'magical';
 }
-export const ignoresDamageImmunity=stats=>damageType(stats.type)==='holy'||!!stats.effectsIgnoreImmunity;
+export const ignoresDamageImmunity=stats=>damageType(stats.type)==='holy';
+// Damage class never changes the category of a status effect. Only Golem's
+// explicitly authored petrification has a separate immunity bypass.
+export function statusEffectAllowed(enemy,effect){
+  if(['slow','freeze','gazeSlow'].includes(effect))return !enemy.physicalImmune;
+  if(['poison','burn','healBlock'].includes(effect))return !enemy.magicImmune;
+  return true;
+}
 export const effectDamageType=(stats,effect)=>ignoresDamageImmunity(stats)?'holy':effect==='bleed'?'physical':'magical';
 export function canonicalCombatStats(stats){
   const result={...stats,type:damageType(stats.type),projectileEffect:stats.projectileEffect||stats.type};
   if(stats.cleave)result.cleaveType=damageType(stats.cleaveType||stats.type,stats.type);
   // These obsolete flags must never revive an old Ranger damage bypass.
-  for(const key of ['antiAirBypassesDefenses','antiAirMagicShred','antiAirPiercesImmunity','magicShredAura','shredMagic'])delete result[key];
+  for(const key of ['antiAirBypassesDefenses','antiAirMagicShred','antiAirPiercesImmunity','magicShredAura','shredMagic','effectsIgnoreImmunity'])delete result[key];
   return result;
 }
 export function scaleDamageStats(stats,multiplier){

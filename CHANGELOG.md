@@ -1,5 +1,15 @@
 # Releases
 
+## 0.3.27 — Combat Timing and Soundtrack Rotation — 11 October 2026
+
+- Rotates approved construction and battle tracks without immediate repeats, raises music above attack-sound gain and plays a quieter celebration after every completed wave.
+- Removes the selected defender's role, strength, weakness and pause-explanation paragraphs while retaining stats, ability details and commands.
+- Limits Holy's immunity bypass to damage; companion slowing/freezing and poison/burning respect their normal immunity categories.
+- Makes Dread slow the actual damaging defender's attacks for three seconds, including owned secondary and damage-over-time contributions, without a proximity requirement.
+- Changes recharge to four seconds, blink to five seconds and hit-shield recovery to two seconds after the last charge is lost.
+- Raises regeneration to 20% maximum HP per second, or 40% for wave 38's regeneration variant.
+- Allows matching basic rank V defenders from earlier drafts to merge into rank VI between waves, preserving normal keeper selection and lower-rank restrictions.
+
 ## 0.3.26 — Combat, MVP and Recorded Soundtrack — 11 October 2026
 
 - Integrates 92 approved defender voice recordings, six selected music tracks and 15 shared attack sounds; preserves previous recordings and all approved models, portraits, scales and classification auras.

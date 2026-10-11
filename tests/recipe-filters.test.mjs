@@ -37,7 +37,7 @@ test('only actual True Strike/support or non-direct fire aura counters evasion; 
 
 test('all86 real profiles match actual channels, combined filters intersect, and guide copy explains conditional effects without obsolete defenses',()=>{
   assert.equal(recipeMatches(stats('cleric',1),{ability:'slow'}),false);assert.equal(recipeMatches(stats('frostwarden',6),{ability:'slow'}),true);assert.equal(recipeMatches(stats('druid'),{ability:'poison',damage:'physical'}),false);
-  const copy=recipeFilterControlsMarkup(),guide=defenderGuide(data,{});assert.match(copy,/initial damaging hit/);assert.match(copy,/armor, evasion, shields and shells still apply/);assert.match(copy,/aria-label="Against defense"/);assert.doesNotMatch(copy,/Ranger defense bypass|Magic resistance|Pure/);
+  const copy=recipeFilterControlsMarkup(),guide=defenderGuide(data,{});assert.match(copy,/initial damaging hit/);assert.match(copy,/Armor, evasion, shields and shells still apply/);assert.match(copy,/companion effects respect their normal immunity categories/);assert.match(copy,/aria-label="Against defense"/);assert.doesNotMatch(copy,/Ranger defense bypass|Magic resistance|Pure/);
   assert.match(guide,/data-filter-family="druid"/);assert.match(guide,/data-filter-tier="6"/);assert.match(guide,/independent 5s stack/);assert.doesNotMatch(guide,/strongest poison|pure secondary|magic-resistance reduction/);
   let n=0;for(const [family,d]of Object.entries(data.towers))for(let tier=1;tier<=(d.advanced?1:6);tier++){const profile=stats(family,tier),tags=recipeCapabilities(profile);assert.equal(recipeMatches(profile),true);assert.ok(tags.damage.size>0||d.aura);for(const type of tags.damage)assert.ok(['physical','magical','holy'].includes(type));n++;}assert.equal(n,86);
 });

@@ -69,8 +69,9 @@ test('veiled enemies are detected by proximity, checkpoints and Clerics',()=>{
 test('disarm pauses nearby attacks, dread reduces cadence, recharge heals and thieves steal on leak',()=>{
   const g=fight(),e=g.combat.spawn('host_12');Object.assign(e,{x:12,z:12,speed:0});
   const t={id:1,family:'archer',tier:1,state:'active',x:11,z:12,cooldown:0,kills:0};g.towers=[t];g.combat.update(.01);assert.equal(t.disarmed,true);assert.equal(g.combat.projectiles.length,0);
-  e.disarm=false;e.untouchable=.35;t.cooldown=1;g.combat.update(.1);assert.ok(Math.abs(t.cooldown-.935)<1e-8);
-  g.towers=[];const r=g.combat.spawn('host_32');r.speed=0;r.hp=r.maxHp*.5;g.combat.update(5);assert.ok(Math.abs(r.hp-r.maxHp*.75)<1e-6);
+  e.disarm=false;e.untouchable=.35;t.cooldown=1;g.combat.update(.1);assert.ok(Math.abs(t.cooldown-.9)<1e-8,'Mere proximity is Dread-silent');
+  g.combat.damage(e,1,'holy',{},t);t.cooldown=1;e.x=30;g.combat.update(.1);assert.ok(Math.abs(t.cooldown-.935)<1e-8,'A real owned hit slows cadence without a range restriction');
+  g.towers=[];const r=g.combat.spawn('host_32');r.speed=0;r.hp=r.maxHp*.5;g.combat.update(3.999);assert.equal(r.hp,r.maxHp*.5);g.combat.update(.001);assert.ok(Math.abs(r.hp-r.maxHp*.75)<1e-6);
   const thief=g.combat.spawn('host_16');thief.pathIndex=thief.route.length;const gold=g.economy.gold;g.combat.update(.01);assert.equal(g.economy.gold,gold-thief.thief);
 });
 

@@ -14,6 +14,7 @@ import {rankColor} from '../game/render/ranks.js';
 import {ROMAN,abilityLines,baseAttackDps,formatTowerNumber,damageTypeName} from '../ui/grimoire.js';
 import {selectedSupportMarkup} from '../ui/support-guide.js';
 import {mvpDetailsMarkup} from '../ui/mvp-details.js';
+import {mergeTowerKey,mergeTowerFromBadge} from '../ui/draft-input.js';
 import {icon} from '../ui/icons.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
@@ -97,7 +98,7 @@ function productionPanel(game,preview){
     game,rankPreview:preview,data:campaignData,towers:campaignData.towers,balance:data.balance,
     images:{},roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
     defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,
-    damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,recipeProgress,recipesUsing,recipeLabel,wavePreview:()=>'',
+    damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,mergeTowerKey,recipeProgress,recipesUsing,recipeLabel,wavePreview:()=>'',
   });
 }
 function recipePanelGame(){
@@ -143,4 +144,57 @@ test('preview recipes count actual retained and placed ingredients without inven
   assert.ok(!game.availableRecipes(tower).some(recipe=>recipe.id==='verdantguard'));
   assert.equal(panelGameSnapshot(game),before);assert.equal(JSON.stringify(campaignData),dataBefore);
   assert.equal(game.rng(),control.rng(),'Rendering recipe previews consumes no RNG');
+});
+
+test('production defender panel removes descriptive, Strong/Weak and pause-explanation prose while preserving every rank, abilities and commands',()=>{
+  let fallback=false;
+  for(const [family,definition]of Object.entries(campaignData.towers)){
+    const game=new Game(campaignData,{seed:42});game.draft.roundForced={family,tier:1};for(let x=3;x<8;x++)assert.equal(game.place(x,3),true);
+    const tower=game.towers[0];game.select(tower.id);assert.equal(game.keep(),true);game.mvp.setLevel(tower,10);
+    const preview=new DefenderRankPreview(),render=productionPanel(game,preview),before=panelGameSnapshot(game);
+    for(const tier of definition.advanced?[1]:[1,2,3,4,5,6]){
+      if(!definition.advanced)assert.equal(preview.select(tower,tier,campaignData),true);
+      const html=render(tower);
+      assert.doesNotMatch(html,/<p class="(?:strength|weakness)"|Strong:|Weak:|<small>Pauses new attacks|Support and MVP auras stay active/);
+      for(const role of html.matchAll(/<p class="role">([\s\S]*?)<\/p>/g)){assert.equal(role[1],'This rank is not used by any champion recipe.');fallback=true;}
+      assert.match(html,/<h2 class="tower-name">/);assert.match(html,/class="tower-portrait"/);assert.match(html,/class="tower-effects"/);assert.match(html,/Damage \/ hit/);assert.match(html,/Base DPS/);assert.match(html,/Target priority/);
+      assert.match(html,/MVP Level: 10 \/ 10/);assert.match(html,/Own damage \+100%/);assert.match(html,/\+75% damage/);assert.match(html,/data-action="tower-pause" aria-pressed="false">Pause this defender/);
+      if(!definition.advanced)assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);
+    }
+    assert.equal(panelGameSnapshot(game),before,'Panel changes and comparisons leave actual towers and draft unchanged');
+  }
+  assert.equal(fallback,true,'The unrelated missing-recipe explanation remains visible');
+});
+
+function retainedVPanelGame(phase){
+  const game=new Game(campaignData,{seed:731}),pair=[];
+  for(let round=1;round<=2;round++){
+    game.draft.roundForced={family:'archer',tier:5};for(let x=3;x<8;x++)assert.equal(game.place(x,2+game.round),true);
+    const tower=game.roundCandidates[0].tower;game.select(tower.id);assert.equal(game.keep(),true);pair.push(tower);
+    if(round===1){assert.equal(game.startCombat(),true);game.completeWave();}
+  }
+  if(phase!=='ready'){assert.equal(game.startCombat(),true);game.completeWave();if(phase==='select'){game.draft.roundForced={family:'mage',tier:1};for(let x=3;x<8;x++)assert.equal(game.place(x,2+game.round),true);}}
+  game.select(pair[0].id);return {game,pair};
+}
+function productionMergeClick(game){
+  const callbacks=new Map(),noop=()=>{},app={addEventListener:(type,fn)=>callbacks.set(type,fn)};
+  const start=mainSource.indexOf('function handleCommand('),end=mainSource.indexOf('function toggleWorld(',start);assert.ok(start>=0&&end>start);
+  runInNewContext(mainSource.slice(start,end),{game,app,world:{maze:{editing:false},doubleTap:{clear:noop}},audio:{unlock:noop},draftCardActivation:{clear:noop},mergeTowerFromBadge,debug:false,codex:noop,warbands:noop,help:noop,sendWave:noop,closeDialog:noop,debugPanel:noop});
+  return button=>callbacks.get('click')({target:{closest:()=>button},detail:1});
+}
+for(const phase of ['ready','build','select'])test(`production retained Rank V sidebar action works in ${phase} using the actual selected foundation and preserves the pending draft`,()=>{
+  const {game,pair:[tower,partner]}=retainedVPanelGame(phase),preview=new DefenderRankPreview(),render=productionPanel(game,preview),click=productionMergeClick(game);
+  assert.equal(preview.select(tower,1,campaignData),true);const html=render(tower),tag=html.match(/<button[^>]*data-action="merge"[^>]*>/)?.[0];assert.ok(tag);assert.match(html,/MERGE AVAILABLE · Tier VI/);
+  const draft=JSON.stringify(game.draft.draws),resolved=game.draft.resolved,position=[tower.x,tower.z],occupied=[...game.grid.occupied];
+  const button={dataset:{action:'merge',towerId:tag.match(/data-tower-id="([^"]+)"/)[1],mergeKey:tag.match(/data-merge-key="([^"]+)"/)[1]},disabled:false};click(button);
+  assert.equal(game.selection,tower);assert.equal(tower.tier,6);assert.equal(partner.state,'ruin');assert.deepEqual([tower.x,tower.z],position);assert.deepEqual([...game.grid.occupied],occupied);assert.equal(JSON.stringify(game.draft.draws),draft);assert.equal(game.draft.resolved,resolved);assert.equal(game.phase,phase);
+  assert.doesNotMatch(render(tower),/data-action="merge"/);const completed=panelGameSnapshot(game);click(button);assert.equal(panelGameSnapshot(game),completed,'Even a stale native command cannot merge beyond VI');
+});
+
+test('a stale selected-panel Merge action cannot change the new selection, changed pair or foundation',()=>{
+  for(const change of [game=>game.select(game.towers[5].id),game=>game.towers[5].mvpLevel=8,game=>game.towers[0].x++,game=>game.phase='build']){
+    const {game,pair:[tower]}=retainedVPanelGame('ready'),render=productionPanel(game,new DefenderRankPreview()),click=productionMergeClick(game),tag=render(tower).match(/<button[^>]*data-action="merge"[^>]*>/)[0];
+    const button={dataset:{action:'merge',towerId:tag.match(/data-tower-id="([^"]+)"/)[1],mergeKey:tag.match(/data-merge-key="([^"]+)"/)[1]},disabled:false};
+    change(game);const before=panelGameSnapshot(game);click(button);assert.equal(panelGameSnapshot(game),before);assert.equal(tower.tier,5);
+  }
 });

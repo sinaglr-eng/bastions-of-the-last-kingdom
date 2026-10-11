@@ -29,6 +29,7 @@ export function selectedEnemyView(enemy,{data,combat}={}){
     baseArmor,reactive,shred,mvpFraction,armor,resistances:[],physicalImmune:!!enemy.physicalImmune,magicImmune:!!enemy.magicImmune,
     baseSpeed:Math.max(0,finite(enemy.speed)),currentSpeed:Number.isFinite(enemy.currentSpeed)?Math.max(0,enemy.currentSpeed):null,
     effects,traitDetails:warbandTraitDetails(abilities,combat.rules||enemyRulesFor(data)),shields:Math.max(0,finite(enemy.shields)),shieldCapacity:Math.max(0,finite(enemy.refraction)),
+    shieldRechargeRemaining:enemy.shields===0&&Number.isFinite(enemy.shieldReadyAt)?Math.max(0,enemy.shieldReadyAt-combat.elapsed):null,
     rechargeRemaining:enemy.recharge>0&&Number.isFinite(enemy.rechargeClock)?Math.max(0,enemy.rechargeClock):null};
 }
 
@@ -45,8 +46,8 @@ export function selectedEnemyMarkup(enemy,{data,images={},combat}={}){
     <p class="enemy-inspection-armor">Base ${number(view.baseArmor)} · Reactive +${number(view.reactive)}${view.shred?' · Shred −'+number(view.shred):''}${view.mvpFraction?' · MVP −'+percent(view.mvpFraction)+' after fixed shred':''}</p>
     <p class="enemy-inspection-live-note">Armor reduces Physical, Magical and Holy damage. Shields, evasion and Shell also affect Holy direct hits.</p>
     <p class="enemy-inspection-live-note">Speeds and effect durations use game time.</p>
-    ${view.physicalImmune||view.magicImmune?`<p class="enemy-inspection-immunities">${[view.physicalImmune?'Physical damage, slowing and freezing immunity':'',view.magicImmune?'Magical damage, poison and burning immunity':''].filter(Boolean).join(' · ')} · Holy effects bypass immunity</p>`:''}
-    ${view.shieldCapacity>0?`<p class="enemy-inspection-live-note">Active shields: ${number(view.shields)} / ${number(view.shieldCapacity)}</p>`:''}${view.rechargeRemaining!==null?`<p class="enemy-inspection-live-note">Next recharge: ${number(view.rechargeRemaining)} game seconds${view.effects.some(effect=>effect.name==='Healing blocked')?' · healing blocked':''}</p>`:''}
+    ${view.physicalImmune||view.magicImmune?`<p class="enemy-inspection-immunities">${[view.physicalImmune?'Physical damage, slowing and freezing immunity':'',view.magicImmune?'Magical damage, poison, burning and healing-block immunity':''].filter(Boolean).join(' · ')} · Only Holy damage bypasses immunity; companion effects remain blocked</p>`:''}
+    ${view.shieldCapacity>0?`<p class="enemy-inspection-live-note">Active shields: ${number(view.shields)} / ${number(view.shieldCapacity)}${view.shieldRechargeRemaining!==null?` · Shields return in ${number(view.shieldRechargeRemaining)} game seconds`:''}</p>`:''}${view.rechargeRemaining!==null?`<p class="enemy-inspection-live-note">Next recharge: ${number(view.rechargeRemaining)} game seconds${view.effects.some(effect=>effect.name==='Healing blocked')?' · healing blocked':''}</p>`:''}
     <div class="section-label">ACTIVE EFFECTS</div><ul class="enemy-inspection-effects">${effects||'<li><span>No active status effects</span></li>'}</ul>
     <div class="section-label">ABILITIES</div>${enemyTraitsMarkup(view.traitDetails)}
   </section>`;

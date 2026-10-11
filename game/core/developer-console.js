@@ -9,7 +9,7 @@ const number=(value,min,max,label,integer=false)=>{
   const n=typeof value==='number'||(typeof value==='string'&&value.trim())?Number(value):NaN;if(!Number.isFinite(n)||n<min||n>max||(integer&&!Number.isSafeInteger(n)))throw new RangeError(`${label} must be ${integer?'an integer ':''}from ${min} to ${max}.`);return n;
 };
 const enemyFields={armor:[0,100000],krakenShell:[0,1e7],regen:[0,1],recharge:[0,1],untouchable:[0,1],evasion:[0,1],reactiveArmor:[0,1000],blink:[0,100],rush:[1,100]};
-const ruleFields={refraction:{period:[.1,120]},recharge:{period:[.1,120]},blink:{period:[.1,120]},reactive:{maxStacks:[0,100],decayPerSecond:[0,100]},disarm:{duration:[0,120],period:[.1,120],radius:[0,37]},dread:{radius:[0,37]},support:{radius:[0,37],hasteDuration:[0,120],hastePeriod:[.1,120]},rush:{duration:[0,120],period:[.1,120]}};
+const ruleFields={refraction:{period:[.1,120]},recharge:{period:[.1,120]},blink:{period:[.1,120]},reactive:{maxStacks:[0,100],decayPerSecond:[0,100]},disarm:{duration:[0,120],period:[.1,120],radius:[0,37]},dread:{duration:[0,120]},support:{radius:[0,37],hasteDuration:[0,120],hastePeriod:[.1,120]},rush:{duration:[0,120],period:[.1,120]}};
 const safeFields=(values,allowed)=>{
   if(!values||typeof values!=='object'||Array.isArray(values))throw new TypeError('Rules must be an object.');
   const result={};for(const [key,value] of Object.entries(values)){if(!Object.hasOwn(allowed,key))throw new Error(`Unsupported rule: ${key}.`);const bounds=allowed[key];result[key]=number(value,...bounds,key);}return result;

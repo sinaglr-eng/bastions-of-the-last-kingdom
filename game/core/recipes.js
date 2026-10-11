@@ -149,6 +149,10 @@ export function recipeProgress(recipe,towers) {
   });
 }
 export function mergePartner(tower,towers,data) {
-  if(!tower || tower.state!=='draft' || !Number.isInteger(tower.round) || tower.tier>=data.balance.tiers.length || data.towers[tower.family].advanced)return null;
+  if(!tower||!['active','draft'].includes(tower.state)||!Number.isInteger(tower.tier)||tower.tier<1||tower.tier>=data.balance.tiers.length||!data.towers[tower.family]||data.towers[tower.family].advanced)return null;
+  // Royal V pairs may include previously retained defenders. Game supplies
+  // the phase-safe inventory and keeps current draft commitment authoritative.
+  if(tower.tier===5)return towers.find(t=>t.id!==tower.id&&['active','draft'].includes(t.state)&&t.family===tower.family&&t.tier===5)||null;
+  if(tower.state!=='draft'||!Number.isInteger(tower.round))return null;
   return towers.find(t=>t.id!==tower.id&&t.state==='draft'&&t.round===tower.round&&t.family===tower.family&&t.tier===tower.tier) || null;
 }

@@ -1,0 +1,435 @@
+{
+  "status": "passed",
+  "baseline": "3822ec401443b2fea3d51067441488ed5a698819",
+  "backupRoot": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\combat-audio-refinements-v28-before-1791738106150",
+  "paths": 61,
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "sourceSha256": "93ec5b23cf01b0f8b3ed94fb8b978f3037f8e6edca181a5a61c284e80746e3fb",
+      "mainSha256": "1a8961e6c387bc16dd62b16ba57f7109f10051eb5beab6e7131ea49a66fa0d7f",
+      "originalSha256": "475dbbf2105f3a531946d9d4fadd277e32644e14e43e1e73fa81923afeabf7d6",
+      "mode": "preserved-main-three-way-merge"
+    },
+    {
+      "file": "README.md",
+      "sourceSha256": "f471f095f5cd6f9fe221a33e4afcf4486e5b043d03e635dd1711ae4095438168",
+      "mainSha256": "864d19ef86b1aae9338c606ae11a091c3b2ff8d0d18071f5d28d2d4b1e02202e",
+      "originalSha256": "9729201d967d67604a4e3d19b9dcc63b2858fd67f256205b2853686b25d9833d",
+      "mode": "preserved-main-three-way-merge"
+    },
+    {
+      "file": "docs/COMBAT_RULES.md",
+      "sourceSha256": "56260f9e5c829248811a5ae823a4e5e6fd0bfdaeb48519a0fd311639ac8dae10",
+      "mainSha256": "56260f9e5c829248811a5ae823a4e5e6fd0bfdaeb48519a0fd311639ac8dae10",
+      "originalSha256": "8e8c42675d88c0d35059a49fca78917ebe1941bd449bfa31c40d1aa22e05edf8",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/audio/audio-assets.js",
+      "sourceSha256": "fbbae4ff834a457d445309f2233464819b548bc345e66a5fc32afea25a00f251",
+      "mainSha256": "fbbae4ff834a457d445309f2233464819b548bc345e66a5fc32afea25a00f251",
+      "originalSha256": "95b6b49b037484c120c240985061702110f1f3950c6c397d2d69352027533f4a",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/audio/audio.js",
+      "sourceSha256": "03ce83c0418c85a62287fc5723f824a80eaeefe55fb27343e100fab82a2b7c1e",
+      "mainSha256": "03ce83c0418c85a62287fc5723f824a80eaeefe55fb27343e100fab82a2b7c1e",
+      "originalSha256": "de741d99df18edcb4331a4deb18e7d5258b2652f05c480687f244dc95b59d1da",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/audio/recorded-music.js",
+      "sourceSha256": "1be772dbb66e127bcfed7658b4fd440ac9738d994644a661f906a50b67edc926",
+      "mainSha256": "1be772dbb66e127bcfed7658b4fd440ac9738d994644a661f906a50b67edc926",
+      "originalSha256": "b403a639e553650d41eed0da85468d32ac1d3f7d61908d21f17df73bb5fdc93f",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/army-readiness.js",
+      "sourceSha256": "b6d6e366b23bd2b27d41fffcafc88813aa96324c820058566183a946b93e0f6f",
+      "mainSha256": "b6d6e366b23bd2b27d41fffcafc88813aa96324c820058566183a946b93e0f6f",
+      "originalSha256": "8457a96ca02394268b60ad8233f604d8bc7f6a4d9bb38a0837657aee7ba9b6e4",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/campaign-roster.js",
+      "sourceSha256": "80f40c339a5cfff7590bcf8a579999861a0aad70675f5e6df345f51056e6c179",
+      "mainSha256": "80f40c339a5cfff7590bcf8a579999861a0aad70675f5e6df345f51056e6c179",
+      "originalSha256": "daa800f9dc4ba9ffe874e886256aff07f91a050623fd9b3ee0b01a319d69b976",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/combat-rules.js",
+      "sourceSha256": "3a16d01b10b4dd9c631f0d89c839b29ab706a7a42d288c432b0a622006ed106c",
+      "mainSha256": "3a16d01b10b4dd9c631f0d89c839b29ab706a7a42d288c432b0a622006ed106c",
+      "originalSha256": "eb5906ceb50d1cd8a10b7954ec42aaaffa9bb0a028e7d7108b5bdea8d4b4afbd",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/combat.js",
+      "sourceSha256": "1605ad59791e760edca3386b2e22bad289f61a1b59c20826cc665d1c78d0f39f",
+      "mainSha256": "1605ad59791e760edca3386b2e22bad289f61a1b59c20826cc665d1c78d0f39f",
+      "originalSha256": "8d2e91aeeeadb6b1986f198fda1ee182b3b74e2a74f0c590f665c3331740ef26",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/developer-console.js",
+      "sourceSha256": "9fe00f33f69eeac59b6a7a2934fe827d361c54c54987c9ec816884c13e2f6458",
+      "mainSha256": "9fe00f33f69eeac59b6a7a2934fe827d361c54c54987c9ec816884c13e2f6458",
+      "originalSha256": "75878cffe1d21971f5a214192b8f56b9981434f2413ea365d8f2c0609ab2a83d",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/enemy-rules.js",
+      "sourceSha256": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f",
+      "mainSha256": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f",
+      "originalSha256": "7463d51847a5d69576772589df7dc2fb4fde190db7b8a9c9fa2da4bf63a81068",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/game.js",
+      "sourceSha256": "9813e8db7df26dec7e4f7fa6c1fc3b81c60f718164445d21e1d73fd72c3ca73b",
+      "mainSha256": "9813e8db7df26dec7e4f7fa6c1fc3b81c60f718164445d21e1d73fd72c3ca73b",
+      "originalSha256": "24a8feb0070ac8fde82b5e7fc924bd342474ba7b654c086d8b7f9579919175d5",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/recipes.js",
+      "sourceSha256": "8e0dea788e077ede7b636807dd5a5f0f5d2cc2755ef9148a989cd9e2c9da8216",
+      "mainSha256": "8e0dea788e077ede7b636807dd5a5f0f5d2cc2755ef9148a989cd9e2c9da8216",
+      "originalSha256": "6db0da7eff021d7f3bdf30a8bff6b7d60a730a8cc78719dc6aad5e15ffde8e4d",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/warband-info.js",
+      "sourceSha256": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd",
+      "mainSha256": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd",
+      "originalSha256": "8c95f080c0a49c1f842ea06981db1f1fafbf6adf736363f7723bcc04081a72a8",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/wave-threats.js",
+      "sourceSha256": "c50002eed997efd331813909672c6bc5a95685b814edc25e4f40cace51d55781",
+      "mainSha256": "c50002eed997efd331813909672c6bc5a95685b814edc25e4f40cace51d55781",
+      "originalSha256": "0833bd0b655b3123e3db803389f153d457944c6646118e3c257c672d39d086e6",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/main.js",
+      "sourceSha256": "cea01e90ccee85ce1dd53c052e0080b9a604ff132d7d4b62ff3fc4a2eb4e2814",
+      "mainSha256": "cea01e90ccee85ce1dd53c052e0080b9a604ff132d7d4b62ff3fc4a2eb4e2814",
+      "originalSha256": "8d1c26274b5622772aeefb273213ba511e2efa8a2599fcece38da63ce7fdaf77",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/release.js",
+      "sourceSha256": "d2fab3258fadad08d4ae55077662ed4ecf570f84be1903198a2010601b779431",
+      "mainSha256": "d2fab3258fadad08d4ae55077662ed4ecf570f84be1903198a2010601b779431",
+      "originalSha256": "6fe5c8155ee2ec8951b1661877d7ab99da8b9cd158b16aae87eaf6a3cfcad87e",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/render/enemy-defense-symbols.js",
+      "sourceSha256": "8a56a3f33cf5cdba7657d532261ee3318fe5e0be2bda9e7e80b235b01bdc8ecd",
+      "mainSha256": "8a56a3f33cf5cdba7657d532261ee3318fe5e0be2bda9e7e80b235b01bdc8ecd",
+      "originalSha256": "7adb6062c87a4c9f96aabf75de19088c19b78bec20105dfb693e6a4f14c0b46e",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/render/support-effects.js",
+      "sourceSha256": "98c8e851169f00db8a17690563358072375d3bca7905a5f143a2ee43326b1db4",
+      "mainSha256": "98c8e851169f00db8a17690563358072375d3bca7905a5f143a2ee43326b1db4",
+      "originalSha256": "ac509d6490764c78ae629a8a310791c96db5c56193619713a4ab41a04f7c58d1",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "package.json",
+      "sourceSha256": "51ff4accc316f6d7fc71359be4e424240270b04e8328be715fb9da00a7eb73b1",
+      "mainSha256": "51ff4accc316f6d7fc71359be4e424240270b04e8328be715fb9da00a7eb73b1",
+      "originalSha256": "e105d6977a335602a31a3dff1e03b6b477915bd9daaf31157c05afea7b6c19ae",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "public/release.json",
+      "sourceSha256": "47e2e96faf179e96aa4965cc09491fdb3fdf93ce734506c7f49c9c9be483c405",
+      "mainSha256": "47e2e96faf179e96aa4965cc09491fdb3fdf93ce734506c7f49c9c9be483c405",
+      "originalSha256": "57637a025fa354df81d6ee00f29395f978659cd0c026933fb24b0aa032c333c5",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/army-readiness.test.mjs",
+      "sourceSha256": "d7dfe5a848658a8cc744591e484dae066a470e6a1952fc47563772f87bb7a7e5",
+      "mainSha256": "d7dfe5a848658a8cc744591e484dae066a470e6a1952fc47563772f87bb7a7e5",
+      "originalSha256": "6ad6a65cccc7e2774adc2578029a96d2bb370b7d213aba1f17a46c516da013bf",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/audio-recorded-music.test.mjs",
+      "sourceSha256": "7bcbd4d9eb06ece55513993cf2d9d70b887cb72aa262512655e7d736c9fa9f1d",
+      "mainSha256": "7bcbd4d9eb06ece55513993cf2d9d70b887cb72aa262512655e7d736c9fa9f1d",
+      "originalSha256": "5f9773a4a6c99502a2feeab31ea9aa983f11334a7fef2f6bd119246c3722208d",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/audio-wave-soundtrack.test.mjs",
+      "sourceSha256": "aebac0c9a03876ea95a90ba6a9ac955e7e30bda3f15868e2162db79467a16b0c",
+      "mainSha256": "aebac0c9a03876ea95a90ba6a9ac955e7e30bda3f15868e2162db79467a16b0c",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/battlefield-overlay-panels.test.mjs",
+      "sourceSha256": "aa6a02b9aeea8a9251aa9e8a0201045cd4905c8e8df1989e5ed410bd0edf6356",
+      "mainSha256": "aa6a02b9aeea8a9251aa9e8a0201045cd4905c8e8df1989e5ed410bd0edf6356",
+      "originalSha256": "6d23b09c4a81bd6ec725714d12b68de6a1dd91981d142092ae3d4aab7560b862",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/combat-game-time-v13.test.mjs",
+      "sourceSha256": "065a26587b1aa0947f895e79c19ba8da43f99a5353723539f080ce8448928b53",
+      "mainSha256": "065a26587b1aa0947f895e79c19ba8da43f99a5353723539f080ce8448928b53",
+      "originalSha256": "80bb2b1e6525efc3b84fcc87ef87561f5787680e4075d9dfbea744a6cdaa03f2",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/combat-overhaul.test.mjs",
+      "sourceSha256": "b99328b0fa270ec952b0d71ddc408b1d12044193d33267869b38ca5481d9af34",
+      "mainSha256": "b99328b0fa270ec952b0d71ddc408b1d12044193d33267869b38ca5481d9af34",
+      "originalSha256": "f541da11b3a612942bd4e8e69a68e57cd62adb6899a2cbbb00f75badc23e8565",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/combat-timings-v28.test.mjs",
+      "sourceSha256": "ff61646379d9a4efb9c90da6e9dbeecdf5b06ae491ebf2ff35c73b02ff7913a9",
+      "mainSha256": "ff61646379d9a4efb9c90da6e9dbeecdf5b06ae491ebf2ff35c73b02ff7913a9",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/current-wave-panel.test.mjs",
+      "sourceSha256": "c553ca818363730fe73e2297fde17c92960eccdf77df63cf38bc6059d4f27cf6",
+      "mainSha256": "c553ca818363730fe73e2297fde17c92960eccdf77df63cf38bc6059d4f27cf6",
+      "originalSha256": "c474fc7a1e534bd5696dba4498cd211bf2192ef1c22c19c3d5ea5acb6535828f",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/defender-rank-preview.test.mjs",
+      "sourceSha256": "f94a0bd6d148bbc6ffbcbef8f2f229b661985efd8b02bb8db67ef4f7417084e2",
+      "mainSha256": "f94a0bd6d148bbc6ffbcbef8f2f229b661985efd8b02bb8db67ef4f7417084e2",
+      "originalSha256": "a1385786ec8ce9684035b58417587b6b9f6ec1a9b388e1100fecd7407dc592f1",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/defender-specialization.test.mjs",
+      "sourceSha256": "c64303b53855bc5b731331f6f4772b308f10e881670d40d6e26cb56a57f86f87",
+      "mainSha256": "c64303b53855bc5b731331f6f4772b308f10e881670d40d6e26cb56a57f86f87",
+      "originalSha256": "67ef1cc03f5973adee57a98b4c6768e9e3f4d3003e4fa58d3c3118886ec82488",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/developer-console-ui.test.mjs",
+      "sourceSha256": "1728b4e993dc1192d0a7c2f76850f2e20e509284724e3990417a7982d89a3b5e",
+      "mainSha256": "1728b4e993dc1192d0a7c2f76850f2e20e509284724e3990417a7982d89a3b5e",
+      "originalSha256": "5c294c739eb7606825df8394aa3f8d44f806aa414b02bff67dadb8b16bbacdfd",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/draft-pointer-input.test.mjs",
+      "sourceSha256": "82e982aae6d5a1d866022cc6560967edfeea20669ecea79af307912a01bed082",
+      "mainSha256": "82e982aae6d5a1d866022cc6560967edfeea20669ecea79af307912a01bed082",
+      "originalSha256": "36bda670bd4e3ebcd22b2f611308aed03ba5150bfaf20e5940d77d7b9d5fceab",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/enemy-abilities-v12.test.mjs",
+      "sourceSha256": "2dde520a22eaab8e4b4ddedaff11d4c83dc8685b72c6675757a11d41a07e7cd0",
+      "mainSha256": "2dde520a22eaab8e4b4ddedaff11d4c83dc8685b72c6675757a11d41a07e7cd0",
+      "originalSha256": "1d3e0af4577bcea04f0a4b5f74e02f08b00024ab0eff77ae57676f811ba3ff10",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/enemy-aura.test.mjs",
+      "sourceSha256": "a9a17157ac3e28ea6cb2dcff18b8f44eee53c93da784dc24d10438983fb5c69f",
+      "mainSha256": "a9a17157ac3e28ea6cb2dcff18b8f44eee53c93da784dc24d10438983fb5c69f",
+      "originalSha256": "8b7c90a36bd863ced55ec9852039ebfbbd11d1b8fddcd94a3f4fd03b34acb8d9",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/enemy-balance-v10.test.mjs",
+      "sourceSha256": "ae8d49cba5c54b5e20fdd4f80a9225aafedf988a8f85f287fbc592054b46dffa",
+      "mainSha256": "ae8d49cba5c54b5e20fdd4f80a9225aafedf988a8f85f287fbc592054b46dffa",
+      "originalSha256": "fcaa3cdb31604bd72821d45b759e253176aa69a4aa24d3fba0c3cf0e6df86048",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/enemy-defense-symbols.test.mjs",
+      "sourceSha256": "243b1a85322fadb4a0045b7f20d7dbfccadf229819c0dcad801b69ab82d260de",
+      "mainSha256": "243b1a85322fadb4a0045b7f20d7dbfccadf229819c0dcad801b69ab82d260de",
+      "originalSha256": "16c433f9d8d34d91c8079aa547fd950030703d0862d70d6e52a3c98ac913c573",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/enemy-variants-v12.test.mjs",
+      "sourceSha256": "071e3d1af4651f8e4c5e514a756ac38109f73431b16013104cddc22007f9df48",
+      "mainSha256": "071e3d1af4651f8e4c5e514a756ac38109f73431b16013104cddc22007f9df48",
+      "originalSha256": "79ce9d6b19ef8295403f2fa01db6f898fa285c6e1803e79df8f3a5b463022711",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/geometric-integration.test.mjs",
+      "sourceSha256": "260251365100199f3c77820074fdf4f6bd328e3ea4b59ded502eeb7629cd3801",
+      "mainSha256": "260251365100199f3c77820074fdf4f6bd328e3ea4b59ded502eeb7629cd3801",
+      "originalSha256": "6e436856da3824f99279b6ae65fa630892188ab3a87f0aba23c22418a738dbf7",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/grimoire-display.test.mjs",
+      "sourceSha256": "79461956d13fe0ae586b633ea61d4918fbcef8bb34b7e5c2928fa17d096145d5",
+      "mainSha256": "79461956d13fe0ae586b633ea61d4918fbcef8bb34b7e5c2928fa17d096145d5",
+      "originalSha256": "440c646707e9a5aa5fbcc3d9fffef8543899ae54691a3572d15e5cd6cda643ac",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/mastery-support-display.test.mjs",
+      "sourceSha256": "4620daf0db6033baf8abac2191e08db6a2b4aae91dd71fdeeeb00fde7edc26d3",
+      "mainSha256": "4620daf0db6033baf8abac2191e08db6a2b4aae91dd71fdeeeb00fde7edc26d3",
+      "originalSha256": "0859ba487dbe2df07ccb0b8c7b444888c034edcf5cb13942d34ea17933084f10",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/mvp-presentation.test.mjs",
+      "sourceSha256": "716429a1a1296b62fd0a3f464c84cb8e8cb2f595735b551f1aca3cbdba7426fd",
+      "mainSha256": "716429a1a1296b62fd0a3f464c84cb8e8cb2f595735b551f1aca3cbdba7426fd",
+      "originalSha256": "7cad3cc0ba71244cfbe7d320c56f1051067f84700a3a8b4829cde9b72b926672",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/rank-five-retained-merge.test.mjs",
+      "sourceSha256": "83424eaa51092ec071f6c66e5d31e3596a5e1f9659e73c6fe30bd4b8571d708e",
+      "mainSha256": "83424eaa51092ec071f6c66e5d31e3596a5e1f9659e73c6fe30bd4b8571d708e",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/recipe-filters.test.mjs",
+      "sourceSha256": "c7d172f8da7844fe65b868b975ea8c300a8fbeb22c8016ca660d8e8a8b69ff95",
+      "mainSha256": "c7d172f8da7844fe65b868b975ea8c300a8fbeb22c8016ca660d8e8a8b69ff95",
+      "originalSha256": "3e4a6c95c995c2e0fff566af9688dca36a524faad3506b1d1da27e566d035f46",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/secret-native-rig.test.mjs",
+      "sourceSha256": "0eae1222c93f39accc7a0108ef855ceed3b24ec095342ed113ab55b78ede66fa",
+      "mainSha256": "0eae1222c93f39accc7a0108ef855ceed3b24ec095342ed113ab55b78ede66fa",
+      "originalSha256": "4abb9758792a59235f5f26fab905786e8633f8622f4a60e6988c1da398f0d5db",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/selected-enemy-panel.test.mjs",
+      "sourceSha256": "b92969e6d434e98dc308a2dc58adaf82f76b9bfef5998b03bdb6aa6fe5746113",
+      "mainSha256": "b92969e6d434e98dc308a2dc58adaf82f76b9bfef5998b03bdb6aa6fe5746113",
+      "originalSha256": "18b21fb4af6773fda74ac9bead51e1d7794a753b2777bfcd6f159edaccbc3665",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/support-effects.test.mjs",
+      "sourceSha256": "13030c8e9e156211da1c222a288303f072fa95688806cadf81f111661546604c",
+      "mainSha256": "13030c8e9e156211da1c222a288303f072fa95688806cadf81f111661546604c",
+      "originalSha256": "2bed2add94ae868d253a6f2417801a9c0fce62b5f618f923b689270f389ff3a2",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/warband-cards.test.mjs",
+      "sourceSha256": "ce2676dc0a3a2984ec34a4593a35d56ae3dcfa78cbf3b5c6d3ff90ec76faf241",
+      "mainSha256": "ce2676dc0a3a2984ec34a4593a35d56ae3dcfa78cbf3b5c6d3ff90ec76faf241",
+      "originalSha256": "e7f123a9b23ab5f54eb5bc01af47389f5e63c90599387a6b46ffd8ff2bfaedfe",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/warbands-maze.test.mjs",
+      "sourceSha256": "ecf062a5476eccc1db3095282d6287b3003b7acbc2ea6715ff99a5e034c8e5c0",
+      "mainSha256": "ecf062a5476eccc1db3095282d6287b3003b7acbc2ea6715ff99a5e034c8e5c0",
+      "originalSha256": "faae881622cfe668581711a04986ab916fd75ff8c1f674daefccc883c9c5c18e",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/warbands-overview.test.mjs",
+      "sourceSha256": "e53eda17e5bbf262fe46e6f7712d1cd9878dfde593776a07b27a0388aba7648c",
+      "mainSha256": "e53eda17e5bbf262fe46e6f7712d1cd9878dfde593776a07b27a0388aba7648c",
+      "originalSha256": "bc6410152d2d610238828af5e7f76d54f23f09d0b636e3915b5b6154eb8b9660",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/wave-preview-ui.test.mjs",
+      "sourceSha256": "2086227298986dd0b21a69680566825dc27b1bb45cff06874bfa6f53d1041d95",
+      "mainSha256": "2086227298986dd0b21a69680566825dc27b1bb45cff06874bfa6f53d1041d95",
+      "originalSha256": "24e7a8a9655781cae1a8c48f27ccfd7b92329ff7dbea249f46132dc8161c1cba",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/wave-threats.test.mjs",
+      "sourceSha256": "df4a2b9fa2b4c497f849683406f4ed582746d7be4421720222fa2628dcc04f93",
+      "mainSha256": "df4a2b9fa2b4c497f849683406f4ed582746d7be4421720222fa2628dcc04f93",
+      "originalSha256": "39956d82413c1835fec892586cb2b9eb9388044015851e64ab80e6aea4ed44d1",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/developer-console.js",
+      "sourceSha256": "d33909cee619bf271c9ed7166f31f9c771df6d19947e2d2c6965c2f8e52997aa",
+      "mainSha256": "d33909cee619bf271c9ed7166f31f9c771df6d19947e2d2c6965c2f8e52997aa",
+      "originalSha256": "bafa2a70ac07bb243e4fc62a4dfeaf318438b82232ed2df8e8623d816da96483",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/draft-input.js",
+      "sourceSha256": "bab436b00dcc50ee28be7a37016ba58d11b9b074e88bec6580db6fe4ef230875",
+      "mainSha256": "bab436b00dcc50ee28be7a37016ba58d11b9b074e88bec6580db6fe4ef230875",
+      "originalSha256": "b0ff7b54ea73c699d02a370424d8e8bea2c6c8145c948c479bb08e410dbffda4",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/grimoire.js",
+      "sourceSha256": "3c7d3e2d71e12e297cfd12550f451ae1f0cf75a549a6b49d0aed3d604cef06d9",
+      "mainSha256": "3c7d3e2d71e12e297cfd12550f451ae1f0cf75a549a6b49d0aed3d604cef06d9",
+      "originalSha256": "98a357c72cdaf74d52b9f12d2f48048abf7ad934b9802bb07519ac73757bd08d",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/mvp-details.css",
+      "sourceSha256": "ec351256b387a2dc6ff6510cb77d78e9dcbbbada7feaa287f13264be6b5ebbb8",
+      "mainSha256": "ec351256b387a2dc6ff6510cb77d78e9dcbbbada7feaa287f13264be6b5ebbb8",
+      "originalSha256": "1a651e255c8fa322b5fabf2235a8d2c5b495c8bc54b043ced15e7e840ec7e67b",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/mvp-details.js",
+      "sourceSha256": "22315b12eb0ce39e678ad4a6cf58fce3530de65c79379e373288dcf55101bbad",
+      "mainSha256": "22315b12eb0ce39e678ad4a6cf58fce3530de65c79379e373288dcf55101bbad",
+      "originalSha256": "3295982df68aa44eb59a15bdb3e1bb61af8a7527414cff1aae249de62b3adc63",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/recipe-filters.js",
+      "sourceSha256": "8a6b28649a32e72a3bfcc31c9d32689b833ada6097714632466a062eb008d890",
+      "mainSha256": "8a6b28649a32e72a3bfcc31c9d32689b833ada6097714632466a062eb008d890",
+      "originalSha256": "529b7302b4b8c6d31180250c9aa881cfec3f0222f04d50b76fc0120447018f8a",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/selected-enemy.js",
+      "sourceSha256": "3f19c587d3931b4259766205eb6bd25cd7a904da16765f564e78310a16bdbfa6",
+      "mainSha256": "3f19c587d3931b4259766205eb6bd25cd7a904da16765f564e78310a16bdbfa6",
+      "originalSha256": "ae79070afc0103572396550c8238849c571f34f786f79467ab426b2518b60ecf",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/support-guide.js",
+      "sourceSha256": "89d50d08bc4ae979794f5b32ba0c5108a56f6613644d246abff6eeea766b756b",
+      "mainSha256": "89d50d08bc4ae979794f5b32ba0c5108a56f6613644d246abff6eeea766b756b",
+      "originalSha256": "90c14c06b780af158499853d42ff673cadf4bf51aebfd8fc193f14493c739b0b",
+      "mode": "exact-task-copy"
+    }
+  ]
+}

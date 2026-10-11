@@ -31,6 +31,14 @@ test('current support descriptions explain strongest standard blessings and the 
   assert.match(angel,/own attacks do not trigger/);
 });
 
+test('current Holy ability and rank guide separate damage from status immunity and explain the exact Royal V merge exception',()=>{
+  const holy=abilityLines(towerStats({family:'winterhold',tier:1},data)).join(' '),guide=defenderGuide(data,{});
+  assert.match(holy,/Holy damage ignores damage immunities/);assert.match(holy,/slows\/freezes respect Physical immunity/);assert.match(holy,/poison\/burning\/healing block respect Magical immunity/);
+  assert.match(guide,/Magical immunity blocks Magical damage, poison, burning and healing block/);assert.match(guide,/Only Holy damage ignores these immunities; companion effects retain their normal immunity categories/);
+  assert.match(guide,/Ranks I–IV merge only matching recruits among the current round’s five placed candidates/);assert.match(guide,/Royal V defenders create a Mythic VI between waves, including retained pairs or a retained defender plus a current candidate/);
+  assert.match(guide,/Using a current candidate requires all five placements and commits this round’s keeper; a retained-only pair preserves the pending draft/);
+});
+
 test('each of 38 current champion cards uses approved classification, descriptions, damage and base DPS without modifying archived records',()=>{
   const before=JSON.stringify(data),archivedBefore=JSON.stringify(archived);
   const cards=data.recipes.map(recipe=>championRecipeCard({...recipe,stage:'Mythic'},data,{}));

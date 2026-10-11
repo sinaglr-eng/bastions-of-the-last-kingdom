@@ -30,7 +30,7 @@ test('actual alternate immunity and reactive-armor abilities are never mixed tog
   for(const variant of data.enemies.host_31.variants){
     const enemy=game.combat.spawn('host_31',{variant}),view=selectedEnemyView(enemy,options(game));
     assert.equal(view.magicImmune,!!variant.magicImmune);assert.equal(view.physicalImmune,!!variant.physicalImmune);
-    assert.equal(view.traitDetails.some(row=>row.text.startsWith('Immune to Magical damage, poison and burning')),!!variant.magicImmune);
+    assert.equal(view.traitDetails.some(row=>row.text.startsWith('Immune to Magical damage, poison, burning and healing block')),!!variant.magicImmune);
     assert.equal(view.traitDetails.some(row=>row.text.startsWith('Immune to Physical damage, slowing and freezing')),!!variant.physicalImmune);
   }
 });
@@ -81,7 +81,7 @@ test('individual abilities follow run-local console rules, never obsolete resist
   const privateData=structuredClone(data);privateData.balance.enemyRules={disarm:{duration:.5,period:4,radius:1.25},recharge:{period:2},refraction:{period:3},reactive:{maxStacks:4,decayPerSecond:0}};
   const game=new Game(privateData,{seed:7});game.phase='combat';const enemy=game.combat.spawn('host_12');Object.assign(enemy,{recharge:.5,refraction:3,reactiveArmor:8,resists:{magic:.99},ward:.99,magicShred:.5});enemy.statuses.shredMagic={amount:.5,time:2};
   const html=selectedEnemyMarkup(enemy,{data:privateData,combat:game.combat});
-  assert.match(html,/within 1\.25 tiles for 0\.5s every 4s/);assert.match(html,/50% missing health every 2s/);assert.match(html,/refresh every 3s/);assert.match(html,/maximum 4 stacks \(32 armor\).*decays 0 stacks\/s/);
+  assert.match(html,/within 1\.25 tiles for 0\.5s every 4s/);assert.match(html,/50% missing health every 2s/);assert.match(html,/regenerate 3s after the final charge is spent/);assert.match(html,/maximum 4 stacks \(32 armor\).*decays 0 stacks\/s/);
   assert.doesNotMatch(html,/Magic resistance|Fire resistance|resistance shred|shredMagic|magic-shred/);assert.equal(selectedEnemyView(enemy,{data:privateData,combat:game.combat}).effects.length,0);
 });
 

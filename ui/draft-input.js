@@ -31,19 +31,23 @@ export function keepDrawKeeper(game,index,expectedId,expectedKey){
 }
 
 const mergeGameIds=new WeakMap();let nextMergeGameId=1;
-// A visible merge button describes a specific current-round inventory. Keep
-// that description with the request so a stale card or pointer release cannot
-// merge a changed pair or use a different result foundation.
+// A visible merge button describes a specific eligible pair and inventory.
+// Keep that description so a stale pointer release cannot merge a changed
+// pair or use a different foundation, including retained Rank V defenders.
 export function mergeTowerKey(game,towerId){
-  if(game.moveSelection||game.phase!=='select'||game.draft.draws.length!==5||game.draft.draws.some(draw=>!draw.placed))return null;
-  const candidates=game.roundCandidates.map(candidate=>candidate.tower),tower=candidates.find(candidate=>candidate.id===towerId);
-  const expected=game.draft.draws.filter(draw=>!draw.reservedForNextDraft).length;
-  if(candidates.length!==expected||new Set(candidates.map(candidate=>candidate.id)).size!==expected||!tower)return null;
+  if(game.moveSelection)return null;
+  const tower=game.towers.find(candidate=>candidate.id===towerId);if(!tower)return null;
   const partner=game.mergePartner(tower);if(!partner)return null;
+  const candidates=game.roundCandidates.map(candidate=>candidate.tower),draftUsed=tower.state==='draft'||partner.state==='draft';
+  if(draftUsed){
+    const expected=game.draft.draws.filter(draw=>!draw.reservedForNextDraft).length;
+    if(game.phase!=='select'||game.draft.draws.length!==5||game.draft.draws.some(draw=>!draw.placed)||candidates.length!==expected||new Set(candidates.map(candidate=>candidate.id)).size!==expected)return null;
+  }
   if(!mergeGameIds.has(game))mergeGameIds.set(game,nextMergeGameId++);
-  return encodeURIComponent(JSON.stringify([mergeGameIds.get(game),game.round,tower.id,partner.id,game.draft.rerollsUsed||0,
-    candidates.map(candidate=>[candidate.id,candidate.family,candidate.tier,candidate.state,candidate.round,candidate.x,candidate.z]),
-    game.draft.draws.map(draw=>draw.towerId)]));
+  const inventory=tower.tier===5?game.towers:candidates;
+  return encodeURIComponent(JSON.stringify([mergeGameIds.get(game),game.round,game.phase,tower.id,partner.id,game.draft.rerollsUsed||0,
+    inventory.map(candidate=>[candidate.id,candidate.family,candidate.tier,candidate.state,candidate.round,candidate.x,candidate.z,candidate.mvpLevel||0]),
+    game.draft.draws.map(draw=>[draw.towerId,!!draw.placed,!!draw.reservedForNextDraft])]));
 }
 
 export function mergeTowerFromBadge(game,towerId,expectedKey){

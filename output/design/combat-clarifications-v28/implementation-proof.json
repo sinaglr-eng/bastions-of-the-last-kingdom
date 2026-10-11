@@ -1,0 +1,328 @@
+{
+  "status": "PASS",
+  "version": "0.3.27",
+  "baseline": "3822ec401443b2fea3d51067441488ed5a698819",
+  "createdAt": "2026-10-11T17:29:12.200Z",
+  "scope": "Owned combat implementation,18 initial targeted test files and8 additional approved historical fixture test files; source-only review. No browser, build, media or deployment certification.",
+  "counts": {
+    "frozenOwnedFiles": 39,
+    "ownedSourceFiles": 14,
+    "ownedTestFiles": 25,
+    "targetedTests": 336,
+    "targetedPassed": 336,
+    "targetedFailed": 0,
+    "targetedSkipped": 0,
+    "initialTargetedTests": 242,
+    "additionalFixtureTests": 94,
+    "newActualCombatTimingTests": 14,
+    "archivedDataFiles": 11
+  },
+  "semantics": {
+    "holy": "Damage bypasses both damage immunities; slowing/freezing respect Physical immunity; poison/burning/healing block respect Magical immunity. Explicit Golem petrification remains the only special status bypass.",
+    "dread": "Positive actual HP damage attributed to the actual active owned defender triggers75% attack slowing for3 game seconds, at any range, including DOT, damage aura, secondary-chain and launched projectile damage. Blocks/mere proximity/phantom or consumed source do not trigger. Refreshes strongest amount without stacking; live control resistance applies; enemy death preserves the deadline; next wave clears it.",
+    "refraction": "Three charges. Absolute elapsed+2 deadline begins only when final direct-hit charge is consumed. Live charges never reset periodically. An end-of-frame projectile cannot replenish shields within that same update.",
+    "recharge": "50% missing health every4 game seconds; actual block-expiry/pulse order retained.",
+    "blink": "Six route tiles every5 game seconds, including split floating-point deadline and multiple deadlines per coarse update.",
+    "regeneration": "20% modified maximumHP/s; wave38 Blood-Leech40%. Actual maximumHP/healing block/cap verified.",
+    "console": "dread.duration exposed; old dread.radius rejected. refraction.period is retained as a depletion-delay override; private run data never mutates frozen defaults."
+  },
+  "validation": {
+    "command": "node --test tests/combat-timings-v28.test.mjs tests/combat-overhaul.test.mjs tests/combat-game-time-v13.test.mjs tests/enemy-abilities-v12.test.mjs tests/enemy-balance-v10.test.mjs tests/enemy-variants-v12.test.mjs tests/enemy-defense-symbols.test.mjs tests/support-effects.test.mjs tests/selected-enemy-panel.test.mjs tests/warband-cards.test.mjs tests/current-wave-panel.test.mjs tests/battlefield-overlay-panels.test.mjs tests/army-readiness.test.mjs tests/wave-threats.test.mjs tests/developer-console.test.mjs tests/developer-console-ui.test.mjs tests/grimoire-display.test.mjs tests/recipe-filters.test.mjs",
+    "log": {
+      "path": "output/design/combat-clarifications-v28/targeted-tests.txt",
+      "sha256": "9b5f838264f1504f4e28427baaa757f9f5142b8a6c1416da3ae9ffc897312bd6"
+    },
+    "coverage": [
+      "All4 Physical/Magical immunity combinations via real Holy impact and status application",
+      "Actual Holy aura/frost bounce and explicit Golem gaze/petrification",
+      "Existing statuses removed when private active immunity toggles",
+      "All shield/evasion/immunity/Shell blocks are Dread-silent",
+      "Dread expiry inside coarse4s cooldown slice agrees with.03s steps at0/50/100% live protection",
+      "Actual DOT, damage aura, chain and launched/consumed-projectile attribution",
+      "Pause/new wave/enemy death and source-support persistence",
+      "All current Refraction and regeneration profiles plus modified HP",
+      "Absolute depletion deadline and actual2s projectile tick",
+      "Real numerical enemy inspection/readiness/guide/Console copy",
+      "Equal game-time speed1x/3x simulation traces and preserved RNG/archived data"
+    ]
+  },
+  "additionalApprovedFixtures": {
+    "command": "node --test tests/defender-specialization.test.mjs tests/enemy-aura.test.mjs tests/geometric-integration.test.mjs tests/mastery-support-display.test.mjs tests/secret-native-rig.test.mjs tests/warbands-maze.test.mjs tests/warbands-overview.test.mjs tests/wave-preview-ui.test.mjs",
+    "tests": 94,
+    "passed": 94,
+    "failed": 0,
+    "skipped": 0,
+    "log": {
+      "path": "output/design/combat-clarifications-v28/remaining-fixture-tests.txt",
+      "sha256": "acc6b9d3fb5659199213e017f33e4e972355cef001954b24b8e8bc3d8b0422ec"
+    },
+    "resolved": [
+      "RoyalV retained basic pairs eligible; fixed champion andVI remain ineligible",
+      "Protector suppresses actual owned-hit Dread without clearing its deadline",
+      "Recharge/Blink native cues exercised at real pulse and quiet countdowns",
+      "Physical-immune live profile clears injected freeze while a susceptible frozen profile retains Blink-only travel",
+      "Negative Dread UI created through actual HP damage and expires at3s",
+      "Legacy native Melancholy fixture forces first probability draw to0 while still consuming the seeded draw; full two-Game damage/events/RNG agreement remains asserted",
+      "Warband/overview/preview Holy damage versus companion-effect categories and live current timers"
+    ]
+  },
+  "limitations": [
+    "Continuous damage and impacts follow CombatManager’s existing update-endpoint event quantization; this report does not certify arbitrary coarse-step equality of full movement, targeting, new hit timestamps or attack output. Existing Dread cooldown expiry is integrated across its actual interval.",
+    "Readiness remains a deterministic composition comparison, not a placement or combat forecast.",
+    "No mutation of Game/recipes/main/audio/media/approved assets by this owner."
+  ],
+  "inventory": [
+    {
+      "path": "game/core/army-readiness.js",
+      "bytes": 18430,
+      "sha256": "b6d6e366b23bd2b27d41fffcafc88813aa96324c820058566183a946b93e0f6f"
+    },
+    {
+      "path": "game/core/campaign-roster.js",
+      "bytes": 7896,
+      "sha256": "80f40c339a5cfff7590bcf8a579999861a0aad70675f5e6df345f51056e6c179"
+    },
+    {
+      "path": "game/core/combat-rules.js",
+      "bytes": 1814,
+      "sha256": "3a16d01b10b4dd9c631f0d89c839b29ab706a7a42d288c432b0a622006ed106c"
+    },
+    {
+      "path": "game/core/combat.js",
+      "bytes": 28135,
+      "sha256": "1605ad59791e760edca3386b2e22bad289f61a1b59c20826cc665d1c78d0f39f"
+    },
+    {
+      "path": "game/core/developer-console.js",
+      "bytes": 18086,
+      "sha256": "9fe00f33f69eeac59b6a7a2934fe827d361c54c54987c9ec816884c13e2f6458"
+    },
+    {
+      "path": "game/core/enemy-rules.js",
+      "bytes": 2456,
+      "sha256": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f"
+    },
+    {
+      "path": "game/core/warband-info.js",
+      "bytes": 6859,
+      "sha256": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd"
+    },
+    {
+      "path": "game/core/wave-threats.js",
+      "bytes": 13375,
+      "sha256": "c50002eed997efd331813909672c6bc5a95685b814edc25e4f40cace51d55781"
+    },
+    {
+      "path": "game/render/enemy-defense-symbols.js",
+      "bytes": 6256,
+      "sha256": "8a56a3f33cf5cdba7657d532261ee3318fe5e0be2bda9e7e80b235b01bdc8ecd"
+    },
+    {
+      "path": "game/render/support-effects.js",
+      "bytes": 25906,
+      "sha256": "98c8e851169f00db8a17690563358072375d3bca7905a5f143a2ee43326b1db4"
+    },
+    {
+      "path": "tests/army-readiness.test.mjs",
+      "bytes": 21107,
+      "sha256": "d7dfe5a848658a8cc744591e484dae066a470e6a1952fc47563772f87bb7a7e5"
+    },
+    {
+      "path": "tests/battlefield-overlay-panels.test.mjs",
+      "bytes": 22431,
+      "sha256": "aa6a02b9aeea8a9251aa9e8a0201045cd4905c8e8df1989e5ed410bd0edf6356"
+    },
+    {
+      "path": "tests/combat-game-time-v13.test.mjs",
+      "bytes": 9206,
+      "sha256": "065a26587b1aa0947f895e79c19ba8da43f99a5353723539f080ce8448928b53"
+    },
+    {
+      "path": "tests/combat-overhaul.test.mjs",
+      "bytes": 11366,
+      "sha256": "b99328b0fa270ec952b0d71ddc408b1d12044193d33267869b38ca5481d9af34"
+    },
+    {
+      "path": "tests/combat-timings-v28.test.mjs",
+      "bytes": 12685,
+      "sha256": "ff61646379d9a4efb9c90da6e9dbeecdf5b06ae491ebf2ff35c73b02ff7913a9"
+    },
+    {
+      "path": "tests/current-wave-panel.test.mjs",
+      "bytes": 14979,
+      "sha256": "c553ca818363730fe73e2297fde17c92960eccdf77df63cf38bc6059d4f27cf6"
+    },
+    {
+      "path": "tests/defender-specialization.test.mjs",
+      "bytes": 7318,
+      "sha256": "c64303b53855bc5b731331f6f4772b308f10e881670d40d6e26cb56a57f86f87"
+    },
+    {
+      "path": "tests/developer-console-ui.test.mjs",
+      "bytes": 18618,
+      "sha256": "1728b4e993dc1192d0a7c2f76850f2e20e509284724e3990417a7982d89a3b5e"
+    },
+    {
+      "path": "tests/enemy-abilities-v12.test.mjs",
+      "bytes": 10098,
+      "sha256": "2dde520a22eaab8e4b4ddedaff11d4c83dc8685b72c6675757a11d41a07e7cd0"
+    },
+    {
+      "path": "tests/enemy-aura.test.mjs",
+      "bytes": 14787,
+      "sha256": "a9a17157ac3e28ea6cb2dcff18b8f44eee53c93da784dc24d10438983fb5c69f"
+    },
+    {
+      "path": "tests/enemy-balance-v10.test.mjs",
+      "bytes": 12999,
+      "sha256": "ae8d49cba5c54b5e20fdd4f80a9225aafedf988a8f85f287fbc592054b46dffa"
+    },
+    {
+      "path": "tests/enemy-defense-symbols.test.mjs",
+      "bytes": 22870,
+      "sha256": "243b1a85322fadb4a0045b7f20d7dbfccadf229819c0dcad801b69ab82d260de"
+    },
+    {
+      "path": "tests/enemy-variants-v12.test.mjs",
+      "bytes": 7815,
+      "sha256": "071e3d1af4651f8e4c5e514a756ac38109f73431b16013104cddc22007f9df48"
+    },
+    {
+      "path": "tests/geometric-integration.test.mjs",
+      "bytes": 17166,
+      "sha256": "260251365100199f3c77820074fdf4f6bd328e3ea4b59ded502eeb7629cd3801"
+    },
+    {
+      "path": "tests/grimoire-display.test.mjs",
+      "bytes": 7144,
+      "sha256": "79461956d13fe0ae586b633ea61d4918fbcef8bb34b7e5c2928fa17d096145d5"
+    },
+    {
+      "path": "tests/mastery-support-display.test.mjs",
+      "bytes": 9608,
+      "sha256": "4620daf0db6033baf8abac2191e08db6a2b4aae91dd71fdeeeb00fde7edc26d3"
+    },
+    {
+      "path": "tests/recipe-filters.test.mjs",
+      "bytes": 5059,
+      "sha256": "c7d172f8da7844fe65b868b975ea8c300a8fbeb22c8016ca660d8e8a8b69ff95"
+    },
+    {
+      "path": "tests/secret-native-rig.test.mjs",
+      "bytes": 19998,
+      "sha256": "0eae1222c93f39accc7a0108ef855ceed3b24ec095342ed113ab55b78ede66fa"
+    },
+    {
+      "path": "tests/selected-enemy-panel.test.mjs",
+      "bytes": 12957,
+      "sha256": "b92969e6d434e98dc308a2dc58adaf82f76b9bfef5998b03bdb6aa6fe5746113"
+    },
+    {
+      "path": "tests/support-effects.test.mjs",
+      "bytes": 24768,
+      "sha256": "13030c8e9e156211da1c222a288303f072fa95688806cadf81f111661546604c"
+    },
+    {
+      "path": "tests/warband-cards.test.mjs",
+      "bytes": 6411,
+      "sha256": "ce2676dc0a3a2984ec34a4593a35d56ae3dcfa78cbf3b5c6d3ff90ec76faf241"
+    },
+    {
+      "path": "tests/warbands-maze.test.mjs",
+      "bytes": 11024,
+      "sha256": "ecf062a5476eccc1db3095282d6287b3003b7acbc2ea6715ff99a5e034c8e5c0"
+    },
+    {
+      "path": "tests/warbands-overview.test.mjs",
+      "bytes": 16288,
+      "sha256": "e53eda17e5bbf262fe46e6f7712d1cd9878dfde593776a07b27a0388aba7648c"
+    },
+    {
+      "path": "tests/wave-preview-ui.test.mjs",
+      "bytes": 14546,
+      "sha256": "2086227298986dd0b21a69680566825dc27b1bb45cff06874bfa6f53d1041d95"
+    },
+    {
+      "path": "tests/wave-threats.test.mjs",
+      "bytes": 21730,
+      "sha256": "df4a2b9fa2b4c497f849683406f4ed582746d7be4421720222fa2628dcc04f93"
+    },
+    {
+      "path": "ui/developer-console.js",
+      "bytes": 15558,
+      "sha256": "d33909cee619bf271c9ed7166f31f9c771df6d19947e2d2c6965c2f8e52997aa"
+    },
+    {
+      "path": "ui/grimoire.js",
+      "bytes": 15081,
+      "sha256": "3c7d3e2d71e12e297cfd12550f451ae1f0cf75a549a6b49d0aed3d604cef06d9"
+    },
+    {
+      "path": "ui/selected-enemy.js",
+      "bytes": 7622,
+      "sha256": "3f19c587d3931b4259766205eb6bd25cd7a904da16765f564e78310a16bdbfa6"
+    },
+    {
+      "path": "ui/support-guide.js",
+      "bytes": 6719,
+      "sha256": "89d50d08bc4ae979794f5b32ba0c5108a56f6613644d246abff6eeea766b756b"
+    }
+  ],
+  "archivedData": [
+    {
+      "path": "data/balance.json",
+      "normalizedSha256": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+      "status": "PASS"
+    },
+    {
+      "path": "data/enemies.json",
+      "normalizedSha256": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+      "status": "PASS"
+    },
+    {
+      "path": "data/enemy-designs.json",
+      "normalizedSha256": "cb76cd4e7ae382670161132b6390005f68b7dd1403d82aff774021dab2f63ad5",
+      "status": "PASS"
+    },
+    {
+      "path": "data/maze-blueprints.json",
+      "normalizedSha256": "beb8caf34473dd4f6043f38d4736455d74cc705d8a1fa91a4513c523276d21e4",
+      "status": "PASS"
+    },
+    {
+      "path": "data/recipes.json",
+      "normalizedSha256": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+      "status": "PASS"
+    },
+    {
+      "path": "data/scenery-v5.json",
+      "normalizedSha256": "f2e3dfeb61c3bf91185fe843ab622c35a9e638770aacedbe920d825059c86519",
+      "status": "PASS"
+    },
+    {
+      "path": "data/scenery-v6.json",
+      "normalizedSha256": "74d874c95443ff5d5e7326e5161335b49f4f10f2e08393ee1e7f6ac647035dbd",
+      "status": "PASS"
+    },
+    {
+      "path": "data/scenery-v7.json",
+      "normalizedSha256": "8986c4083cee05ba6c90605a91c5cb88b750335941d706b9b9be27e534512502",
+      "status": "PASS"
+    },
+    {
+      "path": "data/scenery-v8-camp.json",
+      "normalizedSha256": "940cfc8a04d1719c1711b2068c65e0b1b864e2ffdfbc7c5b23882f42129c0b27",
+      "status": "PASS"
+    },
+    {
+      "path": "data/towers.json",
+      "normalizedSha256": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+      "status": "PASS"
+    },
+    {
+      "path": "data/waves.json",
+      "normalizedSha256": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+      "status": "PASS"
+    }
+  ]
+}

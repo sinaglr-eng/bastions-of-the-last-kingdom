@@ -1,4 +1,4 @@
-# Current campaign combat rules — 0.3.26
+# Current campaign combat rules — 0.3.27
 
 The playable roster is produced by the explicit adapters in game/core/campaign-roster.js. Archived balance JSON, approved native/GLB models, portraits, recorded prompts and existing voices remain preserved. Stable family IDs and recipe ingredients remain unchanged. Current runtime overrides and this document supersede historical ability descriptions, including the former Pure damage and Ranger defense-bypass rules.
 
@@ -8,7 +8,7 @@ Only **Physical**, **Magical** and **Holy** are live damage classes. Fire, frost
 
 Armor reduces all three classes using damage × 30 / (30 + effective armor), with the balance armorConstant replacing 30 if configured. Effective armor is max(0, base armor + reactive armor − strongest fixed reduction), then multiplied by (1 − strongest nearby MVP armor reduction), then by (1 − penetration). Fixed armor reduction does not sum, can affect a damage-immune target on contact, lasts 4s and never creates negative armor. Evasion and shields prevent that contact. A strongest-only armor-reduction aura has its stated radius and affects either damage immunity.
 
-Magical immunity blocks Magical damage, poison and burning. Physical immunity blocks Physical damage, movement slows and freeze. **Holy attacks and their companion effects ignore both damage immunities**, including Holy poison/fire/frost effects if supplied by an ability. Holy still respects armor, evasion, refreshing hit shields and direct-hit Shell. No magical resistance, typed resistance, magic ward or magic-resistance-reduction mechanic remains in the playable campaign.
+Magical immunity blocks Magical damage, poison, burning and healing block. Physical immunity blocks Physical damage, movement slows and freeze. **Only Holy damage ignores both damage immunities**. Companion effects of Holy defenders obey the same immunity categories: their slow/freeze cannot affect a Physical-immune target and their poison/burning cannot affect a Magical-immune target. Holy still respects armor, evasion, hit shields and direct-hit Shell. Golem's explicitly immunity-bypassing petrify remains a separate ability; its Physical damage does not bypass immunity. No magical resistance, typed resistance, magic ward or magic-resistance-reduction mechanic remains in the playable campaign.
 
 The Holy roster is Cleric (all six ranks), Priest, High Priest, Archbishop, Paladin, Frozen Celestial, Angel, Archangel and Lady Claire. Frost Warden, Frostsword Watchmen and Master Ranger are Physical. Elven King is Magical. Master Ranger poison is Magical.
 
@@ -61,17 +61,23 @@ Ticks split at individual poison expiry boundaries. Every stack credits only its
 | Mechanic | Current contract |
 |---|---|
 | Evasion | 25% chance against Physical, Magical and Holy direct hits; True Strike prevents it |
-| Refraction | Existing authored charge count; refresh every 5s |
+| Refraction | Three hit-blocking charges; recover all three 2s after the final charge is consumed. Partial shields do not periodically refill |
 | Reactive armor | +8 armor per contact, 15 stacks maximum =120; decay remains 0.7 stacks/s |
 | Shell | First shell wave39 blocks100/direct hit; +10 for each later wave index. Wave50 base210, stronger variant273 |
-| Regeneration | 10% actual maximum HP/s; wave38 Blood-Leech Troll variant30% |
-| Recharge | 50% missing HP every5s |
+| Regeneration | 20% actual maximum HP/s; wave38 Blood-Leech Troll variant40% |
+| Recharge | 50% missing HP every4s |
 | Cloak | Former cyclic-cloak campaign variants now remain continuously cloaked until detection/proximity reveals them |
-| Dread | −75% attack speed within4 tiles; existing control resistance reduces it |
-| Blink | Advances6 route tiles every6s, retaining ordered route/checkpoints |
+| Dread | Dealing actual HP damage to this invader gives that defender −75% attack speed for 3s, independent of distance. Further hits refresh the duration; strongest effect only; control resistance reduces the penalty |
+| Blink | Advances6 route tiles every5s, retaining ordered route/checkpoints |
 | Haste aura | +50% movement for3s every6s within3.5 tiles |
 
 Healing block still prevents regeneration and recharge during its active window. Actual variant HP and wave/group modifiers determine regeneration HP/s. Every invader's seeded variant remains independent; previews list possibilities and do not promise variant counts. Ordinary movement, spawn scheduling, thief/leak effects and other unchanged mechanics are preserved.
+
+Dread is attributed to the actual defender source, including already launched projectiles, owned poison/burning, offensive auras and secondary attacks. Evasion, immunity, hit shields, fully absorbed Shell damage and overkill beyond remaining HP do not create a Dread hit. Being nearby without dealing damage does not slow a defender. The timed effect survives the invader's death until its deadline and resets for the next wave.
+
+## Rank V merge exception
+
+Two same-family basic rank V defenders may merge into rank VI between waves even when retained from different earlier drafts. The selected defender's ID and foundation become the result and the other foundation becomes a wall; maximum ingredient MVP level is inherited. Retained-only merging preserves the current construction/draft phase and its keeper decision. Consuming a current candidate still requires all five placements and completes exactly that round's keeper selection. Lower ranks remain same-current-draft merges, and rank VI, champions, reserved defenders, walls and combat are excluded.
 
 ## MVP levels and attack pause
 

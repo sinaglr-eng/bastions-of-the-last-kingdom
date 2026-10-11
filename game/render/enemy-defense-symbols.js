@@ -19,7 +19,7 @@ export const ENEMY_DEFENSE_SYMBOLS=Object.freeze({
   recharge:symbol('Periodic healing','#5de4cd',[[[-17,6],[-12,16],[0,20],[12,16],[18,6],[18,-8],[10,-17],[-3,-20],[-14,-14]],[[11,-12],[-14,-14],[-10,7]],...cross.map(path=>path.map(([x,y])=>[x*.48,y*.48]))]),
   evasion:symbol('Direct-hit evasion','#a8dfca',[[[-20,-9],[-6,-9],[2,1],[-5,12],[9,12],[20,1],[9,-12]],[[11,1],[-1,1]],[[-20,4],[-13,4]]]),
   krakenShell:symbol('Damage absorption','#adc8ee',[[[-19,-16],[-21,-2],[-15,11],[-6,19],[6,19],[15,11],[21,-2],[19,-16],[-19,-16]],[[0,-16],[0,18]],[[-1,-16],[-13,12]],[[1,-16],[13,12]],[[-2,-16],[-20,-2]],[[2,-16],[20,-2]]]),
-  untouchable:symbol('Attack slowing aura','#e9a6da',[[[-15,19],[15,19],[-12,-18],[12,-18],[-15,19]],[[-8,11],[8,11]],[[-6,-10],[6,-10]]]),
+  untouchable:symbol('Dread on damaging hit','#e9a6da',[[[-15,19],[15,19],[-12,-18],[12,-18],[-15,19]],[[-8,11],[8,11]],[[-6,-10],[6,-10]]]),
 });
 
 const defenseBalance=balance=>({armorConstant:Math.max(.0001,finite(balance?.armorConstant,30))});
@@ -53,15 +53,15 @@ export function enemyDefenseDescriptions(definition,{balance}={}){
   const states=enemyDefenseVisualState(initial,{balance});
   return states.map(state=>{
     const percent=Math.round(state.amount*100);
-    const detail=state.kind==='refraction'?state.count+' direct-hit charges; recharge every '+R.refraction.period+'s':
+    const detail=state.kind==='refraction'?state.count+' direct-hit charges; regenerate '+R.refraction.period+'s after the final charge is spent':
       state.kind==='regen'?enemyNumber(state.fraction*100)+'% maximum HP/s ('+enemyNumber(state.perSecond)+' HP/s); disabled by healing block':
       state.kind==='recharge'?enemyNumber(state.fraction*100)+'% missing HP every '+R.recharge.period+'s; disabled by healing block':
       state.kind==='reactive'?definition.reactiveArmor+' armor per direct hit, up to '+R.reactive.maxStacks+' stacks ('+enemyNumber(definition.reactiveArmor*R.reactive.maxStacks)+' armor); decays '+R.reactive.decayPerSecond+' stacks/s':
       state.kind==='krakenShell'?state.perHit+' damage removed after armor from each Physical, Magical and Holy direct hit':
       state.kind==='evasion'?percent+'% chance against Physical, Magical and Holy direct hits; True Strike bypasses it':
-      state.kind==='untouchable'?percent+'% attack slowing within '+R.dread.radius+' tiles; control resistance counters it':
-      state.kind==='physicalImmune'?'Blocks Physical damage, slowing and freezing; Holy effects bypass this immunity':
-      state.kind==='magicImmune'?'Blocks Magical damage, poison and burning; Holy effects bypass this immunity':'Reactive armor reduces Physical, Magical and Holy damage';
+      state.kind==='untouchable'?percent+'% attack slowing for '+R.dread.duration+'s after actual HP damage from that defender, including owned DOT and secondary hits; no range limit or stacking; control resistance reduces it':
+      state.kind==='physicalImmune'?'Blocks Physical damage, slowing and freezing; only Holy damage bypasses this immunity':
+      state.kind==='magicImmune'?'Blocks Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity':'Reactive armor reduces Physical, Magical and Holy damage';
     return {...state,...ENEMY_DEFENSE_SYMBOLS[state.kind],detail};
   });
 }

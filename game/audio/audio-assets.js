@@ -15,7 +15,7 @@ export async function recordedAudioBankReview(audio){
     return {id:clip.id,url:clip.url,category,decoded,...(decoded?{durationSeconds:buffer.duration,sampleRate:buffer.sampleRate,channels:buffer.numberOfChannels,frames:buffer.length}:{})};
   };
   const buffers=await audio.preloadRecordedEffects(),clips=effects.map((clip,index)=>details(clip,buffers[index],'attack'));
-  for(const clip of music)clips.push(details(clip,audio.disposed||audio.muted?null:await audio.music.buffer(clip),'music'));
+  for(const clip of music)clips.push(details(clip,audio.disposed||audio.muted?null:await audio.music.reviewBuffer(clip),'music'));
   const decoded=clips.filter(clip=>clip.decoded).length;
   return {...base,status:decoded===base.expected&&effects.length===RECORDED_ATTACK_TYPE_COUNT&&music.length===RECORDED_MUSIC_TRACK_COUNT?'passed':'failed',decoded,contextState:audio.context.state,musicCacheBuffers:audio.music.cache.size,clips};
 }

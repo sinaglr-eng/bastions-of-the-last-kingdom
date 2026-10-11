@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-10-11T17:12:32.922Z",
+  "scope": "Targeted actual Game Rank V retained/mixed/current merges, production selected panel cleanup and native command stale guards",
+  "testFiles": [
+    "tests/rank-five-retained-merge.test.mjs",
+    "tests/merge-badge-ui.test.mjs",
+    "tests/defender-rank-preview.test.mjs",
+    "tests/mvp-presentation.test.mjs",
+    "tests/core.test.mjs",
+    "tests/ranks-recipes.test.mjs",
+    "tests/mvp.test.mjs",
+    "tests/command-points.test.mjs",
+    "tests/command-points-ui.test.mjs",
+    "tests/draft-keeper.test.mjs",
+    "tests/draft-pointer-input.test.mjs",
+    "tests/merge-review.test.mjs",
+    "tests/draft-presentation.test.mjs",
+    "tests/battlefield-panel-main-integration.test.mjs"
+  ],
+  "exitCode": 0,
+  "log": "ui-merge-targeted-tests.txt",
+  "logSha256": "55420911c77316e65ce5b7b9ca22ae0bcffb1d152f05c151676e330a744e8a30",
+  "summary": [
+    "✔ captured iPad-style touch release hit-tests the visible card and immediately updates the actual sidebar binding (40.3592ms)",
+    "ℹ tests 121",
+    "ℹ pass 121",
+    "ℹ fail 0",
+    "ℹ duration_ms 924.7786"
+  ],
+  "sourceAndTests": [
+    {
+      "path": "game/main.js",
+      "sha256": "0bf070caa81534959e095527f20f70326035983427acbfa685f10828e9647a7b"
+    },
+    {
+      "path": "game/core/game.js",
+      "sha256": "9813e8db7df26dec7e4f7fa6c1fc3b81c60f718164445d21e1d73fd72c3ca73b"
+    },
+    {
+      "path": "game/core/recipes.js",
+      "sha256": "8e0dea788e077ede7b636807dd5a5f0f5d2cc2755ef9148a989cd9e2c9da8216"
+    },
+    {
+      "path": "ui/draft-input.js",
+      "sha256": "bab436b00dcc50ee28be7a37016ba58d11b9b074e88bec6580db6fe4ef230875"
+    },
+    {
+      "path": "ui/mvp-details.js",
+      "sha256": "22315b12eb0ce39e678ad4a6cf58fce3530de65c79379e373288dcf55101bbad"
+    },
+    {
+      "path": "ui/mvp-details.css",
+      "sha256": "ec351256b387a2dc6ff6510cb77d78e9dcbbbada7feaa287f13264be6b5ebbb8"
+    },
+    {
+      "path": "tests/rank-five-retained-merge.test.mjs",
+      "sha256": "83424eaa51092ec071f6c66e5d31e3596a5e1f9659e73c6fe30bd4b8571d708e"
+    },
+    {
+      "path": "tests/defender-rank-preview.test.mjs",
+      "sha256": "f94a0bd6d148bbc6ffbcbef8f2f229b661985efd8b02bb8db67ef4f7417084e2"
+    },
+    {
+      "path": "tests/mvp-presentation.test.mjs",
+      "sha256": "716429a1a1296b62fd0a3f464c84cb8e8cb2f595735b551f1aca3cbdba7426fd"
+    },
+    {
+      "path": "tests/draft-pointer-input.test.mjs",
+      "sha256": "82e982aae6d5a1d866022cc6560967edfeea20669ecea79af307912a01bed082"
+    }
+  ],
+  "limitations": [
+    "No physical iPad or browser verification performed by this test run. Parent handles native browser checks.",
+    "Main source contains concurrent release-help changes; hashes bind this exact candidate."
+  ]
+}

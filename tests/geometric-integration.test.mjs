@@ -79,7 +79,8 @@ test('pause and petrification suppress displacement, hidden teleport stays hidde
   const game=fighting(),enemy=blinkFixture(game,{petrified:true}),events=[];game.on((type,payload)=>{if(type==='teleport')events.push(payload);});game.combat.update(.02);assert.equal(events.length,0);assert.equal(enemy.traveled,0);
   const paused=fighting(),p=blinkFixture(paused);paused.paused=true;const before={x:p.x,z:p.z,clock:p.blinkClock,elapsed:paused.combat.elapsed};paused.tick(1);assert.deepEqual({x:p.x,z:p.z,clock:p.blinkClock,elapsed:paused.combat.elapsed},before);
   const hidden=fighting(),h=blinkFixture(hidden,{stealth:true}),hiddenEvents=[];hidden.on((type,payload)=>{if(type==='teleport')hiddenEvents.push(payload);});hidden.combat.update(.02);assert.equal(hiddenEvents.length,1);assert.equal(hiddenEvents[0].visible,false);assert.equal(h.cloaked,true);
-  const frozen=fighting(),f=blinkFixture(frozen,{freeze:true}),frozenEvents=[];frozen.on((type,payload)=>{if(type==='teleport')frozenEvents.push(payload);});frozen.combat.update(.02);assert.equal(frozenEvents.length,1);assert.equal(f.traveled,4);assert.equal(f.x,22);
+  const frozen=fighting(),f=blinkFixture(frozen,{freeze:true}),frozenEvents=[];f.physicalImmune=false;frozen.on((type,payload)=>{if(type==='teleport')frozenEvents.push(payload);});frozen.combat.update(.02);assert.equal(frozenEvents.length,1);assert.equal(f.traveled,4);assert.equal(f.x,22);
+  const immune=fighting(),immuneFrozen=blinkFixture(immune,{freeze:true});assert.equal(immuneFrozen.physicalImmune,true);immune.combat.update(.02);assert.equal(immuneFrozen.statuses.freeze,undefined,'A Physical-immune actual profile cannot preserve an injected freeze');assert.ok(Math.abs(immuneFrozen.traveled-4.04)<1e-12,'The actual immune invader keeps residual ordinary movement');
 });
 
 test('the real renderer death event retains grounded corpses until the single wave-complete event before reward or final victory',()=>{

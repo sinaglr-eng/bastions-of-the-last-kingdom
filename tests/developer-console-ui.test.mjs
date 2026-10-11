@@ -46,6 +46,7 @@ test('English console markup uses native accessible forms, numeric bounds, two h
   assert.match(html,/Campaign Test · approved rules and normal progression/);assert.match(html,/Sandbox · custom lineup and wave/);assert.match(html,/a Sandbox victory is not a campaign completion/);
   assert.match(html,/name="mvpLevel"[^>]*min="0" max="10"/);assert.match(html,/name="tier"[^>]*min="1" max="6"/);assert.match(html,/name="wave"[^>]*min="1" max="50"/);assert.match(html,/data-sandbox-control/);
   for(const command of ['reset','run-wave','simulation','add-defender','defender','remove-defender','resources','spawn','enemy-rules','timing-rules'])assert.ok(html.includes(`data-console-command="${command}"`));
+  assert.match(html,/<option value="refraction.period">Refraction delay after depletion<\/option>/);assert.match(html,/<option value="dread.duration">Dread duration<\/option>/);assert.doesNotMatch(html,/dread.radius|Dread radius|Refraction interval/);
   for(const [family,stats]of Object.entries(console.game.data.towers)){assert.ok(html.includes(`value="${family}"`));assert.ok(html.includes(stats.name));}
   assert.match(html,/Test setup JSON/);assert.doesNotMatch(html,/onclick=|onchange=|eval\(|javascript:/);
 });

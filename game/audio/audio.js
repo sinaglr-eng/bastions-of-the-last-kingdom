@@ -7,12 +7,12 @@ const soundKind=payload=>attackVisualKind(payload.source?.family||payload.tower?
 export class AudioManager{
   constructor(muted=false,{contextFactory=null,now=()=>globalThis.performance?.now?.()??Date.now(),random=Math.random,voiceRandom=Math.random,musicRandom=Math.random,selectionCatalogue={},fetchAudio=globalThis.fetch?.bind(globalThis),musicTimers={}}={}){
     this._muted=!!muted;this.context=null;this.contextFactory=contextFactory;this.now=now;this.random=random;
-    this.channels={Music:.1,Ambience:.12,Attacks:.085,Impacts:.07,Magic:.075,UI:.12,Boss:.12,Victory:.14,Defeat:.12,Voices:.08};
+    this.channels={Music:.18,Ambience:.12,Attacks:.12,Impacts:.07,Magic:.075,UI:.12,Boss:.12,Victory:.025,Defeat:.12,Voices:.08};
     this.last=new Map();this.recent=[];this.voices=new Set();this.maxVoices=28;this.maxEventsPerSecond=16;this.noiseBuffer=null;this.disposed=false;
     this.voiceRandom=voiceRandom;this.fetchAudio=fetchAudio;this.selectionCatalogue=new Map();this.audioBuffers=new Map();this.audioLoads=new Set();
     this.selectionVoice=null;this.selectionRequest=0;this.selectionKey=null;this.committedVoiceKeys=new WeakMap();this.catalogueRequest=0;this.resumePromise=null;this.setSelectionCatalogue(selectionCatalogue);
     this.recordedEffects=new Map();this.recordedDefenders=new Map();this.recordedCatalogueRequest=0;this.attackGeneration=0;this.gameState=null;this.effectFailures=new Map();
-    this.music=new RecordedMusic({getContext:()=>this.context,fetchAudio,random:musicRandom,now,volume:()=>this.channels.Music,...musicTimers});this.music.setMuted(this._muted);
+    this.music=new RecordedMusic({getContext:()=>this.context,fetchAudio,random:musicRandom,now,volume:()=>this.channels.Music,celebrationVolume:()=>this.channels.Victory,...musicTimers});this.music.setMuted(this._muted);
   }
   get muted(){return this._muted;}
   set muted(value){
@@ -34,9 +34,9 @@ export class AudioManager{
     // Resume inside the accepted pointer/keyboard gesture, before fetching or
     // decoding. Safari can report an interrupted context after backgrounding.
     if(this.context&&['suspended','interrupted'].includes(this.context.state)){
-      try{this.resumePromise=Promise.resolve(this.context.resume()).then(()=>{void this.music?.ensure();void this.preloadRecordedEffects();return true;},()=>false);}catch{this.resumePromise=Promise.resolve(false);}
+      try{this.resumePromise=Promise.resolve(this.context.resume()).then(()=>{void this.music?.ensure();void this.music?.ensureCelebration();void this.preloadRecordedEffects();return true;},()=>false);}catch{this.resumePromise=Promise.resolve(false);}
     }
-    else if(this.context?.state==='running'){void this.music?.ensure();void this.preloadRecordedEffects();}
+    else if(this.context?.state==='running'){void this.music?.ensure();void this.music?.ensureCelebration();void this.preloadRecordedEffects();}
   }
   // Only real recorded assets enter this boundary. Display names and ranks do
   // not choose a voice: each stable family ID owns exactly two A/B recordings.
@@ -92,7 +92,7 @@ export class AudioManager{
     const paused=!!game?.paused&&!['won','lost'].includes(game?.phase);
     if(game?.phase!==this.gameState?.phase||paused&&!this.gameState?.paused)this.attackGeneration++;
     if(paused&&!this.gameState?.paused){this.cancelSelectionVoice();this.stopGameVoices();}
-    this.gameState={phase:game?.phase,paused};this.music.sync(this.gameState);
+    this.gameState={phase:game?.phase,paused,round:game?.round,waveLimit:game?.waveLimit};this.music.sync(this.gameState);
   }
   resetRun(){
     this.attackGeneration++;this.cancelSelectionVoice();this.committedVoiceKeys=new WeakMap();this.music.reset();this.gameState=null;this.last.clear();this.recent=[];
@@ -234,6 +234,10 @@ export class AudioManager{
     else{this.noise(.065,'Impacts',1200,{gain:.75});this.tone(140,.08,'Impacts','triangle',68,{gain:.35});}
   }
   play(event,payload={}){
+    // Completion is recorded even while muted/locked. The subsequent won HUD
+    // shares this round key, so the last wave never starts a second celebration.
+    if(this.disposed)return;
+    if(event==='wave-complete'){this.attackGeneration++;this.music.onWaveComplete(payload);return;}
     if(event==='defender-committed')return this.playSelectionVoice(payload);
     if(this.muted||this.disposed||!this.context||payload.visible===false||this.gameState?.paused&&['shot','aura-attack','chain','burn-proc','impact','hit','death','leak'].includes(event))return;
     if(event==='defender-select')return;
@@ -263,7 +267,7 @@ export class AudioManager{
     }
     if(event==='wave'&&this.allow('wave',1))this.tone(110,.65,'Boss','triangle',82,{gain:.7});
     if(event==='leak'&&this.allow('leak',.12))this.tone(90,.20,'Impacts','sawtooth',45,{gain:.5});
-    if(event==='reward'&&this.allow('reward',.5))this.tone(660,.30,'Victory','sine',null,{gain:.6});
+    if(event==='reward'&&!this.music.tracks.length&&this.allow('reward',.5))this.tone(660,.30,'Victory','sine',null,{gain:.6});
     if(event==='won'&&!this.music.tracks.length&&this.allow('won',2))[440,554,659,880,1108].forEach((freq,i)=>this.tone(freq,.45,'Victory','sine',null,{delay:i*.13,gain:.7}));
     if(event==='lost'&&this.allow('lost',2))this.tone(160,.9,'Defeat','triangle',55,{gain:.65});
   }

@@ -20,7 +20,7 @@ const tower=(family,x=10,z=10)=>({id:1,family,tier:1,state:'active',x,z,cooldown
 async function model(enemy){const bytes=readFileSync(new URL('../public/assets/geometric/enemies/'+enemy.type+'.glb',import.meta.url)),decoded=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');return {decoded,figure:enemyFigure(enemy,new Map([[enemy.type,decoded.scene]]))};}
 function disposeFallback(figure){const resources=new Set();figure.traverse(node=>{if(node.geometry)resources.add(node.geometry);for(const material of Array.isArray(node.material)?node.material:[node.material])if(material)resources.add(material);});disposeEnemyFigure(figure);resources.forEach(resource=>resource.dispose());}
 
-test('actual wave14 spawn shows three shield panels despite existing model shards, deflects3→0 and restores3 on real5s recharge',async()=>{
+test('actual wave14 spawn shows three shield panels despite existing model shards, deflects3→0 and restores3 two seconds after depletion',async()=>{
   const game=arena(),enemy=spawn(game,'host_14'),loaded=await model(enemy),fallback=enemyFigure(enemy,new Map()),fx=new EnemyAbilityEffects(new THREE.Scene(),{balance:data.balance});
   assert.equal(enemy.shields,3);assert.equal(fallback.userData.shards.children.length,3,'the reported cosmetic skip is exercised');
   const events=[];game.on((kind,payload)=>{if(kind==='deflect')events.push(payload.enemy.shields);});
@@ -37,7 +37,7 @@ test('actual wave14 spawn shows three shield panels despite existing model shard
     sync(3);const hp=enemy.hp;
     for(const remaining of [2,1,0]){assert.equal(game.combat.damage(enemy,40,'physical',{directHit:true}),0);assert.equal(enemy.hp,hp);sync(remaining);}
     assert.deepEqual(events,[2,1,0]);assert.ok(game.combat.damage(enemy,40,'physical',{directHit:true})>0);
-    game.tick(4.99);sync(0);game.tick(.02);assert.equal(enemy.shields,3);sync(3);
+    game.tick(1.999);sync(0);game.tick(.001);assert.equal(enemy.shields,3);sync(3);
     enemy.shields=0;game.combat.damage(enemy,1,'physical',{});sync(0);
   }finally{fx.dispose();disposeEnemyFigure(loaded.figure);disposeDecodedGeometricAsset(loaded.decoded);disposeFallback(fallback);}
 });
@@ -80,13 +80,13 @@ test('obsolete ward never creates a symbol while healing-block, regeneration and
   const before=recharge.hp;game.tick(8);assert.ok(recharge.hp>before,'actual periodic healing resumes on its next tick');
 });
 
-test('the live slowing-aura symbol describes the real enemy modifier independently of each target range',()=>{
+test('the live Dread symbol describes the real on-hit modifier independently of each target range',()=>{
   const game=arena(),enemy=spawn(game,'host_17'),guard={...tower('soldier'),cooldown:10};game.towers=[guard];
   assert.ok(kinds(enemy).includes('untouchable'));assert.equal(state(enemy).find(row=>row.kind==='untouchable').amount,enemy.untouchable);
   assert.equal(enemyDefenseDescriptions(data.enemies.host_17).filter(row=>row.kind==='untouchable').length,1);
-  game.tick(.1);assert.ok(Math.abs(guard.cooldown-(10-.1*(1-enemy.untouchable)))<1e-12,'actual nearby guard cooldown receives the slowing modifier');
-  enemy.x=14;guard.cooldown=10;game.tick(.1);assert.ok(Math.abs(guard.cooldown-9.9)<1e-12,'actual four-tile boundary is outside the aura');
-  assert.ok(kinds(enemy).includes('untouchable'),'available enemy aura does not depend on one target being in range');
+  game.tick(.1);assert.ok(Math.abs(guard.cooldown-9.9)<1e-12,'Proximity alone does not slow a guard');
+  game.combat.damage(enemy,1,'holy',{},guard);enemy.x=30;guard.cooldown=10;game.tick(.1);assert.ok(Math.abs(guard.cooldown-(10-.1*(1-enemy.untouchable)))<1e-12,'Actual damaging hit slows the guard after the enemy moves far away');
+  assert.ok(kinds(enemy).includes('untouchable'),'available enemy ability does not depend on one target being in range');
   assert.equal(kinds({...enemy,untouchable:0}).includes('untouchable'),false);
 });
 
@@ -111,10 +111,10 @@ test('all three real direct-hit classes face shields, evasion and armor-then-She
 });
 
 test('native defense descriptions use isolated console timings and stack limits, including valid zero decay',()=>{
-  const balance={...data.balance,enemyRules:{refraction:{period:2},recharge:{period:3},reactive:{maxStacks:4,decayPerSecond:0},dread:{radius:7}}};
+  const balance={...data.balance,enemyRules:{refraction:{period:5},recharge:{period:3},reactive:{maxStacks:4,decayPerSecond:0},dread:{duration:7}}};
   const rows=enemyDefenseDescriptions({hp:100,armor:20,refraction:3,recharge:.5,reactiveArmor:8,untouchable:.75},{balance});
-  assert.match(rows.find(row=>row.kind==='refraction').detail,/every 2s/);assert.match(rows.find(row=>row.kind==='recharge').detail,/50% missing HP every 3s/);assert.match(rows.find(row=>row.kind==='reactive').detail,/4 stacks \(32 armor\); decays 0 stacks\/s/);assert.match(rows.find(row=>row.kind==='untouchable').detail,/within 7 tiles/);
-  assert.match(enemyDefenseDescriptions(data.enemies.host_14).find(row=>row.kind==='refraction').detail,/every 5s/,'Global authored timing remains unchanged');
+  assert.match(rows.find(row=>row.kind==='refraction').detail,/5s after the final charge is spent/);assert.match(rows.find(row=>row.kind==='recharge').detail,/50% missing HP every 3s/);assert.match(rows.find(row=>row.kind==='reactive').detail,/4 stacks \(32 armor\); decays 0 stacks\/s/);assert.match(rows.find(row=>row.kind==='untouchable').detail,/7s.*no range limit/);
+  assert.match(enemyDefenseDescriptions(data.enemies.host_14).find(row=>row.kind==='refraction').detail,/2s after the final charge is spent/,'Global depletion delay remains unchanged');
 });
 
 test('only real defense layers remain across obsolete resistance caps, fixed shred, MVP reduction, immunity and fractional shield charges',()=>{

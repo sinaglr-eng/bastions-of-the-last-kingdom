@@ -142,10 +142,10 @@ test('the actual campaign analyzer and army evaluator render the same configured
   const full=wavePreviewMarkup({...outlook,readiness},data,{});
   const current=outlook.next.enemies[0];
   assert.match(full,new RegExp(`${current.count} × ${current.name}`));
-  assert.match(full,/Immune to Magical damage, poison and burning/);assert.match(full,/Immune to Physical damage, slowing and freezing/);
+  assert.match(full,/Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity/);assert.match(full,/Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity/);
   assert.match(full,/Each enemy independently chooses a variant/);assert.match(full,/1 active defender/);
   assert.ok(full.includes(new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(current.variants[0].maxHp)+' HP'));
-  for(const summary of summaries(full))assert.doesNotMatch(summary,/ HP| armor|tiles\/s|Immune to Magical damage, poison and burning/);
+  for(const summary of summaries(full))assert.doesNotMatch(summary,/ HP| armor|tiles\/s|Immune to Magical damage, poison, burning and healing block/);
   const partial=full.match(/<section class="wave-after-preview"[\s\S]*?<\/section>/)?.[0];
   assert.ok(partial);assert.ok(partial.includes(outlook.after.name));assert.doesNotMatch(partial,/\d[\d,.]* (?:invaders|HP|armor|tiles\/s)| × |wave-enemy-details/);
   assert.equal(JSON.stringify(data),before);assert.strictEqual(analyzer.outlook(34,50).next,outlook.next);

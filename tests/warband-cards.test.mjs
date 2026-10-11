@@ -27,7 +27,7 @@ test('all 50 actual guide cards preserve portraits/flavor while displaying every
 });
 
 test('actual wave 17 dread, 12 disarm and 8 proportional regeneration details remain visible in guide and upcoming cards',()=>{
-  for(const [index,expected]of [[16,/within 4 tiles lose 75% attack speed/],[11,/within 3 tiles for 5s every 8s/],[7,/Regenerates 10% maximum health\/s \(25\.6 HP\/s\)/]]){
+  for(const [index,expected]of [[16,/actual HP damage.*75% attack speed.*3s.*regardless of range/],[11,/within 3 tiles for 5s every 8s/],[7,/Regenerates 20% maximum health\/s \(51\.2 HP\/s\)/]]){
     const wave=waves[index];for(const markup of [warbandCardsMarkup([wave],enemies,images),upcomingWarbandMarkup(wave,enemies)]){
       assert.match(markup,expected);assert.ok(!markup.includes('title='),'numbers are readable text, including on touch devices');
     }
@@ -41,7 +41,7 @@ test('wave38 describes separate real Knifeman and Blood-Leech variants, not a fi
   for(const markup of [warbandCardsMarkup([wave],enemies,images),upcomingWarbandMarkup(wave,enemies)]){
     const sections=[...markup.matchAll(/<section class="warband-variant"[^>]*>([\s\S]*?)<\/section>/g)].map(match=>match[1]);assert.equal(sections.length,2);
     assert.ok(sections[0].includes(escape(enemies.host_38.variants[0].name)));assert.match(sections[0],/Cloaked continuously/);assert.match(sections[0],/Disarms defenders within 3 tiles for 5s every 8s/);assert.ok(!sections[0].includes('HP/s'));
-    assert.ok(sections[1].includes('Blood-Leech Trolls'));assert.match(sections[1],/Regenerates 30% maximum health\/s \(9,410\.7 HP\/s\)/);assert.ok(!sections[1].includes('Cloaked')&&!sections[1].includes('Disarms'));
+    assert.ok(sections[1].includes('Blood-Leech Trolls'));assert.match(sections[1],/Regenerates 40% maximum health\/s \(12,547\.6 HP\/s\)/);assert.ok(!sections[1].includes('Cloaked')&&!sections[1].includes('Disarms'));
   }
 });
 

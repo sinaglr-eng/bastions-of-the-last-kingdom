@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {distance,towerStats} from '../core/math.js';
-import {enemyRulesFor,enemyDisarmActive} from '../core/enemy-rules.js';
-import {ignoresDamageImmunity} from '../core/combat-rules.js';
+import {enemyRulesFor,enemyDisarmActive,defenderDreadState} from '../core/enemy-rules.js';
+import {statusEffectAllowed} from '../core/combat-rules.js';
 import {mvpArmorReduction,mvpLevel,MVP_RULES} from '../core/mvp.js';
 
 // Read-only display of the actual rules in supportBonuses/CombatManager.
@@ -91,14 +91,16 @@ export function towerSupportState(tower,towers,data,options={}){
     state.effects.push(effect(key,value,entry.amount,entry.sources));
   }
   if(combatActive(options)){
-    const combat=options.combat,R=combat.rules||enemyRulesFor(data),resist=state.bonuses.controlResistance||0,dread=[],disarm=[],ruins=[];
+    const combat=options.combat,R=combat.rules||enemyRulesFor(data),resist=state.bonuses.controlResistance||0,disarm=[],ruins=[];
     for(const enemy of combat.enemies||[]){
       if(enemy.dead)continue;const d=distance(tower,enemy);
-      const amount=(enemy.untouchable||0)*(1-resist);
-      if(amount>0&&d<R.dread.radius)dread.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:amount});
       if(d<R.disarm.radius&&enemyDisarmActive(enemy,combat.elapsed||0,resist,R))disarm.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:true});
     }
-    if(dread.length){const strongest=Math.max(...dread.map(s=>s.value));state.effects.push(effect('dread',strongest,strongest,dread.filter(s=>s.value===strongest)));}
+    const fear=defenderDreadState(tower,combat.elapsed||0,resist);
+    if(fear.amount){
+      const source=fear.source,visible=source&&typeof combat.isRevealed==='function'?combat.isRevealed(source):tower.dread.visible!==false;
+      state.effects.push(effect('dread',fear.amount,fear.amount,source?[{id:source.id,family:source.type,name:source.name||source.type||'Invader',value:fear.amount,visible}]:[],{remainingSeconds:fear.remaining,label:`Dread · attack speed −${percent(fear.amount)} · ${fear.remaining.toFixed(1)}s remaining`}));
+    }
     if(disarm.length)state.effects.push(effect('disarm',true,1,disarm));
     const remaining=Math.max(0,(tower.melancholyUntil||0)-(combat.elapsed||0));
     if(remaining)state.effects.push(effect('melancholy',remaining,1,[{id:tower.id,family:tower.family,name:data.towers[tower.family].name,value:remaining}],{label:`Melancholy · cannot attack · ${remaining.toFixed(1)}s remaining`}));
@@ -131,17 +133,17 @@ export function enemyStatusState(enemy,towers,data,options={}){
   if(enemy.dead)return [];
   const statuses=enemy.statuses||{},effects=new Map();
   const add=(key,value)=>{if(value>0)effects.set(key,{key,...ENEMY_EFFECT_STYLES[key],value:Math.max(value,effects.get(key)?.value||0)});};
-  let slow=Math.max(statuses.slow?.amount||0,statuses.gazeSlow?.amount||0),armor=statuses.shred?.amount||0;
+  let slow=statusEffectAllowed(enemy,'slow')?Math.max(statuses.slow?.amount||0,statuses.gazeSlow?.amount||0):0,armor=statuses.shred?.amount||0;
   for(const tower of towers){
     if(tower.state!=='active')continue;const s=options.statsFor?options.statsFor(tower):towerStats(tower,data),d=distance(tower,enemy);
     if(tower.attackPaused)continue;
-    if((!enemy.physicalImmune||ignoresDamageImmunity(s))&&s.slowAura&&d<=s.range)slow=Math.max(slow,s.slowAura);
+    if(statusEffectAllowed(enemy,'slow')&&s.slowAura&&d<=s.range)slow=Math.max(slow,s.slowAura);
     if(d<=(s.effectRange??s.range))armor=Math.max(armor,s.armorShredAura||0);
   }
   if(enemy.boss)slow*=data.balance.bossSlowMultiplier??.5;
   const fraction=mvpArmorReduction(enemy,towers),baseArmor=Math.max(0,(enemy.armor||0)+(enemy.reactiveArmor||0)*(enemy.reactiveStacks||0));
   add('slow',slow);add('armor',armor+Math.max(0,baseArmor-armor)*fraction);
-  for(const key of ['freeze','petrify','poison','burn','bleed','healBlock'])if(statuses[key]?.time>0)add(key,statuses[key].dps||statuses[key].time);
+  for(const key of ['freeze','petrify','poison','burn','bleed','healBlock'])if(statusEffectAllowed(enemy,key)&&statuses[key]?.time>0)add(key,statuses[key].dps||statuses[key].time);
   return [...effects.values()];
 }
 

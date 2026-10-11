@@ -162,7 +162,7 @@ test('unknown and incomplete enemy entries remain safe and all text and image at
 
 test('real campaign mixed immunity wave reports actual possible defenses with full group count and consumes no game RNG',()=>{
   const analyzer=new WaveThreatAnalyzer(data),before=JSON.stringify(data),outlook=analyzer.outlook(34,50),wave=outlook.next,html=nextWaveSummaryMarkup(outlook,data,{});
-  assert.match(html,/Immune to Magical damage, poison and burning; Holy effects ignore this immunity/);assert.match(html,/Immune to Physical damage, slowing and freezing; Holy effects ignore this immunity/);assert.match(html,/Possible · Ashen/);assert.match(html,/Possible · Spectral/);assert.doesNotMatch(html,/magic resistance|piercing damage/);
+  assert.match(html,/Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity/);assert.match(html,/Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity/);assert.match(html,/Possible · Ashen/);assert.match(html,/Possible · Spectral/);assert.doesNotMatch(html,/magic resistance|piercing damage/);
   assert.ok(html.includes(`${wave.enemies[0].count} × ${wave.enemies[0].name}`));assert.match(html,/21,640 HP each/);assert.equal((html.match(/21,640 HP each/g)||[]).length,1);assert.doesNotMatch(html,/tiles\/s|Army readiness|Boss in|After ·/);
   assert.equal(JSON.stringify(data),before);assert.equal(nextWaveSummaryMarkup(outlook,data,{}),html);assert.strictEqual(analyzer.outlook(34,50).next,wave);
 });

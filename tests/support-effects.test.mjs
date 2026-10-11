@@ -71,10 +71,10 @@ test('ordinary MVP sources keep their real armor marker and radius while paused,
   }finally{fx.dispose();}
 });
 
-test('paused offensive auras vanish while detection and MVP support remain, including Holy slowing through Physical immunity',()=>{
+test('paused offensive auras vanish while detection and MVP support remain; Physical immunity blocks Holy slowing',()=>{
   const current={...data,towers:campaignTowers(data.towers)},g=new Game(current,{seed:7}),enemy=g.combat.spawn('host_01');g.phase='combat';g.combat.spawnQueue=[{time:9999,type:'host_01'}];Object.assign(enemy,{x:11,z:10,speed:0,hp:1e9,maxHp:1e9,armor:100,physicalImmune:true,magicImmune:true});
   const frost={...unit('winterhold'),mvpLevel:10},armor=unit('mechanicalgolem',2),cleric={...unit('cleric',3),attackPaused:true};g.towers=[frost,armor,cleric];
-  g.combat.update(.01);let effects=enemyStatusState(enemy,g.towers,current);assert.equal(effects.find(row=>row.key==='slow').value,.75,'The actual Holy frost aura bypasses damage immunity');assert.equal(enemy.armorShred,30);assert.equal(effects.find(row=>row.key==='armor').value,37);
+  g.combat.update(.01);let effects=enemyStatusState(enemy,g.towers,current);assert.equal(effects.find(row=>row.key==='slow'),undefined,'The actual Holy frost aura obeys Physical control immunity');assert.equal(enemy.armorShred,30);assert.equal(effects.find(row=>row.key==='armor').value,37);
   frost.attackPaused=true;armor.attackPaused=true;g.combat.update(.01);effects=enemyStatusState(enemy,g.towers,current);
   assert.equal(enemy.armorShred,0);assert.equal(enemy.mvpArmorReduction,.1);assert.equal(effects.find(row=>row.key==='slow'),undefined);assert.equal(effects.find(row=>row.key==='armor').value,10);
   assert.deepEqual(supportSourceAreas(frost,current).map(row=>row.key),['mvpArmor']);assert.deepEqual(supportSourceAreas(armor,current),[]);assert.ok(supportSourceAreas(cleric,current).some(row=>row.key==='detection'));
@@ -102,13 +102,14 @@ test('exact aura boundary counts; drafts, ruins, consumed sources and out-of-ran
 
 test('enemy dread, periodic disarm and stacking scorched barricades match the actual combat clock and resistance',()=>{
   const g=arena(),target=unit('archer'),e=foe(g),ruinA={...unit('soldier',2),state:'ruin',weakened:2},ruinB={...unit('soldier',3),state:'ruin',weakened:2};
-  e.untouchable=.4;g.towers=[target,ruinA,ruinB];target.cooldown=10;g.tick(.1);
+  e.untouchable=.4;g.towers=[target,ruinA,ruinB];target.cooldown=10;assert.equal(towerSupportState(target,g.towers,data,{combat:g.combat}).byKey.dread,undefined);g.combat.damage(e,1,'holy',{},target);g.tick(.1);
   const state=towerSupportState(target,g.towers,data,{combat:g.combat,phase:g.phase});
   assert.equal(state.byKey.dread.value,.4);assert.ok(Math.abs(state.byKey.weakened.value-(1-.85**2))<1e-10);assert.ok(Math.abs((10-target.cooldown)/.1-(1-state.byKey.dread.value)*(1-state.byKey.weakened.value))<1e-9);
   e.disarm=true;g.combat.elapsed=.23;g.tick(.01);assert.equal(target.disarmed,true);assert.equal(towerSupportState(target,g.towers,data,{combat:g.combat}).byKey.disarm.value,true);
   const paladin=unit('kingdomprotector',4);g.towers.push(paladin);g.tick(.01);const protectedState=towerSupportState(target,g.towers,data,{combat:g.combat});assert.equal(target.disarmed,false);assert.equal(protectedState.byKey.disarm,undefined);assert.equal(protectedState.byKey.dread,undefined);assert.equal(protectedState.byKey.controlResistance.value,1);
   const preview=towerSupportState(target,g.towers,data,{combat:g.combat,phase:'construction'});assert.equal(preview.byKey.weakened,undefined);
-  paladin.state='ruin';e.x=14;e.disarm=false;assert.equal(towerSupportState(target,g.towers,data,{combat:g.combat}).byKey.dread,undefined,'Dread uses strict <4 distance');
+  paladin.state='ruin';e.x=30;e.disarm=false;assert.equal(towerSupportState(target,g.towers,data,{combat:g.combat}).byKey.dread.value,.4,'Moving the provoking enemy away does not clear actual on-hit Dread');
+  g.tick(3);assert.equal(towerSupportState(target,g.towers,data,{combat:g.combat}).byKey.dread,undefined,'Dread expires on its game-time deadline');
 });
 
 test('selected source radii use each real rule: support, burn enhanced range, frost, armor aura, detection and reactive frost',()=>{
@@ -204,7 +205,7 @@ test('wall-cap edge tint leaves stone paving unobstructed, uses one stable hue, 
   platform.traverse(node=>node.geometry?.dispose());
   const color=new THREE.Color();fx.tint.getColorAt(0,color);
   const expected=new THREE.Color(SUPPORT_EFFECT_STYLES.haste.color);assert.ok(Math.abs(color.r-expected.r)<1e-6&&Math.abs(color.g-expected.g)<1e-6&&Math.abs(color.b-expected.b)<1e-6);assert.equal(supportTintKey(fx.states.get(target.id)),'haste');assert.equal(fx.states.get(target.id).effects.length,5,'Other simultaneous glyphs stay present');
-  fx.sync([target],data,{combat:{elapsed:0,enemies:[{id:1,x:11,z:10,untouchable:.4,disarm:true}]},phase:'combat'});assert.equal(fx.tint.count,1);assert.equal(supportTintKey(fx.states.get(target.id)),'dread');fx.tint.getColorAt(0,color);const danger=new THREE.Color(SUPPORT_EFFECT_STYLES.dread.color);assert.ok(Math.abs(color.r-danger.r)<1e-6&&Math.abs(color.b-danger.b)<1e-6);
+  const invader={id:1,x:11,z:10,untouchable:.4,disarm:true};target.dread={amount:.4,until:3,source:invader,visible:true};fx.sync([target],data,{combat:{elapsed:0,enemies:[invader]},phase:'combat'});assert.equal(fx.tint.count,1);assert.equal(supportTintKey(fx.states.get(target.id)),'dread');fx.tint.getColorAt(0,color);const danger=new THREE.Color(SUPPORT_EFFECT_STYLES.dread.color);assert.ok(Math.abs(color.r-danger.r)<1e-6&&Math.abs(color.b-danger.b)<1e-6);
   assert.equal(fx.tint.geometry,geometry);assert.equal(fx.tint.material,material);fx.dispose();assert.deepEqual([...cached].map(m=>[m.color?.getHex(),m.opacity,m.transparent]),before);
   const resources=new Set();template.traverse(o=>{if(o.geometry)resources.add(o.geometry);if(o.material)resources.add(o.material);});for(const resource of resources)resource.dispose();
 });

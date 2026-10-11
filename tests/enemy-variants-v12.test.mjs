@@ -46,7 +46,7 @@ test('current-wave composition counts each actual immunity variant across living
   const first=game.combat.spawnQueue.shift(),enemy=game.combat.spawn(first.type,first.modifiers);info=currentWarbandInfo(game);const row=info.find(row=>row.name===enemy.name);assert.equal(row.count,3);assert.equal(row.liveCount,1);assert.equal(row.queuedCount,2);
   enemy.dead=true;info=currentWarbandInfo(game);assert.equal(info.find(row=>row.name===enemy.name).count,2);assert.equal(info.reduce((n,row)=>n+row.count,0),5);
   assert.ok(info.every(row=>!('x' in row)&&!('z' in row)&&!('enemy' in row)&&!('route' in row)),'Only composition metadata is public');
-  const magic=info.find(row=>row.traits.includes('Immune to Magical damage, poison and burning; Holy effects ignore this immunity')),physical=info.find(row=>row.traits.includes('Immune to Physical damage, slowing and freezing; Holy effects ignore this immunity'));assert.ok(magic&&physical);assert.ok(!magic.traits.some(text=>text.startsWith('Immune to Physical'))&&!physical.traits.some(text=>text.startsWith('Immune to Magical')));
+  const magic=info.find(row=>row.traits.includes('Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity')),physical=info.find(row=>row.traits.includes('Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity'));assert.ok(magic&&physical);assert.ok(!magic.traits.some(text=>text.startsWith('Immune to Physical'))&&!physical.traits.some(text=>text.startsWith('Immune to Magical')));
   game.combat.spawnQueue=[];game.combat.enemies.forEach(enemy=>enemy.dead=true);assert.deepEqual(currentWarbandInfo(game),[],'An exhausted actual combat group never invents a surviving variant');
 });
 

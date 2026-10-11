@@ -148,15 +148,23 @@ export class Game {
     if(this.phase!=='select'||this.draft.draws.length!==5||this.draft.draws.some(d=>!d.placed)||candidates.length!==expected)return null;
     return matchingIngredients(recipe,candidates,anchor,{phase:this.phase,round:this.round,...(reserved?{reservedId:reserved.towerId,drawIds:this.draft.draws.map(draw=>draw.towerId)}:{})});
   }
-  mergePartner(t=this.selection){return this.phase==='select'&&!this.commandMove.active?mergePartner(t,this.roundCandidates.map(c=>c.tower),this.data):null;}
+  mergePartner(t=this.selection){
+    if(!this.canCombine(t)||!this.towers.includes(t))return null;
+    const candidates=this.roundCandidates.map(c=>c.tower);
+    if(t.tier!==5)return this.phase==='select'?mergePartner(t,candidates,this.data):null;
+    const draws=this.draft.draws,eligibleCandidates=candidates.filter(tower=>draws.some(draw=>draw.placed&&!draw.reservedForNextDraft&&draw.towerId===tower.id));
+    const completeDraft=this.phase==='select'&&!this.draft.resolved&&draws.length===this.data.balance.drawsPerRound&&draws.every(draw=>draw.placed)&&new Set(draws.map(draw=>draw.towerId)).size===draws.length&&eligibleCandidates.length===draws.filter(draw=>!draw.reservedForNextDraft).length;
+    const pool=this.towers.filter(tower=>tower.state==='active'||completeDraft&&eligibleCandidates.includes(tower));
+    return pool.includes(t)?mergePartner(t,pool,this.data):null;
+  }
   merge() {
     const t=this.selection;
     const partner=this.mergePartner(t);
-    if(!partner)return this.message('Rank merging needs two identical defenders among this round’s five candidates.');
+    if(!partner)return this.message('Merge matching current candidates, or two matching Rank V defenders between waves.');
     const draftUsed=t.state==='draft'||partner.state==='draft';
-    if(this.phase==='select'&&t.state!=='draft'&&draftUsed)return this.message('Select the new tower to choose its result location.');
-    t.mvpLevel=inheritedMvpLevel([t,partner]);partner.state='ruin';t.tier++;t.kills+=partner.kills;t.state='active';
-    if(draftUsed)this.finishSelection(t);
+    const draftIndex=this.draft.draws.findIndex(draw=>[t,partner].some(tower=>tower.state==='draft'&&tower.id===draw.towerId));
+    t.mvpLevel=inheritedMvpLevel([t,partner]);partner.state='ruin';t.tier++;t.kills=(t.kills||0)+(partner.kills||0);t.state='active';
+    if(draftUsed)this.finishSelection(t,draftIndex);
     this.emit('combine',{tower:t});this.emit('defender-committed',{tower:t,round:this.round,action:'merge'});this.emit('change');return true;
   }
   availableRecipes(t=this.selection) {

@@ -39,21 +39,23 @@ test('armor reduces all three classes; only Holy damage ignores both damage immu
   close(damageAfterDefense(100,'holy',{armor:30,magicImmune:true,physicalImmune:true},{},data.balance),50);
 });
 
-test('evasion, refreshing shields and shell still stop Holy direct hits; True Strike and DOT use their actual separate contracts',()=>{
+test('evasion, depletion-recharging shields and shell still stop Holy direct hits; True Strike and DOT use their actual separate contracts',()=>{
   const game=arena(),source=tower(game,'ladyclaire'),enemy=foe(game,{evasion:.25,krakenShell:100,refraction:3});let rolls=0;game.rng=()=>{rolls++;return .1;};
   assert.equal(game.combat.damage(enemy,500,'holy',{type:'holy',directHit:true},source),0);assert.equal(enemy.shields,3);assert.equal(rolls,1);
   assert.equal(game.combat.damage(enemy,500,'holy',{type:'holy',directHit:true,trueStrike:true},source),0);assert.equal(enemy.shields,2);assert.equal(rolls,1);
-  enemy.shields=0;close(game.combat.damage(enemy,500,'holy',{type:'holy',directHit:true,trueStrike:true},source),400);
+  for(let i=0;i<2;i++)assert.equal(game.combat.damage(enemy,500,'holy',{type:'holy',directHit:true,trueStrike:true},source),0);
+  assert.equal(enemy.shields,0);assert.equal(enemy.shieldReadyAt,2);close(game.combat.damage(enemy,500,'holy',{type:'holy',directHit:true,trueStrike:true},source),400);
   close(game.combat.damage(enemy,50,'holy',{type:'holy'},source),50,'DOT does not roll evasion or consume shell');assert.equal(rolls,1);
-  enemy.shieldClock=.2;game.tick(.2);assert.equal(enemy.shields,3);assert.equal(ENEMY_RULES.refraction.period,5);
+  game.tick(1.999);assert.equal(enemy.shields,0);game.tick(.001);assert.equal(enemy.shields,3);assert.equal(ENEMY_RULES.refraction.period,2);
 });
 
-test('Magical immunity blocks poison/fire while Physical immunity blocks slow/freeze; Holy companion effects ignore both',()=>{
+test('Magical immunity blocks poison/fire while Physical immunity blocks slow/freeze, including Holy companion effects',()=>{
   const game=arena(),source=tower(game,'druid'),enemy=foe(game,{magicImmune:true,physicalImmune:true});game.rng=()=>0;
   const effects={type:'magical',damage:10,poisonDps:6,burnDps:12,slow:.4,freeze:1,freezeDuration:2,shred:30};
   game.combat.applyEffects(enemy,effects,source);assert.equal(enemy.statuses.poison,undefined);assert.equal(enemy.statuses.burn,undefined);assert.equal(enemy.statuses.slow,undefined);assert.equal(enemy.statuses.freeze,undefined);assert.equal(enemy.statuses.shred.amount,30);
-  game.combat.applyEffects(enemy,{...effects,type:'holy'},source);assert.equal(enemy.statuses.poison.stacks,1);assert.equal(enemy.statuses.slow.amount,.4);assert.equal(enemy.statuses.freeze.time,2);
-  const before=enemy.hp;game.tick(.25);assert.ok(enemy.hp<before,'Holy poison/fire do not become Magical again during DOT ticks');
+  game.combat.applyEffects(enemy,{...effects,type:'holy'},source);for(const key of ['poison','burn','slow','freeze'])assert.equal(enemy.statuses[key],undefined);
+  const before=enemy.hp;game.tick(.25);assert.equal(enemy.hp,before,'A blocked Holy companion cannot deal later DOT');
+  game.combat.impact({source,target:enemy,stats:{...effects,type:'holy'}});assert.ok(enemy.hp<before,'Holy damage itself still bypasses both immunities');
 });
 
 test('armor reduction can land through damage immunity, respects evasion/shields, uses strongest amount and never goes negative',()=>{
@@ -102,10 +104,10 @@ test('standard haste uses strongest 100%, Archbishop adds its separate500%, and 
 });
 
 test('console rule overrides remain run-local; actual traces expose armor→shell→effectiveHP and blocked attempts without extra RNG',()=>{
-  const roster=structuredClone(data);roster.balance.enemyRules={refraction:{period:2},reactive:{maxStacks:7},blink:{period:0}};
+  const roster=structuredClone(data);roster.balance.enemyRules={refraction:{period:3},reactive:{maxStacks:7},blink:{period:0}};
   const game=arena(roster),control=arena(),source=tower(game,'archer'),enemy=foe(game,{armor:30,krakenShell:10}),traces=[];
   game.on((type,event)=>{if(type==='damage-trace')traces.push(event);});
-  assert.equal(enemyRulesFor(game).refraction.period,2);assert.equal(enemyRulesFor(control).refraction.period,5);assert.equal(ENEMY_RULES.refraction.period,5);assert.equal(enemyRulesFor(game).blink.period,6);
+  assert.equal(enemyRulesFor(game).refraction.period,3);assert.equal(enemyRulesFor(control).refraction.period,2);assert.equal(ENEMY_RULES.refraction.period,2);assert.equal(enemyRulesFor(game).blink.period,5);
   const before=game.rng();const controlBefore=control.rng();assert.equal(before,controlBefore);
   game.combat.damage(enemy,100,'physical',{directHit:true},source);
   const trace=traces[0];assert.deepEqual([trace.beforeDefense,trace.effectiveArmor,trace.afterArmor,trace.shellBlock,trace.afterShell,trace.effectiveDamage],[100,30,50,10,40,40]);assert.equal(trace.blockReason,null);

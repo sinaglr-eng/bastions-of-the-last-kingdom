@@ -30,7 +30,7 @@ function clockArena(speed){
   game.combat.applyEffects(actors.host_15,{healingBlockDuration:1.25,slow:.25,slowDuration:2,poisonDps:10,dotDuration:1.5});
   actors.host_15.statuses.freeze={time:.8};actors.host_15.statuses.petrify={time:.5};
   actors.host_32.hp=actors.host_32.maxHp*.5;
-  actors.host_14.shields=0;actors.host_14.hit=.16;
+  for(let hit=0;hit<3;hit++)game.combat.damage(actors.host_14,1,'holy',{directHit:true});actors.host_14.hit=.16;
   actors.host_24.reactiveStacks=5;
   longRoute(game.combat.spawn('host_12'),2).speed=0;
   return {game,actors,tower};
@@ -38,7 +38,7 @@ function clockArena(speed){
 function state(game){
   return {elapsed:game.combat.elapsed,spawned:game.combat.spawned,lives:game.lives,queue:game.combat.spawnQueue.map(item=>[item.time,item.type]),
     enemies:game.combat.enemies.map(e=>({id:e.id,type:e.type,hp:e.hp,maxHp:e.maxHp,x:e.x,z:e.z,traveled:e.traveled,pathIndex:e.pathIndex,hit:e.hit,
-      cloaked:e.cloaked,shields:e.shields,shieldClock:e.shieldClock,rechargeClock:e.rechargeClock,blinkClock:e.blinkClock,reactiveStacks:e.reactiveStacks,
+      cloaked:e.cloaked,shields:e.shields,shieldReadyAt:e.shieldReadyAt,shieldClock:e.shieldClock,rechargeClock:e.rechargeClock,blinkClock:e.blinkClock,reactiveStacks:e.reactiveStacks,
       statuses:Object.fromEntries(Object.entries(e.statuses).map(([key,s])=>[key,{time:s.time,dps:s.dps,amount:s.amount}]))})),
     towers:game.towers.map(t=>({cooldown:t.cooldown,disarmed:t.disarmed,melancholy:t.melancholy,weakened:t.weakened})),
     projectiles:game.combat.projectiles.map(p=>({id:p.id,target:p.target.id,progress:p.progress,duration:p.duration,x:p.x,z:p.z}))};
@@ -56,7 +56,7 @@ test('actual 1× and 3× ticks produce the same spawn, ability, status, attack a
   normal.game.on((event,payload)=>{if(event==='hit')normalHits.push([normal.game.combat.elapsed,payload.enemy.id,payload.damage]);});
   fast.game.on((event,payload)=>{if(event==='hit')fastHits.push([fast.game.combat.elapsed,payload.enemy.id,payload.damage]);});
   // Equal game-time samples isolate clock scaling from the renderer's ordinary
-  // frame-sized movement/targeting quantization. They cross 2/5/6/8s deadlines.
+  // frame-sized movement/targeting quantization. They cross 2/4/5/6/8s deadlines.
   for(let frame=1;frame<=512;frame++){
     normal.game.tick(1/64);fast.game.tick(1/192);
     if(frame%16===0)equivalent(state(fast.game),state(normal.game));
@@ -64,7 +64,7 @@ test('actual 1× and 3× ticks produce the same spawn, ability, status, attack a
   equivalent(fastHits,normalHits);assert.ok(normalHits.length>0,'Actual attacks and DoT must be exercised');
   assert.ok(normal.game.combat.spawned>10,'The scheduled patrol really spawned');
   assert.equal(normal.actors.host_14.shields,3,'Refraction restored its actual charges at eight game seconds');
-  close(normal.actors.host_32.hp/normal.actors.host_32.maxHp,.56,'The actual five-second missing-health pulse occurred');
+  close(normal.actors.host_32.hp/normal.actors.host_32.maxHp,.6128,'Both actual four-second pulses retain this archived fixture’s12% recharge amount');
   close(normal.actors.host_24.reactiveStacks,0,'Actual armor stacks decayed');
   assert.ok(!Object.keys(normal.actors.host_15.statuses).length,'All sampled status clocks expired');
 });

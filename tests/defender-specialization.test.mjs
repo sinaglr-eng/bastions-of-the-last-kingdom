@@ -79,7 +79,9 @@ test('fixed champion profiles ignore obsolete ranks and enhancements while sourc
  }
  assert.equal(towerStats(unit('winterhold',1,100),data).slowAura,towerStats(unit('winterhold'),data).slowAura);
  assert.equal(JSON.stringify(data.towers),before);
- assert.equal(mergePartner(unit('archer',1,5),[unit('archer',2,5)],data),null);
+ assert.equal(mergePartner(unit('sunward',1,5),[unit('sunward',2,5)],data),null,'Fixed champions never use the new basic Royal V merge');
+ const partner=unit('archer',2,5);assert.equal(mergePartner(unit('archer',1,5),[partner],data),partner,'Retained basic Royal V pairs are now eligible');
+ assert.equal(mergePartner(unit('archer',1,6),[unit('archer',2,6)],data),null,'Mythic VI remains the final basic rank');
 });
 
 test('new abilities are visible in the grimoire',()=>{
@@ -93,6 +95,6 @@ test('bosses retain half the slowing strength of regular invaders',()=>{
 
 test('protector reduces dread in the actual attack clock',()=>{
  const g=arena(),t=unit('archer'),p=unit('kingdomprotector',2),e=foe(g);e.untouchable=.4;g.towers=[t,p];g.combat.elapsed=4;t.cooldown=10;p.cooldown=999;
- g.tick(.1);assert.ok(Math.abs(t.cooldown-9.9)<1e-9);
- p.state='ruin';t.cooldown=10;g.tick(.1);assert.ok(Math.abs(t.cooldown-9.94)<1e-9);
+ g.combat.damage(e,1,'holy',{},t);assert.equal(t.dread.amount,.4);g.tick(.1);assert.ok(Math.abs(t.cooldown-9.9)<1e-9,'Actual on-hit Dread is fully suppressed by the active protector');
+ p.state='ruin';e.x=30;t.cooldown=10;g.tick(.1);assert.ok(Math.abs(t.cooldown-9.94)<1e-9,'Existing Dread resumes without protection regardless of enemy distance');
 });

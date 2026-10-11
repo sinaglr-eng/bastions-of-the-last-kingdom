@@ -1,7 +1,7 @@
 import {distance,damageDefenseBreakdown,towerStats,combatTowerStats} from './math.js';
 import {enemyRevealed} from './visibility.js';
 import {enemyRulesFor,enemyDisarmActive} from './enemy-rules.js';
-import {damageType,effectDamageType,ignoresDamageImmunity} from './combat-rules.js';
+import {damageType,effectDamageType,statusEffectAllowed} from './combat-rules.js';
 import {mvpArmorReduction} from './mvp.js';
 
 const poisonStatus=applications=>{
@@ -26,13 +26,13 @@ export class CombatManager {
       }
     }
     this.total=this.spawnQueue.length;
-    for(const t of this.game.towers){t.cooldown=0;t.melancholy=0;t.melancholyUntil=0;}
+    for(const t of this.game.towers){t.cooldown=0;t.melancholy=0;t.melancholyUntil=0;delete t.dread;}
   }
   spawn(type,modifiers={}) {
     const base={...this.game.data.enemies[type],...modifiers.variant};
     const route=(base.flying?this.game.grid.checkpoints:this.game.grid.route).map(p=>({...p}));
     let pathLength=0;for(let i=1;i<route.length;i++)pathLength+=distance(route[i-1],route[i]);
-    const enemy={...structuredClone(base),id:++this.serial,type,maxHp:base.hp*(modifiers.hp||1),hp:base.hp*(modifiers.hp||1),speed:base.speed*(modifiers.speed||1),armor:base.armor+(modifiers.armor||0),...route[0],route,pathLength,pathIndex:1,traveled:0,statuses:{},dead:false,hit:0,shields:base.refraction||0,shieldClock:this.rules.refraction.period,rechargeClock:this.rules.recharge.period,blinkClock:this.rules.blink.period,reactiveStacks:0,cloaked:!!(base.stealth||base.cloakDaggers)};
+    const enemy={...structuredClone(base),id:++this.serial,type,maxHp:base.hp*(modifiers.hp||1),hp:base.hp*(modifiers.hp||1),speed:base.speed*(modifiers.speed||1),armor:base.armor+(modifiers.armor||0),...route[0],route,pathLength,pathIndex:1,traveled:0,statuses:{},dead:false,hit:0,shields:base.refraction||0,shieldReadyAt:null,shieldClock:null,rechargeClock:this.rules.recharge.period,blinkClock:this.rules.blink.period,reactiveStacks:0,cloaked:!!(base.stealth||base.cloakDaggers)};
     delete enemy.resists;
     this.enemies.push(enemy);this.spawned++;this.game.emit('spawn',{enemy});return enemy;
   }
@@ -45,7 +45,7 @@ export class CombatManager {
     const ordered=candidates.sort(sorters[priority]||sorters.first),effect=stats.spreadEffect;
     if(!effect)return ordered;
     // Pending projectiles reserve their effect so rapid or allied shots spread first.
-    const unmarked=ordered.filter(e=>!(e.statuses?.[effect]?.time>0)&&!(effect==='poison'&&e.magicImmune&&!ignoresDamageImmunity(stats)));
+    const unmarked=ordered.filter(e=>!(e.statuses?.[effect]?.time>0)&&!(effect==='poison'&&!statusEffectAllowed(e,'poison')));
     const untouched=unmarked.filter(e=>!this.projectiles.some(s=>s.progress<1&&s.target===e&&(effect==='poison'?(s.stats.poisonDps||s.stats.poison):s.stats.shred)));
     if(untouched.length)return [...untouched,...ordered.filter(e=>!untouched.includes(e))];
     // Wait for the last unmarked targets' shots to land before ordinary targeting.
@@ -68,7 +68,11 @@ export class CombatManager {
     if(!Number.isFinite(amount)||amount<=0){result.blockReason='invalid';return finish();}
     if(stats.directHit){
       if(enemy.evasion&&!stats.trueStrike&&this.game.rng()<enemy.evasion){result.blockReason='evasion';return finish();}
-      if(enemy.shields>0){enemy.shields--;this.game.emit('deflect',{enemy,source,visible:result.visible});result.blockReason='shield';return finish();}
+      if(enemy.shields>0){
+        enemy.shields--;
+        if(enemy.shields===0){enemy.shieldClock=this.rules.refraction.period;enemy.shieldReadyAt=this.elapsed+enemy.shieldClock;}
+        this.game.emit('deflect',{enemy,source,visible:result.visible});result.blockReason='shield';return finish();
+      }
     }
     result.contact=true;
     const frozen=enemy.statuses.freeze&&type==='physical'?1.25:1;
@@ -85,6 +89,12 @@ export class CombatManager {
     if(result.afterShell<=0)return finish();
     result.appliedDamage=result.afterShell;result.effectiveDamage=Math.min(result.appliedDamage,Math.max(0,enemy.hp));
     enemy.hp-=result.appliedDamage;enemy.hit=.16;
+    // Every real, owned HP loss can provoke Dread, including DOT, auras and
+    // in-flight/secondary hits. A block or mere proximity never triggers it.
+    if(result.effectiveDamage>0&&enemy.untouchable>0&&source?.state==='active'&&this.game.towers.includes(source)){
+      const previous=source.dread?.until>this.elapsed?source.dread:null,amount=Math.max(0,Math.min(1,enemy.untouchable));
+      source.dread={amount:Math.max(amount,previous?.amount||0),until:this.elapsed+this.rules.dread.duration,source:previous?.amount>amount?previous.source:enemy,visible:previous?.amount>amount?previous.visible:result.visible};
+    }
     this.game.emit('hit',{enemy,source,type,effect:result.effect,damage:result.appliedDamage,effectiveDamage:result.effectiveDamage,directHit:result.directHit,visible:result.visible});
     if(stats.critical&&result.effectiveDamage>0)this.game.emit('critical-hit',{enemy,source,type,effect:result.effect,amount:result.appliedDamage,effectiveDamage:result.effectiveDamage,multiplier:stats.critMultiplier,directHit:result.directHit,visible:result.visible});
     finish();
@@ -97,10 +107,9 @@ export class CombatManager {
   }
   applyEffects(enemy,stats,source,{landedDamage=true}={}) {
     if(enemy.dead)return;
-    const immuneEffects=ignoresDamageImmunity(stats);
     if(enemy.flying)stats={...stats,shred:Math.max(stats.shred||0,stats.antiAirShred||0),slow:Math.max(stats.slow||0,stats.antiAirSlow||0)};
-    if(enemy.physicalImmune&&!immuneEffects)stats={...stats,slow:0,freeze:0};
-    if(enemy.magicImmune&&!immuneEffects)stats={...stats,burn:0,burnDps:0,poison:0,poisonDps:0,healingBlockDuration:0};
+    if(!statusEffectAllowed(enemy,'slow'))stats={...stats,slow:0,freeze:0};
+    if(!statusEffectAllowed(enemy,'poison'))stats={...stats,burn:0,burnDps:0,poison:0,poisonDps:0,healingBlockDuration:0};
     if(!landedDamage)stats={...stats,burn:0,burnDps:0,poison:0,poisonDps:0};
     if(stats.slow){const previous=enemy.statuses.slow;enemy.statuses.slow={amount:Math.max(stats.slow,previous?.amount||0),time:stats.slowDuration||2,source:stats.slow>=(previous?.amount||0)?source:previous.source};}
     if(stats.freeze&&this.elapsed>=(enemy.stunRecoveryUntil||0)&&this.game.rng()<stats.freeze){enemy.statuses.freeze={time:(stats.freezeDuration||.8)*(enemy.boss ? .5 : 1),source};enemy.stunRecoveryUntil=this.elapsed+(stats.stunRecovery||0);}
@@ -143,7 +152,7 @@ export class CombatManager {
       const slice=Math.min(dt,gaze.remaining),s=gaze.stats;
       for(const e of this.enemies){
         if(e.dead||(!s.petrifyIgnoresImmunity&&e.magicImmune)||!this.canSee(e,tower)||distance(tower,e)>(s.stoneGazeRange||10)){gaze.facing.delete(e.id);continue;}
-        if(!e.physicalImmune||ignoresDamageImmunity(s))e.statuses.gazeSlow={amount:s.stoneGazeSlow||.8,time:slice+.05,source:tower};
+        if(statusEffectAllowed(e,'gazeSlow'))e.statuses.gazeSlow={amount:s.stoneGazeSlow||.8,time:slice+.05,source:tower};
         if(gaze.petrified.has(e.id))continue;
         const next=e.route[e.pathIndex],dx=(next?.x??e.x)-e.x,dz=(next?.z??e.z)-e.z;
         const toward=dx*(tower.x-e.x)+dz*(tower.z-e.z)>0;
@@ -218,17 +227,22 @@ export class CombatManager {
   }
   update(dt) {
     const R=this.rules;
+    const frameStart=this.elapsed,dreadAtStart=new Map(this.game.towers.filter(t=>t.dread?.until>frameStart).map(t=>[t,{...t.dread}]));
     this.elapsed+=dt;
     while(this.spawnQueue.length && this.spawnQueue[0].time<=this.elapsed) {const item=this.spawnQueue.shift();this.spawn(item.type,item.modifiers);}
     this.updateStoneGazes(dt);
     for(const enemy of this.enemies) {
       if(enemy.dead)continue;
+      for(const key of ['slow','freeze','gazeSlow','poison','burn','healBlock'])if(!statusEffectAllowed(enemy,key))delete enemy.statuses[key];
       enemy.hit=Math.max(0,enemy.hit-dt);
       enemy.cloaked=!!(enemy.stealth||(enemy.cloakDaggers&&this.elapsed%R.cloak.period<R.cloak.hiddenDuration));
       enemy.reactiveStacks=Math.max(0,enemy.reactiveStacks-dt*R.reactive.decayPerSecond);
-      if(enemy.refraction){enemy.shieldClock-=dt;while(enemy.shieldClock<=0){enemy.shields=enemy.refraction;enemy.shieldClock+=R.refraction.period;}}
+      if(enemy.refraction&&enemy.shields===0&&Number.isFinite(enemy.shieldReadyAt)){
+        enemy.shieldClock=Math.max(0,enemy.shieldReadyAt-this.elapsed);
+        if(this.elapsed+1e-9>=enemy.shieldReadyAt){enemy.shields=enemy.refraction;enemy.shieldClock=null;enemy.shieldReadyAt=null;}
+      }
       let blinkTravel=0;
-      if(enemy.blink){enemy.blinkClock-=dt;while(enemy.blinkClock<=0){blinkTravel+=enemy.blink;enemy.blinkClock+=R.blink.period;}}
+      if(enemy.blink){enemy.blinkClock-=dt;while(enemy.blinkClock<=1e-9){blinkTravel+=enemy.blink;enemy.blinkClock+=R.blink.period;}}
 
       let haste=1;
       for(const supporter of this.enemies)if(!supporter.dead&&distance(enemy,supporter)<R.support.radius) {
@@ -248,7 +262,7 @@ export class CombatManager {
       const frenzy=enemy.rush&&this.elapsed%R.rush.period<R.rush.duration?enemy.rush:enemy.type==='berserker'&&enemy.hp<enemy.maxHp*R.rush.berserkerThreshold?R.rush.berserkerSpeed:1;
       let slow=Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
       this.prepareArmor(enemy);
-      for(const t of this.game.towers)if(t.state==='active'&&!t.attackPaused){const s=towerStats(t,this.game.data);if((!enemy.physicalImmune||ignoresDamageImmunity(s))&&s.slowAura&&distance(t,enemy)<=s.range)slow=Math.max(slow,s.slowAura);}
+      for(const t of this.game.towers)if(t.state==='active'&&!t.attackPaused){const s=towerStats(t,this.game.data);if(statusEffectAllowed(enemy,'slow')&&s.slowAura&&distance(t,enemy)<=s.range)slow=Math.max(slow,s.slowAura);}
       if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
       const move=amount=>{
         let travel=amount;
@@ -274,14 +288,15 @@ export class CombatManager {
       const melancholySlice=Math.min(dt,Math.max(0,(tower.melancholyUntil||0)-(this.elapsed-dt)));
       tower.melancholy=Math.max(0,(tower.melancholyUntil||0)-this.elapsed);
       const {stats,bonuses}=combatTowerStats(tower,this.game.towers,this.game.data);
-      let boost=bonuses.haste,dread=0;
+      let boost=bonuses.haste;
+      const fear=dreadAtStart.get(tower),dreadSlice=Math.min(dt,Math.max(0,(fear?.until||0)-frameStart));
+      const dread=Math.max(0,Math.min(1,fear?.amount||0))*(1-Math.max(0,Math.min(1,bonuses.controlResistance||0)));
+      if(tower.dread?.until<=this.elapsed)delete tower.dread;
       tower.disarmed=tower.melancholy>0;
       for(const enemy of this.enemies)if(!enemy.dead){
         const range=distance(tower,enemy);
-        if(enemy.untouchable&&range<R.dread.radius)dread=Math.max(dread,enemy.untouchable*(1-(bonuses.controlResistance||0)));
         if(range<R.disarm.radius&&enemyDisarmActive(enemy,this.elapsed,bonuses.controlResistance||0,R))tower.disarmed=true;
       }
-      boost*=1-dread;
       for(const other of this.game.towers) {
         // Sapper-scorched barricades briefly disrupt adjacent defensive positions.
         if(other.state==='ruin'&&other.weakened>0&&distance(tower,other)<R.sapper.defenderRadius)boost*=1-R.sapper.attackPenalty;
@@ -294,7 +309,7 @@ export class CombatManager {
         if(victims.length&&tower.auraPulse<=0){this.game.emit('aura-attack',{source:tower,target:victims[0],stats,effect:'fire'});this.game.emit('impact',{source:tower,target:victims[0],stats,effect:'fire',aura:true,x:tower.x,z:tower.z,color:stats.color,radius:stats.range});tower.auraPulse=.7;}
       }
       if(stats.damage<=0||tower.disarmed)continue;
-      tower.cooldown-=(dt-melancholySlice)*boost;
+      tower.cooldown-=((dt-melancholySlice)-Math.max(0,dreadSlice-melancholySlice)*dread)*boost;
       // Preserve overshoot: Mythic rapid fire and stacked blessings must survive 3× speed.
       while(tower.cooldown<=0) {
         const targets=this.targetList(tower,stats).slice(0,stats.multishot||1);

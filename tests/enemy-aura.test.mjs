@@ -169,7 +169,7 @@ test('reduced motion preserves the real per-enemy disarm phase, including reacti
 test('recharge and blink cues follow actual countdowns and healing block in either motion mode',()=>{
   const fixture=cueFixture(['recharge','blink','regen']);
   try{
-    for(const countdown of [.001,4])for(const blocked of [false,true]){
+    for(const countdown of [.001,3])for(const blocked of [false,true]){
       const {enemy,elapsed}=combatFixture(4,{recharge:.12,rechargeClock:countdown,blink:3,blinkClock:countdown,statuses:blocked?{healBlock:{time:10}}:{}}),snapshot=structuredClone(enemy);
       for(const reducedMotion of [false,true]){
         animateEnemyCues(fixture.root,enemy,elapsed,{reducedMotion});

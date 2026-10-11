@@ -14,5 +14,6 @@ test('MAX MVP halo follows an unselected active model, leaves classification geo
 test('selected MVP detail displays actual level and individual attack pause without inventing bonuses for drafts or walls',()=>{
  assert.match(mvpDetailsMarkup({state:'active',mvpLevel:4}),/MVP Level: 4 \/ 10/);assert.match(mvpDetailsMarkup({state:'active',mvpLevel:4}),/Own damage \+40%/);
  const max=mvpDetailsMarkup({state:'active',mvpLevel:10,attackPaused:true});assert.match(max,/MAX MVP/);assert.match(max,/\+75%/);assert.match(max,/Resume this defender/);assert.match(max,/aria-pressed="true"/);
+ assert.doesNotMatch(max,/<small>|Pauses new attacks|Support and MVP auras stay active/);assert.match(max,/data-action="tower-pause"/);
  assert.equal(mvpDetailsMarkup({state:'draft',mvpLevel:10}),'');assert.equal(mvpDetailsMarkup({state:'ruin',mvpLevel:10}),'');
 });

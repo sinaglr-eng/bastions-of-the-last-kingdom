@@ -237,3 +237,20 @@ test('an explicitly nonboss variant does not inherit its aggregate group boss fl
   const engine=new ArmyReadiness(fixture);
   assert.equal(engine.evaluate(preview,[tower('specialist')]).rows[0].ordinal,engine.evaluate(preview,[tower('ordinary')]).rows[0].ordinal);
 });
+
+test('Holy damage remains an immunity response while its control and healing-block companions obey the actual category gates',()=>{
+  const fixture=custom({holy:stats({type:'holy',damage:100,slow:.75,freeze:1,poisonDps:100,burnDps:100,healingBlockDuration:3})}),engine=new ArmyReadiness(fixture),army=[tower('holy')];
+  const physical=engine.evaluate(analysis(['physicalImmune','fast'],{hp:1000,physicalImmune:true}),army);
+  assert.match(row(physical,'physicalImmune').response,/Holy damage is available/);assert.match(row(physical,'fast').response,/No applicable slowing/);
+  const magical=engine.evaluate(analysis(['magicImmune','regeneration'],{hp:1000,magicImmune:true,regen:.2}),army);
+  assert.match(row(magical,'magicImmune').response,/poison, burning and healing block remain blocked even from Holy/);assert.match(row(magical,'regeneration').response,/no applicable healing block/);
+  assert.match(engine.evaluate(analysis(['regeneration'],{hp:1000,regen:.2}),army).rows[0].response,/Applicable healing block/);
+});
+
+test('nominal Dread hit-refresh cadence reduces composition capacity and genuine self protection restores it',()=>{
+  const fixture=custom({plain:stats({damage:1000}),protected:stats({damage:1000,aura:{range:1,controlResistance:1}})}),engine=new ArmyReadiness(fixture),ordinary=analysis(['highHealth'],{hp:20000}),dread=analysis(['highHealth'],{hp:20000,untouchable:.75});
+  const plain=engine.evaluate(ordinary,[tower('plain')]).rows[0],slowed=engine.evaluate(dread,[tower('plain')]).rows[0],protectedRow=engine.evaluate(dread,[tower('protected')]).rows[0];
+  assert.ok(slowed.ordinal<plain.ordinal,'Damaging Dread targets reduces the actual nominal attack cadence');assert.equal(protectedRow.ordinal,plain.ordinal);
+  const privateData=structuredClone(fixture);privateData.balance.enemyRules={dread:{duration:0}};
+  assert.equal(new ArmyReadiness(privateData).evaluate(dread,[tower('plain')]).rows[0].ordinal,plain.ordinal,'A run-local zero-duration override removes the cadence penalty');
+});

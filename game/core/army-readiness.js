@@ -1,6 +1,6 @@
 import {damageAfterDefense, combatTowerStats} from './math.js';
 import {enemyRulesFor} from './enemy-rules.js';
-import {damageType,effectDamageType,ignoresDamageImmunity} from './combat-rules.js';
+import {damageType,effectDamageType,statusEffectAllowed} from './combat-rules.js';
 
 const DEFAULTS=Object.freeze({minStrongCoverage:.75,minGoodCoverage:.5,minFairCoverage:.25,damageWindowSeconds:5,burstHealthFraction:.2,shieldHitsPerSecond:2,minimumUsefulControl:.1,regenerationPressureMultiplier:1,areaTargetBudget:3});
 export const READINESS_SCOPE='Composition only; own MVP bonuses and self support count. Allied aura overlap, MVP armor-aura coverage, placement, range coverage and maze length are not evaluated.';
@@ -78,28 +78,34 @@ function capabilities(models,enemy,count,data,cfg){
   let direct=0,hits=0,aura=0,secondary=0,groupedDirect=0,groupedSecondary=0,slow=0,freeze=0,healCoverage=0,protectedDamage=0;
   const dots={burn:0,poison:0,bleed:0},areaBudget=Math.min(Math.max(1,count),cfg.areaTargetBudget);
   const tag=(type,value)=>{if(value>0){flags.magic||=magical(type);flags.physical||=physical(type);flags.holy||=damageType(type)==='holy';}};
-  for(const {stats:s,rate,protection,paused}of models){
+  for(const {stats:s,rate:baseRate,protection,paused}of models){
     if(paused)continue;
-    const holy=ignoresDamageImmunity(s),controlAllowed=!enemy.physicalImmune||holy;
+    let rate=baseRate;
+    const controlAllowed=statusEffectAllowed(enemy,'slow');
     if(s.burnAura){const type=effectDamageType(s,'burn'),value=defended(s.burnAura,type,s);aura+=value;tag(type,value);flags.bypass||=value>0;flags.area||=value>0&&count>1;}
     if(controlAllowed)slow=Math.max(slow,positive(s.slowAura));
     if(!reaches(s)||s.damage<=0)continue;
     const hit=hitAmount(s),value=defended(hit,s.type,s,true),landed=value>0;
+    if(enemy.untouchable>0&&(landed||s.burnAura&&defended(s.burnAura,effectDamageType(s,'burn'),s)>0)){
+      const penalty=clamp(enemy.untouchable)*(1-clamp(protection)),duration=R.dread.duration,interval=1/rate;
+      const slowedProgress=duration*(1-penalty);
+      rate=1/(interval<=slowedProgress?interval/Math.max(.0001,1-penalty):duration+interval-slowedProgress);
+    }
     hits+=rate*(s.trueStrike?1:1-clamp(positive(enemy.evasion)));direct+=value*rate;protectedDamage+=value*rate*protection;
     groupedDirect+=value*rate*Math.min(Math.max(1,count),Math.max(1,s.multishot||1));
     if(landed){
       tag(s.type,value);flags.trueStrike||=!!s.trueStrike;
-      dots.burn=Math.max(dots.burn,defended(s.burnDps||s.damage*positive(s.burn),effectDamageType(s,'burn'),s));
+      if(statusEffectAllowed(enemy,'burn'))dots.burn=Math.max(dots.burn,defended(s.burnDps||s.damage*positive(s.burn),effectDamageType(s,'burn'),s));
       // A nominal hit stream builds independent 5s stacks. It does not assume
       // permanent exposure beyond this explicitly bounded damage window.
-      dots.poison+=defended(s.poisonDps||s.damage*positive(s.poison),effectDamageType(s,'poison'),s)*averagePoisonStacks(rate,cfg.damageWindowSeconds);
+      if(statusEffectAllowed(enemy,'poison'))dots.poison+=defended(s.poisonDps||s.damage*positive(s.poison),effectDamageType(s,'poison'),s)*averagePoisonStacks(rate,cfg.damageWindowSeconds);
       dots.bleed=Math.max(dots.bleed,defended(s.damage*positive(s.bleed),effectDamageType(s,'bleed'),s));
       if(controlAllowed){
         slow=Math.max(slow,positive(s.slow),enemy.flying?positive(s.antiAirSlow):0);
         const freezeDuration=(s.freezeDuration||.8)*(enemy.boss?.5:1),freezeDuty=clamp(positive(s.freeze))*freezeDuration*rate;
         freeze=Math.max(freeze,s.stunRecovery?Math.min(freezeDuty,freezeDuration/s.stunRecovery):freezeDuty);
       }
-      if((!enemy.magicImmune||holy)&&s.healingBlockDuration){flags.antiHeal=true;healCoverage+=rate*s.healingBlockDuration;}
+      if(statusEffectAllowed(enemy,'healBlock')&&s.healingBlockDuration){flags.antiHeal=true;healCoverage+=rate*s.healingBlockDuration;}
       const fork=positive(s.forkedTargets)?defended(s.forkedDamage,effectDamageType(s,'lightning'),s)*(s.forkedChance||1)*rate:0;
       const burn=defended(s.damage*positive(s.burnedMultiplier),effectDamageType(s,'burn'),s)*positive(s.burnedChance)*rate;
       secondary+=fork+burn;groupedSecondary+=fork*Math.min(Math.max(1,count),s.forkedTargets||1)+burn*areaBudget;
@@ -117,7 +123,12 @@ function capabilities(models,enemy,count,data,cfg){
   }
   const appliedDot=Object.values(dots).reduce((a,b)=>a+b,0);flags.bypass||=appliedDot>0||secondary>0;
   flags.control=Math.max(slow,freeze)>=cfg.minimumUsefulControl;
-  const shieldProgress=enemy.refraction?clamp(1-positive(enemy.refraction)/(Math.max(.0001,hits)*Math.min(cfg.damageWindowSeconds,R.refraction.period))):1;
+  // Nominal evenly spaced hit stream: the next shield batch begins only after
+  // depletion plus its delay, rather than a periodic reset of live charges.
+  const attempts=Math.ceil(hits*cfg.damageWindowSeconds-1e-9),charges=Math.ceil(positive(enemy.refraction));
+  const cycle=charges?charges-1+Math.max(1,Math.ceil(hits*R.refraction.period-1e-9)):1;
+  const blocked=charges?Math.floor(attempts/cycle)*charges+Math.min(attempts%cycle,charges):0;
+  const shieldProgress=charges&&attempts?clamp((attempts-blocked)/attempts):charges?0:1;
   const dps=(direct+secondary+appliedDot)*shieldProgress+aura;
   const grouped=(groupedDirect+groupedSecondary+appliedDot*areaBudget)*shieldProgress+aura*areaBudget;
   const capacity=dps*cfg.damageWindowSeconds/(enemy.maxHp*cfg.burstHealthFraction);
@@ -143,8 +154,8 @@ function responseFor(id,flags){
     standard:'Nominal focused damage is compared with actual enemy health and defenses; target exposure still matters.',
     heavyArmor:mitigation,reactiveArmor:mitigation+' Maximum reactive stacks are used for this comparison.',
     highHealth:'Nominal damage is compared with actual maximum health; conditional effects and target exposure still matter.',
-    magicImmune:flags.physical||flags.holy?'Physical or Holy damage is available; Magical damage, poison and burning are blocked unless they are Holy effects.':'No applicable damage was found for at least one possible immune variant.',
-    physicalImmune:flags.magic||flags.holy?'Magical or Holy damage is available; Physical damage, slows and freeze are blocked unless they are Holy effects.':'No applicable damage was found for at least one possible immune variant.',
+    magicImmune:flags.physical||flags.holy?'Physical or Holy damage is available; poison, burning and healing block remain blocked even from Holy sources.':'No applicable damage was found for at least one possible immune variant.',
+    physicalImmune:flags.magic||flags.holy?'Magical or Holy damage is available; slows and freeze remain blocked even from Holy sources.':'No applicable damage was found for at least one possible immune variant.',
     flying:'Ranged attacks and applicable damage auras are counted; melee attacks are excluded. Ranger air debuffs respect normal defenses.',
     fast:flags.control?'Applicable slowing or freezing is available; bosses reduce its effect or duration.':flags.conditionalGaze?'Facing-dependent petrification ignores damage immunities after a contact proc; sustained facing is not assumed.':'No applicable slowing or freezing; response depends on damage.',
     swarm:flags.area?'Multiple-target or area damage is available; target grouping and proc timing matter.':'Only focused damage is available against the group.',

@@ -65,7 +65,8 @@ export const campaignEnemies = enemies => {
   const name='Lord Bernhard, the Black Sorcerer on the Wyvern Queen',boss=enemies.host_50;
   const tune=(definition,wave)=>{
     const current={...definition};delete current.resists;
-    if(current.regen>0)current.regen=wave===38?.3:.1;
+    if(current.regen>0)current.regen=wave===38?.4:.2;
+    if(current.refraction>0)current.refraction=3;
     if(current.recharge>0)current.recharge=.5;
     if(current.evasion>0)current.evasion=.25;
     if(current.untouchable>0)current.untouchable=.75;
@@ -74,13 +75,15 @@ export const campaignEnemies = enemies => {
     if(Object.hasOwn(current,'cloakDaggers')){current.stealth=!!current.cloakDaggers;delete current.cloakDaggers;}
     if(current.krakenShell>0)current.krakenShell=(100+Math.max(0,wave-39)*10)*(wave===50&&current.krakenShell>(boss?.krakenShell||0)?1.3:1);
     if(current.traits)current.traits=current.traits.filter(trait=>!['magicResistance','magic-resistance'].includes(trait)).map(trait=>trait==='cloakDaggers'?'stealth':trait);
+    if(current.threat)current.threat=current.threat.replaceAll('Dread aura','Dread on damaging hit');
     if(current.counter)current.counter=current.counter
       .replaceAll('Plated armor reduces physical damage; break armor or add magic.','Armor reduces all three damage types; use armor reduction or penetration.')
       .replaceAll('Heavy armor; use armor reduction or magic.','Heavy armor reduces all three damage types; use armor reduction or penetration.')
       .replaceAll('Ritual wards resist magic; physical and pure attacks remain effective.','')
-      .replaceAll('Magic and magical status immunity; physical or pure damage wins.','Magical immunity blocks Magical damage, poison and burning; Physical or Holy damage remains available.')
-      .replaceAll('Physical immunity; use magic or pure damage.','Physical immunity also blocks slowing and freezing; use Magical damage or Holy effects.')
+      .replaceAll('Magic and magical status immunity; physical or pure damage wins.','Magical immunity blocks Magical damage, poison, burning and healing block; Physical or Holy damage remains available.')
+      .replaceAll('Physical immunity; use magic or pure damage.','Physical immunity also blocks slowing and freezing; use Magical or Holy damage.')
       .replaceAll('Can evade direct physical hits; use magic.','Evasion affects all three direct-hit types; True Strike prevents misses.')
+      .replaceAll('Nearby defenders attack more slowly.','Dealing HP damage refreshes on-hit Dread; control protection reduces the attack slowing.')
       .replaceAll('pure damage','Holy damage')
       .replaceAll('pure attacks','Holy attacks').trim();
     return current;

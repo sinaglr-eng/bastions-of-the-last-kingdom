@@ -22,7 +22,7 @@ test('Immediate full preview contains the authored count, enemy types and real n
   assert.equal(result.number,15);assert.equal(result.name,data.waves[14].name);assert.equal(result.totalCount,11);
   assert.equal(result.enemies[0].type,'host_15');assert.equal(result.enemies[0].count,11);assert.equal(result.enemies[0].variants.length,2);
   assert.equal(result.enemies[0].variants[0].maxHp,975);assert.equal(result.enemies[0].variants[0].flying,true);
-  assert.ok(result.enemies[0].variants[0].traitDetails.some(trait=>trait.text.includes('97.5 HP/s')));
+  assert.ok(result.enemies[0].variants[0].traitDetails.some(trait=>trait.text.includes('195 HP/s')));
   assert.ok(ids(result).includes('regeneration'));assert.ok(ids(result).includes('flying'));
 });
 

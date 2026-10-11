@@ -41,7 +41,7 @@ function setup({placed=true,distinct=false}={}){
   const images=Object.fromEntries(Object.keys(data.towers).flatMap(family=>ROMAN.map((_,index)=>[`${family}:${index+1}`,`approved-portrait:${family}:${index+1}`])));
   const panel=compile(between('function quality(t)','function notice(')+between('function towerPanel(t)','function enemyInspectionOptions'),'towerPanel',{
     game,rankPreview,data,towers:data.towers,balance:data.balance,images,roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
-    defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,recipeProgress,recipesUsing,recipeLabel
+    defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,mergeTowerKey,recipeProgress,recipesUsing,recipeLabel
   });
   const sidebar=compile(between('function renderSidebar()','function previewRecipe()'),'renderSidebar',{
     game,$,icon,rankPreview,towerPanel:panel,
