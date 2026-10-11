@@ -1,3 +1,4 @@
+import {campaignTowers as currentTowers,campaignEnemies as currentEnemies,campaignWaves as currentWaves,campaignRecipes as currentRecipes} from '../game/core/campaign-roster.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -12,6 +13,7 @@ import {campaignEnemies,campaignWaves,campaignTowers,campaignRecipes} from '../g
 
 const raw=Object.fromEntries(['balance','enemies','waves','towers','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves),towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes)},images=Object.fromEntries(Object.keys(data.enemies).map(id=>['enemy:'+id,'/assets/geometric/portraits/'+id+'.png']));
+if(data.towers)data.towers=currentTowers(data.towers);if(data.enemies)data.enemies=currentEnemies(data.enemies);if(data.waves)data.waves=currentWaves(data.waves);if(data.recipes)data.recipes=currentRecipes(data.recipes);
 const options=extra=>({balance:data.balance,data,round:1,phase:'build',waveLimit:50,...extra}),render=extra=>warbandsOverviewMarkup(data.waves,data.enemies,images,options(extra));
 const cardNumbers=markup=>[...markup.matchAll(/<article class="warband-card[^>]* data-wave="(\d+)"/g)].map(match=>Number(match[1]));
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -62,7 +64,7 @@ test('existing intelligence moves intact into the overview header with army read
  assert.match(markup,/aria-labelledby="warbands-intelligence-title"/);assert.match(markup,/Next · Wave 35/);assert.match(markup,/After · Wave 36/);assert.match(markup,/aria-label="Boss forecast"/);assert.match(markup,/Your army/);assert.match(markup,/2 active defenders/);
  for(const row of model.readiness.rows){assert.ok(markup.includes(escape(row.label)));assert.ok(markup.includes(escape(row.response)));assert.match(markup,new RegExp('readiness-level '+row.level));}
  for(const enemy of model.next.enemies)for(const variant of enemy.variants){assert.ok(markup.includes(enemyNumber(variant.maxHp)+' HP'));for(const trait of variant.traitDetails)assert.ok(markup.includes(escape(trait.text)));}
- const header=markup.slice(markup.indexOf('warbands-overview-intelligence'),markup.indexOf('<section class="warbands-remaining"'));assert.match(header,/Immune to magic and magical effects/);assert.match(header,/Immune to physical and piercing damage/);assert.match(header,/Composition only/);
+ const header=markup.slice(markup.indexOf('warbands-overview-intelligence'),markup.indexOf('<section class="warbands-remaining"'));assert.match(header,/Immune to Magical damage, poison and burning/);assert.match(header,/Immune to Physical damage, slowing and freezing/);assert.match(header,/Composition only/);
  assert.match(render({round:10,phase:'combat',intelligence:intelligence(10),waveLimit:50}),/Next · Wave 11/);assert.doesNotMatch(render({round:10,phase:'combat',intelligence:intelligence(10),waveLimit:10}),/warbands-overview-intelligence/);
  assert.doesNotMatch(render({round:35,phase:'ready',intelligence:intelligence(33)}),/warbands-overview-intelligence/);assert.doesNotMatch(render({round:35,phase:'lost',intelligence:model}),/warbands-overview-intelligence/);
 });

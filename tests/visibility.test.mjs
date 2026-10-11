@@ -4,7 +4,9 @@ import {readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
 import {towerStats,damageAfterDefense} from '../game/core/math.js';
 import {upcomingInvader} from '../game/render/warcamp-preview.js';
-const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
+import {campaignTowers,campaignEnemies,campaignWaves,campaignRecipes} from '../game/core/campaign-roster.js';
+const originalData=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
+const data={...originalData,towers:campaignTowers(originalData.towers),enemies:campaignEnemies(originalData.enemies),waves:campaignWaves(originalData.waves),recipes:campaignRecipes(originalData.recipes)};
 const unit=(family,id=1,x=10,z=10)=>({id,family,tier:1,state:'active',x,z,kills:0,cooldown:999});
 function arena(){const game=new Game(data,{seed:42});game.phase='combat';game.combat.spawnQueue=[{time:9999,type:'grunt'}];return game;}
 function hidden(game){const enemy=game.combat.spawn('host_08');Object.assign(enemy,{x:12,z:12,speed:0,hp:1e6,maxHp:1e6,armor:0,resists:{}});return enemy;}
@@ -34,13 +36,16 @@ test('splash and burning area damage cannot newly strike an unrevealed invader',
   game.combat.update(.1);assert.equal(enemy.hp,1e6);assert.ok(visible.hp<1e6-100);
 });
 
-test('damage categories independently apply armor, typed magic resistance and pure bypass',()=>{
+test('all current damage categories apply armor and penetration; Holy bypasses immunity but keeps armor',()=>{
   const foe={armor:30,resists:{magic:.2,fire:.3},ward:.1,magicShred:.15,armorShred:10};
-  assert.equal(damageAfterDefense(100,'physical',foe,{},data.balance),60);
-  assert.equal(damageAfterDefense(100,'piercing',foe,{penetration:.5},data.balance),75);
-  assert.ok(Math.abs(damageAfterDefense(100,'fire',foe,{},data.balance)-55)<1e-8);
-  assert.ok(Math.abs(damageAfterDefense(100,'arcane',foe,{},data.balance)-85)<1e-8);
-  assert.equal(damageAfterDefense(100,'pure',{...foe,magicImmune:true,physicalImmune:true}, {},data.balance),100);
+  for(const type of ['physical','magical','holy']){
+    assert.equal(damageAfterDefense(100,type,foe,{},data.balance),60,`${type} ignores archived resistance fields and shares armor`);
+    assert.equal(damageAfterDefense(100,type,foe,{penetration:.5},data.balance),75,`${type} receives the same penetration benefit`);
+  }
+  const immune={...foe,magicImmune:true,physicalImmune:true};
+  assert.equal(damageAfterDefense(100,'physical',immune,{},data.balance),0);
+  assert.equal(damageAfterDefense(100,'magical',immune,{},data.balance),0);
+  assert.equal(damageAfterDefense(100,'holy',immune,{},data.balance),60);
 });
 
 test('camp previews construction wave and subsequent combat wave without consuming random draws',()=>{

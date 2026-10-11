@@ -1,0 +1,640 @@
+{
+  "title": "Independent structural verification of shared attack effects",
+  "checked_on": "2026-10-11",
+  "status": "passed",
+  "scope": "Read-only independent checks of generated receipt, 15 masters, ZIP, 46-identity mapping and selected music. Only this verification report was written.",
+  "receipt_path": "docs/audio/generated-attack-effects-20261011.json",
+  "plan_path": "docs/audio/shared-attack-effects-plan-20261011.json",
+  "checks": {
+    "exactly_15_attack_types": true,
+    "distinct_generation_ids": 15,
+    "distinct_master_paths": 15,
+    "distinct_master_hashes": 15,
+    "one_take_per_type": true,
+    "verified_master_count": 15,
+    "complete_mpeg_frame_streams": 15,
+    "mapped_defender_count": 46,
+    "missing_defender_ids": [],
+    "extra_defender_ids": [],
+    "all_seven_bow_users_share_arrow": true,
+    "bow_user_ids": [
+      "archer",
+      "elvenking",
+      "kingsrangerguard",
+      "royalranger",
+      "thornwarden",
+      "verdantguard",
+      "wyvernhunter"
+    ],
+    "total_actual_credits": 139.0,
+    "receipt_total_credits": 139.0,
+    "no_passive_support_or_healing_assets": true,
+    "selected_music_tracks": 6,
+    "selected_victory_ids": [
+      "fallen_victory_celebration"
+    ]
+  },
+  "master_files": [
+    {
+      "id": "arrow",
+      "generation_id": "29l5BBFTTrYMiFKnZWpU",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_arrow.mp3",
+      "byte_size": 30962,
+      "sha256": "d029e3b721750e163057a8e519516e0e2a3e697132de472f388e1e014c3c29d6",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 33,
+        "frame_duration_seconds": 0.862041,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "sword",
+      "generation_id": "ax9dmqCg5Udaszec0lb4",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_sword.mp3",
+      "byte_size": 30962,
+      "sha256": "d38b8f1c2114e2dbc2f593e06eb01c8e517f9047c44da78e09c33d90709d0c1f",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 33,
+        "frame_duration_seconds": 0.862041,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "spear",
+      "generation_id": "MFq91fpJjTpRNdZsrz9B",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_spear.mp3",
+      "byte_size": 29290,
+      "sha256": "5a119884680f18cc8ac2962d1e5a9a0da09b73cbd18ac2a3741169d5ad284d49",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 29,
+        "frame_duration_seconds": 0.757551,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "hammer",
+      "generation_id": "9lMwTFmpG4ETKmwrt2xZ",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_hammer.mp3",
+      "byte_size": 32216,
+      "sha256": "a2ae256f9bc7e7a3e47e4a746fabc6f570be0a7ee76990b2a646eba9c885ad3b",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 36,
+        "frame_duration_seconds": 0.940408,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "runic_bolt",
+      "generation_id": "TJFd4VlkWFbXLwxIDT42",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_runic_bolt.mp3",
+      "byte_size": 30962,
+      "sha256": "8cbc9bde82f739e10207915af48d38e5b9b2fef41139dc6dea84b4e77f3218d1",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 33,
+        "frame_duration_seconds": 0.862041,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "heavy_bolt",
+      "generation_id": "eab0ztRvfp8Yah1CDKDH",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_heavy_bolt.mp3",
+      "byte_size": 34306,
+      "sha256": "24be99c1cc62b369324baec1af43e9ff84ed3ed918654c078b81fdc52d4a4a11",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 41,
+        "frame_duration_seconds": 1.07102,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "stone",
+      "generation_id": "O69pnRUe34AR25o3ysCg",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_stone.mp3",
+      "byte_size": 35560,
+      "sha256": "09343b6aba18820f43424fa7defd1a631a7b909cbf91f01fd93a31d938e4d5f2",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 44,
+        "frame_duration_seconds": 1.149388,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "charge",
+      "generation_id": "WzBbpfH5PeH8IrWQG7b7",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_charge.mp3",
+      "byte_size": 34306,
+      "sha256": "a0a536bd152daaa863f7f887170a3504b4cb47eca235f88919a61bfd2d6415cb",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 41,
+        "frame_duration_seconds": 1.07102,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "toxic_canister",
+      "generation_id": "9x9MmdIOlSjoetGjA80b",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_toxic_canister.mp3",
+      "byte_size": 34306,
+      "sha256": "e612ebb783934aaf7ed8911d32bd765705a45d91c7e01a6a17fc0f9f33cc0cee",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 41,
+        "frame_duration_seconds": 1.07102,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "nature",
+      "generation_id": "DuGH47Rdy1FPymIbewTo",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_nature.mp3",
+      "byte_size": 34306,
+      "sha256": "df36bc8de6492964657a2661b9f84e29b5784310ab425238167031978e3fb072",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 41,
+        "frame_duration_seconds": 1.07102,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "arcane",
+      "generation_id": "5wPEL36HV05ocoObC8nI",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_arcane.mp3",
+      "byte_size": 32216,
+      "sha256": "b41899e5f4d502560d782233457c5843c7f3b32dba4d46a528361894fe049ff7",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 36,
+        "frame_duration_seconds": 0.940408,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "holy",
+      "generation_id": "NzJU0m4CSEZFcwqn5AE6",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_holy.mp3",
+      "byte_size": 34306,
+      "sha256": "58647d2db8015c0a3072dfa5f1fa9b1a5756af32ff9af31da11f03501d73eda7",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 41,
+        "frame_duration_seconds": 1.07102,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "frost",
+      "generation_id": "3Ypkd76IMMGWwo8YLug8",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_frost.mp3",
+      "byte_size": 34306,
+      "sha256": "f4b66c197f8ef382d059fb24bbc255b03e8e08f01199f295531d7e44ded7d974",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 41,
+        "frame_duration_seconds": 1.07102,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "lightning",
+      "generation_id": "iw1BHCIEmBcyGDprOhGt",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_lightning.mp3",
+      "byte_size": 30962,
+      "sha256": "e949794017f9dc5cb3c5cfb7b9697a5f8bc42d4081a62f0f690d391480b81eb4",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 33,
+        "frame_duration_seconds": 0.862041,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    },
+    {
+      "id": "fire",
+      "generation_id": "qneLkYFQL94OBNynGYsv",
+      "path": "public/assets/audio/attacks/shared-20261011/attack_fire.mp3",
+      "byte_size": 35560,
+      "sha256": "6b279ddc3eedcd938b181727c745db69f67d2e960621ea2871488d9826d50483",
+      "receipt_bytes_match": true,
+      "receipt_hash_match": true,
+      "mpeg_structure": {
+        "complete": true,
+        "frames": 44,
+        "frame_duration_seconds": 1.149388,
+        "sample_rates_hz": [
+          44100
+        ],
+        "bitrates_kbps": [
+          128
+        ],
+        "mpeg_versions": [
+          "1"
+        ],
+        "channels": [
+          2
+        ],
+        "id3v2_bytes": 17171,
+        "id3v1_bytes": 0,
+        "unparsed_bytes": 0
+      }
+    }
+  ],
+  "bundle": {
+    "path": "docs/audio/tower-defense-attack-effects-20261011.zip",
+    "byte_size": 368311,
+    "sha256": "1f4b21f608f0a3326a1f45a11dc4b9ace5d3c2d8e0065bea4d143629764dc810",
+    "member_count": 18,
+    "audio_member_count": 15,
+    "crc_test_failure": null,
+    "audio_members": [
+      {
+        "name": "attack_arrow.mp3",
+        "byte_size": 30962,
+        "crc32": "5367c350",
+        "sha256": "d029e3b721750e163057a8e519516e0e2a3e697132de472f388e1e014c3c29d6",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_sword.mp3",
+        "byte_size": 30962,
+        "crc32": "0fe43755",
+        "sha256": "d38b8f1c2114e2dbc2f593e06eb01c8e517f9047c44da78e09c33d90709d0c1f",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_spear.mp3",
+        "byte_size": 29290,
+        "crc32": "83817217",
+        "sha256": "5a119884680f18cc8ac2962d1e5a9a0da09b73cbd18ac2a3741169d5ad284d49",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_hammer.mp3",
+        "byte_size": 32216,
+        "crc32": "490cbd2c",
+        "sha256": "a2ae256f9bc7e7a3e47e4a746fabc6f570be0a7ee76990b2a646eba9c885ad3b",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_runic_bolt.mp3",
+        "byte_size": 30962,
+        "crc32": "b8281b5e",
+        "sha256": "8cbc9bde82f739e10207915af48d38e5b9b2fef41139dc6dea84b4e77f3218d1",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_heavy_bolt.mp3",
+        "byte_size": 34306,
+        "crc32": "0d5a8d12",
+        "sha256": "24be99c1cc62b369324baec1af43e9ff84ed3ed918654c078b81fdc52d4a4a11",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_stone.mp3",
+        "byte_size": 35560,
+        "crc32": "8a881b31",
+        "sha256": "09343b6aba18820f43424fa7defd1a631a7b909cbf91f01fd93a31d938e4d5f2",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_charge.mp3",
+        "byte_size": 34306,
+        "crc32": "ad91e97a",
+        "sha256": "a0a536bd152daaa863f7f887170a3504b4cb47eca235f88919a61bfd2d6415cb",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_toxic_canister.mp3",
+        "byte_size": 34306,
+        "crc32": "94cd8fc3",
+        "sha256": "e612ebb783934aaf7ed8911d32bd765705a45d91c7e01a6a17fc0f9f33cc0cee",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_nature.mp3",
+        "byte_size": 34306,
+        "crc32": "39b70179",
+        "sha256": "df36bc8de6492964657a2661b9f84e29b5784310ab425238167031978e3fb072",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_arcane.mp3",
+        "byte_size": 32216,
+        "crc32": "b8fefe02",
+        "sha256": "b41899e5f4d502560d782233457c5843c7f3b32dba4d46a528361894fe049ff7",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_holy.mp3",
+        "byte_size": 34306,
+        "crc32": "e76f5ad1",
+        "sha256": "58647d2db8015c0a3072dfa5f1fa9b1a5756af32ff9af31da11f03501d73eda7",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_frost.mp3",
+        "byte_size": 34306,
+        "crc32": "efcd64a1",
+        "sha256": "f4b66c197f8ef382d059fb24bbc255b03e8e08f01199f295531d7e44ded7d974",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_lightning.mp3",
+        "byte_size": 30962,
+        "crc32": "c12d636d",
+        "sha256": "e949794017f9dc5cb3c5cfb7b9697a5f8bc42d4081a62f0f690d391480b81eb4",
+        "master_hash_match": true
+      },
+      {
+        "name": "attack_fire.mp3",
+        "byte_size": 35560,
+        "crc32": "cfc88b69",
+        "sha256": "6b279ddc3eedcd938b181727c745db69f67d2e960621ea2871488d9826d50483",
+        "master_hash_match": true
+      }
+    ],
+    "manifest_matches_receipt": true,
+    "plan_matches_source": true
+  },
+  "selected_music": [
+    {
+      "id": "iron_build",
+      "title": "Quiet Battlements",
+      "phase": "Build",
+      "receipt_bytes_and_hash_match": true
+    },
+    {
+      "id": "iron_battle",
+      "title": "March of the Siege",
+      "phase": "Battle",
+      "receipt_bytes_and_hash_match": true
+    },
+    {
+      "id": "wilds_build",
+      "title": "Whispers of the Grove",
+      "phase": "Build",
+      "receipt_bytes_and_hash_match": true
+    },
+    {
+      "id": "wilds_battle",
+      "title": "Drums Beneath the Roots",
+      "phase": "Battle",
+      "receipt_bytes_and_hash_match": true
+    },
+    {
+      "id": "fallen_battle",
+      "title": "Under the Black Banner",
+      "phase": "Battle",
+      "receipt_bytes_and_hash_match": true
+    },
+    {
+      "id": "fallen_victory_celebration",
+      "title": "The Kingdom Rejoices",
+      "phase": "Victory",
+      "receipt_bytes_and_hash_match": true
+    }
+  ],
+  "listening": {
+    "audition_performed": false,
+    "decoded_pcm_analysis_performed": false,
+    "reason": "This agent performed byte/hash/CRC and complete MPEG Layer III frame parsing only. No audible content, loudness, spectral balance or decoder playback result is claimed."
+  },
+  "notes": [
+    "Frame-derived durations include encoded frames and possible encoder delay or padding; provider-reported durations may differ slightly.",
+    "Frame parsing validates container structure and complete frame boundaries; it does not decode or judge the audio content.",
+    "No masters, generation receipt, generation plan or ZIP were edited. No additional audio was generated."
+  ],
+  "errors": []
+}

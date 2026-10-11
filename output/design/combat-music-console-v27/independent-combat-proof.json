@@ -1,0 +1,1072 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "version": "0.3.26",
+  "generatedAt": "2026-10-11T15:17:24.024Z",
+  "baseline": "06a2d70a304f864a5996782b06f5575286f6bff2",
+  "head": "06a2d70a304f864a5996782b06f5575286f6bff2",
+  "scope": "Owned combat/data adapters/MVP/Game APIs and focused current intelligence/filter/DPS/crit/state regressions. Candidate working-tree snapshot; not a committed release, deployment, visual inspection or listening-quality certification.",
+  "tests": {
+    "command": [
+      "C:\\Users\\sinag\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "--test",
+      "--test-reporter=tap",
+      "tests/combat-overhaul.test.mjs",
+      "tests/mvp.test.mjs",
+      "tests/army-readiness.test.mjs",
+      "tests/poison-source-expiry.test.mjs",
+      "tests/ranger-air-defenses.test.mjs",
+      "tests/recipe-filters.test.mjs",
+      "tests/combat-critical-feedback.test.mjs",
+      "tests/tower-dps.test.mjs",
+      "tests/wave-threats.test.mjs",
+      "tests/warband-info.test.mjs",
+      "tests/warband-cards.test.mjs",
+      "tests/warbands-maze.test.mjs",
+      "tests/warbands-overview.test.mjs",
+      "tests/wave-preview-flow.test.mjs",
+      "tests/wave-preview-integration.test.mjs",
+      "tests/wave-preview-ui.test.mjs",
+      "tests/economy-host.test.mjs",
+      "tests/visibility.test.mjs"
+    ],
+    "fileCount": 18,
+    "total": 197,
+    "pass": 197,
+    "fail": 0,
+    "skipped": 0,
+    "todo": 0,
+    "exitCode": 0,
+    "logPath": "output/design/combat-music-console-v27/independent-combat-test-log.txt",
+    "logSha256": "553c8c9592b2d95fae7d17d9b9f61a0aae1b7510c789591bf414bc272756ed0a"
+  },
+  "frozenDuringRun": true,
+  "sourceAndTestInventory": [
+    {
+      "path": "game/core/combat-rules.js",
+      "bytes": 1448,
+      "sha256": "eb5906ceb50d1cd8a10b7954ec42aaaffa9bb0a028e7d7108b5bdea8d4b4afbd"
+    },
+    {
+      "path": "game/core/mvp.js",
+      "bytes": 2494,
+      "sha256": "64ad7bdca37f9b4d2cd1b74ebccc5d71b53d6ff690d071c5600f775a73d4d1a1"
+    },
+    {
+      "path": "game/core/campaign-roster.js",
+      "bytes": 7588,
+      "sha256": "daa800f9dc4ba9ffe874e886256aff07f91a050623fd9b3ee0b01a319d69b976"
+    },
+    {
+      "path": "game/core/math.js",
+      "bytes": 3793,
+      "sha256": "8ec21928faa5ac5255311e8854ef1028b3b5aa3849f5f7a89e89e7ed12bbecf6"
+    },
+    {
+      "path": "game/core/enemy-rules.js",
+      "bytes": 2130,
+      "sha256": "7463d51847a5d69576772589df7dc2fb4fde190db7b8a9c9fa2da4bf63a81068"
+    },
+    {
+      "path": "game/core/game.js",
+      "bytes": 20344,
+      "sha256": "24a8feb0070ac8fde82b5e7fc924bd342474ba7b654c086d8b7f9579919175d5"
+    },
+    {
+      "path": "game/core/combat.js",
+      "bytes": 26840,
+      "sha256": "8d2e91aeeeadb6b1986f198fda1ee182b3b74e2a74f0c590f665c3331740ef26"
+    },
+    {
+      "path": "game/core/visibility.js",
+      "bytes": 744,
+      "sha256": "57b27c80b48c8947482caedd5007b1009d674f286b4be3eb2af300af2790aa2c"
+    },
+    {
+      "path": "game/core/army-readiness.js",
+      "bytes": 17601,
+      "sha256": "8457a96ca02394268b60ad8233f604d8bc7f6a4d9bb38a0837657aee7ba9b6e4"
+    },
+    {
+      "path": "game/core/wave-threats.js",
+      "bytes": 13281,
+      "sha256": "0833bd0b655b3123e3db803389f153d457944c6646118e3c257c672d39d086e6"
+    },
+    {
+      "path": "game/core/warband-info.js",
+      "bytes": 6710,
+      "sha256": "8c95f080c0a49c1f842ea06981db1f1fafbf6adf736363f7723bcc04081a72a8"
+    },
+    {
+      "path": "ui/recipe-filters.js",
+      "bytes": 6408,
+      "sha256": "529b7302b4b8c6d31180250c9aa881cfec3f0222f04d50b76fc0120447018f8a"
+    },
+    {
+      "path": "ui/grimoire.js",
+      "bytes": 14649,
+      "sha256": "98a357c72cdaf74d52b9f12d2f48048abf7ad934b9802bb07519ac73757bd08d"
+    },
+    {
+      "path": "docs/COMBAT_RULES.md",
+      "bytes": 13933,
+      "sha256": "8e8c42675d88c0d35059a49fca78917ebe1941bd449bfa31c40d1aa22e05edf8"
+    },
+    {
+      "path": "docs/COMBAT_OVERHAUL_20261011.md",
+      "bytes": 2569,
+      "sha256": "25f09d82fcf5d8090f2d9f697c991e0f87b1cbd14e7ce443afed9bee0a82b03e"
+    },
+    {
+      "path": "tests/combat-overhaul.test.mjs",
+      "bytes": 11046,
+      "sha256": "f541da11b3a612942bd4e8e69a68e57cd62adb6899a2cbbb00f75badc23e8565"
+    },
+    {
+      "path": "tests/mvp.test.mjs",
+      "bytes": 10848,
+      "sha256": "a49d75e07188daab2437c215f43e6652c38a55c5baeb5e3450f84782bb751f0a"
+    },
+    {
+      "path": "tests/army-readiness.test.mjs",
+      "bytes": 19084,
+      "sha256": "6ad6a65cccc7e2774adc2578029a96d2bb370b7d213aba1f17a46c516da013bf"
+    },
+    {
+      "path": "tests/poison-source-expiry.test.mjs",
+      "bytes": 9941,
+      "sha256": "dd60fbe05241c024a65a950473462df04965bed31b1c059c2530cb3d36674700"
+    },
+    {
+      "path": "tests/ranger-air-defenses.test.mjs",
+      "bytes": 8161,
+      "sha256": "c3450771eeffd95c693a0eb77ead4f15321ba4b151beebe413e3628b9eab925f"
+    },
+    {
+      "path": "tests/recipe-filters.test.mjs",
+      "bytes": 4979,
+      "sha256": "3e4a6c95c995c2e0fff566af9688dca36a524faad3506b1d1da27e566d035f46"
+    },
+    {
+      "path": "tests/combat-critical-feedback.test.mjs",
+      "bytes": 4993,
+      "sha256": "d1e1ec307d2437e35a278203a5161e35690aa8b0b0c93e4d59ca617b08c5fce4"
+    },
+    {
+      "path": "tests/tower-dps.test.mjs",
+      "bytes": 15004,
+      "sha256": "54c58e5a18163b9dd937da3b3c230fc18ec9b21afe2a3fd679e29060f025ef0a"
+    },
+    {
+      "path": "tests/wave-threats.test.mjs",
+      "bytes": 21731,
+      "sha256": "39956d82413c1835fec892586cb2b9eb9388044015851e64ab80e6aea4ed44d1"
+    },
+    {
+      "path": "tests/warband-info.test.mjs",
+      "bytes": 3779,
+      "sha256": "3064a8c48bccf96afba7b0a765e24ae35c7f8117c194bd023d94c11e4dec15c6"
+    },
+    {
+      "path": "tests/warband-cards.test.mjs",
+      "bytes": 6387,
+      "sha256": "e7f123a9b23ab5f54eb5bc01af47389f5e63c90599387a6b46ffd8ff2bfaedfe"
+    },
+    {
+      "path": "tests/warbands-maze.test.mjs",
+      "bytes": 10758,
+      "sha256": "faae881622cfe668581711a04986ab916fd75ff8c1f674daefccc883c9c5c18e"
+    },
+    {
+      "path": "tests/warbands-overview.test.mjs",
+      "bytes": 16191,
+      "sha256": "bc6410152d2d610238828af5e7f76d54f23f09d0b636e3915b5b6154eb8b9660"
+    },
+    {
+      "path": "tests/wave-preview-flow.test.mjs",
+      "bytes": 7218,
+      "sha256": "47d9ae4a3ffcf5c1ab84bad6f1821ff6a16ccf99f95c72ca1dc3027d1f4e4ff5"
+    },
+    {
+      "path": "tests/wave-preview-integration.test.mjs",
+      "bytes": 9821,
+      "sha256": "b7034c9f13b8379971111a50a9b64fa9118e1d191145395fcd76d59e7a49d275"
+    },
+    {
+      "path": "tests/wave-preview-ui.test.mjs",
+      "bytes": 14434,
+      "sha256": "24e7a8a9655781cae1a8c48f27ccfd7b92329ff7dbea249f46132dc8161c1cba"
+    },
+    {
+      "path": "tests/economy-host.test.mjs",
+      "bytes": 12491,
+      "sha256": "d9eb2e8e9efdbb5bae2ee7104a7fbe957155649bc94a25e4bae7cda5fcb87994"
+    },
+    {
+      "path": "tests/visibility.test.mjs",
+      "bytes": 4399,
+      "sha256": "d26ca5c8e72d15a4e6bf2538f225c881d536f2e68263e826120559f55b6a5793"
+    }
+  ],
+  "archivedDataChecks": [
+    {
+      "path": "data/balance.json",
+      "currentSha256": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+      "baselineSha256": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+      "unchanged": true
+    },
+    {
+      "path": "data/towers.json",
+      "currentSha256": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+      "baselineSha256": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+      "unchanged": true
+    },
+    {
+      "path": "data/enemies.json",
+      "currentSha256": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+      "baselineSha256": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+      "unchanged": true
+    },
+    {
+      "path": "data/waves.json",
+      "currentSha256": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+      "baselineSha256": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+      "unchanged": true
+    },
+    {
+      "path": "data/recipes.json",
+      "currentSha256": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+      "baselineSha256": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+      "unchanged": true
+    }
+  ],
+  "profileSummary": {
+    "total": 86,
+    "basic": 48,
+    "champion": 38,
+    "damageTypes": [
+      "holy",
+      "magical",
+      "physical"
+    ],
+    "currentEnemyProfiles": 62,
+    "currentChampionRecipes": 38
+  },
+  "profiles": [
+    {
+      "family": "soldier",
+      "tier": 1,
+      "type": "physical",
+      "damage": 22.5,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "soldier",
+      "tier": 2,
+      "type": "physical",
+      "damage": 45,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "soldier",
+      "tier": 3,
+      "type": "physical",
+      "damage": 90,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "soldier",
+      "tier": 4,
+      "type": "physical",
+      "damage": 180,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "soldier",
+      "tier": 5,
+      "type": "physical",
+      "damage": 360,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "soldier",
+      "tier": 6,
+      "type": "physical",
+      "damage": 882,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "archer",
+      "tier": 1,
+      "type": "physical",
+      "damage": 6,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "archer",
+      "tier": 2,
+      "type": "physical",
+      "damage": 12,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "archer",
+      "tier": 3,
+      "type": "physical",
+      "damage": 24,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "archer",
+      "tier": 4,
+      "type": "physical",
+      "damage": 48,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "archer",
+      "tier": 5,
+      "type": "physical",
+      "damage": 72,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "archer",
+      "tier": 6,
+      "type": "physical",
+      "damage": 100.8,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "druid",
+      "tier": 1,
+      "type": "magical",
+      "damage": 6,
+      "poisonDps": 6,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "druid",
+      "tier": 2,
+      "type": "magical",
+      "damage": 12,
+      "poisonDps": 12,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "druid",
+      "tier": 3,
+      "type": "magical",
+      "damage": 18,
+      "poisonDps": 24,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "druid",
+      "tier": 4,
+      "type": "magical",
+      "damage": 24,
+      "poisonDps": 48,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "druid",
+      "tier": 5,
+      "type": "magical",
+      "damage": 30,
+      "poisonDps": 96,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "druid",
+      "tier": 6,
+      "type": "magical",
+      "damage": 36,
+      "poisonDps": 384,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "mage",
+      "tier": 1,
+      "type": "magical",
+      "damage": 12,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "mage",
+      "tier": 2,
+      "type": "magical",
+      "damage": 24,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "mage",
+      "tier": 3,
+      "type": "magical",
+      "damage": 36,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "mage",
+      "tier": 4,
+      "type": "magical",
+      "damage": 72,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "mage",
+      "tier": 5,
+      "type": "magical",
+      "damage": 144,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "mage",
+      "tier": 6,
+      "type": "magical",
+      "damage": 450,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "cleric",
+      "tier": 1,
+      "type": "holy",
+      "damage": 3,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "cleric",
+      "tier": 2,
+      "type": "holy",
+      "damage": 6,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "cleric",
+      "tier": 3,
+      "type": "holy",
+      "damage": 9,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "cleric",
+      "tier": 4,
+      "type": "holy",
+      "damage": 12,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "cleric",
+      "tier": 5,
+      "type": "holy",
+      "damage": 15,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "cleric",
+      "tier": 6,
+      "type": "holy",
+      "damage": 18,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "runebreaker",
+      "tier": 1,
+      "type": "physical",
+      "damage": 6,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "runebreaker",
+      "tier": 2,
+      "type": "physical",
+      "damage": 12,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "runebreaker",
+      "tier": 3,
+      "type": "physical",
+      "damage": 18,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "runebreaker",
+      "tier": 4,
+      "type": "physical",
+      "damage": 24,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "runebreaker",
+      "tier": 5,
+      "type": "physical",
+      "damage": 30,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "runebreaker",
+      "tier": 6,
+      "type": "physical",
+      "damage": 210,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "frostwarden",
+      "tier": 1,
+      "type": "physical",
+      "damage": 6,
+      "poisonDps": 0,
+      "projectileEffect": "frost"
+    },
+    {
+      "family": "frostwarden",
+      "tier": 2,
+      "type": "physical",
+      "damage": 12,
+      "poisonDps": 0,
+      "projectileEffect": "frost"
+    },
+    {
+      "family": "frostwarden",
+      "tier": 3,
+      "type": "physical",
+      "damage": 18,
+      "poisonDps": 0,
+      "projectileEffect": "frost"
+    },
+    {
+      "family": "frostwarden",
+      "tier": 4,
+      "type": "physical",
+      "damage": 24,
+      "poisonDps": 0,
+      "projectileEffect": "frost"
+    },
+    {
+      "family": "frostwarden",
+      "tier": 5,
+      "type": "physical",
+      "damage": 30,
+      "poisonDps": 0,
+      "projectileEffect": "frost"
+    },
+    {
+      "family": "frostwarden",
+      "tier": 6,
+      "type": "physical",
+      "damage": 108,
+      "poisonDps": 0,
+      "projectileEffect": "frost"
+    },
+    {
+      "family": "stormcaller",
+      "tier": 1,
+      "type": "magical",
+      "damage": 9,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "stormcaller",
+      "tier": 2,
+      "type": "magical",
+      "damage": 18,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "stormcaller",
+      "tier": 3,
+      "type": "magical",
+      "damage": 27,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "stormcaller",
+      "tier": 4,
+      "type": "magical",
+      "damage": 54,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "stormcaller",
+      "tier": 5,
+      "type": "magical",
+      "damage": 108,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "stormcaller",
+      "tier": 6,
+      "type": "magical",
+      "damage": 174,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "rimewatch",
+      "tier": 1,
+      "type": "physical",
+      "damage": 120,
+      "poisonDps": 0,
+      "projectileEffect": "frost"
+    },
+    {
+      "family": "frostblade",
+      "tier": 1,
+      "type": "physical",
+      "damage": 420,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "roseguard",
+      "tier": 1,
+      "type": "physical",
+      "damage": 240,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "highking",
+      "tier": 1,
+      "type": "physical",
+      "damage": 1200,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "crownofages",
+      "tier": 1,
+      "type": "physical",
+      "damage": 2700,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "thornwarden",
+      "tier": 1,
+      "type": "physical",
+      "damage": 45,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "verdantguard",
+      "tier": 1,
+      "type": "physical",
+      "damage": 150,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "tempest",
+      "tier": 1,
+      "type": "magical",
+      "damage": 300,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "stormcitadel",
+      "tier": 1,
+      "type": "magical",
+      "damage": 720,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "embercrown",
+      "tier": 1,
+      "type": "magical",
+      "damage": 0,
+      "poisonDps": 0,
+      "projectileEffect": "fire"
+    },
+    {
+      "family": "worldfire",
+      "tier": 1,
+      "type": "magical",
+      "damage": 0,
+      "poisonDps": 0,
+      "projectileEffect": "fire"
+    },
+    {
+      "family": "starfall",
+      "tier": 1,
+      "type": "magical",
+      "damage": 300,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "thunderheart",
+      "tier": 1,
+      "type": "magical",
+      "damage": 210,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    },
+    {
+      "family": "phoenix",
+      "tier": 1,
+      "type": "magical",
+      "damage": 1200,
+      "poisonDps": 384,
+      "projectileEffect": "fire"
+    },
+    {
+      "family": "greenheart",
+      "tier": 1,
+      "type": "magical",
+      "damage": 30,
+      "poisonDps": 24,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "eldergrove",
+      "tier": 1,
+      "type": "magical",
+      "damage": 90,
+      "poisonDps": 48,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "kingsreach",
+      "tier": 1,
+      "type": "physical",
+      "damage": 180,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "sunward",
+      "tier": 1,
+      "type": "holy",
+      "damage": 18,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "winterhold",
+      "tier": 1,
+      "type": "holy",
+      "damage": 60,
+      "poisonDps": 0,
+      "projectileEffect": "frost"
+    },
+    {
+      "family": "dawnspire",
+      "tier": 1,
+      "type": "holy",
+      "damage": 450,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "royalmarshal",
+      "tier": 1,
+      "type": "physical",
+      "damage": 90,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "stonewarden",
+      "tier": 1,
+      "type": "physical",
+      "damage": 240,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "wyvernhunter",
+      "tier": 1,
+      "type": "physical",
+      "damage": 45,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "royalarsenal",
+      "tier": 1,
+      "type": "magical",
+      "damage": 6000,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "rangermentor",
+      "tier": 1,
+      "type": "magical",
+      "damage": 150,
+      "poisonDps": 96,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "kingdomprotector",
+      "tier": 1,
+      "type": "holy",
+      "damage": 240,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "mothernature",
+      "tier": 1,
+      "type": "magical",
+      "damage": 9492,
+      "poisonDps": 1898.4,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "royalranger",
+      "tier": 1,
+      "type": "physical",
+      "damage": 90,
+      "poisonDps": 48,
+      "projectileEffect": "poison"
+    },
+    {
+      "family": "kingsrangerguard",
+      "tier": 1,
+      "type": "physical",
+      "damage": 60,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "elvenking",
+      "tier": 1,
+      "type": "physical",
+      "damage": 2316,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "fireballista",
+      "tier": 1,
+      "type": "physical",
+      "damage": 360,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "emeraldgolem",
+      "tier": 1,
+      "type": "physical",
+      "damage": 450,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "griffinbomber",
+      "tier": 1,
+      "type": "physical",
+      "damage": 390,
+      "poisonDps": 0,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "mechanicalgolem",
+      "tier": 1,
+      "type": "physical",
+      "damage": 126,
+      "poisonDps": 384,
+      "projectileEffect": "physical"
+    },
+    {
+      "family": "monk",
+      "tier": 1,
+      "type": "holy",
+      "damage": 240,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "archbishop",
+      "tier": 1,
+      "type": "holy",
+      "damage": 18,
+      "poisonDps": 0,
+      "projectileEffect": "holy"
+    },
+    {
+      "family": "archangel",
+      "tier": 1,
+      "type": "holy",
+      "damage": 180,
+      "poisonDps": 0,
+      "projectileEffect": "frost"
+    },
+    {
+      "family": "ladyclaire",
+      "tier": 1,
+      "type": "holy",
+      "damage": 1225,
+      "poisonDps": 0,
+      "projectileEffect": "arcane"
+    }
+  ],
+  "acceptanceMatrix": [
+    {
+      "decision": "Exactly three damage classes; armor affects all, Holy bypasses damage immunity only",
+      "userTurns": [
+        "01a12b16-40e0-7793-97cf-5ad5c35ea6a3",
+        "01a12b20-4d41-7823-991f-91bc38f5b3c1",
+        "01a12b22-0db6-7002-a83d-2065ea3174a1"
+      ],
+      "tests": [
+        "combat-overhaul",
+        "visibility",
+        "economy-host",
+        "recipe-filters"
+      ],
+      "status": "PASS"
+    },
+    {
+      "decision": "Approved champion type, cleave, crit, multishot, support, Ranger debuff, Golem and lightning numeric changes",
+      "userTurns": [
+        "01a12b52-8dc2-7483-af5c-1980855004d6"
+      ],
+      "defaults": "Thunderbird 300/165; Fire Ballista burn 120/s for 3s; Master/Dark Ranger slow duration 3s. Numeric defaults confirmed by root under current user authorization.",
+      "tests": [
+        "combat-overhaul",
+        "combat-critical-feedback",
+        "ranger-air-defenses",
+        "warbands-maze"
+      ],
+      "status": "PASS"
+    },
+    {
+      "decision": "Independent five-second poison applications with actual per-source HP attribution",
+      "source": "Latest explicit user approval relayed by root; replaces the earlier open stacking question.",
+      "tests": [
+        "poison-source-expiry",
+        "combat-overhaul",
+        "tower-dps",
+        "mvp"
+      ],
+      "status": "PASS"
+    },
+    {
+      "decision": "Evasion all types, refraction 5s, reactive +8/contact max120, regen10%/Troll30%, recharge50%, continuous cloak, dread75%, blink6, haste50%, growing Shell",
+      "userTurns": [
+        "01a12b38-9a1c-7eb2-97c7-cdf703046e9a",
+        "01a12b3e-798c-7ea2-b260-737caf3871fc"
+      ],
+      "defaults": "Shell wave39=100, +10 per later wave; wave50 base210/stronger273.",
+      "tests": [
+        "combat-overhaul",
+        "wave-threats",
+        "warband-cards",
+        "warbands-maze"
+      ],
+      "status": "PASS"
+    },
+    {
+      "decision": "MVP actual HP winner, tie/cap rules, own10% per level, strongest armor1% per level/radius2, level10 foreign75%, inherit maximum",
+      "userTurns": [
+        "01a12b23-8369-7233-ade9-391b056aba76",
+        "01a12b28-9c8a-70f3-8250-d495c9d3f1b3",
+        "01a12b55-f9d7-7a23-8c9c-6d8af8e6c8d0"
+      ],
+      "tests": [
+        "mvp",
+        "army-readiness",
+        "tower-dps"
+      ],
+      "status": "PASS"
+    },
+    {
+      "decision": "Per-defender pause stops new attacks/offensive auras, preserves launched attacks/DOT/support/MVP",
+      "userTurns": [
+        "01a12b28-9c8a-70f3-8250-d495c9d3f1b3"
+      ],
+      "tests": [
+        "mvp",
+        "army-readiness"
+      ],
+      "status": "PASS"
+    },
+    {
+      "decision": "All40 basic merges and all38 current champion crafts preserve identity and maximum MVP; only actual successful advanced crafts earn per-run discoveries",
+      "source": "Current root persistence contract; known/inherited crafts each qualify in their own legitimate run.",
+      "tests": [
+        "mvp"
+      ],
+      "status": "PASS"
+    },
+    {
+      "decision": "Critical feedback only after a genuine positive actual-HP crit, source-owned channels, no extra RNG",
+      "tests": [
+        "combat-critical-feedback",
+        "tower-dps",
+        "combat-overhaul"
+      ],
+      "status": "PASS"
+    },
+    {
+      "decision": "Composition readiness and filter/guide channels agree with current defenses; no placement guarantee or hidden-location disclosure",
+      "tests": [
+        "army-readiness",
+        "recipe-filters",
+        "wave-threats",
+        "warband-info",
+        "warbands-overview",
+        "wave-preview-flow",
+        "wave-preview-integration",
+        "wave-preview-ui",
+        "visibility"
+      ],
+      "status": "PASS"
+    },
+    {
+      "decision": "Run-local numeric rule overrides use real combat and a frozen global default; zero disabling values supported except periods",
+      "tests": [
+        "combat-overhaul"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "findings": [],
+  "limitations": [
+    "Full release suite, root-owned Console UI/statistics/backend/visual effects integration and audio lifecycle are independently owned by other agents. Their results are not claimed by this scoped report.",
+    "This run includes the existing actual59 native enemy geometry/shared-resource audit in economy-host; it does not independently certify rendered appearance or audio quality.",
+    "Approved art/model/audio bytes are protected by release-wide provenance checks; this scoped proof independently compares the five archived data JSON files against the baseline."
+  ]
+}

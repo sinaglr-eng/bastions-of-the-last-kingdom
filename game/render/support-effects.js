@@ -1,10 +1,12 @@
 import * as THREE from 'three';
 import {distance,towerStats} from '../core/math.js';
-import {ENEMY_RULES as R,enemyDisarmActive} from '../core/enemy-rules.js';
+import {enemyRulesFor,enemyDisarmActive} from '../core/enemy-rules.js';
+import {ignoresDamageImmunity} from '../core/combat-rules.js';
+import {mvpArmorReduction,mvpLevel,MVP_RULES} from '../core/mvp.js';
 
 // Read-only display of the actual rules in supportBonuses/CombatManager.
 // A source includes itself in the current game. Maxima win inside each haste
-// group, different groups add, and the remaining auras use their strongest value.
+// ordinary group; the Otomad group adds independently. Other auras use maxima.
 export const SUPPORT_EFFECT_STYLES=Object.freeze({
   haste:Object.freeze({label:'Attack speed',color:'#53dcff',glyph:'clock'}),
   damage:Object.freeze({label:'Damage',color:'#ffc36b',glyph:'blade'}),
@@ -24,7 +26,6 @@ export const ENEMY_EFFECT_STYLES=Object.freeze({
   burn:Object.freeze({label:'Burning',color:'#ff9a51',glyph:'flame'}),
   bleed:Object.freeze({label:'Bleeding',color:'#ff747c',glyph:'drop'}),
   armor:Object.freeze({label:'Armor reduced',color:'#ffd088',glyph:'brokenShield'}),
-  magic:Object.freeze({label:'Magic resistance reduced',color:'#c9a7ff',glyph:'brokenStar'}),
   healBlock:Object.freeze({label:'Healing blocked',color:'#ffc0d0',glyph:'cross'}),
 });
 const positiveKeys=['haste','damage','range','controlResistance','trueStrike'];
@@ -75,8 +76,8 @@ export function towerSupportState(tower,towers,data,options={}){
   const context=options.context||prepared(towers,data),groups=new Map(),other=new Map();
   for(const source of nearby(tower,context)){
     const a=source.aura;
-    if(a.haste)maximize(groups,a.stackKey||'strongest',a.haste,source,a.stackKey||'strongest');
-    for(const [key,value]of Object.entries(a.hasteGroups||{}))maximize(groups,key,value,source,key);
+    if(a.haste){const key=a.stackKey==='otomad'?'otomad':'standard';maximize(groups,key,a.haste,source,key);}
+    for(const [key,value]of Object.entries(a.hasteGroups||{})){const group=key==='otomad'?'otomad':'standard';maximize(groups,group,value,source,group);}
     maximize(other,'damage',a.damageBonus,source);maximize(other,'range',a.rangeBonus,source);
     maximize(other,'trueStrike',a.trueStrike?1:0,source);maximize(other,'controlResistance',a.controlResistance,source);
   }
@@ -90,12 +91,12 @@ export function towerSupportState(tower,towers,data,options={}){
     state.effects.push(effect(key,value,entry.amount,entry.sources));
   }
   if(combatActive(options)){
-    const combat=options.combat,resist=state.bonuses.controlResistance||0,dread=[],disarm=[],ruins=[];
+    const combat=options.combat,R=combat.rules||enemyRulesFor(data),resist=state.bonuses.controlResistance||0,dread=[],disarm=[],ruins=[];
     for(const enemy of combat.enemies||[]){
       if(enemy.dead)continue;const d=distance(tower,enemy);
       const amount=(enemy.untouchable||0)*(1-resist);
       if(amount>0&&d<R.dread.radius)dread.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:amount});
-      if(d<R.disarm.radius&&enemyDisarmActive(enemy,combat.elapsed||0,resist))disarm.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:true});
+      if(d<R.disarm.radius&&enemyDisarmActive(enemy,combat.elapsed||0,resist,R))disarm.push({id:enemy.id,family:enemy.type,name:enemy.name||enemy.type||'Invader',value:true});
     }
     if(dread.length){const strongest=Math.max(...dread.map(s=>s.value));state.effects.push(effect('dread',strongest,strongest,dread.filter(s=>s.value===strongest)));}
     if(disarm.length)state.effects.push(effect('disarm',true,1,disarm));
@@ -110,13 +111,14 @@ export const supportLegend=(tower,towers,data,options={})=>towerSupportState(tow
 
 export function supportSourceAreas(tower,data,{towers=[]}={}){
   if(tower?.state!=='active'||!data.towers[tower.family])return [];
-  const s=towerStats(tower,data),areas=[];
+  const s=towerStats(tower,data),R=enemyRulesFor(data),areas=[];
   if(s.aura){const a=s.aura,keys=positiveKeys.filter(k=>k==='haste'?a.haste||Object.values(a.hasteGroups||{}).some(v=>v>0):k==='damage'?a.damageBonus:k==='range'?a.rangeBonus:a[k]);if(keys.length)areas.push({key:'support',keys,radius:a.range,label:`Support reach · ${a.range} tiles`,color:'#86f0c9',glyph:'arrows'});}
-  const debuffs=[['burnAura','burn','Burning aura','#ff9a51'],['slowAura','slow','Slowing aura','#71d1e6'],['armorShredAura','armor','Armor reduction aura','#ffd088'],['magicShredAura','magic','Magic vulnerability aura','#c9a7ff']];
-  for(const [prop,key,label,color]of debuffs)if(s[prop]){
+  const debuffs=[['burnAura','burn','Burning aura','#ff9a51'],['slowAura','slow','Slowing aura','#71d1e6'],['armorShredAura','armor','Armor reduction aura','#ffd088']];
+  for(const [prop,key,label,color]of debuffs)if(s[prop]&&!tower.attackPaused){
     const radius=prop==='burnAura'?s.range+towerSupportState(tower,towers,data).bonuses.range:(prop==='slowAura'?s.range:s.effectRange??s.range);
     areas.push({key,keys:[key],radius,label:`${label} · ${radius} tiles`,color,glyph:ENEMY_EFFECT_STYLES[key].glyph});
   }
+  if(mvpLevel(tower)>0)areas.push({key:'mvpArmor',keys:['armor'],radius:MVP_RULES.auraRange,label:`MVP armor reduction · ${mvpLevel(tower)}% · ${MVP_RULES.auraRange} tiles`,color:ENEMY_EFFECT_STYLES.armor.color,glyph:ENEMY_EFFECT_STYLES.armor.glyph});
   const detection=tower.family==='cleric'?R.reveal.clericRadius:s.detectionRange||0;
   if(detection)areas.push({key:'detection',keys:['detection'],radius:Math.max(R.reveal.defenderRadius,detection),label:`Hidden-enemy detection · ${Math.max(R.reveal.defenderRadius,detection)} tiles`,color:'#fff8e4',glyph:'target'});
   if(s.bouncingFrostTrigger==='nearby-ally-magic-hit')areas.push({key:'reaction',keys:['reaction'],radius:s.bouncingFrostTriggerRange||6,label:`Reacts to allied magic hits · ${s.bouncingFrostTriggerRange||6} tiles`,color:'#a5ddff',glyph:'snowflake'});
@@ -129,14 +131,16 @@ export function enemyStatusState(enemy,towers,data,options={}){
   if(enemy.dead)return [];
   const statuses=enemy.statuses||{},effects=new Map();
   const add=(key,value)=>{if(value>0)effects.set(key,{key,...ENEMY_EFFECT_STYLES[key],value:Math.max(value,effects.get(key)?.value||0)});};
-  let slow=Math.max(statuses.slow?.amount||0,statuses.gazeSlow?.amount||0),armor=statuses.shred?.amount||0,magic=statuses.shredMagic?.amount||0;
+  let slow=Math.max(statuses.slow?.amount||0,statuses.gazeSlow?.amount||0),armor=statuses.shred?.amount||0;
   for(const tower of towers){
     if(tower.state!=='active')continue;const s=options.statsFor?options.statsFor(tower):towerStats(tower,data),d=distance(tower,enemy);
-    if(!enemy.magicImmune&&s.slowAura&&d<=s.range)slow=Math.max(slow,s.slowAura);
-    if((!enemy.magicImmune||s.auraPiercesImmunity)&&d<=(s.effectRange??s.range)){armor=Math.max(armor,s.armorShredAura||0);magic=Math.max(magic,s.magicShredAura||0);}
+    if(tower.attackPaused)continue;
+    if((!enemy.physicalImmune||ignoresDamageImmunity(s))&&s.slowAura&&d<=s.range)slow=Math.max(slow,s.slowAura);
+    if(d<=(s.effectRange??s.range))armor=Math.max(armor,s.armorShredAura||0);
   }
   if(enemy.boss)slow*=data.balance.bossSlowMultiplier??.5;
-  add('slow',slow);add('armor',armor);add('magic',magic);
+  const fraction=mvpArmorReduction(enemy,towers),baseArmor=Math.max(0,(enemy.armor||0)+(enemy.reactiveArmor||0)*(enemy.reactiveStacks||0));
+  add('slow',slow);add('armor',armor+Math.max(0,baseArmor-armor)*fraction);
   for(const key of ['freeze','petrify','poison','burn','bleed','healBlock'])if(statuses[key]?.time>0)add(key,statuses[key].dps||statuses[key].time);
   return [...effects.values()];
 }
@@ -244,8 +248,9 @@ export class SupportEffects{
     this.tint.instanceMatrix.needsUpdate=true;if(this.tint.instanceColor)this.tint.instanceColor.needsUpdate=true;
     if(combatActive(options)){
       const statCache=new Map(),statsFor=tower=>{const key=`${tower.family}:${tower.tier}:${tower.upgrades||0}`;if(!statCache.has(key))statCache.set(key,towerStats(tower,data));return statCache.get(key);};
-      // Only the handful of actual aura sources need checking against enemies.
-      const auraTowers=towers.filter(t=>t.state==='active'&&['slowAura','armorShredAura','magicShredAura'].some(k=>statsFor(t)[k]));
+      // Offensive auras and every active MVP source can affect enemy markers.
+      // MVP support remains active when the source's own attacks are paused.
+      const auraTowers=towers.filter(t=>t.state==='active'&&(mvpLevel(t)>0||['slowAura','armorShredAura'].some(k=>statsFor(t)[k])));
       for(const enemy of combat.enemies||[]){
         if(enemy.dead||!this.isVisible(enemy))continue;const effects=enemyStatusState(enemy,auraTowers,data,{statsFor});if(!effects.length)continue;this.enemyStates.set(enemy.id,effects);
         const ordered=Object.keys(ENEMY_EFFECT_STYLES);

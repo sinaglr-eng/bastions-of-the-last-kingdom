@@ -26,7 +26,7 @@ function completeActualWave(game){
   // complete-wave enemy, score, health and boss-count checks remain applicable.
   while(game.combat.spawnQueue.length){
     const spawn=game.combat.spawnQueue.shift(),enemy=game.combat.spawn(spawn.type,spawn.modifiers);
-    game.combat.damage(enemy,1e12,'pure',{},null);assert.equal(enemy.dead,true);
+    game.combat.damage(enemy,Number.MAX_SAFE_INTEGER,'holy',{},null);assert.equal(enemy.dead,true);
   }
   game.completeWave();
 }
@@ -38,7 +38,7 @@ test('Reserve return and repeated renewal keep one birth row, omit inactive perf
   game.select(saved.id);assert.equal(game.reserve(),true);assert.equal(game.towers.find(tower=>tower.id===saved.id),saved);assert.equal(saved.state,'reserved');assert.deepEqual({x:saved.x,z:saved.z},originalTile);assert.equal(game.grid.route,route);game.select(first[0].id);assert.equal(game.keep(),true);
   const birth=structuredClone(statistics.draws.find(draw=>draw.id===saved.id));assert.equal(statistics.draws.length,5);
   assert.equal(game.startCombat(),true);assert.equal(statistics.current.towers.some(tower=>tower.id===saved.id),false);
-  while(game.combat.spawnQueue.length){const spawn=game.combat.spawnQueue.shift(),enemy=game.combat.spawn(spawn.type,spawn.modifiers);game.combat.damage(enemy,1e12,'pure',{},null);}game.completeWave();
+  while(game.combat.spawnQueue.length){const spawn=game.combat.spawnQueue.shift(),enemy=game.combat.spawn(spawn.type,spawn.modifiers);game.combat.damage(enemy,Number.MAX_SAFE_INTEGER,'holy',{},null);assert.equal(enemy.dead,true);}game.completeWave();
   assert.equal(cleanSnapshot(statistics).wavesSurvived,1);
   assert.equal(placeEvents,0);assert.equal(game.draft.draws[0].placed,true);assert.equal(game.draft.draws[0].fixedPosition,true);assert.equal(game.towers.find(tower=>tower.id===saved.id),saved);assert.equal(saved.state,'draft');assert.deepEqual({x:saved.x,z:saved.z},originalTile);
   const second=placeFive(game);assert.equal(placeEvents,4);assert.equal(second[0],saved);assert.equal(statistics.draws.length,9);assert.deepEqual(statistics.draws.find(draw=>draw.id===saved.id),birth);

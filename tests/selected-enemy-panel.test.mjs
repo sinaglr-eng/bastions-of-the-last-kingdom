@@ -30,19 +30,19 @@ test('actual alternate immunity and reactive-armor abilities are never mixed tog
   for(const variant of data.enemies.host_31.variants){
     const enemy=game.combat.spawn('host_31',{variant}),view=selectedEnemyView(enemy,options(game));
     assert.equal(view.magicImmune,!!variant.magicImmune);assert.equal(view.physicalImmune,!!variant.physicalImmune);
-    assert.equal(view.traitDetails.some(row=>row.text==='Immune to magic and magical effects'),!!variant.magicImmune);
-    assert.equal(view.traitDetails.some(row=>row.text==='Immune to physical and piercing damage'),!!variant.physicalImmune);
+    assert.equal(view.traitDetails.some(row=>row.text.startsWith('Immune to Magical damage, poison and burning')),!!variant.magicImmune);
+    assert.equal(view.traitDetails.some(row=>row.text.startsWith('Immune to Physical damage, slowing and freezing')),!!variant.physicalImmune);
   }
 });
 
-test('current armor and effective resistance match actual applied damage including reactive stacks, ward and cached shred',()=>{
+test('current armor matches all three actual damage classes after strongest fixed shred and MVP reduction; obsolete resistance fields never render',()=>{
   const game=arena(),enemy=game.combat.spawn('host_28',{armor:5,resists:{magic:.3,fire:.4}});
-  enemy.reactiveStacks=4;enemy.armorShred=7;enemy.ward=.2;enemy.magicShred=.1;
-  const view=selectedEnemyView(enemy,options(game));assert.equal(view.reactive,32);assert.equal(view.shred,7);
-  const physical=game.combat.damage(enemy,100,'physical',{}),arcane=game.combat.damage(enemy,100,'arcane',{}),fire=game.combat.damage(enemy,100,'fire',{});
-  close(physical,100*data.balance.armorConstant/(data.balance.armorConstant+view.armor));
-  close(arcane,100*(1-view.resistances.find(row=>row.name==='Magic').value));close(fire,100*(1-view.resistances.find(row=>row.name==='Fire').value));
-  enemy.armorShred=999;assert.equal(selectedEnemyView(enemy,options(game)).armor,0,'Actual effective armor has the same zero floor as damage');
+  enemy.reactiveStacks=4;enemy.statuses.shred={amount:7,time:4};enemy.ward=.2;enemy.magicShred=.1;enemy.resists={magic:.3,fire:.4};
+  game.towers=[{id:1,family:'soldier',tier:1,state:'active',x:enemy.x,z:enemy.z,mvpLevel:10,attackPaused:true}];game.combat.prepareArmor(enemy);
+  const view=selectedEnemyView(enemy,options(game));assert.equal(view.reactive,32);assert.equal(view.shred,7);assert.equal(view.mvpFraction,.1);close(view.armor,(enemy.armor+32-7)*.9);
+  for(const type of ['physical','magical','holy'])close(game.combat.damage(enemy,100,type,{}),100*data.balance.armorConstant/(data.balance.armorConstant+view.armor));
+  const html=selectedEnemyMarkup(enemy,options(game));assert.deepEqual(view.resistances,[]);assert.doesNotMatch(html,/Magic resistance|Fire resistance|resistance shred/);assert.match(html,/MVP −10% after fixed shred/);
+  enemy.statuses.shred.amount=999;game.combat.prepareArmor(enemy);assert.equal(selectedEnemyView(enemy,options(game)).armor,0,'Actual effective armor has the same zero floor as damage');
 });
 
 test('current movement matches actual traveled distance at 1×/3× through rush, allied haste, slow, control and pause, with no guessed pre-tick value',()=>{
@@ -77,6 +77,14 @@ test('active status durations and healing-block state update with real combat wh
   game.tick(2);const expired=selectedEnemyView(enemy,options(game));assert.equal(expired.effects.length,0);assert.ok(selectedEnemyMarkup(enemy,options(game)).includes('No active status effects'));
 });
 
+test('individual abilities follow run-local console rules, never obsolete resistance or magic-shred status fields',()=>{
+  const privateData=structuredClone(data);privateData.balance.enemyRules={disarm:{duration:.5,period:4,radius:1.25},recharge:{period:2},refraction:{period:3},reactive:{maxStacks:4,decayPerSecond:0}};
+  const game=new Game(privateData,{seed:7});game.phase='combat';const enemy=game.combat.spawn('host_12');Object.assign(enemy,{recharge:.5,refraction:3,reactiveArmor:8,resists:{magic:.99},ward:.99,magicShred:.5});enemy.statuses.shredMagic={amount:.5,time:2};
+  const html=selectedEnemyMarkup(enemy,{data:privateData,combat:game.combat});
+  assert.match(html,/within 1\.25 tiles for 0\.5s every 4s/);assert.match(html,/50% missing health every 2s/);assert.match(html,/refresh every 3s/);assert.match(html,/maximum 4 stacks \(32 armor\).*decays 0 stacks\/s/);
+  assert.doesNotMatch(html,/Magic resistance|Fire resistance|resistance shred|shredMagic|magic-shred/);assert.equal(selectedEnemyView(enemy,{data:privateData,combat:game.combat}).effects.length,0);
+});
+
 test('hidden, defeated, removed, stale-clone and postcombat actors cannot render through the panel API',()=>{
   const game=arena(),enemy=game.combat.spawn('host_28',{variant:data.enemies.host_28.variants[1]});
   assert.ok(selectedEnemyMarkup(enemy,options(game)),'Real checkpoint reveal initially permits inspection');
@@ -96,7 +104,7 @@ test('health/progress and presentation values stay finite and clamped, positive 
   enemy.hp=999;assert.equal(selectedEnemyView(enemy,opts).healthPercent,100);enemy.hp=-4;assert.equal(selectedEnemyView(enemy,opts).healthPercent,0);
   enemy.hp=NaN;enemy.maxHp=Infinity;enemy.armor=-20;enemy.armorShred=100;enemy.resists={magic:4,fire:4};
   html=selectedEnemyMarkup(enemy,opts);assert.ok(!html.includes('NaN')&&!html.includes('Infinity'));assert.ok(html.includes('width:0%'));assert.equal(selectedEnemyView(enemy,opts).armor,0);
-  assert.ok(selectedEnemyView(enemy,opts).resistances.every(row=>row.value===data.balance.maxResistance));
+  assert.deepEqual(selectedEnemyView(enemy,opts).resistances,[]);assert.doesNotMatch(html,/Magic resistance|Fire resistance/);
 });
 
 test('dynamic refresh caches source markup and preserves sidebar scroll plus the focused command through real value changes',()=>{

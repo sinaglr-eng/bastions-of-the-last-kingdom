@@ -5,8 +5,10 @@ import {Game} from '../game/core/game.js';
 import {towerStats} from '../game/core/math.js';
 import {prepareDefenseReview} from '../game/core/debug-review.js';
 import {enemyDefenseVisualState} from '../game/render/enemy-defense-symbols.js';
+import {campaignTowers,campaignEnemies,campaignRecipes,campaignWaves} from '../game/core/campaign-roster.js';
 
-const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
+const archived=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
+const data={...archived,towers:campaignTowers(archived.towers),enemies:campaignEnemies(archived.enemies),recipes:campaignRecipes(archived.recipes),waves:campaignWaves(archived.waves)};
 const kinds=enemy=>enemyDefenseVisualState(enemy,{balance:data.balance}).map(row=>row.kind);
 
 test('development defense lineup preserves real wave14, guard stats and spawned defenses, including the physical-immune wraith and three initial charges',()=>{
@@ -31,21 +33,22 @@ test('development defense lineup preserves real wave14, guard stats and spawned 
   assert.equal(JSON.stringify(data),before,'fixture does not mutate waves, enemy sources or tower definitions');
 });
 
-test('unpaused review naturally depletes the reachable mirror, retains the first comparison and suppresses/restores real resistance by the griffin aura',()=>{
+test('unpaused review depletes the reachable mirror and retains immunities while the real griffin armor-reduction aura is active',()=>{
   const game=new Game(data,{seed:7}),before=JSON.stringify(data);prepareDefenseReview(game);
   const [comparison,reachable,wraith,pickpocket]=game.combat.enemies,griffin=game.towers.find(t=>t.family==='griffinbomber');
   assert.ok(kinds(pickpocket).includes('magicImmune'));
-  const magicAmount=()=>enemyDefenseVisualState(wraith,{balance:data.balance}).find(row=>row.kind==='magic')?.amount;
-  assert.equal(magicAmount(),.213);
+  assert.equal(wraith.resists,undefined);assert.ok(!kinds(wraith).includes('magic'));
   assert.equal(game.combat.targetList(game.towers[0],towerStats(game.towers[0],data)).length,0,'first soldier uses actual2.5 range, not an invented reach');
   assert.equal(game.combat.targetList(griffin,towerStats(griffin,data))[0],reachable);
   const deflected=[];game.on((kind,payload)=>{if(kind==='deflect'&&payload.enemy===reachable)deflected.push(payload.enemy.shields);});
   game.paused=false;for(let i=0;i<60;i++)game.tick(.05);
   assert.deepEqual(deflected.slice(0,3),[2,1,0]);assert.equal(reachable.shields,0);assert.equal(comparison.shields,3);assert.equal(comparison.hp,comparison.maxHp);
-  assert.equal(pickpocket.magicShred,.2);assert.ok(kinds(pickpocket).includes('magicImmune'),'real magic immunity persists even when an aura applies shred');
-  assert.ok(Math.abs(magicAmount()-.013)<1e-12,'the actual .213 ward is reduced by .2, leaving genuine positive protection');
+  assert.equal(pickpocket.armorShred,30);assert.equal(wraith.armorShred,30);assert.ok(kinds(pickpocket).includes('magicImmune'),'real magic immunity persists even when an aura applies armor reduction');
+  assert.equal(game.combat.damage(wraith,100,'holy',{}),100,'the20 armor is fully reduced by the actual30-point aura');
+  assert.equal(game.combat.damage(wraith,100,'physical',{}),0,'armor reduction cannot bypass Physical immunity');
+  assert.equal(game.combat.damage(pickpocket,100,'magical',{}),0,'armor reduction cannot bypass Magical immunity');
   assert.ok(kinds(wraith).includes('physicalImmune'),'shred never cosmetically suppresses real immunity');
-  griffin.state='ruin';game.tick(.05);assert.equal(wraith.magicShred,0);assert.equal(magicAmount(),.213);
-  griffin.state='active';game.tick(.05);assert.ok(Math.abs(magicAmount()-.013)<1e-12);
+  griffin.state='ruin';game.tick(.05);assert.equal(wraith.armorShred,0);assert.equal(game.combat.damage(wraith,100,'holy',{}),60,'consuming the aura restores actual20 armor mitigation');
+  griffin.state='active';game.tick(.05);assert.equal(wraith.armorShred,30);assert.equal(game.combat.damage(wraith,100,'holy',{}),100);
   assert.equal(JSON.stringify(data),before,'inspection continues to use unchanged production combat data');
 });

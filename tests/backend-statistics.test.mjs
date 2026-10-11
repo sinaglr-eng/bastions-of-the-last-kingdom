@@ -64,7 +64,7 @@ function run(mode, id, edition=version) {
     for (const item of game.combat.spawnQueue.splice(0)) game.combat.spawn(item.type, item.modifiers);
     if (kill) {
       const source = game.towers.find(tower => tower.state === 'active');
-      for (const enemy of game.combat.enemies) game.combat.damage(enemy, 1e9, 'pure', {}, source);
+      for (const enemy of game.combat.enemies) game.combat.damage(enemy, 1e9, 'holy', {}, source);
     } else {
       for (const enemy of game.combat.enemies) enemy.pathIndex = enemy.route.length;
     }
@@ -136,7 +136,7 @@ test('real secret crafting retains ingredient draws, result families, combat per
       const champion=g.selection;assert.equal(champion.family,family);assert.equal(g.startCombat(),true);
       g.combat.spawnQueue.length=0;
       const enemy=g.combat.spawn('host_01');Object.assign(enemy,{x:champion.x+.5,z:champion.z});
-      g.combat.damage(enemy,1,'pure',{},champion);
+      g.combat.damage(enemy,1,'holy',{},champion);
       if(family==='ladyclaire'){
         g.rng=()=>0;g.tick(.01);
         assert.ok(champion.melancholy>0,'The actual attack-start penalty fires');

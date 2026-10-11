@@ -1,3 +1,4 @@
+import {campaignEnemies,campaignWaves} from '../game/core/campaign-roster.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -5,7 +6,7 @@ import {CombatManager} from '../game/core/combat.js';
 import {warbandCardsMarkup,upcomingWarbandMarkup} from '../ui/warband-cards.js';
 import {warbandTraitDetails} from '../game/core/warband-info.js';
 
-const enemies=JSON.parse(readFileSync(new URL('../data/enemies.json',import.meta.url))),waves=JSON.parse(readFileSync(new URL('../data/waves.json',import.meta.url)));
+const enemies=campaignEnemies(JSON.parse(readFileSync(new URL('../data/enemies.json',import.meta.url)))),waves=campaignWaves(JSON.parse(readFileSync(new URL('../data/waves.json',import.meta.url))));
 const images=Object.fromEntries(Object.keys(enemies).map(type=>['enemy:'+type,'/assets/geometric/portraits/'+type+'.png']));
 const escape=text=>text.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
@@ -26,7 +27,7 @@ test('all 50 actual guide cards preserve portraits/flavor while displaying every
 });
 
 test('actual wave 17 dread, 12 disarm and 8 proportional regeneration details remain visible in guide and upcoming cards',()=>{
-  for(const [index,expected]of [[16,/within 4 tiles lose 35% attack speed/],[11,/within 3 tiles for 5s every 8s/],[7,/Regenerates 5% maximum health\/s \(12\.8 HP\/s\)/]]){
+  for(const [index,expected]of [[16,/within 4 tiles lose 75% attack speed/],[11,/within 3 tiles for 5s every 8s/],[7,/Regenerates 10% maximum health\/s \(25\.6 HP\/s\)/]]){
     const wave=waves[index];for(const markup of [warbandCardsMarkup([wave],enemies,images),upcomingWarbandMarkup(wave,enemies)]){
       assert.match(markup,expected);assert.ok(!markup.includes('title='),'numbers are readable text, including on touch devices');
     }
@@ -39,16 +40,16 @@ test('wave38 describes separate real Knifeman and Blood-Leech variants, not a fi
   const wave=waves[37];
   for(const markup of [warbandCardsMarkup([wave],enemies,images),upcomingWarbandMarkup(wave,enemies)]){
     const sections=[...markup.matchAll(/<section class="warband-variant"[^>]*>([\s\S]*?)<\/section>/g)].map(match=>match[1]);assert.equal(sections.length,2);
-    assert.ok(sections[0].includes(escape(enemies.host_38.variants[0].name)));assert.match(sections[0],/Cloaked for 4s, visible for 2s, every 6s/);assert.match(sections[0],/Disarms defenders within 3 tiles for 5s every 8s/);assert.ok(!sections[0].includes('HP/s'));
-    assert.ok(sections[1].includes('Blood-Leech Trolls'));assert.match(sections[1],/Regenerates 5% maximum health\/s \(1,568\.45 HP\/s\)/);assert.ok(!sections[1].includes('Cloaked')&&!sections[1].includes('Disarms'));
+    assert.ok(sections[0].includes(escape(enemies.host_38.variants[0].name)));assert.match(sections[0],/Cloaked continuously/);assert.match(sections[0],/Disarms defenders within 3 tiles for 5s every 8s/);assert.ok(!sections[0].includes('HP/s'));
+    assert.ok(sections[1].includes('Blood-Leech Trolls'));assert.match(sections[1],/Regenerates 30% maximum health\/s \(9,410\.7 HP\/s\)/);assert.ok(!sections[1].includes('Cloaked')&&!sections[1].includes('Disarms'));
   }
 });
 
-test('guide health/speed/armor/resistance group overrides match actual spawn, and authored card values are escaped',()=>{
+test('guide health/speed/armor modifiers discard historical resistance overrides match actual spawn, and authored card values are escaped',()=>{
   const type='host_08',wave={name:'<Wave & title>',hp:2,speed:2,resists:{fire:.3},groups:[{type,count:2,interval:.6,hp:3,speed:.5,armor:9}]},base=enemies[type];
   const route=[{x:0,z:0},{x:10,z:0}],game={data:{enemies},grid:{route,checkpoints:route},emit(){}},combat=new CombatManager(game),enemy=combat.spawn(type,{...wave,...wave.groups[0]});
   const markup=upcomingWarbandMarkup(wave,enemies);
-  assert.ok(markup.includes(enemy.maxHp+' HP'));assert.ok(markup.includes(enemy.armor+' armor'));assert.ok(markup.includes(enemy.speed+' tiles/s'));assert.ok(markup.includes('30% fire resistance'));
+  assert.ok(markup.includes(enemy.maxHp+' HP'));assert.ok(markup.includes(enemy.armor+' armor'));assert.ok(markup.includes(enemy.speed+' tiles/s'));assert.ok(!markup.includes('fire resistance'));
   const unsafe={...base,name:'<Name & "quote">',appearance:'<script>art</script>',counter:'<counter>',threat:'<threat>'},custom={...enemies,[type]:unsafe},safe=warbandCardsMarkup([wave],custom,{['enemy:'+type]:'" onerror="bad'});
   for(const field of ['name','appearance','counter','threat'])assert.ok(safe.includes(escape(unsafe[field])));
   assert.ok(!safe.includes('<script>')&&!safe.includes('src="" onerror='));assert.ok(safe.includes('src="&quot; onerror=&quot;bad"'));

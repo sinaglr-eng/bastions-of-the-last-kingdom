@@ -1,0 +1,1094 @@
+{
+  "title": "Shared Tower Defense attack sound effects",
+  "created_on": "2026-10-11",
+  "status": "completed",
+  "model": "eleven_text_to_sound_v2",
+  "takes_per_type": 1,
+  "type_count": 15,
+  "defender_count": 46,
+  "total_credits": 139.0,
+  "flow_id": "n5O1WN3HNxakL8IRTwhZ",
+  "flow_url": "https://elevenlabs.io/app/flows/n5O1WN3HNxakL8IRTwhZ",
+  "plan_path": "docs/audio/shared-attack-effects-plan-20261011.json",
+  "bundle_path": "docs/audio/tower-defense-attack-effects-20261011.zip",
+  "playback_status": "Generated shared attack cues ready for review; runtime integration pending",
+  "clips": [
+    {
+      "id": "arrow",
+      "title": "Arrow",
+      "description": "One shared bow-and-arrow release for every Archer and Ranger, including poison-coated arrows.",
+      "duration_seconds": 0.8,
+      "prompt": "One bow releases one arrow: crisp dry string twang followed immediately by a narrow, fast arrow air whistle. Isolated single game attack, close and dry, no impact, music, speech or ambience.",
+      "used_by": [
+        "Archer",
+        "Elven Ranger",
+        "Elven Elite Warrior",
+        "Ranger",
+        "Master Ranger",
+        "Dark Ranger",
+        "Ranger Oathbreaker"
+      ],
+      "used_by_ids": [
+        "archer",
+        "thornwarden",
+        "verdantguard",
+        "wyvernhunter",
+        "royalranger",
+        "kingsrangerguard",
+        "elvenking"
+      ],
+      "node_id": "I0Crc0keYXwfrMBMb5hZ",
+      "generation_id": "29l5BBFTTrYMiFKnZWpU",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 0.8,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 0.8,
+      "credits": 8,
+      "price_cents": 0.176,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_arrow.mp3",
+      "byte_size": 30962,
+      "sha256": "d029e3b721750e163057a8e519516e0e2a3e697132de472f388e1e014c3c29d6",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "sword",
+      "title": "Sword",
+      "description": "One compact blade swing shared by physical sword attacks.",
+      "duration_seconds": 0.8,
+      "prompt": "One powerful sword swing: compact cutting air swish with a short restrained blade resonance. Isolated single game attack, close and dry, immediate onset and quick clean decay, no impact, music, speech or ambience.",
+      "used_by": [
+        "Soldier",
+        "Kingslayer",
+        "King"
+      ],
+      "used_by_ids": [
+        "soldier",
+        "highking",
+        "crownofages"
+      ],
+      "node_id": "qH1Aq2QzLMDmy0q0FGfw",
+      "generation_id": "ax9dmqCg5Udaszec0lb4",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 0.8,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 0.8,
+      "credits": 8,
+      "price_cents": 0.176,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_sword.mp3",
+      "byte_size": 30962,
+      "sha256": "d38b8f1c2114e2dbc2f593e06eb01c8e517f9047c44da78e09c33d90709d0c1f",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "spear",
+      "title": "Spear and lance",
+      "description": "One shared forward thrust for spears and lances.",
+      "duration_seconds": 0.7,
+      "prompt": "One spear thrust: a short taut wooden shaft flex and narrow forceful forward air cut. Isolated single game attack, close and dry, immediate onset and quick clean decay, no impact, music, speech or ambience.",
+      "used_by": [
+        "Soldier",
+        "Frost Knight",
+        "Lionheart Champion"
+      ],
+      "used_by_ids": [
+        "soldier",
+        "frostblade",
+        "roseguard"
+      ],
+      "node_id": "X1ibEawO6hkquJklW2ss",
+      "generation_id": "MFq91fpJjTpRNdZsrz9B",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 0.7,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 0.6802494331065759,
+      "credits": 6.999999999999999,
+      "price_cents": 0.15399999999999997,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_spear.mp3",
+      "byte_size": 29290,
+      "sha256": "5a119884680f18cc8ac2962d1e5a9a0da09b73cbd18ac2a3741169d5ad284d49",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "hammer",
+      "title": "Warhammer",
+      "description": "A heavy physical warhammer swing; the Engineer's ranged rune bolt uses its own shared type.",
+      "duration_seconds": 0.9,
+      "prompt": "One heavy warhammer swing: low compact air sweep, brief handle creak and a restrained metallic ring. Isolated single game attack, close and dry, immediate onset and quick clean decay, no impact, music, speech or ambience.",
+      "used_by": [
+        "Paladin"
+      ],
+      "used_by_ids": [
+        "kingdomprotector"
+      ],
+      "node_id": "UkkqpacMJn13Pj3nkB3t",
+      "generation_id": "9lMwTFmpG4ETKmwrt2xZ",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 0.9,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 0.88,
+      "credits": 9.000000000000002,
+      "price_cents": 0.198,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_hammer.mp3",
+      "byte_size": 32216,
+      "sha256": "a2ae256f9bc7e7a3e47e4a746fabc6f570be0a7ee76990b2a646eba9c885ad3b",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "runic_bolt",
+      "title": "Physical rune bolt",
+      "description": "The Engineer's tool-driven physical armor-breaking projectile, shared across all basic ranks.",
+      "duration_seconds": 0.8,
+      "prompt": "One armor-breaking rune bolt is released: a dry tool tap, compact compressed-air whirr and tiny restrained metallic rune ping. Isolated single game attack, close and dry, no explosion, impact, music, speech or ambience.",
+      "used_by": [
+        "Engineer"
+      ],
+      "used_by_ids": [
+        "runebreaker"
+      ],
+      "node_id": "Otl3V6cHYeJtxHQfqlwe",
+      "generation_id": "TJFd4VlkWFbXLwxIDT42",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 0.8,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 0.8,
+      "credits": 8,
+      "price_cents": 0.176,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_runic_bolt.mp3",
+      "byte_size": 30962,
+      "sha256": "8cbc9bde82f739e10207915af48d38e5b9b2fef41139dc6dea84b4e77f3218d1",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "heavy_bolt",
+      "title": "Heavy ballista bolt",
+      "description": "One shared heavy physical bolt for Ballista and Fire Ballista; the name Fire Ballista does not change its physical damage.",
+      "duration_seconds": 1,
+      "prompt": "One heavy ballista bolt launches: deep taut rope-string twang, short timber flex and a fast weighty projectile air whistle. Isolated single game attack, close and dry, no fire, impact, music, speech or ambience.",
+      "used_by": [
+        "Ballista",
+        "Fire Ballista"
+      ],
+      "used_by_ids": [
+        "kingsreach",
+        "fireballista"
+      ],
+      "node_id": "4VDBRPZ95u4Jaa9ZiiKv",
+      "generation_id": "eab0ztRvfp8Yah1CDKDH",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 1,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 1,
+      "credits": 10,
+      "price_cents": 0.21999999999999997,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_heavy_bolt.mp3",
+      "byte_size": 34306,
+      "sha256": "24be99c1cc62b369324baec1af43e9ff84ed3ed918654c078b81fdc52d4a4a11",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "stone",
+      "title": "Stone projectile",
+      "description": "One shared physical stone release for the Catapult and the Golem's current stone-projectile presentation.",
+      "duration_seconds": 1.1,
+      "prompt": "One heavy stone projectile is hurled: brief gritty stone scrape, a compact hard release clack and a low rushing air whoosh. Isolated single game attack, close and dry, no explosion, impact, music, speech or ambience.",
+      "used_by": [
+        "Catapult",
+        "Golem"
+      ],
+      "used_by_ids": [
+        "stonewarden",
+        "emeraldgolem"
+      ],
+      "node_id": "r2vzS4NR9LND5ZjXf4WC",
+      "generation_id": "O69pnRUe34AR25o3ysCg",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 1.1,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 1.08,
+      "credits": 11.000000000000002,
+      "price_cents": 0.242,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_stone.mp3",
+      "byte_size": 35560,
+      "sha256": "09343b6aba18820f43424fa7defd1a631a7b909cbf91f01fd93a31d938e4d5f2",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "charge",
+      "title": "Alchemical charge",
+      "description": "One shared thrown physical charge for both dwarf bombers.",
+      "duration_seconds": 1,
+      "prompt": "One small alchemical bomb is thrown: a crisp glass-and-metal casing clack, compact lobbed air whistle and faint brief reagent hiss. Isolated single game attack, close and dry, no detonation, music, speech or ambience.",
+      "used_by": [
+        "Dwarf Firebomber",
+        "Dwarf Griffin bomber"
+      ],
+      "used_by_ids": [
+        "royalmarshal",
+        "griffinbomber"
+      ],
+      "node_id": "Zi79Th5NVnSzqKRTq0AH",
+      "generation_id": "WzBbpfH5PeH8IrWQG7b7",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 1,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 1,
+      "credits": 10,
+      "price_cents": 0.21999999999999997,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_charge.mp3",
+      "byte_size": 34306,
+      "sha256": "a0a536bd152daaa863f7f887170a3504b4cb47eca235f88919a61bfd2d6415cb",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "toxic_canister",
+      "title": "Toxic canister",
+      "description": "The Dwarship's thrown toxic charge, retaining its existing physical projectile and poison effects.",
+      "duration_seconds": 1,
+      "prompt": "One toxic alchemical canister is released: small metal casing clack, sharp downward air whistle and a compact wet acidic hiss. Isolated single game attack, close and dry, no explosion, impact, music, speech or ambience.",
+      "used_by": [
+        "Dwarship"
+      ],
+      "used_by_ids": [
+        "mechanicalgolem"
+      ],
+      "node_id": "sdABgux2Babtz3z86Gva",
+      "generation_id": "9x9MmdIOlSjoetGjA80b",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 1,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 1,
+      "credits": 10,
+      "price_cents": 0.21999999999999997,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_toxic_canister.mp3",
+      "byte_size": 34306,
+      "sha256": "e612ebb783934aaf7ed8911d32bd765705a45d91c7e01a6a17fc0f9f33cc0cee",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "nature",
+      "title": "Nature and thorns",
+      "description": "One shared woodland release for roots, thorns and the Elven King's forest-staff shots. Presentation does not change damage type.",
+      "duration_seconds": 1,
+      "prompt": "One nature spell releases: flexible root-fiber creak, sharp dry bark snap, brief leafy air sweep and a soft green magical hiss. Isolated single game attack, close and dry, no impact, music, speech or ambience.",
+      "used_by": [
+        "Druid",
+        "Master Druid",
+        "Archdruid",
+        "Nature Spirit",
+        "Mother Nature",
+        "Elven King"
+      ],
+      "used_by_ids": [
+        "druid",
+        "greenheart",
+        "eldergrove",
+        "rangermentor",
+        "mothernature",
+        "royalarsenal"
+      ],
+      "node_id": "tYXQ5rEvuyhEXwZYCmKj",
+      "generation_id": "DuGH47Rdy1FPymIbewTo",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 1,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 1,
+      "credits": 10,
+      "price_cents": 0.21999999999999997,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_nature.mp3",
+      "byte_size": 34306,
+      "sha256": "df36bc8de6492964657a2661b9f84e29b5784310ab425238167031978e3fb072",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "arcane",
+      "title": "Arcane magic",
+      "description": "One shared generic arcane spell release, separate from lightning, holy and frost magic.",
+      "duration_seconds": 0.9,
+      "prompt": "One arcane spell releases: a quick rising magical charge, bright glassy snap and compact clean energy puff. Isolated single game attack, close and dry, short clean decay, no impact, music, speech or ambience.",
+      "used_by": [
+        "Mage",
+        "Lady Claire"
+      ],
+      "used_by_ids": [
+        "mage",
+        "ladyclaire"
+      ],
+      "node_id": "QqwuNx180owt19tksFxm",
+      "generation_id": "5wPEL36HV05ocoObC8nI",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 0.9,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 0.88,
+      "credits": 9.000000000000002,
+      "price_cents": 0.198,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_arcane.mp3",
+      "byte_size": 32216,
+      "sha256": "b41899e5f4d502560d782233457c5843c7f3b32dba4d46a528361894fe049ff7",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "holy",
+      "title": "Holy magic",
+      "description": "One shared offensive holy pulse for every holy caster. Passive blessings and support auras remain silent.",
+      "duration_seconds": 1,
+      "prompt": "One holy spell pulse releases: a small warm luminous bell chime and soft radiant air sweep with a short clean tail. Isolated single game attack, close and dry, no impact, choir, music, speech or ambience.",
+      "used_by": [
+        "Cleric",
+        "Priest",
+        "Archangel",
+        "High Priest",
+        "Archbishop"
+      ],
+      "used_by_ids": [
+        "cleric",
+        "sunward",
+        "dawnspire",
+        "monk",
+        "archbishop"
+      ],
+      "node_id": "SGzjjLhPzL3OdqLjCVBd",
+      "generation_id": "NzJU0m4CSEZFcwqn5AE6",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 1,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 1,
+      "credits": 10,
+      "price_cents": 0.21999999999999997,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_holy.mp3",
+      "byte_size": 34306,
+      "sha256": "58647d2db8015c0a3072dfa5f1fa9b1a5756af32ff9af31da11f03501d73eda7",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "frost",
+      "title": "Frost magic",
+      "description": "One shared crystalline frost release for frost attacks and existing frost-bounce procs.",
+      "duration_seconds": 1,
+      "prompt": "One frost attack releases: crisp crystalline scrape, cold airy sweep, tiny ice ping and brief brittle frost crackle. Isolated single game attack, close and dry, short clean decay, no impact, music, speech or ambience.",
+      "used_by": [
+        "Frost Warden",
+        "Frostsword Watchmen",
+        "Frozen Celestial",
+        "Angel"
+      ],
+      "used_by_ids": [
+        "frostwarden",
+        "rimewatch",
+        "winterhold",
+        "archangel"
+      ],
+      "node_id": "Ahg0bD0O3DSfKxDjlyTK",
+      "generation_id": "3Ypkd76IMMGWwo8YLug8",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 1,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 1,
+      "credits": 10,
+      "price_cents": 0.21999999999999997,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_frost.mp3",
+      "byte_size": 34306,
+      "sha256": "f4b66c197f8ef382d059fb24bbc255b03e8e08f01199f295531d7e44ded7d974",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "lightning",
+      "title": "Lightning",
+      "description": "One shared lightning discharge for primary storm attacks and existing chain or forked-lightning procs.",
+      "duration_seconds": 0.8,
+      "prompt": "One lightning attack discharges: sharp dry electrical snap followed by a tight bright crackle and quickly fading electric fizz. Isolated single game attack, close and dry, no thunderstorm, impact, music, speech or ambience.",
+      "used_by": [
+        "Stormcaller",
+        "Elven Mage",
+        "Elven Archmage",
+        "Thunderbird",
+        "Elemental Male Dragon",
+        "Ancient Dragon Patriarch",
+        "Lady Claire"
+      ],
+      "used_by_ids": [
+        "stormcaller",
+        "tempest",
+        "stormcitadel",
+        "starfall",
+        "thunderheart",
+        "phoenix",
+        "ladyclaire"
+      ],
+      "node_id": "zeB8EsG2CU9lrKdUauSu",
+      "generation_id": "iw1BHCIEmBcyGDprOhGt",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 0.8,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 0.8,
+      "credits": 8,
+      "price_cents": 0.176,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_lightning.mp3",
+      "byte_size": 30962,
+      "sha256": "e949794017f9dc5cb3c5cfb7b9697a5f8bc42d4081a62f0f690d391480b81eb4",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    },
+    {
+      "id": "fire",
+      "title": "Fire",
+      "description": "One shared flame burst for dragon heat auras, fiery primary attacks and the Ranger Oathbreaker's existing rare fire proc.",
+      "duration_seconds": 1.1,
+      "prompt": "One compact fire attack flares: short forceful flame rush, low warm air whoosh and restrained ember crackles that decay quickly. Isolated single game attack, close and dry, no explosion, roaring creature, music, speech or ambience.",
+      "used_by": [
+        "Baby Fire Dragon",
+        "Mother Fire Dragon",
+        "Elemental Male Dragon",
+        "Ancient Dragon Patriarch",
+        "Ranger Oathbreaker"
+      ],
+      "used_by_ids": [
+        "embercrown",
+        "worldfire",
+        "thunderheart",
+        "phoenix",
+        "elvenking"
+      ],
+      "node_id": "GTppVja0RWjHEexRDS4r",
+      "generation_id": "qneLkYFQL94OBNynGYsv",
+      "model_id": "eleven_text_to_sound_v2",
+      "model_parameters": {
+        "duration_seconds": 1.1,
+        "prompt_influence": 0.65,
+        "loop": false
+      },
+      "actual_duration_seconds": 1.08,
+      "credits": 11.000000000000002,
+      "price_cents": 0.242,
+      "path": "public/assets/audio/attacks/shared-20261011/attack_fire.mp3",
+      "byte_size": 35560,
+      "sha256": "6b279ddc3eedcd938b181727c745db69f67d2e960621ea2871488d9826d50483",
+      "mime_type": "audio/mpeg",
+      "source_content_type": "audio/mpeg"
+    }
+  ],
+  "defenders": [
+    {
+      "character_id": "soldier",
+      "character": "Soldier",
+      "effects": [
+        "spear",
+        "sword"
+      ],
+      "conditions": [
+        {
+          "effect": "spear",
+          "ranks": [
+            1
+          ],
+          "event": "shot"
+        },
+        {
+          "effect": "sword",
+          "ranks": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "event": "shot"
+        }
+      ]
+    },
+    {
+      "character_id": "archer",
+      "character": "Archer",
+      "effects": [
+        "arrow"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "druid",
+      "character": "Druid",
+      "effects": [
+        "nature"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "mage",
+      "character": "Mage",
+      "effects": [
+        "arcane"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "cleric",
+      "character": "Cleric",
+      "effects": [
+        "holy"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "runebreaker",
+      "character": "Engineer",
+      "effects": [
+        "runic_bolt"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "frostwarden",
+      "character": "Frost Warden",
+      "effects": [
+        "frost"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "stormcaller",
+      "character": "Stormcaller",
+      "effects": [
+        "lightning"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "rimewatch",
+      "character": "Frostsword Watchmen",
+      "effects": [
+        "frost"
+      ]
+    },
+    {
+      "character_id": "frostblade",
+      "character": "Frost Knight",
+      "effects": [
+        "spear"
+      ]
+    },
+    {
+      "character_id": "roseguard",
+      "character": "Lionheart Champion",
+      "effects": [
+        "spear"
+      ]
+    },
+    {
+      "character_id": "highking",
+      "character": "Kingslayer",
+      "effects": [
+        "sword"
+      ]
+    },
+    {
+      "character_id": "crownofages",
+      "character": "King",
+      "effects": [
+        "sword"
+      ]
+    },
+    {
+      "character_id": "thornwarden",
+      "character": "Elven Ranger",
+      "effects": [
+        "arrow"
+      ]
+    },
+    {
+      "character_id": "verdantguard",
+      "character": "Elven Elite Warrior",
+      "effects": [
+        "arrow"
+      ]
+    },
+    {
+      "character_id": "tempest",
+      "character": "Elven Mage",
+      "effects": [
+        "lightning"
+      ]
+    },
+    {
+      "character_id": "stormcitadel",
+      "character": "Elven Archmage",
+      "effects": [
+        "lightning"
+      ]
+    },
+    {
+      "character_id": "embercrown",
+      "character": "Baby Fire Dragon",
+      "effects": [
+        "fire"
+      ],
+      "conditions": [
+        {
+          "effect": "fire",
+          "event": "aura-attack",
+          "when": "Existing continuous fire aura damages a visible enemy; no primary projectile exists."
+        }
+      ]
+    },
+    {
+      "character_id": "worldfire",
+      "character": "Mother Fire Dragon",
+      "effects": [
+        "fire"
+      ],
+      "conditions": [
+        {
+          "effect": "fire",
+          "event": "aura-attack",
+          "when": "Existing continuous fire aura damages a visible enemy; no primary projectile exists."
+        }
+      ]
+    },
+    {
+      "character_id": "starfall",
+      "character": "Thunderbird",
+      "effects": [
+        "lightning"
+      ],
+      "conditions": [
+        {
+          "effect": "lightning",
+          "event": "shot",
+          "when": "Primary storm shot."
+        },
+        {
+          "effect": "lightning",
+          "event": "chain",
+          "when": "Existing chain-lightning proc; requires reliable proc attribution for future routing."
+        }
+      ]
+    },
+    {
+      "character_id": "thunderheart",
+      "character": "Elemental Male Dragon",
+      "effects": [
+        "lightning",
+        "fire"
+      ],
+      "conditions": [
+        {
+          "effect": "lightning",
+          "event": "shot",
+          "when": "Primary lightning shot."
+        },
+        {
+          "effect": "lightning",
+          "event": "chain",
+          "when": "Existing forked-lightning proc; requires reliable proc attribution for future routing."
+        },
+        {
+          "effect": "fire",
+          "event": "aura-attack",
+          "when": "Existing independent fire aura; family lightning classification must not override this fire cue."
+        }
+      ]
+    },
+    {
+      "character_id": "phoenix",
+      "character": "Ancient Dragon Patriarch",
+      "effects": [
+        "fire",
+        "lightning"
+      ],
+      "conditions": [
+        {
+          "effect": "fire",
+          "event": "shot",
+          "when": "Existing fire primary attack; poison damage-over-time stays silent."
+        },
+        {
+          "effect": "fire",
+          "event": "aura-attack",
+          "when": "Existing continuous fire aura."
+        },
+        {
+          "effect": "lightning",
+          "event": "chain",
+          "when": "Existing forked-lightning proc; requires reliable proc attribution for future routing."
+        }
+      ]
+    },
+    {
+      "character_id": "greenheart",
+      "character": "Master Druid",
+      "effects": [
+        "nature"
+      ]
+    },
+    {
+      "character_id": "eldergrove",
+      "character": "Archdruid",
+      "effects": [
+        "nature"
+      ]
+    },
+    {
+      "character_id": "kingsreach",
+      "character": "Ballista",
+      "effects": [
+        "heavy_bolt"
+      ]
+    },
+    {
+      "character_id": "sunward",
+      "character": "Priest",
+      "effects": [
+        "holy"
+      ]
+    },
+    {
+      "character_id": "winterhold",
+      "character": "Frozen Celestial",
+      "effects": [
+        "frost"
+      ]
+    },
+    {
+      "character_id": "dawnspire",
+      "character": "Archangel",
+      "effects": [
+        "holy"
+      ],
+      "conditions": [
+        {
+          "effect": "holy",
+          "event": "shot",
+          "when": "Holy primary attack; passive winter and support auras stay silent."
+        }
+      ]
+    },
+    {
+      "character_id": "royalmarshal",
+      "character": "Dwarf Firebomber",
+      "effects": [
+        "charge"
+      ]
+    },
+    {
+      "character_id": "stonewarden",
+      "character": "Catapult",
+      "effects": [
+        "stone"
+      ]
+    },
+    {
+      "character_id": "wyvernhunter",
+      "character": "Ranger",
+      "effects": [
+        "arrow"
+      ]
+    },
+    {
+      "character_id": "royalarsenal",
+      "character": "Elven King",
+      "effects": [
+        "nature"
+      ],
+      "conditions": [
+        {
+          "effect": "nature",
+          "event": "shot",
+          "when": "Latest forest staff releases the existing three physical shots; cosmetic woodland presentation does not change damage or summon spirits."
+        }
+      ]
+    },
+    {
+      "character_id": "rangermentor",
+      "character": "Nature Spirit",
+      "effects": [
+        "nature"
+      ]
+    },
+    {
+      "character_id": "kingdomprotector",
+      "character": "Paladin",
+      "effects": [
+        "hammer"
+      ]
+    },
+    {
+      "character_id": "mothernature",
+      "character": "Mother Nature",
+      "effects": [
+        "nature"
+      ]
+    },
+    {
+      "character_id": "royalranger",
+      "character": "Master Ranger",
+      "effects": [
+        "arrow"
+      ],
+      "conditions": [
+        {
+          "effect": "arrow",
+          "event": "shot",
+          "when": "Same bow release as every other Ranger; poison coating and subsequent poison ticks add no new generated variant."
+        }
+      ]
+    },
+    {
+      "character_id": "kingsrangerguard",
+      "character": "Dark Ranger",
+      "effects": [
+        "arrow"
+      ]
+    },
+    {
+      "character_id": "elvenking",
+      "character": "Ranger Oathbreaker",
+      "effects": [
+        "arrow",
+        "fire"
+      ],
+      "conditions": [
+        {
+          "effect": "arrow",
+          "event": "shot",
+          "when": "Ordinary physical arrow."
+        },
+        {
+          "effect": "fire",
+          "event": "rare-fire-proc",
+          "when": "Only the existing successful burnedChance fire splash; this dedicated event is not currently emitted and would require attribution metadata before future integration."
+        }
+      ]
+    },
+    {
+      "character_id": "fireballista",
+      "character": "Fire Ballista",
+      "effects": [
+        "heavy_bolt"
+      ],
+      "conditions": [
+        {
+          "effect": "heavy_bolt",
+          "event": "shot",
+          "when": "Existing physical armor-breaking bolt; no fire damage or burn ability is present."
+        }
+      ]
+    },
+    {
+      "character_id": "emeraldgolem",
+      "character": "Golem",
+      "effects": [
+        "stone"
+      ],
+      "conditions": [
+        {
+          "effect": "stone",
+          "event": "shot",
+          "when": "Current physical stone projectile. Latest integrated forearm ballista is recorded as equipment evidence; no unimplemented bolt or melee mechanic is invented."
+        }
+      ]
+    },
+    {
+      "character_id": "griffinbomber",
+      "character": "Dwarf Griffin bomber",
+      "effects": [
+        "charge"
+      ]
+    },
+    {
+      "character_id": "mechanicalgolem",
+      "character": "Dwarship",
+      "effects": [
+        "toxic_canister"
+      ],
+      "conditions": [
+        {
+          "effect": "toxic_canister",
+          "event": "shot",
+          "when": "Latest gondola bomb presentation of the existing physical/toxic ranged packet; no new splash, fire or flight mechanic."
+        }
+      ]
+    },
+    {
+      "character_id": "monk",
+      "character": "High Priest",
+      "effects": [
+        "holy"
+      ]
+    },
+    {
+      "character_id": "archbishop",
+      "character": "Archbishop",
+      "effects": [
+        "holy"
+      ]
+    },
+    {
+      "character_id": "archangel",
+      "character": "Angel",
+      "effects": [
+        "frost"
+      ],
+      "conditions": [
+        {
+          "effect": "frost",
+          "event": "shot",
+          "when": "Primary frost spell."
+        },
+        {
+          "effect": "frost",
+          "event": "chain",
+          "when": "Existing bouncing frost triggered by a nearby allied magic hit; chain event needs explicit frost attribution and must not be assumed to be lightning."
+        }
+      ]
+    },
+    {
+      "character_id": "ladyclaire",
+      "character": "Lady Claire",
+      "effects": [
+        "arcane",
+        "lightning"
+      ],
+      "conditions": [
+        {
+          "effect": "arcane",
+          "event": "shot",
+          "when": "Primary golden arcane staff spell."
+        },
+        {
+          "effect": "lightning",
+          "event": "chain",
+          "when": "Existing chain or forked-lightning proc only; requires reliable proc attribution for future routing."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "data/towers.json",
+    "public/champion-evolution-plan-v2/design-spec.json",
+    "docs/audio/defender-attack-audit.json",
+    "docs/audio/combat-audio-proposal.md",
+    "docs/audio/generated-allied-audio.json",
+    "game/core/combat.js",
+    "game/core/math.js",
+    "game/render/combat-effects.js",
+    "game/audio/audio.js",
+    "game/core/blueprints.js"
+  ],
+  "notes": [
+    "Generate exactly one take per shared attack type: 15 files, not one file per defender, rank, volley size or impact. Every Archer and Ranger shares the same arrow recording.",
+    "These are single attack-release cues. No second impact variant is requested. Playback integration can retain the existing synthesized impact layer until separately reviewed.",
+    "All 46 allied identity IDs were matched against the current generated-allied-audio.json catalogue. Lord Bernhard is an extra runtime entry and the wave-50 enemy; it is not one of the 46 allied identities.",
+    "Basic ranks share each attack-type file. Soldier rank I uses spear and ranks II-VI use sword; there are no rank-specific audio variants.",
+    "Current damage, targeting, flight eligibility, cooldowns, multishot counts and recipes remain unchanged. A sword-, spear- or hammer-looking champion still has its existing ranged combat packet unless melee=true is already present.",
+    "Current game/audio/audio.js delegates classification to the renderer. Several renderer presentations predate the latest designs: rimewatch remains a frost crossbow bolt, royalarsenal remains siege, mechanicalgolem remains a toxic dart, and emeraldgolem uses a stone shard. This generation plan follows revised weapon identity where specified without editing gameplay or render files.",
+    "Fire Ballista and Dwarf Firebomber use physical primary attacks. Their names do not authorize assigning a fire cue. Baby Fire Dragon and Mother Fire Dragon have zero primary damage and continuous fire auras; no projectile attack is invented for them.",
+    "Spell mixtures reuse existing shared files: Elemental Male Dragon uses lightning plus fire aura; Ancient Dragon Patriarch uses fire plus forked lightning; Lady Claire uses arcane plus lightning procs; Ranger Oathbreaker uses arrow plus its rare successful fire proc. Poison damage-over-time ticks are silent.",
+    "Nature magic is a presentation category. Elven King retains physical three-shot damage, while Druid-family thorns retain poison damage. A shared sound does not unify their game damage types.",
+    "Chain events currently omit explicit source/ability tags, including bouncing frost. Reliable proc attribution is needed before future runtime routing. The rare fire splash has no dedicated emitted event. This is a generation-and-review plan, not a claim that new assets are already integrated.",
+    "Passive blessings, range auras, armor-reduction auras, winter auras, healing suppression, health-recovery procs and detection produce no additional requested attack recordings. No healing or support cue is generated.",
+    "When integrated later, play one shared cue per simultaneous attack volley, gate repeated fire-aura pulses and avoid sounding every target, damage-over-time tick or support frame. Honor mute, pause, speech priority and the existing clutter limits.",
+    "game/core/blueprints.js defines maze plans and contains no defender weapon or attack-type authority. Current combat data, latest design descriptions and actual render/audio classification were checked independently."
+  ]
+}

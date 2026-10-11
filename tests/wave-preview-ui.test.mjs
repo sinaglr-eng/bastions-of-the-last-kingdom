@@ -21,11 +21,11 @@ test('immediate preview shows real composition, full counts, profile and primary
 });
 
 test('optional native enemy details contain actual configured variants and reusable defense glyphs',()=>{
-  const m=model();m.next.enemies=[enemy('Twin Riders',10,{variants:[{name:'Ashen Riders',maxHp:2100,armor:12,speed:2.5,flying:true,traitDetails:[{kind:'magicImmune',text:'Immune to magic and magical effects'}]},{name:'Spectral Riders',maxHp:2100,armor:12,speed:2.5,flying:true,traitDetails:[{kind:'physicalImmune',text:'Immune to physical and piercing damage'}]}]})];
+  const m=model();m.next.enemies=[enemy('Twin Riders',10,{variants:[{name:'Ashen Riders',maxHp:2100,armor:12,speed:2.5,flying:true,traitDetails:[{kind:'magicImmune',text:'Immune to Magical damage, poison and burning'}]},{name:'Spectral Riders',maxHp:2100,armor:12,speed:2.5,flying:true,traitDetails:[{kind:'physicalImmune',text:'Immune to Physical damage, slowing and freezing'}]}]})];
   const html=wavePreviewMarkup(m,{},{});
   assert.match(html,/<details class="wave-enemy-details"><summary>/);assert.match(html,/Each enemy independently chooses a variant/);
   assert.match(html,/Variant 1 · Ashen Riders/);assert.match(html,/Variant 2 · Spectral Riders/);assert.match(html,/2,100 HP · 12 armor · 2.5 tiles\/s · Air/);
-  assert.match(html,/data-defense="magicImmune"/);assert.match(html,/data-defense="physicalImmune"/);assert.match(html,/Immune to physical and piercing damage/);
+  assert.match(html,/data-defense="magicImmune"/);assert.match(html,/data-defense="physicalImmune"/);assert.match(html,/Immune to Physical damage, slowing and freezing/);
 });
 
 test('wave after next projects only partial intelligence even if the caller passes a full analysis',()=>{
@@ -142,10 +142,10 @@ test('the actual campaign analyzer and army evaluator render the same configured
   const full=wavePreviewMarkup({...outlook,readiness},data,{});
   const current=outlook.next.enemies[0];
   assert.match(full,new RegExp(`${current.count} × ${current.name}`));
-  assert.match(full,/Immune to magic and magical effects/);assert.match(full,/Immune to physical and piercing damage/);
+  assert.match(full,/Immune to Magical damage, poison and burning/);assert.match(full,/Immune to Physical damage, slowing and freezing/);
   assert.match(full,/Each enemy independently chooses a variant/);assert.match(full,/1 active defender/);
   assert.ok(full.includes(new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(current.variants[0].maxHp)+' HP'));
-  for(const summary of summaries(full))assert.doesNotMatch(summary,/ HP| armor|tiles\/s|Immune to magic and magical effects/);
+  for(const summary of summaries(full))assert.doesNotMatch(summary,/ HP| armor|tiles\/s|Immune to Magical damage, poison and burning/);
   const partial=full.match(/<section class="wave-after-preview"[\s\S]*?<\/section>/)?.[0];
   assert.ok(partial);assert.ok(partial.includes(outlook.after.name));assert.doesNotMatch(partial,/\d[\d,.]* (?:invaders|HP|armor|tiles\/s)| × |wave-enemy-details/);
   assert.equal(JSON.stringify(data),before);assert.strictEqual(analyzer.outlook(34,50).next,outlook.next);

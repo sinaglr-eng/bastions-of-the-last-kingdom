@@ -10,6 +10,7 @@ export const ATTACK_COLORS=Object.freeze({roots:'#78b957',flame:'#ff973f',lightn
 const secretFamily=family=>family==='ladyclaire'||family==='lordbernhard';
 export const attackVisualColor=(family,kind)=>secretFamily(family)?'#ffda72':ATTACK_COLORS[kind];
 export function attackVisualKind(family,stats={}){
+  const presentation=stats.projectileEffect||stats.effect||stats.type;
   if(family==='runebreaker')return 'runic';
   if(family==='emeraldgolem')return 'stone';
   if(family==='mechanicalgolem')return 'dart';
@@ -17,13 +18,13 @@ export function attackVisualKind(family,stats={}){
   if(family==='royalranger')return 'venomArrow';
   if(family==='kingdomprotector')return 'hammer';
   if(ROOTS.has(family))return 'roots';
-  if(DRAGONS.has(family)||stats.type==='fire')return 'flame';
+  if(DRAGONS.has(family)||presentation==='fire')return 'flame';
   if(STORMS.has(family))return 'lightning';
   if(stats.melee||MELEE.has(family))return 'melee';
   if(SIEGE.has(family)||stats.unitKind==='siege')return 'siege';
-  if(stats.type==='holy')return 'holy';
-  if(stats.type==='frost')return 'frost';
-  if(['arcane','poison'].includes(stats.type))return 'arcane';
+  if(presentation==='holy')return 'holy';
+  if(presentation==='frost')return 'frost';
+  if(['arcane','poison','magical'].includes(presentation))return 'arcane';
   return 'arrow';
 }
 const clampProgress=p=>THREE.MathUtils.clamp(Number.isFinite(p)?p:0,0,1);
@@ -237,7 +238,7 @@ export class CombatEffects{
   }
   impact(payload){
     if(this.disposed||!this.visible(payload.target))return;
-    const stats=payload.stats||{},kind=payload.aura&&stats.burnAura?'flame':attackVisualKind(payload.source?.family,stats),color=attackVisualColor(payload.source?.family,kind);
+    const stats=payload.stats||{},kind=payload.effect==='fire'||payload.aura&&stats.burnAura?'flame':payload.effect==='poison'?'roots':attackVisualKind(payload.source?.family,{...stats,projectileEffect:payload.effect||stats.projectileEffect}),color=attackVisualColor(payload.source?.family,kind);
     const centre=this.position(payload.x,.04,payload.z),radius=Math.min(1.1,Math.max(.28,payload.radius||.4));
     const object=kind==='roots'?thorns(color):new THREE.Group();object.name=`${kind} attack impact`;object.position.copy(centre);
     if(kind!=='roots')object.add(groundRing(color,radius));

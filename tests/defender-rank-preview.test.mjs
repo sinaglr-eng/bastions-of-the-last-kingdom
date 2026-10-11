@@ -13,6 +13,7 @@ import {championClassification} from '../game/render/champion-classification.js'
 import {rankColor} from '../game/render/ranks.js';
 import {ROMAN,abilityLines,baseAttackDps,formatTowerNumber,damageTypeName} from '../ui/grimoire.js';
 import {selectedSupportMarkup} from '../ui/support-guide.js';
+import {mvpDetailsMarkup} from '../ui/mvp-details.js';
 import {icon} from '../ui/icons.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
@@ -96,7 +97,7 @@ function productionPanel(game,preview){
     game,rankPreview:preview,data:campaignData,towers:campaignData.towers,balance:data.balance,
     images:{},roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
     defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,
-    damageTypeName,selectedSupportMarkup,recipeProgress,recipesUsing,recipeLabel,wavePreview:()=>'',
+    damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,recipeProgress,recipesUsing,recipeLabel,wavePreview:()=>'',
   });
 }
 function recipePanelGame(){

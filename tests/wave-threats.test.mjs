@@ -1,3 +1,4 @@
+import {campaignTowers as currentTowers,campaignEnemies as currentEnemies,campaignWaves as currentWaves,campaignRecipes as currentRecipes} from '../game/core/campaign-roster.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -9,6 +10,7 @@ import {seededRandom} from '../game/core/math.js';
 import {campaignEnemies,campaignWaves} from '../game/core/campaign-roster.js';
 
 const data=Object.fromEntries(['balance','enemies','waves','towers'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
+if(data.towers)data.towers=currentTowers(data.towers);if(data.enemies)data.enemies=currentEnemies(data.enemies);if(data.waves)data.waves=currentWaves(data.waves);if(data.recipes)data.recipes=currentRecipes(data.recipes);
 const ids=analysis=>analysis.threats.map(threat=>threat.id);
 const enemy=(name,extra={})=>({name,hp:100,armor:0,speed:1,...extra});
 const wave=(type,count=10,extra={})=>({name:`${type} wave`,groups:[{type,count,interval:.6}],...extra});
@@ -20,7 +22,7 @@ test('Immediate full preview contains the authored count, enemy types and real n
   assert.equal(result.number,15);assert.equal(result.name,data.waves[14].name);assert.equal(result.totalCount,11);
   assert.equal(result.enemies[0].type,'host_15');assert.equal(result.enemies[0].count,11);assert.equal(result.enemies[0].variants.length,2);
   assert.equal(result.enemies[0].variants[0].maxHp,975);assert.equal(result.enemies[0].variants[0].flying,true);
-  assert.ok(result.enemies[0].variants[0].traitDetails.some(trait=>trait.text.includes('48.75 HP/s')));
+  assert.ok(result.enemies[0].variants[0].traitDetails.some(trait=>trait.text.includes('97.5 HP/s')));
   assert.ok(ids(result).includes('regeneration'));assert.ok(ids(result).includes('flying'));
 });
 
@@ -42,11 +44,11 @@ test('Repeated enemy groups aggregate their counts and repeated tags while prese
   assert.equal(result.threats.filter(threat=>threat.id==='heavyArmor').length,1);
 });
 
-test('Effective variants follow Combat health, speed, armor and resistance modifier precedence',()=>{
+test('Effective variants follow Combat health, speed, armor and discarded historical resistance fields',()=>{
   const source=scenario({troll:enemy('Troll',{armor:5,speed:2,resists:{magic:.1},variants:[{name:'Leech',hp:200,regen:.05},{name:'Hidden',stealth:true}]})},[{name:'Modified',hp:3,armor:2,speed:1.5,resists:{fire:.3},groups:[{type:'troll',count:10,hp:2,armor:7,speed:1.25,interval:.6}]}]);
   const [leech,hidden]=new WaveThreatAnalyzer(source).analyze(0).enemies[0].variants;
   assert.equal(leech.maxHp,400);assert.equal(leech.enemy.hp,400);assert.equal(leech.armor,12);assert.equal(leech.speed,2.5);
-  assert.deepEqual(leech.enemy.resists,{magic:.1,fire:.3});assert.equal(hidden.maxHp,200);
+  assert.equal(leech.enemy.resists,undefined);assert.equal(hidden.maxHp,200);
   assert.ok(leech.traits.some(trait=>trait.includes('20 HP/s')));assert.ok(hidden.threatIds.includes('stealth'));
 });
 
@@ -167,18 +169,18 @@ test('Unsupported lore tags, guessed abilities and unused physical resistance fi
   assert.deepEqual(new WaveThreatAnalyzer(source).analyze(0).threats,[]);
 });
 
-test('Actual magical resistance types classify while immunity avoids a redundant resistance tag',()=>{
+test('Removed historical magical resistance never classifies, while actual Magical immunity does',()=>{
   const source=scenario({mage:enemy('Mage',{resists:{fire:.3}}),immune:enemy('Immune',{magicImmune:true,resists:{magic:.8}})},[wave('mage'),wave('immune')]);
   const analyzer=new WaveThreatAnalyzer(source);
-  assert.ok(ids(analyzer.analyze(0)).includes('magicResistance'));assert.ok(ids(analyzer.analyze(1)).includes('magicImmune'));
+  assert.ok(!ids(analyzer.analyze(0)).includes('magicResistance'));assert.ok(ids(analyzer.analyze(1)).includes('magicImmune'));
   assert.ok(!ids(analyzer.analyze(1)).includes('magicResistance'));
 });
 
-test('Legacy by-type movement support, ward support, enrage and barricade disruption match implemented mechanics',()=>{
+test('By-type movement support, removed ward support, enrage and barricade disruption match implemented mechanics',()=>{
   const source=scenario({shaman:data.enemies.shaman,warlock:data.enemies.warlock,berserker:data.enemies.berserker,sapper:data.enemies.sapper},[wave('shaman'),wave('warlock'),wave('berserker'),wave('sapper')]);
   const analyzer=new WaveThreatAnalyzer(source);
   assert.ok(ids(analyzer.analyze(0)).includes('buffer'));assert.ok(!ids(analyzer.analyze(0)).includes('regeneration'));
-  assert.ok(ids(analyzer.analyze(1)).includes('buffer'));assert.ok(ids(analyzer.analyze(2)).includes('fast'));assert.ok(ids(analyzer.analyze(3)).includes('debuffer'));
+  assert.ok(!ids(analyzer.analyze(1)).includes('buffer'));assert.ok(ids(analyzer.analyze(2)).includes('fast'));assert.ok(ids(analyzer.analyze(3)).includes('debuffer'));
 });
 
 test('Central thresholds tune classification and display limits without editing enemy definitions',()=>{

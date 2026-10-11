@@ -4,10 +4,12 @@ import {readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
 import {towerStats,supportBonuses} from '../game/core/math.js';
 import {recipeFamily,recipeTier} from '../game/core/recipes.js';
-const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
+import {campaignTowers,campaignEnemies,campaignRecipes,campaignWaves} from '../game/core/campaign-roster.js';
+const archived=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
+const data={...archived,towers:campaignTowers(archived.towers),enemies:campaignEnemies(archived.enemies),recipes:campaignRecipes(archived.recipes),waves:campaignWaves(archived.waves)};
 const unit=(family,tier=1,id=1,x=10,z=10)=>({id,family,tier,x,z,state:'active',kills:0,cooldown:0});
 function arena(){const g=new Game(data,{seed:42});g.phase='combat';g.combat.spawnQueue=[{time:9999,type:'grunt'}];return g;}
-function enemy(g,x,z){const e=g.combat.spawn('grunt');Object.assign(e,{x,z,hp:10000,maxHp:10000,speed:0});return e;}
+function enemy(g,x,z){const e=g.combat.spawn('grunt');Object.assign(e,{x,z,hp:10000,maxHp:10000,speed:0,armor:0});return e;}
 
 test('all eight gem identities have six finite, distinct rank profiles',()=>{
   const gems=new Set();
@@ -36,22 +38,25 @@ test('formation recipes form an acyclic graph and craft from every valid anchor 
       assert.equal(g.craft(r.id),true,r.id);assert.equal(g.selection.family,recipeFamily(r));assert.equal(g.selection.tier,recipeTier(r));assert.equal(g.selection.x,10+anchor);assert.equal(g.towers.filter(t=>t.state==='active').length,1);assert.equal(g.grid.occupied.size,3);
     }
   }
-  assert.equal(finished.size,39);
+  assert.equal(finished.size,38);assert.equal(archived.recipes.length,39,'retired historical recipe remains in immutable source data');
 });
 test('wrong ranks and one copy of a repeated ingredient cannot satisfy a recipe',()=>{
   const g=new Game(data,{seed:3});g.phase='ready';g.towers=[unit('highking'),unit('runebreaker',5,2),unit('soldier',6,3)];g.select(1);
   assert.equal(g.craft('crownofages'),false);assert.equal(g.selection.family,'highking');
 });
-test('Opal-inspired blessings stack across ranks but duplicates cannot inflate the bonus',()=>{
+test('standard blessings use the strongest rank and Archbishop adds one independent bonus without duplicate stacking',()=>{
   const archer=unit('archer'),one=unit('cleric',1,2),duplicate=unit('cleric',1,3),two=unit('cleric',2,4);
-  const bonuses=supportBonuses(archer,[archer,one,duplicate,two],data);assert.equal(bonuses.haste,1.5);
+  const bonuses=supportBonuses(archer,[archer,one,duplicate,two],data);assert.equal(bonuses.haste,1.3);
   two.state='ruin';assert.equal(supportBonuses(archer,[one,duplicate,two],data).haste,1.2);
   const grove=unit('eldergrove',1,5),sun=unit('sunward',1,6);assert.deepEqual(supportBonuses(archer,[grove,sun],data),{haste:1.6,damage:1.5,range:3});
+  const priest=unit('monk',1,7),archbishop=unit('archbishop',1,8),duplicateArchbishop=unit('archbishop',1,9);
+  assert.equal(supportBonuses(archer,[one,priest,archbishop,duplicateArchbishop],data).haste,7);
+  priest.state='ruin';assert.equal(supportBonuses(archer,[one,archbishop,duplicateArchbishop],data).haste,6.2);
 });
-test('Ruby-inspired secondary cleave ignores armor without damaging the primary twice',()=>{
-  const g=arena(),mage=unit('mage'),target=enemy(g,11,10),secondary=enemy(g,11,11);secondary.armor=9999;secondary.resists={magic:.85};
+test('magical cleave obeys each victim’s armor without damaging the primary twice',()=>{
+  const g=arena(),mage=unit('mage'),target=enemy(g,11,10),secondary=enemy(g,11,11);target.armor=30;secondary.armor=90;
   g.combat.impact({source:mage,target,stats:towerStats(mage,data)});
-  assert.equal(target.hp,9988);assert.ok(Math.abs(secondary.hp-9996.4)<1e-8);
+  assert.equal(target.hp,9994);assert.ok(Math.abs(secondary.hp-9999.1)<1e-8);
 });
 test('poison scales independently of hit damage and the strongest armor reduction survives refresh',()=>{
   const g=arena(),druid=unit('druid',6),e=enemy(g,11,10);g.combat.applyEffects(e,towerStats(druid,data),druid);g.tick(1);

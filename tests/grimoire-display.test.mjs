@@ -4,33 +4,37 @@ import {readFileSync} from 'node:fs';
 import {towerStats} from '../game/core/math.js';
 import {championClassification} from '../game/render/champion-classification.js';
 import {baseAttackDps,abilityLines,championRecipeCard,basicRecipeBreakdown,recipeProgressLegend,defenderGuide,BASE_DPS_NOTE} from '../ui/grimoire.js';
+import {campaignTowers,campaignRecipes} from '../game/core/campaign-roster.js';
 
-const data=Object.fromEntries(['balance','towers','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
+const archived=Object.fromEntries(['balance','towers','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
+const data={...archived,towers:campaignTowers(archived.towers),recipes:campaignRecipes(archived.recipes)};
 
 test('base DPS excludes criticals, multiple targets, damage over time and support bonuses',()=>{
   assert.equal(baseAttackDps({damage:100,interval:.5,critChance:1,critMultiplier:20,multishot:10,poisonDps:384,burnAura:7500,aura:{haste:5,damageBonus:.5}}),200);
   assert.equal(baseAttackDps(towerStats({family:'embercrown',tier:1},data)),0,'a fire aura does not become basic attack DPS');
   assert.equal(baseAttackDps(towerStats({family:'frostblade',tier:1},data)),525);
-  assert.match(BASE_DPS_NOTE,/before armor or resistance/);
+  assert.match(BASE_DPS_NOTE,/before armor or damage immunity/);assert.doesNotMatch(BASE_DPS_NOTE,/resistance/);
   assert.match(BASE_DPS_NOTE,/extra targets and ally bonuses/);
 });
 
-test('support descriptions explain numeric blessings and separate stacking chants',()=>{
+test('current support descriptions explain strongest standard blessings and the separate nonduplicate Archbishop bonus',()=>{
   const priest=abilityLines(towerStats({family:'sunward',tier:1},data)).join(' ');
   assert.match(priest,/\+60% ally attack speed within 5 tiles/);
   assert.match(priest,/\+50% ally damage within 5 tiles/);
   const monk=abilityLines(towerStats({family:'monk',tier:1},data)).join(' ');
-  assert.match(monk,/\+50% and \+60%/);assert.match(monk,/combine to \+110%/);
-  assert.match(monk,/matching chants do not stack/);assert.doesNotMatch(monk,/Aura [45]/);
+  assert.match(monk,/\+100% ally attack speed within 5 tiles/);assert.match(monk,/strongest standard blessing applies/);
+  assert.match(monk,/\+50% ally damage within 5 tiles/);assert.doesNotMatch(monk,/combine to \+110%|Aura [45]/);
+  const archbishop=abilityLines(towerStats({family:'archbishop',tier:1},data)).join(' ');
+  assert.match(archbishop,/\+500% ally attack speed within 5 tiles/);assert.match(archbishop,/separate Archbishop blessing adds to the strongest standard blessing/);assert.match(archbishop,/multiple Archbishops do not stack/);
   const angel=abilityLines(towerStats({family:'archangel',tier:1},data)).join(' ');
-  assert.match(angel,/180 damage each/);assert.match(angel,/allied magic hits within 6 tiles/);
+  assert.match(angel,/250 Holy damage each/);assert.match(angel,/allied Magical or Holy hits within 6 tiles/);
   assert.match(angel,/own attacks do not trigger/);
 });
 
-test('each of 39 fixed champion cards uses classification, descriptions, damage and base DPS',()=>{
-  const before=JSON.stringify(data);
+test('each of 38 current champion cards uses approved classification, descriptions, damage and base DPS without modifying archived records',()=>{
+  const before=JSON.stringify(data),archivedBefore=JSON.stringify(archived);
   const cards=data.recipes.map(recipe=>championRecipeCard({...recipe,stage:'Mythic'},data,{}));
-  assert.equal(cards.length,39);
+  assert.equal(cards.length,38);assert.equal(archived.recipes.length,39);assert.ok(archived.towers.lordbernhard);assert.equal(data.towers.lordbernhard,undefined);
   cards.forEach((html,index)=>{
     const family=data.recipes[index].resultFamily||data.recipes[index].id;
     assert.ok(html.includes(championClassification(family).toUpperCase()));
@@ -39,6 +43,7 @@ test('each of 39 fixed champion cards uses classification, descriptions, damage 
     assert.match(html,/Combine these 3 defenders/);assert.doesNotMatch(html,/MYTHIC|Ascension|Aura [45]/);
   });
   assert.equal(JSON.stringify(data),before,'rendering does not modify balancing data');
+  assert.equal(JSON.stringify(archived),archivedBefore,'rendering leaves archived source records intact');
   assert.doesNotMatch(defenderGuide(data,{}),/ascension|ascend/i);
 });
 

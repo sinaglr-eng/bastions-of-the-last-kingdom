@@ -1,3 +1,4 @@
+import {campaignTowers as currentTowers,campaignEnemies as currentEnemies,campaignWaves as currentWaves,campaignRecipes as currentRecipes} from '../game/core/campaign-roster.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -7,6 +8,7 @@ import {TowerDpsTracker,effectiveHitDamage} from '../game/core/tower-dps.js';
 import {towerDpsContents} from '../ui/tower-dps.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
+if(data.towers)data.towers=currentTowers(data.towers);if(data.enemies)data.enemies=currentEnemies(data.enemies);if(data.waves)data.waves=currentWaves(data.waves);if(data.recipes)data.recipes=currentRecipes(data.recipes);
 const close=(actual,expected)=>assert.ok(Math.abs(actual-expected)<1e-7,`${actual} != ${expected}`);
 
 function builtGame(family='archer',tier=1){
@@ -22,14 +24,14 @@ function foe(game,type='goblin',x=15,z=19){
 }
 function attach(game){
   const tracker=new TowerDpsTracker(),hits=[];
-  const off=game.on((event,hit)=>{if(event==='wave')tracker.reset(game.combat.elapsed);if(event==='hit'){tracker.recordHit(hit,game.combat.elapsed);hits.push({time:game.combat.elapsed,id:hit.source?.id,type:hit.type,damage:effectiveHitDamage(hit)});}});
+  const off=game.on((event,hit)=>{if(event==='wave')tracker.reset(game.combat.elapsed);if(event==='hit'){tracker.recordHit(hit,game.combat.elapsed);hits.push({time:game.combat.elapsed,id:hit.source?.id,type:hit.type,effect:hit.effect,damage:effectiveHitDamage(hit)});}});
   return {tracker,hits,off};
 }
 function actor(game,family,tier=1,x=15,z=18){
   const tower={id:game.nextId++,family,tier,state:'active',x,z,kills:0,cooldown:999,priority:'first'};game.towers.push(tower);return tower;
 }
 
-test('real combat hits count health removed after armor/resistance and overkill, with shields, immunity and anonymous damage excluded',()=>{
+test('real combat hits count health removed after armor and immunity and overkill, with shields, immunity and anonymous damage excluded',()=>{
   assert.equal(effectiveHitDamage({damage:1000,enemy:{hp:-997}}),3,'Legacy synchronous hit events still cap overkill');
   assert.equal(effectiveHitDamage({damage:1000,effectiveDamage:3,enemy:{get hp(){throw new Error('Explicit applied damage must not sample enemy state');}}}),3);
   const game=builtGame('mage'),source=game.towers[0],{tracker,off}=attach(game),before=JSON.stringify(data);
@@ -55,7 +57,7 @@ test('real combat hits count health removed after armor/resistance and overkill,
   }finally{off();}
 });
 
-test('actual DOT ownership, whole multi-target aura, pure splash and ally-triggered frost reactions credit their real sources',()=>{
+test('actual DOT ownership, whole multi-target aura, canonical splash and ally-triggered frost reactions credit their real sources',()=>{
   const game=builtGame('druid'),weak=game.towers[0],strong=actor(game,'druid',2),dragon=actor(game,'thunderheart'),mage=actor(game,'mage'),angel=actor(game,'archangel'),king=actor(game,'crownofages');
   for(const t of game.towers)t.cooldown=999;
   const a=foe(game),b=foe(game,'goblin',15.5,19),{tracker,hits,off}=attach(game);
@@ -63,17 +65,17 @@ test('actual DOT ownership, whole multi-target aura, pure splash and ally-trigge
   try{
     game.combat.applyEffects(a,towerStats(strong,data),strong);
     game.combat.applyEffects(a,towerStats(weak,data),weak);
-    assert.equal(a.statuses.poison.source,strong);
+    assert.equal(a.statuses.poison.stacks,2);assert.deepEqual(a.statuses.poison.applications.map(p=>p.source),[strong,weak]);
     game.tick(.25);
     game.combat.impact({source:mage,target:a,stats:towerStats(mage,data)});
     game.combat.impact({source:dragon,target:a,stats:towerStats(dragon,data)});
     game.combat.impact({source:king,target:a,stats:towerStats(king,data)});
     const rows=tracker.snapshot(game.towers,game.combat.elapsed),byId=new Map(rows.map(r=>[r.id,r]));
     close(rows.reduce((sum,r)=>sum+r.damage,0),hpBefore-a.hp-b.hp);
-    const poison=hits.filter(h=>h.type==='poison');assert.ok(poison.length>0);assert.ok(poison.every(h=>h.id===strong.id));assert.equal(byId.get(weak.id).damage,0);
-    const fire=hits.filter(h=>h.type==='fire');assert.equal(fire.length,2);assert.ok(fire.every(h=>h.id===dragon.id));
-    const frost=hits.filter(h=>h.type==='frost');assert.ok(frost.length>=10);assert.ok(frost.every(h=>h.id===angel.id));
-    assert.ok(hits.some(h=>h.type==='pure'&&h.id===mage.id),'Pure splash belongs to its actual caster');
+    const poison=hits.filter(h=>h.effect==='poison');assert.ok(poison.length>0);assert.ok(poison.some(h=>h.id===strong.id));assert.ok(poison.some(h=>h.id===weak.id));assert.ok(byId.get(weak.id).damage>0);
+    const fire=hits.filter(h=>h.effect==='fire');assert.equal(fire.length,2);assert.ok(fire.every(h=>h.id===dragon.id));
+    const frost=hits.filter(h=>h.effect==='frost');assert.ok(frost.length>=10);assert.ok(frost.every(h=>h.id===angel.id));
+    assert.ok(hits.filter(h=>h.type==='magical'&&h.id===mage.id).length>=2,'Armor-reduced Magical primary and secondary damage belong to their actual caster');
     assert.ok(hits.some(h=>h.id===dragon.id&&h.damage===data.towers.thunderheart.forkedDamage),'Forked secondary damage belongs to its source');
     const kingStats=towerStats(king,data);
     assert.ok(hits.some(h=>h.id===king.id&&h.type==='physical'&&h.damage===kingStats.damage*kingStats.critMultiplier),'Actual critical damage is counted with its applied multiplier');

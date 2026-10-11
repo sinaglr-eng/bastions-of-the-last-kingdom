@@ -64,7 +64,7 @@ test('actual armor-only campaign spawns have no aura, shield, ring or glyph whil
       combat.spawn('host_35',{variant:definitions.host_35.variants[0]}),
       combat.spawn('host_35',{variant:definitions.host_35.variants[1]}),
       combat.spawn('host_14'),combat.spawn('host_24'),
-      combat.spawn('host_02',{resists:{fire:.35}}),
+      {...combat.spawn('host_02'),resists:{fire:.35},ward:.3,magicShred:.1},
     ];
     assert.equal(enemyAuraStage(special[0]),3);assert.equal(enemyAuraStage(special[1]),3);
     assert.deepEqual(enemyDefenseVisualState(special[0]).map(s=>s.kind),['magicImmune']);
@@ -73,14 +73,14 @@ test('actual armor-only campaign spawns have no aura, shield, ring or glyph whil
     assert.deepEqual(enemyDefenseVisualState(special[3]),[],'reactive armor is not active before a direct hit');
     special[3].reactiveStacks=1;
     assert.deepEqual(enemyDefenseVisualState(special[3]).map(s=>s.kind),['reactive']);
-    assert.deepEqual(enemyDefenseVisualState(special[4]).map(s=>s.kind),['fire'],'an actual typed modifier retains its symbol');
+    assert.deepEqual(enemyDefenseVisualState(special[4]),[],'obsolete resistance/ward/shred fields have no actual defense symbol');assert.equal(hasEnemySpecialMechanic(special[4]),false);assert.equal(createEnemyAura(special[4],shape),null);
     effects.sync([...ordinary,...special]);
     assert.equal(effects.batches.has('armor'),false);
-    for(const kind of ['magicImmune','physicalImmune','refraction','reactive','fire']){assert.equal(effects.batches.get(kind).glyph.count,3,kind+' keeps several small symbols');assert.equal(effects.batches.get(kind).dots.count,6,kind+' keeps matching colored dots');}
+    for(const kind of ['magicImmune','physicalImmune','refraction','reactive']){assert.equal(effects.batches.get(kind).glyph.count,3,kind+' keeps several small symbols');assert.equal(effects.batches.get(kind).dots.count,6,kind+' keeps matching colored dots');}assert.equal(effects.batches.has('fire'),false);
     assert.equal(effects.batches.get('refraction').crystals.count,3);
     special[2].shields=0;special[3].reactiveStacks=0;special[4].magicShred=.5;
     effects.sync([...ordinary,...special]);
-    for(const kind of ['refraction','reactive','fire'])assert.equal(effects.batches.get(kind).glyph.count,0,kind+' disappears when its real protection is depleted');
+    for(const kind of ['refraction','reactive'])assert.equal(effects.batches.get(kind).glyph.count,0,kind+' disappears when its real protection is depleted');
     assert.deepEqual(enemyDefenseVisualState({...ordinary[1],reactiveStacks:5}),[],'stale stack markers do not invent a reactive ability');
   }finally{effects.dispose();shape.traverse(node=>{node.geometry?.dispose();node.material?.dispose();});}
 });

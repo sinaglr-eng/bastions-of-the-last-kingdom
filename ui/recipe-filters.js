@@ -1,45 +1,44 @@
 import {towerStats} from '../game/core/math.js';
+import {canonicalCombatStats,damageType,effectDamageType} from '../game/core/combat-rules.js';
 
 export const RECIPE_FILTERS={
-  damage:[['physical','Physical'],['magic','Any magic'],['arcane','Arcane'],['fire','Fire'],['frost','Frost'],['holy','Holy'],['poison','Poison'],['pure','Pure']],
-  ability:[['poison','Poison'],['burn','Fire aura / burning'],['slow','Slow'],['stun','Stun / petrify'],['armor','Armor reduction'],['magic-shred','Magic resistance reduction'],['critical','Critical hits'],['splash','Splash / multiple targets'],['lightning','Lightning'],['support','Ally support'],['detection','Reveal hidden enemies'],['healing-block','Prevent healing']],
-  counter:[['magic-resistance','Magic resistance'],['magic-immunity','Magic immunity'],['armor','Physical armor'],['physical-immunity','Physical immunity'],['evasion','Evasion'],['shields','Hit-blocking shields'],['air-defenses','All flying enemy defenses'],['regeneration','Regeneration'],['hidden','Hidden enemies'],['flying','Flying enemies']]
+  damage:[['physical','Physical'],['magical','Magical'],['holy','Holy']],
+  ability:[['poison','Poison'],['burn','Fire aura / burning'],['slow','Slow'],['stun','Stun / petrify'],['armor','Armor reduction'],['critical','Critical hits'],['splash','Splash / multiple targets'],['lightning','Lightning'],['support','Ally support'],['detection','Reveal hidden enemies'],['healing-block','Prevent healing']],
+  counter:[['magic-immunity','Magical immunity'],['armor','Armor'],['physical-immunity','Physical immunity'],['evasion','Evasion'],['shields','Hit-blocking shields'],['shell','Direct-hit shell'],['regeneration','Regeneration'],['hidden','Hidden enemies'],['flying','Flying enemies']]
 };
-const magical=type=>!['physical','piercing','pure'].includes(type);
 export function recipeCapabilities(s,{family}={}){
+  s=canonicalCombatStats(s);
   const damage=new Set(),abilities=new Set(),counters=new Set();
-  const channel=type=>{if(type){damage.add(type==='piercing'?'physical':type);if(magical(type))damage.add('magic');}};
+  const channel=type=>{if(type)damage.add(damageType(type));};
   if(s.damage>0)channel(s.type);
-  if(s.poisonDps||s.poison){channel('poison');abilities.add('poison');}
-  if(s.burnAura||s.burn||s.burnedChance){channel('fire');abilities.add('burn');}
-  if(s.bleed)channel('physical');
+  if(s.poisonDps||s.poison){channel(effectDamageType(s,'poison'));abilities.add('poison');}
+  if(s.burnAura||s.burnDps||s.burn||s.burnedChance){channel(effectDamageType(s,'burn'));abilities.add('burn');}
+  if(s.bleed)channel(effectDamageType(s,'bleed'));
   if(s.cleave){channel(s.cleaveType||s.type);abilities.add('splash');}
   if(s.chain){channel(s.type);abilities.add('lightning');abilities.add('splash');}
-  if(s.forkedTargets){channel('arcane');abilities.add('lightning');abilities.add('splash');}
-  if(s.bouncingFrost){channel('frost');abilities.add('splash');}
+  if(s.forkedTargets){channel(effectDamageType(s,'lightning'));abilities.add('lightning');abilities.add('splash');}
+  if(s.bouncingFrost){channel(effectDamageType(s,'frost'));abilities.add('splash');}
   if(s.multishot)abilities.add('splash');
   if(s.slow||s.slowAura||s.antiAirSlow||s.stoneGazeChance)abilities.add('slow');
   if(s.freeze||s.stoneGazeChance)abilities.add('stun');
   if(s.shred||s.armorShredAura||s.antiAirShred)abilities.add('armor');
-  if(s.magicShredAura||s.shredMagic||s.antiAirMagicShred)abilities.add('magic-shred');
   if(s.critChance)abilities.add('critical');
   if(s.aura)abilities.add('support');
   if(s.detectionRange||family==='cleric'){abilities.add('detection');counters.add('hidden');}
   if(s.healingBlockDuration){abilities.add('healing-block');counters.add('regeneration');}
-  // These are actual damage channels, including secondary abilities. Pure
-  // damage bypasses armor and immunities; direct pure hits still consume shields.
-  const independent=new Set();if(s.damage>0)independent.add(s.type==='piercing'?'physical':s.type);
+  // Primary, independently triggered cleave and passive damage are the channels
+  // that can still occur when the primary damage type is immune.
+  const independent=new Set();if(s.damage>0)independent.add(s.type);
   if(s.cleave)independent.add(s.cleaveType||s.type);
-  if(s.burnAura)independent.add('fire');
+  if(s.burnAura)independent.add(effectDamageType(s,'burn'));
   // On-hit poison and procs require a successful primary hit. A physical
   // attacker with poison cannot apply it to a physically immune ground target.
-  if(independent.has('physical')||independent.has('pure')){counters.add('magic-resistance');counters.add('magic-immunity');}
-  if(damage.has('magic')||damage.has('pure')||s.penetration>=1)counters.add('armor');
-  if([...independent].some(type=>magical(type)||type==='pure'))counters.add('physical-immunity');
-  if(damage.has('magic')||damage.has('pure')||s.trueStrike||s.aura?.trueStrike)counters.add('evasion');
-  if(s.poisonDps||s.poison||s.burn||s.bleed||s.burnAura)counters.add('shields');
+  if(independent.has('physical')||independent.has('holy'))counters.add('magic-immunity');
+  if(s.penetration>0||s.shred||s.armorShredAura||s.antiAirShred)counters.add('armor');
+  if(independent.has('magical')||independent.has('holy'))counters.add('physical-immunity');
+  if(s.trueStrike||s.aura?.trueStrike||s.burnAura)counters.add('evasion');
+  if(s.poisonDps||s.poison||s.burnDps||s.burn||s.bleed||s.burnAura||s.cleave){counters.add('shields');counters.add('shell');}
   if(!s.melee)counters.add('flying');
-  if(s.antiAirBypassesDefenses){counters.add('air-defenses');for(const key of ['magic-resistance','magic-immunity','armor','physical-immunity','evasion','shields'])counters.add(key);}
   return {damage,abilities,counters};
 }
 export function recipeMatches(stats,{damage='',ability='',counter=''}={},context={}){
@@ -48,7 +47,7 @@ export function recipeMatches(stats,{damage='',ability='',counter=''}={},context
 }
 const select=(key,label)=>`<label>${label}<select data-recipe-filter="${key}" aria-label="${label}"><option value="">All</option>${RECIPE_FILTERS[key].map(([value,name])=>`<option value="${value}">${name}</option>`).join('')}</select></label>`;
 export function recipeFilterControlsMarkup(){
-  return `<section class="recipe-filters" aria-label="Filter defenders"><div class="recipe-filter-controls">${select('damage','Damage type')}${select('ability','Ability')}${select('counter','Against resistance')}<button class="text-button" type="button" data-recipe-filter-reset>Reset filters</button></div><p class="recipe-filter-note">Matches attacks, damaging abilities and ally support. A matching ability can be conditional or chance-based; Ranger defense bypass applies only to flying enemies. Read its effects below. Filters combine.</p><p class="recipe-filter-count" role="status" aria-live="polite"></p><p class="recipe-filter-empty" hidden>No defenders match these filters. Change a filter or reset them.</p></section>`;
+  return `<section class="recipe-filters" aria-label="Filter defenders"><div class="recipe-filter-controls">${select('damage','Damage type')}${select('ability','Ability')}${select('counter','Against defense')}<button class="text-button" type="button" data-recipe-filter-reset>Reset filters</button></div><p class="recipe-filter-note">Matches attacks, damaging abilities and ally support. On-hit poison and burning need an initial damaging hit; secondary attacks, support, air debuffs and chance effects have their stated conditions. Holy ignores damage immunities, but armor, evasion, shields and shells still apply. Read the effects below. Filters combine.</p><p class="recipe-filter-count" role="status" aria-live="polite"></p><p class="recipe-filter-empty" hidden>No defenders match these filters. Change a filter or reset them.</p></section>`;
 }
 export function connectRecipeFilters(host,data,{state={damage:'',ability:'',counter:''}}={}){
   const controls=[...host.querySelectorAll('[data-recipe-filter]')];
@@ -71,7 +70,7 @@ export function connectRecipeFilters(host,data,{state={damage:'',ability:'',coun
   };
   const change=event=>{const key=event.target.dataset.recipeFilter;if(key){state[key]=event.target.value;apply();}};
   const reset=()=>{for(const control of controls){state[control.dataset.recipeFilter]='';control.value='';}apply();};
-  for(const control of controls)control.value=state[control.dataset.recipeFilter]||'';
+  for(const control of controls){const key=control.dataset.recipeFilter;if(!RECIPE_FILTERS[key].some(([value])=>value===state[key]))state[key]='';control.value=state[key]||'';}
   host.addEventListener('change',change);const button=host.querySelector('[data-recipe-filter-reset]');button.addEventListener('click',reset);apply();
   return {state,apply,dispose(){host.removeEventListener('change',change);button.removeEventListener('click',reset);}};
 }

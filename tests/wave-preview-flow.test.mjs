@@ -1,3 +1,4 @@
+import {campaignTowers as currentTowers,campaignEnemies as currentEnemies,campaignWaves as currentWaves,campaignRecipes as currentRecipes} from '../game/core/campaign-roster.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -7,6 +8,7 @@ import {WaveThreatAnalyzer} from '../game/core/wave-threats.js';
 import {prepareWavePreviewReview,prepareCommandPointsReview} from '../game/core/debug-review.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
+if(data.towers)data.towers=currentTowers(data.towers);if(data.enemies)data.enemies=currentEnemies(data.enemies);if(data.waves)data.waves=currentWaves(data.waves);if(data.recipes)data.recipes=currentRecipes(data.recipes);
 function fixture(){return new Game(data,{seed:428});}
 function placeFive(game){for(const [x,z] of [[16,17],[18,17],[20,17],[17,19],[19,19]])assert.equal(game.place(x,z),true);}
 

@@ -1,18 +1,23 @@
 import {attackVisualKind} from '../render/combat-effects.js';
+import {recordedCatalogue,recordedAttackCue} from './recorded-attacks.js';
+import {RecordedMusic} from './recorded-music.js';
 
 const INTERVALS={attack:.065,impact:.09,hit:.10,death:.12,build:.045,magic:.12,ui:.07};
 const soundKind=payload=>attackVisualKind(payload.source?.family||payload.tower?.family,payload.stats||{type:payload.type});
 export class AudioManager{
-  constructor(muted=false,{contextFactory=null,now=()=>globalThis.performance?.now?.()??Date.now(),random=Math.random,voiceRandom=Math.random,selectionCatalogue={},fetchAudio=globalThis.fetch?.bind(globalThis)}={}){
+  constructor(muted=false,{contextFactory=null,now=()=>globalThis.performance?.now?.()??Date.now(),random=Math.random,voiceRandom=Math.random,musicRandom=Math.random,selectionCatalogue={},fetchAudio=globalThis.fetch?.bind(globalThis),musicTimers={}}={}){
     this._muted=!!muted;this.context=null;this.contextFactory=contextFactory;this.now=now;this.random=random;
     this.channels={Music:.1,Ambience:.12,Attacks:.085,Impacts:.07,Magic:.075,UI:.12,Boss:.12,Victory:.14,Defeat:.12,Voices:.08};
     this.last=new Map();this.recent=[];this.voices=new Set();this.maxVoices=28;this.maxEventsPerSecond=16;this.noiseBuffer=null;this.disposed=false;
     this.voiceRandom=voiceRandom;this.fetchAudio=fetchAudio;this.selectionCatalogue=new Map();this.audioBuffers=new Map();this.audioLoads=new Set();
     this.selectionVoice=null;this.selectionRequest=0;this.selectionKey=null;this.committedVoiceKeys=new WeakMap();this.catalogueRequest=0;this.resumePromise=null;this.setSelectionCatalogue(selectionCatalogue);
+    this.recordedEffects=new Map();this.recordedDefenders=new Map();this.recordedCatalogueRequest=0;this.attackGeneration=0;this.gameState=null;this.effectFailures=new Map();
+    this.music=new RecordedMusic({getContext:()=>this.context,fetchAudio,random:musicRandom,now,volume:()=>this.channels.Music,...musicTimers});this.music.setMuted(this._muted);
   }
   get muted(){return this._muted;}
   set muted(value){
     this._muted=!!value;
+    this.music?.setMuted(this._muted);this.attackGeneration++;
     if(this._muted)this.cancelSelectionVoice();
     if(this._muted&&this.context)for(const voice of [...this.voices]){
       voice.gain.gain.cancelScheduledValues(this.context.currentTime);
@@ -29,8 +34,9 @@ export class AudioManager{
     // Resume inside the accepted pointer/keyboard gesture, before fetching or
     // decoding. Safari can report an interrupted context after backgrounding.
     if(this.context&&['suspended','interrupted'].includes(this.context.state)){
-      try{this.resumePromise=Promise.resolve(this.context.resume()).then(()=>true,()=>false);}catch{this.resumePromise=Promise.resolve(false);}
+      try{this.resumePromise=Promise.resolve(this.context.resume()).then(()=>{void this.music?.ensure();void this.preloadRecordedEffects();return true;},()=>false);}catch{this.resumePromise=Promise.resolve(false);}
     }
+    else if(this.context?.state==='running'){void this.music?.ensure();void this.preloadRecordedEffects();}
   }
   // Only real recorded assets enter this boundary. Display names and ranks do
   // not choose a voice: each stable family ID owns exactly two A/B recordings.
@@ -68,9 +74,58 @@ export class AudioManager{
       return this.setSelectionCatalogue(catalogue);
     }catch{return false;}finally{this.audioLoads.delete(controller);}
   }
+  async loadRecordedCatalogue(url){
+    if(this.disposed||!this.fetchAudio)return false;
+    const request=++this.recordedCatalogueRequest,controller=new AbortController();this.audioLoads.add(controller);
+    try{
+      const response=await this.fetchAudio(String(url),{signal:controller.signal});
+      if(!response?.ok||this.disposed||controller.signal.aborted||request!==this.recordedCatalogueRequest)return false;
+      const bank=recordedCatalogue(await response.json(),response.url||String(url));
+      if(this.disposed||controller.signal.aborted||request!==this.recordedCatalogueRequest)return false;
+      this.attackGeneration++;this.recordedEffects=bank.effects;this.recordedDefenders=bank.defenders;this.music.configure(bank.music,bank.policy);
+      if(this.context?.state==='running'&&!this.muted)void this.preloadRecordedEffects();return true;
+    }catch{return false;}finally{this.audioLoads.delete(controller);}
+  }
+  syncGameState(game){
+    // Result dialogs pause the simulation; a completed campaign still gets its
+    // approved celebration. Ordinary pauses suspend both music and attacks.
+    const paused=!!game?.paused&&!['won','lost'].includes(game?.phase);
+    if(game?.phase!==this.gameState?.phase||paused&&!this.gameState?.paused)this.attackGeneration++;
+    if(paused&&!this.gameState?.paused){this.cancelSelectionVoice();this.stopGameVoices();}
+    this.gameState={phase:game?.phase,paused};this.music.sync(this.gameState);
+  }
+  resetRun(){
+    this.attackGeneration++;this.cancelSelectionVoice();this.committedVoiceKeys=new WeakMap();this.music.reset();this.gameState=null;this.last.clear();this.recent=[];
+    this.stopGameVoices();
+  }
+  stopGameVoices(){
+    for(const voice of [...this.voices]){
+      try{voice.source.stop(this.context.currentTime);}catch{/* An ended source can already be stopped. */}
+      voice.source.onended?.();voice.source.onended=null;
+    }
+  }
+  async preloadRecordedEffects(){
+    if(this.disposed||this.muted||this.context?.state!=='running'||!this.recordedEffects.size)return [];
+    const clips=[...this.recordedEffects.values()],out=Array(clips.length);let next=0;
+    const worker=async()=>{while(next<clips.length){const index=next++,clip=clips[index];if(this.disposed||this.muted)break;out[index]=await this.loadSelectionClip(clip);}};
+    await Promise.all(Array.from({length:Math.min(3,clips.length)},worker));return out;
+  }
+  async playRecordedEffect(effect){
+    const clip=this.recordedEffects.get(effect),context=this.context;
+    if(!clip||this.muted||this.disposed||context?.state!=='running'||this.gameState?.paused)return false;
+    if(this.now()-(this.effectFailures.get(clip.url)??-Infinity)<5000)return false;
+    const generation=this.attackGeneration,time=this.now();
+    const buffer=await this.loadSelectionClip(clip);
+    if(!buffer){this.effectFailures.set(clip.url,this.now());return false;}
+    // A late download must not play an attack from a previous wave/pause/run.
+    if(generation!==this.attackGeneration||this.now()-time>250||this.muted||this.disposed||this.gameState?.paused||context!==this.context||context.state!=='running'||this.voices.size>=this.maxVoices)return false;
+    const source=context.createBufferSource(),gain=context.createGain();source.buffer=buffer;source.playbackRate.setValueAtTime(1,context.currentTime);
+    gain.gain.setValueAtTime(this.channels.Attacks,context.currentTime);source.connect(gain);gain.connect(context.destination);this.register(source,gain);source.start(context.currentTime);return true;
+  }
   cancelSelectionVoice(){
     this.selectionRequest++;this.selectionKey=null;
     const voice=this.selectionVoice;this.selectionVoice=null;
+    this.music?.duck(false);
     if(!voice)return;
     try{voice.source.stop(this.context.currentTime);}catch{/* It may already have ended. */}
     voice.source.onended?.();voice.source.onended=null;
@@ -109,19 +164,20 @@ export class AudioManager{
     this.committedVoiceKeys.set(tower,key);
     this.cancelSelectionVoice();this.selectionKey=key;
     const pair=this.selectionCatalogue.get(family),context=this.context;
-    if(!pair||this.muted||this.disposed||!context)return false;
+    if(!pair||this.muted||this.disposed||!context||this.gameState?.paused)return false;
     const request=this.selectionRequest;
     // A fresh independent 50/50 choice; repeated B or A is allowed.
     const clip=pair[this.voiceRandom()<.5?0:1];
     try{
       const [buffer]=await Promise.all([this.loadSelectionClip(clip),this.resumePromise]);
-      if(!buffer||this.muted||this.disposed||request!==this.selectionRequest||context!==this.context||context.state!=='running'||tower.state!=='active'||tower.family!==family||tower.tier!==tier)return false;
+      if(!buffer||this.muted||this.disposed||this.gameState?.paused||request!==this.selectionRequest||context!==this.context||context.state!=='running'||tower.state!=='active'||tower.family!==family||tower.tier!==tier)return false;
       if(this.voices.size>=this.maxVoices)return false;
       const source=context.createBufferSource(),gain=context.createGain();source.buffer=buffer;
       source.playbackRate.setValueAtTime(1,context.currentTime);
       gain.gain.setValueAtTime(this.channels.Voices,context.currentTime);source.connect(gain);gain.connect(context.destination);
       const voice=this.register(source,gain);this.selectionVoice=voice;
-      const ended=source.onended;source.onended=()=>{ended();if(this.selectionVoice===voice)this.selectionVoice=null;};
+      this.music.duck(true);
+      const ended=source.onended;source.onended=()=>{ended();if(this.selectionVoice===voice){this.selectionVoice=null;this.music.duck(false);}};
       source.start(context.currentTime);return true;
     }catch{
       if(request===this.selectionRequest)this.cancelSelectionVoice();
@@ -179,9 +235,15 @@ export class AudioManager{
   }
   play(event,payload={}){
     if(event==='defender-committed')return this.playSelectionVoice(payload);
-    if(this.muted||this.disposed||!this.context||payload.visible===false)return;
+    if(this.muted||this.disposed||!this.context||payload.visible===false||this.gameState?.paused&&['shot','aura-attack','chain','burn-proc','impact','hit','death','leak'].includes(event))return;
     if(event==='defender-select')return;
     if(['won','lost','reroll','reserve','move'].includes(event))this.cancelSelectionVoice();
+    if(['wave','reward','won','lost'].includes(event))this.attackGeneration++;
+    const cue=recordedAttackCue(event,payload,this.recordedDefenders);
+    if(cue&&this.recordedEffects.has(cue)){
+      const interval=event==='aura-attack'?.28:event==='chain'||event==='burn-proc'?.12:INTERVALS.attack;
+      if(this.allow('recorded-attack:'+cue,interval))return this.playRecordedEffect(cue);return;
+    }
     if(event==='shot'||event==='aura-attack'){
       const kind=soundKind(payload);if(this.allow('attack:'+kind,INTERVALS.attack))this.attack(kind);return;
     }
@@ -202,14 +264,14 @@ export class AudioManager{
     if(event==='wave'&&this.allow('wave',1))this.tone(110,.65,'Boss','triangle',82,{gain:.7});
     if(event==='leak'&&this.allow('leak',.12))this.tone(90,.20,'Impacts','sawtooth',45,{gain:.5});
     if(event==='reward'&&this.allow('reward',.5))this.tone(660,.30,'Victory','sine',null,{gain:.6});
-    if(event==='won'&&this.allow('won',2))[440,554,659,880,1108].forEach((freq,i)=>this.tone(freq,.45,'Victory','sine',null,{delay:i*.13,gain:.7}));
+    if(event==='won'&&!this.music.tracks.length&&this.allow('won',2))[440,554,659,880,1108].forEach((freq,i)=>this.tone(freq,.45,'Victory','sine',null,{delay:i*.13,gain:.7}));
     if(event==='lost'&&this.allow('lost',2))this.tone(160,.9,'Defeat','triangle',55,{gain:.65});
   }
   dispose(){
-    if(this.disposed)return;this.muted=true;
+    if(this.disposed)return;this.muted=true;this.music.dispose();this.recordedCatalogueRequest++;
     for(const controller of this.audioLoads)controller.abort();this.audioLoads.clear();this.audioBuffers.clear();this.selectionCatalogue.clear();
     for(const voice of [...this.voices]){voice.source.onended=null;voice.source.disconnect();voice.gain.disconnect();voice.nodes.forEach(node=>node.disconnect());}
-    this.voices.clear();this.last.clear();this.recent=[];this.noiseBuffer=null;this.disposed=true;
+    this.voices.clear();this.last.clear();this.recent=[];this.noiseBuffer=null;this.recordedEffects.clear();this.recordedDefenders.clear();this.effectFailures.clear();this.disposed=true;
     try{this.context?.close?.()?.catch?.(()=>{});}catch{/* Closing a closed context is harmless. */}
   }
 }

@@ -12,6 +12,7 @@ import {championClassification} from '../game/render/champion-classification.js'
 import {rankColor} from '../game/render/ranks.js';
 import {ROMAN,abilityLines,baseAttackDps,formatTowerNumber,damageTypeName} from '../ui/grimoire.js';
 import {selectedSupportMarkup} from '../ui/support-guide.js';
+import {mvpDetailsMarkup} from '../ui/mvp-details.js';
 import {DefenderRankPreview,defenderRankPreviewMarkup} from '../ui/defender-rank-preview.js';
 import {icon} from '../ui/icons.js';
 
@@ -40,7 +41,7 @@ function setup({placed=true,distinct=false}={}){
   const images=Object.fromEntries(Object.keys(data.towers).flatMap(family=>ROMAN.map((_,index)=>[`${family}:${index+1}`,`approved-portrait:${family}:${index+1}`])));
   const panel=compile(between('function quality(t)','function notice(')+between('function towerPanel(t)','function enemyInspectionOptions'),'towerPanel',{
     game,rankPreview,data,towers:data.towers,balance:data.balance,images,roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
-    defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,damageTypeName,selectedSupportMarkup,recipeProgress,recipesUsing,recipeLabel
+    defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,recipeProgress,recipesUsing,recipeLabel
   });
   const sidebar=compile(between('function renderSidebar()','function previewRecipe()'),'renderSidebar',{
     game,$,icon,rankPreview,towerPanel:panel,

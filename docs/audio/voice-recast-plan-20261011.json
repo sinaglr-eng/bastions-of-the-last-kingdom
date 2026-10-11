@@ -1,0 +1,590 @@
+{
+  "title": "Unique defender voice recast plan",
+  "created_on": "2026-10-11",
+  "status": "completed",
+  "flow_id": "aXbvtDQtja1G3DyKA9Lw",
+  "flow_url": "https://elevenlabs.io/app/flows/aXbvtDQtja1G3DyKA9Lw",
+  "estimated_credits": 2579,
+  "connector_node_limit_per_run": 20,
+  "model": "eleven_v4",
+  "takes_per_script": 1,
+  "recast_defenders": 33,
+  "replacement_clips": 66,
+  "retained_defenders": 13,
+  "retained_clips": 26,
+  "voice_policy": "Exactly one unique real voice ID per distinct defender; both selection alternatives share that defender's voice; all eight basic voices male; all four dwarf defender voices Scottish male.",
+  "locked_retained_ids": [
+    "soldier",
+    "archer",
+    "druid",
+    "mage",
+    "cleric",
+    "frostwarden",
+    "highking",
+    "crownofages",
+    "embercrown",
+    "worldfire",
+    "starfall"
+  ],
+  "additional_retained_ids": [
+    "kingsreach",
+    "eldergrove"
+  ],
+  "user_maverick_decision": "Keep Maverick for King; recast Stormcaller.",
+  "dwarf_ids": [
+    "runebreaker",
+    "royalmarshal",
+    "griffinbomber",
+    "mechanicalgolem"
+  ],
+  "cast": [
+    {
+      "character_id": "runebreaker",
+      "voice_id": "U5UjeJMsOvyhYhXfZdvZ",
+      "voice_name": "Adam - Classic Scottish Storyteller",
+      "voice_direction": "Deep gravelly Scottish engineer with practical veteran confidence",
+      "audio_tags": "[strong Scottish accent] [confident]",
+      "voice_labels": {
+        "gender": "male",
+        "accent": "en-scottish",
+        "age": "middle-aged",
+        "language": "en"
+      },
+      "voice_description": "A deep, gravelly, and seasoned Scottish male voice. Robert sounds like a wise historian or a clan elder imparting ancient knowledge. The accent is distinctive yet clear, with a rich, \"earthy\" texture that adds significant gravitas to the reading. Perfect for historical documentaries, fantasy lore videos, and strategic narration. It evokes feelings of tradition, strength, and experience.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "stormcaller",
+      "voice_id": "4TfTGcPwoefWe878B0rm",
+      "voice_name": "ThunderBlade - Heroic Characters - Anime",
+      "voice_direction": "Deep energetic male storm conjurer, delighted heroic command",
+      "audio_tags": "[excited]",
+      "voice_labels": {
+        "gender": "Male",
+        "style": "Actor",
+        "age": "Adult",
+        "Emotion": "Excited",
+        "tone": "Dramatic"
+      },
+      "voice_description": "A deep and dynamic voice that combines the power of an epic hero with the comic expressiveness of anime. Perfect for bringing manga characters to life, big-hearted warriors, and heroes who know when to be serious... and when not to be.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "rimewatch",
+      "voice_id": "10NkTYmU7tSz3Kkl3Lex",
+      "voice_name": "Kaelen - Amateur Warrior",
+      "voice_direction": "Gravelly disciplined male winter swordsman with crisp resolve",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "accent": "en-american",
+        "language": "en"
+      },
+      "voice_description": "Rugged, gravelly male bass-baritone. Intense and textured, perfect for cinematic trailers or hardened character monologues.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "frostblade",
+      "voice_id": "goT3UYdM9bhm0n2lmKQx",
+      "voice_name": "Edward - British, Dark, Sexy, Low",
+      "voice_direction": "Low restrained British male mounted winter knight",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "language": "en",
+        "accent": "british",
+        "age": "middle_aged",
+        "gender": "male",
+        "descriptive": "serious",
+        "use_case": "characters_animation"
+      },
+      "voice_description": "A deep, low, seductive strong British man. ",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "roseguard",
+      "voice_id": "A48Y4xFQ2YpCgXhLXguK",
+      "voice_name": "Lord Griff - Epic Fantasy & whispers",
+      "voice_direction": "Commanding male fantasy knight with noble courage",
+      "audio_tags": "[dramatically]",
+      "voice_labels": {
+        "language": "en",
+        "gender": "male",
+        "accent": "en-american",
+        "age": "middle-aged"
+      },
+      "voice_description": "A commanding, cinematic fantasy voice with range from whispered conspiracies in dark hallways to thunderous bellows on the battlefield and raw anguish.  Works very well in v3 with direction such as [whisper] or [shout] or [angry].\r\n\r\nEqually at home in subtle conversation, calculated menace, warmth, grief, or intense action. Perfect for fantasy films, games, audiobooks, and medieval—or even modern—settings that need a powerful character voice with a broad emotional range and an unexpected twist.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "thornwarden",
+      "voice_id": "unWb9iRIK7Xxf4A5Hfis",
+      "voice_name": "VALF - Anime Protagonist Charismatic",
+      "voice_direction": "Agile youthful male woodland archer, determined and expressive",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "accent": "en-american",
+        "language": "en",
+        "gender": "male",
+        "age": "young"
+      },
+      "voice_description": "Youthful, expressive anime protagonist voice with natural charm, curiosity, determination, and emotion. Versatile from casual, playful dialogue to intense battles, dramatic speeches, heartfelt scenes, and emotional moments. Perfect for anime, animation, games, RPGs, visual novels, YouTube, storytelling, and character skits. Ideal for young heroes, adventurous protagonists, energetic leads, aspiring warriors, supernatural characters, and relatable anime characters.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "verdantguard",
+      "voice_id": "ZthjuvLPty3kTMaNKVKb",
+      "voice_name": "Jackson",
+      "voice_direction": "Resolute precise male elven guard with reliable field authority",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "language": "en",
+        "accent": "american",
+        "age": "middle_aged",
+        "gender": "male",
+        "descriptive": "confident",
+        "use_case": "narrative_story"
+      },
+      "voice_description": "Confident, reliable, credible narrator. A resolute voice that you can trust.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "tempest",
+      "voice_id": "6q6UVsvekS0UjrUXFz79",
+      "voice_name": "Benedict - Premium British (RP) Male",
+      "voice_direction": "Crisp assured British male elven caster with articulate elemental fluency",
+      "audio_tags": "[curious]",
+      "voice_labels": {
+        "accent": "en-british",
+        "language": "en"
+      },
+      "voice_description": "A clear, crisp, professional, and authoritative British English (RP) voice with a warm, engaging tone. \r\n\r\nThe neutral, non-regional accent is ideal for narration of academic, educational, scientific, and corporate themes, including audio books.\r\n\r\nHighly versatile, but ideal for long-form content, e-learning modules, medical terminology, and documentaries. Excellent for pronunciation and articulation of technical and scientific terms.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "stormcitadel",
+      "voice_id": "ZUz67EWNNT6d1i38Xmcm",
+      "voice_name": "Archivist Arkadi (Lore Master Extraordinaire) S-Grade Lore keeper",
+      "voice_direction": "Warm baritone lore master, ancient elven scholarship and controlled power",
+      "audio_tags": "[slowly]",
+      "voice_labels": {
+        "gender": "male",
+        "accent": "en-american",
+        "age": "old",
+        "language": "en"
+      },
+      "voice_description": "Warm baritone wizard—velvet menace, ancient gravitas. Built for romantasy chapters, lore reels, and book trailers. “Old-world cadence; velvet menace baritone for dark romantasy readings.”",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "thunderheart",
+      "voice_id": "AyUH0Pu6NRwQV6bOdfNx",
+      "voice_name": "Connery – Dramatic Mythology Storyteller",
+      "voice_direction": "Deep commanding cinematic male dragon with elemental power",
+      "audio_tags": "[deep voice] [dramatically]",
+      "voice_labels": {
+        "accent": "en-american",
+        "language": "en"
+      },
+      "voice_description": "Deep, commanding, and cinematic, with a powerful presence built for stories of gods, warriors, legends, and ancient worlds. Perfect for mythology narration, epic storytelling, fantasy lore, historical legends, dramatic trailers, audiobooks, and cinematic content. A strong fit for YouTube, podcasts, games, documentaries, and creators looking for a grand, authoritative voice that makes every story feel larger than life.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "phoenix",
+      "voice_id": "HAvvFKatz0uu0Fv55Riy",
+      "voice_name": "Matthew Schmitz - Ancient Sage Dragon Wizard",
+      "voice_direction": "Aged raspy male dragon patriarch with deliberate ancient gravitas",
+      "audio_tags": "[slowly]",
+      "voice_labels": {
+        "gender": "male",
+        "accent": "en-british",
+        "age": "old",
+        "language": "en"
+      },
+      "voice_description": "Fantasy character voice rife with wisdom and old age. Underlying rasp and venom. Great for a sorcerer, mage, medieval philosopher, or an elder alchemist. Performed by Matthew Schmitz, a professional audiobook narrator with large fan base. This voice is ideal for stories, games, animated film.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "greenheart",
+      "voice_id": "htZQqY7WtacRNV7s62Iy",
+      "voice_name": "Daniel - The Gruff Old British Wizard",
+      "voice_direction": "Gruff older British male forest guardian with earthy warmth",
+      "audio_tags": "[warmly]",
+      "voice_labels": {
+        "accent": "en-british",
+        "gender": "male",
+        "language": "en"
+      },
+      "voice_description": "A warm, weathered British wizard with a deep, gruff voice, dry wit and grandfatherly charm. Rich and expressive, with an ancient storyteller quality perfect for fantasy narration, audiobooks, RPGs, games, magical characters and dramatic storytelling.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "sunward",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "voice_name": "Brian - Deep, Resonant and Comforting",
+      "voice_direction": "Warm resonant mature male priest with reassuring sacred encouragement",
+      "audio_tags": "[warmly]",
+      "voice_labels": {
+        "language": "en",
+        "gender": "male",
+        "age": "middle_aged",
+        "accent": "american",
+        "use_case": "social_media",
+        "descriptive": "classy"
+      },
+      "voice_description": "Middle-aged man with a resonant and comforting tone. Great for narrations and advertisements.",
+      "voice_category": "premade",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "winterhold",
+      "voice_id": "5GM4aByyJu1ecbL4rKms",
+      "voice_name": "Aldric Solheim - Wise Nordic Mystic",
+      "voice_direction": "Deep calm timeless male celestial guardian, steady crystalline resonance",
+      "audio_tags": "[softly]",
+      "voice_labels": {
+        "gender": "male",
+        "accent": "en-german",
+        "age": "middle-aged",
+        "language": "en"
+      },
+      "voice_description": "Aldric Solheim is a deep, gentle male voice with a calm, timeless presence and subtle Nordic European/Germanic resonance. Warm yet quietly powerful, he embodies the wisdom of a benevolent archmage — patient, grounded, and reassuring. Ideal for fantasy RPGs, wise wizards, mystical mentors, cinematic lore, magical NPC dialogue, D&D campaigns, and immersive world-building. Gravitas without intimidation. Wisdom without harshness.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "dawnspire",
+      "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+      "voice_name": "Lily - Velvety Actress",
+      "voice_direction": "Clear velvety British female celestial authority",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "language": "en",
+        "gender": "female",
+        "age": "middle_aged",
+        "accent": "british",
+        "use_case": "informative_educational",
+        "descriptive": "confident"
+      },
+      "voice_description": "Velvety British female voice delivers news and narrations with warmth and clarity.",
+      "voice_category": "premade",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "royalmarshal",
+      "voice_id": "YIn3yKpQSeXNJMF5CIuj",
+      "voice_name": "Scottish Paisley",
+      "voice_direction": "Rough cheerful Scottish male dwarf bomber with mischievous confidence",
+      "audio_tags": "[strong Scottish accent] [mischievously]",
+      "voice_labels": {
+        "gender": "male",
+        "age": "middle-aged",
+        "accent": "en-scottish",
+        "language": "en"
+      },
+      "voice_description": "This would be my morning voice gruffly and rough but still polite and scottish",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "stonewarden",
+      "voice_id": "DMyrgzQFny3JI1Y1paM5",
+      "voice_name": "Donovan",
+      "voice_direction": "Gruff no nonsense male siege captain with practical working authority",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "language": "en",
+        "accent": "american",
+        "age": "middle_aged",
+        "gender": "male",
+        "descriptive": "confident",
+        "use_case": "conversational"
+      },
+      "voice_description": "Donovan - A hard-boiled voice that accepts no nonsense but feels deeply. A voice of caring authority who will stick with you to the end.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "wyvernhunter",
+      "voice_id": "tEo3d4j7gzVojBL5Z4Pt",
+      "voice_name": "Cormac - The Irish Fantasy Storyteller",
+      "voice_direction": "Rugged Irish male border ranger with dry veteran confidence",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "gender": "male",
+        "accent": "en-irish",
+        "language": "en",
+        "age": "middle-aged"
+      },
+      "voice_description": "Irish male accent perfect for fiction, fantasy narration, audiobooks, D&D and tabletop characters, folklore podcasts, and game NPCs. A rugged voice built for character work, warm and roguish one moment, dark and dangerous the next. Trained across a full emotional range: joy, grief, rage, dread, calm, sarcasm, awe, urgency, tenderness, and humor.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "royalarsenal",
+      "voice_id": "7cOBG34AiHrAzs842Rdi",
+      "voice_name": "Tarquin – The Distinguished Gentleman",
+      "voice_direction": "Distinguished British male elven monarch with calm woodland sovereignty",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "language": "en",
+        "accent": "british",
+        "age": "middle_aged",
+        "gender": "male",
+        "descriptive": "professional",
+        "use_case": "characters_animation"
+      },
+      "voice_description": "A posh British man from the Home Counties. Landed gentry. Received Pronunciation.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "rangermentor",
+      "voice_id": "EXAVITQu4vr4xnSDxMaL",
+      "voice_name": "Sarah - Mature, Reassuring, Confident",
+      "voice_direction": "Soft reassuring airy woodland spirit, quiet faceless presence",
+      "audio_tags": "[softly]",
+      "voice_labels": {
+        "language": "en",
+        "gender": "female",
+        "age": "young",
+        "accent": "american",
+        "use_case": "entertainment_tv",
+        "descriptive": "professional"
+      },
+      "voice_description": "Young adult woman with a confident and warm, mature quality and a reassuring, professional tone.",
+      "voice_category": "premade",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "kingdomprotector",
+      "voice_id": "W2cdBod56VIbm57Ma8I9",
+      "voice_name": "Grant – The Premium Narrator",
+      "voice_direction": "Rich commanding male sacred warrior with protective resolve",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "language": "en",
+        "age": "middle-aged",
+        "accent": "en-american",
+        "gender": "male"
+      },
+      "voice_description": "A rich, deep male voice with a confident, polished delivery and a commanding yet approachable presence. Perfect for commercials, advertising campaigns, product promotions, brand storytelling, announcements, educational content, explainers, and narration. From bold, attention-grabbing advertisements to smooth, engaging presentations, this versatile voice delivers clarity, personality, and authority. A distinctive sound designed to capture attention, build trust, and make every message memorable.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "mothernature",
+      "voice_id": "vBRU4ztAu1MfP8arDoB3",
+      "voice_name": "Kay - Warm British Female Storyteller",
+      "voice_direction": "Mature warm British female forest mother with maternal protective authority",
+      "audio_tags": "[warmly]",
+      "voice_labels": {
+        "accent": "en-british",
+        "gender": "female",
+        "language": "en",
+        "age": "middle-aged"
+      },
+      "voice_description": "Warm, confident British female voice with a soft Nottingham/Midlands accent. Clear, natural and conversational, with a friendly, trustworthy tone. Well suited to travel and lifestyle content, advertising, corporate narration, e-learning and audiobooks.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "royalranger",
+      "voice_id": "NNl6r8mD7vthiJatiJt1",
+      "voice_name": "Bradford - British Narrator, Storyteller",
+      "voice_direction": "Articulate assured British male master ranger with experienced field calm",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "language": "en",
+        "accent": "british",
+        "age": "middle_aged",
+        "gender": "male",
+        "descriptive": "calm",
+        "use_case": "narrative_story"
+      },
+      "voice_description": "Bradford - An adult British Male Storyteller. Expressive, articulate, and engaging!",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "kingsrangerguard",
+      "voice_id": "EkK5I93UQWFDigLMpZcX",
+      "voice_name": "JM - Husky & Engaging (2025-01-25_1100)",
+      "voice_direction": "Low controlled husky male shadow ranger with vigilant precision",
+      "audio_tags": "[softly]",
+      "voice_labels": {
+        "language": "en",
+        "accent": "american",
+        "age": "middle_aged",
+        "gender": "male",
+        "descriptive": "deep",
+        "use_case": "narrative_story"
+      },
+      "voice_description": "James - Husky & Engaging - A slightly husky and bassy voice with a standard American accent. Modulated, controlled, and direct and perfect for audiobooks, captivating narrations, or storytelling, or other professional voiceover work.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "elvenking",
+      "voice_id": "dqoktGAat2XIYpd4sTb7",
+      "voice_name": "Malakor - Grim Antagonist",
+      "voice_direction": "Dark weathered raspy male oathbreaker with restrained defiance",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "age": "middle-aged",
+        "language": "en",
+        "accent": "en-american",
+        "gender": "male"
+      },
+      "voice_description": "A dark, raspy, and mysterious male voice with a natural grit. Perfect for villains, antiheroes, dark fantasy antagonists, and ominous narrators. Fits video game dialogues, audiobooks, and atmospheric storytelling where a sinister, secretive tone is needed.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "fireballista",
+      "voice_id": "3YzGaTGef0x5PLEK9yGq",
+      "voice_name": "Atlas - Deep, Gravelly Narrator",
+      "voice_direction": "Gravelly mature male siege veteran with grounded rough command",
+      "audio_tags": "[confident]",
+      "voice_labels": {
+        "age": "middle-aged",
+        "gender": "male",
+        "accent": "en-american",
+        "language": "en"
+      },
+      "voice_description": "Atlas is a deep, gravelly American male voice built for documentary narration, audiobooks, and cinematic storytelling. Trained across factual scripts, long-form non-fiction, and epic fantasy, his low raspy register carries unhurried authority and natural weight - the sound of someone who has been there.Measured and resonant, built to hold attention for hours. Ideal for documentary, history and nature narration, audiobooks, trailers, and rugged character work.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "emeraldgolem",
+      "voice_id": "cQrSgU1CeOOz73lBM5Cb",
+      "voice_name": "K. V. Hagen - Exceptionally Deep Bass",
+      "voice_direction": "Exceptionally deep male stone guardian with deliberate resonant diction",
+      "audio_tags": "[slowly]",
+      "voice_labels": {
+        "accent": "en-american",
+        "gender": "male",
+        "language": "en",
+        "age": "middle-aged"
+      },
+      "voice_description": "A rare, exceptionally deep male voice with a naturally low, effortless bass register. Warm, resonant and commanding, with a calm, measured, hypnotic delivery and natural, unforced depth, clarity and gravitas. Recorded in a professional, acoustically treated studio with a near-silent noise floor. Ideal for audiobooks, narration, documentaries, cinematic storytelling, trailers, meditation, sleep stories, commercials, true crime, history, mythology, poetry, fantasy, sci-fi, gothic fiction & horror.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "griffinbomber",
+      "voice_id": "MAy1fRIg5hTqbhiwOUyh",
+      "voice_name": "Hamish - Conversational Scot",
+      "voice_direction": "Young jovial Scottish male dwarf pilot with brave aerial energy",
+      "audio_tags": "[strong Scottish accent] [excited]",
+      "voice_labels": {
+        "gender": "male",
+        "language": "en",
+        "age": "young",
+        "accent": "en-scottish"
+      },
+      "voice_description": "Relaxed, authentic and steady. Ideal for podcasts, voice agents, and explainer videos.",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "mechanicalgolem",
+      "voice_id": "JdanfwfOBtHuVRJhsamV",
+      "voice_name": "Rob - warm, deep, smart",
+      "voice_direction": "Warm deep Scottish male dwarf airship pilot with relaxed jovial confidence",
+      "audio_tags": "[strong Scottish accent] [confident]",
+      "voice_labels": {
+        "accent": "en-scottish",
+        "language": "en"
+      },
+      "voice_description": "A warm, deep, and rich male voice with a soft Scottish accent. Calm, clear, and articulate—easy to understand with a natural, empathetic tone",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "monk",
+      "voice_id": "N8jsIhEtPnj3PWFmH8hZ",
+      "voice_name": "Elder Rowan",
+      "voice_direction": "Deep resonant older British male high priest with patient sacred guidance",
+      "audio_tags": "[warmly]",
+      "voice_labels": {
+        "age": "old",
+        "accent": "en-british",
+        "language": "en",
+        "gender": "male"
+      },
+      "voice_description": "Perfect for deep Wizard characters, magical fantasy, and Santa / Father Christmas storytelling.\r\nThis voice offers a deep, resonant British accent delivered at a naturally slow, steady, and measured pace. It carries an unmistakable sense of aged wisdom, ancient knowledge, and a calming, grounded tone. Excellent dynamic range for both cinematic roles and warm, high-end narrations.\r\n•\tBest use cases: Video games (Older wizards, wise kings), animation, holiday audiobooks, documentaries, and med",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "archbishop",
+      "voice_id": "wAGzRVkxKEs8La0lmdrE",
+      "voice_name": "Sully",
+      "voice_direction": "Deep mature male ceremonial voice with projecting sacred cadence",
+      "audio_tags": "[dramatically]",
+      "voice_labels": {
+        "language": "en",
+        "accent": "american",
+        "age": "old",
+        "gender": "male",
+        "descriptive": "deep",
+        "use_case": "narrative_story"
+      },
+      "voice_description": "Sully - Deep mature American male",
+      "voice_category": "professional",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "archangel",
+      "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+      "voice_name": "Alice - Clear, Engaging Educator",
+      "voice_direction": "Clear luminous British female angel with compassionate vigilance",
+      "audio_tags": "[warmly]",
+      "voice_labels": {
+        "language": "en",
+        "gender": "female",
+        "age": "middle_aged",
+        "accent": "british",
+        "use_case": "informative_educational",
+        "descriptive": "professional"
+      },
+      "voice_description": "Clear and engaging, friendly woman with a British accent suitable for e-learning.",
+      "voice_category": "premade",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    },
+    {
+      "character_id": "ladyclaire",
+      "voice_id": "XrExE9yKIg1WjnnlVkGX",
+      "voice_name": "Matilda - Knowledgable, Professional",
+      "voice_direction": "Elegant mature female alto with gentle melancholy and quiet authority",
+      "audio_tags": "[softly]",
+      "voice_labels": {
+        "language": "en",
+        "gender": "female",
+        "age": "middle_aged",
+        "accent": "american",
+        "use_case": "informative_educational",
+        "descriptive": "upbeat"
+      },
+      "voice_description": "A professional woman with a pleasing alto pitch. Suitable for many use cases.",
+      "voice_category": "premade",
+      "voice_source": "Connected ElevenLabs creative_list_voices, 2026-10-11"
+    }
+  ],
+  "completed_on": "2026-10-11",
+  "actual_credits": 2579.0000000000005,
+  "generated_receipt": "docs/audio/generated-voice-recast-20261011.json",
+  "history_path": "docs/audio/history/voice-recast-20261011"
+}

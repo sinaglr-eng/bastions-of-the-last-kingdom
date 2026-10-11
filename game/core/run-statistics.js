@@ -8,6 +8,7 @@ export class RunStatistics {
     this.game=game;this.clock=clock;this.id=id;this.startedAt=clock();this.version=version;this.sequence=0;this.waves=[];this.draws=[];this.decisions=[];this.current=null;this.outcome='playing';this.lastSources=new Map();this.sampleClock=0;this.unsubscribe=game.on((type,payload)=>this.event(type,payload));
   }
   event(type,p){
+    if(this.game.developerMode)return;
     const g=this.game,t=p.tower;
     // A returning Reserve keeps its original identity. Draw rows record its
     // birth once; decisions and wave performance record later use and position.
@@ -21,7 +22,7 @@ export class RunStatistics {
     if(w&&type==='spawn'){w.spawned++;const key=p.enemy.type;w.enemyTypes[key]??={spawned:0,kills:0,leaks:0};w.enemyTypes[key].spawned++;}
     if(w&&type==='shot'){const row=this.waveUnits.get(p.source?.id);if(row)row.shots++;}
     if(w&&type==='melancholy')w.effects.melancholyTriggers=(w.effects.melancholyTriggers||0)+1;
-    if(w&&type==='hit'){const row=this.waveUnits.get(p.source?.id);if(row){row.damage+=Math.min(p.damage,Math.max(0,p.enemy.hp+p.damage));row.hits++;}}
+    if(w&&type==='hit'){const row=this.waveUnits.get(p.source?.id);if(row){row.damage+=Number.isFinite(p.effectiveDamage)?p.effectiveDamage:Math.min(p.damage,Math.max(0,p.enemy.hp+p.damage));row.hits++;}}
     if(w&&type==='death'){w.kills++;if(p.enemy.boss)w.bossKills++;if(w.enemyTypes[p.enemy.type])w.enemyTypes[p.enemy.type].kills++;const row=this.waveUnits.get(this.lastSources.get(p.enemy.id));if(row)row.kills++;this.lastSources.delete(p.enemy.id);}
     // hit precedes death in CombatManager; remember the actual finishing source.
     if(w&&type==='hit')this.lastSources.set(p.enemy.id,p.source?.id);
@@ -31,6 +32,7 @@ export class RunStatistics {
     if(type==='lost'){this.finishWave(false);this.outcome='lost';this.finishedAt=this.clock();}
   }
   sample(dt){
+    if(this.game.developerMode)return;
     if(!this.current||this.game.phase!=='combat'||this.game.paused||dt<=0)return;
     this.sampleClock+=dt*this.game.speed;if(this.sampleClock<.25)return;
     const w=this.current,slice=this.sampleClock;this.sampleClock=0;
@@ -39,7 +41,7 @@ export class RunStatistics {
       for(const [key,status] of Object.entries(enemy.statuses||{}))if(status.time>0){const seconds=Math.min(slice,status.time);w.effects[key]=(w.effects[key]||0)+seconds;}
       let effect=enemy.statuses.petrify||enemy.statuses.freeze;
       if(!effect){effect=[enemy.statuses.slow,enemy.statuses.gazeSlow].filter(s=>s?.time>0).sort((a,b)=>b.amount-a.amount)[0];
-        for(const {tower,stats} of auras)if(!enemy.magicImmune&&distance(tower,enemy)<=stats.range&&stats.slowAura>(effect?.amount||0))effect={amount:stats.slowAura,time:slice,source:tower,aura:true};
+        for(const {tower,stats} of auras)if((!enemy.physicalImmune||stats.type==='holy')&&distance(tower,enemy)<=stats.range&&stats.slowAura>(effect?.amount||0))effect={amount:stats.slowAura,time:slice,source:tower,aura:true};
       }
       const row=this.waveUnits.get(effect?.source?.id);if(row){const seconds=Math.min(slice,effect.time);row.controlSeconds+=seconds;if(effect.aura)w.effects.slowAura=(w.effects.slowAura||0)+seconds;}
     }

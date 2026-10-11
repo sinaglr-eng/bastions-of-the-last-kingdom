@@ -1,0 +1,815 @@
+- main:
+  - heading "BASTIONS" [level=1]
+  - generic: OF THE LAST KINGDOM
+  - generic: WAVE
+  - strong: 15 / 50
+  - generic: KEEP HEALTH
+  - strong: 30 / 30
+  - generic: GOLD
+  - strong: "140"
+  - generic: SCORE
+  - strong: 3 360
+  - generic "Command Points":
+    - generic: CP
+    - strong: "3"
+  - generic "Elapsed run time":
+    - generic: TIME
+    - strong: 14:22
+  - button "Enemy Waves":
+    - generic: Enemy Waves
+  - button "Recipes":
+    - generic: Recipes
+  - button "Developer Console": Developer
+  - generic: Developer Mode — statistics disabled
+  - button "Toggle sound":
+  - button "How to play":
+  - region "Battlefield":
+    - generic "3D battlefield. Tap to place or select; drag one finger to pan; use two fingers to rotate or pinch to zoom."
+    - generic: I
+    - generic: II
+    - generic: III
+    - generic: IV
+    - generic: V
+  - complementary "Peak actual tower damage per second this wave":
+    - generic "▾ Peak DPS this wave 2 defenders":
+      - text: ▾
+      - heading "Peak DPS this wave" [level=2]
+      - generic: 2 defenders
+    - generic "Peak DPS list":
+      - paragraph: Wave 14
+      - list "Defenders ordered by peak actual DPS this wave":
+        - button "Select King, rank I, defender 2, 1,305.6 peak DPS this wave":
+          - generic: "1"
+          - strong: King
+          - generic: "#2 · Champion"
+          - strong: 1,305.6
+        - button "Select Soldier, rank I, defender 1, 0.0 peak DPS this wave":
+          - generic: "2"
+          - strong: Soldier
+          - generic: "#1 · Rank I"
+          - strong: "0.0"
+  - complementary "Upcoming enemy wave summary":
+    - generic "▾ Next wave 15 11 invaders":
+      - text: ▾
+      - strong: Next wave 15
+      - generic: 11 invaders
+    - generic "Next wave resistances and abilities":
+      - heading "Blood Bat Riders" [level=2]
+      - paragraph: Variants may mix. Values marked Possible depend on the variant.
+      - article:
+        - heading "11 × Blood Bat Riders" [level=3]
+        - paragraph: 975 HP each
+        - list:
+          - generic: 6 armor
+          - generic: Regenerates 10% maximum health/s (97.5 HP/s) · healing block prevents regeneration
+  - button "Show enemy route" [pressed]:
+  - button "Show construction grid" [pressed]:
+  - button "Show tower ranges":
+  - button "Reset camera":
+  - button "Suggested maze":
+  - generic: WASD / edges pan · Q / E rotate · Scroll to zoom · 1–5 select draw · Del / ⌫ remove wall
+  - text: "N"
+  - complementary "Command panel":
+    - text: CONSTRUCTION
+    - generic: 15 / 50
+    - region "Command Point movement":
+      - button "Move — 2 CP. Keep a defender and a castle wall to move." [disabled]:
+        - generic: Move
+        - generic: 2 CP
+      - generic: Keep a defender and a castle wall to move.
+    - generic: A last stand begins
+    - heading "Build your defense." [level=2]
+    - paragraph:
+      - text: Five draws. One keeper.
+      - text: Every placement shapes the battle.
+    - generic: "1"
+    - paragraph:
+      - strong: Place all five defenders
+      - text: Choose a tile. A random defender appears only after you build.
+    - generic: "2"
+    - paragraph:
+      - strong: Keep, merge, or combine
+      - text: Unchosen positions become barricades. Reserve one for the next draft with CP.
+    - generic: "3"
+    - paragraph:
+      - strong: Make the invaders take the long way
+      - text: Follow I → II → III → IV → V → the keep.
+    - button "Browse champion recipes":
+      - text: Browse champion recipes
+  - region "Five tower draws":
+    - heading "Place your defenses 0/5 placed" [level=3]
+    - region "Command Point draft actions":
+      - button "Reroll — 1 CP. Place all five defenders first." [disabled]:
+        - generic: Reroll
+        - generic: 1 CP
+      - generic: Place all five defenders first.
+      - button "Reserve — 1 CP. Reserve is available after all five placements." [disabled]:
+        - generic: Reserve
+        - generic: 1 CP
+      - generic: Reserve is available after all five placements.
+    - 'button "1: Unrevealed defender. Build on an empty tile to reveal." [pressed]':
+      - generic: "01"
+      - generic: "?"
+      - generic: Unrevealed defender
+    - 'button "2: Unrevealed defender. Build on an empty tile to reveal."':
+      - generic: "02"
+      - generic: "?"
+      - generic: Unrevealed defender
+    - 'button "3: Unrevealed defender. Build on an empty tile to reveal."':
+      - generic: "03"
+      - generic: "?"
+      - generic: Unrevealed defender
+    - 'button "4: Unrevealed defender. Build on an empty tile to reveal."':
+      - generic: "04"
+      - generic: "?"
+      - generic: Unrevealed defender
+    - 'button "5: Unrevealed defender. Build on an empty tile to reveal."':
+      - generic: "05"
+      - generic: "?"
+      - generic: Unrevealed defender
+    - complementary "Future draw odds":
+      - generic "Future draw quality distribution":
+        - generic: Future draw odds
+        - generic: I
+        - emphasis: 30%
+        - generic: II
+        - emphasis: 35%
+        - generic: III
+        - emphasis: 25%
+        - generic: IV
+        - emphasis: 10%
+        - generic: V
+        - emphasis: 0%
+        - generic: VI
+        - emphasis: Merge
+  - status: Wave 14 survived · +50 gold · place 5 new defenders
+  - dialog "Game information":
+    - generic: Run-local test tools
+    - heading "Developer Console" [level=2]
+    - button "Close":
+    - region "Developer Console":
+      - paragraph: Developer Mode — statistics disabled
+      - paragraph: Activation excludes this entire run permanently. Closing or resetting the console does not restore statistics. Only a new normal game can record results.
+      - status: Ready for testing.
+      - generic: Sandbox · Wave 15 · build · Keep 30 · Paused
+      - heading "Test mode" [level=3]
+      - text: Mode
+      - combobox "Mode":
+        - option "Campaign Test · approved rules and normal progression"
+        - option "Sandbox · custom lineup and wave" [selected]
+      - text: Repeatable seed
+      - spinbutton "Repeatable seed": "42"
+      - button "Reset test"
+      - paragraph: Campaign Test starts at wave 1 with normal costs, recipes and resources. Sandbox permits interventions; a Sandbox victory is not a campaign completion.
+      - heading "Wave" [level=3]
+      - text: Wave
+      - spinbutton "Wave": "15"
+      - text: Variant · Sandbox only
+      - combobox "Variant · Sandbox only":
+        - option "Random per invader" [selected]
+        - option "Variant 1"
+        - option "Variant 2"
+      - button "Run wave"
+      - heading "Simulation" [level=3]
+      - text: State
+      - combobox "State":
+        - option "Running"
+        - option "Paused" [selected]
+      - text: Speed
+      - combobox "Speed":
+        - option "1×"
+        - option "2×"
+        - option "3×" [selected]
+      - button "Apply simulation"
+      - heading "Free Sandbox placement" [level=3]
+      - text: Defender
+      - combobox "Defender":
+        - option "Soldier" [selected]
+        - option "Archer"
+        - option "Druid"
+        - option "Mage"
+        - option "Cleric"
+        - option "Engineer"
+        - option "Frost Warden"
+        - option "Stormcaller"
+        - option "Frostsword Watchmen · Champion"
+        - option "Frost Knight · Champion"
+        - option "Lionheart Champion · Champion"
+        - option "Kingslayer · Champion"
+        - option "King · Champion"
+        - option "Elven Ranger · Champion"
+        - option "Elven Elite Warrior · Champion"
+        - option "Elven Mage · Champion"
+        - option "Elven Archmage · Champion"
+        - option "Baby Fire Dragon · Champion"
+        - option "Mother Fire Dragon · Champion"
+        - option "Thunderbird · Champion"
+        - option "Elemental Male Dragon · Champion"
+        - option "Ancient Dragon Patriarch · Champion"
+        - option "Master Druid · Champion"
+        - option "Archdruid · Champion"
+        - option "Ballista · Champion"
+        - option "Priest · Champion"
+        - option "Frozen Celestial · Champion"
+        - option "Archangel · Champion"
+        - option "Dwarf Firebomber · Champion"
+        - option "Catapult · Champion"
+        - option "Ranger · Champion"
+        - option "Elven King · Champion"
+        - option "Nature Spirit · Champion"
+        - option "Paladin · Champion"
+        - option "Mother Nature · Champion"
+        - option "Master Ranger · Champion"
+        - option "Dark Ranger · Champion"
+        - option "Ranger Oathbreaker · Champion"
+        - option "Fire Ballista · Champion"
+        - option "Golem · Champion"
+        - option "Dwarf Griffin bomber · Champion"
+        - option "Dwarship · Champion"
+        - option "High Priest · Champion"
+        - option "Archbishop · Champion"
+        - option "Angel · Champion"
+        - option "Lady Claire · Champion"
+      - text: Rank (champions use I)
+      - spinbutton "Rank (champions use I)": "1"
+      - text: Tile X · 0–36
+      - spinbutton "Tile X · 0–36": "18"
+      - text: Tile Z · 0–36
+      - spinbutton "Tile Z · 0–36": "17"
+      - text: MVP level
+      - spinbutton "MVP level": "0"
+      - button "Add defender"
+      - heading "Existing defender" [level=3]
+      - text: Defender
+      - combobox "Defender":
+        - option "#1 · Soldier · Rank 1 · MVP 10" [selected]
+        - option "#2 · King · Rank 1 · MVP 10"
+      - text: MVP level
+      - spinbutton "MVP level": "0"
+      - text: Attacks
+      - combobox "Attacks":
+        - option "Running" [selected]
+        - option "Paused · support auras stay active"
+      - button "Apply defender"
+      - heading "Remove from test lineup" [level=3]
+      - text: Defender
+      - combobox "Defender":
+        - option "#1 · Soldier · Rank 1 · MVP 10" [selected]
+        - option "#2 · King · Rank 1 · MVP 10"
+      - button "Remove defender"
+      - heading "Sandbox resources" [level=3]
+      - text: Gold
+      - spinbutton "Gold": "140"
+      - text: Keep health
+      - spinbutton "Keep health": "30"
+      - text: CP
+      - spinbutton "CP": "3"
+      - button "Apply resources"
+      - heading "Additional invader" [level=3]
+      - text: Enemy / boss
+      - combobox "Enemy / boss":
+        - option "Goblin Runner" [selected]
+        - option "Orc Grunt"
+        - option "Orc Shieldbearer"
+        - option "Mossback Troll"
+        - option "Ironhide Ogre"
+        - option "Orc Berserker"
+        - option "Wolf Rider"
+        - option "Orc Shaman"
+        - option "Goblin Sapper"
+        - option "Orc Warlock"
+        - option "Wyvern Rider"
+        - option "Ghorun, the Hollow Crown"
+        - option "Orc Skull Scavengers"
+        - option "Goblin Thornstriders"
+        - option "Ogre Gluttons"
+        - option "Orc Scrap Tinkers"
+        - option "Bat Scouts"
+        - option "Mossback Trolls"
+        - option "Marsh Orc Hunters"
+        - option "Shadowblood Trolls"
+        - option "Goblin Dust Dancers"
+        - option "Mogrok, the Gatebreaker"
+        - option "Orc Hookbearers"
+        - option "Goblin Bell Devourers"
+        - option "Red Tusk Orc Huntresses"
+        - option "Orc Mirror Shieldbearers"
+        - option "Blood Bat Riders"
+        - option "Orc Ash Pickpockets"
+        - option "Cursed Totem Trolls"
+        - option "Silent Orc Executioners"
+        - option "Bloodwolf Orc Riders"
+        - option "Gorvash, the Bone Patriarch"
+        - option "Rotroot Trolls"
+        - option "Iron Ram Ogres"
+        - option "Shard-Soul Orc Warlocks"
+        - option "Riveted Goblin Mutants"
+        - option "Iron Bat Orc Riders"
+        - option "Orc Spell Eaters"
+        - option "Spectral Bat Riders"
+        - option "Goblin Scrapwings"
+        - option "Prismatic Bat Tricksters"
+        - option "Zaruun, Lord of Storm Wings"
+        - option "Orc Dual-Seal Inquisitors"
+        - option "Soul-Drinker Trolls"
+        - option "Orc Wraiths of the Shattered World"
+        - option "Goblin Gallows Fliers"
+        - option "Eclipse Bat Guard"
+        - option "Orc Oathbreakers"
+        - option "Riftwolf Orc Riders"
+        - option "Black Marsh Knifemen / Blood-Leech Trolls"
+        - option "Thunder Manta Orc Riders"
+        - option "Vorlak, the Hollow Sky King"
+        - option "Orc Crystal Phalanx"
+        - option "Fire Bat Orc Lancers"
+        - option "Ogres of the Imprisoned Souls"
+        - option "Orc Ash Executioners"
+        - option "Flying Drummers of the Black Horde"
+        - option "Ogre Revenants in Hollow Armor"
+        - option "Orc Riders of the Last Howl"
+        - option "Bat Thieves of Black Fire"
+        - option "Troll Guardians of the Deep Maw"
+        - option "Lord Bernhard, the Black Sorcerer on the Wyvern Queen"
+      - text: Variant
+      - combobox "Variant":
+        - option "Random" [selected]
+        - option "Variant 1"
+        - option "Variant 2"
+        - option "Variant 3"
+      - button "Spawn in running wave"
+      - heading "Temporary enemy profile" [level=3]
+      - text: Enemy / boss
+      - combobox "Enemy / boss":
+        - option "Goblin Runner" [selected]
+        - option "Orc Grunt"
+        - option "Orc Shieldbearer"
+        - option "Mossback Troll"
+        - option "Ironhide Ogre"
+        - option "Orc Berserker"
+        - option "Wolf Rider"
+        - option "Orc Shaman"
+        - option "Goblin Sapper"
+        - option "Orc Warlock"
+        - option "Wyvern Rider"
+        - option "Ghorun, the Hollow Crown"
+        - option "Orc Skull Scavengers"
+        - option "Goblin Thornstriders"
+        - option "Ogre Gluttons"
+        - option "Orc Scrap Tinkers"
+        - option "Bat Scouts"
+        - option "Mossback Trolls"
+        - option "Marsh Orc Hunters"
+        - option "Shadowblood Trolls"
+        - option "Goblin Dust Dancers"
+        - option "Mogrok, the Gatebreaker"
+        - option "Orc Hookbearers"
+        - option "Goblin Bell Devourers"
+        - option "Red Tusk Orc Huntresses"
+        - option "Orc Mirror Shieldbearers"
+        - option "Blood Bat Riders"
+        - option "Orc Ash Pickpockets"
+        - option "Cursed Totem Trolls"
+        - option "Silent Orc Executioners"
+        - option "Bloodwolf Orc Riders"
+        - option "Gorvash, the Bone Patriarch"
+        - option "Rotroot Trolls"
+        - option "Iron Ram Ogres"
+        - option "Shard-Soul Orc Warlocks"
+        - option "Riveted Goblin Mutants"
+        - option "Iron Bat Orc Riders"
+        - option "Orc Spell Eaters"
+        - option "Spectral Bat Riders"
+        - option "Goblin Scrapwings"
+        - option "Prismatic Bat Tricksters"
+        - option "Zaruun, Lord of Storm Wings"
+        - option "Orc Dual-Seal Inquisitors"
+        - option "Soul-Drinker Trolls"
+        - option "Orc Wraiths of the Shattered World"
+        - option "Goblin Gallows Fliers"
+        - option "Eclipse Bat Guard"
+        - option "Orc Oathbreakers"
+        - option "Riftwolf Orc Riders"
+        - option "Black Marsh Knifemen / Blood-Leech Trolls"
+        - option "Thunder Manta Orc Riders"
+        - option "Vorlak, the Hollow Sky King"
+        - option "Orc Crystal Phalanx"
+        - option "Fire Bat Orc Lancers"
+        - option "Ogres of the Imprisoned Souls"
+        - option "Orc Ash Executioners"
+        - option "Flying Drummers of the Black Horde"
+        - option "Ogre Revenants in Hollow Armor"
+        - option "Orc Riders of the Last Howl"
+        - option "Bat Thieves of Black Fire"
+        - option "Troll Guardians of the Deep Maw"
+        - option "Lord Bernhard, the Black Sorcerer on the Wyvern Queen"
+      - text: Field
+      - combobox "Field":
+        - option "Armor" [selected]
+        - option "Shell · damage blocked"
+        - option "Regeneration · max HP fraction / second"
+        - option "Recharge · missing HP fraction"
+        - option "Dread · attack penalty fraction"
+        - option "Evasion · chance fraction"
+        - option "Reactive armor / hit"
+        - option "Blink · tiles"
+        - option "Blood rush · speed multiplier"
+      - text: Value (0.1 = 10%)
+      - spinbutton "Value (0.1 = 10%)": "0"
+      - button "Apply profile"
+      - heading "Temporary timing" [level=3]
+      - text: Rule
+      - combobox "Rule":
+        - option "Refraction interval" [selected]
+        - option "Recharge interval"
+        - option "Blink interval"
+        - option "Disarm duration"
+        - option "Disarm interval"
+        - option "Reactive maximum stacks"
+        - option "Reactive stack decay / second"
+        - option "Blood rush duration"
+        - option "Blood rush interval"
+      - text: Game seconds / stacks
+      - spinbutton "Game seconds / stacks": "5"
+      - button "Apply timing"
+      - button "Restart wave from its saved start"
+      - button "Restore approved rules"
+      - generic "Save / load test setup"
+      - generic "Test results and current lineup"
+      - paragraph: 1 completed test waves · 0 total leaks · Keep health 30
+      - table:
+        - rowgroup:
+          - row "Defender Rank MVP Attacks":
+            - columnheader "Defender"
+            - columnheader "Rank"
+            - columnheader "MVP"
+            - columnheader "Attacks"
+        - rowgroup:
+          - row "Soldier 1 10 Paused":
+            - cell "Soldier"
+            - cell "1"
+            - cell "10"
+            - cell "Paused"
+          - row "King 1 10 Running":
+            - cell "King"
+            - cell "1"
+            - cell "10"
+            - cell "Running"
+      - table:
+        - rowgroup:
+          - row "Mode Wave Result Leaks Health HP removed":
+            - columnheader "Mode"
+            - columnheader "Wave"
+            - columnheader "Result"
+            - columnheader "Leaks"
+            - columnheader "Health"
+            - columnheader "HP removed"
+        - rowgroup:
+          - row "sandbox 14 Survived 0 30 11,424":
+            - cell "sandbox"
+            - cell "14"
+            - cell "Survived"
+            - cell "0"
+            - cell "30"
+            - cell "11,424"
+      - table:
+        - rowgroup:
+          - row "Wave Defender HP removed MVP":
+            - columnheader "Wave"
+            - columnheader "Defender"
+            - columnheader "HP removed"
+            - columnheader "MVP"
+        - rowgroup:
+          - row "14 King 11,424 10":
+            - cell "14"
+            - cell "King"
+            - cell "11,424"
+            - cell "10"
+      - generic "Actual hit breakdown · latest 40 attempts" [active]
+      - paragraph: Before defense → armor → Shell → applied damage → HP removed. Blocked hits include their actual reason. Overkill is excluded from contribution.
+      - table:
+        - rowgroup:
+          - row "Defender Enemy Type Before defense Armor After armor Shell Applied HP removed Blocked":
+            - columnheader "Defender"
+            - columnheader "Enemy"
+            - columnheader "Type"
+            - columnheader "Before defense"
+            - columnheader "Armor"
+            - columnheader "After armor"
+            - columnheader "Shell"
+            - columnheader "Applied"
+            - columnheader "HP removed"
+            - columnheader "Blocked"
+        - rowgroup:
+          - row "2 host_14 physical 7,425 17 4,739.36 0 4,739.36 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "7,425"
+            - cell "17"
+            - cell "4,739.36"
+            - cell "0"
+            - cell "4,739.36"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 7,425 17 4,739.36 0 4,739.36 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "7,425"
+            - cell "17"
+            - cell "4,739.36"
+            - cell "0"
+            - cell "4,739.36"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 7,425 17 4,739.36 0 4,739.36 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "7,425"
+            - cell "17"
+            - cell "4,739.36"
+            - cell "0"
+            - cell "4,739.36"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 37,125 17 23,696.81 0 23,696.81 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "37,125"
+            - cell "17"
+            - cell "23,696.81"
+            - cell "0"
+            - cell "23,696.81"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 3,712.5 17 2,369.68 0 2,369.68 816 —":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "3,712.5"
+            - cell "17"
+            - cell "2,369.68"
+            - cell "0"
+            - cell "2,369.68"
+            - cell "816"
+            - cell "—"
+          - row "2 host_14 physical 0 0 0 0 0 0 shield":
+            - cell "2"
+            - cell "host_14"
+            - cell "physical"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "0"
+            - cell "shield"
+      - generic "Test interventions"
+    - heading "Recorded audio check" [level=3]
+    - button "Check all 113 approved audio clips"
+    - status: "Silent browser decoding: 92 voices, 15 attack sounds and 6 music tracks."
+    - generic "Decode report"

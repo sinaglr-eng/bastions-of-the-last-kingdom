@@ -5,8 +5,11 @@ import {Game} from '../game/core/game.js';
 import {towerStats,supportBonuses} from '../game/core/math.js';
 import {matchingIngredients,recipeProgress,expandedRecipeProgress,recipesUsing} from '../game/core/recipes.js';
 import {championRecipeCard,abilityLines} from '../ui/grimoire.js';
+import {campaignTowers,campaignEnemies,campaignRecipes,campaignWaves} from '../game/core/campaign-roster.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
+// The tests below retain the recorded two-secret/Melancholy source fixture.
+// Current campaign presentation and combat are verified separately here.
 const secrets=data.recipes.filter(r=>r.currentRoundOnly);
 const unit=(family,id=1,x=10,z=10)=>({id,family,tier:1,x,z,state:'active',kills:0,cooldown:0});
 function candidates(recipe){
@@ -33,7 +36,7 @@ function enemy(g,x,z=10){
   const e=g.combat.spawn('grunt');Object.assign(e,{x,z,hp:1e6,maxHp:1e6,speed:0,armor:0,resists:{}});return e;
 }
 
-test('two approved secret recipes use exactly the specified basic ranks',()=>{
+test('archived two-secret recipe records retain their exact recorded basic ranks',()=>{
   assert.deepEqual(secrets.map(r=>r.id),['ladyclaire','lordbernhard']);
   assert.deepEqual(secrets[0].ingredients,[{family:'mage',tier:5},{family:'druid',tier:5},{family:'frostwarden',tier:5}]);
   assert.deepEqual(secrets[1].ingredients,[{family:'soldier',tier:5},{family:'soldier',tier:4},{family:'soldier',tier:3}]);
@@ -114,13 +117,20 @@ test('secret cards explain current-round restrictions and show recruitment only 
   }
 });
 
-test('Lady Claire uses requested wiki values and explicit missing-parameter adaptations',()=>{
+test('archived Lady Claire wiki-value record retains explicit missing-parameter adaptations',()=>{
   const s=towerStats(unit('ladyclaire'),data);
   assert.deepEqual([s.damage,s.interval,s.range],[1225,.5,10]);
   assert.deepEqual([s.chainChance,s.chainDamage,s.chain,s.chainRange],[.2,150,5,10]);
   assert.deepEqual([s.forkedChance,s.forkedDamage,s.forkedTargets,s.forkedRange],[.5,2500,5,50]);
   assert.deepEqual([s.melancholyChance,s.melancholyDuration],[.03,5]);
   const lines=abilityLines(s).join(' ');assert.match(lines,/20%.*10 tiles per jump/);assert.match(lines,/50% forked lightning.*2,500/);assert.match(lines,/3% Melancholy.*5s/);
+});
+
+test('current campaign retains the Claire secret and Holy lightning while preserving archived Bernhard and Melancholy records',()=>{
+  const before=JSON.stringify(data),current={...data,towers:campaignTowers(data.towers),enemies:campaignEnemies(data.enemies),recipes:campaignRecipes(data.recipes),waves:campaignWaves(data.waves)};
+  assert.equal(current.towers.lordbernhard,undefined);assert.deepEqual(current.recipes.filter(r=>r.currentRoundOnly).map(r=>r.id),['ladyclaire']);
+  const stats=towerStats(unit('ladyclaire'),current);assert.equal(stats.type,'holy');assert.equal(stats.chainDamage,250);assert.equal(stats.melancholyChance,0);
+  assert.equal(data.towers.ladyclaire.melancholyChance,.03);assert.ok(data.towers.lordbernhard);assert.equal(JSON.stringify(data),before);
 });
 
 test('Lady lightning jumps five distinct enemies and forks independently to five targets',()=>{

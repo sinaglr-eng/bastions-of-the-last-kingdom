@@ -6,13 +6,16 @@ import {CombatManager} from './combat.js';
 import {CommandPoints} from './command-points.js';
 import {CommandMove} from './command-move.js';
 import {matchingIngredients,mergePartner,allRecipes,recipeFamily} from './recipes.js';
+import {MvpManager,inheritedMvpLevel,mvpLevel} from './mvp.js';
 
 export class Game {
   constructor(data,{seed=Date.now(),waveLimit=data.waves.length,discoveries=[]}={}) {
     this.data=data;this.seed=seed;this.rng=seededRandom(seed);this.waveLimit=waveLimit;
     this.grid=new GridManager();this.economy=new EconomyManager(data.balance);this.commandPoints=new CommandPoints(data.balance);this.draft=new DraftManager(data,this.rng,this.commandPoints);this.combat=new CombatManager(this);this.commandMove=new CommandMove(this);
     this.towers=[];this.nextId=1;this.round=1;this.lives=data.balance.startingLives;this.kills=0;this.leaks=0;this.phase='build';this.selected=null;this.activeDraw=0;this.speed=1;this.paused=false;this.listeners=new Set();this.discoveries=new Set(discoveries);this.pinned=null;this.lastReward=0;
+    this.earnedDiscoveries=new Set();
     this.selectedEnemy=null;this.selectionVoiceKey=null;this.score=0;this.elapsedSeconds=0;this.economy.setConstructionRound(this.round);this.draft.roll(this.economy.mastery);
+    this.mvp=new MvpManager(this);
   }
   on(callback){this.listeners.add(callback);return()=>this.listeners.delete(callback);}
   emit(type,payload={}){
@@ -32,6 +35,11 @@ export class Game {
     const key=voiceTower?JSON.stringify([this.round,voiceTower.id,voiceTower.family,voiceTower.tier]):null;
     if(key!==this.selectionVoiceKey||(!voiceTower&&previous!==id)){this.selectionVoiceKey=key;this.emit('defender-select',{tower:voiceTower,round:this.round});}
     this.emit('change');
+  }
+  setTowerAttackPaused(id,paused){
+    const tower=this.towers.find(t=>t.id===id&&t.state==='active');
+    if(!tower||typeof paused!=='boolean')return false;
+    tower.attackPaused=paused;this.emit('change');return true;
   }
   get selection(){return this.towers.find(t=>t.id===this.selected)||null;}
   selectEnemy(id){
@@ -104,7 +112,7 @@ export class Game {
     if(!result.ok)return this.message(result.reason);
     // The successful placement commits the location BEFORE consuming any random draw.
     this.draft.reveal(this.activeDraw);
-    const tower={...identity,id,family:draw.family,tier:draw.tier,x,z,state:'draft',round:this.round,kills:identity.kills||0,priority:identity.priority||'first',cooldown:0};this.nextId=Math.max(this.nextId,id+1);
+    const tower={...identity,id,family:draw.family,tier:draw.tier,x,z,state:'draft',round:this.round,kills:identity.kills||0,priority:identity.priority||'first',cooldown:0,mvpLevel:mvpLevel(identity),attackPaused:!!identity.attackPaused};this.nextId=Math.max(this.nextId,id+1);
     this.towers.push(tower);draw.placed=true;draw.towerId=tower.id;this.selected=tower.id;this.selectionVoiceKey=null;
     this.activeDraw=this.draft.draws.findIndex(d=>!d.placed);
     if(this.activeDraw<0){this.phase='select';this.message('Choose one defense to keep, merge, or combine. The others become barricades.');}
@@ -147,7 +155,7 @@ export class Game {
     if(!partner)return this.message('Rank merging needs two identical defenders among this round’s five candidates.');
     const draftUsed=t.state==='draft'||partner.state==='draft';
     if(this.phase==='select'&&t.state!=='draft'&&draftUsed)return this.message('Select the new tower to choose its result location.');
-    partner.state='ruin';t.tier++;t.kills+=partner.kills;t.state='active';
+    t.mvpLevel=inheritedMvpLevel([t,partner]);partner.state='ruin';t.tier++;t.kills+=partner.kills;t.state='active';
     if(draftUsed)this.finishSelection(t);
     this.emit('combine',{tower:t});this.emit('defender-committed',{tower:t,round:this.round,action:'merge'});this.emit('change');return true;
   }
@@ -188,9 +196,10 @@ export class Game {
     if(!pieces)return this.message('All three secret ingredients must belong to this round’s five defenders.');
     const draftUsed=pieces.some(p=>p.state==='draft');
     const draftIndex=this.draft.draws.findIndex(draw=>pieces.some(piece=>piece.id===draw.towerId));
-    const kills=pieces.reduce((sum,p)=>sum+(p.kills||0),0),family=recipeFamily(recipe),previousFamily=t.family;
-    pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=1;t.state='active';t.upgrades=0;t.kills=kills;
+    const kills=pieces.reduce((sum,p)=>sum+(p.kills||0),0),family=recipeFamily(recipe),previousFamily=t.family,mvp=inheritedMvpLevel(pieces);
+    pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=1;t.state='active';t.upgrades=0;t.kills=kills;t.mvpLevel=mvp;
     this.discoveries.add(family);
+    if(this.data.towers[family]?.advanced===true)this.earnedDiscoveries.add(family);
     if(draftUsed)this.finishSelection(t,draftIndex);
     this.emit('combine',{tower:t,previousFamily,crafted:this.data.towers[family]?.advanced===true&&family!==previousFamily});this.emit('defender-committed',{tower:t,round:this.round,action:'craft'});this.emit('discover',{id:family});this.emit('change');return true;
   }
@@ -229,7 +238,7 @@ export class Game {
   startCombat() {if(this.phase!=='ready')return false;this.commandMove.cancel();this.economy.setConstructionRound(this.round);this.selectedEnemy=null;this.selectionVoiceKey=null;this.phase='combat';this.paused=false;this.combat.start(this.wave);this.emit('wave');this.emit('change');return true;}
   completeWave() {
     if(this.phase!=='combat')return;
-    this.selectedEnemy=null;this.emit('wave-complete',{round:this.round});
+    this.selectedEnemy=null;this.mvp.awardWave();this.emit('wave-complete',{round:this.round});
     this.awardScore(this.round*100+(this.wave.boss?this.round*200:0));
     this.lastReward=this.wave.boss?200:50;this.economy.reward(this.lastReward,15);this.combat.projectiles=[];
     if(this.round>=this.waveLimit){this.end(true);return;}

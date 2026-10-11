@@ -13,7 +13,6 @@ const glyphsPerDefense=3,dotsPerDefense=6,goldenFraction=(Math.sqrt(5)-1)/2;
 export function hasEnemySpecialMechanic(enemy){
   if(!enemy||enemy.dead)return false;
   if(enemy.physicalImmune||enemy.magicImmune||enemy.stealth||enemy.cloakDaggers||enemy.disarm)return true;
-  if(['magic','fire','frost','poison','holy','arcane'].some(kind=>finite(enemy.resists?.[kind])>0)||finite(enemy.ward)>0)return true;
   if(['reactiveArmor','refraction','regen','recharge','evasion','untouchable','krakenShell','blink','thief'].some(kind=>finite(enemy[kind])>0))return true;
   return finite(enemy.rush)>1||finite(enemy.hasteAura)>1;
 }

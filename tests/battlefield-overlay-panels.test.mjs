@@ -11,7 +11,7 @@ const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].m
 const campaign={...data,enemies:campaignEnemies(data.enemies),waves:campaignWaves(data.waves),towers:campaignTowers(data.towers),recipes:campaignRecipes(data.recipes)};
 const hpNumber=value=>new Intl.NumberFormat('en-US',{maximumFractionDigits:3}).format(value);
 const row=(id,dps=10,family='soldier')=>({id,dps,family,tier:1,state:'active'});
-const sample=()=>({next:{number:14,name:'Armored assault',totalCount:12,enemies:[{type:'orc',name:'Armored Orc',count:12,variants:[{name:'Armored Orc',armor:8,maxHp:98765,speed:2.345,traitDetails:[{kind:'magic',text:'20% magic resistance'}]}]}]},after:{name:'Hidden following wave'},boss:{name:'Hidden boss forecast'},readiness:{score:999,label:'Hidden readiness'}});
+const sample=()=>({next:{number:14,name:'Armored assault',totalCount:12,enemies:[{type:'orc',name:'Armored Orc',count:12,variants:[{name:'Armored Orc',armor:8,maxHp:98765,speed:2.345,traitDetails:[{kind:'refraction',text:'3 hit-blocking shields · refresh every 5s · damage-over-time and auras bypass shields'}]}]}]},after:{name:'Hidden following wave'},boss:{name:'Hidden boss forecast'},readiness:{score:999,label:'Hidden readiness'}});
 
 // A small HTML fixture exercises the real updater's element ownership,
 // replacement, captured scroll and focus behavior without a browser renderer.
@@ -85,7 +85,7 @@ test('unchanged damage contents leave real row and summary nodes alone',()=>{
 test('the next-wave summary puts its wave number in the heading and shows individual effective HP without forecast details',()=>{
   const html=nextWaveSummaryMarkup(sample(),data,{});
   assert.match(html,/^<details class="battlefield-overlay-disclosure next-wave-summary-disclosure" open>/);assert.match(html,/<strong>Next wave 14<\/strong><small>12 invaders<\/small>/);
-  assert.match(html,/Armored assault/);assert.match(html,/12 × Armored Orc/);assert.match(html,/8 armor/);assert.match(html,/20% magic resistance/);assert.match(html,/data-defense="magic"/);
+  assert.match(html,/Armored assault/);assert.match(html,/12 × Armored Orc/);assert.match(html,/8 armor/);assert.match(html,/3 hit-blocking shields/);assert.match(html,/data-defense="refraction"/);assert.doesNotMatch(html,/magic resistance|data-defense="magic"/);
   assert.match(html,/98,765 HP each/);assert.doesNotMatch(html,/1,185,180|2\.345|tiles\/s|Hidden following wave|Hidden boss forecast|Hidden readiness|999|readiness|army|profile/i);
 });
 
@@ -162,7 +162,7 @@ test('unknown and incomplete enemy entries remain safe and all text and image at
 
 test('real campaign mixed immunity wave reports actual possible defenses with full group count and consumes no game RNG',()=>{
   const analyzer=new WaveThreatAnalyzer(data),before=JSON.stringify(data),outlook=analyzer.outlook(34,50),wave=outlook.next,html=nextWaveSummaryMarkup(outlook,data,{});
-  assert.match(html,/Immune to magic and magical effects/);assert.match(html,/Immune to physical and piercing damage/);assert.match(html,/Possible · Ashen/);assert.match(html,/Possible · Spectral/);
+  assert.match(html,/Immune to Magical damage, poison and burning; Holy effects ignore this immunity/);assert.match(html,/Immune to Physical damage, slowing and freezing; Holy effects ignore this immunity/);assert.match(html,/Possible · Ashen/);assert.match(html,/Possible · Spectral/);assert.doesNotMatch(html,/magic resistance|piercing damage/);
   assert.ok(html.includes(`${wave.enemies[0].count} × ${wave.enemies[0].name}`));assert.match(html,/21,640 HP each/);assert.equal((html.match(/21,640 HP each/g)||[]).length,1);assert.doesNotMatch(html,/tiles\/s|Army readiness|Boss in|After ·/);
   assert.equal(JSON.stringify(data),before);assert.equal(nextWaveSummaryMarkup(outlook,data,{}),html);assert.strictEqual(analyzer.outlook(34,50).next,wave);
 });

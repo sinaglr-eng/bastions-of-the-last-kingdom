@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {Game} from '../game/core/game.js';
+import {campaignTowers} from '../game/core/campaign-roster.js';
 import {supportBonuses,towerStats} from '../game/core/math.js';
 import {SupportEffects,SUPPORT_EFFECT_STYLES,ENEMY_EFFECT_STYLES,towerSupportState,supportLegend,supportSourceAreas,enemyStatusState,supportTintKey} from '../game/render/support-effects.js';
 import {castleWallModel,WALL_DECK_HEIGHT} from '../game/render/walls.js';
@@ -16,7 +17,7 @@ const styleKeys=Object.keys(SUPPORT_EFFECT_STYLES);
 function arena(){const g=new Game(data,{seed:7});g.phase='combat';g.combat.spawnQueue=[{time:9999,type:'grunt'}];return g;}
 function foe(g,x=11,z=10){const e=g.combat.spawn('grunt');Object.assign(e,{x,z,hp:1e9,maxHp:1e9,speed:0});return e;}
 
-test('all 87 actual defender variants display exactly the numerical supportBonuses result without changing source data',()=>{
+test('all 87 authored defender variants display exactly the numerical supportBonuses result without changing source data',()=>{
   const before=JSON.stringify(data),towers=allUnits();assert.equal(towers.length,87);
   const found=new Set();
   for(const tower of towers){
@@ -27,15 +28,68 @@ test('all 87 actual defender variants display exactly the numerical supportBonus
   assert.deepEqual([...found].sort(),['controlResistance','damage','haste','range','trueStrike'].sort());assert.equal(JSON.stringify(data),before);
 });
 
-test('strongest winners, identical ties and independent haste groups are explicit, including the actual self-support rule',()=>{
+test('the strongest ordinary haste wins across ranks and stack labels, while identical ties and actual self-support remain explicit',()=>{
   const archer=unit('archer'),monk=unit('monk',2),priest=unit('sunward',3),cleric=unit('cleric',4,4),lowRank=unit('cleric',5,1),duplicate=unit('cleric',6,4);
   const towers=[archer,monk,priest,cleric,lowRank,duplicate],state=towerSupportState(archer,towers,data),haste=state.byKey.haste;
-  assert.equal(state.bonuses.haste,2.3);assert.equal(state.bonuses.damage,1.5);assert.equal(state.bonuses.controlResistance,1);
-  assert.deepEqual(haste.groups.map(g=>[g.key,g.amount]).sort(),[['opal-1',.2],['opal-4',.5],['opal-5',.6]]);
-  assert.ok([2,3,4,5,6].every(id=>haste.sourceIds.includes(id)),'Different Cleric ranks have independent groups, including lower ranks');
+  assert.equal(state.bonuses.haste,1.6);assert.equal(state.bonuses.damage,1.5);assert.equal(state.bonuses.controlResistance,1);
+  assert.deepEqual(haste.groups.map(g=>[g.key,g.amount]),[['standard',.6]]);
+  assert.deepEqual(haste.sourceIds,[2,3],'Both strongest ties remain explicit; weaker ordinary haste does not stack or contribute');
   const scenario={...data,towers:{...data.towers,weakMonk:{...data.towers.monk,aura:{range:5,hasteGroups:{'opal-4':.3,'opal-5':.4},damageBonus:.2,controlResistance:.5}}}},weakMonk=unit('weakMonk',7);
   const winners=towerSupportState(archer,[...towers,weakMonk],scenario);assert.deepEqual(winners.bonuses,supportBonuses(archer,[...towers,weakMonk],scenario));assert.ok(winners.effects.every(e=>!e.sourceIds.includes(7)),'Weaker values in the same group are not reported as contributors');
   const self=towerSupportState(priest,[priest],data);assert.deepEqual(self.bonuses,supportBonuses(priest,[priest],data));assert.equal(self.bonuses.haste,1.6);assert.deepEqual(self.byKey.haste.sourceIds,[3]);
+});
+
+test('all 86 current campaign variants display the canonical strongest-only support values without mutating approved definitions',()=>{
+  const source=JSON.stringify(data),current={...data,towers:campaignTowers(data.towers)};
+  const towers=Object.entries(current.towers).flatMap(([family,s],i)=>(s.advanced?[1]:[1,2,3,4,5,6]).map(tier=>unit(family,i*10+tier,tier)));
+  assert.equal(towers.length,86);
+  for(const tower of towers)assert.deepEqual(towerSupportState(tower,towers,current).bonuses,supportBonuses(tower,towers,current),`${familyName(tower)} matches actual combat`);
+  assert.equal(JSON.stringify(data),source);
+});
+const familyName=tower=>`${tower.family} ${tower.tier}`;
+
+test('real Otomad adds its separate 500% haste to the strongest ordinary source, never stacking duplicate providers',()=>{
+  const current={...data,towers:campaignTowers(data.towers)},target=unit('archer'),priest=unit('monk',2),sun=unit('sunward',3),otomad=unit('archbishop',4),duplicate=unit('archbishop',5);
+  const towers=[target,priest,sun,otomad,duplicate],state=()=>towerSupportState(target,towers,current);
+  assert.equal(state().bonuses.haste,7);assert.deepEqual(state().bonuses,supportBonuses(target,towers,current));
+  assert.deepEqual(state().byKey.haste.groups.map(g=>[g.key,g.amount]),[['standard',1],['otomad',5]]);
+  assert.deepEqual(state().byKey.haste.sourceIds,[2,4,5]);
+  for(const tower of [priest,otomad,duplicate])tower.attackPaused=true;
+  assert.equal(state().bonuses.haste,7,'Attack pause preserves allied support');
+  otomad.x=15.001;duplicate.state='reserved';assert.equal(state().bonuses.haste,2);
+  priest.state='ruin';assert.equal(state().bonuses.haste,1.6,'Remaining weaker standard support becomes the actual winner');
+});
+
+test('ordinary MVP sources keep their real armor marker and radius while paused, then disappear at the actual two-tile boundary',()=>{
+  const g=arena(),soldier={...unit('soldier'),mvpLevel:10,attackPaused:true},enemy=foe(g,12),fx=new SupportEffects(new THREE.Scene());g.towers=[soldier];enemy.armor=100;
+  const sync=()=>{g.combat.prepareArmor(enemy);fx.sync(g.towers,data,{selected:soldier,combat:g.combat,phase:g.phase});};
+  try{
+    sync();assert.equal(enemy.mvpArmorReduction,.1);assert.equal(fx.batches.get('enemy:armor').count,1);assert.equal(fx.enemyStates.get(enemy.id).find(row=>row.key==='armor').value,10);
+    assert.equal(fx.selectedAreas.find(area=>area.key==='mvpArmor').radius,2);assert.match(fx.selectedAreas.find(area=>area.key==='mvpArmor').label,/10%/);
+    enemy.x=12.001;sync();assert.equal(enemy.mvpArmorReduction,0);assert.equal(fx.batches.get('enemy:armor').count,0);
+    enemy.x=12;soldier.state='reserved';sync();assert.equal(enemy.mvpArmorReduction,0);assert.equal(fx.batches.get('enemy:armor').count,0);assert.equal(fx.radius.visible,false);
+  }finally{fx.dispose();}
+});
+
+test('paused offensive auras vanish while detection and MVP support remain, including Holy slowing through Physical immunity',()=>{
+  const current={...data,towers:campaignTowers(data.towers)},g=new Game(current,{seed:7}),enemy=g.combat.spawn('host_01');g.phase='combat';g.combat.spawnQueue=[{time:9999,type:'host_01'}];Object.assign(enemy,{x:11,z:10,speed:0,hp:1e9,maxHp:1e9,armor:100,physicalImmune:true,magicImmune:true});
+  const frost={...unit('winterhold'),mvpLevel:10},armor=unit('mechanicalgolem',2),cleric={...unit('cleric',3),attackPaused:true};g.towers=[frost,armor,cleric];
+  g.combat.update(.01);let effects=enemyStatusState(enemy,g.towers,current);assert.equal(effects.find(row=>row.key==='slow').value,.75,'The actual Holy frost aura bypasses damage immunity');assert.equal(enemy.armorShred,30);assert.equal(effects.find(row=>row.key==='armor').value,37);
+  frost.attackPaused=true;armor.attackPaused=true;g.combat.update(.01);effects=enemyStatusState(enemy,g.towers,current);
+  assert.equal(enemy.armorShred,0);assert.equal(enemy.mvpArmorReduction,.1);assert.equal(effects.find(row=>row.key==='slow'),undefined);assert.equal(effects.find(row=>row.key==='armor').value,10);
+  assert.deepEqual(supportSourceAreas(frost,current).map(row=>row.key),['mvpArmor']);assert.deepEqual(supportSourceAreas(armor,current),[]);assert.ok(supportSourceAreas(cleric,current).some(row=>row.key==='detection'));
+});
+
+test('run-local disarm duration and reach drive the actual attack block and its native marker without changing global defaults',()=>{
+  const privateData=structuredClone(data);privateData.balance.enemyRules={disarm:{duration:.5,period:8,radius:1.25,phasePerId:0},reveal:{clericRadius:9}};
+  const g=new Game(privateData,{seed:7}),target=unit('archer'),enemy=g.combat.spawn('host_12'),fx=new SupportEffects(new THREE.Scene());g.phase='combat';g.towers=[target];g.combat.spawnQueue=[{time:9999,type:'host_01'}];Object.assign(enemy,{x:11,z:10,speed:0,hp:1e9,maxHp:1e9});
+  const sync=elapsed=>{g.combat.elapsed=elapsed;g.combat.update(0);fx.sync(g.towers,privateData,{combat:g.combat,phase:g.phase});};
+  try{
+    sync(.1);assert.equal(target.disarmed,true);assert.equal(fx.batches.get('disarm:orbit').count,1);
+    sync(.6);assert.equal(target.disarmed,false);assert.equal(fx.batches.get('disarm:orbit').count,0);
+    enemy.x=11.25;sync(.1);assert.equal(target.disarmed,false);assert.equal(fx.batches.get('disarm:orbit').count,0,'The actual strict reach boundary is respected');
+    assert.equal(supportSourceAreas(unit('cleric'),privateData).find(row=>row.key==='detection').radius,9);assert.equal(R.disarm.duration,5);assert.equal(R.reveal.clericRadius,6);
+  }finally{fx.dispose();}
 });
 
 test('exact aura boundary counts; drafts, ruins, consumed sources and out-of-range sources stop immediately even before combat',()=>{
@@ -69,8 +123,9 @@ test('selected source radii use each real rule: support, burn enhanced range, fr
 test('all persistent enemy statuses and effective debuff auras have distinct glyphs; immunity and boss slowing match core',()=>{
   const g=arena(),e=foe(g),mechanical=unit('mechanicalgolem'),winter=unit('winterhold',2);g.towers=[mechanical,winter];g.tick(.01);
   let effects=enemyStatusState(e,g.towers,data);assert.equal(effects.find(s=>s.key==='armor').value,e.armorShred);assert.equal(effects.find(s=>s.key==='slow').value,.75);
-  e.magicImmune=true;effects=enemyStatusState(e,g.towers,data);assert.equal(effects.find(s=>s.key==='slow'),undefined);assert.equal(effects.find(s=>s.key==='armor').value,30,'Mechanical Golem aura pierces magic immunity');
-  e.magicImmune=false;e.boss=true;effects=enemyStatusState(e,g.towers,data);assert.equal(effects.find(s=>s.key==='slow').value,.375);
+  e.magicImmune=true;effects=enemyStatusState(e,g.towers,data);assert.equal(effects.find(s=>s.key==='slow').value,.75,'Magical immunity does not block ordinary slowing');assert.equal(effects.find(s=>s.key==='armor').value,30,'Fixed armor reduction is independent of damage immunity');
+  e.physicalImmune=true;effects=enemyStatusState(e,g.towers,data);assert.equal(effects.find(s=>s.key==='slow'),undefined);assert.equal(effects.find(s=>s.key==='armor').value,30);
+  e.magicImmune=false;e.physicalImmune=false;e.boss=true;effects=enemyStatusState(e,g.towers,data);assert.equal(effects.find(s=>s.key==='slow').value,.375);
   e.statuses={slow:{amount:.2,time:3},gazeSlow:{amount:.8,time:3},shred:{amount:40,time:3},shredMagic:{amount:.3,time:3},freeze:{time:2},petrify:{time:2},poison:{time:3,dps:20},burn:{time:3,dps:10},bleed:{time:3,dps:5},healBlock:{time:2}};
   effects=enemyStatusState(e,g.towers,data);assert.deepEqual(effects.map(s=>s.key).sort(),Object.keys(ENEMY_EFFECT_STYLES).sort());assert.equal(effects.find(s=>s.key==='slow').value,.4);assert.equal(effects.find(s=>s.key==='armor').value,40);
   e.dead=true;assert.deepEqual(enemyStatusState(e,g.towers,data),[]);
@@ -79,7 +134,7 @@ test('all persistent enemy statuses and effective debuff auras have distinct gly
 test('owned instanced overlays have bounded counts, visible independent glyph geometry, no picking and no hidden-enemy leaks',()=>{
   const scene=new THREE.Scene(),fx=new SupportEffects(scene,{baseHeight:1,position:(x,y,z)=>new THREE.Vector3(x-18,y,z-18),isVisible:e=>!e.cloaked,maxTowers:4,maxEnemies:3}),target=unit('archer'),support=unit('monk',2),nature=unit('mothernature',3);
   const towers=[target,support,nature,...Array.from({length:10},(_,i)=>unit('archer',20+i))],enemies=Array.from({length:12},(_,i)=>({id:i,x:10,z:10,statuses:{poison:{time:2,dps:5}},dead:false,cloaked:i===0}));
-  fx.sync(towers,data,{selected:support,combat:{enemies,elapsed:0},phase:'combat'});assert.equal(fx.batches.size,20);assert.equal(fx.group.children.length,22);
+  fx.sync(towers,data,{selected:support,combat:{enemies,elapsed:0},phase:'combat'});assert.equal(fx.batches.size,19);assert.equal(fx.group.children.length,21);assert.equal(fx.batches.has('enemy:magic'),false);
   assert.equal(fx.batches.get('haste').count,4);assert.equal(fx.batches.get('enemy:poison').count,3);assert.equal(fx.enemyStates.has(0),false);assert.ok(fx.radius.visible);assert.equal(fx.tint.count,4);
   const signatures=new Set();for(const key of styleKeys){const mesh=fx.batches.get(key);signatures.add(Array.from(mesh.geometry.attributes.position.array).join(','));assert.equal(mesh.geometry.userData.glyph,SUPPORT_EFFECT_STYLES[key].glyph);assert.ok(mesh.geometry.userData.glyphVertexStart>0);}
   assert.equal(signatures.size,9,'Shapes differ as well as colors');

@@ -31,7 +31,7 @@ test('queued→live transitions and defeated invaders immediately change the res
   const game=combat(),initial=game.combat.total,enemy=spawnQueued(game);
   let html=currentWavePanelMarkup(game);assert.ok(html.includes(`1 on the field · ${initial-1} approaching`));
   assert.match(html,new RegExp(`<strong>${initial}</strong><span>invaders remaining`));
-  game.combat.damage(enemy,enemy.maxHp*100,'pure',{});assert.equal(enemy.dead,true);
+  game.combat.damage(enemy,enemy.maxHp*100,'holy',{});assert.equal(enemy.dead,true);
   html=currentWavePanelMarkup(game);assert.ok(html.includes(`0 on the field · ${initial-1} approaching`));
   assert.match(html,new RegExp(`<strong>${initial-1}</strong><span>invaders remaining`));
   game.combat.spawnQueue=[];html=currentWavePanelMarkup(game);assert.match(html,/<strong>0<\/strong><span>invaders remaining/);assert.match(html,/No invaders remain/);assert.doesNotMatch(html,/<article/);
@@ -48,13 +48,13 @@ test('a concealed real invader contributes only its known aggregate profile, nev
   for(const row of currentWarbandInfo(game))for(const forbidden of ['id','hp','x','z','traveled','statuses'])assert.equal(Object.hasOwn(row,forbidden),false);
 });
 
-test('effective queued modifiers and the actual selected variant drive regeneration, armor and resistance values',()=>{
+test('effective queued modifiers and the actual selected variant drive regeneration and armor while obsolete resistances remain absent',()=>{
   const roster=structuredClone(data);roster.waves[0]={name:'Modified assault',boss:false,groups:[{type:'host_01',count:2,interval:1,hp:2,armor:7,resists:{fire:.35},variant:{name:'Moon profile',regen:.05,physicalImmune:true}}]};
   const game=combat(1,17,roster),row=currentWarbandInfo(game)[0],html=currentWavePanelMarkup(game);
   assert.equal(row.maxHp,roster.enemies.host_01.hp*2);assert.equal(row.armor,roster.enemies.host_01.armor+7);
-  assert.match(html,/Moon profile/);assert.match(html,/35% fire resistance/);assert.match(html,/Regenerates 5% maximum health\/s/);assert.match(html,/Immune to physical and piercing damage/);
+  assert.match(html,/Moon profile/);assert.doesNotMatch(html,/fire resistance|data-defense="fire"/);assert.match(html,/Regenerates 5% maximum health\/s/);assert.match(html,/Immune to Physical damage, slowing and freezing; Holy effects ignore this immunity/);
   assert.ok(html.includes('2 remaining · 0 on field · 2 approaching'));
-  const enemy=spawnQueued(game);assert.equal(enemy.maxHp,row.maxHp);assert.equal(enemy.armor,row.armor);assert.equal(enemy.resists.fire,.35);
+  const enemy=spawnQueued(game);assert.equal(enemy.maxHp,row.maxHp);assert.equal(enemy.armor,row.armor);assert.equal(enemy.resists,undefined);assert.equal(enemy.physicalImmune,true);assert.ok(row.traitDetails.every(trait=>!trait.text.includes('resistance')));
   assert.equal(currentWarbandInfo(game).length,1,'The live and scheduled form of the same real profile share one count');
 });
 
@@ -102,12 +102,12 @@ test('all five actual campaign bosses switch from approaching to real HP, update
     assert.ok(enemy);assert.equal(enemy.hp,enemy.maxHp);assert.equal(game.combat.spawnQueue.length,0);
     assert.equal(updateCurrentWavePanel(panel,game),true);assertBossHealth(panel.innerHTML,enemy.hp,enemy.maxHp);
     assert.match(panel.innerHTML,/1 on the field · 0 approaching/);
-    game.combat.damage(enemy,enemy.maxHp*.2,'pure',{});
+    assert.ok(game.combat.damage(enemy,enemy.maxHp*.2,'holy',{})>0,'Holy bypasses either actual boss immunity while retaining armor');
     assert.equal(updateCurrentWavePanel(panel,game),true,'Damage must update the bar while live/queued counts stay fixed');
     assertBossHealth(panel.innerHTML,enemy.hp,enemy.maxHp);assert.equal(body.scrollTop,93);
     const hp=enemy.hp;game.paused=true;game.tick(3);
     assert.equal(enemy.hp,hp);assert.equal(updateCurrentWavePanel(panel,game),false);assertBossHealth(panel.innerHTML,hp,enemy.maxHp);
-    game.combat.damage(enemy,enemy.maxHp*100,'pure',{});assert.equal(enemy.dead,true);
+    game.combat.damage(enemy,enemy.maxHp*100,'holy',{});assert.equal(enemy.dead,true);
     assert.equal(updateCurrentWavePanel(panel,game),true);assert.match(bossHeader(panel.innerHTML),/Boss defeated/);
     assert.doesNotMatch(bossHeader(panel.innerHTML),/progressbar|aria-valuenow|\d[\d,]* HP/,'Death clears HP before the dead enemy array is swept');
   }
@@ -117,7 +117,7 @@ test('boss regeneration through the actual Game tick updates HP and the bar, wit
   const roster=structuredClone(data),wave=roster.waves[9];
   wave.groups[0].variant={regen:.05};
   const game=combat(10,42,roster);game.tick(.25);const enemy=game.combat.enemies.find(enemy=>enemy.boss);
-  game.combat.damage(enemy,enemy.maxHp*.5,'pure',{});
+  game.combat.damage(enemy,enemy.maxHp*.5,'holy',{});
   const injured=enemy.hp;game.combat.applyEffects(enemy,{healingBlockDuration:.2});game.tick(.5);
   assert.ok(Math.abs(enemy.hp-(injured+enemy.maxHp*.05*.3))<1e-9,'The real heal integrates only after its block expires');
   assertBossHealth(currentWavePanelMarkup(game),enemy.hp,enemy.maxHp);
@@ -131,12 +131,12 @@ test('multiple bosses combine only living field HP, use actual variant/modifier 
   roster.waves[9]={name:'Combined assault',boss:true,groups:[{type:'host_10',count:3,interval:1,hp:2,variant:{hp:roster.enemies.host_10.hp*1.5}},{type:'host_01',count:1,interval:1}]};
   const game=combat(10,9,roster),first=spawnQueued(game),second=spawnQueued(game);
   assert.equal(first.maxHp,roster.enemies.host_10.hp*3);assert.equal(second.maxHp,first.maxHp);
-  const minion=game.combat.spawn('host_01',{hp:7});game.combat.damage(first,first.maxHp*.25,'pure',{});
+  const minion=game.combat.spawn('host_01',{hp:7});game.combat.damage(first,first.maxHp*.25,'holy',{});
   let html=currentWavePanelMarkup(game);assert.match(bossHeader(html),/Combined boss health/);assert.match(bossHeader(html),/1 boss approaching/);
   assertBossHealth(html,first.hp+second.hp,first.maxHp+second.maxHp);
   assert.match(html,/3 on the field · 2 approaching/);
-  game.combat.damage(minion,minion.maxHp*.5,'pure',{});assertBossHealth(currentWavePanelMarkup(game),first.hp+second.hp,first.maxHp+second.maxHp);
-  game.combat.damage(first,first.maxHp*100,'pure',{});html=currentWavePanelMarkup(game);
+  game.combat.damage(minion,minion.maxHp*.5,'holy',{});assertBossHealth(currentWavePanelMarkup(game),first.hp+second.hp,first.maxHp+second.maxHp);
+  game.combat.damage(first,first.maxHp*100,'holy',{});html=currentWavePanelMarkup(game);
   assertBossHealth(html,second.hp,second.maxHp);assert.doesNotMatch(bossHeader(html),/Combined boss health/);
 });
 

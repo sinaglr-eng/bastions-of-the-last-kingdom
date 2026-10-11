@@ -19,7 +19,7 @@ function complete(game){
     while(game.phase==='build'){assert.ok(cell<37*37);game.place(cell%37,Math.floor(cell++/37));}
     assert.equal(game.keep(),true);assert.equal(game.startCombat(),true);
     for(const queued of game.combat.spawnQueue.splice(0))game.combat.spawn(queued.type,queued.modifiers);
-    for(const enemy of game.combat.enemies)game.combat.damage(enemy,1e9,'pure',{},game.towers.find(t=>t.state==='active'));
+    for(const enemy of game.combat.enemies)game.combat.damage(enemy,1e9,'holy',{},game.towers.find(t=>t.state==='active'));
     game.tick(.01);
   }
 }
@@ -58,7 +58,7 @@ test('a run ID retains its played version and one immutable completed result acr
 
 test('the actual main reward and result hooks attribute every saved score before profile persistence',()=>{
   const source=readFileSync(new URL('../game/main.js',import.meta.url),'utf8');
-  const block=source.match(/if\(\['reward','won','lost'\]\.includes\(type\)\)\{([\s\S]*?)\}if\(type==='combine'\)/)?.[1];
+  const block=source.match(/if\(\['reward','won','lost'\]\.includes\(type\)\)\{([\s\S]*?)\}if\(type==='mvp-awarded'\)/)?.[1];
   assert.ok(block,'The production result persistence block must be inspected.');
   const previous=globalThis.localStorage,storage=memoryStorage();globalThis.localStorage=storage;
   const game=new Game(data,{seed:46,waveLimit:10}),profile=loadProfile(),statistics={tracker:{id:uuid(4),version:'0.3.23'}};let saves=0;

@@ -28,7 +28,7 @@ function winActualWave(game){
   for(const queued of game.combat.spawnQueue.splice(0))game.combat.spawn(queued.type,queued.modifiers);
   const expected=game.wave.groups.reduce((count,group)=>count+group.count,0);
   assert.equal(game.combat.enemies.length,expected);
-  for(const enemy of game.combat.enemies)game.combat.damage(enemy,enemy.maxHp*100+1000,'pure',{});
+  for(const enemy of game.combat.enemies)game.combat.damage(enemy,enemy.maxHp*100+1000,'holy',{});
   game.combat.update(.01);
 }
 

@@ -1,0 +1,23 @@
+// Only these three classes participate in damage defense. Older authored
+// elemental names remain useful for presentation, never as extra defenses.
+export const DAMAGE_TYPES=Object.freeze(['physical','magical','holy']);
+export function damageType(type,fallback='magical'){
+  if(type==='physical'||type==='piercing')return 'physical';
+  if(type==='holy')return 'holy';
+  if(type==='pure')return fallback==='pure'?'magical':damageType(fallback);
+  return 'magical';
+}
+export const ignoresDamageImmunity=stats=>damageType(stats.type)==='holy'||!!stats.effectsIgnoreImmunity;
+export const effectDamageType=(stats,effect)=>ignoresDamageImmunity(stats)?'holy':effect==='bleed'?'physical':'magical';
+export function canonicalCombatStats(stats){
+  const result={...stats,type:damageType(stats.type),projectileEffect:stats.projectileEffect||stats.type};
+  if(stats.cleave)result.cleaveType=damageType(stats.cleaveType||stats.type,stats.type);
+  // These obsolete flags must never revive an old Ranger damage bypass.
+  for(const key of ['antiAirBypassesDefenses','antiAirMagicShred','antiAirPiercesImmunity','magicShredAura','shredMagic'])delete result[key];
+  return result;
+}
+export function scaleDamageStats(stats,multiplier){
+  const result={...stats};
+  for(const key of ['damage','poisonDps','burnDps','burnAura','chainDamage','forkedDamage','bouncingFrostDamage'])if(Number.isFinite(stats[key]))result[key]=stats[key]*multiplier;
+  return result;
+}

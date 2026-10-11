@@ -38,11 +38,16 @@ test('recipes consume distinct ingredients including duplicates',()=>{
 test('craft creates a new class and preserves all occupied cells',()=>{
   const g=makeGame(),r=data.recipes[0];placeFive(g);r.ingredients.forEach((p,i)=>Object.assign(g.towers[i],p));g.select(g.towers[0].id);assert.equal(g.craft(r.id),true);assert.equal(g.selection.family,r.id);assert.equal(g.phase,'ready');assert.equal(g.grid.occupied.size,5);assert.equal(g.towers.filter(t=>t.state==='active').length,1);assert.ok(g.discoveries.has(r.id));
 });
-test('armor, penetration and type resistance calculations',()=>{
-  assert.equal(damageAfterDefense(100,'physical',{armor:30},{},data.balance),50);
-  assert.equal(damageAfterDefense(100,'piercing',{armor:30},{penetration:1},data.balance),100);
-  assert.equal(damageAfterDefense(100,'fire',{armor:100,resists:{magic:0.2,fire:0.3}},{},data.balance),50);
-  assert.ok(Math.abs(damageAfterDefense(100,'holy',{resists:{magic:2}},{},data.balance)-15)<1e-6);
+test('all three damage classes obey armor and penetration while archived resistance fields cannot affect damage',()=>{
+  for(const type of ['physical','magical','holy']){
+    assert.equal(damageAfterDefense(100,type,{armor:30},{},data.balance),50);
+    assert.equal(damageAfterDefense(100,type,{armor:30},{penetration:1},data.balance),100);
+    assert.equal(damageAfterDefense(100,type,{armor:100,resists:{magic:.2,fire:.3}},{},data.balance),100*30/130);
+  }
+  assert.equal(damageAfterDefense(100,'physical',{physicalImmune:true},{},data.balance),0);
+  assert.equal(damageAfterDefense(100,'magical',{magicImmune:true},{},data.balance),0);
+  assert.equal(damageAfterDefense(100,'holy',{armor:30,magicImmune:true,physicalImmune:true},{},data.balance),50);
+  assert.equal(damageAfterDefense(100,'pure',{armor:30},{},data.balance),50,'archived Pure alias cannot bypass current armor');
 });
 test('mastery follows construction rounds while XP, free demolition and unavailable purchases remain independent',()=>{
   const g=makeGame();assert.equal(g.mastery(),false);assert.equal(g.economy.gold,90);assert.equal(g.reroll(),false);assert.equal(g.economy.gold,90);g.economy.reward(0,180);assert.equal(g.economy.level,3);assert.equal(g.economy.mastery,0);assert.equal(g.reroll(),false);assert.equal(g.economy.gold,90);placeFive(g);assert.equal(g.reroll(),true);assert.equal(g.commandPoints.value,2);assert.equal(g.reroll(),false);g.keep();g.select(g.towers.find(t=>t.state==='ruin').id);assert.equal(g.remove(),true);assert.equal(g.economy.gold,90);g.lives=28;assert.equal(g.repair(),false);assert.equal(g.lives,28);assert.equal(g.economy.gold,90);

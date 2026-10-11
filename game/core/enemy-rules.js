@@ -3,21 +3,31 @@ const rule=values=>Object.freeze(values);
 export const ENEMY_RULES=Object.freeze({
   disarm:rule({duration:5,period:8,radius:3,phasePerId:.37}),
   dread:rule({radius:4}),
-  refraction:rule({period:8}),
+  refraction:rule({period:5}),
   recharge:rule({period:5}),
   blink:rule({period:6}),
   cloak:rule({period:6,hiddenDuration:4}),
   reveal:rule({checkpointRadius:1.5,defenderRadius:2,clericRadius:6}),
-  support:rule({radius:3.5,hasteDuration:3,hastePeriod:6,shamanHaste:1.15,warlockWard:.18}),
+  support:rule({radius:3.5,hasteDuration:3,hastePeriod:6,shamanHaste:1.5}),
   rush:rule({duration:2,period:6,berserkerThreshold:.5,berserkerSpeed:1.65}),
   reactive:rule({maxStacks:15,decayPerSecond:.7}),
   sapper:rule({radius:1.5,duration:3,defenderRadius:2,attackPenalty:.15}),
 });
+// Console changes are private to one Game's cloned balance. No caller can
+// mutate the frozen global defaults or add an unrecognized rule field.
+export function enemyRulesFor(gameOrData){
+  const data=gameOrData?.data||gameOrData,overrides=data?.balance?.enemyRules;
+  if(!overrides)return ENEMY_RULES;
+  return Object.fromEntries(Object.entries(ENEMY_RULES).map(([group,defaults])=>[group,Object.fromEntries(Object.entries(defaults).map(([key,value])=>{
+    const configured=overrides[group]?.[key],positive=/period/i.test(key);
+    return [key,Number.isFinite(configured)&&configured>=(positive?Number.EPSILON:0)?configured:value];
+  }))]));
+}
 
 // Each invader retains its staggered combat-time window. Protection shortens
 // that window; 100% control resistance prevents it completely.
-export function enemyDisarmActive(enemy,elapsed,controlResistance=0){
-  const r=ENEMY_RULES.disarm;
+export function enemyDisarmActive(enemy,elapsed,controlResistance=0,rules=ENEMY_RULES){
+  const r=rules.disarm;
   return !!enemy.disarm&&(elapsed+enemy.id*r.phasePerId)%r.period<r.duration*(1-controlResistance);
 }
 

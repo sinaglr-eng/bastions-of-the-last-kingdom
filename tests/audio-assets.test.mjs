@@ -52,7 +52,7 @@ test('only the 92 generated allied recordings enter runtime; voice previews and 
 });
 
 test('audio cache revision derives from exact recording provenance independently of model releases',()=>{
-  const digest=hash(read('../docs/audio/generated-allied-audio.json'));
-  assert.equal(ALLIED_VOICE_REVISION,`allied-20261006-${digest.slice(0,12)}`);
-  assert.equal(ALLIED_VOICE_CATALOGUE,`assets/audio/selection/catalogue.json?v=${ALLIED_VOICE_REVISION}`);
+  const digest=hash(read('../docs/audio/generated-allied-audio-recast-20261011.json'));
+  assert.equal(ALLIED_VOICE_REVISION,`allied-20261011-${digest.slice(0,12)}`);
+  assert.equal(ALLIED_VOICE_CATALOGUE,`assets/audio/allied-recast-20261011/catalogue.json?v=${ALLIED_VOICE_REVISION}`);
 });

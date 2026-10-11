@@ -1,5 +1,5 @@
 import {configuredWarbandInfo} from './warband-info.js';
-import {ENEMY_RULES} from './enemy-rules.js';
+import {enemyRulesFor} from './enemy-rules.js';
 
 const finite=(value,fallback=0)=>Number.isFinite(value)?value:fallback;
 const countOf=group=>Math.max(0,Math.ceil(finite(group.count)));
@@ -20,22 +20,21 @@ const median=values=>{
 // Free-form enemy lore/reference tags are intentionally not classifications.
 const categories={
   boss:['Boss','crown','A boss invader carries special pressure and reduced susceptibility to slowing.',1000],
-  magicImmune:['Magic Immunity','spark','Magic-immune invaders reject magical damage and most magical effects.',125],
-  physicalImmune:['Physical Immunity','shield','Physical-immune invaders reject physical and piercing damage.',125],
+  magicImmune:['Magical Immunity','spark','Magical-immune invaders reject Magical damage, poison and burning; Holy effects ignore this immunity.',125],
+  physicalImmune:['Physical Immunity','shield','Physical-immune invaders reject Physical damage, slowing and freezing; Holy effects ignore this immunity.',125],
   highHealth:['High Health','shield','These invaders have unusually high health compared with nearby regular waves.',110],
   flying:['Flying','bow','Flying invaders follow the checkpoint route and cannot be struck by melee defenders.',100],
   stealth:['Stealth','pin','Cloaked invaders need proximity or detection before defenders can target them.',95],
   blink:['Blink','path','Periodic teleports advance invaders along their route.',95],
-  heavyArmor:['Heavy Armor','shield','High armor reduces physical and piercing damage.',90],
+  heavyArmor:['Heavy Armor','shield','High armor reduces Physical, Magical and Holy damage.',90],
   debuffer:['Defender Disruption','snow','These invaders can interrupt or slow nearby defender attacks.',90],
-  shell:['Damage Block','shield','Shells subtract damage from non-pure direct hits.',88],
+  shell:['Damage Block','shield','Shells subtract damage from every direct hit, including Holy damage.',88],
   shield:['Hit-blocking Shields','shield','Refreshing shields absorb direct hits; damage over time and auras bypass them.',85],
-  buffer:['Enemy Support','spark','Support invaders strengthen nearby invaders with movement speed or a magic ward.',85],
+  buffer:['Enemy Support','spark','Support invaders strengthen nearby invaders with movement speed.',85],
   reactiveArmor:['Reactive Armor','shield','Direct hits build armor stacks that decay over time.',83],
   regeneration:['Regeneration','sun','Invaders continuously recover maximum-health-based healing unless healing is blocked.',80],
   recharge:['Health Recharge','sun','Invaders periodically restore a portion of missing health unless healing is blocked.',80],
-  evasion:['Evasion','target','Invaders can evade physical and piercing direct hits; True Strike bypasses evasion.',78],
-  magicResistance:['Magic Resistance','spark','Resistance reduces damage from one or more magical damage types.',75],
+  evasion:['Evasion','target','Invaders can evade Physical, Magical and Holy direct hits; True Strike bypasses evasion.',78],
   fast:['High Speed','bolt','Fast movement or speed bursts leave less time for defenders to attack.',70],
   swarm:['Swarm','grid','A large number of invaders increases pressure on single-target defenses.',65],
   thief:['Gold Theft','coin','Surviving thieves steal gold when they reach the keep.',60],
@@ -57,7 +56,7 @@ export class WaveThreatAnalyzer {
     });
     this.cache=new Map();
     this.healthCache=new Map();
-    this.magicTypes=new Set(['magic','arcane','holy','frost','fire','poison',...Object.values(data.towers||{}).map(tower=>tower.type)].filter(type=>type&&!['physical','piercing','pure'].includes(type)));
+    this.rules=enemyRulesFor(data);
   }
 
   effectiveGroups(index){
@@ -70,12 +69,12 @@ export class WaveThreatAnalyzer {
       const choices=Object.hasOwn(modifiers,'variant')?[modifiers.variant]:definition.variants?.length?definition.variants:[undefined];
       const variants=choices.map(variant=>{
         // Preserve CombatManager's shallow variant merge, multiplicative health/
-        // speed, additive armor and resist override. No variant roll is made.
+        // speed, and additive armor. No variant roll is made.
         const selected={...definition,...variant,type:group.type};
         const safe={...selected,hp:finite(selected.hp),armor:finite(selected.armor),speed:finite(selected.speed)};
-        const info=configuredWarbandInfo(safe,{...modifiers,variant:undefined});
-        const enemy=structuredClone({...safe,hp:info.maxHp,maxHp:info.maxHp,armor:info.armor,speed:info.speed,resists:{...safe.resists,...modifiers.resists}});
-        return {...info,enemy};
+        const info=configuredWarbandInfo(safe,{...modifiers,variant:undefined},this.rules);
+        const enemy=structuredClone({...safe,hp:info.maxHp,maxHp:info.maxHp,armor:info.armor,speed:info.speed});
+        delete enemy.resists;return {...info,enemy};
       });
       return {type:group.type,name:definition.name||group.type||'Unknown invader',count:countOf(group),unknown,variants};
     });
@@ -124,14 +123,12 @@ export class WaveThreatAnalyzer {
     add('debuffer',!!enemy.disarm||enemy.untouchable>0||enemy.type==='sapper');
     add('shell',enemy.krakenShell>0);
     add('shield',enemy.refraction>0);
-    add('buffer',enemy.hasteAura>1||['shaman','warlock'].includes(enemy.type));
+    add('buffer',enemy.hasteAura>1||enemy.type==='shaman');
     add('reactiveArmor',enemy.reactiveArmor>0);
     add('regeneration',enemy.regen>0);
     add('recharge',enemy.recharge>0);
     add('evasion',enemy.evasion>0);
-    const magicalResistance=Object.entries(enemy.resists||{}).some(([type,value])=>this.magicTypes.has(type)&&value>=c.resistance);
-    add('magicResistance',!enemy.magicImmune&&magicalResistance);
-    const frenzy=enemy.rush>1?enemy.rush:enemy.type==='berserker'?ENEMY_RULES.rush.berserkerSpeed:1;
+    const frenzy=enemy.rush>1?enemy.rush:enemy.type==='berserker'?this.rules.rush.berserkerSpeed:1;
     add('fast',enemy.speed*frenzy>=c.fastSpeed);
     add('swarm',swarm);
     add('thief',enemy.thief>0);

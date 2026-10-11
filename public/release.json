@@ -1,7 +1,7 @@
 {
-  "version": "0.3.25",
-  "edition": "Boss Health and Touch Selection",
-  "date": "2026-10-09",
+  "version": "0.3.26",
+  "edition": "Combat, MVP and Recorded Soundtrack",
+  "date": "2026-10-11",
   "basicClasses": 8,
   "champions": 38,
   "secretChampions": 1,
@@ -22,7 +22,13 @@
   "enemyLanguage": "en",
   "sceneryRevision": 9,
   "championArtRevision": "champions-v8",
-  "alliedAudioRevision": "allied-20261006-dd1d6781f43c",
+  "alliedAudioRevision": "allied-20261011-4a6051e0ce4a",
   "alliedVoiceRecordings": 92,
+  "recordedAudioRevision": "approved-20261011-0019d4e4b9fa",
+  "recordedMusicTracks": 6,
+  "recordedAttackTypes": 15,
+  "damageClasses": ["Physical", "Magical", "Holy"],
+  "mvpMaximumLevel": 10,
+  "developerConsole": true,
   "classificationScaleStep": 1.1
 }

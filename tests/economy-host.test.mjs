@@ -8,6 +8,7 @@ import {Game} from '../game/core/game.js';
 import {EconomyManager} from '../game/core/progression.js';
 import {recipesUsing} from '../game/core/recipes.js';
 import {damageAfterDefense} from '../game/core/math.js';
+import {campaignEnemies} from '../game/core/campaign-roster.js';
 import {preparedBlueprints,blueprintProgress,validateBlueprint} from '../game/core/blueprints.js';
 import {GridManager} from '../game/core/grid.js';
 import {wallConnections,castleWallModel,WALL_DECK_HEIGHT} from '../game/render/walls.js';
@@ -66,15 +67,23 @@ test('retained defenders and ruins join the same wall, while drafts stay on the 
  const platform=castleWallModel(10,true),bounds=new Box3().setFromObject(platform);
  assert.ok(Math.abs(bounds.max.y-WALL_DECK_HEIGHT)<.001);assert.ok(bounds.getSize(new Vector3()).z>=.94-.001);
 });
-test('orc roles reward complementary damage, and campaign health increases substantially',()=>{
- const plate=data.enemies.host_22,ward=data.enemies.host_17;
- assert.ok(damageAfterDefense(100,'fire',plate,{},data.balance)>damageAfterDefense(100,'physical',plate,{},data.balance)*2);
- assert.ok(damageAfterDefense(100,'holy',ward,{},data.balance)<100);
- assert.equal(damageAfterDefense(100,'pure',plate,{},data.balance),100);
- assert.equal(damageAfterDefense(100,'fire',data.enemies.host_26,{},data.balance),0);
- assert.equal(damageAfterDefense(100,'physical',data.enemies.host_23,{},data.balance),0);
- assert.ok(data.enemies.host_10.hp>4000);assert.ok(data.enemies.host_30.hp>110000);assert.ok(data.enemies.host_50.hp>1400000);
- assert.ok(data.enemies.host_19.beast);
+test('current orc roles require armor counters or complementary immunity channels, while campaign health stays authored',()=>{
+ const enemies=campaignEnemies(data.enemies),plate=enemies.host_22;
+ const armored=100*data.balance.armorConstant/(data.balance.armorConstant+plate.armor);
+ for(const type of ['physical','magical','holy']){
+  assert.ok(Math.abs(damageAfterDefense(100,type,plate,{},data.balance)-armored)<1e-10,`${type} shares actual plated armor`);
+  assert.ok(damageAfterDefense(100,type,plate,{penetration:.5},data.balance)>armored,`${type} benefits from penetration`);
+ }
+ assert.equal(enemies.host_17.resists,undefined,'ritual resistance is absent from current gameplay');
+ assert.equal(damageAfterDefense(100,'magical',enemies.host_26,{},data.balance),0);
+ assert.ok(damageAfterDefense(100,'physical',enemies.host_26,{},data.balance)>0);
+ assert.ok(damageAfterDefense(100,'holy',enemies.host_26,{},data.balance)>0);
+ assert.equal(damageAfterDefense(100,'physical',enemies.host_23,{},data.balance),0);
+ assert.ok(damageAfterDefense(100,'magical',enemies.host_23,{},data.balance)>0);
+ assert.ok(damageAfterDefense(100,'holy',enemies.host_23,{},data.balance)>0);
+ for(const id of ['host_10','host_30','host_50'])assert.equal(enemies[id].hp,data.enemies[id].hp,'combat overrides preserve authored health');
+ assert.ok(enemies.host_10.hp>4000);assert.ok(enemies.host_30.hp>110000);assert.ok(enemies.host_50.hp>1400000);
+ assert.ok(enemies.host_19.beast);
 });
 test('all 59 native Blender v3 warbands retain their different dimensions, land on terrain and keep shared geometry isolated',async()=>{
  const manifest=JSON.parse(readFileSync('public/assets/enemies/manifest.json','utf8'));assert.equal(manifest.length,59);

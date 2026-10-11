@@ -6,3 +6,16 @@
 # The exported recording receipt is immutable; its original bytes determine
 # the independent audio cache revision on Windows and Linux alike.
 docs/audio/generated-allied-audio.json -text
+
+# Immutable October 11 recording receipts retain their approved original bytes.
+docs/audio/generated-allied-audio-recast-20261011.json -text
+docs/audio/generated-voice-recast-20261011.json -text
+docs/audio/voice-recast-plan-20261011.json -text
+docs/audio/voice-recast-verification-20261011.json -text
+docs/audio/music-review-selection-20261011.json -text
+docs/audio/generated-music-variants-20261011.json -text
+docs/audio/generated-victory-revision-20261011.json -text
+docs/audio/generated-attack-effects-20261011.json -text
+docs/audio/shared-attack-effects-plan-20261011.json -text
+docs/audio/shared-attack-effects-verification-20261011.json -text
+public/assets/audio/allied-recast-20261011/catalogue.json -text

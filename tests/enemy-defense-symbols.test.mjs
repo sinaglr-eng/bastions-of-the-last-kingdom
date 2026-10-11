@@ -20,7 +20,7 @@ const tower=(family,x=10,z=10)=>({id:1,family,tier:1,state:'active',x,z,cooldown
 async function model(enemy){const bytes=readFileSync(new URL('../public/assets/geometric/enemies/'+enemy.type+'.glb',import.meta.url)),decoded=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');return {decoded,figure:enemyFigure(enemy,new Map([[enemy.type,decoded.scene]]))};}
 function disposeFallback(figure){const resources=new Set();figure.traverse(node=>{if(node.geometry)resources.add(node.geometry);for(const material of Array.isArray(node.material)?node.material:[node.material])if(material)resources.add(material);});disposeEnemyFigure(figure);resources.forEach(resource=>resource.dispose());}
 
-test('actual wave14 spawn shows three shield panels despite existing model shards, deflects3→0 and restores3 on real8s recharge',async()=>{
+test('actual wave14 spawn shows three shield panels despite existing model shards, deflects3→0 and restores3 on real5s recharge',async()=>{
   const game=arena(),enemy=spawn(game,'host_14'),loaded=await model(enemy),fallback=enemyFigure(enemy,new Map()),fx=new EnemyAbilityEffects(new THREE.Scene(),{balance:data.balance});
   assert.equal(enemy.shields,3);assert.equal(fallback.userData.shards.children.length,3,'the reported cosmetic skip is exercised');
   const events=[];game.on((kind,payload)=>{if(kind==='deflect')events.push(payload.enemy.shields);});
@@ -37,53 +37,39 @@ test('actual wave14 spawn shows three shield panels despite existing model shard
     sync(3);const hp=enemy.hp;
     for(const remaining of [2,1,0]){assert.equal(game.combat.damage(enemy,40,'physical',{directHit:true}),0);assert.equal(enemy.hp,hp);sync(remaining);}
     assert.deepEqual(events,[2,1,0]);assert.ok(game.combat.damage(enemy,40,'physical',{directHit:true})>0);
-    game.tick(7.99);sync(0);game.tick(.02);assert.equal(enemy.shields,3);sync(3);
+    game.tick(4.99);sync(0);game.tick(.02);assert.equal(enemy.shields,3);sync(3);
     enemy.shields=0;game.combat.damage(enemy,1,'physical',{});sync(0);
   }finally{fx.dispose();disposeEnemyFigure(loaded.figure);disposeDecodedGeometricAsset(loaded.decoded);disposeFallback(fallback);}
 });
 
-test('actual host16 shows immunity and its17% resistance independently, including real piercing-aura suppression and recovery',()=>{
+test('actual Magical immunity remains visible while obsolete resistance/ward/shred fields cannot invent a defense',()=>{
   const game=arena(),enemy=spawn(game,'host_16'),fx=new EnemyAbilityEffects(new THREE.Scene(),{balance:data.balance});
   try{
-    assert.deepEqual(kinds(enemy),['magicImmune','magic']);assert.equal(state(enemy).find(row=>row.kind==='magic').amount,.168);
-    assert.deepEqual(enemyDefenseDescriptions(data.enemies.host_16).map(row=>row.kind),['magicImmune','magic']);
-    fx.sync([enemy]);assert.equal(fx.batches.get('magicImmune').glyph.count,3);assert.equal(fx.batches.get('magic').glyph.count,3);
+    assert.deepEqual(kinds(enemy),['magicImmune']);assert.equal(enemy.resists,undefined);assert.deepEqual(enemyDefenseDescriptions(data.enemies.host_16).map(row=>row.kind),['magicImmune']);
+    Object.assign(enemy,{resists:{magic:.9,fire:.7},ward:.9,magicShred:.2});fx.sync([enemy]);assert.equal(fx.batches.get('magicImmune').glyph.count,3);assert.equal(fx.batches.has('magic'),false);
     const source=tower('griffinbomber');game.towers=[source];game.tick(.01);
-    assert.equal(enemy.magicShred,.2);assert.deepEqual(kinds(enemy),['magicImmune']);
-    fx.sync([enemy]);assert.equal(fx.batches.get('magic').glyph.count,0);assert.equal(fx.batches.get('magic').dots.count,0);assert.equal(fx.batches.get('magicImmune').glyph.count,3);
-    assert.equal(game.combat.damage(enemy,40,'fire',{}),0,'aura suppression never removes actual immunity');
-    source.x=17.001;game.tick(.01);assert.equal(enemy.magicShred,0);assert.deepEqual(kinds(enemy),['magicImmune','magic']);
-    fx.sync([enemy]);assert.equal(fx.batches.get('magic').glyph.count,3);assert.equal(fx.batches.get('magic').dots.count,6);
+    assert.deepEqual(kinds(enemy),['magicImmune']);fx.sync([enemy]);assert.equal(fx.batches.get('magicImmune').glyph.count,3);assert.equal(fx.batches.has('magic'),false);
+    assert.equal(game.combat.damage(enemy,40,'magical',{}),0);assert.ok(game.combat.damage(enemy,40,'holy',{})>0,'Holy bypasses immunity while armor still applies');
+    source.x=17.001;game.tick(.01);assert.deepEqual(kinds(enemy),['magicImmune']);
   }finally{fx.dispose();}
 });
 
-test('real ranged shred auras and status expiry remove effective protections and return them at out-of-range or recovery',()=>{
-  const game=arena(),enemy=spawn(game,'host_06',{resists:{fire:.05}}),source=tower('griffinbomber');
-  assert.ok(kinds(enemy).includes('magic')&&kinds(enemy).includes('fire'));
-  game.towers=[source];game.tick(.01);
-  assert.equal(enemy.magicShred,.2);assert.ok(damageAfterDefense(1,'fire',enemy,{},data.balance)>=1);assert.deepEqual(kinds(enemy),[]);
-  source.x=17.001;game.tick(.01);assert.equal(enemy.magicShred,0);assert.ok(kinds(enemy).includes('magic')&&kinds(enemy).includes('fire'));
-  source.x=17;game.tick(.01);assert.deepEqual(kinds(enemy),[],'exact seven-tile aura boundary still suppresses resistance');
-  game.towers=[];game.combat.applyEffects(enemy,{shredMagic:1});game.tick(.01);assert.deepEqual(kinds(enemy),[]);
-  game.tick(4.01);
-  // Combat's live magicShred cache is also the damage input in this expiry
-  // frame. Never cosmetically restore the symbol ahead of effective recovery.
-  for(const kind of ['fire','frost','poison','holy','arcane'])assert.equal(kinds(enemy).includes(kind),!!enemy.resists[kind]&&damageAfterDefense(1,kind,enemy,{},data.balance)<1);
-  game.tick(.01);assert.ok(kinds(enemy).includes('magic')&&kinds(enemy).includes('fire'));
-
+test('real fixed armor aura and MVP reductions suppress effective reactive protection, then restore it outside range or after resume',()=>{
+  const game=arena();
   const reactive=spawn(game,'host_24');game.combat.damage(reactive,10,'physical',{directHit:true});
   assert.ok(kinds(reactive).includes('reactive'));
   const breaker=tower('mechanicalgolem');game.towers=[breaker];game.tick(.01);assert.equal(reactive.armorShred,30);assert.equal(kinds(reactive).includes('reactive'),false);
   breaker.x=22.001;game.tick(.01);assert.equal(reactive.armorShred,0);assert.ok(kinds(reactive).includes('reactive'));
+  breaker.x=10;breaker.attackPaused=true;game.tick(.01);assert.equal(reactive.armorShred,0);assert.ok(kinds(reactive).includes('reactive'));
+  breaker.attackPaused=false;game.tick(.01);assert.equal(reactive.armorShred,30);assert.equal(kinds(reactive).includes('reactive'),false);
+  game.towers=[];reactive.statuses.shred={amount:1e5,time:.01};game.tick(.02);game.combat.prepareArmor(reactive);assert.ok(kinds(reactive).includes('reactive'),'the symbol returns after real fixed-shred expiry');
+  reactive.mvpArmorReduction=1;assert.equal(kinds(reactive).includes('reactive'),false,'zero effective armor cannot advertise a reactive defense');reactive.mvpArmorReduction=0;
   reactive.reactiveStacks=0;assert.equal(kinds(reactive).includes('reactive'),false,'ordinary armor cannot retain a reactive shield');
 });
 
-test('ward, blocked regeneration and periodic healing follow actual combat damage/healing availability',()=>{
+test('obsolete ward never creates a symbol while healing-block, regeneration and periodic healing follow actual availability',()=>{
   const game=arena(),enemy=spawn(game,'host_02'),warlock=spawn(game,'warlock');
-  warlock.x=12;game.tick(.01);assert.equal(enemy.ward,.18);assert.ok(kinds(enemy).includes('magic'));
-  assert.ok(Math.abs(state(enemy).find(row=>row.kind==='magic').amount-(1-damageAfterDefense(1,'arcane',enemy,{},data.balance)))<1e-12);
-  warlock.x=13.5;game.tick(.01);assert.equal(enemy.ward,0);assert.deepEqual(kinds(enemy),[],'ward uses combat strict <3.5 range');
-  warlock.x=12;game.tick(.01);assert.ok(kinds(enemy).includes('magic'));
+  warlock.x=12;game.tick(.01);assert.equal(enemy.ward,undefined);assert.deepEqual(kinds(enemy),[]);enemy.ward=.9;enemy.resists={magic:.9};assert.deepEqual(kinds(enemy),[]);
 
   const regen=spawn(game,'host_15'),recharge=spawn(game,'host_32');regen.hp-=50;recharge.hp-=50;
   for(const e of [regen,recharge])game.combat.applyEffects(e,{healingBlockDuration:.2});
@@ -104,23 +90,47 @@ test('the live slowing-aura symbol describes the real enemy modifier independent
   assert.equal(kinds({...enemy,untouchable:0}).includes('untouchable'),false);
 });
 
-test('every resistance state agrees with real damage across caps, shred, immunity and fractional direct-hit charge inputs',()=>{
+test('all three real direct-hit classes face shields, evasion and armor-then-Shell; Holy bypasses only the two damage immunities',()=>{
+  const game=arena(),enemy=spawn(game,'host_01');Object.assign(enemy,{hp:1e6,maxHp:1e6,armor:60,shields:3,refraction:3,evasion:0,krakenShell:20});
+  for(const type of ['physical','magical','holy']){
+    const result=game.combat.resolveDamage(enemy,100,type,{directHit:true});assert.equal(result.blockReason,'shield');assert.equal(result.appliedDamage,0);
+  }
+  assert.equal(enemy.shields,0);assert.ok(!kinds(enemy).includes('refraction'),'The depleted native shield marker matches actual hits');
+  enemy.evasion=1;game.rng=()=>0;
+  for(const type of ['physical','magical','holy'])assert.equal(game.combat.resolveDamage(enemy,100,type,{directHit:true}).blockReason,'evasion');
+  assert.ok(kinds(enemy).includes('evasion'));
+  for(const type of ['physical','magical','holy']){
+    const result=game.combat.resolveDamage(enemy,100,type,{directHit:true,trueStrike:true});
+    assert.equal(result.blockReason,null);assert.equal(result.effectiveArmor,60);assert.ok(Math.abs(result.afterArmor-100*30/90)<1e-10);assert.equal(result.shellBlock,20);assert.ok(Math.abs(result.appliedDamage-(100*30/90-20))<1e-10);
+  }
+  enemy.physicalImmune=true;enemy.magicImmune=true;
+  assert.equal(game.combat.resolveDamage(enemy,100,'physical',{directHit:true,trueStrike:true}).blockReason,'physical-immunity');assert.equal(game.combat.resolveDamage(enemy,100,'magical',{directHit:true,trueStrike:true}).blockReason,'magic-immunity');
+  const holy=game.combat.resolveDamage(enemy,100,'holy',{directHit:true,trueStrike:true});assert.ok(Math.abs(holy.afterArmor-100*30/90)<1e-10);assert.equal(holy.shellBlock,20);assert.ok(Math.abs(holy.appliedDamage-(100*30/90-20))<1e-10);
+  const descriptions=enemyDefenseDescriptions(enemy,{balance:data.balance});assert.match(descriptions.find(row=>row.kind==='evasion').detail,/Physical, Magical and Holy direct hits/);assert.match(descriptions.find(row=>row.kind==='krakenShell').detail,/after armor.*Physical, Magical and Holy direct hit/);
+  assert.ok(game.combat.damage(enemy,100,'holy',{})>holy.appliedDamage,'Actual DOT/aura damage does not consume direct-hit Shell');
+});
+
+test('native defense descriptions use isolated console timings and stack limits, including valid zero decay',()=>{
+  const balance={...data.balance,enemyRules:{refraction:{period:2},recharge:{period:3},reactive:{maxStacks:4,decayPerSecond:0},dread:{radius:7}}};
+  const rows=enemyDefenseDescriptions({hp:100,armor:20,refraction:3,recharge:.5,reactiveArmor:8,untouchable:.75},{balance});
+  assert.match(rows.find(row=>row.kind==='refraction').detail,/every 2s/);assert.match(rows.find(row=>row.kind==='recharge').detail,/50% missing HP every 3s/);assert.match(rows.find(row=>row.kind==='reactive').detail,/4 stacks \(32 armor\); decays 0 stacks\/s/);assert.match(rows.find(row=>row.kind==='untouchable').detail,/within 7 tiles/);
+  assert.match(enemyDefenseDescriptions(data.enemies.host_14).find(row=>row.kind==='refraction').detail,/every 5s/,'Global authored timing remains unchanged');
+});
+
+test('only real defense layers remain across obsolete resistance caps, fixed shred, MVP reduction, immunity and fractional shield charges',()=>{
   const base={armor:30,reactiveArmor:2,reactiveStacks:4,resists:{magic:.3,fire:.2,frost:.1,poison:.08,holy:.07,arcane:.06},ward:.18,magicShred:0,statuses:{},regen:5,recharge:.12,evasion:.25,krakenShell:66,shields:.5};
   for(const rules of [data.balance,{...data.balance,maxResistance:.40}])for(const magicShred of [0,.2,.5,.7,1]){
     const enemy={...base,magicShred},before=structuredClone(enemy),states=enemyDefenseVisualState(enemy,{balance:rules});
-    for(const kind of ['fire','frost','poison','holy','arcane']){
-      const row=states.find(row=>row.kind===kind),effective=1-damageAfterDefense(1,kind,enemy,{},rules);
-      assert.equal(!!row,effective>0);if(row)assert.ok(Math.abs(row.amount-effective)<1e-12);
-    }
+    assert.ok(states.every(row=>!['magic','fire','frost','poison','holy','arcane'].includes(row.kind)));assert.equal(ENEMY_DEFENSE_SYMBOLS.magic,undefined);
+    const armor=30+2*4;for(const kind of ['physical','magical','holy'])assert.ok(Math.abs(damageAfterDefense(1,kind,enemy,{},rules)-rules.armorConstant/(rules.armorConstant+armor))<1e-12);
     assert.deepEqual(enemy,before);assert.equal(states.find(row=>row.kind==='refraction').count,1,'a fractional positive charge still absorbs one direct hit');
   }
   const immune={...base,magicImmune:true,physicalImmune:true,statuses:{healBlock:{time:1}},shields:0};
   const states=enemyDefenseVisualState(immune);
   assert.ok(states.some(row=>row.kind==='physicalImmune')&&states.some(row=>row.kind==='magicImmune'));
-  assert.ok(['reactive','magic','fire','frost','poison','holy','arcane'].every(kind=>states.some(row=>row.kind===kind)),'configured positive layers remain independently readable under immunity');
+  assert.ok(states.some(row=>row.kind==='reactive'),'actual armor remains independently readable under immunity');assert.ok(states.every(row=>!['magic','fire','frost','poison','holy','arcane'].includes(row.kind)));
   assert.ok(!states.some(row=>['regen','recharge'].includes(row.kind)),'real healing block still hides both healing defenses');
-  for(const kind of ['fire','frost','poison','holy','arcane'])assert.ok(Math.abs(states.find(row=>row.kind===kind).amount-(1-damageAfterDefense(1,kind,{...immune,magicImmune:false},{},data.balance)))<1e-12);
-  assert.equal(damageAfterDefense(1,'physical',immune,{},data.balance),0);assert.equal(damageAfterDefense(1,'fire',immune,{},data.balance),0);assert.equal(damageAfterDefense(1,'pure',immune,{},data.balance),1);
+  assert.equal(damageAfterDefense(1,'physical',immune,{},data.balance),0);assert.equal(damageAfterDefense(1,'magical',immune,{},data.balance),0);assert.ok(damageAfterDefense(1,'holy',immune,{},data.balance)>0&&damageAfterDefense(1,'holy',immune,{},data.balance)<1);
   assert.deepEqual(enemyDefenseVisualState({...base,dead:true}),[]);
 });
 
@@ -158,7 +168,7 @@ test('actual defense draw queues contain only colored small particles and charge
     const disk=new THREE.Mesh(new THREE.CircleGeometry(1,24),new THREE.MeshBasicMaterial({color:0x0a151c,transparent:true,opacity:.86}));fx.group.add(disk);
     assert.equal(coloredParticlesOnly(drawList()),false,'an actual reintroduced black disk fails the draw-content regression');
     disk.removeFromParent();disk.geometry.dispose();disk.material.dispose();
-    const glyph=fx.batches.get('magic').glyph;glyph.material.transparent=false;assert.equal(coloredParticlesOnly(drawList()),false,'opaque strokes fail the actual renderer queue regression');glyph.material.transparent=true;
+    const glyph=fx.batches.get('refraction').glyph;glyph.material.transparent=false;assert.equal(coloredParticlesOnly(drawList()),false,'opaque strokes fail the actual renderer queue regression');glyph.material.transparent=true;
     list.finish();
   }finally{fx.dispose();}
 });
@@ -194,7 +204,7 @@ test('several small camera-facing glyphs and matching dots rise/fall around meas
       assert.equal(batch.glyph.count,3);assert.equal(batch.dots.count,6);assert.equal(batch.dots.material.color.getHex(),batch.glyph.material.color.getHex());assert.ok(batch.glyph.geometry.attributes.position.count>=12);
     }
     assert.ok(particlesFit(),'actual instance matrices wrap measured body bounds rather than a large camera-plane circle');
-    const glyph=fx.batches.get('magic').glyph,original=new THREE.Matrix4();glyph.getMatrixAt(0,original);glyph.setMatrixAt(0,original.clone().scale(new THREE.Vector3(5,5,5)));
+    const glyph=fx.batches.get('reactive').glyph,original=new THREE.Matrix4();glyph.getMatrixAt(0,original);glyph.setMatrixAt(0,original.clone().scale(new THREE.Vector3(5,5,5)));
     assert.equal(particlesFit(),false,'mutating the real glyph matrix back to a giant symbol fails');glyph.setMatrixAt(0,original);
     const matrices=()=>[...fx.batches.values()].flatMap(batch=>[...batch.glyph.instanceMatrix.array,...batch.dots.instanceMatrix.array,...(batch.panels?.instanceMatrix.array||[])]);
     const moving=matrices(),firstY=new THREE.Vector3().setFromMatrixPosition(original).y;fx.sync([enemy],new Map([[enemy.id,figure]]),3);assert.notDeepEqual(matrices(),moving,'actual glyph positions orbit');glyph.getMatrixAt(0,original);assert.notEqual(new THREE.Vector3().setFromMatrixPosition(original).y,firstY,'actual glyph height rises and falls');assert.ok(particlesFit());

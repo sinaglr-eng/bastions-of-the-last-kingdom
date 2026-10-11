@@ -7,8 +7,10 @@ import {configuredWarbandInfo,currentWarbandInfo,warbandTraitDetails,warbandVari
 import {towerSupportState} from '../game/render/support-effects.js';
 import {enemyDefenseDescriptions} from '../game/render/enemy-defense-symbols.js';
 import {waveDefenseLegendMarkup,enemyTraitsMarkup} from '../ui/enemy-trait-symbols.js';
+import {campaignTowers,campaignEnemies,campaignRecipes,campaignWaves} from '../game/core/campaign-roster.js';
 
-const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
+const archived=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
+const data={...archived,towers:campaignTowers(archived.towers),enemies:campaignEnemies(archived.enemies),recipes:campaignRecipes(archived.recipes),waves:campaignWaves(archived.waves)};
 const close=(actual,expected,why)=>assert.ok(Math.abs(actual-expected)<1e-8,`${why}: ${actual} != ${expected}`);
 function arena(resistance=0){
   const scenario={...data,towers:{...data.towers,observer:{name:'Observer',advanced:true,damage:0,range:0},protection:{name:'Protection',advanced:true,damage:0,range:0,aura:{range:5,controlResistance:resistance}}}};
@@ -21,15 +23,15 @@ const configured=()=>Object.entries(data.enemies).flatMap(([type,base])=>[
   {type,key:type,base},...(base.variants||[]).map((variant,index)=>({type,key:`${type}.variants[${index}]`,base:{...base,...variant},variant}))
 ]);
 
-test('all regeneration definitions and inherited variants heal 5% of actual modified maximum health each second',()=>{
+test('current regeneration heals 10% or the Blood-Leech 30% of actual modified maximum health each second',()=>{
   const before=JSON.stringify(data),expected=['troll','host_08','host_15','host_21','host_38.variants[1]'];
   const ownRates=Object.fromEntries(Object.entries(data.enemies).flatMap(([type,base])=>[
     ...(base.regen>0?[[type,base.regen]]:[]),...(base.variants||[]).flatMap((variant,index)=>variant.regen>0?[[`${type}.variants[${index}]`,variant.regen]]:[])
   ]));
-  assert.deepEqual(Object.keys(ownRates),expected);for(const [key,rate]of Object.entries(ownRates))assert.equal(rate,.05,key);
+  assert.deepEqual(Object.keys(ownRates),expected);for(const [key,rate]of Object.entries(ownRates))assert.equal(rate,key==='host_38.variants[1]'?.3:.1,key);
   const cases=configured().filter(row=>row.base.regen>0);assert.equal(cases.length,7,'two actual Blood Bat variants inherit the rate, and the Blood-Leech variant adds its own');
   for(const row of cases)for(const hp of [1,1.25,3]){
-    const game=arena(),enemy=spawn(game,row.type,row.variant,{hp}),rate=enemy.maxHp*.05,initial=enemy.maxHp/2;enemy.hp=initial;
+    const game=arena(),enemy=spawn(game,row.type,row.variant,{hp}),rate=enemy.maxHp*row.base.regen,initial=enemy.maxHp/2;enemy.hp=initial;
     game.combat.update(.5);close(enemy.hp-initial,rate*.5,row.key+' effective healing with modifier '+hp);
     game.combat.applyEffects(enemy,{healingBlockDuration:.5});const blocked=enemy.hp;
     game.combat.update(.25);assert.equal(enemy.hp,blocked,row.key+' healing block');
@@ -37,7 +39,7 @@ test('all regeneration definitions and inherited variants heal 5% of actual modi
     game.combat.update(.25);close(enemy.hp-blocked,rate*.25,row.key+' recovery after block expiry');
     enemy.hp=enemy.maxHp-.01;game.combat.update(1);assert.equal(enemy.hp,enemy.maxHp,row.key+' cap');
     const text=warbandTraitDetails(enemy).find(trait=>trait.kind==='regen').text;
-    assert.ok(text.includes('5% maximum health/s')&&text.includes(enemyNumber(rate)+' HP/s'));
+    assert.ok(text.includes(`${row.base.regen*100}% maximum health/s`)&&text.includes(enemyNumber(rate)+' HP/s'));
   }
   assert.equal(JSON.stringify(data),before,'spawns, healing and descriptions preserve definitions');
 });
@@ -85,11 +87,11 @@ test('guide variants and queued/current cards follow actual spawn modifiers and 
   }
   const leeches=warbandVariantInfo(data.enemies.host_38);
   assert.ok(leeches[0].traits.some(text=>text.includes('Disarms')&&text.includes('5s every 8s')));
-  assert.ok(leeches[0].traits.some(text=>text.includes('Cloaked for 4s')));
-  assert.ok(!leeches[1].traits.some(text=>/Cloaked|Disarms/.test(text)));assert.ok(leeches[1].traits.some(text=>text.includes('5% maximum health/s')));
+  assert.ok(leeches[0].traits.some(text=>text.includes('Cloaked continuously')));
+  assert.ok(!leeches[1].traits.some(text=>/Cloaked|Disarms/.test(text)));assert.ok(leeches[1].traits.some(text=>text.includes('30% maximum health/s')));
   const seals=warbandVariantInfo(data.enemies.host_31);
-  assert.ok(seals[0].traits.includes('Immune to magic and magical effects'));assert.ok(!seals[0].traits.includes('Immune to physical and piercing damage'));
-  assert.ok(seals[1].traits.includes('Immune to physical and piercing damage'));assert.ok(!seals[1].traits.includes('Immune to magic and magical effects'));
+  assert.ok(seals[0].traits.includes('Immune to Magical damage, poison and burning; Holy effects ignore this immunity'));assert.ok(!seals[0].traits.some(text=>text.startsWith('Immune to Physical')));
+  assert.ok(seals[1].traits.includes('Immune to Physical damage, slowing and freezing; Holy effects ignore this immunity'));assert.ok(!seals[1].traits.some(text=>text.startsWith('Immune to Magical')));
   const pending={wave:{hp:2,groups:[{type:'host_15',count:2,hp:3,speed:.5,armor:9}]},data,combat:{enemies:[],spawnQueue:[]}};
   const info=currentWarbandInfo(pending)[0];assert.equal(info.maxHp,data.enemies.host_15.hp*3);assert.equal(info.speed,data.enemies.host_15.speed*.5);assert.equal(info.armor,data.enemies.host_15.armor+9,'group overrides wave exactly as combat.start');
   assert.equal(JSON.stringify(data),before);
@@ -107,17 +109,17 @@ test('all 50 base/variant legends visibly include numerical rules and ability te
       assert.ok(!markup.includes('title='),'numeric detail must be visible');
     }
   }
-  assert.match(waveDefenseLegendMarkup(data.enemies.host_17),/within 4 tiles lose 35% attack speed/);
+  assert.match(waveDefenseLegendMarkup(data.enemies.host_17),/within 4 tiles lose 75% attack speed/);
   assert.match(waveDefenseLegendMarkup(data.enemies.host_12),/within 3 tiles for 5s every 8s/);
-  assert.match(waveDefenseLegendMarkup(data.enemies.host_08),/5% maximum health\/s \(12\.8 HP\/s\)/);
-  assert.match(waveDefenseLegendMarkup(data.enemies.host_14),/3 hit-blocking shields[^]*every 8s/);
+  assert.match(waveDefenseLegendMarkup(data.enemies.host_08),/10% maximum health\/s \(25\.6 HP\/s\)/);
+  assert.match(waveDefenseLegendMarkup(data.enemies.host_14),/3 hit-blocking shields[^]*every 5s/);
   assert.match(waveDefenseLegendMarkup(data.enemies.host_24),/maximum 15 stacks \(120 armor\)[^]*0\.7 stacks\/s/);
-  assert.match(waveDefenseLegendMarkup(data.enemies.host_32),/12% missing health every 5s/);
-  assert.match(waveDefenseLegendMarkup(data.enemies.host_45),/within 3\.5 tiles gain 18%[^]*3s every 6s/);
-  assert.match(waveDefenseLegendMarkup({...data.enemies.host_38,...data.enemies.host_38.variants[0]}),/Cloaked for 4s, visible for 2s, every 6s/);
-  assert.ok(waveDefenseLegendMarkup(data.enemies.host_16).includes('Magic immunity')&&waveDefenseLegendMarkup(data.enemies.host_16).includes('16.8% magic resistance'),'immunity does not hide the configured resistance');
+  assert.match(waveDefenseLegendMarkup(data.enemies.host_32),/50% missing health every 5s/);
+  assert.match(waveDefenseLegendMarkup(data.enemies.host_45),/within 3\.5 tiles gain 50%[^]*3s every 6s/);
+  assert.match(waveDefenseLegendMarkup({...data.enemies.host_38,...data.enemies.host_38.variants[0]}),/Cloaked continuously/);
+  assert.ok(waveDefenseLegendMarkup(data.enemies.host_16).includes('Magic immunity'));assert.doesNotMatch(waveDefenseLegendMarkup(data.enemies.host_16),/\d[^<]*magic resistance/,'removed resistances are not advertised');
   assert.equal(waveDefenseLegendMarkup({armor:999}),'','ordinary armor does not gain an invented special ability');
-  assert.ok(enemyDefenseDescriptions(data.enemies.host_08).find(row=>row.kind==='regen').detail.startsWith('5% maximum HP/s (12.8 HP/s)'));
+  assert.ok(enemyDefenseDescriptions(data.enemies.host_08).find(row=>row.kind==='regen').detail.startsWith('10% maximum HP/s (25.6 HP/s)'));
 });
 
 test('numeric shields, cloak, recharge, blink, rush and dread details use the same effective combat rules',()=>{
@@ -125,11 +127,12 @@ test('numeric shields, cloak, recharge, blink, rush and dread details use the sa
   healer.hp=healer.maxHp/2;
   for(let hit=0;hit<3;hit++)assert.equal(game.combat.damage(mirror,10,'physical',{directHit:true}),0);
   assert.equal(mirror.shields,0);game.combat.update(3.999);assert.equal(mirror.shields,0);assert.equal(cloak.cloaked,true);
-  game.combat.update(.002);assert.equal(cloak.cloaked,false);
-  game.combat.update(1.998);assert.equal(blinker.traveled,0);game.combat.update(.002);assert.equal(cloak.cloaked,true);close(blinker.traveled,3,'actual6s blink');
-  close(healer.hp,healer.maxHp*.56,'5s recharge restores12% of the missing half');game.combat.update(1.998);assert.equal(mirror.shields,0);game.combat.update(.002);assert.equal(mirror.shields,3);close(healer.hp,healer.maxHp*.56,'refraction8s does not add a healing pulse');
+  game.combat.update(.002);assert.equal(cloak.cloaked,true,'continuous cloak has no4s visibility window');
+  game.combat.update(.998);assert.equal(mirror.shields,0);game.combat.update(.001);assert.equal(mirror.shields,3);close(healer.hp,healer.maxHp*.75,'5s recharge restores50% of the missing half');
+  game.combat.update(.999);assert.equal(blinker.traveled,0);game.combat.update(.001);assert.equal(cloak.cloaked,true);close(blinker.traveled,6,'actual6tile blink at6s');
+  close(healer.hp,healer.maxHp*.75,'6s blink does not add a healing pulse');
   const movement=arena(),rush=spawn(movement,'host_19');rush.speed=data.enemies.host_19.speed;
   movement.combat.update(1);close(rush.traveled,rush.speed*5,'rush first2s');const traveled=rush.traveled;movement.combat.elapsed=2;movement.combat.update(1);close(rush.traveled-traveled,rush.speed,'ordinary speed after2s');
-  const slowed=arena(),guard={...observer(),family:'archer',cooldown:100},aura=spawn(slowed,'host_17');slowed.towers=[guard];slowed.combat.update(.1);close(guard.cooldown,100-.1*.65,'35% dread');
+  const slowed=arena(),guard={...observer(),family:'archer',cooldown:100},aura=spawn(slowed,'host_17');slowed.towers=[guard];slowed.combat.update(.1);close(guard.cooldown,100-.1*.25,'75% dread');
   aura.x=14;guard.cooldown=100;slowed.combat.update(.1);close(guard.cooldown,99.9,'strict4tile outside dread');
 });

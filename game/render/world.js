@@ -3,6 +3,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {rankAdornment,animateRank,disposeRankAdornment} from './ranks.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
+import {MvpHalos} from './mvp-halo.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
 import {pointedEnemy,createEnemySelectionRing,syncEnemySelectionRing,disposeEnemySelectionRing} from './enemy-pointer.js';
@@ -244,6 +245,7 @@ export class Battlefield {
     return this.templates.get(markerKey);
   }
   sync() {
+    this.mvpHalos??=new MvpHalos();
     this.updateCampPreview();
     const ids=new Set(this.game.towers.map(t=>t.id));
     for(const [id,value]of this.models)if(!ids.has(id)){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);this.scene.remove(value.object);this.models.delete(id);}
@@ -373,6 +375,7 @@ export class Battlefield {
   update(dt) {
     this.recoverDefenderModels();
     this.time+=dt;this.draftMarkers.update(this.time,this.camera,this.container.clientHeight);
+    this.mvpHalos?.sync(this.models,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateCheckpointEffects(this.checkpointEffects,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateRouteOverlay(this.pathGroup,dt,{reducedMotion:!!this.reducedMotion?.matches,paused:this.game.phase==='combat'&&this.game.paused});
     const battleDt=this.game.paused?0:dt*this.game.speed;
@@ -429,6 +432,7 @@ export class Battlefield {
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
+    this.mvpHalos?.dispose();
     this.criticalHitLabels?.dispose();
     this.disposed=true;this.defenderLoader.dispose();this.combatEffects.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
     this.defenderLoadingStatus?.remove();

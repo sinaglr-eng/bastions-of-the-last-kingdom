@@ -20,6 +20,14 @@ test('different families receive mechanisms matching roots, breath, lightning, b
   assert.equal(attackVisualKind('stonewarden'),'siege');assert.equal(attackVisualKind('cleric',{type:'holy'}),'holy');
   assert.equal(attackVisualKind('frostwarden',{type:'frost'}),'frost');assert.equal(attackVisualKind('mage',{type:'arcane'}),'arcane');assert.equal(attackVisualKind('archer'),'arrow');
 });
+test('canonical damage classes preserve authored ice bolts and spell presentation while secondary burning stays visible',()=>{
+  assert.equal(attackVisualKind('frostwarden',{type:'physical',projectileEffect:'frost'}),'frost');
+  assert.equal(attackVisualKind('mage',{type:'magical',projectileEffect:'arcane'}),'arcane');
+  const scene=new THREE.Scene(),fx=new CombatEffects(scene),s=shot('rimewatch',1,{type:'physical',projectileEffect:'frost'});
+  fx.shot(s);assert.equal(fx.projectiles.get(1).object.name,'Frost-coated crossbow bolt');
+  fx.impact({x:7,z:8,source:{family:'fireballista'},target:s.target,effect:'fire',stats:{type:'physical'}});assert.equal(fx.effects.at(-1).object.name,'flame attack impact');
+  fx.dispose();assert.equal(scene.children.length,0);
+});
 
 test('Thunderheart actual stats launch arcane lightning while its separate burning aura breathes fire',()=>{
   const stats=JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url),'utf8')).thunderheart;

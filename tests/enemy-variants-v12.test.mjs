@@ -4,7 +4,9 @@ import {readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
 import {seededRandom} from '../game/core/math.js';
 import {currentWarbandInfo,configuredWarbandInfo} from '../game/core/warband-info.js';
-const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
+import {campaignTowers,campaignEnemies,campaignRecipes,campaignWaves} from '../game/core/campaign-roster.js';
+const archived=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
+const data={...archived,towers:campaignTowers(archived.towers),enemies:campaignEnemies(archived.enemies),recipes:campaignRecipes(archived.recipes),waves:campaignWaves(archived.waves)};
 function arena(type,count=19){const game=new Game(data,{seed:420});game.phase='combat';game.round=Number(type.slice(5));const wave={hp:1.25,groups:[{type,count,interval:.01,speed:.75,armor:3,resists:{fire:.2}}]};return {game,wave};}
 const selectedNames=game=>game.combat.spawnQueue.map(row=>row.modifiers.variant?.name||data.enemies[row.type].name);
 
@@ -17,7 +19,7 @@ test('every active multi-variant type rolls independently for every queued enemy
     const queue=[...game.combat.spawnQueue];assert.deepEqual(selectedNames(game),rolls.map(r=>base.variants[Math.floor(r*base.variants.length)].name));
     const chosen=queue.map(row=>configuredWarbandInfo({...base,type},row.modifiers));game.combat.update(.5);
     assert.equal(game.combat.spawnQueue.length,0);assert.equal(game.combat.enemies.length,19);assert.equal(calls,19,'Spawning never rolls a second time');
-    game.combat.enemies.forEach((enemy,i)=>{assert.equal(enemy.name,chosen[i].name);assert.equal(enemy.maxHp,chosen[i].maxHp);assert.equal(enemy.armor,chosen[i].armor);assert.equal(enemy.speed,chosen[i].speed);assert.equal(enemy.resists.fire,.2);assert.equal(enemy.visualAsset,queue[i].modifiers.variant.visualAsset);});
+    game.combat.enemies.forEach((enemy,i)=>{assert.equal(enemy.name,chosen[i].name);assert.equal(enemy.maxHp,chosen[i].maxHp);assert.equal(enemy.armor,chosen[i].armor);assert.equal(enemy.speed,chosen[i].speed);assert.equal(enemy.resists,undefined,'obsolete wave resistance metadata is not a live defense');assert.equal(enemy.visualAsset,queue[i].modifiers.variant.visualAsset);});
   }
   assert.equal(JSON.stringify(data),before,'Wave rolls, overrides and spawning leave shared definitions untouched');
 });
@@ -32,11 +34,11 @@ test('explicit scenario and debug variants stay exact and every queued snapshot 
   const base=data.enemies.host_28,manual={...base.variants[1],resists:{holy:.4}},before=JSON.stringify(manual),{game,wave}=arena('host_28',3);wave.groups[0].variant=manual;game.rng=()=>assert.fail('Explicit manual variants consume no random roll');game.combat.start(wave);
   const queue=game.combat.spawnQueue;assert.notEqual(queue[0].modifiers.variant,manual);assert.notEqual(queue[0].modifiers.variant,queue[1].modifiers.variant);queue[0].modifiers.variant.resists.holy=.9;assert.equal(queue[1].modifiers.variant.resists.holy,.4);assert.equal(JSON.stringify(manual),before);
   const enemy=game.combat.spawn('host_28',{variant:manual,hp:2});assert.equal(enemy.name,manual.name);assert.equal(enemy.color,'#667e91');assert.equal(enemy.hp,base.hp*2);assert.equal(enemy.maxHp,enemy.hp);assert.equal(enemy.reactiveArmor,0);assert.equal(enemy.stealth,true);assert.equal(enemy.cloaked,true);assert.deepEqual(enemy.traits,['stealth']);
-  enemy.traits.push('local-only');enemy.resists.holy=0;assert.equal(JSON.stringify(manual),before);assert.deepEqual(base.traits,['reactiveArmor']);
+  enemy.traits.push('local-only');assert.equal(enemy.resists,undefined,'obsolete explicit resistance metadata is preserved only in source');assert.equal(JSON.stringify(manual),before);assert.deepEqual(base.traits,['reactiveArmor']);
   const normal=game.combat.spawn('host_28',{variant:base.variants[0]});assert.equal(normal.reactiveArmor,8);assert.equal(normal.stealth,undefined);assert.equal(normal.cloaked,false);assert.equal(normal.color,base.color);
 });
 
-test('live sidebar counts each actual immunity variant across living and queued enemies without concealed locations',()=>{
+test('current-wave composition counts each actual immunity variant across living and queued enemies without concealed locations',()=>{
   const {game,wave}=arena('host_31',6);game.rng=(()=>{let n=0;return ()=>n++%2?.9:.1;})();game.combat.start(wave);
   // The live game getter refers to its real wave31, whose enemy type matches
   // this bounded six-invader schedule. Counts come from actual queue/actors.
@@ -44,7 +46,7 @@ test('live sidebar counts each actual immunity variant across living and queued 
   const first=game.combat.spawnQueue.shift(),enemy=game.combat.spawn(first.type,first.modifiers);info=currentWarbandInfo(game);const row=info.find(row=>row.name===enemy.name);assert.equal(row.count,3);assert.equal(row.liveCount,1);assert.equal(row.queuedCount,2);
   enemy.dead=true;info=currentWarbandInfo(game);assert.equal(info.find(row=>row.name===enemy.name).count,2);assert.equal(info.reduce((n,row)=>n+row.count,0),5);
   assert.ok(info.every(row=>!('x' in row)&&!('z' in row)&&!('enemy' in row)&&!('route' in row)),'Only composition metadata is public');
-  const magic=info.find(row=>row.traits.includes('Immune to magic and magical effects')),physical=info.find(row=>row.traits.includes('Immune to physical and piercing damage'));assert.ok(magic&&physical);assert.ok(!magic.traits.includes('Immune to physical and piercing damage')&&!physical.traits.includes('Immune to magic and magical effects'));
+  const magic=info.find(row=>row.traits.includes('Immune to Magical damage, poison and burning; Holy effects ignore this immunity')),physical=info.find(row=>row.traits.includes('Immune to Physical damage, slowing and freezing; Holy effects ignore this immunity'));assert.ok(magic&&physical);assert.ok(!magic.traits.some(text=>text.startsWith('Immune to Physical'))&&!physical.traits.some(text=>text.startsWith('Immune to Magical')));
   game.combat.spawnQueue=[];game.combat.enemies.forEach(enemy=>enemy.dead=true);assert.deepEqual(currentWarbandInfo(game),[],'An exhausted actual combat group never invents a surviving variant');
 });
 

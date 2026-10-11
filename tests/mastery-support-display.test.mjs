@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {EconomyManager} from '../game/core/progression.js';
 import {Game} from '../game/core/game.js';
+import {campaignTowers} from '../game/core/campaign-roster.js';
 import {masteryPanelMarkup} from '../ui/mastery-panel.js';
 import {selectedSupportMarkup,supportEffectsMarkup,supportMapLegendMarkup,SUPPORT_EFFECT_DESCRIPTIONS} from '../ui/support-guide.js';
 import {SUPPORT_EFFECT_STYLES} from '../game/render/support-effects.js';
@@ -40,7 +41,7 @@ test('current friendly effects show exact values and actual named providers alon
   const target=unit('mage',1),monk=unit('monk',2),nature=unit('mothernature',3),outOfRange=unit('sunward',4,1,30);
   const stock=[target,monk,nature,outOfRange],before=JSON.stringify({stock,data});
   const html=supportEffectsMarkup(target,stock,data,{phase:'ready'});
-  assert.match(html,/Attack speed \+110%/);assert.match(html,/Damage \+50%/);assert.match(html,/From Monk #2/);
+  assert.match(html,/Attack speed \+60%/);assert.match(html,/Damage \+50%/);assert.match(html,/From Monk #2/);
   assert.doesNotMatch(html,/#4/);assert.match(html,/data-glyph="clock"/);assert.match(html,/data-glyph="blade"/);
   const provider=selectedSupportMarkup(monk,stock,data,{phase:'ready'});
   assert.match(provider,/Projected by this defender/);assert.match(provider,/Support reach · 5 tiles/);
@@ -61,14 +62,21 @@ test('negative effects follow the combat clock and never persist in preparation 
   assert.match(supportEffectsMarkup({...target,state:'draft'},stock,data,{phase:'combat',combat}),/Retain this defender/);
 });
 
-test('one provider winning multiple haste groups is named once, while separate tied providers remain visible',()=>{
+test('strongest standard providers are named once, tied providers remain visible and weaker tiers do not pretend to contribute',()=>{
   const target=unit('mage',1),monk=unit('monk',2),cleric=unit('cleric',3,4),otherMonk=unit('monk',4);
   const html=supportEffectsMarkup(target,[target,monk,cleric,otherMonk],data,{phase:'ready'});
   const haste=html.match(/<li[^>]*data-effect="haste"[\s\S]*?<\/li>/)[0];
   assert.equal((haste.match(/Monk #2/g)||[]).length,1);
   assert.equal((haste.match(/Monk #4/g)||[]).length,1);
-  assert.equal((haste.match(/Cleric #3/g)||[]).length,1);
-  assert.match(haste,/Attack speed \+110%/);
+  assert.equal((haste.match(/Cleric #3/g)||[]).length,0);
+  assert.match(haste,/Attack speed \+60%/);
+});
+
+test('current campaign support copy states strongest standard haste plus separate Otomad and names actual approved providers',()=>{
+  const current={...data,towers:campaignTowers(data.towers)},target=unit('mage',1),priest=unit('monk',2),otomad=unit('archbishop',3),duplicate=unit('archbishop',4);
+  const html=supportEffectsMarkup(target,[target,priest,otomad,duplicate],current,{phase:'ready'}),haste=html.match(/<li[^>]*data-effect="haste"[\s\S]*?<\/li>/)[0];
+  assert.match(haste,/Attack speed \+600%/);assert.ok(haste.includes(current.towers.monk.name+' #2'));assert.ok(haste.includes(current.towers.archbishop.name+' #3'));assert.ok(haste.includes(current.towers.archbishop.name+' #4'));
+  assert.match(haste,/Only the strongest standard attack-speed bonus applies/);assert.match(haste,/Otomad adds a separate \+500% bonus/);assert.match(haste,/duplicate Otomad sources do not stack/);
 });
 
 test('a real cloaked disarm invader shows the penalty without exposing its name or identity until revealed',()=>{

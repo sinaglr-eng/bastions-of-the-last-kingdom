@@ -102,3 +102,10 @@ node tools/statistics-report.mjs
 Skript načte soukromý `owner-token.txt` a použije stejný vlastnický endpoint nad lokální databází. Nevytváří prázdnou databázi, pokud dosud žádná neexistuje. Pro vzdálenou službu nastav `API_URL` na základní adresu API a `STATISTICS_ADMIN_TOKEN` na vlastnický token v prostředí a spusť stejný příkaz. `STATISTICS_DATA_DIR` vybírá jiný místní adresář databáze. Token se neukládá do reportů ani netiskne do výstupu.
 
 Výstup je `artifacts/statistics-reports/<čas>/statistics.json` a šest CSV souborů: `runs.csv`, `run-durations.csv`, `waves.csv`, `defenders.csv`, `draws.csv`, `decisions.csv`. Export ze staršího API bez `runDurations` ponechá nový CSV pouze s hlavičkou; nevytváří náhradní časy ani smyšlené hry. CSV mají UTF-8 BOM, čárkový oddělovač a ochranu textových buněk proti interpretaci jako vzorce. V Excelu je možné zvolit import UTF-8 a oddělovač čárka. Reporty jsou ignorované Gitem.
+
+
+## Developer Mode exclusion (0.3.26)
+
+Opening Developer Console immediately marks the current run ineligible. The client removes its outbox checkpoint, records a durable excluded ID, and queues an authenticated `POST /api/runs/:id/developer-mode` withdrawal. Offline withdrawals retry when connectivity returns or another run starts. Local score history excludes only that run; historical scores and preferences remain.
+
+The service retains a minimal `developer` tombstone so a delayed registration, checkpoint or score request cannot restore the run. Its saved name, score, summary and wave rows are cleared; leaderboard and every owner aggregate omit it. SQL guards also cover withdrawal between a checkpoint's owner read and its transaction. Existing schema and migrations are unchanged. This is an eligibility rule in a client-reported statistics service, not an anti-cheat claim.

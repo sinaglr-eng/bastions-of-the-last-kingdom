@@ -1,0 +1,699 @@
+{
+  "schemaVersion": 1,
+  "revision": "approved-20261011",
+  "music": [
+    {
+      "id": "iron_build",
+      "title": "Quiet Battlements",
+      "phase": "build",
+      "url": "../music/review-20261011/iron_build.mp3",
+      "durationSeconds": 96,
+      "sha256": "93dc1b894790c61b57edfbff09969c888f362f4141e30b95305a9d3e890c7e9a"
+    },
+    {
+      "id": "iron_battle",
+      "title": "March of the Siege",
+      "phase": "battle",
+      "url": "../music/review-20261011/iron_battle.mp3",
+      "durationSeconds": 96,
+      "sha256": "ab56a5362d247fee1684944cc863d4f074345022e7666175f569f7c4e1281309"
+    },
+    {
+      "id": "wilds_build",
+      "title": "Whispers of the Grove",
+      "phase": "build",
+      "url": "../music/review-20261011/wilds_build.mp3",
+      "durationSeconds": 96,
+      "sha256": "12573fce649e209d6e105c2cd8d18e56ab0f85dffc7660c0811bb1d60158606f"
+    },
+    {
+      "id": "wilds_battle",
+      "title": "Drums Beneath the Roots",
+      "phase": "battle",
+      "url": "../music/review-20261011/wilds_battle.mp3",
+      "durationSeconds": 96,
+      "sha256": "341908b112b4c4bd218c7921eb4c60b827876d0f916584f88a7fccc15f16eb20"
+    },
+    {
+      "id": "fallen_battle",
+      "title": "Under the Black Banner",
+      "phase": "battle",
+      "url": "../music/review-20261011/fallen_battle.mp3",
+      "durationSeconds": 96,
+      "sha256": "b17a42ef180af0a3f29691792e4286a7b149a212a6f04ad12606505719b0465f"
+    },
+    {
+      "id": "fallen_victory_celebration",
+      "title": "The Kingdom Rejoices",
+      "phase": "victory",
+      "url": "../music/review-20261011/fallen_victory_celebration.mp3",
+      "durationSeconds": 8,
+      "sha256": "3b904157dbec3309abdd3d4953f33d4eb88bb7b8133ff87115cafa757e02797f"
+    }
+  ],
+  "effects": [
+    {
+      "id": "arrow",
+      "url": "../attacks/shared-20261011/attack_arrow.mp3",
+      "durationSeconds": 0.8,
+      "sha256": "d029e3b721750e163057a8e519516e0e2a3e697132de472f388e1e014c3c29d6"
+    },
+    {
+      "id": "sword",
+      "url": "../attacks/shared-20261011/attack_sword.mp3",
+      "durationSeconds": 0.8,
+      "sha256": "d38b8f1c2114e2dbc2f593e06eb01c8e517f9047c44da78e09c33d90709d0c1f"
+    },
+    {
+      "id": "spear",
+      "url": "../attacks/shared-20261011/attack_spear.mp3",
+      "durationSeconds": 0.6802494331065759,
+      "sha256": "5a119884680f18cc8ac2962d1e5a9a0da09b73cbd18ac2a3741169d5ad284d49"
+    },
+    {
+      "id": "hammer",
+      "url": "../attacks/shared-20261011/attack_hammer.mp3",
+      "durationSeconds": 0.88,
+      "sha256": "a2ae256f9bc7e7a3e47e4a746fabc6f570be0a7ee76990b2a646eba9c885ad3b"
+    },
+    {
+      "id": "runic_bolt",
+      "url": "../attacks/shared-20261011/attack_runic_bolt.mp3",
+      "durationSeconds": 0.8,
+      "sha256": "8cbc9bde82f739e10207915af48d38e5b9b2fef41139dc6dea84b4e77f3218d1"
+    },
+    {
+      "id": "heavy_bolt",
+      "url": "../attacks/shared-20261011/attack_heavy_bolt.mp3",
+      "durationSeconds": 1,
+      "sha256": "24be99c1cc62b369324baec1af43e9ff84ed3ed918654c078b81fdc52d4a4a11"
+    },
+    {
+      "id": "stone",
+      "url": "../attacks/shared-20261011/attack_stone.mp3",
+      "durationSeconds": 1.08,
+      "sha256": "09343b6aba18820f43424fa7defd1a631a7b909cbf91f01fd93a31d938e4d5f2"
+    },
+    {
+      "id": "charge",
+      "url": "../attacks/shared-20261011/attack_charge.mp3",
+      "durationSeconds": 1,
+      "sha256": "a0a536bd152daaa863f7f887170a3504b4cb47eca235f88919a61bfd2d6415cb"
+    },
+    {
+      "id": "toxic_canister",
+      "url": "../attacks/shared-20261011/attack_toxic_canister.mp3",
+      "durationSeconds": 1,
+      "sha256": "e612ebb783934aaf7ed8911d32bd765705a45d91c7e01a6a17fc0f9f33cc0cee"
+    },
+    {
+      "id": "nature",
+      "url": "../attacks/shared-20261011/attack_nature.mp3",
+      "durationSeconds": 1,
+      "sha256": "df36bc8de6492964657a2661b9f84e29b5784310ab425238167031978e3fb072"
+    },
+    {
+      "id": "arcane",
+      "url": "../attacks/shared-20261011/attack_arcane.mp3",
+      "durationSeconds": 0.88,
+      "sha256": "b41899e5f4d502560d782233457c5843c7f3b32dba4d46a528361894fe049ff7"
+    },
+    {
+      "id": "holy",
+      "url": "../attacks/shared-20261011/attack_holy.mp3",
+      "durationSeconds": 1,
+      "sha256": "58647d2db8015c0a3072dfa5f1fa9b1a5756af32ff9af31da11f03501d73eda7"
+    },
+    {
+      "id": "frost",
+      "url": "../attacks/shared-20261011/attack_frost.mp3",
+      "durationSeconds": 1,
+      "sha256": "f4b66c197f8ef382d059fb24bbc255b03e8e08f01199f295531d7e44ded7d974"
+    },
+    {
+      "id": "lightning",
+      "url": "../attacks/shared-20261011/attack_lightning.mp3",
+      "durationSeconds": 0.8,
+      "sha256": "e949794017f9dc5cb3c5cfb7b9697a5f8bc42d4081a62f0f690d391480b81eb4"
+    },
+    {
+      "id": "fire",
+      "url": "../attacks/shared-20261011/attack_fire.mp3",
+      "durationSeconds": 1.08,
+      "sha256": "6b279ddc3eedcd938b181727c745db69f67d2e960621ea2871488d9826d50483"
+    }
+  ],
+  "defenders": [
+    {
+      "character_id": "soldier",
+      "character": "Soldier",
+      "effects": [
+        "spear",
+        "sword"
+      ],
+      "conditions": [
+        {
+          "effect": "spear",
+          "ranks": [
+            1
+          ],
+          "event": "shot"
+        },
+        {
+          "effect": "sword",
+          "ranks": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "event": "shot"
+        }
+      ]
+    },
+    {
+      "character_id": "archer",
+      "character": "Archer",
+      "effects": [
+        "arrow"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "druid",
+      "character": "Druid",
+      "effects": [
+        "nature"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "mage",
+      "character": "Mage",
+      "effects": [
+        "arcane"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "cleric",
+      "character": "Cleric",
+      "effects": [
+        "holy"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "runebreaker",
+      "character": "Engineer",
+      "effects": [
+        "runic_bolt"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "frostwarden",
+      "character": "Frost Warden",
+      "effects": [
+        "frost"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "stormcaller",
+      "character": "Stormcaller",
+      "effects": [
+        "lightning"
+      ],
+      "ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "character_id": "rimewatch",
+      "character": "Frostsword Watchmen",
+      "effects": [
+        "frost"
+      ]
+    },
+    {
+      "character_id": "frostblade",
+      "character": "Frost Knight",
+      "effects": [
+        "spear"
+      ]
+    },
+    {
+      "character_id": "roseguard",
+      "character": "Lionheart Champion",
+      "effects": [
+        "spear"
+      ]
+    },
+    {
+      "character_id": "highking",
+      "character": "Kingslayer",
+      "effects": [
+        "sword"
+      ]
+    },
+    {
+      "character_id": "crownofages",
+      "character": "King",
+      "effects": [
+        "sword"
+      ]
+    },
+    {
+      "character_id": "thornwarden",
+      "character": "Elven Ranger",
+      "effects": [
+        "arrow"
+      ]
+    },
+    {
+      "character_id": "verdantguard",
+      "character": "Elven Elite Warrior",
+      "effects": [
+        "arrow"
+      ]
+    },
+    {
+      "character_id": "tempest",
+      "character": "Elven Mage",
+      "effects": [
+        "lightning"
+      ]
+    },
+    {
+      "character_id": "stormcitadel",
+      "character": "Elven Archmage",
+      "effects": [
+        "lightning"
+      ]
+    },
+    {
+      "character_id": "embercrown",
+      "character": "Baby Fire Dragon",
+      "effects": [
+        "fire"
+      ],
+      "conditions": [
+        {
+          "effect": "fire",
+          "event": "aura-attack",
+          "when": "Existing continuous fire aura damages a visible enemy; no primary projectile exists."
+        }
+      ]
+    },
+    {
+      "character_id": "worldfire",
+      "character": "Mother Fire Dragon",
+      "effects": [
+        "fire"
+      ],
+      "conditions": [
+        {
+          "effect": "fire",
+          "event": "aura-attack",
+          "when": "Existing continuous fire aura damages a visible enemy; no primary projectile exists."
+        }
+      ]
+    },
+    {
+      "character_id": "starfall",
+      "character": "Thunderbird",
+      "effects": [
+        "lightning"
+      ],
+      "conditions": [
+        {
+          "effect": "lightning",
+          "event": "shot",
+          "when": "Primary storm shot."
+        },
+        {
+          "effect": "lightning",
+          "event": "chain",
+          "when": "Existing chain-lightning proc; requires reliable proc attribution for future routing."
+        }
+      ]
+    },
+    {
+      "character_id": "thunderheart",
+      "character": "Elemental Male Dragon",
+      "effects": [
+        "lightning",
+        "fire"
+      ],
+      "conditions": [
+        {
+          "effect": "lightning",
+          "event": "shot",
+          "when": "Primary lightning shot."
+        },
+        {
+          "effect": "lightning",
+          "event": "chain",
+          "when": "Existing forked-lightning proc; requires reliable proc attribution for future routing."
+        },
+        {
+          "effect": "fire",
+          "event": "aura-attack",
+          "when": "Existing independent fire aura; family lightning classification must not override this fire cue."
+        }
+      ]
+    },
+    {
+      "character_id": "phoenix",
+      "character": "Ancient Dragon Patriarch",
+      "effects": [
+        "fire",
+        "lightning"
+      ],
+      "conditions": [
+        {
+          "effect": "fire",
+          "event": "shot",
+          "when": "Existing fire primary attack; poison damage-over-time stays silent."
+        },
+        {
+          "effect": "fire",
+          "event": "aura-attack",
+          "when": "Existing continuous fire aura."
+        },
+        {
+          "effect": "lightning",
+          "event": "chain",
+          "when": "Existing forked-lightning proc; requires reliable proc attribution for future routing."
+        }
+      ]
+    },
+    {
+      "character_id": "greenheart",
+      "character": "Master Druid",
+      "effects": [
+        "nature"
+      ]
+    },
+    {
+      "character_id": "eldergrove",
+      "character": "Archdruid",
+      "effects": [
+        "nature"
+      ]
+    },
+    {
+      "character_id": "kingsreach",
+      "character": "Ballista",
+      "effects": [
+        "heavy_bolt"
+      ]
+    },
+    {
+      "character_id": "sunward",
+      "character": "Priest",
+      "effects": [
+        "holy"
+      ]
+    },
+    {
+      "character_id": "winterhold",
+      "character": "Frozen Celestial",
+      "effects": [
+        "frost"
+      ]
+    },
+    {
+      "character_id": "dawnspire",
+      "character": "Archangel",
+      "effects": [
+        "holy"
+      ],
+      "conditions": [
+        {
+          "effect": "holy",
+          "event": "shot",
+          "when": "Holy primary attack; passive winter and support auras stay silent."
+        }
+      ]
+    },
+    {
+      "character_id": "royalmarshal",
+      "character": "Dwarf Firebomber",
+      "effects": [
+        "charge"
+      ]
+    },
+    {
+      "character_id": "stonewarden",
+      "character": "Catapult",
+      "effects": [
+        "stone"
+      ]
+    },
+    {
+      "character_id": "wyvernhunter",
+      "character": "Ranger",
+      "effects": [
+        "arrow"
+      ]
+    },
+    {
+      "character_id": "royalarsenal",
+      "character": "Elven King",
+      "effects": [
+        "nature"
+      ],
+      "conditions": [
+        {
+          "effect": "nature",
+          "event": "shot",
+          "when": "Latest forest staff releases the existing three physical shots; cosmetic woodland presentation does not change damage or summon spirits."
+        }
+      ]
+    },
+    {
+      "character_id": "rangermentor",
+      "character": "Nature Spirit",
+      "effects": [
+        "nature"
+      ]
+    },
+    {
+      "character_id": "kingdomprotector",
+      "character": "Paladin",
+      "effects": [
+        "hammer"
+      ]
+    },
+    {
+      "character_id": "mothernature",
+      "character": "Mother Nature",
+      "effects": [
+        "nature"
+      ]
+    },
+    {
+      "character_id": "royalranger",
+      "character": "Master Ranger",
+      "effects": [
+        "arrow"
+      ],
+      "conditions": [
+        {
+          "effect": "arrow",
+          "event": "shot",
+          "when": "Same bow release as every other Ranger; poison coating and subsequent poison ticks add no new generated variant."
+        }
+      ]
+    },
+    {
+      "character_id": "kingsrangerguard",
+      "character": "Dark Ranger",
+      "effects": [
+        "arrow"
+      ]
+    },
+    {
+      "character_id": "elvenking",
+      "character": "Ranger Oathbreaker",
+      "effects": [
+        "arrow",
+        "fire"
+      ],
+      "conditions": [
+        {
+          "effect": "arrow",
+          "event": "shot",
+          "when": "Ordinary physical arrow."
+        },
+        {
+          "effect": "fire",
+          "event": "rare-fire-proc",
+          "when": "Only the existing successful burnedChance fire splash; this dedicated event is not currently emitted and would require attribution metadata before future integration."
+        }
+      ]
+    },
+    {
+      "character_id": "fireballista",
+      "character": "Fire Ballista",
+      "effects": [
+        "heavy_bolt"
+      ],
+      "conditions": [
+        {
+          "effect": "heavy_bolt",
+          "event": "shot",
+          "when": "Existing physical armor-breaking bolt; no fire damage or burn ability is present."
+        }
+      ]
+    },
+    {
+      "character_id": "emeraldgolem",
+      "character": "Golem",
+      "effects": [
+        "stone"
+      ],
+      "conditions": [
+        {
+          "effect": "stone",
+          "event": "shot",
+          "when": "Current physical stone projectile. Latest integrated forearm ballista is recorded as equipment evidence; no unimplemented bolt or melee mechanic is invented."
+        }
+      ]
+    },
+    {
+      "character_id": "griffinbomber",
+      "character": "Dwarf Griffin bomber",
+      "effects": [
+        "charge"
+      ]
+    },
+    {
+      "character_id": "mechanicalgolem",
+      "character": "Dwarship",
+      "effects": [
+        "toxic_canister"
+      ],
+      "conditions": [
+        {
+          "effect": "toxic_canister",
+          "event": "shot",
+          "when": "Latest gondola bomb presentation of the existing physical/toxic ranged packet; no new splash, fire or flight mechanic."
+        }
+      ]
+    },
+    {
+      "character_id": "monk",
+      "character": "High Priest",
+      "effects": [
+        "holy"
+      ]
+    },
+    {
+      "character_id": "archbishop",
+      "character": "Archbishop",
+      "effects": [
+        "holy"
+      ]
+    },
+    {
+      "character_id": "archangel",
+      "character": "Angel",
+      "effects": [
+        "frost"
+      ],
+      "conditions": [
+        {
+          "effect": "frost",
+          "event": "shot",
+          "when": "Primary frost spell."
+        },
+        {
+          "effect": "frost",
+          "event": "chain",
+          "when": "Existing bouncing frost triggered by a nearby allied magic hit; chain event needs explicit frost attribution and must not be assumed to be lightning."
+        }
+      ]
+    },
+    {
+      "character_id": "ladyclaire",
+      "character": "Lady Claire",
+      "effects": [
+        "arcane",
+        "lightning"
+      ],
+      "conditions": [
+        {
+          "effect": "arcane",
+          "event": "shot",
+          "when": "Primary golden arcane staff spell."
+        },
+        {
+          "effect": "lightning",
+          "event": "chain",
+          "when": "Existing chain or forked-lightning proc only; requires reliable proc attribution for future routing."
+        }
+      ]
+    }
+  ],
+  "policy": {
+    "crossfadeSeconds": 1.5,
+    "musicRate": 1,
+    "musicDecodedCacheLimit": 2,
+    "duckGain": 0.32,
+    "onlyVictoryTrack": "fallen_victory_celebration",
+    "attackVariantsPerType": 1,
+    "passiveAurasSilent": true,
+    "dotTicksSilent": true
+  }
+}

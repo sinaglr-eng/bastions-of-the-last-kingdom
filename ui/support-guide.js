@@ -20,7 +20,7 @@ const paths={
 };
 const escape=text=>String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const SUPPORT_EFFECT_DESCRIPTIONS=Object.freeze({
-  haste:'Attacks happen more often. The strongest bonus in each support group applies; different groups add together.',
+  haste:'Attacks happen more often. Only the strongest standard attack-speed bonus applies. Otomad adds a separate +500% bonus; duplicate Otomad sources do not stack.',
   damage:'Increases damage dealt by this defender. The strongest nearby damage bonus applies.',
   range:'Extends this defender’s attack range by the listed number of tiles.',
   controlResistance:'Reduces nearby enemies’ attack slowing and shortens their disarm effect.',

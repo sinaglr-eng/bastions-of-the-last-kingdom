@@ -1,5 +1,16 @@
 # Releases
 
+## 0.3.26 — Combat, MVP and Recorded Soundtrack — 11 October 2026
+
+- Integrates 92 approved defender voice recordings, six selected music tracks and 15 shared attack sounds; preserves previous recordings and all approved models, portraits, scales and classification auras.
+- Crossfades construction and combat music over 1.5 seconds, ducks music for final defender lines, preserves music position while paused, and plays the celebration once after campaign victory. Game speed never changes audio speed.
+- Uses Physical, Magical and Holy damage with armor applying to all three; removes elemental resistance and Pure damage. Holy bypasses damage immunity while retaining armor, evasion, refraction and direct-hit shell rules.
+- Applies the agreed defender and enemy ability changes, including independently expiring five-second poison stacks, revised cleave, Ranger defenses, immunity/control rules, armor reduction, healing, movement and attack-speed auras.
+- Awards one MVP level per completed wave from actual attributed HP damage, up to ten, with inherited levels, armor and allied damage auras, MAX MVP halos and individual defender attack pause.
+- Adds a production Developer Console with seeded Sandbox and Campaign Test modes, all wave profiles, temporary overrides, MVP controls, actual hit breakdowns and JSON save/load. Developer runs are excluded from local scores, online leaderboards and owner reports, including their earlier uploaded checkpoints.
+
+See [current combat rules](docs/COMBAT_RULES.md) and [release implementation](docs/COMBAT_OVERHAUL_20261011.md).
+
 ## 0.3.25 — Boss Health and Touch Selection — 9 October 2026
 
 - Moves Pause / Resume and speed immediately to the left of Enemy Waves.

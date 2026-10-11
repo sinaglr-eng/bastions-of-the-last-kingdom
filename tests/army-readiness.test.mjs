@@ -3,8 +3,10 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {ArmyReadiness,READINESS_SCOPE} from '../game/core/army-readiness.js';
 import {WaveThreatAnalyzer} from '../game/core/wave-threats.js';
+import {campaignTowers,campaignEnemies,campaignWaves,campaignRecipes} from '../game/core/campaign-roster.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
+Object.assign(data,{towers:campaignTowers(data.towers),enemies:campaignEnemies(data.enemies),waves:campaignWaves(data.waves),recipes:campaignRecipes(data.recipes)});
 const tower=(family,tier=1,state='active',extra={})=>({family,tier,state,x:10,z:10,...extra});
 function analysis(ids,raw={},count=10,variants=null){
   const enemies=variants||[{hp:1000,armor:0,speed:2,...raw}];
@@ -55,25 +57,33 @@ test('melee cannot respond to flying targets while real ranged and burn auras ca
   assert.ok(row(engine.evaluate(preview,[tower('embercrown')]),'flying').ordinal>0);
 });
 
-test('magical damage and magical control do not bypass magic immunity',()=>{
+test('Magical damage cannot bypass Magical immunity while independent Physical control still works',()=>{
   const engine=new ArmyReadiness(data),preview=analysis(['magicImmune','fast'],{magicImmune:true,hp:1000});
-  const result=engine.evaluate(preview,[tower('frostwarden',6),tower('druid',6)]);
+  const result=engine.evaluate(preview,[tower('mage',6),tower('druid',6)]);
   assert.equal(row(result,'magicImmune').level,'weak');assert.equal(row(result,'fast').level,'weak');
   assert.match(row(result,'fast').response,/No applicable slowing/);
   assert.ok(row(engine.evaluate(preview,[tower('archer',6)]),'magicImmune').ordinal>0);
+  assert.match(row(engine.evaluate(preview,[tower('frostwarden',6)]),'fast').response,/Applicable slowing/);
 });
 
 test('physical immunity rejects physical/piercing but allows real magical aura damage',()=>{
   const engine=new ArmyReadiness(data),preview=analysis(['physicalImmune'],{physicalImmune:true,hp:1000});
-  assert.equal(engine.evaluate(preview,[tower('royalarsenal')]).rows[0].level,'weak');
+  assert.equal(engine.evaluate(preview,[tower('royalranger')]).rows[0].level,'weak');
   const magical=engine.evaluate(preview,[tower('worldfire')]).rows[0];assert.equal(magical.level,'strong');assert.match(magical.response,/Magical/);
 });
 
-test('an isolated magic-immune boss cannot be damaged by a mage pure secondary cleave',()=>{
+test('an isolated Magical-immune boss cannot be damaged by Mage Magical secondary cleave',()=>{
   const preview=analysis(['magicImmune','boss'],{hp:1000,magicImmune:true,boss:true},1);
   const result=new ArmyReadiness(data).evaluate(preview,[tower('mage',6)]);
   assert.ok(result.rows.every(r=>r.level==='weak'));
   assert.match(row(result,'magicImmune').response,/No applicable damage/);
+});
+
+test('own MVP level and attack pause invalidate actual composition capability while allied aura coverage stays explicit',()=>{
+  const fixture=custom({plain:stats({damage:100})}),engine=new ArmyReadiness(fixture),preview=analysis(['highHealth'],{hp:5000}),t=tower('plain');
+  const base=engine.evaluate(preview,[t]);t.mvpLevel=10;const upgraded=engine.evaluate(preview,[t]);assert.notEqual(upgraded,base);assert.ok(upgraded.rows[0].ordinal>base.rows[0].ordinal);
+  t.attackPaused=true;const paused=engine.evaluate(preview,[t]);assert.equal(paused.rows[0].ordinal,0);assert.notEqual(paused,upgraded);assert.match(paused.scope,/MVP armor-aura coverage.*not evaluated/);
+  t.attackPaused=false;assert.equal(engine.evaluate(preview,[t]),upgraded);
 });
 
 test('effective armor, penetration and on-hit shredding affect actual damage capability',()=>{
@@ -83,10 +93,10 @@ test('effective armor, penetration and on-hit shredding affect actual damage cap
   for(const family of ['piercing','shredding']){const improved=engine.evaluate(preview,[tower(family)]).rows[0];assert.ok(improved.ordinal>normal.ordinal);assert.match(improved.response,/reduction or penetration/);}
 });
 
-test('reactive armor is evaluated at its real maximum stacks and cannot inflate magical armor',()=>{
+test('reactive armor is evaluated at its real maximum stacks equally for Physical and Magical damage',()=>{
   const fixture=custom({plain:stats({damage:100}),magic:stats({damage:100,type:'arcane'})});
   const engine=new ArmyReadiness(fixture),plain=analysis(['reactiveArmor'],{hp:5000,reactiveArmor:8});
-  assert.ok(engine.evaluate(plain,[tower('magic')]).rows[0].ordinal>engine.evaluate(plain,[tower('plain')]).rows[0].ordinal);
+  assert.equal(engine.evaluate(plain,[tower('magic')]).rows[0].ordinal,engine.evaluate(plain,[tower('plain')]).rows[0].ordinal);
   assert.match(engine.evaluate(plain,[tower('plain')]).rows[0].response,/Maximum reactive stacks/);
 });
 
@@ -105,10 +115,11 @@ test('regeneration pressure uses modified maximum health and the real percentage
   assert.match(engine.evaluate(analysis(['recharge'],{hp:2000,recharge:.12}),[tower('plain')]).rows[0].response,/missing-health recharge/);
 });
 
-test('poison and other same-status damage over time use strongest application rather than stacking',()=>{
-  const fixture=custom({venom:stats({type:'poison',damage:1,poisonDps:100})}),engine=new ArmyReadiness(fixture),preview=analysis(['highHealth'],{hp:6000});
+test('independent poison stacks add nominal hit-stream damage while burn remains strongest-only',()=>{
+  const fixture=custom({venom:stats({type:'poison',damage:1,poisonDps:100})}),engine=new ArmyReadiness(fixture),preview=analysis(['highHealth'],{hp:15000});
   const single=engine.evaluate(preview,[tower('venom')]).rows[0],double=engine.evaluate(preview,[tower('venom'),tower('venom')]).rows[0];
-  assert.equal(single.level,'fair');assert.equal(double.level,'fair');
+  assert.ok(double.ordinal>single.ordinal);
+  const fire=custom({burn:stats({type:'magical',damage:1,burnDps:100})}),burnEngine=new ArmyReadiness(fire);assert.equal(burnEngine.evaluate(preview,[tower('burn')]).rows[0].ordinal,burnEngine.evaluate(preview,[tower('burn'),tower('burn')]).rows[0].ordinal);
 });
 
 test('direct hit shell can prevent effect application while independent aura damage bypasses it',()=>{
@@ -154,16 +165,17 @@ test('control protection and actual extended detection are reported as placement
   assert.match(engine.evaluate(stealth,[tower('archer',6)]).rows[0].response,/nearby cloaked/);
 });
 
-test('real anti-air immunity piercing affects its slow but never makes magical damage pierce immunity',()=>{
+test('Ranger anti-air slow respects Physical immunity and has no Magical-immunity bypass requirement',()=>{
   const engine=new ArmyReadiness(data),preview=analysis(['fast'],{hp:1000,flying:true,magicImmune:true});
   assert.match(engine.evaluate(preview,[tower('kingsrangerguard')]).rows[0].response,/Applicable slowing/);
-  assert.match(engine.evaluate(preview,[tower('wyvernhunter')]).rows[0].response,/No applicable slowing/);
+  assert.match(engine.evaluate(preview,[tower('wyvernhunter')]).rows[0].response,/Applicable slowing/);
+  assert.match(engine.evaluate(analysis(['fast'],{hp:1000,flying:true,physicalImmune:true}),[tower('wyvernhunter')]).rows[0].response,/No applicable slowing/);
 });
 
 test('possible variants use the weakest matching case instead of assuming the favorable roll',()=>{
-  const engine=new ArmyReadiness(data),preview=analysis(['boss'],{},1,[{hp:1000,armor:0,boss:true},{hp:1000,armor:0,boss:true,physicalImmune:true}]);
+  const engine=new ArmyReadiness(data),preview=analysis(['boss'],{},1,[{hp:1000,armor:0,boss:true},{hp:1000,armor:0,boss:true,magicImmune:true}]);
   assert.equal(engine.evaluate(preview,[tower('royalarsenal')]).rows[0].level,'weak');
-  assert.ok(engine.evaluate(preview,[tower('royalarsenal'),tower('mage',6)]).rows[0].ordinal>0);
+  assert.ok(engine.evaluate(preview,[tower('royalarsenal'),tower('archer',6)]).rows[0].ordinal>0);
 });
 
 test('unknown towers, incomplete enemies and empty analyses are safe and conservative',()=>{
@@ -198,7 +210,7 @@ test('the analyzer primary threats bound readiness rows without changing the ful
 test('conditional petrification is described truthfully for blink without assuming enemy facing',()=>{
   const preview=analysis(['blink'],{hp:5000,blink:5}),engine=new ArmyReadiness(data);
   assert.match(engine.evaluate(preview,[tower('emeraldgolem')]).rows[0].response,/requires an attack proc and sustained facing/);
-  assert.match(engine.evaluate(analysis(['blink'],{hp:5000,blink:5,magicImmune:true}),[tower('emeraldgolem')]).rows[0].response,/Ordinary slowing does not prevent/);
+  assert.match(engine.evaluate(analysis(['blink'],{hp:5000,blink:5,magicImmune:true}),[tower('emeraldgolem')]).rows[0].response,/requires an attack proc and sustained facing/);
 });
 
 test('all actual campaign previews evaluate deterministically with canonical classified variant IDs',()=>{

@@ -1,14 +1,14 @@
-import {ENEMY_RULES as R,enemyNumber,enemyRegenerationPerSecond} from './enemy-rules.js';
+import {ENEMY_RULES,enemyRulesFor,enemyNumber,enemyRegenerationPerSecond} from './enemy-rules.js';
 
 const percent=value=>`${enemyNumber(value*100)}%`;
 
 // This is CombatManager.spawn's variant/modifier merge, without allocating a
 // live enemy. The guide and upcoming-wave cards can display the same values.
-export function configuredWarbandInfo(definition,modifiers={}){
+export function configuredWarbandInfo(definition,modifiers={},rules=ENEMY_RULES){
   const selected={...definition,...modifiers.variant};
   const maxHp=selected.hp*(modifiers.hp||1);
-  const enemy={...selected,hp:maxHp,maxHp,armor:selected.armor+(modifiers.armor||0),speed:selected.speed*(modifiers.speed||1),resists:{...selected.resists,...modifiers.resists}};
-  const traitDetails=warbandTraitDetails(enemy);
+  const enemy={...selected,hp:maxHp,maxHp,armor:selected.armor+(modifiers.armor||0),speed:selected.speed*(modifiers.speed||1)};
+  delete enemy.resists;const traitDetails=warbandTraitDetails(enemy,rules);
   return {name:enemy.name,maxHp,armor:enemy.armor,speed:enemy.speed,flying:!!enemy.flying,traits:traitDetails.map(trait=>trait.text),traitDetails};
 }
 
@@ -19,7 +19,7 @@ export function warbandVariantInfo(definition,modifiers={}){
 // Summarize actual live and queued invaders separately by their effective
 // variant/stat profile. This is remaining composition, not a forced wave ratio.
 export function currentWarbandInfo(game) {
-  const rows=new Map(),types=new Set(game.wave.groups.map(group=>group.type));
+  const rules=enemyRulesFor(game),rows=new Map(),types=new Set(game.wave.groups.map(group=>group.type));
   const add=(type,info,source)=>{
     const key=JSON.stringify([type,info.name,info.maxHp,info.armor,info.speed,info.flying,info.traitDetails]);
     if(!rows.has(key))rows.set(key,{type,count:0,liveCount:0,queuedCount:0,...info});
@@ -27,14 +27,14 @@ export function currentWarbandInfo(game) {
   };
   for(const type of types){
     for(const enemy of game.combat.enemies)if(enemy.type===type&&!enemy.dead){
-      const traitDetails=warbandTraitDetails(enemy);
+      const traitDetails=warbandTraitDetails(enemy,rules);
       add(type,{name:enemy.name,maxHp:enemy.maxHp,armor:enemy.armor,speed:enemy.speed,flying:!!enemy.flying,traits:traitDetails.map(trait=>trait.text),traitDetails},'live');
     }
-    for(const queued of game.combat.spawnQueue)if(queued.type===type)add(type,configuredWarbandInfo({...game.data.enemies[type],type},queued.modifiers),'queued');
+    for(const queued of game.combat.spawnQueue)if(queued.type===type)add(type,configuredWarbandInfo({...game.data.enemies[type],type},queued.modifiers,rules),'queued');
   }
   if(rows.size||game.phase==='combat')return [...rows.values()];
   // Before any actual selection exists, callers may request configured stats.
-  return game.wave.groups.map(group=>({type:group.type,count:group.count,liveCount:0,queuedCount:0,...configuredWarbandInfo({...game.data.enemies[group.type],type:group.type},{...game.wave,...group})}));
+  return game.wave.groups.map(group=>({type:group.type,count:group.count,liveCount:0,queuedCount:0,...configuredWarbandInfo({...game.data.enemies[group.type],type:group.type},{...game.wave,...group},rules)}));
 }
 
 export function warbandTraits(enemy) {
@@ -42,16 +42,15 @@ export function warbandTraits(enemy) {
 }
 
 // Explicit keys pair a description with the same silhouette used in combat.
-export function warbandTraitDetails(enemy) {
+export function warbandTraitDetails(enemy,R=ENEMY_RULES) {
   const traits=[];
   const add=(text,kind=null)=>traits.push({text,kind});
-  if(enemy.magicImmune)add('Immune to magic and magical effects','magicImmune');
-  if(enemy.physicalImmune)add('Immune to physical and piercing damage','physicalImmune');
-  for(const [type,value] of Object.entries(enemy.resists||{}))if(value>0)add(`${percent(value)} ${type} resistance`,type);
+  if(enemy.magicImmune)add('Immune to Magical damage, poison and burning; Holy effects ignore this immunity','magicImmune');
+  if(enemy.physicalImmune)add('Immune to Physical damage, slowing and freezing; Holy effects ignore this immunity','physicalImmune');
   if(enemy.regen>0)add(`Regenerates ${percent(enemy.regen)} maximum health/s (${enemyNumber(enemyRegenerationPerSecond(enemy))} HP/s) · healing block prevents regeneration`,'regen');
-  if(enemy.evasion>0)add(`${percent(enemy.evasion)} chance to evade physical/piercing direct hits · True Strike bypasses evasion`,'evasion');
+  if(enemy.evasion>0)add(`${percent(enemy.evasion)} chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion`,'evasion');
   if(enemy.refraction>0)add(`${enemyNumber(enemy.refraction)} hit-blocking shields · refresh every ${R.refraction.period}s · damage-over-time and auras bypass shields`,'refraction');
-  if(enemy.krakenShell>0)add(`Shell blocks ${enemyNumber(enemy.krakenShell)} damage per non-pure direct hit`,'krakenShell');
+  if(enemy.krakenShell>0)add(`Shell blocks ${enemyNumber(enemy.krakenShell)} damage per direct hit, including Holy damage`,'krakenShell');
   if(enemy.reactiveArmor>0)add(`Reactive armor · +${enemyNumber(enemy.reactiveArmor)} armor per direct hit · maximum ${R.reactive.maxStacks} stacks (${enemyNumber(enemy.reactiveArmor*R.reactive.maxStacks)} armor) · decays ${R.reactive.decayPerSecond} stacks/s`,'reactive');
   if(enemy.recharge>0)add(`Restores ${percent(enemy.recharge)} missing health every ${R.recharge.period}s · healing block prevents recharge`,'recharge');
   if(enemy.stealth||enemy.cloakDaggers){
@@ -65,7 +64,6 @@ export function warbandTraitDetails(enemy) {
   if(enemy.untouchable>0)add(`Dread aura · defenders within ${R.dread.radius} tiles lose ${percent(enemy.untouchable)} attack speed · control resistance reduces slowing`,'untouchable');
   if(enemy.thief>0)add(`Steals ${enemyNumber(enemy.thief)} gold on reaching the keep`);
   if(enemy.type==='shaman')add(`Invaders within ${R.support.radius} tiles gain ${percent(R.support.shamanHaste-1)} movement speed continuously`);
-  if(enemy.type==='warlock')add(`Invaders within ${R.support.radius} tiles gain ${percent(R.support.warlockWard)} magic resistance`,'magic');
   if(enemy.type==='berserker')add(`Below ${percent(R.rush.berserkerThreshold)} health · ×${R.rush.berserkerSpeed} movement speed`);
   if(enemy.type==='sapper')add(`Scorches barricades within ${R.sapper.radius} tiles for ${R.sapper.duration}s · defenders within ${R.sapper.defenderRadius} tiles of each scorched barricade lose ${percent(R.sapper.attackPenalty)} attack speed`);
   return traits;

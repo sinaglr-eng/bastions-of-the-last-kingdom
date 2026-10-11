@@ -42,7 +42,7 @@ function battle(specifications=[['druid',6],['druid',1]]){
 }
 function foe(game,properties={}){
   const enemy=game.combat.spawn('goblin');
-  Object.assign(enemy,{x:15,z:19,speed:0,hp:1e5,maxHp:1e5,...properties});
+  Object.assign(enemy,{x:15,z:19,speed:0,armor:0,regen:0,hp:1e5,maxHp:1e5,...properties});
   return enemy;
 }
 const strike=(game,source,enemy,overrides={})=>game.combat.impact({
@@ -51,7 +51,7 @@ const strike=(game,source,enemy,overrides={})=>game.combat.impact({
 const sum=(hits,predicate=()=>true)=>hits.filter(predicate).reduce((total,hit)=>total+hit.applied,0);
 const dotTotal=(hits,source)=>sum(hits,hit=>!hit.directHit&&hit.id===source.id);
 const statusView=enemy=>enemy.statuses.poison&&{
-  dps:enemy.statuses.poison.dps,time:enemy.statuses.poison.time,source:enemy.statuses.poison.source.id,
+  dps:enemy.statuses.poison.dps,time:enemy.statuses.poison.time,applications:enemy.statuses.poison.applications.map(a=>[a.dps,a.time,a.source.id]),
 };
 function advance(game,seconds,step){
   let remaining=seconds;
@@ -61,151 +61,67 @@ function advance(game,seconds,step){
   }
 }
 
-test('a weaker real hit cannot extend another source poison and a crossing tick credits each actual expiry slice',()=>{
+test('a weaker real hit adds its own stack without extending another source deadline, and crossing ticks credit both actual owners',()=>{
   const {game,sources:[strong,weak],tracker,hits}=battle(),enemy=foe(game),initialHp=enemy.hp;
-  strike(game,strong,enemy);game.tick(4.9);
-  close(enemy.statuses.poison.time,.1);assert.equal(enemy.statuses.poison.source,strong);
-  strike(game,weak,enemy);
-  close(enemy.statuses.poison.applications.find(application=>application.source===strong).time,.1,
-    'weak hit must preserve the strong source deadline');
-  close(enemy.statuses.poison.time,5,'the visible status includes the later weaker expiry');
-  assert.equal(enemy.statuses.poison.dps,384);assert.equal(enemy.statuses.poison.source,strong);
-  const beforeCrossing=hits.length;
-  game.tick(.2);
-  const crossing=hits.slice(beforeCrossing);
-  assert.deepEqual(crossing.map(hit=>[hit.id,hit.directHit,hit.type]),[
-    [strong.id,false,'poison'],[weak.id,false,'poison'],
-  ]);
-  close(crossing[0].applied,38.4);close(crossing[1].applied,.6);
-  close(dotTotal(hits,strong),1920);close(dotTotal(hits,weak),.6);
-  assert.equal(enemy.statuses.poison.source,weak);assert.equal(enemy.statuses.poison.dps,6);
-  close(enemy.statuses.poison.time,4.8,'the weaker application ages even while suppressed');
-  const rows=tracker.snapshot(game.towers,game.combat.elapsed),byId=new Map(rows.map(row=>[row.id,row]));
-  close(byId.get(strong.id).damage,1920,'the direct hit at t=0 has left the current five-second window');
-  close(byId.get(weak.id).damage,6.6);close(byId.get(strong.id).dps,384);
-  close(sum(hits),initialHp-enemy.hp);
-  game.tick(4.8);
-  assert.equal(enemy.statuses.poison,undefined);
-  close(dotTotal(hits,strong),1920);close(dotTotal(hits,weak),29.4);
-  close(sum(hits),initialHp-enemy.hp);
+  strike(game,strong,enemy);game.tick(4.9);close(enemy.statuses.poison.time,.1);
+  strike(game,weak,enemy);assert.equal(enemy.statuses.poison.dps,390);assert.equal(enemy.statuses.poison.stacks,2);
+  close(enemy.statuses.poison.applications.find(a=>a.source===strong).time,.1);close(enemy.statuses.poison.time,5);
+  const index=hits.length;game.tick(.2);const crossing=hits.slice(index);
+  assert.deepEqual(crossing.map(h=>[h.id,h.directHit,h.type]),[[strong.id,false,'magical'],[weak.id,false,'magical'],[weak.id,false,'magical']]);
+  close(crossing[0].applied,38.4);close(crossing[1].applied,.6);close(crossing[2].applied,.6);
+  close(dotTotal(hits,strong),1920);close(dotTotal(hits,weak),1.2);assert.equal(enemy.statuses.poison.applications[0].source,weak);close(enemy.statuses.poison.time,4.8);
+  const rows=tracker.snapshot(game.towers,game.combat.elapsed);close(rows.find(r=>r.id===weak.id).damage,towerStats(weak,data).damage+1.2);close(sum(hits),initialHp-enemy.hp);
+  game.tick(4.8);assert.equal(enemy.statuses.poison,undefined);close(dotTotal(hits,weak),30);close(sum(hits),initialHp-enemy.hp);
 });
 
-test('equal-strength poison belongs to the most recent real caster and stronger applications never stack damage',()=>{
-  const {game,sources:[first,second,strong],tracker,hits}=battle([['druid',1],['druid',1],['druid',2]]);
-  const enemy=foe(game),initialHp=enemy.hp;
-  strike(game,first,enemy);game.tick(1);
-  strike(game,second,enemy);assert.equal(enemy.statuses.poison.source,second);
-  const beforeTie=enemy.hp;game.tick(1);close(beforeTie-enemy.hp,6);
-  strike(game,strong,enemy);assert.equal(enemy.statuses.poison.source,strong);
-  const beforeStrong=enemy.hp;game.tick(1);close(beforeStrong-enemy.hp,12);
-  strike(game,first,enemy);assert.equal(enemy.statuses.poison.source,strong);
-  close(enemy.statuses.poison.applications.find(application=>application.source===strong).time,4,
-    'a weaker refresh cannot extend the strongest caster');
-  close(enemy.statuses.poison.time,5);
-  game.tick(.5);
-  close(dotTotal(hits,first),6);close(dotTotal(hits,second),6);close(dotTotal(hits,strong),18);
-  const rows=tracker.snapshot(game.towers,game.combat.elapsed);
-  for(const source of [first,second,strong])close(rows.find(row=>row.id===source.id).damage,
-    sum(hits,hit=>hit.id===source.id));
-  close(rows.reduce((total,row)=>total+row.damage,0),initialHp-enemy.hp);
+test('equal and stronger hits all stack independently, including repeat hits by the same actual defender',()=>{
+  const {game,sources:[first,second,strong],tracker,hits}=battle([['druid',1],['druid',1],['druid',2]]),enemy=foe(game),initialHp=enemy.hp;
+  strike(game,first,enemy);game.tick(1);strike(game,second,enemy);let hp=enemy.hp;game.tick(1);close(hp-enemy.hp,12);
+  strike(game,strong,enemy);hp=enemy.hp;game.tick(1);close(hp-enemy.hp,24);
+  strike(game,first,enemy);assert.equal(enemy.statuses.poison.stacks,4);assert.equal(enemy.statuses.poison.dps,30);
+  assert.deepEqual(enemy.statuses.poison.applications.map(a=>a.time),[2,3,4,5]);game.tick(.5);
+  close(dotTotal(hits,first),24);close(dotTotal(hits,second),15);close(dotTotal(hits,strong),18);
+  for(const source of [first,second,strong])close(tracker.snapshot(game.towers,game.combat.elapsed).find(r=>r.id===source.id).damage,sum(hits,h=>h.id===source.id));close(sum(hits),initialHp-enemy.hp);
 });
 
-test('a suppressed weaker poison expires on its own clock and cannot revive after the stronger caster expires',()=>{
+test('an earlier weaker stack expires independently and cannot revive after all stacks expire',()=>{
   const {game,sources:[weak,strong],hits}=battle([['druid',1],['druid',6]]),enemy=foe(game);
-  strike(game,weak,enemy);game.tick(1);
-  strike(game,strong,enemy);game.tick(4.1);
-  assert.equal(enemy.statuses.poison.source,strong);close(enemy.statuses.poison.time,.9);
-  game.tick(1);
-  assert.equal(enemy.statuses.poison,undefined);
-  close(dotTotal(hits,weak),6);close(dotTotal(hits,strong),1920);
-  const hp=enemy.hp;game.tick(1);close(enemy.hp,hp,'both applications have expired');
+  strike(game,weak,enemy);game.tick(1);strike(game,strong,enemy);game.tick(4.1);
+  assert.equal(enemy.statuses.poison.stacks,1);assert.equal(enemy.statuses.poison.applications[0].source,strong);close(enemy.statuses.poison.time,.9);
+  game.tick(1);assert.equal(enemy.statuses.poison,undefined);close(dotTotal(hits,weak),30);close(dotTotal(hits,strong),1920);const hp=enemy.hp;game.tick(1);close(enemy.hp,hp);
 });
 
-test('resisted fallback poison caps overkill, credits the real killing caster and conserves effective HP damage',()=>{
-  const {game,sources:[strong,weak],tracker,hits}=battle();
-  // Two direct hits remove 18 and 3 HP; the strong poison removes 960 HP.
-  // The remaining .15 HP must be removed by the weaker fallback, not credited
-  // to the old source or counted as its uncapped .3 HP poison slice.
-  const initialHp=981.15,enemy=foe(game,{hp:initialHp,maxHp:initialHp,resists:{magic:.25,poison:.25}});
-  strike(game,strong,enemy);game.tick(4.9);strike(game,weak,enemy);game.tick(.2);
-  assert.equal(enemy.dead,true);assert.equal(strong.kills,0);assert.equal(weak.kills,1);
-  assert.equal(game.kills,1);assert.equal(enemy.statuses.poison,undefined);
-  close(dotTotal(hits,strong),960);close(dotTotal(hits,weak),.15);
-  const fatal=hits.at(-1);assert.equal(fatal.id,weak.id);assert.equal(fatal.directHit,false);
-  close(fatal.damage,.3);close(fatal.applied,.15);
-  close(sum(hits),initialHp-Math.max(0,enemy.hp));
-  const rows=tracker.snapshot(game.towers,game.combat.elapsed);
-  for(const source of [strong,weak])close(rows.find(row=>row.id===source.id).damage,
-    sum(hits,hit=>hit.id===source.id&&hit.time>game.combat.elapsed-5));
+test('an actual surviving stack caps overkill, credits its real killing caster and never resurrects an expired owner',()=>{
+  const {game,sources:[strong,weak],tracker,hits}=battle(),enemy=foe(game);
+  strike(game,strong,enemy);game.tick(4.9);strike(game,weak,enemy);game.tick(.1);assert.equal(enemy.statuses.poison.applications.length,1);
+  enemy.hp=.15;game.tick(.1);assert.equal(enemy.dead,true);assert.equal(strong.kills,0);assert.equal(weak.kills,1);assert.equal(game.kills,1);assert.equal(enemy.statuses.poison,undefined);
+  const fatal=hits.at(-1);assert.equal(fatal.id,weak.id);assert.equal(fatal.directHit,false);close(fatal.damage,.6);close(fatal.applied,.15);
+  for(const source of [strong,weak])close(tracker.snapshot(game.towers,game.combat.elapsed).find(r=>r.id===source.id).damage,sum(hits,h=>h.id===source.id&&h.time>game.combat.elapsed-5));
 });
 
-test('blocked or magic-immune real impacts create no poison owner and no fictitious DPS contribution',()=>{
-  const {game,sources:[strong,weak],tracker,hits}=battle();
-  const shielded=foe(game,{shields:1}),immune=foe(game,{magicImmune:true});
-  strike(game,strong,shielded);strike(game,weak,immune);
-  assert.equal(shielded.shields,0);assert.equal(shielded.statuses.poison,undefined);
-  assert.equal(immune.statuses.poison,undefined);assert.equal(hits.length,0);
-  assert.ok(tracker.snapshot(game.towers,0).every(row=>row.damage===0&&row.dps===0));
-  strike(game,strong,shielded);game.tick(.25);
-  assert.equal(shielded.statuses.poison.source,strong);assert.equal(immune.statuses.poison,undefined);
-  close(dotTotal(hits,strong),96);assert.ok(hits.every(hit=>hit.id===strong.id));
+test('blocked or Magical-immune real impacts create no poison owner and no fictitious DPS contribution',()=>{
+  const {game,sources:[strong,weak],tracker,hits}=battle(),shielded=foe(game,{shields:1}),immune=foe(game,{magicImmune:true});
+  strike(game,strong,shielded);strike(game,weak,immune);assert.equal(shielded.shields,0);assert.equal(shielded.statuses.poison,undefined);assert.equal(immune.statuses.poison,undefined);assert.equal(hits.length,0);
+  assert.ok(tracker.snapshot(game.towers,0).every(r=>r.damage===0&&r.dps===0));strike(game,strong,shielded);game.tick(.25);
+  assert.equal(shielded.statuses.poison.applications[0].source,strong);close(dotTotal(hits,strong),96);assert.ok(hits.every(h=>h.id===strong.id));
 });
 
-test('expiry integration, actual DPS and pause agree for fine/coarse ticks at 1x and 3x game speed',()=>{
+test('independent 5s expiry integration and pause agree for fine/coarse ticks at1x and3x, with real window accounting',()=>{
   function replay(step,speed){
-    const {game,sources:[strong,weak],tracker,hits}=battle(),enemy=foe(game),initialHp=enemy.hp;
-    game.speed=speed;
-    // Short lifetimes keep the entire scenario inside one five-second DPS
-    // window, allowing an exact peak/current comparison across frame sizes.
-    strike(game,strong,enemy,{dotDuration:1});advance(game,.9,step);
-    strike(game,weak,enemy,{dotDuration:1});
-    const frozen={time:game.combat.elapsed,hp:enemy.hp,status:statusView(enemy),
-      rows:tracker.snapshot(game.towers,game.combat.elapsed),hits:hits.length};
-    game.paused=true;game.tick(30);
-    assert.equal(game.combat.elapsed,frozen.time);assert.equal(enemy.hp,frozen.hp);
-    assert.deepEqual(statusView(enemy),frozen.status);assert.equal(hits.length,frozen.hits);
-    assert.deepEqual(tracker.snapshot(game.towers,game.combat.elapsed),frozen.rows);
-    game.paused=false;advance(game,.2,step);advance(game,.8,step);
-    assert.equal(enemy.statuses.poison,undefined);close(game.combat.elapsed,1.9);
-    close(dotTotal(hits,strong),384);close(dotTotal(hits,weak),5.4);
-    close(sum(hits),initialHp-enemy.hp);
-    const rows=tracker.snapshot(game.towers,game.combat.elapsed);
-    for(const source of [strong,weak]){
-      const row=rows.find(candidate=>candidate.id===source.id),applied=sum(hits,hit=>hit.id===source.id);
-      close(row.damage,applied);close(row.currentDps,applied/5);close(row.dps,applied/5);
-    }
-    return {hp:enemy.hp,dot:[dotTotal(hits,strong),dotTotal(hits,weak)],rows};
+    const {game,sources:[strong,weak],tracker,hits}=battle(),enemy=foe(game),initialHp=enemy.hp;game.speed=speed;
+    strike(game,strong,enemy);advance(game,.9,step);strike(game,weak,enemy);const frozen={time:game.combat.elapsed,hp:enemy.hp,status:statusView(enemy),rows:tracker.snapshot(game.towers,game.combat.elapsed),hits:hits.length};
+    game.paused=true;game.tick(30);assert.equal(game.combat.elapsed,frozen.time);assert.equal(enemy.hp,frozen.hp);assert.deepEqual(statusView(enemy),frozen.status);assert.equal(hits.length,frozen.hits);assert.deepEqual(tracker.snapshot(game.towers,game.combat.elapsed),frozen.rows);
+    game.paused=false;advance(game,5,step);assert.equal(enemy.statuses.poison,undefined);close(game.combat.elapsed,5.9);close(dotTotal(hits,strong),1920);close(dotTotal(hits,weak),30);close(sum(hits),initialHp-enemy.hp);
+    for(const source of [strong,weak]){const row=tracker.snapshot(game.towers,game.combat.elapsed).find(r=>r.id===source.id);close(row.damage,sum(hits,h=>h.id===source.id&&h.time>game.combat.elapsed-5));close(row.currentDps,row.damage/5);}
+    return enemy.hp;
   }
-  const reference=replay(.02,1);
-  for(const [step,speed] of [[.25,1],[.02,3],[.25,3]]){
-    const actual=replay(step,speed);close(actual.hp,reference.hp);
-    actual.dot.forEach((damage,index)=>close(damage,reference.dot[index]));
-    for(const [index,row] of actual.rows.entries()){
-      assert.equal(row.id,reference.rows[index].id);
-      for(const key of ['damage','dps','currentDps','peakDamage'])close(row[key],reference.rows[index][key]);
-    }
-  }
+  const reference=replay(.02,1);for(const [step,speed]of [[.25,1],[.02,3],[.25,3]])close(replay(step,speed),reference);
 });
 
-for(const [family,name,poisonDps] of [['rangermentor','Nature Spirit',96],['mothernature','Mother Nature',1898.4]]){
-  test(`live campaign ${name} applies its approved poison and actual hits credit only the current strongest source`,()=>{
-    const archiveBefore=JSON.stringify(archived),{game,sources:[champion,druid],tracker,hits}=battle([[family,1],['druid',6]]);
-    const stats=towerStats(champion,data),enemy=foe(game),initialHp=enemy.hp;
-    assert.equal(stats.name,name);assert.equal(stats.poisonDps,poisonDps);assert.equal(stats.interval,.5);
-    strike(game,champion,enemy);game.tick(.25);
-    strike(game,druid,enemy);game.tick(.25);
-    const championIsStrongest=poisonDps>384;
-    assert.equal(enemy.statuses.poison.source,championIsStrongest?champion:druid);
-    close(dotTotal(hits,champion),poisonDps*(championIsStrongest?.5:.25));
-    close(dotTotal(hits,druid),championIsStrongest?0:96);
-    const rows=tracker.snapshot(game.towers,game.combat.elapsed);
-    for(const source of [champion,druid]){
-      const applied=sum(hits,hit=>hit.id===source.id),row=rows.find(candidate=>candidate.id===source.id);
-      close(row.damage,applied);close(row.dps,applied/5);
-    }
-    assert.ok(hits.some(hit=>hit.id===champion.id&&hit.directHit));
-    assert.ok(hits.some(hit=>hit.id===champion.id&&!hit.directHit));
-    close(sum(hits),initialHp-enemy.hp);
-    assert.equal(JSON.stringify(archived),archiveBefore,'live campaign combat must not mutate archived source definitions');
-  });
-}
+for(const [family,name,poisonDps]of [['rangermentor','Nature Spirit',96],['mothernature','Mother Nature',1898.4]])test('current '+name+' poison adds to Druid stacks and both actual sources retain DPS credit',()=>{
+  const original=JSON.stringify(archived),{game,sources:[champion,druid],tracker,hits}=battle([[family,1],['druid',6]]),enemy=foe(game),hp=enemy.hp,stats=towerStats(champion,data);
+  assert.equal(stats.name,name);assert.equal(stats.poisonDps,poisonDps);assert.equal(stats.interval,.5);strike(game,champion,enemy);game.tick(.25);strike(game,druid,enemy);game.tick(.25);
+  assert.equal(enemy.statuses.poison.dps,poisonDps+384);assert.equal(enemy.statuses.poison.stacks,2);close(dotTotal(hits,champion),poisonDps*.5);close(dotTotal(hits,druid),96);
+  for(const source of [champion,druid]){const row=tracker.snapshot(game.towers,game.combat.elapsed).find(r=>r.id===source.id);close(row.damage,sum(hits,h=>h.id===source.id));close(row.dps,row.damage/5);}
+  close(sum(hits),hp-enemy.hp);assert.equal(JSON.stringify(archived),original);
+});

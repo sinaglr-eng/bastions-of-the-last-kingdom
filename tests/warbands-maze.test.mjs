@@ -1,3 +1,4 @@
+import {campaignTowers as currentTowers,campaignEnemies as currentEnemies,campaignWaves as currentWaves,campaignRecipes as currentRecipes} from '../game/core/campaign-roster.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -10,6 +11,7 @@ import {damageAfterDefense} from '../game/core/math.js';
 import {enemyModel} from '../game/render/models.js';
 import {meadowTerrain,interiorGrid} from '../game/render/terrain.js';
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
+if(data.towers)data.towers=currentTowers(data.towers);if(data.enemies)data.enemies=currentEnemies(data.enemies);if(data.waves)data.waves=currentWaves(data.waves);if(data.recipes)data.recipes=currentRecipes(data.recipes);
 const make=()=>new Game(data,{seed:123});
 function fight(){const g=make();g.phase='combat';g.combat.spawnQueue=[{time:1e6,type:'grunt'}];return g;}
 
@@ -35,25 +37,25 @@ test('50 waves preserve reference movement classes, five bosses, and determinist
   const q=a.combat.spawnQueue[0],e=a.combat.spawn(q.type,q.modifiers);assert.notEqual(!!e.magicImmune,!!e.physicalImmune);
 });
 
-test('damage immunities have physical, magical and pure counters; magic immunity rejects magical statuses',()=>{
+test('damage immunities have Physical, Magical and Holy counters; effect immunity follows its distinct rules',()=>{
   assert.equal(damageAfterDefense(50,'fire',{magicImmune:true},{},data.balance),0);
   assert.equal(damageAfterDefense(50,'physical',{physicalImmune:true},{},data.balance),0);
-  assert.equal(damageAfterDefense(50,'pure',{physicalImmune:true,magicImmune:true},{},data.balance),50);
+  assert.equal(damageAfterDefense(50,'holy',{physicalImmune:true,magicImmune:true},{},data.balance),50);
   const g=fight(),e=g.combat.spawn('host_26');g.combat.applyEffects(e,{damage:20,slow:.4,freeze:1,burn:1,poisonDps:10,shredMagic:.2,shred:2});
-  assert.deepEqual(Object.keys(e.statuses),['shred']);
+  assert.deepEqual(Object.keys(e.statuses),['slow','freeze','shred']);assert.equal(e.statuses.poison,undefined);assert.equal(e.statuses.burn,undefined);
 });
 
 test('refraction absorbs direct impacts, damage over time bypasses it, and shields recharge',()=>{
   const g=fight(),e=g.combat.spawn('host_14');e.speed=0;const hp=e.hp;
   for(let i=0;i<3;i++)assert.equal(g.combat.damage(e,20,'fire',{directHit:true}),0);
-  assert.equal(e.hp,hp);assert.equal(e.shields,0);assert.equal(g.combat.damage(e,20,'fire',{}),20);
-  g.combat.update(8);assert.equal(e.shields,3);assert.equal(g.combat.damage(e,10,'poison',{}),10);assert.equal(e.shields,3);
+  assert.equal(e.hp,hp);assert.equal(e.shields,0);assert.equal(g.combat.damage(e,20,'magical',{}),damageAfterDefense(20,'magical',e,{},data.balance));
+  g.combat.update(5);assert.equal(e.shields,3);assert.equal(g.combat.damage(e,10,'magical',{}),damageAfterDefense(10,'magical',e,{},data.balance));assert.equal(e.shields,3);
 });
 
-test('evasion, shell and reactive armor alter hits without inflating damage or blocking pure damage',()=>{
-  const g=fight(),e=g.combat.spawn('host_09');g.rng=()=>0;
-  assert.equal(g.combat.damage(e,40,'physical',{directHit:true}),0);assert.equal(g.combat.damage(e,40,'fire',{directHit:true}),40);
-  const shell=g.combat.spawn('host_49');assert.equal(g.combat.damage(shell,10,'fire',{directHit:true}),0);assert.equal(g.combat.damage(shell,10,'pure',{directHit:true}),10);
+test('evasion, shell and reactive armor alter hits across all three direct-hit types without a Pure bypass',()=>{
+  const g=fight(),e=g.combat.spawn('host_09');e.armor=0;g.rng=()=>0;
+  assert.equal(g.combat.damage(e,40,'physical',{directHit:true}),0);assert.equal(g.combat.damage(e,40,'magical',{directHit:true}),0);assert.equal(g.combat.damage(e,40,'holy',{directHit:true}),0);assert.equal(g.combat.damage(e,40,'holy',{directHit:true,trueStrike:true}),40);
+  const shell=g.combat.spawn('host_49');shell.armor=0;assert.equal(g.combat.damage(shell,10,'fire',{directHit:true}),0);assert.equal(g.combat.damage(shell,10,'holy',{directHit:true}),0);assert.equal(g.combat.damage(shell,10,'holy',{}),10);
   const reactive=g.combat.spawn('host_24');const first=g.combat.damage(reactive,40,'physical',{directHit:true}),second=g.combat.damage(reactive,40,'physical',{directHit:true});assert.ok(second<first);assert.equal(reactive.reactiveStacks,2);
 });
 
@@ -68,7 +70,7 @@ test('disarm pauses nearby attacks, dread reduces cadence, recharge heals and th
   const g=fight(),e=g.combat.spawn('host_12');Object.assign(e,{x:12,z:12,speed:0});
   const t={id:1,family:'archer',tier:1,state:'active',x:11,z:12,cooldown:0,kills:0};g.towers=[t];g.combat.update(.01);assert.equal(t.disarmed,true);assert.equal(g.combat.projectiles.length,0);
   e.disarm=false;e.untouchable=.35;t.cooldown=1;g.combat.update(.1);assert.ok(Math.abs(t.cooldown-.935)<1e-8);
-  g.towers=[];const r=g.combat.spawn('host_32');r.speed=0;r.hp=r.maxHp*.5;g.combat.update(5);assert.ok(Math.abs(r.hp-r.maxHp*.56)<1e-6);
+  g.towers=[];const r=g.combat.spawn('host_32');r.speed=0;r.hp=r.maxHp*.5;g.combat.update(5);assert.ok(Math.abs(r.hp-r.maxHp*.75)<1e-6);
   const thief=g.combat.spawn('host_16');thief.pathIndex=thief.route.length;const gold=g.economy.gold;g.combat.update(.01);assert.equal(g.economy.gold,gold-thief.thief);
 });
 
@@ -83,7 +85,7 @@ test('final campaign completes at wave 50 and all fifty warbands move, fight and
   for(const [i,w]of data.waves.entries())for(const variant of data.enemies[w.groups[0].type].variants||[{}]){
     const g=fight();g.round=i+1;const e=g.combat.spawn(w.groups[0].type,{variant});
     g.combat.update(.1);assert.ok(Number.isFinite(e.x+e.z+e.hp));assert.ok(e.traveled>0);
-    g.combat.damage(e,e.maxHp*2,'pure',{});g.combat.spawnQueue=[];g.combat.update(.1);assert.equal(g.phase,i===49?'won':'build');
+    g.combat.damage(e,e.maxHp*2*(1+e.armor/data.balance.armorConstant),'holy',{});g.combat.spawnQueue=[];g.combat.update(.1);assert.equal(g.phase,i===49?'won':'build');
   }
 });
 

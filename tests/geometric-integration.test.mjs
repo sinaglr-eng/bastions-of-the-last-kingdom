@@ -47,10 +47,11 @@ test('current campaign has exactly eight basic families and 38 obtainable champi
   const game=new Game(data,{seed:9});assert.equal(game.recipes.length,38);assert.equal(game.recipes.some(recipe=>recipeFamily(recipe)==='lordbernhard'),false);
 });
 
-test('hostile Bernhard and each actually spawned final-boss variant use the current identity while every combat stat remains archived-equivalent',()=>{
+test('hostile Bernhard retains archived identity provenance and base stats while approved direct-hit shell changes apply to each real spawn',()=>{
   assert.match(data.enemies.host_50.name,/^Lord Bernhard/);
-  const withoutNames=entry=>({...entry,name:undefined,variants:entry.variants?.map(v=>({...v,name:undefined}))});assert.deepEqual(withoutNames(data.enemies.host_50),withoutNames(historical.enemies.host_50));
-  const game=fighting();for(const variant of data.enemies.host_50.variants){const enemy=game.combat.spawn('host_50',{variant});assert.match(enemy.name,/^Lord Bernhard/);assert.equal(enemy.flying,true);assert.equal(enemy.hp,historical.enemies.host_50.hp);assert.equal(enemy.armor,historical.enemies.host_50.armor);}
+  const withoutAuthorizedChanges=entry=>({...entry,name:undefined,krakenShell:undefined,variants:entry.variants?.map(v=>({...v,name:undefined,krakenShell:undefined}))});assert.deepEqual(withoutAuthorizedChanges(data.enemies.host_50),withoutAuthorizedChanges(historical.enemies.host_50));
+  assert.equal(data.enemies.host_50.krakenShell,210);assert.equal(historical.enemies.host_50.krakenShell,83);assert.equal(data.enemies.host_50.variants[2].krakenShell,273);
+  const game=fighting();for(const variant of data.enemies.host_50.variants){const enemy=game.combat.spawn('host_50',{variant});assert.match(enemy.name,/^Lord Bernhard/);assert.equal(enemy.flying,true);assert.equal(enemy.hp,historical.enemies.host_50.hp);assert.equal(enemy.armor,historical.enemies.host_50.armor);assert.equal(enemy.krakenShell,variant.krakenShell||210);}
   assert.match(historical.enemies.host_50.name,/^Ghorun/);assert.ok(historical.enemies.host_50.variants.every(v=>v.name.startsWith('Ghorun')));
 });
 
@@ -86,9 +87,9 @@ test('the real renderer death event retains grounded corpses until the single wa
     const game=fighting();if(final)game.round=50;
     const {field,off}=corpseField(game),one=game.combat.spawn('grunt'),two=game.combat.spawn('grunt');liveFigure(field,one);liveFigure(field,two);const order=[];
     game.on((type,payload)=>{if(['wave-complete','reward','won'].includes(type)){order.push(type);if(type==='wave-complete'){assert.equal(payload.round,final?50:1);assert.equal(field.corpses.size,0,'renderer clears only at completed wave');}}});
-    game.combat.damage(one,1e9,'pure',{});assert.equal(field.corpses.size,1);assert.equal(field.enemies.has(one.id),false);const corpse=field.corpses.get(one.id);animateDeath(corpse,1);
+    game.combat.damage(one,1e9,'holy',{});assert.equal(one.dead,true);assert.equal(field.corpses.size,1);assert.equal(field.enemies.has(one.id),false);const corpse=field.corpses.get(one.id);animateDeath(corpse,1);
     const resting=corpse.position.toArray();game.combat.update(.02);assert.equal(field.corpses.get(one.id),corpse);animateDeath(corpse,10);assert.deepEqual(corpse.position.toArray(),resting);assert.equal(corpse.visible,true);assert.ok(new THREE.Box3().setFromObject(corpse.userData.body,true).min.y>=.0249);
-    game.combat.damage(two,1e9,'pure',{});assert.equal(field.corpses.size,2);game.combat.spawnQueue=[];game.combat.update(.02);
+    game.combat.damage(two,1e9,'holy',{});assert.equal(two.dead,true);assert.equal(field.corpses.size,2);game.combat.spawnQueue=[];game.combat.update(.02);
     assert.deepEqual(order,final?['wave-complete','won']:['wave-complete','reward']);assert.equal(field.corpses.size,0);assert.equal(corpse.parent,null);const score=game.score;game.completeWave();assert.equal(game.score,score);assert.equal(order.filter(type=>type==='wave-complete').length,1);
     field.enemyAbilityEffects.dispose();off();
   }

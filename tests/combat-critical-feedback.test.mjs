@@ -1,3 +1,4 @@
+import {campaignTowers as currentTowers,campaignEnemies as currentEnemies,campaignWaves as currentWaves,campaignRecipes as currentRecipes} from '../game/core/campaign-roster.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -5,6 +6,7 @@ import {Game} from '../game/core/game.js';
 import {towerStats} from '../game/core/math.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
+if(data.towers)data.towers=currentTowers(data.towers);if(data.enemies)data.enemies=currentEnemies(data.enemies);if(data.waves)data.waves=currentWaves(data.waves);if(data.recipes)data.recipes=currentRecipes(data.recipes);
 function arena(family='roseguard'){
   const game=new Game(data,{seed:42});game.phase='combat';game.combat.spawnQueue=[{time:1e9,type:'grunt'}];
   const source={id:game.nextId++,family,tier:1,state:'active',x:10,z:10,kills:0,cooldown:999};game.towers.push(source);
@@ -48,13 +50,13 @@ test('overkill crit reports effective health removed and credits one actual kill
   assert.ok(events.findIndex(event=>event.type==='critical-hit')<events.findIndex(event=>event.type==='death'));
 });
 
-test('crit-multiplied pure cleave announces its actual victims, including a physical-immune secondary',()=>{
+test('crit-multiplied Physical cleave announces only landed victims and respects Physical immunity',()=>{
   const {game,source,events}=arena('crownofages'),target=foe(game),secondary=foe(game,11.1),immune=foe(game,11.2),distant=foe(game,50);
   immune.physicalImmune=true;let rolls=0;game.rng=()=>{rolls++;return 0;};
   game.combat.impact({source,target,stats:towerStats(source,data)});
   assert.equal(rolls,1);assert.deepEqual(strikes(events).map(event=>[event.enemy.id,event.amount,event.directHit]),
-    [[target.id,13500,true],[secondary.id,6750,false],[immune.id,6750,false]]);
-  assert.equal(strikes(events)[2].type,'pure');assert.equal(immune.hp,1e6-6750);assert.equal(distant.hp,1e6);
+    [[target.id,13500,true],[secondary.id,6750,false]]);
+  assert.equal(strikes(events)[1].type,'physical');assert.equal(immune.hp,1e6);assert.equal(distant.hp,1e6);
 });
 
 test('ordinary hits and DOT ticks do not inherit a previous impact critical announcement',()=>{
@@ -62,5 +64,5 @@ test('ordinary hits and DOT ticks do not inherit a previous impact critical anno
   game.combat.impact({source,target:enemy,stats:towerStats(source,data)});assert.equal(strikes(events).length,1);
   game.combat.damage(enemy,50,'physical',{},source);
   game.combat.applyEffects(enemy,{damage:10,poisonDps:10,dotDuration:1},source);game.tick(.1);
-  assert.equal(strikes(events).length,1);assert.ok(events.some(event=>event.type==='hit'&&event.payload.type==='poison'));
+  assert.equal(strikes(events).length,1);assert.ok(events.some(event=>event.type==='hit'&&event.payload.type==='magical'&&event.payload.effect==='poison'));
 });

@@ -1,4 +1,4 @@
-// Independent from model/art releases: these are the unchanged October 6 exports.
-export const ALLIED_VOICE_REVISION='allied-20261006-dd1d6781f43c';
-export const ALLIED_VOICE_CATALOGUE=`assets/audio/selection/catalogue.json?v=${ALLIED_VOICE_REVISION}`;
+// Approved October 11 recast. Original October 6 recordings remain archived.
+export const ALLIED_VOICE_REVISION='allied-20261011-4a6051e0ce4a';
+export const ALLIED_VOICE_CATALOGUE=`assets/audio/allied-recast-20261011/catalogue.json?v=${ALLIED_VOICE_REVISION}`;
 export const ALLIED_VOICE_CLIP_COUNT=92;
