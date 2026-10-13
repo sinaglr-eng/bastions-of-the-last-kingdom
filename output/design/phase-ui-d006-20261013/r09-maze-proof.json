@@ -1,0 +1,252 @@
+{
+  "requirement": "D006 R09",
+  "baselineCommit": "217accd9c19aeee806bb0ea74b8a49ca4b7744c7",
+  "baselineVersion": "0.3.28",
+  "createdAt": "2026-10-13T16:51:39.619Z",
+  "sourceHashes": {
+    "game/render/maze-planner.js": "6b734361ea7317797a4059790e2cd2eab668a7d81ae45f52bf5de5dd20cb657f",
+    "ui/maze-comparison.js": "229f7e04fcca91d0185cfa3c7be052031b40875634d65fbebd74575f4a3f8a0b",
+    "ui/maze-comparison.css": "01825f9c4232cf295f0c50ac99c132928cd4152e2b6fa8680ccb33f1fd5bbfa0",
+    "tests/maze-comparison.test.mjs": "381b4305d3804fea60b01b5ff252d190deb3b47ed8ae34b62accf3a884374f60"
+  },
+  "approvedSources": {
+    "requirements": "abafda5e5abc996b141685766c8a709e4a509115a5978051e3749be4bc6d7e46",
+    "concept07": "97353ebaeea5155039259cfe79df3a5262fc57f7bc085ef4b0ee8d9f7da96e54",
+    "conceptVisuallyInspected": true
+  },
+  "unchangedDataAndAlgorithms": {
+    "data/maze-blueprints.json": "beb8caf34473dd4f6043f38d4736455d74cc705d8a1fa91a4513c523276d21e4",
+    "game/core/blueprints.js": "787c4c60d0a81f89423d9698b6fe7db7644a52b80c152bdc558ca93d2359d94c",
+    "game/core/maze-search.js": "8f7ec0c240814ae80b93408da55c0ed1785b0b7c3f5bcbf48a2deed577513961",
+    "game/core/maze-seeds.js": "b279321dee6b589d5fa047945b3eeb25affdf4bb11213293997f96492e0f0110",
+    "game/core/grid.js": "b0bdb41a125920f4702cde668d0b0faf4653a5ecda205cfe13cdd297564817f2",
+    "game/core/spiral-maze.js": "36a617ad4518643469cf77033aa58546955121061af383e612046d356b4416b8",
+    "game/core/commander-maze.js": "b4ea5be2cfde14c61dc49caf88836d0e48df24e20dd2def65a80590912be9f27"
+  },
+  "plans": [
+    {
+      "id": "commander",
+      "name": "Commander's spiral",
+      "primaryMetric": {
+        "label": "Ground route steps",
+        "value": 590
+      },
+      "cells": 136,
+      "core": 9,
+      "coverage": 265,
+      "fire": {
+        "steps": 265,
+        "passes": 7,
+        "seconds": 132.5,
+        "batterySeconds": 908.5,
+        "range": 6,
+        "speed": 2
+      },
+      "segments": [
+        88,
+        98,
+        124,
+        96,
+        66,
+        118
+      ],
+      "wallsHash": "2ef2d6b7c12327892182eb65e0675eadf5f1287c23c78743e2bc29eebe112bf8",
+      "coreHash": "cf90904109479b5baddd0edfc5d28c19c13de084b38ffcf1b602f631cf62c7fd",
+      "routeHash": "be776c3ca0ca3b4ca537188992e487e8a5627c8e879130e5e1ad1522161ad715",
+      "thumbnailHash": "96051b26db74c387ba68226296313f998ac3746f456549cba3cb4c61f1610576"
+    },
+    {
+      "id": "diamond-spiral",
+      "name": "Diamond spiral",
+      "primaryMetric": {
+        "label": "Ground route steps",
+        "value": 718
+      },
+      "cells": 128,
+      "core": 19,
+      "coverage": 479,
+      "fire": {
+        "steps": 479,
+        "passes": 6,
+        "seconds": 239.5,
+        "batterySeconds": 2921.5,
+        "range": 6,
+        "speed": 2
+      },
+      "segments": [
+        130,
+        142,
+        118,
+        88,
+        98,
+        142
+      ],
+      "wallsHash": "22b72de360a544b5391240e9e9e46e684171e2ad5af98dbc9615aa74ce891e32",
+      "coreHash": "21697327c5fb6a077f14caea3ad7af3e91a0aa762fbc234afa18937248cdb32e",
+      "routeHash": "f334563afb58acaf97ccfcddb9c908bccc81c18052fb2005b893b1bce253164b",
+      "thumbnailHash": "3f27325d1cb59a93f52b28f59ac2f3bec59a9778f2093693520eca1ac599e5b5"
+    },
+    {
+      "id": "chevron-bastion",
+      "name": "Chevron bastion",
+      "primaryMetric": {
+        "label": "Ground route steps",
+        "value": 504
+      },
+      "cells": 153,
+      "core": 21,
+      "coverage": 108,
+      "fire": {
+        "steps": 108,
+        "passes": 4,
+        "seconds": 54,
+        "batterySeconds": 729.5,
+        "range": 6,
+        "speed": 2
+      },
+      "segments": [
+        66,
+        144,
+        116,
+        16,
+        38,
+        124
+      ],
+      "wallsHash": "3ebeae3517ce89b813d5a3168a7c48934726abc027bc136e09aeb670ebf75c7a",
+      "coreHash": "e867247436c13b048e801e968dae78f3478aa9dbfc27b80d9b7631ac4f0728b2",
+      "routeHash": "a6d83e455bf819a3a8123530ce615fcec319e297513361b056e4ffd079b6cfdb",
+      "thumbnailHash": "43616f9f62b1577e23b9f3d037701248ad2542a75ec03c1e1d0b84765a5548c5"
+    },
+    {
+      "id": "compact-crossfire",
+      "name": "Compact crossfire",
+      "primaryMetric": {
+        "label": "Ground route steps",
+        "value": 772
+      },
+      "cells": 134,
+      "core": 10,
+      "coverage": 535,
+      "fire": {
+        "steps": 535,
+        "passes": 8,
+        "seconds": 267.5,
+        "batterySeconds": 1443,
+        "range": 6,
+        "speed": 2
+      },
+      "segments": [
+        144,
+        156,
+        122,
+        92,
+        108,
+        150
+      ],
+      "wallsHash": "edef89254a85935f1843eebb9bdb06462d91420d0c209d10688efef8e54fe6d0",
+      "coreHash": "61d68aee2c531f6ff9341d11a07c2dc74f0489249fd57945ebaea533f21497cd",
+      "routeHash": "789075ab7bb6bc67c9136f29bd6fe3ca8452886d574a633d128a9c0a9190d9a4",
+      "thumbnailHash": "fb3accef27fa8df1a609d40c86568d9da8dd8a0b0cbb1a2a1a0e74cd61729041"
+    },
+    {
+      "id": "core-gauntlet",
+      "name": "Core gauntlet",
+      "primaryMetric": {
+        "label": "Ground route steps",
+        "value": 820
+      },
+      "cells": 143,
+      "core": 10,
+      "coverage": 594,
+      "fire": {
+        "steps": 594,
+        "passes": 8,
+        "seconds": 297,
+        "batterySeconds": 1516,
+        "range": 6,
+        "speed": 2
+      },
+      "segments": [
+        146,
+        156,
+        140,
+        112,
+        112,
+        154
+      ],
+      "wallsHash": "882117a965d7b3294e5bb1bf91602560ad21b6fa4727d780ff252abc999d83a1",
+      "coreHash": "c6b94cfe6d8e7076ecab1d30c8fe6766d98fade577bd2c54ce6fefe1f8200782",
+      "routeHash": "3ebf2d2299ee7b806055be363519b307ecd31e4a48cc8bdf44edeb863c543ee7",
+      "thumbnailHash": "05409343d4e37d19da67bf19cdba77fa7416b1715cdcb59ea875c40be40e6b94"
+    },
+    {
+      "id": "crown-crossfire",
+      "name": "Crown crossfire",
+      "primaryMetric": {
+        "label": "Ground route steps",
+        "value": 864
+      },
+      "cells": 148,
+      "core": 10,
+      "coverage": 616,
+      "fire": {
+        "steps": 616,
+        "passes": 14,
+        "seconds": 308,
+        "batterySeconds": 1549,
+        "range": 6,
+        "speed": 2
+      },
+      "segments": [
+        146,
+        160,
+        144,
+        112,
+        130,
+        172
+      ],
+      "wallsHash": "92d2ff63843ce3af8636a5834460ee7c694f64a0700315895977b6ba8c7dae93",
+      "coreHash": "23ebe63b69af53970cf314248b78c99b149f2400a11464e60fe2fc5c95f27737",
+      "routeHash": "266a61ca14e770659a8a125c06353e8d2d1f8b86c4fbc120431ad11fa9363d56",
+      "thumbnailHash": "80c138560fa584df5be3187f5118ff168a0c9911dfd0d76e1f67799873f2ea12"
+    }
+  ],
+  "verification": [
+    {
+      "command": "node --test tests/maze-comparison.test.mjs tests/maze-route-display.test.mjs tests/planner-rules.test.mjs",
+      "tests": 26,
+      "pass": 26,
+      "fail": 0,
+      "stage": "Final JS; before final CSS specificity/sticky usability refinement"
+    },
+    {
+      "command": "node --test tests/maze-comparison.test.mjs",
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "stage": "Final CSS and JS"
+    }
+  ],
+  "coverage": [
+    "All six real SVG thumbnails preserve every validated wall/core cell, ordered checkpoint and full ground-route geometry; thumbnail routes reproduce real cardinal BFS.",
+    "Each selection card exposes only route steps as its primary metric; route/exposure/reference speed/range remain native expandable detail.",
+    "Flying limitation appears before the selection list and is linked to every selection button; warning and close header remain sticky while scrolling.",
+    "Native details, focused control and scroll survive placement progress refresh; unchanged contents skip replacement.",
+    "Actual chooser clicks select commander and compact-crossfire with no gameplay RNG, phase, gold, CP, inventory or playable-route mutation.",
+    "Escape closes the comparison and returns focus to collapsed map-tools summary; existing editor Escape behavior remains unchanged.",
+    "Conflict, construction budget, all cell hints, editor stroke/undo/redo/save/pause, storage and geometry disposal checks pass.",
+    "Selection, detail summaries, close and plan actions have 44px-or-larger CSS hit areas and focus treatment."
+  ],
+  "integration": {
+    "cssImport": "Root must import ../ui/maze-comparison.css in game/main.js.",
+    "plannerAPI": "Existing panel, panelOpen, togglePanel, choose and action remain; choose/close set panelOpen false.",
+    "phaseRefresh": "Root inspector should refresh after native planner-panel click because the existing delegated handler stops propagation.",
+    "focus": "Choose/close restores maze opener, or .map-tools > summary when tools are collapsed."
+  },
+  "limits": [
+    "Native browser legibility, real touch interaction and representative responsive viewport evidence remain root-owned final checks.",
+    "Geometry/exposure estimates are not damage predictions, campaign completion probabilities or global optimality claims.",
+    "No D001 tuning, new plan search, seed changes, core/data/art edits, MAIN writes or publication."
+  ],
+  "frozen": true
+}

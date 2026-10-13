@@ -17,6 +17,12 @@ import {ArmyReadiness} from '../game/core/army-readiness.js';
 import {nextWavePreviewIndex} from '../ui/wave-preview-flow.js';
 import {updateHeaderCombatControls} from '../ui/header-combat-controls.js';
 import {currentWavePanelMarkup,updateCurrentWavePanel} from '../ui/current-wave-panel.js';
+import {PhaseUiState,endedPhase,updateCombatStatus,pinnedGoalMarkup} from '../ui/phase-ui.js';
+import {craftingDockModel} from '../ui/crafting-dock.js';
+import {defenderPanelMarkup} from '../ui/defender-panel.js';
+import {DefenderRankPreview} from '../ui/defender-rank-preview.js';
+import {RunResultFacts,runResultModel,endedRunReviewMarkup} from '../ui/run-results.js';
+import {contextGuidanceMarkup} from '../ui/context-guidance.js';
 
 const source=readFileSync(new URL('../game/main.js',import.meta.url),'utf8');
 const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
@@ -32,14 +38,14 @@ function compile(names,bindings,prefix=''){
   return new Function(...Object.keys(bindings),prefix+'\n'+names.map(declaration).join('\n')+`\nreturn {${names.join(',')}};`)(...Object.values(bindings));
 }
 const bodyNode=()=>({innerHTML:'',dataset:{},scrollTop:0,scrollLeft:0,
-  querySelectorAll(selector){assert.equal(selector,'[data-action="craft"]');assert.doesNotMatch(this.innerHTML,/data-action="craft"/,'These combat/wall fixtures contain no crafting buttons');return [];},
+  contains(){return false;},querySelectorAll(selector){assert.ok(['[data-action="craft"]','details','[data-action]'].includes(selector));if(selector==='[data-action="craft"]')assert.doesNotMatch(this.innerHTML,/data-action="craft"/,'These combat/wall fixtures contain no crafting buttons');return [];},
   insertAdjacentHTML(where,markup){this.innerHTML=where==='afterbegin'?markup+this.innerHTML:this.innerHTML+markup;}});
 function sidebarFixture(game){
   const body=bodyNode(),nodes=new Map([['side-top',bodyNode()],['side-body',body]]),images={ruin:'approved-wall.png'},inspection=bodyNode(),currentWave=bodyNode();
   inspection.closest=()=>body;inspection.ownerDocument={activeElement:null};inspection.querySelectorAll=()=>[];
   currentWave.closest=()=>body;
   const $=id=>id==='selected-enemy-panel'?(body.innerHTML.includes('id="selected-enemy-panel"')?inspection:null):id==='current-wave-panel'?(body.innerHTML.includes('id="current-wave-panel"')?currentWave:null):nodes.get(id)||null;
-  const functions=compile(['stampCraftButtons','towerPanel','enemyInspectionOptions','combatPanel','renderSidebar'],{game,$,data,images,icon,rankPreview:{clear(){}},selectedEnemyMarkup,currentWavePanelMarkup,commandPointsMarkup,wallPanelMarkup,craftRecipeKey,tutorial:()=>'<h2>Construction</h2>'});
+  const functions=compile(['stampCraftButtons','towerPanel','enemyInspectionOptions','combatPanel','renderSidebar'],{game,$,data,images,icon,rankPreview:new DefenderRankPreview(),selectedEnemyMarkup,currentWavePanelMarkup,commandPointsMarkup,wallPanelMarkup,craftRecipeKey,defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),endedPhase,endedRunReviewMarkup,runResultModel,resultFacts:new RunResultFacts(),statistics:null,panelDetails:new Map(),document:{activeElement:null},tutorial:()=>'<h2>Construction</h2>'});
   return {body,nodes,inspection,currentWave,$,images,...functions};
 }
 function headerHost(){
@@ -72,9 +78,9 @@ test('actual main sidebar keeps individual live enemy HP and close control witho
 test('actual main HUD follows real damage, pause and death while retaining individual scroll, peak DPS and persistent header controls',()=>{
   const game=new Game(data,{seed:693});prepareEnemyInspectionReview(game);const ui=sidebarFixture(game),tracker=new TowerDpsTracker(),measurement=new DpsMeasurement(),samples=[];
   tracker.reset(game.combat.elapsed);measurement.startWave(game.round);game.on((type,payload)=>{if(type==='hit')tracker.recordHit(payload,game.combat.elapsed);});
-  for(const id of ['hud-wave','hud-lives','hud-gold','hud-time','hud-cp','hud-score','tower-dps','developer-mode-indicator'])ui.nodes.set(id,{textContent:'',innerHTML:'',parentElement:{parentElement:{classList:{add(){},remove(){}}}}});
+  for(const id of ['hud-wave','hud-lives','hud-gold','hud-time','hud-cp','hud-score','tower-dps','developer-mode-indicator','combat-counts','persistent-boss','context-guidance','menu-stats','pinned-goal'])ui.nodes.set(id,{textContent:'',innerHTML:'',parentElement:{parentElement:{classList:{add(){},remove(){}}}}});
   const header=headerHost();ui.nodes.set('header-combat-controls',header);
-  let audioSyncs=0;const {hud}=compile(['hud'],{game,$:ui.$,audio:{syncGameState(actual){assert.equal(actual,game);audioSyncs++;}},developerConnection:null,updateHeaderCombatControls,updateSelectedEnemyPanel,updateCurrentWavePanel,enemyInspectionOptions:ui.enemyInspectionOptions,renderSidebar:ui.renderSidebar,renderRecipeBrowser(){},updateTowerDpsPanel:(panel,rows,...rest)=>samples.push({rows,options:rest.at(-1)}),dpsTracker:tracker,dpsMeasurement:measurement,data,images:ui.images,balance:data.balance,formatRunDuration,profile:{bestScore:0},renderWarbandsOverview(){},supportEffectsMarkup(){throw new Error('No defender is selected');}});
+  let audioSyncs=0;const {hud}=compile(['hud'],{game,$:ui.$,app:{dataset:{}},phaseUi:new PhaseUiState(),updateCombatStatus,craftingDockModel,pinnedGoalMarkup,contextGuidanceMarkup,guidance:null,audio:{syncGameState(actual){assert.equal(actual,game);audioSyncs++;}},developerConnection:null,updateHeaderCombatControls,updateSelectedEnemyPanel,updateCurrentWavePanel,enemyInspectionOptions:ui.enemyInspectionOptions,renderSidebar:ui.renderSidebar,renderRecipeBrowser(){},updateTowerDpsPanel:(panel,rows,...rest)=>samples.push({rows,options:rest.at(-1)}),dpsTracker:tracker,dpsMeasurement:measurement,data,images:ui.images,balance:data.balance,formatRunDuration,profile:{bestScore:0},renderWarbandsOverview(){},supportEffectsMarkup(){throw new Error('No defender is selected');}});
   const enemy=game.combat.enemies.find(candidate=>game.combat.isRevealed(candidate)),attacker=game.towers.find(t=>t.state==='active');assert.equal(game.selectEnemy(enemy.id),true);ui.renderSidebar();ui.body.scrollTop=107;
   for(let n=0;n<8;n++){
     game.combat.damage(enemy,Math.min(3,enemy.hp/100),'pure',{},attacker);hud();assert.equal(ui.body.scrollTop,107);
@@ -87,6 +93,9 @@ test('actual main HUD follows real damage, pause and death while retaining indiv
   const compact=bodyNode();ui.nodes.set('compact-draft-actions',compact);
   const draftMarkup=compile(['renderDraft'],{game,$:id=>id==='draft'?ui.body:ui.nodes.get(id)||null,icon,commandPointsMarkup,data,images:ui.images,draftCardsMarkup:()=>'<div>Current draft controls</div>'});draftMarkup.renderDraft();assert.doesNotMatch(ui.body.innerHTML,/draft-combat-actions|data-action="(?:pause|speed)"/);assert.match(ui.body.innerHTML,/Current draft controls/);
   assert.equal(compact.hidden,true,'Construction command points do not duplicate combat controls');assert.equal(compact.innerHTML,'');
+  const bossType=Object.entries(game.data.enemies).find(([,definition])=>definition.boss)?.[0];assert.ok(bossType);const boss=game.combat.spawn(bossType);boss.cloaked=false;game.select(attacker.id);ui.renderSidebar();hud();
+  const counts=ui.nodes.get('combat-counts'),banner=ui.nodes.get('persistent-boss');assert.equal(counts.textContent,`${game.combat.enemies.filter(e=>!e.dead).length} on field · ${game.combat.spawnQueue.length} queued`);assert.equal(banner.hidden,false);assert.match(banner.innerHTML,new RegExp(`aria-valuenow="${boss.hp}"`));assert.match(ui.body.innerHTML,/defender-panel/);assert.doesNotMatch(ui.body.innerHTML,/current-wave-panel/);
+  game.combat.damage(boss,1,'pure',{},attacker);hud();assert.match(banner.innerHTML,new RegExp(`aria-valuenow="${boss.hp}"`));const frozenBoss=boss.hp;game.tick(1);hud();assert.equal(boss.hp,frozenBoss);assert.equal(header.label.textContent,'Resume');assert.equal(counts.textContent,`${game.combat.enemies.filter(e=>!e.dead).length} on field · ${game.combat.spawnQueue.length} queued`,'Persistent counts continue independently of defender inspection and global pause');
 });
 
 test('actual main selected-wall markup puts demolition immediately after the title and matches real Game.remove phase restrictions',()=>{
@@ -120,7 +129,7 @@ test('actual main next-wave integration follows real round31 completion and fina
   for(const limit of [50,10]){
     const game=new Game(data,{seed:428,waveLimit:limit});prepareWavePreviewReview(game,limit===50?31:10);
     const calls=[],host={open:false},analyzer=new WaveThreatAnalyzer(data),readiness=new ArmyReadiness(data);
-    const {renderIntelligence}=compile(['renderIntelligence'],{game,$:()=>host,nextWavePreviewIndex,threatAnalyzer:analyzer,armyReadiness:readiness,data,images:{},updateNextWaveSummaryPanel:(panel,model,actualData,images,options)=>{assert.equal(options,undefined,'main must not override the independently retained open state');assert.equal(panel.open,false);calls.push(model?.next?.number??null);}},'let intelligenceModel=null,intelligenceKey=null;');
+    const {renderIntelligence}=compile(['renderIntelligence'],{game,$:()=>host,nextWavePreviewIndex,threatAnalyzer:analyzer,armyReadiness:readiness,data,images:{},updateNextWaveSummaryPanel:(panel,model,actualData,images,options)=>{assert.ok(options===undefined||options.open===false,'main requests a compact initial default; mounted disclosure keeps its own open state');assert.equal(panel.open,false);calls.push(model?.next?.number??null);}},'let intelligenceModel=null,intelligenceKey=null;');
     const latent=JSON.stringify(game.draft.draws),resources=JSON.stringify({cp:game.commandPoints.value,gold:game.economy.gold,towers:game.towers});
     for(let n=0;n<20;n++)renderIntelligence();assert.deepEqual(calls,[limit===50?31:10]);assert.equal(JSON.stringify(game.draft.draws),latent);assert.equal(JSON.stringify({cp:game.commandPoints.value,gold:game.economy.gold,towers:game.towers}),resources);
     keepDraft(game);assert.equal(game.startCombat(),true);renderIntelligence();assert.equal(calls.at(-1),limit===50?32:null);

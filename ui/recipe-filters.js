@@ -46,31 +46,39 @@ export function recipeMatches(stats,{damage='',ability='',counter=''}={},context
   return (!damage||tags.damage.has(damage))&&(!ability||tags.abilities.has(ability))&&(!counter||tags.counters.has(counter));
 }
 const select=(key,label)=>`<label>${label}<select data-recipe-filter="${key}" aria-label="${label}"><option value="">All</option>${RECIPE_FILTERS[key].map(([value,name])=>`<option value="${value}">${name}</option>`).join('')}</select></label>`;
-export function recipeFilterControlsMarkup(){
-  return `<section class="recipe-filters" aria-label="Filter defenders"><div class="recipe-filter-controls">${select('damage','Damage type')}${select('ability','Ability')}${select('counter','Against defense')}<button class="text-button" type="button" data-recipe-filter-reset>Reset filters</button></div><p class="recipe-filter-note">Matches attacks, damaging abilities and ally support. On-hit poison and burning need an initial damaging hit; secondary attacks, support, air debuffs and chance effects have their stated conditions. Holy damage ignores both damage immunities; its companion effects respect their normal immunity categories. Armor, evasion, shields and shells still apply. Read the effects below. Filters combine.</p><p class="recipe-filter-count" role="status" aria-live="polite"></p><p class="recipe-filter-empty" hidden>No defenders match these filters. Change a filter or reset them.</p></section>`;
+export function recipeFilterControlsMarkup({compact=false}={}){
+  const controls=`<div class="recipe-filter-controls">${select('damage','Damage type')}${select('ability','Ability')}${select('counter','Against defense')}<button class="text-button" type="button" data-recipe-filter-reset>Reset filters</button></div>`;
+  const note='<p class="recipe-filter-note">Matches attacks, damaging abilities and ally support. On-hit poison and burning need an initial damaging hit; secondary attacks, support, air debuffs and chance effects have their stated conditions. Holy damage ignores both damage immunities; its companion effects respect their normal immunity categories. Armor, evasion, shields and shells still apply. Read the effects below. Filters combine.</p>';
+  return `<section class="recipe-filters ${compact?'compact-recipe-filters':''}" aria-label="Filter defenders">${compact?`<details data-catalog-disclosure="filters"><summary>Filters <span data-catalog-active-filters></span></summary>${controls}<details data-catalog-disclosure="filter-help"><summary>How filters work</summary>${note}</details></details>`:controls+note}<p class="recipe-filter-count" role="status" aria-live="polite"></p><p class="recipe-filter-empty" hidden>No defenders match these filters. Change a filter or reset them.</p></section>`;
 }
-export function connectRecipeFilters(host,data,{state={damage:'',ability:'',counter:''}}={}){
+export function connectRecipeFilters(host,data,{state={damage:'',ability:'',counter:''},matchCard=null,onApply=null,profileScope='all'}={}){
   const controls=[...host.querySelectorAll('[data-recipe-filter]')];
   const apply=()=>{
-    let matches=0,total=0;
-    for(const card of host.querySelectorAll('.recipe-card[data-family]')){
+    let champions=0,championMatches=0,basics=0,basicMatches=0;
+    const rows=[...host.querySelectorAll('.recipe-catalog-row[data-family]')],cards=rows.length?rows:[...host.querySelectorAll('.recipe-card[data-family]')];
+    const query=String(state.query||'').trim().toLocaleLowerCase('en-US');
+    for(const card of cards){
       const family=card.dataset.family,s=towerStats({family,tier:1},data);
-      card.hidden=!recipeMatches(s,state,{family});total++;if(!card.hidden)matches++;
+      card.hidden=!recipeMatches(s,state,{family})||!s.name.toLocaleLowerCase('en-US').includes(query)||!!matchCard&&!matchCard(card,s);champions++;if(!card.hidden)championMatches++;
     }
     for(const entry of host.querySelectorAll('[data-filter-family]')){
       let ranks=0;
       for(const row of entry.querySelectorAll('[data-filter-tier]')){
-        row.hidden=!recipeMatches(towerStats({family:entry.dataset.filterFamily,tier:Number(row.dataset.filterTier)},data),state,{family:entry.dataset.filterFamily});
-        total++;if(!row.hidden){matches++;ranks++;}
+        const stats=towerStats({family:entry.dataset.filterFamily,tier:Number(row.dataset.filterTier)},data);
+        row.hidden=!recipeMatches(stats,state,{family:entry.dataset.filterFamily})||!stats.name.toLocaleLowerCase('en-US').includes(query);
+        basics++;if(!row.hidden){basicMatches++;ranks++;}
       }
       entry.hidden=ranks===0;
     }
-    host.querySelector('.recipe-filter-count').textContent=`${matches} of ${total} defender profiles match`;
-    host.querySelector('.recipe-filter-empty').hidden=matches>0;
+    const scope=typeof profileScope==='function'?profileScope():profileScope,matches=scope==='champions'?championMatches:scope==='basics'?basicMatches:championMatches+basicMatches,total=scope==='champions'?champions:scope==='basics'?basics:champions+basics;
+    const count=host.querySelector('.recipe-filter-count');if(count)count.textContent=`${matches} of ${total} ${scope==='champions'?'champions':scope==='basics'?'basic rank profiles':'defender profiles'} match`;
+    const empty=host.querySelector('.recipe-filter-empty');if(empty)empty.hidden=matches>0;
+    const active=host.querySelector('[data-catalog-active-filters]'),activeCount=['damage','ability','counter'].filter(key=>state[key]).length;if(active)active.textContent=activeCount?`(${activeCount} active)`:'';
+    onApply?.({matches,total,championMatches,basicMatches});
   };
   const change=event=>{const key=event.target.dataset.recipeFilter;if(key){state[key]=event.target.value;apply();}};
   const reset=()=>{for(const control of controls){state[control.dataset.recipeFilter]='';control.value='';}apply();};
   for(const control of controls){const key=control.dataset.recipeFilter;if(!RECIPE_FILTERS[key].some(([value])=>value===state[key]))state[key]='';control.value=state[key]||'';}
-  host.addEventListener('change',change);const button=host.querySelector('[data-recipe-filter-reset]');button.addEventListener('click',reset);apply();
-  return {state,apply,dispose(){host.removeEventListener('change',change);button.removeEventListener('click',reset);}};
+  host.addEventListener('change',change);const button=host.querySelector('[data-recipe-filter-reset]');button?.addEventListener('click',reset);apply();
+  return {state,apply,dispose(){host.removeEventListener('change',change);button?.removeEventListener('click',reset);}};
 }

@@ -85,14 +85,24 @@ test('individual abilities follow run-local console rules, never obsolete resist
   assert.doesNotMatch(html,/Magic resistance|Fire resistance|resistance shred|shredMagic|magic-shred/);assert.equal(selectedEnemyView(enemy,{data:privateData,combat:game.combat}).effects.length,0);
 });
 
-test('hidden, defeated, removed, stale-clone and postcombat actors cannot render through the panel API',()=>{
+test('hidden, defeated, removed, stale-clone and preparation-phase actors cannot render through the panel API',()=>{
   const game=arena(),enemy=game.combat.spawn('host_28',{variant:data.enemies.host_28.variants[1]});
   assert.ok(selectedEnemyMarkup(enemy,options(game)),'Real checkpoint reveal initially permits inspection');
   enemy.x=-100;enemy.z=-100;assert.equal(game.combat.isRevealed(enemy),false);assert.equal(selectedEnemyMarkup(enemy,options(game)),'');
   enemy.cloaked=false;assert.equal(selectedEnemyMarkup({...enemy},options(game)),'','A same-id copy is not the actual live actor');
   enemy.dead=true;assert.equal(selectedEnemyMarkup(enemy,options(game)),'');enemy.dead=false;
   game.combat.enemies=[];assert.equal(selectedEnemyMarkup(enemy,options(game)),'');game.combat.enemies=[enemy];
-  game.phase='lost';assert.equal(selectedEnemyMarkup(enemy,options(game)),'');
+  game.phase='ready';assert.equal(selectedEnemyMarkup(enemy,options(game)),'');
+});
+
+test('ended inspection preserves actual surviving invader values and frozen wording without exposing hidden or removed actors',()=>{
+  for(const outcome of ['won','lost']){
+    const game=arena(),enemy=game.combat.spawn('host_42');game.combat.applyEffects(enemy,{slow:.3,slowDuration:2});game.tick(.1);game.end(outcome==='won');
+    const before=JSON.stringify({enemy,elapsed:game.combat.elapsed,lives:game.lives,kills:game.kills,leaks:game.leaks}),view=selectedEnemyView(enemy,options(game)),html=selectedEnemyMarkup(enemy,options(game));
+    assert.equal(view.ended,true);assert.equal(view.hp,enemy.hp);assert.equal(view.currentSpeed,enemy.currentSpeed);assert.match(html,/Read-only invader snapshot|Effects and timers are frozen at run end/);assert.match(html,/>Final armor<|>Recorded speed</);assert.doesNotMatch(html,/>Current armor<|>Current speed<|data-action="(?:pause|speed|start|tower-pause|keep|craft)"/);
+    game.tick(20);assert.equal(JSON.stringify({enemy,elapsed:game.combat.elapsed,lives:game.lives,kills:game.kills,leaks:game.leaks}),before);
+    enemy.cloaked=true;enemy.x=-100;enemy.z=-100;assert.equal(selectedEnemyMarkup(enemy,options(game)),'');enemy.cloaked=false;game.combat.enemies=[];assert.equal(selectedEnemyMarkup(enemy,options(game)),'');
+  }
 });
 
 test('health/progress and presentation values stay finite and clamped, positive fractional HP never displays zero, and content is escaped',()=>{

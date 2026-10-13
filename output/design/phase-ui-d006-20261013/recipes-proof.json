@@ -1,0 +1,80 @@
+{
+  "decision": "D006",
+  "requirement": "R07",
+  "baselineCommit": "217accd9c19aeee806bb0ea74b8a49ca4b7744c7",
+  "baselineVersion": "0.3.28",
+  "date": "2026-10-13",
+  "owner": "audit_crafting",
+  "status": "Source and interaction logic verified; integrated browser viewport validation is owned by root",
+  "specification": "docs/UI_PHASE_DRIVEN_REQUIREMENTS_20261013.md R07",
+  "approvedConcept": {
+    "file": "05-recipes.png",
+    "sha256": "b6a90bbd0dc2a77f20e1900830f6dc49377f842b5f1b84dfae6eb67f8364f9b1",
+    "inspected": true,
+    "historicalImageUnchanged": true
+  },
+  "files": [
+    "ui/catalog-recipes.js",
+    "ui/catalog-recipes.css",
+    "ui/grimoire.js",
+    "ui/recipe-filters.js",
+    "tests/catalog-recipes-d006.test.mjs",
+    "tests/grimoire-display.test.mjs"
+  ],
+  "hashes": {
+    "ui/catalog-recipes.js": "f25ba7ac244a6757f1573cd7dae9dbc1b2c338f4343fc23cf33a723c259901ca",
+    "ui/catalog-recipes.css": "68f3b2492c4711ec598b8092df91e7e30027186e1b5c87efa151fac9237b7eac",
+    "ui/grimoire.js": "806e123cc4cc99f39de361af1a24e23b6bea7846cfa98df88cabe36f064a4428",
+    "ui/recipe-filters.js": "c55d4086371b95852bfbbcebb0885156a5620e6f511b7fee0beb62452d571d9b",
+    "tests/catalog-recipes-d006.test.mjs": "56e1e58d7ecb7615c02afd5692c9c32aff285f85b966918ffe0bc0953f1c2e04",
+    "tests/grimoire-display.test.mjs": "6a0b5d6213bb7f7e8a035fdac5cf4a3feeb62bfd94e10e1023240d379445faad"
+  },
+  "implementation": [
+    "Compact champion rows with English name search, optional detail, All/Available/In progress scopes and separate basic-defender view.",
+    "Preserved Damage type, Ability and Against defense filters; filter explanation and recipe/rank guidance are independently expandable.",
+    "Exact ingredients keep Built/This round/Missing distinctions; trees use existing allocated recipe progress and ready champion subtree coverage.",
+    "Catalog stock excludes latent, stale, reserved and ruin candidates while retaining real owned defenders in combat and after a run.",
+    "Available rows and explicit craft actions rely on Game legality; inspecting, filtering and pin presentation consume no RNG, inventory, gold or CP.",
+    "Aura-only units show actual burnAura damage/s prominently and state No direct attack. Direct DPS, poison-per-hit and multi-target output remain distinct.",
+    "Basic Mage description uses current runtime cleave type, magnitude and radius. Source descriptions and balancing records are unchanged.",
+    "Search, selected recipe and native filter/explanation/tree disclosure choices persist through pin rerenders; refresh updates real reserve progress."
+  ],
+  "integration": {
+    "markup": "championCatalogMarkup(game,data,images,{state})",
+    "connector": "connectChampionCatalog(host,game,data,images,{state,onDetail:pane=>stampCraftButtons(pane)})",
+    "methods": [
+      "refresh",
+      "dispose"
+    ],
+    "css": "ui/catalog-recipes.css",
+    "persistentState": "championCatalogDefaults()",
+    "rootActions": "Existing data-action pin/craft, guarded by root dispatch",
+    "rootReviewed": true,
+    "findings": [
+      "No fatal catalog pin/dispose/stale-action issue found.",
+      "Reported independent root defender-panel measured field mismatch: tracker rows use dps, not peakDps."
+    ]
+  },
+  "verification": {
+    "command": "node --test tests/catalog-recipes-d006.test.mjs tests/grimoire-display.test.mjs tests/recipe-filters.test.mjs tests/recipe-tree.test.mjs tests/crafting-dock.test.mjs",
+    "exitCode": 0,
+    "tests": 44,
+    "passed": 44,
+    "failed": 0,
+    "newCatalogTests": 11,
+    "runtimeProfiles": 86,
+    "currentChampionRecipes": 38,
+    "legacyTestMigration": "Only the aura-only stat contract changes: assert real Aura DPS and no Direct attack instead of requiring Base DPS 0."
+  },
+  "deferred": [
+    "Root browser interaction at desktop, tablet landscape/portrait and mobile landscape/portrait",
+    "Root-owned R01-R06 phase integration",
+    "R08 belongs to audit_evasion"
+  ],
+  "preserved": [
+    "MAIN working tree",
+    "Historical concept images and old proof records",
+    "Core, data, balance, rendering and artwork",
+    "D001 deferral"
+  ]
+}

@@ -34,7 +34,7 @@ export class Game {
     const voiceTower=tower&&this.data.towers[tower.family]&&(tower.state==='active'||draft)?tower:null;
     const key=voiceTower?JSON.stringify([this.round,voiceTower.id,voiceTower.family,voiceTower.tier]):null;
     if(key!==this.selectionVoiceKey||(!voiceTower&&previous!==id)){this.selectionVoiceKey=key;this.emit('defender-select',{tower:voiceTower,round:this.round});}
-    this.emit('change');
+    this.emit('selection',{kind:'tower',id:this.selection?.id??null});this.emit('change');
   }
   setTowerAttackPaused(id,paused){
     const tower=this.towers.find(t=>t.id===id&&t.state==='active');
@@ -44,15 +44,15 @@ export class Game {
   get selection(){return this.towers.find(t=>t.id===this.selected)||null;}
   selectEnemy(id){
     if(this.commandMove.active)return false;
-    const enemy=this.phase==='combat'&&Number.isSafeInteger(id)&&this.combat.enemies.find(e=>e.id===id&&!e.dead&&e.hp>0&&this.combat.isRevealed(e));
+    const enemy=['combat','won','lost'].includes(this.phase)&&Number.isSafeInteger(id)&&this.combat.enemies.find(e=>e.id===id&&!e.dead&&e.hp>0&&this.combat.isRevealed(e));
     if(!enemy)return false;
     const wasDefenderSelected=this.selected!==null||this.selectionVoiceKey!==null;
     this.selected=null;this.previewRecipeId=null;this.selectedEnemy=id;
     if(wasDefenderSelected){this.selectionVoiceKey=null;this.emit('defender-select',{tower:null,round:this.round});}
-    this.emit('change');return true;
+    this.emit('selection',{kind:'enemy',id});this.emit('change');return true;
   }
   get enemySelection(){
-    return this.phase==='combat'?this.combat.enemies.find(e=>e.id===this.selectedEnemy&&!e.dead&&e.hp>0&&this.combat.isRevealed(e))||null:null;
+    return ['combat','won','lost'].includes(this.phase)?this.combat.enemies.find(e=>e.id===this.selectedEnemy&&!e.dead&&e.hp>0&&this.combat.isRevealed(e))||null:null;
   }
   pruneEnemySelection(){
     if(this.selectedEnemy!==null&&!this.enemySelection){this.selectedEnemy=null;this.emit('change');}

@@ -1,0 +1,113 @@
+{
+  "requirement": "D006 R08 factual developer-mode wave labels",
+  "baselineCommit": "217accd9c19aeee806bb0ea74b8a49ca4b7744c7",
+  "createdAt": "2026-10-13 17:47:48 UTC",
+  "sourceHashes": {
+    "ui/warbands-overview.js": "8b6a7e5785d55a1d658d2b243b56d4b28a6f976524ebe16a0e7d04016525a54e",
+    "tests/enemy-catalog-navigation.test.mjs": "f3a1e5e8e2804dd136b9a4676ff8be836005bf907d0a53fe73f925b17b457295",
+    "ui/warbands-overview.css": "96da17a8f19384bb324c775806cca9495dfd4a2a18abc0b45ebdd484e2ced033",
+    "ui/warband-cards.js": "228f7104b82e01cc7d87f6a7d18d80377cb45ecef05b79400d0cf10dd08daa76",
+    "output/design/phase-ui-d006-20261013/r08-enemy-catalog-proof.json": "003fbdde30ee2883cb7122e20ea8f3a594fd0fe921367dcc791a65d610650b2a"
+  },
+  "changedInThisFollowup": [
+    "ui/warbands-overview.js",
+    "tests/enemy-catalog-navigation.test.mjs"
+  ],
+  "historicalEvidence": {
+    "originalCatalogProof": "output/design/phase-ui-d006-20261013/r08-enemy-catalog-proof.json",
+    "originalProofPreserved": true,
+    "currentSourceAndTestHashesSupersedeOriginalFreeze": true
+  },
+  "behavior": {
+    "developerModeDefault": false,
+    "developerCombatHeader": "Wave 10 · current and upcoming waves",
+    "developerNote": "Developer Mode / Sandbox guide · earlier waves may have been skipped.",
+    "developerHistoryHeading": "Prior wave 3",
+    "developerHistoryAriaLabel": "Selected prior wave",
+    "developerFinalGuideHeader": "Wave 50 · end of wave guide",
+    "developerFinalGuideEmptyMessage": "No later waves in this guide.",
+    "ordinaryCompletedProgressHistoryVictoryLabelsPreserved": true,
+    "remainingWaveSlicingAndAllEnemyStatsUnchanged": true
+  },
+  "regression": {
+    "actualCore": "Game + DeveloperConsoleSession",
+    "fixtureSeed": 807,
+    "fixtureStartingLives": 1000,
+    "actualCompletedWavesBeforeJump": [
+      1,
+      2
+    ],
+    "actualEarlyWavesUseSpawningMovementLeaksAndCompletionEvents": true,
+    "sandboxRunWaveJumpTo": 10,
+    "actualMainRenderWarbandsOverviewExecutedInVm": true,
+    "actualMainPassesDeveloperMode": true,
+    "nativeCatalogQuickJumpInspectedPriorWave": 3,
+    "priorWaveNotLabeledCompleted": true,
+    "catalogDoesNotMutateGameDataResourcesPhaseOrResultHistory": true,
+    "finalWaveAndZeroWaveGuideCopyCovered": true,
+    "beforeFix": {
+      "command": "node --test tests/enemy-catalog-navigation.test.mjs",
+      "tests": 10,
+      "passed": 8,
+      "failed": 2
+    },
+    "afterFix": {
+      "command": "node --test tests/enemy-catalog-navigation.test.mjs tests/warbands-overview.test.mjs tests/warband-cards.test.mjs tests/enemy-variants-v12.test.mjs tests/phase-main-integration.test.mjs tests/wave-preview-flow.test.mjs tests/battlefield-panel-main-integration.test.mjs",
+      "tests": 51,
+      "passed": 51,
+      "failed": 0
+    },
+    "whitespaceCheckPassed": true
+  },
+  "preservation": {
+    "mainRendererFunctionSha256": "fc868f92465d96fabcb7408c205f073abf17967520106d02bfe2a9934efd0d20",
+    "mainPassesDeveloperMode": true,
+    "protectedSource": {
+      "data/enemies.json": {
+        "sha256": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "data/waves.json": {
+        "sha256": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "data/towers.json": {
+        "sha256": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "data/recipes.json": {
+        "sha256": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "data/balance.json": {
+        "sha256": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "game/core/campaign-roster.js": {
+        "sha256": "f5196bf1dacc7ddc6657fcf940f46e52c20560d56b579a9563e1dc0188e27c7b",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "game/core/combat.js": {
+        "sha256": "1605ad59791e760edca3386b2e22bad289f61a1b59c20826cc665d1c78d0f39f",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "game/core/enemy-rules.js": {
+        "sha256": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "game/core/warband-info.js": {
+        "sha256": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "game/core/developer-console.js": {
+        "sha256": "9fe00f33f69eeac59b6a7a2934fe827d361c54c54987c9ec816884c13e2f6458",
+        "lfNormalizedMatchesBaseline": true
+      }
+    }
+  },
+  "limits": [
+    "The new regression uses the actual main renderer function and real catalog updater in a small DOM harness. Post-fix native browser presentation is root-owned.",
+    "Sandbox lives are raised only in the local test fixture to let actual early waves finish; no campaign data, enemy rules or balancing change."
+  ],
+  "frozen": true
+}

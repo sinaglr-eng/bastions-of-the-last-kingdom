@@ -76,6 +76,19 @@ test('World accepted mouse/touch/pen taps inspect an air enemy before plane/tile
   }
 });
 
+test('actual ended World taps select surviving revealed enemies through real rays while visibility, occlusion and read-only guards remain',()=>{
+  for(const outcome of ['won','lost'])for(const type of ['mouse','touch','pen']){
+    const game=arena(),enemy=game.combat.spawn('host_25'),actor=figure(0,2,0),view=viewport(game,new Map([[enemy.id,actor]]));game.end(outcome==='won');
+    const snapshot=JSON.stringify({enemy,elapsed:game.combat.elapsed,lives:game.lives,score:game.score,kills:game.kills,leaks:game.leaks}),selections=[];game.on((event,payload)=>{if(event==='selection')selections.push(payload);});
+    const gesture=new PointerTapGesture();gesture.start(event(1,type));assert.equal(gesture.end(event(1,type)),true);Battlefield.prototype.selectPointer.call(view,event(1,type));assert.equal(game.enemySelection,enemy);assert.deepEqual(view.calls,[]);
+    Battlefield.prototype.selectPointer.call(view,event(2,type));assert.deepEqual(selections,[{kind:'enemy',id:enemy.id},{kind:'enemy',id:enemy.id}],'Explicit same-body review selection reaches the main inspector reopen event');game.tick(10);assert.equal(JSON.stringify({enemy,elapsed:game.combat.elapsed,lives:game.lives,score:game.score,kills:game.kills,leaks:game.leaks}),snapshot);
+    const wall=box(3,3,1);wall.position.set(0,2,3);assert.equal(pointedEnemy(ray(0,2),view.enemies,game,{occluders:[wall]}),null,'A visible stone surface still owns the hit');wall.visible=false;assert.equal(pointedEnemy(ray(0,2),view.enemies,game,{occluders:[wall]}),enemy.id);
+    enemy.cloaked=true;enemy.x=12;enemy.z=20;assert.equal(game.combat.isRevealed(enemy),false);assert.equal(pointedEnemy(ray(0,2),view.enemies,game),null);enemy.cloaked=false;enemy.dead=true;assert.equal(pointedEnemy(ray(0,2),view.enemies,game),null);enemy.dead=false;enemy.hp=0;assert.equal(pointedEnemy(ray(0,2),view.enemies,game),null);enemy.hp=enemy.maxHp;actor.visible=false;assert.equal(pointedEnemy(ray(0,2),view.enemies,game),null);actor.visible=true;game.combat.enemies=[];assert.equal(pointedEnemy(ray(0,2),view.enemies,game),null);
+    for(const phase of ['build','select','ready','reward']){game.phase=phase;game.combat.enemies=[enemy];assert.equal(pointedEnemy(ray(0,2),view.enemies,game),null);}
+    wall.geometry.dispose();wall.material.dispose();actor.traverse(node=>{if(node.isMesh){node.geometry.dispose();node.material.dispose();}});
+  }
+});
+
 test('existing tap gate rejects drags, right clicks and multi-touch before enemy or tower selection',()=>{
   const game=arena(),enemy=game.combat.spawn('host_01'),view=viewport(game,new Map([[enemy.id,figure(0,2,0)]]));
   const release=(gesture,e)=>{if(gesture.end(e))Battlefield.prototype.selectPointer.call(view,e);};

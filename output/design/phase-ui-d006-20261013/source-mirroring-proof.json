@@ -1,0 +1,391 @@
+{
+  "status": "passed",
+  "baseline": "217accd9c19aeee806bb0ea74b8a49ca4b7744c7",
+  "backupRoot": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\phase-ui-d006-before-1791909962701",
+  "concurrentBackupRoot": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\d006-concurrent-inputs-1791915380395",
+  "concurrentInputs": [
+    {
+      "file": "GAME_DESIGN.md",
+      "sha256": "5e00fc9ab392f88c8e1117fdce5a2e6894956d1653fa55e06fdc3209e0641360"
+    },
+    {
+      "file": "docs/UI_PHASE_DRIVEN_REQUIREMENTS_20261013.md",
+      "sha256": "641962de6b6d571dc74335ce510791f1356e08d510fd50d9f2fd02cc0bad2286"
+    }
+  ],
+  "paths": 53,
+  "unrelatedChecked": 312,
+  "files": [
+    {
+      "file": ".gitattributes",
+      "sourceSha256": "a0fc64a13e61517109a25e0e249ac40fd9749d5031270535628918e039d8dc6a",
+      "mainSha256": "a0fc64a13e61517109a25e0e249ac40fd9749d5031270535628918e039d8dc6a",
+      "originalSha256": "d3f30700d1b20cc21d8fda00d1f5356dd9a14c915fb6defda42318232fa9e470",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "sourceSha256": "d2da2aa19204a50348b8b5412ff667f0437faa6d7b4716ede81458b13d872f45",
+      "mainSha256": "eb57e34683b67669bde0e2af8c04afc3ffebc76cf0a7291a5dd990a47b878539",
+      "originalSha256": "e5903cd30caac78a00257e9dcea14a5002907a0de6b707524f8994e8df014ae8",
+      "mode": "preserved-main-three-way-merge"
+    },
+    {
+      "file": "GAME_DESIGN.md",
+      "sourceSha256": "585d5f4a28d259c5e365c91a1ae9af4d1de361f3220e422d973533a312ced620",
+      "mainSha256": "585d5f4a28d259c5e365c91a1ae9af4d1de361f3220e422d973533a312ced620",
+      "originalSha256": "5e00fc9ab392f88c8e1117fdce5a2e6894956d1653fa55e06fdc3209e0641360",
+      "mode": "updated-authorized-main-handoff"
+    },
+    {
+      "file": "README.md",
+      "sourceSha256": "3e9e9c1be9b5a81b1517f49cfba10bdedd7cd73fa240246cf89fbf3a278a08cd",
+      "mainSha256": "f3eb33a6b953e6bae58c22f06a4be9ba587f931761679bf1f51d68381f1802e6",
+      "originalSha256": "fda8db779491252ec4796b08d8bf317c977275b0a20e4561021aa0f510b309d4",
+      "mode": "preserved-main-three-way-merge"
+    },
+    {
+      "file": "docs/UI_DYNAMIC_CRAFTING_APPROVED_20261013.md",
+      "sourceSha256": "508cad747850e86aa09c10414a249ac0b9e7ac05f4b1fe5649de5c086dc4f177",
+      "mainSha256": "508cad747850e86aa09c10414a249ac0b9e7ac05f4b1fe5649de5c086dc4f177",
+      "originalSha256": "0d72ef517f47a43e4817a41bc00763e48084b93bbe664daf0039f91327e93b28",
+      "mode": "updated-authorized-main-handoff"
+    },
+    {
+      "file": "game/core/game.js",
+      "sourceSha256": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf",
+      "mainSha256": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf",
+      "originalSha256": "9813e8db7df26dec7e4f7fa6c1fc3b81c60f718164445d21e1d73fd72c3ca73b",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/main.js",
+      "sourceSha256": "da610c1d683353737be6ea209d630bcf8f103545e94f9b2685870c4ace08a856",
+      "mainSha256": "da610c1d683353737be6ea209d630bcf8f103545e94f9b2685870c4ace08a856",
+      "originalSha256": "bd56e83dc1362721c5b2b1733b4fd1d3921dc3ab3c57e4580658c3adda6b41fb",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/release.js",
+      "sourceSha256": "01285b823430013384135dbc1d7fbb66b17e3d88e1f5e4c8e3c3848596df4774",
+      "mainSha256": "01285b823430013384135dbc1d7fbb66b17e3d88e1f5e4c8e3c3848596df4774",
+      "originalSha256": "abef0e5e0219d8175c2fbc4d622a3c69e9f53ce0bc6069dc766d99744b65255c",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/render/enemy-pointer.js",
+      "sourceSha256": "5e22304d0d4b0e47d9651234c196808df9dacc6c7cd8ca7590ca648c77720878",
+      "mainSha256": "5e22304d0d4b0e47d9651234c196808df9dacc6c7cd8ca7590ca648c77720878",
+      "originalSha256": "ce4799c9b0d21c891f722030724e607b7f70691a23493375fd67601ecfffc3e9",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/render/maze-planner.js",
+      "sourceSha256": "6b734361ea7317797a4059790e2cd2eab668a7d81ae45f52bf5de5dd20cb657f",
+      "mainSha256": "6b734361ea7317797a4059790e2cd2eab668a7d81ae45f52bf5de5dd20cb657f",
+      "originalSha256": "c50044b95808df5b9dcd40739dbe8c5aedcdbdfdbabbe7a3d407428b9ff2d671",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "package.json",
+      "sourceSha256": "61cfc1fa3fc9f0e244888dadf969abe349486a1822368ea71ab489da66639def",
+      "mainSha256": "61cfc1fa3fc9f0e244888dadf969abe349486a1822368ea71ab489da66639def",
+      "originalSha256": "3f90a81f06e4a4f9650d38d893282fab7fb9c39fd1be2ebe2a64b5e725d11e61",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "public/release.json",
+      "sourceSha256": "0248c2dda20a8f519e60dc388fb0bc03da685d12ff9380ca02742f4f0937fc64",
+      "mainSha256": "0248c2dda20a8f519e60dc388fb0bc03da685d12ff9380ca02742f4f0937fc64",
+      "originalSha256": "c7f5be84c31af8b5e73efbadc8019fe219a0d36a8ee01dd5404cfa56ebdb4018",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/battlefield-panel-main-integration.test.mjs",
+      "sourceSha256": "e88385a6327ea4e53cb8202bbc0e39bc0302719e1c2c6c756779386dc67f2ef2",
+      "mainSha256": "e88385a6327ea4e53cb8202bbc0e39bc0302719e1c2c6c756779386dc67f2ef2",
+      "originalSha256": "3c0ea5b8d3c828a2e9033a0511e012683d0b16e2c2868a629c5135cd9c0dc9ba",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/crafting-main-integration.test.mjs",
+      "sourceSha256": "e03db93ee5fad753001342af3055b43394154a51810b014718cb7f9e97e15629",
+      "mainSha256": "e03db93ee5fad753001342af3055b43394154a51810b014718cb7f9e97e15629",
+      "originalSha256": "3ea52c2b4a7f459c55d150608ceda7058a009edb4759ab7535fb770e21fabf60",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/defender-rank-preview.test.mjs",
+      "sourceSha256": "4333d63d9c97057dc429b55a72f5d52b077a13b51ed0fe18c8efae99ebfeadb8",
+      "mainSha256": "4333d63d9c97057dc429b55a72f5d52b077a13b51ed0fe18c8efae99ebfeadb8",
+      "originalSha256": "f94a0bd6d148bbc6ffbcbef8f2f229b661985efd8b02bb8db67ef4f7417084e2",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/draft-pointer-input.test.mjs",
+      "sourceSha256": "501e88c58ce331e1e867eceab0b024e2b6a8532151205a0607ab6b1217fe5fe8",
+      "mainSha256": "501e88c58ce331e1e867eceab0b024e2b6a8532151205a0607ab6b1217fe5fe8",
+      "originalSha256": "0fe059a3993cc40a527f19537b3428e77dfb1b998667c2308c0021a07fa4efb4",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/draft-presentation.test.mjs",
+      "sourceSha256": "4eb018183908d2d04a7ec670d2392b8d2eb1f60112dbc5d75fa5962fc36b0083",
+      "mainSha256": "4eb018183908d2d04a7ec670d2392b8d2eb1f60112dbc5d75fa5962fc36b0083",
+      "originalSha256": "adb2f68b307a78470a5af4ea27f9fc55a7f36608d618bd69288c2dcb002f1ffb",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/enemy-pointer.test.mjs",
+      "sourceSha256": "82057710662c6757ac2805c6ca1b060662cf573528343ffbaecf8e158879dc78",
+      "mainSha256": "82057710662c6757ac2805c6ca1b060662cf573528343ffbaecf8e158879dc78",
+      "originalSha256": "f3d5a45a6788875cdee35e6072a1ced320c04fea58576c20bf1eda8425be2693",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/enemy-selection.test.mjs",
+      "sourceSha256": "8d33dfcc74ef4386ed9ca10cc74665e0f8272cfb050a0936e332fa0b42ac3165",
+      "mainSha256": "8d33dfcc74ef4386ed9ca10cc74665e0f8272cfb050a0936e332fa0b42ac3165",
+      "originalSha256": "55114394f7e8e085123b7e80e1bb0fec1d18c0c83bcae35472b0e780dacf1fd5",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/grimoire-display.test.mjs",
+      "sourceSha256": "6a0b5d6213bb7f7e8a035fdac5cf4a3feeb62bfd94e10e1023240d379445faad",
+      "mainSha256": "6a0b5d6213bb7f7e8a035fdac5cf4a3feeb62bfd94e10e1023240d379445faad",
+      "originalSha256": "79461956d13fe0ae586b633ea61d4918fbcef8bb34b7e5c2928fa17d096145d5",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/selected-enemy-panel.test.mjs",
+      "sourceSha256": "9631381b1315278a2cbe7119e328ccbb5c21e17e3e26f3637342dba1e501fa5b",
+      "mainSha256": "9631381b1315278a2cbe7119e328ccbb5c21e17e3e26f3637342dba1e501fa5b",
+      "originalSha256": "b92969e6d434e98dc308a2dc58adaf82f76b9bfef5998b03bdb6aa6fe5746113",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/wave-preview-flow.test.mjs",
+      "sourceSha256": "d848964532e3e095802b0322906d784bd33fbdb6ccc2e0b9530348b96600a109",
+      "mainSha256": "d848964532e3e095802b0322906d784bd33fbdb6ccc2e0b9530348b96600a109",
+      "originalSha256": "2e6355dd6d65127e7a267cfbb3ef0a04f151e6b23ac1d112f53194eb6302f3a0",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/grimoire.js",
+      "sourceSha256": "806e123cc4cc99f39de361af1a24e23b6bea7846cfa98df88cabe36f064a4428",
+      "mainSha256": "806e123cc4cc99f39de361af1a24e23b6bea7846cfa98df88cabe36f064a4428",
+      "originalSha256": "3c7d3e2d71e12e297cfd12550f451ae1f0cf75a549a6b49d0aed3d604cef06d9",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/recipe-filters.js",
+      "sourceSha256": "c55d4086371b95852bfbbcebb0885156a5620e6f511b7fee0beb62452d571d9b",
+      "mainSha256": "c55d4086371b95852bfbbcebb0885156a5620e6f511b7fee0beb62452d571d9b",
+      "originalSha256": "8a6b28649a32e72a3bfcc31c9d32689b833ada6097714632466a062eb008d890",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/selected-enemy.js",
+      "sourceSha256": "e2b5c842350700990fb9c5d7fa2068385294298340ae062cd1d22b131eda34bc",
+      "mainSha256": "e2b5c842350700990fb9c5d7fa2068385294298340ae062cd1d22b131eda34bc",
+      "originalSha256": "3f19c587d3931b4259766205eb6bd25cd7a904da16765f564e78310a16bdbfa6",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/tutorial.js",
+      "sourceSha256": "1d31d06a3915ed4c233b6bc3ecb5edae7edcbf8879e210f5deb41d7037da62df",
+      "mainSha256": "1d31d06a3915ed4c233b6bc3ecb5edae7edcbf8879e210f5deb41d7037da62df",
+      "originalSha256": "26af010d878b3d7382ed942bf48b4183bc7813da46eaf1d04023830357a760c3",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/warband-cards.js",
+      "sourceSha256": "228f7104b82e01cc7d87f6a7d18d80377cb45ecef05b79400d0cf10dd08daa76",
+      "mainSha256": "228f7104b82e01cc7d87f6a7d18d80377cb45ecef05b79400d0cf10dd08daa76",
+      "originalSha256": "f0cf69d01dc407d957a6f0bfcfb2cdf9d0487fe85439edf2a2ffe7ed2437fd95",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/warbands-overview.css",
+      "sourceSha256": "96da17a8f19384bb324c775806cca9495dfd4a2a18abc0b45ebdd484e2ced033",
+      "mainSha256": "96da17a8f19384bb324c775806cca9495dfd4a2a18abc0b45ebdd484e2ced033",
+      "originalSha256": "9274fa008edef3e7e2ad67c1e9da38acf4b993fa4a7a258a2fc96a9ae8bdca96",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/warbands-overview.js",
+      "sourceSha256": "8b6a7e5785d55a1d658d2b243b56d4b28a6f976524ebe16a0e7d04016525a54e",
+      "mainSha256": "8b6a7e5785d55a1d658d2b243b56d4b28a6f976524ebe16a0e7d04016525a54e",
+      "originalSha256": "62baa1f91830193726794a8ee7190442400c9b0291f3c889eac9c25f797f1693",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "docs/PHASE_UI_D006_IMPLEMENTATION_20261013.md",
+      "sourceSha256": "33daeec37e22f3555d2f45431ae7448898b3ad991169bde115c042e0a2091b4a",
+      "mainSha256": "33daeec37e22f3555d2f45431ae7448898b3ad991169bde115c042e0a2091b4a",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "docs/UI_PHASE_DRIVEN_ACCEPTANCE_20261013.json",
+      "sourceSha256": "09830afa0f00918b6ef9bbd2dde5762f7d5174e26f09547d12528dfd41309415",
+      "mainSha256": "09830afa0f00918b6ef9bbd2dde5762f7d5174e26f09547d12528dfd41309415",
+      "originalSha256": "b23c5e804de65ec3aa912b8806f2870539c9ab55423ce93f45a8c611433fc3e2",
+      "mode": "updated-authorized-main-handoff"
+    },
+    {
+      "file": "docs/UI_PHASE_DRIVEN_REQUIREMENTS_20261013.md",
+      "sourceSha256": "12f0bb305401b2d5c2c41acfdaa254d1a621239358f0f3428acb9d4fe672b08b",
+      "mainSha256": "12f0bb305401b2d5c2c41acfdaa254d1a621239358f0f3428acb9d4fe672b08b",
+      "originalSha256": "641962de6b6d571dc74335ce510791f1356e08d510fd50d9f2fd02cc0bad2286",
+      "mode": "updated-authorized-main-handoff"
+    },
+    {
+      "file": "docs/evidence/ui-phase-request-20261013-v1/original-request.txt",
+      "sourceSha256": "e7c06f5a2cf34d1686b372f0074b144a572adb47fb1d6d89e150d24b0466c759",
+      "mainSha256": "e7c06f5a2cf34d1686b372f0074b144a572adb47fb1d6d89e150d24b0466c759",
+      "originalSha256": "e7c06f5a2cf34d1686b372f0074b144a572adb47fb1d6d89e150d24b0466c759",
+      "mode": "already-identical"
+    },
+    {
+      "file": "docs/evidence/ui-phase-request-20261013-v1/manifest.json",
+      "sourceSha256": "15acbb1fa411b6b0c2cb3c68c5313be9d84c09d1622d2b98c2fe7e3a461505d8",
+      "mainSha256": "15acbb1fa411b6b0c2cb3c68c5313be9d84c09d1622d2b98c2fe7e3a461505d8",
+      "originalSha256": "15acbb1fa411b6b0c2cb3c68c5313be9d84c09d1622d2b98c2fe7e3a461505d8",
+      "mode": "already-identical"
+    },
+    {
+      "file": "ui/catalog-recipes.js",
+      "sourceSha256": "f25ba7ac244a6757f1573cd7dae9dbc1b2c338f4343fc23cf33a723c259901ca",
+      "mainSha256": "f25ba7ac244a6757f1573cd7dae9dbc1b2c338f4343fc23cf33a723c259901ca",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/catalog-recipes.css",
+      "sourceSha256": "68f3b2492c4711ec598b8092df91e7e30027186e1b5c87efa151fac9237b7eac",
+      "mainSha256": "68f3b2492c4711ec598b8092df91e7e30027186e1b5c87efa151fac9237b7eac",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/context-guidance.js",
+      "sourceSha256": "1be7753a684f12e2f72101a439d922b3194b60e1dacc295a5f8ddefd2a8d01a5",
+      "mainSha256": "1be7753a684f12e2f72101a439d922b3194b60e1dacc295a5f8ddefd2a8d01a5",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/context-guidance.css",
+      "sourceSha256": "a31258079f0a351452e213cfcb530d706a5c200a91a8e0a2a20cf979b8d37199",
+      "mainSha256": "a31258079f0a351452e213cfcb530d706a5c200a91a8e0a2a20cf979b8d37199",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/defender-panel.js",
+      "sourceSha256": "71bf1bd9579fd5cbad71a2ff3c92dd9738f7dd3c2a121129cd2bb631cf570e5b",
+      "mainSha256": "71bf1bd9579fd5cbad71a2ff3c92dd9738f7dd3c2a121129cd2bb631cf570e5b",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/maze-comparison.js",
+      "sourceSha256": "229f7e04fcca91d0185cfa3c7be052031b40875634d65fbebd74575f4a3f8a0b",
+      "mainSha256": "229f7e04fcca91d0185cfa3c7be052031b40875634d65fbebd74575f4a3f8a0b",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/maze-comparison.css",
+      "sourceSha256": "01825f9c4232cf295f0c50ac99c132928cd4152e2b6fa8680ccb33f1fd5bbfa0",
+      "mainSha256": "01825f9c4232cf295f0c50ac99c132928cd4152e2b6fa8680ccb33f1fd5bbfa0",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/phase-ui.js",
+      "sourceSha256": "5eae1c6be264937c3523bf439320d6ffad0d1e1349f2498adaa58e194e4b1af0",
+      "mainSha256": "5eae1c6be264937c3523bf439320d6ffad0d1e1349f2498adaa58e194e4b1af0",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/phase-ui.css",
+      "sourceSha256": "48fedde9e44e5a5ca8b7ee85f9b945c3fc9a9eedf4e00d47e37a2f7cc2a563f0",
+      "mainSha256": "48fedde9e44e5a5ca8b7ee85f9b945c3fc9a9eedf4e00d47e37a2f7cc2a563f0",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/run-results.js",
+      "sourceSha256": "e06e41669033c0f02bade47f94125d398efdf25b8b83a74e906c16c64ea73067",
+      "mainSha256": "e06e41669033c0f02bade47f94125d398efdf25b8b83a74e906c16c64ea73067",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/run-results.css",
+      "sourceSha256": "b5ea0055b86aaa44601a37914b1f379033bb6f117f387a681402e262a573ed0e",
+      "mainSha256": "b5ea0055b86aaa44601a37914b1f379033bb6f117f387a681402e262a573ed0e",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/catalog-recipes-d006.test.mjs",
+      "sourceSha256": "56e1e58d7ecb7615c02afd5692c9c32aff285f85b966918ffe0bc0953f1c2e04",
+      "mainSha256": "56e1e58d7ecb7615c02afd5692c9c32aff285f85b966918ffe0bc0953f1c2e04",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/context-guidance.test.mjs",
+      "sourceSha256": "3ce2a8aa62c0eee0cb770f07240893603c98ab86fa39de19d50e02a899bed73d",
+      "mainSha256": "3ce2a8aa62c0eee0cb770f07240893603c98ab86fa39de19d50e02a899bed73d",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/enemy-catalog-navigation.test.mjs",
+      "sourceSha256": "f3a1e5e8e2804dd136b9a4676ff8be836005bf907d0a53fe73f925b17b457295",
+      "mainSha256": "f3a1e5e8e2804dd136b9a4676ff8be836005bf907d0a53fe73f925b17b457295",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/maze-comparison.test.mjs",
+      "sourceSha256": "381b4305d3804fea60b01b5ff252d190deb3b47ed8ae34b62accf3a884374f60",
+      "mainSha256": "381b4305d3804fea60b01b5ff252d190deb3b47ed8ae34b62accf3a884374f60",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/phase-main-integration.test.mjs",
+      "sourceSha256": "38eb0e35c92d9c079565ebafc23c352110a22da1c0fe99b96d0a6ca062ed7df2",
+      "mainSha256": "38eb0e35c92d9c079565ebafc23c352110a22da1c0fe99b96d0a6ca062ed7df2",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/phase-touch-d006.test.mjs",
+      "sourceSha256": "dba6bbae3c75adb320e09c94e8c86eb89b95f94fb8554e63f809efbb47ab88ae",
+      "mainSha256": "dba6bbae3c75adb320e09c94e8c86eb89b95f94fb8554e63f809efbb47ab88ae",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/phase-ui.test.mjs",
+      "sourceSha256": "3c25799396d9459f96b7b90631e9ec40c2db0dc2fc22c7b431c0ae265c2dd403",
+      "mainSha256": "3c25799396d9459f96b7b90631e9ec40c2db0dc2fc22c7b431c0ae265c2dd403",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/run-results.test.mjs",
+      "sourceSha256": "938e23b29c9866ef309bf9df0ba149960966a3cb99eb174c8fe59fc4c5a0313e",
+      "mainSha256": "938e23b29c9866ef309bf9df0ba149960966a3cb99eb174c8fe59fc4c5a0313e",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    }
+  ]
+}

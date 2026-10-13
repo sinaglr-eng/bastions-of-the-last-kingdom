@@ -1,0 +1,156 @@
+{
+  "scope": "Statistics backend edition publication only",
+  "targetEdition": "0.3.29",
+  "createdAt": "2026-10-13 17:22:29 UTC",
+  "status": "LIVE",
+  "frozen": true,
+  "projectId": "appgprj_6abe518c2c1c8191a9bc044f418faed8",
+  "productionUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
+  "source": {
+    "checkout": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v25-statistics-service",
+    "baselineCommit": "19c43dbfc37932cf9d7b09c9ad314a3630b20523",
+    "publishedCommit": "44011539d22362af162609d232229dc723df30da",
+    "changedFiles": [
+      "game/release.js",
+      "package.json"
+    ],
+    "sourceHelperOpeningVerified": true,
+    "pushedExactCommitVerified": true,
+    "remoteHeadReopenedAndVerified": true,
+    "workingTreeClean": true,
+    "changedFileSha256": {
+      "game/release.js": "01285b823430013384135dbc1d7fbb66b17e3d88e1f5e4c8e3c3848596df4774",
+      "package.json": "3bf5b0104c8652c24305cfea34376ecd126bb60c087575b20e2a5dd52f82e579"
+    }
+  },
+  "supportedWorkflow": {
+    "plugin": "Sites",
+    "skill": "C:/Users/sinag/.codex/plugins/cache/openai-curated-remote/sites/1.0.1/skills/sites/SKILL.md",
+    "sourceHelper": "site-workflow.mjs",
+    "credentialHandling": "Fresh write credential passed through hidden stdin only. No credentials or raw telemetry persisted in these artifacts.",
+    "localEditionAndWhitespaceChecksPassed": true,
+    "localBuild": "node build.mjs succeeded; package, game release, and backend service all report 0.3.29.",
+    "localPackagingLimitation": "The supported package-site.mjs launches Bash, unavailable in this Windows runtime; it returned failure after source commit and push. A fresh supported opening verified the exact remote HEAD.",
+    "publicationPath": "Supported save_site_version without archive for remote build fallback, followed by deploy_site_version for the confirmed public audience.",
+    "savedVersionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_1c52b885b58c8191901d2329bf88e194",
+    "savedVersionNumber": 10,
+    "savedSourceCommit": "44011539d22362af162609d232229dc723df30da",
+    "deploymentId": "appgdep_6ace683919a88191bb86d41ab8ece68c",
+    "observedStates": [
+      "pending",
+      "succeeded"
+    ],
+    "finalNativeStatus": "succeeded",
+    "finalNativeEnvironmentRevision": 1
+  },
+  "preservation": {
+    "audienceBefore": "public",
+    "audienceAfter": "public",
+    "audienceAndPolicyUnchanged": true,
+    "environmentRevisionBefore": 1,
+    "environmentRevisionAfter": 1,
+    "environmentNames": [
+      "ADMIN_TOKEN",
+      "GAME_ORIGINS"
+    ],
+    "environmentComparisonPassed": true,
+    "bindings": [
+      "DB"
+    ],
+    "tables": [
+      "request_limits",
+      "run_waves",
+      "runs"
+    ],
+    "schemaNamesUnchanged": true,
+    "unchangedSchemaManifestAndWorker": {
+      ".openai/hosting.json": {
+        "sha256": "0c47aa9aaf7c11db9dea86508499a739d48b955a2562740cb4cb0b20f5d202e4",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "db/schema.ts": {
+        "sha256": "493a82312f2a494382f6024cefcdd40b3d8ad300eac5b09e322a48b694412a84",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "drizzle/0000_tearful_gamma_corps.sql": {
+        "sha256": "a584c8a8c7c2f5eb998dbe010e75e69d1cf07f0e4a58750691e41c1e547e8144",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "drizzle/meta/_journal.json": {
+        "sha256": "3d418482bcddc14b256c9d123276b5cdae30819e0b5e13aceeaaabba1641ef21",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "drizzle/meta/0000_snapshot.json": {
+        "sha256": "2b9dff522b423a3f47e2339d509376fada3395d24c40c559886ef79a07ac89c7",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "backend/worker.js": {
+        "sha256": "38f716748837cd6cba433c551afa08e1382ea1fc167b3f33c0bf9fb433a072f1",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "backend/service-page.js": {
+        "sha256": "3a083a551319a09b42f59b43fbcada0aaef8abb80ab62061e4138768c5c3cb5f",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "backend/validation.js": {
+        "sha256": "9759066e412d9bd7309e31fc92721d6feb8e159cf372860128dc23b6976f7d7c",
+        "lfNormalizedMatchesBaseline": true
+      },
+      "build.mjs": {
+        "sha256": "178287d732a2b777706a12606b558946ce444ba0f4703216b85d41adebf27211",
+        "lfNormalizedMatchesBaseline": true
+      }
+    },
+    "allRunRowsBefore": 80,
+    "allRunRowsAfter": 80,
+    "completedHistoricalRecordsBefore": 21,
+    "completedHistoricalRecordsAfter": 21,
+    "completedHistoricalRecordsMissing": 0,
+    "completedHistoricalRecordsChanged": 0,
+    "existingHistoryBeforeSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+    "existingHistoryAfterSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+    "entireCompletedHistoryAfterSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+    "newCompletedRecords": 0,
+    "completeNativeRunRowPagination": true,
+    "savedVersionsBefore": 9,
+    "savedVersionsAfter": 10,
+    "preexistingSavedVersionIdsAndCommitsPreserved": true,
+    "completedHistoryComparisonFields": [
+      "id",
+      "version",
+      "mode",
+      "seed",
+      "started_at",
+      "updated_at",
+      "finished_at",
+      "sequence",
+      "outcome",
+      "score",
+      "waves_survived",
+      "duration_ms",
+      "health",
+      "kingdom_level",
+      "gold",
+      "name"
+    ],
+    "historicalComparisonBoundary": "All preexisting won/lost run metadata fields listed above were compared after complete native pagination. Large summary_json cells and token hashes were excluded. Wave-detail records were not individually compared; schema, migrations, Worker and validation source remain unchanged. Newly arriving legitimate rows are allowed, but every preexisting completed record must remain unchanged.",
+    "allVersionLeaderboardsForModes": [
+      10,
+      50
+    ],
+    "leaderboardsUnchanged": true,
+    "leaderboardsBeforeSha256": "5bbeefd169a1757f1b2320efba964b4e0dad1303c6a40be7b900ae258aff9a90",
+    "leaderboardsAfterSha256": "5bbeefd169a1757f1b2320efba964b4e0dad1303c6a40be7b900ae258aff9a90",
+    "leaderboardProofArtifact": "output/design/phase-ui-d006-20261013/statistics-leaderboard-preservation.json",
+    "galleryPathsChangedOrPublished": false,
+    "rootGameSourceEdited": false
+  },
+  "health": {
+    "artifact": "output/design/phase-ui-d006-20261013/statistics-health.json",
+    "httpStatus": 200,
+    "ok": true,
+    "storage": "SQLite",
+    "edition": "0.3.29",
+    "releaseName": "Preserved commander scores · Developer runs excluded"
+  }
+}

@@ -1,0 +1,440 @@
+{
+  "status": "passed",
+  "baseline": "217accd9c19aeee806bb0ea74b8a49ca4b7744c7",
+  "version": "0.3.29",
+  "files": [
+    {
+      "file": ".gitattributes",
+      "bytes": 1098,
+      "sha256": "a0fc64a13e61517109a25e0e249ac40fd9749d5031270535628918e039d8dc6a"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 44993,
+      "sha256": "d2da2aa19204a50348b8b5412ff667f0437faa6d7b4716ede81458b13d872f45"
+    },
+    {
+      "file": "GAME_DESIGN.md",
+      "bytes": 60545,
+      "sha256": "585d5f4a28d259c5e365c91a1ae9af4d1de361f3220e422d973533a312ced620"
+    },
+    {
+      "file": "README.md",
+      "bytes": 30191,
+      "sha256": "3e9e9c1be9b5a81b1517f49cfba10bdedd7cd73fa240246cf89fbf3a278a08cd"
+    },
+    {
+      "file": "docs/UI_DYNAMIC_CRAFTING_APPROVED_20261013.md",
+      "bytes": 10358,
+      "sha256": "508cad747850e86aa09c10414a249ac0b9e7ac05f4b1fe5649de5c086dc4f177"
+    },
+    {
+      "file": "game/core/game.js",
+      "bytes": 21251,
+      "sha256": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf"
+    },
+    {
+      "file": "game/main.js",
+      "bytes": 64015,
+      "sha256": "da610c1d683353737be6ea209d630bcf8f103545e94f9b2685870c4ace08a856"
+    },
+    {
+      "file": "game/release.js",
+      "bytes": 1281,
+      "sha256": "01285b823430013384135dbc1d7fbb66b17e3d88e1f5e4c8e3c3848596df4774"
+    },
+    {
+      "file": "game/render/enemy-pointer.js",
+      "bytes": 3204,
+      "sha256": "5e22304d0d4b0e47d9651234c196808df9dacc6c7cd8ca7590ca648c77720878"
+    },
+    {
+      "file": "game/render/maze-planner.js",
+      "bytes": 9111,
+      "sha256": "6b734361ea7317797a4059790e2cd2eab668a7d81ae45f52bf5de5dd20cb657f"
+    },
+    {
+      "file": "package.json",
+      "bytes": 468,
+      "sha256": "61cfc1fa3fc9f0e244888dadf969abe349486a1822368ea71ab489da66639def"
+    },
+    {
+      "file": "public/release.json",
+      "bytes": 935,
+      "sha256": "0248c2dda20a8f519e60dc388fb0bc03da685d12ff9380ca02742f4f0937fc64"
+    },
+    {
+      "file": "tests/battlefield-panel-main-integration.test.mjs",
+      "bytes": 17273,
+      "sha256": "e88385a6327ea4e53cb8202bbc0e39bc0302719e1c2c6c756779386dc67f2ef2"
+    },
+    {
+      "file": "tests/crafting-main-integration.test.mjs",
+      "bytes": 10597,
+      "sha256": "e03db93ee5fad753001342af3055b43394154a51810b014718cb7f9e97e15629"
+    },
+    {
+      "file": "tests/defender-rank-preview.test.mjs",
+      "bytes": 16619,
+      "sha256": "4333d63d9c97057dc429b55a72f5d52b077a13b51ed0fe18c8efae99ebfeadb8"
+    },
+    {
+      "file": "tests/draft-pointer-input.test.mjs",
+      "bytes": 14671,
+      "sha256": "501e88c58ce331e1e867eceab0b024e2b6a8532151205a0607ab6b1217fe5fe8"
+    },
+    {
+      "file": "tests/draft-presentation.test.mjs",
+      "bytes": 9472,
+      "sha256": "4eb018183908d2d04a7ec670d2392b8d2eb1f60112dbc5d75fa5962fc36b0083"
+    },
+    {
+      "file": "tests/enemy-pointer.test.mjs",
+      "bytes": 12406,
+      "sha256": "82057710662c6757ac2805c6ca1b060662cf573528343ffbaecf8e158879dc78"
+    },
+    {
+      "file": "tests/enemy-selection.test.mjs",
+      "bytes": 7905,
+      "sha256": "8d33dfcc74ef4386ed9ca10cc74665e0f8272cfb050a0936e332fa0b42ac3165"
+    },
+    {
+      "file": "tests/grimoire-display.test.mjs",
+      "bytes": 7457,
+      "sha256": "6a0b5d6213bb7f7e8a035fdac5cf4a3feeb62bfd94e10e1023240d379445faad"
+    },
+    {
+      "file": "tests/selected-enemy-panel.test.mjs",
+      "bytes": 14243,
+      "sha256": "9631381b1315278a2cbe7119e328ccbb5c21e17e3e26f3637342dba1e501fa5b"
+    },
+    {
+      "file": "tests/wave-preview-flow.test.mjs",
+      "bytes": 7659,
+      "sha256": "d848964532e3e095802b0322906d784bd33fbdb6ccc2e0b9530348b96600a109"
+    },
+    {
+      "file": "ui/grimoire.js",
+      "bytes": 19909,
+      "sha256": "806e123cc4cc99f39de361af1a24e23b6bea7846cfa98df88cabe36f064a4428"
+    },
+    {
+      "file": "ui/recipe-filters.js",
+      "bytes": 7955,
+      "sha256": "c55d4086371b95852bfbbcebb0885156a5620e6f511b7fee0beb62452d571d9b"
+    },
+    {
+      "file": "ui/selected-enemy.js",
+      "bytes": 8142,
+      "sha256": "e2b5c842350700990fb9c5d7fa2068385294298340ae062cd1d22b131eda34bc"
+    },
+    {
+      "file": "ui/tutorial.js",
+      "bytes": 5590,
+      "sha256": "1d31d06a3915ed4c233b6bc3ecb5edae7edcbf8879e210f5deb41d7037da62df"
+    },
+    {
+      "file": "ui/warband-cards.js",
+      "bytes": 11115,
+      "sha256": "228f7104b82e01cc7d87f6a7d18d80377cb45ecef05b79400d0cf10dd08daa76"
+    },
+    {
+      "file": "ui/warbands-overview.css",
+      "bytes": 7440,
+      "sha256": "96da17a8f19384bb324c775806cca9495dfd4a2a18abc0b45ebdd484e2ced033"
+    },
+    {
+      "file": "ui/warbands-overview.js",
+      "bytes": 8043,
+      "sha256": "8b6a7e5785d55a1d658d2b243b56d4b28a6f976524ebe16a0e7d04016525a54e"
+    },
+    {
+      "file": "docs/PHASE_UI_D006_IMPLEMENTATION_20261013.md",
+      "bytes": 19862,
+      "sha256": "33daeec37e22f3555d2f45431ae7448898b3ad991169bde115c042e0a2091b4a"
+    },
+    {
+      "file": "docs/UI_PHASE_DRIVEN_ACCEPTANCE_20261013.json",
+      "bytes": 11442,
+      "sha256": "09830afa0f00918b6ef9bbd2dde5762f7d5174e26f09547d12528dfd41309415"
+    },
+    {
+      "file": "docs/UI_PHASE_DRIVEN_REQUIREMENTS_20261013.md",
+      "bytes": 16784,
+      "sha256": "12f0bb305401b2d5c2c41acfdaa254d1a621239358f0f3428acb9d4fe672b08b"
+    },
+    {
+      "file": "docs/evidence/ui-phase-request-20261013-v1/original-request.txt",
+      "bytes": 6494,
+      "sha256": "e7c06f5a2cf34d1686b372f0074b144a572adb47fb1d6d89e150d24b0466c759"
+    },
+    {
+      "file": "docs/evidence/ui-phase-request-20261013-v1/manifest.json",
+      "bytes": 602,
+      "sha256": "15acbb1fa411b6b0c2cb3c68c5313be9d84c09d1622d2b98c2fe7e3a461505d8"
+    },
+    {
+      "file": "ui/catalog-recipes.js",
+      "bytes": 12809,
+      "sha256": "f25ba7ac244a6757f1573cd7dae9dbc1b2c338f4343fc23cf33a723c259901ca"
+    },
+    {
+      "file": "ui/catalog-recipes.css",
+      "bytes": 9118,
+      "sha256": "68f3b2492c4711ec598b8092df91e7e30027186e1b5c87efa151fac9237b7eac"
+    },
+    {
+      "file": "ui/context-guidance.js",
+      "bytes": 5064,
+      "sha256": "1be7753a684f12e2f72101a439d922b3194b60e1dacc295a5f8ddefd2a8d01a5"
+    },
+    {
+      "file": "ui/context-guidance.css",
+      "bytes": 1284,
+      "sha256": "a31258079f0a351452e213cfcb530d706a5c200a91a8e0a2a20cf979b8d37199"
+    },
+    {
+      "file": "ui/defender-panel.js",
+      "bytes": 6640,
+      "sha256": "71bf1bd9579fd5cbad71a2ff3c92dd9738f7dd3c2a121129cd2bb631cf570e5b"
+    },
+    {
+      "file": "ui/maze-comparison.js",
+      "bytes": 7042,
+      "sha256": "229f7e04fcca91d0185cfa3c7be052031b40875634d65fbebd74575f4a3f8a0b"
+    },
+    {
+      "file": "ui/maze-comparison.css",
+      "bytes": 4164,
+      "sha256": "01825f9c4232cf295f0c50ac99c132928cd4152e2b6fa8680ccb33f1fd5bbfa0"
+    },
+    {
+      "file": "ui/phase-ui.js",
+      "bytes": 5578,
+      "sha256": "5eae1c6be264937c3523bf439320d6ffad0d1e1349f2498adaa58e194e4b1af0"
+    },
+    {
+      "file": "ui/phase-ui.css",
+      "bytes": 21199,
+      "sha256": "48fedde9e44e5a5ca8b7ee85f9b945c3fc9a9eedf4e00d47e37a2f7cc2a563f0"
+    },
+    {
+      "file": "ui/run-results.js",
+      "bytes": 7502,
+      "sha256": "e06e41669033c0f02bade47f94125d398efdf25b8b83a74e906c16c64ea73067"
+    },
+    {
+      "file": "ui/run-results.css",
+      "bytes": 3623,
+      "sha256": "b5ea0055b86aaa44601a37914b1f379033bb6f117f387a681402e262a573ed0e"
+    },
+    {
+      "file": "tests/catalog-recipes-d006.test.mjs",
+      "bytes": 15514,
+      "sha256": "56e1e58d7ecb7615c02afd5692c9c32aff285f85b966918ffe0bc0953f1c2e04"
+    },
+    {
+      "file": "tests/context-guidance.test.mjs",
+      "bytes": 6266,
+      "sha256": "3ce2a8aa62c0eee0cb770f07240893603c98ab86fa39de19d50e02a899bed73d"
+    },
+    {
+      "file": "tests/enemy-catalog-navigation.test.mjs",
+      "bytes": 17488,
+      "sha256": "f3a1e5e8e2804dd136b9a4676ff8be836005bf907d0a53fe73f925b17b457295"
+    },
+    {
+      "file": "tests/maze-comparison.test.mjs",
+      "bytes": 12979,
+      "sha256": "381b4305d3804fea60b01b5ff252d190deb3b47ed8ae34b62accf3a884374f60"
+    },
+    {
+      "file": "tests/phase-main-integration.test.mjs",
+      "bytes": 12362,
+      "sha256": "38eb0e35c92d9c079565ebafc23c352110a22da1c0fe99b96d0a6ca062ed7df2"
+    },
+    {
+      "file": "tests/phase-touch-d006.test.mjs",
+      "bytes": 10395,
+      "sha256": "dba6bbae3c75adb320e09c94e8c86eb89b95f94fb8554e63f809efbb47ab88ae"
+    },
+    {
+      "file": "tests/phase-ui.test.mjs",
+      "bytes": 6555,
+      "sha256": "3c25799396d9459f96b7b90631e9ec40c2db0dc2fc22c7b431c0ae265c2dd403"
+    },
+    {
+      "file": "tests/run-results.test.mjs",
+      "bytes": 12587,
+      "sha256": "938e23b29c9866ef309bf9df0ba149960966a3cb99eb174c8fe59fc4c5a0313e"
+    }
+  ],
+  "ownerValidatedHashes": [
+    {
+      "file": "ui/catalog-recipes.js",
+      "sha256": "f25ba7ac244a6757f1573cd7dae9dbc1b2c338f4343fc23cf33a723c259901ca"
+    },
+    {
+      "file": "ui/catalog-recipes.css",
+      "sha256": "68f3b2492c4711ec598b8092df91e7e30027186e1b5c87efa151fac9237b7eac"
+    },
+    {
+      "file": "ui/grimoire.js",
+      "sha256": "806e123cc4cc99f39de361af1a24e23b6bea7846cfa98df88cabe36f064a4428"
+    },
+    {
+      "file": "ui/recipe-filters.js",
+      "sha256": "c55d4086371b95852bfbbcebb0885156a5620e6f511b7fee0beb62452d571d9b"
+    },
+    {
+      "file": "tests/catalog-recipes-d006.test.mjs",
+      "sha256": "56e1e58d7ecb7615c02afd5692c9c32aff285f85b966918ffe0bc0953f1c2e04"
+    },
+    {
+      "file": "tests/grimoire-display.test.mjs",
+      "sha256": "6a0b5d6213bb7f7e8a035fdac5cf4a3feeb62bfd94e10e1023240d379445faad"
+    },
+    {
+      "file": "output/design/phase-ui-d006-20261013/recipes-proof.json",
+      "sha256": "96846379f4bde1b4ee6de4a8dc8757d0c981069574420c7754f1012109814629"
+    },
+    {
+      "file": "ui/warbands-overview.js",
+      "sha256": "8b6a7e5785d55a1d658d2b243b56d4b28a6f976524ebe16a0e7d04016525a54e"
+    },
+    {
+      "file": "ui/warbands-overview.css",
+      "sha256": "96da17a8f19384bb324c775806cca9495dfd4a2a18abc0b45ebdd484e2ced033"
+    },
+    {
+      "file": "ui/warband-cards.js",
+      "sha256": "228f7104b82e01cc7d87f6a7d18d80377cb45ecef05b79400d0cf10dd08daa76"
+    },
+    {
+      "file": "tests/enemy-catalog-navigation.test.mjs",
+      "sha256": "f3a1e5e8e2804dd136b9a4676ff8be836005bf907d0a53fe73f925b17b457295"
+    },
+    {
+      "file": "output/design/phase-ui-d006-20261013/r08-enemy-catalog-proof.json",
+      "sha256": "003fbdde30ee2883cb7122e20ea8f3a594fd0fe921367dcc791a65d610650b2a"
+    },
+    {
+      "file": "output/design/phase-ui-d006-20261013/r08-sandbox-wave-label-proof.json",
+      "sha256": "46311cfe3c609e8592178008c3fc0a726e85530f9ae6c7159a5aba082063c364"
+    },
+    {
+      "file": "game/render/maze-planner.js",
+      "sha256": "6b734361ea7317797a4059790e2cd2eab668a7d81ae45f52bf5de5dd20cb657f"
+    },
+    {
+      "file": "ui/maze-comparison.js",
+      "sha256": "229f7e04fcca91d0185cfa3c7be052031b40875634d65fbebd74575f4a3f8a0b"
+    },
+    {
+      "file": "ui/maze-comparison.css",
+      "sha256": "01825f9c4232cf295f0c50ac99c132928cd4152e2b6fa8680ccb33f1fd5bbfa0"
+    },
+    {
+      "file": "tests/maze-comparison.test.mjs",
+      "sha256": "381b4305d3804fea60b01b5ff252d190deb3b47ed8ae34b62accf3a884374f60"
+    },
+    {
+      "file": "output/design/phase-ui-d006-20261013/r09-maze-proof.json",
+      "sha256": "b739e455f13b5ebfee88e3079d278e5ff578cb4af5bc4c30452828c764baf71f"
+    },
+    {
+      "file": "ui/tutorial.js",
+      "sha256": "1d31d06a3915ed4c233b6bc3ecb5edae7edcbf8879e210f5deb41d7037da62df"
+    },
+    {
+      "file": "ui/run-results.js",
+      "sha256": "e06e41669033c0f02bade47f94125d398efdf25b8b83a74e906c16c64ea73067"
+    },
+    {
+      "file": "ui/run-results.css",
+      "sha256": "b5ea0055b86aaa44601a37914b1f379033bb6f117f387a681402e262a573ed0e"
+    },
+    {
+      "file": "ui/context-guidance.js",
+      "sha256": "1be7753a684f12e2f72101a439d922b3194b60e1dacc295a5f8ddefd2a8d01a5"
+    },
+    {
+      "file": "ui/context-guidance.css",
+      "sha256": "a31258079f0a351452e213cfcb530d706a5c200a91a8e0a2a20cf979b8d37199"
+    },
+    {
+      "file": "tests/run-results.test.mjs",
+      "sha256": "938e23b29c9866ef309bf9df0ba149960966a3cb99eb174c8fe59fc4c5a0313e"
+    },
+    {
+      "file": "tests/context-guidance.test.mjs",
+      "sha256": "3ce2a8aa62c0eee0cb770f07240893603c98ab86fa39de19d50e02a899bed73d"
+    },
+    {
+      "file": "output/design/phase-ui-d006-20261013/guidance-results-proof.json",
+      "sha256": "84a69f23437a3a97acfb636d6971ba172d079a5ac3aac17b7fdf1590069dad3f"
+    },
+    {
+      "file": "game/core/game.js",
+      "sha256": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf"
+    },
+    {
+      "file": "ui/selected-enemy.js",
+      "sha256": "e2b5c842350700990fb9c5d7fa2068385294298340ae062cd1d22b131eda34bc"
+    },
+    {
+      "file": "tests/battlefield-panel-main-integration.test.mjs",
+      "sha256": "e88385a6327ea4e53cb8202bbc0e39bc0302719e1c2c6c756779386dc67f2ef2"
+    },
+    {
+      "file": "tests/crafting-main-integration.test.mjs",
+      "sha256": "e03db93ee5fad753001342af3055b43394154a51810b014718cb7f9e97e15629"
+    },
+    {
+      "file": "tests/defender-rank-preview.test.mjs",
+      "sha256": "4333d63d9c97057dc429b55a72f5d52b077a13b51ed0fe18c8efae99ebfeadb8"
+    },
+    {
+      "file": "tests/draft-pointer-input.test.mjs",
+      "sha256": "501e88c58ce331e1e867eceab0b024e2b6a8532151205a0607ab6b1217fe5fe8"
+    },
+    {
+      "file": "tests/draft-presentation.test.mjs",
+      "sha256": "4eb018183908d2d04a7ec670d2392b8d2eb1f60112dbc5d75fa5962fc36b0083"
+    },
+    {
+      "file": "tests/wave-preview-flow.test.mjs",
+      "sha256": "d848964532e3e095802b0322906d784bd33fbdb6ccc2e0b9530348b96600a109"
+    },
+    {
+      "file": "tests/enemy-selection.test.mjs",
+      "sha256": "8d33dfcc74ef4386ed9ca10cc74665e0f8272cfb050a0936e332fa0b42ac3165"
+    },
+    {
+      "file": "tests/selected-enemy-panel.test.mjs",
+      "sha256": "9631381b1315278a2cbe7119e328ccbb5c21e17e3e26f3637342dba1e501fa5b"
+    },
+    {
+      "file": "tests/phase-main-integration.test.mjs",
+      "sha256": "38eb0e35c92d9c079565ebafc23c352110a22da1c0fe99b96d0a6ca062ed7df2"
+    },
+    {
+      "file": "output/design/phase-ui-d006-20261013/phase-main-integration-proof.json",
+      "sha256": "0fcee6db09b73a5f6ca7b16fe50b6d039184e4a53e3e9c03600debe7019e5240"
+    },
+    {
+      "file": "game/render/enemy-pointer.js",
+      "sha256": "5e22304d0d4b0e47d9651234c196808df9dacc6c7cd8ca7590ca648c77720878"
+    },
+    {
+      "file": "tests/enemy-pointer.test.mjs",
+      "sha256": "82057710662c6757ac2805c6ca1b060662cf573528343ffbaecf8e158879dc78"
+    },
+    {
+      "file": "output/design/phase-ui-d006-20261013/ended-enemy-pointer-proof.json",
+      "sha256": "d79c70652880d2b29badca864899ea36aef6bc63630080530b72180d4ed85bff"
+    }
+  ],
+  "protectedScope": "No data, assets, combat/draft/recipes/MVP/save/audio/backend production source changes. Game/pointer edits only explicit selection notification and ended read-only selection guards.",
+  "originalRequestSha256": "e7c06f5a2cf34d1686b372f0074b144a572adb47fb1d6d89e150d24b0466c759"
+}

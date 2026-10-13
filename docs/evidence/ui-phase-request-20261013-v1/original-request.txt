@@ -1,0 +1,105 @@
+**Největší zlepšení přinese rozhraní, které mění priority podle fáze hry: stavění, výběr obránce a boj.** Vizuální styl je soudržný a schválené modely bych zachoval. Problém je hlavně v množství současně otevřených informací a jejich pořadí.
+
+Prošel jsem aktuální hru v prohlížeči na desktopu, tabletu a mobilních rozměrech, včetně výběru kandidátů, boje, pauzy, receptů, nepřátel, bludišť a výsledku. Kompletní rozbor je uložen v [UI/UX auditu](</C:/Users/sinag/Documents/ChatGPT/Tower Defense game/docs/UI_DESIGN_AUDIT_20261013.md>).
+
+**Nic jsem neimplementoval. Všechny nové návrhy jsou NAVRŽENO — NESCHVÁLENO.**
+
+### 1. Nejdříve opravit malé a nízké displeje
+
+Na telefonu na šířku při **844 × 390 px** zbývá mapě pouze **115 px výšky**, zatímco spodní panel zabírá **209 px**. Horní tlačítka se zároveň tlačí přes herní údaje.
+
+![Současné rozhraní na nízkém displeji](</C:/Users/sinag/Documents/ChatGPT/Tower Defense game/artifacts/ui-audit-20261013/landscape-combat.jpg>)
+
+Doporučuji samostatné kompaktní rozvržení pro nízké displeje:
+
+- během boje výrazně sbalit spodní panel;
+- detail obránce otevírat jako vysouvací panel;
+- ponechat stále dostupné zdraví, číslo vlny, pauzu a rychlost;
+- zvětšit prostor samotné mapy.
+
+To je nejvyšší priorita, protože současné rozvržení přímo omezuje hraní.
+
+### 2. Spodní panel během boje zmenšit
+
+Po výběru obránce stále vidíme velké karty čtyř zdí, keepera a pravděpodobnosti dalších tahů. Na mobilu tento panel zabírá **300 px**, přestože už nelze stavět.
+
+Doporučuji během boje přepnout na tenký pruh. Karty a pravděpodobnosti zůstanou dostupné po rozbalení; při další konstrukci se plný panel vrátí.
+
+### 3. Detail obránce přeuspořádat
+
+Nyní mají velký prostor portrét, porovnání ranků, MVP a potenciální recepty. Důležité bojové informace a cílení se posouvají dolů. Na desktopu jsem našel **Target priority až pod viditelnou částí panelu**.
+
+Navrhuji pořadí:
+
+1. Jméno, skutečný rank a stav.
+2. Dostupná hlavní akce — Keep, Merge nebo Combine.
+3. Typ poškození, dosah a stručná schopnost.
+4. Aktivní bonusy, cílení a zastavení útoků.
+5. Rozbalitelné porovnání ranků, recepty a podrobné MVP.
+
+Portrét může být na menších displejích menší. Samotné schválené obrázky se nemají měnit.
+
+### 4. Na mobilu přiblížit detail k výběru
+
+Při **390 × 844 px** začíná detail obránce přibližně na **y = 775 px**. Hráč musí odjet od mapy, aby pochopil vybranou jednotku, a potom se vracet.
+
+Doporučuji kompaktní spodní detail po výběru kandidáta. Jeho informace a Keep/Merge by měly být dostupné blízko sebe. U vodorovně posuvných karet musí být jasnější, že pátá karta pokračuje za okrajem.
+
+### 5. Omezit panely zakrývající mapu
+
+DPS panel je otevřený už při stavění, kdy všechny hodnoty ukazují nulu. Na mobilu spolu s další vlnou zakrývá značnou část bojiště.
+
+Doporučuji:
+
+- DPS před prvním bojem sbalit;
+- při stavění upřednostnit stručnou informaci o další vlně;
+- podrobnosti otevírat na vyžádání;
+- respektovat hráčovo ruční sbalení.
+
+Přesné schopnosti a varianty bych zachoval.
+
+### 6. Horní liště dát jasné priority
+
+**Zdraví a číslo vlny musí být nejčitelnější.** Na úzkém displeji je nyní údaj WAVE v horní liště skrytý.
+
+Při konstrukci jsou důležité CP a zlato, během boje pauza a rychlost. Score a TIME mohou být méně výrazné. Malé ikony mají přibližně 27–29 px; pro pohodlnější dotyk bych jejich aktivní plochu zvětšil přibližně na 44 px.
+
+**Developer bych přesunul do pokročilé části nabídky.** Zabírá hráčský prostor a jeho aktivace vyřazuje běh ze statistik a skóre.
+
+Schválené posuvníky Music/Sounds z požadavku D003 do této úpravy přirozeně zapadají.
+
+### 7. Recepty zrychlit a zpřehlednit
+
+Filtry už existují a jsou užitečné. Na mobilu ale první obrazovku katalogu zaplní filtry a dlouhá pravidla; samotné recepty jsou výrazně níže.
+
+Doporučuji:
+
+- stručný seznam šampionů s detailem po otevření;
+- hledání podle názvu;
+- rozbalitelné obecné vysvětlení;
+- oddělit průvodce základními obránci od receptů;
+- zachovat připnutí a strom ingrediencí.
+
+Je potřeba opravit také zavádějící údaje: Mage stále místy popisuje „pure splash“, zatímco používá Magical cleave. U draků s poškozovací aurou dominuje **Base DPS 0**, přestože způsobují významné poškození.
+
+### 8. Nepřátele zobrazovat více pro rozhodování
+
+Enemy Waves obsahuje hodně užitečných informací, ale dlouhé karty a příběhové popisy prodlužují hledání konkrétní vlny.
+
+Navrhuji kompaktní řádky s číslem, pohybem, počtem a hlavními hrozbami. Detail se rozbalí po kliknutí. U dvojic zobrazit **společné vlastnosti jednou a rozdíly výrazně vedle sebe**. Doplnit rychlý skok na vlnu nebo bosse.
+
+Během boje by stručný údaj o zbývajících nepřátelích a zdraví bosse měl zůstat dostupný i při prohlížení obránce.
+
+### 9. Bludiště potřebují snadnější porovnání
+
+Čísla o délce cesty, průchodech a pokrytí jsou užitečná, ale obtížně se představují.
+
+Doporučuji malý půdorysný náhled každého plánu a jednu hlavní metriku; podrobnosti ponechat rozbalitelné. Upozornění, že létající nepřátelé bludiště ignorují, musí být blízko volby.
+
+### 10. Lépe vysvětlit průběh a prohru
+
+Tutorial obsahuje neaktuální tvrzení o odemykání receptů přes XP a málo vysvětluje CP a MVP. Krátké vysvětlení bych zobrazoval při první relevantní události.
+
+Výsledková obrazovka nyní říká hlavně obecné „zkus jiné bludiště nebo kombinaci“. Doporučuji konkrétní, faktické shrnutí úniků a poslední hrozby. Tlačítko dalšího pokusu dát před online leaderboard. Rozlišovat **dokončené vlny** od **vlny, ve které hráč prohrál**.
+
+**K prvnímu schválení doporučuji rozvržení malých displejů, kompaktní bojový panel, omezení mapových překryvů a nové pořadí detailu obránce.** Mobilní kontrola byla emulovaná; přesnost ovládání prstem a výkon ještě potřebují test na skutečném telefonu.

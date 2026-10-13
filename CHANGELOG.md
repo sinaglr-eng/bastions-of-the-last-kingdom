@@ -1,5 +1,16 @@
 # Releases
 
+## 0.3.29 — Phase-driven Battlefield UI — 13 October 2026
+
+- Implements the complete scoped D006 phase interface while keeping D001 deferred and existing combat, recipe, economy and art values intact.
+- Restores five construction slots each round, presents keeper choices explicitly, and collapses ready/combat history and odds into an expandable thin strip.
+- Adds closeable nearby mobile inspectors, prioritizes actual rank/actions/core stats/targeting, and keeps rank, recipe and MVP explanations optional.
+- Keeps live/queued counts and revealed boss HP available while inspecting units; separates global pause from individual attack pause.
+- Moves Developer Console into the advanced menu with a cancelable exclusion warning; retains Music/Sounds persistence and routing.
+- Adds compact searchable recipes and wave navigation, honest side-by-side variant comparison and runtime aura/Mage descriptions.
+- Adds actual maze thumbnails with a primary ground-route metric, expandable assumptions and a nearby flight limitation.
+- Adds optional contextual CP/MVP guidance and factual local results, primary retry and read-only ended battlefield review, including visible remaining invaders.
+
 ## 0.3.28 — Dynamic Crafting and Audio Controls — 13 October 2026
 
 - Implements audit decisions D002–D005; the campaign-wide D001 balancing audit remains deferred.

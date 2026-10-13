@@ -12,7 +12,7 @@ const visibleMaterial=material=>!!material&&material.visible!==false&&(!material
 // Raycast only the rendered body, never its health bar, defence FX or corpse.
 // Recursive body meshes also cover imported/optimized models and flying actors.
 export function pointedEnemy(raycaster,figures,game,{occluders=[]}={}){
-  if(game.phase!=='combat')return null;
+  if(!['combat','won','lost'].includes(game.phase))return null;
   const surfaces=[],owners=new Map(),live=new Map(game.combat.enemies.filter(e=>!e.dead&&e.hp>0&&game.combat.isRevealed(e)).map(e=>[e.id,e]));
   for(const [id,figure] of figures){
     if(!live.has(id)||!figure.visible||!figure.userData.body)continue;

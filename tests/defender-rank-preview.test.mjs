@@ -16,6 +16,9 @@ import {selectedSupportMarkup} from '../ui/support-guide.js';
 import {mvpDetailsMarkup} from '../ui/mvp-details.js';
 import {mergeTowerKey,mergeTowerFromBadge} from '../ui/draft-input.js';
 import {icon} from '../ui/icons.js';
+import {defenderPanelMarkup} from '../ui/defender-panel.js';
+import {DpsMeasurement} from '../ui/dps-measurement.js';
+import {TowerDpsTracker} from '../game/core/tower-dps.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const basics=Object.entries(data.towers).filter(([,stats])=>!stats.advanced).map(([family])=>family);
@@ -58,11 +61,11 @@ test('downgrade uses the real selected rank even while Tier VI is displayed',()=
   assert.equal(game.selection.state,'active');assert.equal(preview.view(game.selection,data).tier,2);
 });
 
-test('production downgrade-and-keep is the first native action after the portrait and follows actual rank, gold and reserve guards',()=>{
+test('production downgrade-and-keep stays beside the actual heading before optional details and follows actual rank, gold and reserve guards',()=>{
   const game=candidates(),preview=new DefenderRankPreview(),render=productionPanel(game,preview),tower=game.selection;
   preview.select(tower,6,campaignData);game.economy.gold=data.balance.downgradeCost-1;
   let html=render(tower),button=html.match(/<button[^>]*data-action="downgrade"[^>]*>/)?.[0];assert.ok(button);
-  assert.match(html,/<div class="tower-portrait"><img[^>]*><\/div><button type="button" class="secondary-button tower-downgrade-keep"/);
+  assert.match(html,/Actual rank III · Candidate/);assert.ok(html.indexOf('data-action="downgrade"')>html.indexOf('class="tower-name"'));assert.ok(html.indexOf('data-action="downgrade"')<html.indexOf('class="defender-core"'));assert.ok(html.indexOf('data-action="downgrade"')<html.indexOf('data-detail-key="ranks"'));
   assert.match(button,/disabled/);assert.match(html,/Downgrade to Tier II &amp; keep/);
   assert.equal((html.match(/data-action="downgrade"/g)||[]).length,1);assert.equal(game.downgrade(),false);assert.equal(tower.tier,3);assert.equal(tower.state,'draft');
   game.economy.gold=data.balance.downgradeCost;html=render(tower);button=html.match(/<button[^>]*data-action="downgrade"[^>]*>/)[0];assert.doesNotMatch(button,/disabled/);
@@ -96,6 +99,7 @@ function productionPanel(game,preview){
   assert.ok(panelSource.startsWith('function towerPanel(t)'));
   return runInNewContext(`${qualitySource}\n${panelSource}\ntowerPanel`,{
     game,rankPreview:preview,data:campaignData,towers:campaignData.towers,balance:data.balance,
+    defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),
     images:{},roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
     defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,
     damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,mergeTowerKey,recipeProgress,recipesUsing,recipeLabel,wavePreview:()=>'',
@@ -137,7 +141,7 @@ test('preview recipes count actual retained and placed ingredients without inven
   preview.select(tower,2,campaignData);const html=render(tower);
   const verdantButton=html.match(/<button[^>]*data-action="recipe-open" data-id="verdantguard"[^>]*>[\s\S]*?<\/button>/)?.[0];
   assert.ok(verdantButton);
-  assert.match(verdantButton,/1\/3 <small class="draft-progress">\+1 this round<\/small>/,
+  assert.match(verdantButton,/1 built · 1 this round/,
     'Only real Thornwarden is owned; real Stormcaller III is provisional; the displayed Soldier II is still missing');
   assert.ok(!game.towers.some(t=>t.family==='soldier'&&t.tier===2&&t.state!=='ruin'));
   assert.doesNotMatch(html,/data-action="craft" data-id="verdantguard"/);
@@ -156,9 +160,9 @@ test('production defender panel removes descriptive, Strong/Weak and pause-expla
       if(!definition.advanced)assert.equal(preview.select(tower,tier,campaignData),true);
       const html=render(tower);
       assert.doesNotMatch(html,/<p class="(?:strength|weakness)"|Strong:|Weak:|<small>Pauses new attacks|Support and MVP auras stay active/);
-      for(const role of html.matchAll(/<p class="role">([\s\S]*?)<\/p>/g)){assert.equal(role[1],'This rank is not used by any champion recipe.');fallback=true;}
-      assert.match(html,/<h2 class="tower-name">/);assert.match(html,/class="tower-portrait"/);assert.match(html,/class="tower-effects"/);assert.match(html,/Damage \/ hit/);assert.match(html,/Base DPS/);assert.match(html,/Target priority/);
-      assert.match(html,/MVP Level: 10 \/ 10/);assert.match(html,/Own damage \+100%/);assert.match(html,/\+75% damage/);assert.match(html,/data-action="tower-pause" aria-pressed="false">Pause this defender/);
+      assert.doesNotMatch(html,/<p class="role">/);if(html.includes('<p>No recipe uses this rank.</p>'))fallback=true;
+      assert.match(html,/<h2 class="tower-name">/);assert.match(html,/class="defender-heading"/);assert.match(html,/class="tower-effects/);assert.match(html,/Damage \/ hit/);assert.match(html,/Direct DPS/);assert.match(html,/Target priority/);
+      assert.match(html,/MVP Level: 10 \/ 10/);assert.match(html,/Own damage \+100%/);assert.match(html,/\+75% damage/);assert.match(html,/data-action="tower-pause" aria-pressed="false">[\s\S]*Pause unit attacks/);assert.ok(html.indexOf('Target priority')<html.indexOf('data-detail-key="ranks"')||definition.advanced);assert.ok(html.indexOf('Target priority')<html.indexOf('data-detail-key="mvp"'));
       if(!definition.advanced)assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);
     }
     assert.equal(panelGameSnapshot(game),before,'Panel changes and comparisons leave actual towers and draft unchanged');
@@ -184,7 +188,7 @@ function productionMergeClick(game){
 }
 for(const phase of ['ready','build','select'])test(`production retained Rank V sidebar action works in ${phase} using the actual selected foundation and preserves the pending draft`,()=>{
   const {game,pair:[tower,partner]}=retainedVPanelGame(phase),preview=new DefenderRankPreview(),render=productionPanel(game,preview),click=productionMergeClick(game);
-  assert.equal(preview.select(tower,1,campaignData),true);const html=render(tower),tag=html.match(/<button[^>]*data-action="merge"[^>]*>/)?.[0];assert.ok(tag);assert.match(html,/MERGE AVAILABLE · Tier VI/);
+  assert.equal(preview.select(tower,1,campaignData),true);const html=render(tower),tag=html.match(/<button[^>]*data-action="merge"[^>]*>/)?.[0];assert.ok(tag);assert.match(html,/Merge to rank VI/);
   const draft=JSON.stringify(game.draft.draws),resolved=game.draft.resolved,position=[tower.x,tower.z],occupied=[...game.grid.occupied];
   const button={dataset:{action:'merge',towerId:tag.match(/data-tower-id="([^"]+)"/)[1],mergeKey:tag.match(/data-merge-key="([^"]+)"/)[1]},disabled:false};click(button);
   assert.equal(game.selection,tower);assert.equal(tower.tier,6);assert.equal(partner.state,'ruin');assert.deepEqual([tower.x,tower.z],position);assert.deepEqual([...game.grid.occupied],occupied);assert.equal(JSON.stringify(game.draft.draws),draft);assert.equal(game.draft.resolved,resolved);assert.equal(game.phase,phase);

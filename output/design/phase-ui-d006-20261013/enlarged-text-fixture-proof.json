@@ -1,0 +1,199 @@
+{
+  "fixture": "output/design/phase-ui-d006-20261013/enlarged-text-fixture.css",
+  "fixtureSha256": "e780d9cf6fc1e019b3a15a612b1d9e8016d2ddbec96fc52f8fc42e6174cb3bcc",
+  "generatorSha256": "8f032c78a8942783499c5398fe2633186a4188fdf8011662f1c36871bbb94d28",
+  "factor": 1.5,
+  "postcssPath": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\node_modules\\.pnpm\\postcss@8.5.28\\node_modules\\postcss\\lib\\postcss.js",
+  "importedStylesheets": 28,
+  "fontDeclarations": 736,
+  "scaledFontDeclarations": 731,
+  "preservedZeroFontDeclarations": 5,
+  "fontShorthandDeclarations": 58,
+  "sources": [
+    {
+      "order": 1,
+      "path": "ui/style.css",
+      "sourceSha256": "c2dc46960343138fe8c85efbadd8cba80b59ae4493ca235ea4bc81a188f99567",
+      "fontDeclarations": 281
+    },
+    {
+      "order": 2,
+      "path": "ui/tower-dps.css",
+      "sourceSha256": "d77cd3eb4d8782805e74f0cf9b65f1101bc203c4a5492ae16a2766c519d49e16",
+      "fontDeclarations": 16
+    },
+    {
+      "order": 3,
+      "path": "ui/battlefield-overlays.css",
+      "sourceSha256": "d236b731123b4eb836e7d024e27a79af53d40197aae4e433d5625aa4fe6046ee",
+      "fontDeclarations": 14
+    },
+    {
+      "order": 4,
+      "path": "ui/warbands-overview.css",
+      "sourceSha256": "96da17a8f19384bb324c775806cca9495dfd4a2a18abc0b45ebdd484e2ced033",
+      "fontDeclarations": 35
+    },
+    {
+      "order": 5,
+      "path": "ui/selected-enemy.css",
+      "sourceSha256": "859291980f7c6d4c4353be70c265ce243980aab30dc6bd4234b878dac2dc21cd",
+      "fontDeclarations": 13
+    },
+    {
+      "order": 6,
+      "path": "ui/run-clock.css",
+      "sourceSha256": "93c2e821a787612e0a74f8c0509f151144f0ae180b3238c8eedc675aa1ca181f",
+      "fontDeclarations": 2
+    },
+    {
+      "order": 7,
+      "path": "ui/command-points.css",
+      "sourceSha256": "0269a8a3d52dbb004547150996886d865c80fbba0234d261335cf0afd0e983b6",
+      "fontDeclarations": 17
+    },
+    {
+      "order": 8,
+      "path": "ui/wave-preview.css",
+      "sourceSha256": "c5f90ca43b287a2e7b9d3eec229abdce66ff31bd65f7746cbd05ce02e94b171c",
+      "fontDeclarations": 24
+    },
+    {
+      "order": 9,
+      "path": "ui/crafting-dock.css",
+      "sourceSha256": "ef4d8ea112c9a8df7c938cc04ba5d07c403c6f94c560a013d13f6e857577143a",
+      "fontDeclarations": 44
+    },
+    {
+      "order": 10,
+      "path": "ui/audio-controls.css",
+      "sourceSha256": "24c2f9022e32a3b3a8e014edaafc92f72a3db383f66779bfe7082da7edd36c89",
+      "fontDeclarations": 4
+    },
+    {
+      "order": 11,
+      "path": "ui/tutorial.css",
+      "sourceSha256": "13ca68b031e04341b0617850df34b7d38b715cc5400962b2bb129f3bc12e1ab9",
+      "fontDeclarations": 7
+    },
+    {
+      "order": 12,
+      "path": "ui/leaderboard.css",
+      "sourceSha256": "5aba871ba51e4bf99e7dd595f25ca8eb6bcb86c5995ac1e89e715c9348ba462f",
+      "fontDeclarations": 9
+    },
+    {
+      "order": 13,
+      "path": "ui/developer-console.css",
+      "sourceSha256": "66a04f2027ac28c1116ea7b636a904a218cbc81d99cd27b956af45dda81194e7",
+      "fontDeclarations": 8
+    },
+    {
+      "order": 14,
+      "path": "ui/mvp-details.css",
+      "sourceSha256": "ec351256b387a2dc6ff6510cb77d78e9dcbbbada7feaa287f13264be6b5ebbb8",
+      "fontDeclarations": 6
+    },
+    {
+      "order": 15,
+      "path": "ui/portrait-visibility.css",
+      "sourceSha256": "046c798b7a0678b27b3c0d841893a227fe3de990c4182225671e7f8703a59367",
+      "fontDeclarations": 0
+    },
+    {
+      "order": 16,
+      "path": "ui/defender-loading.css",
+      "sourceSha256": "b1beeff168e140fd1a98beaf94a0d0897c48aec5fd3181d931bed8efa411146b",
+      "fontDeclarations": 0
+    },
+    {
+      "order": 17,
+      "path": "ui/battlefield-command.css",
+      "sourceSha256": "f0c2c30e27dafc2ee865cda47cb816a7492d52443607655590f1f563863bcc28",
+      "fontDeclarations": 2
+    },
+    {
+      "order": 18,
+      "path": "ui/draft-presentation.css",
+      "sourceSha256": "cb3576f8fea6c7930539dca1f4edae575d09a0d224ea418f486c346c5e3a68a1",
+      "fontDeclarations": 25
+    },
+    {
+      "order": 19,
+      "path": "ui/header-command.css",
+      "sourceSha256": "1ecfc2f593182e91eb0ba9f43e34859e1756bfa74b490f0bee60dfbdcf4a3063",
+      "fontDeclarations": 6
+    },
+    {
+      "order": 20,
+      "path": "ui/current-wave-panel.css",
+      "sourceSha256": "63d5fe7de95cc68f5686b7a32506af43321abfe7011d8410ac4286cc52ca7456",
+      "fontDeclarations": 15
+    },
+    {
+      "order": 21,
+      "path": "ui/recipe-filters.css",
+      "sourceSha256": "f51eaf459a29a9fdc5a089fb9cf45e2d18f77bc159ebf0b25ece57d7bbd447fa",
+      "fontDeclarations": 3
+    },
+    {
+      "order": 22,
+      "path": "ui/critical-hit-labels.css",
+      "sourceSha256": "0077a61bd4cfafc7904bffcdafcf2f0a5c992d6cb1ec3a251879045148ba65bf",
+      "fontDeclarations": 1
+    },
+    {
+      "order": 23,
+      "path": "ui/audit-layout.css",
+      "sourceSha256": "130fdf028b6e30687b36d1c522b235b0fa7e35e48115c93683fbe15df7ebb742",
+      "fontDeclarations": 36
+    },
+    {
+      "order": 24,
+      "path": "ui/catalog-recipes.css",
+      "sourceSha256": "68f3b2492c4711ec598b8092df91e7e30027186e1b5c87efa151fac9237b7eac",
+      "fontDeclarations": 33
+    },
+    {
+      "order": 25,
+      "path": "ui/maze-comparison.css",
+      "sourceSha256": "01825f9c4232cf295f0c50ac99c132928cd4152e2b6fa8680ccb33f1fd5bbfa0",
+      "fontDeclarations": 19
+    },
+    {
+      "order": 26,
+      "path": "ui/run-results.css",
+      "sourceSha256": "b5ea0055b86aaa44601a37914b1f379033bb6f117f387a681402e262a573ed0e",
+      "fontDeclarations": 24
+    },
+    {
+      "order": 27,
+      "path": "ui/context-guidance.css",
+      "sourceSha256": "a31258079f0a351452e213cfcb530d706a5c200a91a8e0a2a20cf979b8d37199",
+      "fontDeclarations": 8
+    },
+    {
+      "order": 28,
+      "path": "ui/phase-ui.css",
+      "sourceSha256": "48fedde9e44e5a5ca8b7ee85f9b945c3fc9a9eedf4e00d47e37a2f7cc2a563f0",
+      "fontDeclarations": 84
+    }
+  ],
+  "importDependencies": [
+    {
+      "path": "ui/theme.css",
+      "sourceSha256": "89089d77bc8cbfe70deca098a49cbc200947e3b8d8ed3240ba71316202c0c253",
+      "importedFrom": "ui/style.css"
+    }
+  ],
+  "omittedNonPixelFontValues": [
+    "font: inherit",
+    "font-size: .8rem"
+  ],
+  "selfChecksPassed": true,
+  "zeroSuppressionRegressionPassed": true,
+  "exactSelectorMediaAndDeclarationOrderCheckPassed": true,
+  "productionFilesWritten": 0,
+  "productionImportAdded": false,
+  "phaseUiOriginalSha256": "48fedde9e44e5a5ca8b7ee85f9b945c3fc9a9eedf4e00d47e37a2f7cc2a563f0"
+}

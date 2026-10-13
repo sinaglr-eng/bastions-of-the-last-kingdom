@@ -6,6 +6,7 @@ import {Game} from '../game/core/game.js';
 import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../game/core/campaign-roster.js';
 import {craftingDockModel,updateCraftingDock,craftRecipeKey,craftRecipeFromDock} from '../ui/crafting-dock.js';
 import {icon} from '../ui/icons.js';
+import {PhaseUiState} from '../ui/phase-ui.js';
 
 const raw=Object.fromEntries(['balance','towers','recipes','enemies','waves'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
@@ -93,7 +94,7 @@ function panelFixture(){
   return new Element('aside');
 }
 function productionBrowser(game){
-  const host=panelFixture(),context={game,images:{},recipeFocus:null,craftingDockModel,updateCraftingDock,icon,$:()=>host};
+  const host=panelFixture(),tabs=panelFixture(),phaseUi=new PhaseUiState(),app={dataset:{}},context={game,images:{},recipeFocus:null,craftingDockModel,updateCraftingDock,icon,phaseUi,app,world:{resize(){}},$:id=>id==='recipe-browser'?host:tabs};
   const methods=runInNewContext(`${browserSource}\n({renderRecipeBrowser,openRecipePreview,getFocus:()=>recipeFocus})`,context);
   // Production Game's change listener calls render(), including this renderer.
   game.on(type=>{if(type==='change')methods.renderRecipeBrowser();});

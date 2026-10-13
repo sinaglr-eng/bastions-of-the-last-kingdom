@@ -1,0 +1,3595 @@
+{
+  "requirement": "D006 R08 catalog",
+  "baselineCommit": "217accd9c19aeee806bb0ea74b8a49ca4b7744c7",
+  "baselineVersion": "0.3.28",
+  "createdAt": "2026-10-13T17:08:28.834Z",
+  "sourceHashes": {
+    "ui/warbands-overview.js": "fca8e2b7c9bdb9f0183ff2c194c0704a611d19449de8685e836c760959fab951",
+    "ui/warbands-overview.css": "96da17a8f19384bb324c775806cca9495dfd4a2a18abc0b45ebdd484e2ced033",
+    "ui/warband-cards.js": "228f7104b82e01cc7d87f6a7d18d80377cb45ecef05b79400d0cf10dd08daa76",
+    "tests/enemy-catalog-navigation.test.mjs": "e513c6748e0b66d6576a001a2724422ac81fed9ae2636eeda102fec898dc1e95"
+  },
+  "approvedSources": {
+    "specification": "abafda5e5abc996b141685766c8a709e4a509115a5978051e3749be4bc6d7e46",
+    "concept06": "6045eac3795e702872a32b069efdf6de9f869aa8aac30d1a520d2bae909347ab",
+    "conceptVisuallyInspected": true
+  },
+  "preservation": {
+    "data/enemies.json": {
+      "sha256": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+      "baselineSha256": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+      "byteIdentical": true,
+      "lfNormalizedIdentical": true
+    },
+    "data/waves.json": {
+      "sha256": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+      "baselineSha256": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+      "byteIdentical": true,
+      "lfNormalizedIdentical": true
+    },
+    "data/towers.json": {
+      "sha256": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+      "baselineSha256": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+      "byteIdentical": true,
+      "lfNormalizedIdentical": true
+    },
+    "data/recipes.json": {
+      "sha256": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+      "baselineSha256": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+      "byteIdentical": true,
+      "lfNormalizedIdentical": true
+    },
+    "data/balance.json": {
+      "sha256": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+      "baselineSha256": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+      "byteIdentical": true,
+      "lfNormalizedIdentical": true
+    },
+    "game/core/campaign-roster.js": {
+      "sha256": "f5196bf1dacc7ddc6657fcf940f46e52c20560d56b579a9563e1dc0188e27c7b",
+      "baselineSha256": "f5196bf1dacc7ddc6657fcf940f46e52c20560d56b579a9563e1dc0188e27c7b",
+      "byteIdentical": true,
+      "lfNormalizedIdentical": true
+    },
+    "game/core/combat.js": {
+      "sha256": "1605ad59791e760edca3386b2e22bad289f61a1b59c20826cc665d1c78d0f39f",
+      "baselineSha256": "be0173721531288da0c5f752cdd1d31814ea7bd809f301fd92d0f97e7b4927b4",
+      "byteIdentical": false,
+      "lfNormalizedIdentical": true
+    },
+    "game/core/enemy-rules.js": {
+      "sha256": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f",
+      "baselineSha256": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f",
+      "byteIdentical": true,
+      "lfNormalizedIdentical": true
+    },
+    "game/core/warband-info.js": {
+      "sha256": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd",
+      "baselineSha256": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd",
+      "byteIdentical": true,
+      "lfNormalizedIdentical": true
+    }
+  },
+  "profiles": [
+    {
+      "wave": 1,
+      "type": "host_01",
+      "variants": [
+        {
+          "name": "Orc Skull Scavengers",
+          "maxHp": 9,
+          "armor": 0,
+          "speed": 1.3,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 9,
+        "armor": 0,
+        "speed": 1.3,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Skull Scavengers",
+            "maxHp": 9,
+            "armor": 0,
+            "speed": 1.3,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 2,
+      "type": "host_02",
+      "variants": [
+        {
+          "name": "Goblin Thornstriders",
+          "maxHp": 52,
+          "armor": 1,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 52,
+        "armor": 1,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Goblin Thornstriders",
+            "maxHp": 52,
+            "armor": 1,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 3,
+      "type": "host_03",
+      "variants": [
+        {
+          "name": "Ogre Gluttons",
+          "maxHp": 68,
+          "armor": 8,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 68,
+        "armor": 8,
+        "speed": 2.3699999999999997,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Ogre Gluttons",
+            "maxHp": 68,
+            "armor": 8,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 4,
+      "type": "host_04",
+      "variants": [
+        {
+          "name": "Orc Scrap Tinkers",
+          "maxHp": 104,
+          "armor": 3,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 104,
+        "armor": 3,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Scrap Tinkers",
+            "maxHp": 104,
+            "armor": 3,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 5,
+      "type": "host_05",
+      "variants": [
+        {
+          "name": "Bat Scouts",
+          "maxHp": 132,
+          "armor": 3,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [],
+          "traitDetails": []
+        },
+        {
+          "name": "Bat Scouts · Moon Clan",
+          "maxHp": 132,
+          "armor": 3,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion"
+          ],
+          "traitDetails": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 132,
+        "armor": 3,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Bat Scouts",
+            "maxHp": 132,
+            "armor": 3,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        },
+        {
+          "info": {
+            "name": "Bat Scouts · Moon Clan",
+            "maxHp": 132,
+            "armor": 3,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion"
+            ],
+            "traitDetails": [
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            }
+          ]
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 6,
+      "type": "host_06",
+      "variants": [
+        {
+          "name": "Mossback Trolls",
+          "maxHp": 166,
+          "armor": 4,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 166,
+        "armor": 4,
+        "speed": 2.3699999999999997,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Mossback Trolls",
+            "maxHp": 166,
+            "armor": 4,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 7,
+      "type": "host_07",
+      "variants": [
+        {
+          "name": "Marsh Orc Hunters",
+          "maxHp": 207,
+          "armor": 11,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 207,
+        "armor": 11,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Marsh Orc Hunters",
+            "maxHp": 207,
+            "armor": 11,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 8,
+      "type": "host_08",
+      "variants": [
+        {
+          "name": "Shadowblood Trolls",
+          "maxHp": 256,
+          "armor": 3,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "Regenerates 20% maximum health/s (51.2 HP/s) · healing block prevents regeneration",
+            "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)"
+          ],
+          "traitDetails": [
+            {
+              "text": "Regenerates 20% maximum health/s (51.2 HP/s) · healing block prevents regeneration",
+              "kind": "regen"
+            },
+            {
+              "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 256,
+        "armor": 3,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Regenerates 20% maximum health/s (51.2 HP/s) · healing block prevents regeneration",
+          "kind": "regen"
+        },
+        {
+          "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Shadowblood Trolls",
+            "maxHp": 256,
+            "armor": 3,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "Regenerates 20% maximum health/s (51.2 HP/s) · healing block prevents regeneration",
+              "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)"
+            ],
+            "traitDetails": [
+              {
+                "text": "Regenerates 20% maximum health/s (51.2 HP/s) · healing block prevents regeneration",
+                "kind": "regen"
+              },
+              {
+                "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 9,
+      "type": "host_09",
+      "variants": [
+        {
+          "name": "Goblin Dust Dancers",
+          "maxHp": 314,
+          "armor": 4,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion"
+          ],
+          "traitDetails": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 314,
+        "armor": 4,
+        "speed": 2.3699999999999997,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Goblin Dust Dancers",
+            "maxHp": 314,
+            "armor": 4,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion"
+            ],
+            "traitDetails": [
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 10,
+      "type": "host_10",
+      "variants": [
+        {
+          "name": "Mogrok, the Gatebreaker",
+          "maxHp": 4226,
+          "armor": 14,
+          "speed": 1.65,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 4226,
+        "armor": 14,
+        "speed": 1.65,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Mogrok, the Gatebreaker",
+            "maxHp": 4226,
+            "armor": 14,
+            "speed": 1.65,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 11,
+      "type": "host_11",
+      "variants": [
+        {
+          "name": "Orc Hookbearers",
+          "maxHp": 467,
+          "armor": 15,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 467,
+        "armor": 15,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Hookbearers",
+            "maxHp": 467,
+            "armor": 15,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 12,
+      "type": "host_12",
+      "variants": [
+        {
+          "name": "Goblin Bell Devourers",
+          "maxHp": 565,
+          "armor": 8,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [
+            "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration"
+          ],
+          "traitDetails": [
+            {
+              "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 565,
+        "armor": 8,
+        "speed": 2.3699999999999997,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Goblin Bell Devourers",
+            "maxHp": 565,
+            "armor": 8,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [
+              "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration"
+            ],
+            "traitDetails": [
+              {
+                "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 13,
+      "type": "host_13",
+      "variants": [
+        {
+          "name": "Red Tusk Orc Huntresses",
+          "maxHp": 680,
+          "armor": 8,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 680,
+        "armor": 8,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Red Tusk Orc Huntresses",
+            "maxHp": 680,
+            "armor": 8,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 14,
+      "type": "host_14",
+      "variants": [
+        {
+          "name": "Orc Mirror Shieldbearers",
+          "maxHp": 816,
+          "armor": 17,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+          ],
+          "traitDetails": [
+            {
+              "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+              "kind": "refraction"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 816,
+        "armor": 17,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+          "kind": "refraction"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Mirror Shieldbearers",
+            "maxHp": 816,
+            "armor": 17,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+            ],
+            "traitDetails": [
+              {
+                "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+                "kind": "refraction"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 15,
+      "type": "host_15",
+      "variants": [
+        {
+          "name": "Blood Bat Riders",
+          "maxHp": 975,
+          "armor": 6,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration"
+          ],
+          "traitDetails": [
+            {
+              "text": "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration",
+              "kind": "regen"
+            }
+          ]
+        },
+        {
+          "name": "Blood Bat Riders · Moon Clan",
+          "maxHp": 975,
+          "armor": 6,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration",
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion"
+          ],
+          "traitDetails": [
+            {
+              "text": "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration",
+              "kind": "regen"
+            },
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 975,
+        "armor": 6,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [
+        {
+          "text": "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration",
+          "kind": "regen"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Blood Bat Riders",
+            "maxHp": 975,
+            "armor": 6,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration"
+            ],
+            "traitDetails": [
+              {
+                "text": "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration",
+                "kind": "regen"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        },
+        {
+          "info": {
+            "name": "Blood Bat Riders · Moon Clan",
+            "maxHp": 975,
+            "armor": 6,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration",
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion"
+            ],
+            "traitDetails": [
+              {
+                "text": "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration",
+                "kind": "regen"
+              },
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            }
+          ]
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 16,
+      "type": "host_16",
+      "variants": [
+        {
+          "name": "Orc Ash Pickpockets",
+          "maxHp": 1162,
+          "armor": 10,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+            "Steals 50 gold on reaching the keep"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            },
+            {
+              "text": "Steals 50 gold on reaching the keep",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 1162,
+        "armor": 10,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+          "kind": "magicImmune"
+        },
+        {
+          "text": "Steals 50 gold on reaching the keep",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Ash Pickpockets",
+            "maxHp": 1162,
+            "armor": 10,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "Steals 50 gold on reaching the keep"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              },
+              {
+                "text": "Steals 50 gold on reaching the keep",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 17,
+      "type": "host_17",
+      "variants": [
+        {
+          "name": "Cursed Totem Trolls",
+          "maxHp": 1380,
+          "armor": 11,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+          ],
+          "traitDetails": [
+            {
+              "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+              "kind": "untouchable"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 1380,
+        "armor": 11,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+          "kind": "untouchable"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Cursed Totem Trolls",
+            "maxHp": 1380,
+            "armor": 11,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+            ],
+            "traitDetails": [
+              {
+                "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+                "kind": "untouchable"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 18,
+      "type": "host_18",
+      "variants": [
+        {
+          "name": "Silent Orc Executioners",
+          "maxHp": 1636,
+          "armor": 7,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [
+            "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+            "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration"
+          ],
+          "traitDetails": [
+            {
+              "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+              "kind": null
+            },
+            {
+              "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 1636,
+        "armor": 7,
+        "speed": 2.3699999999999997,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+          "kind": null
+        },
+        {
+          "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Silent Orc Executioners",
+            "maxHp": 1636,
+            "armor": 7,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [
+              "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+              "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration"
+            ],
+            "traitDetails": [
+              {
+                "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+                "kind": null
+              },
+              {
+                "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 19,
+      "type": "host_19",
+      "variants": [
+        {
+          "name": "Bloodwolf Orc Riders",
+          "maxHp": 1933,
+          "armor": 7,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [
+            "Blood rush · ×5 speed for 2s every 6s"
+          ],
+          "traitDetails": [
+            {
+              "text": "Blood rush · ×5 speed for 2s every 6s",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 1933,
+        "armor": 7,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Blood rush · ×5 speed for 2s every 6s",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Bloodwolf Orc Riders",
+            "maxHp": 1933,
+            "armor": 7,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [
+              "Blood rush · ×5 speed for 2s every 6s"
+            ],
+            "traitDetails": [
+              {
+                "text": "Blood rush · ×5 speed for 2s every 6s",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 20,
+      "type": "host_20",
+      "variants": [
+        {
+          "name": "Gorvash, the Bone Patriarch",
+          "maxHp": 25079,
+          "armor": 22,
+          "speed": 1.65,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 25079,
+        "armor": 22,
+        "speed": 1.65,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Gorvash, the Bone Patriarch",
+            "maxHp": 25079,
+            "armor": 22,
+            "speed": 1.65,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 21,
+      "type": "host_21",
+      "variants": [
+        {
+          "name": "Rotroot Trolls",
+          "maxHp": 2683,
+          "armor": 14,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [
+            "Regenerates 20% maximum health/s (536.6 HP/s) · healing block prevents regeneration"
+          ],
+          "traitDetails": [
+            {
+              "text": "Regenerates 20% maximum health/s (536.6 HP/s) · healing block prevents regeneration",
+              "kind": "regen"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 2683,
+        "armor": 14,
+        "speed": 2.3699999999999997,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Regenerates 20% maximum health/s (536.6 HP/s) · healing block prevents regeneration",
+          "kind": "regen"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Rotroot Trolls",
+            "maxHp": 2683,
+            "armor": 14,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [
+              "Regenerates 20% maximum health/s (536.6 HP/s) · healing block prevents regeneration"
+            ],
+            "traitDetails": [
+              {
+                "text": "Regenerates 20% maximum health/s (536.6 HP/s) · healing block prevents regeneration",
+                "kind": "regen"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 22,
+      "type": "host_22",
+      "variants": [
+        {
+          "name": "Iron Ram Ogres",
+          "maxHp": 3150,
+          "armor": 74,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 3150,
+        "armor": 74,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Iron Ram Ogres",
+            "maxHp": 3150,
+            "armor": 74,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 23,
+      "type": "host_23",
+      "variants": [
+        {
+          "name": "Shard-Soul Orc Warlocks",
+          "maxHp": 3693,
+          "armor": 15,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+            "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            },
+            {
+              "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+              "kind": "refraction"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 3693,
+        "armor": 15,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+          "kind": "physicalImmune"
+        },
+        {
+          "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+          "kind": "refraction"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Shard-Soul Orc Warlocks",
+            "maxHp": 3693,
+            "armor": 15,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+                "kind": "physicalImmune"
+              },
+              {
+                "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+                "kind": "refraction"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 24,
+      "type": "host_24",
+      "variants": [
+        {
+          "name": "Riveted Goblin Mutants",
+          "maxHp": 4321,
+          "armor": 16,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [
+            "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s"
+          ],
+          "traitDetails": [
+            {
+              "text": "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s",
+              "kind": "reactive"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 4321,
+        "armor": 16,
+        "speed": 2.3699999999999997,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s",
+          "kind": "reactive"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Riveted Goblin Mutants",
+            "maxHp": 4321,
+            "armor": 16,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [
+              "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s"
+            ],
+            "traitDetails": [
+              {
+                "text": "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s",
+                "kind": "reactive"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 25,
+      "type": "host_25",
+      "variants": [
+        {
+          "name": "Iron Bat Orc Riders",
+          "maxHp": 5047,
+          "armor": 66,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 5047,
+        "armor": 66,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Iron Bat Orc Riders",
+            "maxHp": 5047,
+            "armor": 66,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 26,
+      "type": "host_26",
+      "variants": [
+        {
+          "name": "Orc Spell Eaters",
+          "maxHp": 5886,
+          "armor": 17,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 5886,
+        "armor": 17,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+          "kind": "magicImmune"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Spell Eaters",
+            "maxHp": 5886,
+            "armor": 17,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 27,
+      "type": "host_27",
+      "variants": [
+        {
+          "name": "Spectral Bat Riders",
+          "maxHp": 6855,
+          "armor": 11,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+            "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            },
+            {
+              "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+              "kind": "untouchable"
+            }
+          ]
+        },
+        {
+          "name": "Spectral Bat Riders · Moon Clan",
+          "maxHp": 6855,
+          "armor": 11,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+            "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            },
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+              "kind": "untouchable"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 6855,
+        "armor": 11,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+          "kind": "physicalImmune"
+        },
+        {
+          "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+          "kind": "untouchable"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Spectral Bat Riders",
+            "maxHp": 6855,
+            "armor": 11,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+                "kind": "physicalImmune"
+              },
+              {
+                "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+                "kind": "untouchable"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        },
+        {
+          "info": {
+            "name": "Spectral Bat Riders · Moon Clan",
+            "maxHp": 6855,
+            "armor": 11,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+                "kind": "physicalImmune"
+              },
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              },
+              {
+                "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+                "kind": "untouchable"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            }
+          ]
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 28,
+      "type": "host_28",
+      "variants": [
+        {
+          "name": "Goblin Scrapwings",
+          "maxHp": 7972,
+          "armor": 18,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s"
+          ],
+          "traitDetails": [
+            {
+              "text": "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s",
+              "kind": "reactive"
+            }
+          ]
+        },
+        {
+          "name": "Goblin Scrapwings · Moon Clan",
+          "maxHp": 7972,
+          "armor": 18,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+            "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)"
+          ],
+          "traitDetails": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 7972,
+        "armor": 18,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Goblin Scrapwings",
+            "maxHp": 7972,
+            "armor": 18,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s"
+            ],
+            "traitDetails": [
+              {
+                "text": "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s",
+                "kind": "reactive"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Reactive armor · +8 armor per direct hit · maximum 15 stacks (120 armor) · decays 0.7 stacks/s",
+              "kind": "reactive"
+            }
+          ]
+        },
+        {
+          "info": {
+            "name": "Goblin Scrapwings · Moon Clan",
+            "maxHp": 7972,
+            "armor": 18,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)"
+            ],
+            "traitDetails": [
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              },
+              {
+                "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 29,
+      "type": "host_29",
+      "variants": [
+        {
+          "name": "Prismatic Bat Tricksters",
+          "maxHp": 9259,
+          "armor": 11,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+            "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+          ],
+          "traitDetails": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+              "kind": "refraction"
+            }
+          ]
+        },
+        {
+          "name": "Prismatic Bat Tricksters · Moon Clan",
+          "maxHp": 9259,
+          "armor": 11,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+            "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+          ],
+          "traitDetails": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+              "kind": "refraction"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 9259,
+        "armor": 11,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        },
+        {
+          "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+          "kind": "refraction"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Prismatic Bat Tricksters",
+            "maxHp": 9259,
+            "armor": 11,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+            ],
+            "traitDetails": [
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              },
+              {
+                "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+                "kind": "refraction"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        },
+        {
+          "info": {
+            "name": "Prismatic Bat Tricksters · Moon Clan",
+            "maxHp": 9259,
+            "armor": 11,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+            ],
+            "traitDetails": [
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              },
+              {
+                "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+                "kind": "refraction"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": true
+    },
+    {
+      "wave": 30,
+      "type": "host_30",
+      "variants": [
+        {
+          "name": "Zaruun, Lord of Storm Wings",
+          "maxHp": 118139,
+          "armor": 20,
+          "speed": 1.65,
+          "flying": true,
+          "traits": [],
+          "traitDetails": []
+        }
+      ],
+      "commonStats": {
+        "maxHp": 118139,
+        "armor": 20,
+        "speed": 1.65,
+        "flying": true
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Zaruun, Lord of Storm Wings",
+            "maxHp": 118139,
+            "armor": 20,
+            "speed": 1.65,
+            "flying": true,
+            "traits": [],
+            "traitDetails": []
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 31,
+      "type": "host_31",
+      "variants": [
+        {
+          "name": "Ashen Dual-Seal Inquisitors",
+          "maxHp": 12443,
+          "armor": 20,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+            "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            },
+            {
+              "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+              "kind": "refraction"
+            }
+          ]
+        },
+        {
+          "name": "Spectral Dual-Seal Inquisitors",
+          "maxHp": 12443,
+          "armor": 20,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [
+            "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+            "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            },
+            {
+              "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+              "kind": "refraction"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 12443,
+        "armor": 20,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+          "kind": "refraction"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Ashen Dual-Seal Inquisitors",
+            "maxHp": 12443,
+            "armor": 20,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              },
+              {
+                "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+                "kind": "refraction"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            }
+          ]
+        },
+        {
+          "info": {
+            "name": "Spectral Dual-Seal Inquisitors",
+            "maxHp": 12443,
+            "armor": 20,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [
+              "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+                "kind": "physicalImmune"
+              },
+              {
+                "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+                "kind": "refraction"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            }
+          ]
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 32,
+      "type": "host_32",
+      "variants": [
+        {
+          "name": "Soul-Drinker Trolls",
+          "maxHp": 14400,
+          "armor": 21,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "Restores 50% missing health every 4s · healing block prevents recharge"
+          ],
+          "traitDetails": [
+            {
+              "text": "Restores 50% missing health every 4s · healing block prevents recharge",
+              "kind": "recharge"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 14400,
+        "armor": 21,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Restores 50% missing health every 4s · healing block prevents recharge",
+          "kind": "recharge"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Soul-Drinker Trolls",
+            "maxHp": 14400,
+            "armor": 21,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "Restores 50% missing health every 4s · healing block prevents recharge"
+            ],
+            "traitDetails": [
+              {
+                "text": "Restores 50% missing health every 4s · healing block prevents recharge",
+                "kind": "recharge"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 33,
+      "type": "host_33",
+      "variants": [
+        {
+          "name": "Orc Wraiths of the Shattered World",
+          "maxHp": 16647,
+          "armor": 13,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [
+            "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+            "Blinks 6 tiles every 5s"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            },
+            {
+              "text": "Blinks 6 tiles every 5s",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 16647,
+        "armor": 13,
+        "speed": 2.3699999999999997,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+          "kind": "physicalImmune"
+        },
+        {
+          "text": "Blinks 6 tiles every 5s",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Wraiths of the Shattered World",
+            "maxHp": 16647,
+            "armor": 13,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [
+              "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "Blinks 6 tiles every 5s"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+                "kind": "physicalImmune"
+              },
+              {
+                "text": "Blinks 6 tiles every 5s",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 34,
+      "type": "host_34",
+      "variants": [
+        {
+          "name": "Goblin Gallows Fliers",
+          "maxHp": 19098,
+          "armor": 13,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+            "Steals 50 gold on reaching the keep"
+          ],
+          "traitDetails": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "Steals 50 gold on reaching the keep",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 19098,
+        "armor": 13,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        },
+        {
+          "text": "Steals 50 gold on reaching the keep",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Goblin Gallows Fliers",
+            "maxHp": 19098,
+            "armor": 13,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "Steals 50 gold on reaching the keep"
+            ],
+            "traitDetails": [
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              },
+              {
+                "text": "Steals 50 gold on reaching the keep",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 35,
+      "type": "host_35",
+      "variants": [
+        {
+          "name": "Ashen Eclipse Bat Riders",
+          "maxHp": 21640,
+          "armor": 23,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            }
+          ]
+        },
+        {
+          "name": "Spectral Eclipse Bat Riders",
+          "maxHp": 21640,
+          "armor": 23,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 21640,
+        "armor": 23,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Ashen Eclipse Bat Riders",
+            "maxHp": 21640,
+            "armor": 23,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            }
+          ]
+        },
+        {
+          "info": {
+            "name": "Spectral Eclipse Bat Riders",
+            "maxHp": 21640,
+            "armor": 23,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+                "kind": "physicalImmune"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            }
+          ]
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 36,
+      "type": "host_36",
+      "variants": [
+        {
+          "name": "Ashen Oathbreakers",
+          "maxHp": 24505,
+          "armor": 36,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            }
+          ]
+        },
+        {
+          "name": "Spectral Oathbreakers",
+          "maxHp": 24505,
+          "armor": 36,
+          "speed": 2.3699999999999997,
+          "flying": false,
+          "traits": [
+            "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 24505,
+        "armor": 36,
+        "speed": 2.3699999999999997,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Ashen Oathbreakers",
+            "maxHp": 24505,
+            "armor": 36,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            }
+          ]
+        },
+        {
+          "info": {
+            "name": "Spectral Oathbreakers",
+            "maxHp": 24505,
+            "armor": 36,
+            "speed": 2.3699999999999997,
+            "flying": false,
+            "traits": [
+              "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+                "kind": "physicalImmune"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            }
+          ]
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 37,
+      "type": "host_37",
+      "variants": [
+        {
+          "name": "Riftwolf Orc Riders",
+          "maxHp": 27733,
+          "armor": 14,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [
+            "Blinks 6 tiles every 5s"
+          ],
+          "traitDetails": [
+            {
+              "text": "Blinks 6 tiles every 5s",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 27733,
+        "armor": 14,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Blinks 6 tiles every 5s",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Riftwolf Orc Riders",
+            "maxHp": 27733,
+            "armor": 14,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [
+              "Blinks 6 tiles every 5s"
+            ],
+            "traitDetails": [
+              {
+                "text": "Blinks 6 tiles every 5s",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 38,
+      "type": "host_38",
+      "variants": [
+        {
+          "name": "Black Marsh Knifemen",
+          "maxHp": 31369,
+          "armor": 15,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+            "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration"
+          ],
+          "traitDetails": [
+            {
+              "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+              "kind": null
+            },
+            {
+              "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+              "kind": null
+            }
+          ]
+        },
+        {
+          "name": "Blood-Leech Trolls",
+          "maxHp": 31369,
+          "armor": 15,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "Regenerates 40% maximum health/s (12,547.6 HP/s) · healing block prevents regeneration"
+          ],
+          "traitDetails": [
+            {
+              "text": "Regenerates 40% maximum health/s (12,547.6 HP/s) · healing block prevents regeneration",
+              "kind": "regen"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 31369,
+        "armor": 15,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Black Marsh Knifemen",
+            "maxHp": 31369,
+            "armor": 15,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+              "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration"
+            ],
+            "traitDetails": [
+              {
+                "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+                "kind": null
+              },
+              {
+                "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+              "kind": null
+            },
+            {
+              "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+              "kind": null
+            }
+          ]
+        },
+        {
+          "info": {
+            "name": "Blood-Leech Trolls",
+            "maxHp": 31369,
+            "armor": 15,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "Regenerates 40% maximum health/s (12,547.6 HP/s) · healing block prevents regeneration"
+            ],
+            "traitDetails": [
+              {
+                "text": "Regenerates 40% maximum health/s (12,547.6 HP/s) · healing block prevents regeneration",
+                "kind": "regen"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Regenerates 40% maximum health/s (12,547.6 HP/s) · healing block prevents regeneration",
+              "kind": "regen"
+            }
+          ]
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 39,
+      "type": "host_39",
+      "variants": [
+        {
+          "name": "Thunder Manta Orc Riders",
+          "maxHp": 35463,
+          "armor": 25,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+            "Shell blocks 100 damage per direct hit, including Holy damage",
+            "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+          ],
+          "traitDetails": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "Shell blocks 100 damage per direct hit, including Holy damage",
+              "kind": "krakenShell"
+            },
+            {
+              "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+              "kind": "untouchable"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 35463,
+        "armor": 25,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        },
+        {
+          "text": "Shell blocks 100 damage per direct hit, including Holy damage",
+          "kind": "krakenShell"
+        },
+        {
+          "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+          "kind": "untouchable"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Thunder Manta Orc Riders",
+            "maxHp": 35463,
+            "armor": 25,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "Shell blocks 100 damage per direct hit, including Holy damage",
+              "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+            ],
+            "traitDetails": [
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              },
+              {
+                "text": "Shell blocks 100 damage per direct hit, including Holy damage",
+                "kind": "krakenShell"
+              },
+              {
+                "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+                "kind": "untouchable"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 40,
+      "type": "host_40",
+      "variants": [
+        {
+          "name": "Vorlak, the Hollow Sky King",
+          "maxHp": 440770,
+          "armor": 26,
+          "speed": 1.65,
+          "flying": true,
+          "traits": [
+            "Shell blocks 110 damage per direct hit, including Holy damage"
+          ],
+          "traitDetails": [
+            {
+              "text": "Shell blocks 110 damage per direct hit, including Holy damage",
+              "kind": "krakenShell"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 440770,
+        "armor": 26,
+        "speed": 1.65,
+        "flying": true
+      },
+      "commonTraits": [
+        {
+          "text": "Shell blocks 110 damage per direct hit, including Holy damage",
+          "kind": "krakenShell"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Vorlak, the Hollow Sky King",
+            "maxHp": 440770,
+            "armor": 26,
+            "speed": 1.65,
+            "flying": true,
+            "traits": [
+              "Shell blocks 110 damage per direct hit, including Holy damage"
+            ],
+            "traitDetails": [
+              {
+                "text": "Shell blocks 110 damage per direct hit, including Holy damage",
+                "kind": "krakenShell"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 41,
+      "type": "host_41",
+      "variants": [
+        {
+          "name": "Orc Crystal Phalanx",
+          "maxHp": 45254,
+          "armor": 41,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+          ],
+          "traitDetails": [
+            {
+              "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+              "kind": "refraction"
+            }
+          ]
+        },
+        {
+          "name": "Orc Crystal Phalanx · Moon Clan",
+          "maxHp": 45254,
+          "armor": 41,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+            "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+          ],
+          "traitDetails": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+              "kind": "refraction"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 45254,
+        "armor": 41,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+          "kind": "refraction"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Crystal Phalanx",
+            "maxHp": 45254,
+            "armor": 41,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+            ],
+            "traitDetails": [
+              {
+                "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+                "kind": "refraction"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        },
+        {
+          "info": {
+            "name": "Orc Crystal Phalanx · Moon Clan",
+            "maxHp": 45254,
+            "armor": 41,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields"
+            ],
+            "traitDetails": [
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              },
+              {
+                "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+                "kind": "refraction"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            }
+          ]
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 42,
+      "type": "host_42",
+      "variants": [
+        {
+          "name": "Fire Bat Orc Lancers",
+          "maxHp": 51085,
+          "armor": 16,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+            "Blood rush · ×2 speed for 2s every 6s"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            },
+            {
+              "text": "Blood rush · ×2 speed for 2s every 6s",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 51085,
+        "armor": 16,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+          "kind": "magicImmune"
+        },
+        {
+          "text": "Blood rush · ×2 speed for 2s every 6s",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Fire Bat Orc Lancers",
+            "maxHp": 51085,
+            "armor": 16,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "Blood rush · ×2 speed for 2s every 6s"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              },
+              {
+                "text": "Blood rush · ×2 speed for 2s every 6s",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 43,
+      "type": "host_43",
+      "variants": [
+        {
+          "name": "Ogres of the Imprisoned Souls",
+          "maxHp": 57641,
+          "armor": 28,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+            "Restores 50% missing health every 4s · healing block prevents recharge",
+            "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+          ],
+          "traitDetails": [
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "Restores 50% missing health every 4s · healing block prevents recharge",
+              "kind": "recharge"
+            },
+            {
+              "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+              "kind": "untouchable"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 57641,
+        "armor": 28,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        },
+        {
+          "text": "Restores 50% missing health every 4s · healing block prevents recharge",
+          "kind": "recharge"
+        },
+        {
+          "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+          "kind": "untouchable"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Ogres of the Imprisoned Souls",
+            "maxHp": 57641,
+            "armor": 28,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "Restores 50% missing health every 4s · healing block prevents recharge",
+              "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+            ],
+            "traitDetails": [
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              },
+              {
+                "text": "Restores 50% missing health every 4s · healing block prevents recharge",
+                "kind": "recharge"
+              },
+              {
+                "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+                "kind": "untouchable"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 44,
+      "type": "host_44",
+      "variants": [
+        {
+          "name": "Orc Ash Executioners",
+          "maxHp": 65012,
+          "armor": 29,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+            "Blinks 6 tiles every 5s"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            },
+            {
+              "text": "Blinks 6 tiles every 5s",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 65012,
+        "armor": 29,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+          "kind": "magicImmune"
+        },
+        {
+          "text": "Blinks 6 tiles every 5s",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Ash Executioners",
+            "maxHp": 65012,
+            "armor": 29,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "Blinks 6 tiles every 5s"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              },
+              {
+                "text": "Blinks 6 tiles every 5s",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 45,
+      "type": "host_45",
+      "variants": [
+        {
+          "name": "Flying Drummers of the Black Horde",
+          "maxHp": 73294,
+          "armor": 29,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+            "Invaders within 3.5 tiles gain 50% movement speed for 3s every 6s"
+          ],
+          "traitDetails": [
+            {
+              "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+              "kind": null
+            },
+            {
+              "text": "Invaders within 3.5 tiles gain 50% movement speed for 3s every 6s",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 73294,
+        "armor": 29,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [
+        {
+          "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+          "kind": null
+        },
+        {
+          "text": "Invaders within 3.5 tiles gain 50% movement speed for 3s every 6s",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Flying Drummers of the Black Horde",
+            "maxHp": 73294,
+            "armor": 29,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+              "Invaders within 3.5 tiles gain 50% movement speed for 3s every 6s"
+            ],
+            "traitDetails": [
+              {
+                "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+                "kind": null
+              },
+              {
+                "text": "Invaders within 3.5 tiles gain 50% movement speed for 3s every 6s",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 46,
+      "type": "host_46",
+      "variants": [
+        {
+          "name": "Ogre Revenants in Hollow Armor",
+          "maxHp": 82599,
+          "armor": 45,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [
+            "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+              "kind": "physicalImmune"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 82599,
+        "armor": 45,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+          "kind": "physicalImmune"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Ogre Revenants in Hollow Armor",
+            "maxHp": 82599,
+            "armor": 45,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [
+              "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+                "kind": "physicalImmune"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 47,
+      "type": "host_47",
+      "variants": [
+        {
+          "name": "Orc Riders of the Last Howl",
+          "maxHp": 93050,
+          "armor": 31,
+          "speed": 2.21,
+          "flying": false,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+            "Blood rush · ×5 speed for 2s every 6s",
+            "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            },
+            {
+              "text": "Blood rush · ×5 speed for 2s every 6s",
+              "kind": null
+            },
+            {
+              "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+              "kind": "untouchable"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 93050,
+        "armor": 31,
+        "speed": 2.21,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+          "kind": "magicImmune"
+        },
+        {
+          "text": "Blood rush · ×5 speed for 2s every 6s",
+          "kind": null
+        },
+        {
+          "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+          "kind": "untouchable"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Orc Riders of the Last Howl",
+            "maxHp": 93050,
+            "armor": 31,
+            "speed": 2.21,
+            "flying": false,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "Blood rush · ×5 speed for 2s every 6s",
+              "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              },
+              {
+                "text": "Blood rush · ×5 speed for 2s every 6s",
+                "kind": null
+              },
+              {
+                "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+                "kind": "untouchable"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 48,
+      "type": "host_48",
+      "variants": [
+        {
+          "name": "Bat Thieves of Black Fire",
+          "maxHp": 104785,
+          "armor": 19,
+          "speed": 2.5,
+          "flying": true,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+            "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+            "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+            "Steals 50 gold on reaching the keep"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            },
+            {
+              "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "kind": "evasion"
+            },
+            {
+              "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+              "kind": null
+            },
+            {
+              "text": "Steals 50 gold on reaching the keep",
+              "kind": null
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 104785,
+        "armor": 19,
+        "speed": 2.5,
+        "flying": true
+      },
+      "commonTraits": [
+        {
+          "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+          "kind": "magicImmune"
+        },
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        },
+        {
+          "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+          "kind": null
+        },
+        {
+          "text": "Steals 50 gold on reaching the keep",
+          "kind": null
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Bat Thieves of Black Fire",
+            "maxHp": 104785,
+            "armor": 19,
+            "speed": 2.5,
+            "flying": true,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+              "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+              "Steals 50 gold on reaching the keep"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              },
+              {
+                "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+                "kind": "evasion"
+              },
+              {
+                "text": "Disarms defenders within 3 tiles for 5s every 8s · control resistance shortens duration",
+                "kind": null
+              },
+              {
+                "text": "Steals 50 gold on reaching the keep",
+                "kind": null
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 49,
+      "type": "host_49",
+      "variants": [
+        {
+          "name": "Troll Guardians of the Deep Maw",
+          "maxHp": 117958,
+          "armor": 48,
+          "speed": 2.05,
+          "flying": false,
+          "traits": [
+            "Shell blocks 200 damage per direct hit, including Holy damage",
+            "Restores 50% missing health every 4s · healing block prevents recharge"
+          ],
+          "traitDetails": [
+            {
+              "text": "Shell blocks 200 damage per direct hit, including Holy damage",
+              "kind": "krakenShell"
+            },
+            {
+              "text": "Restores 50% missing health every 4s · healing block prevents recharge",
+              "kind": "recharge"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 117958,
+        "armor": 48,
+        "speed": 2.05,
+        "flying": false
+      },
+      "commonTraits": [
+        {
+          "text": "Shell blocks 200 damage per direct hit, including Holy damage",
+          "kind": "krakenShell"
+        },
+        {
+          "text": "Restores 50% missing health every 4s · healing block prevents recharge",
+          "kind": "recharge"
+        }
+      ],
+      "differences": [
+        {
+          "info": {
+            "name": "Troll Guardians of the Deep Maw",
+            "maxHp": 117958,
+            "armor": 48,
+            "speed": 2.05,
+            "flying": false,
+            "traits": [
+              "Shell blocks 200 damage per direct hit, including Holy damage",
+              "Restores 50% missing health every 4s · healing block prevents recharge"
+            ],
+            "traitDetails": [
+              {
+                "text": "Shell blocks 200 damage per direct hit, including Holy damage",
+                "kind": "krakenShell"
+              },
+              {
+                "text": "Restores 50% missing health every 4s · healing block prevents recharge",
+                "kind": "recharge"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": []
+        }
+      ],
+      "identical": false
+    },
+    {
+      "wave": 50,
+      "type": "host_50",
+      "variants": [
+        {
+          "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "maxHp": 1460171,
+          "armor": 33,
+          "speed": 1.65,
+          "flying": true,
+          "traits": [
+            "Shell blocks 210 damage per direct hit, including Holy damage"
+          ],
+          "traitDetails": [
+            {
+              "text": "Shell blocks 210 damage per direct hit, including Holy damage",
+              "kind": "krakenShell"
+            }
+          ]
+        },
+        {
+          "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "maxHp": 1460171,
+          "armor": 33,
+          "speed": 1.65,
+          "flying": true,
+          "traits": [
+            "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+            "Shell blocks 210 damage per direct hit, including Holy damage"
+          ],
+          "traitDetails": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            },
+            {
+              "text": "Shell blocks 210 damage per direct hit, including Holy damage",
+              "kind": "krakenShell"
+            }
+          ]
+        },
+        {
+          "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "maxHp": 1460171,
+          "armor": 33,
+          "speed": 1.65,
+          "flying": true,
+          "traits": [
+            "Shell blocks 273 damage per direct hit, including Holy damage"
+          ],
+          "traitDetails": [
+            {
+              "text": "Shell blocks 273 damage per direct hit, including Holy damage",
+              "kind": "krakenShell"
+            }
+          ]
+        }
+      ],
+      "commonStats": {
+        "maxHp": 1460171,
+        "armor": 33,
+        "speed": 1.65,
+        "flying": true
+      },
+      "commonTraits": [],
+      "differences": [
+        {
+          "info": {
+            "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+            "maxHp": 1460171,
+            "armor": 33,
+            "speed": 1.65,
+            "flying": true,
+            "traits": [
+              "Shell blocks 210 damage per direct hit, including Holy damage"
+            ],
+            "traitDetails": [
+              {
+                "text": "Shell blocks 210 damage per direct hit, including Holy damage",
+                "kind": "krakenShell"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Shell blocks 210 damage per direct hit, including Holy damage",
+              "kind": "krakenShell"
+            }
+          ]
+        },
+        {
+          "info": {
+            "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+            "maxHp": 1460171,
+            "armor": 33,
+            "speed": 1.65,
+            "flying": true,
+            "traits": [
+              "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "Shell blocks 210 damage per direct hit, including Holy damage"
+            ],
+            "traitDetails": [
+              {
+                "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+                "kind": "magicImmune"
+              },
+              {
+                "text": "Shell blocks 210 damage per direct hit, including Holy damage",
+                "kind": "krakenShell"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity",
+              "kind": "magicImmune"
+            },
+            {
+              "text": "Shell blocks 210 damage per direct hit, including Holy damage",
+              "kind": "krakenShell"
+            }
+          ]
+        },
+        {
+          "info": {
+            "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+            "maxHp": 1460171,
+            "armor": 33,
+            "speed": 1.65,
+            "flying": true,
+            "traits": [
+              "Shell blocks 273 damage per direct hit, including Holy damage"
+            ],
+            "traitDetails": [
+              {
+                "text": "Shell blocks 273 damage per direct hit, including Holy damage",
+                "kind": "krakenShell"
+              }
+            ]
+          },
+          "stats": {},
+          "traits": [
+            {
+              "text": "Shell blocks 273 damage per direct hit, including Holy damage",
+              "kind": "krakenShell"
+            }
+          ]
+        }
+      ],
+      "identical": false
+    }
+  ],
+  "verifiedRuns": [
+    {
+      "command": "node --test tests/enemy-catalog-navigation.test.mjs tests/warbands-overview.test.mjs tests/warband-cards.test.mjs tests/enemy-variants-v12.test.mjs",
+      "tests": 30,
+      "pass": 30,
+      "fail": 0,
+      "stage": "Final behavior; before final CSS legacy-size override"
+    },
+    {
+      "command": "node --test tests/enemy-catalog-navigation.test.mjs",
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "stage": "Final CSS and behavior"
+    }
+  ],
+  "coverage": [
+    "All 50 waves render compact native closed rows with movement, count and actual key defenses; lore and intelligence explanations stay secondary.",
+    "All 62 effective profiles reconstruct shared/different statistics and trait descriptions exactly as real spawned enemies.",
+    "Common HP/armor/speed/movement and ability descriptions display once; mutually exclusive differences have responsive side-by-side form cards.",
+    "The existing mechanically identical wave29 pair is identified honestly; Moon Clan chance is not stacked or changed.",
+    "Native select/Go and boss controls reach wave45, boss50 and completed wave10 with exact campaign caps and focus on the opened native row.",
+    "Wave/lore disclosure, select focus/value and scrolling survive live/phase updates without forced reopening.",
+    "Explicit group variants/modifiers, empty variant arrays, run-local enemy timings and independent seeded per-enemy rolls follow actual engine semantics.",
+    "Existing updateWarbandsOverviewPanel signature and legacy card outputs remain compatible; 22 existing related checks passed unchanged.",
+    "Navigation/select/detail controls have 44px-or-larger CSS hit areas, visible focus and legacy-size overrides."
+  ],
+  "integration": {
+    "mainHooks": "None needed for catalog navigation; updateWarbandsOverviewPanel owns native controls and existing CSS import carries styles.",
+    "persistentCombat": "Root phase-ui.js/main owns persistent on-field/queued counts and revealed boss health; this proof certifies catalog coverage only."
+  },
+  "limits": [
+    "Real browser/native touch and responsive legibility remain root-owned integrated checks.",
+    "Catalog facts do not guarantee one form across a wave or establish damage/win probabilities.",
+    "Git-normalized protected code remains unchanged; byte hashes separately identify harmless checkout line endings.",
+    "No core/data/art/audio mutation, D001 tuning, MAIN/root-main changes, version or publication by this owner."
+  ],
+  "frozen": true
+}

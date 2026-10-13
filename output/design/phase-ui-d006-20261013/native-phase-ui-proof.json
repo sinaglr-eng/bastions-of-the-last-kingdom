@@ -1,0 +1,413 @@
+{
+  "release": "0.3.29",
+  "browser": "Codex In-app Browser",
+  "viewportChecks": [
+    {
+      "label": "desktop",
+      "boss": "Mogrok, the Gatebreaker\n4,226 / 4,226 HP",
+      "map": {
+        "bottom": 852,
+        "height": 780,
+        "left": 0,
+        "right": 1366,
+        "top": 72,
+        "width": 1366,
+        "x": 0,
+        "y": 72
+      },
+      "pause": {
+        "bottom": 57.666666984558105,
+        "height": 44,
+        "left": 917.53125,
+        "right": 999.1979217529296,
+        "top": 13.666666984558104,
+        "width": 81.66667175292969,
+        "x": 917.53125,
+        "y": 13.666666984558104
+      },
+      "phase": "combat",
+      "scroll": [
+        1366,
+        900
+      ],
+      "speed": {
+        "bottom": 57.666666984558105,
+        "height": 44,
+        "left": 1004.1979370117188,
+        "right": 1048.1979370117188,
+        "top": 13.666666984558104,
+        "width": 44,
+        "x": 1004.1979370117188,
+        "y": 13.666666984558104
+      },
+      "viewport": [
+        1366,
+        900
+      ]
+    },
+    {
+      "label": "ipad-landscape",
+      "boss": "Mogrok, the Gatebreaker\n4,226 / 4,226 HP",
+      "map": {
+        "bottom": 720,
+        "height": 656,
+        "left": 0,
+        "right": 1024,
+        "top": 64,
+        "width": 1024,
+        "x": 0,
+        "y": 64
+      },
+      "pause": {
+        "bottom": 53.666666984558105,
+        "height": 44,
+        "left": 583.1354370117188,
+        "right": 664.2396087646484,
+        "top": 9.666666984558104,
+        "width": 81.10417175292969,
+        "x": 583.1354370117188,
+        "y": 9.666666984558104
+      },
+      "phase": "combat",
+      "scroll": [
+        1024,
+        768
+      ],
+      "speed": {
+        "bottom": 53.666666984558105,
+        "height": 44,
+        "left": 669.2396240234375,
+        "right": 713.2396240234375,
+        "top": 9.666666984558104,
+        "width": 44,
+        "x": 669.2396240234375,
+        "y": 9.666666984558104
+      },
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "label": "tablet-portrait",
+      "boss": "Mogrok, the Gatebreaker\n4,226 / 4,226 HP",
+      "map": {
+        "bottom": 976,
+        "height": 912,
+        "left": 0,
+        "right": 768,
+        "top": 64,
+        "width": 768,
+        "x": 0,
+        "y": 64
+      },
+      "pause": {
+        "bottom": 53.666666984558105,
+        "height": 44,
+        "left": 336.16668701171875,
+        "right": 414.8021087646485,
+        "top": 9.666666984558104,
+        "width": 78.63542175292969,
+        "x": 336.16668701171875,
+        "y": 9.666666984558104
+      },
+      "phase": "combat",
+      "scroll": [
+        768,
+        1024
+      ],
+      "speed": {
+        "bottom": 53.666666984558105,
+        "height": 44,
+        "left": 419.8020935058594,
+        "right": 463.8020935058594,
+        "top": 9.666666984558104,
+        "width": 44,
+        "x": 419.8020935058594,
+        "y": 9.666666984558104
+      },
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "label": "mobile-landscape",
+      "boss": "Mogrok, the Gatebreaker\n4,226 / 4,226 HP",
+      "map": {
+        "bottom": 346,
+        "height": 292,
+        "left": 0,
+        "right": 844,
+        "top": 54,
+        "width": 844,
+        "x": 0,
+        "y": 54
+      },
+      "pause": {
+        "bottom": 48.666666984558105,
+        "height": 44,
+        "left": 426.09375,
+        "right": 501.4479217529297,
+        "top": 4.6666669845581055,
+        "width": 75.35417175292969,
+        "x": 426.09375,
+        "y": 4.6666669845581055
+      },
+      "phase": "combat",
+      "scroll": [
+        844,
+        390
+      ],
+      "speed": {
+        "bottom": 48.666666984558105,
+        "height": 44,
+        "left": 506.4479370117187,
+        "right": 550.4479370117188,
+        "top": 4.6666669845581055,
+        "width": 44,
+        "x": 506.4479370117187,
+        "y": 4.6666669845581055
+      },
+      "viewport": [
+        844,
+        390
+      ]
+    }
+  ],
+  "endedResults": [
+    {
+      "label": "desktop",
+      "rect": {
+        "bottom": 751.9167175292969,
+        "height": 603.8333740234375,
+        "left": 303,
+        "right": 1063,
+        "top": 148.08334350585938,
+        "width": 760,
+        "x": 303,
+        "y": 148.08334350585938
+      },
+      "result": "RUN ENDED · DEFEAT\nThe last banners fall.\n0\nwaves completed\n\nDefeated on wave 5\n\n0\nScore\n0\nInvaders defeated\n04:44\nElapsed time\n0.3.29\nGame version\nBest score version: 0.3.25, 0.3.26, 0.3.27, 0.3.28, 0.3.29\nFinal wave · Bat Scouts\n\n1 invader reached the keep · 1 keep health lost.\n\nLast leak: Bat Scouts · Flying.\n\nRecorded events describe this run; they do not establish why a defense failed.\nPlay again\nInspect battlefield\n\nDeveloper Mode — this run is excluded from scores and statistics.",
+      "retry": [
+        {
+          "bottom": 667.5833740234375,
+          "height": 44,
+          "left": 418,
+          "right": 678,
+          "top": 623.5833740234375,
+          "width": 260,
+          "x": 418,
+          "y": 623.5833740234375
+        }
+      ],
+      "scrollHeight": 900
+    },
+    {
+      "label": "ipad-landscape",
+      "rect": {
+        "bottom": 685.9167098999023,
+        "height": 603.8333740234375,
+        "left": 132,
+        "right": 892,
+        "top": 82.08333587646484,
+        "width": 760,
+        "x": 132,
+        "y": 82.08333587646484
+      },
+      "result": "RUN ENDED · DEFEAT\nThe last banners fall.\n0\nwaves completed\n\nDefeated on wave 5\n\n0\nScore\n0\nInvaders defeated\n04:44\nElapsed time\n0.3.29\nGame version\nBest score version: 0.3.25, 0.3.26, 0.3.27, 0.3.28, 0.3.29\nFinal wave · Bat Scouts\n\n1 invader reached the keep · 1 keep health lost.\n\nLast leak: Bat Scouts · Flying.\n\nRecorded events describe this run; they do not establish why a defense failed.\nPlay again\nInspect battlefield\n\nDeveloper Mode — this run is excluded from scores and statistics.",
+      "retry": [
+        {
+          "bottom": 601.5833740234375,
+          "height": 44,
+          "left": 247,
+          "right": 507,
+          "top": 557.5833740234375,
+          "width": 260,
+          "x": 247,
+          "y": 557.5833740234375
+        }
+      ],
+      "scrollHeight": 768
+    },
+    {
+      "label": "tablet-portrait",
+      "rect": {
+        "bottom": 813.9167175292969,
+        "height": 603.8333740234375,
+        "left": 23.70833396911621,
+        "right": 744.2917079925537,
+        "top": 210.08334350585935,
+        "width": 720.5833740234375,
+        "x": 23.70833396911621,
+        "y": 210.08334350585935
+      },
+      "result": "RUN ENDED · DEFEAT\nThe last banners fall.\n0\nwaves completed\n\nDefeated on wave 5\n\n0\nScore\n0\nInvaders defeated\n04:44\nElapsed time\n0.3.29\nGame version\nBest score version: 0.3.25, 0.3.26, 0.3.27, 0.3.28, 0.3.29\nFinal wave · Bat Scouts\n\n1 invader reached the keep · 1 keep health lost.\n\nLast leak: Bat Scouts · Flying.\n\nRecorded events describe this run; they do not establish why a defense failed.\nPlay again\nInspect battlefield\n\nDeveloper Mode — this run is excluded from scores and statistics.",
+      "retry": [
+        {
+          "bottom": 729.5833740234375,
+          "height": 44,
+          "left": 119,
+          "right": 379,
+          "top": 685.5833740234375,
+          "width": 260,
+          "x": 119,
+          "y": 685.5833740234375
+        }
+      ],
+      "scrollHeight": 1024
+    },
+    {
+      "label": "mobile-landscape",
+      "rect": {
+        "bottom": 361.4166679382324,
+        "height": 331.5,
+        "left": 25.98958396911621,
+        "right": 802.6770839691162,
+        "top": 29.916667938232425,
+        "width": 776.6875,
+        "x": 25.98958396911621,
+        "y": 29.916667938232425
+      },
+      "result": "RUN ENDED · DEFEAT\nThe last banners fall.\n0\nwaves completed\n\nDefeated on wave 5\n\n0\nScore\n0\nInvaders defeated\n04:44\nElapsed time\n0.3.29\nGame version\nBest score version: 0.3.25, 0.3.26, 0.3.27, 0.3.28, 0.3.29\nFinal wave · Bat Scouts\n\n1 invader reached the keep · 1 keep health lost.\n\nLast leak: Bat Scouts · Flying.\n\nRecorded events describe this run; they do not establish why a defense failed.\nPlay again\nInspect battlefield\n\nDeveloper Mode — this run is excluded from scores and statistics.",
+      "retry": [
+        {
+          "bottom": 360.5833435058594,
+          "height": 44,
+          "left": 39.98958587646485,
+          "right": 227.02083587646484,
+          "top": 316.5833435058594,
+          "width": 187.03125,
+          "x": 39.98958587646485,
+          "y": 316.5833435058594
+        }
+      ],
+      "scrollHeight": 390
+    },
+    {
+      "label": "mobile-portrait",
+      "rect": {
+        "bottom": 737.6667098999023,
+        "height": 631.3333740234375,
+        "left": 6.6666669845581055,
+        "right": 383.33335399627686,
+        "top": 106.33333587646484,
+        "width": 376.6666870117187,
+        "x": 6.6666669845581055,
+        "y": 106.33333587646484
+      },
+      "result": "RUN ENDED · DEFEAT\nThe last banners fall.\n0\nwaves completed\n\nDefeated on wave 5\n\n0\nScore\n0\nInvaders defeated\n04:44\nElapsed time\n0.3.29\nGame version\nBest score version: 0.3.25, 0.3.26, 0.3.27, 0.3.28, 0.3.29\nFinal wave · Bat Scouts\n\n1 invader reached the keep · 1 keep health lost.\n\nLast leak: Bat Scouts · Flying.\n\nRecorded events describe this run; they do not establish why a defense failed.\nPlay again\nInspect battlefield\n\nDeveloper Mode — this run is excluded from scores and statistics.",
+      "retry": [
+        {
+          "bottom": 661.3333740234375,
+          "height": 44,
+          "left": 22.666667938232425,
+          "right": 188.2500114440918,
+          "top": 617.3333740234375,
+          "width": 165.58334350585938,
+          "x": 22.666667938232425,
+          "y": 617.3333740234375
+        }
+      ],
+      "scrollHeight": 844
+    }
+  ],
+  "catalogChecks": [
+    {
+      "label": "desktop",
+      "text": "Back to list\nINTERMEDIATE · UNFORGED\nMother Fire Dragon\n\nAura DPS 1,200/s · Magical · No direct attack\n\nAURA DPS\n1,200/s\nDAMAGE TYPE\nMagical\nDIRECT ATTACK\nNone\nRANGE\n6\n\n0 built\n\nEXACT INGREDIENTS\n○\nI · Baby Fire Dragon\nMissing\n○\nM IV · Mage\nMissing\n○\nR III · Engineer\nMissing\nPin recipe\nAbilities and description\nFull ingredient chain\n\nRun ended · Read-only recipe catalog."
+    },
+    {
+      "label": "ipad-landscape",
+      "text": "Back to list\nINTERMEDIATE · UNFORGED\nMother Fire Dragon\n\nAura DPS 1,200/s · Magical · No direct attack\n\nAURA DPS\n1,200/s\nDAMAGE TYPE\nMagical\nDIRECT ATTACK\nNone\nRANGE\n6\n\n0 built\n\nEXACT INGREDIENTS\n○\nI · Baby Fire Dragon\nMissing\n○\nM IV · Mage\nMissing\n○\nR III · Engineer\nMissing\nPin recipe\nAbilities and description\nFull ingredient chain\n\nRun ended · Read-only recipe catalog."
+    },
+    {
+      "label": "tablet-portrait",
+      "text": "Back to list\nINTERMEDIATE · UNFORGED\nMother Fire Dragon\n\nAura DPS 1,200/s · Magical · No direct attack\n\nAURA DPS\n1,200/s\nDAMAGE TYPE\nMagical\nDIRECT ATTACK\nNone\nRANGE\n6\n\n0 built\n\nEXACT INGREDIENTS\n○\nI · Baby Fire Dragon\nMissing\n○\nM IV · Mage\nMissing\n○\nR III · Engineer\nMissing\nPin recipe\nAbilities and description\nFull ingredient chain\n\nRun ended · Read-only recipe catalog."
+    },
+    {
+      "label": "mobile-landscape",
+      "text": "Back to list\nINTERMEDIATE · UNFORGED\nMother Fire Dragon\n\nAura DPS 1,200/s · Magical · No direct attack\n\nAURA DPS\n1,200/s\nDAMAGE TYPE\nMagical\nDIRECT ATTACK\nNone\nRANGE\n6\n\n0 built\n\nEXACT INGREDIENTS\n○\nI · Baby Fire Dragon\nMissing\n○\nM IV · Mage\nMissing\n○\nR III · Engineer\nMissing\nPin recipe\nAbilities and description\nFull ingredient chain\n\nRun ended · Read-only recipe catalog."
+    }
+  ],
+  "enemyChecks": [
+    {
+      "label": "mobile-landscape",
+      "text": "29 Prismatic Bat Tricksters Flying · 14 invaders Evasion · Hit shields −\" [active]:\n            - generic: \"29\"\n            - strong: Prismatic Bat Tricksters\n            - generic: Flying · 14 invaders\n            - generic: Evasion · Hit shields\n            - text: −\n          - generic: WAVE 29 · AIR\n          - heading \"Prismatic Bat Tricksters\" [level=2]\n          - img \"Prismatic Bat Tricksters\"\n          - heading \"Prismatic Bat Tricksters\" [level=3]\n          - paragraph: 14 invaders\n          - region \"Actual configured variant comparison\":\n            - paragraph: Shared statistics · 9,259 HP · 11 armor · 2.5 tiles/s · Air\n            - strong: Shared abilities\n            - list:\n              - generic: 25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion\n              - generic: 3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields\n            - paragraph: These forms have identical gameplay statistics and abilities.\n            - strong: Form 1 · Prismatic Bat Tricksters\n            - paragraph: No additional defenses or abilities.\n            - strong: Form 2 · Prismatic Bat Tricksters · Moon Clan\n            - paragraph: No additional defenses or abilities.\n          - paragraph: Each enemy independently chooses a random variant; the wave may contain a mix.\n          - generic \"Lore and guidance\"\n        - article:\n          - generic \"30 Zaruun, Lord of Storm Wings Flying · 1 boss · Boss wave No special defenses ＋\":\n            - generic: \"30\"\n            - strong: Zaruun, Lord of Storm Wings\n            - generic: Flying · 1 boss · Boss wave\n            - generic: No special defenses\n            - text: ＋\n        - article:\n          - generic \"31 Orc Dual-Seal Inquisitors Ground · 22 invaders Possible Magical immunity · Hit shields · Possible Physical immunity ＋\":\n            - generic: \"31\"\n            - strong: Orc Dual-Seal Inquisitors\n            - generic: Ground · 22 invaders\n            - generic: Possible Magical immunity · Hit shields · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"32 Soul-Drinker Trolls Ground · 23 invaders Recharge ＋\":\n            - generic: \"32\"\n            - strong: Soul-Drinker Trolls\n            - generic: Ground · 23 invaders\n            - generic: Recharge\n            - text: ＋\n        - article:\n          - generic \"33 Orc Wraiths of the Shattered World Ground · 23 invaders Physical immunity · Blink ＋\":\n            - generic: \"33\"\n            - strong: Orc Wraiths of the Shattered World\n            - generic: Ground · 23 invaders\n            - generic: Physical immunity · Blink\n            - text: ＋\n        - article:\n          - generic \"34 Goblin Gallows Fliers Flying · 15 invaders Evasion · Gold theft ＋\":\n            - generic: \"34\"\n            - strong: Goblin Gallows Fliers\n            - generic: Flying · 15 invaders\n            - generic: Evasion · Gold theft\n            - text: ＋\n        - article:\n          - generic \"35 Eclipse Bat Guard Flying · 15 invaders Possible Magical immunity · Possible Physical immunity ＋\":\n            - generic: \"35\"\n            - strong: Eclipse Bat Guard\n            - generic: Flying · 15 invaders\n            - generic: Possible Magical immunity · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"36 Orc Oathbreakers Ground · 25 invaders Possible Magical immunity · Possible Physical immunity ＋\":\n            - generic: \"36\"\n            - strong: Orc Oathbreakers\n            - generic: Ground · 25 invaders\n            - generic: Possible Magical immunity · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"37 Riftwolf Orc Riders Ground · 25 invaders Blink ＋\":\n            - generic: \"37\"\n            - strong: Riftwolf Orc Riders\n           "
+    },
+    {
+      "label": "desktop",
+      "text": "29 Prismatic Bat Tricksters Flying · 14 invaders Evasion · Hit shields −\" [active]:\n            - generic: \"29\"\n            - strong: Prismatic Bat Tricksters\n            - generic: Flying · 14 invaders\n            - generic: Evasion · Hit shields\n            - text: −\n          - generic: WAVE 29 · AIR\n          - heading \"Prismatic Bat Tricksters\" [level=2]\n          - img \"Prismatic Bat Tricksters\"\n          - heading \"Prismatic Bat Tricksters\" [level=3]\n          - paragraph: 14 invaders\n          - region \"Actual configured variant comparison\":\n            - paragraph: Shared statistics · 9,259 HP · 11 armor · 2.5 tiles/s · Air\n            - strong: Shared abilities\n            - list:\n              - generic: 25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion\n              - generic: 3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields\n            - paragraph: These forms have identical gameplay statistics and abilities.\n            - strong: Form 1 · Prismatic Bat Tricksters\n            - paragraph: No additional defenses or abilities.\n            - strong: Form 2 · Prismatic Bat Tricksters · Moon Clan\n            - paragraph: No additional defenses or abilities.\n          - paragraph: Each enemy independently chooses a random variant; the wave may contain a mix.\n          - generic \"Lore and guidance\"\n        - article:\n          - generic \"30 Zaruun, Lord of Storm Wings Flying · 1 boss · Boss wave No special defenses ＋\":\n            - generic: \"30\"\n            - strong: Zaruun, Lord of Storm Wings\n            - generic: Flying · 1 boss · Boss wave\n            - generic: No special defenses\n            - text: ＋\n        - article:\n          - generic \"31 Orc Dual-Seal Inquisitors Ground · 22 invaders Possible Magical immunity · Hit shields · Possible Physical immunity ＋\":\n            - generic: \"31\"\n            - strong: Orc Dual-Seal Inquisitors\n            - generic: Ground · 22 invaders\n            - generic: Possible Magical immunity · Hit shields · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"32 Soul-Drinker Trolls Ground · 23 invaders Recharge ＋\":\n            - generic: \"32\"\n            - strong: Soul-Drinker Trolls\n            - generic: Ground · 23 invaders\n            - generic: Recharge\n            - text: ＋\n        - article:\n          - generic \"33 Orc Wraiths of the Shattered World Ground · 23 invaders Physical immunity · Blink ＋\":\n            - generic: \"33\"\n            - strong: Orc Wraiths of the Shattered World\n            - generic: Ground · 23 invaders\n            - generic: Physical immunity · Blink\n            - text: ＋\n        - article:\n          - generic \"34 Goblin Gallows Fliers Flying · 15 invaders Evasion · Gold theft ＋\":\n            - generic: \"34\"\n            - strong: Goblin Gallows Fliers\n            - generic: Flying · 15 invaders\n            - generic: Evasion · Gold theft\n            - text: ＋\n        - article:\n          - generic \"35 Eclipse Bat Guard Flying · 15 invaders Possible Magical immunity · Possible Physical immunity ＋\":\n            - generic: \"35\"\n            - strong: Eclipse Bat Guard\n            - generic: Flying · 15 invaders\n            - generic: Possible Magical immunity · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"36 Orc Oathbreakers Ground · 25 invaders Possible Magical immunity · Possible Physical immunity ＋\":\n            - generic: \"36\"\n            - strong: Orc Oathbreakers\n            - generic: Ground · 25 invaders\n            - generic: Possible Magical immunity · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"37 Riftwolf Orc Riders Ground · 25 invaders Blink ＋\":\n            - generic: \"37\"\n            - strong: Riftwolf Orc Riders\n           "
+    },
+    {
+      "label": "ipad-landscape",
+      "text": "29 Prismatic Bat Tricksters Flying · 14 invaders Evasion · Hit shields −\" [active]:\n            - generic: \"29\"\n            - strong: Prismatic Bat Tricksters\n            - generic: Flying · 14 invaders\n            - generic: Evasion · Hit shields\n            - text: −\n          - generic: WAVE 29 · AIR\n          - heading \"Prismatic Bat Tricksters\" [level=2]\n          - img \"Prismatic Bat Tricksters\"\n          - heading \"Prismatic Bat Tricksters\" [level=3]\n          - paragraph: 14 invaders\n          - region \"Actual configured variant comparison\":\n            - paragraph: Shared statistics · 9,259 HP · 11 armor · 2.5 tiles/s · Air\n            - strong: Shared abilities\n            - list:\n              - generic: 25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion\n              - generic: 3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields\n            - paragraph: These forms have identical gameplay statistics and abilities.\n            - strong: Form 1 · Prismatic Bat Tricksters\n            - paragraph: No additional defenses or abilities.\n            - strong: Form 2 · Prismatic Bat Tricksters · Moon Clan\n            - paragraph: No additional defenses or abilities.\n          - paragraph: Each enemy independently chooses a random variant; the wave may contain a mix.\n          - generic \"Lore and guidance\"\n        - article:\n          - generic \"30 Zaruun, Lord of Storm Wings Flying · 1 boss · Boss wave No special defenses ＋\":\n            - generic: \"30\"\n            - strong: Zaruun, Lord of Storm Wings\n            - generic: Flying · 1 boss · Boss wave\n            - generic: No special defenses\n            - text: ＋\n        - article:\n          - generic \"31 Orc Dual-Seal Inquisitors Ground · 22 invaders Possible Magical immunity · Hit shields · Possible Physical immunity ＋\":\n            - generic: \"31\"\n            - strong: Orc Dual-Seal Inquisitors\n            - generic: Ground · 22 invaders\n            - generic: Possible Magical immunity · Hit shields · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"32 Soul-Drinker Trolls Ground · 23 invaders Recharge ＋\":\n            - generic: \"32\"\n            - strong: Soul-Drinker Trolls\n            - generic: Ground · 23 invaders\n            - generic: Recharge\n            - text: ＋\n        - article:\n          - generic \"33 Orc Wraiths of the Shattered World Ground · 23 invaders Physical immunity · Blink ＋\":\n            - generic: \"33\"\n            - strong: Orc Wraiths of the Shattered World\n            - generic: Ground · 23 invaders\n            - generic: Physical immunity · Blink\n            - text: ＋\n        - article:\n          - generic \"34 Goblin Gallows Fliers Flying · 15 invaders Evasion · Gold theft ＋\":\n            - generic: \"34\"\n            - strong: Goblin Gallows Fliers\n            - generic: Flying · 15 invaders\n            - generic: Evasion · Gold theft\n            - text: ＋\n        - article:\n          - generic \"35 Eclipse Bat Guard Flying · 15 invaders Possible Magical immunity · Possible Physical immunity ＋\":\n            - generic: \"35\"\n            - strong: Eclipse Bat Guard\n            - generic: Flying · 15 invaders\n            - generic: Possible Magical immunity · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"36 Orc Oathbreakers Ground · 25 invaders Possible Magical immunity · Possible Physical immunity ＋\":\n            - generic: \"36\"\n            - strong: Orc Oathbreakers\n            - generic: Ground · 25 invaders\n            - generic: Possible Magical immunity · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"37 Riftwolf Orc Riders Ground · 25 invaders Blink ＋\":\n            - generic: \"37\"\n            - strong: Riftwolf Orc Riders\n           "
+    },
+    {
+      "label": "tablet-portrait",
+      "text": "29 Prismatic Bat Tricksters Flying · 14 invaders Evasion · Hit shields −\" [active]:\n            - generic: \"29\"\n            - strong: Prismatic Bat Tricksters\n            - generic: Flying · 14 invaders\n            - generic: Evasion · Hit shields\n            - text: −\n          - generic: WAVE 29 · AIR\n          - heading \"Prismatic Bat Tricksters\" [level=2]\n          - img \"Prismatic Bat Tricksters\"\n          - heading \"Prismatic Bat Tricksters\" [level=3]\n          - paragraph: 14 invaders\n          - region \"Actual configured variant comparison\":\n            - paragraph: Shared statistics · 9,259 HP · 11 armor · 2.5 tiles/s · Air\n            - strong: Shared abilities\n            - list:\n              - generic: 25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion\n              - generic: 3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields\n            - paragraph: These forms have identical gameplay statistics and abilities.\n            - strong: Form 1 · Prismatic Bat Tricksters\n            - paragraph: No additional defenses or abilities.\n            - strong: Form 2 · Prismatic Bat Tricksters · Moon Clan\n            - paragraph: No additional defenses or abilities.\n          - paragraph: Each enemy independently chooses a random variant; the wave may contain a mix.\n          - generic \"Lore and guidance\"\n        - article:\n          - generic \"30 Zaruun, Lord of Storm Wings Flying · 1 boss · Boss wave No special defenses ＋\":\n            - generic: \"30\"\n            - strong: Zaruun, Lord of Storm Wings\n            - generic: Flying · 1 boss · Boss wave\n            - generic: No special defenses\n            - text: ＋\n        - article:\n          - generic \"31 Orc Dual-Seal Inquisitors Ground · 22 invaders Possible Magical immunity · Hit shields · Possible Physical immunity ＋\":\n            - generic: \"31\"\n            - strong: Orc Dual-Seal Inquisitors\n            - generic: Ground · 22 invaders\n            - generic: Possible Magical immunity · Hit shields · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"32 Soul-Drinker Trolls Ground · 23 invaders Recharge ＋\":\n            - generic: \"32\"\n            - strong: Soul-Drinker Trolls\n            - generic: Ground · 23 invaders\n            - generic: Recharge\n            - text: ＋\n        - article:\n          - generic \"33 Orc Wraiths of the Shattered World Ground · 23 invaders Physical immunity · Blink ＋\":\n            - generic: \"33\"\n            - strong: Orc Wraiths of the Shattered World\n            - generic: Ground · 23 invaders\n            - generic: Physical immunity · Blink\n            - text: ＋\n        - article:\n          - generic \"34 Goblin Gallows Fliers Flying · 15 invaders Evasion · Gold theft ＋\":\n            - generic: \"34\"\n            - strong: Goblin Gallows Fliers\n            - generic: Flying · 15 invaders\n            - generic: Evasion · Gold theft\n            - text: ＋\n        - article:\n          - generic \"35 Eclipse Bat Guard Flying · 15 invaders Possible Magical immunity · Possible Physical immunity ＋\":\n            - generic: \"35\"\n            - strong: Eclipse Bat Guard\n            - generic: Flying · 15 invaders\n            - generic: Possible Magical immunity · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"36 Orc Oathbreakers Ground · 25 invaders Possible Magical immunity · Possible Physical immunity ＋\":\n            - generic: \"36\"\n            - strong: Orc Oathbreakers\n            - generic: Ground · 25 invaders\n            - generic: Possible Magical immunity · Possible Physical immunity\n            - text: ＋\n        - article:\n          - generic \"37 Riftwolf Orc Riders Ground · 25 invaders Blink ＋\":\n            - generic: \"37\"\n            - strong: Riftwolf Orc Riders\n           "
+    }
+  ],
+  "ordinaryTransitions": {
+    "completedRounds": 2,
+    "seed": 208,
+    "phases": [
+      "build",
+      "select",
+      "ready",
+      "combat",
+      "paused",
+      "build"
+    ],
+    "fifthCandidateReopensSameId": true,
+    "pageScroll": 0,
+    "independentNextDpsDisclosure": true,
+    "historyKeyboardFocusRetained": true
+  },
+  "endedNative": {
+    "sandboxSkippedTo": 5,
+    "completedCount": 0,
+    "keepHealthLost": 1,
+    "leakedEnemy": "Bat Scouts",
+    "movement": "Flying",
+    "survivorSelected": "Bat Scouts #6",
+    "survivorHp": "132 / 132",
+    "simulation": "Stopped, read-only",
+    "resultReviewReturn": true,
+    "retry": {
+      "wave": 1,
+      "keepHealth": 30,
+      "placements": 0,
+      "developer": false
+    }
+  },
+  "limitations": [
+    "No physical iPad or real-device Safari certification. Actual production touch/controller/raycast tests complement viewport and native click checks.",
+    "Sandbox catalog/results captures do not certify D001 campaign completion.",
+    "Native offline browser networking was not altered; unavailable leaderboard retry verified with production connector regression.",
+    "Text enlargement verified with temporary150% production-CSS fixture; browser zoom and physical Safari not certified."
+  ],
+  "mazeChecks": [
+    {
+      "label": "desktop",
+      "svgCount": 6,
+      "text": "utton \"Select Crown crossfire, 864 ground route steps\":\n          - 'img \"Crown crossfire: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Crown crossfire\n          - generic: 864 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - region \"Selected blueprint progress\":\n        - 'heading \"Selected: Commander''s spiral\" [level=3]'\n        - paragraph: 0 / 136 built · 590 steps after maze\n        - paragraph: 136 / 250 occupied or planned cells · 250 placements left\n        - button \"Hide blueprint\"\n        - button \"Edit a copy\"\n      - button \"＋ Create your own maze\"\n      - generic: Choose a plan to show its fixed cells on the field. Gold marks firing positions. M reopens this panel.\n  - region \"Five tower draws\":\n    - heading \"Place your defenses 0/5 placed\" [level=3]\n    - combobox \"Campaign length\":\n      - option \"50 waves\" [selected]\n      - option \"10 waves\"\n    - region \"Command Point draft actions\":\n      - button \"Reroll — 1 CP. Place all five defenders first.\" [disabled]:\n        - generic: Reroll\n        - generic: 1 CP\n      - button \"Reserve — 1 CP. Reserve is available after all five placements.\" [disabled]:\n        - generic: Reserve\n        - generic: 1 CP\n    - 'button \"1: Unrevealed defender. Build on an empty tile to reveal.\" [pressed]':\n      - generic: \"01\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"2: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"02\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"3: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"03\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"4: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"04\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"5: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"05\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - complementary \"Future draw odds\":\n      - generic \"Future draw odds\"\n  - status: Construction is closed. Select a defense to inspect it.\n  - text: ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ − ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋"
+    },
+    {
+      "label": "ipad-landscape",
+      "svgCount": 6,
+      "text": "- main:\n  - generic: WAVE\n  - strong: 1 / 50\n  - generic: KEEP HEALTH\n  - strong: 30 / 30\n  - generic: GOLD\n  - strong: \"90\"\n  - generic \"Command Points\":\n    - generic: CP\n    - strong: \"3\"\n  - button \"Enemy Waves\":\n    - generic: Enemy Waves\n  - button \"Recipes\":\n    - generic: Recipes\n  - button \"Sound settings\":\n  - generic \"Game menu\": ☰\n  - region \"Battlefield\":\n    - generic \"3D battlefield. Tap to place or select; drag one finger to pan; use two fingers to rotate or pinch to zoom.\"\n    - generic: ORC WARCAMP\n    - generic: I\n    - generic: II\n    - generic: III\n    - generic: IV\n    - generic: V\n  - complementary \"Upcoming enemy wave summary\":\n    - generic \"▸ Next wave 1 8 invaders\":\n      - text: ▸\n      - strong: Next wave 1\n      - generic: 8 invaders\n  - complementary \"Peak actual tower damage per second this wave\":\n    - generic \"▸ Peak DPS Not measured —\":\n      - text: ▸\n      - heading \"Peak DPS\" [level=2]\n      - generic: Not measured\n      - strong: —\n  - generic \"Map tools\":\n  - button \"Show enemy route\" [pressed]:\n  - button \"Show construction grid\" [pressed]:\n  - button \"Show tower ranges\":\n  - button \"Reset camera\":\n  - button \"Suggested maze\" [active] [pressed]:\n  - generic: WASD / edges pan · Q / E rotate · Scroll to zoom · 1–5 select draw · Del / ⌫ remove wall\n  - text: \"N\"\n  - complementary \"Command panel\":\n    - generic: BUILDING\n    - generic: Wave 1\n    - button \"Close inspector\":\n    - generic \"Maze planner\":\n      - heading \"Maze plans\" [level=2]\n      - button \"Close maze plans\": Close · M\n      - paragraph: Fixed blueprints · 250 placements total. Walls and defenders both count.\n      - paragraph: Flying enemies ignore the maze and follow checkpoints directly.\n      - paragraph: Geometric comparisons, not damage predictions, campaign win probabilities or globally optimal solutions.\n      - heading \"Your reference plans\" [level=3]\n      - article:\n        - button \"Select Commander's spiral, 590 ground route steps\":\n          - 'img \"Commander''s spiral: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Commander's spiral\n          - generic: 590 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Diamond spiral, 718 ground route steps\" [pressed]:\n          - 'img \"Diamond spiral: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Diamond spiral\n          - generic: 718 ground route steps\n          - generic: Selected\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Chevron bastion, 504 ground route steps\":\n          - 'img \"Chevron bastion: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Chevron bastion\n          - generic: 504 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - heading \"Central crossfire · up to 150 cells\" [level=3]\n      - article:\n        - button \"Select Compact crossfire, 772 ground route steps\":\n          - 'img \"Compact crossfire: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Compact crossfire\n          - generic: 772 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Core gauntlet, 820 ground route steps\":\n          - 'img \"Core gauntlet: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Core gauntlet\n          - generic: 820 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Crown crossfire, 864 ground route steps\":\n          - 'img \"Crown crossfire: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Crown crossfire\n          - generic: 864 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - region \"Selected blueprint progress\":\n        - 'heading \"Selected: Diamond spiral\" [level=3]'\n        - paragraph: 0 / 128 built · 718 steps after maze\n        - paragraph: 128 / 250 occupied or planned cells · 250 placements left\n        - button \"Hide blueprint\"\n        - button \"Edit a copy\"\n      - button \"＋ Create your own maze\"\n      - generic: Choose a plan to show its fixed cells on the field. Gold marks firing positions. M reopens this panel.\n  - region \"Five tower draws\":\n    - heading \"Place your defenses 0/5 placed\" [level=3]\n    - combobox \"Campaign length\":\n      - option \"50 waves\" [selected]\n      - option \"10 waves\"\n    - region \"Command Point draft actions\":\n      - button \"Reroll — 1 CP. Place all five defenders first.\" [disabled]:\n        - generic: Reroll\n        - generic: 1 CP\n      - button \"Reserve — 1 CP. Reserve is available after all five placements.\" [disabled]:\n        - generic: Reserve\n        - generic: 1 CP\n    - 'button \"1: Unrevealed defender. Build on an empty tile to reveal.\" [pressed]':\n      - generic: \"01\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"2: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"02\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"3: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"03\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"4: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"04\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"5: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"05\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - complementary \"Future draw odds\":\n      - generic \"Future draw odds\"\n  - status: Construction is closed. Select a defense to inspect it.\n  - text: ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ − ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋"
+    },
+    {
+      "label": "tablet-portrait",
+      "svgCount": 6,
+      "text": "- main:\n  - generic: WAVE\n  - strong: 1 / 50\n  - generic: KEEP HEALTH\n  - strong: 30 / 30\n  - generic: GOLD\n  - strong: \"90\"\n  - generic \"Command Points\":\n    - generic: CP\n    - strong: \"3\"\n  - button \"Enemy Waves\":\n    - generic: Enemy Waves\n  - button \"Recipes\":\n    - generic: Recipes\n  - button \"Sound settings\":\n  - generic \"Game menu\": ☰\n  - region \"Battlefield\":\n    - generic \"3D battlefield. Tap to place or select; drag one finger to pan; use two fingers to rotate or pinch to zoom.\"\n    - generic: I\n    - generic: II\n    - generic: III\n    - generic: IV\n    - generic: V\n  - complementary \"Upcoming enemy wave summary\":\n    - generic \"▸ Next wave 1 8 invaders\":\n      - text: ▸\n      - strong: Next wave 1\n      - generic: 8 invaders\n  - complementary \"Peak actual tower damage per second this wave\":\n    - generic \"▸ Peak DPS Not measured —\":\n      - text: ▸\n      - heading \"Peak DPS\" [level=2]\n      - generic: Not measured\n      - strong: —\n  - generic \"Map tools\":\n  - button \"Show enemy route\" [pressed]:\n  - button \"Show construction grid\" [pressed]:\n  - button \"Show tower ranges\":\n  - button \"Reset camera\":\n  - button \"Suggested maze\" [active] [pressed]:\n  - generic: WASD / edges pan · Q / E rotate · Scroll to zoom · 1–5 select draw · Del / ⌫ remove wall\n  - text: \"N\"\n  - complementary \"Command panel\":\n    - generic: BUILDING\n    - generic: Wave 1\n    - button \"Close inspector\":\n    - generic \"Maze planner\":\n      - heading \"Maze plans\" [level=2]\n      - button \"Close maze plans\": Close · M\n      - paragraph: Fixed blueprints · 250 placements total. Walls and defenders both count.\n      - paragraph: Flying enemies ignore the maze and follow checkpoints directly.\n      - paragraph: Geometric comparisons, not damage predictions, campaign win probabilities or globally optimal solutions.\n      - heading \"Your reference plans\" [level=3]\n      - article:\n        - button \"Select Commander's spiral, 590 ground route steps\":\n          - 'img \"Commander''s spiral: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Commander's spiral\n          - generic: 590 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Diamond spiral, 718 ground route steps\" [pressed]:\n          - 'img \"Diamond spiral: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Diamond spiral\n          - generic: 718 ground route steps\n          - generic: Selected\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Chevron bastion, 504 ground route steps\":\n          - 'img \"Chevron bastion: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Chevron bastion\n          - generic: 504 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - heading \"Central crossfire · up to 150 cells\" [level=3]\n      - article:\n        - button \"Select Compact crossfire, 772 ground route steps\":\n          - 'img \"Compact crossfire: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Compact crossfire\n          - generic: 772 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Core gauntlet, 820 ground route steps\":\n          - 'img \"Core gauntlet: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Core gauntlet\n          - generic: 820 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Crown crossfire, 864 ground route steps\":\n          - 'img \"Crown crossfire: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Crown crossfire\n          - generic: 864 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - region \"Selected blueprint progress\":\n        - 'heading \"Selected: Diamond spiral\" [level=3]'\n        - paragraph: 0 / 128 built · 718 steps after maze\n        - paragraph: 128 / 250 occupied or planned cells · 250 placements left\n        - button \"Hide blueprint\"\n        - button \"Edit a copy\"\n      - button \"＋ Create your own maze\"\n      - generic: Choose a plan to show its fixed cells on the field. Gold marks firing positions. M reopens this panel.\n  - region \"Five tower draws\":\n    - heading \"Place your defenses\" [level=3]\n    - combobox \"Campaign length\":\n      - option \"50 waves\" [selected]\n      - option \"10 waves\"\n    - region \"Command Point draft actions\":\n      - button \"Reroll — 1 CP. Place all five defenders first.\" [disabled]:\n        - generic: Reroll\n        - generic: 1 CP\n      - button \"Reserve — 1 CP. Reserve is available after all five placements.\" [disabled]:\n        - generic: Reserve\n        - generic: 1 CP\n    - 'button \"1: Unrevealed defender. Build on an empty tile to reveal.\" [pressed]':\n      - generic: \"01\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"2: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"02\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"3: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"03\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"4: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"04\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"5: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"05\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - complementary \"Future draw odds\":\n      - generic \"Future draw odds\"\n  - status: Construction is closed. Select a defense to inspect it.\n  - text: ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ − ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋"
+    },
+    {
+      "label": "mobile-landscape",
+      "svgCount": 6,
+      "text": "- main:\n  - generic: WAVE\n  - strong: 1 / 50\n  - generic: KEEP HEALTH\n  - strong: 30 / 30\n  - generic: GOLD\n  - strong: \"90\"\n  - generic \"Command Points\":\n    - generic: CP\n    - strong: \"3\"\n  - button \"Enemy Waves\":\n    - generic: Enemy Waves\n  - button \"Recipes\":\n    - generic: Recipes\n  - button \"Sound settings\":\n  - generic \"Game menu\": ☰\n  - region \"Battlefield\":\n    - generic \"3D battlefield. Tap to place or select; drag one finger to pan; use two fingers to rotate or pinch to zoom.\"\n    - generic: ORC WARCAMP\n    - generic: THE LAST KEEP\n    - generic: I\n    - generic: II\n    - generic: III\n    - generic: IV\n    - generic: V\n  - complementary \"Upcoming enemy wave summary\":\n    - generic \"▸ Next wave 1 8 invaders\":\n      - text: ▸\n      - strong: Next wave 1\n      - generic: 8 invaders\n  - complementary \"Peak actual tower damage per second this wave\":\n    - generic \"▸ Peak DPS Not measured —\":\n      - text: ▸\n      - heading \"Peak DPS\" [level=2]\n      - generic: Not measured\n      - strong: —\n  - generic \"Map tools\":\n  - button \"Show enemy route\" [pressed]:\n  - button \"Show construction grid\" [pressed]:\n  - button \"Show tower ranges\":\n  - button \"Reset camera\":\n  - button \"Suggested maze\" [active] [pressed]:\n  - complementary \"Command panel\":\n    - generic: BUILDING\n    - generic: Wave 1\n    - button \"Close inspector\":\n    - generic \"Maze planner\":\n      - heading \"Maze plans\" [level=2]\n      - button \"Close maze plans\": Close · M\n      - paragraph: Fixed blueprints · 250 placements total. Walls and defenders both count.\n      - paragraph: Flying enemies ignore the maze and follow checkpoints directly.\n      - paragraph: Geometric comparisons, not damage predictions, campaign win probabilities or globally optimal solutions.\n      - heading \"Your reference plans\" [level=3]\n      - article:\n        - button \"Select Commander's spiral, 590 ground route steps\":\n          - 'img \"Commander''s spiral: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Commander's spiral\n          - generic: 590 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Diamond spiral, 718 ground route steps\" [pressed]:\n          - 'img \"Diamond spiral: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Diamond spiral\n          - generic: 718 ground route steps\n          - generic: Selected\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Chevron bastion, 504 ground route steps\":\n          - 'img \"Chevron bastion: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Chevron bastion\n          - generic: 504 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - heading \"Central crossfire · up to 150 cells\" [level=3]\n      - article:\n        - button \"Select Compact crossfire, 772 ground route steps\":\n          - 'img \"Compact crossfire: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Compact crossfire\n          - generic: 772 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Core gauntlet, 820 ground route steps\":\n          - 'img \"Core gauntlet: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Core gauntlet\n          - generic: 820 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - article:\n        - button \"Select Crown crossfire, 864 ground route steps\":\n          - 'img \"Crown crossfire: top-down blueprint with ground route, walls and gold firing positions\"'\n          - strong: Crown crossfire\n          - generic: 864 ground route steps\n        - generic \"＋ Route, exposure and assumptions\"\n      - region \"Selected blueprint progress\":\n        - 'heading \"Selected: Diamond spiral\" [level=3]'\n        - paragraph: 0 / 128 built · 718 steps after maze\n        - paragraph: 128 / 250 occupied or planned cells · 250 placements left\n        - button \"Hide blueprint\"\n        - button \"Edit a copy\"\n      - button \"＋ Create your own maze\"\n      - generic: Choose a plan to show its fixed cells on the field. Gold marks firing positions. M reopens this panel.\n  - region \"Five tower draws\":\n    - heading \"Place your defenses 0/5 placed\" [level=3]\n    - combobox \"Campaign length\":\n      - option \"50 waves\" [selected]\n      - option \"10 waves\"\n    - region \"Command Point draft actions\":\n      - button \"Reroll — 1 CP. Place all five defenders first.\" [disabled]:\n        - generic: Reroll\n        - generic: 1 CP\n      - button \"Reserve — 1 CP. Reserve is available after all five placements.\" [disabled]:\n        - generic: Reserve\n        - generic: 1 CP\n    - 'button \"1: Unrevealed defender. Build on an empty tile to reveal.\" [pressed]':\n      - generic: \"01\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"2: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"02\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"3: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"03\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"4: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"04\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n    - 'button \"5: Unrevealed defender. Build on an empty tile to reveal.\"':\n      - generic: \"05\"\n      - generic: \"?\"\n      - generic: Unrevealed defender\n  - status: Construction is closed. Select a defense to inspect it.\n  - text: ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ − ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋ ＋"
+    }
+  ],
+  "enlargedTextEvidence": "enlarged-text-native-proof.json"
+}

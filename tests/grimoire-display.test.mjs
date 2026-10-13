@@ -39,7 +39,7 @@ test('current Holy ability and rank guide separate damage from status immunity a
   assert.match(guide,/Using a current candidate requires all five placements and commits this round’s keeper; a retained-only pair preserves the pending draft/);
 });
 
-test('each of 38 current champion cards uses approved classification, descriptions, damage and base DPS without modifying archived records',()=>{
+test('each of 38 current champion cards uses approved classification, descriptions and actual damage channels without modifying archived records',()=>{
   const before=JSON.stringify(data),archivedBefore=JSON.stringify(archived);
   const cards=data.recipes.map(recipe=>championRecipeCard({...recipe,stage:'Mythic'},data,{}));
   assert.equal(cards.length,38);assert.equal(archived.recipes.length,39);assert.ok(archived.towers.lordbernhard);assert.equal(data.towers.lordbernhard,undefined);
@@ -47,7 +47,9 @@ test('each of 38 current champion cards uses approved classification, descriptio
     const family=data.recipes[index].resultFamily||data.recipes[index].id;
     assert.ok(html.includes(championClassification(family).toUpperCase()));
     assert.ok(html.includes(data.towers[family].description));
-    assert.match(html,/Damage \/ hit/);assert.match(html,/Base DPS/);
+    const stats=towerStats({family,tier:1},data);
+    if(stats.burnAura&&!(stats.damage>0)){assert.match(html,/Aura DPS/);assert.ok(html.includes(`${stats.burnAura.toLocaleString('en-US')}/s`));assert.match(html,/<dt>Direct attack<\/dt><dd>None/);assert.doesNotMatch(html,/<dt>Base DPS<\/dt><dd>0/);}
+    else{assert.match(html,/Damage \/ hit/);assert.match(html,/Base DPS/);}
     assert.match(html,/Combine these 3 defenders/);assert.doesNotMatch(html,/MYTHIC|Ascension|Aura [45]/);
   });
   assert.equal(JSON.stringify(data),before,'rendering does not modify balancing data');

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "task": "D006 phase/main integration and ended inspection",
+  "status": "passed",
+  "tests": 83,
+  "passed": 83,
+  "failed": 0,
+  "command": "node --test tests/phase-main-integration.test.mjs tests/enemy-selection.test.mjs tests/selected-enemy-panel.test.mjs tests/header-combat-controls.test.mjs tests/defender-rank-preview.test.mjs tests/battlefield-panel-main-integration.test.mjs tests/crafting-main-integration.test.mjs tests/draft-pointer-input.test.mjs tests/draft-presentation.test.mjs tests/wave-preview-flow.test.mjs",
+  "checks": [
+    "Actual main render and event subscriber: three completed preparation transitions, five new latent slots, pause, explicit same-ID inspector reopen.",
+    "Actual advanced-menu warning and Cancel preserve profile records and eligibility; explicit confirmation activates DeveloperConsoleSession and local exclusion.",
+    "Actual result-review and inspector routes remain factual and read-only in won/lost; stale construction and tower-pause actions preserve inventory.",
+    "Persistent HUD counts and revealed boss health remain independent of selected defender inspection and pause.",
+    "Enemy review keeps actual membership, alive/reveal guards, frozen combat values, and unchanged RunStatistics.",
+    "Existing pointer, keeper, downgrade, merge, crafting token, rank, RNG and placement assertions preserved."
+  ],
+  "boundary": "Node tests execute saved production main functions and subscriber with real Game/UI modules and minimal DOM/service boundaries. Browser layout and touch geometry are validated separately by the parent.",
+  "files": [
+    {
+      "path": "game/core/game.js",
+      "sha256": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf"
+    },
+    {
+      "path": "ui/selected-enemy.js",
+      "sha256": "e2b5c842350700990fb9c5d7fa2068385294298340ae062cd1d22b131eda34bc"
+    },
+    {
+      "path": "tests/battlefield-panel-main-integration.test.mjs",
+      "sha256": "e88385a6327ea4e53cb8202bbc0e39bc0302719e1c2c6c756779386dc67f2ef2"
+    },
+    {
+      "path": "tests/crafting-main-integration.test.mjs",
+      "sha256": "e03db93ee5fad753001342af3055b43394154a51810b014718cb7f9e97e15629"
+    },
+    {
+      "path": "tests/defender-rank-preview.test.mjs",
+      "sha256": "4333d63d9c97057dc429b55a72f5d52b077a13b51ed0fe18c8efae99ebfeadb8"
+    },
+    {
+      "path": "tests/draft-pointer-input.test.mjs",
+      "sha256": "501e88c58ce331e1e867eceab0b024e2b6a8532151205a0607ab6b1217fe5fe8"
+    },
+    {
+      "path": "tests/draft-presentation.test.mjs",
+      "sha256": "4eb018183908d2d04a7ec670d2392b8d2eb1f60112dbc5d75fa5962fc36b0083"
+    },
+    {
+      "path": "tests/wave-preview-flow.test.mjs",
+      "sha256": "d848964532e3e095802b0322906d784bd33fbdb6ccc2e0b9530348b96600a109"
+    },
+    {
+      "path": "tests/enemy-selection.test.mjs",
+      "sha256": "8d33dfcc74ef4386ed9ca10cc74665e0f8272cfb050a0936e332fa0b42ac3165"
+    },
+    {
+      "path": "tests/selected-enemy-panel.test.mjs",
+      "sha256": "9631381b1315278a2cbe7119e328ccbb5c21e17e3e26f3637342dba1e501fa5b"
+    },
+    {
+      "path": "tests/phase-main-integration.test.mjs",
+      "sha256": "38eb0e35c92d9c079565ebafc23c352110a22da1c0fe99b96d0a6ca062ed7df2"
+    }
+  ],
+  "mainSourceSha256": "4562e32bcfdede9bcf3d24843efd634fba258a778163c4b8d39bbe030bd51fc9"
+}

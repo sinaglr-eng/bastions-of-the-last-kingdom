@@ -15,6 +15,10 @@ import {selectedSupportMarkup} from '../ui/support-guide.js';
 import {mvpDetailsMarkup} from '../ui/mvp-details.js';
 import {DefenderRankPreview,defenderRankPreviewMarkup} from '../ui/defender-rank-preview.js';
 import {icon} from '../ui/icons.js';
+import {defenderPanelMarkup} from '../ui/defender-panel.js';
+import {DpsMeasurement} from '../ui/dps-measurement.js';
+import {TowerDpsTracker} from '../game/core/tower-dps.js';
+import {endedPhase} from '../ui/phase-ui.js';
 
 const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
@@ -36,15 +40,15 @@ function setup({placed=true,distinct=false}={}){
     assert.ok(game.place(3+index,3));
   }game.draft.roundForced=null;
   let now=1000,hit=null,renders=0;const cards=game.draft.draws.map((_,index)=>card(index)),app=new Surface(),window=new Surface();
-  const body={dataset:{},scrollTop:0,innerHTML:'',insertAdjacentHTML(){}},top={innerHTML:''},world={maze:{editing:false},sync(){}},audio={unlock(){}};
+  const body={dataset:{},scrollTop:0,innerHTML:'',insertAdjacentHTML(){},contains(){return false;},querySelectorAll(){return [];}},top={innerHTML:''},world={maze:{editing:false},sync(){}},audio={unlock(){}};
   const $=id=>id==='side-body'?body:id==='side-top'?top:null,rankPreview=new DefenderRankPreview();
   const images=Object.fromEntries(Object.keys(data.towers).flatMap(family=>ROMAN.map((_,index)=>[`${family}:${index+1}`,`approved-portrait:${family}:${index+1}`])));
   const panel=compile(between('function quality(t)','function notice(')+between('function towerPanel(t)','function enemyInspectionOptions'),'towerPanel',{
     game,rankPreview,data,towers:data.towers,balance:data.balance,images,roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
-    defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,mergeTowerKey,recipeProgress,recipesUsing,recipeLabel
+    defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,mergeTowerKey,recipeProgress,recipesUsing,recipeLabel
   });
   const sidebar=compile(between('function renderSidebar()','function previewRecipe()'),'renderSidebar',{
-    game,$,icon,rankPreview,towerPanel:panel,
+    game,$,icon,rankPreview,towerPanel:panel,endedPhase,panelDetails:new Map(),document:{activeElement:null},
     commandPointsMarkup:()=>'',tutorial:()=>'',combatPanel:()=>'',selectedEnemyMarkup:()=>'',enemyInspectionOptions:()=>({}),
     // Craft-button DOM stamping is exercised by crafting-main-integration;
     // this text-only sidebar fixture isolates the actual pointer bindings.
@@ -94,9 +98,9 @@ test('all five retargeted-touch and click-only cards update the actual portrait,
       if(mode==='touch')view.tap(index,index+1,outside);else view.command(click(view.cards[index],1));
       const tower=drawnTower(view.game,index),html=view.body.innerHTML;
       assert.equal(view.game.selection,tower,`${mode}: card ${index+1}`);
-      assert.ok(html.includes(`<div class="tower-portrait"><img src="${view.images[`${tower.family}:${tower.tier}`]}" alt="${data.towers[tower.family].name} model">`));
+      assert.ok(html.includes(`<header class="defender-heading"><img src="${view.images[`${tower.family}:${tower.tier}`]}" alt="${data.towers[tower.family].name}">`));
       assert.ok(html.includes(`<h2 class="tower-name">${data.towers[tower.family].name}</h2>`));
-      assert.ok(html.includes(`<span>On field: ${ROMAN[tower.tier-1]}</span>`));
+      assert.ok(html.includes(`<p>Actual rank ${rankLabel(tower.tier)} · Candidate</p>`));
       assert.ok(html.includes('Current defender'));assert.equal(view.rankPreview.view(tower,data).tier,tower.tier);
     }
     assert.equal(view.game.phase,'select');

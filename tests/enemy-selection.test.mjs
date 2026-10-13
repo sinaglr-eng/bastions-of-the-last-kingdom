@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
+import {RunStatistics} from '../game/core/run-statistics.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
 function arena(){const game=new Game(data,{seed:12});game.phase='combat';game.combat.spawnQueue=[{time:999999,type:'host_01'}];return game;}
@@ -56,4 +57,23 @@ test('wave completion, loss and the next combat start remove selection before ph
     if(action==='complete')game.completeWave();else if(action==='start'){game.phase='ready';assert.equal(game.startCombat(),true);}else game.end(action==='won');
     assert.equal(game.selectedEnemy,null);assert.equal(game.enemySelection,null);
   }
+});
+
+test('explicit ended enemy selection supports reopening the same actual survivor and leaves run statistics and simulation unchanged',()=>{
+  for(const outcome of ['won','lost']){
+    const game=arena(),tracker=new RunStatistics(game,{id:'ended-review',clock:()=>100}),enemy=spawn(game),tower={id:99,family:'soldier',tier:1,state:'active',x:3,z:10};game.towers.push(tower);game.end(outcome==='won');
+    const events=[];game.on((type,payload)=>{if(type==='selection'||type==='defender-select')events.push({type,payload});});
+    const before=JSON.stringify({enemies:game.combat.enemies,towers:game.towers,lives:game.lives,score:game.score,draws:tracker.draws,waves:tracker.waves,decisions:tracker.decisions,elapsed:game.combat.elapsed,sequence:tracker.sequence});
+    assert.equal(game.selectEnemy(enemy.id),true);assert.equal(game.enemySelection,enemy);assert.equal(game.selectEnemy(enemy.id),true);assert.deepEqual(events.map(e=>e.payload),[{kind:'enemy',id:enemy.id},{kind:'enemy',id:enemy.id}]);
+    assert.equal(events.some(e=>e.type==='defender-select'),false,'Reselecting an invader does not schedule defender voice');game.tick(5);
+    assert.equal(JSON.stringify({enemies:game.combat.enemies,towers:game.towers,lives:game.lives,score:game.score,draws:tracker.draws,waves:tracker.waves,decisions:tracker.decisions,elapsed:game.combat.elapsed,sequence:tracker.sequence}),before);
+    game.select(null);assert.equal(game.enemySelection,null);assert.deepEqual(events.at(-1).payload,{kind:'tower',id:null});
+    assert.equal(game.selectEnemy(enemy.id),true);enemy.cloaked=true;enemy.x=-100;enemy.z=-100;assert.equal(game.enemySelection,null);assert.equal(game.selectEnemy(enemy.id),false);enemy.cloaked=false;enemy.hp=0;assert.equal(game.selectEnemy(enemy.id),false);enemy.hp=1;game.combat.enemies=[];assert.equal(game.selectEnemy(enemy.id),false);tracker.dispose();
+  }
+});
+
+test('explicit same defender selection emits UI intent once per activation while retaining voice deduplication and Move handling',()=>{
+  const game=new Game(data,{seed:31});for(const x of [3,4,5,6,7])assert.equal(game.place(x,3),true);assert.equal(game.keep(),true);const tower=game.selection;game.select(tower.id);const events=[];game.on((type,payload)=>events.push({type,payload}));
+  game.select(tower.id);game.select(tower.id);assert.equal(events.filter(e=>e.type==='selection').length,2);assert.equal(events.filter(e=>e.type==='defender-select').length,0);assert.equal(game.selection,tower);
+  assert.equal(game.beginMove(),true);events.length=0;game.select(tower.id);assert.equal(events.some(e=>e.type==='selection'),false,'Move selection retains its own command path');game.select(null);assert.equal(game.commandMove.active,false);assert.equal(events.some(e=>e.type==='selection'),false);
 });

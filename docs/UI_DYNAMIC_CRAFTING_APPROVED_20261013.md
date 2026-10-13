@@ -6,6 +6,8 @@ Approved on October 13, 2026. This is the implementation handoff for the latest 
 
 The user separately authorized implementation in **Master verze hry** on October 13, 2026. Release 0.3.28 implements this handoff; [implementation and verification](AUDIT_IMPLEMENTATION_20261013.md) records the acceptance evidence. The original design approval, images, prompts and review records remain unchanged.
 
+Scope clarification: this D005 record covers the earlier crafting/pinning/DPS handoff. The user's subsequent request to cover all ten areas of the original phase-driven UI summary is recorded separately as [D006](UI_PHASE_DRIVEN_REQUIREMENTS_20261013.md), with the broader R01–R10 implementation and scoped verification delivered in [0.3.29](PHASE_UI_D006_IMPLEMENTATION_20261013.md). D005 delivery alone does not establish D006 completion.
+
 ## Approved visual references
 
 | Reference | Approved behavior |

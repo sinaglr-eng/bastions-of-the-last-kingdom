@@ -73,7 +73,10 @@ test('compact next-wave intelligence stays on the map outside the command sideba
   const sidebar=main.slice(main.indexOf('<aside class="sidebar"'),main.indexOf('<section class="draft-panel"'));
   assert.match(main,/id="battlefield-overlays"[^]*?id="next-wave-summary"[^]*?id="tower-dps"/,'Approved D004 keeps Next wave before the measured DPS display');
   assert.match(sidebar,/id="side-body"/);assert.doesNotMatch(sidebar,/id="(?:wave-intelligence|next-wave-summary|tower-dps)"/);
-  assert.match(main,/host=\$\('next-wave-summary'\)/);assert.match(main,/function render\(\)\{renderIntelligence\(\)/);
+  assert.match(main,/host=\$\('next-wave-summary'\)/);
+  const render=main.slice(main.indexOf('function render(){'),main.indexOf('\nfunction ',main.indexOf('function render(){')+1));
+  assert.ok(render.indexOf('phaseUi.sync(game)')<render.indexOf('renderIntelligence()'),'Phase state is synchronized before the intelligence view');
+  assert.ok(render.indexOf('renderIntelligence()')<render.indexOf('renderSidebar()'),'Next-wave intelligence still refreshes before selection-specific inspection');
   assert.doesNotMatch(main,/previewDisclosureOpen/);
   assert.doesNotMatch(hud,/threatAnalyzer|armyReadiness/);assert.doesNotMatch(main,/previewPending|previewFlow|wavePreviewGateMarkup|open-defender-draft/);
   assert.match(main,/draftCardsMarkup\(game,/);

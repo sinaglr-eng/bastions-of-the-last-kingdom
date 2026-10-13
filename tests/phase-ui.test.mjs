@@ -1,0 +1,33 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {Game} from '../game/core/game.js';import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../game/core/campaign-roster.js';
+import {PhaseUiState,phaseStripMarkup,combatStatusModel,combatBossMarkup} from '../ui/phase-ui.js';
+import {defenderPanelMarkup} from '../ui/defender-panel.js';import {DefenderRankPreview} from '../ui/defender-rank-preview.js';
+const read=name=>JSON.parse(fs.readFileSync(new URL('../data/'+name+'.json',import.meta.url))),data={balance:read('balance'),towers:campaignTowers(read('towers')),enemies:campaignEnemies(read('enemies')),waves:campaignWaves(read('waves')),recipes:campaignRecipes(read('recipes'))};
+const placeFive=game=>{for(const [x,z]of [[16,16],[17,16],[18,16],[19,16],[20,16]])assert.equal(game.place(x,z+game.round-1),true);};
+
+test('real Game phases collapse history for ready/combat and restore five cards in successive construction rounds without a UI decision',()=>{
+ const game=new Game(data,{seed:208}),ui=new PhaseUiState();ui.sync(game);assert.equal(ui.historyExpanded,true);assert.equal(ui.inspectorOpen,false);placeFive(game);ui.sync(game);assert.equal(game.phase,'select');assert.equal(game.draft.draws.length,5);assert.equal(ui.historyExpanded,true);assert.equal(game.keep(),true);ui.sync(game);assert.equal(game.phase,'ready');assert.equal(ui.historyExpanded,false);assert.match(phaseStripMarkup(game,ui),/Start wave 1/);assert.equal(game.startCombat(),true);ui.sync(game);assert.equal(ui.inspectorOpen,false);assert.equal(ui.historyExpanded,false);
+ const draws=JSON.stringify(game.draft.draws),towers=JSON.stringify(game.towers),seed=game.seed;ui.toggleHistory();ui.close();game.paused=true;ui.sync(game);assert.equal(ui.historyExpanded,true);assert.match(phaseStripMarkup(game,ui),/Global combat pause/);assert.equal(JSON.stringify(game.draft.draws),draws);assert.equal(JSON.stringify(game.towers),towers);assert.equal(game.seed,seed);game.paused=false;game.completeWave();ui.sync(game);assert.equal(game.phase,'build');assert.equal(game.round,2);assert.equal(ui.historyExpanded,true);assert.equal(game.draft.draws.length,5);assert.equal(game.draft.draws.filter(draw=>draw.placed).length,0);
+ placeFive(game);ui.sync(game);game.keep();ui.sync(game);game.startCombat();ui.sync(game);assert.equal(ui.historyExpanded,false);game.completeWave();ui.sync(game);assert.equal(game.round,3);assert.equal(ui.historyExpanded,true);
+});
+test('closing a combat inspector does not clear selected unit or repeatedly reopen on damage refresh; a new selection opens it',()=>{
+ const game=new Game(data,{seed:208});placeFive(game);game.keep();game.select(null);game.startCombat();const ui=new PhaseUiState();ui.sync(game);game.select(game.towers.find(t=>t.state==='active').id);ui.sync(game);assert.equal(ui.inspectorOpen,true);ui.close();ui.sync(game);assert.equal(ui.inspectorOpen,false);assert.ok(game.selection);game.select(game.towers.find(t=>t.state==='ruin').id);ui.sync(game);assert.equal(ui.inspectorOpen,true);
+});
+test('persistent status is independent of selected defender and global pause, with actual queued/live counts and revealed boss HP',()=>{
+ const game=new Game(data,{seed:208});placeFive(game);game.keep();game.startCombat();game.combat.enemies=[];game.combat.spawnQueue=[];const boss=game.combat.spawn('host_10');boss.hp=boss.maxHp/2;game.combat.spawnQueue.push({type:'host_10',modifiers:{}});game.select(game.towers.find(t=>t.state==='active').id);game.paused=true;
+ const model=combatStatusModel(game);assert.equal(model.onField,1);assert.equal(model.queued,1);assert.equal(model.paused,true);assert.equal(model.boss.hp,boss.maxHp/2);assert.equal(model.boss.approaching,1);assert.match(combatBossMarkup(model),/role="progressbar"/);assert.equal(game.selection.state,'active');
+});
+test('concealed boss HP and name are never read for persistent status or ARIA',()=>{
+ const enemy={boss:true,dead:false,get hp(){throw Error('Private HP read');},get maxHp(){throw Error('Private max HP read');},get name(){throw Error('Private identity read');}};
+ const game={phase:'combat',round:50,paused:true,wave:{boss:true},data:{enemies:{}},combat:{enemies:[enemy],spawnQueue:[],isRevealed:()=>false}};
+ const model=combatStatusModel(game);assert.equal(model.boss.concealed,1);assert.match(combatBossMarkup(model),/Boss concealed/);assert.doesNotMatch(combatBossMarkup(model),/progressbar|aria-valuenow/);
+});
+test('candidate hierarchy and actions use actual foundation and rank while optional comparison stays explicitly separate',()=>{
+ const game=new Game(data,{seed:208});placeFive(game);const tower=game.selection,preview=new DefenderRankPreview();preview.select(tower,4,data);const html=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(html,new RegExp('Actual rank I · Candidate'));assert.ok(html.indexOf('data-action="keep-draw"')<html.indexOf('defender-core'));assert.ok(html.indexOf('defender-core')<html.indexOf('data-detail-key="ranks"'));assert.match(html,/Preview rank IV · Actual rank I unchanged/);assert.match(html,new RegExp('data-tower-id="'+tower.id+'"'));assert.equal(tower.tier,1);
+});
+test('retained targeting and individual pause precede optional comparison/MVP; ended inspection has no build or combat actions',()=>{
+ const game=new Game(data,{seed:208});placeFive(game);game.keep();const tower=game.towers.find(t=>t.state==='active'),html=defenderPanelMarkup(game,tower,{rankPreview:new DefenderRankPreview()});assert.ok(html.indexOf('id="targeting"')<html.indexOf('data-detail-key="ranks"'));assert.ok(html.indexOf('data-action="tower-pause"')<html.indexOf('data-detail-key="mvp"'));game.phase='lost';const ended=defenderPanelMarkup(game,tower,{rankPreview:new DefenderRankPreview()});assert.match(ended,/Read-only defender inspection/);assert.doesNotMatch(ended,/data-action="(?:keep-draw|merge-tower|move|tower-pause)"|id="targeting"/);
+});
+test('aura-only defender prominently presents actual per-enemy aura instead of attributing fictional direct DPS',()=>{
+ const game=new Game(data,{seed:208}),family=Object.keys(data.towers).find(f=>data.towers[f].burnAura>0&&data.towers[f].damage===0),tower={id:999,family,tier:1,state:'active',priority:'first',mvpLevel:0,kills:0};assert.ok(family);game.towers.push(tower);const html=defenderPanelMarkup(game,tower);assert.match(html,/aura damage\/s per enemy/);assert.ok(html.indexOf('aura-output')<html.indexOf('Direct DPS'));assert.match(html,/Direct DPS<\/span><strong>0<\/strong>/);
+});

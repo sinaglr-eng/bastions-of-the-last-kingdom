@@ -1,0 +1,62 @@
+{
+  "requirement": "D006 R10",
+  "baselineCommit": "217accd9c19aeee806bb0ea74b8a49ca4b7744c7",
+  "baselineRelease": "0.3.28",
+  "createdAt": "2026-10-13 16:56:14 UTC",
+  "status": "source-and-focused-tests-passed",
+  "frozen": true,
+  "scope": [
+    "Corrected optional tutorial progression copy without changing seven-step navigation.",
+    "Compact optional first-placement, first legal CP action and first actual MVP award guidance.",
+    "Factual local result, completed versus defeated wave, actual recorded leak/last-invader details.",
+    "Primary Play again and Inspect battlefield before collapsed optional online scores.",
+    "Ended read-only review markup with explicit result/retry actions."
+  ],
+  "apis": {
+    "results": "RunResultFacts.event(type,payload,game); runResultModel(game,{tracker,facts}); runResultMarkup(model,{scoreVersionMarkup,leaderboardMarkup}); endedRunReviewMarkup(model)",
+    "guidance": "ContextGuidance({seen,onSeen}); event(type,payload,game); model(game); dismiss(id); contextGuidanceMarkup(model); guidanceTopicMarkup(id,game); guidanceSeen(raw)"
+  },
+  "verified": [
+    "Actual second-wave defeat reports completed 1 / defeated on 2; last flying Moon Clan leak copies the runtime name.",
+    "A nominal seven-health leak with three keep health remaining reports three actual health lost.",
+    "Observed recovery and duplicate UI delivery retain factual leak count and actual health-loss sums.",
+    "Actual Game 10-wave and 50-wave completion events include the completed final wave.",
+    "Result models, repeated render and review markup preserve Game state, inventory, CP, RNG and statistics sequence.",
+    "Actual offline leaderboard rejection leaves local result/retry content available; online section starts collapsed below local actions.",
+    "Unavailable leak/last-invader/duration details are stated honestly; developer results remain local and retryable.",
+    "First legal CP guidance and actual MVP award guidance remain optional, preserve mechanics and respect acknowledged preferences.",
+    "Guidance stays out of combat and globally paused combat; later construction does not repeat first-placement introduction.",
+    "All current UI copy is English; approved concept images, original prompts, source data and media remain untouched.",
+    "Actual DeveloperConsoleSession jump to wave10 after real completions1/2 reports2 completed; a jump without earlier completions reports0.",
+    "Actual Sandbox loss/restart/loss/restart resumes factual event recording and resets last-attempt leak detail.",
+    "A later direct wave50 victory reports4 distinct completed IDs (1,2,10,50); replaying50 still reports4.",
+    "A jumped final-wave victory says Final wave completed, without claiming the whole50-wave campaign was played."
+  ],
+  "checks": {
+    "command": "node --test tests/run-results.test.mjs tests/context-guidance.test.mjs tests/leaderboard-display.test.mjs tests/phase-main-integration.test.mjs",
+    "tests": 24,
+    "newTests": 15,
+    "existingLeaderboardTests": 6,
+    "passed": 24,
+    "failed": 0,
+    "exitCode": 0,
+    "whitespaceExitCode": 0,
+    "existingMainIntegrationTests": 3,
+    "outputSummary": "tests24; pass24; fail0; cancelled0; skipped0; todo0; exit0"
+  },
+  "eventBoundary": "Observer stores run-local display facts from existing wave/spawn/leak/recover/completion/end events only. It writes no persistent analytics and never invokes tracker.snapshot(). A fresh actual wave resumes observation after an ended Sandbox attempt. Completed counts prefer the union of unique recorded completion IDs from the UI facts and statistics; Game sequential round/end semantics are used only without either recorder. Final-wave captions do not imply skipped campaign waves were completed.",
+  "remainingRootIntegration": [
+    "Root owns final native ended/review/offline/responsive verification and the final full suite."
+  ],
+  "sourceSha256": {
+    "ui/tutorial.js": "1d31d06a3915ed4c233b6bc3ecb5edae7edcbf8879e210f5deb41d7037da62df",
+    "ui/run-results.js": "e06e41669033c0f02bade47f94125d398efdf25b8b83a74e906c16c64ea73067",
+    "ui/run-results.css": "b5ea0055b86aaa44601a37914b1f379033bb6f117f387a681402e262a573ed0e",
+    "ui/context-guidance.js": "1be7753a684f12e2f72101a439d922b3194b60e1dacc295a5f8ddefd2a8d01a5",
+    "ui/context-guidance.css": "a31258079f0a351452e213cfcb530d706a5c200a91a8e0a2a20cf979b8d37199",
+    "tests/run-results.test.mjs": "938e23b29c9866ef309bf9df0ba149960966a3cb99eb174c8fe59fc4c5a0313e",
+    "tests/context-guidance.test.mjs": "3ce2a8aa62c0eee0cb770f07240893603c98ab86fa39de19d50e02a899bed73d"
+  },
+  "updatedAt": "2026-10-13 17:40:52 UTC",
+  "supersedesProofSha256": "a1233acaa2460e7dc44e364f3abc0f6e4e72adc070cc05b3cb978bcd8aa0d8fb"
+}

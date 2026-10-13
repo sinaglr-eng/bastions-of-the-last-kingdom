@@ -1,0 +1,292 @@
+{
+  "decisionId": "D006",
+  "recordedOn": "2026-10-13",
+  "status": "IMPLEMENTED — scoped verification passed",
+  "implementationAuthorizedInThisChat": true,
+  "specification": "UI_PHASE_DRIVEN_REQUIREMENTS_20261013.md",
+  "sourceEvidence": "evidence/ui-phase-request-20261013-v1/original-request.txt",
+  "sourceSha256": "e7c06f5a2cf34d1686b372f0074b144a572adb47fb1d6d89e150d24b0466c759",
+  "deferredDecisions": [
+    "D001"
+  ],
+  "recordedPreviousDelivery": {
+    "release": "0.3.28",
+    "decisions": [
+      "D002",
+      "D003",
+      "D004",
+      "D005"
+    ],
+    "report": "AUDIT_IMPLEMENTATION_20261013.md"
+  },
+  "precedence": [
+    "D004: visible measured DPS beneath Next wave even when compact",
+    "Existing runtime recipe and phase legality",
+    "Existing approved production assets",
+    "Existing D003 volume/persistence behavior"
+  ],
+  "requirements": [
+    {
+      "id": "R01",
+      "title": "Low-height and small-display layout",
+      "references": [
+        "UI01",
+        "UI03",
+        "UI07",
+        "UI16"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/phase-ui.css",
+        "ui/phase-ui.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json",
+        "../output/design/phase-ui-d006-20261013/enlarged-text-native-proof.json",
+        "../output/design/phase-ui-d006-20261013/before-layout.json",
+        "../output/design/phase-ui-d006-20261013/after-layout.json"
+      ]
+    },
+    {
+      "id": "R02",
+      "title": "Thin combat strip and restored construction draft",
+      "references": [
+        "UI02",
+        "UI08",
+        "UI09"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/phase-ui.js",
+        "game/main.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/phase-main-integration-proof.json",
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json"
+      ]
+    },
+    {
+      "id": "R03",
+      "title": "Defender detail hierarchy",
+      "references": [
+        "UI06",
+        "UI08"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/defender-panel.js",
+        "game/main.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/phase-main-integration-proof.json",
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json",
+        "../output/design/phase-ui-d006-20261013/enlarged-text-native-proof.json"
+      ]
+    },
+    {
+      "id": "R04",
+      "title": "Mobile inspection close to selection",
+      "references": [
+        "UI07",
+        "UI16"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/phase-ui.css",
+        "game/core/game.js",
+        "game/main.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/phase-main-integration-proof.json",
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json",
+        "../output/design/phase-ui-d006-20261013/enlarged-text-native-proof.json"
+      ]
+    },
+    {
+      "id": "R05",
+      "title": "Map overlays and visible DPS beneath Next wave",
+      "references": [
+        "UI05",
+        "UI12",
+        "D004"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/phase-ui.css",
+        "game/main.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/phase-main-integration-proof.json",
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json"
+      ]
+    },
+    {
+      "id": "R06",
+      "title": "Phase-specific HUD and advanced Developer entry",
+      "references": [
+        "UI03",
+        "UI04",
+        "UI16",
+        "D003"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/phase-ui.css",
+        "game/main.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/phase-main-integration-proof.json",
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json",
+        "../output/design/phase-ui-d006-20261013/enlarged-text-native-proof.json"
+      ]
+    },
+    {
+      "id": "R07",
+      "title": "Compact searchable recipes and correct damage copy",
+      "references": [
+        "UI10",
+        "D005"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/catalog-recipes.js",
+        "ui/catalog-recipes.css",
+        "ui/grimoire.js",
+        "ui/recipe-filters.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/recipes-proof.json",
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json"
+      ]
+    },
+    {
+      "id": "R08",
+      "title": "Enemy navigation, variant comparison and persistent boss/count summary",
+      "references": [
+        "UI11",
+        "UI12"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/warbands-overview.js",
+        "ui/warband-cards.js",
+        "ui/phase-ui.js",
+        "game/main.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/r08-enemy-catalog-proof.json",
+        "../output/design/phase-ui-d006-20261013/r08-sandbox-wave-label-proof.json",
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json"
+      ]
+    },
+    {
+      "id": "R09",
+      "title": "Maze plan thumbnails and comparison",
+      "references": [
+        "UI13"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/maze-comparison.js",
+        "ui/maze-comparison.css",
+        "game/render/maze-planner.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/r09-maze-proof.json",
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json"
+      ]
+    },
+    {
+      "id": "R10",
+      "title": "Contextual guidance and factual result/retry/review flow",
+      "references": [
+        "UI14",
+        "UI15"
+      ],
+      "status": "IMPLEMENTED — scoped verification passed",
+      "existingCoverage": "Reused prior legality, assets, data, disclosure, audio and statistics behavior; requirement-specific changes and limits recorded in implementation report.",
+      "implementationEvidence": [
+        "ui/context-guidance.js",
+        "ui/run-results.js",
+        "ui/tutorial.js",
+        "game/render/enemy-pointer.js",
+        "ui/selected-enemy.js",
+        "game/main.js"
+      ],
+      "verificationEvidence": [
+        "../output/design/phase-ui-d006-20261013/guidance-results-proof.json",
+        "../output/design/phase-ui-d006-20261013/ended-enemy-pointer-proof.json",
+        "../output/design/phase-ui-d006-20261013/phase-main-integration-proof.json",
+        "../output/design/phase-ui-d006-20261013/native-phase-ui-proof.json"
+      ]
+    }
+  ],
+  "viewportChecks": [
+    {
+      "device": "Desktop",
+      "width": 1366,
+      "height": 900,
+      "status": "Native browser interaction and viewport checks passed",
+      "enlargedText": "150% pixel-font local production-CSS fixture; native interactions passed",
+      "physicalDeviceCertified": false
+    },
+    {
+      "device": "iPad landscape",
+      "width": 1024,
+      "height": 768,
+      "status": "Native browser interaction and viewport checks passed",
+      "enlargedText": "150% pixel-font local production-CSS fixture; native interactions passed",
+      "physicalDeviceCertified": false
+    },
+    {
+      "device": "Tablet portrait",
+      "width": 768,
+      "height": 1024,
+      "status": "Native browser interaction and viewport checks passed",
+      "enlargedText": "150% pixel-font local production-CSS fixture; native interactions passed",
+      "physicalDeviceCertified": false
+    },
+    {
+      "device": "Mobile landscape",
+      "width": 844,
+      "height": 390,
+      "status": "Native browser interaction and viewport checks passed",
+      "enlargedText": "150% pixel-font local production-CSS fixture; native interactions passed",
+      "physicalDeviceCertified": false
+    },
+    {
+      "device": "Mobile portrait",
+      "width": 390,
+      "height": 844,
+      "status": "Native browser interaction and viewport checks passed",
+      "enlargedText": "150% pixel-font local production-CSS fixture; native interactions passed",
+      "physicalDeviceCertified": false
+    }
+  ],
+  "requiredTransitions": [
+    "Building → Choosing keeper",
+    "Choosing keeper → Ready",
+    "Ready → Combat",
+    "Combat → Paused → Combat",
+    "Combat → next Building",
+    "Run ended → Battlefield review → result/retry"
+  ],
+  "completionRule": "Do not mark D006 implemented until every R01–R10 requirement has recorded coverage and passing scoped verification. Preserve historical reports and approved images.",
+  "release": "0.3.29",
+  "implementationReport": "PHASE_UI_D006_IMPLEMENTATION_20261013.md",
+  "limitations": [
+    "Physical iPad/Safari certification not performed. Production touch/controller/raycast regressions and native viewport actions passed.",
+    "150% text enlargement passed with temporary production-CSS fixture; browser page zoom/200% and comprehensive screen-reader audit not certified.",
+    "Offline retry is covered by production connector rejection tests; native networking was not altered.",
+    "D001 campaign balance/completion remains deferred."
+  ]
+}

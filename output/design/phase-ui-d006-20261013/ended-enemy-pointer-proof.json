@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "task": "D006 ended battlefield enemy input",
+  "status": "passed",
+  "tests": 29,
+  "passed": 29,
+  "failed": 0,
+  "command": "node --test tests/enemy-pointer.test.mjs tests/enemy-selection.test.mjs tests/selected-enemy-panel.test.mjs tests/phase-main-integration.test.mjs",
+  "productionChange": "pointedEnemy allows combat, won and lost; original alive/reveal/mesh/material/occlusion rules retained.",
+  "checks": [
+    "Actual Battlefield.selectPointer with real THREE camera/raycaster accepts ended mouse, touch and pen taps.",
+    "Same actual enemy can be explicitly reselected, emitting the UI reopen intent without changing the simulation.",
+    "Hidden, dead, zero-HP, invisible and removed invaders remain unpickable.",
+    "Opaque wall faces still occlude the actual body ray; preparation phases remain unpickable.",
+    "Original actual imported ground and flying GLB picking, touch gate and selection-ring checks pass."
+  ],
+  "files": [
+    {
+      "path": "game/render/enemy-pointer.js",
+      "sha256": "5e22304d0d4b0e47d9651234c196808df9dacc6c7cd8ca7590ca648c77720878"
+    },
+    {
+      "path": "tests/enemy-pointer.test.mjs",
+      "sha256": "82057710662c6757ac2805c6ca1b060662cf573528343ffbaecf8e158879dc78"
+    }
+  ],
+  "relatedFrozenProof": "output/design/phase-ui-d006-20261013/phase-main-integration-proof.json",
+  "boundary": "Node real THREE geometry/camera/rays and actual World prototype input path; no WebGL/DOM construction. Parent validates the native browser."
+}
