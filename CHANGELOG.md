@@ -2,7 +2,7 @@
 
 ## 0.3.30 — Connected Recipes and Battlefield Controls — 13 October 2026
 
-Prepared release: all 1,366 tests, native UI checks at five viewport sizes and the production build passed. The final responsive CSS rebuild passed; game publication remains pending in [the 22-comment report](docs/UI_REFINEMENTS_V30_20261013.md). Audio continuity is covered by actual-main AudioContext tests; local browser decoding passed for all 113 approved clips. Native hidden-audio inspection and public asset decoding remain separate gates. The verified statistics backend is live at 0.3.30.
+Published from implementation commit `beb391099d5233dade1ea71bb50ca65ef7947322` through successful [Pages CI 38459146490](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38459146490). All 1,366 tests, the final responsive build and native UI checks at five viewport sizes passed. Five public compiled assets match the local build; all 113 approved audio files retain their hashes and decode in the HTTPS browser. Public recipe history, ordinary placement/Keep and rank-preview checks passed without recorded runtime errors. The statistics backend is live at 0.3.30. See [the 22-comment report](docs/UI_REFINEMENTS_V30_20261013.md) for evidence and certification limits.
 
 - Keeps background music and committed defender speech playing through game dialogs/tabs while combat is suspended; retains explicit Pause, Mute all, background pause, ducking, crossfades and transport position.
 - Condenses future draw odds into a 3 × 2 distribution and gives all five candidate portraits equal full-width footprints with Keep/Merge sharing one action row.

@@ -1,0 +1,26 @@
+{
+  "source": "Public GitHub Actions API",
+  "capturedAt": "2026-10-13T20:03:23.022Z",
+  "expectedHead": "beb391099d5233dade1ea71bb50ca65ef7947322",
+  "id": 38459146490,
+  "name": "Test and deploy GitHub Pages",
+  "head_sha": "beb391099d5233dade1ea71bb50ca65ef7947322",
+  "head_branch": "main",
+  "status": "completed",
+  "conclusion": "success",
+  "event": "push",
+  "workflow_id": 371142834,
+  "run_number": 55,
+  "run_attempt": 1,
+  "html_url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38459146490",
+  "created_at": "2026-10-13T19:58:53Z",
+  "updated_at": "2026-10-13T20:02:58Z",
+  "run_started_at": "2026-10-13T19:58:53Z",
+  "verification": {
+    "exactHead": true,
+    "testsPassed": true,
+    "buildPassed": true,
+    "pagesDeployPassed": true,
+    "allJobsPassed": true
+  }
+}

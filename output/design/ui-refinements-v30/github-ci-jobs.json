@@ -1,0 +1,161 @@
+{
+  "source": "Public GitHub Actions API",
+  "capturedAt": "2026-10-13T20:03:23.022Z",
+  "runId": 38459146490,
+  "expectedHead": "beb391099d5233dade1ea71bb50ca65ef7947322",
+  "totalJobs": 2,
+  "jobs": [
+    {
+      "id": 115509488084,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "beb391099d5233dade1ea71bb50ca65ef7947322",
+      "started_at": "2026-10-13T19:58:56Z",
+      "completed_at": "2026-10-13T20:02:23Z",
+      "html_url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38459146490/job/115509488084",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T19:58:57Z",
+          "completed_at": "2026-10-13T19:58:58Z"
+        },
+        {
+          "number": 2,
+          "name": "Check out project",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T19:58:58Z",
+          "completed_at": "2026-10-13T19:59:26Z"
+        },
+        {
+          "number": 3,
+          "name": "Set up pnpm",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T19:59:26Z",
+          "completed_at": "2026-10-13T19:59:27Z"
+        },
+        {
+          "number": 4,
+          "name": "Set up Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T19:59:27Z",
+          "completed_at": "2026-10-13T19:59:29Z"
+        },
+        {
+          "number": 5,
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T19:59:29Z",
+          "completed_at": "2026-10-13T19:59:30Z"
+        },
+        {
+          "number": 6,
+          "name": "Test game rules and assets",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T19:59:30Z",
+          "completed_at": "2026-10-13T20:02:00Z"
+        },
+        {
+          "number": 7,
+          "name": "Build for the repository URL",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:00Z",
+          "completed_at": "2026-10-13T20:02:06Z"
+        },
+        {
+          "number": 8,
+          "name": "Upload website",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:06Z",
+          "completed_at": "2026-10-13T20:02:20Z"
+        },
+        {
+          "number": 14,
+          "name": "Post Set up Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:20Z",
+          "completed_at": "2026-10-13T20:02:20Z"
+        },
+        {
+          "number": 15,
+          "name": "Post Set up pnpm",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:20Z",
+          "completed_at": "2026-10-13T20:02:20Z"
+        },
+        {
+          "number": 16,
+          "name": "Post Check out project",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:20Z",
+          "completed_at": "2026-10-13T20:02:21Z"
+        },
+        {
+          "number": 17,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:21Z",
+          "completed_at": "2026-10-13T20:02:21Z"
+        }
+      ]
+    },
+    {
+      "id": 115511086455,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "beb391099d5233dade1ea71bb50ca65ef7947322",
+      "started_at": "2026-10-13T20:02:27Z",
+      "completed_at": "2026-10-13T20:02:57Z",
+      "html_url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38459146490/job/115511086455",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:27Z",
+          "completed_at": "2026-10-13T20:02:29Z"
+        },
+        {
+          "number": 2,
+          "name": "Configure Pages",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:29Z",
+          "completed_at": "2026-10-13T20:02:29Z"
+        },
+        {
+          "number": 3,
+          "name": "Publish website",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:29Z",
+          "completed_at": "2026-10-13T20:02:56Z"
+        },
+        {
+          "number": 4,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-13T20:02:56Z",
+          "completed_at": "2026-10-13T20:02:56Z"
+        }
+      ]
+    }
+  ]
+}

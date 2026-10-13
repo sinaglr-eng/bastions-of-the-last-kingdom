@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "version": "0.3.30",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.3.30",
+  "checkedAt": "2026-10-13T20:10:25.186Z",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  },
+  "ready": {
+    "footer": "Ready · Keeper chosen\nInspect keeper\nDraft history & odds",
+    "inspector": "Druid\n\nActual rank I · Keeper\n\nMove\n2 CP\nPotential combinations\nCompare ranks · Actual I\n\nActual rank I · Stats and abilities\n\nMAGICAL\nDAMAGE / HIT\n6\nDIRECT DPS\n6\nRANGE\n5\nINTERVAL\n1s\n6 Magical poison damage/s per successful hit; each hit adds an independent 5s stack\nUnmarked targets first; then selected priority\nTarget priority\nFirst\nLast\nStrongest\nWeakest\nFastest\nSlowest\nPause unit attacks\nACTIVE BONUSES & PENALTIES\n\nNo active bonuses or penalties.\n\nMap effect symbols\nMVP 0 / 10 · Details",
+    "phase": "ready",
+    "start": {
+      "bottom": 124,
+      "height": 44,
+      "left": 400,
+      "right": 580,
+      "top": 80,
+      "width": 180,
+      "x": 400,
+      "y": 80
+    },
+    "versionUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.3.30",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  },
+  "observed": [
+    "Public Mother Fire Dragon component click opens Baby Fire Dragon; history returns and preserves search",
+    "Public ingredient portraits loaded at720/640pixels; horizontal rows contain BFD I, M IV, R III",
+    "Abilities and description precede exact ingredients; no Back to list",
+    "Actual five placements reach selection; Keep Druid reaches Ready",
+    "Public Start wave1 at top80,height44,center490 of usable980pixel map",
+    "Preview Druid II changes core from6to12 and displays Actual I unchanged; preview returned toActualI",
+    "HTTPS113/113 approved audio decode passes, temporary test run excluded and a new ordinary run restored"
+  ],
+  "publicRuntimeErrors": [],
+  "publicAudioDecode": "public-browser-audio-decode.json",
+  "assetIdentity": "deployment-identity.json",
+  "physicalIpadCertified": false
+}
