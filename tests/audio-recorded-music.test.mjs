@@ -124,7 +124,7 @@ test('native bank review refuses partial banks and failed decodes instead of rep
 
 test('sequential native music review survives production HUD sync and phase changes while downloads are pending',async()=>{
   const gates=new Map([['buildA.mp3',deferred()],['battleB.mp3',deferred()]]),requests=[];
-  const context=new Context(),audio=new AudioManager(false,{contextFactory:()=>context,fetchAudio:async(url,{signal})=>{requests.push({url,signal});return gates.get(url)?.promise||reply(url);},musicTimers:{setTimer:()=>1,clearTimer:()=>{}}});audio.context=context;
+  const context=new Context(),audio=new AudioManager(false,{contextFactory:()=>context,musicRandom:()=>0,fetchAudio:async(url,{signal})=>{requests.push({url,signal});return gates.get(url)?.promise||reply(url);},musicTimers:{setTimer:()=>1,clearTimer:()=>{}}});audio.context=context;
   audio.recordedEffects=new Map(Array.from({length:15},(_,i)=>[String(i),{id:String(i),url:`attack${i}.mp3`}]));audio.music.configure(tracks);audio.syncGameState({phase:'combat'});await flush();
   try{
     const playing=audio.music.current,reportPromise=recordedAudioBankReview(audio);await flush();const first=requests.find(row=>row.url==='buildA.mp3');assert.ok(first);
@@ -148,4 +148,21 @@ test('review ownership is released on failure and reset cannot let an old lease 
     second.resolve({ok:false});assert.equal(await fresh,null);assert.equal(audio.music.reviewLoads.size,0);assert.equal(audio.music.loads.size,0);assert.ok(audio.music.cache.size<=2);
     const disposing=deferred();audio.music.fetchAudio=async(url,{signal})=>{requests.push({url,signal});return disposing.promise;};const pending=audio.music.reviewBuffer(tracks[1]);await flush();audio.dispose();assert.equal(requests.at(-1).signal.aborted,true);assert.equal(audio.music.reviewLoads.size,0);disposing.resolve(reply(tracks[1].url));assert.equal(await pending,null);assert.equal(audio.music.cache.size,0);
   }finally{audio.dispose();}
+});
+
+test('default browser timers keep the global host receiver through actual music start, tail rotation, pause and dispose',async()=>{
+  const originalSet=Object.getOwnPropertyDescriptor(globalThis,'setTimeout'),originalClear=Object.getOwnPropertyDescriptor(globalThis,'clearTimeout'),timers=new Map(),cleared=[];
+  let nextTimer=0,music;
+  // Window timer methods reject a receiver such as the RecordedMusic instance.
+  // The injected timer harness used elsewhere deliberately has no host binding.
+  Object.defineProperty(globalThis,'setTimeout',{configurable:true,writable:true,value:function(callback,ms){if(this!==globalThis)throw new TypeError('Illegal invocation');const id=++nextTimer;timers.set(id,{callback,ms});return id;}});
+  Object.defineProperty(globalThis,'clearTimeout',{configurable:true,writable:true,value:function(id){if(this!==globalThis)throw new TypeError('Illegal invocation');cleared.push(id);timers.delete(id);}});
+  try{
+    const context=new Context();music=new RecordedMusic({getContext:()=>context,fetchAudio:async url=>reply(url),random:()=>0});music.configure(tracks);
+    music.sync({phase:'build'});assert.equal(await music.ensure(),true);const first=music.current,[timerId,timer]=[...timers][0];assert.equal(first.track.id,'buildA');assert.equal(timer.ms,94500);assert.equal(timers.size,1);
+    timers.delete(timerId);context.currentTime=94.5;timer.callback();assert.equal(await music.ensure(),true);const second=music.current;assert.equal(second.track.id,'buildB');assert.deepEqual(second.source.started,[94.5,0]);assert.deepEqual(first.source.stops,[96.01]);assert.equal(timers.size,1);
+    context.currentTime=96;music.sync({phase:'build',paused:true});assert.equal(music.current,null);assert.equal(timers.size,0);assert.equal(cleared.length,1);
+    music.sync({phase:'build',paused:false});assert.equal(await music.ensure(),true);assert.equal(music.current.track.id,'buildB');assert.deepEqual(music.current.source.started,[96,1.5]);assert.equal(timers.size,1);
+    music.dispose();assert.equal(timers.size,0);assert.equal(cleared.length,2);assert.equal(music.voices.size,0);assert.equal(music.cache.size,0);
+  }finally{music?.dispose();Object.defineProperty(globalThis,'setTimeout',originalSet);Object.defineProperty(globalThis,'clearTimeout',originalClear);}
 });

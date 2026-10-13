@@ -4,9 +4,9 @@ const decoded=async(context,bytes)=>new Promise((resolve,reject)=>{const promise
 // A separate transport keeps 96-second music buffers bounded and independent
 // from short attack/speech buffers, battle speed, combat RNG and event budgets.
 export class RecordedMusic {
-  constructor({getContext,fetchAudio,random=Math.random,now=()=>performance.now(),volume=()=>.18,celebrationVolume=()=>.025,setTimer=setTimeout,clearTimer=clearTimeout}={}){
+  constructor({getContext,fetchAudio,random=Math.random,now=()=>performance.now(),volume=()=>.18,celebrationVolume=()=>.025,setTimer=(...args)=>globalThis.setTimeout(...args),clearTimer=(...args)=>globalThis.clearTimeout(...args)}={}){
     this.getContext=getContext;this.fetchAudio=fetchAudio;this.random=random;this.now=now;this.volume=volume;this.celebrationVolume=celebrationVolume;this.setTimer=setTimer;this.clearTimer=clearTimer;
-    this.tracks=[];this.cache=new Map();this.loads=new Map();this.reviewLoads=new Map();this.failures=new Map();this.voices=new Set();this.current=null;this.master=null;
+    this.tracks=[];this.cache=new Map();this.loads=new Map();this.reviewLoads=new Map();this.failures=new Map();this.voices=new Set();this.current=null;this.master=null;this.celebrationMaster=null;
     this.phase=null;this.paused=false;this.muted=false;this.ducked=false;this.target=null;this.saved=null;this.request=0;this.pending=null;this.timer=null;this.victoryFinished=false;this.disposed=false;
     this.lastTracks=new Map();this.trackBags=new Map();this.completedWaves=new Set();this.celebration=null;this.celebrationTarget=null;this.celebrationKey=null;this.savedCelebration=null;this.celebrationRequest=0;this.celebrationPending=null;
     this.crossfade=1.5;this.duckGain=.32;
@@ -26,7 +26,14 @@ export class RecordedMusic {
     this.cancelStaleLoads();void this.ensure();void this.ensureCelebration();
   }
   setMuted(value){if(this.muted===!!value)return;this.muted=!!value;this.request++;this.celebrationRequest++;if(this.muted)this.suspend();else{void this.ensure();void this.ensureCelebration();}}
-  duck(value){this.ducked=!!value;if(!this.master)return;const context=this.getContext(),param=this.master.gain,t=context.currentTime;param.cancelScheduledValues(t);param.setValueAtTime(param.value??this.volume(),t);param.linearRampToValueAtTime(this.volume()*(this.ducked?this.duckGain:1),t+.12);}
+  refreshVolume(){this.updateGain(this.master,this.volume());}
+  updateGain(node,level,ramp=0){
+    if(!node)return;const t=this.getContext().currentTime,param=node.gain,target=level*(this.ducked?this.duckGain:1);
+    param.cancelScheduledValues(t);
+    if(ramp){param.setValueAtTime(param.value??target,t);param.linearRampToValueAtTime(target,t+ramp);}
+    else param.setValueAtTime(target,t);
+  }
+  duck(value){this.ducked=!!value;this.updateGain(this.master,this.volume(),.12);this.updateGain(this.celebrationMaster,this.celebrationVolume(),.12);}
   contextReady(){const c=this.getContext();return !!c&&c.state==='running'&&!this.paused&&!this.muted&&!this.disposed;}
   chooseTrack(){
     const group=this.tracks.filter(track=>track.phase===this.phase),last=this.lastTracks.get(this.phase);
@@ -117,6 +124,9 @@ export class RecordedMusic {
   ensureMaster(){
     if(this.master)return;const context=this.getContext();this.master=context.createGain();this.master.gain.setValueAtTime(this.volume()*(this.ducked?this.duckGain:1),context.currentTime);this.master.connect(context.destination);
   }
+  ensureCelebrationMaster(){
+    if(this.celebrationMaster)return;const context=this.getContext();this.celebrationMaster=context.createGain();this.celebrationMaster.gain.setValueAtTime(this.celebrationVolume()*(this.ducked?this.duckGain:1),context.currentTime);this.celebrationMaster.connect(context.destination);
+  }
   start(track,buffer,offset=0){
     if(!this.contextReady())return;
     const context=this.getContext(),time=context.currentTime;this.ensureMaster();this.clearLoop();
@@ -145,13 +155,14 @@ export class RecordedMusic {
     },Math.max(20,(remaining-fade)*1000));this.timer?.unref?.();
   }
   startCelebration(track,buffer,offset,key){
-    if(!this.contextReady())return;this.ensureMaster();this.stopCelebration();
+    if(!this.contextReady())return;this.ensureCelebrationMaster();this.stopCelebration();
     const context=this.getContext(),time=context.currentTime,source=context.createBufferSource(),gain=context.createGain();
     offset=Math.max(0,Math.min(offset,Math.max(0,buffer.duration-.02)));
-    source.buffer=buffer;source.loop=false;source.playbackRate.setValueAtTime(1,time);source.connect(gain);gain.connect(this.master);
+    source.buffer=buffer;source.loop=false;source.playbackRate.setValueAtTime(1,time);source.connect(gain);gain.connect(this.celebrationMaster);
     const voice={source,gain,track,buffer,offset,startTime:time,key,stopping:false};this.voices.add(voice);this.celebration=voice;
-    const level=this.celebrationVolume()/Math.max(.0001,this.volume());
-    gain.gain.setValueAtTime(0,time);gain.gain.linearRampToValueAtTime(level,time+.12);
+    // The quiet victory cue keeps its original level and speech ducking while
+    // background Music can independently reach zero without ratio compensation.
+    gain.gain.setValueAtTime(0,time);gain.gain.linearRampToValueAtTime(1,time+.12);
     source.onended=()=>{this.clean(voice);if(this.celebration!==voice)return;this.celebration=null;if(!voice.stopping)this.victoryFinished=true;};
     source.start(time,offset);
   }
@@ -170,5 +181,5 @@ export class RecordedMusic {
     this.stopAll();this.stopCelebration();
   }
   reset(){this.request++;this.stopAll();this.cancelCelebration();this.phase=null;this.target=null;this.saved=null;this.victoryFinished=false;this.completedWaves.clear();this.lastTracks.clear();this.trackBags.clear();for(const load of this.loads.values())load.controller.abort();this.reviewLoads.clear();this.pending=null;}
-  dispose(){if(this.disposed)return;this.reset();this.disposed=true;this.cache.clear();this.failures.clear();for(const load of this.loads.values())load.controller.abort();this.loads.clear();this.master?.disconnect();this.master=null;}
+  dispose(){if(this.disposed)return;this.reset();this.disposed=true;this.cache.clear();this.failures.clear();for(const load of this.loads.values())load.controller.abort();this.loads.clear();this.master?.disconnect();this.master=null;this.celebrationMaster?.disconnect();this.celebrationMaster=null;}
 }

@@ -90,7 +90,13 @@ export const campaignEnemies = enemies => {
   };
   return Object.fromEntries(Object.entries(enemies).map(([id,definition])=>{
     const wave=Number(id.replace(/^host_/,''))||0,current=tune(definition,wave);
-    if(definition.variants)current.variants=definition.variants.map(variant=>({...tune(variant,wave),...(id==='host_50'?{name}:{})}));
+    if(definition.variants)current.variants=definition.variants.map(variant=>({
+      ...tune(variant,wave),
+      // Moon Clan shares the existing evasion chance, including forms that
+      // already inherit it. Keep this playable override out of archived data.
+      ...([5,15,27,28,29,41].includes(wave)&&variant.name?.endsWith(' · Moon Clan')?{evasion:.25}:{}),
+      ...(id==='host_50'?{name}:{}),
+    }));
     if(id==='host_50')current.name=name;
     return [id,current];
   }));

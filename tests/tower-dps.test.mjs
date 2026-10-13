@@ -5,7 +5,8 @@ import {readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
 import {towerStats} from '../game/core/math.js';
 import {TowerDpsTracker,effectiveHitDamage} from '../game/core/tower-dps.js';
-import {towerDpsContents} from '../ui/tower-dps.js';
+import {towerDpsContents,updateTowerDpsPanel} from '../ui/tower-dps.js';
+import {DpsMeasurement} from '../ui/dps-measurement.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
 if(data.towers)data.towers=currentTowers(data.towers);if(data.enemies)data.enemies=currentEnemies(data.enemies);if(data.waves)data.waves=currentWaves(data.waves);if(data.recipes)data.recipes=currentRecipes(data.recipes);
@@ -178,11 +179,42 @@ test('the peak UI names the actual five-game-second maximum and wave, with an ac
   tracker.recordHit({source,damage:100,effectiveDamage:100},.1);
   const rows=tracker.snapshot([source],6),html=towerDpsContents(rows,data,{}, {phase:'combat',paused:true,wave:7});
   assert.equal(rows[0].currentDps,0);assert.equal(rows[0].dps,20);
-  assert.match(html,/<h2 title="Highest actual DPS over a 5-game-second window in this wave">Peak DPS this wave<\/h2>/);
+  assert.match(html,/<h2 title="Highest actual DPS over a 5-game-second window in this wave">Peak DPS<\/h2>/);assert.match(html,/tower-dps-summary-score[^>]*>20\.0/);
   assert.match(html,/Wave 7 · Paused/);assert.match(html,/aria-label="Defenders ordered by peak actual DPS this wave"/);
   assert.match(html,/aria-label="Select Mage, rank I, defender 1, 20\.0 peak DPS this wave"/);
   assert.match(html,/<strong class="tower-dps-value">20\.0<\/strong>/);assert.doesNotMatch(html,/Last 5 game seconds/);
-  assert.match(towerDpsContents(rows,data,{}, {phase:'build',paused:true,wave:7}),/Wave 7<\/p>/);
+  assert.match(towerDpsContents(rows,data,{}, {phase:'build',paused:true,wave:7}),/Completed wave 7 · Measured over 5 game seconds/);
   assert.doesNotMatch(towerDpsContents(rows,data,{}, {phase:'build',paused:true,wave:7}),/Paused/);
-  assert.match(towerDpsContents([],data,{}, {phase:'build'}),/Measured during combat/);
+  assert.match(towerDpsContents([],data,{}, {phase:'build'}),/Not measured yet · First combat pending/);
+});
+
+test('actual crafting archives the focused DPS identity and the panel returns focus to its summary instead of a disabled historical row',()=>{
+  const game=builtGame('frostwarden'),source=game.towers[0],enemy=foe(game),{tracker,off}=attach(game),measurement=new DpsMeasurement();
+  measurement.startWave(game.round);source.attackPaused=true;
+  const stop=game.on(type=>{if(type==='wave-complete')measurement.completeWave(game,tracker);});
+  // Native focus semantics are part of this small DOM boundary: a disabled
+  // button cannot accept focus, and replacing it removes the focused node.
+  const document={activeElement:null},scroll={scrollTop:0};
+  const summary={innerHTML:'',focus(options){document.activeElement=this;this.focusOptions=options;}};
+  const body={buttons:[],addEventListener(){},matches(){return false;},querySelector(){return scroll;},querySelectorAll(){return this.buttons;},contains(node){return this.buttons.includes(node);},
+    set innerHTML(html){
+      if(this.contains(document.activeElement))document.activeElement=null;
+      this.buttons=[...html.matchAll(/<button\b[^>]*data-overlay-focus="([^"]+)"[^>]*>/g)].map(match=>({dataset:{overlayFocus:match[1]},disabled:/\bdisabled\b/.test(match[0]),closest(){return this;},focus(options){if(this.disabled)return;document.activeElement=this;this.focusOptions=options;}}));
+    }};
+  const details={open:true,addEventListener(){},querySelector(selector){return selector==='summary'?summary:body;}};
+  const panel={ownerDocument:document,mounted:false,addEventListener(){},contains(node){return this.mounted&&(node===details||node===summary||node===body||body.contains(node));},querySelector(){return this.mounted?details:null;},set innerHTML(html){this.mounted=true;details.open=/<details[^>]*\bopen\b/.test(html);body.innerHTML=html;}};
+  const refresh=()=>{const current=measurement.view(game,tracker);return updateTowerDpsPanel(panel,current.rows,data,{},current.options);};
+  try{
+    game.combat.impact({source,target:enemy,stats:towerStats(source,data)});assert.ok(tracker.snapshot(game.towers)[0].dps>0);
+    game.completeWave();assert.equal(game.phase,'build');refresh();scroll.scrollTop=47;
+    const selected=body.buttons.find(button=>button.dataset.overlayFocus===String(source.id));assert.ok(selected);selected.focus();assert.equal(document.activeElement,selected);
+    for(const [index,family]of ['soldier','stormcaller','mage','druid','archer'].entries()){
+      game.draft.roundForced={family,tier:1};assert.equal(game.place(15+index,20),true);
+    }
+    game.select(source.id);assert.equal(game.craft('rimewatch'),true);assert.equal(source.family,'rimewatch');
+    const old=measurement.view(game,tracker).rows.find(row=>row.id===source.id);assert.equal(old.family,'frostwarden');assert.equal(old.archived,true);assert.equal(old.selectable,false);
+    assert.equal(refresh(),true);const historical=body.buttons.find(button=>button.dataset.overlayFocus===String(source.id));assert.equal(historical.disabled,true);
+    assert.equal(document.activeElement,summary,'Archived disabled row restores focus to the persistent disclosure summary');
+    assert.deepEqual(summary.focusOptions,{preventScroll:true});assert.equal(scroll.scrollTop,47);assert.equal(details.open,true);
+  }finally{off();stop();}
 });

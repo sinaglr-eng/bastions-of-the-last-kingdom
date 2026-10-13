@@ -1,0 +1,212 @@
+{
+  "status": "passed",
+  "version": "0.3.28",
+  "baseline": "4fa73e31bbabb685bd4287b73b78692626345167",
+  "frozenAt": "2026-10-13T15:58:13.380Z",
+  "decisions": [
+    "D002",
+    "D003",
+    "D004",
+    "D005"
+  ],
+  "deferred": [
+    "D001"
+  ],
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 43798,
+      "sha256": "b1f6918d4b3ab2f8844f27f44fbe3d385a7c59ae51fbdef0d18ccd4422ba9c56"
+    },
+    {
+      "file": "GAME_DESIGN.md",
+      "bytes": 56332,
+      "sha256": "4f99137cd310b1d7a64dd5cbb927a3e10630b8dbb9ed5001934c0a2d4d1d3d0c"
+    },
+    {
+      "file": "README.md",
+      "bytes": 28716,
+      "sha256": "27f5e07ac186d738506759fff6df19de24f12577dcdf6db3fb6a204577c038de"
+    },
+    {
+      "file": "docs/AUDIT_IMPLEMENTATION_20261013.md",
+      "bytes": 4852,
+      "sha256": "39351053d2ba9adb835e38ab0424d1b94c5a02dfc72caa0432e3eaeb2aa91661"
+    },
+    {
+      "file": "docs/UI_DYNAMIC_CRAFTING_APPROVED_20261013.md",
+      "bytes": 9914,
+      "sha256": "e719177025d48e3da1599c7bb8213ae68cc8e8ea49b6ba5424aed2dfcdc2de9d"
+    },
+    {
+      "file": "game/audio/audio.js",
+      "bytes": 23799,
+      "sha256": "ff1cc6105330d080f62c0c677da5eb5a6a4a034edd3377c69a93b90706583e34"
+    },
+    {
+      "file": "game/audio/recorded-music.js",
+      "bytes": 14366,
+      "sha256": "cd3d5a214383b156dc4d8c59aac7aa69ec82b71752c11ebb1df3e60a3e8854b2"
+    },
+    {
+      "file": "game/core/campaign-roster.js",
+      "bytes": 8175,
+      "sha256": "f5196bf1dacc7ddc6657fcf940f46e52c20560d56b579a9563e1dc0188e27c7b"
+    },
+    {
+      "file": "game/core/save.js",
+      "bytes": 7558,
+      "sha256": "c3417497254b7063f428048b2529a9239bd4a9e9a5d34be9ced5e69f32976cb4"
+    },
+    {
+      "file": "game/main.js",
+      "bytes": 63452,
+      "sha256": "bd56e83dc1362721c5b2b1733b4fd1d3921dc3ab3c57e4580658c3adda6b41fb"
+    },
+    {
+      "file": "game/release.js",
+      "bytes": 1281,
+      "sha256": "abef0e5e0219d8175c2fbc4d622a3c69e9f53ce0bc6069dc766d99744b65255c"
+    },
+    {
+      "file": "game/render/draft-markers.js",
+      "bytes": 12118,
+      "sha256": "9b8031a68160630cd0cd434a743e5740d67c100d7c3107cf609996d9b5c530ae"
+    },
+    {
+      "file": "package.json",
+      "bytes": 468,
+      "sha256": "3f90a81f06e4a4f9650d38d893282fab7fb9c39fd1be2ebe2a64b5e725d11e61"
+    },
+    {
+      "file": "public/release.json",
+      "bytes": 943,
+      "sha256": "c7f5be84c31af8b5e73efbadc8019fe219a0d36a8ee01dd5404cfa56ebdb4018"
+    },
+    {
+      "file": "tests/audio-category-volume.test.mjs",
+      "bytes": 12490,
+      "sha256": "9c0e6e49bfbd806a09eb35ecd7b9c67f5201b897aecdbd7f4f0ba395f404db02"
+    },
+    {
+      "file": "tests/audio-controls.test.mjs",
+      "bytes": 4335,
+      "sha256": "8949071ab6eb7d40f640e99efce52ee2fe76b8c5417aa22d7329eb2f46903072"
+    },
+    {
+      "file": "tests/audio-recorded-music.test.mjs",
+      "bytes": 18376,
+      "sha256": "365b8c00a75ebf50d6ee491b6b11c14427c468d1fc2bab2726cf1d2e70a5a21d"
+    },
+    {
+      "file": "tests/audio-volume-preferences.test.mjs",
+      "bytes": 7342,
+      "sha256": "53489124b9468a873d2f17c6be8317310880889222af162abe7c641e7f09b8f8"
+    },
+    {
+      "file": "tests/audio-wave-soundtrack.test.mjs",
+      "bytes": 16186,
+      "sha256": "4a9349e4c49af5984d2696eb1c90debde4867b7afd7d4034dfe7f93ba784f9ee"
+    },
+    {
+      "file": "tests/battlefield-overlay-panels.test.mjs",
+      "bytes": 22483,
+      "sha256": "adf38ffb2b582654274373448ed012ad3bc1873abb8b6716e59ff955ba7119b9"
+    },
+    {
+      "file": "tests/battlefield-panel-main-integration.test.mjs",
+      "bytes": 15096,
+      "sha256": "3c0ea5b8d3c828a2e9033a0511e012683d0b16e2c2868a629c5135cd9c0dc9ba"
+    },
+    {
+      "file": "tests/crafting-dock.test.mjs",
+      "bytes": 19599,
+      "sha256": "07aa46bf2d801436447ba748054bc41801bf25e282b0fbbf5648983952347427"
+    },
+    {
+      "file": "tests/crafting-main-integration.test.mjs",
+      "bytes": 10427,
+      "sha256": "3ea52c2b4a7f459c55d150608ceda7058a009edb4759ab7535fb770e21fabf60"
+    },
+    {
+      "file": "tests/dps-measurement.test.mjs",
+      "bytes": 11131,
+      "sha256": "9cae72d346a117b5927feddd048382111250c646b42d9f08ceea461a7800c7ab"
+    },
+    {
+      "file": "tests/draft-pointer-input.test.mjs",
+      "bytes": 14228,
+      "sha256": "0fe059a3993cc40a527f19537b3428e77dfb1b998667c2308c0021a07fa4efb4"
+    },
+    {
+      "file": "tests/header-combat-controls.test.mjs",
+      "bytes": 13094,
+      "sha256": "950926eb1f54f0f9553c3d9d07145c8ba81aaaf100c80793d0becedf60191a4e"
+    },
+    {
+      "file": "tests/merge-badge-ui.test.mjs",
+      "bytes": 10201,
+      "sha256": "0b0e2b25c69abecfc17c5243c40e0e5dded65476a9f916a429d34397e54ba1a7"
+    },
+    {
+      "file": "tests/moon-clan-evasion.test.mjs",
+      "bytes": 10196,
+      "sha256": "db67771233504916d72e75b7fed92f348202140beacf40e1fb3da3f47d5805f3"
+    },
+    {
+      "file": "tests/tower-dps.test.mjs",
+      "bytes": 18475,
+      "sha256": "dbbbc11a1c3bf7fce939c916a24199dd26d0725ff65bf4da936934aa1e7f5d87"
+    },
+    {
+      "file": "tests/wave-preview-flow.test.mjs",
+      "bytes": 7282,
+      "sha256": "2e6355dd6d65127e7a267cfbb3ef0a04f151e6b23ac1d112f53194eb6302f3a0"
+    },
+    {
+      "file": "ui/audio-controls.css",
+      "bytes": 1458,
+      "sha256": "24c2f9022e32a3b3a8e014edaafc92f72a3db383f66779bfe7082da7edd36c89"
+    },
+    {
+      "file": "ui/audio-controls.js",
+      "bytes": 2251,
+      "sha256": "46bd63cd6d1aaee2dd6840719883850cd36dd0ea70dff82aac67d1e398a5595c"
+    },
+    {
+      "file": "ui/audit-layout.css",
+      "bytes": 9364,
+      "sha256": "130fdf028b6e30687b36d1c522b235b0fa7e35e48115c93683fbe15df7ebb742"
+    },
+    {
+      "file": "ui/crafting-dock.css",
+      "bytes": 7983,
+      "sha256": "ef4d8ea112c9a8df7c938cc04ba5d07c403c6f94c560a013d13f6e857577143a"
+    },
+    {
+      "file": "ui/crafting-dock.js",
+      "bytes": 15979,
+      "sha256": "23108304c984acdc86489d1d5347778ea10b68c999ebabab0111982d51fd8428"
+    },
+    {
+      "file": "ui/dps-measurement.js",
+      "bytes": 1141,
+      "sha256": "6448ca59cf58212980b0b136e74e919e0bed155c58e857667d306a5f3ca2ea4b"
+    },
+    {
+      "file": "ui/draft-cards.js",
+      "bytes": 5489,
+      "sha256": "b0e2a2b18e7fbca8cfcb10624eff7018996b17a2359760dd49484013182f2d39"
+    },
+    {
+      "file": "ui/tower-dps.css",
+      "bytes": 2312,
+      "sha256": "d77cd3eb4d8782805e74f0cf9b65f1101bc203c4a5492ae16a2766c519d49e16"
+    },
+    {
+      "file": "ui/tower-dps.js",
+      "bytes": 5675,
+      "sha256": "b5768d5849740450b4aa62016e59943a74764eae9b61d5816de655dd9370d371"
+    }
+  ]
+}

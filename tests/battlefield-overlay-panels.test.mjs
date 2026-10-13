@@ -49,7 +49,7 @@ function panelFixture(){
 test('DPS is a native expanded disclosure with a stable accessible summary and unchanged peak ordering',()=>{
   const html=towerDpsContents([row(2,21),row(1,10)],data,{}, {wave:7,phase:'combat',paused:true});
   assert.match(html,/^<details class="battlefield-overlay-disclosure tower-dps-disclosure" open><summary/);
-  assert.match(html,/Peak DPS this wave/);assert.match(html,/Wave 7 · Paused/);assert.match(html,/21\.0 peak DPS this wave/);
+  assert.match(html,/Peak DPS<\/h2>/);assert.match(html,/Wave 7 · Paused/);assert.match(html,/21\.0 peak DPS this wave/);assert.match(html,/tower-dps-summary-score[^>]*>21\.0/);
   assert.ok(html.indexOf('data-id="2"')<html.indexOf('data-id="1"'));assert.doesNotMatch(html,/role="button"|aria-expanded/);
 });
 

@@ -1,0 +1,282 @@
+{
+  "status": "passed",
+  "baseline": "4fa73e31bbabb685bd4287b73b78692626345167",
+  "backupRoot": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\audit-implementation-20261013-before-1791903841166",
+  "paths": 39,
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "sourceSha256": "b1f6918d4b3ab2f8844f27f44fbe3d385a7c59ae51fbdef0d18ccd4422ba9c56",
+      "mainSha256": "e5903cd30caac78a00257e9dcea14a5002907a0de6b707524f8994e8df014ae8",
+      "originalSha256": "1a8961e6c387bc16dd62b16ba57f7109f10051eb5beab6e7131ea49a66fa0d7f",
+      "mode": "preserved-main-three-way-merge"
+    },
+    {
+      "file": "GAME_DESIGN.md",
+      "sourceSha256": "4f99137cd310b1d7a64dd5cbb927a3e10630b8dbb9ed5001934c0a2d4d1d3d0c",
+      "mainSha256": "4f99137cd310b1d7a64dd5cbb927a3e10630b8dbb9ed5001934c0a2d4d1d3d0c",
+      "originalSha256": "e154f91e96b526cce21af49674ab6b2e14b1be64cff3351cefe5c8a6ad451c26",
+      "mode": "updated-authorized-main-handoff"
+    },
+    {
+      "file": "README.md",
+      "sourceSha256": "27f5e07ac186d738506759fff6df19de24f12577dcdf6db3fb6a204577c038de",
+      "mainSha256": "fda8db779491252ec4796b08d8bf317c977275b0a20e4561021aa0f510b309d4",
+      "originalSha256": "864d19ef86b1aae9338c606ae11a091c3b2ff8d0d18071f5d28d2d4b1e02202e",
+      "mode": "preserved-main-three-way-merge"
+    },
+    {
+      "file": "docs/AUDIT_IMPLEMENTATION_20261013.md",
+      "sourceSha256": "39351053d2ba9adb835e38ab0424d1b94c5a02dfc72caa0432e3eaeb2aa91661",
+      "mainSha256": "39351053d2ba9adb835e38ab0424d1b94c5a02dfc72caa0432e3eaeb2aa91661",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "docs/UI_DYNAMIC_CRAFTING_APPROVED_20261013.md",
+      "sourceSha256": "e719177025d48e3da1599c7bb8213ae68cc8e8ea49b6ba5424aed2dfcdc2de9d",
+      "mainSha256": "e719177025d48e3da1599c7bb8213ae68cc8e8ea49b6ba5424aed2dfcdc2de9d",
+      "originalSha256": "cb2ac24b1ade96e9394de27f91838db044081c131bc0e4058b110ddfb9660aa1",
+      "mode": "updated-authorized-main-handoff",
+      "formatting": "Removed surplus blank line at EOF; approval content preserved."
+    },
+    {
+      "file": "game/audio/audio.js",
+      "sourceSha256": "ff1cc6105330d080f62c0c677da5eb5a6a4a034edd3377c69a93b90706583e34",
+      "mainSha256": "ff1cc6105330d080f62c0c677da5eb5a6a4a034edd3377c69a93b90706583e34",
+      "originalSha256": "03ce83c0418c85a62287fc5723f824a80eaeefe55fb27343e100fab82a2b7c1e",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/audio/recorded-music.js",
+      "sourceSha256": "cd3d5a214383b156dc4d8c59aac7aa69ec82b71752c11ebb1df3e60a3e8854b2",
+      "mainSha256": "cd3d5a214383b156dc4d8c59aac7aa69ec82b71752c11ebb1df3e60a3e8854b2",
+      "originalSha256": "1be772dbb66e127bcfed7658b4fd440ac9738d994644a661f906a50b67edc926",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/campaign-roster.js",
+      "sourceSha256": "f5196bf1dacc7ddc6657fcf940f46e52c20560d56b579a9563e1dc0188e27c7b",
+      "mainSha256": "f5196bf1dacc7ddc6657fcf940f46e52c20560d56b579a9563e1dc0188e27c7b",
+      "originalSha256": "80f40c339a5cfff7590bcf8a579999861a0aad70675f5e6df345f51056e6c179",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/core/save.js",
+      "sourceSha256": "c3417497254b7063f428048b2529a9239bd4a9e9a5d34be9ced5e69f32976cb4",
+      "mainSha256": "c3417497254b7063f428048b2529a9239bd4a9e9a5d34be9ced5e69f32976cb4",
+      "originalSha256": "a5ab5f9d05c77df39c8dc2c16996c95fff63a5a22db8dc1e90607c110140aa13",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/main.js",
+      "sourceSha256": "bd56e83dc1362721c5b2b1733b4fd1d3921dc3ab3c57e4580658c3adda6b41fb",
+      "mainSha256": "bd56e83dc1362721c5b2b1733b4fd1d3921dc3ab3c57e4580658c3adda6b41fb",
+      "originalSha256": "cea01e90ccee85ce1dd53c052e0080b9a604ff132d7d4b62ff3fc4a2eb4e2814",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/release.js",
+      "sourceSha256": "abef0e5e0219d8175c2fbc4d622a3c69e9f53ce0bc6069dc766d99744b65255c",
+      "mainSha256": "abef0e5e0219d8175c2fbc4d622a3c69e9f53ce0bc6069dc766d99744b65255c",
+      "originalSha256": "d2fab3258fadad08d4ae55077662ed4ecf570f84be1903198a2010601b779431",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "game/render/draft-markers.js",
+      "sourceSha256": "9b8031a68160630cd0cd434a743e5740d67c100d7c3107cf609996d9b5c530ae",
+      "mainSha256": "9b8031a68160630cd0cd434a743e5740d67c100d7c3107cf609996d9b5c530ae",
+      "originalSha256": "ebadbe560b7af680c4a68375284a9fb756e7ae2b52503762b92ecee1b7be1e29",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "package.json",
+      "sourceSha256": "3f90a81f06e4a4f9650d38d893282fab7fb9c39fd1be2ebe2a64b5e725d11e61",
+      "mainSha256": "3f90a81f06e4a4f9650d38d893282fab7fb9c39fd1be2ebe2a64b5e725d11e61",
+      "originalSha256": "51ff4accc316f6d7fc71359be4e424240270b04e8328be715fb9da00a7eb73b1",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "public/release.json",
+      "sourceSha256": "c7f5be84c31af8b5e73efbadc8019fe219a0d36a8ee01dd5404cfa56ebdb4018",
+      "mainSha256": "c7f5be84c31af8b5e73efbadc8019fe219a0d36a8ee01dd5404cfa56ebdb4018",
+      "originalSha256": "47e2e96faf179e96aa4965cc09491fdb3fdf93ce734506c7f49c9c9be483c405",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/audio-category-volume.test.mjs",
+      "sourceSha256": "9c0e6e49bfbd806a09eb35ecd7b9c67f5201b897aecdbd7f4f0ba395f404db02",
+      "mainSha256": "9c0e6e49bfbd806a09eb35ecd7b9c67f5201b897aecdbd7f4f0ba395f404db02",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/audio-controls.test.mjs",
+      "sourceSha256": "8949071ab6eb7d40f640e99efce52ee2fe76b8c5417aa22d7329eb2f46903072",
+      "mainSha256": "8949071ab6eb7d40f640e99efce52ee2fe76b8c5417aa22d7329eb2f46903072",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/audio-recorded-music.test.mjs",
+      "sourceSha256": "365b8c00a75ebf50d6ee491b6b11c14427c468d1fc2bab2726cf1d2e70a5a21d",
+      "mainSha256": "365b8c00a75ebf50d6ee491b6b11c14427c468d1fc2bab2726cf1d2e70a5a21d",
+      "originalSha256": "7bcbd4d9eb06ece55513993cf2d9d70b887cb72aa262512655e7d736c9fa9f1d",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/audio-volume-preferences.test.mjs",
+      "sourceSha256": "53489124b9468a873d2f17c6be8317310880889222af162abe7c641e7f09b8f8",
+      "mainSha256": "53489124b9468a873d2f17c6be8317310880889222af162abe7c641e7f09b8f8",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/audio-wave-soundtrack.test.mjs",
+      "sourceSha256": "4a9349e4c49af5984d2696eb1c90debde4867b7afd7d4034dfe7f93ba784f9ee",
+      "mainSha256": "4a9349e4c49af5984d2696eb1c90debde4867b7afd7d4034dfe7f93ba784f9ee",
+      "originalSha256": "aebac0c9a03876ea95a90ba6a9ac955e7e30bda3f15868e2162db79467a16b0c",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/battlefield-overlay-panels.test.mjs",
+      "sourceSha256": "adf38ffb2b582654274373448ed012ad3bc1873abb8b6716e59ff955ba7119b9",
+      "mainSha256": "adf38ffb2b582654274373448ed012ad3bc1873abb8b6716e59ff955ba7119b9",
+      "originalSha256": "aa6a02b9aeea8a9251aa9e8a0201045cd4905c8e8df1989e5ed410bd0edf6356",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/battlefield-panel-main-integration.test.mjs",
+      "sourceSha256": "3c0ea5b8d3c828a2e9033a0511e012683d0b16e2c2868a629c5135cd9c0dc9ba",
+      "mainSha256": "3c0ea5b8d3c828a2e9033a0511e012683d0b16e2c2868a629c5135cd9c0dc9ba",
+      "originalSha256": "8f32f3263f727247f29f1b53966e45b23d303c7bce9d82b09f24189d1d2149d7",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/crafting-dock.test.mjs",
+      "sourceSha256": "07aa46bf2d801436447ba748054bc41801bf25e282b0fbbf5648983952347427",
+      "mainSha256": "07aa46bf2d801436447ba748054bc41801bf25e282b0fbbf5648983952347427",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/crafting-main-integration.test.mjs",
+      "sourceSha256": "3ea52c2b4a7f459c55d150608ceda7058a009edb4759ab7535fb770e21fabf60",
+      "mainSha256": "3ea52c2b4a7f459c55d150608ceda7058a009edb4759ab7535fb770e21fabf60",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/dps-measurement.test.mjs",
+      "sourceSha256": "9cae72d346a117b5927feddd048382111250c646b42d9f08ceea461a7800c7ab",
+      "mainSha256": "9cae72d346a117b5927feddd048382111250c646b42d9f08ceea461a7800c7ab",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/draft-pointer-input.test.mjs",
+      "sourceSha256": "0fe059a3993cc40a527f19537b3428e77dfb1b998667c2308c0021a07fa4efb4",
+      "mainSha256": "0fe059a3993cc40a527f19537b3428e77dfb1b998667c2308c0021a07fa4efb4",
+      "originalSha256": "82e982aae6d5a1d866022cc6560967edfeea20669ecea79af307912a01bed082",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/header-combat-controls.test.mjs",
+      "sourceSha256": "950926eb1f54f0f9553c3d9d07145c8ba81aaaf100c80793d0becedf60191a4e",
+      "mainSha256": "950926eb1f54f0f9553c3d9d07145c8ba81aaaf100c80793d0becedf60191a4e",
+      "originalSha256": "19bdf85e01ff19a2c47bc70b74d4fcc9b1ab4fba9ab9214f55c78f8258b20a39",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/merge-badge-ui.test.mjs",
+      "sourceSha256": "0b0e2b25c69abecfc17c5243c40e0e5dded65476a9f916a429d34397e54ba1a7",
+      "mainSha256": "0b0e2b25c69abecfc17c5243c40e0e5dded65476a9f916a429d34397e54ba1a7",
+      "originalSha256": "8cc9a27b2aaed3ee5f45161ba03d98880ef56974b76b9ecc08a5e949d167cc39",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/moon-clan-evasion.test.mjs",
+      "sourceSha256": "db67771233504916d72e75b7fed92f348202140beacf40e1fb3da3f47d5805f3",
+      "mainSha256": "db67771233504916d72e75b7fed92f348202140beacf40e1fb3da3f47d5805f3",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/tower-dps.test.mjs",
+      "sourceSha256": "dbbbc11a1c3bf7fce939c916a24199dd26d0725ff65bf4da936934aa1e7f5d87",
+      "mainSha256": "dbbbc11a1c3bf7fce939c916a24199dd26d0725ff65bf4da936934aa1e7f5d87",
+      "originalSha256": "54c58e5a18163b9dd937da3b3c230fc18ec9b21afe2a3fd679e29060f025ef0a",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "tests/wave-preview-flow.test.mjs",
+      "sourceSha256": "2e6355dd6d65127e7a267cfbb3ef0a04f151e6b23ac1d112f53194eb6302f3a0",
+      "mainSha256": "2e6355dd6d65127e7a267cfbb3ef0a04f151e6b23ac1d112f53194eb6302f3a0",
+      "originalSha256": "47d9ae4a3ffcf5c1ab84bad6f1821ff6a16ccf99f95c72ca1dc3027d1f4e4ff5",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/audio-controls.css",
+      "sourceSha256": "24c2f9022e32a3b3a8e014edaafc92f72a3db383f66779bfe7082da7edd36c89",
+      "mainSha256": "24c2f9022e32a3b3a8e014edaafc92f72a3db383f66779bfe7082da7edd36c89",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/audio-controls.js",
+      "sourceSha256": "46bd63cd6d1aaee2dd6840719883850cd36dd0ea70dff82aac67d1e398a5595c",
+      "mainSha256": "46bd63cd6d1aaee2dd6840719883850cd36dd0ea70dff82aac67d1e398a5595c",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/audit-layout.css",
+      "sourceSha256": "130fdf028b6e30687b36d1c522b235b0fa7e35e48115c93683fbe15df7ebb742",
+      "mainSha256": "130fdf028b6e30687b36d1c522b235b0fa7e35e48115c93683fbe15df7ebb742",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/crafting-dock.css",
+      "sourceSha256": "ef4d8ea112c9a8df7c938cc04ba5d07c403c6f94c560a013d13f6e857577143a",
+      "mainSha256": "ef4d8ea112c9a8df7c938cc04ba5d07c403c6f94c560a013d13f6e857577143a",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/crafting-dock.js",
+      "sourceSha256": "23108304c984acdc86489d1d5347778ea10b68c999ebabab0111982d51fd8428",
+      "mainSha256": "23108304c984acdc86489d1d5347778ea10b68c999ebabab0111982d51fd8428",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/dps-measurement.js",
+      "sourceSha256": "6448ca59cf58212980b0b136e74e919e0bed155c58e857667d306a5f3ca2ea4b",
+      "mainSha256": "6448ca59cf58212980b0b136e74e919e0bed155c58e857667d306a5f3ca2ea4b",
+      "originalSha256": null,
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/draft-cards.js",
+      "sourceSha256": "b0e2a2b18e7fbca8cfcb10624eff7018996b17a2359760dd49484013182f2d39",
+      "mainSha256": "b0e2a2b18e7fbca8cfcb10624eff7018996b17a2359760dd49484013182f2d39",
+      "originalSha256": "61ce0c236a3d3dc548a022fe5d151cd17febde0b425fd6e9e05f1d195f748200",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/tower-dps.css",
+      "sourceSha256": "d77cd3eb4d8782805e74f0cf9b65f1101bc203c4a5492ae16a2766c519d49e16",
+      "mainSha256": "d77cd3eb4d8782805e74f0cf9b65f1101bc203c4a5492ae16a2766c519d49e16",
+      "originalSha256": "83e2cd4d1218694e6690c9afe3ee91a8db55bde58307b89aa4c2397a36801b45",
+      "mode": "exact-task-copy"
+    },
+    {
+      "file": "ui/tower-dps.js",
+      "sourceSha256": "b5768d5849740450b4aa62016e59943a74764eae9b61d5816de655dd9370d371",
+      "mainSha256": "b5768d5849740450b4aa62016e59943a74764eae9b61d5816de655dd9370d371",
+      "originalSha256": "e2fe50ab6506e4b66e11f301eb6de2e094b419d668c55bd5fe57833511a0710a",
+      "mode": "exact-task-copy"
+    }
+  ]
+}

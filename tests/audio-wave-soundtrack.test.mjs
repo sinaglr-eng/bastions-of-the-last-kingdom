@@ -56,12 +56,12 @@ test('final real 10-wave and 50-wave victories share the completion key and have
  }
 });
 
-test('measured gain nodes make music nominally 3.52dB above a recorded attack and the celebration lower than every other channel',async()=>{
+test('category defaults preserve internal clip levels and the original quiet celebration gain',async()=>{
  const h=harness();try{
   await h.sync('build');assert.equal(await h.audio.playRecordedEffect('arrow'),true);const attack=[...h.audio.voices].find(v=>v.source.buffer?.duration===2);
   h.audio.play('wave-complete',{round:1});await tick();const celebration=h.audio.music.celebration;
-  assert.equal(h.audio.music.master.gain.value,.18);assert.equal(attack.gain.gain.value,.12);assert.ok(Math.abs(20*Math.log10(.18/.12)-3.5218251811136247)<1e-10);
-  assert.ok(Math.abs(celebration.gain.gain.value*h.audio.music.master.gain.value-.025)<1e-12);
+  assert.equal(h.audio.music.master.gain.value,.18*.8);assert.equal(attack.gain.gain.value,.12);assert.equal(attack.gain.connected,h.audio.soundsMaster);assert.equal(h.audio.soundsMaster.gain.value,.4);
+  assert.equal(celebration.gain.connected,h.audio.music.celebrationMaster);assert.ok(Math.abs(celebration.gain.gain.value*h.audio.music.celebrationMaster.gain.value-.025)<1e-12);
   assert.ok(Object.entries(h.audio.channels).filter(([key])=>key!=='Victory').every(([,gain])=>gain>.025));
   assert.equal(celebration.source.loop,false);assert.equal(celebration.buffer.duration,8);
   for(const speed of [1,2,3]){h.audio.syncGameState({phase:'build',round:2,speed});assert.equal(h.audio.music.current.source.playbackRate.value,1);assert.equal(celebration.source.playbackRate.value,1);assert.equal(attack.source.playbackRate.value,1);}

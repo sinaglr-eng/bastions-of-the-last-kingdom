@@ -1,0 +1,1569 @@
+{
+  "decision": "D002",
+  "createdAt": "2026-10-13T15:09:31.004Z",
+  "baselineCommit": "4fa73e31bbabb685bd4287b73b78692626345167",
+  "baselineVersion": "0.3.27",
+  "productionScope": [
+    "game/core/campaign-roster.js"
+  ],
+  "sourceHashes": {
+    "game/core/campaign-roster.js": "f5196bf1dacc7ddc6657fcf940f46e52c20560d56b579a9563e1dc0188e27c7b",
+    "tests/moon-clan-evasion.test.mjs": "db67771233504916d72e75b7fed92f348202140beacf40e1fb3da3f47d5805f3",
+    "tmp/audit-d002-probe.mjs": "1b9e3a8c6834d33d892036ccc4d33aa0f5d213fbd270787ef015cb3ba237399a"
+  },
+  "archivedDataHashes": {
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97"
+  },
+  "trackedDataArtAudioChangedPaths": [],
+  "effectiveProfileAudit": {
+    "profiles": 62,
+    "changedProfiles": [
+      {
+        "type": "host_05",
+        "name": "Bat Scouts · Moon Clan",
+        "changes": {
+          "evasion": {
+            "before": null,
+            "after": 0.25
+          }
+        }
+      },
+      {
+        "type": "host_15",
+        "name": "Blood Bat Riders · Moon Clan",
+        "changes": {
+          "evasion": {
+            "before": null,
+            "after": 0.25
+          }
+        }
+      },
+      {
+        "type": "host_27",
+        "name": "Spectral Bat Riders · Moon Clan",
+        "changes": {
+          "evasion": {
+            "before": null,
+            "after": 0.25
+          }
+        }
+      },
+      {
+        "type": "host_28",
+        "name": "Goblin Scrapwings · Moon Clan",
+        "changes": {
+          "evasion": {
+            "before": null,
+            "after": 0.25
+          }
+        }
+      },
+      {
+        "type": "host_41",
+        "name": "Orc Crystal Phalanx · Moon Clan",
+        "changes": {
+          "evasion": {
+            "before": null,
+            "after": 0.25
+          }
+        }
+      }
+    ],
+    "nonMoonProfileDiffs": [],
+    "wave29EffectiveProfileUnchanged": true
+  },
+  "profiles": [
+    {
+      "wave": 5,
+      "type": "host_05",
+      "name": "Bat Scouts · Moon Clan",
+      "evasion": 0.25,
+      "hp": 132,
+      "armor": 3,
+      "speed": 2.5,
+      "flying": true,
+      "regen": 0,
+      "physicalImmune": false,
+      "untouchable": 0,
+      "stealth": false,
+      "reactiveArmor": 0,
+      "refraction": 0,
+      "traits": [
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        }
+      ],
+      "guidePreviewInspectionMatch": true
+    },
+    {
+      "wave": 15,
+      "type": "host_15",
+      "name": "Blood Bat Riders · Moon Clan",
+      "evasion": 0.25,
+      "hp": 975,
+      "armor": 6,
+      "speed": 2.5,
+      "flying": true,
+      "regen": 0.2,
+      "physicalImmune": false,
+      "untouchable": 0,
+      "stealth": false,
+      "reactiveArmor": 0,
+      "refraction": 0,
+      "traits": [
+        {
+          "text": "Regenerates 20% maximum health/s (195 HP/s) · healing block prevents regeneration",
+          "kind": "regen"
+        },
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        }
+      ],
+      "guidePreviewInspectionMatch": true
+    },
+    {
+      "wave": 27,
+      "type": "host_27",
+      "name": "Spectral Bat Riders · Moon Clan",
+      "evasion": 0.25,
+      "hp": 6855,
+      "armor": 11,
+      "speed": 2.5,
+      "flying": true,
+      "regen": 0,
+      "physicalImmune": true,
+      "untouchable": 0.75,
+      "stealth": false,
+      "reactiveArmor": 0,
+      "refraction": 0,
+      "traits": [
+        {
+          "text": "Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity",
+          "kind": "physicalImmune"
+        },
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        },
+        {
+          "text": "Dread · a defender dealing actual HP damage loses 75% attack speed for 3s, regardless of range · owned DOT and secondary hits refresh it; no stacking · control resistance reduces slowing",
+          "kind": "untouchable"
+        }
+      ],
+      "guidePreviewInspectionMatch": true
+    },
+    {
+      "wave": 28,
+      "type": "host_28",
+      "name": "Goblin Scrapwings · Moon Clan",
+      "evasion": 0.25,
+      "hp": 7972,
+      "armor": 18,
+      "speed": 2.5,
+      "flying": true,
+      "regen": 0,
+      "physicalImmune": false,
+      "untouchable": 0,
+      "stealth": true,
+      "reactiveArmor": 0,
+      "refraction": 0,
+      "traits": [
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        },
+        {
+          "text": "Cloaked continuously · revealed within 1.5 tiles of checkpoints, 2 of defenders, or 6 of Clerics (detector abilities may reach farther)",
+          "kind": null
+        }
+      ],
+      "guidePreviewInspectionMatch": true
+    },
+    {
+      "wave": 29,
+      "type": "host_29",
+      "name": "Prismatic Bat Tricksters · Moon Clan",
+      "evasion": 0.25,
+      "hp": 9259,
+      "armor": 11,
+      "speed": 2.5,
+      "flying": true,
+      "regen": 0,
+      "physicalImmune": false,
+      "untouchable": 0,
+      "stealth": false,
+      "reactiveArmor": 0,
+      "refraction": 3,
+      "traits": [
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        },
+        {
+          "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+          "kind": "refraction"
+        }
+      ],
+      "guidePreviewInspectionMatch": true
+    },
+    {
+      "wave": 41,
+      "type": "host_41",
+      "name": "Orc Crystal Phalanx · Moon Clan",
+      "evasion": 0.25,
+      "hp": 45254,
+      "armor": 41,
+      "speed": 2.21,
+      "flying": false,
+      "regen": 0,
+      "physicalImmune": false,
+      "untouchable": 0,
+      "stealth": false,
+      "reactiveArmor": 0,
+      "refraction": 3,
+      "traits": [
+        {
+          "text": "25% chance to evade Physical, Magical and Holy direct hits · True Strike bypasses evasion",
+          "kind": "evasion"
+        },
+        {
+          "text": "3 hit-blocking shields · regenerate 2s after the final charge is spent · damage-over-time and auras bypass shields",
+          "kind": "refraction"
+        }
+      ],
+      "guidePreviewInspectionMatch": true
+    }
+  ],
+  "seededDirectHitSamples": {
+    "seed": 807,
+    "samples": [
+      {
+        "type": "host_05",
+        "counts": {
+          "physical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "magical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "holy": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          }
+        }
+      },
+      {
+        "type": "host_15",
+        "counts": {
+          "physical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "magical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "holy": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          }
+        }
+      },
+      {
+        "type": "host_27",
+        "counts": {
+          "physical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "magical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "holy": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          }
+        }
+      },
+      {
+        "type": "host_28",
+        "counts": {
+          "physical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "magical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "holy": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          }
+        }
+      },
+      {
+        "type": "host_29",
+        "counts": {
+          "physical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "magical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "holy": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          }
+        }
+      },
+      {
+        "type": "host_41",
+        "counts": {
+          "physical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "magical": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          },
+          "holy": {
+            "attempts": 4096,
+            "evaded": 1034,
+            "measuredChance": 0.25244140625
+          }
+        }
+      }
+    ]
+  },
+  "targetedTests": {
+    "command": "node --test tests/moon-clan-evasion.test.mjs tests/enemy-variants-v12.test.mjs tests/enemy-abilities-v12.test.mjs tests/enemy-balance-v10.test.mjs tests/combat-overhaul.test.mjs tests/wave-threats.test.mjs tests/selected-enemy-panel.test.mjs tests/warband-info.test.mjs tests/warband-cards.test.mjs tests/wave-preview-ui.test.mjs",
+    "observed": {
+      "tests": 110,
+      "pass": 110,
+      "fail": 0
+    }
+  },
+  "boundedDifficultyCheck": {
+    "method": "72 full-wave engine runs: before/after, six homogeneous Moon Clan waves, seeds 42/123/807, eight basic defenders or seven basics plus actual Nature Spirit support. Real blocked foundations, spawning, movement, projectiles, statuses, immunity, shields, armor, regeneration, Dread, leaks and rewards.",
+    "stepSeconds": 0.05,
+    "maximumCombatSeconds": 200,
+    "fixturePositions": [
+      [
+        17,
+        17
+      ],
+      [
+        18,
+        17
+      ],
+      [
+        19,
+        17
+      ],
+      [
+        17,
+        18
+      ],
+      [
+        19,
+        18
+      ],
+      [
+        17,
+        19
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        19,
+        19
+      ]
+    ],
+    "armies": {
+      "basic": [
+        "archer",
+        "mage",
+        "druid",
+        "frostwarden",
+        "runebreaker",
+        "cleric",
+        "stormcaller",
+        "archer"
+      ],
+      "withNatureSpirit": [
+        "archer",
+        "mage",
+        "druid",
+        "frostwarden",
+        "runebreaker",
+        "cleric",
+        "stormcaller",
+        "rangermentor"
+      ]
+    },
+    "tierByWave": {
+      "5": 2,
+      "15": 5,
+      "27": 6,
+      "28": 6,
+      "29": 6,
+      "41": 6
+    },
+    "results": [
+      {
+        "wave": 5,
+        "seed": 42,
+        "army": "basic",
+        "before": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 17.90000000000012,
+          "attemptedDirectHits": 93,
+          "evadedDirectHits": 0,
+          "hpDamage": 1187.9999999999998,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 18.100000000000122,
+          "attemptedDirectHits": 125,
+          "evadedDirectHits": 32,
+          "hpDamage": 1188.0000000000005,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": 6.821210263296962e-13
+      },
+      {
+        "wave": 5,
+        "seed": 42,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 14.650000000000073,
+          "attemptedDirectHits": 9,
+          "evadedDirectHits": 0,
+          "hpDamage": 1188,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 14.650000000000073,
+          "attemptedDirectHits": 9,
+          "evadedDirectHits": 0,
+          "hpDamage": 1188,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 5,
+        "seed": 123,
+        "army": "basic",
+        "before": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 17.90000000000012,
+          "attemptedDirectHits": 93,
+          "evadedDirectHits": 0,
+          "hpDamage": 1187.9999999999998,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 18.250000000000124,
+          "attemptedDirectHits": 128,
+          "evadedDirectHits": 33,
+          "hpDamage": 1187.999999999999,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": -6.821210263296962e-13
+      },
+      {
+        "wave": 5,
+        "seed": 123,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 14.650000000000073,
+          "attemptedDirectHits": 9,
+          "evadedDirectHits": 0,
+          "hpDamage": 1188,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 14.650000000000073,
+          "attemptedDirectHits": 9,
+          "evadedDirectHits": 0,
+          "hpDamage": 1188,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 5,
+        "seed": 807,
+        "army": "basic",
+        "before": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 17.90000000000012,
+          "attemptedDirectHits": 93,
+          "evadedDirectHits": 0,
+          "hpDamage": 1187.9999999999998,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 18.100000000000122,
+          "attemptedDirectHits": 110,
+          "evadedDirectHits": 19,
+          "hpDamage": 1187.9999999999993,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": -4.547473508864641e-13
+      },
+      {
+        "wave": 5,
+        "seed": 807,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 14.650000000000073,
+          "attemptedDirectHits": 9,
+          "evadedDirectHits": 0,
+          "hpDamage": 1188,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 9,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 14.650000000000073,
+          "attemptedDirectHits": 9,
+          "evadedDirectHits": 0,
+          "hpDamage": 1188,
+          "spawned": 9,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 15,
+        "seed": 42,
+        "army": "basic",
+        "before": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 20.00000000000015,
+          "attemptedDirectHits": 195,
+          "evadedDirectHits": 0,
+          "hpDamage": 14534.499999999975,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 20.70000000000016,
+          "attemptedDirectHits": 246,
+          "evadedDirectHits": 59,
+          "hpDamage": 15473.499999999938,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": 938.9999999999636
+      },
+      {
+        "wave": 15,
+        "seed": 42,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 18.75000000000013,
+          "attemptedDirectHits": 153,
+          "evadedDirectHits": 0,
+          "hpDamage": 14260.249999999962,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 18.75000000000013,
+          "attemptedDirectHits": 153,
+          "evadedDirectHits": 0,
+          "hpDamage": 14260.249999999962,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 15,
+        "seed": 123,
+        "army": "basic",
+        "before": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 20.00000000000015,
+          "attemptedDirectHits": 195,
+          "evadedDirectHits": 0,
+          "hpDamage": 14534.499999999975,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 20.950000000000163,
+          "attemptedDirectHits": 249,
+          "evadedDirectHits": 65,
+          "hpDamage": 15591.499999999904,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": 1056.999999999929
+      },
+      {
+        "wave": 15,
+        "seed": 123,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 18.75000000000013,
+          "attemptedDirectHits": 153,
+          "evadedDirectHits": 0,
+          "hpDamage": 14260.249999999962,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 18.75000000000013,
+          "attemptedDirectHits": 153,
+          "evadedDirectHits": 0,
+          "hpDamage": 14260.249999999962,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 15,
+        "seed": 807,
+        "army": "basic",
+        "before": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 20.00000000000015,
+          "attemptedDirectHits": 195,
+          "evadedDirectHits": 0,
+          "hpDamage": 14534.499999999975,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 21.950000000000177,
+          "attemptedDirectHits": 272,
+          "evadedDirectHits": 74,
+          "hpDamage": 15541.749999999956,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": 1007.2499999999818
+      },
+      {
+        "wave": 15,
+        "seed": 807,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 18.75000000000013,
+          "attemptedDirectHits": 153,
+          "evadedDirectHits": 0,
+          "hpDamage": 14260.249999999962,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 11,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 18.75000000000013,
+          "attemptedDirectHits": 153,
+          "evadedDirectHits": 0,
+          "hpDamage": 14260.249999999962,
+          "spawned": 11,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 27,
+        "seed": 42,
+        "army": "basic",
+        "before": {
+          "kills": 6,
+          "leaks": 7,
+          "lives": 23,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 1282,
+          "evadedDirectHits": 0,
+          "hpDamage": 64989.07317073092,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 2,
+          "leaks": 11,
+          "lives": 19,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 1296,
+          "evadedDirectHits": 310,
+          "hpDamage": 59852.048780487785,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 4,
+        "damageDelta": -5137.024390243132
+      },
+      {
+        "wave": 27,
+        "seed": 42,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 9,
+          "leaks": 4,
+          "lives": 26,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 870,
+          "evadedDirectHits": 0,
+          "hpDamage": 81522.48292682707,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 9,
+          "leaks": 4,
+          "lives": 26,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 870,
+          "evadedDirectHits": 0,
+          "hpDamage": 81522.48292682707,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 27,
+        "seed": 123,
+        "army": "basic",
+        "before": {
+          "kills": 6,
+          "leaks": 7,
+          "lives": 23,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 1282,
+          "evadedDirectHits": 0,
+          "hpDamage": 64989.07317073092,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 2,
+          "leaks": 11,
+          "lives": 19,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 1293,
+          "evadedDirectHits": 322,
+          "hpDamage": 54181.22926829275,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 4,
+        "damageDelta": -10807.843902438166
+      },
+      {
+        "wave": 27,
+        "seed": 123,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 9,
+          "leaks": 4,
+          "lives": 26,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 870,
+          "evadedDirectHits": 0,
+          "hpDamage": 81522.48292682707,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 9,
+          "leaks": 4,
+          "lives": 26,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 870,
+          "evadedDirectHits": 0,
+          "hpDamage": 81522.48292682707,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 27,
+        "seed": 807,
+        "army": "basic",
+        "before": {
+          "kills": 6,
+          "leaks": 7,
+          "lives": 23,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 1282,
+          "evadedDirectHits": 0,
+          "hpDamage": 64989.07317073092,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 2,
+          "leaks": 11,
+          "lives": 19,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 1296,
+          "evadedDirectHits": 319,
+          "hpDamage": 60063.21951219432,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 4,
+        "damageDelta": -4925.853658536595
+      },
+      {
+        "wave": 27,
+        "seed": 807,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 9,
+          "leaks": 4,
+          "lives": 26,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 870,
+          "evadedDirectHits": 0,
+          "hpDamage": 81522.48292682707,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 9,
+          "leaks": 4,
+          "lives": 26,
+          "combatSeconds": 57.64999999999886,
+          "attemptedDirectHits": 870,
+          "evadedDirectHits": 0,
+          "hpDamage": 81522.48292682707,
+          "spawned": 13,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 28,
+        "seed": 42,
+        "army": "basic",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 24.30000000000021,
+          "attemptedDirectHits": 683,
+          "evadedDirectHits": 0,
+          "hpDamage": 111607.99999999956,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 44.6999999999996,
+          "attemptedDirectHits": 745,
+          "evadedDirectHits": 171,
+          "hpDamage": 111607.99999999866,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": -9.022187441587448e-10
+      },
+      {
+        "wave": 28,
+        "seed": 42,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 24.25000000000021,
+          "attemptedDirectHits": 553,
+          "evadedDirectHits": 0,
+          "hpDamage": 111607.99999999948,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 24.25000000000021,
+          "attemptedDirectHits": 553,
+          "evadedDirectHits": 0,
+          "hpDamage": 111607.99999999948,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 28,
+        "seed": 123,
+        "army": "basic",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 24.30000000000021,
+          "attemptedDirectHits": 683,
+          "evadedDirectHits": 0,
+          "hpDamage": 111607.99999999956,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 43.79999999999965,
+          "attemptedDirectHits": 796,
+          "evadedDirectHits": 195,
+          "hpDamage": 111607.99999999846,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": -1.1059455573558807e-9
+      },
+      {
+        "wave": 28,
+        "seed": 123,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 24.25000000000021,
+          "attemptedDirectHits": 553,
+          "evadedDirectHits": 0,
+          "hpDamage": 111607.99999999948,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 24.25000000000021,
+          "attemptedDirectHits": 553,
+          "evadedDirectHits": 0,
+          "hpDamage": 111607.99999999948,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 28,
+        "seed": 807,
+        "army": "basic",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 24.30000000000021,
+          "attemptedDirectHits": 683,
+          "evadedDirectHits": 0,
+          "hpDamage": 111607.99999999956,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 42.999999999999694,
+          "attemptedDirectHits": 760,
+          "evadedDirectHits": 191,
+          "hpDamage": 111607.99999999852,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": -1.0477378964424133e-9
+      },
+      {
+        "wave": 28,
+        "seed": 807,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 24.25000000000021,
+          "attemptedDirectHits": 553,
+          "evadedDirectHits": 0,
+          "hpDamage": 111607.99999999948,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 24.25000000000021,
+          "attemptedDirectHits": 553,
+          "evadedDirectHits": 0,
+          "hpDamage": 111607.99999999948,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 29,
+        "seed": 42,
+        "army": "basic",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 46.19999999999951,
+          "attemptedDirectHits": 942,
+          "evadedDirectHits": 220,
+          "hpDamage": 129625.99999999999,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 46.19999999999951,
+          "attemptedDirectHits": 942,
+          "evadedDirectHits": 220,
+          "hpDamage": 129625.99999999999,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 29,
+        "seed": 42,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 27.350000000000254,
+          "attemptedDirectHits": 669,
+          "evadedDirectHits": 0,
+          "hpDamage": 129625.99999999964,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 27.350000000000254,
+          "attemptedDirectHits": 669,
+          "evadedDirectHits": 0,
+          "hpDamage": 129625.99999999964,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 29,
+        "seed": 123,
+        "army": "basic",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 43.349999999999675,
+          "attemptedDirectHits": 873,
+          "evadedDirectHits": 213,
+          "hpDamage": 129625.99999999854,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 43.349999999999675,
+          "attemptedDirectHits": 873,
+          "evadedDirectHits": 213,
+          "hpDamage": 129625.99999999854,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 29,
+        "seed": 123,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 27.350000000000254,
+          "attemptedDirectHits": 669,
+          "evadedDirectHits": 0,
+          "hpDamage": 129625.99999999964,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 27.350000000000254,
+          "attemptedDirectHits": 669,
+          "evadedDirectHits": 0,
+          "hpDamage": 129625.99999999964,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 29,
+        "seed": 807,
+        "army": "basic",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 45.14999999999957,
+          "attemptedDirectHits": 912,
+          "evadedDirectHits": 222,
+          "hpDamage": 129625.999999999,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 45.14999999999957,
+          "attemptedDirectHits": 912,
+          "evadedDirectHits": 222,
+          "hpDamage": 129625.999999999,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 29,
+        "seed": 807,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 27.350000000000254,
+          "attemptedDirectHits": 669,
+          "evadedDirectHits": 0,
+          "hpDamage": 129625.99999999964,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 14,
+          "leaks": 0,
+          "lives": 30,
+          "combatSeconds": 27.350000000000254,
+          "attemptedDirectHits": 669,
+          "evadedDirectHits": 0,
+          "hpDamage": 129625.99999999964,
+          "spawned": 14,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 41,
+        "seed": 42,
+        "army": "basic",
+        "before": {
+          "kills": 3,
+          "leaks": 24,
+          "lives": 6,
+          "combatSeconds": 77.24999999999775,
+          "attemptedDirectHits": 1860,
+          "evadedDirectHits": 0,
+          "hpDamage": 444485.983098608,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 1,
+          "leaks": 26,
+          "lives": 4,
+          "combatSeconds": 76.99999999999777,
+          "attemptedDirectHits": 1964,
+          "evadedDirectHits": 499,
+          "hpDamage": 403266.0901408556,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 2,
+        "damageDelta": -41219.892957752396
+      },
+      {
+        "wave": 41,
+        "seed": 42,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 6,
+          "leaks": 21,
+          "lives": 9,
+          "combatSeconds": 80.94999999999754,
+          "attemptedDirectHits": 1761,
+          "evadedDirectHits": 0,
+          "hpDamage": 551891.9492958211,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 6,
+          "leaks": 21,
+          "lives": 9,
+          "combatSeconds": 80.94999999999754,
+          "attemptedDirectHits": 1761,
+          "evadedDirectHits": 0,
+          "hpDamage": 551891.9492958211,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 41,
+        "seed": 123,
+        "army": "basic",
+        "before": {
+          "kills": 3,
+          "leaks": 24,
+          "lives": 6,
+          "combatSeconds": 77.24999999999775,
+          "attemptedDirectHits": 1860,
+          "evadedDirectHits": 0,
+          "hpDamage": 444485.983098608,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 0,
+          "leaks": 27,
+          "lives": 3,
+          "combatSeconds": 78.2499999999977,
+          "attemptedDirectHits": 2022,
+          "evadedDirectHits": 513,
+          "hpDamage": 388682.5521126897,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 3,
+        "damageDelta": -55803.43098591827
+      },
+      {
+        "wave": 41,
+        "seed": 123,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 6,
+          "leaks": 21,
+          "lives": 9,
+          "combatSeconds": 80.94999999999754,
+          "attemptedDirectHits": 1761,
+          "evadedDirectHits": 0,
+          "hpDamage": 551891.9492958211,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 6,
+          "leaks": 21,
+          "lives": 9,
+          "combatSeconds": 80.94999999999754,
+          "attemptedDirectHits": 1761,
+          "evadedDirectHits": 0,
+          "hpDamage": 551891.9492958211,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      },
+      {
+        "wave": 41,
+        "seed": 807,
+        "army": "basic",
+        "before": {
+          "kills": 3,
+          "leaks": 24,
+          "lives": 6,
+          "combatSeconds": 77.24999999999775,
+          "attemptedDirectHits": 1860,
+          "evadedDirectHits": 0,
+          "hpDamage": 444485.983098608,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "after": {
+          "kills": 0,
+          "leaks": 27,
+          "lives": 3,
+          "combatSeconds": 77.84999999999772,
+          "attemptedDirectHits": 2038,
+          "evadedDirectHits": 532,
+          "hpDamage": 385121.52676056785,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": false
+        },
+        "leakDelta": 3,
+        "damageDelta": -59364.45633804012
+      },
+      {
+        "wave": 41,
+        "seed": 807,
+        "army": "withNatureSpirit",
+        "before": {
+          "kills": 6,
+          "leaks": 21,
+          "lives": 9,
+          "combatSeconds": 80.94999999999754,
+          "attemptedDirectHits": 1761,
+          "evadedDirectHits": 0,
+          "hpDamage": 551891.9492958211,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "after": {
+          "kills": 6,
+          "leaks": 21,
+          "lives": 9,
+          "combatSeconds": 80.94999999999754,
+          "attemptedDirectHits": 1761,
+          "evadedDirectHits": 0,
+          "hpDamage": 551891.9492958211,
+          "spawned": 27,
+          "remainingQueue": 0,
+          "trueStrike": true
+        },
+        "leakDelta": 0,
+        "damageDelta": 0
+      }
+    ]
+  },
+  "limits": [
+    "Controlled fixture armies were inserted for comparison; they were not acquired through legal drafts.",
+    "Full legal campaign completion, obtainable winning paths and human playability are not established; D001 remains deferred.",
+    "Late grounded wave 41 uses the open board with defender foundations, rather than a long maze.",
+    "No enemy or defender tuning, production artwork/audio, combat code, version, publication or browser work was performed for D002."
+  ]
+}

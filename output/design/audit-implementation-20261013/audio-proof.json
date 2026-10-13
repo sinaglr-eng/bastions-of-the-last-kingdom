@@ -1,0 +1,70 @@
+{
+  "decision": "D003",
+  "baselineCommit": "4fa73e31bbabb685bd4287b73b78692626345167",
+  "createdAt": "2026-10-13 15:12:55 UTC",
+  "status": "source-and-node-audio-regressions-passed",
+  "frozen": true,
+  "scope": "Independent background Music and attack Sounds category gain, native range controls, separate global Mute all, preserved unrelated audio mix.",
+  "runtimeAPI": {
+    "constructor": "new AudioManager(muted,{categoryVolumes:{music:80,sounds:40}})",
+    "read": "getCategoryVolume('music'|'sounds')",
+    "write": "setCategoryVolume(category,value)",
+    "ui": "audioControlsMarkup(audio); connectAudioControls(panel,{audio,onVolumeChange,onMuteChange})"
+  },
+  "verified": {
+    "initialCategoryPercentages": {
+      "music": 80,
+      "sounds": 40
+    },
+    "rangePercent": [
+      0,
+      100
+    ],
+    "liveGainChangesWithoutSourceRestart": true,
+    "backgroundMusicAtZeroSilenced": true,
+    "recordedAttacksAtZeroSilenced": true,
+    "fallbackAttackImpactAndDirectHitAtZeroSilenced": true,
+    "categoryGainIndependent": true,
+    "relativeClipEnvelopesPreserved": true,
+    "speechDuckingPreserved": true,
+    "voicesAndUIAndVictoryOriginalGainPoliciesPreserved": true,
+    "committedSpeechContinuesDuringVolumeChanges": true,
+    "quietCelebrationOncePerCompletedWave": true,
+    "musicRotationCrossfadeTimersTwoBufferCacheAndLoadLeasesPreserved": true,
+    "approved113RecordingsAndTenSourceReceiptsByteChecksPassed": true,
+    "nativeInputsBoundOnInput": true,
+    "openingRefreshDoesNotResetSettings": true,
+    "globalMuteRetainsCategorySettings": true
+  },
+  "fixtureRepair": "The existing sequential native music review test deliberately gates battleB.mp3. Fixed that test's initial musicRandom to 0 so battleA plays before the review lease assertion; previously Math.random could choose the intentionally blocked battleB and leave playing=null.",
+  "checks": {
+    "audio": {
+      "command": "node --test tests/audio*.test.mjs",
+      "tests": 95,
+      "passed": 95,
+      "failed": 0,
+      "exitCode": 0,
+      "output": "✔ all 92 unchanged exported MP3s match their recorded hashes, sizes and audio signatures (21.5718ms)\n✔ runtime catalogue has exactly two distinct clips for each live basic or champion family (0.8237ms)\n✔ only the 92 generated allied recordings enter runtime; voice previews and planned enemy assets do not (0.4351ms)\n✔ audio cache revision derives from exact recording provenance independently of model releases (0.2969ms)\n✔ fresh 80/40 settings remain lazy, accept restored percentages, clamp values and survive run reset (2.961ms)\n✔ recorded attacks change live on the Sounds bus without affecting music, source playback or clip gain (5.161ms)\n✔ every fallback attack and impact mechanism and direct-hit effect is silent at Sounds zero, preserving relative envelopes (2.5738ms)\n✔ the Sounds slider leaves UI, crafting, death, leak and fallback victory cues at their prior gain paths (0.6256ms)\n✔ Music changes preserve speech ducking, crossfade envelopes, rotation timers, cache and active tracks (0.8525ms)\n✔ quiet per-wave victory keeps original gain and speech ducking while Music and Sounds reach zero (1.0895ms)\n✔ volume changes during pending attack and background downloads use latest settings without cancelling loads (2.2737ms)\n✔ the mounted controls expose labelled native 0–100 ranges, visible percentages and a separate global mute toggle (1.5265ms)\n✔ native input events apply live settings and accessible values without resetting the other slider or mute (0.8752ms)\n✔ Mute all preserves chosen category values and refresh/dispose never replay input changes (0.4127ms)\n✔ 113 approved audio recordings and ten source receipts retain exact approved bytes (26.7471ms)\n✔ current 46 stable defender identities use distinct voices and exactly two approved A/B clips (9.8615ms)\n✔ only final two build, three battle and one shared celebration enter runtime (0.311ms)\n✔ root, GitHub project and portable catalogues resolve current 113 MP3s with revision (1.5778ms)\n✔ all 86 approved ranked/champion identities route primary cues by stable ID and actual tier (1.7838ms)\n✔ malformed or ambiguous recorded catalogue fails atomically (2.6144ms)\n✔ recorded primary attacks play a shared decoded MP3 once per simultaneous volley (2.04ms)\n✔ actual tier, primary equipment and explicit elemental procs determine independent cues (0.1723ms)\n✔ hidden events, ordinary DOT ticks, passive auras and unattributed chains remain silent (0.2178ms)\n✔ visible fire aura pulses are bounded and recorded effects respect event/concurrency budgets (1.0696ms)\n✔ a late attack download is discarded on pause, mute, phase switch, restart and elapsed delay (2.521ms)\n✔ restart immediately disconnects all old attack voices and pending speech cannot cross pause (0.6178ms)\n✔ pausing actual battle state stops already playing attack voices without resuming old attacks (0.2976ms)\n✔ voice duck begins only for actual speech and is restored on ending or interruption (0.2555ms)\n✔ short effect warmup uses at most three concurrent downloads and catalogue load never creates a context (0.9903ms)\n✔ asset or decode failure has finite cooldown and a later real attack can recover (0.2729ms)\n✔ the audio transport never consumes actual campaign randomness or changes defender combat state (4.2812ms)\n✔ actual combat frost and lightning branches carry their originating defender into recorded playback (6.879ms)\n✔ music waits for gesture context and loads one phase track without preloading all six (3.6915ms)\n✔ build/battle transitions crossfade 1.5 seconds independently of speed and repeated HUD updates (1.2578ms)\n✔ pause and mute retain position and resume the same asset without new downloads (0.4721ms)\n✔ speech duck changes only master gain and restores its level during crossfades (0.4438ms)\n✔ long music uses overlap transport with at most two voices and a two-buffer cache (1.0584ms)\n✔ the final celebration is a one-shot without background despite result-dialog pause (0.8801ms)\n✔ rapid phase changes abort stale downloads and never start the prior phase (0.3678ms)\n✔ missing music retries after a real five-second cooldown rather than each HUD frame (1.2787ms)\n✔ reset and dispose cancel transport, pending loads and all owned nodes exactly once (0.409ms)\n✔ new run starts a fresh same-URL load immediately and canceled prior load cannot delete or cooldown it (0.3593ms)\n✔ AudioManager terminal pause and mute gesture resume use the same transport boundary (1.2849ms)\n✔ silent native bank review decodes 21 clips through bounded cache without interrupting a victory source (0.7848ms)\n✔ native bank review refuses partial banks and failed decodes instead of reporting a count-only pass (0.2209ms)\n✔ sequential native music review survives production HUD sync and phase changes while downloads are pending (0.6862ms)\n✔ review ownership is released on failure and reset cannot let an old lease delete a fresh same-URL review (0.3964ms)\n✔ native recorded voice review reports all real buffer properties without playing clips (2.5199ms)\n✔ native review cannot report success for a partial catalogue or failed browser decode (0.3974ms)\n✔ muted, disposed and unavailable browser audio contexts fail visibly without starting loads (0.3207ms)\n✔ native decode check is reachable only through the DEV dialog and writes its result to visible DOM (1.2771ms)\n✔ selection catalogue accepts two real A/B URLs per stable family and remains lazy (2.1052ms)\n✔ catalogue loading resolves MP3 filenames relative to root, project and portable deployments without unlocking audio (1.0137ms)\n✔ missing, malformed or superseded catalogue loads fail softly and preserve existing recordings (0.3584ms)\n✔ each committed defender independently chooses A/B and permits B twice in a row (0.7971ms)\n✔ duplicate commits do not restart speech; a new unrecorded final identity cancels it (0.4128ms)\n✔ latest committed defender wins even if earlier fetch/decode completes later (0.2495ms)\n✔ mute, catalogue replacement and dispose suppress pending speech and dispose aborts loads (0.3458ms)\n✔ iPad gesture resumes the context synchronously, pending resume precedes speech, and failures stay silent (2.4665ms)\n✔ missing or undecodable recordings fail softly and a later committed defender can retry (0.4535ms)\n✔ place, keep and combine retain synthetic sounds while inspection never starts or interrupts committed speech (1.4794ms)\n✔ real draft reveals, explicit choices and rank previews stay silent until a double tap keeps the final defender (11.7038ms)\n✔ inspection and deselection during a pending final line do not invalidate its load (5.4355ms)\n✔ successful advanced crafting and Lady Claire speak once, while recipe previews and rejected crafts remain silent (9.6321ms)\n✔ duplicate commits cannot restart a pending or interrupted line, regardless of action labels (0.4079ms)\n✔ ordinary basic merging announces the final higher rank once after the combination chord (4.4746ms)\n✔ catalogue and both MP3s retain their independent audio revision under each deployment base (0.4814ms)\n✔ paid reserve and returning fixed-position candidate remain silent until the returning defender is kept (10.6395ms)\n✔ render changes stay silent and voices never consume seeded gameplay randomness (8.6664ms)\n✔ playing final line continues through wave start at 3x speed and paused combat inspection stays silent (4.8952ms)\n✔ immediate Keep to wave start preserves pending fetch and decode, while mute still suppresses that line (16.4901ms)\n✔ new-run cancellation stops pending and playing commitments and permits a fresh game with reused tower IDs (16.1713ms)\n✔ downgrade rejects insufficient gold silently and announces only the paid final lower rank (4.7113ms)\n✔ null, unrevealed, reserved and ruin commit payloads never load speech or interrupt a valid line (0.2165ms)\n✔ endgame and command actions cancel pending and playing speech without permitting duplicate replay (0.3483ms)\n✔ muted or locked commitment does not queue a line for a later gesture (0.1189ms)\n✔ a pending line cannot play after its committed tower becomes inactive or changes identity (0.1351ms)\n✔ crafting an existing active army between waves announces its actual new champion rather than an ingredient (11.8145ms)\n✔ the actual six-track catalogue rotates through both phase bags and all three battle tails without immediate repeats (5.8428ms)\n✔ two real Game wave completions play one quiet celebration each underneath the newly selected build soundtrack (4.7669ms)\n✔ final real 10-wave and 50-wave victories share the completion key and have no background or duplicate result cue (4.3111ms)\n✔ category defaults preserve internal clip levels and the original quiet celebration gain (0.6202ms)\n✔ pause and mute preserve independent background and celebration offsets instead of restarting or duplicating either source (0.508ms)\n✔ real five-placement, Keep and immediate next-wave start retain both pending and playing quiet celebrations (15.7641ms)\n✔ restart discards a pending celebration and can immediately load the same approved URL for a fresh run (0.8843ms)\n✔ a completion while audio is locked waits for the real unlock gesture and a muted completion cannot sound (0.7938ms)\n✔ phase rotations, all real completion events and tail callbacks leave the campaign RNG and combat data untouched (4.1916ms)\n✔ a natural source ending also rotates when a background timer was delayed and releases the old nodes once (0.4305ms)\n✔ pausing during a slow tail rotation preserves the audible old-track position and suppresses the canceled next download (0.3944ms)\n✔ repeated terminal HUD frames do not postpone the one background fade or stop the quiet final celebration (0.319ms)\n✔ AudioContext is lazy, muted play cannot create it, and unlock resumes only on interaction (1.8252ms)\n✔ attack mechanisms create different synthesized sound signatures (2.8403ms)\n✔ rapid volleys are rate limited and concurrent voices remain capped (1.5241ms)\n✔ hidden hit/death and damage ticks cannot leak enemies through audio (0.1977ms)\n✔ build, impact and death use distinct envelopes and mute stops current and scheduled voices (0.6205ms)\nℹ tests 95\nℹ suites 0\nℹ pass 95\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 255.3982\n"
+    },
+    "whitespace": {
+      "command": "git diff --check -- <D003 source/test files>",
+      "exitCode": 0
+    }
+  },
+  "verificationBoundary": "AudioContext gain graph and transport tests use the repository's Node test harness. Browser native decoding, actual keyboard/touch operation, responsive popover placement and parent-owned persisted settings are separate integration checks owned by the root task.",
+  "remainingIntegration": [
+    "Parent mounts and toggles panel beneath audio icon and handles Escape/outside close.",
+    "Parent saves/restores approved category percentages through profile.",
+    "Parent completes browser keyboard/touch and responsive verification."
+  ],
+  "sourceSha256": {
+    "game/audio/audio.js": "ff1cc6105330d080f62c0c677da5eb5a6a4a034edd3377c69a93b90706583e34",
+    "game/audio/recorded-music.js": "7fa990275c158195fdab32b2c4f66a842af4afc770cae954f142d4b5487a8958",
+    "ui/audio-controls.js": "46bd63cd6d1aaee2dd6840719883850cd36dd0ea70dff82aac67d1e398a5595c",
+    "ui/audio-controls.css": "24c2f9022e32a3b3a8e014edaafc92f72a3db383f66779bfe7082da7edd36c89",
+    "tests/audio-category-volume.test.mjs": "9c0e6e49bfbd806a09eb35ecd7b9c67f5201b897aecdbd7f4f0ba395f404db02",
+    "tests/audio-controls.test.mjs": "8949071ab6eb7d40f640e99efce52ee2fe76b8c5417aa22d7329eb2f46903072",
+    "tests/audio-wave-soundtrack.test.mjs": "4a9349e4c49af5984d2696eb1c90debde4867b7afd7d4034dfe7f93ba784f9ee",
+    "tests/audio-recorded-music.test.mjs": "8860ba18b20a14f35439cf810bb83f8e159ea5805e8c1295c6d9b4209110d416"
+  }
+}

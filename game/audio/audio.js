@@ -4,15 +4,37 @@ import {RecordedMusic} from './recorded-music.js';
 
 const INTERVALS={attack:.065,impact:.09,hit:.10,death:.12,build:.045,magic:.12,ui:.07};
 const soundKind=payload=>attackVisualKind(payload.source?.family||payload.tower?.family,payload.stats||{type:payload.type});
+export const DEFAULT_AUDIO_VOLUMES=Object.freeze({music:80,sounds:40});
+const volumePercent=(value,fallback)=>Number.isFinite(value)?Math.round(Math.max(0,Math.min(100,value))):fallback;
 export class AudioManager{
-  constructor(muted=false,{contextFactory=null,now=()=>globalThis.performance?.now?.()??Date.now(),random=Math.random,voiceRandom=Math.random,musicRandom=Math.random,selectionCatalogue={},fetchAudio=globalThis.fetch?.bind(globalThis),musicTimers={}}={}){
+  constructor(muted=false,{contextFactory=null,now=()=>globalThis.performance?.now?.()??Date.now(),random=Math.random,voiceRandom=Math.random,musicRandom=Math.random,selectionCatalogue={},fetchAudio=globalThis.fetch?.bind(globalThis),musicTimers={},categoryVolumes={}}={}){
     this._muted=!!muted;this.context=null;this.contextFactory=contextFactory;this.now=now;this.random=random;
     this.channels={Music:.18,Ambience:.12,Attacks:.12,Impacts:.07,Magic:.075,UI:.12,Boss:.12,Victory:.025,Defeat:.12,Voices:.08};
+    this.categoryVolumes={music:volumePercent(categoryVolumes?.music,DEFAULT_AUDIO_VOLUMES.music),sounds:volumePercent(categoryVolumes?.sounds,DEFAULT_AUDIO_VOLUMES.sounds)};this.soundsMaster=null;
     this.last=new Map();this.recent=[];this.voices=new Set();this.maxVoices=28;this.maxEventsPerSecond=16;this.noiseBuffer=null;this.disposed=false;
     this.voiceRandom=voiceRandom;this.fetchAudio=fetchAudio;this.selectionCatalogue=new Map();this.audioBuffers=new Map();this.audioLoads=new Set();
     this.selectionVoice=null;this.selectionRequest=0;this.selectionKey=null;this.committedVoiceKeys=new WeakMap();this.catalogueRequest=0;this.resumePromise=null;this.setSelectionCatalogue(selectionCatalogue);
     this.recordedEffects=new Map();this.recordedDefenders=new Map();this.recordedCatalogueRequest=0;this.attackGeneration=0;this.gameState=null;this.effectFailures=new Map();
-    this.music=new RecordedMusic({getContext:()=>this.context,fetchAudio,random:musicRandom,now,volume:()=>this.channels.Music,celebrationVolume:()=>this.channels.Victory,...musicTimers});this.music.setMuted(this._muted);
+    this.music=new RecordedMusic({getContext:()=>this.context,fetchAudio,random:musicRandom,now,volume:()=>this.channels.Music*this.categoryVolumes.music/100,celebrationVolume:()=>this.channels.Victory,...musicTimers});this.music.setMuted(this._muted);
+  }
+  getCategoryVolume(category){
+    if(!Object.hasOwn(DEFAULT_AUDIO_VOLUMES,category))throw new TypeError('Unknown audio category.');
+    return this.categoryVolumes[category];
+  }
+  setCategoryVolume(category,value){
+    const previous=this.getCategoryVolume(category),next=volumePercent(value,previous);
+    if(this.disposed||next===previous)return previous;
+    this.categoryVolumes[category]=next;
+    // Downstream gain nodes keep active voices, envelope shapes and the music
+    // transport intact while a slider changes. No audio context is unlocked here.
+    if(category==='music')this.music.refreshVolume();
+    else if(this.soundsMaster){const t=this.context.currentTime;this.soundsMaster.gain.cancelScheduledValues(t);this.soundsMaster.gain.setValueAtTime(next/100,t);}
+    return next;
+  }
+  effectOutput(category){
+    if(category!=='sounds')return this.context.destination;
+    if(!this.soundsMaster){this.soundsMaster=this.context.createGain();this.soundsMaster.gain.setValueAtTime(this.categoryVolumes.sounds/100,this.context.currentTime);this.soundsMaster.connect(this.context.destination);}
+    return this.soundsMaster;
   }
   get muted(){return this._muted;}
   set muted(value){
@@ -120,7 +142,7 @@ export class AudioManager{
     // A late download must not play an attack from a previous wave/pause/run.
     if(generation!==this.attackGeneration||this.now()-time>250||this.muted||this.disposed||this.gameState?.paused||context!==this.context||context.state!=='running'||this.voices.size>=this.maxVoices)return false;
     const source=context.createBufferSource(),gain=context.createGain();source.buffer=buffer;source.playbackRate.setValueAtTime(1,context.currentTime);
-    gain.gain.setValueAtTime(this.channels.Attacks,context.currentTime);source.connect(gain);gain.connect(context.destination);this.register(source,gain);source.start(context.currentTime);return true;
+    gain.gain.setValueAtTime(this.channels.Attacks,context.currentTime);source.connect(gain);gain.connect(this.effectOutput('sounds'));this.register(source,gain);source.start(context.currentTime);return true;
   }
   cancelSelectionVoice(){
     this.selectionRequest++;this.selectionKey=null;
@@ -196,42 +218,42 @@ export class AudioManager{
     const voice={source,gain,nodes};this.voices.add(voice);
     source.onended=()=>{if(!this.voices.delete(voice))return;source.disconnect();gain.disconnect();nodes.forEach(node=>node.disconnect());};return voice;
   }
-  tone(freq,duration=.12,channel='UI',shape='sine',end=null,{delay=0,gain=.8}={}){
+  tone(freq,duration=.12,channel='UI',shape='sine',end=null,{delay=0,gain=.8,category=null}={}){
     if(this.muted||this.disposed||!this.context||this.voices.size>=this.maxVoices)return;
     const c=this.context,start=c.currentTime+delay,osc=c.createOscillator(),envelope=c.createGain();
     osc.type=shape;osc.frequency.setValueAtTime(Math.max(20,freq),start);
     if(end)osc.frequency.exponentialRampToValueAtTime(Math.max(20,end),start+duration);
     envelope.gain.setValueAtTime(.0001,start);envelope.gain.linearRampToValueAtTime((this.channels[channel]||.08)*gain,start+.006);envelope.gain.exponentialRampToValueAtTime(.0001,start+duration);
-    osc.connect(envelope);envelope.connect(c.destination);this.register(osc,envelope);osc.start(start);osc.stop(start+duration+.012);
+    osc.connect(envelope);envelope.connect(this.effectOutput(category));this.register(osc,envelope);osc.start(start);osc.stop(start+duration+.012);
   }
-  noise(duration=.1,channel='Impacts',frequency=800,{delay=0,gain=.8,type='bandpass'}={}){
+  noise(duration=.1,channel='Impacts',frequency=800,{delay=0,gain=.8,type='bandpass',category=null}={}){
     if(this.muted||this.disposed||!this.context||this.voices.size>=this.maxVoices)return;
     const c=this.context;
     if(!this.noiseBuffer){this.noiseBuffer=c.createBuffer(1,c.sampleRate,c.sampleRate);const samples=this.noiseBuffer.getChannelData(0);for(let i=0;i<samples.length;i++)samples[i]=this.random()*2-1;}
     const start=c.currentTime+delay,source=c.createBufferSource(),filter=c.createBiquadFilter(),envelope=c.createGain();
     source.buffer=this.noiseBuffer;filter.type=type;filter.frequency.setValueAtTime(frequency,start);filter.Q.setValueAtTime(.7,start);
     envelope.gain.setValueAtTime(.0001,start);envelope.gain.linearRampToValueAtTime((this.channels[channel]||.08)*gain,start+.004);envelope.gain.exponentialRampToValueAtTime(.0001,start+duration);
-    source.connect(filter);filter.connect(envelope);envelope.connect(c.destination);this.register(source,envelope,[filter]);source.start(start);source.stop(start+duration+.012);
+    source.connect(filter);filter.connect(envelope);envelope.connect(this.effectOutput(category));this.register(source,envelope,[filter]);source.start(start);source.stop(start+duration+.012);
   }
   attack(kind){
-    if(kind==='roots'){this.noise(.16,'Attacks',480,{gain:.9,type:'lowpass'});this.tone(170,.13,'Magic','triangle',78,{gain:.55});}
-    else if(kind==='flame'){this.noise(.31,'Attacks',750,{gain:1.15,type:'lowpass'});this.tone(78,.30,'Attacks','sawtooth',43,{gain:.26});}
-    else if(kind==='lightning'){this.noise(.045,'Magic',3600,{gain:.75,type:'highpass'});this.tone(1450,.11,'Magic','sawtooth',160,{gain:.3});}
-    else if(kind==='melee'){this.noise(.095,'Attacks',1900,{gain:.7});this.tone(190,.09,'Attacks','triangle',82,{gain:.4});}
-    else if(kind==='siege'){this.noise(.15,'Attacks',340,{gain:1.05,type:'lowpass'});this.tone(100,.20,'Attacks','triangle',47,{gain:.7});}
-    else if(kind==='holy'){this.tone(660,.18,'Magic','sine',880,{gain:.6});this.tone(990,.21,'Magic','sine',null,{gain:.28});}
-    else if(kind==='frost'){this.noise(.07,'Magic',4200,{gain:.4,type:'highpass'});this.tone(1180,.18,'Magic','sine',1560,{gain:.4});}
-    else if(kind==='arcane'){this.tone(350,.16,'Magic','triangle',1150,{gain:.6});this.tone(700,.12,'Magic','sine',400,{gain:.28});}
-    else{this.noise(.035,'Attacks',1200,{gain:.65});this.tone(210,.055,'Attacks','triangle',90,{gain:.5});}
+    if(kind==='roots'){this.noise(.16,'Attacks',480,{category:'sounds',gain:.9,type:'lowpass'});this.tone(170,.13,'Magic','triangle',78,{category:'sounds',gain:.55});}
+    else if(kind==='flame'){this.noise(.31,'Attacks',750,{category:'sounds',gain:1.15,type:'lowpass'});this.tone(78,.30,'Attacks','sawtooth',43,{category:'sounds',gain:.26});}
+    else if(kind==='lightning'){this.noise(.045,'Magic',3600,{category:'sounds',gain:.75,type:'highpass'});this.tone(1450,.11,'Magic','sawtooth',160,{category:'sounds',gain:.3});}
+    else if(kind==='melee'){this.noise(.095,'Attacks',1900,{category:'sounds',gain:.7});this.tone(190,.09,'Attacks','triangle',82,{category:'sounds',gain:.4});}
+    else if(kind==='siege'){this.noise(.15,'Attacks',340,{category:'sounds',gain:1.05,type:'lowpass'});this.tone(100,.20,'Attacks','triangle',47,{category:'sounds',gain:.7});}
+    else if(kind==='holy'){this.tone(660,.18,'Magic','sine',880,{category:'sounds',gain:.6});this.tone(990,.21,'Magic','sine',null,{category:'sounds',gain:.28});}
+    else if(kind==='frost'){this.noise(.07,'Magic',4200,{category:'sounds',gain:.4,type:'highpass'});this.tone(1180,.18,'Magic','sine',1560,{category:'sounds',gain:.4});}
+    else if(kind==='arcane'){this.tone(350,.16,'Magic','triangle',1150,{category:'sounds',gain:.6});this.tone(700,.12,'Magic','sine',400,{category:'sounds',gain:.28});}
+    else{this.noise(.035,'Attacks',1200,{category:'sounds',gain:.65});this.tone(210,.055,'Attacks','triangle',90,{category:'sounds',gain:.5});}
   }
   impact(kind){
-    if(kind==='roots'){this.noise(.19,'Impacts',260,{gain:1,type:'lowpass'});this.tone(95,.12,'Impacts','triangle',42,{gain:.4});}
-    else if(kind==='flame'||kind==='siege'){this.noise(.21,'Impacts',kind==='flame'?850:420,{gain:1.25,type:'lowpass'});this.tone(75,.21,'Impacts','sine',35,{gain:.65});}
-    else if(kind==='frost'){this.noise(.12,'Impacts',4000,{gain:.7,type:'highpass'});this.tone(1600,.13,'Magic','sine',760,{gain:.23});}
-    else if(kind==='holy'){this.tone(1046,.16,'Magic','sine',null,{gain:.42});this.tone(1568,.17,'Magic','sine',null,{gain:.18});}
-    else if(kind==='lightning'){this.noise(.075,'Impacts',3300,{gain:.75,type:'highpass'});this.tone(290,.08,'Impacts','sawtooth',80,{gain:.25});}
-    else if(kind==='arcane'){this.noise(.08,'Impacts',1500,{gain:.6});this.tone(520,.13,'Magic','triangle',130,{gain:.4});}
-    else{this.noise(.065,'Impacts',1200,{gain:.75});this.tone(140,.08,'Impacts','triangle',68,{gain:.35});}
+    if(kind==='roots'){this.noise(.19,'Impacts',260,{category:'sounds',gain:1,type:'lowpass'});this.tone(95,.12,'Impacts','triangle',42,{category:'sounds',gain:.4});}
+    else if(kind==='flame'||kind==='siege'){this.noise(.21,'Impacts',kind==='flame'?850:420,{category:'sounds',gain:1.25,type:'lowpass'});this.tone(75,.21,'Impacts','sine',35,{category:'sounds',gain:.65});}
+    else if(kind==='frost'){this.noise(.12,'Impacts',4000,{category:'sounds',gain:.7,type:'highpass'});this.tone(1600,.13,'Magic','sine',760,{category:'sounds',gain:.23});}
+    else if(kind==='holy'){this.tone(1046,.16,'Magic','sine',null,{category:'sounds',gain:.42});this.tone(1568,.17,'Magic','sine',null,{category:'sounds',gain:.18});}
+    else if(kind==='lightning'){this.noise(.075,'Impacts',3300,{category:'sounds',gain:.75,type:'highpass'});this.tone(290,.08,'Impacts','sawtooth',80,{category:'sounds',gain:.25});}
+    else if(kind==='arcane'){this.noise(.08,'Impacts',1500,{category:'sounds',gain:.6});this.tone(520,.13,'Magic','triangle',130,{category:'sounds',gain:.4});}
+    else{this.noise(.065,'Impacts',1200,{category:'sounds',gain:.75});this.tone(140,.08,'Impacts','triangle',68,{category:'sounds',gain:.35});}
   }
   play(event,payload={}){
     // Completion is recorded even while muted/locked. The subsequent won HUD
@@ -254,7 +276,7 @@ export class AudioManager{
     if(event==='impact'){if(this.allow('impact',INTERVALS.impact))this.impact(soundKind(payload));return;}
     if(event==='hit'){
       // Damage-over-time ticks must not generate a continuous hit-sound storm.
-      if(payload.directHit&&payload.damage>0&&this.allow('hit',INTERVALS.hit))this.noise(.04,'Impacts',500,{gain:.24,type:'lowpass'});return;
+      if(payload.directHit&&payload.damage>0&&this.allow('hit',INTERVALS.hit))this.noise(.04,'Impacts',500,{gain:.24,type:'lowpass',category:'sounds'});return;
     }
     if(event==='death'){
       if(this.allow('death',INTERVALS.death)){this.noise(payload.enemy?.boss ? .42 : .20,'Voices',190,{gain:.8,type:'lowpass'});this.tone(payload.enemy?.boss?95:150,.24,'Voices','triangle',45,{gain:.45});}return;
@@ -276,6 +298,7 @@ export class AudioManager{
     for(const controller of this.audioLoads)controller.abort();this.audioLoads.clear();this.audioBuffers.clear();this.selectionCatalogue.clear();
     for(const voice of [...this.voices]){voice.source.onended=null;voice.source.disconnect();voice.gain.disconnect();voice.nodes.forEach(node=>node.disconnect());}
     this.voices.clear();this.last.clear();this.recent=[];this.noiseBuffer=null;this.recordedEffects.clear();this.recordedDefenders.clear();this.effectFailures.clear();this.disposed=true;
+    this.soundsMaster?.disconnect();this.soundsMaster=null;
     try{this.context?.close?.()?.catch?.(()=>{});}catch{/* Closing a closed context is harmless. */}
   }
 }

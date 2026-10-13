@@ -1,5 +1,15 @@
 # Releases
 
+## 0.3.28 — Dynamic Crafting and Audio Controls — 13 October 2026
+
+- Implements audit decisions D002–D005; the campaign-wide D001 balancing audit remains deferred.
+- Gives every Moon Clan form 25% direct-hit Evasion without changing other variant stats or True Strike.
+- Adds independent Music and Sounds sliders with saved 80% / 40% defaults, live adjustment and separate Mute all. Voices, UI and victory cues retain their existing volume policy.
+- Places Next wave above independently collapsible Peak DPS, retaining an individual peak in the compact line and truthful completed-wave / not-measured labels. New drafts and transformed defenders cannot inherit old damage.
+- Adds contextual champion recruiting, exact Built / This round / Missing ingredients, result-foundation and wall consequences, pinned recursive planning and allocated revealed-candidate highlights.
+- Adapts the five-slot draft and crafting actions for desktop, iPad landscape and mobile landscape while preserving existing recipe legality, art and commitment rules.
+- Repairs browser-host music timers so approved tracks retain their rotation and crossfades.
+
 ## 0.3.27 — Combat Timing and Soundtrack Rotation — 11 October 2026
 
 - Rotates approved construction and battle tracks without immediate repeats, raises music above attack-sound gain and plays a quieter celebration after every completed wave.

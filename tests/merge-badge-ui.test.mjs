@@ -55,7 +55,12 @@ test('a state change during selection notification cannot reach the core merge m
 
 class Element {
   constructor(tag){this.tagName=tag.toUpperCase();this.children=[];this.listeners=new Map();this.dataset={};this.style={};this.attributes={};this.className='';this.hidden=false;this.clientWidth=1200;
-    this.classList={add:name=>this.className+=(this.className?' ':'')+name};}
+    this.classList={
+      contains:name=>this.className.split(/\s+/).includes(name),
+      add:(...names)=>{this.className=[...new Set([...this.className.split(/\s+/).filter(Boolean),...names])].join(' ');},
+      remove:(...names)=>{this.className=this.className.split(/\s+/).filter(name=>name&&!names.includes(name)).join(' ');},
+      toggle:(name,force)=>{const present=this.classList.contains(name),enabled=force===undefined?!present:!!force;this.classList[enabled?'add':'remove'](name);return enabled;},
+    };}
   append(...children){for(const child of children){child.parent=this;this.children.push(child);}}
   remove(){if(this.parent)this.parent.children=this.parent.children.filter(child=>child!==this);this.parent=null;}
   setAttribute(name,value){this.attributes[name]=String(value);}

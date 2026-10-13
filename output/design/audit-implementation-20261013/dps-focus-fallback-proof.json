@@ -1,0 +1,37 @@
+{
+  "decision": "D004",
+  "createdAt": "2026-10-13T15:54:31.032Z",
+  "ownerScope": [
+    "ui/tower-dps.js",
+    "tests/tower-dps.test.mjs"
+  ],
+  "hashes": {
+    "ui/tower-dps.js": "b5768d5849740450b4aa62016e59943a74764eae9b61d5816de655dd9370d371",
+    "tests/tower-dps.test.mjs": "dbbbc11a1c3bf7fce939c916a24199dd26d0725ff65bf4da936934aa1e7f5d87"
+  },
+  "defect": "After real crafting reuses a defender ID, the measured old-family row becomes disabled. The DPS updater selected that disabled ID as a focus restoration target, leaving no focused control.",
+  "fix": "Ignore disabled replacements and fall back to the persistent native disclosure summary with preventScroll.",
+  "regression": {
+    "uses": "Real Game impact, TowerDpsTracker hit attribution, DpsMeasurement completed snapshot, real rimewatch craft reusing the frostwarden ID, and actual updateTowerDpsPanel; minimal DOM boundary models disabled buttons refusing focus.",
+    "beforeFix": {
+      "command": "node --test --test-name-pattern=actual crafting archives tests/tower-dps.test.mjs",
+      "tests": 1,
+      "pass": 0,
+      "fail": 1,
+      "failure": "Focused element became null instead of the persistent summary."
+    },
+    "afterFix": {
+      "command": "node --test tests/tower-dps.test.mjs tests/dps-measurement.test.mjs tests/battlefield-overlay-panels.test.mjs tests/battlefield-panel-main-integration.test.mjs",
+      "tests": 39,
+      "pass": 39,
+      "fail": 0
+    },
+    "preserved": "Disclosure remains open and scroll remains at 47 while the old measured row stays disabled and archived."
+  },
+  "whitespaceCheck": "git diff --check passed for owned sources",
+  "limits": [
+    "A minimal DOM boundary verifies native disabled-focus behavior; responsive/native browser work remains root owned.",
+    "This report covers targeted checks only, separately from initial and final full-suite caches."
+  ],
+  "frozen": true
+}

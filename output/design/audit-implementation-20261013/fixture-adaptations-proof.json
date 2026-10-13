@@ -1,0 +1,43 @@
+{
+  "createdAt": "2026-10-13T15:28:17.536Z",
+  "scope": "Approved D004/D005 test-fixture adaptation only",
+  "ownedTestFiles": [
+    "tests/battlefield-panel-main-integration.test.mjs",
+    "tests/wave-preview-flow.test.mjs",
+    "tests/merge-badge-ui.test.mjs"
+  ],
+  "hashes": {
+    "tests/battlefield-panel-main-integration.test.mjs": "3c0ea5b8d3c828a2e9033a0511e012683d0b16e2c2868a629c5135cd9c0dc9ba",
+    "tests/wave-preview-flow.test.mjs": "2e6355dd6d65127e7a267cfbb3ef0a04f151e6b23ac1d112f53194eb6302f3a0",
+    "tests/merge-badge-ui.test.mjs": "0b0e2b25c69abecfc17c5243c40e0e5dded65476a9f916a429d34397e54ba1a7"
+  },
+  "verifiedRun": {
+    "command": "node --test tests/battlefield-panel-main-integration.test.mjs tests/wave-preview-flow.test.mjs tests/merge-badge-ui.test.mjs",
+    "tests": 22,
+    "pass": 22,
+    "fail": 0
+  },
+  "diffWhitespaceCheck": "git diff --check passed for the three owned test files",
+  "adaptations": [
+    "Production stampCraftButtons source helper and actual craftRecipeKey are available to compiled sidebar functions; mock query asserts these combat/wall scenarios contain no craft buttons.",
+    "Real DpsMeasurement is initialized for the existing debug-review combat wave and bound to the compiled production HUD.",
+    "Actual compact-draft-actions host is supplied to renderDraft and remains hidden and empty in combat.",
+    "Source order explicitly requires Next wave before measured DPS under D004.",
+    "Map DOM mock classList reads current className and implements deduplicated add/remove/contains/toggle(force), supporting new pinned recipe badge updates."
+  ],
+  "retainedAssertions": [
+    "Actual enemy health damage, pause, death and selected inspection scroll.",
+    "Persistent global header controls and no duplicate combat controls.",
+    "Demolition phase restrictions and keyboard/overlay isolation.",
+    "Actual round31 completion and final10 victory with disclosure preference preserved and hidden drafts unrevealed.",
+    "Merge foundation identity, single accepted tap/keyboard action, stale pair rejection, no RNG consumed.",
+    "Drag, pointer cancellation and inventory changes cannot merge.",
+    "Wave preview remains read-only and does not consume CP, recruit RNG or map resources."
+  ],
+  "limits": [
+    "This report verifies only the targeted 22-test run. The root initial full-suite cache and final full-suite result are separate evidence.",
+    "No production source or gameplay semantics were changed by this owner.",
+    "Real browser layout, native pointer hit-testing and touch scrolling remain root-owned checks."
+  ],
+  "frozen": true
+}

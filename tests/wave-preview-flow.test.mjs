@@ -71,7 +71,7 @@ test('new round reopens intelligence even when combat previewed that same wave',
 test('compact next-wave intelligence stays on the map outside the command sidebar and is never analysed in frame HUD',()=>{
   const main=readFileSync(new URL('../game/main.js',import.meta.url),'utf8'),hud=main.slice(main.indexOf('function hud()'),main.indexOf('function render(){'));
   const sidebar=main.slice(main.indexOf('<aside class="sidebar"'),main.indexOf('<section class="draft-panel"'));
-  assert.match(main,/id="battlefield-overlays"[^]*?id="tower-dps"[^]*?id="next-wave-summary"/);
+  assert.match(main,/id="battlefield-overlays"[^]*?id="next-wave-summary"[^]*?id="tower-dps"/,'Approved D004 keeps Next wave before the measured DPS display');
   assert.match(sidebar,/id="side-body"/);assert.doesNotMatch(sidebar,/id="(?:wave-intelligence|next-wave-summary|tower-dps)"/);
   assert.match(main,/host=\$\('next-wave-summary'\)/);assert.match(main,/function render\(\)\{renderIntelligence\(\)/);
   assert.doesNotMatch(main,/previewDisclosureOpen/);

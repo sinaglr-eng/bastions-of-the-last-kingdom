@@ -4,11 +4,12 @@ import {defenderPortrait} from '../release.js';
 import {RecipeMarkerActivation} from '../../ui/recipe-marker-input.js';
 import {mergeTowerKey,mergeTowerFromBadge} from '../../ui/draft-input.js';
 import {PointerTapGesture} from './touch-input.js';
+import {pinnedRecipeHighlightIds} from '../../ui/crafting-dock.js';
 
 // Independent world-space markers: aiming and recoil never move the round indicators.
 export class DraftMarkers {
   constructor(scene,container){
-    this.scene=scene;this.container=container;this.items=new Map();this.badges=new Map();this.mergeBadges=new Map();this.reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.scene=scene;this.container=container;this.items=new Map();this.badges=new Map();this.mergeBadges=new Map();this.pinnedBadges=new Map();this.reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.layer=document.createElement('div');this.layer.className='recipe-map-badges';container.append(this.layer);
     this.activation=new RecipeMarkerActivation();this.gesture=new PointerTapGesture();this.pointers=new Map();
     this.layer.addEventListener('pointerdown',event=>{const button=event.target.closest?.('.recipe-map-badge');if(!button)return;this.gesture.start(event);this.pointers.set(event.pointerId,{button,mergeKey:button.dataset.mergeKey});});
@@ -17,7 +18,7 @@ export class DraftMarkers {
       const origin=this.pointers.get(event.pointerId),button=origin?.button;this.pointers.delete(event.pointerId);
       if(!this.gesture.end(event)||button!==event.target.closest?.('.recipe-map-badge')){this.activation.clear();return;}
       if(button?.dataset.role==='merge'){this.activation.clear();mergeTowerFromBadge(this.game,Number(button.dataset.tower),origin.mergeKey);return;}
-      if(button?.dataset.role==='discarded'){this.activation.clear();this.game.select(Number(button.dataset.tower));return;}
+      if(['discarded','pinned'].includes(button?.dataset.role)){this.activation.clear();this.game.select(Number(button.dataset.tower));return;}
       if(button)this.activation.activate(this.game,Number(button.dataset.tower),button.dataset.recipe,event);
     });
     this.cancel=()=>{this.activation.clear();this.gesture.clear();this.pointers.clear();};
@@ -79,6 +80,20 @@ export class DraftMarkers {
       };
       const body=models.get(tower.id)?.object;badge.height=body?new THREE.Box3().setFromObject(body).max.y:2;badge.tower=tower;
     }
+    const pinned=pinnedRecipeHighlightIds(game),pinIds=new Set([...pinned].filter(id=>!hintIds.has(id)&&!mergeIds.has(id)));
+    for(const [id,badge]of this.pinnedBadges)if(!pinIds.has(id)){badge.el.remove();badge.line.remove();this.pinnedBadges.delete(id);}
+    for(const id of pinIds){
+      const tower=game.towers.find(t=>t.id===id);if(!tower)continue;
+      let badge=this.pinnedBadges.get(id);
+      if(!badge){const el=document.createElement('button'),line=document.createElementNS('http://www.w3.org/2000/svg','line');this.layer.append(el);this.lines.append(line);badge={el,line};this.pinnedBadges.set(id,badge);}
+      const label=`Select ${game.data.towers[tower.family].name} rank ${rankLabel(tower.tier)} · This round ingredient for pinned recipe`;
+      badge.el.className='recipe-map-badge pinned-recruit-map-badge';badge.el.type='button';badge.el.dataset.tower=String(id);badge.el.dataset.role='pinned';badge.el.setAttribute('aria-label',label);badge.el.title=label;
+      badge.el.innerHTML=`<span class="recipe-map-portrait"><img src="${defenderPortrait(tower.family,tower.tier)}" alt=""></span><b>◆</b>`;badge.line.setAttribute('stroke','#efcb7a');
+      badge.el.onclick=event=>{if(event.detail>0||this.gesture.suppressClick(event))return;this.activation.clear();game.select(id);};
+      const body=models.get(id)?.object;badge.height=body?new THREE.Box3().setFromObject(body).max.y:2;badge.tower=tower;
+    }
+    for(const [id,badge]of this.badges)badge.el.classList.toggle('pinned-recruit-map-badge',pinned.has(id));
+    for(const [id,badge]of this.mergeBadges)badge.el.classList.toggle('pinned-recruit-map-badge',pinned.has(id));
     const preview=game.recipePreview;this.legend.hidden=!preview;
     if(preview)this.legend.textContent=`${recipeLabel(preview.recipe,game.data)} · Double-click ★ to create here · − ingredients → walls${preview.discarded.length?' · × unchosen → walls':''}`;
   }
@@ -90,7 +105,7 @@ export class DraftMarkers {
       marker.position.y=marker.userData.height+.42*scale;
     }
     const occupied=[],width=this.container.clientWidth,small=width<580;
-    for(const [id,badge] of [...this.badges,...this.mergeBadges]){
+    for(const [id,badge] of [...this.badges,...this.mergeBadges,...this.pinnedBadges]){
       const merge=badge.el.dataset.role==='merge',bw=small?(merge?44:36):48,bh=small?(merge?50:42):54;
       const marker=this.items.get(id),p=new THREE.Vector3(badge.tower.x-18,marker?marker.position.y+.43*marker.scale.y:badge.height+1,badge.tower.z-18).project(camera);
       badge.el.hidden=Math.abs(p.x)>1||Math.abs(p.y)>1||p.z>1;
@@ -108,5 +123,5 @@ export class DraftMarkers {
     }
   }
   release(marker){this.scene.remove(marker);const materials=new Set();marker.traverse(o=>{o.geometry?.dispose();if(o.material)materials.add(o.material);});materials.forEach(m=>m.dispose());marker.userData.texture.dispose();}
-  dispose(){this.cancel();window.removeEventListener('blur',this.cancel);this.items.forEach(m=>this.release(m));this.items.clear();this.badges.clear();this.mergeBadges.clear();this.layer.remove();this.legend.remove();}
+  dispose(){this.cancel();window.removeEventListener('blur',this.cancel);this.items.forEach(m=>this.release(m));this.items.clear();this.badges.clear();this.mergeBadges.clear();this.pinnedBadges.clear();this.layer.remove();this.legend.remove();}
 }

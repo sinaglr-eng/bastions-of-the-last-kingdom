@@ -33,6 +33,8 @@ function scores(raw,archive){
   return {bestScore,bestScores,runHistory,...(excludedRuns.length?{excludedRuns}:{})};
 }
 const stringList=value=>Array.isArray(value)?[...new Set(value.filter(x=>typeof x==='string'))]:[];
+const audioVolume=(value,fallback)=>typeof value==='number'&&Number.isFinite(value)?Math.max(0,Math.min(100,value)):fallback;
+export const audioVolumePreferences=value=>({music:audioVolume(value?.music,80),sounds:audioVolume(value?.sounds,40)});
 function legacyProgress(profile){
   const history=profile.runHistory||[],awards=new Set(history.flatMap(row=>stringList(row.discoveryAwards)));
   return {wins:Math.max(0,scoreOf(profile.wins)-history.filter(row=>row.outcome==='won').length),bestWave:scoreOf(profile.bestWave),discoveries:stringList(profile.discoveries).filter(id=>!awards.has(id))};
@@ -44,7 +46,7 @@ function progress(profile,archive,retained){
 }
 export function loadProfile() {
   const raw=read(KEY),archive=read(SCORES_KEY),retained=scores(raw,archive);
-  return {...raw,discoveries:stringList(raw.discoveries),muted:raw.muted===true,bestWave:scoreOf(raw.bestWave),...retained,wins:scoreOf(raw.wins),...progress(raw,archive,retained),tutorial:raw.tutorial!==false,tutorialDecision:['accepted','skipped','complete'].includes(raw.tutorialDecision)?raw.tutorialDecision:null};
+  return {...raw,audioVolumes:audioVolumePreferences(raw.audioVolumes),discoveries:stringList(raw.discoveries),muted:raw.muted===true,bestWave:scoreOf(raw.bestWave),...retained,wins:scoreOf(raw.wins),...progress(raw,archive,retained),tutorial:raw.tutorial!==false,tutorialDecision:['accepted','skipped','complete'].includes(raw.tutorialDecision)?raw.tutorialDecision:null};
 }
 export function saveProfile(profile){
   const archive=read(SCORES_KEY),stored=read(KEY),retained=scores(profile,scores(stored,archive));

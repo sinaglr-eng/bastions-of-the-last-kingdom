@@ -1,5 +1,213 @@
 # Bastions of the Last Kingdom
 
+## CURRENT GAME RULES — verified baseline, 2026-10-13
+
+**Status: CURRENTLY IMPLEMENTED.** Audit of the current working tree, package version 0.3.27. This section supersedes conflicting descriptions in the historical material below. Existing local modifications were included in the inspection; this is not a claim about a committed or deployed build. Only documentation was changed for this audit.
+
+### Source of truth and architecture
+
+`game/main.js` constructs playable data through `campaignTowers`, `campaignRecipes`, `campaignEnemies` and `campaignWaves` in `game/core/campaign-roster.js`. Reading raw JSON alone gives an incorrect current roster, names and several combat values. The eight basic families have 48 rank profiles; the playable campaign has 37 ordinary champions and one Secret champion (Lady Claire), for **86 playable profiles and 38 recipes**. Historical JSON also contains the retired allied Lord Bernhard; the adapter excludes him and names the final enemy boss Lord Bernhard.
+
+`Game` owns phase transitions and legal actions. `GridManager` owns occupancy and cardinal BFS; `DraftManager` owns seeded draws and reserve identity; `EconomyManager` owns gold/XP/mastery; `CommandPoints` owns tactical spending; `CombatManager` owns spawning, targeting, projectiles, statuses and damage; `MvpManager` owns actual damage attribution and wave awards. UI and Three.js rendering subscribe to game events. Profile persistence and the optional statistics backend are separate from battlefield state. Combat details are maintained in [COMBAT_RULES.md](docs/COMBAT_RULES.md); tactical draft rules in [CONTROLLED_RNG.md](docs/CONTROLLED_RNG.md).
+
+### Core loop and player decisions
+
+Choose the 50-wave campaign or 10-wave skirmish. A new run starts directly in construction, with 30 keep health, 90 gold and 3 Command Points (CP). Place five candidates, inspect the upcoming wave, then keep one, merge eligible defenders or craft an exact recipe. Placement reveals family/rank only after its tile is committed. Unchosen candidates and consumed ingredients become walls. A reserved candidate is an exception: it remains an inactive blocker and returns in the next draft. Choose when to reroll, reserve, move, downgrade, demolish walls, commit ingredients, and start the wave. Combat is automatic; targeting priority, individual attack pause, global pause and speed controls remain player choices. A survived wave grants rewards/MVP growth and immediately opens the next construction round.
+
+Phases are `build → select → ready → combat → build`, with a transient `reward` phase before automatic `nextRound()`. Final states are `won` and `lost`. Combining only retained ingredients need not resolve the current draft; consuming a current candidate resolves that round's keeper decision.
+
+### Map, placement and movement
+
+The open board is 37 × 37. Ordered zero-based waypoints are (0,4), (4,18), (32,18), (32,4), (18,4), (18,32), (36,32). Ground enemies follow the concatenated cardinal shortest paths through all waypoints. Flying enemies move directly between the same waypoints and ignore walls. Crossings do not cause leaks. The unobstructed ground route is 120 steps; detours increase exposure only where defenders can reach enemies.
+
+Each active defender, candidate, reserve and wall occupies one blocked cell. Checkpoints, entrance and exit cannot be built on; a placement must preserve every route segment. Invalid placements consume no draw RNG. Free wall demolition is available between waves; retained defenders cannot be freely sold or demolished. The planner/editor provides suggested and custom structures without spending currency or draws. Its exposure comparisons are geometric estimates, not damage forecasts. Five draft slots per round imply a nominal 250-slot campaign budget or 50-slot skirmish budget; a carried reserve fills one slot without a new foundation. Demolition does not refund spent draw slots.
+
+### Draft, combinations and randomness
+
+Each of eight basic families has equal weight, so an ordinary family roll has 12.5% probability. Rank probabilities use the mastery row frozen at round start. Mastery index is floor(min(round−1,24) × 15 / 24); round 1 rolls only rank I, round 25 onward rolls I–V at 4%, 18%, 27%, 31%, 20%. Rank VI is merge-only. There is no unrestricted shop or paid champion upgrade.
+
+Lower-rank merges require two identical family/rank candidates in the completed current draft. **Rank V exception:** two same-family retained V defenders can merge to VI between waves; mixing a retained V and a current V requires a completed draft. VI cannot merge upward. The selected foundation/identity holds the result; the other becomes a wall. Recipes require three distinct actual defenders at exact family/rank, including crafted champions when specified. All 38 live recipe level requirements are 1, so Kingdom XP currently adds no later recipe gate. Ordinary recipes can use retained ingredients between waves. Lady Claire requires the exact three current-round candidates after all five slots are placed; her special eligibility is enforced through actual draw identities and reserve constraints.
+
+Reroll costs 1 CP, once per completed draft, and changes random candidates on their existing foundations. A returning reserve is protected. Reserve costs 1 CP, one candidate per draft, disables subsequent reroll and carries that identity/rank at its fixed position to next round's slot 1. It cannot attack, support, detect, move, be demolished or satisfy recipes while reserved. Move costs 2 CP and exchanges a retained defender with an existing wall between waves; occupied cells and the exact route remain unchanged. Invalid/cancelled moves spend nothing. Each boss killed grants 5 CP once; a leaking boss grants none.
+
+Seeded game RNG drives draft rolls, individual enemy variants and combat chances. Rendering a preview does not roll variants. Audio randomness is separate. A seed alone does not establish identical outcomes across different player actions or frame schedules.
+
+### Combat and current defender roles
+
+Soldier is short-range ground-only melee; Archer is rapid single-target Physical; Druid applies Magical poison stacks; Mage deals Magical attacks and secondary cleave; Cleric is Holy damage plus haste/detection; Engineer applies armor reduction; Frost Warden deals Physical damage and movement slow; Stormcaller deals Magical attacks against up to three distinct targets. Champions deepen these roles through multi-target attacks, damage auras, criticals, support, armor reduction, healing block and conditional effects. Current names and overrides come from the campaign adapter, not historical display names.
+
+Targets must be visible and within Euclidean range; melee excludes flying targets and rechecks range at impact. Priorities are first/last by fractional route progress, strongest/weakest by current HP, and fastest/slowest by base speed. Druid and Engineer preferentially spread their status, accounting for incoming shots; they may wait for pending applications before normal repeated targeting. Projectiles apply damage on arrival; melee windup is 0.14 seconds. Cooldown overshoot is retained for fast attackers.
+
+Only Physical, Magical and Holy are defense classes. Effective armor is max(0, base + reactive armor − strongest flat shred) × (1 − strongest MVP reduction) × (1 − penetration). **All three** deal damage × 30 / (30 + effective armor). Holy bypasses damage immunity but still respects armor, evasion, hit shields and direct-hit Shell. Direct resolution order is evasion, shield, damage bonuses/armor/immunity, Shell. True Strike prevents evasion only. Live elemental resistances and former Pure defense bypass are removed.
+
+Physical immunity also blocks slow/freeze; Magical immunity blocks poison, burn and healing block, including companion effects from Holy sources. Golem petrification is an explicit separate exception. Each successful damaging poison hit adds an independent five-combat-second stack with its own owner and expiry. Burn is strongest-only. DOT and non-direct damage bypass direct-hit evasion/shields/Shell but retain armor and immunity. Flat armor reduction and slows use strongest effects. Boss slow strength is halved. Standard haste takes the strongest blessing; Archbishop's separate blessing adds once. Support includes its own source.
+
+MVP: each survived wave awards one level to the uncapped active defender with greatest actual HP removed, excluding overkill. Ties prefer higher existing MVP, then lower identity. Cap 10; +10% own damage per level; strongest 1% armor reduction per level within two tiles; level 10 grants other allies within two tiles +75% damage. Own/foreign MVP bonuses add, then ordinary damage support multiplies. Merges and recipes inherit maximum ingredient MVP, not the sum. Per-defender pause stops new attacks/offensive auras but preserves existing shots, DOT, support/detection and MVP auras. Global pause freezes combat clocks.
+
+### Important balance values
+
+Unbuffed direct values below exclude defense, poison, multi-target multiplication, auras, MVP and secondary effects.
+
+| Basic family | Rank I damage / interval / range | Rank VI damage / interval / range | Key utility |
+| --- | --- | --- | --- |
+| Soldier | 22.5 / 1s / 2.5 | 882 / 0.7s / 2.5 | Ground-only melee |
+| Archer | 6 / 0.25s / 4 | 100.8 / 0.1s / 5 | Rapid hits |
+| Druid | 6 / 1s / 5 | 36 / 1s / 5 | 6 / 384 poison DPS per stack |
+| Mage | 12 / 1s / 5 | 450 / 1s / 5 | 30% / 100% Magical cleave |
+| Cleric | 3 / 1s / 5 | 18 / 1s / 5 | +20% / +70% standard haste |
+| Engineer | 6 / 0.6s / 5 | 210 / 0.6s / 5 | −2 / −64 armor for 4s |
+| Frost Warden | 6 / 1s / 6 | 108 / 0.6s / 6 | 12% / 55% slow for 3s |
+| Stormcaller | 9 / 1.3s / 6 | 174 / 0.6s / 12 | Up to three targets |
+
+Full I–VI authored profiles live in `data/towers.json`, interpreted through the campaign adapter and `towerStats`. Champion values also require adapter overrides. High Priest +100% standard haste plus Archbishop +500% separate haste produces ×7 attack rate; Archbishop damage support is ×2. Mother Nature has 9,492 damage/0.5s, range 13 and 1,898.4 poison DPS per stack before support/MVP/defenses. Lady Claire's damage is Holy, sequential chain damage is 250, and Melancholy is disabled.
+
+### Enemies, waves and difficulty
+
+There are 50 sequential authored warbands, one enemy group per wave, with bosses at 10/20/30/40/50. Later threats combine flight, immunity variants, cloak, evasion, shields, disarm, Dread, healing, reactive armor, blink, Shell, rush, theft and haste. Bosses 10/20 are ground; 30/40/50 fly. Regular leaks cost 1 health and these bosses cost 10. Boss death is not mandatory for wave completion: any positive-health run proceeds when no live or queued enemies remain.
+
+| Wave | Count | HP each (base live profile) | Armor | Speed | Spawn interval |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 1 | 8 | 9 | 0 | 1.3 | 2.4s |
+| 2 | 8 | 52 | 1 | 2.21 | 0.6s |
+| 3 | 9 | 68 | 8 | 2.37 | 0.6s |
+| 10 | 1 | 4,226 | 14 | 1.65 | 1s |
+| 20 | 1 | 25,079 | 22 | 1.65 | 1s |
+| 30 | 1 | 118,139 | 20 | 1.65 | 1s |
+| 40 | 1 | 440,770 | 26 | 1.65 | 1s |
+| 50 | 1 | 1,460,171 | 33 | 1.65 | 1s |
+
+Live tuning: evasion 25% against all direct classes; shields have three charges, refill 2s after depletion; recharge heals 50% missing HP every 4s; regeneration 20% maximum HP/s, or 40% for the wave-38 Blood-Leech variant; reactive armor +8/contact up to 15 stacks, decaying 0.7 stacks/s; blink advances six route tiles every 5s. Shell begins at 100 on wave 39 and increases 10/wave, reaching 210 on wave 50 or 273 for its stronger variant. Dread applies −75% attack speed for 3s to the defender that actually damages its bearer, refreshed by later damage. Disarm lasts 5s in each staggered 8s cycle within three tiles. Cloaked enemies need detection/proximity; basic Cleric detection reaches six tiles.
+
+### Economy, rewards, progression and end states
+
+Kills award enemy XP and score, never gold. XP level is 1 + floor(XP/90); it is separate from automatic construction mastery. A survived ordinary/boss wave grants 50/200 gold and 15 XP even if enemies leaked. Gold currently funds only the 200-gold one-rank downgrade-and-immediate-keep action on a basic current candidate above I. No health purchase, paid mastery or paid champion enhancement is active. Master Ranger retains a 1% successful-hit recovery proc, capped at starting health.
+
+Normal kill score is 10 × wave; boss kill is 500 × wave; survival gives 100 × wave and boss-wave survival another 200 × wave. Win means finishing the selected final wave with positive keep health, including possible surviving boss leaks. Lose means keep health reaches zero. Final victory still receives survival gold/XP and MVP. A new run resets battlefield, tactical resources and run growth. Long-term profile progression is discoveries, wins, best wave, scores and history; no persistent combat-stat purchase was found.
+
+### UX, onboarding, saves and telemetry
+
+The battlefield is the primary screen with five draft cards, selected-unit inspection, rank comparison, combination hints, recipe guide/pinning, maze planner/editor and enemy wave guide. Immediate wave intelligence includes actual HP/count/armor/abilities and possible variants; later forecasts reveal progressively less. Army WEAK/FAIR/GOOD/STRONG labels evaluate composition, own MVP and self-support, not placement, coverage, maze length or allied aura overlap. Live DPS counts actual HP removed and is not base damage/interval.
+
+The seven-step optional tutorial covers placement, keeper, maze, economy, recipes, threat intelligence and starting combat. It omits dedicated CP/MVP instruction and still describes XP as recipe unlocking despite all current recipes requiring level 1. Double-click/double-tap can commit a keeper. Touch tap places/selects, one-finger drag pans, two fingers rotate/zoom. Global speed handler cycles 1×/2×/3×; global pause and individual attack pause have different effects. Result UI offers optional named leaderboard submission, Top 10 and own rank, separated by version and campaign.
+
+`save.js` stores browser-local preferences, discoveries, scores and run history, with a separate score archive and version/mode attribution. Maze plans persist separately. **No battlefield save/resume is implemented.** Leaving/restarting records a run, not a restorable board. TIME counts real time including construction and pauses. Existing statistics code already captures run checkpoints, draws, choices, wave outcomes and defender contributions; actual service availability, data completeness and production cohorts were not verified. Developer Console activation excludes the run from legitimate statistics/awards.
+
+### Verification and limits
+
+Inspected actual source and adapters, data, tutorial/UI integration, combat/CP documentation and automated tooling. Ran nine existing focused test files: **92 tests passed, 0 failed** (core, controlled RNG game/draft, command movement, combat overhaul, MVP, mastery, opening waves, rank/recipes). Repository contains 162 `*.test.mjs` files; the complete suite/build and hands-on desktop/mobile playtests were not run in this audit. Tests establish rules, not fun or campaign win rates.
+
+`tools/balance.mjs` already supports seeded probability checks, base stat exports and a three-seed greedy campaign bot. It loads raw historical JSON without the playable campaign adapters, so its current outputs are not authoritative live-campaign balance evidence. It also writes artifacts; it was inspected, not executed. Existing tests offer deterministic scenarios without creating a new simulation system.
+
+### Current identity — analytical interpretation, not a newly approved specification
+
+Core fantasy: command the kingdom's defenders against escalating warbands. Core hook: revealed-after-placement random recruits become both the army and the maze, while exact recipes transform accumulated units. Strategic pillars: route/exposure design, draft adaptation with scarce CP, recipe investment, and mixed damage/control/support composition. Player promise inferred from mechanics: turn imperfect recruits and permanent foundations into a stronger defense. Whether players experience that promise needs playtesting.
+
+## Design decisions and discussion register
+
+Operating mode: **DESIGN / ANALYSIS**. Design approval authorizes documentation only. Gameplay, UI, balance, configuration and production assets require explicit implementation instruction.
+
+Workflow clarified by the user on 2026-10-13: this chat records and refines requirements only, including instructions phrased as "add" or "change". Record accepted requirements as **APPROVED DESIGN — NOT IMPLEMENTED**. The user will separately authorize implementation of the collected requirements in the chat **Master verze hry**. Do not implement changes or message that chat from here; the shared document is the handoff specification.
+
+Current implementation queue, updated at the user's request on 2026-10-13: **D002, D003, D004 and D005**. **D001 is temporarily DEFERRED and excluded from the next implementation batch**. Preserve its design record, but do not schedule its campaign-wide balancing/variant work or completion audit until the user explicitly includes it again. Implementation was separately authorized by the user in Master verze hry on 2026-10-13 and delivered in release 0.3.28. See [implementation and verification](docs/AUDIT_IMPLEMENTATION_20261013.md).
+
+States: **CURRENTLY IMPLEMENTED**, **PROPOSED — NOT APPROVED**, **APPROVED DESIGN — NOT IMPLEMENTED**, **APPROVED DESIGN — IMPLEMENTED**, **REJECTED**, **DEPRECATED**. The baseline above records verified implementation, not new approval. Historical documents contain prior approval claims; this audit does not retroactively approve undocumented changes. Latest accepted requirements are recorded below, separately from the baseline and proposed backlog.
+
+For future approved decisions, record: ID, System, exact Decision/Rules, Balance Values, Reasoning, Status, Dependencies, Risks/Notes and Version/Date. Keep one latest approved specification; retain superseded history as DEPRECATED. Verify implementation separately before marking an approved decision implemented.
+
+### Pending design backlog — all PROPOSED — NOT APPROVED
+
+| ID | Discussion topic | Evidence / question | Technical impact if later implemented |
+| --- | --- | --- | --- |
+| P01 | Current-rule clarity and onboarding | Historical GDD conflicts with runtime; tutorial omits CP/MVP and implies nonexistent recipe XP locks. Which rules must players understand first? | LOW–MEDIUM: tutorial, help, guide copy |
+| P02 | Early-wave fairness and placement literacy | Wave 2 total base HP is 416 versus wave 1's 72, while spawn interval drops from 2.4s to 0.6s. Measure novice leaks and understanding across draft seeds. | MEDIUM: waves, preview, onboarding |
+| P03 | Support/poison/MVP balance | ×7 haste, ×2 support damage, independent poison stacks and damage-based MVP may concentrate power. Compare full setups including acquisition cost, uptime, armor and immunity. | MEDIUM–HIGH: combat, roster, readiness |
+| P04 | Flying boss exposure and viable counter paths | Ground maze investment does not lengthen flying routes; late bosses combine large HP, Shell and variants. Test reachable army compositions before asserting unfairness. | MEDIUM: wave/roster/preview balance |
+| P05 | CP decision quality and gold usefulness | CP is boss-kill dependent; gold has one spending action. Are reserve/move/reroll meaningful alternatives, and does unused gold confuse players? | MEDIUM: economy, draft UI, statistics |
+| P06 | Mobile sessions and loss explanation | 37 × 37 precision, nested recipe information, double-tap commitment and no resume need observed device playtests. Do players know why they leaked? | MEDIUM–HIGH depending on chosen design |
+
+These are analysis topics, not approved mechanics or implementation tasks. No new currency, feature or telemetry system is authorized by listing them.
+
+P03 analysis, 2026-10-13: [Support, poison and MVP balance](docs/SUPPORT_POISON_MVP_ANALYSIS.md) records current runtime calculations, one-off combat probes, recipe costs and candidate adjustments. All adjustments remain **PROPOSED — NOT APPROVED**; none were implemented.
+
+### D001 — Campaign fairness and distinct variants, 2026-10-13
+
+- System: enemy waves, variant design, defender balance and campaign progression.
+- Decision: the campaign must be completable but challenging, with multiple viable combinations rather than a single mandatory army. Enemy alternatives within the same wave must have different gameplay properties; visual/name changes alone do not satisfy this requirement.
+- Rules: evaluate every actual variant after runtime inheritance/overrides, including unfavorable mixtures. Multiple viable paths may use mixed damage and complementary support; this does not require a pure damage-type army to counter its matching immunity.
+- Balance values: no enemy or defender numerical changes approved; no target win rate specified.
+- Reasoning: preserve meaningful adaptation, fair difficulty and replayability.
+- Status: **APPROVED DESIGN — NOT IMPLEMENTED** (design acceptance criterion; compliance of current gameplay still under audit).
+- Implementation scheduling: **DEFERRED — EXCLUDED FROM CURRENT IMPLEMENTATION QUEUE**, at the user's request on 2026-10-13. Keep this decision as a future design goal; reinclusion requires the user's instruction. Active implementation requirements are D002–D005.
+- Dependencies: campaign adapters, enemy definitions, combat, draft/recipe acquisition, route coverage, preview information and playtests.
+- Risks/Notes: fixture armies prove combat capability, not obtainable progression; independent seeded drafts need separate verification. Previously proposed support/poison/MVP adjustments remain **PROPOSED — NOT APPROVED**.
+
+D001 audit, 2026-10-13: [All waves, variants and viable paths](docs/WAVE_DESIGN_AUDIT_20261013.md) records every current enemy profile, controlled army comparisons, random mixtures and legal draft probes. Cosmetic-only variants in waves 5/15/27/29/41 do not satisfy the distinct-properties criterion. Full legal campaign completion and multiple obtainable winning paths are not yet demonstrated; no gameplay changes are authorized by these findings.
+
+### D002 — Evasion for every Moon Clan variant, 2026-10-13
+
+- System: enemy variant abilities and wave intelligence.
+- Decision: every Moon Clan variant must have the existing Evasion ability.
+- Rules: use the current Evasion contract: **25% chance to evade a direct hit**, applying to Physical, Magical and Holy direct hits. True Strike bypasses Evasion. Already applied DOT and other non-direct damage retain their existing rules. Preserve other abilities, immunities, HP, armor, speed, spawn counts, rewards and appearance. Do not stack Evasion or increase it on a variant that already has it.
+- Scope: wave 5 **Bat Scouts · Moon Clan**; wave 15 **Blood Bat Riders · Moon Clan**; wave 27 **Spectral Bat Riders · Moon Clan**; wave 28 **Goblin Scrapwings · Moon Clan**; wave 29 **Prismatic Bat Tricksters · Moon Clan**; wave 41 **Orc Crystal Phalanx · Moon Clan**. The request applies to every Moon Clan form, including wave 28, not only the five previously cosmetic pairs.
+- Current implementation (0.3.28): all six Moon Clan forms have 25% Evasion. Wave 29 retains its existing value; the other five Moon Clan adapters now add it.
+- Balance values: reuse the existing 25% Evasion value; no other tuning is approved.
+- Reasoning: give Moon Clan forms a shared gameplay property and distinguish currently cosmetic alternatives.
+- Status: **APPROVED DESIGN — IMPLEMENTED** in 0.3.28, following separate authorization in Master verze hry on 2026-10-13.
+- Dependencies: playable campaign variant adapters, combat, actual spawn inheritance, enemy previews/inspection and regression checks.
+- Risks/Notes: increases pressure in early waves 5/15 and combines with existing defenses later; campaign balance must be rechecked after implementation. Wave 29 remains mechanically identical because both forms already have Evasion; a separate future decision is still needed to distinguish that pair. This requirement does not approve any previous support, poison or MVP adjustment.
+- Implementation verification: actual spawned Moon Clan enemies must have 25% Evasion; True Strike must bypass it; non-Moon Clan forms and archived evidence must retain their values; previews must show the added ability. These scoped checks passed; seeded combat probes are documented in the implementation report. They do not certify deferred D001 campaign completion.
+
+### D003 — Separate Music and Sounds volume sliders, 2026-10-13
+
+- System: audio controls and game interface.
+- Decision: beneath the music/audio icon, provide two independently adjustable volume sliders labelled **Music** and **Sounds**.
+- Rules: **Music** controls background music; **Sounds** controls attack sound effects. Use a percentage range of 0–100%, with the current value visible. Each slider affects only its assigned category; 0% silences that category. The defaults are initial settings, not a reset every time the panel opens. Changes should take effect while adjusting the slider, without restarting the run or track. Existing relative clip levels and music ducking should be respected beneath the category volume setting.
+- Balance values: default **Music = 80%**; default **Sounds = 40%**. These are player-facing category volume percentages, not a specification to replace every individual internal gain with 0.8 or 0.4.
+- Reasoning: allow the player to tune background music separately from combat attack effects.
+- Status: **APPROVED DESIGN — IMPLEMENTED** in 0.3.28. The user additionally approved saving Music and Sounds between visits; Mute all remains a separate control.
+- Dependencies: current audio icon/control in `game/main.js`, `AudioManager`, `RecordedMusic`, attack-effect routing, responsive UI and accessibility.
+- Risks/Notes: keep sliders usable with touch and keyboard. Recorded and fallback attack effects must follow Sounds. Spoken defender lines, unrelated UI sounds and victory cues were not explicitly assigned to these two categories and must not silently receive a new volume policy. The user separately approved persistence during implementation; the panel retains a separate Mute all action.
+- Implementation verification: independent controls; initial 80%/40%; silence at 0%; no cross-category volume change; live changes during playback; preserved ducking/relative mix; mobile and keyboard operation. These scoped checks passed, including native keyboard adjustment, persistence after reload and approved audio decoding.
+
+### D004 — Visible DPS beneath Next wave, 2026-10-13
+
+- System: battlefield overlays, construction phase and responsive interface.
+- Decision: retain the measured DPS score visibly **below Next wave**, with an independently collapsible display that can become a narrow line while keeping a score and an expand control visible.
+- Rules: do not remove the DPS entry from construction or replace the collapsed state with a scoreless menu button. Expanded and compact presentations must remain usable on desktop, iPad landscape and mobile landscape. Recipe inspection/pinning must not relocate the DPS entry above Next wave or hide it behind the inspector.
+- Measurement: keep the existing actual peak DPS over a five-game-second window. During construction, label preserved results with their completed wave; do not confuse them with catalog base DPS, predicted damage, or new draft performance. Before the first combat, use a truthful not-measured state instead of fictional values. How much of the ranking remains in the compact line is a proposed visual detail.
+- Reasoning: the user wants to monitor defender performance while planning a champion and placing the next draft.
+- Status: **APPROVED DESIGN — IMPLEMENTED** in 0.3.28 after the separate implementation instruction. Original concepts remain historical evidence.
+- Dependencies: Next wave/DPS overlay layout, `ui/tower-dps.js`, disclosure state and responsive construction panels.
+- Risks/Notes: overlays must remain short enough to leave placement visible on low-height screens. The user's preference overrides any interpretation of UI05 that would make DPS disappear during building. D005 subsequently approves the latest dynamic visual treatment.
+- Implementation verification: correct vertical order, score retained in compact mode, independent disclosure controls, truthful wave/measurement labels and reachable controls on all three device classes. These checks passed in real game tests and native browser viewport checks. Physical iPad hardware and a full campaign completion remain outside this verification.
+
+### D005 — Dynamic champion crafting and pinned recipe UI, 2026-10-13
+
+- System: contextual champion combinations, pinned recipe planning, construction interface and responsive battlefield overlays.
+- Decision: approve the latest three dynamic UI concept boards for future implementation on desktop, iPad landscape and mobile landscape: available champion combination, pinned construction goal with expanded DPS, and the same goal with compact DPS.
+- Rules: contextual exact recipe/result preview and explicit Recruit champion; visible pinned goal; Built / This round / Missing states; matching revealed recruit highlights; accurate five-slot/phase presentation; independently collapsible DPS beneath Next wave with its score retained, as required by D004. Preserve existing recipe legality, result-anchor rules, approved art and measured peak-DPS semantics.
+- Balance values: none changed. Illustrated inventories, 7.0/2.9 scores, generated enemy placeholders and approximate raster proportions are examples, not runtime specifications.
+- Reasoning: the user approved the new dynamic visual treatment for implementation preparation.
+- Status: **APPROVED DESIGN — IMPLEMENTED** in 0.3.28 after separate authorization in Master verze hry.
+- Specification: [approved implementation handoff](docs/UI_DYNAMIC_CRAFTING_APPROVED_20261013.md), including the approved scope, integration targets and acceptance requirements.
+- Dependencies: recipe/inventory helpers, crafting preview and map markers, recipe browser/pinning, draft cards, Next wave/DPS disclosures and responsive styling.
+- Risks/Notes: do not copy generation errors or introduce a blanket placement gate for retained-only legal combinations. Pinning and previewing are non-committing. This approval applies to the latest crafting/pinning/DPS studies; other UI audit proposals retain their independently recorded states.
+- Implementation verification: exact ingredients and anchor, unchanged commitment rules, truthful ownership/draft progress, recursive allocation, DPS ordering/measurement labels, visible compact score and touch/focus operation on all three layouts. Scoped verification passed; see [implementation and verification](docs/AUDIT_IMPLEMENTATION_20261013.md).
+
+### UI audit backlog, 2026-10-13
+
+[UI/UX audit](docs/UI_DESIGN_AUDIT_20261013.md) records source inspection and actual screenshots across desktop, tablet, portrait and landscape sizes. Suggestions UI01–UI16 cover compact combat layout, mobile inspection, HUD priorities, catalogs, phase-specific information, onboarding and results. The audit suggestions remain **PROPOSED — NOT APPROVED** except for the scoped, separately recorded decisions D003 (audio sliders), D004 (visible DPS below Next wave) and D005 (the latest dynamic crafting/pinning layouts). The audit itself does not authorize implementation. Existing gameplay, models and UI source were not changed here.
+
+Visual studies: [three generated layout concepts](output/design/ui-concepts-20261013-v1/README.md) show desktop selection/audio, mobile selection and landscape combat. **PROPOSED — NOT APPROVED**; illustrative mockups only. Original prompts/revisions are preserved alongside them, and no interface was implemented.
+
+Responsive visual suite: [nine comparison boards](output/design/ui-concepts-responsive-20261013-v1/README.md) cover UI01–UI16 across desktop, iPad landscape and mobile landscape, including D003 audio controls. **PROPOSED — NOT APPROVED — NOT IMPLEMENTED**. The suite contains 27 illustrative layouts, coverage mapping and verbatim generation/edit prompts. Raster labels, miniature placement and device proportions are conceptual; the audit and runtime remain authoritative. This record does not approve additional settings or authorize game implementation.
+
+Champion crafting studies: [available combinations, pinned building goals and expanded/compact DPS](output/design/ui-crafting-pinning-20261013-v1/README.md) extend the responsive suite across desktop, iPad landscape and mobile landscape. These three dynamic visual layouts were implemented in 0.3.28 as **APPROVED DESIGN — IMPLEMENTED** under D005, with the approved D004 requirement retaining the DPS score below Next wave. The [implementation handoff](docs/UI_DYNAMIC_CRAFTING_APPROVED_20261013.md) defines the authoritative behavior; illustrated inventories and DPS scores remain fixtures, not measured balance results. Original images, prompts and generation review records are preserved.
+
+## Historical design reference — preserved below
+
+The following earlier specification remains as design history. Conflicting counts, names, combat rules, mastery timing and opening values must not be used as current rules; consult the dated baseline and source modules above.
+
 ## Battlefield and core loop
 
 The browser version uses a completely open 37 × 37 board. No scenery blocks any playable cell. Camp and keep models stand outside the board. Zero-based coordinates:

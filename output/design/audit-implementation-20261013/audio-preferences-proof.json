@@ -1,0 +1,35 @@
+{
+  "decision": "D003",
+  "requirement": "User-confirmed persistence of Music and Sounds category percentages.",
+  "createdAt": "2026-10-13 15:16:52 UTC",
+  "status": "passed",
+  "frozen": true,
+  "sourceUnderTest": {
+    "path": "game/core/save.js",
+    "sha256": "c3417497254b7063f428048b2529a9239bd4a9e9a5d34be9ced5e69f32976cb4",
+    "owner": "root task; no production edits by audio test agent"
+  },
+  "newTest": {
+    "path": "tests/audio-volume-preferences.test.mjs",
+    "sha256": "53489124b9468a873d2f17c6be8317310880889222af162abe7c641e7f09b8f8",
+    "cases": 5
+  },
+  "verified": [
+    "Fresh and legacy profiles default to Music 80 / Sounds 40 while preserving scores, run history, discoveries, global mute and unrelated preferences.",
+    "Both categories at zero remain zero through real saveProfile/loadProfile cycles and repeated visits.",
+    "Later independent category changes preserve the other category and global mute setting.",
+    "Finite values clamp to 0–100; nonfinite and malformed stored field types use the category default.",
+    "Absent, corrupted, blocked or quota-limited storage fails safely while in-memory choices remain usable.",
+    "Developer-run exclusion and a stale tab save preserve latest audio percentages, global mute and legitimate history."
+  ],
+  "checks": {
+    "command": "node --test tests/audio-volume-preferences.test.mjs tests/score-version-preservation.test.mjs tests/developer-statistics-exclusion.test.mjs",
+    "tests": 18,
+    "passed": 18,
+    "failed": 0,
+    "exitCode": 0,
+    "output": "✔ legacy and fresh profiles gain initial 80/40 audio preferences while preserving history, mute and unrelated preferences (2.1647ms)\n✔ both zero percentages survive save and repeated visits independently of global mute and later category changes (0.278ms)\n✔ stored finite percentages clamp to range while malformed fields and hostile primitive types use category defaults (0.5384ms)\n✔ missing, corrupt, blocked and quota-limited storage falls back safely without changing in-memory audio choices (0.3359ms)\n✔ developer exclusion and a stale tab save retain the latest audio percentages and legitimate history (1.1224ms)\n✔ activating console withdraws an already uploaded run from every statistics query without touching historical runs (37.6779ms)\n✔ a run excluded before registration cannot be resurrected by a delayed registration/checkpoint (6.0124ms)\nStatistics sync postponed; the result remains queued on this device. offline\n✔ an exclusion arriving after a checkpoint owner read wins over its delayed SQL batch (4.326ms)\n✔ offline client permanently purges only its console run and retries withdrawal after reload (6.7312ms)\n✔ run-scoped local withdrawal preserves old best/history/preferences and prevents a stale tab restoring the excluded score (1.899ms)\n✔ a stale client with excluded pending memory finishes flushing without re-uploading or spinning (2.114ms)\n✔ two tabs retain legitimate wins, independently earned discoveries and latest preferences when one run is excluded (2.5082ms)\n✔ a pre-version local best survives actual newer completed runs, stale saves and an older tab rewriting the profile (263.916ms)\n✔ a run ID retains its played version and one immutable completed result across repeated end-screen or unload saves (1.5593ms)\n✔ the actual main reward and result hooks attribute every saved score before profile persistence (40.4532ms)\n✔ all-version standings retain original SQLite rows and schema, exact-version ranks and separate campaign lengths (709.5279ms)\n✔ the real client saves and loads mixed historical versions without changing the current immutable run version (83.3273ms)\n✔ an older deployed service gets a bounded explicit single-version fallback, while real network failures do not hide behind fallback (1.4878ms)\nℹ tests 18\nℹ suites 0\nℹ pass 18\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1207.1466\n",
+    "whitespaceExitCode": 0
+  },
+  "verificationBoundary": "Actual profile persistence APIs use a scoped in-memory localStorage fixture. Root owns main callback integration and browser reload verification. Frozen audio-proof.json remains unchanged."
+}

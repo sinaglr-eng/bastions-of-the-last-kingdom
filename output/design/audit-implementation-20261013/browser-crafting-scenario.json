@@ -1,0 +1,49 @@
+{
+  "seed": 208,
+  "retained": "Cleric I",
+  "draws": [
+    "Druid I",
+    "Engineer I",
+    "Stormcaller I",
+    "Engineer I",
+    "Archer I"
+  ],
+  "partial": {
+    "placed": 3,
+    "built": 1,
+    "thisRound": 1,
+    "missing": 1
+  },
+  "complete": {
+    "placed": 5,
+    "built": 1,
+    "thisRound": 2,
+    "missing": 0,
+    "resultFoundation": {
+      "x": 32,
+      "z": 26
+    },
+    "consumed": [
+      "Cleric I at 19,18",
+      "Druid I at8,24"
+    ],
+    "unchosen": [
+      "Engineer",
+      "Stormcaller",
+      "Engineer"
+    ]
+  },
+  "result": {
+    "phase": "ready",
+    "draftSlots": 5,
+    "result": "Elven Ranger",
+    "otherDraftSlots": "4 castle walls"
+  },
+  "mobileActions": {
+    "recruit": 44,
+    "keep": 44,
+    "unpin": 44
+  },
+  "allMobileIngredientStatesVisible": true,
+  "coordinateConvention": "player-facing one-based"
+}

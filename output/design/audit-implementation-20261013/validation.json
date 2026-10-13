@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "version": "0.3.28",
+  "checkedAt": "2026-10-13T15:58:13.381Z",
+  "tests": {
+    "total": 1263,
+    "passed": 1263,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "log": "full-tests-final.txt",
+    "sha256": "3c11a51fbcf4b911cbd6e5678d6997f6ac5f36df30d03349f3306c5eaf698a05"
+  },
+  "build": {
+    "base": "/bastions-of-the-last-kingdom/",
+    "log": "production-build.txt",
+    "sha256": "f5b2cb0ad912f42240724bcb7edb218065e9f51b8cadd7d345124372aa83d6ee"
+  },
+  "native": {
+    "decodedAudio": 113,
+    "musicCacheBuffers": 2,
+    "runtimeErrors": 0,
+    "viewportSizes": [
+      [
+        1280,
+        720
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        844,
+        390
+      ]
+    ],
+    "physicalIpadHardwareTested": false
+  },
+  "sourcePaths": 39,
+  "protectedTrackedDataArtCombatUnchanged": true
+}

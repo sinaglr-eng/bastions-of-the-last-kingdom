@@ -10,6 +10,8 @@ import {wallPanelMarkup} from '../ui/wall-panel.js';
 import {formatRunDuration} from '../ui/run-clock.js';
 import {icon} from '../ui/icons.js';
 import {TowerDpsTracker} from '../game/core/tower-dps.js';
+import {DpsMeasurement} from '../ui/dps-measurement.js';
+import {craftRecipeKey} from '../ui/crafting-dock.js';
 import {WaveThreatAnalyzer} from '../game/core/wave-threats.js';
 import {ArmyReadiness} from '../game/core/army-readiness.js';
 import {nextWavePreviewIndex} from '../ui/wave-preview-flow.js';
@@ -21,18 +23,23 @@ const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].ma
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
 function declaration(name){
   const start=source.indexOf(`function ${name}(`),next=source.indexOf('\nfunction ',start+1);
+  // This single-line production helper precedes top-level event wiring,
+  // rather than another declaration. Do not execute that browser setup here.
+  if(name==='stampCraftButtons'){assert.ok(start>=0);return source.slice(start,source.indexOf('\n',start));}
   assert.ok(start>=0&&next>start,`actual main declaration ${name} is available`);return source.slice(start,next);
 }
 function compile(names,bindings,prefix=''){
   return new Function(...Object.keys(bindings),prefix+'\n'+names.map(declaration).join('\n')+`\nreturn {${names.join(',')}};`)(...Object.values(bindings));
 }
-const bodyNode=()=>({innerHTML:'',dataset:{},scrollTop:0,scrollLeft:0,insertAdjacentHTML(where,markup){this.innerHTML=where==='afterbegin'?markup+this.innerHTML:this.innerHTML+markup;}});
+const bodyNode=()=>({innerHTML:'',dataset:{},scrollTop:0,scrollLeft:0,
+  querySelectorAll(selector){assert.equal(selector,'[data-action="craft"]');assert.doesNotMatch(this.innerHTML,/data-action="craft"/,'These combat/wall fixtures contain no crafting buttons');return [];},
+  insertAdjacentHTML(where,markup){this.innerHTML=where==='afterbegin'?markup+this.innerHTML:this.innerHTML+markup;}});
 function sidebarFixture(game){
   const body=bodyNode(),nodes=new Map([['side-top',bodyNode()],['side-body',body]]),images={ruin:'approved-wall.png'},inspection=bodyNode(),currentWave=bodyNode();
   inspection.closest=()=>body;inspection.ownerDocument={activeElement:null};inspection.querySelectorAll=()=>[];
   currentWave.closest=()=>body;
   const $=id=>id==='selected-enemy-panel'?(body.innerHTML.includes('id="selected-enemy-panel"')?inspection:null):id==='current-wave-panel'?(body.innerHTML.includes('id="current-wave-panel"')?currentWave:null):nodes.get(id)||null;
-  const functions=compile(['towerPanel','enemyInspectionOptions','combatPanel','renderSidebar'],{game,$,data,images,icon,rankPreview:{clear(){}},selectedEnemyMarkup,currentWavePanelMarkup,commandPointsMarkup,wallPanelMarkup,tutorial:()=>'<h2>Construction</h2>'});
+  const functions=compile(['stampCraftButtons','towerPanel','enemyInspectionOptions','combatPanel','renderSidebar'],{game,$,data,images,icon,rankPreview:{clear(){}},selectedEnemyMarkup,currentWavePanelMarkup,commandPointsMarkup,wallPanelMarkup,craftRecipeKey,tutorial:()=>'<h2>Construction</h2>'});
   return {body,nodes,inspection,currentWave,$,images,...functions};
 }
 function headerHost(){
@@ -63,11 +70,11 @@ test('actual main sidebar keeps individual live enemy HP and close control witho
 });
 
 test('actual main HUD follows real damage, pause and death while retaining individual scroll, peak DPS and persistent header controls',()=>{
-  const game=new Game(data,{seed:693});prepareEnemyInspectionReview(game);const ui=sidebarFixture(game),tracker=new TowerDpsTracker(),samples=[];
-  tracker.reset(game.combat.elapsed);game.on((type,payload)=>{if(type==='hit')tracker.recordHit(payload,game.combat.elapsed);});
+  const game=new Game(data,{seed:693});prepareEnemyInspectionReview(game);const ui=sidebarFixture(game),tracker=new TowerDpsTracker(),measurement=new DpsMeasurement(),samples=[];
+  tracker.reset(game.combat.elapsed);measurement.startWave(game.round);game.on((type,payload)=>{if(type==='hit')tracker.recordHit(payload,game.combat.elapsed);});
   for(const id of ['hud-wave','hud-lives','hud-gold','hud-time','hud-cp','hud-score','tower-dps','developer-mode-indicator'])ui.nodes.set(id,{textContent:'',innerHTML:'',parentElement:{parentElement:{classList:{add(){},remove(){}}}}});
   const header=headerHost();ui.nodes.set('header-combat-controls',header);
-  let audioSyncs=0;const {hud}=compile(['hud'],{game,$:ui.$,audio:{syncGameState(actual){assert.equal(actual,game);audioSyncs++;}},developerConnection:null,updateHeaderCombatControls,updateSelectedEnemyPanel,updateCurrentWavePanel,enemyInspectionOptions:ui.enemyInspectionOptions,renderSidebar:ui.renderSidebar,renderRecipeBrowser(){},updateTowerDpsPanel:(panel,rows,...rest)=>samples.push({rows,options:rest.at(-1)}),dpsTracker:tracker,dpsWave:game.round,data,images:ui.images,balance:data.balance,formatRunDuration,profile:{bestScore:0},renderWarbandsOverview(){},supportEffectsMarkup(){throw new Error('No defender is selected');}});
+  let audioSyncs=0;const {hud}=compile(['hud'],{game,$:ui.$,audio:{syncGameState(actual){assert.equal(actual,game);audioSyncs++;}},developerConnection:null,updateHeaderCombatControls,updateSelectedEnemyPanel,updateCurrentWavePanel,enemyInspectionOptions:ui.enemyInspectionOptions,renderSidebar:ui.renderSidebar,renderRecipeBrowser(){},updateTowerDpsPanel:(panel,rows,...rest)=>samples.push({rows,options:rest.at(-1)}),dpsTracker:tracker,dpsMeasurement:measurement,data,images:ui.images,balance:data.balance,formatRunDuration,profile:{bestScore:0},renderWarbandsOverview(){},supportEffectsMarkup(){throw new Error('No defender is selected');}});
   const enemy=game.combat.enemies.find(candidate=>game.combat.isRevealed(candidate)),attacker=game.towers.find(t=>t.state==='active');assert.equal(game.selectEnemy(enemy.id),true);ui.renderSidebar();ui.body.scrollTop=107;
   for(let n=0;n<8;n++){
     game.combat.damage(enemy,Math.min(3,enemy.hp/100),'pure',{},attacker);hud();assert.equal(ui.body.scrollTop,107);
@@ -77,7 +84,9 @@ test('actual main HUD follows real damage, pause and death while retaining indiv
   assert.equal(audioSyncs,8);assert.equal(ui.nodes.get('developer-mode-indicator').hidden,true);game.developerMode=true;hud();assert.equal(ui.nodes.get('developer-mode-indicator').hidden,false);
   game.paused=true;game.speed=3;const pausedHP=enemy.hp;game.tick(.5);hud();assert.equal(enemy.hp,pausedHP);assert.equal(samples.at(-1).options.paused,true);assert.equal(header.label.textContent,'Resume');assert.equal(header.speed.textContent,'3×');assert.equal(header.hidden,false);assert.equal(header.writes,1);assert.doesNotMatch(ui.inspection.innerHTML,/data-action="(?:pause|speed)"/);
   game.combat.damage(enemy,enemy.maxHp*10,'pure',{},attacker);hud();assert.equal(game.enemySelection,null);assert.doesNotMatch(ui.body.innerHTML,/id="selected-enemy-panel"|current-warband|boss-health|data-action="(?:pause|speed)"/);assert.match(ui.body.innerHTML,/current-wave-panel/);assert.match(ui.currentWave.innerHTML,/invaders remaining/);assert.equal(header.writes,1);
-  const draftMarkup=compile(['renderDraft'],{game,$:id=>id==='draft'?ui.body:null,icon,commandPointsMarkup,data,images:ui.images,draftCardsMarkup:()=>'<div>Current draft controls</div>'});draftMarkup.renderDraft();assert.doesNotMatch(ui.body.innerHTML,/draft-combat-actions|data-action="(?:pause|speed)"/);assert.match(ui.body.innerHTML,/Current draft controls/);
+  const compact=bodyNode();ui.nodes.set('compact-draft-actions',compact);
+  const draftMarkup=compile(['renderDraft'],{game,$:id=>id==='draft'?ui.body:ui.nodes.get(id)||null,icon,commandPointsMarkup,data,images:ui.images,draftCardsMarkup:()=>'<div>Current draft controls</div>'});draftMarkup.renderDraft();assert.doesNotMatch(ui.body.innerHTML,/draft-combat-actions|data-action="(?:pause|speed)"/);assert.match(ui.body.innerHTML,/Current draft controls/);
+  assert.equal(compact.hidden,true,'Construction command points do not duplicate combat controls');assert.equal(compact.innerHTML,'');
 });
 
 test('actual main selected-wall markup puts demolition immediately after the title and matches real Game.remove phase restrictions',()=>{

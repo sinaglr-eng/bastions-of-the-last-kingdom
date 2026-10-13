@@ -1,0 +1,54 @@
+{
+  "decision": "D004",
+  "createdAt": "2026-10-13T15:18:28.119Z",
+  "testOwnerScope": [
+    "tests/dps-measurement.test.mjs"
+  ],
+  "testHash": "9cae72d346a117b5927feddd048382111250c646b42d9f08ceea461a7800c7ab",
+  "inspectedProductionHashes": {
+    "ui/dps-measurement.js": "6448ca59cf58212980b0b136e74e919e0bed155c58e857667d306a5f3ca2ea4b",
+    "ui/tower-dps.js": "429b192a9a3d8bd682c447e679303191dfc75072816d9ce9e3b46005f1cb6c28",
+    "game/core/tower-dps.js": "f3d4f72607f004a9e43075e07ffb580ae99f196ff34a9da17894c6c8afe0081e"
+  },
+  "standaloneTest": {
+    "command": "node --test tests/dps-measurement.test.mjs",
+    "tests": 7,
+    "pass": 7,
+    "fail": 0
+  },
+  "relatedRegressionRun": {
+    "command": "node --test tests/dps-measurement.test.mjs tests/tower-dps.test.mjs tests/battlefield-overlay-panels.test.mjs",
+    "tests": 33,
+    "pass": 31,
+    "fail": 2,
+    "failures": [
+      {
+        "file": "tests/battlefield-overlay-panels.test.mjs",
+        "line": 52,
+        "reason": "Legacy heading copy requires Peak DPS this wave; approved new heading is Peak DPS with explicit wave context and score."
+      },
+      {
+        "file": "tests/tower-dps.test.mjs",
+        "line": 181,
+        "reason": "Legacy heading copy requires Peak DPS this wave; later construction note assertions also need the approved Completed wave and unmeasured labels."
+      }
+    ],
+    "reportedToRoot": true
+  },
+  "coverage": [
+    "First construction, revealed next recruits, and ready phase remain unmeasured without draft performance rows or fictional zero score.",
+    "Real impact and poison damage after armor use actual HP removed, five game seconds, and capped overkill.",
+    "Identical 1x and 3x game clocks preserve direct and DOT peaks; global pause freezes combat measurements.",
+    "Completed wave snapshot retains hit-captured peak and source clock through construction while excluding the next draft.",
+    "Real rimewatch crafting reuses the frostwarden ID: its historical row remains under old identity and score, archived and disabled; the champion starts fresh on next combat.",
+    "Compact score is the highest individual peak, including peaks from different times, rather than their sum.",
+    "A new Game and measurement session starts unmeasured independently of old completed results."
+  ],
+  "limits": [
+    "Tests wire wave, hit and wave-complete events directly to the measurement owner; production main.js wiring and browser DOM/layout are root-owned checks.",
+    "Responsive geometry, real browser disclosure input, and persistence preferences are outside this independent measurement test file.",
+    "No campaign completion or balance conclusion is made; D001 remains deferred."
+  ],
+  "productionFilesModified": [],
+  "frozen": true
+}

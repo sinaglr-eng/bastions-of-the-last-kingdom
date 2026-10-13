@@ -45,7 +45,10 @@ function setup({placed=true,distinct=false}={}){
   });
   const sidebar=compile(between('function renderSidebar()','function previewRecipe()'),'renderSidebar',{
     game,$,icon,rankPreview,towerPanel:panel,
-    commandPointsMarkup:()=>'',tutorial:()=>'',combatPanel:()=>'',selectedEnemyMarkup:()=>'',enemyInspectionOptions:()=>({})
+    commandPointsMarkup:()=>'',tutorial:()=>'',combatPanel:()=>'',selectedEnemyMarkup:()=>'',enemyInspectionOptions:()=>({}),
+    // Craft-button DOM stamping is exercised by crafting-main-integration;
+    // this text-only sidebar fixture isolates the actual pointer bindings.
+    stampCraftButtons:()=>{}
   });
   const render=()=>{renders++;sidebar();};game.on(type=>{if(type==='change')render();});
   const activation=new DraftCardActivation(()=>now);

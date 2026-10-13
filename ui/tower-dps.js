@@ -5,19 +5,20 @@ const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&
 const number=value=>value.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});
 const explanation='Highest actual DPS over a 5-game-second window in this wave';
 
-export function towerDpsContents(rows,data,images,{phase='build',paused=false,wave=null}={}){
-  return battlefieldDisclosureMarkup(dpsParts(rows,data,images,{phase,paused,wave}));
+export function towerDpsContents(rows,data,images,options={}){
+  return battlefieldDisclosureMarkup(dpsParts(rows,data,images,options));
 }
 
-function dpsParts(rows,data,images,{phase='build',paused=false,wave=null}={}){
+function dpsParts(rows,data,images,{phase='build',paused=false,wave=null,measured=wave!==null||rows.length>0,completed=phase!=='combat'&&wave!==null}={}){
   const highest=rows[0]?.dps||0;
-  const note=wave?`Wave ${wave}${phase==='combat'&&paused?' · Paused':''}`:phase==='combat'?`This wave${paused?' · Paused':''}`:'Measured during combat';
-  const summary=`<span class="tower-dps-heading"><h2 title="${explanation}">Peak DPS this wave</h2><span>${rows.length} ${rows.length===1?'defender':'defenders'}</span></span>`;
+  const note=!measured?'Not measured yet · First combat pending':completed?`Completed wave ${wave} · Measured over 5 game seconds`:wave?`Wave ${wave}${paused?' · Paused':''} · Measured over 5 game seconds`:`This wave${paused?' · Paused':''} · Measured over 5 game seconds`;
+  const score=measured?number(highest):'—',context=wave?`${completed?'Last wave':'Wave'} ${wave}`:'Not measured';
+  const summary=`<span class="tower-dps-heading"><h2 title="${explanation}">Peak DPS</h2><span class="tower-dps-summary-context">${context}</span><strong class="tower-dps-summary-score" title="Highest measured defender peak; individual peaks are not summed">${score}</strong></span>`;
   const body=`<p class="tower-dps-note">${note}</p>${rows.length?`<ol class="tower-dps-list" aria-label="Defenders ordered by peak actual DPS this wave">${rows.map((row,index)=>{
     const stats=towerStats(row,data),name=stats.name,rank=rankLabel(row.tier),portrait=images[`${row.family}:${row.tier}`]||images[row.family]||'';
-    return `<li><button type="button" data-action="tower-dps-select" data-id="${row.id}" data-overlay-focus="${row.id}" aria-label="Select ${escape(name)}, rank ${rank}, defender ${row.id}, ${number(row.dps)} peak DPS this wave"><span class="tower-dps-position" aria-hidden="true">${index+1}</span><img src="${escape(portrait)}" alt=""><span class="tower-dps-name"><strong>${escape(name)}</strong><small>#${row.id} · ${stats.advanced?'Champion':`Rank ${rank}`}</small></span><strong class="tower-dps-value">${number(row.dps)}</strong><span class="tower-dps-bar" aria-hidden="true" style="width:${highest?row.dps/highest*100:0}%"></span></button></li>`;
+    return `<li><button type="button" data-action="tower-dps-select" data-id="${row.id}" data-overlay-focus="${row.id}"${row.selectable===false?' disabled':''} aria-label="${row.archived?'Measured':'Select'} ${escape(name)}, rank ${rank}, defender ${row.id}, ${number(row.dps)} peak DPS${row.archived?'; combined or removed after this wave':' this wave'}"><span class="tower-dps-position" aria-hidden="true">${index+1}</span><img src="${escape(portrait)}" alt=""><span class="tower-dps-name"><strong>${escape(name)}</strong><small>#${row.id} · ${stats.advanced?'Champion':`Rank ${rank}`}${row.archived?' · Combined / removed':''}</small></span><strong class="tower-dps-value">${number(row.dps)}</strong><span class="tower-dps-bar" aria-hidden="true" style="width:${highest?row.dps/highest*100:0}%"></span></button></li>`;
   }).join('')}</ol>`:'<p class="tower-dps-empty">Build a defender to track its damage.</p>'}`;
-  return {summary,body,kind:'tower-dps',scrollSelector:'.tower-dps-list'};
+  return {summary,body,kind:'tower-dps',scrollSelector:'.tower-dps-list',open:measured};
 }
 
 export function battlefieldDisclosureMarkup({summary,body,kind,open=true}){
@@ -48,7 +49,7 @@ export function updateBattlefieldDisclosure(panel,parts){
   if(state.summaryMarkup!==parts.summary){summary.innerHTML=parts.summary;state.summaryMarkup=parts.summary;}
   if(state.bodyMarkup!==parts.body){body.innerHTML=parts.body;state.bodyMarkup=parts.body;}
   if(focused!==null&&focused!==undefined){
-    const replacement=[...body.querySelectorAll('[data-overlay-focus]')].find(element=>element.dataset.overlayFocus===focused);
+    const replacement=[...body.querySelectorAll('[data-overlay-focus]')].find(element=>element.dataset.overlayFocus===focused&&!element.disabled);
     (replacement||summary).focus({preventScroll:true});
   }
   const scroll=scrollBox();if(details.open&&scroll)scroll.scrollTop=state.scroll;

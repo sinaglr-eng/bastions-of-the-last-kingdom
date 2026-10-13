@@ -1,0 +1,105 @@
+{
+  "decision": "D005",
+  "baselineCommit": "4fa73e31bbabb685bd4287b73b78692626345167",
+  "baselineVersion": "0.3.27",
+  "agent": "audit_crafting",
+  "date": "2026-10-13",
+  "status": "UI logic, state preservation and production command integration verified; responsive browser verification belongs to the root task",
+  "scope": "Pure contextual crafting dock, persistent pinned recipe goal, exact ingredient allocation and revealed draft highlights",
+  "sourceFiles": [
+    "ui/crafting-dock.js",
+    "ui/crafting-dock.css",
+    "ui/draft-cards.js",
+    "tests/crafting-dock.test.mjs",
+    "tests/crafting-main-integration.test.mjs",
+    "tests/draft-pointer-input.test.mjs"
+  ],
+  "sourceHashes": {
+    "ui/crafting-dock.js": "23108304c984acdc86489d1d5347778ea10b68c999ebabab0111982d51fd8428",
+    "ui/crafting-dock.css": "ef4d8ea112c9a8df7c938cc04ba5d07c403c6f94c560a013d13f6e857577143a",
+    "ui/draft-cards.js": "b0e2a2b18e7fbca8cfcb10624eff7018996b17a2359760dd49484013182f2d39",
+    "tests/crafting-dock.test.mjs": "07aa46bf2d801436447ba748054bc41801bf25e282b0fbbf5648983952347427",
+    "tests/crafting-main-integration.test.mjs": "3ea52c2b4a7f459c55d150608ceda7058a009edb4759ab7535fb770e21fabf60",
+    "tests/draft-pointer-input.test.mjs": "0fe059a3993cc40a527f19537b3428e77dfb1b998667c2308c0021a07fa4efb4"
+  },
+  "approvedReferenceHashes": {
+    "01-champion-available.png": "aed1f817d0624fbfe5dd7d3adced0f1e56f75b1f601524a6acc9ee87e772bf47",
+    "02-pinned-building-expanded.png": "a78a8c45557680791afe064bd0eda25def41b9cf79c08af0b95f5fed4b2c71cf",
+    "03-pinned-building-compact.png": "b064980827a51a03efbab047f29bb7e1826504a56146c6fae6bc2309495fb24c"
+  },
+  "coreAuthority": [
+    "Game.availableRecipes",
+    "Game.recipePieces",
+    "Game.canCombine",
+    "recipeTreeProgress allocation"
+  ],
+  "checks": {
+    "command": "node --test tests/crafting-dock.test.mjs tests/draft-keeper-ui.test.mjs tests/recipe-tree.test.mjs tests/recipe-breakdown.test.mjs tests/secret-towers.test.mjs tests/rank-five-retained-merge.test.mjs tests/merge-badge-ui.test.mjs",
+    "exitCode": 0,
+    "tests": 94,
+    "passed": 94,
+    "failed": 0,
+    "newCraftingTests": 15,
+    "campaignRecipes": 38,
+    "notes": [
+      "Exact selected foundation and consumed ingredients follow the core recipe pieces, including retained duplicates.",
+      "Retained-only ordinary combinations remain legal during partial or empty construction.",
+      "Current-draft recipes require the existing five-placement authorization.",
+      "Pinned progress separates Built, This round and Missing with symbols and text.",
+      "Only allocated, revealed current draw IDs highlight; latent, reserved, stale and ruin identities do not.",
+      "Nested champion components cover their subtree without additional inventory identities.",
+      "Secret current-round and returning-reserve behavior match actual Game legality.",
+      "Preview and pin presentation consume no RNG, CP, gold or inventory.",
+      "Craft tokens reject changed selection, phase, recipe, inventory, reroll, reserve or run.",
+      "Native dock/chain disclosures, scroll and semantic focus survive updates; the primary action and different pinned goal remain outside the collapsible body."
+    ]
+  },
+  "intentionallyUnchanged": [
+    "Game core rules and mutations",
+    "Recipe and balance data",
+    "Production artwork and approved reference images",
+    "MAIN working tree"
+  ],
+  "integrationPending": [
+    "Root-owned main.js and responsive page placement",
+    "Root-owned map badge integration",
+    "Desktop, iPad and mobile browser touch/focus and visual verification"
+  ],
+  "integrationValidation": {
+    "command": "node --test tests/crafting-main-integration.test.mjs tests/draft-pointer-input.test.mjs",
+    "exitCode": 0,
+    "tests": 21,
+    "passed": 21,
+    "failed": 0,
+    "newProductionIntegrationTests": 8,
+    "retainedDraftPointerTests": 13,
+    "verifiedProductionBehaviors": [
+      "Explicit craft delegates only the current selected foundation, commits once, and permits retained-only construction.",
+      "New legacy craft buttons bind to the same guarded core action.",
+      "Existing legacy buttons cannot be rebound by restamping after selection changes.",
+      "Stale selection, phase, inventory, reroll and reserve tokens are rejected without mutation.",
+      "Blueprint editing blocks otherwise legal craft tokens.",
+      "Dock and chain disclosure states are captured before phase fallback replacement.",
+      "Available preview changes only the chosen recipe; unavailable inspection remains explicit.",
+      "Existing actual iPad pointer, cancellation, multi-touch, click-only, hidden RNG and merge guards remain unchanged."
+    ],
+    "reviewFindings": [
+      {
+        "issue": "Invisible-phase fallback replaced the dock before capturing current disclosure choices.",
+        "resolution": "Root now always calls updateCraftingDock before fallback.",
+        "verification": "Production browser phase transition test passed."
+      },
+      {
+        "issue": "Global legacy button restamping could bind stale presentation to a new selection.",
+        "resolution": "Root now stamps only buttons without an existing craft key.",
+        "verification": "Production stamp/selection/handler test passed."
+      },
+      {
+        "issue": "Legacy draft-slot grid row minima could clip low-landscape Keep/Merge controls.",
+        "resolution": "Root overrides row minima and retains 44px controls in a 108px strip.",
+        "verification": "Source cascade checked; browser layout verification belongs to root."
+      }
+    ],
+    "fixtureMigration": "Added only the new stampCraftButtons dependency to the text-only draft-pointer sidebar fixture. All original assertions are unchanged."
+  }
+}
