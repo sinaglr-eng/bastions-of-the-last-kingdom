@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {PhaseUiState} from '../ui/phase-ui.js';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
@@ -47,7 +48,7 @@ function setup({placed=true,distinct=false}={}){
     game,rankPreview,data,towers:data.towers,balance:data.balance,images,roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
     defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,mergeTowerKey,recipeProgress,recipesUsing,recipeLabel
   });
-  const sidebar=compile(between('function renderSidebar()','function previewRecipe()'),'renderSidebar',{
+  const sidebar=compile(between('function renderSidebar()','function previewRecipe()'),'renderSidebar',{phaseUi:new PhaseUiState(),
     game,$,icon,rankPreview,towerPanel:panel,endedPhase,panelDetails:new Map(),document:{activeElement:null},
     commandPointsMarkup:()=>'',tutorial:()=>'',combatPanel:()=>'',selectedEnemyMarkup:()=>'',enemyInspectionOptions:()=>({}),
     // Craft-button DOM stamping is exercised by crafting-main-integration;

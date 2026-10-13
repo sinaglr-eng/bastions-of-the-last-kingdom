@@ -91,13 +91,13 @@ function fixture(markup){
   const host=new Element();host.innerHTML=markup;return host;
 }
 
-test('catalog connector searches, combines filters, opens exact detail, invokes integration stamping and closes without gameplay mutation',()=>{
+test('catalog connector searches, combines filters, opens exact detail and invokes integration stamping without gameplay mutation',()=>{
   const game=fresh(),host=fixture(championCatalogMarkup(game,data,{})),state={},before=snapshot(game);let details=0;const connection=connectChampionCatalog(host,game,data,{}, {state,onDetail:()=>details++}),catalog=host.querySelector('.champion-catalog');
   const input=catalog.querySelector('[data-catalog-search]');input.value='baby fire dragon';catalog.dispatch('input',input);
   const rows=catalog.querySelectorAll('[data-catalog-recipe]');assert.equal(rows.filter(row=>!row.hidden).length,1);
   const ability=catalog.querySelector('[data-recipe-filter="ability"]');ability.value='burn';catalog.dispatch('change',ability);assert.equal(rows.filter(row=>!row.hidden).length,1);
   const row=rows.find(row=>row.dataset.catalogRecipe==='embercrown');catalog.dispatch('click',row);assert.equal(state.recipeId,'embercrown');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Aura DPS/);assert.ok(details>0);
-  const close=catalog.querySelector('[data-catalog-detail-close]');catalog.dispatch('click',close);assert.equal(state.recipeId,null);assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,true);assert.equal(snapshot(game),before);connection.dispose();
+  assert.equal(catalog.querySelector('[data-catalog-detail-close]'),null);assert.equal(state.recipeId,'embercrown');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);assert.equal(snapshot(game),before);connection.dispose();
 });
 
 test('basic guide has independent view, existing rank filters and corrected Mage information',()=>{

@@ -19,7 +19,9 @@
 .crafting-ingredient{display:grid;grid-template-columns:29px minmax(0,1fr) auto;gap:7px;align-items:center;min-height:37px;font-size:12px;line-height:1.2}
 .crafting-ingredient>img{width:29px;height:34px;object-fit:contain}
 .crafting-ingredient:not(:has(>img)){grid-template-columns:minmax(0,1fr) auto}
-.crafting-ingredient-name{overflow-wrap:anywhere}
+.crafting-dock .recipe-ingredient-label,.crafting-dock .recipe-ingredient-link{display:block;min-width:0;width:auto;text-align:left;line-height:1.35;word-break:normal;overflow-wrap:normal;color:inherit;font:inherit}
+.crafting-dock .recipe-ingredient-link{background:none;border:0;padding:6px 0;cursor:pointer;min-height:40px;text-decoration:underline;text-decoration-color:#718b80;text-underline-offset:3px}
+.crafting-dock .recipe-ingredient-name{display:inline;word-break:normal;overflow-wrap:normal}.crafting-dock .recipe-ingredient-rank,.crafting-dock .recipe-ingredient-code{display:inline;white-space:nowrap}.crafting-dock .recipe-ingredient-code{color:#b8d4ce;font-size:.9em}
 .crafting-ingredient-state{display:flex;gap:6px;align-items:center;font-size:11px}
 .crafting-ingredient-state b{font-size:18px;line-height:1;font-weight:400}
 .crafting-ingredient-state small{display:block;color:#c8d8d3;font-size:9px;margin-top:3px}
@@ -49,6 +51,8 @@
 .crafting-alternatives{display:flex;gap:5px;flex-wrap:wrap;margin:5px 0}
 .crafting-alternatives .text-button{min-height:39px;font-size:10px;padding:6px;white-space:normal}
 .crafting-alternatives .active{border-color:#f6cc69;color:#f6cc69}
+.crafting-history{display:flex;gap:6px;margin:0 0 8px}.crafting-history>button{flex:1;justify-content:center;min-height:40px;font-size:10px;padding:5px;white-space:normal}
+.crafting-downstream{margin:9px 0;border-top:1px solid #42778380;padding-top:8px}.crafting-downstream h4{font:14px Georgia,serif;margin:0 0 4px}.crafting-downstream p{font-size:10px;color:#c8d8d3;margin:0 0 5px}.crafting-downstream>div{display:grid;gap:5px}.crafting-downstream .text-button{display:flex;gap:8px;min-height:44px;white-space:normal;text-align:left;font-size:12px}.crafting-downstream img{width:28px;height:34px;object-fit:contain;flex:none}.crafting-downstream button>span:first-of-type{flex:1;min-width:0}
 .crafting-other-pinned{display:flex;align-items:center;gap:6px;padding:6px;background:#13404b7d;border-radius:4px;font-size:11px;line-height:1.3;margin-bottom:8px}
 .crafting-dock-pinned-goal:empty{display:none}.crafting-dock-pinned-goal{padding:6px 8px 0}.crafting-dock-pinned-goal .crafting-other-pinned{margin-bottom:0}
 .crafting-other-pinned>img{width:30px;height:35px;object-fit:contain}.crafting-other-pinned>span{flex:1;min-width:0}.crafting-other-pinned small{display:block;font-size:9px;color:#c5d8d0;margin-top:3px}.crafting-other-pinned button{min-height:40px;font-size:11px;padding:5px}

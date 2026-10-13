@@ -1,0 +1,55 @@
+{
+  "baseline": "4da166a9718cb3b0ae2fde55ba4e076508988f22",
+  "generatedAt": "2026-10-13T19:31:42.771Z",
+  "owner": "audit_crafting",
+  "release": "0.3.30",
+  "comment": 17,
+  "files": [
+    {
+      "path": "game/render/draft-markers.js",
+      "sha256": "88c6bfef1b17fc55a9a0df3e4be0ed253ad765699c09198d40da5740465a88fe",
+      "baselineSha256": "9b8031a68160630cd0cd434a743e5740d67c100d7c3107cf609996d9b5c530ae"
+    },
+    {
+      "path": "ui/pinned-recruit-input.js",
+      "sha256": "80301f8a876477f8729e5f4266e9cfd71577a0fb8c87c6273630357a13236baf",
+      "baselineSha256": null
+    },
+    {
+      "path": "tests/pinned-recruit-map-v30.test.mjs",
+      "sha256": "d5b4811da439bb4a1a982c6830af3d77b46f83f596a6f53d2a78a5a0c0fdc8a0",
+      "baselineSha256": null
+    }
+  ],
+  "validation": {
+    "command": "node --test --test-reporter=tap tests/pinned-recruit-map-v30.test.mjs tests/merge-badge-ui.test.mjs tests/recipe-marker-input.test.mjs tests/draft-keeper-ui.test.mjs",
+    "exitCode": 0,
+    "tests": 28,
+    "passed": 28,
+    "failed": 0,
+    "log": "pinned-recruit-map-targeted-tests.txt"
+  },
+  "implementation": {
+    "standaloneRole": "Only dataset.role=pinned delegates to PinnedRecruitActivation. The same CSS class on a recipe-result or Merge badge retains its existing command.",
+    "authority": "DraftCardActivation, drawKeeperKey and eligibleDrawKeeper retain the canonical Keep path. Pointerdown captures Game identity, exact placed draw index, Keeper key and phase/inventory/draw signature.",
+    "acceptance": "First accepted pointer release selects a real eligible revealed candidate. A matching second mouse/touch release within the existing time/distance window keeps that exact selected candidate only after all five placements in phase select. Keyboard activation selects only.",
+    "cancellation": "Drag-return, pointercancel, unexpected capture loss, scroll, wheel, blur, another badge interaction and multi-touch (including a finger on the battlefield) clear confirmation. Completed normal capture release preserves the first tap.",
+    "staleProtection": "Changed reroll, reserve, Move, phase, pin, tower, round, draw visibility, placement, detached badge and restarted Game reject stale releases."
+  },
+  "preservation": {
+    "protectedPaths": [
+      "game/core",
+      "data",
+      "assets",
+      "public/assets"
+    ],
+    "changedProtectedFiles": [],
+    "actualProductionCoverage": "Tests instantiate production DraftMarkers with real THREE Scene and DOM fixtures, then dispatch its registered pointer/keyboard handlers against the actual Game. Existing Merge and recipe-marker tests pass.",
+    "identityAndResources": "The same tower object, ID, foundation, family, tier, kills, MVP and target priority survive Keep. No new tower ID, roll, currency spend, replacement defender or grid expansion occurs. Matched RNG streams remain identical.",
+    "scope": "Only the three files in this pointer allowlist were changed for comment 17. Main, phase UI, metadata and publication belong to the parent agent.",
+    "visualQa": "This proof records source and production handler tests; parent owns native browser QA."
+  },
+  "revision": 2,
+  "supersedesProofSha256": "25e080c6972621d9d2c141c98d55768bcc33956476c5a495719784a8cf27dc0c",
+  "followup": "Multi-touch production tests now cover both contact orders: pinned badge first with a second finger on the battlefield, and battlefield first with a second finger on the badge."
+}

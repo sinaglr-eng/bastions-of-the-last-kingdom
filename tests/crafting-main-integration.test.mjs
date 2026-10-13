@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {recipeNavigationVisit,recipeNavigationStep} from '../ui/recipe-navigation.js';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
@@ -94,7 +95,7 @@ function panelFixture(){
   return new Element('aside');
 }
 function productionBrowser(game){
-  const host=panelFixture(),tabs=panelFixture(),phaseUi=new PhaseUiState(),app={dataset:{}},context={game,images:{},recipeFocus:null,craftingDockModel,updateCraftingDock,icon,phaseUi,app,world:{resize(){}},$:id=>id==='recipe-browser'?host:tabs};
+  const host=panelFixture(),tabs=panelFixture(),phaseUi=new PhaseUiState(),app={dataset:{}},context={game,images:{},recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,recipeNavigationStep,craftingDockModel,updateCraftingDock,icon,phaseUi,app,world:{resize(){}},$:id=>id==='recipe-browser'?host:tabs};
   const methods=runInNewContext(`${browserSource}\n({renderRecipeBrowser,openRecipePreview,getFocus:()=>recipeFocus})`,context);
   // Production Game's change listener calls render(), including this renderer.
   game.on(type=>{if(type==='change')methods.renderRecipeBrowser();});

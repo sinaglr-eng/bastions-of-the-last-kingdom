@@ -162,7 +162,7 @@ test('production defender panel removes descriptive, Strong/Weak and pause-expla
       assert.doesNotMatch(html,/<p class="(?:strength|weakness)"|Strong:|Weak:|<small>Pauses new attacks|Support and MVP auras stay active/);
       assert.doesNotMatch(html,/<p class="role">/);if(html.includes('<p>No recipe uses this rank.</p>'))fallback=true;
       assert.match(html,/<h2 class="tower-name">/);assert.match(html,/class="defender-heading"/);assert.match(html,/class="tower-effects/);assert.match(html,/Damage \/ hit/);assert.match(html,/Direct DPS/);assert.match(html,/Target priority/);
-      assert.match(html,/MVP Level: 10 \/ 10/);assert.match(html,/Own damage \+100%/);assert.match(html,/\+75% damage/);assert.match(html,/data-action="tower-pause" aria-pressed="false">[\s\S]*Pause unit attacks/);assert.ok(html.indexOf('Target priority')<html.indexOf('data-detail-key="ranks"')||definition.advanced);assert.ok(html.indexOf('Target priority')<html.indexOf('data-detail-key="mvp"'));
+      assert.match(html,/MVP Level: 10 \/ 10/);assert.match(html,/Own damage \+100%/);assert.match(html,/\+75% damage/);assert.match(html,/data-action="tower-pause" aria-pressed="false">[\s\S]*Pause unit attacks/);assert.ok(html.indexOf('data-detail-key="ranks"')<html.indexOf('Target priority')||definition.advanced);assert.ok(html.indexOf('Target priority')<html.indexOf('data-detail-key="mvp"'));
       if(!definition.advanced)assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);
     }
     assert.equal(panelGameSnapshot(game),before,'Panel changes and comparisons leave actual towers and draft unchanged');

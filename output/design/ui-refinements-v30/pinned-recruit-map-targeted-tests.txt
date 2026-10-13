@@ -1,0 +1,178 @@
+TAP version 13
+# Subtest: mouse double-click and touch double-tap select first, then keep that exact candidate once
+ok 1 - mouse double-click and touch double-tap select first, then keep that exact candidate once
+  ---
+  duration_ms: 18.0609
+  type: 'test'
+  ...
+# Subtest: changing cards, keyboard selection and mixed pointers cannot confirm a previous click
+ok 2 - changing cards, keyboard selection and mixed pointers cannot confirm a previous click
+  ---
+  duration_ms: 4.7506
+  type: 'test'
+  ...
+# Subtest: late taps, distant releases and interrupted gestures require a fresh pair
+ok 3 - late taps, distant releases and interrupted gestures require a fresh pair
+  ---
+  duration_ms: 6.4048
+  type: 'test'
+  ...
+# Subtest: adjacent Keep controls reject stale identity, hidden draws, old rounds and non-draft towers
+ok 4 - adjacent Keep controls reject stale identity, hidden draws, old rounds and non-draft towers
+  ---
+  duration_ms: 4.8909
+  type: 'test'
+  ...
+# Subtest: five rendered cards have one adjacent Keep control and never contain nested buttons
+ok 5 - five rendered cards have one adjacent Keep control and never contain nested buttons
+  ---
+  duration_ms: 5.0615
+  type: 'test'
+  ...
+# Subtest: unplaced cards expose no family or rank and cannot show a Keep action
+ok 6 - unplaced cards expose no family or rank and cannot show a Keep action
+  ---
+  duration_ms: 0.9466
+  type: 'test'
+  ...
+# Subtest: each available card has a real sibling merge button which keeps its exact foundation through Game.merge once
+ok 7 - each available card has a real sibling merge button which keeps its exact foundation through Game.merge once
+  ---
+  duration_ms: 27.4226
+  type: 'test'
+  ...
+# Subtest: stale cards reject changed pairs, inventory, foundations, rounds, phases and a restarted game without mutation
+ok 8 - stale cards reject changed pairs, inventory, foundations, rounds, phases and a restarted game without mutation
+  ---
+  duration_ms: 45.1237
+  type: 'test'
+  ...
+# Subtest: unavailable ranks, champions, retained units, hidden draws and all non-selection phases expose no merge action
+ok 9 - unavailable ranks, champions, retained units, hidden draws and all non-selection phases expose no merge action
+  ---
+  duration_ms: 36.9012
+  type: 'test'
+  ...
+# Subtest: a state change during selection notification cannot reach the core merge mutation
+ok 10 - a state change during selection notification cannot reach the core merge mutation
+  ---
+  duration_ms: 4.1599
+  type: 'test'
+  ...
+# Subtest: world merge icons project above every eligible unit, coexist with recipes and perform one accepted tap or keyboard action
+ok 11 - world merge icons project above every eligible unit, coexist with recipes and perform one accepted tap or keyboard action
+  ---
+  duration_ms: 20.9097
+  type: 'test'
+  ...
+# Subtest: map drag, cancellation and an inventory change between pointerdown and pointerup cannot merge
+ok 12 - map drag, cancellation and an inventory change between pointerdown and pointerup cannot merge
+  ---
+  duration_ms: 14.4879
+  type: 'test'
+  ...
+# Subtest: production standalone pinned mouse/touch pair selects first then keeps the exact existing foundation once without RNG
+ok 13 - production standalone pinned mouse/touch pair selects first then keeps the exact existing foundation once without RNG
+  ---
+  duration_ms: 34.7631
+  type: 'test'
+  ...
+# Subtest: three-placement pinned pairs select revealed candidates while keeping all five draft slots unresolved
+ok 14 - three-placement pinned pairs select revealed candidates while keeping all five draft slots unresolved
+  ---
+  duration_ms: 6.1332
+  type: 'test'
+  ...
+# Subtest: keyboard Enter-style click-only pinned activation selects and never confirms a keeper pair
+ok 15 - keyboard Enter-style click-only pinned activation selects and never confirms a keeper pair
+  ---
+  duration_ms: 5.7147
+  type: 'test'
+  ...
+# Subtest: normal implicit pointer capture loss preserves a completed first pinned tap and touch release hit-tests the badge
+ok 16 - normal implicit pointer capture loss preserves a completed first pinned tap and touch release hit-tests the badge
+  ---
+  duration_ms: 5.289
+  type: 'test'
+  ...
+# Subtest: late, distant and mixed-pointer pinned activations require a fresh matching pair
+ok 17 - late, distant and mixed-pointer pinned activations require a fresh matching pair
+  ---
+  duration_ms: 14.7446
+  type: 'test'
+  ...
+# Subtest: production pinned drag-return, cancel, capture loss, scroll, wheel and blur suppress the second release and compatibility click
+ok 18 - production pinned drag-return, cancel, capture loss, scroll, wheel and blur suppress the second release and compatibility click
+  ---
+  duration_ms: 57.7064
+  type: 'test'
+  ...
+# Subtest: captured touch release outside the pinned badge does not select or preserve a pair
+ok 19 - captured touch release outside the pinned badge does not select or preserve a pair
+  ---
+  duration_ms: 4.7017
+  type: 'test'
+  ...
+# Subtest: two fingers on badges or a badge plus battlefield in either order cannot select or Keep
+ok 20 - two fingers on badges or a badge plus battlefield in either order cannot select or Keep
+  ---
+  duration_ms: 13.1305
+  type: 'test'
+  ...
+# Subtest: reroll, reserve, Move, phase, pin, tower and draw changes after pointerdown reject stale pinned releases
+ok 21 - reroll, reserve, Move, phase, pin, tower and draw changes after pointerdown reject stale pinned releases
+  ---
+  duration_ms: 43.355
+  type: 'test'
+  ...
+# Subtest: a new Game with reused IDs rejects a pending badge press from the previous run
+ok 22 - a new Game with reused IDs rejects a pending badge press from the previous run
+  ---
+  duration_ms: 9.1939
+  type: 'test'
+  ...
+# Subtest: hidden, disabled, detached, reserved, wall and combat pinned controls are no-ops
+ok 23 - hidden, disabled, detached, reserved, wall and combat pinned controls are no-ops
+  ---
+  duration_ms: 27.1419
+  type: 'test'
+  ...
+# Subtest: pinned CSS on an actual recipe-result badge still crafts; it does not run standalone pinned Keep
+ok 24 - pinned CSS on an actual recipe-result badge still crafts; it does not run standalone pinned Keep
+  ---
+  duration_ms: 6.8107
+  type: 'test'
+  ...
+# Subtest: another recipe portrait interaction clears the standalone pinned candidate confirmation
+ok 25 - another recipe portrait interaction clears the standalone pinned candidate confirmation
+  ---
+  duration_ms: 8.7893
+  type: 'test'
+  ...
+# Subtest: recipe portraits preview on the first click and craft once on an unchanged mouse, pen or touch pair
+ok 26 - recipe portraits preview on the first click and craft once on an unchanged mouse, pen or touch pair
+  ---
+  duration_ms: 25.1815
+  type: 'test'
+  ...
+# Subtest: stale recipe IDs, combat, changed ingredients, changed rounds and a changed result site never confirm a stale pair
+ok 27 - stale recipe IDs, combat, changed ingredients, changed rounds and a changed result site never confirm a stale pair
+  ---
+  duration_ms: 28.1921
+  type: 'test'
+  ...
+# Subtest: keyboard preview, mixed pointers, a different portrait, drag distance, lateness and cancellation need a fresh pair
+ok 28 - keyboard preview, mixed pointers, a different portrait, drag distance, lateness and cancellation need a fresh pair
+  ---
+  duration_ms: 6.1212
+  type: 'test'
+  ...
+1..28
+# tests 28
+# suites 0
+# pass 28
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 349.2537

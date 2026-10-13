@@ -1,0 +1,93 @@
+{
+  "scope": "Statistics backend metadata edition publication only",
+  "targetEdition": "0.3.30",
+  "createdAt": "2026-10-13 19:29:08 UTC",
+  "status": "LIVE",
+  "frozen": true,
+  "projectId": "appgprj_6abe518c2c1c8191a9bc044f418faed8",
+  "productionUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
+  "source": {
+    "checkout": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v25-statistics-service",
+    "baselineCommit": "44011539d22362af162609d232229dc723df30da",
+    "publishedCommit": "8247493475d3193dd39622b9fd61c57d41463727",
+    "changedFiles": [
+      "game/release.js",
+      "package.json"
+    ],
+    "changedFileSha256": {
+      "game/release.js": "ceec38e4df68fee9c0e05bf952f376e14859a5272fccd597df0681d6a55a5b87",
+      "package.json": "5cb5e2445865b8843210285e86acf876261145df6b034f092128dab51350848c"
+    },
+    "workingTreeClean": true,
+    "sourceHelperOpeningVerified": true,
+    "pushedExactCommitVerified": true,
+    "freshRemoteReopeningVerified": true
+  },
+  "workflow": {
+    "plugin": "Sites",
+    "skill": "C:/Users/sinag/.codex/plugins/cache/openai-curated-remote/sites/1.0.1/skills/sites/SKILL.md",
+    "sourceHelper": "site-workflow.mjs",
+    "credentialHandling": "Fresh credential held in session memory and passed through hidden stdin only. No credential values or raw private JSON were persisted.",
+    "localEditionAndWhitespaceChecksPassed": true,
+    "localBuild": "node build.mjs succeeded; package, release and backend service edition checks all report 0.3.30.",
+    "localPackagingLimitation": "Supported package-site.mjs could not launch Bash on this Windows runtime after the exact source commit/push. A fresh supported opening verified remote HEAD.",
+    "publicationPath": "save_site_version without archive for supported remote-build fallback, then deploy_site_version for confirmed public audience.",
+    "savedVersionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_d4dd79e144f0819189d13eaeabbf0ada",
+    "savedVersionNumber": 11,
+    "savedSourceCommit": "8247493475d3193dd39622b9fd61c57d41463727",
+    "deploymentId": "appgdep_6ace858e6fac8191ad951e8581d4e303",
+    "observedStates": [
+      "pending",
+      "succeeded"
+    ],
+    "finalNativeStatus": "succeeded",
+    "finalNativeEnvironmentRevision": 1
+  },
+  "preservation": {
+    "artifact": "output/design/ui-refinements-v30/statistics-preservation.json",
+    "allRunRowsBefore": 83,
+    "allRunRowsAfter": 83,
+    "completedHistoricalRecordsBefore": 21,
+    "completedHistoricalRecordsAfter": 21,
+    "completedHistoricalRecordsMissing": 0,
+    "completedHistoricalRecordsChanged": 0,
+    "newCompletedRecords": 0,
+    "existingCompletedHistoryBeforeSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+    "existingCompletedHistoryAfterSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+    "entireCompletedHistoryAfterSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+    "completeNativeRunRowPagination": true,
+    "savedSiteVersionsBefore": 10,
+    "savedSiteVersionsAfter": 11,
+    "preexistingSavedSiteVersionIdsAndCommitsPreserved": true,
+    "leaderboardsBeforeSha256": "5bbeefd169a1757f1b2320efba964b4e0dad1303c6a40be7b900ae258aff9a90",
+    "leaderboardsAfterSha256": "5bbeefd169a1757f1b2320efba964b4e0dad1303c6a40be7b900ae258aff9a90",
+    "leaderboardsUnchanged": true,
+    "preexistingAllRunIdsPreserved": true,
+    "preexistingRunIdsMissing": 0,
+    "preexistingAllRunIdsBeforeSha256": "607812d6335ba1540492835fa6956c4ef7fa380a5708555845dde273d5c7d64c",
+    "preexistingAllRunIdsAfterSha256": "607812d6335ba1540492835fa6956c4ef7fa380a5708555845dde273d5c7d64c",
+    "allPreexistingSafeRunMetadataBeforeSha256": "8c31159888b03dccd572629aec7e1653edbd87b38db118e284026f9701e2d85a",
+    "allPreexistingSafeRunMetadataAfterSha256": "8c31159888b03dccd572629aec7e1653edbd87b38db118e284026f9701e2d85a",
+    "allPreexistingSafeRunMetadataRecordsChanged": 0,
+    "newRunRows": 0,
+    "runTableColumnsUnchanged": true,
+    "audienceUnchanged": true,
+    "environmentRevisionUnchanged": true,
+    "schemaWorkerAndBindingsUnchanged": true,
+    "boundary": "All preexisting run IDs and 16 selected safe metadata fields were read through complete native pagination. Every preexisting won/lost record was compared exactly; ongoing nonfinal rows may legitimately advance, and new legitimate rows are allowed. Token hashes and large summary_json cells were excluded. Individual run_waves JSON records were not compared. Binding names, table/column names, schema, migrations, Worker, validation and hosting source are unchanged."
+  },
+  "health": {
+    "artifact": "output/design/ui-refinements-v30/statistics-health.json",
+    "httpStatus": 200,
+    "ok": true,
+    "storage": "SQLite",
+    "edition": "0.3.30",
+    "releaseName": "Preserved commander scores · Developer runs excluded"
+  },
+  "scopeBoundaries": {
+    "rootGameSourceOrVersionsEdited": false,
+    "defenderFreezeChanged": false,
+    "galleryWritten": false,
+    "gameplayOrStorageEdits": false
+  }
+}

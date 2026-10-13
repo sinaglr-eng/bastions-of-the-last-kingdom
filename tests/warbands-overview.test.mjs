@@ -59,14 +59,14 @@ test('every remaining actual campaign card contains count, exact effective varia
  assert.match(markup,/Each enemy independently chooses a random variant; the wave may contain a mix/);assert.ok(markup.includes(escape(data.enemies.host_50.name)));
 });
 
-test('existing intelligence moves intact into the overview header with army readiness, next/after and boss forecast',()=>{
+test('removed Next wave and army response section stays absent even with actual analysis supplied; exact remaining profiles are retained',()=>{
  const towers=[{family:'mage',tier:6,state:'active'},{family:'archer',tier:6,state:'active'},{family:'cleric',tier:3,state:'reserved'}],model=intelligence(34,towers),markup=render({round:35,phase:'ready',intelligence:model});
- assert.match(markup,/aria-labelledby="warbands-intelligence-title"/);assert.match(markup,/Next · Wave 35/);assert.match(markup,/After · Wave 36/);assert.match(markup,/aria-label="Boss forecast"/);assert.match(markup,/Your army/);assert.match(markup,/2 active defenders/);
- for(const row of model.readiness.rows){assert.ok(markup.includes(escape(row.label)));assert.ok(markup.includes(escape(row.response)));assert.match(markup,new RegExp('readiness-level '+row.level));}
+ assert.equal(markup,render({round:35,phase:'ready'}),'Army analysis is no longer a rendered catalog input');
+ assert.doesNotMatch(markup,/warbands-overview-intelligence|Next wave and army response|Boss forecast|Your army|readiness-level|After · Wave/);
+ assert.deepEqual(cardNumbers(markup),Array.from({length:16},(_,index)=>35+index));
  for(const enemy of model.next.enemies)for(const variant of enemy.variants){assert.ok(markup.includes(enemyNumber(variant.maxHp)+' HP'));for(const trait of variant.traitDetails)assert.ok(markup.includes(escape(trait.text)));}
- const header=markup.slice(markup.indexOf('warbands-overview-intelligence'),markup.indexOf('<section class="warbands-remaining"'));assert.match(header,/Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity/);assert.match(header,/Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity/);assert.match(header,/Composition only/);
- assert.match(render({round:10,phase:'combat',intelligence:intelligence(10),waveLimit:50}),/Next · Wave 11/);assert.doesNotMatch(render({round:10,phase:'combat',intelligence:intelligence(10),waveLimit:10}),/warbands-overview-intelligence/);
- assert.doesNotMatch(render({round:35,phase:'ready',intelligence:intelligence(33)}),/warbands-overview-intelligence/);assert.doesNotMatch(render({round:35,phase:'lost',intelligence:model}),/warbands-overview-intelligence/);
+ assert.match(markup,/Each enemy independently chooses a random variant/);
+ assert.doesNotMatch(render({round:10,phase:'combat',intelligence:intelligence(10)}),/warbands-overview-intelligence/);
 });
 
 test('actual mixed combat profiles show separate live and queued counts next to the current card',()=>{
@@ -104,14 +104,15 @@ test('overview generation is deterministic and cannot roll draft identities, var
 
 function disclosureHost(){
  const document={activeElement:null},scroll={scrollTop:174},host={ownerDocument:document,details:[],writes:0,stored:'',closest:selector=>selector==='.dialog-body'?scroll:null,contains:detail=>host.details.includes(detail),querySelectorAll:()=>host.details};
- Object.defineProperty(host,'innerHTML',{get:()=>host.stored,set:markup=>{host.writes++;host.stored=markup;scroll.scrollTop=0;const number=markup.match(/data-intelligence-wave="(\d+)"/)?.[1],scope=number?{dataset:{intelligenceWave:number}}:null;host.details=[...markup.matchAll(/<details class="([^"]+)"/g)].map(()=>{const detail={open:false,closest:selector=>selector==='[data-intelligence-wave]'?scope:null};detail.summary={closest:selector=>selector==='details'?detail:null,focus:options=>{assert.deepEqual(options,{preventScroll:true});document.activeElement=detail.summary;}};detail.querySelector=()=>detail.summary;return detail;});}});
+ Object.defineProperty(host,'innerHTML',{get:()=>host.stored,set:markup=>{host.writes++;host.stored=markup;scroll.scrollTop=0;host.details=[...markup.matchAll(/<details class="([^"]+)" data-warband-disclosure="([^"]+)"/g)].map(match=>{const detail={dataset:{warbandDisclosure:match[2]},open:false,closest:()=>null};detail.summary={closest:selector=>selector==='details'?detail:null,focus:options=>{assert.deepEqual(options,{preventScroll:true});document.activeElement=detail.summary;}};detail.querySelector=()=>detail.summary;return detail;});}});
  return {host,document,scroll};
 }
 
 test('overview refresh preserves nested disclosures, keyboard focus and dialog scroll while leaving unchanged panels intact',()=>{
  const {host,document,scroll}=disclosureHost(),outlook=intelligence(0);outlook.next={...outlook.next,enemies:Array.from({length:5},(_,i)=>({...outlook.next.enemies[0],type:'example'+i,name:'Example '+i}))};
  const args=[data.waves,data.enemies,images,options({intelligence:outlook})];assert.equal(updateWarbandsOverviewPanel(host,...args),true);assert.ok(host.details.length>5);host.details[0].open=true;host.details[3].open=true;document.activeElement=host.details[3].summary;scroll.scrollTop=174;const old=host.details[3];
- const changed={...outlook,readiness:{...outlook.readiness,activeCount:1,empty:false}};assert.equal(updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({intelligence:changed})),true);assert.notStrictEqual(host.details[3],old);assert.equal(host.details[0].open,true);assert.equal(host.details[3].open,true);assert.equal(host.details[1].open,false);assert.strictEqual(document.activeElement,host.details[3].summary);assert.equal(scroll.scrollTop,174);
- const writes=host.writes;assert.equal(updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({intelligence:changed})),false);assert.equal(host.writes,writes);assert.equal(host.details[3].open,true);
- assert.equal(updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({round:2,intelligence:intelligence(1)})),true);assert.ok(host.details.every(detail=>!detail.open),'a different preview wave does not inherit previous enemy disclosure choices');assert.equal(scroll.scrollTop,174);
+ const changed={...outlook,readiness:{...outlook.readiness,activeCount:1,empty:false}};assert.equal(updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({intelligence:changed})),false,'Removed army analysis cannot rewrite the remaining wave rows');assert.strictEqual(host.details[3],old);
+ assert.equal(updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({phase:'combat'})),true);assert.notStrictEqual(host.details[3],old);assert.equal(host.details[0].open,true);assert.equal(host.details[3].open,true);assert.equal(host.details[1].open,false);assert.strictEqual(document.activeElement,host.details[3].summary);assert.equal(scroll.scrollTop,174);
+ const writes=host.writes;assert.equal(updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({phase:'combat'})),false);assert.equal(host.writes,writes);assert.equal(host.details[3].open,true);
+ const retainedKey=host.details[3].dataset.warbandDisclosure;assert.equal(updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({round:2})),true);assert.equal(host.details.some(detail=>detail.dataset.warbandDisclosure==='wave:1'),false);assert.equal(host.details.find(detail=>detail.dataset.warbandDisclosure===retainedKey).open,true,'A remaining wave retains its independent disclosure choice');assert.equal(host.details.find(detail=>detail.dataset.warbandDisclosure==='wave:3').open,false);assert.equal(scroll.scrollTop,174);
 });

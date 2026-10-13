@@ -1,0 +1,466 @@
+TAP version 13
+# Subtest: name search is English, case-insensitive and intersects every existing runtime filter
+ok 1 - name search is English, case-insensitive and intersects every existing runtime filter
+  ---
+  duration_ms: 10.1159
+  type: 'test'
+  ...
+# Subtest: initial catalog puts compact recipe entries before optional explanation and keeps basic guide in its own view
+ok 2 - initial catalog puts compact recipe entries before optional explanation and keeps basic guide in its own view
+  ---
+  duration_ms: 24.7279
+  type: 'test'
+  ...
+# Subtest: catalog progress uses real revealed identities and preserves ownership in combat
+ok 3 - catalog progress uses real revealed identities and preserves ownership in combat
+  ---
+  duration_ms: 12.3659
+  type: 'test'
+  ...
+# Subtest: Available status follows Game legality and In progress follows allocated ownership without spending or drawing
+ok 4 - Available status follows Game legality and In progress follows allocated ownership without spending or drawing
+  ---
+  duration_ms: 55.9632
+  type: 'test'
+  ...
+# Subtest: reserved and stale candidates cannot count for ordinary or secret recipe progress
+ok 5 - reserved and stale candidates cannot count for ordinary or secret recipe progress
+  ---
+  duration_ms: 7.1675
+  type: 'test'
+  ...
+# Subtest: nested component coverage and duplicate requirements allocate each actual defender once
+ok 6 - nested component coverage and duplicate requirements allocate each actual defender once
+  ---
+  duration_ms: 4.0216
+  type: 'test'
+  ...
+# Subtest: Mage descriptions use current Magical cleave and aura-only champions prominently display actual output
+ok 7 - Mage descriptions use current Magical cleave and aura-only champions prominently display actual output
+  ---
+  duration_ms: 3.4197
+  type: 'test'
+  ...
+# Subtest: catalog connector searches, combines filters, opens exact detail and invokes integration stamping without gameplay mutation
+ok 8 - catalog connector searches, combines filters, opens exact detail and invokes integration stamping without gameplay mutation
+  ---
+  duration_ms: 34.0921
+  type: 'test'
+  ...
+# Subtest: basic guide has independent view, existing rank filters and corrected Mage information
+ok 9 - basic guide has independent view, existing rank filters and corrected Mage information
+  ---
+  duration_ms: 29.6498
+  type: 'test'
+  ...
+# Subtest: pin rerenders preserve selected recipe, search and independent explanation/filter/tree disclosure choices
+ok 10 - pin rerenders preserve selected recipe, search and independent explanation/filter/tree disclosure choices
+  ---
+  duration_ms: 38.4542
+  type: 'test'
+  ...
+# Subtest: catalog refresh updates allocated row progress and detail after a real reserve while keeping disclosure choices
+ok 11 - catalog refresh updates allocated row progress and detail after a real reserve while keeping disclosure choices
+  ---
+  duration_ms: 30.9245
+  type: 'test'
+  ...
+# Subtest: all 38 campaign recipes expose only core-authorized exact pieces, foundations and outcomes
+ok 12 - all 38 campaign recipes expose only core-authorized exact pieces, foundations and outcomes
+  ---
+  duration_ms: 147.3394
+  type: 'test'
+  ...
+# Subtest: retained-only ordinary craft remains enabled before any current placement and preserves the five-slot draft
+ok 13 - retained-only ordinary craft remains enabled before any current placement and preserves the five-slot draft
+  ---
+  duration_ms: 4.2593
+  type: 'test'
+  ...
+# Subtest: mixed draft craft shows the selected foundation, consumed units and only discarded current candidates
+ok 14 - mixed draft craft shows the selected foundation, consumed units and only discarded current candidates
+  ---
+  duration_ms: 6.5518
+  type: 'test'
+  ...
+# Subtest: context statuses follow exact selected recipe pieces when an unused retained duplicate exists
+ok 15 - context statuses follow exact selected recipe pieces when an unused retained duplicate exists
+  ---
+  duration_ms: 6.7692
+  type: 'test'
+  ...
+# Subtest: three placed recruits distinguish Built, This round and Missing without leaking two hidden slots
+ok 16 - three placed recruits distinguish Built, This round and Missing without leaking two hidden slots
+  ---
+  duration_ms: 4.1594
+  type: 'test'
+  ...
+# Subtest: nested components cover their subtree once and only still-needed allocated candidates are highlighted
+ok 17 - nested components cover their subtree once and only still-needed allocated candidates are highlighted
+  ---
+  duration_ms: 3.8083
+  type: 'test'
+  ...
+# Subtest: duplicate immediate ingredients allocate distinct identities and do not highlight surplus matching recruits
+ok 18 - duplicate immediate ingredients allocate distinct identities and do not highlight surplus matching recruits
+  ---
+  duration_ms: 6.0817
+  type: 'test'
+  ...
+# Subtest: secret planning excludes old retained, stray draft, hidden, stale, ruins and inactive reserve identities
+ok 19 - secret planning excludes old retained, stray draft, hidden, stale, ruins and inactive reserve identities
+  ---
+  duration_ms: 17.8853
+  type: 'test'
+  ...
+# Subtest: unrelated reserve preserves a legal secret craft while a returning reserve follows current Game rules
+ok 20 - unrelated reserve preserves a legal secret craft while a returning reserve follows current Game rules
+  ---
+  duration_ms: 4.7097
+  type: 'test'
+  ...
+# Subtest: a matching returning reserve stays provisional and its eventual secret eligibility matches Game exactly
+ok 21 - a matching returning reserve stays provisional and its eventual secret eligibility matches Game exactly
+  ---
+  duration_ms: 7.823
+  type: 'test'
+  ...
+# Subtest: previews and pins consume no RNG, currency, inventory or draw commitment
+ok 22 - previews and pins consume no RNG, currency, inventory or draw commitment
+  ---
+  duration_ms: 11.5906
+  type: 'test'
+  ...
+# Subtest: explicit action tokens reject changed selection, phase, recipe, inventory, reroll, reserve and a different run
+ok 23 - explicit action tokens reject changed selection, phase, recipe, inventory, reroll, reserve and a different run
+  ---
+  duration_ms: 46.0741
+  type: 'test'
+  ...
+# Subtest: pinned goal stays visible while another recipe is inspected
+ok 24 - pinned goal stays visible while another recipe is inspected
+  ---
+  duration_ms: 0.9356
+  type: 'test'
+  ...
+# Subtest: explicit unavailable recipe inspection never silently changes to another available combination
+ok 25 - explicit unavailable recipe inspection never silently changes to another available combination
+  ---
+  duration_ms: 5.6861
+  type: 'test'
+  ...
+# Subtest: dock and chain disclosures, scroll and semantic focus survive selection refreshes within the same run
+ok 26 - dock and chain disclosures, scroll and semantic focus survive selection refreshes within the same run
+  ---
+  duration_ms: 10.9153
+  type: 'test'
+  ...
+# Subtest: base DPS excludes criticals, multiple targets, damage over time and support bonuses
+ok 27 - base DPS excludes criticals, multiple targets, damage over time and support bonuses
+  ---
+  duration_ms: 0.6578
+  type: 'test'
+  ...
+# Subtest: current support descriptions explain strongest standard blessings and the separate nonduplicate Archbishop bonus
+ok 28 - current support descriptions explain strongest standard blessings and the separate nonduplicate Archbishop bonus
+  ---
+  duration_ms: 15.3882
+  type: 'test'
+  ...
+# Subtest: current Holy ability and rank guide separate damage from status immunity and explain the exact Royal V merge exception
+ok 29 - current Holy ability and rank guide separate damage from status immunity and explain the exact Royal V merge exception
+  ---
+  duration_ms: 4.4925
+  type: 'test'
+  ...
+# Subtest: each of 38 current champion cards uses approved classification, descriptions and actual damage channels without modifying archived records
+ok 30 - each of 38 current champion cards uses approved classification, descriptions and actual damage channels without modifying archived records
+  ---
+  duration_ms: 10.3522
+  type: 'test'
+  ...
+# Subtest: pinned higher recipes show champion branches, aggregated basic totals and actual crafting ingredients
+ok 31 - pinned higher recipes show champion branches, aggregated basic totals and actual crafting ingredients
+  ---
+  duration_ms: 1.1314
+  type: 'test'
+  ...
+# Subtest: fully covered draft recipes show blue provisional counts and zero retained ownership
+ok 32 - fully covered draft recipes show blue provisional counts and zero retained ownership
+  ---
+  duration_ms: 0.2688
+  type: 'test'
+  ...
+# Subtest: mixed recruit rows label retained counts separately from visible candidates
+ok 33 - mixed recruit rows label retained counts separately from visible candidates
+  ---
+  duration_ms: 0.1549
+  type: 'test'
+  ...
+# Subtest: all eight gem identities have six finite, distinct rank profiles
+ok 34 - all eight gem identities have six finite, distinct rank profiles
+  ---
+  duration_ms: 1.4394
+  type: 'test'
+  ...
+# Subtest: two Royal V defenders merge into Mythic VI at the chosen tile, with VI capped
+ok 35 - two Royal V defenders merge into Mythic VI at the chosen tile, with VI capped
+  ---
+  duration_ms: 14.3145
+  type: 'test'
+  ...
+# Subtest: formation recipes form an acyclic graph and craft from every valid anchor with exact output ranks
+ok 36 - formation recipes form an acyclic graph and craft from every valid anchor with exact output ranks
+  ---
+  duration_ms: 303.4842
+  type: 'test'
+  ...
+# Subtest: wrong ranks and one copy of a repeated ingredient cannot satisfy a recipe
+ok 37 - wrong ranks and one copy of a repeated ingredient cannot satisfy a recipe
+  ---
+  duration_ms: 0.8607
+  type: 'test'
+  ...
+# Subtest: standard blessings use the strongest rank and Archbishop adds one independent bonus without duplicate stacking
+ok 38 - standard blessings use the strongest rank and Archbishop adds one independent bonus without duplicate stacking
+  ---
+  duration_ms: 0.378
+  type: 'test'
+  ...
+# Subtest: magical cleave obeys each victim’s armor without damaging the primary twice
+ok 39 - magical cleave obeys each victim’s armor without damaging the primary twice
+  ---
+  duration_ms: 1.607
+  type: 'test'
+  ...
+# Subtest: poison scales independently of hit damage and the strongest armor reduction survives refresh
+ok 40 - poison scales independently of hit damage and the strongest armor reduction survives refresh
+  ---
+  duration_ms: 1.3584
+  type: 'test'
+  ...
+# Subtest: stormcaller fires at three distinct targets and Mythic frost applies nearby slow
+ok 41 - stormcaller fires at three distinct targets and Mythic frost applies nearby slow
+  ---
+  duration_ms: 1.4619
+  type: 'test'
+  ...
+# Subtest: burning and slowing auras work without projectiles and stop when the tower is consumed
+ok 42 - burning and slowing auras work without projectiles and stop when the tower is consumed
+  ---
+  duration_ms: 1.0383
+  type: 'test'
+  ...
+# Subtest: Mythic rapid fire preserves its rate across frame sizes and stacked blessings
+ok 43 - Mythic rapid fire preserves its rate across frame sizes and stacked blessings
+  ---
+  duration_ms: 4.6759
+  type: 'test'
+  ...
+# Subtest: Kingslayer recursively requires eleven recruits with repeated exact ranks aggregated
+ok 44 - Kingslayer recursively requires eleven recruits with repeated exact ranks aggregated
+  ---
+  duration_ms: 2.0731
+  type: 'test'
+  ...
+# Subtest: all 39 fixed recipes resolve entirely to valid basic ranks
+ok 45 - all 39 fixed recipes resolve entirely to valid basic ranks
+  ---
+  duration_ms: 0.8881
+  type: 'test'
+  ...
+# Subtest: ready ingredient champions satisfy only their allotted subtree without requiring consumed recruits again
+ok 46 - ready ingredient champions satisfy only their allotted subtree without requiring consumed recruits again
+  ---
+  duration_ms: 0.4373
+  type: 'test'
+  ...
+# Subtest: basic inventory respects rank, state and physical identity and never exceeds requested amounts
+ok 47 - basic inventory respects rank, state and physical identity and never exceeds requested amounts
+  ---
+  duration_ms: 0.1745
+  type: 'test'
+  ...
+# Subtest: a single owned champion cannot satisfy three repeated champion ingredient nodes
+ok 48 - a single owned champion cannot satisfy three repeated champion ingredient nodes
+  ---
+  duration_ms: 0.17
+  type: 'test'
+  ...
+# Subtest: malformed recipe chains fail explicitly instead of recursing forever or dropping required ingredients
+ok 49 - malformed recipe chains fail explicitly instead of recursing forever or dropping required ingredients
+  ---
+  duration_ms: 2.1838
+  type: 'test'
+  ...
+# Subtest: draft ingredients remain provisional and champion overlap cannot duplicate retained leaves
+ok 50 - draft ingredients remain provisional and champion overlap cannot duplicate retained leaves
+  ---
+  duration_ms: 0.3025
+  type: 'test'
+  ...
+# Subtest: unplaced draws never affect retained ownership or placed-draft availability
+ok 51 - unplaced draws never affect retained ownership or placed-draft availability
+  ---
+  duration_ms: 0.2791
+  type: 'test'
+  ...
+# Subtest: recruit merging still advances each matching draft pair from I through VI and stops at VI
+ok 52 - recruit merging still advances each matching draft pair from I through VI and stops at VI
+  ---
+  duration_ms: 14.294
+  type: 'test'
+  ...
+# Subtest: filters expose exactly Physical, Magical and Holy and classify real armor/immunity counters
+ok 53 - filters expose exactly Physical, Magical and Holy and classify real armor/immunity counters
+  ---
+  duration_ms: 1.1633
+  type: 'test'
+  ...
+# Subtest: independent secondary and aura channels can counter immunity, while on-hit poison cannot invent a blocked primary
+ok 54 - independent secondary and aura channels can counter immunity, while on-hit poison cannot invent a blocked primary
+  ---
+  duration_ms: 0.2422
+  type: 'test'
+  ...
+# Subtest: all four Rangers advertise normal air debuffs, never full defense bypass; ordinary Archers have no air armor debuff
+ok 55 - all four Rangers advertise normal air debuffs, never full defense bypass; ordinary Archers have no air armor debuff
+  ---
+  duration_ms: 0.3255
+  type: 'test'
+  ...
+# Subtest: only actual True Strike/support or non-direct fire aura counters evasion; Cleric detection uses actual family context
+ok 56 - only actual True Strike/support or non-direct fire aura counters evasion; Cleric detection uses actual family context
+  ---
+  duration_ms: 0.2405
+  type: 'test'
+  ...
+# Subtest: all86 real profiles match actual channels, combined filters intersect, and guide copy explains conditional effects without obsolete defenses
+ok 57 - all86 real profiles match actual channels, combined filters intersect, and guide copy explains conditional effects without obsolete defenses
+  ---
+  duration_ms: 20.808
+  type: 'test'
+  ...
+# Subtest: ingredient presentation uses runtime names, exact Roman ranks and basic defender codes for all 38 recipes
+ok 58 - ingredient presentation uses runtime names, exact Roman ranks and basic defender codes for all 38 recipes
+  ---
+  duration_ms: 23.6897
+  type: 'test'
+  ...
+# Subtest: champion ingredient abbreviations use English name initials and exact ranks in dock and catalog
+ok 59 - champion ingredient abbreviations use English name initials and exact ranks in dock and catalog
+  ---
+  duration_ms: 8.2673
+  type: 'test'
+  ...
+# Subtest: single-word champion abbreviations use three letters while every basic code remains canonical
+ok 60 - single-word champion abbreviations use three letters while every basic code remains canonical
+  ---
+  duration_ms: 0.4066
+  type: 'test'
+  ...
+# Subtest: catalog shows visible description and abilities above portrait ingredient rows without Back to list
+ok 61 - catalog shows visible description and abilities above portrait ingredient rows without Back to list
+  ---
+  duration_ms: 7.5743
+  type: 'test'
+  ...
+# Subtest: UI navigation supports previous/forward and branches from a previous recipe without duplicate current visits
+ok 62 - UI navigation supports previous/forward and branches from a previous recipe without duplicate current visits
+  ---
+  duration_ms: 0.596
+  type: 'test'
+  ...
+# Subtest: selected Frostsword exposes downstream Frost Knight requirements without committing or drawing
+ok 63 - selected Frostsword exposes downstream Frost Knight requirements without committing or drawing
+  ---
+  duration_ms: 6.9365
+  type: 'test'
+  ...
+# Subtest: missing basic frontier subtracts a built component subtree once while preserving repeated remaining leaves
+ok 64 - missing basic frontier subtracts a built component subtree once while preserving repeated remaining leaves
+  ---
+  duration_ms: 4.8029
+  type: 'test'
+  ...
+# Subtest: duplicate missing basics use compact multiplicity codes and each eligible identity only once
+ok 65 - duplicate missing basics use compact multiplicity codes and each eligible identity only once
+  ---
+  duration_ms: 4.8387
+  type: 'test'
+  ...
+# Subtest: hidden, reserved, stale, unplaced, stray and wall resources do not reduce the missing frontier
+ok 66 - hidden, reserved, stale, unplaced, stray and wall resources do not reduce the missing frontier
+  ---
+  duration_ms: 9.403
+  type: 'test'
+  ...
+# Subtest: secret frontier excludes retained resources and follows actual reserve eligibility
+ok 67 - secret frontier excludes retained resources and follows actual reserve eligibility
+  ---
+  duration_ms: 6.9825
+  type: 'test'
+  ...
+# Subtest: actual crafting replaces consumed basic resources with exactly one component allocation
+ok 68 - actual crafting replaces consumed basic resources with exactly one component allocation
+  ---
+  duration_ms: 4.0007
+  type: 'test'
+  ...
+# Subtest: all recipe summaries agree with core recursive coverage and repeated inspection preserves gameplay and RNG
+ok 69 - all recipe summaries agree with core recursive coverage and repeated inspection preserves gameplay and RNG
+  ---
+  duration_ms: 199.3453
+  type: 'test'
+  ...
+# Subtest: catalog component navigation keeps filtered rows, context history, disclosures, focus and actual gameplay intact
+ok 70 - catalog component navigation keeps filtered rows, context history, disclosures, focus and actual gameplay intact
+  ---
+  duration_ms: 57.6254
+  type: 'test'
+  ...
+# Subtest: Kingslayer shows three immediate champion branches with the exact nested eleven-recruit recipe
+ok 71 - Kingslayer shows three immediate champion branches with the exact nested eleven-recruit recipe
+  ---
+  duration_ms: 1.8167
+  type: 'test'
+  ...
+# Subtest: a retained champion owns only itself while explicitly covering its consumed ingredient subtree
+ok 72 - a retained champion owns only itself while explicitly covering its consumed ingredient subtree
+  ---
+  duration_ms: 0.4443
+  type: 'test'
+  ...
+# Subtest: active leaves retain priority inside a provisional champion, with no duplicate inventory allocation
+ok 73 - active leaves retain priority inside a provisional champion, with no duplicate inventory allocation
+  ---
+  duration_ms: 0.3372
+  type: 'test'
+  ...
+# Subtest: duplicate ingredient branches conserve physical identities across active, draft, hidden and ruins
+ok 74 - duplicate ingredient branches conserve physical identities across active, draft, hidden and ruins
+  ---
+  duration_ms: 1.2081
+  type: 'test'
+  ...
+# Subtest: every fixed recipe retains finite complete branches and tree totals agree with flat progress
+ok 75 - every fixed recipe retains finite complete branches and tree totals agree with flat progress
+  ---
+  duration_ms: 3.8937
+  type: 'test'
+  ...
+# Subtest: malformed chains reject cycles, missing recipes and excessive depth rather than hiding requirements
+ok 76 - malformed chains reject cycles, missing recipes and excessive depth rather than hiding requirements
+  ---
+  duration_ms: 1.9976
+  type: 'test'
+  ...
+1..76
+# tests 76
+# suites 0
+# pass 76
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 471.0554

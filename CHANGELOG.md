@@ -1,5 +1,19 @@
 # Releases
 
+## 0.3.30 — Connected Recipes and Battlefield Controls — 13 October 2026
+
+Prepared release: all 1,366 tests, native UI checks at five viewport sizes and the production build passed. The final responsive CSS rebuild passed; game publication remains pending in [the 22-comment report](docs/UI_REFINEMENTS_V30_20261013.md). Audio continuity is covered by actual-main AudioContext tests; local browser decoding passed for all 113 approved clips. Native hidden-audio inspection and public asset decoding remain separate gates. The verified statistics backend is live at 0.3.30.
+
+- Keeps background music and committed defender speech playing through game dialogs/tabs while combat is suspended; retains explicit Pause, Mute all, background pause, ducking, crossfades and transport position.
+- Condenses future draw odds into a 3 × 2 distribution and gives all five candidate portraits equal full-width footprints with Keep/Merge sharing one action row.
+- Places Start wave at the top center of the map, opens actual Current wave details on combat start, and makes Current wave/Inspect keeper controls toggle their inspectors without discarding selection.
+- Links exact component and downstream recipes through independent exploration history; adds ingredient portraits, inline rank/codes, abilities before ingredients, and removes Back to List.
+- Shows only allocated missing basic leaves in the pinned goal. A guarded double activation of its map ingredient badge keeps the same already placed candidate without another draw, foundation or currency spend.
+- Moves Potential combinations and Compare ranks above the core; rank comparison replaces one upper stats area, and every ability is shown there once while actual unit actions remain authoritative.
+- Removes Enemy Waves quick-jump navigation and the combined Next wave/army-response section, preserving remaining compact rows, exact variants and live/boss facts.
+- Keeps five complete measured-DPS entries above the remaining scrollable list, and removes contained scrolling/clipping from expanded immediate Next wave information. Low landscape places the panels side by side, using two-column 44-pixel DPS entries above the footer.
+- Preserves approved media and existing game rules. D001 analysis/testing remains separately resumed; numerical/mechanical proposals are not implemented by this UI follow-up. Earlier D006 delivery remains recorded under 0.3.29.
+
 ## 0.3.29 — Phase-driven Battlefield UI — 13 October 2026
 
 - Implements the complete scoped D006 phase interface while keeping D001 deferred and existing combat, recipe, economy and art values intact.

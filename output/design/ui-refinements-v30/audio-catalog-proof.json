@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "scope": "UI refinements v30 comments 1, 5 and 13 plus narrow main-fixture adaptations",
+  "baselineCommit": "4da166a9718cb3b0ae2fde55ba4e076508988f22",
+  "targetEdition": "0.3.30",
+  "createdAt": "2026-10-13 19:22:40 UTC",
+  "status": "owned-source-and-focused-tests-passed",
+  "frozen": true,
+  "productionFiles": [
+    "game/audio/audio.js",
+    "ui/warbands-overview.js",
+    "ui/warbands-overview.css"
+  ],
+  "musicContract": {
+    "api": "AudioManager.syncGameState(game,{musicPaused=game.paused})",
+    "mainIntegration": "audio.syncGameState(game,{musicPaused:$('dialog').open?modalPaused:game.paused});",
+    "boundary": "Real simulation pause still invalidates and stops attack voices. Explicit player/background pause controls the music transport and committed speech. Dialog suspension preserves active/pending selection speech and its duck.",
+    "background": "Root actual blur/hidden handlers promote modalPaused=true when a combat dialog is open; close preserves the existing real background pause.",
+    "manualDeveloper": "Root actual simulation mutation callback keeps modalPaused tied to its manual Game pause state."
+  },
+  "catalogRemoval": [
+    "Removed wave/boss quick-jump controls, navigation listener/state and selected historical-wave navigation section.",
+    "Removed the entire Next wave and army response section, its wavePreview import, intelligence reads and related CSS.",
+    "Retained remaining compact rows, ordinary/Sandbox progress labels, exact wave caps, native details/lore, variant comparisons, actual current live/queued profiles and boss health.",
+    "Retained independent native disclosure choices, focused summaries, dialog scroll, approved portraits and deterministic runtime facts."
+  ],
+  "verification": {
+    "command": "node --test tests/audio*.test.mjs tests/enemy-catalog-navigation.test.mjs tests/warbands-overview.test.mjs tests/warband-cards.test.mjs tests/enemy-variants-v12.test.mjs tests/header-combat-controls.test.mjs tests/battlefield-panel-main-integration.test.mjs tests/phase-main-integration.test.mjs (PowerShell-expanded audio file list)",
+    "tests": 154,
+    "passed": 154,
+    "failed": 0,
+    "exitCode": 0,
+    "whitespaceExitCode": 0,
+    "log": "output/design/ui-refinements-v30/audio-catalog-tests.txt",
+    "checks": [
+      "Actual saved Recipes, Enemy Waves, Help, New run and Developer main entry functions freeze combat without stopping music in running combat; pre-paused runs remain paused.",
+      "Replacing dialogs keeps the same source, timers, speech duck and committed line; late recorded attacks are suppressed.",
+      "A pending committed speech load can finish during dialog suspension; genuine Pause retains position and resumes the same track.",
+      "Actual Developer activation/simulation callback, Mute all, window blur and hidden-page handlers preserve their pause semantics.",
+      "All 113 approved MP3s and ten receipts retain their approved bytes; voice/attack routing, volumes, rotation, crossfades, load leases and bounded cache checks pass.",
+      "All 62 effective enemy profiles retain exact runtime stats/traits and independent per-enemy variant composition.",
+      "Actual main fixture checks retain new top Start visibility, wave inspector opening, keeper/current-wave toggles, repeated rounds, persistent boss/counts and resource/RNG preservation."
+    ]
+  },
+  "files": [
+    "game/audio/audio.js",
+    "ui/warbands-overview.js",
+    "ui/warbands-overview.css",
+    "tests/enemy-catalog-navigation.test.mjs",
+    "tests/warbands-overview.test.mjs",
+    "tests/audio-main-dialog-music.test.mjs",
+    "tests/battlefield-panel-main-integration.test.mjs",
+    "tests/phase-main-integration.test.mjs"
+  ],
+  "sourceSha256": {
+    "game/audio/audio.js": "392b257e1b25fa08a957fb519245ff98f01bf101f215106452b46627994236dd",
+    "ui/warbands-overview.js": "dff3e90d53fa385e8381a8be6fddba68fe6f0b486b77129824118c08dcc462c0",
+    "ui/warbands-overview.css": "a15759d9566e2701eaa95dda669da0e5f22eaaa433d1423b476de1a33ea4a173",
+    "tests/enemy-catalog-navigation.test.mjs": "29928e4f65b890f518f4237a9abef0fc58a1264cf87723c10436ee01904a1833",
+    "tests/warbands-overview.test.mjs": "3654850db3b69e1947bbaa1b209e60cb8ce55f78e08390181481faad231c9005",
+    "tests/audio-main-dialog-music.test.mjs": "e44728e04d4d9cb308c54f762b3b05951720c2171bcac049aa6a956fe5367953",
+    "tests/battlefield-panel-main-integration.test.mjs": "ebcc8ec00975c08222350cbb8d960ce41299de06b28c472338882a709b970eb5",
+    "tests/phase-main-integration.test.mjs": "eedfb10d10b127233e905086d638f7df788a02129e72de6b993dc4c2e6af2250"
+  },
+  "mainAudioIntegrationObservedSha256": "e784204f6be99704a844b4d431ce6806d67b1f489047b676d0475b7245504b34",
+  "limits": [
+    "Minimal DOM and audio-context boundaries execute actual saved main functions and AudioManager/RecordedMusic transport. Physical browser audio and visual verification are root-owned final gates.",
+    "No main, root phase CSS, core mechanics, data, media, historical D006 documents, versions or publication changed by this owner."
+  ]
+}

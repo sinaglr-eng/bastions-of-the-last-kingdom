@@ -1,0 +1,48 @@
+{
+  "baseline": "4da166a9718cb3b0ae2fde55ba4e076508988f22",
+  "owner": "audit_crafting",
+  "frozen": true,
+  "files": [
+    {
+      "path": "ui/recipe-navigation.js",
+      "sha256": "b7c6fb2433e95a01e8dcaf04a7f159308b74421b632a551110312d3177c773f9",
+      "baselineSha256": null
+    },
+    {
+      "path": "ui/crafting-dock.js",
+      "sha256": "94832e89cadeed0a1c79628c3d710d34a1d52005f6f40afe04da6391f52ad088",
+      "baselineSha256": "23108304c984acdc86489d1d5347778ea10b68c999ebabab0111982d51fd8428"
+    },
+    {
+      "path": "ui/crafting-dock.css",
+      "sha256": "64fe15431f8b9eb8e3edc074e6ef54560b241ce266e3b111e5d4ec7a9bedc983",
+      "baselineSha256": "ef4d8ea112c9a8df7c938cc04ba5d07c403c6f94c560a013d13f6e857577143a"
+    },
+    {
+      "path": "ui/catalog-recipes.js",
+      "sha256": "78a9892e7482405e61529e4649fe841c985ef3d18b4f2b2570b2219e1e14132b",
+      "baselineSha256": "f25ba7ac244a6757f1573cd7dae9dbc1b2c338f4343fc23cf33a723c259901ca"
+    },
+    {
+      "path": "ui/catalog-recipes.css",
+      "sha256": "9ee97530751a5dd2d16ed149d69539a169976081256818c32941c729bcad0354",
+      "baselineSha256": "68f3b2492c4711ec598b8092df91e7e30027186e1b5c87efa151fac9237b7eac"
+    },
+    {
+      "path": "ui/grimoire.js",
+      "sha256": "83819249f319ba106434d5668d095403a14bc5055649ded4e4acccb9b60c453a",
+      "baselineSha256": "806e123cc4cc99f39de361af1a24e23b6bea7846cfa98df88cabe36f064a4428"
+    },
+    {
+      "path": "tests/recipe-navigation-v30.test.mjs",
+      "sha256": "f18673ce5120d33136aa82032ba6a127fe49871aac02685f151e20e2c2b94c1c",
+      "baselineSha256": null
+    },
+    {
+      "path": "tests/catalog-recipes-d006.test.mjs",
+      "sha256": "591dbaced4013f6944a669eef10dc2cca760fc391cddd45877f32da87bae0909",
+      "baselineSha256": "56e1e58d7ecb7615c02afd5692c9c32aff285f85b966918ffe0bc0953f1c2e04"
+    }
+  ],
+  "revision": 3
+}

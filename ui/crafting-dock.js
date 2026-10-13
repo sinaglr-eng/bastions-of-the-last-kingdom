@@ -2,6 +2,8 @@ import {recipeFamily,recipeTier,recipeLabel,rankLabel,recipeTreeProgress} from '
 import {championClassification} from '../game/render/champion-classification.js';
 import {eligibleDrawKeeper,drawKeeperKey,mergeTowerKey} from './draft-input.js';
 import {icon} from './icons.js';
+import {recipeDisplayInventory,recipeNavigationModel,downstreamRecipes,missingBasicFrontier} from './recipe-navigation.js';
+import {recipeIngredientLabel} from './grimoire.js';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const gameIds=new WeakMap();let nextGameId=1;
@@ -14,13 +16,7 @@ const walk=nodes=>nodes.flatMap(node=>[node,...walk(node.children)]);
 // identity must still belong to a real, placed draw from this exact round.
 export function recipePlanningInventory(game,recipe){
   if(!recipe||!construction(game))return [];
-  const candidates=new Set();
-  if(!game.draft.resolved&&['build','select'].includes(game.phase))for(const draw of game.draft.draws){
-    if(!draw.placed||draw.reservedForNextDraft)continue;
-    const tower=game.towers.find(t=>t.id===draw.towerId&&t.state==='draft'&&t.round===game.round&&t.placed!==false);
-    if(tower)candidates.add(tower);
-  }
-  return game.towers.filter(t=>t.placed!==false&&(t.state==='active'&&!recipe.currentRoundOnly||candidates.has(t)));
+  return recipeDisplayInventory(game,recipe);
 }
 
 function recipePlan(game,recipe){
@@ -29,7 +25,7 @@ function recipePlan(game,recipe){
   const rows=tree.map(node=>({...node,name:unitLabel(node,game.data),state:node.ownedCount?'built':node.draftCount?'draft':'missing'}));
   const counts={built:rows.filter(row=>row.state==='built').length,draft:rows.filter(row=>row.state==='draft').length,missing:rows.filter(row=>row.state==='missing').length};
   const highlightIds=new Set(game.commandMove.active?[]:walk(tree).filter(node=>node.draftCount&&node.towerId!==null&&!node.coveredBy).map(node=>node.towerId));
-  return {recipe,name:recipeLabel(recipe,game.data),family:recipeFamily(recipe),tier:recipeTier(recipe),tree,rows,counts,inventory,highlightIds};
+  return {recipe,name:recipeLabel(recipe,game.data),family:recipeFamily(recipe),tier:recipeTier(recipe),tree,rows,counts,inventory,highlightIds,missingBasics:missingBasicFrontier(tree,game.data)};
 }
 
 // Use the existing recursive allocator, including champion-subtree coverage and
@@ -87,10 +83,11 @@ export function craftingDockModel(game,{recipeId=null,anchorId=game.selected}={}
   }
   const pinned=recipePlan(game,findRecipe(game,game.pinned));
   const inspected=recipePlan(game,findRecipe(game,recipeId));
-  const plan=context||inspected||pinned;
+  const selectedChampion=game.selection&&game.data.towers[game.selection.family]?.advanced?game.recipes.find(r=>recipeFamily(r)===game.selection.family&&recipeTier(r)===game.selection.tier):null;
+  const plan=context||inspected||pinned||recipePlan(game,selectedChampion);
   const placed=game.draft.draws.slice(0,5).filter(draw=>draw.placed).length;
   const phaseText=game.phase==='build'?`Place recruits · ${placed}/5`:game.phase==='select'?'Choose your keeper · 5/5':game.phase==='ready'?'Ready':game.phase==='reward'?'Ready':game.phase==='combat'?'The siege is underway':game.phase==='won'?'Victory':'The keep has fallen';
-  return {visible:construction(game)&&!!plan,phaseText,context,pinned,plan,reason:context?'':unavailableReason(game,plan),highlightIds:pinned?.highlightIds||new Set()};
+  return {visible:construction(game)&&!!plan,phaseText,context,pinned,plan,downstream:downstreamRecipes(plan?.recipe,game.data),reason:context?'':unavailableReason(game,plan),highlightIds:pinned?.highlightIds||new Set()};
 }
 
 const portrait=(plan,images,cls='')=>{
@@ -100,17 +97,17 @@ const portrait=(plan,images,cls='')=>{
 const progressSummary=counts=>`✓ ${counts.built} built · ◆ ${counts.draft} this round · ○ ${counts.missing} missing`;
 const statusGlyph=state=>state==='built'?'✓':state==='draft'?'◆':'○';
 const statusText=state=>state==='built'?'Built':state==='draft'?'This round':'Missing';
-function progressRows(plan,images){
+function progressRows(plan,images,data){
   return `<ul class="crafting-ingredients" aria-label="Exact recipe ingredients">${plan.rows.map(row=>{
     const src=images[`${row.family}:${row.tier}`]||images[row.family];
-    return `<li class="crafting-ingredient ${row.state}">${src?`<img src="${escape(src)}" alt="" draggable="false">`:''}<span class="crafting-ingredient-name">${escape(row.name)}</span><span class="crafting-ingredient-state"><b aria-hidden="true">${statusGlyph(row.state)}</b><span>${statusText(row.state)}<small>${row.ownedCount}/1 Built${row.draftCount?' +1 This round':''}</small></span></span></li>`;
+    return `<li class="crafting-ingredient ${row.state}">${src?`<img src="${escape(src)}" alt="" draggable="false">`:''}${recipeIngredientLabel(row,data,{interactive:true,scope:'dock'})}<span class="crafting-ingredient-state"><b aria-hidden="true">${statusGlyph(row.state)}</b><span>${statusText(row.state)}<small>${row.ownedCount}/1 Built${row.draftCount?' +1 This round':''}</small></span></span></li>`;
   }).join('')}</ul>`;
 }
 function treeMarkup(plan,data){
   const node=p=>{
     const state=p.ownedCount?'built':p.draftCount?'draft':'missing',covered=p.coveredBy;
     const label=covered?`${covered.state==='active'?'✓':'◆'} Included in ${covered.state==='active'?'built':'this round’s'} ${data.towers[covered.family].name}`:`${statusGlyph(state)} ${statusText(state)}`;
-    return `<li class="crafting-chain-node ${covered?'covered':state}"><div><span>${escape(unitLabel(p,data))}</span><small>${escape(label)}</small></div>${p.children.length?`<ul>${p.children.map(node).join('')}</ul>`:''}</li>`;
+    return `<li class="crafting-chain-node ${covered?'covered':state}"><div>${recipeIngredientLabel(p,data,{interactive:true,scope:'dock'})}<small>${escape(label)}</small></div>${p.children.length?`<ul>${p.children.map(node).join('')}</ul>`:''}</li>`;
   };
   return `<details class="crafting-chain" data-crafting-disclosure="chain:${escape(plan.recipe.id)}"><summary data-crafting-focus="chain:${escape(plan.recipe.id)}">${icon('book')} Full ingredient chain</summary><p>A ready component champion covers its entire branch. Each defender is allocated once.</p><ul>${plan.tree.map(node).join('')}</ul></details>`;
 }
@@ -126,7 +123,9 @@ function dockParts(game,images={},options={}){
   const summary=`${portrait(plan,images,'crafting-summary-portrait')}<span><strong>${heading} · ${escape(plan.name)}</strong><small>${progressSummary(counts)}</small></span><span class="crafting-disclosure-chevron" aria-hidden="true">⌄</span>`;
   const alternatives=context&&context.alternatives.length>1?`<div class="crafting-alternatives" role="group" aria-label="Available champion alternatives">${context.alternatives.map(r=>`<button type="button" class="text-button ${r.id===plan.recipe.id?'active':''}" data-action="craft-preview" data-id="${escape(r.id)}" data-crafting-focus="preview:${escape(r.id)}" aria-pressed="${r.id===plan.recipe.id}">${escape(recipeLabel(r,game.data))}</button>`).join('')}</div>`:'';
   const otherPinned=pinned&&pinned.recipe.id!==plan.recipe.id?`<div class="crafting-other-pinned">${portrait(pinned,images)}<span>Pinned · ${escape(pinned.name)}<small>${progressSummary(pinned.counts)}</small></span><button type="button" class="text-button" data-action="pin" data-id="${escape(pinned.recipe.id)}" data-crafting-focus="unpin:${escape(pinned.recipe.id)}">Unpin</button></div>`:'';
-  const body=`<div class="crafting-champion">${portrait(plan,images,'crafting-champion-portrait')}<div><span class="eyebrow">${escape(championClassification(plan.family))} champion</span><h3>${escape(plan.name)}</h3><p>${escape(game.data.towers[plan.family].description)}</p></div></div>${alternatives}<p class="crafting-phase">${model.phaseText}</p>${plan.recipe.currentRoundOnly?'<p class="crafting-round-rule">Secret recipe · Exact ingredients from this round only.</p>':''}${progressRows(plan,images)}<p class="crafting-progress-total">${progressSummary(counts)}</p>${context?consequenceMarkup(context,game.data):''}${treeMarkup(plan,game.data)}`;
+  const navigation=recipeNavigationModel(options.navigation),history=options.navigation?`<nav class="crafting-history" aria-label="Recipe exploration history"><button type="button" class="text-button" data-action="recipe-history-back" data-crafting-focus="history:back" ${navigation.canBack?'':'disabled'}>‹ Previous recipe</button><button type="button" class="text-button" data-action="recipe-history-forward" data-crafting-focus="history:forward" ${navigation.canForward?'':'disabled'}>Next recipe ›</button></nav>`:'';
+  const downstream=model.downstream.length?`<section class="crafting-downstream" aria-label="Recipes using ${escape(plan.name)}"><h4>Combine ${escape(plan.name)} further</h4><p>Explore the exact ingredients for a later champion.</p><div>${model.downstream.map(r=>`<button type="button" class="text-button" data-action="recipe-explore" data-id="${escape(r.id)}" data-crafting-focus="downstream:${escape(r.id)}">${portrait({family:recipeFamily(r),tier:recipeTier(r),name:recipeLabel(r,game.data)},images)}<span>${escape(recipeLabel(r,game.data))}</span><span aria-hidden="true">›</span></button>`).join('')}</div></section>`:'';
+  const body=`${history}<div class="crafting-champion">${portrait(plan,images,'crafting-champion-portrait')}<div><span class="eyebrow">${escape(championClassification(plan.family))} champion</span><h3>${escape(plan.name)}</h3><p>${escape(game.data.towers[plan.family].description)}</p></div></div>${alternatives}<p class="crafting-phase">${model.phaseText}</p>${plan.recipe.currentRoundOnly?'<p class="crafting-round-rule">Secret recipe · Exact ingredients from this round only.</p>':''}${progressRows(plan,images,game.data)}<p class="crafting-progress-total">${progressSummary(counts)}</p>${context?consequenceMarkup(context,game.data):''}${downstream}${treeMarkup(plan,game.data)}`;
   const selected=game.selection,index=game.draft.draws.findIndex(draw=>draw.towerId===selected?.id),keeper=context&&eligibleDrawKeeper(game,index,selected?.id),mergeKey=context&&selected?mergeTowerKey(game,selected.id):null;
   const primary=context?`<button type="button" class="primary-button crafting-recruit" data-action="craft-dock" data-id="${escape(plan.recipe.id)}" data-tower-id="${context.anchor.id}" data-craft-key="${context.key}" data-crafting-focus="recruit:${escape(plan.recipe.id)}" aria-label="Recruit ${escape(plan.name)} at foundation ${foundationLabel(context.anchor)}">${icon('swords')} Recruit champion</button>`:`<button type="button" class="primary-button crafting-recruit" disabled>${icon('crown')} Recruit champion</button><p class="crafting-unavailable">${escape(model.reason)}</p>`;
   const actions=`${primary}<div class="crafting-secondary-actions">${keeper?`<button type="button" class="text-button" data-action="keep-draw" data-index="${index}" data-tower-id="${selected.id}" data-keeper-key="${drawKeeperKey(game,index)}" data-crafting-focus="keep:${selected.id}">${icon('shield')} Keep ${escape(game.data.towers[selected.family].name)}</button>`:''}${mergeKey?`<button type="button" class="text-button" data-action="merge-tower" data-tower-id="${selected.id}" data-merge-key="${mergeKey}" data-crafting-focus="merge:${selected.id}">${icon('spark')} Merge rank ${rankLabel(selected.tier+1)}</button>`:''}<button type="button" class="text-button" data-action="pin" data-id="${escape(plan.recipe.id)}" data-crafting-focus="pin:${escape(plan.recipe.id)}">${icon('pin')}${pinned?.recipe.id===plan.recipe.id?'Unpin':'Pin recipe'}</button></div>`;

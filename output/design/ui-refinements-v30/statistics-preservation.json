@@ -1,0 +1,335 @@
+{
+  "scope": "Read-only preservation check for statistics metadata edition 0.3.30",
+  "checkedAt": "2026-10-13 19:29:08 UTC",
+  "projectId": "appgprj_6abe518c2c1c8191a9bc044f418faed8",
+  "productionUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
+  "allRunRowsBefore": 83,
+  "allRunRowsAfter": 83,
+  "completedHistoricalRecordsBefore": 21,
+  "completedHistoricalRecordsAfter": 21,
+  "completedHistoricalRecordsMissing": 0,
+  "completedHistoricalRecordsChanged": 0,
+  "newCompletedRecords": 0,
+  "existingCompletedHistoryBeforeSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+  "existingCompletedHistoryAfterSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+  "entireCompletedHistoryAfterSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+  "completeNativeRunRowPagination": true,
+  "savedSiteVersionsBefore": 10,
+  "savedSiteVersionsAfter": 11,
+  "preexistingSavedSiteVersionIdsAndCommitsPreserved": true,
+  "leaderboardsBeforeSha256": "5bbeefd169a1757f1b2320efba964b4e0dad1303c6a40be7b900ae258aff9a90",
+  "leaderboardsAfterSha256": "5bbeefd169a1757f1b2320efba964b4e0dad1303c6a40be7b900ae258aff9a90",
+  "leaderboardsUnchanged": true,
+  "preexistingAllRunIdsPreserved": true,
+  "preexistingRunIdsMissing": 0,
+  "preexistingAllRunIdsBeforeSha256": "607812d6335ba1540492835fa6956c4ef7fa380a5708555845dde273d5c7d64c",
+  "preexistingAllRunIdsAfterSha256": "607812d6335ba1540492835fa6956c4ef7fa380a5708555845dde273d5c7d64c",
+  "allPreexistingSafeRunMetadataBeforeSha256": "8c31159888b03dccd572629aec7e1653edbd87b38db118e284026f9701e2d85a",
+  "allPreexistingSafeRunMetadataAfterSha256": "8c31159888b03dccd572629aec7e1653edbd87b38db118e284026f9701e2d85a",
+  "allPreexistingSafeRunMetadataRecordsChanged": 0,
+  "newRunRows": 0,
+  "runTableColumnsUnchanged": true,
+  "comparisonFields": [
+    "id",
+    "version",
+    "mode",
+    "seed",
+    "started_at",
+    "updated_at",
+    "finished_at",
+    "sequence",
+    "outcome",
+    "score",
+    "waves_survived",
+    "duration_ms",
+    "health",
+    "kingdom_level",
+    "gold",
+    "name"
+  ],
+  "audienceBefore": "public",
+  "audienceAfter": "public",
+  "audienceAndPolicyUnchanged": true,
+  "environmentRevisionBefore": 1,
+  "environmentRevisionAfter": 1,
+  "environmentNames": [
+    "ADMIN_TOKEN",
+    "GAME_ORIGINS"
+  ],
+  "environmentComparisonPassed": true,
+  "bindings": [
+    "DB"
+  ],
+  "tables": [
+    "request_limits",
+    "run_waves",
+    "runs"
+  ],
+  "protectedSource": {
+    ".openai/hosting.json": {
+      "sha256": "0c47aa9aaf7c11db9dea86508499a739d48b955a2562740cb4cb0b20f5d202e4",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "db/schema.ts": {
+      "sha256": "493a82312f2a494382f6024cefcdd40b3d8ad300eac5b09e322a48b694412a84",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "drizzle/0000_tearful_gamma_corps.sql": {
+      "sha256": "a584c8a8c7c2f5eb998dbe010e75e69d1cf07f0e4a58750691e41c1e547e8144",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "drizzle/meta/_journal.json": {
+      "sha256": "3d418482bcddc14b256c9d123276b5cdae30819e0b5e13aceeaaabba1641ef21",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "drizzle/meta/0000_snapshot.json": {
+      "sha256": "2b9dff522b423a3f47e2339d509376fada3395d24c40c559886ef79a07ac89c7",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "backend/worker.js": {
+      "sha256": "38f716748837cd6cba433c551afa08e1382ea1fc167b3f33c0bf9fb433a072f1",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "backend/service-page.js": {
+      "sha256": "3a083a551319a09b42f59b43fbcada0aaef8abb80ab62061e4138768c5c3cb5f",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "backend/validation.js": {
+      "sha256": "9759066e412d9bd7309e31fc92721d6feb8e159cf372860128dc23b6976f7d7c",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "build.mjs": {
+      "sha256": "178287d732a2b777706a12606b558946ce444ba0f4703216b85d41adebf27211",
+      "lfNormalizedMatchesBaseline": true
+    }
+  },
+  "leaderboardModes": [
+    10,
+    50
+  ],
+  "leaderboardBoardsBefore": [
+    {
+      "mode": 10,
+      "version": "all",
+      "rows": 0,
+      "sha256": "24fe9c6dc112b59887a364501bf50f5d0589dd47385099055f601e28ac05e03e"
+    },
+    {
+      "mode": 50,
+      "version": "all",
+      "rows": 10,
+      "sha256": "62fa1d4c446b549832cf734646d121ae8d8c3ac1091c28d759fbdc380810f16f"
+    },
+    {
+      "mode": 50,
+      "version": "0.2.7",
+      "rows": 2,
+      "sha256": "7cca8fd73544df082dc89fbbd808a0a1c6bf22501d63e5e45a4597c5b8572c49"
+    },
+    {
+      "mode": 50,
+      "version": "0.2.8",
+      "rows": 1,
+      "sha256": "b8dfbc7d6d980b2393d08a089771492d7e56b800920862e5c277591d05c3afc1"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.10",
+      "rows": 1,
+      "sha256": "a796704d7b67aa69b0d2813485e044f1529ae26f54f74e4784de8a4e846c883f"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.11",
+      "rows": 1,
+      "sha256": "07b6e85d35894637398ae33c0a0ff76690c20969c7c158ace6638f6e684e1ee2"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.16",
+      "rows": 1,
+      "sha256": "076d32cbe2d308d46d2bf6f849a4e7374ee763cd0cb3a651060c5b98e30767a8"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.21",
+      "rows": 1,
+      "sha256": "c18b6f9420497aa57306ad3255d001a6ae07c68771de08209cdbc8c609457fd2"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.23",
+      "rows": 2,
+      "sha256": "73b50b2a44df8d9d0cb5c9071b1b0ecf8f48a450b9b5c518facf3e5683878e55"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.24",
+      "rows": 1,
+      "sha256": "9a9017657e2e28e659c1881d798714401635cee7e431f04c8e979afe78aa460a"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.25",
+      "rows": 3,
+      "sha256": "6e584eab285e32e721b04938b6862a3bdc338d0bc5a557fb3ce9568747334c18"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.26",
+      "rows": 1,
+      "sha256": "0ccc8e750ebbeaef5b3a0ed8124b249b616bf8e2d97aabd417158f07f3fff30d"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.27",
+      "rows": 1,
+      "sha256": "e9843d6a085db4603ae5a4b65e1d0b7f777a30ce9bfd60ad85e0d425d587663b"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.5",
+      "rows": 1,
+      "sha256": "d5ded8e0a2326b3006634739e14dcaed595dda9110f624254454c65229c55104"
+    }
+  ],
+  "leaderboardBoardsAfter": [
+    {
+      "mode": 10,
+      "version": "all",
+      "rows": 0,
+      "sha256": "24fe9c6dc112b59887a364501bf50f5d0589dd47385099055f601e28ac05e03e"
+    },
+    {
+      "mode": 50,
+      "version": "all",
+      "rows": 10,
+      "sha256": "62fa1d4c446b549832cf734646d121ae8d8c3ac1091c28d759fbdc380810f16f"
+    },
+    {
+      "mode": 50,
+      "version": "0.2.7",
+      "rows": 2,
+      "sha256": "7cca8fd73544df082dc89fbbd808a0a1c6bf22501d63e5e45a4597c5b8572c49"
+    },
+    {
+      "mode": 50,
+      "version": "0.2.8",
+      "rows": 1,
+      "sha256": "b8dfbc7d6d980b2393d08a089771492d7e56b800920862e5c277591d05c3afc1"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.10",
+      "rows": 1,
+      "sha256": "a796704d7b67aa69b0d2813485e044f1529ae26f54f74e4784de8a4e846c883f"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.11",
+      "rows": 1,
+      "sha256": "07b6e85d35894637398ae33c0a0ff76690c20969c7c158ace6638f6e684e1ee2"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.16",
+      "rows": 1,
+      "sha256": "076d32cbe2d308d46d2bf6f849a4e7374ee763cd0cb3a651060c5b98e30767a8"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.21",
+      "rows": 1,
+      "sha256": "c18b6f9420497aa57306ad3255d001a6ae07c68771de08209cdbc8c609457fd2"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.23",
+      "rows": 2,
+      "sha256": "73b50b2a44df8d9d0cb5c9071b1b0ecf8f48a450b9b5c518facf3e5683878e55"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.24",
+      "rows": 1,
+      "sha256": "9a9017657e2e28e659c1881d798714401635cee7e431f04c8e979afe78aa460a"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.25",
+      "rows": 3,
+      "sha256": "6e584eab285e32e721b04938b6862a3bdc338d0bc5a557fb3ce9568747334c18"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.26",
+      "rows": 1,
+      "sha256": "0ccc8e750ebbeaef5b3a0ed8124b249b616bf8e2d97aabd417158f07f3fff30d"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.27",
+      "rows": 1,
+      "sha256": "e9843d6a085db4603ae5a4b65e1d0b7f777a30ce9bfd60ad85e0d425d587663b"
+    },
+    {
+      "mode": 50,
+      "version": "0.3.5",
+      "rows": 1,
+      "sha256": "d5ded8e0a2326b3006634739e14dcaed595dda9110f624254454c65229c55104"
+    }
+  ],
+  "historicalSavedSiteVersions": [
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_1c52b885b58c8191901d2329bf88e194",
+      "version_number": 10,
+      "commit_sha": "44011539d22362af162609d232229dc723df30da"
+    },
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_8eb1b90be47481919641bf470964c7a5",
+      "version_number": 9,
+      "commit_sha": "19c43dbfc37932cf9d7b09c9ad314a3630b20523"
+    },
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_360d702b51948191b13f2e61f47b61b8",
+      "version_number": 8,
+      "commit_sha": "091aec04b643baf06bb0b43d04d0388b9711908f"
+    },
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_f5a508a7d3e88191a0634dbda0cb25e7",
+      "version_number": 7,
+      "commit_sha": "a678a4a5424a4bde57096c99559efcf657dd5f16"
+    },
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_86242bdd35e88191a9ed93cb49d61930",
+      "version_number": 6,
+      "commit_sha": "756d0d5c07e4bf43affbeed6f87f6473ecd6b9b8"
+    },
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_16081bc5ea40819185e5fa05b115a029",
+      "version_number": 5,
+      "commit_sha": "3bc2441d8b8a8ad94e2ec23b51a4d0eeefd673cd"
+    },
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_e956b87395ec8191a6d1168bbe7b7122",
+      "version_number": 4,
+      "commit_sha": "80de8afd91b3d316bd0130093761353685a101bf"
+    },
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_bd74069503ac819182e0163196a9319a",
+      "version_number": 3,
+      "commit_sha": "063547c9170111bc63ba88a3c7a71d6a40e630e6"
+    },
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_8de4cf374664819196a1863a13e014cd",
+      "version_number": 2,
+      "commit_sha": "201e5a5bad3711fb0d23bb9544912276f91f83fc"
+    },
+    {
+      "id": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_2254fe1a485881918e9367c44f08026e",
+      "version_number": 1,
+      "commit_sha": "164419675de8cc44adf05e94217407663ae474aa"
+    }
+  ],
+  "preservationBoundary": "All preexisting run IDs and 16 selected safe metadata fields were read through complete native pagination. Every preexisting won/lost record was compared exactly; ongoing nonfinal rows may legitimately advance, and new legitimate rows are allowed. Token hashes and large summary_json cells were excluded. Individual run_waves JSON records were not compared. Binding names, table/column names, schema, migrations, Worker, validation and hosting source are unchanged."
+}

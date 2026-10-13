@@ -47,8 +47,8 @@ test('actual main render and event wiring follow repeated draft, keeper, combat 
   for(let round=1;round<=3;round++){
     for(const x of [3,5,7,9,11])assert.equal(game.place(x,3+round*2),true);assert.equal(app.dataset.phase,'select');const tower=game.selection;
     game.select(tower.id);assert.equal(app.dataset.inspectorOpen,'true');phaseUi.close();functions.render();assert.equal(app.dataset.inspectorOpen,'false');game.select(tower.id);assert.equal(app.dataset.inspectorOpen,'true','Explicit same-ID activation reopens a dismissed inspector');
-    assert.equal(game.keep(),true);assert.equal(app.dataset.phase,'ready');assert.equal(app.dataset.draftExpanded,'false');assert.match(nodes.get('phase-strip').innerHTML,/Start wave/);
-    assert.equal(functions.sendWave(),true);assert.equal(game.selection,null);assert.equal(app.dataset.phase,'combat');assert.equal(app.dataset.inspectorOpen,'false');assert.equal(app.dataset.draftExpanded,'false');assert.equal(nodes.get('compact-draft-actions').hidden,true);
+    assert.equal(game.keep(),true);assert.equal(app.dataset.phase,'ready');assert.equal(app.dataset.draftExpanded,'false');assert.equal(nodes.get('map-start').hidden,false);assert.match(nodes.get('start-wave').innerHTML,new RegExp('Start wave '+round));assert.doesNotMatch(nodes.get('phase-strip').innerHTML,/data-action="start"/);
+    assert.equal(functions.sendWave(),true);assert.equal(game.selection,null);assert.equal(app.dataset.phase,'combat');assert.equal(app.dataset.inspectorOpen,'true');assert.equal(app.dataset.inspectorView,'wave');assert.match(nodes.get('phase-strip').innerHTML,/data-action="inspect-wave" aria-expanded="true"/);assert.equal(nodes.get('map-start').hidden,true);assert.equal(app.dataset.draftExpanded,'false');assert.equal(nodes.get('compact-draft-actions').hidden,true);
     const elapsed=game.combat.elapsed;game.paused=true;functions.render();game.tick(.5);assert.equal(game.combat.elapsed,elapsed);assert.equal(app.dataset.paused,'true');assert.match(nodes.get('phase-strip').innerHTML,/Global combat pause/);
     game.paused=false;game.completeWave();assert.equal(game.round,round+1);assert.equal(app.dataset.phase,'build');assert.equal(app.dataset.draftExpanded,'true');assert.equal((nodes.get('draft').innerHTML.match(/Unrevealed defender\. Build/g)||[]).length,5);assert.equal(app.dataset.inspectorOpen,'false');
   }
@@ -66,6 +66,19 @@ test('actual advanced-menu warning and Cancel preserve run eligibility; confirma
     press(functions.handleCommand,'developer');press(functions.handleCommand,'developer-confirm');await functions.session.activation;await new Promise(resolve=>setImmediate(resolve));assert.equal(disabled,1);assert.equal(game.developerMode,true);assert.ok(loadProfile().excludedRuns.includes(tracker.id));assert.equal(loadProfile().runHistory.some(row=>row.id===tracker.id),false);assert.equal(inventory(game),resources);assert.match(dialog,/Developer Console/);
     press(functions.handleCommand,'close');assert.equal(game.developerMode,true);assert.ok(loadProfile().excludedRuns.includes(tracker.id));functions.session.dispose();
   }finally{tracker.dispose();globalThis.localStorage=previous;}
+});
+
+test('actual Current wave and Inspect keeper controls toggle the inspector and preserve the selected keeper, combat and resources',()=>{
+  const game=new Game(data,{seed:733}),control=new Game(data,{seed:733});for(const run of [game,control]){kept(run);run.startCombat();}
+  const phaseUi=new PhaseUiState(),app=node(),world={maze:{editing:false},doubleTap:{clear:noop},resize:noop};phaseUi.sync(game);phaseUi.apply(app,game);const keeper=game.towers.find(t=>t.state==='active'),before=inventory(game);
+  const buttons=['inspect-wave','inspect-keeper'].map(action=>({dataset:{action,id:String(keeper.id)},attributes:{},setAttribute(name,value){this.attributes[name]=value;}}));app.querySelectorAll=()=>buttons;let sidebarView=null,recipeView=null;
+  const bindings=commandBindings(game,phaseUi,app,world,{renderSidebar:()=>sidebarView=phaseUi.view,renderRecipeBrowser:()=>recipeView=phaseUi.view});delete bindings.syncInspector;
+  const {handleCommand}=compile(['handleCommand','syncInspector'],bindings);assert.equal(app.dataset.inspectorView,'wave');assert.equal(app.dataset.inspectorOpen,'true');
+  press(handleCommand,'inspect-wave');assert.equal(app.dataset.inspectorOpen,'false');press(handleCommand,'inspect-wave');assert.equal(app.dataset.inspectorOpen,'true');assert.equal(app.dataset.inspectorView,'wave');
+  press(handleCommand,'inspect-keeper',{id:String(keeper.id)});assert.equal(game.selection,keeper);assert.equal(app.dataset.inspectorView,'unit');assert.equal(app.dataset.inspectorOpen,'true');press(handleCommand,'inspect-keeper',{id:String(keeper.id)});assert.equal(app.dataset.inspectorOpen,'false');assert.equal(game.selection,keeper,'Closing the keeper drawer preserves the real selection');
+  press(handleCommand,'inspect-keeper',{id:String(keeper.id)});assert.equal(app.dataset.inspectorOpen,'true');press(handleCommand,'inspector-wave');assert.equal(app.dataset.inspectorView,'wave');assert.equal(game.selection,keeper,'The Current wave tab keeps the selected defender available');
+  assert.equal(sidebarView,'wave');assert.equal(recipeView,'wave');assert.equal(buttons[0].attributes['aria-expanded'],'true');assert.equal(buttons[1].attributes['aria-expanded'],'false');press(handleCommand,'inspect-wave');assert.equal(buttons[0].attributes['aria-expanded'],'false');press(handleCommand,'inspect-keeper',{id:String(keeper.id)});assert.equal(sidebarView,'unit');assert.equal(buttons[1].attributes['aria-expanded'],'true');press(handleCommand,'inspect-keeper',{id:String(keeper.id)});assert.equal(buttons[1].attributes['aria-expanded'],'false');
+  assert.equal(game.phase,'combat');assert.equal(game.paused,false);assert.equal(inventory(game),before);assert.equal(game.rng(),control.rng());
 });
 
 test('actual result-review route presents ended facts and inspectors without construction guidance or executable unit controls',()=>{

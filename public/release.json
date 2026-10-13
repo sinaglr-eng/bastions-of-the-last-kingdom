@@ -1,6 +1,6 @@
 {
-  "version": "0.3.29",
-  "edition": "Phase-driven Battlefield UI",
+  "version": "0.3.30",
+  "edition": "Connected Recipes and Battlefield Controls",
   "date": "2026-10-13",
   "basicClasses": 8,
   "champions": 38,
@@ -27,7 +27,11 @@
   "recordedAudioRevision": "approved-20261011-0019d4e4b9fa",
   "recordedMusicTracks": 6,
   "recordedAttackTypes": 15,
-  "damageClasses": ["Physical", "Magical", "Holy"],
+  "damageClasses": [
+    "Physical",
+    "Magical",
+    "Holy"
+  ],
   "mvpMaximumLevel": 10,
   "developerConsole": true,
   "classificationScaleStep": 1.1

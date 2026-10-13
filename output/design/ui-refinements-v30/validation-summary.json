@@ -1,0 +1,70 @@
+{
+  "startedAt": "2026-10-13T19:40:16.143Z",
+  "completedAt": "2026-10-13T19:54:46.107Z",
+  "head": "4da166a9718cb3b0ae2fde55ba4e076508988f22",
+  "release": "0.3.30",
+  "tests": {
+    "command": "node --test --test-reporter=tap tests/*.test.mjs",
+    "exitCode": 0,
+    "error": null,
+    "tests": 1366,
+    "passed": 1366,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "log": "full-tests-final.txt",
+    "sourceBeforeCssCorrection": {
+      "ui/phase-ui.css": "48fedde9e44e5a5ca8b7ee85f9b945c3fc9a9eedf4e00d47e37a2f7cc2a563f0",
+      "game/main.js": "b842193e4a52350245dab3e327591354fe6eb9e72ad84bdf3b0a1845fc1d4d86"
+    },
+    "note": "1366/1366 runtime tests passed before subsequent CSS-only selector and responsive layout corrections. Only the production build was repeated after those CSS changes."
+  },
+  "build": {
+    "command": "VITE_BASE_PATH='/bastions-of-the-last-kingdom/' node node_modules/vite/bin/vite.js build",
+    "basePath": "/bastions-of-the-last-kingdom/",
+    "exitCode": 0,
+    "error": null,
+    "log": "production-build.txt",
+    "advisories": [
+      "Vite reports chunks larger than 500 kB after minification."
+    ],
+    "completedAt": "2026-10-13T19:54:46.107Z",
+    "changedDuringValidation": [],
+    "changedSincePriorBuild": []
+  },
+  "sourceSha256": {
+    "game/main.js": "b842193e4a52350245dab3e327591354fe6eb9e72ad84bdf3b0a1845fc1d4d86",
+    "ui/phase-ui.js": "371a2d13bfba434b8cbacf9817cbaae7dc1335b5f0233c4ac7ddb0ec7db698fa",
+    "ui/phase-ui.css": "4a98e2a8c7d21044e5740e89933efbc92ccdae9889d7583ad889e497f1f5a58f",
+    "ui/defender-panel.js": "8d6884898163248482cee83776252f8a8d08adf8e710a94ac4804cb9df944ab0",
+    "game/render/draft-markers.js": "88c6bfef1b17fc55a9a0df3e4be0ed253ad765699c09198d40da5740465a88fe",
+    "ui/pinned-recruit-input.js": "80301f8a876477f8729e5f4266e9cfd71577a0fb8c87c6273630357a13236baf",
+    "ui/recipe-navigation.js": "b7c6fb2433e95a01e8dcaf04a7f159308b74421b632a551110312d3177c773f9",
+    "ui/crafting-dock.js": "94832e89cadeed0a1c79628c3d710d34a1d52005f6f40afe04da6391f52ad088",
+    "ui/crafting-dock.css": "64fe15431f8b9eb8e3edc074e6ef54560b241ce266e3b111e5d4ec7a9bedc983",
+    "ui/catalog-recipes.js": "78a9892e7482405e61529e4649fe841c985ef3d18b4f2b2570b2219e1e14132b",
+    "ui/catalog-recipes.css": "9ee97530751a5dd2d16ed149d69539a169976081256818c32941c729bcad0354",
+    "ui/grimoire.js": "83819249f319ba106434d5668d095403a14bc5055649ded4e4acccb9b60c453a",
+    "ui/audit-layout.css": "130fdf028b6e30687b36d1c522b235b0fa7e35e48115c93683fbe15df7ebb742",
+    "ui/style.css": "c2dc46960343138fe8c85efbadd8cba80b59ae4493ca235ea4bc81a188f99567",
+    "ui/refinements-v30.css": "617dba7b85a9751fa8bd6b6ed52aa734d5331dac191fb12ac6367e4be9937d4a"
+  },
+  "changedDuringValidation": [],
+  "success": true,
+  "cssCorrection": {
+    "path": "ui/phase-ui.css",
+    "approvedBy": "parent agent",
+    "change": "Removed one space immediately after '[' in '#app[data-draft-expanded=false]'.",
+    "beforeSha256": "48fedde9e44e5a5ca8b7ee85f9b945c3fc9a9eedf4e00d47e37a2f7cc2a563f0",
+    "afterSha256": "4a98e2a8c7d21044e5740e89933efbc92ccdae9889d7583ad889e497f1f5a58f"
+  },
+  "responsiveCssFinal": {
+    "owner": "parent agent",
+    "phaseUiCssSha256": "4a98e2a8c7d21044e5740e89933efbc92ccdae9889d7583ad889e497f1f5a58f",
+    "mainSha256": "b842193e4a52350245dab3e327591354fe6eb9e72ad84bdf3b0a1845fc1d4d86",
+    "changedSincePriorBuild": [],
+    "path": "ui/refinements-v30.css",
+    "sha256": "617dba7b85a9751fa8bd6b6ed52aa734d5331dac191fb12ac6367e4be9937d4a"
+  }
+}

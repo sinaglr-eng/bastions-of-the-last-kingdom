@@ -1,0 +1,193 @@
+{
+  "version": "0.3.30",
+  "baseline": "4da166a9718cb3b0ae2fde55ba4e076508988f22",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 31366,
+      "sha256": "4fe357e3abea99cb76a4de3379e438d1a0881f64e10107cfa811ca594c522355"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 47413,
+      "sha256": "ca8dd01f077099ade836caeee7533c73329a6d4fa70238376c2681d22cd24d94"
+    },
+    {
+      "file": "GAME_DESIGN.md",
+      "bytes": 63762,
+      "sha256": "77ed9a525564c22acefa245409eb3a5e8db7286d4a52fee86ba82b5b35e27c3b"
+    },
+    {
+      "file": "docs/UI_REFINEMENTS_V30_20261013.md",
+      "bytes": 27456,
+      "sha256": "bca7f4356021c988f69b22731e47787c01c2d3b04d099eec216b93a079e4578e"
+    },
+    {
+      "file": "game/audio/audio.js",
+      "bytes": 24191,
+      "sha256": "392b257e1b25fa08a957fb519245ff98f01bf101f215106452b46627994236dd"
+    },
+    {
+      "file": "game/main.js",
+      "bytes": 65864,
+      "sha256": "b842193e4a52350245dab3e327591354fe6eb9e72ad84bdf3b0a1845fc1d4d86"
+    },
+    {
+      "file": "game/release.js",
+      "bytes": 1281,
+      "sha256": "ceec38e4df68fee9c0e05bf952f376e14859a5272fccd597df0681d6a55a5b87"
+    },
+    {
+      "file": "game/render/draft-markers.js",
+      "bytes": 14776,
+      "sha256": "88c6bfef1b17fc55a9a0df3e4be0ed253ad765699c09198d40da5740465a88fe"
+    },
+    {
+      "file": "package.json",
+      "bytes": 468,
+      "sha256": "4ae68e6e8809cdeac14e21512bc13d1c97a688ca90ffd19aa22a620b0165a505"
+    },
+    {
+      "file": "public/release.json",
+      "bytes": 966,
+      "sha256": "eb65a7c2b3f17c23e49eded3a5bf5311d22f822cbfc8c6c6e0f8f5f19d849bfa"
+    },
+    {
+      "file": "tests/battlefield-panel-main-integration.test.mjs",
+      "bytes": 17446,
+      "sha256": "ebcc8ec00975c08222350cbb8d960ce41299de06b28c472338882a709b970eb5"
+    },
+    {
+      "file": "tests/catalog-recipes-d006.test.mjs",
+      "bytes": 15490,
+      "sha256": "591dbaced4013f6944a669eef10dc2cca760fc391cddd45877f32da87bae0909"
+    },
+    {
+      "file": "tests/crafting-main-integration.test.mjs",
+      "bytes": 10766,
+      "sha256": "56f7c3c4f86fb82f803fe7905de534158e2d290ad195dbaaa163c385ff5d96c2"
+    },
+    {
+      "file": "tests/defender-rank-preview.test.mjs",
+      "bytes": 16619,
+      "sha256": "49096f78f9ce304b3f318e8413a8d134bd9fc0b7d3122864cdfd11dae0e24ab8"
+    },
+    {
+      "file": "tests/draft-pointer-input.test.mjs",
+      "bytes": 14746,
+      "sha256": "29094a583d26b6f8b18c746679ef9e474b2e5645d9dde640a6586f3d9abb98d1"
+    },
+    {
+      "file": "tests/enemy-catalog-navigation.test.mjs",
+      "bytes": 16822,
+      "sha256": "29928e4f65b890f518f4237a9abef0fc58a1264cf87723c10436ee01904a1833"
+    },
+    {
+      "file": "tests/phase-main-integration.test.mjs",
+      "bytes": 15420,
+      "sha256": "5d1d1ad07b44a943552e0e9dcb8f2d37c6e830a54570d4bbbc4d2425c540fef6"
+    },
+    {
+      "file": "tests/phase-ui.test.mjs",
+      "bytes": 6779,
+      "sha256": "e86666e18b67d1fbc7fb04c3cb477e382a74260746fd2750fa6554e6894db229"
+    },
+    {
+      "file": "tests/warbands-overview.test.mjs",
+      "bytes": 15858,
+      "sha256": "3654850db3b69e1947bbaa1b209e60cb8ce55f78e08390181481faad231c9005"
+    },
+    {
+      "file": "tests/audio-main-dialog-music.test.mjs",
+      "bytes": 11619,
+      "sha256": "e44728e04d4d9cb308c54f762b3b05951720c2171bcac049aa6a956fe5367953"
+    },
+    {
+      "file": "tests/defender-panel-preview-v30.test.mjs",
+      "bytes": 13068,
+      "sha256": "57499c25f5fc538e8eec8df7f285b21d35c50e24f00e8b5aa73f7d289414513d"
+    },
+    {
+      "file": "tests/pinned-recruit-map-v30.test.mjs",
+      "bytes": 15457,
+      "sha256": "d5b4811da439bb4a1a982c6830af3d77b46f83f596a6f53d2a78a5a0c0fdc8a0"
+    },
+    {
+      "file": "tests/recipe-navigation-v30.test.mjs",
+      "bytes": 17964,
+      "sha256": "f18673ce5120d33136aa82032ba6a127fe49871aac02685f151e20e2c2b94c1c"
+    },
+    {
+      "file": "ui/catalog-recipes.css",
+      "bytes": 10724,
+      "sha256": "9ee97530751a5dd2d16ed149d69539a169976081256818c32941c729bcad0354"
+    },
+    {
+      "file": "ui/catalog-recipes.js",
+      "bytes": 13288,
+      "sha256": "78a9892e7482405e61529e4649fe841c985ef3d18b4f2b2570b2219e1e14132b"
+    },
+    {
+      "file": "ui/crafting-dock.css",
+      "bytes": 9309,
+      "sha256": "64fe15431f8b9eb8e3edc074e6ef54560b241ce266e3b111e5d4ec7a9bedc983"
+    },
+    {
+      "file": "ui/crafting-dock.js",
+      "bytes": 17289,
+      "sha256": "94832e89cadeed0a1c79628c3d710d34a1d52005f6f40afe04da6391f52ad088"
+    },
+    {
+      "file": "ui/defender-panel.js",
+      "bytes": 6610,
+      "sha256": "8d6884898163248482cee83776252f8a8d08adf8e710a94ac4804cb9df944ab0"
+    },
+    {
+      "file": "ui/defender-rank-preview.js",
+      "bytes": 1654,
+      "sha256": "2383ebb3ce3a9ad7de0874d5b750236164d5b5015e1b1ef866b9016ac0f6c306"
+    },
+    {
+      "file": "ui/grimoire.js",
+      "bytes": 21409,
+      "sha256": "83819249f319ba106434d5668d095403a14bc5055649ded4e4acccb9b60c453a"
+    },
+    {
+      "file": "ui/phase-ui.css",
+      "bytes": 21198,
+      "sha256": "4a98e2a8c7d21044e5740e89933efbc92ccdae9889d7583ad889e497f1f5a58f"
+    },
+    {
+      "file": "ui/phase-ui.js",
+      "bytes": 5924,
+      "sha256": "371a2d13bfba434b8cbacf9817cbaae7dc1335b5f0233c4ac7ddb0ec7db698fa"
+    },
+    {
+      "file": "ui/warbands-overview.css",
+      "bytes": 4572,
+      "sha256": "a15759d9566e2701eaa95dda669da0e5f22eaaa433d1423b476de1a33ea4a173"
+    },
+    {
+      "file": "ui/warbands-overview.js",
+      "bytes": 3879,
+      "sha256": "dff3e90d53fa385e8381a8be6fddba68fe6f0b486b77129824118c08dcc462c0"
+    },
+    {
+      "file": "ui/pinned-recruit-input.js",
+      "bytes": 2290,
+      "sha256": "80301f8a876477f8729e5f4266e9cfd71577a0fb8c87c6273630357a13236baf"
+    },
+    {
+      "file": "ui/recipe-navigation.js",
+      "bytes": 3893,
+      "sha256": "b7c6fb2433e95a01e8dcaf04a7f159308b74421b632a551110312d3177c773f9"
+    },
+    {
+      "file": "ui/refinements-v30.css",
+      "bytes": 4911,
+      "sha256": "617dba7b85a9751fa8bd6b6ed52aa734d5331dac191fb12ac6367e4be9937d4a"
+    }
+  ],
+  "protectedProof": "protected-source-proof.json",
+  "note": "Root integration fixture bindings and syncInspector accessibility fix supersede earlier targeted fixture-file hashes; production agent runtime hashes remain unchanged."
+}

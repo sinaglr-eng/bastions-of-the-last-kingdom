@@ -1,3 +1,59 @@
-.warbands-overview{min-width:0}.warbands-progress{font-size:12px;color:var(--gold);margin:0 0 16px}.warbands-overview-intelligence{margin:0 0 22px}.warbands-overview .wave-intelligence-body{max-height:none;overflow:visible}.warbands-overview .wave-intelligence-summary{padding:14px}.warbands-overview .wave-intelligence-summary strong{font-size:16px}.warbands-overview .wave-intelligence-summary small{font-size:11px}.warbands-overview .wave-intelligence-body{padding:0 14px 14px}.warbands-overview .wave-preview-name{font-size:21px}.warbands-overview .wave-enemy-name strong{font-size:13px}.warbands-overview .wave-enemy-name small,.warbands-overview .wave-enemy-open{font-size:10px}.warbands-overview .wave-preview-note,.warbands-overview .wave-readiness-scope,.warbands-overview .wave-enemy-variant p,.warbands-overview .wave-enemy-variant li,.warbands-overview .wave-readiness li{font-size:11px}.warbands-overview .wave-preview-section-heading>strong,.warbands-overview .wave-enemy-variant>strong{font-size:12px}.warbands-overview .wave-threat-tag,.warbands-overview .readiness-level{font-size:10px}.warbands-overview .wave-enemy-variant+.wave-enemy-variant{margin-top:12px}.warbands-remaining>h3{font:23px Georgia,serif;color:var(--cream);margin:0 0 8px}.warbands-guide-note,.warbands-empty{font-size:12px;line-height:1.6;color:var(--muted);margin:0}.warbands-overview .warband-grid{margin-top:16px}.warbands-overview .warband-card.current{border-color:#bcb581;box-shadow:inset 0 3px 0 #bcb58166}.warband-wave-status{font-size:10px!important;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);margin:7px 0!important}.warband-wave-name{font:18px Georgia,serif;color:var(--cream);line-height:1.35;margin:8px 0 14px;overflow-wrap:anywhere}.warband-live,.warband-boss-health{clear:both;margin:14px 0;padding:12px;background:#0f201e66;border:1px solid #667d6155;border-radius:4px}.warband-live h4,.warband-boss-health>strong{font-size:12px;color:#d6e0c7}.warband-live-total{color:#d9c796}.warband-live-profile{padding-top:9px;margin-top:9px;border-top:1px solid #53676466}.warband-live-profile>strong{font-size:11px;color:#d6e0c7}.warband-live-profile p{margin:5px 0}.warband-boss-health{border-color:#b69b6255}.warband-boss-health progress{display:block;width:100%;height:7px;accent-color:#d2a864}.warbands-overview .warband-group{display:flow-root}.warbands-overview .warband-card{overflow-wrap:anywhere}@media(min-width:720px){.warbands-overview .wave-preview-composition{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}.warbands-overview .wave-enemy-details+.wave-enemy-details{margin-top:0}.warbands-overview .wave-more-enemies{grid-column:1/-1}}@media(max-width:580px){.warbands-overview .wave-intelligence-summary{padding:11px}.warbands-overview .wave-intelligence-body{padding:0 11px 11px}.warbands-remaining>h3{font-size:21px}}
-.warbands-overview .warband-grid{display:block}.warbands-overview .warband-card.compact{padding:0;margin:7px 0;overflow:hidden}.warband-wave-row{display:flex;align-items:center;gap:9px;min-height:62px;padding:8px 10px;cursor:pointer;list-style:none;touch-action:manipulation}.warband-wave-row::-webkit-details-marker{display:none}.warband-row-number{font:18px Georgia,serif;color:var(--gold);min-width:25px;text-align:center}.warband-row-portrait{width:32px;height:37px;object-fit:contain;flex:none}.warband-row-copy{min-width:0;flex:1}.warband-row-copy>strong{display:block;font:14px Georgia,serif;color:var(--cream);line-height:1.25}.warband-row-copy>small{display:block;font-size:10px;color:#c4d5cb;margin-top:3px}.warband-row-threats{display:block;font-size:10px;line-height:1.35;color:#e6d4a9;margin-top:3px}.warband-wave-row::after{content:'＋';font-size:18px;color:var(--gold);flex:none}.warband-wave-details[open]>.warband-wave-row::after{content:'−'}.warband-wave-body{padding:10px 13px;border-top:1px solid #65796b55}.warband-detail-heading{display:flex;gap:10px;align-items:center}.warband-detail-heading>img{width:47px!important;height:53px!important;float:none!important;object-fit:contain}.warband-detail-heading>h3{margin:0!important}.warband-shared-stats{font-size:12px;line-height:1.5;color:var(--cream);margin:8px 0}.warband-common-abilities>strong{font-size:11px;color:var(--gold)}.warband-variant-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin:10px 0}.warband-variant-columns>.warband-variant{border:1px solid #61777a80;border-radius:4px;padding:8px;margin:0!important;background:#102a3066;min-width:0}.warband-variant-columns>.warband-variant:only-child:empty{display:none}.warband-variant>strong{display:block;font-size:11px;color:var(--cream);line-height:1.4}.warband-variant .enemy-trait-list{margin-top:7px}.warband-identical{padding:7px 9px;border-left:3px solid #bca974;font-size:11px;line-height:1.5;background:#283e3766}.warband-lore{margin-top:8px;border-top:1px solid #566e5d66}.warband-lore>summary,.warbands-intelligence-details>summary,.warband-boss-jumps>summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-size:12px;color:var(--gold);padding:7px 2px;touch-action:manipulation}.warbands-intelligence-details>summary{border:1px solid #526e6480;padding:9px 12px;border-radius:4px}.warbands-overview .warbands-overview-intelligence{margin:10px 0}.warbands-overview .warbands-progress{margin-bottom:8px}.warband-quick-jump{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:7px;align-items:center;padding:8px;background:#142b2bf5;border:1px solid #65847777;border-radius:5px;margin:8px 0 12px}.warband-quick-jump>label{font-size:11px;color:var(--cream);flex:1}.warband-quick-jump>select{min-height:44px;min-width:118px;width:auto;font-size:12px;padding:8px;flex:1;background:#193435;color:var(--cream);border:1px solid #799987;border-radius:4px}.warband-quick-jump>button{min-width:44px;min-height:44px}.warband-boss-jumps{flex-basis:100%}.warband-boss-jumps>summary{padding:0;min-height:44px}.warband-boss-jumps>div{display:flex;gap:6px;flex-wrap:wrap;padding-top:3px}.warband-boss-jumps button{min-width:70px;min-height:44px;font-size:11px}.warbands-history{margin:12px 0;border-left:3px solid var(--gold);padding-left:9px}.warbands-history>h3{font:16px Georgia,serif;color:var(--gold)}.warband-wave-row:focus-visible,.warband-lore>summary:focus-visible,.warband-quick-jump button:focus-visible,.warband-quick-jump select:focus-visible,.warband-boss-jumps>summary:focus-visible{outline:2px solid #ffe194;outline-offset:-2px}@media(max-width:580px){.warband-variant-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.warband-variant-columns>.warband-variant{padding:6px}.warband-variant .enemy-trait-list li,.warband-variant .minor-note{font-size:10px;line-height:1.4}.warband-variant .enemy-defense-glyph{width:17px;height:17px}.warband-wave-row{padding:7px;gap:7px}.warband-row-copy>strong{font-size:13px}.warband-row-portrait{width:27px;height:32px}.warband-quick-jump>label{flex-basis:100%}.warband-wave-body{padding:9px}.warband-shared-stats{font-size:11px}}
-.warbands-overview .warband-card.compact{min-height:0}.warband-wave-row .warband-row-portrait{float:none;width:32px;height:37px;margin:0}.warband-comparison .warband-shared-stats{font-size:12px;line-height:1.5}@media(max-width:580px){.warband-wave-row .warband-row-portrait{width:27px;height:32px}.warband-comparison .warband-shared-stats{font-size:11px}}
+.warbands-overview{min-width:0}
+.warbands-progress{font-size:12px;color:var(--gold);margin:0 0 8px}
+.warbands-remaining>h3{font:23px Georgia,serif;color:var(--cream);margin:0 0 8px}
+.warbands-guide-note,.warbands-empty{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
+.warbands-overview .warband-grid{display:block;margin-top:16px}
+.warbands-overview .warband-card{overflow-wrap:anywhere}
+.warbands-overview .warband-card.current{border-color:#bcb581;box-shadow:inset 0 3px 0 #bcb58166}
+.warbands-overview .warband-group{display:flow-root}
+.warband-wave-status{font-size:10px!important;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gold);margin:7px 0!important}
+.warband-wave-name{font:18px Georgia,serif;color:var(--cream);line-height:1.35;margin:8px 0 14px;overflow-wrap:anywhere}
+.warband-live,.warband-boss-health{clear:both;margin:14px 0;padding:12px;background:#0f201e66;border:1px solid #667d6155;border-radius:4px}
+.warband-live h4,.warband-boss-health>strong{font-size:12px;color:#d6e0c7}
+.warband-live-total{color:#d9c796}
+.warband-live-profile{padding-top:9px;margin-top:9px;border-top:1px solid #53676466}
+.warband-live-profile>strong{font-size:11px;color:#d6e0c7}
+.warband-live-profile p{margin:5px 0}
+.warband-boss-health{border-color:#b69b6255}
+.warband-boss-health progress{display:block;width:100%;height:7px;accent-color:#d2a864}
+.warbands-overview .warband-card.compact{padding:0;margin:7px 0;overflow:hidden}
+.warband-wave-row{display:flex;align-items:center;gap:9px;min-height:62px;padding:8px 10px;cursor:pointer;list-style:none;touch-action:manipulation}
+.warband-wave-row::-webkit-details-marker{display:none}
+.warband-row-number{font:18px Georgia,serif;color:var(--gold);min-width:25px;text-align:center}
+.warband-row-portrait{width:32px;height:37px;object-fit:contain;flex:none}
+.warband-row-copy{min-width:0;flex:1}
+.warband-row-copy>strong{display:block;font:14px Georgia,serif;color:var(--cream);line-height:1.25}
+.warband-row-copy>small{display:block;font-size:10px;color:#c4d5cb;margin-top:3px}
+.warband-row-threats{display:block;font-size:10px;line-height:1.35;color:#e6d4a9;margin-top:3px}
+.warband-wave-row::after{content:'＋';font-size:18px;color:var(--gold);flex:none}
+.warband-wave-details[open]>.warband-wave-row::after{content:'−'}
+.warband-wave-body{padding:10px 13px;border-top:1px solid #65796b55}
+.warband-detail-heading{display:flex;gap:10px;align-items:center}
+.warband-detail-heading>img{width:47px!important;height:53px!important;float:none!important;object-fit:contain}
+.warband-detail-heading>h3{margin:0!important}
+.warband-shared-stats{font-size:12px;line-height:1.5;color:var(--cream);margin:8px 0}
+.warband-common-abilities>strong{font-size:11px;color:var(--gold)}
+.warband-variant-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin:10px 0}
+.warband-variant-columns>.warband-variant{border:1px solid #61777a80;border-radius:4px;padding:8px;margin:0!important;background:#102a3066;min-width:0}
+.warband-variant-columns>.warband-variant:only-child:empty{display:none}
+.warband-variant>strong{display:block;font-size:11px;color:var(--cream);line-height:1.4}
+.warband-variant .enemy-trait-list{margin-top:7px}
+.warband-identical{padding:7px 9px;border-left:3px solid #bca974;font-size:11px;line-height:1.5;background:#283e3766}
+.warband-lore{margin-top:8px;border-top:1px solid #566e5d66}
+.warband-lore>summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-size:12px;color:var(--gold);padding:7px 2px;touch-action:manipulation}
+.warband-wave-row:focus-visible,.warband-lore>summary:focus-visible{outline:2px solid #ffe194;outline-offset:-2px}
+.warbands-overview .warband-card.compact{min-height:0}
+.warband-wave-row .warband-row-portrait{float:none;width:32px;height:37px;margin:0}
+.warband-comparison .warband-shared-stats{font-size:12px;line-height:1.5}
+@media(max-width:580px){
+  .warbands-remaining>h3{font-size:21px}
+  .warband-variant-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .warband-variant-columns>.warband-variant{padding:6px}
+  .warband-variant .enemy-trait-list li,.warband-variant .minor-note{font-size:10px;line-height:1.4}
+  .warband-variant .enemy-defense-glyph{width:17px;height:17px}
+  .warband-wave-row{padding:7px;gap:7px}
+  .warband-row-copy>strong{font-size:13px}
+  .warband-row-portrait,.warband-wave-row .warband-row-portrait{width:27px;height:32px}
+  .warband-wave-body{padding:9px}
+  .warband-shared-stats,.warband-comparison .warband-shared-stats{font-size:11px}
+}

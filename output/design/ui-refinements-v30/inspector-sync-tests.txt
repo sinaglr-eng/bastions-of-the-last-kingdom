@@ -1,0 +1,17 @@
+✔ actual main sidebar keeps individual live enemy HP and close control without duplicating global combat controls (24.2234ms)
+✔ actual main HUD follows real damage, pause and death while retaining individual scroll, peak DPS and persistent header controls (14.3844ms)
+✔ actual main selected-wall markup puts demolition immediately after the title and matches real Game.remove phase restrictions (34.7636ms)
+✔ actual main keyboard and overlay-entry listeners prevent panel controls from also driving the battlefield (4.2492ms)
+✔ actual main next-wave integration follows real round31 completion and final10 victory without resetting disclosure preference or revealing drafts (26.3161ms)
+✔ actual main render and event wiring follow repeated draft, keeper, combat and pause transitions with five slots restored (27.0257ms)
+✔ actual advanced-menu warning and Cancel preserve run eligibility; confirmation alone activates exclusion (6.1311ms)
+✔ actual Current wave and Inspect keeper controls toggle the inspector and preserve the selected keeper, combat and resources (12.9667ms)
+✔ actual result-review route presents ended facts and inspectors without construction guidance or executable unit controls (27.8657ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 231.526

@@ -1,0 +1,88 @@
+{
+  "baseline": "4da166a9718cb3b0ae2fde55ba4e076508988f22",
+  "generatedAt": "2026-10-13T19:29:23.581Z",
+  "owner": "audit_crafting",
+  "release": "0.3.30",
+  "scope": "Comments 3, 4, 6, 9, 14, 15, 16: recipe ingredients, exploration and pinned missing basic frontier",
+  "files": [
+    {
+      "path": "ui/recipe-navigation.js",
+      "sha256": "b7c6fb2433e95a01e8dcaf04a7f159308b74421b632a551110312d3177c773f9",
+      "baselineSha256": null
+    },
+    {
+      "path": "ui/crafting-dock.js",
+      "sha256": "94832e89cadeed0a1c79628c3d710d34a1d52005f6f40afe04da6391f52ad088",
+      "baselineSha256": "23108304c984acdc86489d1d5347778ea10b68c999ebabab0111982d51fd8428"
+    },
+    {
+      "path": "ui/crafting-dock.css",
+      "sha256": "64fe15431f8b9eb8e3edc074e6ef54560b241ce266e3b111e5d4ec7a9bedc983",
+      "baselineSha256": "ef4d8ea112c9a8df7c938cc04ba5d07c403c6f94c560a013d13f6e857577143a"
+    },
+    {
+      "path": "ui/catalog-recipes.js",
+      "sha256": "78a9892e7482405e61529e4649fe841c985ef3d18b4f2b2570b2219e1e14132b",
+      "baselineSha256": "f25ba7ac244a6757f1573cd7dae9dbc1b2c338f4343fc23cf33a723c259901ca"
+    },
+    {
+      "path": "ui/catalog-recipes.css",
+      "sha256": "9ee97530751a5dd2d16ed149d69539a169976081256818c32941c729bcad0354",
+      "baselineSha256": "68f3b2492c4711ec598b8092df91e7e30027186e1b5c87efa151fac9237b7eac"
+    },
+    {
+      "path": "ui/grimoire.js",
+      "sha256": "83819249f319ba106434d5668d095403a14bc5055649ded4e4acccb9b60c453a",
+      "baselineSha256": "806e123cc4cc99f39de361af1a24e23b6bea7846cfa98df88cabe36f064a4428"
+    },
+    {
+      "path": "tests/recipe-navigation-v30.test.mjs",
+      "sha256": "f18673ce5120d33136aa82032ba6a127fe49871aac02685f151e20e2c2b94c1c",
+      "baselineSha256": null
+    },
+    {
+      "path": "tests/catalog-recipes-d006.test.mjs",
+      "sha256": "591dbaced4013f6944a669eef10dc2cca760fc391cddd45877f32da87bae0909",
+      "baselineSha256": "56e1e58d7ecb7615c02afd5692c9c32aff285f85b966918ffe0bc0953f1c2e04"
+    }
+  ],
+  "validation": {
+    "command": "node --test --test-reporter=tap tests/recipe-navigation-v30.test.mjs tests/crafting-dock.test.mjs tests/catalog-recipes-d006.test.mjs tests/grimoire-display.test.mjs tests/recipe-tree.test.mjs tests/recipe-filters.test.mjs tests/recipe-breakdown.test.mjs tests/ranks-recipes.test.mjs",
+    "exitCode": 0,
+    "tests": 76,
+    "passed": 76,
+    "failed": 0,
+    "log": "recipes-targeted-tests.txt"
+  },
+  "preservation": {
+    "protectedPaths": [
+      "game/core",
+      "data",
+      "game/render",
+      "assets",
+      "public"
+    ],
+    "changedProtectedFiles": [
+      "game/render/draft-markers.js",
+      "public/release.json"
+    ],
+    "readOnlyGameChecks": "Real Game snapshots and matched RNG streams cover repeated catalog/dock/history/frontier inspection, all 38 recipes, hidden/reserved/stale/ruin stock, secret current-round eligibility, duplicate leaf counts and actual crafting transitions.",
+    "uiOnlyNavigation": "History mutates caller-owned UI state; catalog browsing does not invoke Game actions. Dock exploration actions are integration hooks, separate from guarded Recruit champion actions.",
+    "runtimeAllocation": "recipeTreeProgress owns allocation. A ready intermediate champion covers its consumed subtree once; only uncovered basic leaves appear in the missing frontier.",
+    "visualQa": "Native browser QA belongs to the parent agent; this proof records source and actual Game tests.",
+    "separatePointerScope": "game/render/draft-markers.js is now owned by the same subagent for comment 17; its independent pointer proof is recorded separately. This recipe allowlist remains limited to the eight listed files.",
+    "authorizedSeparateScopes": {
+      "game/render/draft-markers.js": "Comment 17 pointer allowlist and independent pinned-recruit-map-preservation-proof.json",
+      "public/release.json": "Parent-owned release metadata; approved art and core data remain unchanged."
+    }
+  },
+  "integration": {
+    "imports": "recipeNavigationVisit, recipeNavigationStep, recipeNavigationModel, pinnedMissingBasicSummary from ui/recipe-navigation.js",
+    "dockOptions": "Pass {navigation: UIHistoryState} to updateCraftingDock; actions recipe-explore, recipe-history-back and recipe-history-forward.",
+    "pinnedGoal": "craftingDockModel(...).pinned.missingBasics returns {items,total,summary}; compact summary is basic defender codes, e.g. 2×SII, DI.",
+    "catalog": "Internal data-catalog-ingredient and data-catalog-history actions preserve search, filters, disclosures and detail focus; existing onDetail stamping callback is retained."
+  },
+  "revision": 3,
+  "supersedesProofSha256": "0263a508807aceb6e14dedd45d2fb0026f4fb1ca4b2f39973cdbb7164b3334b0",
+  "followup": "Comment 4 applies abbreviations to all exact ingredient names. Multiword champion names use UI-only English initials (MD I, BFD I, FK I); single-word names use their first three letters (RAN I, CAT I, KIN I, GOL I). Basic runtime defenderCode values and missing frontier shorthand are unchanged."
+}

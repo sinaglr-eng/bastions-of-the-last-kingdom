@@ -108,20 +108,23 @@ export class AudioManager{
       if(this.context?.state==='running'&&!this.muted)void this.preloadRecordedEffects();return true;
     }catch{return false;}finally{this.audioLoads.delete(controller);}
   }
-  syncGameState(game){
-    // Result dialogs pause the simulation; a completed campaign still gets its
-    // approved celebration. Ordinary pauses suspend both music and attacks.
+  syncGameState(game,{musicPaused=game?.paused}={}){
+    // A dialog can suspend combat while the accepted music/selection line keeps
+    // playing. The caller supplies the actual player/background pause state.
     const paused=!!game?.paused&&!['won','lost'].includes(game?.phase);
+    const transportPaused=!!musicPaused&&!['won','lost'].includes(game?.phase);
     if(game?.phase!==this.gameState?.phase||paused&&!this.gameState?.paused)this.attackGeneration++;
-    if(paused&&!this.gameState?.paused){this.cancelSelectionVoice();this.stopGameVoices();}
-    this.gameState={phase:game?.phase,paused,round:game?.round,waveLimit:game?.waveLimit};this.music.sync(this.gameState);
+    if(transportPaused&&!this.gameState?.musicPaused){this.cancelSelectionVoice();this.stopGameVoices();}
+    else if(paused&&!this.gameState?.paused)this.stopGameVoices({preserveSelectionVoice:true});
+    this.gameState={phase:game?.phase,paused,musicPaused:transportPaused,round:game?.round,waveLimit:game?.waveLimit};this.music.sync({...this.gameState,paused:transportPaused});
   }
   resetRun(){
     this.attackGeneration++;this.cancelSelectionVoice();this.committedVoiceKeys=new WeakMap();this.music.reset();this.gameState=null;this.last.clear();this.recent=[];
     this.stopGameVoices();
   }
-  stopGameVoices(){
+  stopGameVoices({preserveSelectionVoice=false}={}){
     for(const voice of [...this.voices]){
+      if(preserveSelectionVoice&&voice===this.selectionVoice)continue;
       try{voice.source.stop(this.context.currentTime);}catch{/* An ended source can already be stopped. */}
       voice.source.onended?.();voice.source.onended=null;
     }
@@ -186,13 +189,13 @@ export class AudioManager{
     this.committedVoiceKeys.set(tower,key);
     this.cancelSelectionVoice();this.selectionKey=key;
     const pair=this.selectionCatalogue.get(family),context=this.context;
-    if(!pair||this.muted||this.disposed||!context||this.gameState?.paused)return false;
+    if(!pair||this.muted||this.disposed||!context||this.gameState?.musicPaused)return false;
     const request=this.selectionRequest;
     // A fresh independent 50/50 choice; repeated B or A is allowed.
     const clip=pair[this.voiceRandom()<.5?0:1];
     try{
       const [buffer]=await Promise.all([this.loadSelectionClip(clip),this.resumePromise]);
-      if(!buffer||this.muted||this.disposed||this.gameState?.paused||request!==this.selectionRequest||context!==this.context||context.state!=='running'||tower.state!=='active'||tower.family!==family||tower.tier!==tier)return false;
+      if(!buffer||this.muted||this.disposed||this.gameState?.musicPaused||request!==this.selectionRequest||context!==this.context||context.state!=='running'||tower.state!=='active'||tower.family!==family||tower.tier!==tier)return false;
       if(this.voices.size>=this.maxVoices)return false;
       const source=context.createBufferSource(),gain=context.createGain();source.buffer=buffer;
       source.playbackRate.setValueAtTime(1,context.currentTime);

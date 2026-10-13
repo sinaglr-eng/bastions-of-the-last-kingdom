@@ -8,7 +8,8 @@ export class PhaseUiState {
     const changed=game.phase!==this.phase||game.round!==this.round;
     if(changed){
       this.historyExpanded=['build','select'].includes(game.phase);
-      if(game.phase==='combat'||endedPhase(game.phase)||game.phase==='build'&&this.phase==='combat')this.inspectorOpen=false;
+      if(game.phase==='combat'){this.inspectorOpen=true;this.view='wave';}
+      else if(endedPhase(game.phase)||game.phase==='build'&&this.phase==='combat'){this.inspectorOpen=false;this.view='unit';}
       this.selection=selection;
     }else if(selection&&selection!==this.selection){this.inspectorOpen=true;this.view='unit';}
     if(!changed&&selection===null&&this.selection!==null&&this.view==='unit')this.inspectorOpen=false;
@@ -25,7 +26,7 @@ export function phaseStripMarkup(game,state){
   if(['build','select'].includes(game.phase))return '';
   const ended=endedPhase(game.phase),active=game.towers.filter(t=>t.state==='active'),keeper=game.draft.draws.map(draw=>game.towers.find(t=>t.id===draw.towerId&&t.state==='active')).find(Boolean)||active.at(-1);
   const label=ended?'Run ended · Read-only battlefield':game.phase==='combat'?(game.paused?'Paused · Global combat pause':'Combat underway'):'Ready · Keeper chosen';
-  return `<strong class="phase-strip-label">${label}</strong><div id="combat-counts" class="combat-counts"></div><nav aria-label="Phase actions">${ended?'<button class="primary-button" data-action="restart">Play again</button><button class="text-button" data-action="result-return">Results</button>':game.phase==='ready'?`<button class="primary-button" data-action="start">Start wave ${game.round}</button>`:''}${keeper?`<button class="text-button" data-action="inspect-keeper" data-id="${keeper.id}">${icon('target')} Inspect keeper</button>`:''}${!ended?`<button class="text-button" data-action="draft-history" aria-expanded="${state.historyExpanded}" aria-controls="draft-history">${icon('book')}<span>Draft history &amp; odds</span></button>`:''}</nav>`;
+  return `<strong class="phase-strip-label">${label}</strong><div id="combat-counts" class="combat-counts"></div><nav aria-label="Phase actions">${ended?'<button class="primary-button" data-action="restart">Play again</button><button class="text-button" data-action="result-return">Results</button>':''}${game.phase==='combat'?`<button class="text-button" data-action="inspect-wave" aria-expanded="${state.inspectorOpen&&state.view==='wave'}">${icon('swords')} Current wave</button>`:''}${keeper?`<button class="text-button" data-action="inspect-keeper" data-id="${keeper.id}" aria-expanded="${state.inspectorOpen&&state.view==='unit'&&game.selected===keeper.id}">${icon('target')} Inspect keeper</button>`:''}${!ended?`<button class="text-button" data-action="draft-history" aria-expanded="${state.historyExpanded}" aria-controls="draft-history">${icon('book')}<span>Draft history &amp; odds</span></button>`:''}</nav>`;
 }
 
 export function combatStatusModel(game){
@@ -48,5 +49,5 @@ export function updateCombatStatus(counts,banner,game){const model=combatStatusM
 
 export function pinnedGoalMarkup(plan,images={}){
   if(!plan)return '';
-  return `<button class="pinned-goal-open" data-action="inspector-plan" aria-label="Open pinned ${escape(plan.name)}"><img src="${escape(images[plan.family]||'')}" alt=""><span><strong>${escape(plan.name)}</strong><small>✓ ${plan.counts.built} built · ◆ ${plan.counts.draft} this round · ○ ${plan.counts.missing} missing</small></span></button><button class="text-button" data-action="pin" data-id="${escape(plan.recipe.id)}" aria-label="Unpin ${escape(plan.name)}">Unpin</button>`;
+  return `<button class="pinned-goal-open" data-action="inspector-plan" aria-label="Open pinned ${escape(plan.name)}"><img src="${escape(images[plan.family]||'')}" alt=""><span><strong>${escape(plan.name)}</strong><small>✓ ${plan.counts.built} built · ◆ ${plan.counts.draft} this round · ○ ${plan.counts.missing} missing</small><small class="pinned-missing-basics">Missing basics: ${escape(plan.missingBasics?.summary||'None')}</small></span></button><button class="text-button" data-action="pin" data-id="${escape(plan.recipe.id)}" aria-label="Unpin ${escape(plan.name)}">Unpin</button>`;
 }
