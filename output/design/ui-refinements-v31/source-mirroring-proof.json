@@ -1,0 +1,347 @@
+{
+  "status": "passed",
+  "baseline": "f2089a8a71c6c24ca06398f283c131dbf943843e",
+  "backupRoot": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\ui-v31-before-1791960288094",
+  "latestBackupRoot": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\tmp\\ui-v31-mirror-1791962924351",
+  "paths": 42,
+  "unrelatedUnchanged": 341,
+  "externalChangesObservedNotModified": [],
+  "files": [
+    {
+      "file": "README.md",
+      "sourceSha256": "b56cafe210f14a92c97082d7481b124138e5b19449bfba7ffea0c3b63dc7d0fb",
+      "mainSha256": "d2e7f72838a8b79fd27e14fceb8b88c8902b9ed7704dc1935bf38dd4e4dddbb3",
+      "originalSha256": "4cd8c59911aeec72ccb64a218e3eb22a3bd41b25c7ebd2d64f497589aafa1b77",
+      "mode": "preserved-main-three-way-merge",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "CHANGELOG.md",
+      "sourceSha256": "d4049330ac2303f71183fe982ea2aee143afde835e538c615c9ecc1d42654bef",
+      "mainSha256": "195639835f354902955e758e9437a8695a8f9c7b0b748475c15c6a2fd2a1cae6",
+      "originalSha256": "6c060914adffe076c7aef6902801c8568d1852715aeb57def550919340a114e7",
+      "mode": "preserved-main-three-way-merge",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "GAME_DESIGN.md",
+      "sourceSha256": "042acf6a5770eafc331cbfb7e53a96814a8ccd591f862e2c6a5c36775ac7beb0",
+      "mainSha256": "042acf6a5770eafc331cbfb7e53a96814a8ccd591f862e2c6a5c36775ac7beb0",
+      "originalSha256": "46e317a169da041a6712942d0aab9974757c3f9f5329bc1b7a605ebac0d63c09",
+      "mode": "preserved-imported-main-document",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "docs/COMBAT_RULES.md",
+      "sourceSha256": "f987df7309d1fa4a832d6e9aeec6f3290fe45cc0fd3d59430e9e5d8a220bbef1",
+      "mainSha256": "f987df7309d1fa4a832d6e9aeec6f3290fe45cc0fd3d59430e9e5d8a220bbef1",
+      "originalSha256": "56260f9e5c829248811a5ae823a4e5e6fd0bfdaeb48519a0fd311639ac8dae10",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "docs/UI_REFINEMENTS_V31_20261014.md",
+      "sourceSha256": "07661c6afb1a4b1a2a2401f0c5842a9eff0a5d6b23560f23ca430dfcf33f1121",
+      "mainSha256": "07661c6afb1a4b1a2a2401f0c5842a9eff0a5d6b23560f23ca430dfcf33f1121",
+      "originalSha256": null,
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "game/core/campaign-roster.js",
+      "sourceSha256": "2c4e0ec5198456da9d36663e272c6c60e36217e5bbc06474f63b455e75a08f5b",
+      "mainSha256": "2c4e0ec5198456da9d36663e272c6c60e36217e5bbc06474f63b455e75a08f5b",
+      "originalSha256": "f5196bf1dacc7ddc6657fcf940f46e52c20560d56b579a9563e1dc0188e27c7b",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "game/core/tower-dps.js",
+      "sourceSha256": "cf643d946e1bed7bc7815515f56482f8502fb75dbea57f7bd110afdca2421691",
+      "mainSha256": "cf643d946e1bed7bc7815515f56482f8502fb75dbea57f7bd110afdca2421691",
+      "originalSha256": "f3d4f72607f004a9e43075e07ffb580ae99f196ff34a9da17894c6c8afe0081e",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "game/main.js",
+      "sourceSha256": "cb498baf0fbe60a2e77925bbf855226b4b20c33a8ae46f7b6e2052c5505fae36",
+      "mainSha256": "cb498baf0fbe60a2e77925bbf855226b4b20c33a8ae46f7b6e2052c5505fae36",
+      "originalSha256": "b842193e4a52350245dab3e327591354fe6eb9e72ad84bdf3b0a1845fc1d4d86",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "game/release.js",
+      "sourceSha256": "85ff4c984bdf042a9da41424395f99527ea8631eab19702b23a8479479f75a9c",
+      "mainSha256": "85ff4c984bdf042a9da41424395f99527ea8631eab19702b23a8479479f75a9c",
+      "originalSha256": "ceec38e4df68fee9c0e05bf952f376e14859a5272fccd597df0681d6a55a5b87",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "package.json",
+      "sourceSha256": "1344da4f3a173ae433455bbdaec7ad0ecb6a5d47b8ac911f93bcf0ca99beb291",
+      "mainSha256": "1344da4f3a173ae433455bbdaec7ad0ecb6a5d47b8ac911f93bcf0ca99beb291",
+      "originalSha256": "4ae68e6e8809cdeac14e21512bc13d1c97a688ca90ffd19aa22a620b0165a505",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "public/release.json",
+      "sourceSha256": "b7f6b13fe8351ec8b28daf6f1fe2a06e9b0c7fd6808527866dfa677099e200e1",
+      "mainSha256": "b7f6b13fe8351ec8b28daf6f1fe2a06e9b0c7fd6808527866dfa677099e200e1",
+      "originalSha256": "eb65a7c2b3f17c23e49eded3a5bf5311d22f822cbfc8c6c6e0f8f5f19d849bfa",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/audio-main-dialog-music.test.mjs",
+      "sourceSha256": "4c44fa5bbd1cd8159909c7d920e70f3d664c692046a51f8f9c603c7c969dd081",
+      "mainSha256": "4c44fa5bbd1cd8159909c7d920e70f3d664c692046a51f8f9c603c7c969dd081",
+      "originalSha256": "e44728e04d4d9cb308c54f762b3b05951720c2171bcac049aa6a956fe5367953",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/battlefield-overlay-panels.test.mjs",
+      "sourceSha256": "3458618adddd0922a55233e6eb2d39efb73732cc070864cd2095c0eb9e443dc3",
+      "mainSha256": "3458618adddd0922a55233e6eb2d39efb73732cc070864cd2095c0eb9e443dc3",
+      "originalSha256": "adf38ffb2b582654274373448ed012ad3bc1873abb8b6716e59ff955ba7119b9",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/battlefield-panel-main-integration.test.mjs",
+      "sourceSha256": "54e9f92c58ae6402292d86a6094561d6418818d424ed60391720b489918c3f58",
+      "mainSha256": "54e9f92c58ae6402292d86a6094561d6418818d424ed60391720b489918c3f58",
+      "originalSha256": "ebcc8ec00975c08222350cbb8d960ce41299de06b28c472338882a709b970eb5",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/combat-timings-v28.test.mjs",
+      "sourceSha256": "d7ca6c56d58093693781036cd13689f1c95a7867a5833cf7a8271819bbc79acb",
+      "mainSha256": "d7ca6c56d58093693781036cd13689f1c95a7867a5833cf7a8271819bbc79acb",
+      "originalSha256": "ff61646379d9a4efb9c90da6e9dbeecdf5b06ae491ebf2ff35c73b02ff7913a9",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/crafting-main-integration.test.mjs",
+      "sourceSha256": "addba99730319f645a1336d2606435a1cf1ef4449870fdf8a2ad703b59a129f5",
+      "mainSha256": "addba99730319f645a1336d2606435a1cf1ef4449870fdf8a2ad703b59a129f5",
+      "originalSha256": "56f7c3c4f86fb82f803fe7905de534158e2d290ad195dbaaa163c385ff5d96c2",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/defender-panel-preview-v30.test.mjs",
+      "sourceSha256": "54050e4f9681c9139a0cc56187712305da9de128b900bd01d8fd4d9bec8ec7e4",
+      "mainSha256": "54050e4f9681c9139a0cc56187712305da9de128b900bd01d8fd4d9bec8ec7e4",
+      "originalSha256": "57499c25f5fc538e8eec8df7f285b21d35c50e24f00e8b5aa73f7d289414513d",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/defender-rank-preview.test.mjs",
+      "sourceSha256": "ad7c694db9514c501299258ac91e2e761c02c293bfe5538cec5bd925c344c49c",
+      "mainSha256": "ad7c694db9514c501299258ac91e2e761c02c293bfe5538cec5bd925c344c49c",
+      "originalSha256": "49096f78f9ce304b3f318e8413a8d134bd9fc0b7d3122864cdfd11dae0e24ab8",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/dps-measurement.test.mjs",
+      "sourceSha256": "583b4129aa391054bba9be6742be3aebf87af3a98b55a7f7aa3715b2cf096db7",
+      "mainSha256": "583b4129aa391054bba9be6742be3aebf87af3a98b55a7f7aa3715b2cf096db7",
+      "originalSha256": "9cae72d346a117b5927feddd048382111250c646b42d9f08ceea461a7800c7ab",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/draft-presentation.test.mjs",
+      "sourceSha256": "53588b135be57b117d3fe95ea4ca6d2ae0d10b1d77cce86f9d5870a9ac770d48",
+      "mainSha256": "53588b135be57b117d3fe95ea4ca6d2ae0d10b1d77cce86f9d5870a9ac770d48",
+      "originalSha256": "4eb018183908d2d04a7ec670d2392b8d2eb1f60112dbc5d75fa5962fc36b0083",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/enemy-balance-v10.test.mjs",
+      "sourceSha256": "467af7d56797099df8eb2b32227d9551ec5cbd96c7dc5433aa70b3b1df0e8f76",
+      "mainSha256": "467af7d56797099df8eb2b32227d9551ec5cbd96c7dc5433aa70b3b1df0e8f76",
+      "originalSha256": "ae8d49cba5c54b5e20fdd4f80a9225aafedf988a8f85f287fbc592054b46dffa",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/header-combat-controls.test.mjs",
+      "sourceSha256": "fdc7e9b9d274e43f856f6ab8a33562e078bc554f09bfbb31abbd79ab3a256ad1",
+      "mainSha256": "fdc7e9b9d274e43f856f6ab8a33562e078bc554f09bfbb31abbd79ab3a256ad1",
+      "originalSha256": "950926eb1f54f0f9553c3d9d07145c8ba81aaaf100c80793d0becedf60191a4e",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/mastery-support-display.test.mjs",
+      "sourceSha256": "4f22e668a15c8cf4e4e3fe958d01d0d51480304378140b796ab0b461100f05bf",
+      "mainSha256": "4f22e668a15c8cf4e4e3fe958d01d0d51480304378140b796ab0b461100f05bf",
+      "originalSha256": "4620daf0db6033baf8abac2191e08db6a2b4aae91dd71fdeeeb00fde7edc26d3",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/phase-touch-d006.test.mjs",
+      "sourceSha256": "625b8b9fa0a8e4afd07fbc7a5f807de18162b45d23de934db27a7b869f85c60d",
+      "mainSha256": "625b8b9fa0a8e4afd07fbc7a5f807de18162b45d23de934db27a7b869f85c60d",
+      "originalSha256": "dba6bbae3c75adb320e09c94e8c86eb89b95f94fb8554e63f809efbb47ab88ae",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/phase-ui.test.mjs",
+      "sourceSha256": "a9f7b63cb7caf87a2418ae74c311e30d89a2fa017e93eeea1128690846e08661",
+      "mainSha256": "a9f7b63cb7caf87a2418ae74c311e30d89a2fa017e93eeea1128690846e08661",
+      "originalSha256": "e86666e18b67d1fbc7fb04c3cb477e382a74260746fd2750fa6554e6894db229",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/recipe-navigation-v30.test.mjs",
+      "sourceSha256": "765c0bc8fe9758ee71dd211cae28d91753f4695db4b909a949c5efec62a49167",
+      "mainSha256": "765c0bc8fe9758ee71dd211cae28d91753f4695db4b909a949c5efec62a49167",
+      "originalSha256": "f18673ce5120d33136aa82032ba6a127fe49871aac02685f151e20e2c2b94c1c",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/tower-dps.test.mjs",
+      "sourceSha256": "75fc4d1c85e16b57eddb736841a9f647fdca3d3c1019c896ffeaea4dc21e66bc",
+      "mainSha256": "75fc4d1c85e16b57eddb736841a9f647fdca3d3c1019c896ffeaea4dc21e66bc",
+      "originalSha256": "dbbbc11a1c3bf7fce939c916a24199dd26d0725ff65bf4da936934aa1e7f5d87",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/warband-cards.test.mjs",
+      "sourceSha256": "32c74dab33a93a026357eb56b48368c88cd0307abe1c9c6ae76b8a48a56eb5aa",
+      "mainSha256": "32c74dab33a93a026357eb56b48368c88cd0307abe1c9c6ae76b8a48a56eb5aa",
+      "originalSha256": "ce2676dc0a3a2984ec34a4593a35d56ae3dcfa78cbf3b5c6d3ff90ec76faf241",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/warband-info.test.mjs",
+      "sourceSha256": "872a57143d3b43120c31c73d772c1d0342a9301d4276229382e65fc876b79245",
+      "mainSha256": "872a57143d3b43120c31c73d772c1d0342a9301d4276229382e65fc876b79245",
+      "originalSha256": "3064a8c48bccf96afba7b0a765e24ae35c7f8117c194bd023d94c11e4dec15c6",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/command-pointer-input-v31.test.mjs",
+      "sourceSha256": "c501a824bc3da787ea97c53008b49ab362116a1f3e792a8e58eb92fc57e27e3b",
+      "mainSha256": "c501a824bc3da787ea97c53008b49ab362116a1f3e792a8e58eb92fc57e27e3b",
+      "originalSha256": null,
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "tests/command-main-integration-v31.test.mjs",
+      "sourceSha256": "8b757a97773967eff067afec8813e37d7260f40c2285b5fb743efe673875ec66",
+      "mainSha256": "8b757a97773967eff067afec8813e37d7260f40c2285b5fb743efe673875ec66",
+      "originalSha256": null,
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/catalog-recipes.css",
+      "sourceSha256": "788ac576e7215eacbb8533425242d3ecab8907440d148b08e14a037dd80cd52e",
+      "mainSha256": "788ac576e7215eacbb8533425242d3ecab8907440d148b08e14a037dd80cd52e",
+      "originalSha256": "9ee97530751a5dd2d16ed149d69539a169976081256818c32941c729bcad0354",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/catalog-recipes.js",
+      "sourceSha256": "2774471bf624e5c9e245ac04e6aef4f2019e50b86876b5f316befaaaf38ab903",
+      "mainSha256": "2774471bf624e5c9e245ac04e6aef4f2019e50b86876b5f316befaaaf38ab903",
+      "originalSha256": "78a9892e7482405e61529e4649fe841c985ef3d18b4f2b2570b2219e1e14132b",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/crafting-dock.js",
+      "sourceSha256": "06bedf8773600809bf402272e0c2bc756323b943daecbde8b33ea82f5e6dca29",
+      "mainSha256": "06bedf8773600809bf402272e0c2bc756323b943daecbde8b33ea82f5e6dca29",
+      "originalSha256": "94832e89cadeed0a1c79628c3d710d34a1d52005f6f40afe04da6391f52ad088",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/defender-panel.js",
+      "sourceSha256": "f70418f21db3e41a0776bc057fc4e2da3087b02c9689671b4162ee51523c3bc7",
+      "mainSha256": "f70418f21db3e41a0776bc057fc4e2da3087b02c9689671b4162ee51523c3bc7",
+      "originalSha256": "8d6884898163248482cee83776252f8a8d08adf8e710a94ac4804cb9df944ab0",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/draft-cards.js",
+      "sourceSha256": "5b5858bb23e5ec00a427bac1a06b8c0b162acec891c687a0f2b142ea50b43f22",
+      "mainSha256": "5b5858bb23e5ec00a427bac1a06b8c0b162acec891c687a0f2b142ea50b43f22",
+      "originalSha256": "b0e2a2b18e7fbca8cfcb10624eff7018996b17a2359760dd49484013182f2d39",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/grimoire.js",
+      "sourceSha256": "e2c329cc4ad93b3757dd41503c4b19074e81c81c802bd1df0fb41fb0d999e728",
+      "mainSha256": "e2c329cc4ad93b3757dd41503c4b19074e81c81c802bd1df0fb41fb0d999e728",
+      "originalSha256": "83819249f319ba106434d5668d095403a14bc5055649ded4e4acccb9b60c453a",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/recipe-navigation.js",
+      "sourceSha256": "8ee17d0f8d01e5a46f009216f70de493ec5abd40428891eac8754f79ae680a5b",
+      "mainSha256": "8ee17d0f8d01e5a46f009216f70de493ec5abd40428891eac8754f79ae680a5b",
+      "originalSha256": "b7c6fb2433e95a01e8dcaf04a7f159308b74421b632a551110312d3177c773f9",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/support-guide.js",
+      "sourceSha256": "cf00c69c37bc592fd8ead738f05005cff70e871d62404d19498f0220a5a87e83",
+      "mainSha256": "cf00c69c37bc592fd8ead738f05005cff70e871d62404d19498f0220a5a87e83",
+      "originalSha256": "89d50d08bc4ae979794f5b32ba0c5108a56f6613644d246abff6eeea766b756b",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/tower-dps.js",
+      "sourceSha256": "6b7c2f8ba8f826f2aba2eda9192aa5886f75fe20682eed82d757cae839d76739",
+      "mainSha256": "6b7c2f8ba8f826f2aba2eda9192aa5886f75fe20682eed82d757cae839d76739",
+      "originalSha256": "b5768d5849740450b4aa62016e59943a74764eae9b61d5816de655dd9370d371",
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/command-pointer-input.js",
+      "sourceSha256": "020ec55a523e40a5cf7cdf68965753b6c7b019098206546adac72cc3144fce61",
+      "mainSha256": "020ec55a523e40a5cf7cdf68965753b6c7b019098206546adac72cc3144fce61",
+      "originalSha256": null,
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    },
+    {
+      "file": "ui/refinements-v31.css",
+      "sourceSha256": "f9b522decdefc933d4423b06d9a42b81c6b6332c5283519455c38b6f76680053",
+      "mainSha256": "f9b522decdefc933d4423b06d9a42b81c6b6332c5283519455c38b6f76680053",
+      "originalSha256": null,
+      "mode": "exact-task-copy",
+      "concurrentDocumentChangePreserved": false
+    }
+  ]
+}

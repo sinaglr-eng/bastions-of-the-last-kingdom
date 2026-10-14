@@ -1,0 +1,42 @@
+{
+  "owner": "audit_crafting",
+  "scope": "Assigned UI-code expectation and actual-main VM fixture migrations only",
+  "generatedAt": "2026-10-14T07:13:33.191Z",
+  "files": [
+    {
+      "path": "tests/warband-info.test.mjs",
+      "sha256": "872a57143d3b43120c31c73d772c1d0342a9301d4276229382e65fc876b79245"
+    },
+    {
+      "path": "tests/draft-presentation.test.mjs",
+      "sha256": "53588b135be57b117d3fe95ea4ca6d2ae0d10b1d77cce86f9d5870a9ac770d48"
+    },
+    {
+      "path": "tests/crafting-main-integration.test.mjs",
+      "sha256": "addba99730319f645a1336d2606435a1cf1ef4449870fdf8a2ad703b59a129f5"
+    },
+    {
+      "path": "tests/defender-rank-preview.test.mjs",
+      "sha256": "ad7c694db9514c501299258ac91e2e761c02c293bfe5538cec5bd925c344c49c"
+    },
+    {
+      "path": "tests/phase-touch-d006.test.mjs",
+      "sha256": "625b8b9fa0a8e4afd07fbc7a5f807de18162b45d23de934db27a7b869f85c60d"
+    }
+  ],
+  "validation": {
+    "command": "node --test --test-reporter=tap tests/warband-info.test.mjs tests/draft-presentation.test.mjs tests/crafting-main-integration.test.mjs tests/defender-rank-preview.test.mjs tests/phase-touch-d006.test.mjs",
+    "tests": 37,
+    "passed": 37,
+    "failed": 0,
+    "log": "fixture-repair-tests.txt"
+  },
+  "changes": [
+    "Guide/draft expectations use displayDefenderCode for UI E while explicit core unitCode R and defenderCode R assertions remain. Exact all-48 rank portraits and read-only rendering checks remain.",
+    "Extracted production command handler fixtures bind actual CommandPointerInput, window and document listener services. Capture click callbacks execute before normal handlers.",
+    "Phase touch Surface stores every listener and executes capture handlers first; the actual window capture stream coexists with actual draft bubble handlers. Fifth-slot, stale Reserve, mystery draw, two-round phase restoration, boss shields/concealment, Game/resources/RNG assertions remain unchanged.",
+    "Owned defender preview VM uses the same UI display helper as actual main."
+  ],
+  "runtimeEdited": false,
+  "testsRemoved": false
+}

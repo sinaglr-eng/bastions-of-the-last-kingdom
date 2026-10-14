@@ -60,5 +60,5 @@ export function supportMapLegendMarkup(){
 }
 export function selectedSupportMarkup(tower,towers,data,options){
   const areas=supportSourceAreas(tower,data,{towers});
-  return `<section class="selected-support" aria-label="Current support effects"><div class="section-label">ACTIVE BONUSES &amp; PENALTIES</div><div id="selected-support-effects">${supportEffectsMarkup(tower,towers,data,options)}</div>${areas.length?`<div class="support-source-heading">Projected by this defender</div><ul class="support-source-list">${areas.map(area=>`<li ${tooltipAttributes(area.key,area.label)}>${supportGlyph(area.glyph,area.color)}<span>${escape(area.label)}</span>${tooltip(area.key)}</li>`).join('')}</ul>`:''}${supportMapLegendMarkup()}</section>`;
+  return `<section class="selected-support" aria-label="Current support effects"><div class="section-label">ACTIVE BONUSES &amp; PENALTIES</div><div id="selected-support-effects">${supportEffectsMarkup(tower,towers,data,options)}</div>${areas.length?`<div class="support-source-heading">Projected by this defender</div><ul class="support-source-list">${areas.map(area=>`<li ${tooltipAttributes(area.key,area.label)}>${supportGlyph(area.glyph,area.color)}<span>${escape(area.label)}</span>${tooltip(area.key)}</li>`).join('')}</ul>`:''}</section>`;
 }

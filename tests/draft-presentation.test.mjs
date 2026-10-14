@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {existsSync,readFileSync} from 'node:fs';
 import {Game} from '../game/core/game.js';
 import {defenderCode} from '../game/core/unit-label.js';
+import {displayDefenderCode} from '../ui/recipe-navigation.js';
 import {defenderPortrait} from '../game/release.js';
 import {draftCardsMarkup} from '../ui/draft-cards.js';
 import {masteryPanelMarkup} from '../ui/mastery-panel.js';
@@ -41,7 +42,9 @@ test('all eight basic families retain the exact approved portrait for each of th
     const before=state(game),html=draftCardsMarkup(game,data,images),url=defenderPortrait(family,tier);
     assert.deepEqual(sources(html),Array(5).fill(url),`${family} ${tier}: family-only fallback cannot replace the actual rank`);
     assert.ok(existsSync(new URL(`../public/assets/geometric/portraits/${family}-${tier}.png`,import.meta.url)));
-    assert.ok(html.includes(`<span class="tier-pips">${defenderCode(data.towers[family],tier)}</span>`));
+    assert.ok(html.includes(`<span class="tier-pips">${displayDefenderCode(data.towers[family],tier,{family})}</span>`));
+    assert.equal(data.towers[family].unitCode,family==='runebreaker'?'R':displayDefenderCode(data.towers[family],1,{family}).split(' ')[0]);
+    if(family==='runebreaker')assert.equal(defenderCode(data.towers[family],tier),`R ${['I','II','III','IV','V','VI'][tier-1]}`);
     assert.equal((html.match(/class="draw-name"/g)||[]).length,5);
     assert.equal((html.match(/class="index">0[1-5]</g)||[]).length,5);
     assert.equal(state(game),before,'Large portrait presentation is read-only');

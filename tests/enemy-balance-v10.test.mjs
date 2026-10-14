@@ -23,12 +23,12 @@ const configured=()=>Object.entries(data.enemies).flatMap(([type,base])=>[
   {type,key:type,base},...(base.variants||[]).map((variant,index)=>({type,key:`${type}.variants[${index}]`,base:{...base,...variant},variant}))
 ]);
 
-test('current regeneration heals 20% or the Blood-Leech 40% of actual modified maximum health each second',()=>{
+test('current regeneration heals 20% or the Blood-Leech 25% of actual modified maximum health each second',()=>{
   const before=JSON.stringify(data),expected=['troll','host_08','host_15','host_21','host_38.variants[1]'];
   const ownRates=Object.fromEntries(Object.entries(data.enemies).flatMap(([type,base])=>[
     ...(base.regen>0?[[type,base.regen]]:[]),...(base.variants||[]).flatMap((variant,index)=>variant.regen>0?[[`${type}.variants[${index}]`,variant.regen]]:[])
   ]));
-  assert.deepEqual(Object.keys(ownRates),expected);for(const [key,rate]of Object.entries(ownRates))assert.equal(rate,key==='host_38.variants[1]'?.4:.2,key);
+  assert.deepEqual(Object.keys(ownRates),expected);for(const [key,rate]of Object.entries(ownRates))assert.equal(rate,key==='host_38.variants[1]'?.25:.2,key);
   const cases=configured().filter(row=>row.base.regen>0);assert.equal(cases.length,7,'two actual Blood Bat variants inherit the rate, and the Blood-Leech variant adds its own');
   for(const row of cases)for(const hp of [1,1.25,3]){
     const game=arena(),enemy=spawn(game,row.type,row.variant,{hp}),rate=enemy.maxHp*row.base.regen,initial=enemy.maxHp/2;enemy.hp=initial;
@@ -88,7 +88,7 @@ test('guide variants and queued/current cards follow actual spawn modifiers and 
   const leeches=warbandVariantInfo(data.enemies.host_38);
   assert.ok(leeches[0].traits.some(text=>text.includes('Disarms')&&text.includes('5s every 8s')));
   assert.ok(leeches[0].traits.some(text=>text.includes('Cloaked continuously')));
-  assert.ok(!leeches[1].traits.some(text=>/Cloaked|Disarms/.test(text)));assert.ok(leeches[1].traits.some(text=>text.includes('40% maximum health/s')));
+  assert.ok(!leeches[1].traits.some(text=>/Cloaked|Disarms/.test(text)));assert.ok(leeches[1].traits.some(text=>text.includes('25% maximum health/s')));
   const seals=warbandVariantInfo(data.enemies.host_31);
   assert.ok(seals[0].traits.includes('Immune to Magical damage, poison, burning and healing block; only Holy damage bypasses this immunity'));assert.ok(!seals[0].traits.some(text=>text.startsWith('Immune to Physical')));
   assert.ok(seals[1].traits.includes('Immune to Physical damage, slowing and freezing; only Holy damage bypasses this immunity'));assert.ok(!seals[1].traits.some(text=>text.startsWith('Immune to Magical')));

@@ -1,0 +1,232 @@
+TAP version 13
+# Subtest: production explicit craft handler uses the selected foundation for completed mixed draft and commits once
+ok 1 - production explicit craft handler uses the selected foundation for completed mixed draft and commits once
+  ---
+  duration_ms: 15.5026
+  type: 'test'
+  ...
+# Subtest: production explicit craft handler uses the selected foundation for retained-only build and commits once
+ok 2 - production explicit craft handler uses the selected foundation for retained-only build and commits once
+  ---
+  duration_ms: 4.8133
+  type: 'test'
+  ...
+# Subtest: production legacy craft stamping binds a new button once and delegates the same guarded action
+ok 3 - production legacy craft stamping binds a new button once and delegates the same guarded action
+  ---
+  duration_ms: 5.5121
+  type: 'test'
+  ...
+# Subtest: production handlers reject changed selection, phase, inventory, reserve and reroll tokens without rebinding the result
+ok 4 - production handlers reject changed selection, phase, inventory, reserve and reroll tokens without rebinding the result
+  ---
+  duration_ms: 48.2462
+  type: 'test'
+  ...
+# Subtest: production legacy restamping cannot silently authorize an existing visible button after selection changes
+ok 5 - production legacy restamping cannot silently authorize an existing visible button after selection changes
+  ---
+  duration_ms: 4.7976
+  type: 'test'
+  ...
+# Subtest: production blueprint-edit guard blocks crafting even with an otherwise current valid token
+ok 6 - production blueprint-edit guard blocks crafting even with an otherwise current valid token
+  ---
+  duration_ms: 4.4827
+  type: 'test'
+  ...
+# Subtest: production browser captures dock and chain choices before replacing them during a phase transition
+ok 7 - production browser captures dock and chain choices before replacing them during a phase transition
+  ---
+  duration_ms: 10.7123
+  type: 'test'
+  ...
+# Subtest: production available preview updates the exact recipe without commitment and an unavailable inspected recipe stays explicit
+ok 8 - production available preview updates the exact recipe without commitment and an unavailable inspected recipe stays explicit
+  ---
+  duration_ms: 11.5831
+  type: 'test'
+  ...
+# Subtest: all six ranks of every basic defender use actual rank stats without changing the unit
+ok 9 - all six ranks of every basic defender use actual rank stats without changing the unit
+  ---
+  duration_ms: 1.51
+  type: 'test'
+  ...
+# Subtest: rank comparisons preserve draft rolls, gold, selection and the actual merge result
+ok 10 - rank comparisons preserve draft rolls, gold, selection and the actual merge result
+  ---
+  duration_ms: 18.8169
+  type: 'test'
+  ...
+# Subtest: downgrade uses the real selected rank even while Tier VI is displayed
+ok 11 - downgrade uses the real selected rank even while Tier VI is displayed
+  ---
+  duration_ms: 5.5002
+  type: 'test'
+  ...
+# Subtest: production downgrade-and-keep stays beside the actual heading before optional details and follows actual rank, gold and reserve guards
+ok 12 - production downgrade-and-keep stays beside the actual heading before optional details and follows actual rank, gold and reserve guards
+  ---
+  duration_ms: 23.2107
+  type: 'test'
+  ...
+# Subtest: new selections and transformed units reset previews; champions, walls and invalid ranks cannot acquire one
+ok 13 - new selections and transformed units reset previews; champions, walls and invalid ranks cannot acquire one
+  ---
+  duration_ms: 0.1491
+  type: 'test'
+  ...
+# Subtest: production sidebar potential combinations follow the displayed I→II rank and reset to the real selection
+ok 14 - production sidebar potential combinations follow the displayed I→II rank and reset to the real selection
+  ---
+  duration_ms: 13.7899
+  type: 'test'
+  ...
+# Subtest: preview recipes count actual retained and placed ingredients without inventing the displayed rank or enabling its craft
+ok 15 - preview recipes count actual retained and placed ingredients without inventing the displayed rank or enabling its craft
+  ---
+  duration_ms: 22.9136
+  type: 'test'
+  ...
+# Subtest: production defender panel removes descriptive, Strong/Weak and pause-explanation prose while preserving every rank, abilities and commands
+ok 16 - production defender panel removes descriptive, Strong/Weak and pause-explanation prose while preserving every rank, abilities and commands
+  ---
+  duration_ms: 224.571
+  type: 'test'
+  ...
+# Subtest: production retained Rank V sidebar action works in ready using the actual selected foundation and preserves the pending draft
+ok 17 - production retained Rank V sidebar action works in ready using the actual selected foundation and preserves the pending draft
+  ---
+  duration_ms: 9.489
+  type: 'test'
+  ...
+# Subtest: production retained Rank V sidebar action works in build using the actual selected foundation and preserves the pending draft
+ok 18 - production retained Rank V sidebar action works in build using the actual selected foundation and preserves the pending draft
+  ---
+  duration_ms: 9.1451
+  type: 'test'
+  ...
+# Subtest: production retained Rank V sidebar action works in select using the actual selected foundation and preserves the pending draft
+ok 19 - production retained Rank V sidebar action works in select using the actual selected foundation and preserves the pending draft
+  ---
+  duration_ms: 12.6201
+  type: 'test'
+  ...
+# Subtest: a stale selected-panel Merge action cannot change the new selection, changed pair or foundation
+ok 20 - a stale selected-panel Merge action cannot change the new selection, changed pair or foundation
+  ---
+  duration_ms: 33.782
+  type: 'test'
+  ...
+# Subtest: all eight basic families retain the exact approved portrait for each of their six ranks
+ok 21 - all eight basic families retain the exact approved portrait for each of their six ranks
+  ---
+  duration_ms: 221.046
+  type: 'test'
+  ...
+# Subtest: rendering the odds and five mystery cards never reveals latent defender identities or consumes RNG
+ok 22 - rendering the odds and five mystery cards never reveals latent defender identities or consumes RNG
+  ---
+  duration_ms: 0.9707
+  type: 'test'
+  ...
+# Subtest: separate Keep and Merge buttons address the selected candidate with current validation tokens
+ok 23 - separate Keep and Merge buttons address the selected candidate with current validation tokens
+  ---
+  duration_ms: 9.2199
+  type: 'test'
+  ...
+# Subtest: pending and returning reserve keep their exact rank portrait, fixed position and five-slot boundary
+ok 24 - pending and returning reserve keep their exact rank portrait, fixed position and five-slot boundary
+  ---
+  duration_ms: 5.2861
+  type: 'test'
+  ...
+# Subtest: a committed champion and discarded castle walls retain their existing separate portrait ownership
+ok 25 - a committed champion and discarded castle walls retain their existing separate portrait ownership
+  ---
+  duration_ms: 4.4363
+  type: 'test'
+  ...
+# Subtest: production draft refresh retains local horizontal scroll and reveals a newly selected card without moving the page or using RNG
+ok 26 - production draft refresh retains local horizontal scroll and reveals a newly selected card without moving the page or using RNG
+  ---
+  duration_ms: 3.5415
+  type: 'test'
+  ...
+# Subtest: accepted touch on the already-selected fifth card reopens the inspector without keeping or drawing
+ok 27 - accepted touch on the already-selected fifth card reopens the inspector without keeping or drawing
+  ---
+  duration_ms: 22.2722
+  type: 'test'
+  ...
+# Subtest: explicit fifth-slot Keep uses its exact current token and commits only on the action
+ok 28 - explicit fifth-slot Keep uses its exact current token and commits only on the action
+  ---
+  duration_ms: 7.033
+  type: 'test'
+  ...
+# Subtest: stale touch release after reserve cannot select or reopen an inactive fifth candidate
+ok 29 - stale touch release after reserve cannot select or reopen an inactive fifth candidate
+  ---
+  duration_ms: 5.6932
+  type: 'test'
+  ...
+# Subtest: mystery fifth-slot selection changes only the pending slot and does not reveal family, rank or RNG
+ok 30 - mystery fifth-slot selection changes only the pending slot and does not reveal family, rank or RNG
+  ---
+  duration_ms: 3.9166
+  type: 'test'
+  ...
+# Subtest: same retained selection reopens after close, while ordinary paused refresh leaves the optional inspector closed
+ok 31 - same retained selection reopens after close, while ordinary paused refresh leaves the optional inspector closed
+  ---
+  duration_ms: 5.7137
+  type: 'test'
+  ...
+# Subtest: two combat rounds restore the full five-slot draft without changing optional disclosure choice or committing a candidate
+ok 32 - two combat rounds restore the full five-slot draft without changing optional disclosure choice or committing a candidate
+  ---
+  duration_ms: 10.4095
+  type: 'test'
+  ...
+# Subtest: actual shield blocks preserve boss HP and paused counts; actual concealment suppresses private identity and HP
+ok 33 - actual shield blocks preserve boss HP and paused counts; actual concealment suppresses private identity and HP
+  ---
+  duration_ms: 15.3693
+  type: 'test'
+  ...
+# Subtest: combat guide describes the chosen queued variant and actual wave modifiers
+ok 34 - combat guide describes the chosen queued variant and actual wave modifiers
+  ---
+  duration_ms: 17.0333
+  type: 'test'
+  ...
+# Subtest: built counts exclude unretained candidates and consumed foundations
+ok 35 - built counts exclude unretained candidates and consumed foundations
+  ---
+  duration_ms: 0.2343
+  type: 'test'
+  ...
+# Subtest: guide uses display codes while canonical runtime codes and advanced ingredient ranks remain explicit
+ok 36 - guide uses display codes while canonical runtime codes and advanced ingredient ranks remain explicit
+  ---
+  duration_ms: 6.3213
+  type: 'test'
+  ...
+# Subtest: best score persists while old profiles receive a zero record
+ok 37 - best score persists while old profiles receive a zero record
+  ---
+  duration_ms: 0.5432
+  type: 'test'
+  ...
+1..37
+# tests 37
+# suites 0
+# pass 37
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 479.9398

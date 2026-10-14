@@ -1,0 +1,218 @@
+{
+  "version": "0.3.31",
+  "baseline": "f2089a8a71c6c24ca06398f283c131dbf943843e",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 34324,
+      "sha256": "b56cafe210f14a92c97082d7481b124138e5b19449bfba7ffea0c3b63dc7d0fb"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "bytes": 50576,
+      "sha256": "d4049330ac2303f71183fe982ea2aee143afde835e538c615c9ecc1d42654bef"
+    },
+    {
+      "file": "GAME_DESIGN.md",
+      "bytes": 68742,
+      "sha256": "042acf6a5770eafc331cbfb7e53a96814a8ccd591f862e2c6a5c36775ac7beb0"
+    },
+    {
+      "file": "docs/COMBAT_RULES.md",
+      "bytes": 15435,
+      "sha256": "f987df7309d1fa4a832d6e9aeec6f3290fe45cc0fd3d59430e9e5d8a220bbef1"
+    },
+    {
+      "file": "docs/UI_REFINEMENTS_V31_20261014.md",
+      "bytes": 16951,
+      "sha256": "07661c6afb1a4b1a2a2401f0c5842a9eff0a5d6b23560f23ca430dfcf33f1121"
+    },
+    {
+      "file": "game/core/campaign-roster.js",
+      "bytes": 8176,
+      "sha256": "2c4e0ec5198456da9d36663e272c6c60e36217e5bbc06474f63b455e75a08f5b"
+    },
+    {
+      "file": "game/core/tower-dps.js",
+      "bytes": 3834,
+      "sha256": "cf643d946e1bed7bc7815515f56482f8502fb75dbea57f7bd110afdca2421691"
+    },
+    {
+      "file": "game/main.js",
+      "bytes": 67888,
+      "sha256": "cb498baf0fbe60a2e77925bbf855226b4b20c33a8ae46f7b6e2052c5505fae36"
+    },
+    {
+      "file": "game/release.js",
+      "bytes": 1281,
+      "sha256": "85ff4c984bdf042a9da41424395f99527ea8631eab19702b23a8479479f75a9c"
+    },
+    {
+      "file": "package.json",
+      "bytes": 468,
+      "sha256": "1344da4f3a173ae433455bbdaec7ad0ecb6a5d47b8ac911f93bcf0ca99beb291"
+    },
+    {
+      "file": "public/release.json",
+      "bytes": 971,
+      "sha256": "b7f6b13fe8351ec8b28daf6f1fe2a06e9b0c7fd6808527866dfa677099e200e1"
+    },
+    {
+      "file": "tests/audio-main-dialog-music.test.mjs",
+      "bytes": 11663,
+      "sha256": "4c44fa5bbd1cd8159909c7d920e70f3d664c692046a51f8f9c603c7c969dd081"
+    },
+    {
+      "file": "tests/battlefield-overlay-panels.test.mjs",
+      "bytes": 22487,
+      "sha256": "3458618adddd0922a55233e6eb2d39efb73732cc070864cd2095c0eb9e443dc3"
+    },
+    {
+      "file": "tests/battlefield-panel-main-integration.test.mjs",
+      "bytes": 17447,
+      "sha256": "54e9f92c58ae6402292d86a6094561d6418818d424ed60391720b489918c3f58"
+    },
+    {
+      "file": "tests/combat-timings-v28.test.mjs",
+      "bytes": 12694,
+      "sha256": "d7ca6c56d58093693781036cd13689f1c95a7867a5833cf7a8271819bbc79acb"
+    },
+    {
+      "file": "tests/crafting-main-integration.test.mjs",
+      "bytes": 11193,
+      "sha256": "addba99730319f645a1336d2606435a1cf1ef4449870fdf8a2ad703b59a129f5"
+    },
+    {
+      "file": "tests/defender-panel-preview-v30.test.mjs",
+      "bytes": 18533,
+      "sha256": "54050e4f9681c9139a0cc56187712305da9de128b900bd01d8fd4d9bec8ec7e4"
+    },
+    {
+      "file": "tests/defender-rank-preview.test.mjs",
+      "bytes": 17034,
+      "sha256": "ad7c694db9514c501299258ac91e2e761c02c293bfe5538cec5bd925c344c49c"
+    },
+    {
+      "file": "tests/dps-measurement.test.mjs",
+      "bytes": 11719,
+      "sha256": "583b4129aa391054bba9be6742be3aebf87af3a98b55a7f7aa3715b2cf096db7"
+    },
+    {
+      "file": "tests/draft-presentation.test.mjs",
+      "bytes": 9823,
+      "sha256": "53588b135be57b117d3fe95ea4ca6d2ae0d10b1d77cce86f9d5870a9ac770d48"
+    },
+    {
+      "file": "tests/enemy-balance-v10.test.mjs",
+      "bytes": 13000,
+      "sha256": "467af7d56797099df8eb2b32227d9551ec5cbd96c7dc5433aa70b3b1df0e8f76"
+    },
+    {
+      "file": "tests/header-combat-controls.test.mjs",
+      "bytes": 13295,
+      "sha256": "fdc7e9b9d274e43f856f6ab8a33562e078bc554f09bfbb31abbd79ab3a256ad1"
+    },
+    {
+      "file": "tests/mastery-support-display.test.mjs",
+      "bytes": 11386,
+      "sha256": "4f22e668a15c8cf4e4e3fe958d01d0d51480304378140b796ab0b461100f05bf"
+    },
+    {
+      "file": "tests/phase-touch-d006.test.mjs",
+      "bytes": 10982,
+      "sha256": "625b8b9fa0a8e4afd07fbc7a5f807de18162b45d23de934db27a7b869f85c60d"
+    },
+    {
+      "file": "tests/phase-ui.test.mjs",
+      "bytes": 6780,
+      "sha256": "a9f7b63cb7caf87a2418ae74c311e30d89a2fa017e93eeea1128690846e08661"
+    },
+    {
+      "file": "tests/recipe-navigation-v30.test.mjs",
+      "bytes": 26421,
+      "sha256": "765c0bc8fe9758ee71dd211cae28d91753f4695db4b909a949c5efec62a49167"
+    },
+    {
+      "file": "tests/tower-dps.test.mjs",
+      "bytes": 18647,
+      "sha256": "75fc4d1c85e16b57eddb736841a9f647fdca3d3c1019c896ffeaea4dc21e66bc"
+    },
+    {
+      "file": "tests/warband-cards.test.mjs",
+      "bytes": 6411,
+      "sha256": "32c74dab33a93a026357eb56b48368c88cd0307abe1c9c6ae76b8a48a56eb5aa"
+    },
+    {
+      "file": "tests/warband-info.test.mjs",
+      "bytes": 4148,
+      "sha256": "872a57143d3b43120c31c73d772c1d0342a9301d4276229382e65fc876b79245"
+    },
+    {
+      "file": "tests/command-pointer-input-v31.test.mjs",
+      "bytes": 16223,
+      "sha256": "c501a824bc3da787ea97c53008b49ab362116a1f3e792a8e58eb92fc57e27e3b"
+    },
+    {
+      "file": "tests/command-main-integration-v31.test.mjs",
+      "bytes": 16095,
+      "sha256": "8b757a97773967eff067afec8813e37d7260f40c2285b5fb743efe673875ec66"
+    },
+    {
+      "file": "ui/catalog-recipes.css",
+      "bytes": 11141,
+      "sha256": "788ac576e7215eacbb8533425242d3ecab8907440d148b08e14a037dd80cd52e"
+    },
+    {
+      "file": "ui/catalog-recipes.js",
+      "bytes": 14264,
+      "sha256": "2774471bf624e5c9e245ac04e6aef4f2019e50b86876b5f316befaaaf38ab903"
+    },
+    {
+      "file": "ui/crafting-dock.js",
+      "bytes": 17304,
+      "sha256": "06bedf8773600809bf402272e0c2bc756323b943daecbde8b33ea82f5e6dca29"
+    },
+    {
+      "file": "ui/defender-panel.js",
+      "bytes": 6697,
+      "sha256": "f70418f21db3e41a0776bc057fc4e2da3087b02c9689671b4162ee51523c3bc7"
+    },
+    {
+      "file": "ui/draft-cards.js",
+      "bytes": 5508,
+      "sha256": "5b5858bb23e5ec00a427bac1a06b8c0b162acec891c687a0f2b142ea50b43f22"
+    },
+    {
+      "file": "ui/grimoire.js",
+      "bytes": 21428,
+      "sha256": "e2c329cc4ad93b3757dd41503c4b19074e81c81c802bd1df0fb41fb0d999e728"
+    },
+    {
+      "file": "ui/recipe-navigation.js",
+      "bytes": 4509,
+      "sha256": "8ee17d0f8d01e5a46f009216f70de493ec5abd40428891eac8754f79ae680a5b"
+    },
+    {
+      "file": "ui/support-guide.js",
+      "bytes": 6692,
+      "sha256": "cf00c69c37bc592fd8ead738f05005cff70e871d62404d19498f0220a5a87e83"
+    },
+    {
+      "file": "ui/tower-dps.js",
+      "bytes": 5871,
+      "sha256": "6b7c2f8ba8f826f2aba2eda9192aa5886f75fe20682eed82d757cae839d76739"
+    },
+    {
+      "file": "ui/command-pointer-input.js",
+      "bytes": 5449,
+      "sha256": "020ec55a523e40a5cf7cdf68965753b6c7b019098206546adac72cc3144fce61"
+    },
+    {
+      "file": "ui/refinements-v31.css",
+      "bytes": 7596,
+      "sha256": "f9b522decdefc933d4423b06d9a42b81c6b6332c5283519455c38b6f76680053"
+    }
+  ],
+  "protectedProof": "protected-preservation-proof.json",
+  "note": "Final root identities, UI wrapper imports, scoped CSS and regression fixture repairs supersede earlier component snapshot hashes. Approved media/protected behavior remains covered by the final protected audit."
+}

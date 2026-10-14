@@ -1,0 +1,167 @@
+{
+  "scope": "Read-only preservation check for statistics metadata edition 0.3.31",
+  "status": "passed",
+  "checkedAt": "2026-10-14 06:59:29 UTC",
+  "projectId": "appgprj_6abe518c2c1c8191a9bc044f418faed8",
+  "productionUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
+  "allRunRowsBefore": 88,
+  "allRunRowsAfter": 88,
+  "completedHistoricalRecordsBefore": 21,
+  "completedHistoricalRecordsAfter": 21,
+  "completedHistoricalRecordsMissing": 0,
+  "completedHistoricalRecordsChanged": 0,
+  "newCompletedRecords": 0,
+  "existingCompletedHistoryBeforeSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+  "existingCompletedHistoryAfterSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+  "completeNativeRunRowPagination": true,
+  "pagesBefore": 10,
+  "pagesAfter": 10,
+  "selectedSafeFieldsPresentAndUntruncated": true,
+  "savedSiteVersionsBefore": 11,
+  "savedSiteVersionsAfter": 12,
+  "preexistingSavedSiteVersionIdsAndCommitsPreserved": true,
+  "leaderboardsUnchanged": true,
+  "leaderboardsBefore": [
+    {
+      "mode": 10,
+      "sha256": "24fe9c6dc112b59887a364501bf50f5d0589dd47385099055f601e28ac05e03e",
+      "versions": [],
+      "topRecords": 0
+    },
+    {
+      "mode": 50,
+      "sha256": "62fa1d4c446b549832cf734646d121ae8d8c3ac1091c28d759fbdc380810f16f",
+      "versions": [
+        "0.2.7",
+        "0.2.8",
+        "0.3.10",
+        "0.3.11",
+        "0.3.16",
+        "0.3.21",
+        "0.3.23",
+        "0.3.24",
+        "0.3.25",
+        "0.3.26",
+        "0.3.27",
+        "0.3.5"
+      ],
+      "topRecords": 10
+    }
+  ],
+  "leaderboardsAfter": [
+    {
+      "mode": 10,
+      "sha256": "24fe9c6dc112b59887a364501bf50f5d0589dd47385099055f601e28ac05e03e",
+      "versions": [],
+      "topRecords": 0
+    },
+    {
+      "mode": 50,
+      "sha256": "62fa1d4c446b549832cf734646d121ae8d8c3ac1091c28d759fbdc380810f16f",
+      "versions": [
+        "0.2.7",
+        "0.2.8",
+        "0.3.10",
+        "0.3.11",
+        "0.3.16",
+        "0.3.21",
+        "0.3.23",
+        "0.3.24",
+        "0.3.25",
+        "0.3.26",
+        "0.3.27",
+        "0.3.5"
+      ],
+      "topRecords": 10
+    }
+  ],
+  "preexistingAllRunIdsPreserved": true,
+  "preexistingRunIdsMissing": 0,
+  "preexistingAllRunIdsBeforeSha256": "5fd0ed3734c1ccdb4443a9d36754ed315b7d56fb0f14d9cd88d18a345e5b6491",
+  "preexistingAllRunIdsAfterSha256": "5fd0ed3734c1ccdb4443a9d36754ed315b7d56fb0f14d9cd88d18a345e5b6491",
+  "allPreexistingSafeRunMetadataBeforeSha256": "e41245d20b469faebe3ac037168af39d1b4c67c4b5078f35effcbc35c80bd0f8",
+  "allPreexistingSafeRunMetadataAfterSha256": "10e4733b1e01b208c7ab40fb6d4da0726c1c9b2ca703da3d5e9dbb822b17b81e",
+  "allPreexistingSafeRunMetadataRecordsChanged": 1,
+  "ongoingMetadataChanges": [
+    {
+      "beforeOutcome": "playing",
+      "afterOutcome": "playing",
+      "fieldsChanged": [
+        "updated_at",
+        "sequence",
+        "duration_ms"
+      ]
+    }
+  ],
+  "newRunRows": 0,
+  "runTableColumnsUnchanged": true,
+  "comparisonFields": [
+    "id",
+    "version",
+    "mode",
+    "seed",
+    "started_at",
+    "updated_at",
+    "finished_at",
+    "sequence",
+    "outcome",
+    "score",
+    "waves_survived",
+    "duration_ms",
+    "health",
+    "kingdom_level",
+    "gold",
+    "name"
+  ],
+  "audienceBefore": "public",
+  "audienceAfter": "public",
+  "audienceAndPolicyUnchanged": true,
+  "environmentRevisionBefore": 1,
+  "environmentRevisionAfter": 1,
+  "environmentNames": [
+    "ADMIN_TOKEN",
+    "GAME_ORIGINS"
+  ],
+  "environmentComparisonPassed": true,
+  "bindings": [
+    "DB"
+  ],
+  "tables": [
+    "request_limits",
+    "run_waves",
+    "runs"
+  ],
+  "schemaWorkerAndBindingsUnchanged": true,
+  "allTrackedSourceOutsideMetadataUnchanged": true,
+  "protectedSource": {
+    ".openai/hosting.json": {
+      "sha256": "0c47aa9aaf7c11db9dea86508499a739d48b955a2562740cb4cb0b20f5d202e4",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "db/schema.ts": {
+      "sha256": "493a82312f2a494382f6024cefcdd40b3d8ad300eac5b09e322a48b694412a84",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "drizzle/0000_tearful_gamma_corps.sql": {
+      "sha256": "a584c8a8c7c2f5eb998dbe010e75e69d1cf07f0e4a58750691e41c1e547e8144",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "drizzle/meta/_journal.json": {
+      "sha256": "3d418482bcddc14b256c9d123276b5cdae30819e0b5e13aceeaaabba1641ef21",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "backend/worker.js": {
+      "sha256": "38f716748837cd6cba433c551afa08e1382ea1fc167b3f33c0bf9fb433a072f1",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "backend/validation.js": {
+      "sha256": "9759066e412d9bd7309e31fc92721d6feb8e159cf372860128dc23b6976f7d7c",
+      "lfNormalizedMatchesBaseline": true
+    },
+    "backend/service-page.js": {
+      "sha256": "3a083a551319a09b42f59b43fbcada0aaef8abb80ab62061e4138768c5c3cb5f",
+      "lfNormalizedMatchesBaseline": true
+    }
+  },
+  "boundary": "All preexisting run IDs and 16 selected safe metadata fields were read through complete native pagination. Every preexisting won/lost record was compared exactly. One ongoing playing record advanced updated_at, sequence and duration_ms during verification; its outcome and other selected fields remained unchanged. Token hashes, large summary_json cells and individual run_waves JSON records were excluded. New legitimate runs and ongoing checkpoints are allowed. All tracked source except game/release.js and package.json is unchanged; schema/migrations/Worker/validation/hosting/bindings and prior saved Site version IDs/commits are preserved."
+}

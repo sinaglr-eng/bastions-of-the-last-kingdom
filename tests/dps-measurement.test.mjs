@@ -100,29 +100,33 @@ test('completed wave preserves the hit-captured peak and its source clock throug
 test('real champion crafting that reuses an ID archives the old measured row and gives the champion a fresh next-wave score',()=>{
   const state=firstCombat('frostwarden'),{game,source}=state,enemy=foe(game);game.tick(.1);strike(game,source,enemy);
   const original={...view(state).rows[0]};assert.ok(original.dps>0);game.completeWave();
+  assert.equal(source.mvpLevel,1);assert.equal(view(state).rows[0].mvpLevel,1,'The completed measurement records the actual end-of-wave MVP award');
+  assert.equal(game.mvp.setLevel(source,7),true);assert.equal(view(state).rows[0].mvpLevel,1,'Later preparation changes cannot rewrite a measured historical MVP level');
   draft(game,['soldier','stormcaller','mage','druid','archer'],20);game.select(source.id);
   assert.ok(game.availableRecipes().some(recipe=>recipe.id==='rimewatch'));assert.equal(game.craft('rimewatch'),true);
   assert.equal(game.selection,source);assert.equal(source.family,'rimewatch');assert.equal(source.id,original.id);assert.equal(game.phase,'ready');
   const completed=view(state);assert.equal(completed.rows.length,1);assert.equal(completed.rows[0].family,'frostwarden');
   assert.equal(completed.rows[0].dps,original.dps);assert.equal(completed.rows[0].archived,true);assert.equal(completed.rows[0].selectable,false);
+  assert.equal(completed.rows[0].mvpLevel,1);assert.match(markup(state),/Rank I · MVP 1/);assert.equal(source.mvpLevel,7,'The real champion inherits its foundation MVP separately');
   assert.ok(!completed.rows.some(row=>row.family==='rimewatch'),'A newly forged champion never appears as an old-wave performer');
   const html=markup(state);assert.match(html,new RegExp(`<button[^>]*data-id="${source.id}"[^>]* disabled`));assert.match(html,/Measured Frost Warden/);assert.match(html,/Combined \/ removed/);assert.doesNotMatch(html,/Frostsword Watchmen/);
   assert.equal(game.startCombat(),true);game.combat.spawnQueue=[{time:1e9,type:'host_01',modifiers:{}}];source.attackPaused=true;
   const next=view(state);assert.equal(next.options.wave,2);assert.equal(next.options.completed,false);assert.equal(next.rows.length,1);
   assert.equal(next.rows[0].family,'rimewatch');assert.equal(next.rows[0].dps,0);assert.equal(next.rows[0].peakDamage,0);assert.match(markup(state),/Wave 2/);assert.doesNotMatch(markup(state),/Completed wave 1|Combined \/ removed/);
+  assert.equal(next.rows[0].mvpLevel,7);assert.match(markup(state),/Champion · MVP 7/);
   const fresh=foe(game),hp=fresh.hp;game.tick(.1);strike(game,source,fresh);close(view(state).rows[0].dps,(hp-fresh.hp)/5);
   assert.ok(view(state).rows[0].dps>0,'New combat measures the new champion under its new family signature');
 });
 
-test('compact summary reports the highest individual measured peak instead of summing peaks from different times',()=>{
+test('compact summary sums individual measured peaks even when their windows occur at different times',()=>{
   const state=firstCombat('mage'),{game,source}=state,enemy=foe(game);
   const other={id:game.nextId++,family:'archer',tier:1,state:'active',x:15,z:20,kills:0,cooldown:0,attackPaused:true};game.towers.push(other);
   game.tick(.1);strike(game,source,enemy,{damage:100});for(let tick=0;tick<60;tick++)game.tick(.1);strike(game,other,enemy,{damage:50});
   const rows=view(state).rows;assert.deepEqual(rows.map(row=>row.dps),[20,10]);assert.deepEqual(rows.map(row=>row.currentDps),[0,10]);
   const html=markup(state),summary=html.slice(html.indexOf('<summary'),html.indexOf('</summary>'));
-  assert.match(summary,/tower-dps-summary-score[^>]*>20\.0<\/strong>/);assert.doesNotMatch(summary,/30\.0|tower-dps-value/);assert.match(summary,/individual peaks are not summed/);
+  assert.match(summary,/tower-dps-summary-score[^>]*>30\.0<\/strong>/);assert.doesNotMatch(summary,/tower-dps-value/);assert.match(summary,/Sum of individual defender peak DPS this wave/);
   game.completeWave();const completed=markup(state),completedSummary=completed.slice(completed.indexOf('<summary'),completed.indexOf('</summary>'));
-  assert.match(completedSummary,/Last wave 1/);assert.match(completedSummary,/>20\.0<\/strong>/);assert.match(completed,/Completed wave 1/);
+  assert.match(completedSummary,/Last wave 1/);assert.match(completedSummary,/>30\.0<\/strong>/);assert.match(completed,/Completed wave 1/);
 });
 
 test('a new game session starts unmeasured independently of the prior session completed score',()=>{

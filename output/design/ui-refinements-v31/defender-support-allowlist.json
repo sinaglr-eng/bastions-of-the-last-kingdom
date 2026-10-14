@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "baselineCommit": "f2089a8a71c6c24ca06398f283c131dbf943843e",
+  "scope": "Comments 2,3,4,15,16 defender/support source and focused tests",
+  "files": [
+    "ui/defender-panel.js",
+    "ui/support-guide.js",
+    "tests/defender-panel-preview-v30.test.mjs",
+    "tests/defender-rank-preview.test.mjs",
+    "tests/mastery-support-display.test.mjs"
+  ],
+  "sha256": {
+    "ui/defender-panel.js": "f70418f21db3e41a0776bc057fc4e2da3087b02c9689671b4162ee51523c3bc7",
+    "ui/support-guide.js": "cf00c69c37bc592fd8ead738f05005cff70e871d62404d19498f0220a5a87e83",
+    "tests/defender-panel-preview-v30.test.mjs": "54050e4f9681c9139a0cc56187712305da9de128b900bd01d8fd4d9bec8ec7e4",
+    "tests/defender-rank-preview.test.mjs": "9f8422e0a80b551ad09863cb41fe9c61da31a0f11f742941a04dca2665bb68fa",
+    "tests/mastery-support-display.test.mjs": "4f22e668a15c8cf4e4e3fe958d01d0d51480304378140b796ab0b461100f05bf"
+  },
+  "evidence": [
+    "output/design/ui-refinements-v31/defender-support-proof.json",
+    "output/design/ui-refinements-v31/defender-support-tests.txt"
+  ],
+  "proofSha256": "4bda03192d5c07c10eb4640447ae5643920138e6f5d376779a22a9c0ee98aeba",
+  "frozen": true
+}

@@ -1,3 +1,5 @@
+import {mvpLevel} from './mvp.js';
+
 export const TOWER_DPS_WINDOW_SECONDS=5;
 
 // Combat's legacy damage may exceed remaining HP. New hit events expose the
@@ -62,7 +64,7 @@ export class TowerDpsTracker{
       // rank's damage to the new defender, or to a currently placed draft.
       const damage=t.state==='active'?this._totals.get(signature(t))?.damage||0:0;
       const peakDamage=t.state==='active'?this._peaks.get(signature(t))||0:0;
-      return {id:t.id,family:t.family,tier:t.tier,state:t.state,x:t.x,z:t.z,damage,dps:peakDamage/this.windowSeconds,currentDps:damage/this.windowSeconds,peakDamage};
+      return {id:t.id,family:t.family,tier:t.tier,state:t.state,x:t.x,z:t.z,damage,dps:peakDamage/this.windowSeconds,currentDps:damage/this.windowSeconds,peakDamage,mvpLevel:mvpLevel(t)};
     }).sort((a,b)=>b.dps-a.dps||a.id-b.id);
   }
 }

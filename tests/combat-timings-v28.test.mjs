@@ -119,11 +119,11 @@ test('actual recharge uses four-second deadlines and blink advances six route ti
   g.tick(4.999);close(blink.traveled,0);g.tick(.001);close(blink.traveled,6);g.tick(10);close(blink.traveled,18);close(blink.blinkClock,5);
 });
 
-test('all current regeneration profiles use twenty percent, wave38 forty percent, and actual modified maxHP/healing-block expiry set recovery',()=>{
+test('all current regeneration profiles use twenty percent, wave38 twenty-five percent, and actual modified maxHP/healing-block expiry set recovery',()=>{
   const before=JSON.stringify(raw);let profiles=0;
-  for(const [id,d]of Object.entries(data.enemies))for(const p of [d,...d.variants||[]])if(p.regen){assert.equal(p.regen,id==='host_38'?.4:.2);profiles++;}assert.ok(profiles>0);
+  for(const [id,d]of Object.entries(data.enemies))for(const p of [d,...d.variants||[]])if(p.regen){assert.equal(p.regen,id==='host_38'?.25:.2);profiles++;}assert.ok(profiles>0);
   const g=arena(),e=g.combat.spawn('host_38',{hp:2,variant:data.enemies.host_38.variants.find(v=>v.regen>0)});e.speed=0;e.hp=e.maxHp*.1;
-  g.combat.applyEffects(e,{healingBlockDuration:1});g.tick(1.5);close(e.hp,e.maxHp*.3);assert.equal(e.statuses.healBlock,undefined);g.tick(20);close(e.hp,e.maxHp);
+  g.combat.applyEffects(e,{healingBlockDuration:1});g.tick(1.5);close(e.hp,e.maxHp*.225);assert.equal(e.statuses.healBlock,undefined);g.tick(20);close(e.hp,e.maxHp);
   assert.equal(JSON.stringify(raw),before);
 });
 

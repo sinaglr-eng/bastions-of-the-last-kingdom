@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {runInNewContext} from 'node:vm';
 import {EconomyManager} from '../game/core/progression.js';
 import {Game} from '../game/core/game.js';
 import {campaignTowers} from '../game/core/campaign-roster.js';
@@ -116,4 +117,16 @@ test('every map support symbol exposes a keyboard accessible description of its 
   const state=supportEffectsMarkup(target,[target,ruin],data,{phase:'combat',combat:game.combat});
   assert.match(state,/Barricade disruption · attack speed −15%/);
   assert.match(state,/Multiple penalties multiply/);
+});
+
+test('selected support retains real bonuses/providers but moves the complete accessible map legend to the actual Help entry',()=>{
+  const target=unit('mage',1),monk=unit('monk',2),nature=unit('mothernature',3),stock=[target,monk,nature],before=JSON.stringify({stock,data});
+  const selected=selectedSupportMarkup(target,stock,data,{phase:'ready'}),provider=selectedSupportMarkup(monk,stock,data,{phase:'ready'});
+  assert.match(selected,/Attack speed \+60%/);assert.match(selected,/Damage \+50%/);assert.match(selected,/From Monk #2/);assert.match(provider,/Projected by this defender/);assert.match(provider,/Support reach · 5 tiles/);
+  for(const html of [selected,provider])assert.doesNotMatch(html,/support-map-legend|Map effect symbols|aria-label="(?:Defender|Enemy) effect symbols"/);
+  const source=readFileSync(new URL('../game/main.js',import.meta.url),'utf8'),start=source.indexOf('function fieldGuide('),end=source.indexOf('\nfunction ',start+1);assert.ok(start>=0&&end>start);
+  let rendered='';const help=runInNewContext(source.slice(start,end)+'\nfieldGuide',{openDialog:html=>{rendered=html;},dialogHeader:()=>'',supportMapLegendMarkup,balance:data.balance,data,debug:false});help();
+  assert.match(rendered,/<summary>Map effect symbols<\/summary>/);assert.match(rendered,/aria-label="Enemy effect symbols"/);
+  for(const [key,style]of Object.entries(SUPPORT_EFFECT_STYLES)){const item=rendered.match(new RegExp(`<li[^>]*data-effect="${key}"[\\s\\S]*?</li>`))?.[0];assert.ok(item,style.label);assert.match(item,/tabindex="0"/);assert.match(item,/role="tooltip"/);assert.ok(item.includes(style.label));assert.ok(item.includes(SUPPORT_EFFECT_DESCRIPTIONS[key]));}
+  assert.equal(JSON.stringify({stock,data}),before);
 });

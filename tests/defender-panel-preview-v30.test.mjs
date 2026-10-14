@@ -8,7 +8,7 @@ import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../g
 import {towerStats} from '../game/core/math.js';
 import {defenderPanelMarkup} from '../ui/defender-panel.js';
 import {DefenderRankPreview} from '../ui/defender-rank-preview.js';
-import {abilityLines,baseAttackDps,formatTowerNumber} from '../ui/grimoire.js';
+import {abilityLines,baseAttackDps,formatTowerNumber,defenderGuide} from '../ui/grimoire.js';
 import {drawKeeperKey,keepDrawKeeper,mergeTowerKey,mergeTowerFromBadge} from '../ui/draft-input.js';
 import {selectedSupportMarkup} from '../ui/support-guide.js';
 import {mvpDetailsMarkup} from '../ui/mvp-details.js';
@@ -28,17 +28,18 @@ const attr=(html,action,name)=>html.match(new RegExp(`<button[^>]*data-action="$
 test('candidate hierarchy puts legal actual actions, potential combinations and rank comparison before the single previewed core',()=>{
   const game=candidates(),tower=game.selection,preview=new DefenderRankPreview(),images={'druid:1':'/actual-druid-I.png','druid:2':'/preview-druid-II.png'};
   assert.equal(preview.select(tower,2,data),true);const before=snapshot(game),html=defenderPanelMarkup(game,tower,{rankPreview:preview,images});
-  const positions=['class="tower-name"','data-action="keep-draw"','data-action="merge"','data-detail-key="recipes"','data-detail-key="ranks"','class="defender-core"'].map(key=>html.indexOf(key));
+  const positions=['class="tower-name"','data-action="keep-draw"','data-action="merge"','class="potential-combinations"','class="rank-preview"','class="defender-core"'].map(key=>html.indexOf(key));
   assert.ok(positions.every((position,index)=>position>=0&&(index===0||position>positions[index-1])));
   assert.match(html,/Actual rank I · Candidate/);assert.match(core(html),/Preview rank II · Actual rank I unchanged/);
   assert.match(html,/src="\/actual-druid-I\.png"/);assert.doesNotMatch(html,/src="\/preview-druid-II\.png"|rank-comparison-stats|data-detail-key="abilities"/);
   assert.equal((html.match(/Damage \/ hit/g)||[]).length,1);assert.equal((html.match(/class="tower-effects/g)||[]).length,1);
+  assert.doesNotMatch(html,/data-detail-key="(?:recipes|ranks)"|<summary>(?:Potential combinations|Compare ranks)/);
   const expected=towerStats({...tower,tier:2},data);assert.match(core(html),new RegExp(`Damage / hit<\/span><strong>${formatTowerNumber(expected.damage)}<\/strong>`));
   assert.deepEqual(mainEffects(html),abilityLines(expected).map(escape));assert.notDeepEqual(abilityLines(expected),abilityLines(towerStats(tower,data)));
   assert.equal(snapshot(game),before);
 });
 
-test('every basic rank and champion shows every engine-derived ability exactly once in the upper core, including fourth and later abilities',()=>{
+test('every basic rank and champion shows all engine-derived abilities once, with only Holy immunity copy condensed in the inspector',()=>{
   let profiles=0,longLists=0;const original=JSON.stringify(data);
   for(const [family,definition]of Object.entries(data.towers)){
     const game=new Game(data,{seed:807}),tower={id:999,family,tier:1,state:'active',priority:'first',mvpLevel:0,x:18,z:17};game.towers.push(tower);game.selected=tower.id;
@@ -46,10 +47,11 @@ test('every basic rank and champion shows every engine-derived ability exactly o
     for(const tier of definition.advanced?[1]:[1,2,3,4,5,6]){
       if(!definition.advanced)assert.equal(preview.select(tower,tier,data),true);
       const displayed={...tower,tier},stats=towerStats(displayed,data),expected=abilityLines(stats).map(escape),html=defenderPanelMarkup(game,tower,{rankPreview:preview});profiles++;
+      if(stats.type==='holy')expected[0]='Holy damage ignores immunities';
       if(expected.length>3)longLists++;
       assert.deepEqual(mainEffects(html),expected,`${family} rank ${tier} has a complete upper ability list`);
       assert.equal((html.match(/class="tower-effects/g)||[]).length,1);assert.doesNotMatch(html,/data-detail-key="abilities"|rank-comparison-stats|concise-effects/);
-      assert.ok(html.indexOf('data-detail-key="recipes"')<html.indexOf('class="defender-core"'));
+      assert.ok(html.indexOf('class="potential-combinations"')<html.indexOf('class="defender-core"'));
       assert.ok(html.indexOf('class="defender-core"')<html.indexOf('id="targeting"'));
       assert.ok(core(html).includes(`Direct DPS</span><strong>${formatTowerNumber(baseAttackDps(stats))}</strong>`));
       assert.ok(core(html).includes(`Range</span><strong>${formatTowerNumber(stats.range)}</strong>`));
@@ -105,14 +107,59 @@ function sidebarHost(){
   const body=new Element(),top=new Element();document.getElementById=id=>body.querySelector('#'+id);return {body,top,document};
 }
 
-test('actual sidebar refresh preserves recipes/ranks/MVP disclosure keys, rank-button focus and scroll after switching the main stats',()=>{
+test('actual sidebar refresh keeps potential/ranks visible and preserves MVP disclosure, rank-button focus and scroll after switching the main stats',()=>{
   const game=candidates(),tower=game.selection;game.keep();const rankPreview=new DefenderRankPreview(),{body,top,document}=sidebarHost(),main=readFileSync(new URL('../game/main.js',import.meta.url),'utf8');
   const source=name=>{const start=main.indexOf('function '+name+'(');assert.ok(start>=0);const end=main.indexOf('\nfunction ',start+1);return main.slice(start,end);};
   const context={phaseUi:new PhaseUiState(),game,rankPreview,images:{},data,$:id=>id==='side-body'?body:id==='side-top'?top:body.querySelector('#'+id),document,icon,defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),panelDetails:new Map(),endedPhase:phase=>['won','lost'].includes(phase),stampCraftButtons:()=>{}};
   const render=runInNewContext(source('towerPanel')+'\n'+source('renderSidebar')+'\nrenderSidebar',context);render();
-  for(const key of ['recipes','ranks','mvp'])body.querySelector(`[data-detail-key="${key}"]`).open=true;
+  body.querySelector('[data-detail-key="mvp"]').open=true;
+  for(const selector of ['.potential-combinations','.rank-preview'])assert.ok(body.querySelector(selector));
+  for(const key of ['recipes','ranks'])assert.equal(body.querySelector(`[data-detail-key="${key}"]`),null);
   body.scrollTop=174;body.querySelector('[data-tier="2"]').focus();rankPreview.select(tower,2,data);render();
-  for(const key of ['recipes','ranks','mvp'])assert.equal(body.querySelector(`[data-detail-key="${key}"]`).open,true);
+  assert.equal(body.querySelector('[data-detail-key="mvp"]').open,true);
+  for(const selector of ['.potential-combinations','.rank-preview']){const section=body.querySelector(selector);assert.ok(section);assert.equal(section.tag,'section');assert.equal(section.parentNode.tag==='details',false);}
   assert.equal(body.scrollTop,174);assert.equal(document.activeElement,body.querySelector('[data-tier="2"]'));assert.match(core(body.innerHTML),/Preview rank II · Actual rank I unchanged/);
-  assert.ok(body.innerHTML.indexOf('data-detail-key="recipes"')<body.innerHTML.indexOf('data-detail-key="ranks"'));assert.ok(body.innerHTML.indexOf('data-detail-key="ranks"')<body.innerHTML.indexOf('class="defender-core"'));
+  assert.ok(body.innerHTML.indexOf('class="potential-combinations"')<body.innerHTML.indexOf('class="rank-preview"'));assert.ok(body.innerHTML.indexOf('class="rank-preview"')<body.innerHTML.indexOf('class="defender-core"'));
+});
+
+const displayedBuiltCount=html=>Number(html.match(/class="defender-built-count">(\d+) built of this type</)?.[1]);
+function placeRound(game,family,tier=1){game.draft.roundForced={family,tier};for(let x=3;x<8;x++)assert.equal(game.place(x,2+game.round),true);game.select(game.roundCandidates[0].tower.id);}
+function nextRound(game){assert.equal(game.startCombat(),true);game.completeWave();}
+
+test('header counts kept defenders of the actual family across ranks while excluding every candidate, reserve and discarded foundation',()=>{
+  const game=new Game(data,{seed:807}),control=new Game(data,{seed:807});
+  for(const current of [game,control]){
+    placeRound(current,'mage',1);assert.equal(current.keep(),true);nextRound(current);
+    placeRound(current,'mage',4);assert.equal(current.keep(),true);nextRound(current);
+    current.draft.roundForced={family:'mage',tier:5};assert.equal(current.place(3,2+current.round),true);
+  }
+  const first=game.towers.find(t=>t.state==='active'),candidate=game.roundCandidates[0].tower,preview=new DefenderRankPreview();
+  first.attackPaused=true;assert.equal(preview.select(candidate,6,data),true);
+  let before=snapshot(game),html=defenderPanelMarkup(game,candidate,{rankPreview:preview});
+  assert.equal(displayedBuiltCount(html),2);assert.match(html,/Actual rank V · Candidate/);assert.equal(game.draft.draws.filter(draw=>!draw.placed).length,4);assert.equal(snapshot(game),before);
+  for(const current of [game,control]){for(let x=4;x<8;x++)assert.equal(current.place(x,2+current.round),true);current.select(current.roundCandidates[0].tower.id);assert.equal(current.reserve(),true);}
+  before=snapshot(game);html=defenderPanelMarkup(game,candidate,{rankPreview:preview});assert.equal(displayedBuiltCount(html),2);assert.match(html,/Reserved · Inactive wall/);assert.equal(snapshot(game),before);
+  assert.equal(game.towers.filter(t=>t.family==='mage'&&t.state==='active').length,2);assert.ok(game.towers.some(t=>t.family==='mage'&&t.state==='ruin'));assert.equal(game.rng(),control.rng());
+});
+
+test('header counts each advanced family independently and reflects a real keep transition without counting its draft peers',()=>{
+  const game=new Game(data,{seed:807});
+  placeRound(game,'frostblade');assert.equal(displayedBuiltCount(defenderPanelMarkup(game,game.selection)),0);assert.equal(game.keep(),true);nextRound(game);
+  placeRound(game,'frostblade');const candidate=game.selection;assert.equal(displayedBuiltCount(defenderPanelMarkup(game,candidate)),1);assert.equal(game.keep(),true);
+  assert.equal(displayedBuiltCount(defenderPanelMarkup(game,candidate)),2);nextRound(game);
+  placeRound(game,'archangel');assert.equal(game.keep(),true);const before=snapshot(game),html=defenderPanelMarkup(game,candidate);
+  assert.equal(displayedBuiltCount(html),2);assert.equal(displayedBuiltCount(defenderPanelMarkup(game,game.selection)),1);assert.equal(snapshot(game),before);
+});
+
+test('ended rank planning remains visible and read-only; walls and reserved defenders do not gain planning controls',()=>{
+  const game=candidates(),tower=game.selection;assert.equal(game.keep(),true);const preview=new DefenderRankPreview();preview.select(tower,4,data);
+  for(const phase of ['won','lost']){game.phase=phase;const before=snapshot(game),html=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(html,/class="potential-combinations"/);assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);assert.match(html,/Preview rank IV · Actual rank I unchanged/);assert.equal(displayedBuiltCount(html),1);assert.doesNotMatch(html,/data-detail-key="(?:recipes|ranks)"|data-action="(?:keep-draw|merge|downgrade|tower-pause)"|id="targeting"/);assert.equal(snapshot(game),before);}
+  const wall=game.towers.find(t=>t.state==='ruin');const html=defenderPanelMarkup(game,wall,{rankPreview:preview});assert.doesNotMatch(html,/defender-built-count|potential-combinations|rank-preview/);
+});
+
+test('Holy inspector uses the requested short sentence while shared ability/help text retains companion immunity and defense semantics',()=>{
+  const game=candidates('winterhold'),tower=game.selection,stats=towerStats(tower,data),before=snapshot(game),html=defenderPanelMarkup(game,tower);
+  assert.equal(stats.type,'holy');assert.equal(mainEffects(html)[0],'Holy damage ignores immunities');assert.deepEqual(mainEffects(html).slice(1),abilityLines(stats).slice(1).map(escape));assert.equal(snapshot(game),before);
+  assert.match(abilityLines(stats)[0],/companion slows\/freezes respect Physical immunity.*poison\/burning\/healing block respect Magical immunity.*armor, evasion, shields and shells still apply/);
+  const help=defenderGuide(data,{});assert.match(help,/Only Holy damage ignores these immunities; companion effects retain their normal immunity categories/);assert.match(help,/Evasion, shields and direct-hit shells still apply/);
 });

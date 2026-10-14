@@ -65,7 +65,7 @@ export const campaignEnemies = enemies => {
   const name='Lord Bernhard, the Black Sorcerer on the Wyvern Queen',boss=enemies.host_50;
   const tune=(definition,wave)=>{
     const current={...definition};delete current.resists;
-    if(current.regen>0)current.regen=wave===38?.4:.2;
+    if(current.regen>0)current.regen=wave===38?.25:.2;
     if(current.refraction>0)current.refraction=3;
     if(current.recharge>0)current.recharge=.5;
     if(current.evasion>0)current.evasion=.25;

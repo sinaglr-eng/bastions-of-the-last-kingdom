@@ -1,5 +1,22 @@
 # Releases
 
+## 0.3.31 — Reliable Touch Controls and Clearer Battlefield — 14 October 2026
+
+Implementation candidate; public game publication is pending. Local native browser checks passed single mouse Start/Demolish activation, with unobstructed command centers and targets measuring at least 44 pixels across all five viewports. All 1,404 tests and the production build passed; public-game receipts remain pending. Physical iPad/Safari verification is unavailable. The statistics backend metadata is already live at edition 0.3.31 with recorded historical preservation. See [the sixteen-comment report](docs/UI_REFINEMENTS_V31_20261014.md).
+
+- Executes ordinary touch/pen commands once on accepted release when a compatibility click is missing or retargeted. Scoped duplicate/ghost-click suppression and current identity checks preserve Start/Demolish legality; drag, cancel, capture-loss, stale-state and multi-touch sequences cannot execute a rejected command. Keeps mouse/keyboard behavior and reachable control stacking.
+- Makes Potential combinations and basic rank comparison controls continuously visible, and shows the actual active family count across ranks, excluding current candidates, reserves and walls.
+- Makes catalog Previous/Next follow the current filtered order, including Kingslayer to King, with separate exploration Back/Forward and explicit endpoints/outside-filter context.
+- Removes champion ingredient abbreviations. Formats missing basics as spaced codes/ranks with ASCII multiplicity, such as `S II, D II, 2x E IV`; displays Engineer E while preserving canonical runtime R, stable family IDs and exact owned/intermediate ingredient subtraction.
+- Makes construction Future odds static visible content without a disclosure, including a dedicated mobile footer row. Opens Next wave and DPS by default and stacks wave abilities vertically inside the actual panel/parent width.
+- Adds MVP level to each measured defender row as snapshot metadata. Labels the DPS heading Sum peak DPS and sums independent measured defender peaks; damage-window and MVP combat mechanics are unchanged.
+- Uses cyan for pinned draft/map ingredients, violet for rank merges and gold for champion combinations, retaining a cyan stripe on overlapping pins without changing action roles.
+- Condenses the Holy inspector sentence while retaining detailed Help and core immunity rules; moves the complete map-effect legend into Help and keeps actual active selected-unit effects/providers.
+- Applies the sole authorized balance change: wave-38 Blood-Leech regeneration falls from 40% to 25% maximum HP/s. Other regeneration remains 20%; other D001 numerical/mechanical proposals remain unapproved while analysis/testing stays resumed.
+- Preserves approved art/audio, save contracts, English gallery language/provenance and every earlier release entry.
+
+<!-- V31_RELEASE_GATES_PENDING: release owner finalizes full-suite/build/native/public-game receipts. -->
+
 ## 0.3.30 — Connected Recipes and Battlefield Controls — 13 October 2026
 
 Published from implementation commit `beb391099d5233dade1ea71bb50ca65ef7947322` through successful [Pages CI 38459146490](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38459146490). All 1,366 tests, the final responsive build and native UI checks at five viewport sizes passed. Five public compiled assets match the local build; all 113 approved audio files retain their hashes and decode in the HTTPS browser. Public recipe history, ordinary placement/Keep and rank-preview checks passed without recorded runtime errors. The statistics backend is live at 0.3.30. See [the 22-comment report](docs/UI_REFINEMENTS_V30_20261013.md) for evidence and certification limits.

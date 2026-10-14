@@ -8,6 +8,7 @@ import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../g
 import {craftingDockModel,updateCraftingDock,craftRecipeKey,craftRecipeFromDock} from '../ui/crafting-dock.js';
 import {icon} from '../ui/icons.js';
 import {PhaseUiState} from '../ui/phase-ui.js';
+import {CommandPointerInput} from '../ui/command-pointer-input.js';
 
 const raw=Object.fromEntries(['balance','towers','recipes','enemies','waves'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
@@ -28,13 +29,14 @@ function actualGame({retained=false}={}){
   game.select(game.towers[0].id);return game;
 }
 function productionCommands(game){
-  const callbacks=new Map(),calls={render:0,close:0,unlock:0},world={maze:{editing:false},doubleTap:{clear:noop}},app={addEventListener:(type,callback)=>callbacks.set(type,callback)};
+  const callbacks=new Map(),captureCallbacks=new Map(),calls={render:0,close:0,unlock:0},world={maze:{editing:false},doubleTap:{clear:noop}},app={addEventListener:(type,callback,options)=>((options===true||options?.capture)?captureCallbacks:callbacks).set(type,callback)};
   const methods=runInNewContext(`${stampSource}\n${handlerSource}\n({stampCraftButtons,handleCommand})`,{
     game,app,world,audio:{unlock:()=>calls.unlock++},draftCardActivation:{clear:noop},debug:false,
+    CommandPointerInput,window:{addEventListener:noop},document:{addEventListener:noop,elementFromPoint:()=>null},
     craftRecipeKey,craftRecipeFromDock,render:()=>calls.render++,closeDialog:()=>calls.close++,
     codex:noop,warbands:noop,help:noop,sendWave:noop,debugPanel:noop,toggleAudioSettings:noop,
   });
-  const click=button=>callbacks.get('click')({target:{closest:()=>button},detail:1});
+  const click=button=>{let stopped=false;const event={target:{closest:()=>button},detail:1,preventDefault:noop,stopImmediatePropagation:()=>{stopped=true;}};captureCallbacks.get('click')?.(event);if(!stopped)callbacks.get('click')(event);};
   return {...methods,calls,world,click};
 }
 const buttonFor=(game,action='craft-dock')=>({disabled:false,dataset:{action,id:recipe.id,towerId:String(game.selected),craftKey:craftRecipeKey(game,recipe.id)}});

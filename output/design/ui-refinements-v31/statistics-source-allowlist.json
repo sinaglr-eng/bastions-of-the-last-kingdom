@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "scope": "Separate statistics checkout metadata only",
+  "baselineCommit": "8247493475d3193dd39622b9fd61c57d41463727",
+  "publishedCommit": "844943a8206044b54282c9749c6360a57e85426a",
+  "checkout": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v25-statistics-service",
+  "sourceFiles": [
+    "game/release.js",
+    "package.json"
+  ],
+  "sourceSha256": {
+    "game/release.js": "85ff4c984bdf042a9da41424395f99527ea8631eab19702b23a8479479f75a9c",
+    "package.json": "4616c5d9c8ce681cc00a6daa330d4199cbd8f294c66b2ade41bbd4ef11ee1ff1"
+  },
+  "evidence": [
+    "output/design/ui-refinements-v31/statistics-publication-proof.json",
+    "output/design/ui-refinements-v31/statistics-preservation.json",
+    "output/design/ui-refinements-v31/statistics-health.json"
+  ],
+  "rootRuntimeOrFrozenSourceChanged": false,
+  "frozen": true
+}

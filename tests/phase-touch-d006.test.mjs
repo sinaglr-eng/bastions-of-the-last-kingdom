@@ -7,6 +7,7 @@ import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../g
 import {PhaseUiState,phaseStripMarkup,combatStatusModel,combatBossMarkup} from '../ui/phase-ui.js';
 import {DraftCardActivation,DraftCardPointerInput,drawKeeperKey,keepDrawKeeper,mergeTowerFromBadge} from '../ui/draft-input.js';
 import {draftCardsMarkup} from '../ui/draft-cards.js';
+import {CommandPointerInput} from '../ui/command-pointer-input.js';
 
 const raw=Object.fromEntries(['balance','towers','recipes','enemies','waves'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
@@ -22,7 +23,11 @@ assert.ok(hookStart>=0&&hookEnd>hookStart);
 const acceptedSelectionHook=main.slice(hookStart,hookEnd)+"if(type==='change')render();});";
 const noop=()=>{},outside={closest:()=>null};
 const snapshot=game=>JSON.stringify({towers:game.towers,draws:game.draft.draws,selected:game.selected,phase:game.phase,cp:game.commandPoints.value,gold:game.economy.gold,grid:[...game.grid.occupied]});
-class Surface{constructor(){this.listeners=new Map();this.dataset={};}addEventListener(type,callback){this.listeners.set(type,callback);}emit(type,event){this.listeners.get(type)?.({...event,type});}}
+class Surface{
+  constructor(){this.listeners=new Map();this.dataset={};}
+  addEventListener(type,callback,options){if(!this.listeners.has(type))this.listeners.set(type,[]);this.listeners.get(type).push({callback,capture:options===true||!!options?.capture});}
+  emit(type,event){let stopped=false;const accepted={...event,type,preventDefault:noop,stopImmediatePropagation:()=>{stopped=true;}};for(const {callback}of [...(this.listeners.get(type)||[])].sort((a,b)=>Number(b.capture)-Number(a.capture))){if(stopped)break;callback(accepted);}}
+}
 const finger=(target,id=1)=>({target,pointerId:id,pointerType:'touch',button:0,isPrimary:true,clientX:100,clientY:100});
 function interfaceFixture({complete=true}={}){
   const game=new Game(data,{seed:731}),phaseUi=new PhaseUiState(),app=new Surface(),window=new Surface(),world={maze:{editing:false},sync:noop,doubleTap:{clear:noop}},audio={unlock:noop};
@@ -33,9 +38,9 @@ function interfaceFixture({complete=true}={}){
   const input=new DraftCardPointerInput({now:()=>now,hitTest:()=>hit,activate,clearActivation:()=>activation.clear()});
   runInNewContext(acceptedSelectionHook,{game,phaseUi,render});
   runInNewContext(bindingSource,{app,window,game,draftPointerInput:input});
-  const commands=new Surface();runInNewContext(handlerSource,{game,phaseUi,app:commands,world,audio,draftCardActivation:activation,draftPointerInput:input,keepDrawKeeper,mergeTowerFromBadge,render,debug:false,codex:noop,warbands:noop,help:noop,sendWave:()=>game.startCombat(),closeDialog:noop,debugPanel:noop});
+  const commands=app;runInNewContext(handlerSource,{game,phaseUi,app:commands,window,document:{addEventListener:noop,elementFromPoint:()=>hit},CommandPointerInput,world,audio,draftCardActivation:activation,draftPointerInput:input,keepDrawKeeper,mergeTowerFromBadge,render,debug:false,codex:noop,warbands:noop,help:noop,sendWave:()=>game.startCombat(),closeDialog:noop,debugPanel:noop});
   if(complete)for(let index=0;index<5;index++){game.draft.roundForced={family:['mage','archer','cleric','druid','soldier'][index],tier:1};assert.equal(game.place(3+index,3),true);}
-  return {game,phaseUi,app,cards,render,input,activation,advance(ms){now+=ms;},tap(index,id=1){hit=cards[index];app.emit('pointerdown',finger(cards[index],id));window.emit('pointerup',finger(outside,id));},press(index,id=1){hit=cards[index];app.emit('pointerdown',finger(cards[index],id));},release(index,id=1){hit=cards[index];window.emit('pointerup',finger(outside,id));},click(button){commands.emit('click',{target:{closest:()=>button},detail:1});}};
+  return {game,phaseUi,app,cards,render,input,activation,advance(ms){now+=ms;},tap(index,id=1){hit=cards[index];window.emit('pointerdown',finger(cards[index],id));app.emit('pointerdown',finger(cards[index],id));window.emit('pointerup',finger(outside,id));},press(index,id=1){hit=cards[index];window.emit('pointerdown',finger(cards[index],id));app.emit('pointerdown',finger(cards[index],id));},release(index,id=1){hit=cards[index];window.emit('pointerup',finger(outside,id));},click(button){commands.emit('click',{target:{closest:()=>button},detail:1});}};
 }
 
 test('accepted touch on the already-selected fifth card reopens the inspector without keeping or drawing',()=>{

@@ -2,6 +2,22 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
+## 0.3.31 candidate — Reliable Touch Controls and Clearer Battlefield
+
+Ordinary touch/pen commands now execute once on an accepted release, including Start wave and Demolish when a later compatibility click is missing or retargeted. Scoped click suppression rejects duplicate or ghost actions; identity checks and drag, cancellation, capture-loss and multi-touch guards protect the selected command and foundation. Control stacking keeps command targets reachable. Mouse and keyboard retain their existing paths.
+
+- Potential combinations and basic rank controls stay visible; the inspector shows the actual active family count across ranks.
+- Catalog Previous/Next follows the filtered recipe order, with separate exploration Back/Forward. Champion ingredients have no abbreviations. Missing basics use `S II, D II, 2x E IV`; Engineer displays E while canonical runtime R and family IDs stay unchanged. Exact allocated ownership and intermediate-component subtraction are preserved.
+- Future odds is static visible construction content, with a dedicated mobile footer row. Next wave and DPS start expanded; abilities stack vertically inside the actual panel width. Each measured DPS row includes MVP level, and Sum peak DPS adds independent defender peaks, which can occur at different times.
+- Cyan marks pinned cards/map ingredients, violet marks rank merges and gold marks champion combinations; overlapping pins retain a cyan stripe. The Holy inspector sentence is compact, with detailed immunity rules retained in Help. The map-effect legend moves into Help while actual selected-unit effects remain visible.
+- The sole balance adjustment reduces wave-38 Blood-Leech regeneration from 40% to 25% maximum HP per second. Other regeneration stays at 20%; no other D001 tuning is authorized by this release.
+
+See [the sixteen-comment report](docs/UI_REFINEMENTS_V31_20261014.md) for scoped evidence. All 1,404 tests and the production build passed. Local native browser checks passed single mouse activation of Start/Demolish, with unobstructed command centers and targets measuring at least 44 pixels across all five viewports. Physical iPad/Safari verification is unavailable. Public game verification and publication remain pending. The statistics backend metadata is already live at edition 0.3.31, with [recorded historical preservation](output/design/ui-refinements-v31/statistics-publication-proof.json). D001 analysis/testing remains resumed separately. Approved media, gallery language/provenance and prior release history are preserved.
+
+<!-- V31_RELEASE_GATES_PENDING: release owner finalizes full-suite/build/native/public-game receipts. -->
+
+## Published 0.3.30 baseline
+
 Current release: **0.3.30 · Connected Recipes and Battlefield Controls** — [release notes](CHANGELOG.md) · [current defender and voice integration](docs/DEFENDERS_V7_CHAMPIONS_V8.md) · [enemy model and animation verification](docs/GEOMETRIC_GAME_V6.md).
 
 The interface follows construction, keeper selection, ready, combat, paused and ended phases. Five equal-width cards return each construction round, with compact odds and separate legal actions. Ready shows Start wave at the top center of the map. Combat opens Current wave details, with independently available unit inspection and persistent live/queued counts and revealed boss HP. Inspect keeper toggles its panel without clearing selection. Recipes support component/downstream exploration, ingredient portraits and codes, and exact missing-basic progress for pinned goals. Enemy Waves retains compact remaining rows and honest variant comparison. Maze plans show actual route thumbnails; results offer immediate retry or read-only battlefield review. See [the 22-comment refinement report](docs/UI_REFINEMENTS_V30_20261013.md) and the preserved [D006 implementation history](docs/PHASE_UI_D006_IMPLEMENTATION_20261013.md).

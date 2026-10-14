@@ -20,10 +20,22 @@ export function recipeNavigationStep(state,delta){
   if(!delta||index<0||index>=navigation.history.length)return null;
   state.history=navigation.history;state.index=index;return state.history[index];
 }
+// Catalog order is independent of exploration history. The caller supplies
+// the current filtered rows in their existing recipe order; no wrapping or
+// silent fallback occurs when an inspected component is outside that list.
+export function recipeCatalogNavigation(recipes,recipeId){
+  const ids=recipes.map(entry=>entry.recipe?.id||entry.id||entry),index=ids.indexOf(recipeId);
+  return {index,count:ids.length,inCatalog:index>=0,previousId:index>0?ids[index-1]:null,nextId:index>=0&&index<ids.length-1?ids[index+1]:null};
+}
+// Engineer's player-facing initial is E. Its runtime family and canonical R
+// identifier remain untouched; all other basic codes use defenderCode.
+export function displayDefenderCode(stats,tier=1,{family}={}){
+  if(stats.advanced)return null;
+  return family==='runebreaker'||stats.unitCode==='R'?`E ${rankLabel(tier)}`:defenderCode(stats,tier);
+}
 export function recipeIngredientPresentation(piece,data){
   const stats=data.towers[piece.family],recipe=data.recipes.find(entry=>recipeFamily(entry)===piece.family&&recipeTier(entry)===piece.tier);
-  const words=stats.name.trim().split(/\s+/).map(word=>word.replace(/[^A-Za-z]/g,'')),acronym=(words.length===1?words[0].slice(0,3):words.map(word=>word[0]||'').join('')).toUpperCase();
-  return {name:stats.name,rank:rankLabel(piece.tier),code:stats.unitCode?defenderCode(stats,piece.tier):`${acronym} ${rankLabel(piece.tier)}`,recipeId:stats.advanced?recipe?.id||null:null};
+  return {name:stats.name,rank:rankLabel(piece.tier),code:displayDefenderCode(stats,piece.tier,{family:piece.family}),recipeId:stats.advanced?recipe?.id||null:null};
 }
 export function downstreamRecipes(recipe,data){
   if(!recipe)return [];
@@ -52,7 +64,7 @@ export function missingBasicFrontier(tree,data){
     item.count++;totals.set(key,item);
   };
   tree.forEach(visit);
-  const items=[...totals.values()].map(item=>({...item,code:item.code.replace(/\s+/g,''),label:`${item.count===1?'':`${item.count}×`}${item.code.replace(/\s+/g,'')}`}));
+  const items=[...totals.values()].map(item=>({...item,label:`${item.count===1?'':`${item.count}x `}${item.code}`}));
   return {items,total:items.reduce((sum,item)=>sum+item.count,0),summary:items.map(item=>item.label).join(', ')||'None'};
 }
 export function pinnedMissingBasicSummary(game,recipe=game.pinned){

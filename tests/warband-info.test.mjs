@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {currentWarbandInfo,bossHealth,builtTowerCount,warbandTraits} from '../game/core/warband-info.js';
 import {defenderGuide,ingredientName} from '../ui/grimoire.js';
 import {defenderCode} from '../game/core/unit-label.js';
+import {displayDefenderCode} from '../ui/recipe-navigation.js';
 import {loadProfile,saveProfile} from '../game/core/save.js';
 
 test('combat guide describes the chosen queued variant and actual wave modifiers',()=>{
@@ -26,14 +27,16 @@ test('built counts exclude unretained candidates and consumed foundations',()=>{
   assert.equal(builtTowerCount(towers,'mage',2),1);assert.equal(builtTowerCount(towers,'mage'),2);
 });
 
-test('guide uses own unit codes and advanced ingredient ranks remain explicit',()=>{
+test('guide uses display codes while canonical runtime codes and advanced ingredient ranks remain explicit',()=>{
   const data=Object.fromEntries(['balance','towers'].map(k=>[k,JSON.parse(readFileSync(new URL(`../data/${k}.json`,import.meta.url)))]));
   const html=defenderGuide(data,{});
   assert.ok(!/Diamond|Aquamarine|Emerald|Ruby|Opal|Amethyst|Sapphire|Topaz/.test(html));
   const basic=Object.values(data.towers).filter(s=>!s.advanced);
   assert.equal(new Set(basic.map(s=>s.unitCode)).size,8);
   assert.ok(basic.every(s=>/^[A-Z]$/.test(s.unitCode)));
-  for(const stats of basic)for(let tier=1;tier<=6;tier++)assert.ok(html.includes(defenderCode(stats,tier)));
+  for(const stats of basic)for(let tier=1;tier<=6;tier++)assert.ok(html.includes(displayDefenderCode(stats,tier)));
+  assert.equal(data.towers.runebreaker.unitCode,'R');assert.equal(defenderCode(data.towers.runebreaker,3),'R III');
+  assert.ok(html.includes('E I'));assert.ok(html.includes('E VI'));assert.equal(ingredientName({family:'runebreaker',tier:3},data),'E III · Engineer');
   assert.ok(html.includes('S I'));assert.ok(!html.includes('UNIT SG'));
   assert.equal(ingredientName({family:'soldier',tier:3},data),'S III · Soldier');
   const family=Object.keys(data.towers).find(id=>data.towers[id].advanced);

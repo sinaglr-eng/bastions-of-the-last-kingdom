@@ -1,0 +1,38 @@
+{
+  "baseline": "f2089a8a71c6c24ca06398f283c131dbf943843e",
+  "release": "0.3.31",
+  "owner": "audit_crafting",
+  "comments": [
+    5,
+    6,
+    7
+  ],
+  "frozen": true,
+  "files": [
+    {
+      "path": "ui/recipe-navigation.js",
+      "sha256": "8ee17d0f8d01e5a46f009216f70de493ec5abd40428891eac8754f79ae680a5b",
+      "baselineSha256": "b7c6fb2433e95a01e8dcaf04a7f159308b74421b632a551110312d3177c773f9"
+    },
+    {
+      "path": "ui/catalog-recipes.js",
+      "sha256": "2774471bf624e5c9e245ac04e6aef4f2019e50b86876b5f316befaaaf38ab903",
+      "baselineSha256": "78a9892e7482405e61529e4649fe841c985ef3d18b4f2b2570b2219e1e14132b"
+    },
+    {
+      "path": "ui/catalog-recipes.css",
+      "sha256": "788ac576e7215eacbb8533425242d3ecab8907440d148b08e14a037dd80cd52e",
+      "baselineSha256": "9ee97530751a5dd2d16ed149d69539a169976081256818c32941c729bcad0354"
+    },
+    {
+      "path": "ui/crafting-dock.js",
+      "sha256": "06bedf8773600809bf402272e0c2bc756323b943daecbde8b33ea82f5e6dca29",
+      "baselineSha256": "94832e89cadeed0a1c79628c3d710d34a1d52005f6f40afe04da6391f52ad088"
+    },
+    {
+      "path": "tests/recipe-navigation-v30.test.mjs",
+      "sha256": "765c0bc8fe9758ee71dd211cae28d91753f4695db4b909a949c5efec62a49167",
+      "baselineSha256": "f18673ce5120d33136aa82032ba6a127fe49871aac02685f151e20e2c2b94c1c"
+    }
+  ]
+}

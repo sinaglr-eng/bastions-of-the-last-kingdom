@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "frozen": true,
+  "checkedAt": "2026-10-14T07:12:12.882Z",
+  "baselineCommit": "f2089a8a71c6c24ca06398f283c131dbf943843e",
+  "ownedTest": {
+    "path": "tests/command-main-integration-v31.test.mjs",
+    "bytes": 16095,
+    "sha256": "8b757a97773967eff067afec8813e37d7260f40c2285b5fb743efe673875ec66"
+  },
+  "reviewedMainSnapshot": {
+    "path": "game/main.js",
+    "sha256": "cb498baf0fbe60a2e77925bbf855226b4b20c33a8ae46f7b6e2052c5505fae36",
+    "identityListenerBlockSha256": "6b4eb6d51924d04b817073a15cdafb9e839b3b3af21afeab80e001265c866e2b",
+    "identity": "function commandPointerIdentity(){const tower=game.selection;return {game,signature:JSON.stringify([game.round,game.phase,game.paused,game.speed,game.selected,tower?[tower.id,tower.family,tower.tier,tower.state,tower.x,tower.z,tower.attackPaused,tower.priority]:null,game.enemySelection?.id??null,game.commandMove.active,game.commandMove.fromId??null])};}"
+  },
+  "reviewedCssSnapshot": {
+    "path": "ui/refinements-v31.css",
+    "sha256": "6a7982dcb55049174fedc7d13d31386e2b681a6119ca6ef483c980f3b9c60cea"
+  },
+  "previousFrozenFiles": [
+    {
+      "path": "ui/command-pointer-input.js",
+      "sha256": "020ec55a523e40a5cf7cdf68965753b6c7b019098206546adac72cc3144fce61"
+    },
+    {
+      "path": "tests/command-pointer-input-v31.test.mjs",
+      "sha256": "c501a824bc3da787ea97c53008b49ab362116a1f3e792a8e58eb92fc57e27e3b"
+    }
+  ],
+  "testResults": {
+    "productionWiringTestsPassed": 9,
+    "productionWiringTestsFailed": 0,
+    "combinedInputTestsPassed": 71,
+    "combinedInputTestsFailed": 0,
+    "command": "node --test tests/command-main-integration-v31.test.mjs tests/command-pointer-input-v31.test.mjs tests/touch-input.test.mjs tests/draft-pointer-input.test.mjs tests/pinned-recruit-map-v30.test.mjs tests/recipe-marker-input.test.mjs tests/merge-badge-ui.test.mjs",
+    "log": "output/design/ui-refinements-v31/command-main-integration-tests.txt"
+  },
+  "resolvedFinding": {
+    "beforeFix": {
+      "passed": 7,
+      "failed": 2
+    },
+    "mechanism": "The original root identity omitted global pause/speed and unit attack pause. A newer keyboard or actual unit pause during a held touch could be reversed by the old release.",
+    "rootFix": [
+      "game.paused",
+      "game.speed",
+      "tower.attackPaused",
+      "tower.priority"
+    ],
+    "runtimeEditOwner": "/root",
+    "reproducedThroughActualMainVm": true,
+    "physicalSafariReproduction": false
+  },
+  "coverage": [
+    "Actual main identity, constructor, capture listeners, delegated dispatcher and game subscriber execute with real Game state",
+    "Touch/pen starts exactly one actual wave without click",
+    "Actual renderSidebar replaces a wall button during the press; unchanged release demolishes once",
+    "App capture suppression stops a retargeted click before a canvas trap can place in the next real draft",
+    "Changed selected wall and replaced Game identity reject stale releases",
+    "Actual global keydown leaves focused-button Space to exactly one keyboard/AT native click",
+    "Actual scroll/wheel/blur/hidden-document listeners cancel pending commands",
+    "Actual startGame clears pending command input before unrelated asset/session construction",
+    "Window capture observes an external touch even when the target stops propagation",
+    "Held global Pause/Speed and held unit Pause cannot reverse a newer state"
+  ],
+  "cssReview": {
+    "baselineMechanism": "Topbar z-index 5 trapped its menu below sidebar z-index 8; expanded map overview z-index 9 and low-landscape viewport-wide grid could overlap sidebar controls through pointer-events:auto aside children.",
+    "v31SourceFix": "Last-imported topbar20/sidebar11/footer12 and map-width overview constraints put primary controls above optional map panels.",
+    "nativeElementFromPointVerificationOwnedByRoot": true
+  },
+  "boundaries": [
+    "Only the new integration test and its evidence were written by this agent; root owns all main/CSS changes.",
+    "Event surfaces model capture/target/bubble and stopImmediatePropagation; they do not render CSS or certify a physical iPad/Safari.",
+    "Real source renderSidebar/towerPanel create the wall markup; persistence, audio playback and unrelated crafting stamping are bounded fixture stubs.",
+    "The full actual startGame declaration is executed only until an audio.resetRun fixture sentinel, proving input clear occurs first without constructing assets/sessions.",
+    "Main/CSS hashes describe the reviewed snapshot, not ownership or a freeze of root files."
+  ]
+}

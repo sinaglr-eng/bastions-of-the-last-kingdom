@@ -91,7 +91,7 @@ test('a hidden enemy DOT still contributes source damage without retaining its i
   try{
     game.tick(.1);const [row]=tracker.snapshot(game.towers,game.combat.elapsed);
     close(row.damage,hp-enemy.hp);assert.ok(row.damage>0);
-    assert.deepEqual(Object.keys(row),['id','family','tier','state','x','z','damage','dps','currentDps','peakDamage']);
+    assert.deepEqual(Object.keys(row),['id','family','tier','state','x','z','damage','dps','currentDps','peakDamage','mvpLevel']);
     assert.equal(row.x,source.x);assert.equal(row.z,source.z);
     const before=JSON.stringify({source,enemy}),first=JSON.stringify(tracker.snapshot(game.towers,game.combat.elapsed));
     assert.equal(JSON.stringify({source,enemy}),before);
@@ -113,7 +113,7 @@ test('real 1× and 3× combat have identical current and peak DPS at equal game 
       }
       const rows=tracker.snapshot(game.towers,game.combat.elapsed),sum=hits.filter(h=>h.time>game.combat.elapsed-5).reduce((total,h)=>total+h.damage,0);
       close(rows[0].damage,sum);close(rows[0].currentDps,sum/5);close(rows[0].dps,rows[0].peakDamage/5);assert.ok(rows[0].dps>=rows[0].currentDps&&rows[0].dps>0);
-      const frozen=structuredClone(rows),elapsed=game.combat.elapsed;game.completeWave();game.tick(60);
+      const elapsed=game.combat.elapsed;game.completeWave();const frozen=tracker.snapshot(game.towers,elapsed);assert.deepEqual(frozen.map(({mvpLevel,...row})=>row),rows.map(({mvpLevel,...row})=>row));assert.equal(frozen[0].mvpLevel,rows[0].mvpLevel+1);game.tick(60);
       assert.equal(game.combat.elapsed,elapsed);assert.deepEqual(tracker.snapshot(game.towers,elapsed),frozen);
       assert.equal(game.place(15,20),true);const withDraft=tracker.snapshot(game.towers,elapsed);
       assert.equal(withDraft.find(r=>r.state==='draft').dps,0);assert.deepEqual(tracker.snapshot(game.towers,elapsed,{includeDraft:false}),frozen);
@@ -179,9 +179,9 @@ test('the peak UI names the actual five-game-second maximum and wave, with an ac
   tracker.recordHit({source,damage:100,effectiveDamage:100},.1);
   const rows=tracker.snapshot([source],6),html=towerDpsContents(rows,data,{}, {phase:'combat',paused:true,wave:7});
   assert.equal(rows[0].currentDps,0);assert.equal(rows[0].dps,20);
-  assert.match(html,/<h2 title="Highest actual DPS over a 5-game-second window in this wave">Peak DPS<\/h2>/);assert.match(html,/tower-dps-summary-score[^>]*>20\.0/);
+  assert.match(html,/<h2 title="Sum of individual defender peak DPS this wave">Sum peak DPS<\/h2>/);assert.match(html,/tower-dps-summary-score[^>]*>20\.0/);
   assert.match(html,/Wave 7 · Paused/);assert.match(html,/aria-label="Defenders ordered by peak actual DPS this wave"/);
-  assert.match(html,/aria-label="Select Mage, rank I, defender 1, 20\.0 peak DPS this wave"/);
+  assert.match(html,/aria-label="Select Mage, rank I, defender 1, MVP 0, 20\.0 peak DPS this wave"/);
   assert.match(html,/<strong class="tower-dps-value">20\.0<\/strong>/);assert.doesNotMatch(html,/Last 5 game seconds/);
   assert.match(towerDpsContents(rows,data,{}, {phase:'build',paused:true,wave:7}),/Completed wave 7 · Measured over 5 game seconds/);
   assert.doesNotMatch(towerDpsContents(rows,data,{}, {phase:'build',paused:true,wave:7}),/Paused/);

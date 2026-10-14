@@ -23,6 +23,8 @@ function actionBoundary(game,header){
  const callbacks=new Map(),world={keys:new Set(),maze:{editing:false},doubleTap:{clear(){}}},dialog={open:false},document=header.document,noop=()=>{},app={addEventListener:(type,fn)=>callbacks.set(type,fn)};let renders=0,unlocks=0;
  const render=()=>{renders++;updateHeaderCombatControls(header.host,game);},bindings={game,world,document,app,render,sendWave:()=>game.startCombat(),audio:{unlock(){unlocks++;}},draftCardActivation:{clear(){}},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop};
  const functions=compile(['mainAction','handleCommand'],bindings);
+ const clickLine=source.split('\n').find(line=>line==="app.addEventListener('click',handleCommand);");assert.ok(clickLine);
+ new Function('app','handleCommand',clickLine)(app,functions.handleCommand);
  const keyboardLine=source.split('\n').find(line=>line.startsWith("window.addEventListener('keydown'"));assert.ok(keyboardLine);
  new Function('window','document','game','world','$','audio','mainAction',keyboardLine)({addEventListener:(type,fn)=>callbacks.set(type,fn)},document,game,world,()=>dialog,bindings.audio,functions.mainAction);
  return {world,dialog,functions,get renders(){return renders;},get unlocks(){return unlocks;},click(button){callbacks.get('click')({target:{closest:()=>button},detail:1});},keydown(event){callbacks.get('keydown')(event);}};

@@ -1,0 +1,34 @@
+{
+  "version": "0.3.31",
+  "tests": {
+    "passed": 1404,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "log": "full-tests-final.txt"
+  },
+  "productionBuild": {
+    "status": "passed",
+    "base": "/bastions-of-the-last-kingdom/",
+    "log": "production-build.txt"
+  },
+  "pointer": {
+    "helperTests": 18,
+    "productionIntegrationTests": 9,
+    "combinedChecks": 71
+  },
+  "native": {
+    "browser": "Chromium Codex in-app browser",
+    "controls": "one native mouse Start and Demolish; five viewport unobstructed centers >=44px high",
+    "proof": "controls-proof.json",
+    "actualWave": "six-defender Sandbox wave8 sum514.7, end MVP award, five full list entries and scroll sixth",
+    "physicalIpadSafari": "unavailable; not certified",
+    "fontAndPhysicalListening": "not certified",
+    "finalColors": "pinned-and-merge-proof.json",
+    "lowOdds": "odds-low-landscape-proof.json"
+  },
+  "protectedAudit": "protected-preservation-proof.json",
+  "balanceChange": "Only wave38 Blood-Leech regen40%→25%; other proposals not implemented",
+  "statistics": "LIVE0.3.31;88 IDs,21 completed historical safe records preserved",
+  "publicGame": "Pending deployment and public evidence"
+}

@@ -1,0 +1,262 @@
+TAP version 13
+# Subtest: all six Engineer ranks show enemy armor reduction independently of actual barricade attack-speed disruption
+ok 1 - all six Engineer ranks show enemy armor reduction independently of actual barricade attack-speed disruption
+  ---
+  duration_ms: 38.7015
+  type: 'test'
+  ...
+# Subtest: the same armor symbol covers actual in-range armor auras and never exposes hidden enemies
+ok 2 - the same armor symbol covers actual in-range armor auras and never exposes hidden enemies
+  ---
+  duration_ms: 2.8564
+  type: 'test'
+  ...
+# Subtest: actual armor glyph is a fractured shield, distinct from the barricade mesh and correctly explained in the accessible legend
+ok 3 - actual armor glyph is a fractured shield, distinct from the barricade mesh and correctly explained in the accessible legend
+  ---
+  duration_ms: 1.8903
+  type: 'test'
+  ...
+# Subtest: candidate hierarchy puts legal actual actions, potential combinations and rank comparison before the single previewed core
+ok 4 - candidate hierarchy puts legal actual actions, potential combinations and rank comparison before the single previewed core
+  ---
+  duration_ms: 25.9129
+  type: 'test'
+  ...
+# Subtest: every basic rank and champion shows all engine-derived abilities once, with only Holy immunity copy condensed in the inspector
+ok 5 - every basic rank and champion shows all engine-derived abilities once, with only Holy immunity copy condensed in the inspector
+  ---
+  duration_ms: 60.2621
+  type: 'test'
+  ...
+# Subtest: previewing VI leaves actual rank I Keep/Merge keys, legal result and stale-command guards intact without consuming RNG
+ok 6 - previewing VI leaves actual rank I Keep/Merge keys, legal result and stale-command guards intact without consuming RNG
+  ---
+  duration_ms: 15.7944
+  type: 'test'
+  ...
+# Subtest: targeting, current support, measured peak and MVP belong to the actual unit after previewing another rank
+ok 7 - targeting, current support, measured peak and MVP belong to the actual unit after previewing another rank
+  ---
+  duration_ms: 5.8151
+  type: 'test'
+  ...
+# Subtest: reserved units keep their existing inactive explanatory pane and never acquire preview actions or stats
+ok 8 - reserved units keep their existing inactive explanatory pane and never acquire preview actions or stats
+  ---
+  duration_ms: 4.5339
+  type: 'test'
+  ...
+# Subtest: actual sidebar refresh keeps potential/ranks visible and preserves MVP disclosure, rank-button focus and scroll after switching the main stats
+ok 9 - actual sidebar refresh keeps potential/ranks visible and preserves MVP disclosure, rank-button focus and scroll after switching the main stats
+  ---
+  duration_ms: 6.9205
+  type: 'test'
+  ...
+# Subtest: header counts kept defenders of the actual family across ranks while excluding every candidate, reserve and discarded foundation
+ok 10 - header counts kept defenders of the actual family across ranks while excluding every candidate, reserve and discarded foundation
+  ---
+  duration_ms: 24.6714
+  type: 'test'
+  ...
+# Subtest: header counts each advanced family independently and reflects a real keep transition without counting its draft peers
+ok 11 - header counts each advanced family independently and reflects a real keep transition without counting its draft peers
+  ---
+  duration_ms: 12.9863
+  type: 'test'
+  ...
+# Subtest: ended rank planning remains visible and read-only; walls and reserved defenders do not gain planning controls
+ok 12 - ended rank planning remains visible and read-only; walls and reserved defenders do not gain planning controls
+  ---
+  duration_ms: 6.2697
+  type: 'test'
+  ...
+# Subtest: Holy inspector uses the requested short sentence while shared ability/help text retains companion immunity and defense semantics
+ok 13 - Holy inspector uses the requested short sentence while shared ability/help text retains companion immunity and defense semantics
+  ---
+  duration_ms: 8.8569
+  type: 'test'
+  ...
+# Subtest: all six ranks of every basic defender use actual rank stats without changing the unit
+ok 14 - all six ranks of every basic defender use actual rank stats without changing the unit
+  ---
+  duration_ms: 1.5208
+  type: 'test'
+  ...
+# Subtest: rank comparisons preserve draft rolls, gold, selection and the actual merge result
+ok 15 - rank comparisons preserve draft rolls, gold, selection and the actual merge result
+  ---
+  duration_ms: 18.2808
+  type: 'test'
+  ...
+# Subtest: downgrade uses the real selected rank even while Tier VI is displayed
+ok 16 - downgrade uses the real selected rank even while Tier VI is displayed
+  ---
+  duration_ms: 4.4711
+  type: 'test'
+  ...
+# Subtest: production downgrade-and-keep stays beside the actual heading before optional details and follows actual rank, gold and reserve guards
+ok 17 - production downgrade-and-keep stays beside the actual heading before optional details and follows actual rank, gold and reserve guards
+  ---
+  duration_ms: 24.0954
+  type: 'test'
+  ...
+# Subtest: new selections and transformed units reset previews; champions, walls and invalid ranks cannot acquire one
+ok 18 - new selections and transformed units reset previews; champions, walls and invalid ranks cannot acquire one
+  ---
+  duration_ms: 0.1642
+  type: 'test'
+  ...
+# Subtest: production sidebar potential combinations follow the displayed I→II rank and reset to the real selection
+ok 19 - production sidebar potential combinations follow the displayed I→II rank and reset to the real selection
+  ---
+  duration_ms: 13.8316
+  type: 'test'
+  ...
+# Subtest: preview recipes count actual retained and placed ingredients without inventing the displayed rank or enabling its craft
+ok 20 - preview recipes count actual retained and placed ingredients without inventing the displayed rank or enabling its craft
+  ---
+  duration_ms: 23.7626
+  type: 'test'
+  ...
+# Subtest: production defender panel removes descriptive, Strong/Weak and pause-explanation prose while preserving every rank, abilities and commands
+ok 21 - production defender panel removes descriptive, Strong/Weak and pause-explanation prose while preserving every rank, abilities and commands
+  ---
+  duration_ms: 227.3181
+  type: 'test'
+  ...
+# Subtest: production retained Rank V sidebar action works in ready using the actual selected foundation and preserves the pending draft
+ok 22 - production retained Rank V sidebar action works in ready using the actual selected foundation and preserves the pending draft
+  ---
+  duration_ms: 9.9409
+  type: 'test'
+  ...
+# Subtest: production retained Rank V sidebar action works in build using the actual selected foundation and preserves the pending draft
+ok 23 - production retained Rank V sidebar action works in build using the actual selected foundation and preserves the pending draft
+  ---
+  duration_ms: 9.3756
+  type: 'test'
+  ...
+# Subtest: production retained Rank V sidebar action works in select using the actual selected foundation and preserves the pending draft
+ok 24 - production retained Rank V sidebar action works in select using the actual selected foundation and preserves the pending draft
+  ---
+  duration_ms: 13.0876
+  type: 'test'
+  ...
+# Subtest: a stale selected-panel Merge action cannot change the new selection, changed pair or foundation
+ok 25 - a stale selected-panel Merge action cannot change the new selection, changed pair or foundation
+  ---
+  duration_ms: 35.4592
+  type: 'test'
+  ...
+# Subtest: base DPS excludes criticals, multiple targets, damage over time and support bonuses
+ok 26 - base DPS excludes criticals, multiple targets, damage over time and support bonuses
+  ---
+  duration_ms: 0.61
+  type: 'test'
+  ...
+# Subtest: current support descriptions explain strongest standard blessings and the separate nonduplicate Archbishop bonus
+ok 27 - current support descriptions explain strongest standard blessings and the separate nonduplicate Archbishop bonus
+  ---
+  duration_ms: 9.8834
+  type: 'test'
+  ...
+# Subtest: current Holy ability and rank guide separate damage from status immunity and explain the exact Royal V merge exception
+ok 28 - current Holy ability and rank guide separate damage from status immunity and explain the exact Royal V merge exception
+  ---
+  duration_ms: 4.5235
+  type: 'test'
+  ...
+# Subtest: each of 38 current champion cards uses approved classification, descriptions and actual damage channels without modifying archived records
+ok 29 - each of 38 current champion cards uses approved classification, descriptions and actual damage channels without modifying archived records
+  ---
+  duration_ms: 9.4369
+  type: 'test'
+  ...
+# Subtest: pinned higher recipes show champion branches, aggregated basic totals and actual crafting ingredients
+ok 30 - pinned higher recipes show champion branches, aggregated basic totals and actual crafting ingredients
+  ---
+  duration_ms: 1.189
+  type: 'test'
+  ...
+# Subtest: fully covered draft recipes show blue provisional counts and zero retained ownership
+ok 31 - fully covered draft recipes show blue provisional counts and zero retained ownership
+  ---
+  duration_ms: 0.2656
+  type: 'test'
+  ...
+# Subtest: mixed recruit rows label retained counts separately from visible candidates
+ok 32 - mixed recruit rows label retained counts separately from visible candidates
+  ---
+  duration_ms: 0.1479
+  type: 'test'
+  ...
+# Subtest: compact odds-only mastery display includes every exact future quality weight without changing economy
+ok 33 - compact odds-only mastery display includes every exact future quality weight without changing economy
+  ---
+  duration_ms: 2.4733
+  type: 'test'
+  ...
+# Subtest: mastery advances before construction draws while XP changes leave current odds alone
+ok 34 - mastery advances before construction draws while XP changes leave current odds alone
+  ---
+  duration_ms: 11.7332
+  type: 'test'
+  ...
+# Subtest: current friendly effects show exact values and actual named providers alongside different shape icons
+ok 35 - current friendly effects show exact values and actual named providers alongside different shape icons
+  ---
+  duration_ms: 3.0787
+  type: 'test'
+  ...
+# Subtest: negative effects follow the combat clock and never persist in preparation or reveal hidden draft information
+ok 36 - negative effects follow the combat clock and never persist in preparation or reveal hidden draft information
+  ---
+  duration_ms: 3.1132
+  type: 'test'
+  ...
+# Subtest: strongest standard providers are named once, tied providers remain visible and weaker tiers do not pretend to contribute
+ok 37 - strongest standard providers are named once, tied providers remain visible and weaker tiers do not pretend to contribute
+  ---
+  duration_ms: 0.2687
+  type: 'test'
+  ...
+# Subtest: current campaign support copy states strongest standard haste plus separate Otomad and names actual approved providers
+ok 38 - current campaign support copy states strongest standard haste plus separate Otomad and names actual approved providers
+  ---
+  duration_ms: 0.7657
+  type: 'test'
+  ...
+# Subtest: a real cloaked disarm invader shows the penalty without exposing its name or identity until revealed
+ok 39 - a real cloaked disarm invader shows the penalty without exposing its name or identity until revealed
+  ---
+  duration_ms: 1.137
+  type: 'test'
+  ...
+# Subtest: map legend names every shared support shape so color alone is not necessary
+ok 40 - map legend names every shared support shape so color alone is not necessary
+  ---
+  duration_ms: 0.1916
+  type: 'test'
+  ...
+# Subtest: every map support symbol exposes a keyboard accessible description of its actual rule
+ok 41 - every map support symbol exposes a keyboard accessible description of its actual rule
+  ---
+  duration_ms: 1.0141
+  type: 'test'
+  ...
+# Subtest: selected support retains real bonuses/providers but moves the complete accessible map legend to the actual Help entry
+ok 42 - selected support retains real bonuses/providers but moves the complete accessible map legend to the actual Help entry
+  ---
+  duration_ms: 1.919
+  type: 'test'
+  ...
+1..42
+# tests 42
+# suites 0
+# pass 42
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 490.5854

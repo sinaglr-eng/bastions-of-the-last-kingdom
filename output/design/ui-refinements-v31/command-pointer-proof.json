@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "frozen": true,
+  "checkedAt": "2026-10-14T06:58:19.555Z",
+  "baselineCommit": "f2089a8a71c6c24ca06398f283c131dbf943843e",
+  "ownedFiles": [
+    {
+      "path": "ui/command-pointer-input.js",
+      "bytes": 5449,
+      "sha256": "020ec55a523e40a5cf7cdf68965753b6c7b019098206546adac72cc3144fce61"
+    },
+    {
+      "path": "tests/command-pointer-input-v31.test.mjs",
+      "bytes": 16223,
+      "sha256": "c501a824bc3da787ea97c53008b49ab362116a1f3e792a8e58eb92fc57e27e3b"
+    }
+  ],
+  "diagnosis": {
+    "baselineMainSha256": "b842193e4a52350245dab3e327591354fe6eb9e72ad84bdf3b0a1845fc1d4d86",
+    "baselineOrdinaryCommandsUseDelegatedClick": true,
+    "baselineOrdinaryPointerHelperAbsent": true,
+    "periodicReadyHudReplacementNotEstablished": true,
+    "concreteUnhandledPath": "An accepted ordinary touch release with a missing or retargeted compatibility click did not invoke Start or Demolish. Normal periodic HUD updates do not normally replace those Ready controls.",
+    "physicalSafariTriggerVerified": false,
+    "primaryReferences": [
+      "https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html",
+      "https://w3c.github.io/pointerevents/index.html"
+    ]
+  },
+  "api": {
+    "constructor": "CommandPointerInput({hitTest,activate,captureIdentity,validateIdentity})",
+    "methods": [
+      "start",
+      "move",
+      "end",
+      "cancel",
+      "lostCapture",
+      "clear",
+      "suppressClick"
+    ],
+    "activation": "activate(currentReleaseButton,event)",
+    "capture": "captureIdentity(button,event)",
+    "validation": "validateIdentity(capturedIdentity,currentButton,event)",
+    "clickSuppression": "Pure boolean; root capture listener owns preventDefault and stopImmediatePropagation",
+    "rootIntegrationOwner": "/root"
+  },
+  "tests": [
+    {
+      "command": "node --test tests/command-pointer-input-v31.test.mjs",
+      "passed": 18,
+      "failed": 0
+    },
+    {
+      "command": "node --test tests/command-pointer-input-v31.test.mjs tests/touch-input.test.mjs tests/draft-pointer-input.test.mjs tests/pinned-recruit-map-v30.test.mjs tests/recipe-marker-input.test.mjs tests/merge-badge-ui.test.mjs",
+      "passed": 62,
+      "failed": 0
+    }
+  ],
+  "coverage": [
+    "Touch and pen release invokes actual main Start and Demolish once without native click",
+    "Same logical action and full dataset survive replacement of the original node",
+    "Caller callbacks revalidate Game, phase, round, selection, actual tower identity, selected enemy and move identity",
+    "Disabled, hidden, inert, CSS-hidden and disconnected current release targets reject activation",
+    "Retargeted legacy clicks on nonbutton ancestors, canvas or newly exposed controls cannot execute again",
+    "Changed wall selection cannot demolish either old or newly selected wall",
+    "Native click before pointerup cannot double Start",
+    "Drag-return, scroll/blur clear, cancel, capture loss, secondary button and inverse multitouch sequences reject activation and ghost clicks",
+    "Forty repeated physical taps remain executable without debounce",
+    "Keyboard/AT detail0 and clearly genuine mouse actions remain native",
+    "Existing draw, recipe-map, pinned-badge and merge checks pass",
+    "Actual Start preserves seeded RNG; actual Demolish preserves gold/CP and clears only the selected foundation"
+  ],
+  "protectedInputs": [
+    {
+      "path": "game/render/touch-input.js",
+      "sha256": "08e45fce09113c16f749d7ed6edbf04566dd546b4863a76233d29521a34e483f",
+      "baselineSha256": "08e45fce09113c16f749d7ed6edbf04566dd546b4863a76233d29521a34e483f",
+      "equivalent": true,
+      "byteIdentical": true
+    },
+    {
+      "path": "ui/draft-input.js",
+      "sha256": "bab436b00dcc50ee28be7a37016ba58d11b9b074e88bec6580db6fe4ef230875",
+      "baselineSha256": "bab436b00dcc50ee28be7a37016ba58d11b9b074e88bec6580db6fe4ef230875",
+      "equivalent": true,
+      "byteIdentical": true
+    },
+    {
+      "path": "ui/pinned-recruit-input.js",
+      "sha256": "80301f8a876477f8729e5f4266e9cfd71577a0fb8c87c6273630357a13236baf",
+      "baselineSha256": "80301f8a876477f8729e5f4266e9cfd71577a0fb8c87c6273630357a13236baf",
+      "equivalent": true,
+      "byteIdentical": true
+    }
+  ],
+  "boundaries": [
+    "Production edits are limited to the new helper; root owns main listeners and identity capture.",
+    "The VM invokes actual main handleCommand and Game methods through a small event/DOM fixture. This is not a physical iPad/Safari reproduction.",
+    "The helper does not prevent pointerdown defaults, mutate DOM, mutate selection or roll RNG.",
+    "Native focus and scrolling remain browser-owned; root connects cancellation.",
+    "Root listener wiring and the remaining sixteen-comment UI scope need separate integration/native QA."
+  ]
+}

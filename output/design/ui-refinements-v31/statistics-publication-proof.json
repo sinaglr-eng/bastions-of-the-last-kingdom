@@ -1,0 +1,97 @@
+{
+  "scope": "Statistics backend metadata edition publication only",
+  "targetEdition": "0.3.31",
+  "createdAt": "2026-10-14 06:59:29 UTC",
+  "status": "LIVE",
+  "frozen": true,
+  "projectId": "appgprj_6abe518c2c1c8191a9bc044f418faed8",
+  "productionUrl": "https://bastions-of-last-kingdom-statistics.sinagl-r.chatgpt.site",
+  "source": {
+    "checkout": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tmp\\v25-statistics-service",
+    "baselineCommit": "8247493475d3193dd39622b9fd61c57d41463727",
+    "baselineSavedSiteVersion": 11,
+    "publishedCommit": "844943a8206044b54282c9749c6360a57e85426a",
+    "changedFiles": [
+      "game/release.js",
+      "package.json"
+    ],
+    "changedFileSha256": {
+      "game/release.js": "85ff4c984bdf042a9da41424395f99527ea8631eab19702b23a8479479f75a9c",
+      "package.json": "4616c5d9c8ce681cc00a6daa330d4199cbd8f294c66b2ade41bbd4ef11ee1ff1"
+    },
+    "workingTreeClean": true,
+    "sourceHelperOpeningVerified": true,
+    "pushedExactCommitVerified": true,
+    "freshRemoteReopeningVerified": true,
+    "allTrackedSourceOutsideMetadataUnchanged": true
+  },
+  "workflow": {
+    "plugin": "Sites",
+    "skill": "C:/Users/sinag/.codex/plugins/cache/openai-curated-remote/sites/1.0.1/skills/sites/SKILL.md",
+    "sourceHelper": "site-workflow.mjs",
+    "credentialHandling": "Fresh credential held in session memory and passed through hidden source-helper stdin only. No credentials or raw private native results were persisted.",
+    "localEditionAndWhitespaceChecksPassed": true,
+    "localBuild": "node build.mjs succeeded; package, release and backend service checks all report 0.3.31.",
+    "localPackagingLimitation": "Supported package-site.mjs could not start its required Bash command on this Windows runtime after the exact source commit/push. Fresh supported opening verified the pushed remote HEAD.",
+    "publicationPath": "save_site_version without archive for supported remote-build fallback, then deploy_site_version for confirmed public audience.",
+    "savedVersionId": "appgprj_6abe518c2c1c8191a9bc044f418faed8~appgver_00660c979d9081919478ecac394f314d",
+    "savedVersionNumber": 12,
+    "savedSourceCommit": "844943a8206044b54282c9749c6360a57e85426a",
+    "deploymentId": "appgdep_6acf271644148191a8aa4e9896a398bc",
+    "observedStates": [
+      "pending",
+      "succeeded"
+    ],
+    "finalNativeStatus": "succeeded",
+    "finalNativeEnvironmentRevision": 1
+  },
+  "preservation": {
+    "artifact": "output/design/ui-refinements-v31/statistics-preservation.json",
+    "allRunRowsBefore": 88,
+    "allRunRowsAfter": 88,
+    "completedHistoricalRecordsBefore": 21,
+    "completedHistoricalRecordsAfter": 21,
+    "completedHistoricalRecordsMissing": 0,
+    "completedHistoricalRecordsChanged": 0,
+    "existingCompletedHistoryBeforeSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+    "existingCompletedHistoryAfterSha256": "f9a389e3168c4c663eba03ff5b2b9bc170ccec79d0d1d3999b454af988249c1b",
+    "preexistingAllRunIdsPreserved": true,
+    "allPreexistingSafeRunMetadataRecordsChanged": 1,
+    "ongoingMetadataChanges": [
+      {
+        "beforeOutcome": "playing",
+        "afterOutcome": "playing",
+        "fieldsChanged": [
+          "updated_at",
+          "sequence",
+          "duration_ms"
+        ]
+      }
+    ],
+    "leaderboardsUnchanged": true,
+    "savedSiteVersionsBefore": 11,
+    "savedSiteVersionsAfter": 12,
+    "preexistingSavedSiteVersionIdsAndCommitsPreserved": true,
+    "runTableColumnsUnchanged": true,
+    "audienceUnchanged": true,
+    "environmentRevisionUnchanged": true,
+    "schemaWorkerAndBindingsUnchanged": true,
+    "boundary": "All preexisting run IDs and 16 selected safe metadata fields were read through complete native pagination. Every preexisting won/lost record was compared exactly. One ongoing playing record advanced updated_at, sequence and duration_ms during verification; its outcome and other selected fields remained unchanged. Token hashes, large summary_json cells and individual run_waves JSON records were excluded. New legitimate runs and ongoing checkpoints are allowed. All tracked source except game/release.js and package.json is unchanged; schema/migrations/Worker/validation/hosting/bindings and prior saved Site version IDs/commits are preserved."
+  },
+  "health": {
+    "artifact": "output/design/ui-refinements-v31/statistics-health.json",
+    "httpStatus": 200,
+    "ok": true,
+    "storage": "SQLite",
+    "edition": "0.3.31",
+    "releaseName": "Preserved commander scores · Developer runs excluded"
+  },
+  "scopeBoundaries": {
+    "rootGameSourceOrVersionsEdited": false,
+    "defenderFreezeChanged": false,
+    "galleryWritten": false,
+    "gameplayOrStorageEdits": false,
+    "noAdditionalD001Tuning": true,
+    "gameEditionMechanicalChange": "Wave 38 Blood-Leech regeneration 40% to 25% belongs to the root-owned approved game change; no backend gameplay data were changed."
+  }
+}

@@ -1,7 +1,7 @@
 import {towerStats} from '../game/core/math.js';
 import {rankColor} from '../game/render/ranks.js';
 import {rankLabel,recipeFamily,recipeTier,recipeLabel,recipeProgress,expandedRecipeProgress,recipeTreeProgress} from '../game/core/recipes.js';
-import {defenderCode} from '../game/core/unit-label.js';
+import {displayDefenderCode as defenderCode} from './recipe-navigation.js';
 import {championClassification} from '../game/render/champion-classification.js';
 import {builtTowerCount} from '../game/core/warband-info.js';
 import {effectDamageType} from '../game/core/combat-rules.js';

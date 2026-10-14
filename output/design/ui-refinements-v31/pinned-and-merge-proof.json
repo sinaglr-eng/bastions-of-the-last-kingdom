@@ -1,0 +1,51 @@
+{
+  "roles": [
+    {
+      "background": "rgba(19, 62, 72, 0.937)",
+      "border": "rgb(98, 211, 223)",
+      "classes": "recipe-map-badge pinned-recruit-map-badge",
+      "role": "pinned",
+      "shadow": "rgba(86, 203, 215, 0.333) 0px 0px 8px 0px",
+      "text": "◆"
+    },
+    {
+      "background": "rgba(51, 37, 75, 0.937)",
+      "border": "rgb(187, 150, 239)",
+      "classes": "recipe-map-badge merge-map-badge",
+      "role": "merge",
+      "shadow": "rgba(161, 120, 217, 0.4) 0px 0px 9px 0px",
+      "text": "MERGE↑3"
+    },
+    {
+      "background": "rgba(51, 37, 75, 0.937)",
+      "border": "rgb(187, 150, 239)",
+      "classes": "recipe-map-badge merge-map-badge",
+      "role": "merge",
+      "shadow": "rgba(161, 120, 217, 0.4) 0px 0px 9px 0px",
+      "text": "MERGE↑4"
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(86, 203, 215)",
+      "classes": "draw-card  placed   pinned",
+      "shadow": "rgb(86, 203, 215) 0px 3px 0px 0px inset",
+      "text": "02M IIIMageRecipe ingredient"
+    },
+    {
+      "background": "rgb(183, 156, 229)",
+      "border": "rgb(224, 204, 255)",
+      "classes": "draw-merge",
+      "shadow": "none",
+      "text": "MERGE"
+    },
+    {
+      "background": "rgb(183, 156, 229)",
+      "border": "rgb(224, 204, 255)",
+      "classes": "draw-merge",
+      "shadow": "none",
+      "text": "MERGE"
+    }
+  ],
+  "missingBasics": "Kingslayer\n✓ 0 built · ◆ 0 this round · ○ 3 missing\nMissing basics: S V, S III, T III, A II, F I, S I, T I",
+  "replacedEarlierGoldOverrideEvidence": true
+}

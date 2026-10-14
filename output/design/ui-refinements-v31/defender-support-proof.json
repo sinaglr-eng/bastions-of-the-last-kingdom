@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "status": "passed",
+  "edition": "0.3.31",
+  "baselineCommit": "f2089a8a71c6c24ca06398f283c131dbf943843e",
+  "checkedAt": "2026-10-14T06:47:25.2514802Z",
+  "comments": [
+    2,
+    3,
+    4,
+    15,
+    16
+  ],
+  "scope": "Defender presentation and selected-support UI only; source freeze before root native/publication gates",
+  "implementation": {
+    "potential": "Always visible section after legal actual actions; no disclosure or summary",
+    "comparison": "Existing rank controls always visible before single core; actual rank/actions unchanged",
+    "holy": "Only selected defender ability sentence condensed to Holy damage ignores immunities; shared grimoire/help and engine retain detailed semantics",
+    "builtCount": "Existing builtTowerCount counts actual family across all ranks, state active only; attack-paused active defenders count; candidates, reserves and ruins excluded",
+    "support": "Selected effects keep active bonuses, penalties and actual providers; complete native/keyboard legend remains in actual Help fieldGuide"
+  },
+  "files": [
+    "ui/defender-panel.js",
+    "ui/support-guide.js",
+    "tests/defender-panel-preview-v30.test.mjs",
+    "tests/defender-rank-preview.test.mjs",
+    "tests/mastery-support-display.test.mjs"
+  ],
+  "sha256": {
+    "ui/defender-panel.js": "f70418f21db3e41a0776bc057fc4e2da3087b02c9689671b4162ee51523c3bc7",
+    "ui/support-guide.js": "cf00c69c37bc592fd8ead738f05005cff70e871d62404d19498f0220a5a87e83",
+    "tests/defender-panel-preview-v30.test.mjs": "54050e4f9681c9139a0cc56187712305da9de128b900bd01d8fd4d9bec8ec7e4",
+    "tests/defender-rank-preview.test.mjs": "9f8422e0a80b551ad09863cb41fe9c61da31a0f11f742941a04dca2665bb68fa",
+    "tests/mastery-support-display.test.mjs": "4f22e668a15c8cf4e4e3fe958d01d0d51480304378140b796ab0b461100f05bf"
+  },
+  "tests": {
+    "command": "node --test --test-reporter=tap tests/defender-panel-preview-v30.test.mjs tests/defender-rank-preview.test.mjs tests/mastery-support-display.test.mjs tests/armor-effect-symbols-v15.test.mjs tests/grimoire-display.test.mjs",
+    "tests": 42,
+    "passed": 42,
+    "failed": 0,
+    "log": "defender-support-tests.txt",
+    "logSha256": "23f5088c38319a81d69936c1a7e058c315dc3dc1c4a42e5e52509d607e8bd8ce",
+    "meaningfulNewCases": [
+      "Real two-round kept basic family count across ranks, then hidden/current candidates, Reserve and discarded foundations",
+      "Advanced families counted independently through actual Keep transitions",
+      "Won/lost visible planning is read-only; wall/reserved exclusions preserved",
+      "Exact short Holy sentence in inspector while shared ability/help retains damage-versus-companion immunity semantics",
+      "Actual production fieldGuide renders full keyboard-accessible map legend after its removal from selected support"
+    ],
+    "preservedChecks": [
+      "All 86 basic-rank/champion ability/stat presentations",
+      "Actual Keeper/Merge keys, result foundation and stale-command guards",
+      "MVP/support/targeting and measured peak belong to actual unit",
+      "Actual production sidebar preserves rank-button focus, scroll and remaining MVP disclosure",
+      "RNG/resources/data unchanged by rendering and preview"
+    ]
+  },
+  "unchangedProduction": [
+    "ui/defender-rank-preview.js",
+    "ui/grimoire.js",
+    "game/core/warband-info.js",
+    "game/core/combat-rules.js"
+  ],
+  "sourceOnly": true,
+  "nativeQaCertified": false,
+  "physicalIpadCertified": false,
+  "enlargedTextCertified": false,
+  "mainEdited": false,
+  "coreOrDataEdited": false,
+  "mediaRegenerated": false,
+  "limitations": [
+    "Root owns responsive CSS, main integration and whole-suite/native checks",
+    "No browser/publication performed in this focused scope",
+    "Existing historical v30 report remains unchanged"
+  ],
+  "frozen": true
+}

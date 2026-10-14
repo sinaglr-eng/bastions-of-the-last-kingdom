@@ -64,7 +64,7 @@ Ticks split at individual poison expiry boundaries. Every stack credits only its
 | Refraction | Three hit-blocking charges; recover all three 2s after the final charge is consumed. Partial shields do not periodically refill |
 | Reactive armor | +8 armor per contact, 15 stacks maximum =120; decay remains 0.7 stacks/s |
 | Shell | First shell wave39 blocks100/direct hit; +10 for each later wave index. Wave50 base210, stronger variant273 |
-| Regeneration | 20% actual maximum HP/s; wave38 Blood-Leech Troll variant40% |
+| Regeneration | 20% actual maximum HP/s; wave38 Blood-Leech Troll variant25% |
 | Recharge | 50% missing HP every4s |
 | Cloak | Former cyclic-cloak campaign variants now remain continuously cloaked until detection/proximity reveals them |
 | Dread | Dealing actual HP damage to this invader gives that defender −75% attack speed for 3s, independent of distance. Further hits refresh the duration; strongest effect only; control resistance reduces the penalty |

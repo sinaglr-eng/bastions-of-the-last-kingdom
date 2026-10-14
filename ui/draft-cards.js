@@ -1,6 +1,6 @@
 import {rankLabel} from '../game/core/recipes.js';
 import {pinnedRecipeHighlightIds} from './crafting-dock.js';
-import {defenderCode} from '../game/core/unit-label.js';
+import {displayDefenderCode as defenderCode} from './recipe-navigation.js';
 import {rankColor} from '../game/render/ranks.js';
 import {championClassification} from '../game/render/champion-classification.js';
 import {eligibleDrawKeeper,drawKeeperKey,mergeTowerKey} from './draft-input.js';
