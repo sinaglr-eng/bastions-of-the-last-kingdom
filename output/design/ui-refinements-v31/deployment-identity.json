@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "version": "0.3.31",
+  "checkedAt": "2026-10-14T07:35:52.786Z",
+  "sourceCommit": "6c4485db7e9a617233b4f86f6d93e81d3c31cf28",
+  "pagesUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.3.31",
+  "ciRunId": 38528660303,
+  "ciUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38528660303",
+  "ciConclusion": "success",
+  "publicRelease": {
+    "version": "0.3.31",
+    "edition": "Reliable Touch Controls and Clearer Battlefield",
+    "date": "2026-10-14",
+    "basicClasses": 8,
+    "champions": 38,
+    "secretChampions": 1,
+    "defenderVariants": 86,
+    "artRevision": "basic-defenders-v7",
+    "enemyArtRevision": "geometric-game-v7",
+    "championRecipes": 38,
+    "championAscension": false,
+    "championClassifications": {
+      "Basic": 5,
+      "Intermediate": 13,
+      "Advanced": 11,
+      "TOP": 8,
+      "Secret": 1
+    },
+    "authoring": "Blender 5.2",
+    "enemyVariants": 50,
+    "enemyLanguage": "en",
+    "sceneryRevision": 9,
+    "championArtRevision": "champions-v8",
+    "alliedAudioRevision": "allied-20261011-4a6051e0ce4a",
+    "alliedVoiceRecordings": 92,
+    "recordedAudioRevision": "approved-20261011-0019d4e4b9fa",
+    "recordedMusicTracks": 6,
+    "recordedAttackTypes": 15,
+    "damageClasses": [
+      "Physical",
+      "Magical",
+      "Holy"
+    ],
+    "mvpMaximumLevel": 10,
+    "developerConsole": true,
+    "classificationScaleStep": 1.1
+  },
+  "publicBuildFiles": [
+    {
+      "path": "/bastions-of-the-last-kingdom/assets/game-CDL_UoFR.js",
+      "bytes": 484432,
+      "sha256": "4eb61f7fa5d65ec0108f3eca8617e16d905667adeddeab393e3b1b7e329407c3"
+    },
+    {
+      "path": "/bastions-of-the-last-kingdom/assets/three-py1mPfXp.js",
+      "bytes": 653736,
+      "sha256": "b5517e381bab3b0b7b46d98b5157a285b25f6dd24d4daab92c63e54f7827b359"
+    },
+    {
+      "path": "/bastions-of-the-last-kingdom/assets/portrait-visibility-ChSlfGTO.js",
+      "bytes": 216470,
+      "sha256": "9aeb6ead380572f134db4304559d174a0da383d1ecdb805b72673e6d59eaa12c"
+    },
+    {
+      "path": "/bastions-of-the-last-kingdom/assets/portrait-visibility-Cq7vvpxZ.css",
+      "bytes": 107,
+      "sha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56"
+    },
+    {
+      "path": "/bastions-of-the-last-kingdom/assets/game-VrOWdfQw.css",
+      "bytes": 169555,
+      "sha256": "1dbb69f4f71cb3c94d1c6aed716de493ddc2ea98547bd8b869e1408ece1cd693"
+    }
+  ],
+  "publicAudioProof": "public-audio-publication-proof.json",
+  "backendEdition": "0.3.31"
+}

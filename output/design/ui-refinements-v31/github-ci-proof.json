@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "version": "0.3.31",
+  "sourceCommit": "6c4485db7e9a617233b4f86f6d93e81d3c31cf28",
+  "checkedAt": "2026-10-14T07:36:57.9281286Z",
+  "ci": {
+    "runId": 38528660303,
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38528660303",
+    "workflowPath": ".github/workflows/pages.yml",
+    "headSha": "6c4485db7e9a617233b4f86f6d93e81d3c31cf28",
+    "status": "completed",
+    "conclusion": "success",
+    "runAttempt": 1,
+    "observedStates": [
+      "in_progress",
+      "completed"
+    ],
+    "pollIntervalSeconds": 45,
+    "completeJobsRead": true,
+    "gates": {
+      "Test game rules and assets": {
+        "status": "completed",
+        "conclusion": "success",
+        "jobId": 115734978286
+      },
+      "Build for the repository URL": {
+        "status": "completed",
+        "conclusion": "success",
+        "jobId": 115734978286
+      },
+      "Publish website": {
+        "status": "completed",
+        "conclusion": "success",
+        "jobId": 115736693125
+      }
+    }
+  },
+  "public": {
+    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.3.31",
+    "releaseVersion": "0.3.31",
+    "approvedAudioFiles": 113,
+    "approvedAudioBytes": 17342625,
+    "allIndividualApprovedHashesAndSizesMatched": true,
+    "approvalReceipt": "docs/audio/approved-audio-integration-20261011.json",
+    "approvalReceiptSha256": "1b53adc0647b9ed65a92645825158c601211dcd0e3871b5e98760b4cbca66be3",
+    "backend": {
+      "ok": true,
+      "storage": "SQLite",
+      "edition": "0.3.31",
+      "releaseName": "Preserved commander scores · Developer runs excluded"
+    }
+  },
+  "evidence": {
+    "github-ci-run.json": "b60d4b0c38dc7009f35426b190b897c76a5654c0d814a43512fbe22a07618703",
+    "github-ci-jobs.json": "d9e680c3f5a4490535d1bf18e40b7aadf51d68dd41cb180b91b0b8a8b7e9afe5",
+    "public-audio-publication-proof.json": "5611b1e74683dbf5cd7ecbf00af05644fce10e6d48a1d078a0fb66252d58deee"
+  },
+  "boundaries": [
+    "This checks exactly source commit 6c4485db7e9a617233b4f86f6d93e81d3c31cf28 and its test/build/Pages deployment gates.",
+    "Public release.json version and the 113 approved MP3 byte sizes/SHA-256 were checked using the existing root public-audio verifier.",
+    "Compiled JavaScript/CSS identity, native HTTPS GUI and browser decoding are separate root-owned checks. No physical listening or hidden-audio inspection is certified here.",
+    "Backend health checks SQLite edition 0.3.31; schema/history/environment preservation is recorded separately in statistics-publication-proof.json.",
+    "No source, docs, tests, commit, push or deployment changes were performed by this monitor."
+  ],
+  "frozen": true
+}

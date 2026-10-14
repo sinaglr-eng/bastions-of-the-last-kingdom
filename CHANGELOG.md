@@ -2,7 +2,7 @@
 
 ## 0.3.31 — Reliable Touch Controls and Clearer Battlefield — 14 October 2026
 
-Implementation candidate; public game publication is pending. Local native browser checks passed single mouse Start/Demolish activation, with unobstructed command centers and targets measuring at least 44 pixels across all five viewports. All 1,404 tests and the production build passed; public-game receipts remain pending. Physical iPad/Safari verification is unavailable. The statistics backend metadata is already live at edition 0.3.31 with recorded historical preservation. See [the sixteen-comment report](docs/UI_REFINEMENTS_V31_20261014.md).
+Published from implementation commit `6c4485db7e9a617233b4f86f6d93e81d3c31cf28` through successful [Pages CI 38528660303](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38528660303). Local native browser checks passed single mouse Start/Demolish activation, with unobstructed command centers and targets measuring at least 44 pixels across all five viewports. All 1,404 tests and the production build passed. Five public compiled assets match local dist; all 113 approved MP3 hashes and HTTPS browser decodes passed. Physical iPad/Safari verification is unavailable. The statistics backend metadata is already live at edition 0.3.31 with recorded historical preservation. See [the sixteen-comment report](docs/UI_REFINEMENTS_V31_20261014.md).
 
 - Executes ordinary touch/pen commands once on accepted release when a compatibility click is missing or retargeted. Scoped duplicate/ghost-click suppression and current identity checks preserve Start/Demolish legality; drag, cancel, capture-loss, stale-state and multi-touch sequences cannot execute a rejected command. Keeps mouse/keyboard behavior and reachable control stacking.
 - Makes Potential combinations and basic rank comparison controls continuously visible, and shows the actual active family count across ranks, excluding current candidates, reserves and walls.
@@ -15,7 +15,7 @@ Implementation candidate; public game publication is pending. Local native brows
 - Applies the sole authorized balance change: wave-38 Blood-Leech regeneration falls from 40% to 25% maximum HP/s. Other regeneration remains 20%; other D001 numerical/mechanical proposals remain unapproved while analysis/testing stays resumed.
 - Preserves approved art/audio, save contracts, English gallery language/provenance and every earlier release entry.
 
-<!-- V31_RELEASE_GATES_PENDING: release owner finalizes full-suite/build/native/public-game receipts. -->
+<!-- V31_RELEASE_GATES_COMPLETE: scoped verification and publication receipts are in the report. -->
 
 ## 0.3.30 — Connected Recipes and Battlefield Controls — 13 October 2026
 

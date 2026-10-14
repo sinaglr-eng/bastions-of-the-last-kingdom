@@ -1,0 +1,694 @@
+{
+  "status": "passed",
+  "version": "0.3.31",
+  "checkedAt": "2026-10-14T07:35:41.632Z",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.3.31",
+  "publicAudioFiles": 113,
+  "publicAudioBytes": 17342625,
+  "backend": {
+    "ok": true,
+    "storage": "SQLite",
+    "edition": "0.3.31",
+    "releaseName": "Preserved commander scores · Developer runs excluded"
+  },
+  "files": [
+    {
+      "id": "ally_archangel_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_archangel_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "ce173b1b276ba71e2c9de1125224a16d549079f5ae301cde202c991a8d3d3965"
+    },
+    {
+      "id": "ally_archangel_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_archangel_select_b.mp3",
+      "bytes": 56458,
+      "sha256": "ec7e348a9971c91b488e41341ae45bcc1aa1126b882cc3f4c7e75984a9a8358a"
+    },
+    {
+      "id": "ally_archbishop_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_archbishop_select_a.mp3",
+      "bytes": 66907,
+      "sha256": "631b6e284c30ca5dec5ed1584ff634c82070e29cbd38de03d2c8d0be9d734ab8"
+    },
+    {
+      "id": "ally_archbishop_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_archbishop_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "40cbdbaadce1069d93e71b030ae242bfe1148ab5319e1561a6a9c4dc161c3e97"
+    },
+    {
+      "id": "ally_archer_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_archer_select_a.mp3",
+      "bytes": 41411,
+      "sha256": "ccd332bcfbeb9abb329b2cafdb61adc8a1e2c5e7288dece53107f84d0d25036f"
+    },
+    {
+      "id": "ally_archer_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_archer_select_b.mp3",
+      "bytes": 47681,
+      "sha256": "a4963be3014b1bc9e3cc10cdffb03263447fe982ab20caba4c439420f7e7f8f1"
+    },
+    {
+      "id": "ally_cleric_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_cleric_select_a.mp3",
+      "bytes": 47681,
+      "sha256": "bd33d83abc5c6434760da87305aa23395e140bd0788c9341354f4f9709dbad8f"
+    },
+    {
+      "id": "ally_cleric_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_cleric_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "09c79dbd864f1beb83c6ea5f257006a0bf074612d230c7c04cbf5221d1e3a450"
+    },
+    {
+      "id": "ally_crownofages_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_crownofages_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "cfd2fa6f11ca8a7efb4e2a78725d364d3362efa30bad08bcb32e49645530c0b5"
+    },
+    {
+      "id": "ally_crownofages_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_crownofages_select_b.mp3",
+      "bytes": 57712,
+      "sha256": "f0cf6a4f9914edf54df948032a665db2b82c59344b8a5d9eca21a6777c04152d"
+    },
+    {
+      "id": "ally_dawnspire_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_dawnspire_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "ae86c9c339ac78a767a5c5f4dda3a36340c53b7a6063979c573e24731969e791"
+    },
+    {
+      "id": "ally_dawnspire_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_dawnspire_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "dfe54f730682841f77bc64f78b5dfec88bb6a0602f6c9ffd9a3f12405a96bee8"
+    },
+    {
+      "id": "ally_druid_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_druid_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "6752ca1ed91b5312d9697c7ef4fbe02d616511087b88a6241a42aa4097d33b2d"
+    },
+    {
+      "id": "ally_druid_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_druid_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "20196522aca3b5639718b93a7746e5c964b0cccd6d3dc2c25c3d191b291cf4fe"
+    },
+    {
+      "id": "ally_eldergrove_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_eldergrove_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "9595b918bf4dc5a59a4f54a26226beef97f1a1882ce2b82e1b36fa3611a37172"
+    },
+    {
+      "id": "ally_eldergrove_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_eldergrove_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "4d735986dba4ffb7852823eb60cd106108d004aaa66a9c670e204a9073ba7fb9"
+    },
+    {
+      "id": "ally_elvenking_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_elvenking_select_a.mp3",
+      "bytes": 71922,
+      "sha256": "8595e0b6e025f90c70e1dcaa8703f3119a10cc12d56a44b0a2123a8dd7a4280a"
+    },
+    {
+      "id": "ally_elvenking_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_elvenking_select_b.mp3",
+      "bytes": 64399,
+      "sha256": "97d0740e36b8646c1d5104b8ccd1bf7538be8a3fff47350b301e61b88d6d43ab"
+    },
+    {
+      "id": "ally_embercrown_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_embercrown_select_a.mp3",
+      "bytes": 63145,
+      "sha256": "9b5131105c12ba0bcfab0d9505c8eacfdb598f8d616b99ab2fbb16f64733a6fb"
+    },
+    {
+      "id": "ally_embercrown_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_embercrown_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "e002147fadebd16ed06653f2e9456f231163acce1bdeeb66085d61fc8079fa83"
+    },
+    {
+      "id": "ally_emeraldgolem_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_emeraldgolem_select_a.mp3",
+      "bytes": 91148,
+      "sha256": "58f017945d4e0a380572364826cf9fde6ba8e9589dd35d7711f627ba26057670"
+    },
+    {
+      "id": "ally_emeraldgolem_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_emeraldgolem_select_b.mp3",
+      "bytes": 89894,
+      "sha256": "775500494a099cad8b0e1b238e23a3cb29c0757d397c60bb3305d19618baeb5f"
+    },
+    {
+      "id": "ally_fireballista_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_fireballista_select_a.mp3",
+      "bytes": 52696,
+      "sha256": "870a35f4a17a847f17a5733b1629910294fc28204c5c10095b7b3d0a1bfec449"
+    },
+    {
+      "id": "ally_fireballista_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_fireballista_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "8405286fc656db14746b208ef3cbb85840124823d29b2ad134baef64c1808914"
+    },
+    {
+      "id": "ally_frostblade_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_frostblade_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "675f4722393371b9a50791eb84d6f11e445679a176679a857fc26ed322cfd04b"
+    },
+    {
+      "id": "ally_frostblade_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_frostblade_select_b.mp3",
+      "bytes": 42665,
+      "sha256": "4e7940acba2aa5e376857eec292f8626d19a237a6392a1104da84094d52932db"
+    },
+    {
+      "id": "ally_frostwarden_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_frostwarden_select_a.mp3",
+      "bytes": 42665,
+      "sha256": "9b5ab07b1fa6df50a7db6f860030482860fb6323fc05e84c6a3445a5574bb619"
+    },
+    {
+      "id": "ally_frostwarden_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_frostwarden_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "fe465bc2e5ef356ed9d0c63e987064c53344c652d1f50687e47301ea6e384b14"
+    },
+    {
+      "id": "ally_greenheart_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_greenheart_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "a9f0a2e18d9918cdb12efc758df8c9b241baa16409782f1ceb46282658c42dc7"
+    },
+    {
+      "id": "ally_greenheart_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_greenheart_select_b.mp3",
+      "bytes": 57712,
+      "sha256": "63fb4d78801728bac98ac35607952b033f704531ddad11648036c6f80d0910f1"
+    },
+    {
+      "id": "ally_griffinbomber_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_griffinbomber_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "69802a1b8be237d347466902d756cfea9b57d90a7f318395a6c9c6ef13b144fb"
+    },
+    {
+      "id": "ally_griffinbomber_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_griffinbomber_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "4e0b3c8eb1a61a0df5997ff160ddd442ab638d12b1f8b2bbe0a8549f1faa600f"
+    },
+    {
+      "id": "ally_highking_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_highking_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "4a052eb4b91cb26e28fd82373356b1d25e78b44c500f0e1d9e5133ca44a45b9b"
+    },
+    {
+      "id": "ally_highking_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_highking_select_b.mp3",
+      "bytes": 56458,
+      "sha256": "ddbc2ff7c54ff5721a53a5a77e436e06a38b5ec5352dba50fe851564cd9a44ab"
+    },
+    {
+      "id": "ally_kingdomprotector_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_kingdomprotector_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "3b977a47560931cf0e4628354a1aabeb2911fae2d0fc653eb68d66462ddf6b57"
+    },
+    {
+      "id": "ally_kingdomprotector_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_kingdomprotector_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "dbd65935c50f83806ffd0b02af7ab534dc6fd3f915709d6dc010c914934f38d9"
+    },
+    {
+      "id": "ally_kingsrangerguard_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_kingsrangerguard_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "f5e184856fd32eb9af1b671dbf8847dca40f9a219c3e8eb62a494b26896b219f"
+    },
+    {
+      "id": "ally_kingsrangerguard_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_kingsrangerguard_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "56a0208516b9200c271ae3d72277f593dbec2348c7e883f667be86144ba0694b"
+    },
+    {
+      "id": "ally_kingsreach_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_kingsreach_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "f223dad4aa2337497a691863bc1f37fdc2fb5e228de53e6eab61e9ed51e52339"
+    },
+    {
+      "id": "ally_kingsreach_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_kingsreach_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "8b8bcc6b84ab1a69c7e873f2efa3fe1eafcef4401fcc404628cb3004034b7630"
+    },
+    {
+      "id": "ally_ladyclaire_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_ladyclaire_select_a.mp3",
+      "bytes": 46427,
+      "sha256": "7b581fccb071e2c888e23174b3804ef5e676998edc5753a2b17d950b21d7733f"
+    },
+    {
+      "id": "ally_ladyclaire_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_ladyclaire_select_b.mp3",
+      "bytes": 52696,
+      "sha256": "d8546de0405199f8f24ff2ec42b697602bc9d2279344c024001f9a64bedee21a"
+    },
+    {
+      "id": "ally_mage_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_mage_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "022fe5cd012ceaace2b5ec7596a51e6d3d67d3e24d72c8b194cc0caffbdde24b"
+    },
+    {
+      "id": "ally_mage_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_mage_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "ae63a7658d62eafdb0a8b6e936a11912362b242a63fb8ddd12611519d6bbe5b8"
+    },
+    {
+      "id": "ally_mechanicalgolem_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_mechanicalgolem_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "297cd01f32c8a4af9a5b362448eb06b6d43a7c629fd03d29981eb867f4e0bc27"
+    },
+    {
+      "id": "ally_mechanicalgolem_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_mechanicalgolem_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "dac3351ce53b1911347966ecf9d309d46bf1e68a76e72ea5f1d3b7f908e4a6e6"
+    },
+    {
+      "id": "ally_monk_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_monk_select_a.mp3",
+      "bytes": 70668,
+      "sha256": "6b18461984483030797d478ef8141d06210721b7513e95867e48618e2e943d1a"
+    },
+    {
+      "id": "ally_monk_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_monk_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "75caca736e59cd7404a4005eec7dcffb9562cf0c21b073979c0b05188d085ccc"
+    },
+    {
+      "id": "ally_mothernature_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_mothernature_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "567a0e6e9bb3616737f0bf01892ed15976b2245ca4901c31d1384757299fa52e"
+    },
+    {
+      "id": "ally_mothernature_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_mothernature_select_b.mp3",
+      "bytes": 52696,
+      "sha256": "4058ac6646fd770b1d622505efcdc6dcbdb454f6f9614bbe68adf157630bb8de"
+    },
+    {
+      "id": "ally_phoenix_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_phoenix_select_a.mp3",
+      "bytes": 65653,
+      "sha256": "aa2a06db1ed37ba766a7ac16bab4a81c7dd23064e9a65ba7f533d2efefd9fb61"
+    },
+    {
+      "id": "ally_phoenix_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_phoenix_select_b.mp3",
+      "bytes": 66907,
+      "sha256": "0ad8fcf6fa868fd37e201dbb1f80d6d4488ebb0bf42f4549d8a9734c246cfba3"
+    },
+    {
+      "id": "ally_rangermentor_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_rangermentor_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "10a8101a3b61d7e2d2827207ecf17b698958092b456def782d95d5691dc692de"
+    },
+    {
+      "id": "ally_rangermentor_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_rangermentor_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "5df597e13a947eaf6898b2ee0e0777198d80968ce3aea0d417f4fc65ba2c2554"
+    },
+    {
+      "id": "ally_rimewatch_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_rimewatch_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "1ff3921f8b63a9abbec609f14fd499b1fcf1b057013679eaf3259f303defd392"
+    },
+    {
+      "id": "ally_rimewatch_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_rimewatch_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "340a38401a010b7af5600a7bb228543d4d3645a76b6b98e3a123cd758bf90290"
+    },
+    {
+      "id": "ally_roseguard_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_roseguard_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "7b313350a477f180e79410e38ddc86ae54081194bdd670e68b0b5c5d1690ef61"
+    },
+    {
+      "id": "ally_roseguard_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_roseguard_select_b.mp3",
+      "bytes": 68161,
+      "sha256": "2cf434bda3016cb95090282229f88d429fff2987588dc29cddb6fbe2ffe81e42"
+    },
+    {
+      "id": "ally_royalarsenal_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_royalarsenal_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "32fd74b7c568edb4c8877c611134744f03f34b4dd07ddecdba026e102c799738"
+    },
+    {
+      "id": "ally_royalarsenal_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_royalarsenal_select_b.mp3",
+      "bytes": 52696,
+      "sha256": "dc671988badaaaf0b073d79f0baa0990a3a5c0f1e07e7c1910f30d5ad9fc7cbc"
+    },
+    {
+      "id": "ally_royalmarshal_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_royalmarshal_select_a.mp3",
+      "bytes": 43919,
+      "sha256": "21109adc42196b0fa02be7bc2255fd073577191a6cbb852b06ac01db2d778e03"
+    },
+    {
+      "id": "ally_royalmarshal_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_royalmarshal_select_b.mp3",
+      "bytes": 64399,
+      "sha256": "e3a350e68d03858b1df96af3f71695c9a1a88472f8845677e3ec03818d840371"
+    },
+    {
+      "id": "ally_royalranger_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_royalranger_select_a.mp3",
+      "bytes": 47681,
+      "sha256": "dc7812d33072d1bcf45b8216cfc2703f6695b2ef7bcfd1112894d3db59e01c9d"
+    },
+    {
+      "id": "ally_royalranger_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_royalranger_select_b.mp3",
+      "bytes": 43919,
+      "sha256": "fbb8d444cada44ec4c928ac96dad88d347b788265acaaad06aa58c5816d32494"
+    },
+    {
+      "id": "ally_runebreaker_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_runebreaker_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "ce49bdde9e0a5f354f3d71f117117dc0e42e5adf28b1d03ab17c50ff6e3feca2"
+    },
+    {
+      "id": "ally_runebreaker_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_runebreaker_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "3168732b3ee36355b7e2c0443fb201e3d0b2f5e18390aaba7520217e13f54ff9"
+    },
+    {
+      "id": "ally_soldier_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_soldier_select_a.mp3",
+      "bytes": 41411,
+      "sha256": "c50f22b6f21ef67e2e38c546578067d5b9c42da4446c026f6a3522ae14c3b21c"
+    },
+    {
+      "id": "ally_soldier_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_soldier_select_b.mp3",
+      "bytes": 41411,
+      "sha256": "713d1ca2a480f86b15c0ec7bcf5649d0ac1bbad52c921b97b9126d84bc7a6fd0"
+    },
+    {
+      "id": "ally_starfall_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_starfall_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "d24e457397dfc8fb11eb6c6eb64f5b21d009b52a2dad2aa86c8da8b665738b94"
+    },
+    {
+      "id": "ally_starfall_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_starfall_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "9b4b1a034f01b9859340a97fb95406101ac2e1c2912db544b2dfb6b67b031507"
+    },
+    {
+      "id": "ally_stonewarden_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_stonewarden_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "fa976a84ffcb13d83d01e52ac108310ca17d64b63b7e6c035717850f64a87a99"
+    },
+    {
+      "id": "ally_stonewarden_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_stonewarden_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "7d6f77017e373cb09a777c9010be3e57b1040eb3ba6a89d76c796890c5874031"
+    },
+    {
+      "id": "ally_stormcaller_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_stormcaller_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "f9cddd695511eaea5d46da1fe5f8154340c453279ced74e175873ce13a0b27ab"
+    },
+    {
+      "id": "ally_stormcaller_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_stormcaller_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "56d760eaa1183df72225f91b6428772838fd1400884eb7bd67fbd1a4f9321edf"
+    },
+    {
+      "id": "ally_stormcitadel_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_stormcitadel_select_a.mp3",
+      "bytes": 71922,
+      "sha256": "1f914e4b3bc904bb6d7a9e8ea5fabcd64d970fea19a6ce649db3c0212ce7a038"
+    },
+    {
+      "id": "ally_stormcitadel_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_stormcitadel_select_b.mp3",
+      "bytes": 78192,
+      "sha256": "00d805ded30d002b70058a3e7a1d6d4671355003d435e3b5d230d1491963e7cf"
+    },
+    {
+      "id": "ally_sunward_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_sunward_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "df2440a8d62fd070e8bfc9137c76478d62d606136bc71071afbb0a99f678ddca"
+    },
+    {
+      "id": "ally_sunward_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_sunward_select_b.mp3",
+      "bytes": 45173,
+      "sha256": "0431b31c319cd54e7f541b0bcfe002f33caf7ad4465ce60b5faf96341908d95e"
+    },
+    {
+      "id": "ally_tempest_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_tempest_select_a.mp3",
+      "bytes": 46427,
+      "sha256": "094fb9526a9e7405c45cd075c82c6882d9c8b2c54f0885f327fe28f012f321c1"
+    },
+    {
+      "id": "ally_tempest_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_tempest_select_b.mp3",
+      "bytes": 61891,
+      "sha256": "f26d4a3d319aebff32c1f955ff855a15a0ef060805590e11a854d63baf17f66e"
+    },
+    {
+      "id": "ally_thornwarden_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_thornwarden_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "df879ab6014250bb4ad8248f7e88d8e03b02606b4649bc61f560102d9b392d3b"
+    },
+    {
+      "id": "ally_thornwarden_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_thornwarden_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "dba05802f70bcdd97290d43f8b0652a0930434148848d54e21ceae00fff98b04"
+    },
+    {
+      "id": "ally_thunderheart_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_thunderheart_select_a.mp3",
+      "bytes": 60637,
+      "sha256": "d0afb6691e28231110b927ec37367c85df8d5bfd14742d116d6ce71a126e0905"
+    },
+    {
+      "id": "ally_thunderheart_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_thunderheart_select_b.mp3",
+      "bytes": 60637,
+      "sha256": "45dee8d3f54c683b63cfbb31bf962ba68e773e0db4d8a499435b39ca99d2ab3a"
+    },
+    {
+      "id": "ally_verdantguard_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_verdantguard_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "a1b87440141c1422a2a6078fa9aae465c24da352fefc95d25802ccadaea04493"
+    },
+    {
+      "id": "ally_verdantguard_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_verdantguard_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "b0606dcf93998d39ae4f5606fc5aa75c5b2f9336801d46f113dc09668308e85e"
+    },
+    {
+      "id": "ally_winterhold_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_winterhold_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "56c1f95d81ac87b814392cb0e4facf8079b07d8f078ed24127afe1e4292394b0"
+    },
+    {
+      "id": "ally_winterhold_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_winterhold_select_b.mp3",
+      "bytes": 71922,
+      "sha256": "a92d0e6d542a72d2c1b5203b0ffddaa244ffa3aaab42314ef93c8b59f7756b0e"
+    },
+    {
+      "id": "ally_worldfire_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_worldfire_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "4190e4a55269b1c698246a4992dc10ef56f6bb50f4a270627b347b8ff318f840"
+    },
+    {
+      "id": "ally_worldfire_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_worldfire_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "009c0ea5d091dea392220e92ba1748875a360c26dbfe53ea9fda652b745408bf"
+    },
+    {
+      "id": "ally_wyvernhunter_select_a",
+      "file": "assets/audio/allied-recast-20261011/ally_wyvernhunter_select_a.mp3",
+      "bytes": 43919,
+      "sha256": "03c3d4a69056a729ff2d7b5614df10eb8c2be3657e4a838a68ebadd4d5bbf0c7"
+    },
+    {
+      "id": "ally_wyvernhunter_select_b",
+      "file": "assets/audio/allied-recast-20261011/ally_wyvernhunter_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "36eef37d31a9ad72d051f998b75ce9e286d5d1dd08aec17dbd74ddc6b7fe137e"
+    },
+    {
+      "id": "arcane",
+      "file": "assets/audio/attacks/shared-20261011/attack_arcane.mp3",
+      "bytes": 32216,
+      "sha256": "b41899e5f4d502560d782233457c5843c7f3b32dba4d46a528361894fe049ff7"
+    },
+    {
+      "id": "arrow",
+      "file": "assets/audio/attacks/shared-20261011/attack_arrow.mp3",
+      "bytes": 30962,
+      "sha256": "d029e3b721750e163057a8e519516e0e2a3e697132de472f388e1e014c3c29d6"
+    },
+    {
+      "id": "fire",
+      "file": "assets/audio/attacks/shared-20261011/attack_fire.mp3",
+      "bytes": 35560,
+      "sha256": "6b279ddc3eedcd938b181727c745db69f67d2e960621ea2871488d9826d50483"
+    },
+    {
+      "id": "frost",
+      "file": "assets/audio/attacks/shared-20261011/attack_frost.mp3",
+      "bytes": 34306,
+      "sha256": "f4b66c197f8ef382d059fb24bbc255b03e8e08f01199f295531d7e44ded7d974"
+    },
+    {
+      "id": "hammer",
+      "file": "assets/audio/attacks/shared-20261011/attack_hammer.mp3",
+      "bytes": 32216,
+      "sha256": "a2ae256f9bc7e7a3e47e4a746fabc6f570be0a7ee76990b2a646eba9c885ad3b"
+    },
+    {
+      "id": "heavy_bolt",
+      "file": "assets/audio/attacks/shared-20261011/attack_heavy_bolt.mp3",
+      "bytes": 34306,
+      "sha256": "24be99c1cc62b369324baec1af43e9ff84ed3ed918654c078b81fdc52d4a4a11"
+    },
+    {
+      "id": "holy",
+      "file": "assets/audio/attacks/shared-20261011/attack_holy.mp3",
+      "bytes": 34306,
+      "sha256": "58647d2db8015c0a3072dfa5f1fa9b1a5756af32ff9af31da11f03501d73eda7"
+    },
+    {
+      "id": "charge",
+      "file": "assets/audio/attacks/shared-20261011/attack_charge.mp3",
+      "bytes": 34306,
+      "sha256": "a0a536bd152daaa863f7f887170a3504b4cb47eca235f88919a61bfd2d6415cb"
+    },
+    {
+      "id": "lightning",
+      "file": "assets/audio/attacks/shared-20261011/attack_lightning.mp3",
+      "bytes": 30962,
+      "sha256": "e949794017f9dc5cb3c5cfb7b9697a5f8bc42d4081a62f0f690d391480b81eb4"
+    },
+    {
+      "id": "nature",
+      "file": "assets/audio/attacks/shared-20261011/attack_nature.mp3",
+      "bytes": 34306,
+      "sha256": "df36bc8de6492964657a2661b9f84e29b5784310ab425238167031978e3fb072"
+    },
+    {
+      "id": "runic_bolt",
+      "file": "assets/audio/attacks/shared-20261011/attack_runic_bolt.mp3",
+      "bytes": 30962,
+      "sha256": "8cbc9bde82f739e10207915af48d38e5b9b2fef41139dc6dea84b4e77f3218d1"
+    },
+    {
+      "id": "spear",
+      "file": "assets/audio/attacks/shared-20261011/attack_spear.mp3",
+      "bytes": 29290,
+      "sha256": "5a119884680f18cc8ac2962d1e5a9a0da09b73cbd18ac2a3741169d5ad284d49"
+    },
+    {
+      "id": "stone",
+      "file": "assets/audio/attacks/shared-20261011/attack_stone.mp3",
+      "bytes": 35560,
+      "sha256": "09343b6aba18820f43424fa7defd1a631a7b909cbf91f01fd93a31d938e4d5f2"
+    },
+    {
+      "id": "sword",
+      "file": "assets/audio/attacks/shared-20261011/attack_sword.mp3",
+      "bytes": 30962,
+      "sha256": "d38b8f1c2114e2dbc2f593e06eb01c8e517f9047c44da78e09c33d90709d0c1f"
+    },
+    {
+      "id": "toxic_canister",
+      "file": "assets/audio/attacks/shared-20261011/attack_toxic_canister.mp3",
+      "bytes": 34306,
+      "sha256": "e612ebb783934aaf7ed8911d32bd765705a45d91c7e01a6a17fc0f9f33cc0cee"
+    },
+    {
+      "id": "fallen_battle",
+      "file": "assets/audio/music/review-20261011/fallen_battle.mp3",
+      "bytes": 2322323,
+      "sha256": "b17a42ef180af0a3f29691792e4286a7b149a212a6f04ad12606505719b0465f"
+    },
+    {
+      "id": "fallen_victory_celebration",
+      "file": "assets/audio/music/review-20261011/fallen_victory_celebration.mp3",
+      "bytes": 176122,
+      "sha256": "3b904157dbec3309abdd3d4953f33d4eb88bb7b8133ff87115cafa757e02797f"
+    },
+    {
+      "id": "iron_battle",
+      "file": "assets/audio/music/review-20261011/iron_battle.mp3",
+      "bytes": 2322323,
+      "sha256": "ab56a5362d247fee1684944cc863d4f074345022e7666175f569f7c4e1281309"
+    },
+    {
+      "id": "iron_build",
+      "file": "assets/audio/music/review-20261011/iron_build.mp3",
+      "bytes": 2322323,
+      "sha256": "93dc1b894790c61b57edfbff09969c888f362f4141e30b95305a9d3e890c7e9a"
+    },
+    {
+      "id": "wilds_battle",
+      "file": "assets/audio/music/review-20261011/wilds_battle.mp3",
+      "bytes": 2322323,
+      "sha256": "341908b112b4c4bd218c7921eb4c60b827876d0f916584f88a7fccc15f16eb20"
+    },
+    {
+      "id": "wilds_build",
+      "file": "assets/audio/music/review-20261011/wilds_build.mp3",
+      "bytes": 2322323,
+      "sha256": "12573fce649e209d6e105c2cd8d18e56ab0f85dffc7660c0811bb1d60158606f"
+    }
+  ]
+}

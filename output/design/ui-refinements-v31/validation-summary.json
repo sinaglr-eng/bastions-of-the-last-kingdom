@@ -30,5 +30,15 @@
   "protectedAudit": "protected-preservation-proof.json",
   "balanceChange": "Only wave38 Blood-Leech regen40%→25%; other proposals not implemented",
   "statistics": "LIVE0.3.31;88 IDs,21 completed historical safe records preserved",
-  "publicGame": "Pending deployment and public evidence"
+  "publicGame": {
+    "status": "passed",
+    "implementationCommit": "6c4485db7e9a617233b4f86f6d93e81d3c31cf28",
+    "ciRunId": 38528660303,
+    "buildAssets": 5,
+    "approvedMp3s": 113,
+    "approvedMp3Bytes": 17342625,
+    "browserDecoded": 113,
+    "uiProof": "public-browser-ui-proof.json",
+    "deployment": "deployment-identity.json"
+  }
 }

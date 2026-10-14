@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.3.31",
+  "sourceCommit": "6c4485db7e9a617233b4f86f6d93e81d3c31cf28",
+  "browser": "Chromium Codex in-app browser",
+  "initial": {
+    "dpsHeading": "Sum peak DPS",
+    "dpsOpen": true,
+    "gameScript": [
+      "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-CDL_UoFR.js"
+    ],
+    "nextOpen": true,
+    "oddsCells": [
+      {
+        "h": 22,
+        "text": "I100%",
+        "w": 45.77083587646485
+      },
+      {
+        "h": 22,
+        "text": "II0%",
+        "w": 45.78125
+      },
+      {
+        "h": 22,
+        "text": "III0%",
+        "w": 45.77083587646485
+      },
+      {
+        "h": 22,
+        "text": "IV0%",
+        "w": 45.77083587646485
+      },
+      {
+        "h": 22,
+        "text": "V0%",
+        "w": 45.78125
+      },
+      {
+        "h": 22,
+        "text": "VIMerge",
+        "w": 45.77083587646485
+      }
+    ],
+    "oddsDisclosure": false,
+    "phase": "build",
+    "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.3.31"
+  },
+  "ordinaryPlacements": 5,
+  "keep": "Druid I; count1; visible combinations and ranks",
+  "singleMouseDemolish": {
+    "result": "Castle wall demolished · tile cleared"
+  },
+  "singleMouseStart": {
+    "controls": [
+      "Pause game",
+      "Game speed 1×"
+    ],
+    "phase": "combat"
+  },
+  "geometry": [
+    {
+      "centerHit": true,
+      "rect": {
+        "h": 44,
+        "w": 180,
+        "x": 360,
+        "y": 72
+      },
+      "text": "Start wave 1"
+    },
+    {
+      "centerHit": true,
+      "rect": {
+        "h": 44,
+        "w": 255.33334350585935,
+        "x": 912.6666870117188,
+        "y": 180.89584350585935
+      },
+      "text": "Demolish wall · Del"
+    }
+  ],
+  "errors": [],
+  "qaRun": "Developer Mode excludes this run from scores/statistics",
+  "physicalIpadSafari": "not available; source/production pointer fixtures and Chromium geometry are separate scopes",
+  "originalUserTab": "11 preserved"
+}
