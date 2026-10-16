@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "status": "failed",
+  "version": "0.4.0",
+  "label": "initial",
+  "startedAt": "2026-10-16T12:07:17.922Z",
+  "publicBase": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "concurrency": 6,
+  "authentication": "None; public GET requests only; credentials omitted",
+  "cachePolicy": "Unique per-run query on every request, cache=no-store, no-cache request headers",
+  "expectedSource": {
+    "kind": "Current local repository-base production build",
+    "directory": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\dist",
+    "indexSha256": "ac1037c8c8ccb833a08272d247a6e5b248151d7921c7ec5ce9593155ba9c8f41",
+    "releaseSha256": "19eb4f267b0e69c2d241f9fd501fe400978561d9d3ba5a856be584c86fc30255"
+  },
+  "activeAudio": {
+    "expected": 113,
+    "bytes": 17342625,
+    "digest": "6991662edc592ce05eaeb3a1e169d5012c6902ed6aefcdd6ff60365d534ed48e",
+    "catalogues": [
+      "assets/audio/approved-20261011/catalogue.json",
+      "assets/audio/allied-recast-20261011/catalogue.json"
+    ],
+    "source": "Exact URLs recursively collected from the two active catalogues, then checked against preserved baseline and current active inventory",
+    "categories": {
+      "alliedVoices": 92,
+      "attacks": 15,
+      "music": 6
+    }
+  },
+  "compiledEntryPaths": [
+    "assets/game-D-1jQn4a.css",
+    "assets/game-DQBjlbzY.js",
+    "assets/portrait-visibility-COwVypPW.js",
+    "assets/portrait-visibility-Cq7vvpxZ.css",
+    "assets/three-py1mPfXp.js"
+  ],
+  "files": [
+    {
+      "file": "index.html",
+      "bytes": 1220,
+      "sha256": "ac1037c8c8ccb833a08272d247a6e5b248151d7921c7ec5ce9593155ba9c8f41",
+      "group": "metadata",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/index.html?verify=0.4.0-5a3895d52651086e625d-0",
+      "status": "failed",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "servedBytes": 1205,
+      "servedSha256": "fd12270b95b01563fe33c39ad0048d566e171bcda92d9ef38ef7d864d1048972",
+      "error": "Served bytes/SHA differ: expected 1220/ac1037c8c8ccb833a08272d247a6e5b248151d7921c7ec5ce9593155ba9c8f41, got 1205/fd12270b95b01563fe33c39ad0048d566e171bcda92d9ef38ef7d864d1048972"
+    },
+    {
+      "file": "release.json",
+      "bytes": 1091,
+      "sha256": "19eb4f267b0e69c2d241f9fd501fe400978561d9d3ba5a856be584c86fc30255",
+      "group": "metadata",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/release.json?verify=0.4.0-5a3895d52651086e625d-1",
+      "status": "failed",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "servedBytes": 1051,
+      "servedSha256": "fdbf84efaf806426683cfe478d288eaeaffe97195e5998a76167251e9b96e14e",
+      "error": "Served bytes/SHA differ: expected 1091/19eb4f267b0e69c2d241f9fd501fe400978561d9d3ba5a856be584c86fc30255, got 1051/fdbf84efaf806426683cfe478d288eaeaffe97195e5998a76167251e9b96e14e"
+    }
+  ],
+  "failures": [
+    {
+      "file": "index.html",
+      "group": "metadata",
+      "error": "Served bytes/SHA differ: expected 1220/ac1037c8c8ccb833a08272d247a6e5b248151d7921c7ec5ce9593155ba9c8f41, got 1205/fd12270b95b01563fe33c39ad0048d566e171bcda92d9ef38ef7d864d1048972",
+      "httpStatus": 200
+    },
+    {
+      "file": "release.json",
+      "group": "metadata",
+      "error": "Served bytes/SHA differ: expected 1091/19eb4f267b0e69c2d241f9fd501fe400978561d9d3ba5a856be584c86fc30255, got 1051/fdbf84efaf806426683cfe478d288eaeaffe97195e5998a76167251e9b96e14e",
+      "httpStatus": 200
+    }
+  ],
+  "models": {
+    "checked": 0,
+    "knownInventory": 352,
+    "reason": "Skipped as requested; no public model-byte claim. Local protected preservation is a separate proof."
+  },
+  "limits": [
+    "HTTP hashes and MIME receipts do not establish playback/listening, image decoding, browser interaction or physical iPad/Safari coverage.",
+    "Stopped before bulk asset requests because served release/index does not match the selected expected source."
+  ],
+  "localHead": "d010e295e4955d3506258a48e20d9203602d07dc",
+  "portraits": {
+    "expected": 136,
+    "manifestRevision": "original-reference-20261016-v1",
+    "manifestSha256": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4"
+  },
+  "finishedAt": "2026-10-16T12:07:20.893Z",
+  "durationMs": 2971,
+  "groups": {
+    "metadata": {
+      "checked": 2,
+      "passed": 0,
+      "bytes": 2256
+    }
+  }
+}

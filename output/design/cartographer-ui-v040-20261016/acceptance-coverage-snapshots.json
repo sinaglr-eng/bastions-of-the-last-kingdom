@@ -1,0 +1,568 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-16T12:22:10.433Z",
+  "purpose": "Read-only existing-evidence coverage receipt; no tests or publication run",
+  "receipt": "output/design/cartographer-ui-v040-20261016/acceptance-coverage.md",
+  "scope": [
+    "output/design/cartographer-ui-v040-20261016/acceptance-coverage.md",
+    "output/design/cartographer-ui-v040-20261016/acceptance-coverage-snapshots.json"
+  ],
+  "caseCount": 29,
+  "fullSuite": {
+    "tests": 1448,
+    "passed": 1448,
+    "failed": 0
+  },
+  "boundaries": [
+    "A27 partial viewport/accessibility matrix; physical Safari/native zoom/notch not certified",
+    "A29 final restored 0.4 CI/HTTP closeout pending in receipt snapshot",
+    "Browser audio decode is local; published byte identity checked independently"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/ui-cartographers-table-handoff-20261016/ACCEPTANCE.md",
+      "bytes": 11350,
+      "sha256": "8deb737fd6b86de04f7230631bcaaf4c7a427ac8fc1b534885b64c3808cb2c70"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/acceptance-coverage.md",
+      "bytes": 25044,
+      "sha256": "d162aa5b175ce181d3be983585cc847d08aae0b0a754a4b32d23a2175a04b0f9"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/before-protected.json",
+      "bytes": 192940,
+      "sha256": "fbddf41b43fb54a93e69aba8f16cc3586848e45152136a7878884c2a7b62c81b"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/browser-audio-decode.json",
+      "bytes": 40951,
+      "sha256": "5f4988371a50f9110571d4ca6211b054993c62ddcbb1affbe59e9dfaeada4357"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/browser-layout-checkpoints.json",
+      "bytes": 111041,
+      "sha256": "a39c1ac171728fdfa7447eff9dd3d44070f4b163e5821b685f50f838daca6755"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/build-release.log",
+      "bytes": 1196,
+      "sha256": "432a64eb846b544788100fd68f7ea3f2de03b0cca6716628f5eb36bf72e35dcc"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/build-repository-base.log",
+      "bytes": 1196,
+      "sha256": "ad2601eb4d54cad256e3d30a731f4a40b1a64c4dfc9c95a7b704864988b3ca98"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/catalog-return-proof.json",
+      "bytes": 2252,
+      "sha256": "70506900939ab741133508fd6d5bd564e71c547303add07a1e0b127abf80c594"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/final-preservation-proof.json",
+      "bytes": 10548,
+      "sha256": "08ef7a6a437d78d3a7c7db3a9f597fb8e46da96fca5ccc2231232024e9833fa3"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/final-viewport-building-1024x768.jpg",
+      "bytes": 109013,
+      "sha256": "48f8ecfa6f874a99175484cf300eee56ddea45361c2e83c8100ba736fc50d7b7"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/final-viewport-building-1180x820.jpg",
+      "bytes": 134665,
+      "sha256": "dfbc5c80db974f1946964bd80441e943586b4b6028b3236a962297d32b915b71"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/final-viewport-building-1440x900.jpg",
+      "bytes": 167458,
+      "sha256": "62725a7f8134f261ca0a6597b14f51d63b3bdebdc4b49d7a2d5d026d4e5043b1"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/final-viewport-building-1715x1244.jpg",
+      "bytes": 261703,
+      "sha256": "c3deba0f5e55213af0d5b562856ffcaf748e05c200286908333864e4362d2b4e"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/final-viewport-building-390x844.jpg",
+      "bytes": 53166,
+      "sha256": "01a8e9549ce0adf85853b3e6bd8411845dc91aa725198d6260edf53fa8ce121c"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/final-viewport-building-820x1180.jpg",
+      "bytes": 119175,
+      "sha256": "1bb180edd073419fc8f42ec00f75897c542e882aa1654981ff3d387e26ee40e3"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/final-viewport-building-844x390.jpg",
+      "bytes": 54488,
+      "sha256": "acc85d0072e35655cb741db6fb5d7beb227e8fc4e6d85a376c82b4e41a0aa2fc"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/contact-sheet-01.jpg",
+      "bytes": 508798,
+      "sha256": "9552263eb073ba789119e0bcca6c4278f4f7418c56629e4907cd18f7c51a0b79"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/contact-sheet-02.jpg",
+      "bytes": 520972,
+      "sha256": "0a5a5eeb43fb542d70765140048540d95c9a8c41951ab2f7eff06354531219be"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/contact-sheet-03.jpg",
+      "bytes": 461173,
+      "sha256": "ee583e7e74511e06827897cef627d319644cf9617c2b0c797476afe9e112a6b7"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/contact-sheet-04.jpg",
+      "bytes": 521016,
+      "sha256": "5cc6560d6865a0852ba2e752b05a04f0b5a839f7846137f0dafc796b993e1962"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/contact-sheet-05.jpg",
+      "bytes": 564533,
+      "sha256": "67b41f736fafbb901c26563a43420447827227d5f14d684769b4721a4b9fe800"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/contact-sheet-06.jpg",
+      "bytes": 373209,
+      "sha256": "ad9b2f6394cfcccf9363117a868ab1c423dfca869f5f2dc81c7ecff0a5952807"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/crop-plan.json",
+      "bytes": 46555,
+      "sha256": "5c1a5f7e3174fdc8e76e69a5c2c8f438f325b28f730b9c71173ac464fec18e23"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/crop-proof.json",
+      "bytes": 718,
+      "sha256": "fde0600ca877aa67db7d686af68e5b6bed18b6dbb90f9f1ecafca3f0fb2d71ae"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/index.html",
+      "bytes": 32252,
+      "sha256": "4f117b00caddbceb74b69b1f98e3e6ee71d2768118498eff5efc03f42e3727b0"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/portraits/pixel-verification.json",
+      "bytes": 154,
+      "sha256": "6c72874107b39e92a7d4b520f8da8751c641e26db0b5e2b9a9dc4a3ab7ff0dad"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/production-backup-proof.json",
+      "bytes": 436467,
+      "sha256": "84460636d9e2944383ef8e2dd5d6361e6fc10967f88351b13730e0588e7e7002"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/public-http-v0331-rollback-2026-10-16T121600156Z.json",
+      "bytes": 86255,
+      "sha256": "16e11857fe4adc077138f896764567a50c65ae6bbdbfdcf5c798640004665af6"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/public-http-v040-initial-2026-10-16T121015788Z.json",
+      "bytes": 176776,
+      "sha256": "e7b2a6b809784dff594322b6e1d46f33d3906db95a48dbf6f7100e3275e95924"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/public-initial-desktop.jpg",
+      "bytes": 121075,
+      "sha256": "62ff17f324488ea5851d2a391bb3421f03caa39cf6b4b58d57d2e26a3f73f486"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-boss-combat-ipad.jpg",
+      "bytes": 86193,
+      "sha256": "c949567fe27b0cbc7f8855fee2264471007cd81c76eb3cb3beb1965519e1e40c"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-ci-initial.json",
+      "bytes": 6876,
+      "sha256": "5aed80cd0ca43dea6383ddd0b507432379f5ac59be93beea218360858f9917b3"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-ci-restored.json",
+      "bytes": 5224,
+      "sha256": "bf1ce0d5a2542c0fc9ae59ec1523d32e3f8c01d6a0c2380570fd108c376e1693"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-ci-rollback.json",
+      "bytes": 6966,
+      "sha256": "996b9949c7a20269e605e8c423bb843d383f5004aa053dbd0f1a663cbff89184"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-combination-confirmed-ipad.jpg",
+      "bytes": 122143,
+      "sha256": "e360108b75773d857dc0698aa1db78831f108c1ced204b8781b63ae70985b290"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-current-wave-ipad.jpg",
+      "bytes": 98375,
+      "sha256": "ede6dcd99bd092bfb3dd3253b8af45a41e56bd40c5ffbb78e1869c703baf2055"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-exact-preview-ipad.jpg",
+      "bytes": 127492,
+      "sha256": "2925bb57dc013850604c0f24ec39cf1482ecdd10c6d0631a0eb83b8b8741ae8a"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-future-wave31-desktop.jpg",
+      "bytes": 70205,
+      "sha256": "7a22af1d74685f31281dc2eb3afd3ced58b57724ec3d4e17fe1757e6e08f1835"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-individual-enemy-desktop.jpg",
+      "bytes": 138527,
+      "sha256": "8566d103c3a9ae31d0875ee16b483c5aae54468b35907d34d29108a08099cec7"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-maze-tools-desktop.jpg",
+      "bytes": 146648,
+      "sha256": "299134c7406c25118ac0c9e996487c786c2507bb431d616fd3569a269aa48a56"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-rank-comparison-ipad.jpg",
+      "bytes": 120698,
+      "sha256": "0a647b5c00e4c8e152ef3144bc38892c794eb282a11be8c0788db9dc42165137"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-read-only-review-desktop.jpg",
+      "bytes": 146375,
+      "sha256": "ac05f4b05c818ff6cfb41b3247768ce7d84e16ad71704dfab9207d803a17177b"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-result-excluded-desktop.jpg",
+      "bytes": 62496,
+      "sha256": "3519ac5f677edc77c0bb5988a9011819ba817595e809f5ef9104d0afea8e0ae4"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-three-candidate-combinations-ipad.jpg",
+      "bytes": 132139,
+      "sha256": "59c2af66af53aa2548359c6c776d5fe874b4b902bf006cb551a9544dc4d2e622"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/publication-three-combinations-ipad.jpg",
+      "bytes": 116745,
+      "sha256": "1567d66506b4e61385e9840ade70df0394b528880cc19c8431eb4856088d5b16"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/recipe-navigation-desktop.jpg",
+      "bytes": 113286,
+      "sha256": "ec34a177fa5da47af48b2deeaeda6588fb7164d6b5c22444229d1214397c4b3c"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/reviewed-combat-ipad.jpg",
+      "bytes": 114724,
+      "sha256": "005cb21f7b1cd35c7a7f9809274404c78d99c619d62ccc42da40ae526567a400"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/reviewed-ready-ipad.jpg",
+      "bytes": 115274,
+      "sha256": "79c9532c326f6845fae25d3b9f3d53c7cff71c54f552d5eee8cdd0be7ce58dfe"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/reviewed-recipe-navigation-phone.jpg",
+      "bytes": 17115,
+      "sha256": "eacbbcbf8ff098f2e3daeebb12aabe2154c89025a72bcd0145b2c61e9c5f4161"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/reviewed-select-desktop.jpg",
+      "bytes": 197233,
+      "sha256": "729e24c5243e770a9187cea7d69adec186e944530aa39cc399d47c0ed3f1df65"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/reviewed-select-ipad.jpg",
+      "bytes": 107085,
+      "sha256": "3e477e2af95f5706347c9fe1c53260498741d8f9d17283c7c3d99b6e9e272a54"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/reviewed-zoom200-css-viewport-desktop.jpg",
+      "bytes": 33077,
+      "sha256": "84597d7cd63809cdb070ddf4856112eb9272a4478c2c339ef2274123e2dfd383"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/reviewed-zoom200-css-viewport-ipad.jpg",
+      "bytes": 33203,
+      "sha256": "3b93fe1647ffbf96f70be5fcf967ecfda5235cf336364c0532f76ad0502f763d"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/rollback-identity.json",
+      "bytes": 718,
+      "sha256": "226de77ac2cc5d9096ce375becb2d49bd4aee53d1f3be11cf9708899d31f7438"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/rollback/credential-fallback-tests.json",
+      "bytes": 312,
+      "sha256": "a97fce486825451d06fab95fbaa3e962825a7d208e5052b2cb1f60ba03f18d28"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/rollback/rollback-proof.json",
+      "bytes": 1556,
+      "sha256": "aa6f71c43bc4adb377c5e67f049b3e41c5f533a67ddf3945c8e6dbef28b314a7"
+    },
+    {
+      "path": "output/design/cartographer-ui-v040-20261016/tests-release.log",
+      "bytes": 170315,
+      "sha256": "74c927d8da6e6da7883f36075ff44d0c7dd1faa4b51ec88316ab19b904aebf3a"
+    },
+    {
+      "path": "tests/audio-assets.test.mjs",
+      "bytes": 3992,
+      "sha256": "c3094294aa7032d51e16cfca32c91599b8d876256a8986b137835a5790abedcc"
+    },
+    {
+      "path": "tests/audio-category-volume.test.mjs",
+      "bytes": 12490,
+      "sha256": "9c0e6e49bfbd806a09eb35ecd7b9c67f5201b897aecdbd7f4f0ba395f404db02"
+    },
+    {
+      "path": "tests/audio-controls.test.mjs",
+      "bytes": 4335,
+      "sha256": "8949071ab6eb7d40f640e99efce52ee2fe76b8c5417aa22d7329eb2f46903072"
+    },
+    {
+      "path": "tests/audio-main-dialog-music.test.mjs",
+      "bytes": 11771,
+      "sha256": "921d8685341bfefbcb85c680a6a9f9a00415a1c6deb35a6d2fe7d70173f2d187"
+    },
+    {
+      "path": "tests/audio-recast-assets.test.mjs",
+      "bytes": 7324,
+      "sha256": "a37e0f5d4ed8199ae42442a330b025aaa4b066b5bb916efef5a058026c764843"
+    },
+    {
+      "path": "tests/audio-recorded-music.test.mjs",
+      "bytes": 18376,
+      "sha256": "365b8c00a75ebf50d6ee491b6b11c14427c468d1fc2bab2726cf1d2e70a5a21d"
+    },
+    {
+      "path": "tests/audio-selection.test.mjs",
+      "bytes": 33794,
+      "sha256": "8e2a71d9f70071b472063cf9baa2f7d5d022d48a83235699794f49ec3ba67027"
+    },
+    {
+      "path": "tests/audio-volume-preferences.test.mjs",
+      "bytes": 7342,
+      "sha256": "53489124b9468a873d2f17c6be8317310880889222af162abe7c641e7f09b8f8"
+    },
+    {
+      "path": "tests/audio-wave-soundtrack.test.mjs",
+      "bytes": 16186,
+      "sha256": "4a9349e4c49af5984d2696eb1c90debde4867b7afd7d4034dfe7f93ba784f9ee"
+    },
+    {
+      "path": "tests/backend-statistics.test.mjs",
+      "bytes": 48502,
+      "sha256": "34c0a8d5a391f243ad82489fa93c700c579a52afbda4d81ddfe5104d0d410399"
+    },
+    {
+      "path": "tests/battlefield-overlay-panels.test.mjs",
+      "bytes": 26984,
+      "sha256": "2011510205feea531fddc8a5c7dc5c545b0a4bf9ee0a681704dc9d82161cb944"
+    },
+    {
+      "path": "tests/battlefield-panel-main-integration.test.mjs",
+      "bytes": 20564,
+      "sha256": "c5f01d8ab075a08d59dcae94c9369480bcbd6f9807035d1ae054d13951b0bf9c"
+    },
+    {
+      "path": "tests/cartographer-layout-v040.test.mjs",
+      "bytes": 28028,
+      "sha256": "c585e92afe89aff754d35c8fedd3d527331365a196ad20d454f8f85731a4a049"
+    },
+    {
+      "path": "tests/catalog-recipes-d006.test.mjs",
+      "bytes": 22913,
+      "sha256": "e38050e78c1955d3d04372c3583540a6de81eed64f84b5962b6e5620d674c462"
+    },
+    {
+      "path": "tests/command-main-integration-v31.test.mjs",
+      "bytes": 16205,
+      "sha256": "9a18cbf4b902c67696e633483d24e035768bf321313ca086c30b04a8f060b0ff"
+    },
+    {
+      "path": "tests/command-move.test.mjs",
+      "bytes": 18875,
+      "sha256": "91dc582b9bdda2e08adfc20ee79d2b3dc1ff912eb91be96133d963fdfa7dd433"
+    },
+    {
+      "path": "tests/command-pointer-input-v31.test.mjs",
+      "bytes": 16437,
+      "sha256": "f57c141969cef794d5d811e81e982f95f29d7b423c83f8104289c62bb333c45a"
+    },
+    {
+      "path": "tests/command-points-ui.test.mjs",
+      "bytes": 10077,
+      "sha256": "d45008a37f224612172fd314bfc9a33089a8b4a49cdaedee8e87f36215d581e5"
+    },
+    {
+      "path": "tests/context-guidance.test.mjs",
+      "bytes": 6693,
+      "sha256": "849dd06f7fbc073508fa1f39bc7c21889a2305613aef283ea1e4be51d23c97a9"
+    },
+    {
+      "path": "tests/crafting-main-integration.test.mjs",
+      "bytes": 11460,
+      "sha256": "1ff4e0c4c2c115bdd90929759c228696ae3890a3b7746b8a9322a15588cbc0de"
+    },
+    {
+      "path": "tests/current-wave-panel.test.mjs",
+      "bytes": 14656,
+      "sha256": "9a233531b2010bc4569aa7aff4fb6f7fe65f6c86f8a42c21e92807dfd3edca7c"
+    },
+    {
+      "path": "tests/defender-panel-preview-v30.test.mjs",
+      "bytes": 19002,
+      "sha256": "432669f0b66ce560791ee1f65df6d158e9c0f35ec415f3dd2a4a1228003feaf6"
+    },
+    {
+      "path": "tests/defender-rank-preview.test.mjs",
+      "bytes": 16958,
+      "sha256": "a499c7c8e60fdb7716b69e4c5a5fa1231009ec6f57381fe7466cf5c5de461fca"
+    },
+    {
+      "path": "tests/developer-statistics-exclusion.test.mjs",
+      "bytes": 10721,
+      "sha256": "233e95b475497810e756094006ae01ff05d079c2c8ef014dc48694a37647c454"
+    },
+    {
+      "path": "tests/dps-measurement.test.mjs",
+      "bytes": 11719,
+      "sha256": "583b4129aa391054bba9be6742be3aebf87af3a98b55a7f7aa3715b2cf096db7"
+    },
+    {
+      "path": "tests/draft-keeper-ui.test.mjs",
+      "bytes": 4948,
+      "sha256": "7c3f57bac6cb374167d9fd27e7f4f66f3185ab28b0ced69a28ac93a6789cf426"
+    },
+    {
+      "path": "tests/draft-pointer-input.test.mjs",
+      "bytes": 15028,
+      "sha256": "493d754804652b9c42d000fa3d3f7f35995e9c5e5601859196a47e8a38cbb3a9"
+    },
+    {
+      "path": "tests/draft-presentation.test.mjs",
+      "bytes": 10478,
+      "sha256": "284ead7fb6836f3562ad9c84067a74322e09af148ecf95fea628cbcb940d1751"
+    },
+    {
+      "path": "tests/enemy-catalog-navigation.test.mjs",
+      "bytes": 16822,
+      "sha256": "29928e4f65b890f518f4237a9abef0fc58a1264cf87723c10436ee01904a1833"
+    },
+    {
+      "path": "tests/header-combat-controls.test.mjs",
+      "bytes": 13793,
+      "sha256": "6e5b7e5be75f124325d60386ae1193e472f78dda779d31144c19fb951ff6d614"
+    },
+    {
+      "path": "tests/mastery-support-display.test.mjs",
+      "bytes": 11386,
+      "sha256": "4f22e668a15c8cf4e4e3fe958d01d0d51480304378140b796ab0b461100f05bf"
+    },
+    {
+      "path": "tests/maze-comparison.test.mjs",
+      "bytes": 12979,
+      "sha256": "381b4305d3804fea60b01b5ff252d190deb3b47ed8ae34b62accf3a884374f60"
+    },
+    {
+      "path": "tests/mvp-presentation.test.mjs",
+      "bytes": 2534,
+      "sha256": "716429a1a1296b62fd0a3f464c84cb8e8cb2f595735b551f1aca3cbdba7426fd"
+    },
+    {
+      "path": "tests/phase-main-integration.test.mjs",
+      "bytes": 15839,
+      "sha256": "821c5a33c5122e4d1c8e00ca818dc520712a6408a480c95f7cd5de74063c2c00"
+    },
+    {
+      "path": "tests/phase-touch-d006.test.mjs",
+      "bytes": 11063,
+      "sha256": "41bca459c56cac9324dcb9069209b34e940fe5fb083d60d91cdaf825ecd3e2c5"
+    },
+    {
+      "path": "tests/phase-ui.test.mjs",
+      "bytes": 8026,
+      "sha256": "d76dd7d555baeeed1b9aaa86e4083a37701d660aae4cb65a8fa60f68d0983e05"
+    },
+    {
+      "path": "tests/pinned-recruit-map-v30.test.mjs",
+      "bytes": 15457,
+      "sha256": "d5b4811da439bb4a1a982c6830af3d77b46f83f596a6f53d2a78a5a0c0fdc8a0"
+    },
+    {
+      "path": "tests/portrait-visibility.test.mjs",
+      "bytes": 20290,
+      "sha256": "2446cde50dc4926423e7010eb620a2d4e67bdc1197f03d5bfa61a85e62a1c96c"
+    },
+    {
+      "path": "tests/preparation-folio-v040.test.mjs",
+      "bytes": 14578,
+      "sha256": "c2ee0fe3d9c2580217d6e7f021a9a286fc5f6f96dcb454cf408230a56c444f62"
+    },
+    {
+      "path": "tests/rank-five-retained-merge.test.mjs",
+      "bytes": 12813,
+      "sha256": "83424eaa51092ec071f6c66e5d31e3596a5e1f9659e73c6fe30bd4b8571d708e"
+    },
+    {
+      "path": "tests/recipe-breakdown.test.mjs",
+      "bytes": 7315,
+      "sha256": "2ff749dbcc3882c69219cadf6878b5639c5e9b292495ae5f0c70b936bfd63106"
+    },
+    {
+      "path": "tests/recipe-filters.test.mjs",
+      "bytes": 5059,
+      "sha256": "c7d172f8da7844fe65b868b975ea8c300a8fbeb22c8016ca660d8e8a8b69ff95"
+    },
+    {
+      "path": "tests/recipe-marker-input.test.mjs",
+      "bytes": 3671,
+      "sha256": "cc5f83dfc4ccf11532dfd0dabb99a164764f8c17b3dd7c3139c8b4ef304fe3c7"
+    },
+    {
+      "path": "tests/recipe-navigation-v30.test.mjs",
+      "bytes": 26481,
+      "sha256": "fdf92cd298c00b2702213a4cdb0b38776f5c3ecd725e14596419fa49d50ffa74"
+    },
+    {
+      "path": "tests/recipe-tree.test.mjs",
+      "bytes": 6754,
+      "sha256": "556b70236dfd82f6adff940ca821f481fd1786d23ba20ef8d86048b9e9316e7f"
+    },
+    {
+      "path": "tests/reference-portraits.test.mjs",
+      "bytes": 5928,
+      "sha256": "6372d51920e46e4f3ba9bc8af5b9b5025194206ff1279135d119bcc5e4320f1d"
+    },
+    {
+      "path": "tests/run-results.test.mjs",
+      "bytes": 12587,
+      "sha256": "938e23b29c9866ef309bf9df0ba149960966a3cb99eb174c8fe59fc4c5a0313e"
+    },
+    {
+      "path": "tests/selected-enemy-panel.test.mjs",
+      "bytes": 14243,
+      "sha256": "9631381b1315278a2cbe7119e328ccbb5c21e17e3e26f3637342dba1e501fa5b"
+    },
+    {
+      "path": "tests/support-effects.test.mjs",
+      "bytes": 24768,
+      "sha256": "13030c8e9e156211da1c222a288303f072fa95688806cadf81f111661546604c"
+    },
+    {
+      "path": "tests/tower-dps.test.mjs",
+      "bytes": 18988,
+      "sha256": "210354aa235eb9b179c21652c492a69eec700b78f5d56519847f64762c15c1f5"
+    },
+    {
+      "path": "tests/tutorial-v040.test.mjs",
+      "bytes": 4192,
+      "sha256": "06b6c6592bef843be52b014c034910b665f32a16032577e64a573bb7ff482ed6"
+    },
+    {
+      "path": "tests/warband-info.test.mjs",
+      "bytes": 4148,
+      "sha256": "872a57143d3b43120c31c73d772c1d0342a9301d4276229382e65fc876b79245"
+    }
+  ]
+}

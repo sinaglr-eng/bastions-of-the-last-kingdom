@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "repository": "sinaglr-eng/bastions-of-the-last-kingdom",
+  "workflow": "pages.yml",
+  "checkedAt": "2026-10-16T12:16:34.221Z",
+  "requested": {
+    "runId": null,
+    "commit": null,
+    "latestMain": true
+  },
+  "run": {
+    "id": 38898797381,
+    "attempt": 1,
+    "name": "Test and deploy GitHub Pages",
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38898797381",
+    "event": "workflow_dispatch",
+    "headBranch": "main",
+    "headSha": "d010e295e4955d3506258a48e20d9203602d07dc",
+    "status": "completed",
+    "conclusion": "success",
+    "createdAt": "2026-10-16T12:11:27Z",
+    "updatedAt": "2026-10-16T12:15:02Z",
+    "startedAt": "2026-10-16T12:11:27Z"
+  },
+  "assessment": {
+    "state": "success",
+    "allRequiredChecksPassed": true,
+    "checks": [
+      {
+        "job": "build",
+        "status": "completed",
+        "conclusion": "success",
+        "passed": true
+      },
+      {
+        "job": "build",
+        "step": "Test game rules and assets",
+        "status": "completed",
+        "conclusion": "success",
+        "passed": true
+      },
+      {
+        "job": "build",
+        "step": "Build for the repository URL",
+        "status": "completed",
+        "conclusion": "success",
+        "passed": true
+      },
+      {
+        "job": "build",
+        "step": "Upload website",
+        "status": "completed",
+        "conclusion": "success",
+        "passed": true
+      },
+      {
+        "job": "deploy",
+        "status": "completed",
+        "conclusion": "success",
+        "passed": true
+      },
+      {
+        "job": "deploy",
+        "step": "Publish website",
+        "status": "completed",
+        "conclusion": "success",
+        "passed": true
+      }
+    ],
+    "failedSteps": [],
+    "reasons": []
+  },
+  "jobs": [
+    {
+      "id": 116965663503,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38898797381/job/116965663503",
+      "startedAt": "2026-10-16T12:11:31Z",
+      "completedAt": "2026-10-16T12:14:46Z",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:11:32Z",
+          "completedAt": "2026-10-16T12:11:33Z"
+        },
+        {
+          "number": 2,
+          "name": "Check out project",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:11:33Z",
+          "completedAt": "2026-10-16T12:11:59Z"
+        },
+        {
+          "number": 3,
+          "name": "Record checked-out release identity",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:11:59Z",
+          "completedAt": "2026-10-16T12:11:59Z"
+        },
+        {
+          "number": 4,
+          "name": "Set up pnpm",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:11:59Z",
+          "completedAt": "2026-10-16T12:12:00Z"
+        },
+        {
+          "number": 5,
+          "name": "Set up Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:12:00Z",
+          "completedAt": "2026-10-16T12:12:02Z"
+        },
+        {
+          "number": 6,
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:12:02Z",
+          "completedAt": "2026-10-16T12:12:02Z"
+        },
+        {
+          "number": 7,
+          "name": "Test game rules and assets",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:12:02Z",
+          "completedAt": "2026-10-16T12:14:24Z"
+        },
+        {
+          "number": 8,
+          "name": "Build for the repository URL",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:14:24Z",
+          "completedAt": "2026-10-16T12:14:30Z"
+        },
+        {
+          "number": 9,
+          "name": "Upload website",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:14:30Z",
+          "completedAt": "2026-10-16T12:14:43Z"
+        },
+        {
+          "number": 16,
+          "name": "Post Set up Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:14:43Z",
+          "completedAt": "2026-10-16T12:14:44Z"
+        },
+        {
+          "number": 17,
+          "name": "Post Set up pnpm",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:14:44Z",
+          "completedAt": "2026-10-16T12:14:44Z"
+        },
+        {
+          "number": 18,
+          "name": "Post Check out project",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:14:44Z",
+          "completedAt": "2026-10-16T12:14:44Z"
+        },
+        {
+          "number": 19,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:14:44Z",
+          "completedAt": "2026-10-16T12:14:44Z"
+        }
+      ]
+    },
+    {
+      "id": 116966894388,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38898797381/job/116966894388",
+      "startedAt": "2026-10-16T12:14:50Z",
+      "completedAt": "2026-10-16T12:15:01Z",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:14:51Z",
+          "completedAt": "2026-10-16T12:14:52Z"
+        },
+        {
+          "number": 2,
+          "name": "Configure Pages",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:14:52Z",
+          "completedAt": "2026-10-16T12:14:52Z"
+        },
+        {
+          "number": 3,
+          "name": "Publish website",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:14:52Z",
+          "completedAt": "2026-10-16T12:15:00Z"
+        },
+        {
+          "number": 4,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-10-16T12:15:00Z",
+          "completedAt": "2026-10-16T12:15:00Z"
+        }
+      ]
+    }
+  ],
+  "identityBoundary": "headSha identifies the main workflow context; release_ref checkout and deployed source are unverified by this status checker. Verify the recorded checkout identity and served compiled hashes separately."
+}

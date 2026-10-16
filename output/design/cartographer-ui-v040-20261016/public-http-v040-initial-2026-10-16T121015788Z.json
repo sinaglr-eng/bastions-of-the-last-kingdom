@@ -1,0 +1,4158 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "version": "0.4.0",
+  "label": "initial",
+  "startedAt": "2026-10-16T12:10:15.788Z",
+  "publicBase": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "concurrency": 6,
+  "authentication": "None; public GET requests only; credentials omitted",
+  "cachePolicy": "Unique per-run query on every request, cache=no-store, no-cache request headers",
+  "expectedSource": {
+    "kind": "Current repository-base build compiled/media bytes; exact committed public JSON blobs; generated index canonical LF",
+    "directory": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\dist",
+    "sourceCommit": "d010e295e4955d3506258a48e20d9203602d07dc",
+    "indexSha256": "fd12270b95b01563fe33c39ad0048d566e171bcda92d9ef38ef7d864d1048972",
+    "rawIndexSha256": "ac1037c8c8ccb833a08272d247a6e5b248151d7921c7ec5ce9593155ba9c8f41",
+    "releaseSha256": "fdbf84efaf806426683cfe478d288eaeaffe97195e5998a76167251e9b96e14e",
+    "rawReleaseSha256": "19eb4f267b0e69c2d241f9fd501fe400978561d9d3ba5a856be584c86fc30255"
+  },
+  "activeAudio": {
+    "expected": 113,
+    "bytes": 17342625,
+    "digest": "6991662edc592ce05eaeb3a1e169d5012c6902ed6aefcdd6ff60365d534ed48e",
+    "catalogues": [
+      "assets/audio/approved-20261011/catalogue.json",
+      "assets/audio/allied-recast-20261011/catalogue.json"
+    ],
+    "source": "Exact URLs recursively collected from the two active catalogues, then checked against preserved baseline and current active inventory",
+    "categories": {
+      "alliedVoices": 92,
+      "attacks": 15,
+      "music": 6
+    }
+  },
+  "compiledEntryPaths": [
+    "assets/game-D-1jQn4a.css",
+    "assets/game-DQBjlbzY.js",
+    "assets/portrait-visibility-COwVypPW.js",
+    "assets/portrait-visibility-Cq7vvpxZ.css",
+    "assets/three-py1mPfXp.js"
+  ],
+  "files": [
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_archangel_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "ce173b1b276ba71e2c9de1125224a16d549079f5ae301cde202c991a8d3d3965",
+      "group": "audio",
+      "id": "ally_archangel_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_archangel_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-9",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 56458,
+      "servedSha256": "ce173b1b276ba71e2c9de1125224a16d549079f5ae301cde202c991a8d3d3965"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_archangel_select_b.mp3",
+      "bytes": 56458,
+      "sha256": "ec7e348a9971c91b488e41341ae45bcc1aa1126b882cc3f4c7e75984a9a8358a",
+      "group": "audio",
+      "id": "ally_archangel_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_archangel_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-10",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 56458,
+      "servedSha256": "ec7e348a9971c91b488e41341ae45bcc1aa1126b882cc3f4c7e75984a9a8358a"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_archbishop_select_a.mp3",
+      "bytes": 66907,
+      "sha256": "631b6e284c30ca5dec5ed1584ff634c82070e29cbd38de03d2c8d0be9d734ab8",
+      "group": "audio",
+      "id": "ally_archbishop_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_archbishop_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-11",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 66907,
+      "servedSha256": "631b6e284c30ca5dec5ed1584ff634c82070e29cbd38de03d2c8d0be9d734ab8"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_archbishop_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "40cbdbaadce1069d93e71b030ae242bfe1148ab5319e1561a6a9c4dc161c3e97",
+      "group": "audio",
+      "id": "ally_archbishop_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_archbishop_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-12",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 51442,
+      "servedSha256": "40cbdbaadce1069d93e71b030ae242bfe1148ab5319e1561a6a9c4dc161c3e97"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_archer_select_a.mp3",
+      "bytes": 41411,
+      "sha256": "ccd332bcfbeb9abb329b2cafdb61adc8a1e2c5e7288dece53107f84d0d25036f",
+      "group": "audio",
+      "id": "ally_archer_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_archer_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-13",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 41411,
+      "servedSha256": "ccd332bcfbeb9abb329b2cafdb61adc8a1e2c5e7288dece53107f84d0d25036f"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_archer_select_b.mp3",
+      "bytes": 47681,
+      "sha256": "a4963be3014b1bc9e3cc10cdffb03263447fe982ab20caba4c439420f7e7f8f1",
+      "group": "audio",
+      "id": "ally_archer_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_archer_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-14",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 47681,
+      "servedSha256": "a4963be3014b1bc9e3cc10cdffb03263447fe982ab20caba4c439420f7e7f8f1"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_cleric_select_a.mp3",
+      "bytes": 47681,
+      "sha256": "bd33d83abc5c6434760da87305aa23395e140bd0788c9341354f4f9709dbad8f",
+      "group": "audio",
+      "id": "ally_cleric_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_cleric_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-15",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 47681,
+      "servedSha256": "bd33d83abc5c6434760da87305aa23395e140bd0788c9341354f4f9709dbad8f"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_cleric_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "09c79dbd864f1beb83c6ea5f257006a0bf074612d230c7c04cbf5221d1e3a450",
+      "group": "audio",
+      "id": "ally_cleric_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_cleric_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-16",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "09c79dbd864f1beb83c6ea5f257006a0bf074612d230c7c04cbf5221d1e3a450"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_crownofages_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "cfd2fa6f11ca8a7efb4e2a78725d364d3362efa30bad08bcb32e49645530c0b5",
+      "group": "audio",
+      "id": "ally_crownofages_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_crownofages_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-17",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "cfd2fa6f11ca8a7efb4e2a78725d364d3362efa30bad08bcb32e49645530c0b5"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_crownofages_select_b.mp3",
+      "bytes": 57712,
+      "sha256": "f0cf6a4f9914edf54df948032a665db2b82c59344b8a5d9eca21a6777c04152d",
+      "group": "audio",
+      "id": "ally_crownofages_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_crownofages_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-18",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 57712,
+      "servedSha256": "f0cf6a4f9914edf54df948032a665db2b82c59344b8a5d9eca21a6777c04152d"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_dawnspire_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "ae86c9c339ac78a767a5c5f4dda3a36340c53b7a6063979c573e24731969e791",
+      "group": "audio",
+      "id": "ally_dawnspire_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_dawnspire_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-19",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 56458,
+      "servedSha256": "ae86c9c339ac78a767a5c5f4dda3a36340c53b7a6063979c573e24731969e791"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_dawnspire_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "dfe54f730682841f77bc64f78b5dfec88bb6a0602f6c9ffd9a3f12405a96bee8",
+      "group": "audio",
+      "id": "ally_dawnspire_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_dawnspire_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-20",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "dfe54f730682841f77bc64f78b5dfec88bb6a0602f6c9ffd9a3f12405a96bee8"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_druid_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "6752ca1ed91b5312d9697c7ef4fbe02d616511087b88a6241a42aa4097d33b2d",
+      "group": "audio",
+      "id": "ally_druid_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_druid_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-21",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 56458,
+      "servedSha256": "6752ca1ed91b5312d9697c7ef4fbe02d616511087b88a6241a42aa4097d33b2d"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_druid_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "20196522aca3b5639718b93a7746e5c964b0cccd6d3dc2c25c3d191b291cf4fe",
+      "group": "audio",
+      "id": "ally_druid_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_druid_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-22",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 51442,
+      "servedSha256": "20196522aca3b5639718b93a7746e5c964b0cccd6d3dc2c25c3d191b291cf4fe"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_eldergrove_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "9595b918bf4dc5a59a4f54a26226beef97f1a1882ce2b82e1b36fa3611a37172",
+      "group": "audio",
+      "id": "ally_eldergrove_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_eldergrove_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-23",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 57712,
+      "servedSha256": "9595b918bf4dc5a59a4f54a26226beef97f1a1882ce2b82e1b36fa3611a37172"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_eldergrove_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "4d735986dba4ffb7852823eb60cd106108d004aaa66a9c670e204a9073ba7fb9",
+      "group": "audio",
+      "id": "ally_eldergrove_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_eldergrove_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-24",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "4d735986dba4ffb7852823eb60cd106108d004aaa66a9c670e204a9073ba7fb9"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_elvenking_select_a.mp3",
+      "bytes": 71922,
+      "sha256": "8595e0b6e025f90c70e1dcaa8703f3119a10cc12d56a44b0a2123a8dd7a4280a",
+      "group": "audio",
+      "id": "ally_elvenking_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_elvenking_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-25",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 71922,
+      "servedSha256": "8595e0b6e025f90c70e1dcaa8703f3119a10cc12d56a44b0a2123a8dd7a4280a"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_elvenking_select_b.mp3",
+      "bytes": 64399,
+      "sha256": "97d0740e36b8646c1d5104b8ccd1bf7538be8a3fff47350b301e61b88d6d43ab",
+      "group": "audio",
+      "id": "ally_elvenking_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_elvenking_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-26",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 64399,
+      "servedSha256": "97d0740e36b8646c1d5104b8ccd1bf7538be8a3fff47350b301e61b88d6d43ab"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_embercrown_select_a.mp3",
+      "bytes": 63145,
+      "sha256": "9b5131105c12ba0bcfab0d9505c8eacfdb598f8d616b99ab2fbb16f64733a6fb",
+      "group": "audio",
+      "id": "ally_embercrown_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_embercrown_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-27",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 63145,
+      "servedSha256": "9b5131105c12ba0bcfab0d9505c8eacfdb598f8d616b99ab2fbb16f64733a6fb"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_embercrown_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "e002147fadebd16ed06653f2e9456f231163acce1bdeeb66085d61fc8079fa83",
+      "group": "audio",
+      "id": "ally_embercrown_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_embercrown_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-28",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 48934,
+      "servedSha256": "e002147fadebd16ed06653f2e9456f231163acce1bdeeb66085d61fc8079fa83"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_emeraldgolem_select_a.mp3",
+      "bytes": 91148,
+      "sha256": "58f017945d4e0a380572364826cf9fde6ba8e9589dd35d7711f627ba26057670",
+      "group": "audio",
+      "id": "ally_emeraldgolem_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_emeraldgolem_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-29",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 91148,
+      "servedSha256": "58f017945d4e0a380572364826cf9fde6ba8e9589dd35d7711f627ba26057670"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_emeraldgolem_select_b.mp3",
+      "bytes": 89894,
+      "sha256": "775500494a099cad8b0e1b238e23a3cb29c0757d397c60bb3305d19618baeb5f",
+      "group": "audio",
+      "id": "ally_emeraldgolem_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_emeraldgolem_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-30",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 89894,
+      "servedSha256": "775500494a099cad8b0e1b238e23a3cb29c0757d397c60bb3305d19618baeb5f"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_fireballista_select_a.mp3",
+      "bytes": 52696,
+      "sha256": "870a35f4a17a847f17a5733b1629910294fc28204c5c10095b7b3d0a1bfec449",
+      "group": "audio",
+      "id": "ally_fireballista_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_fireballista_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-31",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 52696,
+      "servedSha256": "870a35f4a17a847f17a5733b1629910294fc28204c5c10095b7b3d0a1bfec449"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_fireballista_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "8405286fc656db14746b208ef3cbb85840124823d29b2ad134baef64c1808914",
+      "group": "audio",
+      "id": "ally_fireballista_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_fireballista_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-32",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 51442,
+      "servedSha256": "8405286fc656db14746b208ef3cbb85840124823d29b2ad134baef64c1808914"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_frostblade_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "675f4722393371b9a50791eb84d6f11e445679a176679a857fc26ed322cfd04b",
+      "group": "audio",
+      "id": "ally_frostblade_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_frostblade_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-33",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 48934,
+      "servedSha256": "675f4722393371b9a50791eb84d6f11e445679a176679a857fc26ed322cfd04b"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_frostblade_select_b.mp3",
+      "bytes": 42665,
+      "sha256": "4e7940acba2aa5e376857eec292f8626d19a237a6392a1104da84094d52932db",
+      "group": "audio",
+      "id": "ally_frostblade_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_frostblade_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-34",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 42665,
+      "servedSha256": "4e7940acba2aa5e376857eec292f8626d19a237a6392a1104da84094d52932db"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_frostwarden_select_a.mp3",
+      "bytes": 42665,
+      "sha256": "9b5ab07b1fa6df50a7db6f860030482860fb6323fc05e84c6a3445a5574bb619",
+      "group": "audio",
+      "id": "ally_frostwarden_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_frostwarden_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-35",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 42665,
+      "servedSha256": "9b5ab07b1fa6df50a7db6f860030482860fb6323fc05e84c6a3445a5574bb619"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_frostwarden_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "fe465bc2e5ef356ed9d0c63e987064c53344c652d1f50687e47301ea6e384b14",
+      "group": "audio",
+      "id": "ally_frostwarden_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_frostwarden_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-36",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 46427,
+      "servedSha256": "fe465bc2e5ef356ed9d0c63e987064c53344c652d1f50687e47301ea6e384b14"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_greenheart_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "a9f0a2e18d9918cdb12efc758df8c9b241baa16409782f1ceb46282658c42dc7",
+      "group": "audio",
+      "id": "ally_greenheart_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_greenheart_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-37",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 51442,
+      "servedSha256": "a9f0a2e18d9918cdb12efc758df8c9b241baa16409782f1ceb46282658c42dc7"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_greenheart_select_b.mp3",
+      "bytes": 57712,
+      "sha256": "63fb4d78801728bac98ac35607952b033f704531ddad11648036c6f80d0910f1",
+      "group": "audio",
+      "id": "ally_greenheart_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_greenheart_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-38",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 57712,
+      "servedSha256": "63fb4d78801728bac98ac35607952b033f704531ddad11648036c6f80d0910f1"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_griffinbomber_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "69802a1b8be237d347466902d756cfea9b57d90a7f318395a6c9c6ef13b144fb",
+      "group": "audio",
+      "id": "ally_griffinbomber_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_griffinbomber_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-39",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 57712,
+      "servedSha256": "69802a1b8be237d347466902d756cfea9b57d90a7f318395a6c9c6ef13b144fb"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_griffinbomber_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "4e0b3c8eb1a61a0df5997ff160ddd442ab638d12b1f8b2bbe0a8549f1faa600f",
+      "group": "audio",
+      "id": "ally_griffinbomber_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_griffinbomber_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-40",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 46427,
+      "servedSha256": "4e0b3c8eb1a61a0df5997ff160ddd442ab638d12b1f8b2bbe0a8549f1faa600f"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_highking_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "4a052eb4b91cb26e28fd82373356b1d25e78b44c500f0e1d9e5133ca44a45b9b",
+      "group": "audio",
+      "id": "ally_highking_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_highking_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-41",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 55204,
+      "servedSha256": "4a052eb4b91cb26e28fd82373356b1d25e78b44c500f0e1d9e5133ca44a45b9b"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_highking_select_b.mp3",
+      "bytes": 56458,
+      "sha256": "ddbc2ff7c54ff5721a53a5a77e436e06a38b5ec5352dba50fe851564cd9a44ab",
+      "group": "audio",
+      "id": "ally_highking_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_highking_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-42",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 56458,
+      "servedSha256": "ddbc2ff7c54ff5721a53a5a77e436e06a38b5ec5352dba50fe851564cd9a44ab"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_kingdomprotector_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "3b977a47560931cf0e4628354a1aabeb2911fae2d0fc653eb68d66462ddf6b57",
+      "group": "audio",
+      "id": "ally_kingdomprotector_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_kingdomprotector_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-43",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 50188,
+      "servedSha256": "3b977a47560931cf0e4628354a1aabeb2911fae2d0fc653eb68d66462ddf6b57"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_kingdomprotector_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "dbd65935c50f83806ffd0b02af7ab534dc6fd3f915709d6dc010c914934f38d9",
+      "group": "audio",
+      "id": "ally_kingdomprotector_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_kingdomprotector_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-44",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 58965,
+      "servedSha256": "dbd65935c50f83806ffd0b02af7ab534dc6fd3f915709d6dc010c914934f38d9"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_kingsrangerguard_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "f5e184856fd32eb9af1b671dbf8847dca40f9a219c3e8eb62a494b26896b219f",
+      "group": "audio",
+      "id": "ally_kingsrangerguard_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_kingsrangerguard_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-45",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 55204,
+      "servedSha256": "f5e184856fd32eb9af1b671dbf8847dca40f9a219c3e8eb62a494b26896b219f"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_kingsrangerguard_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "56a0208516b9200c271ae3d72277f593dbec2348c7e883f667be86144ba0694b",
+      "group": "audio",
+      "id": "ally_kingsrangerguard_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_kingsrangerguard_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-46",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 48934,
+      "servedSha256": "56a0208516b9200c271ae3d72277f593dbec2348c7e883f667be86144ba0694b"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_kingsreach_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "f223dad4aa2337497a691863bc1f37fdc2fb5e228de53e6eab61e9ed51e52339",
+      "group": "audio",
+      "id": "ally_kingsreach_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_kingsreach_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-47",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "f223dad4aa2337497a691863bc1f37fdc2fb5e228de53e6eab61e9ed51e52339"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_kingsreach_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "8b8bcc6b84ab1a69c7e873f2efa3fe1eafcef4401fcc404628cb3004034b7630",
+      "group": "audio",
+      "id": "ally_kingsreach_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_kingsreach_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-48",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "8b8bcc6b84ab1a69c7e873f2efa3fe1eafcef4401fcc404628cb3004034b7630"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_ladyclaire_select_a.mp3",
+      "bytes": 46427,
+      "sha256": "7b581fccb071e2c888e23174b3804ef5e676998edc5753a2b17d950b21d7733f",
+      "group": "audio",
+      "id": "ally_ladyclaire_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_ladyclaire_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-49",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 46427,
+      "servedSha256": "7b581fccb071e2c888e23174b3804ef5e676998edc5753a2b17d950b21d7733f"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_ladyclaire_select_b.mp3",
+      "bytes": 52696,
+      "sha256": "d8546de0405199f8f24ff2ec42b697602bc9d2279344c024001f9a64bedee21a",
+      "group": "audio",
+      "id": "ally_ladyclaire_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_ladyclaire_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-50",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 52696,
+      "servedSha256": "d8546de0405199f8f24ff2ec42b697602bc9d2279344c024001f9a64bedee21a"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_mage_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "022fe5cd012ceaace2b5ec7596a51e6d3d67d3e24d72c8b194cc0caffbdde24b",
+      "group": "audio",
+      "id": "ally_mage_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_mage_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-51",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 48934,
+      "servedSha256": "022fe5cd012ceaace2b5ec7596a51e6d3d67d3e24d72c8b194cc0caffbdde24b"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_mage_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "ae63a7658d62eafdb0a8b6e936a11912362b242a63fb8ddd12611519d6bbe5b8",
+      "group": "audio",
+      "id": "ally_mage_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_mage_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-52",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 46427,
+      "servedSha256": "ae63a7658d62eafdb0a8b6e936a11912362b242a63fb8ddd12611519d6bbe5b8"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_mechanicalgolem_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "297cd01f32c8a4af9a5b362448eb06b6d43a7c629fd03d29981eb867f4e0bc27",
+      "group": "audio",
+      "id": "ally_mechanicalgolem_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_mechanicalgolem_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-53",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 57712,
+      "servedSha256": "297cd01f32c8a4af9a5b362448eb06b6d43a7c629fd03d29981eb867f4e0bc27"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_mechanicalgolem_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "dac3351ce53b1911347966ecf9d309d46bf1e68a76e72ea5f1d3b7f908e4a6e6",
+      "group": "audio",
+      "id": "ally_mechanicalgolem_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_mechanicalgolem_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-54",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 55204,
+      "servedSha256": "dac3351ce53b1911347966ecf9d309d46bf1e68a76e72ea5f1d3b7f908e4a6e6"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_monk_select_a.mp3",
+      "bytes": 70668,
+      "sha256": "6b18461984483030797d478ef8141d06210721b7513e95867e48618e2e943d1a",
+      "group": "audio",
+      "id": "ally_monk_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_monk_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-55",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 70668,
+      "servedSha256": "6b18461984483030797d478ef8141d06210721b7513e95867e48618e2e943d1a"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_monk_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "75caca736e59cd7404a4005eec7dcffb9562cf0c21b073979c0b05188d085ccc",
+      "group": "audio",
+      "id": "ally_monk_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_monk_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-56",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 58965,
+      "servedSha256": "75caca736e59cd7404a4005eec7dcffb9562cf0c21b073979c0b05188d085ccc"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_mothernature_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "567a0e6e9bb3616737f0bf01892ed15976b2245ca4901c31d1384757299fa52e",
+      "group": "audio",
+      "id": "ally_mothernature_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_mothernature_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-57",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "567a0e6e9bb3616737f0bf01892ed15976b2245ca4901c31d1384757299fa52e"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_mothernature_select_b.mp3",
+      "bytes": 52696,
+      "sha256": "4058ac6646fd770b1d622505efcdc6dcbdb454f6f9614bbe68adf157630bb8de",
+      "group": "audio",
+      "id": "ally_mothernature_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_mothernature_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-58",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 52696,
+      "servedSha256": "4058ac6646fd770b1d622505efcdc6dcbdb454f6f9614bbe68adf157630bb8de"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_phoenix_select_a.mp3",
+      "bytes": 65653,
+      "sha256": "aa2a06db1ed37ba766a7ac16bab4a81c7dd23064e9a65ba7f533d2efefd9fb61",
+      "group": "audio",
+      "id": "ally_phoenix_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_phoenix_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-59",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 65653,
+      "servedSha256": "aa2a06db1ed37ba766a7ac16bab4a81c7dd23064e9a65ba7f533d2efefd9fb61"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_phoenix_select_b.mp3",
+      "bytes": 66907,
+      "sha256": "0ad8fcf6fa868fd37e201dbb1f80d6d4488ebb0bf42f4549d8a9734c246cfba3",
+      "group": "audio",
+      "id": "ally_phoenix_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_phoenix_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-60",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 66907,
+      "servedSha256": "0ad8fcf6fa868fd37e201dbb1f80d6d4488ebb0bf42f4549d8a9734c246cfba3"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_rangermentor_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "10a8101a3b61d7e2d2827207ecf17b698958092b456def782d95d5691dc692de",
+      "group": "audio",
+      "id": "ally_rangermentor_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_rangermentor_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-61",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 51442,
+      "servedSha256": "10a8101a3b61d7e2d2827207ecf17b698958092b456def782d95d5691dc692de"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_rangermentor_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "5df597e13a947eaf6898b2ee0e0777198d80968ce3aea0d417f4fc65ba2c2554",
+      "group": "audio",
+      "id": "ally_rangermentor_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_rangermentor_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-62",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 58965,
+      "servedSha256": "5df597e13a947eaf6898b2ee0e0777198d80968ce3aea0d417f4fc65ba2c2554"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_rimewatch_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "1ff3921f8b63a9abbec609f14fd499b1fcf1b057013679eaf3259f303defd392",
+      "group": "audio",
+      "id": "ally_rimewatch_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_rimewatch_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-63",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 56458,
+      "servedSha256": "1ff3921f8b63a9abbec609f14fd499b1fcf1b057013679eaf3259f303defd392"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_rimewatch_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "340a38401a010b7af5600a7bb228543d4d3645a76b6b98e3a123cd758bf90290",
+      "group": "audio",
+      "id": "ally_rimewatch_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_rimewatch_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-64",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 50188,
+      "servedSha256": "340a38401a010b7af5600a7bb228543d4d3645a76b6b98e3a123cd758bf90290"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_roseguard_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "7b313350a477f180e79410e38ddc86ae54081194bdd670e68b0b5c5d1690ef61",
+      "group": "audio",
+      "id": "ally_roseguard_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_roseguard_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-65",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 51442,
+      "servedSha256": "7b313350a477f180e79410e38ddc86ae54081194bdd670e68b0b5c5d1690ef61"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_roseguard_select_b.mp3",
+      "bytes": 68161,
+      "sha256": "2cf434bda3016cb95090282229f88d429fff2987588dc29cddb6fbe2ffe81e42",
+      "group": "audio",
+      "id": "ally_roseguard_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_roseguard_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-66",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 68161,
+      "servedSha256": "2cf434bda3016cb95090282229f88d429fff2987588dc29cddb6fbe2ffe81e42"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_royalarsenal_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "32fd74b7c568edb4c8877c611134744f03f34b4dd07ddecdba026e102c799738",
+      "group": "audio",
+      "id": "ally_royalarsenal_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_royalarsenal_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-67",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "32fd74b7c568edb4c8877c611134744f03f34b4dd07ddecdba026e102c799738"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_royalarsenal_select_b.mp3",
+      "bytes": 52696,
+      "sha256": "dc671988badaaaf0b073d79f0baa0990a3a5c0f1e07e7c1910f30d5ad9fc7cbc",
+      "group": "audio",
+      "id": "ally_royalarsenal_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_royalarsenal_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-68",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 52696,
+      "servedSha256": "dc671988badaaaf0b073d79f0baa0990a3a5c0f1e07e7c1910f30d5ad9fc7cbc"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_royalmarshal_select_a.mp3",
+      "bytes": 43919,
+      "sha256": "21109adc42196b0fa02be7bc2255fd073577191a6cbb852b06ac01db2d778e03",
+      "group": "audio",
+      "id": "ally_royalmarshal_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_royalmarshal_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-69",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 43919,
+      "servedSha256": "21109adc42196b0fa02be7bc2255fd073577191a6cbb852b06ac01db2d778e03"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_royalmarshal_select_b.mp3",
+      "bytes": 64399,
+      "sha256": "e3a350e68d03858b1df96af3f71695c9a1a88472f8845677e3ec03818d840371",
+      "group": "audio",
+      "id": "ally_royalmarshal_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_royalmarshal_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-70",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 64399,
+      "servedSha256": "e3a350e68d03858b1df96af3f71695c9a1a88472f8845677e3ec03818d840371"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_royalranger_select_a.mp3",
+      "bytes": 47681,
+      "sha256": "dc7812d33072d1bcf45b8216cfc2703f6695b2ef7bcfd1112894d3db59e01c9d",
+      "group": "audio",
+      "id": "ally_royalranger_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_royalranger_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-71",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 47681,
+      "servedSha256": "dc7812d33072d1bcf45b8216cfc2703f6695b2ef7bcfd1112894d3db59e01c9d"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_royalranger_select_b.mp3",
+      "bytes": 43919,
+      "sha256": "fbb8d444cada44ec4c928ac96dad88d347b788265acaaad06aa58c5816d32494",
+      "group": "audio",
+      "id": "ally_royalranger_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_royalranger_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-72",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 43919,
+      "servedSha256": "fbb8d444cada44ec4c928ac96dad88d347b788265acaaad06aa58c5816d32494"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_runebreaker_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "ce49bdde9e0a5f354f3d71f117117dc0e42e5adf28b1d03ab17c50ff6e3feca2",
+      "group": "audio",
+      "id": "ally_runebreaker_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_runebreaker_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-73",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "ce49bdde9e0a5f354f3d71f117117dc0e42e5adf28b1d03ab17c50ff6e3feca2"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_runebreaker_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "3168732b3ee36355b7e2c0443fb201e3d0b2f5e18390aaba7520217e13f54ff9",
+      "group": "audio",
+      "id": "ally_runebreaker_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_runebreaker_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-74",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 48934,
+      "servedSha256": "3168732b3ee36355b7e2c0443fb201e3d0b2f5e18390aaba7520217e13f54ff9"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_soldier_select_a.mp3",
+      "bytes": 41411,
+      "sha256": "c50f22b6f21ef67e2e38c546578067d5b9c42da4446c026f6a3522ae14c3b21c",
+      "group": "audio",
+      "id": "ally_soldier_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_soldier_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-75",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 41411,
+      "servedSha256": "c50f22b6f21ef67e2e38c546578067d5b9c42da4446c026f6a3522ae14c3b21c"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_soldier_select_b.mp3",
+      "bytes": 41411,
+      "sha256": "713d1ca2a480f86b15c0ec7bcf5649d0ac1bbad52c921b97b9126d84bc7a6fd0",
+      "group": "audio",
+      "id": "ally_soldier_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_soldier_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-76",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 41411,
+      "servedSha256": "713d1ca2a480f86b15c0ec7bcf5649d0ac1bbad52c921b97b9126d84bc7a6fd0"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_starfall_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "d24e457397dfc8fb11eb6c6eb64f5b21d009b52a2dad2aa86c8da8b665738b94",
+      "group": "audio",
+      "id": "ally_starfall_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_starfall_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-77",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 50188,
+      "servedSha256": "d24e457397dfc8fb11eb6c6eb64f5b21d009b52a2dad2aa86c8da8b665738b94"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_starfall_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "9b4b1a034f01b9859340a97fb95406101ac2e1c2912db544b2dfb6b67b031507",
+      "group": "audio",
+      "id": "ally_starfall_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_starfall_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-78",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 55204,
+      "servedSha256": "9b4b1a034f01b9859340a97fb95406101ac2e1c2912db544b2dfb6b67b031507"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_stonewarden_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "fa976a84ffcb13d83d01e52ac108310ca17d64b63b7e6c035717850f64a87a99",
+      "group": "audio",
+      "id": "ally_stonewarden_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_stonewarden_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-79",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 56458,
+      "servedSha256": "fa976a84ffcb13d83d01e52ac108310ca17d64b63b7e6c035717850f64a87a99"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_stonewarden_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "7d6f77017e373cb09a777c9010be3e57b1040eb3ba6a89d76c796890c5874031",
+      "group": "audio",
+      "id": "ally_stonewarden_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_stonewarden_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-80",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 50188,
+      "servedSha256": "7d6f77017e373cb09a777c9010be3e57b1040eb3ba6a89d76c796890c5874031"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_stormcaller_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "f9cddd695511eaea5d46da1fe5f8154340c453279ced74e175873ce13a0b27ab",
+      "group": "audio",
+      "id": "ally_stormcaller_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_stormcaller_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-81",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 50188,
+      "servedSha256": "f9cddd695511eaea5d46da1fe5f8154340c453279ced74e175873ce13a0b27ab"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_stormcaller_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "56d760eaa1183df72225f91b6428772838fd1400884eb7bd67fbd1a4f9321edf",
+      "group": "audio",
+      "id": "ally_stormcaller_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_stormcaller_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-82",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 50188,
+      "servedSha256": "56d760eaa1183df72225f91b6428772838fd1400884eb7bd67fbd1a4f9321edf"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_stormcitadel_select_a.mp3",
+      "bytes": 71922,
+      "sha256": "1f914e4b3bc904bb6d7a9e8ea5fabcd64d970fea19a6ce649db3c0212ce7a038",
+      "group": "audio",
+      "id": "ally_stormcitadel_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_stormcitadel_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-83",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 71922,
+      "servedSha256": "1f914e4b3bc904bb6d7a9e8ea5fabcd64d970fea19a6ce649db3c0212ce7a038"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_stormcitadel_select_b.mp3",
+      "bytes": 78192,
+      "sha256": "00d805ded30d002b70058a3e7a1d6d4671355003d435e3b5d230d1491963e7cf",
+      "group": "audio",
+      "id": "ally_stormcitadel_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_stormcitadel_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-84",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 78192,
+      "servedSha256": "00d805ded30d002b70058a3e7a1d6d4671355003d435e3b5d230d1491963e7cf"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_sunward_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "df2440a8d62fd070e8bfc9137c76478d62d606136bc71071afbb0a99f678ddca",
+      "group": "audio",
+      "id": "ally_sunward_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_sunward_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-85",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 51442,
+      "servedSha256": "df2440a8d62fd070e8bfc9137c76478d62d606136bc71071afbb0a99f678ddca"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_sunward_select_b.mp3",
+      "bytes": 45173,
+      "sha256": "0431b31c319cd54e7f541b0bcfe002f33caf7ad4465ce60b5faf96341908d95e",
+      "group": "audio",
+      "id": "ally_sunward_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_sunward_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-86",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 45173,
+      "servedSha256": "0431b31c319cd54e7f541b0bcfe002f33caf7ad4465ce60b5faf96341908d95e"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_tempest_select_a.mp3",
+      "bytes": 46427,
+      "sha256": "094fb9526a9e7405c45cd075c82c6882d9c8b2c54f0885f327fe28f012f321c1",
+      "group": "audio",
+      "id": "ally_tempest_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_tempest_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-87",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 46427,
+      "servedSha256": "094fb9526a9e7405c45cd075c82c6882d9c8b2c54f0885f327fe28f012f321c1"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_tempest_select_b.mp3",
+      "bytes": 61891,
+      "sha256": "f26d4a3d319aebff32c1f955ff855a15a0ef060805590e11a854d63baf17f66e",
+      "group": "audio",
+      "id": "ally_tempest_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_tempest_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-88",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 61891,
+      "servedSha256": "f26d4a3d319aebff32c1f955ff855a15a0ef060805590e11a854d63baf17f66e"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_thornwarden_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "df879ab6014250bb4ad8248f7e88d8e03b02606b4649bc61f560102d9b392d3b",
+      "group": "audio",
+      "id": "ally_thornwarden_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_thornwarden_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-89",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 51442,
+      "servedSha256": "df879ab6014250bb4ad8248f7e88d8e03b02606b4649bc61f560102d9b392d3b"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_thornwarden_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "dba05802f70bcdd97290d43f8b0652a0930434148848d54e21ceae00fff98b04",
+      "group": "audio",
+      "id": "ally_thornwarden_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_thornwarden_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-90",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 55204,
+      "servedSha256": "dba05802f70bcdd97290d43f8b0652a0930434148848d54e21ceae00fff98b04"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_thunderheart_select_a.mp3",
+      "bytes": 60637,
+      "sha256": "d0afb6691e28231110b927ec37367c85df8d5bfd14742d116d6ce71a126e0905",
+      "group": "audio",
+      "id": "ally_thunderheart_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_thunderheart_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-91",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 60637,
+      "servedSha256": "d0afb6691e28231110b927ec37367c85df8d5bfd14742d116d6ce71a126e0905"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_thunderheart_select_b.mp3",
+      "bytes": 60637,
+      "sha256": "45dee8d3f54c683b63cfbb31bf962ba68e773e0db4d8a499435b39ca99d2ab3a",
+      "group": "audio",
+      "id": "ally_thunderheart_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_thunderheart_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-92",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 60637,
+      "servedSha256": "45dee8d3f54c683b63cfbb31bf962ba68e773e0db4d8a499435b39ca99d2ab3a"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_verdantguard_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "a1b87440141c1422a2a6078fa9aae465c24da352fefc95d25802ccadaea04493",
+      "group": "audio",
+      "id": "ally_verdantguard_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_verdantguard_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-93",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 48934,
+      "servedSha256": "a1b87440141c1422a2a6078fa9aae465c24da352fefc95d25802ccadaea04493"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_verdantguard_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "b0606dcf93998d39ae4f5606fc5aa75c5b2f9336801d46f113dc09668308e85e",
+      "group": "audio",
+      "id": "ally_verdantguard_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_verdantguard_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-94",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 55204,
+      "servedSha256": "b0606dcf93998d39ae4f5606fc5aa75c5b2f9336801d46f113dc09668308e85e"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_winterhold_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "56c1f95d81ac87b814392cb0e4facf8079b07d8f078ed24127afe1e4292394b0",
+      "group": "audio",
+      "id": "ally_winterhold_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_winterhold_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-95",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 55204,
+      "servedSha256": "56c1f95d81ac87b814392cb0e4facf8079b07d8f078ed24127afe1e4292394b0"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_winterhold_select_b.mp3",
+      "bytes": 71922,
+      "sha256": "a92d0e6d542a72d2c1b5203b0ffddaa244ffa3aaab42314ef93c8b59f7756b0e",
+      "group": "audio",
+      "id": "ally_winterhold_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_winterhold_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-96",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 71922,
+      "servedSha256": "a92d0e6d542a72d2c1b5203b0ffddaa244ffa3aaab42314ef93c8b59f7756b0e"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_worldfire_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "4190e4a55269b1c698246a4992dc10ef56f6bb50f4a270627b347b8ff318f840",
+      "group": "audio",
+      "id": "ally_worldfire_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_worldfire_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-97",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 51442,
+      "servedSha256": "4190e4a55269b1c698246a4992dc10ef56f6bb50f4a270627b347b8ff318f840"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_worldfire_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "009c0ea5d091dea392220e92ba1748875a360c26dbfe53ea9fda652b745408bf",
+      "group": "audio",
+      "id": "ally_worldfire_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_worldfire_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-98",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 55204,
+      "servedSha256": "009c0ea5d091dea392220e92ba1748875a360c26dbfe53ea9fda652b745408bf"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_wyvernhunter_select_a.mp3",
+      "bytes": 43919,
+      "sha256": "03c3d4a69056a729ff2d7b5614df10eb8c2be3657e4a838a68ebadd4d5bbf0c7",
+      "group": "audio",
+      "id": "ally_wyvernhunter_select_a",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_wyvernhunter_select_a.mp3?verify=0.4.0-b914bee9e62455f54686-99",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 43919,
+      "servedSha256": "03c3d4a69056a729ff2d7b5614df10eb8c2be3657e4a838a68ebadd4d5bbf0c7"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/ally_wyvernhunter_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "36eef37d31a9ad72d051f998b75ce9e286d5d1dd08aec17dbd74ddc6b7fe137e",
+      "group": "audio",
+      "id": "ally_wyvernhunter_select_b",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/ally_wyvernhunter_select_b.mp3?verify=0.4.0-b914bee9e62455f54686-100",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 53950,
+      "servedSha256": "36eef37d31a9ad72d051f998b75ce9e286d5d1dd08aec17dbd74ddc6b7fe137e"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/catalogue.json",
+      "bytes": 10401,
+      "sha256": "6da0eb466e3d1ecb31fa4d75abcf05eb5c0e22561a78b2c7e48cabcb08fc89d8",
+      "group": "audio-catalogue",
+      "representation": {
+        "basis": "Exact Git public blob from d010e295e4955d3506258a48e20d9203602d07dc:public/assets/audio/allied-recast-20261011/catalogue.json; Git attributes define deployed JSON bytes",
+        "rawBytes": 10401,
+        "rawSha256": "6da0eb466e3d1ecb31fa4d75abcf05eb5c0e22561a78b2c7e48cabcb08fc89d8",
+        "expectedBytes": 10401,
+        "expectedSha256": "6da0eb466e3d1ecb31fa4d75abcf05eb5c0e22561a78b2c7e48cabcb08fc89d8",
+        "rawCRLFSequences": 462,
+        "rawRepeatedCRBeforeLF": 0,
+        "onlyEolDifference": false,
+        "servedComparison": "Exact expected bytes; served content is not normalized"
+      },
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/allied-recast-20261011/catalogue.json?verify=0.4.0-b914bee9e62455f54686-8",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "servedBytes": 10401,
+      "servedSha256": "6da0eb466e3d1ecb31fa4d75abcf05eb5c0e22561a78b2c7e48cabcb08fc89d8"
+    },
+    {
+      "file": "assets/audio/approved-20261011/catalogue.json",
+      "bytes": 16621,
+      "sha256": "17e851632fa643e8a6011d06b548eccdcf6e327da31d653f48e8b945a1704175",
+      "group": "audio-catalogue",
+      "representation": {
+        "basis": "Exact Git public blob from d010e295e4955d3506258a48e20d9203602d07dc:public/assets/audio/approved-20261011/catalogue.json; Git attributes define deployed JSON bytes",
+        "rawBytes": 16621,
+        "rawSha256": "17e851632fa643e8a6011d06b548eccdcf6e327da31d653f48e8b945a1704175",
+        "expectedBytes": 16621,
+        "expectedSha256": "17e851632fa643e8a6011d06b548eccdcf6e327da31d653f48e8b945a1704175",
+        "rawCRLFSequences": 0,
+        "rawRepeatedCRBeforeLF": 0,
+        "onlyEolDifference": false,
+        "servedComparison": "Exact expected bytes; served content is not normalized"
+      },
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/approved-20261011/catalogue.json?verify=0.4.0-b914bee9e62455f54686-7",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "servedBytes": 16621,
+      "servedSha256": "17e851632fa643e8a6011d06b548eccdcf6e327da31d653f48e8b945a1704175"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_arcane.mp3",
+      "bytes": 32216,
+      "sha256": "b41899e5f4d502560d782233457c5843c7f3b32dba4d46a528361894fe049ff7",
+      "group": "audio",
+      "id": "arcane",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_arcane.mp3?verify=0.4.0-b914bee9e62455f54686-101",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 32216,
+      "servedSha256": "b41899e5f4d502560d782233457c5843c7f3b32dba4d46a528361894fe049ff7"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_arrow.mp3",
+      "bytes": 30962,
+      "sha256": "d029e3b721750e163057a8e519516e0e2a3e697132de472f388e1e014c3c29d6",
+      "group": "audio",
+      "id": "arrow",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_arrow.mp3?verify=0.4.0-b914bee9e62455f54686-102",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 30962,
+      "servedSha256": "d029e3b721750e163057a8e519516e0e2a3e697132de472f388e1e014c3c29d6"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_fire.mp3",
+      "bytes": 35560,
+      "sha256": "6b279ddc3eedcd938b181727c745db69f67d2e960621ea2871488d9826d50483",
+      "group": "audio",
+      "id": "fire",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_fire.mp3?verify=0.4.0-b914bee9e62455f54686-103",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 35560,
+      "servedSha256": "6b279ddc3eedcd938b181727c745db69f67d2e960621ea2871488d9826d50483"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_frost.mp3",
+      "bytes": 34306,
+      "sha256": "f4b66c197f8ef382d059fb24bbc255b03e8e08f01199f295531d7e44ded7d974",
+      "group": "audio",
+      "id": "frost",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_frost.mp3?verify=0.4.0-b914bee9e62455f54686-104",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 34306,
+      "servedSha256": "f4b66c197f8ef382d059fb24bbc255b03e8e08f01199f295531d7e44ded7d974"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_hammer.mp3",
+      "bytes": 32216,
+      "sha256": "a2ae256f9bc7e7a3e47e4a746fabc6f570be0a7ee76990b2a646eba9c885ad3b",
+      "group": "audio",
+      "id": "hammer",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_hammer.mp3?verify=0.4.0-b914bee9e62455f54686-105",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 32216,
+      "servedSha256": "a2ae256f9bc7e7a3e47e4a746fabc6f570be0a7ee76990b2a646eba9c885ad3b"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_heavy_bolt.mp3",
+      "bytes": 34306,
+      "sha256": "24be99c1cc62b369324baec1af43e9ff84ed3ed918654c078b81fdc52d4a4a11",
+      "group": "audio",
+      "id": "heavy_bolt",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_heavy_bolt.mp3?verify=0.4.0-b914bee9e62455f54686-106",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 34306,
+      "servedSha256": "24be99c1cc62b369324baec1af43e9ff84ed3ed918654c078b81fdc52d4a4a11"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_holy.mp3",
+      "bytes": 34306,
+      "sha256": "58647d2db8015c0a3072dfa5f1fa9b1a5756af32ff9af31da11f03501d73eda7",
+      "group": "audio",
+      "id": "holy",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_holy.mp3?verify=0.4.0-b914bee9e62455f54686-107",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 34306,
+      "servedSha256": "58647d2db8015c0a3072dfa5f1fa9b1a5756af32ff9af31da11f03501d73eda7"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_charge.mp3",
+      "bytes": 34306,
+      "sha256": "a0a536bd152daaa863f7f887170a3504b4cb47eca235f88919a61bfd2d6415cb",
+      "group": "audio",
+      "id": "charge",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_charge.mp3?verify=0.4.0-b914bee9e62455f54686-108",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 34306,
+      "servedSha256": "a0a536bd152daaa863f7f887170a3504b4cb47eca235f88919a61bfd2d6415cb"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_lightning.mp3",
+      "bytes": 30962,
+      "sha256": "e949794017f9dc5cb3c5cfb7b9697a5f8bc42d4081a62f0f690d391480b81eb4",
+      "group": "audio",
+      "id": "lightning",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_lightning.mp3?verify=0.4.0-b914bee9e62455f54686-109",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 30962,
+      "servedSha256": "e949794017f9dc5cb3c5cfb7b9697a5f8bc42d4081a62f0f690d391480b81eb4"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_nature.mp3",
+      "bytes": 34306,
+      "sha256": "df36bc8de6492964657a2661b9f84e29b5784310ab425238167031978e3fb072",
+      "group": "audio",
+      "id": "nature",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_nature.mp3?verify=0.4.0-b914bee9e62455f54686-110",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 34306,
+      "servedSha256": "df36bc8de6492964657a2661b9f84e29b5784310ab425238167031978e3fb072"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_runic_bolt.mp3",
+      "bytes": 30962,
+      "sha256": "8cbc9bde82f739e10207915af48d38e5b9b2fef41139dc6dea84b4e77f3218d1",
+      "group": "audio",
+      "id": "runic_bolt",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_runic_bolt.mp3?verify=0.4.0-b914bee9e62455f54686-111",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 30962,
+      "servedSha256": "8cbc9bde82f739e10207915af48d38e5b9b2fef41139dc6dea84b4e77f3218d1"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_spear.mp3",
+      "bytes": 29290,
+      "sha256": "5a119884680f18cc8ac2962d1e5a9a0da09b73cbd18ac2a3741169d5ad284d49",
+      "group": "audio",
+      "id": "spear",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_spear.mp3?verify=0.4.0-b914bee9e62455f54686-112",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 29290,
+      "servedSha256": "5a119884680f18cc8ac2962d1e5a9a0da09b73cbd18ac2a3741169d5ad284d49"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_stone.mp3",
+      "bytes": 35560,
+      "sha256": "09343b6aba18820f43424fa7defd1a631a7b909cbf91f01fd93a31d938e4d5f2",
+      "group": "audio",
+      "id": "stone",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_stone.mp3?verify=0.4.0-b914bee9e62455f54686-113",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 35560,
+      "servedSha256": "09343b6aba18820f43424fa7defd1a631a7b909cbf91f01fd93a31d938e4d5f2"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_sword.mp3",
+      "bytes": 30962,
+      "sha256": "d38b8f1c2114e2dbc2f593e06eb01c8e517f9047c44da78e09c33d90709d0c1f",
+      "group": "audio",
+      "id": "sword",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_sword.mp3?verify=0.4.0-b914bee9e62455f54686-114",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 30962,
+      "servedSha256": "d38b8f1c2114e2dbc2f593e06eb01c8e517f9047c44da78e09c33d90709d0c1f"
+    },
+    {
+      "file": "assets/audio/attacks/shared-20261011/attack_toxic_canister.mp3",
+      "bytes": 34306,
+      "sha256": "e612ebb783934aaf7ed8911d32bd765705a45d91c7e01a6a17fc0f9f33cc0cee",
+      "group": "audio",
+      "id": "toxic_canister",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/attacks/shared-20261011/attack_toxic_canister.mp3?verify=0.4.0-b914bee9e62455f54686-115",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 34306,
+      "servedSha256": "e612ebb783934aaf7ed8911d32bd765705a45d91c7e01a6a17fc0f9f33cc0cee"
+    },
+    {
+      "file": "assets/audio/music/review-20261011/fallen_battle.mp3",
+      "bytes": 2322323,
+      "sha256": "b17a42ef180af0a3f29691792e4286a7b149a212a6f04ad12606505719b0465f",
+      "group": "audio",
+      "id": "fallen_battle",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/music/review-20261011/fallen_battle.mp3?verify=0.4.0-b914bee9e62455f54686-116",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 2322323,
+      "servedSha256": "b17a42ef180af0a3f29691792e4286a7b149a212a6f04ad12606505719b0465f"
+    },
+    {
+      "file": "assets/audio/music/review-20261011/fallen_victory_celebration.mp3",
+      "bytes": 176122,
+      "sha256": "3b904157dbec3309abdd3d4953f33d4eb88bb7b8133ff87115cafa757e02797f",
+      "group": "audio",
+      "id": "fallen_victory_celebration",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/music/review-20261011/fallen_victory_celebration.mp3?verify=0.4.0-b914bee9e62455f54686-117",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 176122,
+      "servedSha256": "3b904157dbec3309abdd3d4953f33d4eb88bb7b8133ff87115cafa757e02797f"
+    },
+    {
+      "file": "assets/audio/music/review-20261011/iron_battle.mp3",
+      "bytes": 2322323,
+      "sha256": "ab56a5362d247fee1684944cc863d4f074345022e7666175f569f7c4e1281309",
+      "group": "audio",
+      "id": "iron_battle",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/music/review-20261011/iron_battle.mp3?verify=0.4.0-b914bee9e62455f54686-118",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 2322323,
+      "servedSha256": "ab56a5362d247fee1684944cc863d4f074345022e7666175f569f7c4e1281309"
+    },
+    {
+      "file": "assets/audio/music/review-20261011/iron_build.mp3",
+      "bytes": 2322323,
+      "sha256": "93dc1b894790c61b57edfbff09969c888f362f4141e30b95305a9d3e890c7e9a",
+      "group": "audio",
+      "id": "iron_build",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/music/review-20261011/iron_build.mp3?verify=0.4.0-b914bee9e62455f54686-119",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 2322323,
+      "servedSha256": "93dc1b894790c61b57edfbff09969c888f362f4141e30b95305a9d3e890c7e9a"
+    },
+    {
+      "file": "assets/audio/music/review-20261011/wilds_battle.mp3",
+      "bytes": 2322323,
+      "sha256": "341908b112b4c4bd218c7921eb4c60b827876d0f916584f88a7fccc15f16eb20",
+      "group": "audio",
+      "id": "wilds_battle",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/music/review-20261011/wilds_battle.mp3?verify=0.4.0-b914bee9e62455f54686-120",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 2322323,
+      "servedSha256": "341908b112b4c4bd218c7921eb4c60b827876d0f916584f88a7fccc15f16eb20"
+    },
+    {
+      "file": "assets/audio/music/review-20261011/wilds_build.mp3",
+      "bytes": 2322323,
+      "sha256": "12573fce649e209d6e105c2cd8d18e56ab0f85dffc7660c0811bb1d60158606f",
+      "group": "audio",
+      "id": "wilds_build",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/audio/music/review-20261011/wilds_build.mp3?verify=0.4.0-b914bee9e62455f54686-121",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "audio/mp3",
+      "servedBytes": 2322323,
+      "servedSha256": "12573fce649e209d6e105c2cd8d18e56ab0f85dffc7660c0811bb1d60158606f"
+    },
+    {
+      "file": "assets/game-D-1jQn4a.css",
+      "bytes": 181430,
+      "sha256": "f5fbc64174bd416067d52ff176fd20e688e104e3212bdd4c22cde8b383ff42a3",
+      "group": "compiled",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-D-1jQn4a.css?verify=0.4.0-b914bee9e62455f54686-2",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "text/css; charset=utf-8",
+      "servedBytes": 181430,
+      "servedSha256": "f5fbc64174bd416067d52ff176fd20e688e104e3212bdd4c22cde8b383ff42a3"
+    },
+    {
+      "file": "assets/game-DQBjlbzY.js",
+      "bytes": 495097,
+      "sha256": "ba7e1c7d4c733d23fb85937433922083fd4afd5592ebf56dad1624a5c890c203",
+      "group": "compiled",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-DQBjlbzY.js?verify=0.4.0-b914bee9e62455f54686-3",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "servedBytes": 495097,
+      "servedSha256": "ba7e1c7d4c733d23fb85937433922083fd4afd5592ebf56dad1624a5c890c203"
+    },
+    {
+      "file": "assets/portrait-visibility-COwVypPW.js",
+      "bytes": 216547,
+      "sha256": "c9b91b8dd546c2941313c222b2584363b39a177e6bd193d5d17e97544bc55606",
+      "group": "compiled",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/portrait-visibility-COwVypPW.js?verify=0.4.0-b914bee9e62455f54686-4",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "servedBytes": 216547,
+      "servedSha256": "c9b91b8dd546c2941313c222b2584363b39a177e6bd193d5d17e97544bc55606"
+    },
+    {
+      "file": "assets/portrait-visibility-Cq7vvpxZ.css",
+      "bytes": 107,
+      "sha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56",
+      "group": "compiled",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/portrait-visibility-Cq7vvpxZ.css?verify=0.4.0-b914bee9e62455f54686-5",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "text/css; charset=utf-8",
+      "servedBytes": 107,
+      "servedSha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56"
+    },
+    {
+      "file": "assets/three-py1mPfXp.js",
+      "bytes": 653736,
+      "sha256": "b5517e381bab3b0b7b46d98b5157a285b25f6dd24d4daab92c63e54f7827b359",
+      "group": "compiled",
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/three-py1mPfXp.js?verify=0.4.0-b914bee9e62455f54686-6",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "servedBytes": 653736,
+      "servedSha256": "b5517e381bab3b0b7b46d98b5157a285b25f6dd24d4daab92c63e54f7827b359"
+    },
+    {
+      "file": "assets/ui/reference-portraits/archangel.png",
+      "bytes": 409622,
+      "sha256": "d198ebbb51ad57ecbfe18254e68b013bc2af0b7f963c6db70c0acc5f57a95786",
+      "group": "portrait",
+      "id": "archangel",
+      "dimensions": [
+        491,
+        788
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/archangel.png?verify=0.4.0-b914bee9e62455f54686-207",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 409622,
+      "servedSha256": "d198ebbb51ad57ecbfe18254e68b013bc2af0b7f963c6db70c0acc5f57a95786"
+    },
+    {
+      "file": "assets/ui/reference-portraits/archbishop.png",
+      "bytes": 376028,
+      "sha256": "2e13a0d079363e2640eb500c2efc35ae4887c95d7f8395cf4d9af9fa7275c162",
+      "group": "portrait",
+      "id": "archbishop",
+      "dimensions": [
+        604,
+        534
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/archbishop.png?verify=0.4.0-b914bee9e62455f54686-206",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 376028,
+      "servedSha256": "2e13a0d079363e2640eb500c2efc35ae4887c95d7f8395cf4d9af9fa7275c162"
+    },
+    {
+      "file": "assets/ui/reference-portraits/archer-1.png",
+      "bytes": 159796,
+      "sha256": "1f65554276252b5e360edba7b47a16e7b9d74e122c63f7851d96034c6c553e11",
+      "group": "portrait",
+      "id": "archer-1",
+      "dimensions": [
+        354,
+        428
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/archer-1.png?verify=0.4.0-b914bee9e62455f54686-129",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 159796,
+      "servedSha256": "1f65554276252b5e360edba7b47a16e7b9d74e122c63f7851d96034c6c553e11"
+    },
+    {
+      "file": "assets/ui/reference-portraits/archer-2.png",
+      "bytes": 156658,
+      "sha256": "5b7dbb9d4102a90d84f4dc7b440444288dd566043fc00f32906b5956475f28d2",
+      "group": "portrait",
+      "id": "archer-2",
+      "dimensions": [
+        332,
+        428
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/archer-2.png?verify=0.4.0-b914bee9e62455f54686-130",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 156658,
+      "servedSha256": "5b7dbb9d4102a90d84f4dc7b440444288dd566043fc00f32906b5956475f28d2"
+    },
+    {
+      "file": "assets/ui/reference-portraits/archer-3.png",
+      "bytes": 154535,
+      "sha256": "197c91e59e54cbbd4b9351131f2001eaa320774fb174eabe2c5ebebf64390910",
+      "group": "portrait",
+      "id": "archer-3",
+      "dimensions": [
+        336,
+        419
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/archer-3.png?verify=0.4.0-b914bee9e62455f54686-131",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 154535,
+      "servedSha256": "197c91e59e54cbbd4b9351131f2001eaa320774fb174eabe2c5ebebf64390910"
+    },
+    {
+      "file": "assets/ui/reference-portraits/archer-4.png",
+      "bytes": 163202,
+      "sha256": "f662e26794ad15d9039eefb53217bb8927a4254b2969f9dec91166bc2a95ee8d",
+      "group": "portrait",
+      "id": "archer-4",
+      "dimensions": [
+        341,
+        438
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/archer-4.png?verify=0.4.0-b914bee9e62455f54686-132",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 163202,
+      "servedSha256": "f662e26794ad15d9039eefb53217bb8927a4254b2969f9dec91166bc2a95ee8d"
+    },
+    {
+      "file": "assets/ui/reference-portraits/archer-5.png",
+      "bytes": 168561,
+      "sha256": "f80f5f7a0fd846971d93618b27644a54b31d0aff198677a5f666948d63a7028b",
+      "group": "portrait",
+      "id": "archer-5",
+      "dimensions": [
+        331,
+        410
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/archer-5.png?verify=0.4.0-b914bee9e62455f54686-133",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 168561,
+      "servedSha256": "f80f5f7a0fd846971d93618b27644a54b31d0aff198677a5f666948d63a7028b"
+    },
+    {
+      "file": "assets/ui/reference-portraits/archer-6.png",
+      "bytes": 183508,
+      "sha256": "1ef470ec16c92934365d03db004c7c0482a87cadcc7744555280f41ce00ac0e4",
+      "group": "portrait",
+      "id": "archer-6",
+      "dimensions": [
+        352,
+        420
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/archer-6.png?verify=0.4.0-b914bee9e62455f54686-134",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 183508,
+      "servedSha256": "1ef470ec16c92934365d03db004c7c0482a87cadcc7744555280f41ce00ac0e4"
+    },
+    {
+      "file": "assets/ui/reference-portraits/cleric-1.png",
+      "bytes": 132675,
+      "sha256": "54e2e1c2fb209a11a475da4a23e60791729409c9f46fae8445e95f0bccef564c",
+      "group": "portrait",
+      "id": "cleric-1",
+      "dimensions": [
+        330,
+        400
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/cleric-1.png?verify=0.4.0-b914bee9e62455f54686-153",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 132675,
+      "servedSha256": "54e2e1c2fb209a11a475da4a23e60791729409c9f46fae8445e95f0bccef564c"
+    },
+    {
+      "file": "assets/ui/reference-portraits/cleric-2.png",
+      "bytes": 135021,
+      "sha256": "10dd62e7ee5e34616385917d7cdfa8d78e7a6dc6973d60018fc60e94534eef5f",
+      "group": "portrait",
+      "id": "cleric-2",
+      "dimensions": [
+        312,
+        439
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/cleric-2.png?verify=0.4.0-b914bee9e62455f54686-154",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 135021,
+      "servedSha256": "10dd62e7ee5e34616385917d7cdfa8d78e7a6dc6973d60018fc60e94534eef5f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/cleric-3.png",
+      "bytes": 143131,
+      "sha256": "a286d97219ad2e7e07946fdc5c2d069c9826b3199d8bba65bb8b88fddf429388",
+      "group": "portrait",
+      "id": "cleric-3",
+      "dimensions": [
+        334,
+        435
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/cleric-3.png?verify=0.4.0-b914bee9e62455f54686-155",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 143131,
+      "servedSha256": "a286d97219ad2e7e07946fdc5c2d069c9826b3199d8bba65bb8b88fddf429388"
+    },
+    {
+      "file": "assets/ui/reference-portraits/cleric-4.png",
+      "bytes": 152272,
+      "sha256": "3b7cf57e5430cd387cea83419387fde4fb3ddc12174ac9ef36e3a5849e1a4a68",
+      "group": "portrait",
+      "id": "cleric-4",
+      "dimensions": [
+        349,
+        441
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/cleric-4.png?verify=0.4.0-b914bee9e62455f54686-156",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 152272,
+      "servedSha256": "3b7cf57e5430cd387cea83419387fde4fb3ddc12174ac9ef36e3a5849e1a4a68"
+    },
+    {
+      "file": "assets/ui/reference-portraits/cleric-5.png",
+      "bytes": 157504,
+      "sha256": "eeb1c0d9746e6b6426854a30b5e2f0846999028f420eb18481a26687b2c324ad",
+      "group": "portrait",
+      "id": "cleric-5",
+      "dimensions": [
+        351,
+        441
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/cleric-5.png?verify=0.4.0-b914bee9e62455f54686-157",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 157504,
+      "servedSha256": "eeb1c0d9746e6b6426854a30b5e2f0846999028f420eb18481a26687b2c324ad"
+    },
+    {
+      "file": "assets/ui/reference-portraits/cleric-6.png",
+      "bytes": 165607,
+      "sha256": "f9c9b75e9f528ffc6ab4c74ba5b408ed768acc2228d36cdae0289caa86e7b201",
+      "group": "portrait",
+      "id": "cleric-6",
+      "dimensions": [
+        364,
+        441
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/cleric-6.png?verify=0.4.0-b914bee9e62455f54686-158",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 165607,
+      "servedSha256": "f9c9b75e9f528ffc6ab4c74ba5b408ed768acc2228d36cdae0289caa86e7b201"
+    },
+    {
+      "file": "assets/ui/reference-portraits/crownofages.png",
+      "bytes": 386051,
+      "sha256": "9261d6e7455d57627ca26c85306b100e4a751ba7eac7f7fd651b870830ff711d",
+      "group": "portrait",
+      "id": "crownofages",
+      "dimensions": [
+        765,
+        456
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/crownofages.png?verify=0.4.0-b914bee9e62455f54686-175",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 386051,
+      "servedSha256": "9261d6e7455d57627ca26c85306b100e4a751ba7eac7f7fd651b870830ff711d"
+    },
+    {
+      "file": "assets/ui/reference-portraits/dawnspire.png",
+      "bytes": 453782,
+      "sha256": "05071b9d64ad01031c4b303bfec3aced2b1dbb2e3786044e67c5cf6d62ac6afc",
+      "group": "portrait",
+      "id": "dawnspire",
+      "dimensions": [
+        527,
+        788
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/dawnspire.png?verify=0.4.0-b914bee9e62455f54686-190",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 453782,
+      "servedSha256": "05071b9d64ad01031c4b303bfec3aced2b1dbb2e3786044e67c5cf6d62ac6afc"
+    },
+    {
+      "file": "assets/ui/reference-portraits/druid-1.png",
+      "bytes": 140337,
+      "sha256": "0540a77f346072480a6bc44a74e1dd4d319e5d0803799280d3eb0417695b4340",
+      "group": "portrait",
+      "id": "druid-1",
+      "dimensions": [
+        344,
+        420
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/druid-1.png?verify=0.4.0-b914bee9e62455f54686-159",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 140337,
+      "servedSha256": "0540a77f346072480a6bc44a74e1dd4d319e5d0803799280d3eb0417695b4340"
+    },
+    {
+      "file": "assets/ui/reference-portraits/druid-2.png",
+      "bytes": 136735,
+      "sha256": "49579bc5e6ec074d64dbc695b1c45a1451e4fa56360043617412c1b85f0ea8ce",
+      "group": "portrait",
+      "id": "druid-2",
+      "dimensions": [
+        335,
+        408
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/druid-2.png?verify=0.4.0-b914bee9e62455f54686-160",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 136735,
+      "servedSha256": "49579bc5e6ec074d64dbc695b1c45a1451e4fa56360043617412c1b85f0ea8ce"
+    },
+    {
+      "file": "assets/ui/reference-portraits/druid-3.png",
+      "bytes": 140221,
+      "sha256": "ea1984a1c0577d11569254ecda0d74134bc552f7b56c46ecc207683ac0adf5ba",
+      "group": "portrait",
+      "id": "druid-3",
+      "dimensions": [
+        322,
+        418
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/druid-3.png?verify=0.4.0-b914bee9e62455f54686-161",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 140221,
+      "servedSha256": "ea1984a1c0577d11569254ecda0d74134bc552f7b56c46ecc207683ac0adf5ba"
+    },
+    {
+      "file": "assets/ui/reference-portraits/druid-4.png",
+      "bytes": 155972,
+      "sha256": "7ff790839b3c789ec5917ef9472dd743e8d2aedf11c8f304223c22ee750a1649",
+      "group": "portrait",
+      "id": "druid-4",
+      "dimensions": [
+        344,
+        422
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/druid-4.png?verify=0.4.0-b914bee9e62455f54686-162",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 155972,
+      "servedSha256": "7ff790839b3c789ec5917ef9472dd743e8d2aedf11c8f304223c22ee750a1649"
+    },
+    {
+      "file": "assets/ui/reference-portraits/druid-5.png",
+      "bytes": 167457,
+      "sha256": "d05c5a35076a82297b9b1aab0c7a3df0b7369ef0bb46ff54a394b5372c70204c",
+      "group": "portrait",
+      "id": "druid-5",
+      "dimensions": [
+        351,
+        428
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/druid-5.png?verify=0.4.0-b914bee9e62455f54686-163",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 167457,
+      "servedSha256": "d05c5a35076a82297b9b1aab0c7a3df0b7369ef0bb46ff54a394b5372c70204c"
+    },
+    {
+      "file": "assets/ui/reference-portraits/druid-6.png",
+      "bytes": 164089,
+      "sha256": "3d9e6ba2dfd6c40c72f64e649dc10fd73bee1875f1e7bbd228bc6db5b1e090c6",
+      "group": "portrait",
+      "id": "druid-6",
+      "dimensions": [
+        353,
+        432
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/druid-6.png?verify=0.4.0-b914bee9e62455f54686-164",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 164089,
+      "servedSha256": "3d9e6ba2dfd6c40c72f64e649dc10fd73bee1875f1e7bbd228bc6db5b1e090c6"
+    },
+    {
+      "file": "assets/ui/reference-portraits/eldergrove.png",
+      "bytes": 372439,
+      "sha256": "b24cf6b6e88613b36e86e166e432b0fd40d3ad32d00223943f924ae4328af25f",
+      "group": "portrait",
+      "id": "eldergrove",
+      "dimensions": [
+        610,
+        510
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/eldergrove.png?verify=0.4.0-b914bee9e62455f54686-186",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 372439,
+      "servedSha256": "b24cf6b6e88613b36e86e166e432b0fd40d3ad32d00223943f924ae4328af25f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/elvenking.png",
+      "bytes": 388838,
+      "sha256": "5c1ee4232efa2eba217e8896f8ffa1d62c842b02be31e4ed9cdf5d47a6659b11",
+      "group": "portrait",
+      "id": "elvenking",
+      "dimensions": [
+        613,
+        526
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/elvenking.png?verify=0.4.0-b914bee9e62455f54686-200",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 388838,
+      "servedSha256": "5c1ee4232efa2eba217e8896f8ffa1d62c842b02be31e4ed9cdf5d47a6659b11"
+    },
+    {
+      "file": "assets/ui/reference-portraits/embercrown.png",
+      "bytes": 163550,
+      "sha256": "70be02f270bf43b3dc5c88e74e034e9d3b3af112e95ea535bbed8c3fd536584f",
+      "group": "portrait",
+      "id": "embercrown",
+      "dimensions": [
+        459,
+        369
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/embercrown.png?verify=0.4.0-b914bee9e62455f54686-180",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 163550,
+      "servedSha256": "70be02f270bf43b3dc5c88e74e034e9d3b3af112e95ea535bbed8c3fd536584f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/emeraldgolem.png",
+      "bytes": 196131,
+      "sha256": "ccbe7a2ac4fdd1d9d57fb8264d793cc9c22661ccfbd4d68a87492f204de1fccc",
+      "group": "portrait",
+      "id": "emeraldgolem",
+      "dimensions": [
+        389,
+        365
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/emeraldgolem.png?verify=0.4.0-b914bee9e62455f54686-202",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 196131,
+      "servedSha256": "ccbe7a2ac4fdd1d9d57fb8264d793cc9c22661ccfbd4d68a87492f204de1fccc"
+    },
+    {
+      "file": "assets/ui/reference-portraits/fireballista.png",
+      "bytes": 178287,
+      "sha256": "4e9dc2ee2ab495617c14a8fbc696ff9f277922afa88289e952b11c12ad6e3f03",
+      "group": "portrait",
+      "id": "fireballista",
+      "dimensions": [
+        384,
+        361
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/fireballista.png?verify=0.4.0-b914bee9e62455f54686-201",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 178287,
+      "servedSha256": "4e9dc2ee2ab495617c14a8fbc696ff9f277922afa88289e952b11c12ad6e3f03"
+    },
+    {
+      "file": "assets/ui/reference-portraits/frostblade.png",
+      "bytes": 223895,
+      "sha256": "32559dbe6c9ad8e56e775cee73b09fa1e92576981fa6756d16fe4dd806fcd965",
+      "group": "portrait",
+      "id": "frostblade",
+      "dimensions": [
+        496,
+        408
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/frostblade.png?verify=0.4.0-b914bee9e62455f54686-172",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 223895,
+      "servedSha256": "32559dbe6c9ad8e56e775cee73b09fa1e92576981fa6756d16fe4dd806fcd965"
+    },
+    {
+      "file": "assets/ui/reference-portraits/frostwarden-1.png",
+      "bytes": 126271,
+      "sha256": "860f6d8516c5228b54e0ec7e12e97c953e24f9d64ae1337cd90c2446e718c71a",
+      "group": "portrait",
+      "id": "frostwarden-1",
+      "dimensions": [
+        300,
+        420
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/frostwarden-1.png?verify=0.4.0-b914bee9e62455f54686-141",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 126271,
+      "servedSha256": "860f6d8516c5228b54e0ec7e12e97c953e24f9d64ae1337cd90c2446e718c71a"
+    },
+    {
+      "file": "assets/ui/reference-portraits/frostwarden-2.png",
+      "bytes": 128896,
+      "sha256": "dc371ea1c2ca29b62f4b647785fe3fed4a051617f61fb7ecc93fd6eb56b95c74",
+      "group": "portrait",
+      "id": "frostwarden-2",
+      "dimensions": [
+        291,
+        433
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/frostwarden-2.png?verify=0.4.0-b914bee9e62455f54686-142",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 128896,
+      "servedSha256": "dc371ea1c2ca29b62f4b647785fe3fed4a051617f61fb7ecc93fd6eb56b95c74"
+    },
+    {
+      "file": "assets/ui/reference-portraits/frostwarden-3.png",
+      "bytes": 124890,
+      "sha256": "864093061bedcb408e3433090298f514ab9ffac1b8ac9cac15d56a5b05ea9399",
+      "group": "portrait",
+      "id": "frostwarden-3",
+      "dimensions": [
+        296,
+        412
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/frostwarden-3.png?verify=0.4.0-b914bee9e62455f54686-143",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 124890,
+      "servedSha256": "864093061bedcb408e3433090298f514ab9ffac1b8ac9cac15d56a5b05ea9399"
+    },
+    {
+      "file": "assets/ui/reference-portraits/frostwarden-4.png",
+      "bytes": 131609,
+      "sha256": "5d0725c56e70bd5f49cd2a80337e6701bffa68e80f3b88c65926e0eea1395cc6",
+      "group": "portrait",
+      "id": "frostwarden-4",
+      "dimensions": [
+        295,
+        429
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/frostwarden-4.png?verify=0.4.0-b914bee9e62455f54686-144",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 131609,
+      "servedSha256": "5d0725c56e70bd5f49cd2a80337e6701bffa68e80f3b88c65926e0eea1395cc6"
+    },
+    {
+      "file": "assets/ui/reference-portraits/frostwarden-5.png",
+      "bytes": 146101,
+      "sha256": "38aa70b7839f3e5516434c0bf1a270d6b2f3e612d68698a4671bd10c9ccb4a85",
+      "group": "portrait",
+      "id": "frostwarden-5",
+      "dimensions": [
+        322,
+        437
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/frostwarden-5.png?verify=0.4.0-b914bee9e62455f54686-145",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 146101,
+      "servedSha256": "38aa70b7839f3e5516434c0bf1a270d6b2f3e612d68698a4671bd10c9ccb4a85"
+    },
+    {
+      "file": "assets/ui/reference-portraits/frostwarden-6.png",
+      "bytes": 156504,
+      "sha256": "9a72ab4168abe3ad1724daa9abe5b79e9360512787d2344a721d89491c763345",
+      "group": "portrait",
+      "id": "frostwarden-6",
+      "dimensions": [
+        328,
+        446
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/frostwarden-6.png?verify=0.4.0-b914bee9e62455f54686-146",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 156504,
+      "servedSha256": "9a72ab4168abe3ad1724daa9abe5b79e9360512787d2344a721d89491c763345"
+    },
+    {
+      "file": "assets/ui/reference-portraits/greenheart.png",
+      "bytes": 338795,
+      "sha256": "5918c533f612dfee18c44c7e0a0dd2afe63f8be939c3ef56392a19273e6836b4",
+      "group": "portrait",
+      "id": "greenheart",
+      "dimensions": [
+        610,
+        510
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/greenheart.png?verify=0.4.0-b914bee9e62455f54686-185",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 338795,
+      "servedSha256": "5918c533f612dfee18c44c7e0a0dd2afe63f8be939c3ef56392a19273e6836b4"
+    },
+    {
+      "file": "assets/ui/reference-portraits/griffinbomber.png",
+      "bytes": 292766,
+      "sha256": "052ba0e6241b018a74e93061404cf20903404562e377628b0160a6c44923df61",
+      "group": "portrait",
+      "id": "griffinbomber",
+      "dimensions": [
+        557,
+        433
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/griffinbomber.png?verify=0.4.0-b914bee9e62455f54686-203",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 292766,
+      "servedSha256": "052ba0e6241b018a74e93061404cf20903404562e377628b0160a6c44923df61"
+    },
+    {
+      "file": "assets/ui/reference-portraits/highking.png",
+      "bytes": 348799,
+      "sha256": "e426f2e470f396c433c379b7375efa98e55af63a049e8bb6890d4d3affb63fee",
+      "group": "portrait",
+      "id": "highking",
+      "dimensions": [
+        764,
+        457
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/highking.png?verify=0.4.0-b914bee9e62455f54686-174",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 348799,
+      "servedSha256": "e426f2e470f396c433c379b7375efa98e55af63a049e8bb6890d4d3affb63fee"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_01.png",
+      "bytes": 175064,
+      "sha256": "9fc7808572ffb0215b2e6b25bfac9ae4e7b38829a748a5e6281ee24a31f46dd9",
+      "group": "portrait",
+      "id": "host_01",
+      "dimensions": [
+        345,
+        422
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_01.png?verify=0.4.0-b914bee9e62455f54686-209",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 175064,
+      "servedSha256": "9fc7808572ffb0215b2e6b25bfac9ae4e7b38829a748a5e6281ee24a31f46dd9"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_02.png",
+      "bytes": 136306,
+      "sha256": "a9c9f497eb81c17c66d6d58564a92636b6e57d692755734011a2e9f6a85706ad",
+      "group": "portrait",
+      "id": "host_02",
+      "dimensions": [
+        298,
+        434
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_02.png?verify=0.4.0-b914bee9e62455f54686-210",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 136306,
+      "servedSha256": "a9c9f497eb81c17c66d6d58564a92636b6e57d692755734011a2e9f6a85706ad"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_03.png",
+      "bytes": 200071,
+      "sha256": "569b1cb7150dc4bc4b8c7a156c7d47c6e1371cd0a4168f2b43c98dddb6b34e72",
+      "group": "portrait",
+      "id": "host_03",
+      "dimensions": [
+        419,
+        418
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_03.png?verify=0.4.0-b914bee9e62455f54686-211",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 200071,
+      "servedSha256": "569b1cb7150dc4bc4b8c7a156c7d47c6e1371cd0a4168f2b43c98dddb6b34e72"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_04.png",
+      "bytes": 186138,
+      "sha256": "a3da8471c6627243f1c2c04d482f40e7c251bbd1555bb8bf66cd578e1f717033",
+      "group": "portrait",
+      "id": "host_04",
+      "dimensions": [
+        372,
+        424
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_04.png?verify=0.4.0-b914bee9e62455f54686-212",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 186138,
+      "servedSha256": "a3da8471c6627243f1c2c04d482f40e7c251bbd1555bb8bf66cd578e1f717033"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_05.png",
+      "bytes": 185626,
+      "sha256": "bdcb7c4d6e560c94ad8d6957a90a99d02dd0fbac312bea2279bd2565f2395f3a",
+      "group": "portrait",
+      "id": "host_05",
+      "dimensions": [
+        446,
+        426
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_05.png?verify=0.4.0-b914bee9e62455f54686-213",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 185626,
+      "servedSha256": "bdcb7c4d6e560c94ad8d6957a90a99d02dd0fbac312bea2279bd2565f2395f3a"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_06.png",
+      "bytes": 222588,
+      "sha256": "034b81b50636a6c16aa5480e3a315e3f7b6e6c131e03806a73a3944cb2b1c8c1",
+      "group": "portrait",
+      "id": "host_06",
+      "dimensions": [
+        426,
+        434
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_06.png?verify=0.4.0-b914bee9e62455f54686-214",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 222588,
+      "servedSha256": "034b81b50636a6c16aa5480e3a315e3f7b6e6c131e03806a73a3944cb2b1c8c1"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_07.png",
+      "bytes": 166988,
+      "sha256": "57f4b4e220e2bebde17ed09d0703657ef288aadc71b990bd485c74320237db04",
+      "group": "portrait",
+      "id": "host_07",
+      "dimensions": [
+        312,
+        434
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_07.png?verify=0.4.0-b914bee9e62455f54686-215",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 166988,
+      "servedSha256": "57f4b4e220e2bebde17ed09d0703657ef288aadc71b990bd485c74320237db04"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_08.png",
+      "bytes": 238054,
+      "sha256": "c0d3838551fa31458d1c37eb462824349e13d7cc5db204d47977f6ec8ef8fca3",
+      "group": "portrait",
+      "id": "host_08",
+      "dimensions": [
+        450,
+        440
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_08.png?verify=0.4.0-b914bee9e62455f54686-216",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 238054,
+      "servedSha256": "c0d3838551fa31458d1c37eb462824349e13d7cc5db204d47977f6ec8ef8fca3"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_09.png",
+      "bytes": 207063,
+      "sha256": "6fac9fba54f468fcd3f671ba7b25373c7831666bb1e8c4aa826dcc8460b43241",
+      "group": "portrait",
+      "id": "host_09",
+      "dimensions": [
+        459,
+        385
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_09.png?verify=0.4.0-b914bee9e62455f54686-217",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 207063,
+      "servedSha256": "6fac9fba54f468fcd3f671ba7b25373c7831666bb1e8c4aa826dcc8460b43241"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_10.png",
+      "bytes": 276708,
+      "sha256": "a9030b424a1fcb874b6ca666a7c063893c6bf6c4a774b51e0bb74c84edbd8ed7",
+      "group": "portrait",
+      "id": "host_10",
+      "dimensions": [
+        479,
+        428
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_10.png?verify=0.4.0-b914bee9e62455f54686-218",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 276708,
+      "servedSha256": "a9030b424a1fcb874b6ca666a7c063893c6bf6c4a774b51e0bb74c84edbd8ed7"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_11.png",
+      "bytes": 221087,
+      "sha256": "59dd41b77be811d000cf55a6f0092539193ea500a8b0a053dad9e6c5012954b8",
+      "group": "portrait",
+      "id": "host_11",
+      "dimensions": [
+        428,
+        427
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_11.png?verify=0.4.0-b914bee9e62455f54686-219",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 221087,
+      "servedSha256": "59dd41b77be811d000cf55a6f0092539193ea500a8b0a053dad9e6c5012954b8"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_12.png",
+      "bytes": 178443,
+      "sha256": "0842fbdcd6c9aabc94200e5b4f1ab3a137289a92d5cf977e5d78c7f274cdae2b",
+      "group": "portrait",
+      "id": "host_12",
+      "dimensions": [
+        359,
+        423
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_12.png?verify=0.4.0-b914bee9e62455f54686-220",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 178443,
+      "servedSha256": "0842fbdcd6c9aabc94200e5b4f1ab3a137289a92d5cf977e5d78c7f274cdae2b"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_13.png",
+      "bytes": 183117,
+      "sha256": "a598cb2a1eb54c158e7789d1b1de37db75afaccbe28ffa34338b26796ea892fd",
+      "group": "portrait",
+      "id": "host_13",
+      "dimensions": [
+        346,
+        433
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_13.png?verify=0.4.0-b914bee9e62455f54686-221",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 183117,
+      "servedSha256": "a598cb2a1eb54c158e7789d1b1de37db75afaccbe28ffa34338b26796ea892fd"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_14.png",
+      "bytes": 169662,
+      "sha256": "9187524a52a5d0c47f3fc9409806d3dda831b07b0df8cd4446fd93174feddf97",
+      "group": "portrait",
+      "id": "host_14",
+      "dimensions": [
+        305,
+        439
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_14.png?verify=0.4.0-b914bee9e62455f54686-222",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 169662,
+      "servedSha256": "9187524a52a5d0c47f3fc9409806d3dda831b07b0df8cd4446fd93174feddf97"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_15.png",
+      "bytes": 218567,
+      "sha256": "e253bbb74736a39d946bfe6c9d9db4711d094bde82b177d8071c90c483342411",
+      "group": "portrait",
+      "id": "host_15",
+      "dimensions": [
+        428,
+        441
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_15.png?verify=0.4.0-b914bee9e62455f54686-223",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 218567,
+      "servedSha256": "e253bbb74736a39d946bfe6c9d9db4711d094bde82b177d8071c90c483342411"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_16.png",
+      "bytes": 183218,
+      "sha256": "28f22296c57b5c9e72c2b7987d35b9b045204732b675a1d07667c4ef33f6f8a3",
+      "group": "portrait",
+      "id": "host_16",
+      "dimensions": [
+        381,
+        430
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_16.png?verify=0.4.0-b914bee9e62455f54686-224",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 183218,
+      "servedSha256": "28f22296c57b5c9e72c2b7987d35b9b045204732b675a1d07667c4ef33f6f8a3"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_17.png",
+      "bytes": 209059,
+      "sha256": "5b277f4bde21211553048d097681362a1ce5dccfdad7a34f579ca1b282018aa0",
+      "group": "portrait",
+      "id": "host_17",
+      "dimensions": [
+        416,
+        442
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_17.png?verify=0.4.0-b914bee9e62455f54686-225",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 209059,
+      "servedSha256": "5b277f4bde21211553048d097681362a1ce5dccfdad7a34f579ca1b282018aa0"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_18.png",
+      "bytes": 194384,
+      "sha256": "a774daff44cfaa44039815ab88098eba71ead78d738bb58b5a322d80b0273e28",
+      "group": "portrait",
+      "id": "host_18",
+      "dimensions": [
+        398,
+        440
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_18.png?verify=0.4.0-b914bee9e62455f54686-226",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 194384,
+      "servedSha256": "a774daff44cfaa44039815ab88098eba71ead78d738bb58b5a322d80b0273e28"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_19.png",
+      "bytes": 180123,
+      "sha256": "643929c14be7f8e55ac277ae73e0de0cd4eda839706e3ba69005b16b989332ba",
+      "group": "portrait",
+      "id": "host_19",
+      "dimensions": [
+        395,
+        393
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_19.png?verify=0.4.0-b914bee9e62455f54686-227",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 180123,
+      "servedSha256": "643929c14be7f8e55ac277ae73e0de0cd4eda839706e3ba69005b16b989332ba"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_20.png",
+      "bytes": 220398,
+      "sha256": "506adc949daf9cf44a1da6050959ae28a5818a819daa174dc2408940278bff6c",
+      "group": "portrait",
+      "id": "host_20",
+      "dimensions": [
+        411,
+        432
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_20.png?verify=0.4.0-b914bee9e62455f54686-228",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 220398,
+      "servedSha256": "506adc949daf9cf44a1da6050959ae28a5818a819daa174dc2408940278bff6c"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_21.png",
+      "bytes": 245066,
+      "sha256": "ec52d932f4bac32bee6fa7d5f2011c7a7f59ff4c88c8775184fa3ea157bb16ae",
+      "group": "portrait",
+      "id": "host_21",
+      "dimensions": [
+        424,
+        436
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_21.png?verify=0.4.0-b914bee9e62455f54686-229",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 245066,
+      "servedSha256": "ec52d932f4bac32bee6fa7d5f2011c7a7f59ff4c88c8775184fa3ea157bb16ae"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_22.png",
+      "bytes": 236780,
+      "sha256": "200158df097b1483851d4441b430266e1c28a55de2a9dcbecc00c4a2f835e0ad",
+      "group": "portrait",
+      "id": "host_22",
+      "dimensions": [
+        417,
+        423
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_22.png?verify=0.4.0-b914bee9e62455f54686-230",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 236780,
+      "servedSha256": "200158df097b1483851d4441b430266e1c28a55de2a9dcbecc00c4a2f835e0ad"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_23.png",
+      "bytes": 197436,
+      "sha256": "4d712c946c556c87275c670ab73f64043b0b9ee15d60c63d742cb4b8d3a4b1ee",
+      "group": "portrait",
+      "id": "host_23",
+      "dimensions": [
+        389,
+        432
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_23.png?verify=0.4.0-b914bee9e62455f54686-231",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 197436,
+      "servedSha256": "4d712c946c556c87275c670ab73f64043b0b9ee15d60c63d742cb4b8d3a4b1ee"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_24.png",
+      "bytes": 262951,
+      "sha256": "9d1f7a02b6fcb44b8a89e072bfe06a2e39d48fdb9206dada4bd28605324f7307",
+      "group": "portrait",
+      "id": "host_24",
+      "dimensions": [
+        469,
+        421
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_24.png?verify=0.4.0-b914bee9e62455f54686-232",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 262951,
+      "servedSha256": "9d1f7a02b6fcb44b8a89e072bfe06a2e39d48fdb9206dada4bd28605324f7307"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_25.png",
+      "bytes": 249480,
+      "sha256": "bc1b6ff68a00571ad4d8784097696e22f77b72d7d508fe2628e48ec753d85ebb",
+      "group": "portrait",
+      "id": "host_25",
+      "dimensions": [
+        473,
+        401
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_25.png?verify=0.4.0-b914bee9e62455f54686-233",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 249480,
+      "servedSha256": "bc1b6ff68a00571ad4d8784097696e22f77b72d7d508fe2628e48ec753d85ebb"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_26.png",
+      "bytes": 221546,
+      "sha256": "20489fd6a556c14d85c0d777de4503e5da337c28a5c956679f39dc6c4062e4f0",
+      "group": "portrait",
+      "id": "host_26",
+      "dimensions": [
+        438,
+        409
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_26.png?verify=0.4.0-b914bee9e62455f54686-234",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 221546,
+      "servedSha256": "20489fd6a556c14d85c0d777de4503e5da337c28a5c956679f39dc6c4062e4f0"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_27.png",
+      "bytes": 236917,
+      "sha256": "6d29307fab329a1b196677f04ba86cdba1313716b4e59cf1fdec649ca70a0103",
+      "group": "portrait",
+      "id": "host_27",
+      "dimensions": [
+        494,
+        423
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_27.png?verify=0.4.0-b914bee9e62455f54686-235",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 236917,
+      "servedSha256": "6d29307fab329a1b196677f04ba86cdba1313716b4e59cf1fdec649ca70a0103"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_28.png",
+      "bytes": 230074,
+      "sha256": "180a7bc6bf383fbdc727564a3039239d42dad8bad1bca39062651d48deaff6d8",
+      "group": "portrait",
+      "id": "host_28",
+      "dimensions": [
+        468,
+        412
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_28.png?verify=0.4.0-b914bee9e62455f54686-236",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 230074,
+      "servedSha256": "180a7bc6bf383fbdc727564a3039239d42dad8bad1bca39062651d48deaff6d8"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_29.png",
+      "bytes": 211290,
+      "sha256": "544c2b3d7961d4902f6d453f880bc7c3875267e4879486088e6f0a1090722519",
+      "group": "portrait",
+      "id": "host_29",
+      "dimensions": [
+        425,
+        404
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_29.png?verify=0.4.0-b914bee9e62455f54686-237",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 211290,
+      "servedSha256": "544c2b3d7961d4902f6d453f880bc7c3875267e4879486088e6f0a1090722519"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_30.png",
+      "bytes": 233136,
+      "sha256": "4b39abd820e0ec7d3eec394f0eeb7a1ef537ae9142b88316b27945344e3191e8",
+      "group": "portrait",
+      "id": "host_30",
+      "dimensions": [
+        507,
+        402
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_30.png?verify=0.4.0-b914bee9e62455f54686-238",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 233136,
+      "servedSha256": "4b39abd820e0ec7d3eec394f0eeb7a1ef537ae9142b88316b27945344e3191e8"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_31.png",
+      "bytes": 188035,
+      "sha256": "303abda79c00132c260c4cc14e750d02ccb3edfc856a0ec5bc8e88996bc1e02f",
+      "group": "portrait",
+      "id": "host_31",
+      "dimensions": [
+        339,
+        425
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_31.png?verify=0.4.0-b914bee9e62455f54686-239",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 188035,
+      "servedSha256": "303abda79c00132c260c4cc14e750d02ccb3edfc856a0ec5bc8e88996bc1e02f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_32.png",
+      "bytes": 193011,
+      "sha256": "9965d60573f5ecb3ccbc18f9ae2fedb3bb06dacc538c2f30ab6ae307a57ed881",
+      "group": "portrait",
+      "id": "host_32",
+      "dimensions": [
+        385,
+        422
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_32.png?verify=0.4.0-b914bee9e62455f54686-240",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 193011,
+      "servedSha256": "9965d60573f5ecb3ccbc18f9ae2fedb3bb06dacc538c2f30ab6ae307a57ed881"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_33.png",
+      "bytes": 183310,
+      "sha256": "360e69563697195b685dd263c42aa26c2167215995112c0fe3633e85cf5890dc",
+      "group": "portrait",
+      "id": "host_33",
+      "dimensions": [
+        343,
+        430
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_33.png?verify=0.4.0-b914bee9e62455f54686-241",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 183310,
+      "servedSha256": "360e69563697195b685dd263c42aa26c2167215995112c0fe3633e85cf5890dc"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_34.png",
+      "bytes": 246181,
+      "sha256": "28707febebc8638870e23cfe6af38205cdf1c014ca32d6891a96a4dd114ebd7b",
+      "group": "portrait",
+      "id": "host_34",
+      "dimensions": [
+        505,
+        428
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_34.png?verify=0.4.0-b914bee9e62455f54686-242",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 246181,
+      "servedSha256": "28707febebc8638870e23cfe6af38205cdf1c014ca32d6891a96a4dd114ebd7b"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_35.png",
+      "bytes": 221934,
+      "sha256": "1a7740d67beca4a84ba618ff5075b7c8c80dc0943aaf8898702554eb21102aef",
+      "group": "portrait",
+      "id": "host_35",
+      "dimensions": [
+        440,
+        450
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_35.png?verify=0.4.0-b914bee9e62455f54686-243",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 221934,
+      "servedSha256": "1a7740d67beca4a84ba618ff5075b7c8c80dc0943aaf8898702554eb21102aef"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_36.png",
+      "bytes": 201515,
+      "sha256": "49112b99abd0e72379fedbf6a3769bbe14e4183d1ddefee3237ecc70835ee23e",
+      "group": "portrait",
+      "id": "host_36",
+      "dimensions": [
+        384,
+        434
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_36.png?verify=0.4.0-b914bee9e62455f54686-244",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 201515,
+      "servedSha256": "49112b99abd0e72379fedbf6a3769bbe14e4183d1ddefee3237ecc70835ee23e"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_37.png",
+      "bytes": 216424,
+      "sha256": "bfdc4393b92dc8a4f2f03fde822ea80d71042e62e88012dac2fd663dacec0166",
+      "group": "portrait",
+      "id": "host_37",
+      "dimensions": [
+        388,
+        456
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_37.png?verify=0.4.0-b914bee9e62455f54686-245",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 216424,
+      "servedSha256": "bfdc4393b92dc8a4f2f03fde822ea80d71042e62e88012dac2fd663dacec0166"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_38.png",
+      "bytes": 196465,
+      "sha256": "7c0df98f72f3f6235a923a2143b9ac1b7924d74ab4165036ac708df300b4888a",
+      "group": "portrait",
+      "id": "host_38",
+      "dimensions": [
+        392,
+        419
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_38.png?verify=0.4.0-b914bee9e62455f54686-246",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 196465,
+      "servedSha256": "7c0df98f72f3f6235a923a2143b9ac1b7924d74ab4165036ac708df300b4888a"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_39.png",
+      "bytes": 197459,
+      "sha256": "f47b934740cab954b05d345c0045deed8f5c5ad827f3f3d12f755154ce98e5bc",
+      "group": "portrait",
+      "id": "host_39",
+      "dimensions": [
+        467,
+        414
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_39.png?verify=0.4.0-b914bee9e62455f54686-247",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 197459,
+      "servedSha256": "f47b934740cab954b05d345c0045deed8f5c5ad827f3f3d12f755154ce98e5bc"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_40.png",
+      "bytes": 280488,
+      "sha256": "fcff82c3e0683e033a45330f9b7e3b986b0f79845f7ca7f47116de74a4d9cedb",
+      "group": "portrait",
+      "id": "host_40",
+      "dimensions": [
+        468,
+        437
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_40.png?verify=0.4.0-b914bee9e62455f54686-248",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 280488,
+      "servedSha256": "fcff82c3e0683e033a45330f9b7e3b986b0f79845f7ca7f47116de74a4d9cedb"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_41.png",
+      "bytes": 171427,
+      "sha256": "88c065db00f544bebb77551a22ae80dddcfbb98ff9f08cb74abbd50f747314b9",
+      "group": "portrait",
+      "id": "host_41",
+      "dimensions": [
+        335,
+        427
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_41.png?verify=0.4.0-b914bee9e62455f54686-249",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 171427,
+      "servedSha256": "88c065db00f544bebb77551a22ae80dddcfbb98ff9f08cb74abbd50f747314b9"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_42.png",
+      "bytes": 192884,
+      "sha256": "e678bc5f040a66bdbb3dffec3961239a141320331899325f51c9632f46ed20fc",
+      "group": "portrait",
+      "id": "host_42",
+      "dimensions": [
+        474,
+        363
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_42.png?verify=0.4.0-b914bee9e62455f54686-250",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 192884,
+      "servedSha256": "e678bc5f040a66bdbb3dffec3961239a141320331899325f51c9632f46ed20fc"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_43.png",
+      "bytes": 239812,
+      "sha256": "0a5e52a1042e199459cfe1059f0034778d09046d01bc3c101f974a2f0f5228af",
+      "group": "portrait",
+      "id": "host_43",
+      "dimensions": [
+        461,
+        428
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_43.png?verify=0.4.0-b914bee9e62455f54686-251",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 239812,
+      "servedSha256": "0a5e52a1042e199459cfe1059f0034778d09046d01bc3c101f974a2f0f5228af"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_44.png",
+      "bytes": 158297,
+      "sha256": "1743db173c9154837cf5d952dfea0fa1ff1a40e10315e2ea20d32dfb652dd237",
+      "group": "portrait",
+      "id": "host_44",
+      "dimensions": [
+        308,
+        456
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_44.png?verify=0.4.0-b914bee9e62455f54686-252",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 158297,
+      "servedSha256": "1743db173c9154837cf5d952dfea0fa1ff1a40e10315e2ea20d32dfb652dd237"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_45.png",
+      "bytes": 214996,
+      "sha256": "b4db7d52c641d206677d5e5e9a3d029afa4a33a4d744bfa80a56b1a7abd908b4",
+      "group": "portrait",
+      "id": "host_45",
+      "dimensions": [
+        502,
+        401
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_45.png?verify=0.4.0-b914bee9e62455f54686-253",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 214996,
+      "servedSha256": "b4db7d52c641d206677d5e5e9a3d029afa4a33a4d744bfa80a56b1a7abd908b4"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_46.png",
+      "bytes": 204052,
+      "sha256": "87f03003db97d68dab97d5e7a3857d9d2d8dd883ff1fac411b606a9849f22fb8",
+      "group": "portrait",
+      "id": "host_46",
+      "dimensions": [
+        370,
+        426
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_46.png?verify=0.4.0-b914bee9e62455f54686-254",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 204052,
+      "servedSha256": "87f03003db97d68dab97d5e7a3857d9d2d8dd883ff1fac411b606a9849f22fb8"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_47.png",
+      "bytes": 254243,
+      "sha256": "7b2579735b8e2887452b9943a32529f2c72916b87704cbd33f47fb99e51f36be",
+      "group": "portrait",
+      "id": "host_47",
+      "dimensions": [
+        461,
+        449
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_47.png?verify=0.4.0-b914bee9e62455f54686-255",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 254243,
+      "servedSha256": "7b2579735b8e2887452b9943a32529f2c72916b87704cbd33f47fb99e51f36be"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_48.png",
+      "bytes": 218306,
+      "sha256": "a032d1991f1ea896db69cd53a9262ed3019c9c878e434d6f004491280bdbda03",
+      "group": "portrait",
+      "id": "host_48",
+      "dimensions": [
+        474,
+        425
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_48.png?verify=0.4.0-b914bee9e62455f54686-256",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 218306,
+      "servedSha256": "a032d1991f1ea896db69cd53a9262ed3019c9c878e434d6f004491280bdbda03"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_49.png",
+      "bytes": 256958,
+      "sha256": "179705f50b2f45d7c0d5f116464ccfee7d3443f5df282f38e81faf0a9f7b8b87",
+      "group": "portrait",
+      "id": "host_49",
+      "dimensions": [
+        448,
+        446
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_49.png?verify=0.4.0-b914bee9e62455f54686-257",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 256958,
+      "servedSha256": "179705f50b2f45d7c0d5f116464ccfee7d3443f5df282f38e81faf0a9f7b8b87"
+    },
+    {
+      "file": "assets/ui/reference-portraits/host_50.png",
+      "bytes": 253053,
+      "sha256": "7eb6cbd99fe588eeadec7c62682185951955c7039b334bbfdea4b708287768a1",
+      "group": "portrait",
+      "id": "host_50",
+      "dimensions": [
+        479,
+        444
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/host_50.png?verify=0.4.0-b914bee9e62455f54686-258",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 253053,
+      "servedSha256": "7eb6cbd99fe588eeadec7c62682185951955c7039b334bbfdea4b708287768a1"
+    },
+    {
+      "file": "assets/ui/reference-portraits/kingdomprotector.png",
+      "bytes": 368044,
+      "sha256": "d2b120ac0f35f17183386d10c4a6e362417e9093d0d15205dd6c1aff7b13f98f",
+      "group": "portrait",
+      "id": "kingdomprotector",
+      "dimensions": [
+        604,
+        507
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/kingdomprotector.png?verify=0.4.0-b914bee9e62455f54686-196",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 368044,
+      "servedSha256": "d2b120ac0f35f17183386d10c4a6e362417e9093d0d15205dd6c1aff7b13f98f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/kingsrangerguard.png",
+      "bytes": 372699,
+      "sha256": "1d2235d999e33476a1f9e9cb8561a2dadbd82d956a40fef929a3fd4163246202",
+      "group": "portrait",
+      "id": "kingsrangerguard",
+      "dimensions": [
+        611,
+        526
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/kingsrangerguard.png?verify=0.4.0-b914bee9e62455f54686-199",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 372699,
+      "servedSha256": "1d2235d999e33476a1f9e9cb8561a2dadbd82d956a40fef929a3fd4163246202"
+    },
+    {
+      "file": "assets/ui/reference-portraits/kingsreach.png",
+      "bytes": 161743,
+      "sha256": "4eb07593db761d9d54da0af1b844dfb132f5aa234f854d399d169cce8d3e10ba",
+      "group": "portrait",
+      "id": "kingsreach",
+      "dimensions": [
+        344,
+        361
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/kingsreach.png?verify=0.4.0-b914bee9e62455f54686-187",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 161743,
+      "servedSha256": "4eb07593db761d9d54da0af1b844dfb132f5aa234f854d399d169cce8d3e10ba"
+    },
+    {
+      "file": "assets/ui/reference-portraits/ladyclaire.png",
+      "bytes": 532007,
+      "sha256": "c820f9b3d6abd2e3a574c7ada0a63ee4ac62ab23bea599a2279330350d36855c",
+      "group": "portrait",
+      "id": "ladyclaire",
+      "dimensions": [
+        671,
+        807
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/ladyclaire.png?verify=0.4.0-b914bee9e62455f54686-208",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 532007,
+      "servedSha256": "c820f9b3d6abd2e3a574c7ada0a63ee4ac62ab23bea599a2279330350d36855c"
+    },
+    {
+      "file": "assets/ui/reference-portraits/mage-1.png",
+      "bytes": 119477,
+      "sha256": "c22c003498a62d5b31092ab7c117070f1058adcebb852a91b2c4567c91813d3b",
+      "group": "portrait",
+      "id": "mage-1",
+      "dimensions": [
+        278,
+        429
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/mage-1.png?verify=0.4.0-b914bee9e62455f54686-135",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 119477,
+      "servedSha256": "c22c003498a62d5b31092ab7c117070f1058adcebb852a91b2c4567c91813d3b"
+    },
+    {
+      "file": "assets/ui/reference-portraits/mage-2.png",
+      "bytes": 156697,
+      "sha256": "6fec3ad52a24ed0a5a366ffcbea9e8f541335f25d02a5d53472a3e95ff8341d5",
+      "group": "portrait",
+      "id": "mage-2",
+      "dimensions": [
+        356,
+        448
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/mage-2.png?verify=0.4.0-b914bee9e62455f54686-136",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 156697,
+      "servedSha256": "6fec3ad52a24ed0a5a366ffcbea9e8f541335f25d02a5d53472a3e95ff8341d5"
+    },
+    {
+      "file": "assets/ui/reference-portraits/mage-3.png",
+      "bytes": 141194,
+      "sha256": "c014e892e75e6e95f5838549194d74fe910b7010178284021a89ebca20d9f765",
+      "group": "portrait",
+      "id": "mage-3",
+      "dimensions": [
+        295,
+        455
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/mage-3.png?verify=0.4.0-b914bee9e62455f54686-137",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 141194,
+      "servedSha256": "c014e892e75e6e95f5838549194d74fe910b7010178284021a89ebca20d9f765"
+    },
+    {
+      "file": "assets/ui/reference-portraits/mage-4.png",
+      "bytes": 125928,
+      "sha256": "ec72c1db570ca1f3b6c75a62dddb0adf066e3eebdaf243f25a5ac72098bd4135",
+      "group": "portrait",
+      "id": "mage-4",
+      "dimensions": [
+        291,
+        430
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/mage-4.png?verify=0.4.0-b914bee9e62455f54686-138",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 125928,
+      "servedSha256": "ec72c1db570ca1f3b6c75a62dddb0adf066e3eebdaf243f25a5ac72098bd4135"
+    },
+    {
+      "file": "assets/ui/reference-portraits/mage-5.png",
+      "bytes": 143012,
+      "sha256": "05becd14f7a8e28417d744e9a35d752ae399cf720065094c1ad5c1aad81e378f",
+      "group": "portrait",
+      "id": "mage-5",
+      "dimensions": [
+        307,
+        430
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/mage-5.png?verify=0.4.0-b914bee9e62455f54686-139",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 143012,
+      "servedSha256": "05becd14f7a8e28417d744e9a35d752ae399cf720065094c1ad5c1aad81e378f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/mage-6.png",
+      "bytes": 144009,
+      "sha256": "36c9f7ac51bcfea9b355fc6a8f72e867cb10e9987a74de3841b76a7fcb142715",
+      "group": "portrait",
+      "id": "mage-6",
+      "dimensions": [
+        303,
+        439
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/mage-6.png?verify=0.4.0-b914bee9e62455f54686-140",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 144009,
+      "servedSha256": "36c9f7ac51bcfea9b355fc6a8f72e867cb10e9987a74de3841b76a7fcb142715"
+    },
+    {
+      "file": "assets/ui/reference-portraits/manifest.json",
+      "bytes": 151780,
+      "sha256": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f",
+      "group": "portrait-manifest",
+      "representation": {
+        "basis": "Exact Git public blob from d010e295e4955d3506258a48e20d9203602d07dc:public/assets/ui/reference-portraits/manifest.json; Git attributes define deployed JSON bytes",
+        "rawBytes": 155594,
+        "rawSha256": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4",
+        "expectedBytes": 151780,
+        "expectedSha256": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f",
+        "rawCRLFSequences": 3814,
+        "rawRepeatedCRBeforeLF": 0,
+        "onlyEolDifference": true,
+        "servedComparison": "Exact expected bytes; served content is not normalized"
+      },
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/manifest.json?verify=0.4.0-b914bee9e62455f54686-122",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "servedBytes": 151780,
+      "servedSha256": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/mechanicalgolem.png",
+      "bytes": 292935,
+      "sha256": "ebc3660b3ee1e20dbdeab252210e440d628710d512d796d520517aa432725de6",
+      "group": "portrait",
+      "id": "mechanicalgolem",
+      "dimensions": [
+        556,
+        455
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/mechanicalgolem.png?verify=0.4.0-b914bee9e62455f54686-204",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 292935,
+      "servedSha256": "ebc3660b3ee1e20dbdeab252210e440d628710d512d796d520517aa432725de6"
+    },
+    {
+      "file": "assets/ui/reference-portraits/monk.png",
+      "bytes": 393813,
+      "sha256": "49b680b6d6e809926ad248ad65570b1e3792a7e238272248aea3a4ada55936eb",
+      "group": "portrait",
+      "id": "monk",
+      "dimensions": [
+        604,
+        541
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/monk.png?verify=0.4.0-b914bee9e62455f54686-205",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 393813,
+      "servedSha256": "49b680b6d6e809926ad248ad65570b1e3792a7e238272248aea3a4ada55936eb"
+    },
+    {
+      "file": "assets/ui/reference-portraits/mothernature.png",
+      "bytes": 395439,
+      "sha256": "2512b9bd6ec5e0aea1dc74a1514cc30ebbeee7308bc2f6b6a0cbbd9c28e3c9d3",
+      "group": "portrait",
+      "id": "mothernature",
+      "dimensions": [
+        610,
+        519
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/mothernature.png?verify=0.4.0-b914bee9e62455f54686-197",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 395439,
+      "servedSha256": "2512b9bd6ec5e0aea1dc74a1514cc30ebbeee7308bc2f6b6a0cbbd9c28e3c9d3"
+    },
+    {
+      "file": "assets/ui/reference-portraits/phoenix.png",
+      "bytes": 422615,
+      "sha256": "dcf140d45619a38fe2a60c1f2e111b39c650ea13c62745bc3999fdfc46c7001d",
+      "group": "portrait",
+      "id": "phoenix",
+      "dimensions": [
+        750,
+        442
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/phoenix.png?verify=0.4.0-b914bee9e62455f54686-184",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 422615,
+      "servedSha256": "dcf140d45619a38fe2a60c1f2e111b39c650ea13c62745bc3999fdfc46c7001d"
+    },
+    {
+      "file": "assets/ui/reference-portraits/rangermentor.png",
+      "bytes": 359333,
+      "sha256": "1e13c2d657b2b0c925f7721f4467f61b8656cdcdc5c0a09089e567568fc81cac",
+      "group": "portrait",
+      "id": "rangermentor",
+      "dimensions": [
+        610,
+        519
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/rangermentor.png?verify=0.4.0-b914bee9e62455f54686-195",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 359333,
+      "servedSha256": "1e13c2d657b2b0c925f7721f4467f61b8656cdcdc5c0a09089e567568fc81cac"
+    },
+    {
+      "file": "assets/ui/reference-portraits/rimewatch.png",
+      "bytes": 203736,
+      "sha256": "dfbe415e8db4619c78616b6784989997487e89437e6bd2377206ddc621977eb5",
+      "group": "portrait",
+      "id": "rimewatch",
+      "dimensions": [
+        516,
+        394
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/rimewatch.png?verify=0.4.0-b914bee9e62455f54686-171",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 203736,
+      "servedSha256": "dfbe415e8db4619c78616b6784989997487e89437e6bd2377206ddc621977eb5"
+    },
+    {
+      "file": "assets/ui/reference-portraits/roseguard.png",
+      "bytes": 252946,
+      "sha256": "e253fa50036611d09595d2a490fec1a3bb9c23c37378eadac0ffbc1b6283dbff",
+      "group": "portrait",
+      "id": "roseguard",
+      "dimensions": [
+        495,
+        423
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/roseguard.png?verify=0.4.0-b914bee9e62455f54686-173",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 252946,
+      "servedSha256": "e253fa50036611d09595d2a490fec1a3bb9c23c37378eadac0ffbc1b6283dbff"
+    },
+    {
+      "file": "assets/ui/reference-portraits/royalarsenal.png",
+      "bytes": 428795,
+      "sha256": "c608b7958138c126c3eddf65c3a8bf19abbf321ccd272d361e69367ea52bb0e2",
+      "group": "portrait",
+      "id": "royalarsenal",
+      "dimensions": [
+        749,
+        463
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/royalarsenal.png?verify=0.4.0-b914bee9e62455f54686-194",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 428795,
+      "servedSha256": "c608b7958138c126c3eddf65c3a8bf19abbf321ccd272d361e69367ea52bb0e2"
+    },
+    {
+      "file": "assets/ui/reference-portraits/royalmarshal.png",
+      "bytes": 173202,
+      "sha256": "f0ab729ff9cd9d576ff6fbaaad1d273b98bbafe4661c82934db50c28d89b3e03",
+      "group": "portrait",
+      "id": "royalmarshal",
+      "dimensions": [
+        373,
+        431
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/royalmarshal.png?verify=0.4.0-b914bee9e62455f54686-191",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 173202,
+      "servedSha256": "f0ab729ff9cd9d576ff6fbaaad1d273b98bbafe4661c82934db50c28d89b3e03"
+    },
+    {
+      "file": "assets/ui/reference-portraits/royalranger.png",
+      "bytes": 392643,
+      "sha256": "8e080d46322d1c6e14b8290eee034568bb00d29dd10f17dbeeb338a450830c18",
+      "group": "portrait",
+      "id": "royalranger",
+      "dimensions": [
+        613,
+        522
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/royalranger.png?verify=0.4.0-b914bee9e62455f54686-198",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 392643,
+      "servedSha256": "8e080d46322d1c6e14b8290eee034568bb00d29dd10f17dbeeb338a450830c18"
+    },
+    {
+      "file": "assets/ui/reference-portraits/runebreaker-1.png",
+      "bytes": 140530,
+      "sha256": "9682ba9773fddaecebb4b057c8271962f433ef6f4c7331baf7d706a1b7b2c1a8",
+      "group": "portrait",
+      "id": "runebreaker-1",
+      "dimensions": [
+        336,
+        418
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/runebreaker-1.png?verify=0.4.0-b914bee9e62455f54686-165",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 140530,
+      "servedSha256": "9682ba9773fddaecebb4b057c8271962f433ef6f4c7331baf7d706a1b7b2c1a8"
+    },
+    {
+      "file": "assets/ui/reference-portraits/runebreaker-2.png",
+      "bytes": 157227,
+      "sha256": "5196227f76ac72e8ffd093d6fc0727cb190f2f3924f3aff2861975cb1b01d628",
+      "group": "portrait",
+      "id": "runebreaker-2",
+      "dimensions": [
+        360,
+        417
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/runebreaker-2.png?verify=0.4.0-b914bee9e62455f54686-166",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 157227,
+      "servedSha256": "5196227f76ac72e8ffd093d6fc0727cb190f2f3924f3aff2861975cb1b01d628"
+    },
+    {
+      "file": "assets/ui/reference-portraits/runebreaker-3.png",
+      "bytes": 158555,
+      "sha256": "c479ef42e192871acf6c38f3cb8b51b486b21d679886cf9b06f35ee3dc74e4bb",
+      "group": "portrait",
+      "id": "runebreaker-3",
+      "dimensions": [
+        364,
+        424
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/runebreaker-3.png?verify=0.4.0-b914bee9e62455f54686-167",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 158555,
+      "servedSha256": "c479ef42e192871acf6c38f3cb8b51b486b21d679886cf9b06f35ee3dc74e4bb"
+    },
+    {
+      "file": "assets/ui/reference-portraits/runebreaker-4.png",
+      "bytes": 155159,
+      "sha256": "18741788d8a41f169e89dac0657b961a1f4e54884dbec55f41c9c4f50677a341",
+      "group": "portrait",
+      "id": "runebreaker-4",
+      "dimensions": [
+        361,
+        424
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/runebreaker-4.png?verify=0.4.0-b914bee9e62455f54686-168",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 155159,
+      "servedSha256": "18741788d8a41f169e89dac0657b961a1f4e54884dbec55f41c9c4f50677a341"
+    },
+    {
+      "file": "assets/ui/reference-portraits/runebreaker-5.png",
+      "bytes": 164809,
+      "sha256": "82782cbf70741b03820f873a3da2acfc94494d267ff1b24355f2fc655e282325",
+      "group": "portrait",
+      "id": "runebreaker-5",
+      "dimensions": [
+        354,
+        415
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/runebreaker-5.png?verify=0.4.0-b914bee9e62455f54686-169",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 164809,
+      "servedSha256": "82782cbf70741b03820f873a3da2acfc94494d267ff1b24355f2fc655e282325"
+    },
+    {
+      "file": "assets/ui/reference-portraits/runebreaker-6.png",
+      "bytes": 169978,
+      "sha256": "392103769c135c3bacb8c7c17f80a22956249d61463266b79b5389a9abc50789",
+      "group": "portrait",
+      "id": "runebreaker-6",
+      "dimensions": [
+        379,
+        411
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/runebreaker-6.png?verify=0.4.0-b914bee9e62455f54686-170",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 169978,
+      "servedSha256": "392103769c135c3bacb8c7c17f80a22956249d61463266b79b5389a9abc50789"
+    },
+    {
+      "file": "assets/ui/reference-portraits/soldier-1.png",
+      "bytes": 150018,
+      "sha256": "4c819e434b51ce37b657eb0825649b0dcbe0df9f947bab052131e98358b1bc35",
+      "group": "portrait",
+      "id": "soldier-1",
+      "dimensions": [
+        370,
+        430
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/soldier-1.png?verify=0.4.0-b914bee9e62455f54686-123",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 150018,
+      "servedSha256": "4c819e434b51ce37b657eb0825649b0dcbe0df9f947bab052131e98358b1bc35"
+    },
+    {
+      "file": "assets/ui/reference-portraits/soldier-2.png",
+      "bytes": 152888,
+      "sha256": "f559a54dca7c0411e6c975ab38be99485ef2c93552ae95dfb8f104467c4eac31",
+      "group": "portrait",
+      "id": "soldier-2",
+      "dimensions": [
+        357,
+        420
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/soldier-2.png?verify=0.4.0-b914bee9e62455f54686-124",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 152888,
+      "servedSha256": "f559a54dca7c0411e6c975ab38be99485ef2c93552ae95dfb8f104467c4eac31"
+    },
+    {
+      "file": "assets/ui/reference-portraits/soldier-3.png",
+      "bytes": 147775,
+      "sha256": "c18fa4e0bb5562efc16e6d265ab337c8faec9fe39c084c6189115c192a54a66f",
+      "group": "portrait",
+      "id": "soldier-3",
+      "dimensions": [
+        320,
+        425
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/soldier-3.png?verify=0.4.0-b914bee9e62455f54686-125",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 147775,
+      "servedSha256": "c18fa4e0bb5562efc16e6d265ab337c8faec9fe39c084c6189115c192a54a66f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/soldier-4.png",
+      "bytes": 161588,
+      "sha256": "de54a932cc05e319024f9c6452e6ece7c85c11f3e99369e84bab0f30f421a9bf",
+      "group": "portrait",
+      "id": "soldier-4",
+      "dimensions": [
+        348,
+        437
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/soldier-4.png?verify=0.4.0-b914bee9e62455f54686-126",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 161588,
+      "servedSha256": "de54a932cc05e319024f9c6452e6ece7c85c11f3e99369e84bab0f30f421a9bf"
+    },
+    {
+      "file": "assets/ui/reference-portraits/soldier-5.png",
+      "bytes": 172816,
+      "sha256": "1e92ded6a9bc74151baab926b5471bd0cfb49e53fe1ec9b13ef2eeb6caaa9bd5",
+      "group": "portrait",
+      "id": "soldier-5",
+      "dimensions": [
+        346,
+        431
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/soldier-5.png?verify=0.4.0-b914bee9e62455f54686-127",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 172816,
+      "servedSha256": "1e92ded6a9bc74151baab926b5471bd0cfb49e53fe1ec9b13ef2eeb6caaa9bd5"
+    },
+    {
+      "file": "assets/ui/reference-portraits/soldier-6.png",
+      "bytes": 202298,
+      "sha256": "a8f7d349d3bf976bcb0a61ed210e9b564fdbbe14f7c5c735d4fe850485cbb2aa",
+      "group": "portrait",
+      "id": "soldier-6",
+      "dimensions": [
+        414,
+        439
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/soldier-6.png?verify=0.4.0-b914bee9e62455f54686-128",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 202298,
+      "servedSha256": "a8f7d349d3bf976bcb0a61ed210e9b564fdbbe14f7c5c735d4fe850485cbb2aa"
+    },
+    {
+      "file": "assets/ui/reference-portraits/starfall.png",
+      "bytes": 210327,
+      "sha256": "860b46c5c0e519ac384fdae57741439ee98acd4321b867fcca8493e96370080a",
+      "group": "portrait",
+      "id": "starfall",
+      "dimensions": [
+        503,
+        369
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/starfall.png?verify=0.4.0-b914bee9e62455f54686-182",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 210327,
+      "servedSha256": "860b46c5c0e519ac384fdae57741439ee98acd4321b867fcca8493e96370080a"
+    },
+    {
+      "file": "assets/ui/reference-portraits/stonewarden.png",
+      "bytes": 160535,
+      "sha256": "cb149f42ccde765f5ec4b5b14e4b455f8226a480f88d3c3b7572fc2acccd241f",
+      "group": "portrait",
+      "id": "stonewarden",
+      "dimensions": [
+        360,
+        363
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/stonewarden.png?verify=0.4.0-b914bee9e62455f54686-192",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 160535,
+      "servedSha256": "cb149f42ccde765f5ec4b5b14e4b455f8226a480f88d3c3b7572fc2acccd241f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/stormcaller-1.png",
+      "bytes": 131376,
+      "sha256": "9202eaa03de3450ea7bc9495d700ab5401f6b6f05eee9559b0a55134f369ad20",
+      "group": "portrait",
+      "id": "stormcaller-1",
+      "dimensions": [
+        308,
+        415
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/stormcaller-1.png?verify=0.4.0-b914bee9e62455f54686-147",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 131376,
+      "servedSha256": "9202eaa03de3450ea7bc9495d700ab5401f6b6f05eee9559b0a55134f369ad20"
+    },
+    {
+      "file": "assets/ui/reference-portraits/stormcaller-2.png",
+      "bytes": 142417,
+      "sha256": "32fc654ef08bf028ba7f99f78d49b7f2799b1a8594724a13ebc5344ab5d01a16",
+      "group": "portrait",
+      "id": "stormcaller-2",
+      "dimensions": [
+        338,
+        423
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/stormcaller-2.png?verify=0.4.0-b914bee9e62455f54686-148",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 142417,
+      "servedSha256": "32fc654ef08bf028ba7f99f78d49b7f2799b1a8594724a13ebc5344ab5d01a16"
+    },
+    {
+      "file": "assets/ui/reference-portraits/stormcaller-3.png",
+      "bytes": 141697,
+      "sha256": "568e0d9e2b0ee121b6a8a690692061f0b0f4b6b39129df8f498a9bf1a1172d7b",
+      "group": "portrait",
+      "id": "stormcaller-3",
+      "dimensions": [
+        314,
+        429
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/stormcaller-3.png?verify=0.4.0-b914bee9e62455f54686-149",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 141697,
+      "servedSha256": "568e0d9e2b0ee121b6a8a690692061f0b0f4b6b39129df8f498a9bf1a1172d7b"
+    },
+    {
+      "file": "assets/ui/reference-portraits/stormcaller-4.png",
+      "bytes": 159700,
+      "sha256": "5d2b4acbf39c695a53b73ea56c214bada62a9392f7cb1dca6f55dc1c1bbdd9a3",
+      "group": "portrait",
+      "id": "stormcaller-4",
+      "dimensions": [
+        344,
+        431
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/stormcaller-4.png?verify=0.4.0-b914bee9e62455f54686-150",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 159700,
+      "servedSha256": "5d2b4acbf39c695a53b73ea56c214bada62a9392f7cb1dca6f55dc1c1bbdd9a3"
+    },
+    {
+      "file": "assets/ui/reference-portraits/stormcaller-5.png",
+      "bytes": 167572,
+      "sha256": "1db82d9d7ae8c54b72924c8d5dad71eaaa2db3f1069355a370fee8bf5f041cc9",
+      "group": "portrait",
+      "id": "stormcaller-5",
+      "dimensions": [
+        353,
+        430
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/stormcaller-5.png?verify=0.4.0-b914bee9e62455f54686-151",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 167572,
+      "servedSha256": "1db82d9d7ae8c54b72924c8d5dad71eaaa2db3f1069355a370fee8bf5f041cc9"
+    },
+    {
+      "file": "assets/ui/reference-portraits/stormcaller-6.png",
+      "bytes": 176868,
+      "sha256": "8409479676a04ffbb2a8bf838e2af8745b7bb40b4a7928162a6666db469ccaa8",
+      "group": "portrait",
+      "id": "stormcaller-6",
+      "dimensions": [
+        363,
+        429
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/stormcaller-6.png?verify=0.4.0-b914bee9e62455f54686-152",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 176868,
+      "servedSha256": "8409479676a04ffbb2a8bf838e2af8745b7bb40b4a7928162a6666db469ccaa8"
+    },
+    {
+      "file": "assets/ui/reference-portraits/stormcitadel.png",
+      "bytes": 368776,
+      "sha256": "20191f9179fe737a172a1e8ea94bec0ef901379c80adef14ef420eefc98da8e5",
+      "group": "portrait",
+      "id": "stormcitadel",
+      "dimensions": [
+        749,
+        449
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/stormcitadel.png?verify=0.4.0-b914bee9e62455f54686-179",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 368776,
+      "servedSha256": "20191f9179fe737a172a1e8ea94bec0ef901379c80adef14ef420eefc98da8e5"
+    },
+    {
+      "file": "assets/ui/reference-portraits/sunward.png",
+      "bytes": 323490,
+      "sha256": "b6b60e16e98662541d023db3e53e74994c65852d43cdfca781f94c33f32746d8",
+      "group": "portrait",
+      "id": "sunward",
+      "dimensions": [
+        604,
+        507
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/sunward.png?verify=0.4.0-b914bee9e62455f54686-188",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 323490,
+      "servedSha256": "b6b60e16e98662541d023db3e53e74994c65852d43cdfca781f94c33f32746d8"
+    },
+    {
+      "file": "assets/ui/reference-portraits/tempest.png",
+      "bytes": 240460,
+      "sha256": "2af3e952e34e73f5c36a42536fd85a556045c6801178bccc3b6a4e42eee5326f",
+      "group": "portrait",
+      "id": "tempest",
+      "dimensions": [
+        498,
+        411
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/tempest.png?verify=0.4.0-b914bee9e62455f54686-178",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 240460,
+      "servedSha256": "2af3e952e34e73f5c36a42536fd85a556045c6801178bccc3b6a4e42eee5326f"
+    },
+    {
+      "file": "assets/ui/reference-portraits/thornwarden.png",
+      "bytes": 220080,
+      "sha256": "77f099182b23a9e1deaefe8935b8b6b0d3acb04f61213de7bde5c6da52c0fe69",
+      "group": "portrait",
+      "id": "thornwarden",
+      "dimensions": [
+        496,
+        410
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/thornwarden.png?verify=0.4.0-b914bee9e62455f54686-176",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 220080,
+      "servedSha256": "77f099182b23a9e1deaefe8935b8b6b0d3acb04f61213de7bde5c6da52c0fe69"
+    },
+    {
+      "file": "assets/ui/reference-portraits/thunderheart.png",
+      "bytes": 372045,
+      "sha256": "ba810b765524b523f0567f39b532d028fcb2b5578923c7141150e794bfc0f655",
+      "group": "portrait",
+      "id": "thunderheart",
+      "dimensions": [
+        751,
+        433
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/thunderheart.png?verify=0.4.0-b914bee9e62455f54686-183",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 372045,
+      "servedSha256": "ba810b765524b523f0567f39b532d028fcb2b5578923c7141150e794bfc0f655"
+    },
+    {
+      "file": "assets/ui/reference-portraits/verdantguard.png",
+      "bytes": 244176,
+      "sha256": "d5243554a08cdccbcb1d478746d454057d9d8028ca75eb48f0fa60ba24a46b9a",
+      "group": "portrait",
+      "id": "verdantguard",
+      "dimensions": [
+        501,
+        411
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/verdantguard.png?verify=0.4.0-b914bee9e62455f54686-177",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 244176,
+      "servedSha256": "d5243554a08cdccbcb1d478746d454057d9d8028ca75eb48f0fa60ba24a46b9a"
+    },
+    {
+      "file": "assets/ui/reference-portraits/winterhold.png",
+      "bytes": 452701,
+      "sha256": "645fc87356552bb64742562c0b32bf9389736ea1c0293fa31fc8bd7e352f0843",
+      "group": "portrait",
+      "id": "winterhold",
+      "dimensions": [
+        510,
+        788
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/winterhold.png?verify=0.4.0-b914bee9e62455f54686-189",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 452701,
+      "servedSha256": "645fc87356552bb64742562c0b32bf9389736ea1c0293fa31fc8bd7e352f0843"
+    },
+    {
+      "file": "assets/ui/reference-portraits/worldfire.png",
+      "bytes": 228840,
+      "sha256": "fc482c9f585c9848771dd5bd196818535cbdb034b8f50549ea4120b4f05af5a5",
+      "group": "portrait",
+      "id": "worldfire",
+      "dimensions": [
+        534,
+        370
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/worldfire.png?verify=0.4.0-b914bee9e62455f54686-181",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 228840,
+      "servedSha256": "fc482c9f585c9848771dd5bd196818535cbdb034b8f50549ea4120b4f05af5a5"
+    },
+    {
+      "file": "assets/ui/reference-portraits/wyvernhunter.png",
+      "bytes": 364505,
+      "sha256": "677a5ad9c34e13b4a0de7a2ab04dfccc89506f7754ef4c357cc8f1936d0bc9b0",
+      "group": "portrait",
+      "id": "wyvernhunter",
+      "dimensions": [
+        611,
+        522
+      ],
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-portraits/wyvernhunter.png?verify=0.4.0-b914bee9e62455f54686-193",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "image/png",
+      "servedBytes": 364505,
+      "servedSha256": "677a5ad9c34e13b4a0de7a2ab04dfccc89506f7754ef4c357cc8f1936d0bc9b0"
+    },
+    {
+      "file": "index.html",
+      "bytes": 1205,
+      "sha256": "fd12270b95b01563fe33c39ad0048d566e171bcda92d9ef38ef7d864d1048972",
+      "group": "metadata",
+      "representation": {
+        "basis": "Canonical LF of generated local Vite index: /\\r+\\n/g → LF; Linux Vite CI generates LF",
+        "rawBytes": 1220,
+        "rawSha256": "ac1037c8c8ccb833a08272d247a6e5b248151d7921c7ec5ce9593155ba9c8f41",
+        "expectedBytes": 1205,
+        "expectedSha256": "fd12270b95b01563fe33c39ad0048d566e171bcda92d9ef38ef7d864d1048972",
+        "rawCRLFSequences": 14,
+        "rawRepeatedCRBeforeLF": 1,
+        "onlyEolDifference": true,
+        "servedComparison": "Exact expected bytes; served content is not normalized"
+      },
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/index.html?verify=0.4.0-b914bee9e62455f54686-0",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "servedBytes": 1205,
+      "servedSha256": "fd12270b95b01563fe33c39ad0048d566e171bcda92d9ef38ef7d864d1048972"
+    },
+    {
+      "file": "release.json",
+      "bytes": 1051,
+      "sha256": "fdbf84efaf806426683cfe478d288eaeaffe97195e5998a76167251e9b96e14e",
+      "group": "metadata",
+      "representation": {
+        "basis": "Exact Git public blob from d010e295e4955d3506258a48e20d9203602d07dc:public/release.json; Git attributes define deployed JSON bytes",
+        "rawBytes": 1091,
+        "rawSha256": "19eb4f267b0e69c2d241f9fd501fe400978561d9d3ba5a856be584c86fc30255",
+        "expectedBytes": 1051,
+        "expectedSha256": "fdbf84efaf806426683cfe478d288eaeaffe97195e5998a76167251e9b96e14e",
+        "rawCRLFSequences": 40,
+        "rawRepeatedCRBeforeLF": 0,
+        "onlyEolDifference": true,
+        "servedComparison": "Exact expected bytes; served content is not normalized"
+      },
+      "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/release.json?verify=0.4.0-b914bee9e62455f54686-1",
+      "status": "passed",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "servedBytes": 1051,
+      "servedSha256": "fdbf84efaf806426683cfe478d288eaeaffe97195e5998a76167251e9b96e14e"
+    }
+  ],
+  "failures": [],
+  "models": {
+    "checked": 0,
+    "knownInventory": 352,
+    "reason": "Skipped as requested; no public model-byte claim. Local protected preservation is a separate proof."
+  },
+  "limits": [
+    "HTTP hashes and MIME receipts do not establish playback/listening, image decoding, browser interaction or physical iPad/Safari coverage."
+  ],
+  "localHead": "d010e295e4955d3506258a48e20d9203602d07dc",
+  "portraits": {
+    "expected": 136,
+    "manifestRevision": "original-reference-20261016-v1",
+    "manifestSha256": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f"
+  },
+  "textRepresentations": [
+    {
+      "file": "index.html",
+      "basis": "Canonical LF of generated local Vite index: /\\r+\\n/g → LF; Linux Vite CI generates LF",
+      "rawBytes": 1220,
+      "rawSha256": "ac1037c8c8ccb833a08272d247a6e5b248151d7921c7ec5ce9593155ba9c8f41",
+      "expectedBytes": 1205,
+      "expectedSha256": "fd12270b95b01563fe33c39ad0048d566e171bcda92d9ef38ef7d864d1048972",
+      "rawCRLFSequences": 14,
+      "rawRepeatedCRBeforeLF": 1,
+      "onlyEolDifference": true,
+      "servedComparison": "Exact expected bytes; served content is not normalized"
+    },
+    {
+      "file": "release.json",
+      "basis": "Exact Git public blob from d010e295e4955d3506258a48e20d9203602d07dc:public/release.json; Git attributes define deployed JSON bytes",
+      "rawBytes": 1091,
+      "rawSha256": "19eb4f267b0e69c2d241f9fd501fe400978561d9d3ba5a856be584c86fc30255",
+      "expectedBytes": 1051,
+      "expectedSha256": "fdbf84efaf806426683cfe478d288eaeaffe97195e5998a76167251e9b96e14e",
+      "rawCRLFSequences": 40,
+      "rawRepeatedCRBeforeLF": 0,
+      "onlyEolDifference": true,
+      "servedComparison": "Exact expected bytes; served content is not normalized"
+    },
+    {
+      "file": "assets/audio/approved-20261011/catalogue.json",
+      "basis": "Exact Git public blob from d010e295e4955d3506258a48e20d9203602d07dc:public/assets/audio/approved-20261011/catalogue.json; Git attributes define deployed JSON bytes",
+      "rawBytes": 16621,
+      "rawSha256": "17e851632fa643e8a6011d06b548eccdcf6e327da31d653f48e8b945a1704175",
+      "expectedBytes": 16621,
+      "expectedSha256": "17e851632fa643e8a6011d06b548eccdcf6e327da31d653f48e8b945a1704175",
+      "rawCRLFSequences": 0,
+      "rawRepeatedCRBeforeLF": 0,
+      "onlyEolDifference": false,
+      "servedComparison": "Exact expected bytes; served content is not normalized"
+    },
+    {
+      "file": "assets/audio/allied-recast-20261011/catalogue.json",
+      "basis": "Exact Git public blob from d010e295e4955d3506258a48e20d9203602d07dc:public/assets/audio/allied-recast-20261011/catalogue.json; Git attributes define deployed JSON bytes",
+      "rawBytes": 10401,
+      "rawSha256": "6da0eb466e3d1ecb31fa4d75abcf05eb5c0e22561a78b2c7e48cabcb08fc89d8",
+      "expectedBytes": 10401,
+      "expectedSha256": "6da0eb466e3d1ecb31fa4d75abcf05eb5c0e22561a78b2c7e48cabcb08fc89d8",
+      "rawCRLFSequences": 462,
+      "rawRepeatedCRBeforeLF": 0,
+      "onlyEolDifference": false,
+      "servedComparison": "Exact expected bytes; served content is not normalized"
+    },
+    {
+      "file": "assets/ui/reference-portraits/manifest.json",
+      "basis": "Exact Git public blob from d010e295e4955d3506258a48e20d9203602d07dc:public/assets/ui/reference-portraits/manifest.json; Git attributes define deployed JSON bytes",
+      "rawBytes": 155594,
+      "rawSha256": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4",
+      "expectedBytes": 151780,
+      "expectedSha256": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f",
+      "rawCRLFSequences": 3814,
+      "rawRepeatedCRBeforeLF": 0,
+      "onlyEolDifference": true,
+      "servedComparison": "Exact expected bytes; served content is not normalized"
+    }
+  ],
+  "servedCompiledEntryPaths": [
+    "assets/game-D-1jQn4a.css",
+    "assets/game-DQBjlbzY.js",
+    "assets/portrait-visibility-COwVypPW.js",
+    "assets/portrait-visibility-Cq7vvpxZ.css",
+    "assets/three-py1mPfXp.js"
+  ],
+  "servedRelease": {
+    "version": "0.4.0",
+    "edition": "The Cartographer’s Table",
+    "date": "2026-10-16",
+    "basicClasses": 8,
+    "champions": 38,
+    "secretChampions": 1,
+    "defenderVariants": 86,
+    "artRevision": "basic-defenders-v7",
+    "enemyArtRevision": "geometric-game-v7",
+    "championRecipes": 38,
+    "championAscension": false,
+    "championClassifications": {
+      "Basic": 5,
+      "Intermediate": 13,
+      "Advanced": 11,
+      "TOP": 8,
+      "Secret": 1
+    },
+    "authoring": "Blender 5.2",
+    "enemyVariants": 50,
+    "enemyLanguage": "en",
+    "sceneryRevision": 9,
+    "championArtRevision": "champions-v8",
+    "alliedAudioRevision": "allied-20261011-4a6051e0ce4a",
+    "alliedVoiceRecordings": 92,
+    "recordedAudioRevision": "approved-20261011-0019d4e4b9fa",
+    "recordedMusicTracks": 6,
+    "recordedAttackTypes": 15,
+    "damageClasses": [
+      "Physical",
+      "Magical",
+      "Holy"
+    ],
+    "mvpMaximumLevel": 10,
+    "developerConsole": true,
+    "classificationScaleStep": 1.1,
+    "uiRevision": "cartographer-20261016-v1",
+    "uiPortraitRevision": "original-reference-20261016-v1"
+  },
+  "finishedAt": "2026-10-16T12:10:29.849Z",
+  "durationMs": 14062,
+  "groups": {
+    "audio": {
+      "checked": 113,
+      "passed": 113,
+      "bytes": 17342625
+    },
+    "audio-catalogue": {
+      "checked": 2,
+      "passed": 2,
+      "bytes": 27022
+    },
+    "compiled": {
+      "checked": 5,
+      "passed": 5,
+      "bytes": 1546917
+    },
+    "portrait": {
+      "checked": 136,
+      "passed": 136,
+      "bytes": 29906198
+    },
+    "portrait-manifest": {
+      "checked": 1,
+      "passed": 1,
+      "bytes": 151780
+    },
+    "metadata": {
+      "checked": 2,
+      "passed": 2,
+      "bytes": 2256
+    }
+  }
+}

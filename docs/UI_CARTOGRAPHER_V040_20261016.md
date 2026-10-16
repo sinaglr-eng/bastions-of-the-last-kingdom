@@ -32,3 +32,5 @@ The current full local suite passes **1,448/1,448**, with no failures, skips or 
 Browser evidence and final input hashes are recorded under `output/design/cartographer-ui-v040-20261016/`. Earlier intermediate screenshots/test logs in that directory are checkpoints; final receipts identify the published source and compiled assets. Desktop/iPad viewport inspection is browser evidence, not a claim about physical iPad Safari. Physical iPad/Safari testing is unavailable in this environment.
 
 Publication, served-file verification and the rollback rehearsal are recorded in the final release receipt after their actual completion.
+
+The final visual audit restored the exact 0.3.31 map role colors (cyan pins, violet merges and gold combinations), including cyan overlap stripes and pinned-card labels. Paper ingredient codes use muted ink, and archived DPS retains its prior readable opacity. This follow-up changes CSS only; map geometry, command handlers and simulation remain unchanged. The final source is identified by `v0.4.0-stable`; the initial `v0.4.0` tag remains preserved as the earlier reviewed build.

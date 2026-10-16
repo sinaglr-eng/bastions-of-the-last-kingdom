@@ -1,0 +1,15 @@
+
+Version                      : 0.3.31
+StableTag                    : v0.3.31-stable
+VerifiedLocalAndRemoteCommit : c01ac5a2ab1ef62e77d2ce545f24234b80b5c847
+MainWorkflow                 : main exposes release_ref and uses it for checkout
+GitHubCliAvailable           : False
+CredentialsAccessed          : False
+Authentication               : Checked only after explicit -Deploy and successful workflow preflight
+CredentialManagerFallback    : Available through git credential fill; prompts disabled; not accessed by preflight
+DeployRequested              : True
+WorkflowReady                : True
+
+Authentication provider: Git Credential Manager / GitHub REST
+Requested Pages deployment of v0.3.31-stable (c01ac5a2ab1ef62e77d2ce545f24234b80b5c847). This is a dispatch receipt, not deployment confirmation.
+Follow the run and verify the served game at https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/workflows/pages.yml

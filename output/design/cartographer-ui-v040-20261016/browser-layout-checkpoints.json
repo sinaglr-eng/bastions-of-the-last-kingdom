@@ -4260,5 +4260,26 @@
     "reviewed-current-wave-ipad.jpg predates overflow fix",
     "publication-combination-ready-ipad.jpg predates preview map-width fix",
     "publication-three-combinations-ipad.jpg shows correct two recipes for retained Frost Warden; current candidate has three"
-  ]
+  ],
+  "additionalReviewViewport": {
+    "height": 768,
+    "pageWidth": 1024,
+    "width": 1024,
+    "screenshots": [
+      "publication-three-candidate-combinations-ipad.jpg",
+      "publication-exact-preview-ipad.jpg",
+      "publication-combination-confirmed-ipad.jpg",
+      "publication-boss-combat-ipad.jpg"
+    ]
+  },
+  "finalRenderedScreenshots": [
+    "final-viewport-building-820x1180.jpg",
+    "final-viewport-building-390x844.jpg",
+    "final-viewport-building-844x390.jpg",
+    "final-viewport-building-1024x768.jpg",
+    "final-viewport-building-1180x820.jpg",
+    "final-viewport-building-1715x1244.jpg",
+    "final-viewport-building-1440x900.jpg"
+  ],
+  "screenshotNote": "Final viewport images were recaptured after the renderer presented the resized scene; earlier immediate-resize screenshots can contain an incomplete compositor frame and are intermediate evidence."
 }
