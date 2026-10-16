@@ -108,7 +108,14 @@ try {
     $rollbackWorkflowText = [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($rollbackWorkflow.content))
     $rollbackWorkflowReady = $rollbackWorkflowText -match '(?m)^\s+release_ref:\s*$' -and $rollbackWorkflowText -match '(?m)^\s+ref:\s*.*(?:inputs\.release_ref|github\.event\.inputs\.release_ref)'
     $rollbackWorkflowNote = if ($rollbackWorkflowReady) { 'main exposes release_ref and uses it for checkout' } else { 'main does not yet expose the required release_ref checkout; publication gate remains pending' }
-} catch { $rollbackWorkflowNote = "Cannot verify main workflow: $($_.Exception.Message)" }
+} catch {
+    try {
+        $rollbackRawNonce = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
+        $rollbackWorkflowText = [string](Invoke-RestMethod -Uri "https://raw.githubusercontent.com/$rollbackRepository/refs/heads/main/.github/workflows/pages.yml?verify=$rollbackRawNonce" -Headers @{'User-Agent'='Bastions-rollback-preflight';'Cache-Control'='no-cache'})
+        $rollbackWorkflowReady = $rollbackWorkflowText -match '(?m)^\s+release_ref:\s*$' -and $rollbackWorkflowText -match '(?m)^\s+ref:\s*.*(?:inputs\.release_ref|github\.event\.inputs\.release_ref)'
+        $rollbackWorkflowNote = if ($rollbackWorkflowReady) { 'main exposes release_ref and uses it for checkout (public raw-file fallback)' } else { 'main raw workflow does not expose the required release_ref checkout' }
+    } catch { $rollbackWorkflowNote = "Cannot verify main workflow: $($_.Exception.Message)" }
+}
 
 $rollbackGhCommand = Get-Command gh -ErrorAction SilentlyContinue
 $rollbackGhPath = if ($rollbackGhCommand) { $rollbackGhCommand.Source } else { $null }

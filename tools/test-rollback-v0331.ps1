@@ -24,10 +24,13 @@ $testPrevious=@{}
 foreach($testName in $testEnvironmentNames){$testPrevious[$testName]=[Environment]::GetEnvironmentVariable($testName,'Process')}
 $script:testPostCount=0
 $script:testRejectRest=$false
+$script:testPublicApiDenied=$false
 function Invoke-RestMethod {
     param($Method,$Uri,$Headers,$ContentType,$Body,$ErrorAction)
     if($Method -ne 'Post'){
         $testWorkflow="on:`n  workflow_dispatch:`n    inputs:`n      release_ref:`n        type: string`nsteps:`n  - uses: actions/checkout`n    with:`n      ref: `$`{{ inputs.release_ref }}`n"
+        if($Uri -like 'https://raw.githubusercontent.com/*'){return $testWorkflow}
+        if($script:testPublicApiDenied){throw 'Synthetic public API rate limit'}
         return @{content=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($testWorkflow))}
     }
     $script:testPostCount++
@@ -54,6 +57,11 @@ try {
     if($script:testPostCount -ne 0){throw 'Default preflight attempted POST'}
     $testDefaultState=$testDefault | Where-Object {$_.PSObject.Properties.Name -contains 'CredentialsAccessed'} | Select-Object -First 1
     if(-not $testDefaultState -or $testDefaultState.CredentialsAccessed -or $testDefaultState.DeployRequested){throw 'Incorrect default preflight state'}
+    $script:testPublicApiDenied=$true
+    $testRaw=@(& $testSource)
+    $testRawState=$testRaw|Where-Object {$_.PSObject.Properties.Name -contains 'WorkflowReady'}|Select-Object -First 1
+    if(-not $testRawState.WorkflowReady -or $testRawState.CredentialsAccessed -or $script:testPostCount -ne 0 -or (Test-Path -LiteralPath $testMarker)){throw 'Public raw-file fallback failed the read-only preflight contract'}
+    $script:testPublicApiDenied=$false
     $testTokens=$null
     $testErrors=$null
     $testAst=[Management.Automation.Language.Parser]::ParseFile($testSource,[ref]$testTokens,[ref]$testErrors)
@@ -73,7 +81,7 @@ try {
     try{Invoke-RollbackCredentialDispatch @testParameters | Out-Null}catch{$testRestFailure=$_.Exception.Message}
     if(-not $testRestFailure -or $testRestFailure -match 'synthetic-rollback-test-token'){throw 'REST failure exposed credential content'}
     if($script:testPostCount -ne 2){throw 'Unexpected synthetic POST count'}
-    $testProof=[ordered]@{status='passed';checks=4;defaultPreflightReadsCredentials=$false;defaultPreflightPosts=0;syntheticFallbackUsesMainAndStableTag=$true;missingCredentialStopsBeforePost=$true;restErrorSanitized=$true;realCredentialsRead=$false;realWorkflowDispatches=0}
+    $testProof=[ordered]@{status='passed';checks=5;defaultPreflightReadsCredentials=$false;defaultPreflightPosts=0;publicApiRateLimitUsesReadOnlyRawFallback=$true;syntheticFallbackUsesMainAndStableTag=$true;missingCredentialStopsBeforePost=$true;restErrorSanitized=$true;realCredentialsRead=$false;realWorkflowDispatches=0}
     $testProof|ConvertTo-Json|Set-Content -LiteralPath (Join-Path $testEvidence 'credential-fallback-tests.json') -Encoding utf8
     $testProof|ConvertTo-Json
 } finally {

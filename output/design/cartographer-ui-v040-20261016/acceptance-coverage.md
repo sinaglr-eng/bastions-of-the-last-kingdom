@@ -127,9 +127,9 @@ Automated: `tests/cartographer-layout-v040.test.mjs`, `tests/command-pointer-inp
 
 Automated: the 1,448-test full suite plus `tests/reference-portraits.test.mjs`, `tests/portrait-visibility.test.mjs`, `tests/audio-selection.test.mjs` cover manifest/base-path/cache identity and image/audio loading ownership/error behavior. Root and repository-base builds passed; initial CI tests/build/deploy passed. The immutable initial HTTP receipt checks the exact served set and MIME/hash boundaries; `public-initial-desktop.jpg` records the public initial GUI, and local audio decoding is independently recorded. No full native loading-failure injection or physical Safari pass is claimed. Original model/audio/scenery preservation follows the protected manifest, not the HTTP portrait set alone.
 
-### A29 — Authorized publication and exercised rollback: final return pending
+### A29 — Authorized publication and exercised rollback: closed
 
-Available: initial authorized 0.4 publication run 38897567377 and served 0.4 identity; `production-backup-proof.json`, `rollback-identity.json`, `rollback/rollback-proof.json`, `rollback/credential-fallback-tests.json`, source/preservation receipts and screenshots. Actual live 0.3.31 rollback run 38898797381 passed all gates and its immutable HTTP receipt verifies version 0.3.31, five compiled files and 113 MP3s. Return-to-0.4 run 38899342990 is still in progress in the saved snapshot. A final acceptance closeout must add successful restored CI plus fresh served 0.4 compiled/portrait/audio/metadata identity and any final public GUI check. Backup/tag/branch/release-ref workflow avoid history rewriting; the statistics service is independent. Preserved backend contracts do not alone prove a fresh row-by-row leaderboard audit. A29 is not marked finally complete here.
+Available: initial authorized 0.4 publication run 38897567377 and served 0.4 identity; `production-backup-proof.json`, `rollback-identity.json`, `rollback/rollback-proof.json`, `rollback/credential-fallback-tests.json`, source/preservation receipts and screenshots. Actual live 0.3.31 rollback run 38898797381 passed all gates and its immutable HTTP receipt verifies version 0.3.31, five compiled files and 113 MP3s. The historical preparation snapshot had return-to-0.4 run 38899342990 in progress; it subsequently passed. A final acceptance closeout must add successful restored CI plus fresh served 0.4 compiled/portrait/audio/metadata identity and any final public GUI check. Backup/tag/branch/release-ref workflow avoid history rewriting; the statistics service is independent. Preserved backend contracts do not alone prove a fresh row-by-row leaderboard audit. A29 is closed by the final release closeout below.
 
 ## Representative eleven-situation browser index
 
@@ -151,9 +151,15 @@ Final Build captures are 1715×1244, 1440×900, 1180×820, 1024×768, 820×1180,
 
 ## Outstanding closeout boundaries
 
-1. Parent release owner must append the final return-to-0.4 CI outcome and served identity after run 38899342990 finishes. Initial 0.4 and completed 0.3.31 rollback identities are already separately recorded.
+1. Completed: the final stable CI and served-asset identity are recorded in the release closeout below.
 2. Physical iPad/Safari, native browser zoom/text-size, notch hardware and the complete eleven-situation × every-viewport accessibility matrix remain unperformed or uncertified as described under A27.
 3. Browser audio receipt is local decoding; public SHA/MIME equality does not turn it into an HTTPS decode or speaker-listening result.
 4. Source/contract preservation and Developer-exclusion tests are not a fresh exhaustive database-history audit or a new ordinary online score submission.
 
 The companion `acceptance-coverage-snapshots.json` records the hashes of the referenced files as read when this receipt was prepared. Mutable CI/latest aliases may subsequently be refreshed by the release owner; those later states require their own closeout evidence.
+
+## Release closeout
+
+Completed on 2026-10-16T12:37:37.605Z: return run 38899342990 passed and the served initial 0.4 build matched its compiled/media hashes. A subsequent CSS-only correction restored violet Merge, cyan pins/overlap labels, dark ingredient codes and archived-DPS opacity. Final stable run 38900929876 passed and served assets match `v0.4.0-stable` (85c27a7a1d30bb4cd7a4993f2c01c70d6838cb67). Public one-click command evidence is in `public-browser-final.json`; final semantic CSS browser evidence is in `semantic-color-final.json`. A29 is closed by `release-receipt.json`; A27's explicitly unperformed hardware/native-zoom/full-matrix checks remain unchanged. Earlier snapshots and pre-correction screenshots are historical checkpoints.
+
+Final paper-UI closeout 2026-10-16T12:52:39.953Z: source 993a1ee1289fa137a68b7bbdad48b81b2e18befe / `v0.4.0-final` passed CI 38902615525 and exact served-file verification. Shared pinned-recipe text and footer contrast are also corrected. This supersedes the earlier color-review closeout; the A27 hardware/native-zoom/full-matrix limits remain.

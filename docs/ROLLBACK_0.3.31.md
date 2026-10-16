@@ -60,3 +60,17 @@ Use an installed Python 3 interpreter or the project’s bundled runtime path. T
 
 To inspect either offline archive, extract it into a new, empty directory. Keep the original ZIPs and proof files intact. Source restoration, production hosting and backend changes are separate actions; no restoration or deployment was performed while creating these backups and instructions.
 
+
+## Verified deployment rehearsal — October 16, 2026
+
+The actual `-Deploy` command succeeded through existing Git Credential Manager authentication. [Rollback CI 38898797381](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38898797381) passed tests, build and deployment. The served 0.3.31 metadata, all five compiled entries and 113 active MP3s matched the preserved production archive / stable Git source. Main history, stable references and the statistics service were not changed by this restoration.
+
+The return to 0.4.0 also passed, followed by a CSS-only color/readability correction. The final reviewed release is `v0.4.0-final` (`993a1ee1289fa137a68b7bbdad48b81b2e18befe`), with [successful final deployment](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38902615525). To return to it after a future rollback, run the main Pages workflow with `release_ref=v0.4.0-final` using the GitHub Actions Run workflow form. When authenticated GitHub CLI is available:
+
+```powershell
+gh workflow run pages.yml --repo sinaglr-eng/bastions-of-the-last-kingdom --ref main -f release_ref=v0.4.0-final
+```
+
+A workflow dispatch always runs in main's deployment context; the checked-out release is independently established by the explicit ref and served hashes. Full receipts are in `output/design/cartographer-ui-v040-20261016/release-receipt.json`. The offline archives listed above retain their original bytes and checksums.
+
+If the public GitHub contents API is rate limited, preflight verifies the same main workflow through GitHub’s public raw-file endpoint. This fallback still reads no credentials and dispatches nothing. Five synthetic checks cover the default path, raw fallback and authenticated dispatch failure boundaries; actual read-only preflight also passed with the public API quota exhausted.

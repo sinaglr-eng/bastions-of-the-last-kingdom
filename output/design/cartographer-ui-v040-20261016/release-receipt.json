@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "closedAt": "2026-10-16T12:52:39.952Z",
+  "status": "published-and-verified",
+  "version": "0.4.0",
+  "publicUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.0",
+  "source": {
+    "tag": "v0.4.0-final",
+    "commit": "993a1ee1289fa137a68b7bbdad48b81b2e18befe",
+    "initialTag": "v0.4.0",
+    "initialCommit": "d010e295e4955d3506258a48e20d9203602d07dc",
+    "followupScope": "CSS only after initial implementation; original planning roles, readable paper recipe details and opaque action footer; no Game/model/audio changes",
+    "colorReviewTag": "v0.4.0-stable",
+    "colorReviewCommit": "85c27a7a1d30bb4cd7a4993f2c01c70d6838cb67"
+  },
+  "validation": {
+    "localFullTests": {
+      "passed": 1448,
+      "failed": 0,
+      "skipped": 0,
+      "log": "output/design/cartographer-ui-v040-20261016/tests-release.log"
+    },
+    "finalCi": {
+      "id": 38902615525,
+      "attempt": 1,
+      "name": "Test and deploy GitHub Pages",
+      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38902615525",
+      "event": "push",
+      "headBranch": "main",
+      "headSha": "993a1ee1289fa137a68b7bbdad48b81b2e18befe",
+      "status": "completed",
+      "conclusion": "success",
+      "createdAt": "2026-10-16T12:44:07Z",
+      "updatedAt": "2026-10-16T12:49:25Z",
+      "startedAt": "2026-10-16T12:44:07Z"
+    },
+    "publicGroups": {
+      "audio": {
+        "checked": 113,
+        "passed": 113,
+        "bytes": 17342625
+      },
+      "audio-catalogue": {
+        "checked": 2,
+        "passed": 2,
+        "bytes": 27022
+      },
+      "compiled": {
+        "checked": 5,
+        "passed": 5,
+        "bytes": 1549413
+      },
+      "portrait": {
+        "checked": 136,
+        "passed": 136,
+        "bytes": 29906198
+      },
+      "portrait-manifest": {
+        "checked": 1,
+        "passed": 1,
+        "bytes": 151780
+      },
+      "metadata": {
+        "checked": 2,
+        "passed": 2,
+        "bytes": 2256
+      }
+    },
+    "publicProof": {
+      "path": "output/design/cartographer-ui-v040-20261016/public-http-v040-latest.json",
+      "sha256": "c490be3f2e81b322878d1f7d08d51d166f5e59ab4d99d06736ba8b5e48bd5e69"
+    },
+    "localBrowserAudio": {
+      "decoded": 113,
+      "expected": 113,
+      "proof": {
+        "path": "output/design/cartographer-ui-v040-20261016/browser-audio-decode.json",
+        "sha256": "5f4988371a50f9110571d4ca6211b054993c62ddcbb1affbe59e9dfaeada4357"
+      }
+    },
+    "publicBrowser": {
+      "path": "output/design/cartographer-ui-v040-20261016/public-browser-final.json",
+      "sha256": "82ca059e00f48cfe423c366acaa72aec7d6d4837b1c6eb4fccc4891ccdabdf21",
+      "sourceCommit": "993a1ee1289fa137a68b7bbdad48b81b2e18befe"
+    }
+  },
+  "rollback": {
+    "status": "actually-tested",
+    "stableTag": "v0.3.31-stable",
+    "sourceCommit": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+    "backupBranch": "codex/backup-v0.3.31",
+    "run": {
+      "id": 38898797381,
+      "attempt": 1,
+      "name": "Test and deploy GitHub Pages",
+      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38898797381",
+      "event": "workflow_dispatch",
+      "headBranch": "main",
+      "headSha": "d010e295e4955d3506258a48e20d9203602d07dc",
+      "status": "completed",
+      "conclusion": "success",
+      "createdAt": "2026-10-16T12:11:27Z",
+      "updatedAt": "2026-10-16T12:15:02Z",
+      "startedAt": "2026-10-16T12:11:27Z"
+    },
+    "publicProof": {
+      "path": "output/design/cartographer-ui-v040-20261016/public-http-v0331-latest.json",
+      "sha256": "16e11857fe4adc077138f896764567a50c65ae6bbdbfdcf5c798640004665af6"
+    },
+    "returnRun": {
+      "id": 38899342990,
+      "attempt": 1,
+      "name": "Test and deploy GitHub Pages",
+      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38899342990",
+      "event": "workflow_dispatch",
+      "headBranch": "main",
+      "headSha": "d010e295e4955d3506258a48e20d9203602d07dc",
+      "status": "completed",
+      "conclusion": "success",
+      "createdAt": "2026-10-16T12:16:11Z",
+      "updatedAt": "2026-10-16T12:22:10Z",
+      "startedAt": "2026-10-16T12:16:11Z"
+    },
+    "offlineDirectory": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game\\backups\\releases\\v0.3.31",
+    "finalPreflight": {
+      "passed": true,
+      "publicApiRateLimitFallbackVerified": true,
+      "credentialsRead": false,
+      "syntheticChecks": 5,
+      "scriptSha256": "e8199d05ab258ec0d4f7fbc469dc67ab870340a0fd604b7835904834bb668783",
+      "proof": "output/design/cartographer-ui-v040-20261016/rollback/final-preflight.txt"
+    }
+  },
+  "preservation": {
+    "path": "output/design/cartographer-ui-v040-20261016/final-preservation-proof.json",
+    "sha256": "08ef7a6a437d78d3a7c7db3a9f597fb8e46da96fca5ccc2231232024e9833fa3"
+  },
+  "originalDesignPackage": "docs/ui-cartographers-table-handoff-20261016",
+  "limits": [
+    "Physical iPad/Safari not available",
+    "Native zoom/text-size/notch hardware and complete eleven-situation by every-viewport matrix not certified; CSS viewport proxies and representative browser cases recorded",
+    "Local browser audio decode is separate from public SHA/MIME verification and speaker listening",
+    "Statistics service remains the existing independent deployment; no backend/schema/history migration"
+  ],
+  "finalDisplayEvidence": [
+    "output/design/cartographer-ui-v040-20261016/public-final-select-desktop.jpg",
+    "output/design/cartographer-ui-v040-20261016/paper-recipe-ready-local.jpg",
+    "output/design/cartographer-ui-v040-20261016/public-browser-final.json"
+  ],
+  "releaseStages": [
+    {
+      "label": "Initial 0.4",
+      "run": 38897567377,
+      "source": "d010e295e4955d3506258a48e20d9203602d07dc"
+    },
+    {
+      "label": "Actual rollback 0.3.31",
+      "run": 38898797381,
+      "checkedOutSource": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847"
+    },
+    {
+      "label": "Return 0.4",
+      "run": 38899342990,
+      "checkedOutSource": "d010e295e4955d3506258a48e20d9203602d07dc"
+    },
+    {
+      "label": "Planning colors",
+      "run": 38900929876,
+      "source": "85c27a7a1d30bb4cd7a4993f2c01c70d6838cb67"
+    },
+    {
+      "label": "Final paper UI",
+      "run": 38902615525,
+      "source": "993a1ee1289fa137a68b7bbdad48b81b2e18befe"
+    }
+  ]
+}

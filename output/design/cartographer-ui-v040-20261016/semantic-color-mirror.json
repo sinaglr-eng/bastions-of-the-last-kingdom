@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-16T12:31:05.996Z",
+  "sourceCommit": "85c27a7a1d30bb4cd7a4993f2c01c70d6838cb67",
+  "paths": [
+    {
+      "path": "ui/cartographer.css",
+      "bytes": 46516,
+      "sha256": "d6fee8ed1d7b3cd33546da295489ed4dc3501de3aeca9fc45b889dd609e5f70f"
+    },
+    {
+      "path": "docs/UI_CARTOGRAPHER_V040_20261016.md",
+      "bytes": 5598,
+      "sha256": "71a6087220161e54c5bc39b35253ed3632fe15bfb0c9fd60f3c5fa7b65b85628"
+    },
+    {
+      "path": "tools/v040-check-ci.mjs",
+      "bytes": 11082,
+      "sha256": "730d3ab4d84000e74e791455cf88128c9edb9ed4427b71903bc5002da35d2078"
+    },
+    {
+      "path": "tools/v040-check-ci.test.mjs",
+      "bytes": 8042,
+      "sha256": "37f0cc6272ba0889b638c5bf94fc97a4cea04527ee2a1976e92e6221ab17dee5"
+    },
+    {
+      "path": "tools/v040-verify-public.mjs",
+      "bytes": 20155,
+      "sha256": "e67561d41e781fa9e0ac5cd14bb07a8e94e850a2349a108346bc69509ac9c8df"
+    }
+  ],
+  "purpose": "Guarded CSS semantic follow-up and reproducible read-only release check helpers; no core or model copies"
+}

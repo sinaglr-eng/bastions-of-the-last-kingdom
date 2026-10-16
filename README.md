@@ -8,6 +8,8 @@ The approved paper interface now uses a shared five-card preparation folio, orig
 
 All 1,448 current tests and the production build pass. The 0.3.31 stable tag, backup branch and verified offline source/production archives provide a documented rollback without rewriting history or changing statistics. See [the implementation and validation report](docs/UI_CARTOGRAPHER_V040_20261016.md) and [rollback instructions](docs/ROLLBACK_0.3.31.md). Physical iPad Safari testing remains unavailable; browser viewport checks are identified separately.
 
+Published 0.4.0 is pinned by `v0.4.0-final` (`993a1ee1289fa137a68b7bbdad48b81b2e18befe`). [Final Pages CI 38902615525](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38902615525) passed tests, build and deployment; five compiled entries, all 136 original-reference portraits and all 113 active MP3 files match the served release. The actual 0.3.31 rollback and subsequent return to 0.4 both passed. [Release evidence](output/design/cartographer-ui-v040-20261016/release-receipt.json) records each deployment separately.
+
 ## Previous release: 0.3.31 — Reliable Touch Controls and Clearer Battlefield
 
 Ordinary touch/pen commands now execute once on an accepted release, including Start wave and Demolish when a later compatibility click is missing or retargeted. Scoped click suppression rejects duplicate or ghost actions; identity checks and drag, cancellation, capture-loss and multi-touch guards protect the selected command and foundation. Control stacking keeps command targets reachable. Mouse and keyboard retain their existing paths.

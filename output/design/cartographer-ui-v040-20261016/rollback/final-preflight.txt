@@ -1,0 +1,13 @@
+
+Version                      : 0.3.31
+StableTag                    : v0.3.31-stable
+VerifiedLocalAndRemoteCommit : c01ac5a2ab1ef62e77d2ce545f24234b80b5c847
+MainWorkflow                 : main exposes release_ref and uses it for checkout (public raw-file fallback)
+GitHubCliAvailable           : False
+CredentialsAccessed          : False
+Authentication               : Checked only after explicit -Deploy and successful workflow preflight
+CredentialManagerFallback    : Available through git credential fill; prompts disabled; not accessed by preflight
+DeployRequested              : False
+WorkflowReady                : True
+
+Read-only preflight complete. No workflow was dispatched. Add -Deploy only when rollback publication is intended.

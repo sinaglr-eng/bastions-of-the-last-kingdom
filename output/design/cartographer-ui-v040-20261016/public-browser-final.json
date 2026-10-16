@@ -1,56 +1,59 @@
 {
-  "checkedAt": "2026-10-16T12:25:06.972Z",
-  "combatControls": [
+  "checkedAt": "2026-10-16T12:52:30.132Z",
+  "sourceCommit": "993a1ee1289fa137a68b7bbdad48b81b2e18befe",
+  "controls": [
     {
       "height": 48,
-      "label": "Resume game",
       "text": "Resume",
       "width": 109.28125
     },
     {
       "height": 48,
-      "label": "Game speed 1×",
       "text": "1×",
       "width": 90
     }
   ],
-  "developerExcluded": "Developer Mode — statistics disabled",
   "draftText": "",
-  "pageWidth": 1280,
+  "excluded": "Developer Mode — statistics disabled",
+  "pageWidth": 1440,
   "phase": "combat",
+  "scripts": [
+    "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/game-BdHWr_DR.js"
+  ],
+  "toast": "Castle wall demolished · tile cleared",
   "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.0",
   "viewport": {
-    "height": 720,
-    "width": 1280
+    "height": 900,
+    "width": 1440
   },
   "actions": [
     {
       "action": "place",
       "count": 5,
-      "result": "Build 3/5 had exactly two unrevealed slots; fifth placement entered Select"
+      "result": "Three placed recruits left exactly two unrevealed slots; fifth placement entered Select"
     },
     {
       "action": "keep",
       "clicks": 1,
-      "result": "Ready with Mage I keeper"
+      "result": "Ready with Stormcaller I keeper"
     },
     {
       "action": "demolish",
       "clicks": 1,
-      "result": "Castle wall demolished · tile cleared; selected wall inspector removed"
+      "result": "Castle wall demolished · tile cleared"
     },
     {
       "action": "start-wave",
       "clicks": 1,
-      "result": "Combat wave1, one on field / seven queued"
+      "result": "Combat wave1 with one on field and seven queued"
     },
     {
       "action": "pause",
       "clicks": 1,
-      "result": "Resume shown, current wave paused"
+      "result": "Resume and paused Current wave shown"
     }
   ],
   "limits": [
-    "Mouse input in browser; physical iPad touch/pen not exercised here"
+    "Mouse in a browser viewport; physical iPad Safari touch/pen unavailable"
   ]
 }

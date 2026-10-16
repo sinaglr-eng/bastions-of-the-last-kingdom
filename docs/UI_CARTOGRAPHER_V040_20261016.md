@@ -27,11 +27,11 @@ Game rules, balance, recipes, hidden acquisition, saves, statistics contracts, m
 
 ## Validation record
 
-The current full local suite passes **1,448/1,448**, with no failures, skips or cancellations. Production build succeeds. Focused actual-Game tests cover rank comparisons, all 38 current recipes, exact confirmation guards, modal pause restoration, native command input semantics, hidden identity access, repeated DOM relocation and keyboard focus recovery. Four synthetic rollback checks exercise the real script without credentials or dispatch.
+The current full local suite passes **1,448/1,448**, with no failures, skips or cancellations. Production build succeeds. Focused actual-Game tests cover rank comparisons, all 38 current recipes, exact confirmation guards, modal pause restoration, native command input semantics, hidden identity access, repeated DOM relocation and keyboard focus recovery. Five synthetic rollback checks exercise the real script without credentials or dispatch.
 
 Browser evidence and final input hashes are recorded under `output/design/cartographer-ui-v040-20261016/`. Earlier intermediate screenshots/test logs in that directory are checkpoints; final receipts identify the published source and compiled assets. Desktop/iPad viewport inspection is browser evidence, not a claim about physical iPad Safari. Physical iPad/Safari testing is unavailable in this environment.
 
-The initial 0.4 publication and actual rollback rehearsal passed. The final paper-detail correction is tracked by `v0.4.0-final`; its completed CI and public-file identity are recorded in the release closeout after verification.
+Publication and rollback are complete. Final source `v0.4.0-final` (993a1ee1289fa137a68b7bbdad48b81b2e18befe) passed [CI 38902615525](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38902615525) and fresh public compiled/portrait/audio/metadata verification. The initial 0.4 build, actual 0.3.31 rollback, return and final CSS refinements are separately recorded in [the release receipt](../output/design/cartographer-ui-v040-20261016/release-receipt.json). The original 0.4 and color-review tags remain unchanged as historical checkpoints.
 
 Public verification passed all five compiled JS/CSS entries, 136 PNGs with signatures/dimensions, the committed portrait manifest, two committed audio catalogues and all 113 active MP3 hashes. Windows-local CRLF JSON is compared against exact committed public Git blobs; the generated HTML expectation uses the Linux CI LF representation. Compiled code, PNGs and MP3s require exact byte equality. The initial EOL-only comparison failure remains as an intermediate receipt.
 
