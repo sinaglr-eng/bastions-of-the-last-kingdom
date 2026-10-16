@@ -1,5 +1,11 @@
 # Releases
 
+## 0.4.0 — The Cartographer’s Table — 16 October 2026
+
+Implements the approved 22-concept UI handoff and three review rounds: warm paper register/folio/atlas, one shared hidden-safe five-card draft, actual-rank commitments separate from displayed-rank effects/portraits/base statistics, one expanded combination detail, exact Combine/Cancel previews, compact Ready and Combat docks, a phase-dependent wave note and measured DPS/MVP strip. Uses 136 verified original-reference crops with identity-safe decoding. Recipe allocation, filtered Next/Previous and exploration history remain independent; Back to list restores focus.
+
+Preserves 0.3.31 touch/pen guards, game rules, model/scenery/audio assets, saves and statistics contracts. Adds an immutable stable source tag, backup branch, verified offline source/production archives and a main-workflow release_ref rollback path. Full local suite: 1,448 passing; production build succeeds. See [the detailed report](docs/UI_CARTOGRAPHER_V040_20261016.md).
+
 ## 0.3.31 — Reliable Touch Controls and Clearer Battlefield — 14 October 2026
 
 Published from implementation commit `6c4485db7e9a617233b4f86f6d93e81d3c31cf28` through successful [Pages CI 38528660303](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38528660303). Local native browser checks passed single mouse Start/Demolish activation, with unobstructed command centers and targets measuring at least 44 pixels across all five viewports. All 1,404 tests and the production build passed. Five public compiled assets match local dist; all 113 approved MP3 hashes and HTTPS browser decodes passed. Physical iPad/Safari verification is unavailable. The statistics backend metadata is already live at edition 0.3.31 with recorded historical preservation. See [the sixteen-comment report](docs/UI_REFINEMENTS_V31_20261014.md).

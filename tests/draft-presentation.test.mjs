@@ -116,13 +116,15 @@ test('production draft refresh retains local horizontal scroll and reveals a new
     }};
   };
   Object.defineProperty(host,'innerHTML',{get:()=>host.markup||'',set:markup=>{host.writes++;host.markup=markup;strip=createStrip();}});host.querySelector=selector=>selector==='.draws'?strip:null;
-  const compact={hidden:false,innerHTML:''},modePicker={addEventListener(type,callback){assert.equal(type,'change');this.change=callback;}},$=id=>id==='draft'?host:id==='compact-draft-actions'?compact:id==='mode'&&host.markup.includes('id="mode"')?modePicker:null;
+  const compact={hidden:false,innerHTML:'stale controls',clears:0,replaceChildren(){this.innerHTML='';this.clears++;}},commands={innerHTML:''},modePicker={addEventListener(type,callback){assert.equal(type,'change');this.change=callback;}},$=id=>id==='draft'?host:id==='compact-draft-actions'?compact:id==='folio-command-actions'?commands:id==='mode'&&host.markup.includes('id="mode"')?modePicker:null;
   const render=new Function('game','$','icon','commandPointsMarkup','data','images','draftCardsMarkup',`let mode=50,intelligenceKey=null;${source.slice(start,end)};return renderDraft;`)(game,$,icon,commandPointsMarkup,data,images,draftCardsMarkup);
   const before=state(game);render();assert.equal(strip.scrollLeft,0);strip.scrollLeft=113;
+  assert.equal(compact.hidden,true);assert.equal(compact.innerHTML,'');assert.equal(compact.clears,1);assert.equal(commands.innerHTML,'','Building has no unavailable draft commitment controls');
   assert.ok(modePicker.change,'The first construction render connects the campaign-length control');assert.match(host.innerHTML,/id="mode"/);
   for(let pass=0;pass<20;pass++){render();assert.equal(strip.scrollLeft,113);assert.equal((host.innerHTML.match(/class="draw-slot/g)||[]).length,5);assert.doesNotMatch(host.innerHTML,/<img/);}
   assert.equal(state(game),before);assert.equal(game.rng(),control.rng());
   game.activeDraw=4;render();assert.equal(strip.scrollLeft,130,'Newly chosen last slot is exposed within the local strip');
   game.activeDraw=0;render();assert.equal(strip.scrollLeft,0,'Choosing the first slot exposes it without page scrolling');
   assert.equal(game.place(3,3),true);render();assert.doesNotMatch(host.innerHTML,/id="mode"/,'Campaign length is no longer offered after the first placement');
+  for(const x of [4,5,6,7])assert.equal(game.place(x,3),true);render();assert.equal(game.phase,'select');assert.match(commands.innerHTML,/data-action="reroll"/);assert.match(commands.innerHTML,/data-action="reserve"/);assert.doesNotMatch(host.innerHTML,/data-action="(?:reroll|reserve)"/,'CP actions have one folio host');
 });

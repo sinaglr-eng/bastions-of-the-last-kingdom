@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-16T11:17:13.066Z",
+  "baseline": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+  "status": "PASS — focused source and test freeze; root integration/browser/full-suite/release gates separate",
+  "requirements": [
+    "UI15",
+    "UI17",
+    "UI18",
+    "UI19",
+    "UI21",
+    "UI23",
+    "UI24",
+    "UI37"
+  ],
+  "checks": {
+    "targetedTests": {
+      "passed": 126,
+      "failed": 0,
+      "skipped": 0,
+      "log": "output/design/cartographer-ui-v040-20261016/wave-catalog-dps-targeted-tests.txt",
+      "sha256": "c673bdad48fa120b15c8a2cf6ca4a3e001940f6348b08d80d0bbbcde1c0ccfe7"
+    },
+    "sharedWaveSlot": "Next/Current share native details and summary identity, preserve user open choice and focus; mode-specific classes, ARIA and scroll listeners update; Combat counts actual living enemies and actual spawn queue, including global pause.",
+    "boss": "One persistent top aggregate bar uses revealed living bosses only; damage, regeneration, healing-block expiry, pause, multiple bosses and invalid health covered with real Game. Side profile panel has no aggregate live HP bar. Departure has no invented defeat claim.",
+    "dps": "Collapsed shallow score/wave/unmeasured label; expanded sum of independent peaks, archived identity/MVP/order and real five-game-second math retained. Missing basic-rank portrait never substitutes rank I.",
+    "catalog": "Built basics uses sum(ownedCount)/sum(count) from expandedRecipeProgress with the catalog eligible inventory. Real cases: Kingslayer 2/11, King 2/13, Frost Knight coverage 5/11; duplicate identity, exact rank, hidden/unplaced/reserved and provisional ownership covered.",
+    "phase": "Combat inspector defaults closed, explicit Current detail survives paused refresh, map selection still opens unit inspection. Ready/Combat strip empty; ended actions remain read-only.",
+    "selectedEnemy": {
+      "path": "ui/selected-enemy.js",
+      "sha256": "e2b5c842350700990fb9c5d7fa2068385294298340ae062cd1d22b131eda34bc",
+      "baselineByteIdentical": true,
+      "individualRevealedHpPreserved": true
+    },
+    "diffCheck": "PASS"
+  },
+  "files": [
+    {
+      "path": "ui/current-wave-summary.js",
+      "bytes": 2829,
+      "sha256": "6f1ebdab0ba1a7055ef3aac0fa0505c41f2a3e56ad257e8f1731f1d83845731e"
+    },
+    {
+      "path": "ui/current-wave-panel.js",
+      "bytes": 3047,
+      "sha256": "74cb1f499a0702b609e164f6799dc1b1c8d0e4843dd329c4962db227e756ba30"
+    },
+    {
+      "path": "ui/next-wave-summary.js",
+      "bytes": 5229,
+      "sha256": "28358c59c7fc3abc746ecc96297dd28e687de72861e2aeb1ceb19065011f6135"
+    },
+    {
+      "path": "ui/tower-dps.js",
+      "bytes": 6986,
+      "sha256": "c0886b1412120d13980d1e323d5efa5757b5402839091b45068a067200376df0"
+    },
+    {
+      "path": "ui/phase-ui.js",
+      "bytes": 5027,
+      "sha256": "8bb3dfd8196870cd4843450b5ebc3defd74422dc5637f7aae4aea987356ccc04"
+    },
+    {
+      "path": "ui/catalog-recipes.js",
+      "bytes": 14833,
+      "sha256": "26ee5ae2249f3a3ee9f8d9364094fd0a70708ebe533bf355794554700fdecacd"
+    },
+    {
+      "path": "tests/battlefield-overlay-panels.test.mjs",
+      "bytes": 26984,
+      "sha256": "2011510205feea531fddc8a5c7dc5c545b0a4bf9ee0a681704dc9d82161cb944"
+    },
+    {
+      "path": "tests/current-wave-panel.test.mjs",
+      "bytes": 14656,
+      "sha256": "9a233531b2010bc4569aa7aff4fb6f7fe65f6c86f8a42c21e92807dfd3edca7c"
+    },
+    {
+      "path": "tests/catalog-recipes-d006.test.mjs",
+      "bytes": 18607,
+      "sha256": "98e7867be6de7810f69a053cdc636cb8e2290cc8e1ec97685b1f9b6a4f4ad6b2"
+    },
+    {
+      "path": "tests/tower-dps.test.mjs",
+      "bytes": 18988,
+      "sha256": "210354aa235eb9b179c21652c492a69eec700b78f5d56519847f64762c15c1f5"
+    },
+    {
+      "path": "tests/phase-ui.test.mjs",
+      "bytes": 8026,
+      "sha256": "d76dd7d555baeeed1b9aaa86e4083a37701d660aae4cb65a8fa60f68d0983e05"
+    }
+  ],
+  "limitations": [
+    "This focused freeze does not certify the parent main/CSS composition, viewport fit, physical iPad, enlarged text, publication or complete release test suite.",
+    "No core/data/media/audio/storage/deployment files changed by this task.",
+    "The shared phase test file contains separately coordinated defender test changes."
+  ]
+}

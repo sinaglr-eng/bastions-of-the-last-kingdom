@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-16T11:28:19.550Z",
+  "status": "PASS",
+  "targetedTests": {
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "log": "output/design/cartographer-ui-v040-20261016/tutorial-targeted-tests.txt",
+    "sha256": "539ef2863c3834205278dc73047216e2cb9b68efd7a65cac9536a6866a5541a3"
+  },
+  "files": [
+    {
+      "path": "ui/tutorial.js",
+      "sha256": "351bfd5327aed47dc6eabb0dd75fb65ec5df1a8b0b73e37fd2ce6b6b9080ee98",
+      "bytes": 5839
+    },
+    {
+      "path": "tests/context-guidance.test.mjs",
+      "sha256": "849dd06f7fbc073508fa1f39bc7c21889a2305613aef283ea1e4be51d23c97a9",
+      "bytes": 6693
+    },
+    {
+      "path": "tests/tutorial-v040.test.mjs",
+      "sha256": "06b6c6592bef843be52b014c034910b665f32a16032577e64a573bb7ff482ed6",
+      "bytes": 4192
+    }
+  ],
+  "checks": [
+    "Current copy describes preparation-folio pin plans, actual remaining-wave atlas/Current details and compact dock Pause/Resume plus1×/2×. Removed imaginary readiness section and obsolete header/3× claims.",
+    "Maze anchor uses visible Ready dock button, with visible Map tools disclosure fallback while that dock is hidden.",
+    "Actual GuidedTutorial seven-step Next/Back/End/Play/restart flow, dynamic anchor positioning, and Escape/dialog precedence pass.",
+    "Existing first-placement/CP/MVP guidance storage, repeated-dismissal, no resource/RNG/pause mutation checks pass."
+  ],
+  "limitations": [
+    "CSS contrast findings for body-mounted tutorial layer, maze/result/developer panels reported read-only to parent; theme fixes/browser fit owned by parent.",
+    "No game mechanics, data, media, audio, storage schema, metadata or deployment edits."
+  ]
+}

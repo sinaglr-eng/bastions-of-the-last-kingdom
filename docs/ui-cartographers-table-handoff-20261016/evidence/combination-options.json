@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-16",
+  "version": "0.3.31",
+  "twoOptions": {
+    "unit": "Archer II",
+    "recipes": [
+      {
+        "id": "frostblade",
+        "name": "Frost Knight",
+        "ingredients": [
+          {
+            "name": "Frostsword Watchmen",
+            "tier": 1
+          },
+          {
+            "name": "Archer",
+            "tier": 2
+          },
+          {
+            "name": "Mage",
+            "tier": 3
+          }
+        ]
+      },
+      {
+        "id": "fireballista",
+        "name": "Fire Ballista",
+        "ingredients": [
+          {
+            "name": "Ballista",
+            "tier": 1
+          },
+          {
+            "name": "Engineer",
+            "tier": 5
+          },
+          {
+            "name": "Archer",
+            "tier": 2
+          }
+        ]
+      }
+    ]
+  },
+  "threeOptions": {
+    "unit": "Frost Warden V",
+    "recipes": [
+      {
+        "id": "winterhold",
+        "name": "Frozen Celestial",
+        "ingredients": [
+          {
+            "name": "Frost Warden",
+            "tier": 5
+          },
+          {
+            "name": "Mage",
+            "tier": 4
+          },
+          {
+            "name": "Stormcaller",
+            "tier": 4
+          }
+        ]
+      },
+      {
+        "id": "archangel",
+        "name": "Angel",
+        "ingredients": [
+          {
+            "name": "Frozen Celestial",
+            "tier": 1
+          },
+          {
+            "name": "Thunderbird",
+            "tier": 1
+          },
+          {
+            "name": "Frost Warden",
+            "tier": 5
+          }
+        ]
+      },
+      {
+        "id": "ladyclaire",
+        "name": "Lady Claire",
+        "ingredients": [
+          {
+            "name": "Mage",
+            "tier": 5
+          },
+          {
+            "name": "Druid",
+            "tier": 5
+          },
+          {
+            "name": "Frost Warden",
+            "tier": 5
+          }
+        ]
+      }
+    ]
+  },
+  "markerContract": {
+    "shape": "Existing portrait badge, rounded arch, small role symbol and numbered candidate bubble",
+    "result": "Gold outline and star",
+    "ingredient": "Portrait and minus; discarded candidates wall portrait and multiplication sign",
+    "merge": "Violet portrait badge, MERGE and upward arrow",
+    "pinned": "Cyan portrait badge and diamond; cyan accent coexists with result or merge role",
+    "behavior": "Retain existing guarded pointer and double-activation semantics; no input rewrite authorized"
+  },
+  "sourceHashes": {
+    "game/render/draft-markers.js": "88c6bfef1b17fc55a9a0df3e4be0ed253ad765699c09198d40da5740465a88fe",
+    "ui/style.css": "c2dc46960343138fe8c85efbadd8cba80b59ae4493ca235ea4bc81a188f99567",
+    "ui/refinements-v31.css": "f9b522decdefc933d4423b06d9a42b81c6b6332c5283519455c38b6f76680053",
+    "ui/audit-layout.css": "130fdf028b6e30687b36d1c522b235b0fa7e35e48115c93683fbe15df7ebb742",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "game/core/campaign-roster.js": "2c4e0ec5198456da9d36663e272c6c60e36217e5bbc06474f63b455e75a08f5b",
+    "game/core/recipes.js": "8e0dea788e077ede7b636807dd5a5f0f5d2cc2755ef9148a989cd9e2c9da8216",
+    "game/core/game.js": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf",
+    "game/main.js": "cb498baf0fbe60a2e77925bbf855226b4b20c33a8ae46f7b6e2052c5505fae36"
+  }
+}

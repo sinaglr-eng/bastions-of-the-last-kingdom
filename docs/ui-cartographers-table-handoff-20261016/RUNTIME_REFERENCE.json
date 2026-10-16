@@ -1,0 +1,1280 @@
+{
+  "date": "2026-10-16",
+  "version": "0.3.31",
+  "basicFamilies": [
+    "soldier",
+    "archer",
+    "druid",
+    "mage",
+    "cleric",
+    "runebreaker",
+    "frostwarden",
+    "stormcaller"
+  ],
+  "fixedChampions": [
+    {
+      "family": "rimewatch",
+      "name": "Frostsword Watchmen"
+    },
+    {
+      "family": "frostblade",
+      "name": "Frost Knight"
+    },
+    {
+      "family": "roseguard",
+      "name": "Lionheart Champion"
+    },
+    {
+      "family": "highking",
+      "name": "Kingslayer"
+    },
+    {
+      "family": "crownofages",
+      "name": "King"
+    },
+    {
+      "family": "thornwarden",
+      "name": "Elven Ranger"
+    },
+    {
+      "family": "verdantguard",
+      "name": "Elven Elite Warrior"
+    },
+    {
+      "family": "tempest",
+      "name": "Elven Mage"
+    },
+    {
+      "family": "stormcitadel",
+      "name": "Elven Archmage"
+    },
+    {
+      "family": "embercrown",
+      "name": "Baby Fire Dragon"
+    },
+    {
+      "family": "worldfire",
+      "name": "Mother Fire Dragon"
+    },
+    {
+      "family": "starfall",
+      "name": "Thunderbird"
+    },
+    {
+      "family": "thunderheart",
+      "name": "Elemental Male Dragon"
+    },
+    {
+      "family": "phoenix",
+      "name": "Ancient Dragon Patriarch"
+    },
+    {
+      "family": "greenheart",
+      "name": "Master Druid"
+    },
+    {
+      "family": "eldergrove",
+      "name": "Archdruid"
+    },
+    {
+      "family": "kingsreach",
+      "name": "Ballista"
+    },
+    {
+      "family": "sunward",
+      "name": "Priest"
+    },
+    {
+      "family": "winterhold",
+      "name": "Frozen Celestial"
+    },
+    {
+      "family": "dawnspire",
+      "name": "Archangel"
+    },
+    {
+      "family": "royalmarshal",
+      "name": "Dwarf Firebomber"
+    },
+    {
+      "family": "stonewarden",
+      "name": "Catapult"
+    },
+    {
+      "family": "wyvernhunter",
+      "name": "Ranger"
+    },
+    {
+      "family": "royalarsenal",
+      "name": "Elven King"
+    },
+    {
+      "family": "rangermentor",
+      "name": "Nature Spirit"
+    },
+    {
+      "family": "kingdomprotector",
+      "name": "Paladin"
+    },
+    {
+      "family": "mothernature",
+      "name": "Mother Nature"
+    },
+    {
+      "family": "royalranger",
+      "name": "Master Ranger"
+    },
+    {
+      "family": "kingsrangerguard",
+      "name": "Dark Ranger"
+    },
+    {
+      "family": "elvenking",
+      "name": "Ranger Oathbreaker"
+    },
+    {
+      "family": "fireballista",
+      "name": "Fire Ballista"
+    },
+    {
+      "family": "emeraldgolem",
+      "name": "Golem"
+    },
+    {
+      "family": "griffinbomber",
+      "name": "Dwarf Griffin bomber"
+    },
+    {
+      "family": "mechanicalgolem",
+      "name": "Dwarship"
+    },
+    {
+      "family": "monk",
+      "name": "High Priest"
+    },
+    {
+      "family": "archbishop",
+      "name": "Archbishop"
+    },
+    {
+      "family": "archangel",
+      "name": "Angel"
+    },
+    {
+      "family": "ladyclaire",
+      "name": "Lady Claire"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "rimewatch",
+      "name": "Frostsword Watchmen",
+      "ingredients": [
+        {
+          "family": "frostwarden",
+          "tier": 1
+        },
+        {
+          "family": "soldier",
+          "tier": 1
+        },
+        {
+          "family": "stormcaller",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "frostblade",
+      "name": "Frost Knight",
+      "ingredients": [
+        {
+          "family": "rimewatch",
+          "tier": 1
+        },
+        {
+          "family": "archer",
+          "tier": 2
+        },
+        {
+          "family": "mage",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "roseguard",
+      "name": "Lionheart Champion",
+      "ingredients": [
+        {
+          "family": "soldier",
+          "tier": 5
+        },
+        {
+          "family": "soldier",
+          "tier": 3
+        },
+        {
+          "family": "stormcaller",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "highking",
+      "name": "Kingslayer",
+      "ingredients": [
+        {
+          "family": "roseguard",
+          "tier": 1
+        },
+        {
+          "family": "frostblade",
+          "tier": 1
+        },
+        {
+          "family": "rimewatch",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "crownofages",
+      "name": "King",
+      "ingredients": [
+        {
+          "family": "highking",
+          "tier": 1
+        },
+        {
+          "family": "runebreaker",
+          "tier": 6
+        },
+        {
+          "family": "soldier",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "thornwarden",
+      "name": "Elven Ranger",
+      "ingredients": [
+        {
+          "family": "cleric",
+          "tier": 1
+        },
+        {
+          "family": "druid",
+          "tier": 1
+        },
+        {
+          "family": "archer",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "verdantguard",
+      "name": "Elven Elite Warrior",
+      "ingredients": [
+        {
+          "family": "thornwarden",
+          "tier": 1
+        },
+        {
+          "family": "soldier",
+          "tier": 2
+        },
+        {
+          "family": "stormcaller",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "tempest",
+      "name": "Elven Mage",
+      "ingredients": [
+        {
+          "family": "stormcaller",
+          "tier": 5
+        },
+        {
+          "family": "frostwarden",
+          "tier": 3
+        },
+        {
+          "family": "cleric",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "stormcitadel",
+      "name": "Elven Archmage",
+      "ingredients": [
+        {
+          "family": "tempest",
+          "tier": 1
+        },
+        {
+          "family": "thornwarden",
+          "tier": 1
+        },
+        {
+          "family": "verdantguard",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "embercrown",
+      "name": "Baby Fire Dragon",
+      "ingredients": [
+        {
+          "family": "mage",
+          "tier": 2
+        },
+        {
+          "family": "mage",
+          "tier": 1
+        },
+        {
+          "family": "runebreaker",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "worldfire",
+      "name": "Mother Fire Dragon",
+      "ingredients": [
+        {
+          "family": "embercrown",
+          "tier": 1
+        },
+        {
+          "family": "mage",
+          "tier": 4
+        },
+        {
+          "family": "runebreaker",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "starfall",
+      "name": "Thunderbird",
+      "ingredients": [
+        {
+          "family": "mage",
+          "tier": 5
+        },
+        {
+          "family": "archer",
+          "tier": 4
+        },
+        {
+          "family": "runebreaker",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "thunderheart",
+      "name": "Elemental Male Dragon",
+      "ingredients": [
+        {
+          "family": "starfall",
+          "tier": 1
+        },
+        {
+          "family": "worldfire",
+          "tier": 1
+        },
+        {
+          "family": "mage",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "phoenix",
+      "name": "Ancient Dragon Patriarch",
+      "ingredients": [
+        {
+          "family": "thunderheart",
+          "tier": 1
+        },
+        {
+          "family": "mage",
+          "tier": 6
+        },
+        {
+          "family": "druid",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "greenheart",
+      "name": "Master Druid",
+      "ingredients": [
+        {
+          "family": "druid",
+          "tier": 3
+        },
+        {
+          "family": "cleric",
+          "tier": 3
+        },
+        {
+          "family": "frostwarden",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "eldergrove",
+      "name": "Archdruid",
+      "ingredients": [
+        {
+          "family": "greenheart",
+          "tier": 1
+        },
+        {
+          "family": "frostwarden",
+          "tier": 4
+        },
+        {
+          "family": "archer",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "kingsreach",
+      "name": "Ballista",
+      "ingredients": [
+        {
+          "family": "runebreaker",
+          "tier": 5
+        },
+        {
+          "family": "runebreaker",
+          "tier": 4
+        },
+        {
+          "family": "soldier",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "sunward",
+      "name": "Priest",
+      "ingredients": [
+        {
+          "family": "cleric",
+          "tier": 5
+        },
+        {
+          "family": "soldier",
+          "tier": 4
+        },
+        {
+          "family": "archer",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "winterhold",
+      "name": "Frozen Celestial",
+      "ingredients": [
+        {
+          "family": "frostwarden",
+          "tier": 5
+        },
+        {
+          "family": "mage",
+          "tier": 4
+        },
+        {
+          "family": "stormcaller",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dawnspire",
+      "name": "Archangel",
+      "ingredients": [
+        {
+          "family": "winterhold",
+          "tier": 1
+        },
+        {
+          "family": "frostwarden",
+          "tier": 6
+        },
+        {
+          "family": "cleric",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "royalmarshal",
+      "name": "Dwarf Firebomber",
+      "ingredients": [
+        {
+          "family": "archer",
+          "tier": 5
+        },
+        {
+          "family": "cleric",
+          "tier": 4
+        },
+        {
+          "family": "druid",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "stonewarden",
+      "name": "Catapult",
+      "ingredients": [
+        {
+          "family": "druid",
+          "tier": 5
+        },
+        {
+          "family": "frostwarden",
+          "tier": 4
+        },
+        {
+          "family": "stormcaller",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "wyvernhunter",
+      "name": "Ranger",
+      "ingredients": [
+        {
+          "family": "druid",
+          "tier": 4
+        },
+        {
+          "family": "mage",
+          "tier": 3
+        },
+        {
+          "family": "runebreaker",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "royalarsenal",
+      "name": "Elven King",
+      "ingredients": [
+        {
+          "family": "stormcitadel",
+          "tier": 1
+        },
+        {
+          "family": "archer",
+          "tier": 6
+        },
+        {
+          "family": "stormcaller",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "rangermentor",
+      "name": "Nature Spirit",
+      "ingredients": [
+        {
+          "family": "eldergrove",
+          "tier": 1
+        },
+        {
+          "family": "druid",
+          "tier": 4
+        },
+        {
+          "family": "runebreaker",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "kingdomprotector",
+      "name": "Paladin",
+      "ingredients": [
+        {
+          "family": "archer",
+          "tier": 4
+        },
+        {
+          "family": "soldier",
+          "tier": 4
+        },
+        {
+          "family": "cleric",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "mothernature",
+      "name": "Mother Nature",
+      "ingredients": [
+        {
+          "family": "rangermentor",
+          "tier": 1
+        },
+        {
+          "family": "soldier",
+          "tier": 6
+        },
+        {
+          "family": "frostwarden",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "royalranger",
+      "name": "Master Ranger",
+      "ingredients": [
+        {
+          "family": "wyvernhunter",
+          "tier": 1
+        },
+        {
+          "family": "greenheart",
+          "tier": 1
+        },
+        {
+          "family": "druid",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "kingsrangerguard",
+      "name": "Dark Ranger",
+      "ingredients": [
+        {
+          "family": "wyvernhunter",
+          "tier": 1
+        },
+        {
+          "family": "runebreaker",
+          "tier": 4
+        },
+        {
+          "family": "stormcaller",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "elvenking",
+      "name": "Ranger Oathbreaker",
+      "ingredients": [
+        {
+          "family": "kingsrangerguard",
+          "tier": 1
+        },
+        {
+          "family": "stormcaller",
+          "tier": 6
+        },
+        {
+          "family": "mage",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "fireballista",
+      "name": "Fire Ballista",
+      "ingredients": [
+        {
+          "family": "kingsreach",
+          "tier": 1
+        },
+        {
+          "family": "runebreaker",
+          "tier": 5
+        },
+        {
+          "family": "archer",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "emeraldgolem",
+      "name": "Golem",
+      "ingredients": [
+        {
+          "family": "stonewarden",
+          "tier": 1
+        },
+        {
+          "family": "kingsreach",
+          "tier": 1
+        },
+        {
+          "family": "soldier",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "griffinbomber",
+      "name": "Dwarf Griffin bomber",
+      "ingredients": [
+        {
+          "family": "stonewarden",
+          "tier": 1
+        },
+        {
+          "family": "royalmarshal",
+          "tier": 1
+        },
+        {
+          "family": "druid",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "mechanicalgolem",
+      "name": "Dwarship",
+      "ingredients": [
+        {
+          "family": "griffinbomber",
+          "tier": 1
+        },
+        {
+          "family": "druid",
+          "tier": 6
+        },
+        {
+          "family": "runebreaker",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "monk",
+      "name": "High Priest",
+      "ingredients": [
+        {
+          "family": "kingdomprotector",
+          "tier": 1
+        },
+        {
+          "family": "sunward",
+          "tier": 1
+        },
+        {
+          "family": "cleric",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "archbishop",
+      "name": "Archbishop",
+      "ingredients": [
+        {
+          "family": "monk",
+          "tier": 1
+        },
+        {
+          "family": "cleric",
+          "tier": 6
+        },
+        {
+          "family": "archer",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "archangel",
+      "name": "Angel",
+      "ingredients": [
+        {
+          "family": "winterhold",
+          "tier": 1
+        },
+        {
+          "family": "starfall",
+          "tier": 1
+        },
+        {
+          "family": "frostwarden",
+          "tier": 5
+        }
+      ]
+    },
+    {
+      "id": "ladyclaire",
+      "name": "Lady Claire",
+      "ingredients": [
+        {
+          "family": "mage",
+          "tier": 5
+        },
+        {
+          "family": "druid",
+          "tier": 5
+        },
+        {
+          "family": "frostwarden",
+          "tier": 5
+        }
+      ]
+    }
+  ],
+  "waves": [
+    {
+      "name": "Orc Skull Scavengers",
+      "boss": false
+    },
+    {
+      "name": "Goblin Thornstriders",
+      "boss": false
+    },
+    {
+      "name": "Ogre Gluttons",
+      "boss": false
+    },
+    {
+      "name": "Orc Scrap Tinkers",
+      "boss": false
+    },
+    {
+      "name": "Bat Scouts",
+      "boss": false
+    },
+    {
+      "name": "Mossback Trolls",
+      "boss": false
+    },
+    {
+      "name": "Marsh Orc Hunters",
+      "boss": false
+    },
+    {
+      "name": "Shadowblood Trolls",
+      "boss": false
+    },
+    {
+      "name": "Goblin Dust Dancers",
+      "boss": false
+    },
+    {
+      "name": "Mogrok, the Gatebreaker",
+      "boss": true
+    },
+    {
+      "name": "Orc Hookbearers",
+      "boss": false
+    },
+    {
+      "name": "Goblin Bell Devourers",
+      "boss": false
+    },
+    {
+      "name": "Red Tusk Orc Huntresses",
+      "boss": false
+    },
+    {
+      "name": "Orc Mirror Shieldbearers",
+      "boss": false
+    },
+    {
+      "name": "Blood Bat Riders",
+      "boss": false
+    },
+    {
+      "name": "Orc Ash Pickpockets",
+      "boss": false
+    },
+    {
+      "name": "Cursed Totem Trolls",
+      "boss": false
+    },
+    {
+      "name": "Silent Orc Executioners",
+      "boss": false
+    },
+    {
+      "name": "Bloodwolf Orc Riders",
+      "boss": false
+    },
+    {
+      "name": "Gorvash, the Bone Patriarch",
+      "boss": true
+    },
+    {
+      "name": "Rotroot Trolls",
+      "boss": false
+    },
+    {
+      "name": "Iron Ram Ogres",
+      "boss": false
+    },
+    {
+      "name": "Shard-Soul Orc Warlocks",
+      "boss": false
+    },
+    {
+      "name": "Riveted Goblin Mutants",
+      "boss": false
+    },
+    {
+      "name": "Iron Bat Orc Riders",
+      "boss": false
+    },
+    {
+      "name": "Orc Spell Eaters",
+      "boss": false
+    },
+    {
+      "name": "Spectral Bat Riders",
+      "boss": false
+    },
+    {
+      "name": "Goblin Scrapwings",
+      "boss": false
+    },
+    {
+      "name": "Prismatic Bat Tricksters",
+      "boss": false
+    },
+    {
+      "name": "Zaruun, Lord of Storm Wings",
+      "boss": true
+    },
+    {
+      "name": "Orc Dual-Seal Inquisitors",
+      "boss": false
+    },
+    {
+      "name": "Soul-Drinker Trolls",
+      "boss": false
+    },
+    {
+      "name": "Orc Wraiths of the Shattered World",
+      "boss": false
+    },
+    {
+      "name": "Goblin Gallows Fliers",
+      "boss": false
+    },
+    {
+      "name": "Eclipse Bat Guard",
+      "boss": false
+    },
+    {
+      "name": "Orc Oathbreakers",
+      "boss": false
+    },
+    {
+      "name": "Riftwolf Orc Riders",
+      "boss": false
+    },
+    {
+      "name": "Black Marsh Knifemen / Blood-Leech Trolls",
+      "boss": false
+    },
+    {
+      "name": "Thunder Manta Orc Riders",
+      "boss": false
+    },
+    {
+      "name": "Vorlak, the Hollow Sky King",
+      "boss": true
+    },
+    {
+      "name": "Orc Crystal Phalanx",
+      "boss": false
+    },
+    {
+      "name": "Fire Bat Orc Lancers",
+      "boss": false
+    },
+    {
+      "name": "Ogres of the Imprisoned Souls",
+      "boss": false
+    },
+    {
+      "name": "Orc Ash Executioners",
+      "boss": false
+    },
+    {
+      "name": "Flying Drummers of the Black Horde",
+      "boss": false
+    },
+    {
+      "name": "Ogre Revenants in Hollow Armor",
+      "boss": false
+    },
+    {
+      "name": "Orc Riders of the Last Howl",
+      "boss": false
+    },
+    {
+      "name": "Bat Thieves of Black Fire",
+      "boss": false
+    },
+    {
+      "name": "Troll Guardians of the Deep Maw",
+      "boss": false
+    },
+    {
+      "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+      "boss": true
+    }
+  ],
+  "rankSamples": {
+    "archer": [
+      {
+        "rank": 1,
+        "type": "physical",
+        "damage": 6,
+        "baseDirectDps": 24,
+        "range": 4,
+        "interval": 0.25,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 2,
+        "type": "physical",
+        "damage": 12,
+        "baseDirectDps": 48,
+        "range": 4,
+        "interval": 0.25,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 3,
+        "type": "physical",
+        "damage": 24,
+        "baseDirectDps": 96,
+        "range": 4,
+        "interval": 0.25,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 4,
+        "type": "physical",
+        "damage": 48,
+        "baseDirectDps": 192,
+        "range": 4,
+        "interval": 0.25,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 5,
+        "type": "physical",
+        "damage": 72,
+        "baseDirectDps": 288,
+        "range": 4,
+        "interval": 0.25,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 6,
+        "type": "physical",
+        "damage": 100.8,
+        "baseDirectDps": 1007.9999999999999,
+        "range": 5,
+        "interval": 0.1,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0,
+        "cleaveRadius": 0
+      }
+    ],
+    "mage": [
+      {
+        "rank": 1,
+        "type": "magical",
+        "damage": 12,
+        "baseDirectDps": 12,
+        "range": 5,
+        "interval": 1,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0.3,
+        "cleaveRadius": 3
+      },
+      {
+        "rank": 2,
+        "type": "magical",
+        "damage": 24,
+        "baseDirectDps": 24,
+        "range": 5,
+        "interval": 1,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0.4,
+        "cleaveRadius": 3.5
+      },
+      {
+        "rank": 3,
+        "type": "magical",
+        "damage": 36,
+        "baseDirectDps": 36,
+        "range": 5,
+        "interval": 1,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0.5,
+        "cleaveRadius": 4
+      },
+      {
+        "rank": 4,
+        "type": "magical",
+        "damage": 72,
+        "baseDirectDps": 72,
+        "range": 5,
+        "interval": 1,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0.6,
+        "cleaveRadius": 4.5
+      },
+      {
+        "rank": 5,
+        "type": "magical",
+        "damage": 144,
+        "baseDirectDps": 144,
+        "range": 5,
+        "interval": 1,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 0.7,
+        "cleaveRadius": 5
+      },
+      {
+        "rank": 6,
+        "type": "magical",
+        "damage": 450,
+        "baseDirectDps": 450,
+        "range": 5,
+        "interval": 1,
+        "slow": 0,
+        "slowDuration": 0,
+        "cleave": 1,
+        "cleaveRadius": 7
+      }
+    ],
+    "frostwarden": [
+      {
+        "rank": 1,
+        "type": "physical",
+        "damage": 6,
+        "baseDirectDps": 6,
+        "range": 6,
+        "interval": 1,
+        "slow": 0.12,
+        "slowDuration": 3,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 2,
+        "type": "physical",
+        "damage": 12,
+        "baseDirectDps": 12,
+        "range": 6,
+        "interval": 1,
+        "slow": 0.18,
+        "slowDuration": 3,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 3,
+        "type": "physical",
+        "damage": 18,
+        "baseDirectDps": 18,
+        "range": 6,
+        "interval": 1,
+        "slow": 0.24,
+        "slowDuration": 3,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 4,
+        "type": "physical",
+        "damage": 24,
+        "baseDirectDps": 24,
+        "range": 6,
+        "interval": 1,
+        "slow": 0.3,
+        "slowDuration": 3,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 5,
+        "type": "physical",
+        "damage": 30,
+        "baseDirectDps": 30,
+        "range": 6,
+        "interval": 1,
+        "slow": 0.36,
+        "slowDuration": 3,
+        "cleave": 0,
+        "cleaveRadius": 0
+      },
+      {
+        "rank": 6,
+        "type": "physical",
+        "damage": 108,
+        "baseDirectDps": 180,
+        "range": 6,
+        "interval": 0.6,
+        "slow": 0.55,
+        "slowDuration": 3,
+        "cleave": 0,
+        "cleaveRadius": 0
+      }
+    ]
+  }
+}

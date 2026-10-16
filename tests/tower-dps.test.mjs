@@ -195,8 +195,9 @@ test('actual crafting archives the focused DPS identity and the panel returns fo
   // Native focus semantics are part of this small DOM boundary: a disabled
   // button cannot accept focus, and replacing it removes the focused node.
   const document={activeElement:null},scroll={scrollTop:0};
-  const summary={innerHTML:'',focus(options){document.activeElement=this;this.focusOptions=options;}};
-  const body={buttons:[],addEventListener(){},matches(){return false;},querySelector(){return scroll;},querySelectorAll(){return this.buttons;},contains(node){return this.buttons.includes(node);},
+  const attributes=()=>({values:new Map(),setAttribute(name,value){this.values.set(name,String(value));},getAttribute(name){return this.values.get(name);}});
+  const summary={...attributes(),innerHTML:'',focus(options){document.activeElement=this;this.focusOptions=options;}};
+  const body={...attributes(),buttons:[],addEventListener(){},matches(){return false;},querySelector(){return scroll;},querySelectorAll(){return this.buttons;},contains(node){return this.buttons.includes(node);},
     set innerHTML(html){
       if(this.contains(document.activeElement))document.activeElement=null;
       this.buttons=[...html.matchAll(/<button\b[^>]*data-overlay-focus="([^"]+)"[^>]*>/g)].map(match=>({dataset:{overlayFocus:match[1]},disabled:/\bdisabled\b/.test(match[0]),closest(){return this;},focus(options){if(this.disabled)return;document.activeElement=this;this.focusOptions=options;}}));
@@ -216,5 +217,6 @@ test('actual crafting archives the focused DPS identity and the panel returns fo
     assert.equal(refresh(),true);const historical=body.buttons.find(button=>button.dataset.overlayFocus===String(source.id));assert.equal(historical.disabled,true);
     assert.equal(document.activeElement,summary,'Archived disabled row restores focus to the persistent disclosure summary');
     assert.deepEqual(summary.focusOptions,{preventScroll:true});assert.equal(scroll.scrollTop,47);assert.equal(details.open,true);
+    assert.match(summary.getAttribute('aria-label'),/^Collapse Peak DPS .*Last wave 1/);assert.equal(body.getAttribute('aria-label'),'Peak DPS list');
   }finally{off();stop();}
 });

@@ -1,0 +1,419 @@
+{
+  "date": "2026-10-16",
+  "sourceVersion": "0.3.31",
+  "note": "Illustrative inventory, not a saved campaign. Built-only counters exclude draftCount; runtime allocator handles nested champions and duplicate requirements.",
+  "inventory": [
+    {
+      "id": 1,
+      "family": "cleric",
+      "tier": 1,
+      "state": "active",
+      "placed": true,
+      "round": 9
+    },
+    {
+      "id": 2,
+      "family": "soldier",
+      "tier": 1,
+      "state": "active",
+      "placed": true,
+      "round": 9
+    },
+    {
+      "id": 3,
+      "family": "stormcaller",
+      "tier": 1,
+      "state": "active",
+      "placed": true,
+      "round": 9
+    },
+    {
+      "id": 4,
+      "family": "mage",
+      "tier": 1,
+      "state": "draft",
+      "placed": true,
+      "round": 9
+    },
+    {
+      "id": 5,
+      "family": "druid",
+      "tier": 1,
+      "state": "draft",
+      "placed": true,
+      "round": 9
+    },
+    {
+      "id": 6,
+      "family": "runebreaker",
+      "tier": 1,
+      "state": "draft",
+      "placed": true,
+      "round": 9
+    }
+  ],
+  "rows": [
+    {
+      "id": "rimewatch",
+      "name": "Frostsword Watchmen",
+      "totalBasics": 3,
+      "builtBasics": 2,
+      "thisRoundBasics": 0,
+      "leaves": [
+        {
+          "family": "frostwarden",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "soldier",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 1,
+          "draftCount": 0
+        },
+        {
+          "family": "stormcaller",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 1,
+          "draftCount": 0
+        }
+      ]
+    },
+    {
+      "id": "frostblade",
+      "name": "Frost Knight",
+      "totalBasics": 5,
+      "builtBasics": 2,
+      "thisRoundBasics": 0,
+      "leaves": [
+        {
+          "family": "frostwarden",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "soldier",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 1,
+          "draftCount": 0
+        },
+        {
+          "family": "stormcaller",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 1,
+          "draftCount": 0
+        },
+        {
+          "family": "archer",
+          "tier": 2,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "mage",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        }
+      ]
+    },
+    {
+      "id": "roseguard",
+      "name": "Lionheart Champion",
+      "totalBasics": 3,
+      "builtBasics": 0,
+      "thisRoundBasics": 0,
+      "leaves": [
+        {
+          "family": "soldier",
+          "tier": 5,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "soldier",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "stormcaller",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        }
+      ]
+    },
+    {
+      "id": "highking",
+      "name": "Kingslayer",
+      "totalBasics": 11,
+      "builtBasics": 2,
+      "thisRoundBasics": 0,
+      "leaves": [
+        {
+          "family": "soldier",
+          "tier": 5,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "soldier",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "stormcaller",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "frostwarden",
+          "tier": 1,
+          "count": 2,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "soldier",
+          "tier": 1,
+          "count": 2,
+          "ownedCount": 1,
+          "draftCount": 0
+        },
+        {
+          "family": "stormcaller",
+          "tier": 1,
+          "count": 2,
+          "ownedCount": 1,
+          "draftCount": 0
+        },
+        {
+          "family": "archer",
+          "tier": 2,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "mage",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        }
+      ]
+    },
+    {
+      "id": "crownofages",
+      "name": "King",
+      "totalBasics": 13,
+      "builtBasics": 2,
+      "thisRoundBasics": 0,
+      "leaves": [
+        {
+          "family": "soldier",
+          "tier": 5,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "soldier",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "stormcaller",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "frostwarden",
+          "tier": 1,
+          "count": 2,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "soldier",
+          "tier": 1,
+          "count": 2,
+          "ownedCount": 1,
+          "draftCount": 0
+        },
+        {
+          "family": "stormcaller",
+          "tier": 1,
+          "count": 2,
+          "ownedCount": 1,
+          "draftCount": 0
+        },
+        {
+          "family": "archer",
+          "tier": 2,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "mage",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "runebreaker",
+          "tier": 6,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "soldier",
+          "tier": 6,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        }
+      ]
+    },
+    {
+      "id": "thornwarden",
+      "name": "Elven Ranger",
+      "totalBasics": 3,
+      "builtBasics": 1,
+      "thisRoundBasics": 1,
+      "leaves": [
+        {
+          "family": "cleric",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 1,
+          "draftCount": 0
+        },
+        {
+          "family": "druid",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 1
+        },
+        {
+          "family": "archer",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        }
+      ]
+    },
+    {
+      "id": "verdantguard",
+      "name": "Elven Elite Warrior",
+      "totalBasics": 5,
+      "builtBasics": 1,
+      "thisRoundBasics": 1,
+      "leaves": [
+        {
+          "family": "cleric",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 1,
+          "draftCount": 0
+        },
+        {
+          "family": "druid",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 1
+        },
+        {
+          "family": "archer",
+          "tier": 1,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "soldier",
+          "tier": 2,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        },
+        {
+          "family": "stormcaller",
+          "tier": 3,
+          "count": 1,
+          "ownedCount": 0,
+          "draftCount": 0
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "package.json": "1344da4f3a173ae433455bbdaec7ad0ecb6a5d47b8ac911f93bcf0ca99beb291",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "game/core/recipes.js": "8e0dea788e077ede7b636807dd5a5f0f5d2cc2755ef9148a989cd9e2c9da8216",
+    "game/core/game.js": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf",
+    "game/core/combat.js": "1605ad59791e760edca3386b2e22bad289f61a1b59c20826cc665d1c78d0f39f",
+    "game/core/campaign-roster.js": "2c4e0ec5198456da9d36663e272c6c60e36217e5bbc06474f63b455e75a08f5b",
+    "ui/current-wave-panel.js": "3ace7eaf42bf1616c2a23ae3eef1d48560589d613c2073d1991276292d7c7be0",
+    "game/main.js": "cb498baf0fbe60a2e77925bbf855226b4b20c33a8ae46f7b6e2052c5505fae36"
+  },
+  "componentProbe": {
+    "target": "Kingslayer",
+    "inventory": [
+      {
+        "id": 100,
+        "family": "frostblade",
+        "tier": 1,
+        "state": "active",
+        "placed": true
+      },
+      {
+        "id": 101,
+        "family": "archer",
+        "tier": 2,
+        "state": "active",
+        "placed": true
+      },
+      {
+        "id": 102,
+        "family": "mage",
+        "tier": 3,
+        "state": "active",
+        "placed": true
+      }
+    ],
+    "totalBasics": 11,
+    "builtBasics": 5,
+    "note": "A built Frost Knight covers five required basics once; separately present Archer II/Mage III do not double-count its covered branch."
+  }
+}

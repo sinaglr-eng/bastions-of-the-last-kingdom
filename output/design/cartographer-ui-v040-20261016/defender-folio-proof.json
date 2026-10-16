@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "task": "Cartographer UI 0.4 defender and draft folio",
+  "date": "2026-10-16",
+  "worktree": "C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower Defense game",
+  "branch": "codex/cartographer-ui-v040",
+  "baselineHead": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+  "status": "Owned implementation frozen; root integration and browser validation remain separate",
+  "runtimeFiles": [
+    {"path":"ui/defender-panel.js","sha256":"f60b557a5a8aae58c604a8527d099c971d8bf5be81f7ff0af719ec70b16e9ddb","bytes":6330},
+    {"path":"ui/defender-rank-preview.js","sha256":"1e09e56a71fe41bcbbe06a1aa22b2fc19d759b35fe1a622fb4af5a6d96f19a78","bytes":1622},
+    {"path":"ui/draft-cards.js","sha256":"fcb3c64ff4aa9eb1e10f554d8436b7486cdb0964235d6b2fe219ffaa27142909","bytes":5853},
+    {"path":"ui/preparation-folio.js","sha256":"b1d7c13e41e4b36d9011bb862fec997512b9034a64ba6f31a0acacf847f5c230","bytes":5197}
+  ],
+  "testFiles": [
+    {"path":"tests/preparation-folio-v040.test.mjs","sha256":"c2ee0fe3d9c2580217d6e7f021a9a286fc5f6f96dcb454cf408230a56c444f62","bytes":14578,"newCases":9},
+    {"path":"tests/defender-rank-preview.test.mjs","sha256":"a499c7c8e60fdb7716b69e4c5a5fa1231009ec6f57381fe7466cf5c5de461fca","bytes":16958},
+    {"path":"tests/defender-panel-preview-v30.test.mjs","sha256":"432669f0b66ce560791ee1f65df6d158e9c0f35ec415f3dd2a4a1228003feaf6","bytes":19002},
+    {"path":"tests/phase-ui.test.mjs","sha256":"d76dd7d555baeeed1b9aaa86e4083a37701d660aae4cb65a8fa60f68d0983e05","bytes":8026,"ownership":"Shared: this agent adapted only final three defender cases; wave/phase agent owns phase cases"},
+    {"path":"tests/command-main-integration-v31.test.mjs","sha256":"9a18cbf4b902c67696e633483d24e035768bf321313ca086c30b04a8f060b0ff","bytes":16205,"adaptation":"New folio layout/state globals and cancel callback bound; actual production handlers and nine guard assertions retained"},
+    {"path":"tests/draft-pointer-input.test.mjs","sha256":"493d754804652b9c42d000fa3d3f7f35995e9c5e5601859196a47e8a38cbb3a9","bytes":15028,"adaptation":"New folio globals/layout no-op; precise actual-rank portrait attributes; all thirteen actual input cases retained"}
+  ],
+  "verification": {
+    "command": "node --test --test-reporter=tap tests/preparation-folio-v040.test.mjs tests/defender-rank-preview.test.mjs tests/defender-panel-preview-v30.test.mjs tests/phase-ui.test.mjs tests/draft-keeper-ui.test.mjs tests/crafting-dock.test.mjs tests/recipe-tree.test.mjs tests/ranks-recipes.test.mjs tests/command-main-integration-v31.test.mjs tests/draft-pointer-input.test.mjs",
+    "exitCode": 0,
+    "tests": 98,
+    "passed": 98,
+    "failed": 0,
+    "log": {"path":"output/design/cartographer-ui-v040-20261016/defender-folio-tests.log","sha256":"58a8f24a723383b88bab146e7b89dca7917cefd820a2ff87bbc271132fcbcb48","bytes":27377},
+    "coverage": [
+      "Actual Game Archer II versus compared IV: 12/48/4/0.25 and 48/192/4/0.25; displayed portrait IV; actual card, Keep II, recipes and guarded identity remain II",
+      "Mage I 30% Magical splash at 3.6 damage/radius 3; Frost Warden V 36%/3s and VI 55%/3s/0.5 area; base grid and complete effect list derive from displayed towerStats",
+      "All 86 basic-rank and fixed-champion profiles retain a complete single effect list and one base grid; fixed champions have no fictional rank progression",
+      "Base direct DPS excludes actual MVP/support modifications; measured peak stays tied to the real defender; aura-only zero direct DPS retains quantified per-enemy output",
+      "Build three placed/two hidden: hidden family/rank getters cannot be read, no hidden images or early commands, seeded RNG unchanged; Select five-card action-free rail plus one guarded actual Keep",
+      "All two Archer II and three Frost Warden V actual recipe rows remain visible, exactly one selected detail; toggling is read-only and never pins or previews automatically",
+      "All 38 current campaign recipes: exact actual piece allocation, fresh legal confirmation, stale selection key rejected, repeated confirmation rejected; secret current-round rules remain core-authorized",
+      "Retained champion subtree coverage, reserve/stale/hidden inventory exclusion; retained V merge, actual downgrade gold and rank, Move/cancel, ended/reserved inspection and family built counts",
+      "Actual production input wiring: accepted touch/pen release without compatibility click, logical rerender replacement, ghost canvas suppression, stale Game/selection, keyboard/mouse, drag/cancel/scroll/secondary/multitouch, held pause/speed and unit-pause changes"
+    ]
+  },
+  "integration": {
+    "defenderPanelOptions": ["selectedRecipeId", "rankPreview", "images", "peak"],
+    "draftCardsOptions": {"actions":false,"legacyDefault":true},
+    "portalRegions": [".folio-actions", ".folio-recipes"],
+    "detailRegions": [".folio-identity", ".folio-effects", ".rank-preview", ".folio-metrics"],
+    "recipeRowAction": "folio-recipe",
+    "explicitPreviewAction": "craft-preview",
+    "recipeAuthority": "Actual selected tower, never displayed comparison rank"
+  },
+  "scopeBoundary": {
+    "ownedProductionChanges": "Only the four listed UI modules",
+    "notEditedByThisTask": ["game/main.js", "CSS", "game/core", "data", "models", "art and gallery sources", "audio", "save and statistics schema", "release metadata", "MAIN checkout"],
+    "recipeCountNote": "The current campaign authority contains 38 recipes. No recipes were added to meet an assumed count of 40.",
+    "limits": ["Node checks establish rendered semantics and actual Game/input behavior, not pixel layout or asset decoding", "Root owns composition, CSS, full suite/build and browser/device verification", "No physical iPad/Safari claim", "No publication or commit performed by this agent"]
+  }
+}

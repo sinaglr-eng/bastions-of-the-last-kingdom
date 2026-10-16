@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-16",
+  "status": "APPROVED UI DESIGN; IMPLEMENTATION HANDOFF PREPARED; GAME NOT IMPLEMENTED; NOT DEPLOYED",
+  "baselineVersion": "0.3.31",
+  "approved": {
+    "direction": "A — The Cartographer's Table",
+    "latestReview": "20261016-comments-03",
+    "selectedScreens": 22,
+    "scope": "UI composition and original-reference 2D previews only",
+    "artPreservation": "No changes to defender/enemy models, map, scenery, appearance, animation or effects",
+    "portraitMedium": "Approved original geometric illustration references used to build the models; never model renders"
+  },
+  "authorization": {
+    "prepareAndSaveHandoff": true,
+    "implementGameInThisChat": false,
+    "deployInThisChat": false,
+    "messageMasterChat": false,
+    "futureImplementation": "Requires direct user authorization in Master verze hry"
+  },
+  "precedence": [
+    "Latest human scope and approval",
+    "Consolidated handoff specification and preservation constraints",
+    "Current runtime data and eligibility",
+    "Current-model exact approved authoring reference provenance",
+    "Selected UI layout geometry",
+    "Historical prompts and original review evidence"
+  ],
+  "historicalUserEvidence": {
+    "role": "Verbatim original human wording, not current English gallery copy",
+    "approvalAndPreparation": "super toto se mi libi, nyni priprav vsechny podklady k tomu, aby jsi toto vse mohl naprogramovat jako novou verzi hry, zatim nic neprogramuj, jen priprav podklady a prompty vse uloz abych se na to mohl odkazat v dalsim chatu Master verze hry, kde nasazujeme nove verze na produkci",
+    "scopeClarification": "zamer se jen na zmenu UI, vzhledy obrancu, nepratel, mapy menit nebudeme, preview obrancu a nepratel by se meli brat ze schvalene geometricke galerie, ne z 3D modelu, ale meli by to byt obrazky geometrickych predloh podle kterych 3D modely byly vytvoreny"
+  }
+}

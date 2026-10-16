@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-16T11:21:31.946Z",
+  "status": "PASS",
+  "productionMain": {
+    "path": "game/main.js",
+    "sha256": "039148df9c3970598101c080906164e583902d200c2f87c9642574215909abea",
+    "editedByThisTask": false
+  },
+  "targetedTests": {
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "log": "output/design/cartographer-ui-v040-20261016/phase-battlefield-main-targeted-tests.txt",
+    "sha256": "a6e09ad49decdd3758d10099233bf004f1e6d779f556f454626b9c13953a393f"
+  },
+  "files": [
+    {
+      "path": "tests/battlefield-panel-main-integration.test.mjs",
+      "sha256": "c79a296829909f6fa5595cc5e4ae3f71dd2f541a8ac6cd7ae3fb33f5eeed08af",
+      "bytes": 20543
+    },
+    {
+      "path": "tests/phase-main-integration.test.mjs",
+      "sha256": "821c5a33c5122e4d1c8e00ca818dc520712a6408a480c95f7cd5de74063c2c00",
+      "bytes": 15839
+    }
+  ],
+  "assertionScope": [
+    "Actual saved main functions and subscriber ordering with real Game/RunStatistics/DeveloperConsoleSession.",
+    "Repeated three-round five-placement/Keep/Start transitions and true global pause; actual same-ID selection intent opens dismissed unit inspector.",
+    "Production renderIntelligence uses actual Next/Current updaters on one stable native disclosure, keeping closed choice/focus and hidden-draw resources through wave31 completion and final10 victory.",
+    "Actual HUD updates revealed individual HP, measured damage peaks, real boss HP/counts and Pause/Speed2 controls independently of inspected unit.",
+    "Real selected-wall removal phase guards, keyboard overlay isolation, Developer activation Cancel/confirm eligibility, ended read-only unit/enemy inspection and stale command guards remain.",
+    "Removed Inspect keeper UI replaced by actual map selection and Current detail commands; disabled ended combination preview remains explicitly non-executable."
+  ],
+  "fixtureBoundaries": [
+    "Folio DOM relocation is a bounded restoreParts/sync stub here; parent layout tests and native QA own actual relocation and CSS.",
+    "The native disclosure fixture models details/summary identity, toggle, labels and focus; physical touch/layout/WebGL are separate.",
+    "No production source, core, data, art, audio, storage or release metadata modified by this fixture task."
+  ]
+}

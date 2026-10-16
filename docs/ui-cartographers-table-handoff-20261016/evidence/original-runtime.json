@@ -1,0 +1,1654 @@
+{
+  "date": "2026-10-16",
+  "sourceVersion": "0.3.31",
+  "source": "Runtime adapters, not raw reference definitions",
+  "recipes": [
+    {
+      "id": "rimewatch",
+      "name": "Frostsword Watchmen",
+      "ingredients": [
+        {
+          "family": "frostwarden",
+          "name": "Frost Warden",
+          "rank": "I"
+        },
+        {
+          "family": "soldier",
+          "name": "Soldier",
+          "rank": "I"
+        },
+        {
+          "family": "stormcaller",
+          "name": "Stormcaller",
+          "rank": "I"
+        }
+      ],
+      "stats": {
+        "name": "Frostsword Watchmen",
+        "short": "Frostsword Watchmen",
+        "referenceTower": "Silver",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Basic",
+        "advanced": true,
+        "color": "#a4d4db",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 120,
+        "interval": 1,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Slow 2",
+        "description": "Frost ranged champion that slows one hit target.",
+        "strong": "Slow 2",
+        "weak": "Requires exact recipe ingredients",
+        "slow": 0.2,
+        "slowDuration": 3,
+        "model": "ranger",
+        "unitKind": "champion",
+        "referenceAbility": "Slow 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "frost"
+      }
+    },
+    {
+      "id": "highking",
+      "name": "Kingslayer",
+      "ingredients": [
+        {
+          "family": "roseguard",
+          "name": "Lionheart Champion",
+          "rank": "I"
+        },
+        {
+          "family": "frostblade",
+          "name": "Frost Knight",
+          "rank": "I"
+        },
+        {
+          "family": "rimewatch",
+          "name": "Frostsword Watchmen",
+          "rank": "I"
+        }
+      ],
+      "stats": {
+        "name": "Kingslayer",
+        "short": "Kingslayer",
+        "referenceTower": "Huge Pink Diamond",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Advanced",
+        "advanced": true,
+        "color": "#d8c69a",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 1200,
+        "interval": 0.75,
+        "range": 10,
+        "projectileSpeed": 22,
+        "role": "Cleave 3; Crit 1; Damage; Slow 3",
+        "description": "Combines the Lionheart critical hit and Frost Knight frost-cleave toolkit.",
+        "strong": "Cleave 3; Crit 1; Damage; Slow 3",
+        "weak": "Requires exact recipe ingredients",
+        "critChance": 0.15,
+        "critMultiplier": 5,
+        "cleave": 0.5,
+        "cleaveRadius": 4,
+        "cleaveType": "physical",
+        "slow": 0.25,
+        "slowDuration": 3,
+        "model": "paladin",
+        "unitKind": "champion",
+        "referenceAbility": "Cleave 3; Crit 1; Damage; Slow 3",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Jméno Lionheart Champion se přesouvá z této jednotky na Pink Diamond. Při zavádění používat stabilní ID.",
+        "projectileEffect": "physical"
+      }
+    },
+    {
+      "id": "crownofages",
+      "name": "King",
+      "ingredients": [
+        {
+          "family": "highking",
+          "name": "Kingslayer",
+          "rank": "I"
+        },
+        {
+          "family": "runebreaker",
+          "name": "Engineer",
+          "rank": "VI"
+        },
+        {
+          "family": "soldier",
+          "name": "Soldier",
+          "rank": "VI"
+        }
+      ],
+      "stats": {
+        "name": "King",
+        "short": "King",
+        "referenceTower": "Koh-i-noor Diamond",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Mythic",
+        "advanced": true,
+        "color": "#f8de8e",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 2700,
+        "interval": 0.65,
+        "range": 12,
+        "projectileSpeed": 22,
+        "role": "Crit 1; Damage",
+        "description": "Top Physical ruler with 20% critical-hit chance, Physical cleave and strong armor reduction.",
+        "strong": "Crit 1; Damage",
+        "weak": "Requires exact recipe ingredients",
+        "critChance": 0.2,
+        "critMultiplier": 5,
+        "shred": 64,
+        "model": "paladin",
+        "unitKind": "champion",
+        "referenceAbility": "Crit 1; Damage",
+        "referenceVerification": "Wiki: neúplné",
+        "referenceNote": "Starší extrakt navíc uvádí 50% cleave, +640 damage a −64 armor. Nejde o potvrzení stejné verze jako wiki.",
+        "cleave": 0.5,
+        "cleaveRadius": 4,
+        "cleaveType": "physical",
+        "projectileEffect": "physical",
+        "slow": 0.3,
+        "slowDuration": 3
+      }
+    },
+    {
+      "id": "thornwarden",
+      "name": "Elven Ranger",
+      "ingredients": [
+        {
+          "family": "cleric",
+          "name": "Cleric",
+          "rank": "I"
+        },
+        {
+          "family": "druid",
+          "name": "Druid",
+          "rank": "I"
+        },
+        {
+          "family": "archer",
+          "name": "Archer",
+          "rank": "I"
+        }
+      ],
+      "stats": {
+        "name": "Elven Ranger",
+        "short": "Elven Ranger",
+        "referenceTower": "Malachite",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Basic",
+        "advanced": true,
+        "color": "#afca88",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 45,
+        "interval": 0.8,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Split 1",
+        "description": "Physical archer champion that attacks three distinct targets at once.",
+        "strong": "Split 1",
+        "weak": "Requires exact recipe ingredients",
+        "multishot": 3,
+        "model": "ranger",
+        "unitKind": "champion",
+        "referenceAbility": "Split 1",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "physical"
+      }
+    },
+    {
+      "id": "tempest",
+      "name": "Elven Mage",
+      "ingredients": [
+        {
+          "family": "stormcaller",
+          "name": "Stormcaller",
+          "rank": "V"
+        },
+        {
+          "family": "frostwarden",
+          "name": "Frost Warden",
+          "rank": "III"
+        },
+        {
+          "family": "cleric",
+          "name": "Cleric",
+          "rank": "II"
+        }
+      ],
+      "stats": {
+        "name": "Elven Mage",
+        "short": "Elven Mage",
+        "referenceTower": "Uranium-238",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#b8b4ec",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 300,
+        "interval": 0.5,
+        "range": 7,
+        "projectileSpeed": 22,
+        "role": "Split 2",
+        "description": "Magical caster that attacks five distinct targets at once.",
+        "strong": "Split 2",
+        "weak": "Requires exact recipe ingredients",
+        "multishot": 5,
+        "model": "conjurer",
+        "unitKind": "champion",
+        "referenceAbility": "Split 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "arcane"
+      }
+    },
+    {
+      "id": "starfall",
+      "name": "Thunderbird",
+      "ingredients": [
+        {
+          "family": "mage",
+          "name": "Mage",
+          "rank": "V"
+        },
+        {
+          "family": "archer",
+          "name": "Archer",
+          "rank": "IV"
+        },
+        {
+          "family": "runebreaker",
+          "name": "Engineer",
+          "rank": "III"
+        }
+      ],
+      "stats": {
+        "name": "Thunderbird",
+        "short": "Thunderbird",
+        "referenceTower": "Bloodstone",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#cda3ed",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 300,
+        "interval": 1,
+        "range": 7,
+        "projectileSpeed": 22,
+        "role": "Lightning Chain",
+        "description": "Magical bird with a chance of lightning hitting four additional targets.",
+        "strong": "Lightning Chain",
+        "weak": "Requires exact recipe ingredients",
+        "chain": 4,
+        "chainChance": 0.2,
+        "model": "thunderbird",
+        "unitKind": "champion",
+        "referenceAbility": "Lightning Chain",
+        "referenceVerification": "Wiki: neúplné",
+        "referenceNote": "Dosavadní Bastions: 4 vedlejší zásahy. Neoznačovat tento počet za hodnotu doloženou wiki.",
+        "projectileEffect": "arcane",
+        "chainDamage": 165
+      }
+    },
+    {
+      "id": "greenheart",
+      "name": "Master Druid",
+      "ingredients": [
+        {
+          "family": "druid",
+          "name": "Druid",
+          "rank": "III"
+        },
+        {
+          "family": "cleric",
+          "name": "Cleric",
+          "rank": "III"
+        },
+        {
+          "family": "frostwarden",
+          "name": "Frost Warden",
+          "rank": "II"
+        }
+      ],
+      "stats": {
+        "name": "Master Druid",
+        "short": "Master Druid",
+        "referenceTower": "Jade",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Basic",
+        "advanced": true,
+        "color": "#b5d491",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 30,
+        "interval": 0.5,
+        "range": 8,
+        "projectileSpeed": 22,
+        "role": "Poison 4",
+        "description": "Poison specialist with a long-range direct attack.",
+        "strong": "Poison 4",
+        "weak": "Requires exact recipe ingredients",
+        "poisonDps": 24,
+        "dotDuration": 5,
+        "model": "grovekeeper",
+        "unitKind": "champion",
+        "referenceAbility": "Poison 4",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Wiki uvádí nižší DPS než základní Emerald se stejně pojmenovanou schopností. Zachovat údaj této konkrétní věže a označit rozdíl.",
+        "projectileEffect": "poison"
+      }
+    }
+  ],
+  "basics": [
+    {
+      "family": "mage",
+      "name": "Mage",
+      "rankI": {
+        "name": "Mage",
+        "short": "Mage",
+        "unitCode": "M",
+        "referenceGem": "Ruby",
+        "referenceCode": "R",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "color": "#c59aef",
+        "icon": "spark",
+        "type": "magical",
+        "weight": 1,
+        "projectileSpeed": 20,
+        "role": "Arcane hit with pure splash damage",
+        "description": "An apprentice with an oversized hat. Impacts send an armor-ignoring shockwave into nearby foes.",
+        "strong": "Arcane hit with pure splash damage",
+        "weak": "Resistant or scattered enemies",
+        "damage": 12,
+        "interval": 1,
+        "range": 5,
+        "cleave": 0.3,
+        "cleaveRadius": 3,
+        "cleaveType": "magical",
+        "levels": [
+          {
+            "damage": 12,
+            "interval": 1,
+            "range": 5,
+            "cleave": 0.3,
+            "cleaveRadius": 3,
+            "cleaveType": "magical",
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 24,
+            "interval": 1,
+            "range": 5,
+            "cleave": 0.4,
+            "cleaveRadius": 3.5,
+            "cleaveType": "magical",
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 36,
+            "interval": 1,
+            "range": 5,
+            "cleave": 0.5,
+            "cleaveRadius": 4,
+            "cleaveType": "magical",
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 72,
+            "interval": 1,
+            "range": 5,
+            "cleave": 0.6,
+            "cleaveRadius": 4.5,
+            "cleaveType": "magical",
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 144,
+            "interval": 1,
+            "range": 5,
+            "cleave": 0.7,
+            "cleaveRadius": 5,
+            "cleaveType": "magical",
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 450,
+            "interval": 1,
+            "range": 5,
+            "cleave": 1,
+            "cleaveRadius": 7,
+            "cleaveType": "magical",
+            "type": "magical",
+            "projectileEffect": "arcane"
+          }
+        ],
+        "projectileEffect": "arcane"
+      }
+    },
+    {
+      "family": "druid",
+      "name": "Druid",
+      "rankI": {
+        "name": "Druid",
+        "short": "Druid",
+        "unitCode": "D",
+        "referenceGem": "Emerald",
+        "referenceCode": "G",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "color": "#a5d37b",
+        "icon": "flask",
+        "type": "magical",
+        "weight": 1,
+        "projectileSpeed": 20,
+        "role": "Spreads poison before following target priority",
+        "description": "A forest guardian who first poisons untouched enemies, then follows the selected priority. Expired poison becomes eligible again.",
+        "strong": "Spreads poison before following target priority",
+        "weak": "Poison resistance",
+        "damage": 6,
+        "interval": 1,
+        "range": 5,
+        "poisonDps": 6,
+        "dotDuration": 5,
+        "spreadEffect": "poison",
+        "levels": [
+          {
+            "damage": 6,
+            "interval": 1,
+            "range": 5,
+            "poisonDps": 6,
+            "dotDuration": 5,
+            "spreadEffect": "poison",
+            "type": "magical",
+            "projectileEffect": "poison"
+          },
+          {
+            "damage": 12,
+            "interval": 1,
+            "range": 5,
+            "poisonDps": 12,
+            "dotDuration": 5,
+            "spreadEffect": "poison",
+            "type": "magical",
+            "projectileEffect": "poison"
+          },
+          {
+            "damage": 18,
+            "interval": 1,
+            "range": 5,
+            "poisonDps": 24,
+            "dotDuration": 5,
+            "spreadEffect": "poison",
+            "type": "magical",
+            "projectileEffect": "poison"
+          },
+          {
+            "damage": 24,
+            "interval": 1,
+            "range": 5,
+            "poisonDps": 48,
+            "dotDuration": 5,
+            "spreadEffect": "poison",
+            "type": "magical",
+            "projectileEffect": "poison"
+          },
+          {
+            "damage": 30,
+            "interval": 1,
+            "range": 5,
+            "poisonDps": 96,
+            "dotDuration": 5,
+            "spreadEffect": "poison",
+            "type": "magical",
+            "projectileEffect": "poison"
+          },
+          {
+            "damage": 36,
+            "interval": 1,
+            "range": 5,
+            "poisonDps": 384,
+            "dotDuration": 5,
+            "spreadEffect": "poison",
+            "type": "magical",
+            "projectileEffect": "poison"
+          }
+        ],
+        "projectileEffect": "poison"
+      }
+    },
+    {
+      "family": "cleric",
+      "name": "Cleric",
+      "rankI": {
+        "name": "Cleric",
+        "short": "Cleric",
+        "unitCode": "C",
+        "referenceGem": "Opal",
+        "referenceCode": "E",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "color": "#eddaa0",
+        "icon": "sun",
+        "type": "holy",
+        "weight": 1,
+        "projectileSpeed": 20,
+        "role": "Attack-speed blessing",
+        "description": "A cheerful keeper of the light. Different blessing ranks combine; duplicates of the same rank do not.",
+        "strong": "Attack-speed blessing",
+        "weak": "Low solo damage; needs allies",
+        "damage": 3,
+        "interval": 1,
+        "range": 5,
+        "aura": {
+          "range": 5,
+          "haste": 0.2,
+          "stackKey": "opal-1"
+        },
+        "levels": [
+          {
+            "damage": 3,
+            "interval": 1,
+            "range": 5,
+            "aura": {
+              "range": 5,
+              "haste": 0.2,
+              "stackKey": "opal-1"
+            },
+            "type": "holy",
+            "projectileEffect": "holy"
+          },
+          {
+            "damage": 6,
+            "interval": 1,
+            "range": 5,
+            "aura": {
+              "range": 5,
+              "haste": 0.3,
+              "stackKey": "opal-2"
+            },
+            "type": "holy",
+            "projectileEffect": "holy"
+          },
+          {
+            "damage": 9,
+            "interval": 1,
+            "range": 5,
+            "aura": {
+              "range": 5,
+              "haste": 0.4,
+              "stackKey": "opal-3"
+            },
+            "type": "holy",
+            "projectileEffect": "holy"
+          },
+          {
+            "damage": 12,
+            "interval": 1,
+            "range": 5,
+            "aura": {
+              "range": 5,
+              "haste": 0.5,
+              "stackKey": "opal-4"
+            },
+            "type": "holy",
+            "projectileEffect": "holy"
+          },
+          {
+            "damage": 15,
+            "interval": 1,
+            "range": 5,
+            "aura": {
+              "range": 5,
+              "haste": 0.6,
+              "stackKey": "opal-5"
+            },
+            "type": "holy",
+            "projectileEffect": "holy"
+          },
+          {
+            "damage": 18,
+            "interval": 1,
+            "range": 5,
+            "aura": {
+              "range": 5,
+              "haste": 0.7,
+              "stackKey": "opal-6"
+            },
+            "type": "holy",
+            "projectileEffect": "holy"
+          }
+        ],
+        "projectileEffect": "holy"
+      }
+    },
+    {
+      "family": "archer",
+      "name": "Archer",
+      "rankI": {
+        "name": "Archer",
+        "short": "Archer",
+        "unitCode": "A",
+        "referenceGem": "Aquamarine",
+        "referenceCode": "Q",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "color": "#d7b578",
+        "icon": "bow",
+        "type": "physical",
+        "weight": 1,
+        "projectileSpeed": 20,
+        "role": "Rapid single-target arrows",
+        "description": "A hooded ranger whose Mythic bow releases ten arrows a second.",
+        "strong": "Rapid single-target arrows",
+        "weak": "Heavy armor",
+        "damage": 6,
+        "interval": 0.25,
+        "range": 4,
+        "levels": [
+          {
+            "damage": 6,
+            "interval": 0.25,
+            "range": 4,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 12,
+            "interval": 0.25,
+            "range": 4,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 24,
+            "interval": 0.25,
+            "range": 4,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 48,
+            "interval": 0.25,
+            "range": 4,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 72,
+            "interval": 0.25,
+            "range": 4,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 100.8,
+            "interval": 0.1,
+            "range": 5,
+            "type": "physical",
+            "projectileEffect": "physical"
+          }
+        ],
+        "projectileEffect": "physical"
+      }
+    },
+    {
+      "family": "runebreaker",
+      "name": "Engineer",
+      "rankI": {
+        "name": "Engineer",
+        "short": "Engineer",
+        "unitCode": "R",
+        "referenceGem": "Amethyst",
+        "referenceCode": "P",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "color": "#b795d8",
+        "icon": "hammer",
+        "type": "physical",
+        "weight": 1,
+        "projectileSpeed": 20,
+        "role": "Spreads armor reduction before following target priority",
+        "description": "A siege engineer whose runic bolts expose armor for allied defenders.",
+        "strong": "Spreads armor reduction before following target priority",
+        "weak": "Low solo damage; needs physical allies",
+        "damage": 6,
+        "interval": 0.6,
+        "range": 5,
+        "shred": 2,
+        "spreadEffect": "shred",
+        "levels": [
+          {
+            "damage": 6,
+            "interval": 0.6,
+            "range": 5,
+            "shred": 2,
+            "spreadEffect": "shred",
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 12,
+            "interval": 0.6,
+            "range": 5,
+            "shred": 4,
+            "spreadEffect": "shred",
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 18,
+            "interval": 0.6,
+            "range": 5,
+            "shred": 8,
+            "spreadEffect": "shred",
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 24,
+            "interval": 0.6,
+            "range": 5,
+            "shred": 16,
+            "spreadEffect": "shred",
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 30,
+            "interval": 0.6,
+            "range": 5,
+            "shred": 32,
+            "spreadEffect": "shred",
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 210,
+            "interval": 0.6,
+            "range": 5,
+            "shred": 64,
+            "spreadEffect": "shred",
+            "type": "physical",
+            "projectileEffect": "physical"
+          }
+        ],
+        "projectileEffect": "physical"
+      }
+    },
+    {
+      "family": "soldier",
+      "name": "Soldier",
+      "rankI": {
+        "name": "Soldier",
+        "short": "Soldier",
+        "unitCode": "S",
+        "referenceGem": "Diamond",
+        "referenceCode": "D",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "color": "#80b7c9",
+        "icon": "swords",
+        "type": "physical",
+        "weight": 1,
+        "projectileSpeed": 20,
+        "role": "Heavy single-target sword strikes",
+        "description": "A determined shieldbearer. Mythic rank delivers a devastating, faster sword strike.",
+        "strong": "Heavy single-target sword strikes",
+        "weak": "Flying enemies and distant targets",
+        "damage": 22.5,
+        "interval": 1,
+        "range": 2.5,
+        "melee": true,
+        "levels": [
+          {
+            "damage": 22.5,
+            "interval": 1,
+            "range": 2.5,
+            "melee": true,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 45,
+            "interval": 1,
+            "range": 2.5,
+            "melee": true,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 90,
+            "interval": 1,
+            "range": 2.5,
+            "melee": true,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 180,
+            "interval": 1,
+            "range": 2.5,
+            "melee": true,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 360,
+            "interval": 1,
+            "range": 2.5,
+            "melee": true,
+            "type": "physical",
+            "projectileEffect": "physical"
+          },
+          {
+            "damage": 882,
+            "interval": 0.7,
+            "range": 2.5,
+            "melee": true,
+            "type": "physical",
+            "projectileEffect": "physical"
+          }
+        ],
+        "projectileEffect": "physical"
+      }
+    },
+    {
+      "family": "frostwarden",
+      "name": "Frost Warden",
+      "rankI": {
+        "name": "Frost Warden",
+        "short": "Frost Warden",
+        "unitCode": "F",
+        "referenceGem": "Sapphire",
+        "referenceCode": "B",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "color": "#9bdfe9",
+        "icon": "snow",
+        "type": "physical",
+        "weight": 1,
+        "projectileSpeed": 20,
+        "role": "Slows enemy movement",
+        "description": "A winter sentinel. Mythic frost also chills enemies beside the target.",
+        "strong": "Slows enemy movement",
+        "weak": "Resistant or scattered enemies",
+        "damage": 6,
+        "interval": 1,
+        "range": 6,
+        "slow": 0.12,
+        "slowDuration": 3,
+        "levels": [
+          {
+            "damage": 6,
+            "interval": 1,
+            "range": 6,
+            "slow": 0.12,
+            "slowDuration": 3,
+            "type": "physical",
+            "projectileEffect": "frost"
+          },
+          {
+            "damage": 12,
+            "interval": 1,
+            "range": 6,
+            "slow": 0.18,
+            "slowDuration": 3,
+            "type": "physical",
+            "projectileEffect": "frost"
+          },
+          {
+            "damage": 18,
+            "interval": 1,
+            "range": 6,
+            "slow": 0.24,
+            "slowDuration": 3,
+            "type": "physical",
+            "projectileEffect": "frost"
+          },
+          {
+            "damage": 24,
+            "interval": 1,
+            "range": 6,
+            "slow": 0.3,
+            "slowDuration": 3,
+            "type": "physical",
+            "projectileEffect": "frost"
+          },
+          {
+            "damage": 30,
+            "interval": 1,
+            "range": 6,
+            "slow": 0.36,
+            "slowDuration": 3,
+            "type": "physical",
+            "projectileEffect": "frost"
+          },
+          {
+            "damage": 108,
+            "interval": 0.6,
+            "range": 6,
+            "slow": 0.55,
+            "slowDuration": 3,
+            "effectsRadius": 0.5,
+            "type": "physical",
+            "projectileEffect": "frost"
+          }
+        ],
+        "projectileEffect": "frost"
+      }
+    },
+    {
+      "family": "stormcaller",
+      "name": "Stormcaller",
+      "rankI": {
+        "name": "Stormcaller",
+        "short": "Stormcaller",
+        "unitCode": "T",
+        "referenceGem": "Topaz",
+        "referenceCode": "Y",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "color": "#e6cb70",
+        "icon": "spark",
+        "type": "magical",
+        "weight": 1,
+        "projectileSpeed": 20,
+        "role": "Strikes three enemies at once",
+        "description": "A gleeful storm conjurer. Mythic rank delivers three stronger bolts within twelve tiles.",
+        "strong": "Strikes three enemies at once",
+        "weak": "Resistant or scattered enemies",
+        "damage": 9,
+        "interval": 1.3,
+        "range": 6,
+        "multishot": 3,
+        "levels": [
+          {
+            "damage": 9,
+            "interval": 1.3,
+            "range": 6,
+            "multishot": 3,
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 18,
+            "interval": 1.3,
+            "range": 5,
+            "multishot": 3,
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 27,
+            "interval": 1.3,
+            "range": 5,
+            "multishot": 3,
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 54,
+            "interval": 1.3,
+            "range": 5,
+            "multishot": 3,
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 108,
+            "interval": 1.3,
+            "range": 5,
+            "multishot": 3,
+            "type": "magical",
+            "projectileEffect": "arcane"
+          },
+          {
+            "damage": 174,
+            "interval": 0.6,
+            "range": 12,
+            "multishot": 3,
+            "type": "magical",
+            "projectileEffect": "arcane"
+          }
+        ],
+        "projectileEffect": "arcane"
+      }
+    }
+  ],
+  "waves": [
+    {
+      "wave": 8,
+      "name": "Shadowblood Trolls",
+      "boss": false,
+      "hp": 1,
+      "reward": 50,
+      "reference": {
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "wave": 8,
+        "name": "Invisible Spider",
+        "movement": "ground",
+        "traits": "vitality,stealth"
+      },
+      "groups": [
+        {
+          "type": "host_08",
+          "count": 11,
+          "interval": 0.6
+        }
+      ],
+      "enemies": [
+        {
+          "count": 11,
+          "name": "Shadowblood Trolls",
+          "model": "assassin",
+          "traits": [
+            "vitality",
+            "stealth"
+          ],
+          "hp": 256,
+          "speed": 2.21,
+          "armor": 3,
+          "gold": 4,
+          "xp": 3,
+          "color": "#72815b",
+          "size": 0.9,
+          "boss": false,
+          "flying": false,
+          "leak": 1,
+          "clan": 0,
+          "threat": "Vitality · Veil",
+          "counter": "Regenerates health; focus damage. Cloaked beyond 2 tiles; Clerics reveal within 6.",
+          "regen": 0.2,
+          "stealth": true,
+          "appearance": "Slender, grey-blue trolls with exceptionally long arms. Their bodies dissolve into smoke; glowing blood seeps from wounds and seals them shut.",
+          "visualAsset": "host_08",
+          "designArchetype": "shade-troll",
+          "auraStage": 0
+        }
+      ]
+    },
+    {
+      "wave": 9,
+      "name": "Goblin Dust Dancers",
+      "boss": false,
+      "hp": 1,
+      "reward": 50,
+      "reference": {
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "wave": 9,
+        "name": "Dusky",
+        "movement": "ground",
+        "traits": "evasion"
+      },
+      "groups": [
+        {
+          "type": "host_09",
+          "count": 12,
+          "interval": 0.6
+        }
+      ],
+      "enemies": [
+        {
+          "count": 12,
+          "name": "Goblin Dust Dancers",
+          "model": "assassin",
+          "traits": [
+            "evasion"
+          ],
+          "hp": 314,
+          "speed": 2.3699999999999997,
+          "armor": 4,
+          "gold": 4,
+          "xp": 3,
+          "color": "#72815b",
+          "size": 0.9,
+          "boss": false,
+          "flying": false,
+          "leak": 1,
+          "clan": 0,
+          "threat": "Evasion",
+          "counter": "Evasion affects all three direct-hit types; True Strike prevents misses.",
+          "evasion": 0.25,
+          "appearance": "Masked goblins carry paired curved knives and strips of a light cloak. Quick sidesteps and little dust clouds mark their evasive movements.",
+          "visualAsset": "host_09",
+          "designArchetype": "dust-dancer",
+          "auraStage": 0
+        }
+      ]
+    },
+    {
+      "wave": 10,
+      "name": "Mogrok, the Gatebreaker",
+      "boss": true,
+      "hp": 1,
+      "reward": 200,
+      "reference": {
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "wave": 10,
+        "name": "Invincible Dog",
+        "movement": "ground",
+        "traits": ""
+      },
+      "groups": [
+        {
+          "type": "host_10",
+          "count": 1,
+          "interval": 1
+        }
+      ],
+      "enemies": [
+        {
+          "count": 1,
+          "name": "Mogrok, the Gatebreaker",
+          "model": "ogre",
+          "traits": [],
+          "hp": 4226,
+          "speed": 1.65,
+          "armor": 14,
+          "gold": 110,
+          "xp": 60,
+          "color": "#72815b",
+          "size": 1.75,
+          "boss": true,
+          "flying": false,
+          "leak": 10,
+          "clan": 0,
+          "threat": "Ground warband · shape the route",
+          "counter": "Armor reduces all three damage types; use armor reduction or penetration.",
+          "appearance": "A huge armored ogre drags a ripped-out castle door as a shield. His other hand holds a battering ram with an iron ram head.",
+          "visualAsset": "host_10",
+          "designArchetype": "gatebreaker",
+          "auraStage": 0
+        }
+      ]
+    },
+    {
+      "wave": 15,
+      "name": "Blood Bat Riders",
+      "boss": false,
+      "hp": 1,
+      "reward": 50,
+      "reference": {
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "wave": 15,
+        "name": "Bamboo Addict / Cat & Dog",
+        "movement": "flying",
+        "traits": "vitality"
+      },
+      "groups": [
+        {
+          "type": "host_15",
+          "count": 11,
+          "interval": 0.9
+        }
+      ],
+      "enemies": [
+        {
+          "count": 11,
+          "name": "Blood Bat Riders",
+          "model": "bat",
+          "traits": [
+            "vitality"
+          ],
+          "hp": 975,
+          "speed": 2.5,
+          "armor": 6,
+          "gold": 6,
+          "xp": 4,
+          "color": "#7f8861",
+          "size": 0.9,
+          "boss": false,
+          "flying": true,
+          "leak": 1,
+          "clan": 1,
+          "threat": "Vitality",
+          "counter": "Regenerates health; focus damage.",
+          "beast": true,
+          "regen": 0.2,
+          "variants": [
+            {
+              "name": "Blood Bat Riders",
+              "visualAsset": "host_15"
+            },
+            {
+              "name": "Blood Bat Riders · Moon Clan",
+              "color": "#667e91",
+              "model": "bat",
+              "visualAsset": "host_15",
+              "evasion": 0.25
+            }
+          ],
+          "appearance": "Orc riders on powerful red bats with torn wings. Glowing veins close gaps in the membranes to show their regeneration.",
+          "visualAsset": "host_15",
+          "designArchetype": "blood-bat",
+          "auraStage": 1
+        }
+      ]
+    },
+    {
+      "wave": 29,
+      "name": "Prismatic Bat Tricksters",
+      "boss": false,
+      "hp": 1,
+      "reward": 50,
+      "reference": {
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "wave": 29,
+        "name": "VG Fox",
+        "movement": "flying",
+        "traits": "evasion,refraction"
+      },
+      "groups": [
+        {
+          "type": "host_29",
+          "count": 14,
+          "interval": 0.9
+        }
+      ],
+      "enemies": [
+        {
+          "count": 14,
+          "name": "Prismatic Bat Tricksters",
+          "model": "bat",
+          "traits": [
+            "evasion",
+            "refraction"
+          ],
+          "hp": 9259,
+          "speed": 2.5,
+          "armor": 11,
+          "gold": 8,
+          "xp": 5,
+          "color": "#6a8378",
+          "size": 0.9,
+          "boss": false,
+          "flying": true,
+          "leak": 1,
+          "clan": 2,
+          "threat": "Evasion · Mirror shields",
+          "counter": "Evasion affects all three direct-hit types; True Strike prevents misses. Shields absorb three direct hits; poison ticks and burning auras bypass them.",
+          "beast": true,
+          "evasion": 0.25,
+          "refraction": 3,
+          "variants": [
+            {
+              "name": "Prismatic Bat Tricksters",
+              "visualAsset": "host_29"
+            },
+            {
+              "name": "Prismatic Bat Tricksters · Moon Clan",
+              "color": "#667e91",
+              "model": "bat",
+              "visualAsset": "host_29",
+              "evasion": 0.25
+            }
+          ],
+          "appearance": "Thin orcs on small purple bats. Three crystals form their shield; a brief colored double appears during an evasive movement.",
+          "visualAsset": "host_29",
+          "designArchetype": "prism-bat",
+          "auraStage": 2
+        }
+      ]
+    },
+    {
+      "wave": 31,
+      "name": "Orc Dual-Seal Inquisitors",
+      "boss": false,
+      "hp": 1,
+      "reward": 50,
+      "reference": {
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "wave": 31,
+        "name": "Bookwyrm / Otterdragon",
+        "movement": "ground",
+        "traits": "splitImmunity,refraction"
+      },
+      "groups": [
+        {
+          "type": "host_31",
+          "count": 22,
+          "interval": 0.6
+        }
+      ],
+      "enemies": [
+        {
+          "count": 22,
+          "name": "Orc Dual-Seal Inquisitors",
+          "model": "warlock",
+          "traits": [
+            "splitImmunity",
+            "refraction"
+          ],
+          "hp": 12443,
+          "speed": 2.05,
+          "armor": 20,
+          "gold": 9,
+          "xp": 6,
+          "color": "#8a775d",
+          "size": 0.9,
+          "boss": false,
+          "flying": false,
+          "leak": 1,
+          "clan": 3,
+          "threat": "Mixed immunity variants · Mirror shields",
+          "counter": "Each invader independently has magic or physical immunity. Mix physical and magical damage, or use Holy damage against both. Three shields block direct hits; effective damage-over-time and auras bypass those shields.",
+          "refraction": 3,
+          "variants": [
+            {
+              "magicImmune": true,
+              "physicalImmune": false,
+              "name": "Ashen Dual-Seal Inquisitors",
+              "visualAsset": "host_31-ember"
+            },
+            {
+              "physicalImmune": true,
+              "magicImmune": false,
+              "name": "Spectral Dual-Seal Inquisitors",
+              "visualAsset": "host_31-wraith"
+            }
+          ],
+          "appearance": "Two appearances of the same order: Ashen warriors with black skin and orange runes, and Spectral warriors with pale, translucent bodies. Both carry three protective seals.",
+          "visualAsset": "host_31",
+          "designArchetype": "dual-inquisitor",
+          "auraStage": 3
+        }
+      ]
+    },
+    {
+      "wave": 38,
+      "name": "Black Marsh Knifemen / Blood-Leech Trolls",
+      "boss": false,
+      "hp": 1,
+      "reward": 50,
+      "reference": {
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "wave": 38,
+        "name": "Lilnova",
+        "movement": "ground",
+        "traits": "cloakDaggers"
+      },
+      "groups": [
+        {
+          "type": "host_38",
+          "count": 26,
+          "interval": 0.6
+        }
+      ],
+      "enemies": [
+        {
+          "count": 26,
+          "name": "Black Marsh Knifemen / Blood-Leech Trolls",
+          "model": "assassin",
+          "traits": [
+            "stealth"
+          ],
+          "hp": 31369,
+          "speed": 2.21,
+          "armor": 15,
+          "gold": 10,
+          "xp": 6,
+          "color": "#8a775d",
+          "size": 0.9,
+          "boss": false,
+          "flying": false,
+          "leak": 1,
+          "clan": 3,
+          "threat": "Cloak & daggers / Regeneration",
+          "counter": "Each invader independently becomes a cloaked Knifeman with close-range disarms or a regenerating Blood-Leech. Reveal Knifemen and block Blood-Leech healing.",
+          "disarm": true,
+          "variants": [
+            {
+              "name": "Black Marsh Knifemen",
+              "visualAsset": "host_38",
+              "designArchetype": "swamp-knifer"
+            },
+            {
+              "name": "Blood-Leech Trolls",
+              "disarm": false,
+              "regen": 0.25,
+              "visualAsset": "host_38-wraith",
+              "designArchetype": "blood-leech-troll",
+              "stealth": false
+            }
+          ],
+          "appearance": "Knifemen are masked orcs who vanish into mist and disrupt defenders with cursed knives. Blood-Leeches are pale trolls who regenerate from red sacs on their backs.",
+          "visualAsset": "host_38",
+          "designArchetype": "swamp-knifer",
+          "auraStage": 3,
+          "stealth": true
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "package.json": "1344da4f3a173ae433455bbdaec7ad0ecb6a5d47b8ac911f93bcf0ca99beb291",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "game/core/game.js": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf",
+    "game/core/combat.js": "1605ad59791e760edca3386b2e22bad289f61a1b59c20826cc665d1c78d0f39f",
+    "game/core/campaign-roster.js": "2c4e0ec5198456da9d36663e272c6c60e36217e5bbc06474f63b455e75a08f5b",
+    "game/core/math.js": "8ec21928faa5ac5255311e8854ef1028b3b5aa3849f5f7a89e89e7ed12bbecf6",
+    "game/core/recipes.js": "8e0dea788e077ede7b636807dd5a5f0f5d2cc2755ef9148a989cd9e2c9da8216",
+    "game/core/mvp.js": "64ad7bdca37f9b4d2cd1b74ebccc5d71b53d6ff690d071c5600f775a73d4d1a1"
+  },
+  "catalogOrder": [
+    {
+      "id": "rimewatch",
+      "name": "Frostsword Watchmen"
+    },
+    {
+      "id": "frostblade",
+      "name": "Frost Knight"
+    },
+    {
+      "id": "roseguard",
+      "name": "Lionheart Champion"
+    },
+    {
+      "id": "highking",
+      "name": "Kingslayer"
+    },
+    {
+      "id": "crownofages",
+      "name": "King"
+    },
+    {
+      "id": "thornwarden",
+      "name": "Elven Ranger"
+    },
+    {
+      "id": "verdantguard",
+      "name": "Elven Elite Warrior"
+    },
+    {
+      "id": "tempest",
+      "name": "Elven Mage"
+    },
+    {
+      "id": "stormcitadel",
+      "name": "Elven Archmage"
+    },
+    {
+      "id": "embercrown",
+      "name": "Baby Fire Dragon"
+    },
+    {
+      "id": "worldfire",
+      "name": "Mother Fire Dragon"
+    },
+    {
+      "id": "starfall",
+      "name": "Thunderbird"
+    },
+    {
+      "id": "thunderheart",
+      "name": "Elemental Male Dragon"
+    },
+    {
+      "id": "phoenix",
+      "name": "Ancient Dragon Patriarch"
+    },
+    {
+      "id": "greenheart",
+      "name": "Master Druid"
+    },
+    {
+      "id": "eldergrove",
+      "name": "Archdruid"
+    },
+    {
+      "id": "kingsreach",
+      "name": "Ballista"
+    },
+    {
+      "id": "sunward",
+      "name": "Priest"
+    },
+    {
+      "id": "winterhold",
+      "name": "Frozen Celestial"
+    },
+    {
+      "id": "dawnspire",
+      "name": "Archangel"
+    },
+    {
+      "id": "royalmarshal",
+      "name": "Dwarf Firebomber"
+    },
+    {
+      "id": "stonewarden",
+      "name": "Catapult"
+    },
+    {
+      "id": "wyvernhunter",
+      "name": "Ranger"
+    },
+    {
+      "id": "royalarsenal",
+      "name": "Elven King"
+    },
+    {
+      "id": "rangermentor",
+      "name": "Nature Spirit"
+    },
+    {
+      "id": "kingdomprotector",
+      "name": "Paladin"
+    },
+    {
+      "id": "mothernature",
+      "name": "Mother Nature"
+    },
+    {
+      "id": "royalranger",
+      "name": "Master Ranger"
+    },
+    {
+      "id": "kingsrangerguard",
+      "name": "Dark Ranger"
+    },
+    {
+      "id": "elvenking",
+      "name": "Ranger Oathbreaker"
+    },
+    {
+      "id": "fireballista",
+      "name": "Fire Ballista"
+    },
+    {
+      "id": "emeraldgolem",
+      "name": "Golem"
+    },
+    {
+      "id": "griffinbomber",
+      "name": "Dwarf Griffin bomber"
+    },
+    {
+      "id": "mechanicalgolem",
+      "name": "Dwarship"
+    },
+    {
+      "id": "monk",
+      "name": "High Priest"
+    },
+    {
+      "id": "archbishop",
+      "name": "Archbishop"
+    },
+    {
+      "id": "archangel",
+      "name": "Angel"
+    },
+    {
+      "id": "ladyclaire",
+      "name": "Lady Claire"
+    }
+  ],
+  "wave9FutureRankWeights": [
+    49,
+    34,
+    17,
+    0,
+    0,
+    0
+  ],
+  "wave11": {
+    "wave": 11,
+    "name": "Orc Hookbearers",
+    "boss": false,
+    "hp": 1,
+    "reward": 50,
+    "reference": {
+      "source": "https://dota2.fandom.com/wiki/Gem_TD",
+      "wave": 11,
+      "name": "Sheep",
+      "movement": "ground",
+      "traits": ""
+    },
+    "groups": [
+      {
+        "type": "host_11",
+        "count": 13,
+        "interval": 0.6
+      }
+    ],
+    "enemies": [
+      {
+        "count": 13,
+        "name": "Orc Hookbearers",
+        "model": "grunt",
+        "traits": [],
+        "hp": 467,
+        "speed": 2.21,
+        "armor": 15,
+        "gold": 5,
+        "xp": 4,
+        "color": "#7f8861",
+        "size": 0.9,
+        "boss": false,
+        "flying": false,
+        "leak": 1,
+        "clan": 1,
+        "threat": "Ground warband · shape the route",
+        "counter": "Armor reduces all three damage types; use armor reduction or penetration.",
+        "appearance": "Seasoned raiders with hooked blades and chains. Human helmets sit on their shoulders as trophies: the first visibly organized infantry.",
+        "visualAsset": "host_11",
+        "designArchetype": "hook-raider",
+        "auraStage": 1
+      }
+    ]
+  }
+}

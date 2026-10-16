@@ -1,0 +1,38 @@
+✔ returning reserve is already placed at its fixed tile and selectable among exactly five cards (14.1567ms)
+✔ paid reserve displays its inactive fixed path-blocking state, cannot be kept, and creates no sixth card (6.0059ms)
+✔ reserving a different current unit removes the returning badge and keeps only the new paid reserve (8.6524ms)
+✔ after four new placements the fixed carried card can be kept without changing its tile (7.6476ms)
+✔ prices and visible reasons explain initial placement, used reroll, committed reserve and insufficient CP (9.7387ms)
+✔ configured costs are rendered and disabled reasons are escaped without changing game state (0.1517ms)
+✔ move UI guides defender then wall selection and offers a free cancel, without spending during rendering (4.3014ms)
+✔ stale keep tokens and pointer pairs cannot keep a rerolled defender even when forced RNG preserves its identity (4.0952ms)
+✔ merge controls remain valid for four available candidates after Reserve and reject a stale reroll key (4.3731ms)
+✔ draft controls disappear after commitment and ended runs expose no CP action (4.0536ms)
+✔ all eight basic families retain the exact approved portrait for each of their six ranks (213.7654ms)
+✔ rendering the odds and five mystery cards never reveals latent defender identities or consumes RNG (1.1534ms)
+✔ separate Keep and Merge buttons address the selected candidate with current validation tokens (9.2396ms)
+✔ pending and returning reserve keep their exact rank portrait, fixed position and five-slot boundary (4.7813ms)
+✔ a committed champion and discarded castle walls retain their existing separate portrait ownership (4.4397ms)
+✔ production draft refresh retains local horizontal scroll and reveals a newly selected card without moving the page or using RNG (6.7929ms)
+✔ production battlefield dock owns the single combat-control host beside Ready actions while TIME remains in the resource register (1.2791ms)
+✔ header creates exactly two native buttons once and preserves their identity and focus across combat updates (4.4935ms)
+✔ noncombat phases hide and disable mounted controls and reuse them after the next assault (2.834ms)
+✔ actual delegated main clicks toggle pause and cycle only 1→2→1 without altering authoritative inventory or RNG (3.8962ms)
+✔ real Game clock and movement stop while paused and use the selected speed after resuming (3.6741ms)
+✔ actual Space shortcut toggles once from the battlefield and does not leak through native header buttons or open dialogs (1.8489ms)
+✔ actual modal open and close restore the previous pause state while keeping header buttons and game resources intact (3.4914ms)
+✔ accepted touch on the already-selected fifth card reopens the inspector without keeping or drawing (23.2085ms)
+✔ explicit fifth-slot Keep uses its exact current token and commits only on the action (5.9664ms)
+✔ stale touch release after reserve cannot select or reopen an inactive fifth candidate (5.6844ms)
+✔ mystery fifth-slot selection changes only the pending slot and does not reveal family, rank or RNG (3.932ms)
+✔ same retained selection reopens after close, while ordinary paused refresh leaves the optional inspector closed (5.6382ms)
+✔ two combat rounds restore the full five-slot draft without changing optional disclosure choice or committing a candidate (10.9342ms)
+✔ actual shield blocks preserve boss HP and paused counts; actual concealment suppresses private identity and HP (14.916ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 342.2561

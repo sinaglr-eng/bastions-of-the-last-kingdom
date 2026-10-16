@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-16T11:33:51.899Z",
+  "status": "PASS",
+  "authorization": "Parent task requested an explicit Back to list route because the narrow catalog hides the list while a detail is selected.",
+  "supersedes": {
+    "proof": "wave-catalog-dps-proof.json",
+    "paths": [
+      "ui/catalog-recipes.js",
+      "tests/catalog-recipes-d006.test.mjs"
+    ],
+    "reason": "Additional approved A18 reachability fix after the earlier focused freeze."
+  },
+  "targetedTests": {
+    "passed": 41,
+    "failed": 0,
+    "skipped": 0,
+    "log": "output/design/cartographer-ui-v040-20261016/catalog-return-targeted-tests.txt",
+    "sha256": "59653245bb1f9effc24ef0d117f1611bf97cc3ccc5985bcab8054c3917a5f153"
+  },
+  "files": [
+    {
+      "path": "ui/catalog-recipes.js",
+      "sha256": "1b26e45fa002db8bb92dcedc5754dbf0337bb44aad5a87f27b715ef871c6bacb",
+      "bytes": 15456
+    },
+    {
+      "path": "tests/catalog-recipes-d006.test.mjs",
+      "sha256": "e38050e78c1955d3d04372c3583540a6de81eed64f84b5962b6e5620d674c462",
+      "bytes": 22913
+    },
+    {
+      "path": "tests/recipe-navigation-v30.test.mjs",
+      "sha256": "fdf92cd298c00b2702213a4cdb0b38776f5c3ecd725e14596419fa49d50ffa74",
+      "bytes": 26481
+    }
+  ],
+  "checks": [
+    "Detail renders one native .catalog-detail-back[data-catalog-close] button independent of Previous/Next and exploration history.",
+    "Closing clears selected detail state and removes has-detail so the narrow list returns; existing row/list nodes and scroll remain.",
+    "Filters, search input, pin, exact exploration history/index and ingredient-chain disclosure preferences survive closing/reopening.",
+    "Keyboard focus returns to visible selected recipe row; out-of-filter component returns to origin, and empty results return to search.",
+    "Actual Game ownership/resources and RNG remain unchanged. Recursive Built basics and existing filtered-order/history/legality checks still pass."
+  ],
+  "limitations": [
+    "Parent CSS/native browser checks own narrow breakpoint visibility and hit-testing; this proof verifies production connector DOM/state/focus behavior.",
+    "No core, data, media, audio, storage schema, main, CSS, metadata or deployment edits."
+  ]
+}

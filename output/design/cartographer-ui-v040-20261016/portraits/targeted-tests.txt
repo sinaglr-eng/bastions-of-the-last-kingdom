@@ -1,0 +1,34 @@
+✔ existing approved portraits hide synchronously before native decode, including decoded cache hits (3.763ms)
+✔ rapid A to B changes cannot reveal A even when its promise callback precedes the src observer (0.5307ms)
+✔ late rejection for an older source cannot hide the current decoded portrait (0.3808ms)
+✔ A to B to A within one mutation batch decodes the final request afresh instead of retaining the invalid original promise (0.3491ms)
+✔ a changed source is hidden in the mutation microtask before the next paint and revision URLs are distinct (0.4405ms)
+✔ current native decode failures stay unavailable with their original source and never create a fallback (0.3703ms)
+✔ synchronous native decode errors fail hidden without removing their layout node (0.1939ms)
+✔ fallback accepts a cached complete image or the current load and removes listeners after settlement (0.4289ms)
+✔ fallback ignores stale load and error events until the image reports its current complete source (0.3325ms)
+✔ fallback current error remains unavailable and a new source starts a fresh ownership cycle (0.3738ms)
+✔ new nested and replacement nodes each require their own decode and removed nodes lose pending ownership (0.3994ms)
+✔ a newly inserted image whose src changes in the same batch decodes only its final request (0.3075ms)
+✔ removed fallback nodes and changed ineligible sources release all listeners without touching unrelated images (0.3807ms)
+✔ enemy, data wall, unknown and unrelated images are untouched while portable defender URLs are gated (0.2006ms)
+✔ all 50 real campaign host_NN enemy paths bypass defender gating, including source changes and inserted enemy nodes (0.5696ms)
+✔ dispose disconnects once, removes listeners, invalidates pending decodes and prevents later node binding (0.3226ms)
+✔ repeated connection calls share one observer and a disposed root can connect again (0.6087ms)
+✔ CSS preserves portrait layout and hides only pending or unavailable approved image states (0.4275ms)
+✔ original-reference defenders and all fifty enemy identities receive native decoding under a project base (1.1577ms)
+✔ reference enemy to compared defender to enemy races cannot reveal a stale identity or accept its failure (0.3701ms)
+✔ the UI catalogue resolves all and only 136 approved exact identities under root and project bases (0.902ms)
+✔ rank and fixed-champion lookup never falls back to another identity (0.1718ms)
+✔ image-map aliases preserve current consumers without reserving an unknown or wall identity (0.5719ms)
+✔ every delivered PNG and its immutable source matches exact crop provenance (175.3114ms)
+✔ the English review gallery links each actual exported identity from its own directory (40.6063ms)
+✔ champions sharing a source board have individual named-subject crops and distinct output pixels (0.2544ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 283.8243

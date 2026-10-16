@@ -45,11 +45,11 @@ function setup({placed=true,distinct=false}={}){
   const $=id=>id==='side-body'?body:id==='side-top'?top:null,rankPreview=new DefenderRankPreview();
   const images=Object.fromEntries(Object.keys(data.towers).flatMap(family=>ROMAN.map((_,index)=>[`${family}:${index+1}`,`approved-portrait:${family}:${index+1}`])));
   const panel=compile(between('function quality(t)','function notice(')+between('function towerPanel(t)','function enemyInspectionOptions'),'towerPanel',{
-    game,rankPreview,data,towers:data.towers,balance:data.balance,images,roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
+    game,rankPreview,folioRecipeId:null,data,towers:data.towers,balance:data.balance,images,roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
     defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,mergeTowerKey,recipeProgress,recipesUsing,recipeLabel
   });
   const sidebar=compile(between('function renderSidebar()','function previewRecipe()'),'renderSidebar',{phaseUi:new PhaseUiState(),
-    game,$,icon,rankPreview,towerPanel:panel,endedPhase,panelDetails:new Map(),document:{activeElement:null},
+    game,$,icon,rankPreview,folioRecipeId:null,folioRecipeSelection:null,folioLayout:{restoreParts(){}},syncFolio:()=>{},towerPanel:panel,endedPhase,panelDetails:new Map(),document:{activeElement:null},
     commandPointsMarkup:()=>'',tutorial:()=>'',combatPanel:()=>'',selectedEnemyMarkup:()=>'',enemyInspectionOptions:()=>({}),
     // Craft-button DOM stamping is exercised by crafting-main-integration;
     // this text-only sidebar fixture isolates the actual pointer bindings.
@@ -99,7 +99,7 @@ test('all five retargeted-touch and click-only cards update the actual portrait,
       if(mode==='touch')view.tap(index,index+1,outside);else view.command(click(view.cards[index],1));
       const tower=drawnTower(view.game,index),html=view.body.innerHTML;
       assert.equal(view.game.selection,tower,`${mode}: card ${index+1}`);
-      assert.ok(html.includes(`<header class="defender-heading"><img src="${view.images[`${tower.family}:${tower.tier}`]}" alt="${data.towers[tower.family].name}">`));
+      const heading=html.slice(html.indexOf('<header'),html.indexOf('</header>'));assert.ok(heading.includes(`src="${view.images[`${tower.family}:${tower.tier}`]}"`));assert.ok(heading.includes(`alt="${data.towers[tower.family].name} · Rank ${rankLabel(tower.tier)}"`));assert.ok(heading.includes(`data-portrait-rank="${tower.tier}"`));
       assert.ok(html.includes(`<h2 class="tower-name">${data.towers[tower.family].name}</h2>`));
       assert.ok(html.includes(`<p>Actual rank ${rankLabel(tower.tier)} · Candidate</p>`));
       assert.ok(html.includes('Current defender'));assert.equal(view.rankPreview.view(tower,data).tier,tower.tier);

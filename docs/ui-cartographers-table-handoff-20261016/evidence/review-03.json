@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-16",
+  "status": "Requested design amendments applied to concepts; game not implemented",
+  "revisedScreens": 6,
+  "additionalScreens": 2,
+  "totalSelectedScreens": 22,
+  "comments": [
+    {
+      "id": 1,
+      "result": "Displayed-rank damage, base direct DPS, range and interval added; actual identity/action preserved"
+    },
+    {
+      "id": 2,
+      "result": "Building adopts Choose keeper candidate/detail structure, retaining phase-specific content"
+    },
+    {
+      "id": 3,
+      "result": "Generic defender descriptions replaced with quantified effects from runtime profiles"
+    }
+  ],
+  "selectedFiles": {
+    "01-building-ipad": "reviews/20261016-comments-03/01-building-ipad-r6.png",
+    "01-building-desktop": "reviews/20261016-comments-03/01-building-desktop-r6.png",
+    "02-choose-keeper-ipad": "reviews/20261016-comments-03/02-choose-keeper-ipad-r6.png",
+    "02-choose-keeper-desktop": "reviews/20261016-comments-03/02-choose-keeper-desktop-r6.png",
+    "03-combination-preview-ipad": "reviews/20261016-comments-02/03-combination-preview-ipad-r5.png",
+    "03-combination-preview-desktop": "reviews/20261016-comments-02/03-combination-preview-desktop-r5.png",
+    "04-ready-defender-ipad": "reviews/20261016-comments-02/04-ready-defender-ipad-r4.png",
+    "04-ready-defender-desktop": "reviews/20261016-comments-02/04-ready-defender-desktop-r4.png",
+    "05-combat-ipad": "reviews/20261016-comments-01/05-combat-ipad-r3.png",
+    "05-combat-desktop": "reviews/20261016-comments-01/05-combat-desktop-r3.png",
+    "06-current-wave-ipad": "reviews/20261016-comments-01/06-current-wave-ipad-r3.png",
+    "06-current-wave-desktop": "reviews/20261016-comments-01/06-current-wave-desktop-r3.png",
+    "07-future-waves-ipad": "07-future-waves-ipad-r2.png",
+    "07-future-waves-desktop": "07-future-waves-desktop-r2.png",
+    "08-recipe-catalog-ipad": "reviews/20261016-comments-01/08-recipe-catalog-ipad-r4.png",
+    "08-recipe-catalog-desktop": "reviews/20261016-comments-01/08-recipe-catalog-desktop-r3.png",
+    "09-recipe-navigation-ipad": "reviews/20261016-comments-01/09-recipe-navigation-ipad-r3.png",
+    "09-recipe-navigation-desktop": "09-recipe-navigation-desktop.png",
+    "10-three-combinations-ipad": "reviews/20261016-comments-03/10-three-combinations-ipad-r7.png",
+    "10-three-combinations-desktop": "reviews/20261016-comments-03/10-three-combinations-desktop-r6.png",
+    "11-rank-comparison-desktop": "reviews/20261016-comments-03/11-rank-comparison-desktop-r7.png",
+    "11-rank-comparison-ipad": "reviews/20261016-comments-03/11-rank-comparison-ipad-r7.png"
+  },
+  "visualInspection": {
+    "selectedImagesReviewed": 8,
+    "rankProfilesRead": 18,
+    "baseStatsVerified": true,
+    "guardedMapIconsAndGameImplementationUnchanged": true,
+    "knownLimits": [
+      "Images demonstrate rank changes but do not execute rank controls.",
+      "Tiny typography, portraits, exact marker shapes and control dimensions remain illustrative.",
+      "The Building iPad hint must mean inspection is optional, not a placement prerequisite.",
+      "The three-combination recipe labels retain exact runtime eligibility regardless of raster status drift.",
+      "Existing conditional Downgrade and Keep stays in the action contract even where absent from the raster.",
+      "The desktop rank-IV preview still has a duplicated III glyph on the second button despite a targeted correction. Its selected IV and 48/192/4/0.25 statistics are correct; the implementation sequence is I, II, III, IV, V, VI."
+    ]
+  },
+  "originalPrompts": "prompts.json",
+  "targetedCorrections": "refinement-prompts.json",
+  "numericSource": "runtime-reference.json"
+}

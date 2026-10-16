@@ -1,0 +1,16 @@
+✔ first placement guidance is optional and rendering/acknowledging consumes no inventory, CP, RNG or pause state (6.4687ms)
+✔ CP appears only at the first legal relevant action and dismissal/restoration prevents repeated later-round introductions (22.1979ms)
+✔ actual first wave MVP event offers a short tip without changing the award, and later awards do not repeat acknowledged guidance (5.2213ms)
+✔ an unacknowledged CP tip stays optional between waves and never expands combat or paused-combat guidance (4.4073ms)
+✔ seen preferences reject hostile types, duplicates and unknown IDs; unavailable storage need not block dismissal (4.1989ms)
+✔ guidance describes current CP/MVP rules and the seven optional tour steps follow the approved folio, atlas and combat dock (0.8954ms)
+✔ the actual seven-step tour retains Next/Back/End and anchors Maze to visible Map tools when the Ready dock is hidden (1.067ms)
+✔ Escape ends the actual optional tour only after the active dialog has closed (0.2025ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103.6562

@@ -1,0 +1,5200 @@
+{
+  "baseline": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+  "files": [
+    {
+      "file": "backend/SITES_DEPLOYMENT.json",
+      "bytes": 506,
+      "sha256": "f426784bef882673283af8f0378ec9677aba5d956d55b6eb32c2d4e325d641ed"
+    },
+    {
+      "file": "backend/drizzle/0000_tearful_gamma_corps.sql",
+      "bytes": 1251,
+      "sha256": "413781f28790dee1b7472785374df8ec0c153a7f5f66dbf1eafacab6f8649b54"
+    },
+    {
+      "file": "backend/drizzle/meta/0000_snapshot.json",
+      "bytes": 6752,
+      "sha256": "c08c863b0a8e02b312804e56c80b6a3926663379deeac8f8043470dd00525a80"
+    },
+    {
+      "file": "backend/drizzle/meta/_journal.json",
+      "bytes": 209,
+      "sha256": "04e6d86cc65681297ece1db43ec94ed654ebf228f4748c6b5056d0cf24d4a616"
+    },
+    {
+      "file": "backend/migrations/0000_statistics.sql",
+      "bytes": 1056,
+      "sha256": "34e8adb42a850a10b924ef9fa3a245a2587e88b237cc7134d76f3acd136a979b"
+    },
+    {
+      "file": "backend/server.mjs",
+      "bytes": 2209,
+      "sha256": "2539fe39ac0b0c750444babe617faaa7dab0d9eb83fce6edc2626e2bef4e82d1"
+    },
+    {
+      "file": "backend/service-page.js",
+      "bytes": 7389,
+      "sha256": "3a083a551319a09b42f59b43fbcada0aaef8abb80ab62061e4138768c5c3cb5f"
+    },
+    {
+      "file": "backend/sites-db-schema.ts",
+      "bytes": 1517,
+      "sha256": "1bf6570634d04fab733f8eef6fca220f9dcc16a786f000180bac29071e7c519f"
+    },
+    {
+      "file": "backend/sqlite-adapter.js",
+      "bytes": 760,
+      "sha256": "218e124839b84026df6bbf5ef4f1954a0cf46a0feaef386e8de9a218954dc32c"
+    },
+    {
+      "file": "backend/validation.js",
+      "bytes": 5992,
+      "sha256": "9759066e412d9bd7309e31fc92721d6feb8e159cf372860128dc23b6976f7d7c"
+    },
+    {
+      "file": "backend/worker.js",
+      "bytes": 14951,
+      "sha256": "38f716748837cd6cba433c551afa08e1382ea1fc167b3f33c0bf9fb433a072f1"
+    },
+    {
+      "file": "data/balance.json",
+      "bytes": 3657,
+      "sha256": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16"
+    },
+    {
+      "file": "data/enemies.json",
+      "bytes": 45035,
+      "sha256": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06"
+    },
+    {
+      "file": "data/enemy-designs.json",
+      "bytes": 19332,
+      "sha256": "cb76cd4e7ae382670161132b6390005f68b7dd1403d82aff774021dab2f63ad5"
+    },
+    {
+      "file": "data/maze-blueprints.json",
+      "bytes": 40402,
+      "sha256": "beb8caf34473dd4f6043f38d4736455d74cc705d8a1fa91a4513c523276d21e4"
+    },
+    {
+      "file": "data/recipes.json",
+      "bytes": 13047,
+      "sha256": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97"
+    },
+    {
+      "file": "data/scenery-v5.json",
+      "bytes": 1201,
+      "sha256": "f2e3dfeb61c3bf91185fe843ab622c35a9e638770aacedbe920d825059c86519"
+    },
+    {
+      "file": "data/scenery-v6.json",
+      "bytes": 1747,
+      "sha256": "74d874c95443ff5d5e7326e5161335b49f4f10f2e08393ee1e7f6ac647035dbd"
+    },
+    {
+      "file": "data/scenery-v7.json",
+      "bytes": 3782,
+      "sha256": "8986c4083cee05ba6c90605a91c5cb88b750335941d706b9b9be27e534512502"
+    },
+    {
+      "file": "data/scenery-v8-camp.json",
+      "bytes": 498,
+      "sha256": "940cfc8a04d1719c1711b2068c65e0b1b864e2ffdfbc7c5b23882f42129c0b27"
+    },
+    {
+      "file": "data/towers.json",
+      "bytes": 50368,
+      "sha256": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d"
+    },
+    {
+      "file": "data/waves.json",
+      "bytes": 19828,
+      "sha256": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0"
+    },
+    {
+      "file": "game/audio/audio-assets.js",
+      "bytes": 2014,
+      "sha256": "fbbae4ff834a457d445309f2233464819b548bc345e66a5fc32afea25a00f251"
+    },
+    {
+      "file": "game/audio/audio.js",
+      "bytes": 24191,
+      "sha256": "392b257e1b25fa08a957fb519245ff98f01bf101f215106452b46627994236dd"
+    },
+    {
+      "file": "game/audio/recorded-attacks.js",
+      "bytes": 3181,
+      "sha256": "dc11231e2e02bca85d7adfe7caeb79beef62944aa4723d8a1cede8fb5954a75e"
+    },
+    {
+      "file": "game/audio/recorded-music.js",
+      "bytes": 14366,
+      "sha256": "cd3d5a214383b156dc4d8c59aac7aa69ec82b71752c11ebb1df3e60a3e8854b2"
+    },
+    {
+      "file": "game/audio/voice-assets.js",
+      "bytes": 303,
+      "sha256": "4764bb9cadd3abd8b068e2bf175df0e6cb0a1ff35f51025d42d182af26d4cf19"
+    },
+    {
+      "file": "game/audio/voice-review.js",
+      "bytes": 1633,
+      "sha256": "feff2f2aaeb40f049c04762346a7233f730ca1e0c28d291fd4709e9010a150f4"
+    },
+    {
+      "file": "game/core/approved-defender-names.js",
+      "bytes": 5169,
+      "sha256": "5e55c833ba9f559e517c9e02a06df13b403372c63a71e95ff9053bc7c2b92ddf"
+    },
+    {
+      "file": "game/core/army-readiness.js",
+      "bytes": 18430,
+      "sha256": "b6d6e366b23bd2b27d41fffcafc88813aa96324c820058566183a946b93e0f6f"
+    },
+    {
+      "file": "game/core/atelier-roster.js",
+      "bytes": 2378,
+      "sha256": "b63753e1ab41785a3ce6a4fba36955be97f460a44e1e85a2e5d40887161247af"
+    },
+    {
+      "file": "game/core/blueprints.js",
+      "bytes": 4996,
+      "sha256": "787c4c60d0a81f89423d9698b6fe7db7644a52b80c152bdc558ca93d2359d94c"
+    },
+    {
+      "file": "game/core/campaign-roster.js",
+      "bytes": 8176,
+      "sha256": "2c4e0ec5198456da9d36663e272c6c60e36217e5bbc06474f63b455e75a08f5b"
+    },
+    {
+      "file": "game/core/combat-rules.js",
+      "bytes": 1814,
+      "sha256": "3a16d01b10b4dd9c631f0d89c839b29ab706a7a42d288c432b0a622006ed106c"
+    },
+    {
+      "file": "game/core/combat.js",
+      "bytes": 28135,
+      "sha256": "1605ad59791e760edca3386b2e22bad289f61a1b59c20826cc665d1c78d0f39f"
+    },
+    {
+      "file": "game/core/command-move.js",
+      "bytes": 2575,
+      "sha256": "85efe14f888db6b2db214de22fdaa188db4fc8bfdcc6a8e89a207a368b64b644"
+    },
+    {
+      "file": "game/core/command-points.js",
+      "bytes": 1421,
+      "sha256": "2e72cd04d5d094443f494327e3e231ced4a78f7d1f2414103be45e786fa9441d"
+    },
+    {
+      "file": "game/core/commander-maze.js",
+      "bytes": 1601,
+      "sha256": "b4ea5be2cfde14c61dc49caf88836d0e48df24e20dd2def65a80590912be9f27"
+    },
+    {
+      "file": "game/core/debug-review.js",
+      "bytes": 15109,
+      "sha256": "26fdb23c43b498826f492fa4ebbabe964601240747389cc969359a82aa9789e0"
+    },
+    {
+      "file": "game/core/developer-console.js",
+      "bytes": 18086,
+      "sha256": "9fe00f33f69eeac59b6a7a2934fe827d361c54c54987c9ec816884c13e2f6458"
+    },
+    {
+      "file": "game/core/draft.js",
+      "bytes": 5481,
+      "sha256": "c37cd78c9d972d179b943dca7d2d55d7050ec3ec0a2f2023b6b70dfe5d79c7de"
+    },
+    {
+      "file": "game/core/enemy-rules.js",
+      "bytes": 2456,
+      "sha256": "265cb55d91efb8dca8be0b207aea4f6753e9a504d653693dc1dc5b55daa8309f"
+    },
+    {
+      "file": "game/core/game.js",
+      "bytes": 21251,
+      "sha256": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf"
+    },
+    {
+      "file": "game/core/grid.js",
+      "bytes": 3080,
+      "sha256": "b0bdb41a125920f4702cde668d0b0faf4653a5ecda205cfe13cdd297564817f2"
+    },
+    {
+      "file": "game/core/math.js",
+      "bytes": 3793,
+      "sha256": "8ec21928faa5ac5255311e8854ef1028b3b5aa3849f5f7a89e89e7ed12bbecf6"
+    },
+    {
+      "file": "game/core/maze-search.js",
+      "bytes": 13693,
+      "sha256": "8f7ec0c240814ae80b93408da55c0ed1785b0b7c3f5bcbf48a2deed577513961"
+    },
+    {
+      "file": "game/core/maze-seeds.js",
+      "bytes": 12088,
+      "sha256": "b279321dee6b589d5fa047945b3eeb25affdf4bb11213293997f96492e0f0110"
+    },
+    {
+      "file": "game/core/maze-worker.js",
+      "bytes": 376,
+      "sha256": "c5f2f27953a54e6fde367e2c2bbf9d28a53fafb1cf4edbe2b0fc07118ebe4ba3"
+    },
+    {
+      "file": "game/core/maze.js",
+      "bytes": 2249,
+      "sha256": "a9bf68ac3e875d8cb3fb36ebb3ac2a68f62773d6e150bb9bdc80e39ecb544797"
+    },
+    {
+      "file": "game/core/mvp.js",
+      "bytes": 2494,
+      "sha256": "64ad7bdca37f9b4d2cd1b74ebccc5d71b53d6ff690d071c5600f775a73d4d1a1"
+    },
+    {
+      "file": "game/core/progression.js",
+      "bytes": 1464,
+      "sha256": "a7bbd576307f5463289b06e7da9e8abe3ce0375c2ae5349ae8d5e8f3114382f9"
+    },
+    {
+      "file": "game/core/recipes.js",
+      "bytes": 8938,
+      "sha256": "8e0dea788e077ede7b636807dd5a5f0f5d2cc2755ef9148a989cd9e2c9da8216"
+    },
+    {
+      "file": "game/core/run-statistics.js",
+      "bytes": 6488,
+      "sha256": "c6ce7b1c8d9e7ed9bbd6eaa997c0ba21e23bdf78f51e9afa0178a5c2bf7251ce"
+    },
+    {
+      "file": "game/core/save.js",
+      "bytes": 7558,
+      "sha256": "c3417497254b7063f428048b2529a9239bd4a9e9a5d34be9ced5e69f32976cb4"
+    },
+    {
+      "file": "game/core/spiral-maze.js",
+      "bytes": 1318,
+      "sha256": "36a617ad4518643469cf77033aa58546955121061af383e612046d356b4416b8"
+    },
+    {
+      "file": "game/core/statistics-client.js",
+      "bytes": 7836,
+      "sha256": "9dfc8df62db9701f5bda8aea0923a55767d18d1d3663bc5d4e6b1cece32d5dea"
+    },
+    {
+      "file": "game/core/tower-dps.js",
+      "bytes": 3834,
+      "sha256": "cf643d946e1bed7bc7815515f56482f8502fb75dbea57f7bd110afdca2421691"
+    },
+    {
+      "file": "game/core/unit-label.js",
+      "bytes": 206,
+      "sha256": "949d52f07a25282078551dbe41de07658eecba16cf4d9295c53efd4600357e2e"
+    },
+    {
+      "file": "game/core/visibility.js",
+      "bytes": 744,
+      "sha256": "57b27c80b48c8947482caedd5007b1009d674f286b4be3eb2af300af2790aa2c"
+    },
+    {
+      "file": "game/core/warband-info.js",
+      "bytes": 6859,
+      "sha256": "2d32edb73aa59427625cdbad543ada2dba386879dcd707bae4305cfe08a182fd"
+    },
+    {
+      "file": "game/core/wave-threats.js",
+      "bytes": 13375,
+      "sha256": "c50002eed997efd331813909672c6bc5a95685b814edc25e4f40cace51d55781"
+    },
+    {
+      "file": "game/render/atelier-copy.js",
+      "bytes": 3385,
+      "sha256": "53e6bf140d1b998e46967a476b3e95d050d2c6f2aba6937a9b1821a4b93d2959"
+    },
+    {
+      "file": "game/render/atelier-enemy-preview.js",
+      "bytes": 2682,
+      "sha256": "1db29a07bd0e3b5aa26e360c5cded5962c59b45b52b5fabcf127fc1d22ab7950"
+    },
+    {
+      "file": "game/render/atelier-framing.js",
+      "bytes": 1046,
+      "sha256": "9f6321dea8d3daee6fac28a83747d4681f1941bb46df94d51577a1bcc177ed5b"
+    },
+    {
+      "file": "game/render/battle-animation.js",
+      "bytes": 36593,
+      "sha256": "81c2d0a1852e632ee8097678e72b13224668ddb2f9ae5ab134181ad4fe8af3f0"
+    },
+    {
+      "file": "game/render/battlefield-scale.js",
+      "bytes": 1032,
+      "sha256": "3b02998ae173ff1528a70d822fd9f4dcf124b0e3144b630ec848323b0f697328"
+    },
+    {
+      "file": "game/render/champion-aura.js",
+      "bytes": 8002,
+      "sha256": "c9cb9ceea4212f501562545cc2897073fbcce45053f5a7ff5f15d565031f4494"
+    },
+    {
+      "file": "game/render/champion-catalog.js",
+      "bytes": 8776,
+      "sha256": "9b6405662fa37f62f9291949e58d179b4f13e0b60eabad3b00ef8a43d470378c"
+    },
+    {
+      "file": "game/render/champion-classification.js",
+      "bytes": 1700,
+      "sha256": "278a16fa34f92428ea490c93baed457d9965a7aa2655a3b5a5ecb908d9724cff"
+    },
+    {
+      "file": "game/render/champions.js",
+      "bytes": 18882,
+      "sha256": "d71519fd10726b09f97abd2485a6ac00b411e3be56af66ddd6c7b5f1d2f1491b"
+    },
+    {
+      "file": "game/render/checkpoint-fire.js",
+      "bytes": 3875,
+      "sha256": "4347a04a03d95ad11cd8e2b76e43cafce97548705f317c8cab90b454d9f7ae3b"
+    },
+    {
+      "file": "game/render/checkpoint-ground.js",
+      "bytes": 5280,
+      "sha256": "49d33de925ed8669c0eeecf49224296a412ca5307f411088616c1f304b51a90a"
+    },
+    {
+      "file": "game/render/checkpoint-marker.js",
+      "bytes": 9128,
+      "sha256": "2998043321c35fa680d76c897716d26941ccb53d2ba83ec926cca0073e8379aa"
+    },
+    {
+      "file": "game/render/checkpoint-vignettes.js",
+      "bytes": 12145,
+      "sha256": "e193374aea8b3a0fc75a839b20a5b918cecc9f09684f5bfed0af6a95d58d7216"
+    },
+    {
+      "file": "game/render/combat-effects.js",
+      "bytes": 24444,
+      "sha256": "1046ec8da4bdc6f572ed71900a2a0b57402221d70428de7112e118c1de5afae4"
+    },
+    {
+      "file": "game/render/command-move-effects.js",
+      "bytes": 1954,
+      "sha256": "0fa5179a19a1b2adb916d1f13f686794a015d91c518e66e2f7249c6c1f88b7bc"
+    },
+    {
+      "file": "game/render/critical-hit-labels.js",
+      "bytes": 1737,
+      "sha256": "e44b590651c799876b12856c6d0ab49dc9caac1ab55468787867c6aba3a06cc0"
+    },
+    {
+      "file": "game/render/defender-assets.js",
+      "bytes": 3692,
+      "sha256": "60848c9f800cf2c183149efded2fe7f6401454184be82412fedbc14e42552dce"
+    },
+    {
+      "file": "game/render/defender-classification-scale.js",
+      "bytes": 1729,
+      "sha256": "80ae1d201e843bb429cdccff2e057e9ddc8de98126409beb57ec12d85dde41ae"
+    },
+    {
+      "file": "game/render/defender-model-loader.js",
+      "bytes": 6109,
+      "sha256": "a9171f9d661c76594c50503824048ef03438bddf072194b95c1a47347f4f307e"
+    },
+    {
+      "file": "game/render/draft-markers.js",
+      "bytes": 14776,
+      "sha256": "88c6bfef1b17fc55a9a0df3e4be0ed253ad765699c09198d40da5740465a88fe"
+    },
+    {
+      "file": "game/render/enemy-assets.js",
+      "bytes": 4024,
+      "sha256": "80a91a1d5100bdf9631f0b07fbfc8200b0f163d88dcfaac5d915160de861771d"
+    },
+    {
+      "file": "game/render/enemy-aura.js",
+      "bytes": 5248,
+      "sha256": "18a04645c6051b304c1d82fad046377878e158fd59267508a7b743478ad303f3"
+    },
+    {
+      "file": "game/render/enemy-concealment-effects.js",
+      "bytes": 6958,
+      "sha256": "de8b92191411ae3ff2c20ba754f80d08d8fd5727982e3d7395a7fdce2d9fb559"
+    },
+    {
+      "file": "game/render/enemy-defense-symbols.js",
+      "bytes": 6256,
+      "sha256": "8a56a3f33cf5cdba7657d532261ee3318fe5e0be2bda9e7e80b235b01bdc8ecd"
+    },
+    {
+      "file": "game/render/enemy-motion.js",
+      "bytes": 2410,
+      "sha256": "87518b20bb7bdb5b025cae89dde15a5b1169db8bbfe1c7846dc4ffd0967cc232"
+    },
+    {
+      "file": "game/render/enemy-pointer.js",
+      "bytes": 3204,
+      "sha256": "5e22304d0d4b0e47d9651234c196808df9dacc6c7cd8ca7590ca648c77720878"
+    },
+    {
+      "file": "game/render/environment.js",
+      "bytes": 22001,
+      "sha256": "55147f663aadf09c8cd5151a943bf80c2da2b8ba6ebddc31945c15879c8fa0a5"
+    },
+    {
+      "file": "game/render/geometric-assets.js",
+      "bytes": 1524,
+      "sha256": "8ea2fdac22179547edab4bd6934ff19d30dac44ed1d19693a33e149bebb5d400"
+    },
+    {
+      "file": "game/render/geometric-batching.js",
+      "bytes": 5153,
+      "sha256": "bff748ec557c426366287b3315f5fd0031fbfcffe9d8f666e77362848e29e207"
+    },
+    {
+      "file": "game/render/geometric-contacts.js",
+      "bytes": 15699,
+      "sha256": "8683b10c9414bbf59eadbc29b849d74457afb566492b6b83c303749fbc94d9b4"
+    },
+    {
+      "file": "game/render/geometric-enemy-effects.js",
+      "bytes": 14829,
+      "sha256": "91758e994e9814ffab8744c937e3144127918979f42841b72117a26ee4d99273"
+    },
+    {
+      "file": "game/render/geometric-motion.js",
+      "bytes": 15028,
+      "sha256": "b02daae7675c00f1407b0b757f6b28b49960d41d3cc45e5bf828fe62cf370fa0"
+    },
+    {
+      "file": "game/render/geometric-orbits.js",
+      "bytes": 2136,
+      "sha256": "d8ae11eff0d09d1612ed09e016284370fabfa7c432096caa762e77bf178f6548"
+    },
+    {
+      "file": "game/render/geometric-resources.js",
+      "bytes": 2613,
+      "sha256": "8c33cd529665c9656758edffd32902e0218d99cb6d32a7f849692d5b2a27360d"
+    },
+    {
+      "file": "game/render/kushek.js",
+      "bytes": 3704,
+      "sha256": "06cbd603f591d43975d26e0526c27c01cda11f2ad7704083759108016b733e7f"
+    },
+    {
+      "file": "game/render/maze-planner.js",
+      "bytes": 9111,
+      "sha256": "6b734361ea7317797a4059790e2cd2eab668a7d81ae45f52bf5de5dd20cb657f"
+    },
+    {
+      "file": "game/render/models.js",
+      "bytes": 21742,
+      "sha256": "dfa41ea68df27422a89be266eb3bf2cfb95946e132183981a0b486d78b523a41"
+    },
+    {
+      "file": "game/render/mvp-halo.js",
+      "bytes": 2484,
+      "sha256": "209ecf3abd83e3fda6cc77e534c69a7e73875f59d14b26054f19414b3ec9cc85"
+    },
+    {
+      "file": "game/render/navigation.js",
+      "bytes": 376,
+      "sha256": "9e04f2904a52e44fc013c27c693113de5cafada9a3cb343d9aa0c4c2c0c5343f"
+    },
+    {
+      "file": "game/render/ranks.js",
+      "bytes": 3651,
+      "sha256": "95bd77c52f3ea1ceb09a111b0252d264584df50cb046f400fe81f268fc4786f4"
+    },
+    {
+      "file": "game/render/reconstruction-adapter.js",
+      "bytes": 14970,
+      "sha256": "51cfa8ce0d29a81d849cb8ae9f25d07443df0cbe799358cb63fcaba3e8af8c27"
+    },
+    {
+      "file": "game/render/reserved-defender-effects.js",
+      "bytes": 2907,
+      "sha256": "4aa7867f2c986bdae62eb2028335b82d9b6ab699262341a96789f342fbffd704"
+    },
+    {
+      "file": "game/render/route-overlay.js",
+      "bytes": 5155,
+      "sha256": "cc0ba69a2620aebe956c8aacc140f06e535c9db0451a9f41637028b6767555e5"
+    },
+    {
+      "file": "game/render/scenery-landmarks.js",
+      "bytes": 3633,
+      "sha256": "91102fb603c693a2f65f17f1273a85072cb1b02a8a2c612586cdcec2f146a1b3"
+    },
+    {
+      "file": "game/render/secret-animation.js",
+      "bytes": 6019,
+      "sha256": "ed9fbc2e5a71f6d2c58b7d7b3673580131a1fce95978731b2ac24ca141c2752e"
+    },
+    {
+      "file": "game/render/secret-champions.js",
+      "bytes": 8032,
+      "sha256": "41b7b10e61c7d9ce324ab51e7e3ae16a94e74dd58170121ff624cfcd0af5546d"
+    },
+    {
+      "file": "game/render/support-effects.js",
+      "bytes": 25906,
+      "sha256": "98c8e851169f00db8a17690563358072375d3bca7905a5f143a2ee43326b1db4"
+    },
+    {
+      "file": "game/render/terrain.js",
+      "bytes": 3085,
+      "sha256": "5be225060b666b0e9b6f5a1d785b1556ec08cb4ac436c2c4e73fab0895ffd0c6"
+    },
+    {
+      "file": "game/render/touch-input.js",
+      "bytes": 3132,
+      "sha256": "08e45fce09113c16f749d7ed6edbf04566dd546b4863a76233d29521a34e483f"
+    },
+    {
+      "file": "game/render/valley-relief.js",
+      "bytes": 5877,
+      "sha256": "951d3a568004211e34b240bb8f0c5e65635104f6638fdd4b8a5f0214151193d4"
+    },
+    {
+      "file": "game/render/walls.js",
+      "bytes": 8430,
+      "sha256": "eaa4170d65ab7847890213c087b929b40e2e57ca170efa9b0306302c10dfd9d3"
+    },
+    {
+      "file": "game/render/warcamp-preview.js",
+      "bytes": 515,
+      "sha256": "b788ebe139efccc6a5fbd5355f7e66c1e45ce244bf9fdcd2774a0d4fc7736a0f"
+    },
+    {
+      "file": "game/render/world.js",
+      "bytes": 43974,
+      "sha256": "e907af361759bf1889b26814ac8d87757164c51df9060109e7b3df38a5f735eb"
+    },
+    {
+      "file": "public/assets/archer/archer-lineup.png",
+      "bytes": 1001757,
+      "sha256": "b2831c7530ea047ceae1259e46a8c8fe459bd9289a5cdedb55cf5bc54b714469"
+    },
+    {
+      "file": "public/assets/archer/archer-t1.png",
+      "bytes": 203646,
+      "sha256": "a51b0c067f9d511dbc0002086d416555a0c0c763e71dbead2ccc153bdf96dbda"
+    },
+    {
+      "file": "public/assets/archer/archer-t2.png",
+      "bytes": 201871,
+      "sha256": "fedf58de1b63244f33340bef31516e426fd72629f45f1cf90748b09ae4b345b6"
+    },
+    {
+      "file": "public/assets/archer/archer-t3.png",
+      "bytes": 202712,
+      "sha256": "4de14f54cdfc5fc173b3e35bd2a7862b7a833c5dc8914d2cdfab7e9317a296cd"
+    },
+    {
+      "file": "public/assets/archer/archer-t4.png",
+      "bytes": 199289,
+      "sha256": "2794666f2a8f234231ec3e0f2f72766eb48ff0a5f2f45de6ed8496a6fa6e8c41"
+    },
+    {
+      "file": "public/assets/archer/archer-t5.png",
+      "bytes": 203032,
+      "sha256": "99b67859628265222bf718b5d894d41356cff9fd2c8ec05fb664faac0b7cd795"
+    },
+    {
+      "file": "public/assets/archer/archer-t6.png",
+      "bytes": 209976,
+      "sha256": "87a1057e3a84e2bc73b40fda22973ef4154306f45643ce998bc0669a658c82a0"
+    },
+    {
+      "file": "public/assets/army/archangel-t1.png",
+      "bytes": 114365,
+      "sha256": "1331171b1968149ca021168d4378870fbc7a69d8263f33e8488f0873921b440a"
+    },
+    {
+      "file": "public/assets/army/archbishop-t1.png",
+      "bytes": 116393,
+      "sha256": "27e245259bad88071269d2b4f0fc85c31be0ef097342c591ea01ddb9bbd150c7"
+    },
+    {
+      "file": "public/assets/army/archer-t1.png",
+      "bytes": 106929,
+      "sha256": "5b0273048b2490fbf68a2e6875e9f978fe2800ae19d55880f88e83913bed582c"
+    },
+    {
+      "file": "public/assets/army/archer-t2.png",
+      "bytes": 107946,
+      "sha256": "989b66e8625054843ec2c275cff37dde9b719c43ed680b3e3965d86ca78dc8e3"
+    },
+    {
+      "file": "public/assets/army/archer-t3.png",
+      "bytes": 112764,
+      "sha256": "17f1495098ae30ccdbeb5a4116735a627d488b1b417f18e0bae86b6687e0e923"
+    },
+    {
+      "file": "public/assets/army/archer-t4.png",
+      "bytes": 112697,
+      "sha256": "3df5c1e24c7062c87e3bdda68f3a0e4e7d676aaa20f63f4b7b16900b1d3a99da"
+    },
+    {
+      "file": "public/assets/army/archer-t5.png",
+      "bytes": 118601,
+      "sha256": "bf1013a598577e2ae0b8c763921e3c473e48e2606a1b8bff8dac66200a23dfa0"
+    },
+    {
+      "file": "public/assets/army/archer-t6.png",
+      "bytes": 119702,
+      "sha256": "b84b37259076c95218ffbb813f2989bde2f0cb516d5112bc71859adf56a12c39"
+    },
+    {
+      "file": "public/assets/army/cleric-t1.png",
+      "bytes": 101374,
+      "sha256": "d13d1f212286b0d0baaea75dc1807fbe4f4f44e5511044e19efcccf41b56ca54"
+    },
+    {
+      "file": "public/assets/army/cleric-t2.png",
+      "bytes": 108000,
+      "sha256": "7980bdd00a632e20a56dac8db9c017be9484547773676a6812c60bd5a8bdd30d"
+    },
+    {
+      "file": "public/assets/army/cleric-t3.png",
+      "bytes": 110359,
+      "sha256": "9250365fa09d38ad7f977f84d62e2bc56205a08416932ae7693c7ecf812b5bd1"
+    },
+    {
+      "file": "public/assets/army/cleric-t4.png",
+      "bytes": 111553,
+      "sha256": "9011db6b1c10ed69d95a880c74ffbfee06674212d4a7b2a8c272885b1491fdd5"
+    },
+    {
+      "file": "public/assets/army/cleric-t5.png",
+      "bytes": 117029,
+      "sha256": "63191e65fc42906599959ec48e7c7228571a65e43d6ceb867741b290da31e03f"
+    },
+    {
+      "file": "public/assets/army/cleric-t6.png",
+      "bytes": 118536,
+      "sha256": "4d9fea1e8afe25b57612c06a012b9bca789709c19badd1edf1d1ee7f99ee53c9"
+    },
+    {
+      "file": "public/assets/army/crownofages-t1.png",
+      "bytes": 119867,
+      "sha256": "b01bdd5b4ae6ee83ae9f91755c44ea3c6e1d78a39964f1d89661766d610ebb70"
+    },
+    {
+      "file": "public/assets/army/dawnspire-t1.png",
+      "bytes": 120219,
+      "sha256": "c9def1eed1cd90a6efcb2c9bb31fd2a8c961a1df68c5d36bd0295b201af163fc"
+    },
+    {
+      "file": "public/assets/army/druid-t1.png",
+      "bytes": 101276,
+      "sha256": "7d6c6fbcf4f314c9c2cc0b0b5adb64f68f6f053cf866063f87eb83443d51e890"
+    },
+    {
+      "file": "public/assets/army/druid-t2.png",
+      "bytes": 98861,
+      "sha256": "9f783c1ffdfadb3ec5b9a1ab09938478e897563b3c406204252b598cb94325ea"
+    },
+    {
+      "file": "public/assets/army/druid-t3.png",
+      "bytes": 106851,
+      "sha256": "0a8fe54f69e9968ef33fb0665d2f7422f1d97e4e79e5af511f447a72a8e4dc24"
+    },
+    {
+      "file": "public/assets/army/druid-t4.png",
+      "bytes": 111862,
+      "sha256": "a89a99dd612622287c8dd3110ccccdad53c8df6323ba3701dc2ea77aac643fdf"
+    },
+    {
+      "file": "public/assets/army/druid-t5.png",
+      "bytes": 111767,
+      "sha256": "4e847c0c75cf94cea0f54985c6b242c01a98f57db05bcaddd9ae132c92c8449d"
+    },
+    {
+      "file": "public/assets/army/druid-t6.png",
+      "bytes": 112880,
+      "sha256": "aa33ded0bdfbc9d11bd86ec4bf4abebf24fd52b21c9eba9bc842038ba3598225"
+    },
+    {
+      "file": "public/assets/army/eldergrove-t1.png",
+      "bytes": 117008,
+      "sha256": "1babf827b927ba025a8131b88a85aa3c9e7c362ec786d1957f0c687981a884f7"
+    },
+    {
+      "file": "public/assets/army/elvenking-t1.png",
+      "bytes": 113262,
+      "sha256": "19b8c62109ce78ded525405a0d92b29983d64f0a7fe79c8efdecbbc0ba114532"
+    },
+    {
+      "file": "public/assets/army/embercrown-t1.png",
+      "bytes": 125260,
+      "sha256": "8560e43f683c008b369f8cb6404319d7b7ec7d59af8bc7b4ad67eab2a7678018"
+    },
+    {
+      "file": "public/assets/army/emeraldgolem-t1.png",
+      "bytes": 127501,
+      "sha256": "ee11060c8be9838d17d0a6973764784693c7cef82e180cc9b4d7554664b24236"
+    },
+    {
+      "file": "public/assets/army/fireballista-t1.png",
+      "bytes": 142537,
+      "sha256": "33dd06abdbd505db6012a1510cd764491ea13695287df0f63802a7a2475a762b"
+    },
+    {
+      "file": "public/assets/army/frostblade-t1.png",
+      "bytes": 122749,
+      "sha256": "d66d08665760bd968b66548f43c18b0fbffbce9b0919aafb7babaa7a516c6222"
+    },
+    {
+      "file": "public/assets/army/frostwarden-t1.png",
+      "bytes": 98730,
+      "sha256": "c62ad09b44635060cda0fac751c8512a50aaf6e3636131f2676cc54750044f2d"
+    },
+    {
+      "file": "public/assets/army/frostwarden-t2.png",
+      "bytes": 97751,
+      "sha256": "2a1e5e4a1e4c19f30cd79662fa21256567c2a61668e3e54461a97a489dd8a027"
+    },
+    {
+      "file": "public/assets/army/frostwarden-t3.png",
+      "bytes": 104545,
+      "sha256": "77627b3b83cd6f580dc0a9668df2eec210d53afb6e48f25e9f7c8593c8321592"
+    },
+    {
+      "file": "public/assets/army/frostwarden-t4.png",
+      "bytes": 103855,
+      "sha256": "e011b4c0c0210bc35e06dfc0d54bc4caf81372b7471cfad08bb107a5737669b0"
+    },
+    {
+      "file": "public/assets/army/frostwarden-t5.png",
+      "bytes": 112689,
+      "sha256": "ecc513bf619fb216e37afb67f5da742e88dd91d4eb9d36cca7e901e1237e1584"
+    },
+    {
+      "file": "public/assets/army/frostwarden-t6.png",
+      "bytes": 114993,
+      "sha256": "40c7abe77d4b4341d70b7fa433e2b10fa1e7292f0e55f3e7b22069e98fd7c0af"
+    },
+    {
+      "file": "public/assets/army/greenheart-t1.png",
+      "bytes": 110615,
+      "sha256": "48792dc0b6b06ee75c9da82cb48ccafbc58db92a668fe32fdcd855cebcbd96b1"
+    },
+    {
+      "file": "public/assets/army/griffinbomber-t1.png",
+      "bytes": 96619,
+      "sha256": "cffecc85a631c64d5d1cca3e8c1b57095a11041589da33e6c1ac495405a9f5ff"
+    },
+    {
+      "file": "public/assets/army/highking-t1.png",
+      "bytes": 123425,
+      "sha256": "12201b3e58ffa2fb9084a180aaf770859a6b180b8ae8b242104b95fdf710fb64"
+    },
+    {
+      "file": "public/assets/army/kingdomprotector-t1.png",
+      "bytes": 129897,
+      "sha256": "cbba2d97356a02cb30dcf95ad84972d7976d73bf7e07a800f22cb4358d52fc8b"
+    },
+    {
+      "file": "public/assets/army/kingsrangerguard-t1.png",
+      "bytes": 113548,
+      "sha256": "13ddbff7db017d90c6ead7c9e8109c4bbc8351bf893e564a2c40625db4938b6d"
+    },
+    {
+      "file": "public/assets/army/kingsreach-t1.png",
+      "bytes": 136023,
+      "sha256": "ecb3875f636d39dc724a60abdf4cd3b6817b7895a8fb9efbb887d940416494d9"
+    },
+    {
+      "file": "public/assets/army/ladyclaire-t1.png",
+      "bytes": 103768,
+      "sha256": "b3d85eb7c93e68aedc3f76581c0320381546b4d209174aaa2c93259120e81ac5"
+    },
+    {
+      "file": "public/assets/army/lordbernhard-t1.png",
+      "bytes": 169773,
+      "sha256": "c5bd815141cb159174b9c5a69c350c21fc50afb0fd7522ca3d3b260a91152169"
+    },
+    {
+      "file": "public/assets/army/mage-t1.png",
+      "bytes": 103556,
+      "sha256": "214032b3b1179f0a38815da9d2f578e5a58e00dfe9a3b4be92e35fcee3be144d"
+    },
+    {
+      "file": "public/assets/army/mage-t2.png",
+      "bytes": 106519,
+      "sha256": "8fe916dc77d85d8eae5e0dd5ce0a6521f375de1ebcf975a511b097ac56baef58"
+    },
+    {
+      "file": "public/assets/army/mage-t3.png",
+      "bytes": 110906,
+      "sha256": "513827ec4b5427448a3edf385d25fa53f90b5b2ef29d7e865e44e418ba89462d"
+    },
+    {
+      "file": "public/assets/army/mage-t4.png",
+      "bytes": 109887,
+      "sha256": "612ada85c835293eb68bbb9a7c76be5b5cb9b2c364840c07198056c3d925c85d"
+    },
+    {
+      "file": "public/assets/army/mage-t5.png",
+      "bytes": 117149,
+      "sha256": "260d1f358f301c2fefbb04c523823fd7049d28067a361303a4427dce7ce0e766"
+    },
+    {
+      "file": "public/assets/army/mage-t6.png",
+      "bytes": 118750,
+      "sha256": "b543841e32fc2994c1d39a89844af030bdfe9d9141795e293c7cece267e16f87"
+    },
+    {
+      "file": "public/assets/army/mechanicalgolem-t1.png",
+      "bytes": 133149,
+      "sha256": "f57eca5f67cc7d910fea88854395338d0d1bb3fe725a4aadc152c635450d03ce"
+    },
+    {
+      "file": "public/assets/army/monk-t1.png",
+      "bytes": 100302,
+      "sha256": "788692d6e7e22645f57b3d9b4ba5b4a30cbeb11c79bad8b82fbf676cce274c50"
+    },
+    {
+      "file": "public/assets/army/mothernature-t1.png",
+      "bytes": 99437,
+      "sha256": "338db39fe9b1771151c84ce0aad31c988f626788a01cc7490c98a21a408d2211"
+    },
+    {
+      "file": "public/assets/army/phoenix-t1.png",
+      "bytes": 125272,
+      "sha256": "d3b992fd4141d25f1db552ebba0411611c2e6d614745700e6219fe3e2865022b"
+    },
+    {
+      "file": "public/assets/army/rangermentor-t1.png",
+      "bytes": 107654,
+      "sha256": "3f5b9e7b0cf3747a832cc90f2e0b84415768b8e8beada7f05c960e6a70850119"
+    },
+    {
+      "file": "public/assets/army/rimewatch-t1.png",
+      "bytes": 107878,
+      "sha256": "1baaf43c2cee2594b6ee3f3e3dab9ab11c7ff9609039db8523007f5539a0f60f"
+    },
+    {
+      "file": "public/assets/army/roseguard-t1.png",
+      "bytes": 123934,
+      "sha256": "77de3df1667dd7a6cdb4dd7da8a602ee1dd254431a6f2ba4826bc5f6d21d37f3"
+    },
+    {
+      "file": "public/assets/army/royalarsenal-t1.png",
+      "bytes": 143949,
+      "sha256": "79bd899b250bd190fb3bee1f2858fa9bc95abb3bbb3e4ade6ef730e428205bed"
+    },
+    {
+      "file": "public/assets/army/royalmarshal-t1.png",
+      "bytes": 103775,
+      "sha256": "1511aa322ea9da79eee99dd70f06288fc3857e8a3d6cf1d4f0727ca1c7f42aed"
+    },
+    {
+      "file": "public/assets/army/royalranger-t1.png",
+      "bytes": 110540,
+      "sha256": "b0f048c4a3f0f25f7697b7c263a42c4d358ec88e871d3dc1854924ce7b040515"
+    },
+    {
+      "file": "public/assets/army/runebreaker-t1.png",
+      "bytes": 93781,
+      "sha256": "647a696f4cd00fa26a83e50ccca82aaf8d39aba4e31056dca3a2cce18eb97caf"
+    },
+    {
+      "file": "public/assets/army/runebreaker-t2.png",
+      "bytes": 92739,
+      "sha256": "8d681415cf85590493e0c6d2f8d117b49fa4d913f1fcdf804818e139b94f98fa"
+    },
+    {
+      "file": "public/assets/army/runebreaker-t3.png",
+      "bytes": 95058,
+      "sha256": "06871cbf9165938df86f8c3b0cc3cd82aa4ab5005266cbb7ca94707fb730c9d5"
+    },
+    {
+      "file": "public/assets/army/runebreaker-t4.png",
+      "bytes": 94276,
+      "sha256": "11c0e5aa3d7fa4519934fd58dc3c630e70aa1828551c7ebe277aa118cedae623"
+    },
+    {
+      "file": "public/assets/army/runebreaker-t5.png",
+      "bytes": 94582,
+      "sha256": "38ac8599307d6ba6258f1d69a9713f8769b7a581d97e757401dfa344134723d8"
+    },
+    {
+      "file": "public/assets/army/runebreaker-t6.png",
+      "bytes": 97731,
+      "sha256": "3c23067423d7d18d46541090f3d7d3eff4acf40ed4fc6a739d8f17f4fce3a5ba"
+    },
+    {
+      "file": "public/assets/army/soldier-t1.png",
+      "bytes": 96707,
+      "sha256": "50bf2a271c2737b3bfb405412d8cac2cf7bfc022281e69ece6da9b683d033c81"
+    },
+    {
+      "file": "public/assets/army/soldier-t2.png",
+      "bytes": 94874,
+      "sha256": "267967559e990b897c5ece747ae3fc0edad4c5dd851728bafae25f21708975c1"
+    },
+    {
+      "file": "public/assets/army/soldier-t3.png",
+      "bytes": 103831,
+      "sha256": "cf56ff49804c0c00967b6c8ff146102db1d97132a3b07bdd1e4724a00c1be04e"
+    },
+    {
+      "file": "public/assets/army/soldier-t4.png",
+      "bytes": 103353,
+      "sha256": "cec4292fd070dc8c92725d844c0abab2657a425ee20e2f6658e721605252f039"
+    },
+    {
+      "file": "public/assets/army/soldier-t5.png",
+      "bytes": 109701,
+      "sha256": "844aaa21947ca3808a5982d559e25ca6290f5e7a3ae5852ea7af1f3bf04d22e4"
+    },
+    {
+      "file": "public/assets/army/soldier-t6.png",
+      "bytes": 108989,
+      "sha256": "7afb0409faeb823bbf6f2b4e83a5f01da02254f4971df343a2cff9864d077cf2"
+    },
+    {
+      "file": "public/assets/army/starfall-t1.png",
+      "bytes": 88422,
+      "sha256": "f5f5a2b346124f217c89789ab41680e3697f7f92878b86f0f9fdb8e63b87b95b"
+    },
+    {
+      "file": "public/assets/army/stonewarden-t1.png",
+      "bytes": 135421,
+      "sha256": "521b7475a0750dddb4ff45b4ad4bf1ad871ba8230dd0ada5d354361031542b9b"
+    },
+    {
+      "file": "public/assets/army/stormcaller-t1.png",
+      "bytes": 93925,
+      "sha256": "1dd50a8d33ee4827bdc11d9ddd1f7870a6734d09e4854cfb365cf49d7a6367cf"
+    },
+    {
+      "file": "public/assets/army/stormcaller-t2.png",
+      "bytes": 96391,
+      "sha256": "38271a9da691f0fcf7792e420a0e977c0d0b8c62431cb25cd801d901242be644"
+    },
+    {
+      "file": "public/assets/army/stormcaller-t3.png",
+      "bytes": 99045,
+      "sha256": "3c743140a234ac81f117ab45dbbfd085d0ae7b8978ba2e90d2fba41b846c9467"
+    },
+    {
+      "file": "public/assets/army/stormcaller-t4.png",
+      "bytes": 102035,
+      "sha256": "853666bef4f04b17577c2975baa8825b6ebe2d49863e4096beedb7ccfe48726b"
+    },
+    {
+      "file": "public/assets/army/stormcaller-t5.png",
+      "bytes": 104707,
+      "sha256": "983738d6ee6f10c886925558f4cbb8ef01d46b496b9a8110c8ce6be912f52931"
+    },
+    {
+      "file": "public/assets/army/stormcaller-t6.png",
+      "bytes": 107189,
+      "sha256": "2b30ac2c93e642fb769c950a216c47b0bf0f19869fb4918003ef8033befb8c35"
+    },
+    {
+      "file": "public/assets/army/stormcitadel-t1.png",
+      "bytes": 121912,
+      "sha256": "72c17d66a426c82c5fcf24bda889866774a12610c67fa39f806dfec105c6c773"
+    },
+    {
+      "file": "public/assets/army/sunward-t1.png",
+      "bytes": 118538,
+      "sha256": "99fc69f29cc3f51e212a261baad938d3f13d3b96a9cbddb57cdd01b331562784"
+    },
+    {
+      "file": "public/assets/army/tempest-t1.png",
+      "bytes": 116186,
+      "sha256": "e2da94c27d26305d92e849518a52800864a70f8dd445aa02535f29388e5e207c"
+    },
+    {
+      "file": "public/assets/army/thornwarden-t1.png",
+      "bytes": 109240,
+      "sha256": "2bbe480aa37ac5d6bb8cee593c434b93e24cd59cc05b24957a2f04fb4621f2de"
+    },
+    {
+      "file": "public/assets/army/thunderheart-t1.png",
+      "bytes": 121810,
+      "sha256": "583f6e3df1da38b6ac19f5f920402a4b942f5e4bceb1a7a19967bfec3c8c62f6"
+    },
+    {
+      "file": "public/assets/army/verdantguard-t1.png",
+      "bytes": 113804,
+      "sha256": "d20fa23c837f141bebbb964a5e5fb186eeb1b58e048babc7f0e8889086368a91"
+    },
+    {
+      "file": "public/assets/army/winterhold-t1.png",
+      "bytes": 115393,
+      "sha256": "822c2b9ee0a200751d05b0d7f7aae3c45e0417e91d93b90136849277d730e016"
+    },
+    {
+      "file": "public/assets/army/worldfire-t1.png",
+      "bytes": 103690,
+      "sha256": "d7939d307f6bd14fc7d22e12c96851d1bf9c38a032377f0397a1fb970f3650ad"
+    },
+    {
+      "file": "public/assets/army/wyvernhunter-t1.png",
+      "bytes": 111833,
+      "sha256": "af10334e87ef5be49ae0976f3f3a8db33c24a30b7400e2031d840322fa578082"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_archangel_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "ce173b1b276ba71e2c9de1125224a16d549079f5ae301cde202c991a8d3d3965"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_archangel_select_b.mp3",
+      "bytes": 56458,
+      "sha256": "ec7e348a9971c91b488e41341ae45bcc1aa1126b882cc3f4c7e75984a9a8358a"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_archbishop_select_a.mp3",
+      "bytes": 66907,
+      "sha256": "631b6e284c30ca5dec5ed1584ff634c82070e29cbd38de03d2c8d0be9d734ab8"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_archbishop_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "40cbdbaadce1069d93e71b030ae242bfe1148ab5319e1561a6a9c4dc161c3e97"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_archer_select_a.mp3",
+      "bytes": 41411,
+      "sha256": "ccd332bcfbeb9abb329b2cafdb61adc8a1e2c5e7288dece53107f84d0d25036f"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_archer_select_b.mp3",
+      "bytes": 47681,
+      "sha256": "a4963be3014b1bc9e3cc10cdffb03263447fe982ab20caba4c439420f7e7f8f1"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_cleric_select_a.mp3",
+      "bytes": 47681,
+      "sha256": "bd33d83abc5c6434760da87305aa23395e140bd0788c9341354f4f9709dbad8f"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_cleric_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "09c79dbd864f1beb83c6ea5f257006a0bf074612d230c7c04cbf5221d1e3a450"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_crownofages_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "cfd2fa6f11ca8a7efb4e2a78725d364d3362efa30bad08bcb32e49645530c0b5"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_crownofages_select_b.mp3",
+      "bytes": 57712,
+      "sha256": "f0cf6a4f9914edf54df948032a665db2b82c59344b8a5d9eca21a6777c04152d"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_dawnspire_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "ae86c9c339ac78a767a5c5f4dda3a36340c53b7a6063979c573e24731969e791"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_dawnspire_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "dfe54f730682841f77bc64f78b5dfec88bb6a0602f6c9ffd9a3f12405a96bee8"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_druid_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "6752ca1ed91b5312d9697c7ef4fbe02d616511087b88a6241a42aa4097d33b2d"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_druid_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "20196522aca3b5639718b93a7746e5c964b0cccd6d3dc2c25c3d191b291cf4fe"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_eldergrove_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "9595b918bf4dc5a59a4f54a26226beef97f1a1882ce2b82e1b36fa3611a37172"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_eldergrove_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "4d735986dba4ffb7852823eb60cd106108d004aaa66a9c670e204a9073ba7fb9"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_elvenking_select_a.mp3",
+      "bytes": 71922,
+      "sha256": "8595e0b6e025f90c70e1dcaa8703f3119a10cc12d56a44b0a2123a8dd7a4280a"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_elvenking_select_b.mp3",
+      "bytes": 64399,
+      "sha256": "97d0740e36b8646c1d5104b8ccd1bf7538be8a3fff47350b301e61b88d6d43ab"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_embercrown_select_a.mp3",
+      "bytes": 63145,
+      "sha256": "9b5131105c12ba0bcfab0d9505c8eacfdb598f8d616b99ab2fbb16f64733a6fb"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_embercrown_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "e002147fadebd16ed06653f2e9456f231163acce1bdeeb66085d61fc8079fa83"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_emeraldgolem_select_a.mp3",
+      "bytes": 91148,
+      "sha256": "58f017945d4e0a380572364826cf9fde6ba8e9589dd35d7711f627ba26057670"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_emeraldgolem_select_b.mp3",
+      "bytes": 89894,
+      "sha256": "775500494a099cad8b0e1b238e23a3cb29c0757d397c60bb3305d19618baeb5f"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_fireballista_select_a.mp3",
+      "bytes": 52696,
+      "sha256": "870a35f4a17a847f17a5733b1629910294fc28204c5c10095b7b3d0a1bfec449"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_fireballista_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "8405286fc656db14746b208ef3cbb85840124823d29b2ad134baef64c1808914"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_frostblade_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "675f4722393371b9a50791eb84d6f11e445679a176679a857fc26ed322cfd04b"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_frostblade_select_b.mp3",
+      "bytes": 42665,
+      "sha256": "4e7940acba2aa5e376857eec292f8626d19a237a6392a1104da84094d52932db"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_frostwarden_select_a.mp3",
+      "bytes": 42665,
+      "sha256": "9b5ab07b1fa6df50a7db6f860030482860fb6323fc05e84c6a3445a5574bb619"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_frostwarden_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "fe465bc2e5ef356ed9d0c63e987064c53344c652d1f50687e47301ea6e384b14"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_greenheart_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "a9f0a2e18d9918cdb12efc758df8c9b241baa16409782f1ceb46282658c42dc7"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_greenheart_select_b.mp3",
+      "bytes": 57712,
+      "sha256": "63fb4d78801728bac98ac35607952b033f704531ddad11648036c6f80d0910f1"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_griffinbomber_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "69802a1b8be237d347466902d756cfea9b57d90a7f318395a6c9c6ef13b144fb"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_griffinbomber_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "4e0b3c8eb1a61a0df5997ff160ddd442ab638d12b1f8b2bbe0a8549f1faa600f"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_highking_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "4a052eb4b91cb26e28fd82373356b1d25e78b44c500f0e1d9e5133ca44a45b9b"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_highking_select_b.mp3",
+      "bytes": 56458,
+      "sha256": "ddbc2ff7c54ff5721a53a5a77e436e06a38b5ec5352dba50fe851564cd9a44ab"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_kingdomprotector_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "3b977a47560931cf0e4628354a1aabeb2911fae2d0fc653eb68d66462ddf6b57"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_kingdomprotector_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "dbd65935c50f83806ffd0b02af7ab534dc6fd3f915709d6dc010c914934f38d9"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_kingsrangerguard_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "f5e184856fd32eb9af1b671dbf8847dca40f9a219c3e8eb62a494b26896b219f"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_kingsrangerguard_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "56a0208516b9200c271ae3d72277f593dbec2348c7e883f667be86144ba0694b"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_kingsreach_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "f223dad4aa2337497a691863bc1f37fdc2fb5e228de53e6eab61e9ed51e52339"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_kingsreach_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "8b8bcc6b84ab1a69c7e873f2efa3fe1eafcef4401fcc404628cb3004034b7630"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_ladyclaire_select_a.mp3",
+      "bytes": 46427,
+      "sha256": "7b581fccb071e2c888e23174b3804ef5e676998edc5753a2b17d950b21d7733f"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_ladyclaire_select_b.mp3",
+      "bytes": 52696,
+      "sha256": "d8546de0405199f8f24ff2ec42b697602bc9d2279344c024001f9a64bedee21a"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_mage_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "022fe5cd012ceaace2b5ec7596a51e6d3d67d3e24d72c8b194cc0caffbdde24b"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_mage_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "ae63a7658d62eafdb0a8b6e936a11912362b242a63fb8ddd12611519d6bbe5b8"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_mechanicalgolem_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "297cd01f32c8a4af9a5b362448eb06b6d43a7c629fd03d29981eb867f4e0bc27"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_mechanicalgolem_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "dac3351ce53b1911347966ecf9d309d46bf1e68a76e72ea5f1d3b7f908e4a6e6"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_monk_select_a.mp3",
+      "bytes": 70668,
+      "sha256": "6b18461984483030797d478ef8141d06210721b7513e95867e48618e2e943d1a"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_monk_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "75caca736e59cd7404a4005eec7dcffb9562cf0c21b073979c0b05188d085ccc"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_mothernature_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "567a0e6e9bb3616737f0bf01892ed15976b2245ca4901c31d1384757299fa52e"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_mothernature_select_b.mp3",
+      "bytes": 52696,
+      "sha256": "4058ac6646fd770b1d622505efcdc6dcbdb454f6f9614bbe68adf157630bb8de"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_phoenix_select_a.mp3",
+      "bytes": 65653,
+      "sha256": "aa2a06db1ed37ba766a7ac16bab4a81c7dd23064e9a65ba7f533d2efefd9fb61"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_phoenix_select_b.mp3",
+      "bytes": 66907,
+      "sha256": "0ad8fcf6fa868fd37e201dbb1f80d6d4488ebb0bf42f4549d8a9734c246cfba3"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_rangermentor_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "10a8101a3b61d7e2d2827207ecf17b698958092b456def782d95d5691dc692de"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_rangermentor_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "5df597e13a947eaf6898b2ee0e0777198d80968ce3aea0d417f4fc65ba2c2554"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_rimewatch_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "1ff3921f8b63a9abbec609f14fd499b1fcf1b057013679eaf3259f303defd392"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_rimewatch_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "340a38401a010b7af5600a7bb228543d4d3645a76b6b98e3a123cd758bf90290"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_roseguard_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "7b313350a477f180e79410e38ddc86ae54081194bdd670e68b0b5c5d1690ef61"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_roseguard_select_b.mp3",
+      "bytes": 68161,
+      "sha256": "2cf434bda3016cb95090282229f88d429fff2987588dc29cddb6fbe2ffe81e42"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_royalarsenal_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "32fd74b7c568edb4c8877c611134744f03f34b4dd07ddecdba026e102c799738"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_royalarsenal_select_b.mp3",
+      "bytes": 52696,
+      "sha256": "dc671988badaaaf0b073d79f0baa0990a3a5c0f1e07e7c1910f30d5ad9fc7cbc"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_royalmarshal_select_a.mp3",
+      "bytes": 43919,
+      "sha256": "21109adc42196b0fa02be7bc2255fd073577191a6cbb852b06ac01db2d778e03"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_royalmarshal_select_b.mp3",
+      "bytes": 64399,
+      "sha256": "e3a350e68d03858b1df96af3f71695c9a1a88472f8845677e3ec03818d840371"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_royalranger_select_a.mp3",
+      "bytes": 47681,
+      "sha256": "dc7812d33072d1bcf45b8216cfc2703f6695b2ef7bcfd1112894d3db59e01c9d"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_royalranger_select_b.mp3",
+      "bytes": 43919,
+      "sha256": "fbb8d444cada44ec4c928ac96dad88d347b788265acaaad06aa58c5816d32494"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_runebreaker_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "ce49bdde9e0a5f354f3d71f117117dc0e42e5adf28b1d03ab17c50ff6e3feca2"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_runebreaker_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "3168732b3ee36355b7e2c0443fb201e3d0b2f5e18390aaba7520217e13f54ff9"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_soldier_select_a.mp3",
+      "bytes": 41411,
+      "sha256": "c50f22b6f21ef67e2e38c546578067d5b9c42da4446c026f6a3522ae14c3b21c"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_soldier_select_b.mp3",
+      "bytes": 41411,
+      "sha256": "713d1ca2a480f86b15c0ec7bcf5649d0ac1bbad52c921b97b9126d84bc7a6fd0"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_starfall_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "d24e457397dfc8fb11eb6c6eb64f5b21d009b52a2dad2aa86c8da8b665738b94"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_starfall_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "9b4b1a034f01b9859340a97fb95406101ac2e1c2912db544b2dfb6b67b031507"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_stonewarden_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "fa976a84ffcb13d83d01e52ac108310ca17d64b63b7e6c035717850f64a87a99"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_stonewarden_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "7d6f77017e373cb09a777c9010be3e57b1040eb3ba6a89d76c796890c5874031"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_stormcaller_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "f9cddd695511eaea5d46da1fe5f8154340c453279ced74e175873ce13a0b27ab"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_stormcaller_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "56d760eaa1183df72225f91b6428772838fd1400884eb7bd67fbd1a4f9321edf"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_stormcitadel_select_a.mp3",
+      "bytes": 71922,
+      "sha256": "1f914e4b3bc904bb6d7a9e8ea5fabcd64d970fea19a6ce649db3c0212ce7a038"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_stormcitadel_select_b.mp3",
+      "bytes": 78192,
+      "sha256": "00d805ded30d002b70058a3e7a1d6d4671355003d435e3b5d230d1491963e7cf"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_sunward_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "df2440a8d62fd070e8bfc9137c76478d62d606136bc71071afbb0a99f678ddca"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_sunward_select_b.mp3",
+      "bytes": 45173,
+      "sha256": "0431b31c319cd54e7f541b0bcfe002f33caf7ad4465ce60b5faf96341908d95e"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_tempest_select_a.mp3",
+      "bytes": 46427,
+      "sha256": "094fb9526a9e7405c45cd075c82c6882d9c8b2c54f0885f327fe28f012f321c1"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_tempest_select_b.mp3",
+      "bytes": 61891,
+      "sha256": "f26d4a3d319aebff32c1f955ff855a15a0ef060805590e11a854d63baf17f66e"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_thornwarden_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "df879ab6014250bb4ad8248f7e88d8e03b02606b4649bc61f560102d9b392d3b"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_thornwarden_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "dba05802f70bcdd97290d43f8b0652a0930434148848d54e21ceae00fff98b04"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_thunderheart_select_a.mp3",
+      "bytes": 60637,
+      "sha256": "d0afb6691e28231110b927ec37367c85df8d5bfd14742d116d6ce71a126e0905"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_thunderheart_select_b.mp3",
+      "bytes": 60637,
+      "sha256": "45dee8d3f54c683b63cfbb31bf962ba68e773e0db4d8a499435b39ca99d2ab3a"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_verdantguard_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "a1b87440141c1422a2a6078fa9aae465c24da352fefc95d25802ccadaea04493"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_verdantguard_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "b0606dcf93998d39ae4f5606fc5aa75c5b2f9336801d46f113dc09668308e85e"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_winterhold_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "56c1f95d81ac87b814392cb0e4facf8079b07d8f078ed24127afe1e4292394b0"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_winterhold_select_b.mp3",
+      "bytes": 71922,
+      "sha256": "a92d0e6d542a72d2c1b5203b0ffddaa244ffa3aaab42314ef93c8b59f7756b0e"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_worldfire_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "4190e4a55269b1c698246a4992dc10ef56f6bb50f4a270627b347b8ff318f840"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_worldfire_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "009c0ea5d091dea392220e92ba1748875a360c26dbfe53ea9fda652b745408bf"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_wyvernhunter_select_a.mp3",
+      "bytes": 43919,
+      "sha256": "03c3d4a69056a729ff2d7b5614df10eb8c2be3657e4a838a68ebadd4d5bbf0c7"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/ally_wyvernhunter_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "36eef37d31a9ad72d051f998b75ce9e286d5d1dd08aec17dbd74ddc6b7fe137e"
+    },
+    {
+      "file": "public/assets/audio/allied-recast-20261011/catalogue.json",
+      "bytes": 10401,
+      "sha256": "6da0eb466e3d1ecb31fa4d75abcf05eb5c0e22561a78b2c7e48cabcb08fc89d8"
+    },
+    {
+      "file": "public/assets/audio/approved-20261011/catalogue.json",
+      "bytes": 16621,
+      "sha256": "17e851632fa643e8a6011d06b548eccdcf6e327da31d653f48e8b945a1704175"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_arcane.mp3",
+      "bytes": 32216,
+      "sha256": "b41899e5f4d502560d782233457c5843c7f3b32dba4d46a528361894fe049ff7"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_arrow.mp3",
+      "bytes": 30962,
+      "sha256": "d029e3b721750e163057a8e519516e0e2a3e697132de472f388e1e014c3c29d6"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_charge.mp3",
+      "bytes": 34306,
+      "sha256": "a0a536bd152daaa863f7f887170a3504b4cb47eca235f88919a61bfd2d6415cb"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_fire.mp3",
+      "bytes": 35560,
+      "sha256": "6b279ddc3eedcd938b181727c745db69f67d2e960621ea2871488d9826d50483"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_frost.mp3",
+      "bytes": 34306,
+      "sha256": "f4b66c197f8ef382d059fb24bbc255b03e8e08f01199f295531d7e44ded7d974"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_hammer.mp3",
+      "bytes": 32216,
+      "sha256": "a2ae256f9bc7e7a3e47e4a746fabc6f570be0a7ee76990b2a646eba9c885ad3b"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_heavy_bolt.mp3",
+      "bytes": 34306,
+      "sha256": "24be99c1cc62b369324baec1af43e9ff84ed3ed918654c078b81fdc52d4a4a11"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_holy.mp3",
+      "bytes": 34306,
+      "sha256": "58647d2db8015c0a3072dfa5f1fa9b1a5756af32ff9af31da11f03501d73eda7"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_lightning.mp3",
+      "bytes": 30962,
+      "sha256": "e949794017f9dc5cb3c5cfb7b9697a5f8bc42d4081a62f0f690d391480b81eb4"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_nature.mp3",
+      "bytes": 34306,
+      "sha256": "df36bc8de6492964657a2661b9f84e29b5784310ab425238167031978e3fb072"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_runic_bolt.mp3",
+      "bytes": 30962,
+      "sha256": "8cbc9bde82f739e10207915af48d38e5b9b2fef41139dc6dea84b4e77f3218d1"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_spear.mp3",
+      "bytes": 29290,
+      "sha256": "5a119884680f18cc8ac2962d1e5a9a0da09b73cbd18ac2a3741169d5ad284d49"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_stone.mp3",
+      "bytes": 35560,
+      "sha256": "09343b6aba18820f43424fa7defd1a631a7b909cbf91f01fd93a31d938e4d5f2"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_sword.mp3",
+      "bytes": 30962,
+      "sha256": "d38b8f1c2114e2dbc2f593e06eb01c8e517f9047c44da78e09c33d90709d0c1f"
+    },
+    {
+      "file": "public/assets/audio/attacks/shared-20261011/attack_toxic_canister.mp3",
+      "bytes": 34306,
+      "sha256": "e612ebb783934aaf7ed8911d32bd765705a45d91c7e01a6a17fc0f9f33cc0cee"
+    },
+    {
+      "file": "public/assets/audio/music/review-20261011/fallen_battle.mp3",
+      "bytes": 2322323,
+      "sha256": "b17a42ef180af0a3f29691792e4286a7b149a212a6f04ad12606505719b0465f"
+    },
+    {
+      "file": "public/assets/audio/music/review-20261011/fallen_victory_celebration.mp3",
+      "bytes": 176122,
+      "sha256": "3b904157dbec3309abdd3d4953f33d4eb88bb7b8133ff87115cafa757e02797f"
+    },
+    {
+      "file": "public/assets/audio/music/review-20261011/iron_battle.mp3",
+      "bytes": 2322323,
+      "sha256": "ab56a5362d247fee1684944cc863d4f074345022e7666175f569f7c4e1281309"
+    },
+    {
+      "file": "public/assets/audio/music/review-20261011/iron_build.mp3",
+      "bytes": 2322323,
+      "sha256": "93dc1b894790c61b57edfbff09969c888f362f4141e30b95305a9d3e890c7e9a"
+    },
+    {
+      "file": "public/assets/audio/music/review-20261011/wilds_battle.mp3",
+      "bytes": 2322323,
+      "sha256": "341908b112b4c4bd218c7921eb4c60b827876d0f916584f88a7fccc15f16eb20"
+    },
+    {
+      "file": "public/assets/audio/music/review-20261011/wilds_build.mp3",
+      "bytes": 2322323,
+      "sha256": "12573fce649e209d6e105c2cd8d18e56ab0f85dffc7660c0811bb1d60158606f"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_archangel_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "2279b784feb2110235f98e3c29db248c18a05f22af8be504dbb014ee839660b6"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_archangel_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "ea2d8fd808f011407998de55c1a2b95c29f3c0899cee3dba05ed5b06de9d3538"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_archbishop_select_a.mp3",
+      "bytes": 63145,
+      "sha256": "e307352c6de66a9e004dd481669ff6ec3147ec0a7b2e519c0d95caae3bb7a1b3"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_archbishop_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "017757f244db82596e7c449e9f1269f9aed7833775185a5bcf186f8368952768"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_archer_select_a.mp3",
+      "bytes": 41411,
+      "sha256": "ccd332bcfbeb9abb329b2cafdb61adc8a1e2c5e7288dece53107f84d0d25036f"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_archer_select_b.mp3",
+      "bytes": 47681,
+      "sha256": "a4963be3014b1bc9e3cc10cdffb03263447fe982ab20caba4c439420f7e7f8f1"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_cleric_select_a.mp3",
+      "bytes": 47681,
+      "sha256": "bd33d83abc5c6434760da87305aa23395e140bd0788c9341354f4f9709dbad8f"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_cleric_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "09c79dbd864f1beb83c6ea5f257006a0bf074612d230c7c04cbf5221d1e3a450"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_crownofages_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "cfd2fa6f11ca8a7efb4e2a78725d364d3362efa30bad08bcb32e49645530c0b5"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_crownofages_select_b.mp3",
+      "bytes": 57712,
+      "sha256": "f0cf6a4f9914edf54df948032a665db2b82c59344b8a5d9eca21a6777c04152d"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_dawnspire_select_a.mp3",
+      "bytes": 52696,
+      "sha256": "a6306051e348de690667a1beae3e46fe099a0014d6b6fe887cfac5300dd9a629"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_dawnspire_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "560363220c891131f4c73b98645c2ad837b0a8ade80b441cf50a665012b8b969"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_druid_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "6752ca1ed91b5312d9697c7ef4fbe02d616511087b88a6241a42aa4097d33b2d"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_druid_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "20196522aca3b5639718b93a7746e5c964b0cccd6d3dc2c25c3d191b291cf4fe"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_eldergrove_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "9595b918bf4dc5a59a4f54a26226beef97f1a1882ce2b82e1b36fa3611a37172"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_eldergrove_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "4d735986dba4ffb7852823eb60cd106108d004aaa66a9c670e204a9073ba7fb9"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_elvenking_select_a.mp3",
+      "bytes": 70668,
+      "sha256": "a644a18e16dcf4a3196965b4b34bf8e9b65c89019c9e64324dfa4827d906045e"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_elvenking_select_b.mp3",
+      "bytes": 64399,
+      "sha256": "eb8206ac4f8180120fdfe5bae364c07fddca7f2604b299863591a8adea844bc9"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_embercrown_select_a.mp3",
+      "bytes": 63145,
+      "sha256": "9b5131105c12ba0bcfab0d9505c8eacfdb598f8d616b99ab2fbb16f64733a6fb"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_embercrown_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "e002147fadebd16ed06653f2e9456f231163acce1bdeeb66085d61fc8079fa83"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_emeraldgolem_select_a.mp3",
+      "bytes": 86133,
+      "sha256": "3984243271b48bb3c8fd725546c1452d04839875b4521b0875dd91ef58dd363e"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_emeraldgolem_select_b.mp3",
+      "bytes": 83625,
+      "sha256": "b98be2df68912b5e815b83956d2acf63692bcea676d1e620ba83439838e35267"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_fireballista_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "b6843831f0f289088c9007755248130da533295086cbfcbc4366e03f9dee8f69"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_fireballista_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "83e1a18a9026a1501569414abdaea1de63e688ab82c10c8efefe0f66ddec6051"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_frostblade_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "2355860e3a6b4a8ca18f5e3df63f060766c2968df34bf75f77faf012753a6b66"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_frostblade_select_b.mp3",
+      "bytes": 45173,
+      "sha256": "bd351bd86c099d30cda797db2294bc6c2303e7086069dfd5ea4f2c4a13ebc9d4"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_frostwarden_select_a.mp3",
+      "bytes": 42665,
+      "sha256": "9b5ab07b1fa6df50a7db6f860030482860fb6323fc05e84c6a3445a5574bb619"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_frostwarden_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "fe465bc2e5ef356ed9d0c63e987064c53344c652d1f50687e47301ea6e384b14"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_greenheart_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "76f00cfc93d177addca6bc4e252f0d4efe47fe6bbc5230aedcd9b404209f79aa"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_greenheart_select_b.mp3",
+      "bytes": 56458,
+      "sha256": "e884feadfb540056169b4d9bc661af86130f67dedddeeb460c382abcf5ad4835"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_griffinbomber_select_a.mp3",
+      "bytes": 60637,
+      "sha256": "7d2da24baf1e2f8bfdd225f0b10701d9ab140550f42a27f3355ce9b373b9a71c"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_griffinbomber_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "dd1b47dcb2ef34f6e7a4c19f2111aef8bd2ab3b867ac41a6e6648766c22af9de"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_highking_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "4a052eb4b91cb26e28fd82373356b1d25e78b44c500f0e1d9e5133ca44a45b9b"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_highking_select_b.mp3",
+      "bytes": 56458,
+      "sha256": "ddbc2ff7c54ff5721a53a5a77e436e06a38b5ec5352dba50fe851564cd9a44ab"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_kingdomprotector_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "8231181e1cc649d4c413c0edc680e3adafa8f68a73897a6c71f915a86a7d5b30"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_kingdomprotector_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "d6ad670a4d621eb82323051441e0549728e56c520a76dad9bb2f019fa11ab994"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_kingsrangerguard_select_a.mp3",
+      "bytes": 58965,
+      "sha256": "7556d2ff8c23671bf2a0e185908ad63572f819c985e0ccbd970785421d6173d9"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_kingsrangerguard_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "7ba01cbf15205a7d919f8372b27317a06d767cd3d50387a6f7bb03740df647ef"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_kingsreach_select_a.mp3",
+      "bytes": 53950,
+      "sha256": "f223dad4aa2337497a691863bc1f37fdc2fb5e228de53e6eab61e9ed51e52339"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_kingsreach_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "8b8bcc6b84ab1a69c7e873f2efa3fe1eafcef4401fcc404628cb3004034b7630"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_ladyclaire_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "737c43f8e62de420b1b0b083b3991e1583964b5a4995b608484020188581bd97"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_ladyclaire_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "eee2c2cb0ac2547161a3c8f95ff0e0d4dadae4c217db54685be1653e6fbfa919"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_mage_select_a.mp3",
+      "bytes": 48934,
+      "sha256": "022fe5cd012ceaace2b5ec7596a51e6d3d67d3e24d72c8b194cc0caffbdde24b"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_mage_select_b.mp3",
+      "bytes": 46427,
+      "sha256": "ae63a7658d62eafdb0a8b6e936a11912362b242a63fb8ddd12611519d6bbe5b8"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_mechanicalgolem_select_a.mp3",
+      "bytes": 58965,
+      "sha256": "f8f1b6eaa2f7302c01b0bb917d188d97db5ed9e7015cfc6921414c989d14803f"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_mechanicalgolem_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "eb33080f55f26f7436049f20447395192d8d622306a8827914d89ea3a1e77003"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_monk_select_a.mp3",
+      "bytes": 68161,
+      "sha256": "258ad56835402a9635bfa93d2fc11f02cef7c9c61082d02b360b88c77a09ddd7"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_monk_select_b.mp3",
+      "bytes": 60637,
+      "sha256": "ac1dd959e9c2608e08bbad8e44b3cdafd5378808559429f031903a5eb162f120"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_mothernature_select_a.mp3",
+      "bytes": 66907,
+      "sha256": "73c6f3cf6ba516ad746f14c8c4238d526c1f06e7cab1efc32c090289964590f7"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_mothernature_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "f5e86d976d0d9c1a3e8960507e6b86da214f41d1ddbd806f60958d6aa1d36fe2"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_phoenix_select_a.mp3",
+      "bytes": 47681,
+      "sha256": "4b80b634091457e1981b70b38644575690ea210fdf6edd39b15f61de13d52ab4"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_phoenix_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "c213e08a87aa182276f017ae8ccb66d50b7d7fbeffc66b25cb91dd739a45b8eb"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_rangermentor_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "b924c65296c6570f2453bee182335f8dd9ff1eac0394d2dba7774dd6a01f599f"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_rangermentor_select_b.mp3",
+      "bytes": 61891,
+      "sha256": "f769774a5a73d6e3b9d7fef5d2ee40eac4f9ae129ae24ef374b580dd7bed99d2"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_rimewatch_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "42b39b559f7b9fbbd59299874de9f93c9ce315165b71c292f2ac3377764e0ba7"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_rimewatch_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "f52da132a32f2f6837fcd27b6615fa43526f8845473581ad04124f7f2c7691b7"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_roseguard_select_a.mp3",
+      "bytes": 46427,
+      "sha256": "27fb36af21fa437de774c138770c9a2685ae394cdfd04cf0571de166df621e89"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_roseguard_select_b.mp3",
+      "bytes": 61891,
+      "sha256": "4d5ef6126b61ab3eb19e082cd96fc094b85b6f4f9e34b4c50b38ea826009fc56"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_royalarsenal_select_a.mp3",
+      "bytes": 56458,
+      "sha256": "9978be1853e2dee85f58113c44c26494919403058453d403252a515d87c0439a"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_royalarsenal_select_b.mp3",
+      "bytes": 58965,
+      "sha256": "c0fea4a1d27e7cd80d48274f08b5f190e6466a98b1919d0221152aa86f3c91f8"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_royalmarshal_select_a.mp3",
+      "bytes": 43919,
+      "sha256": "d6e6ba4e806ca0f1c684092f0e24b513f60ebe03bcc796246d11d358045a488e"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_royalmarshal_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "6fc748785fdada7f86272ee76f963ff58b1df7eb58fb97b0f434a8e21e18a276"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_royalranger_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "65a76f12a73a00428652e886b215e15a59d1e704275aefb42064a60647c11708"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_royalranger_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "ea5eaad75c50b14844fa21f17c00d1d3eb69f9950bbc4a4928cec4db57d51fb6"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_runebreaker_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "cab918d0db37e1caaf6f92204ae280f54c5464ff52509790bcb33557dc30ce30"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_runebreaker_select_b.mp3",
+      "bytes": 51442,
+      "sha256": "3c8853fb636a5c53ed3fbf23188eb17c344536d16e460bef481dfc52fd79c3aa"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_soldier_select_a.mp3",
+      "bytes": 41411,
+      "sha256": "c50f22b6f21ef67e2e38c546578067d5b9c42da4446c026f6a3522ae14c3b21c"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_soldier_select_b.mp3",
+      "bytes": 41411,
+      "sha256": "713d1ca2a480f86b15c0ec7bcf5649d0ac1bbad52c921b97b9126d84bc7a6fd0"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_starfall_select_a.mp3",
+      "bytes": 50188,
+      "sha256": "d24e457397dfc8fb11eb6c6eb64f5b21d009b52a2dad2aa86c8da8b665738b94"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_starfall_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "9b4b1a034f01b9859340a97fb95406101ac2e1c2912db544b2dfb6b67b031507"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_stonewarden_select_a.mp3",
+      "bytes": 58965,
+      "sha256": "ce2d6278ebf2f3c274878f45813732d395375cad5e864692293d912c43968a51"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_stonewarden_select_b.mp3",
+      "bytes": 50188,
+      "sha256": "f52b1ff99bb26cd754bc02401fad349bb59ff149768ed99e6a71d54b466c9d50"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_stormcaller_select_a.mp3",
+      "bytes": 52696,
+      "sha256": "9f3df34d89c439f0a8a8252a014e95d0b181d5c93391fa958547ad4aa74111c1"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_stormcaller_select_b.mp3",
+      "bytes": 48934,
+      "sha256": "d6f97aa2cfcb4b3a8ab072b6ce0710400e538ddea83732f35cae4e0f248183fe"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_stormcitadel_select_a.mp3",
+      "bytes": 55204,
+      "sha256": "4050d6e1de64375a89715e3df41f5fd6c6ef9687b0127d6af73152a6e4c06835"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_stormcitadel_select_b.mp3",
+      "bytes": 57712,
+      "sha256": "cdfc559be490d4ca881edab7dc20423caa956e80cfa31da2f74dcee83dd31aad"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_sunward_select_a.mp3",
+      "bytes": 52696,
+      "sha256": "35208ac013088ee9dda4e13227da5ac467475a195ae23e6dd889b18bd7fa7fca"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_sunward_select_b.mp3",
+      "bytes": 43919,
+      "sha256": "f927f8c2779692e721467cbc1e55960b16a7a9e2a75b2d46ed6b839bf210ca40"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_tempest_select_a.mp3",
+      "bytes": 45173,
+      "sha256": "4ef660fed6cf0fd8a77270138f74935ff955ecfebdf7cd4fa8b1a9fdcebe436d"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_tempest_select_b.mp3",
+      "bytes": 60637,
+      "sha256": "d1ddbd531a08f7d8fc508e9e5a5d43146ab80f87d40a82f41e660d0286d2766f"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_thornwarden_select_a.mp3",
+      "bytes": 52696,
+      "sha256": "032abbf3244403563b250236e11002781068b04aed7c05852482b0317c4d3f83"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_thornwarden_select_b.mp3",
+      "bytes": 60637,
+      "sha256": "3dc7aee08d86903a60fdc9e9422e78d58477cf6b0719969ebf067cc770cb2206"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_thunderheart_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "3e262b690ab66cc546a4f0b6d030348cb125478bb89f50df8a43b7452e4482b4"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_thunderheart_select_b.mp3",
+      "bytes": 57712,
+      "sha256": "bf97a6d467debbf24cf9e46b1da8a3d82085b085b4177b160fe4182636866e49"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_verdantguard_select_a.mp3",
+      "bytes": 57712,
+      "sha256": "78912abf71bd58408cbe9e74d83a4d53268333d03ac7fcde1b5b5f028129e20b"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_verdantguard_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "71fffa6896ae766b9e5ff7cb1df452c39eab48937a9e8c4de25fba634a6d409c"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_winterhold_select_a.mp3",
+      "bytes": 46427,
+      "sha256": "24fc82e9ea4dfbe16225281ced764399a91ada34726004599f00649de5004f4d"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_winterhold_select_b.mp3",
+      "bytes": 68161,
+      "sha256": "54afad5a3935d807fe0897fb174a6f8a408b6f17e2ad87bddc08ce87cbc095bf"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_worldfire_select_a.mp3",
+      "bytes": 51442,
+      "sha256": "4190e4a55269b1c698246a4992dc10ef56f6bb50f4a270627b347b8ff318f840"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_worldfire_select_b.mp3",
+      "bytes": 55204,
+      "sha256": "009c0ea5d091dea392220e92ba1748875a360c26dbfe53ea9fda652b745408bf"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_wyvernhunter_select_a.mp3",
+      "bytes": 46427,
+      "sha256": "aae1e3362a3b902f51712dffb6c062c69643565a1455e3fdb33f57b455fde468"
+    },
+    {
+      "file": "public/assets/audio/selection/ally_wyvernhunter_select_b.mp3",
+      "bytes": 53950,
+      "sha256": "218dd1d7a004acf0b319a10fcef836078aea186b975d604b022edf23d35b1414"
+    },
+    {
+      "file": "public/assets/audio/selection/catalogue.json",
+      "bytes": 10401,
+      "sha256": "6da0eb466e3d1ecb31fa4d75abcf05eb5c0e22561a78b2c7e48cabcb08fc89d8"
+    },
+    {
+      "file": "public/assets/designs/kushek/manifest.json",
+      "bytes": 5449,
+      "sha256": "3e166bfb46914e14203f87845c00eb79ab40d487b0d41a09562c565b8fe5408a"
+    },
+    {
+      "file": "public/assets/designs/kushek/models/kushek-t1.glb",
+      "bytes": 281456,
+      "sha256": "3e91c1762cad60ba4eb1f694765d9a4f2cc47c2ce9c7108e1cc2e16b64a800f2"
+    },
+    {
+      "file": "public/assets/designs/kushek/models/kushek-t2.glb",
+      "bytes": 281616,
+      "sha256": "62b844b15f483309d5d6469dff47e16064351bfce212bd9a7cdad4ab2de236fd"
+    },
+    {
+      "file": "public/assets/designs/kushek/models/kushek-t3.glb",
+      "bytes": 281612,
+      "sha256": "11f2532d2d6fbe256eaede0c37ad9d7f1f3ba76cc157d889833321fac1958ad6"
+    },
+    {
+      "file": "public/assets/designs/kushek/models/kushek-t4.glb",
+      "bytes": 281612,
+      "sha256": "7edc2997792388387247d5be4a614e94aa17b83e9dfba4fbdc43d8f67069b694"
+    },
+    {
+      "file": "public/assets/designs/kushek/models/kushek-t5.glb",
+      "bytes": 281616,
+      "sha256": "b6bbf19f2dcb0a0ed22a1b0f64521fad409a24dd7f43183e52a21b7db8198b31"
+    },
+    {
+      "file": "public/assets/designs/kushek/models/kushek-t6.glb",
+      "bytes": 281596,
+      "sha256": "467791881a2f16767deffaed1015f04965e441dc09597e2c2e81a1f951120d29"
+    },
+    {
+      "file": "public/assets/designs/kushek/portraits/kushek-t1.png",
+      "bytes": 106771,
+      "sha256": "35ca691b0ed1aac6f22da83c1bf004c9b83f985fda1064f0ee4bfe3cda22be6b"
+    },
+    {
+      "file": "public/assets/designs/kushek/portraits/kushek-t2.png",
+      "bytes": 106343,
+      "sha256": "903533c8c66d40e456a9907edac927e95ec95a04ef43ff742d0e5d4328822339"
+    },
+    {
+      "file": "public/assets/designs/kushek/portraits/kushek-t3.png",
+      "bytes": 106802,
+      "sha256": "e269458622b42d15db3e922b8ef0dda46a09e0785546d0a847a28a9f62d34676"
+    },
+    {
+      "file": "public/assets/designs/kushek/portraits/kushek-t4.png",
+      "bytes": 104968,
+      "sha256": "c2ba9210693602b16550318e5bd58a08b8ad0f2e857efec5580fb432607b49de"
+    },
+    {
+      "file": "public/assets/designs/kushek/portraits/kushek-t5.png",
+      "bytes": 106696,
+      "sha256": "6875f64c5a39514a905021815264fae0da6d5ebc2eaa47e82cf9174ece1e149e"
+    },
+    {
+      "file": "public/assets/designs/kushek/portraits/kushek-t6.png",
+      "bytes": 106512,
+      "sha256": "c9a5d3baae4387798fea4ff90dd8245c8f031f3f74eeb4a7a2c9fef469e7462a"
+    },
+    {
+      "file": "public/assets/enemies/host_01.glb",
+      "bytes": 160984,
+      "sha256": "3f530c268c19cd65d30fa719d6f3d595ffb2af5d95197b62fd65fa933b640651"
+    },
+    {
+      "file": "public/assets/enemies/host_01.png",
+      "bytes": 78442,
+      "sha256": "287e4c7a08e61d45792c2b61de4197750ed39bc3200fd66d94efccb0002f6f13"
+    },
+    {
+      "file": "public/assets/enemies/host_02.glb",
+      "bytes": 132508,
+      "sha256": "1dc521085070b746a5ef3593fa4968225bd85a6c8bc61f09b6fde6cd3d6c2e31"
+    },
+    {
+      "file": "public/assets/enemies/host_02.png",
+      "bytes": 66163,
+      "sha256": "6c9889cc17d2ae1a7f6483d42a08b7b5518e35b8bb73c86c584b8e53ba6edd05"
+    },
+    {
+      "file": "public/assets/enemies/host_03.glb",
+      "bytes": 148072,
+      "sha256": "ef87387c9657876e0fdeaf2fc4ba645144db2cf4ba533125a1413b90345d8f1b"
+    },
+    {
+      "file": "public/assets/enemies/host_03.png",
+      "bytes": 77217,
+      "sha256": "609d4e3dcf4e9c41ceadd8996c884b4021d3454f023e56fa3349322b69d539b9"
+    },
+    {
+      "file": "public/assets/enemies/host_04.glb",
+      "bytes": 200064,
+      "sha256": "c3db4dc381859135221ab7ff0c86356ba0d6fb999bbd5d2201f5a55e5ce6240d"
+    },
+    {
+      "file": "public/assets/enemies/host_04.png",
+      "bytes": 76744,
+      "sha256": "8114b2b19da4b70dbe5a8f3c86abd446c1977724227d5b6038a31ba8cd7d7411"
+    },
+    {
+      "file": "public/assets/enemies/host_05-balloon.glb",
+      "bytes": 283692,
+      "sha256": "f4d26efc9ca243b96a848b64e7ab400716eb62dcc792c8c99a366526fb15da50"
+    },
+    {
+      "file": "public/assets/enemies/host_05-balloon.png",
+      "bytes": 63390,
+      "sha256": "7667ad4ad417e76c81ba42beb9daf91c6c018978e6c9373a6b428b0103a307ce"
+    },
+    {
+      "file": "public/assets/enemies/host_05.glb",
+      "bytes": 177324,
+      "sha256": "cc14d17e5e5d47aecb338a3b71a9ae36c4cce5e895159b147f4669aba84a3c57"
+    },
+    {
+      "file": "public/assets/enemies/host_05.png",
+      "bytes": 42465,
+      "sha256": "9c098b17f5a4529d215d617d53a53b0befdfc1fe577ae21ca46ade16b3821aa5"
+    },
+    {
+      "file": "public/assets/enemies/host_06.glb",
+      "bytes": 164040,
+      "sha256": "2f871c44497888e208e0209dd9ffae34a49c10f5c43b9d1c047d3c906b0f835d"
+    },
+    {
+      "file": "public/assets/enemies/host_06.png",
+      "bytes": 79491,
+      "sha256": "e295181c9505de6f38ef66fee52513a52f687eee95ab290e22b77fa2161eab24"
+    },
+    {
+      "file": "public/assets/enemies/host_07.glb",
+      "bytes": 160124,
+      "sha256": "5a026195fb4ee079f49334a7e6b4cf2d8e84819cd5f585c49e4bf4e40fba7915"
+    },
+    {
+      "file": "public/assets/enemies/host_07.png",
+      "bytes": 74744,
+      "sha256": "b6bd3036c52a4a9e965766122f7d02fb0ec9a39e7596e2a2bd9f12116db226d7"
+    },
+    {
+      "file": "public/assets/enemies/host_08.glb",
+      "bytes": 139416,
+      "sha256": "2497b0d0aeba6fa73cc7a5abe7a1a514e833fa838a9c272e292a306f2c1458d9"
+    },
+    {
+      "file": "public/assets/enemies/host_08.png",
+      "bytes": 76273,
+      "sha256": "44fcd940b58b450aff17da3755c24989edaea2ff27cb796707694f13e04ca2a4"
+    },
+    {
+      "file": "public/assets/enemies/host_09.glb",
+      "bytes": 140740,
+      "sha256": "8c93ed5ddb415b94116035a75323046d77da70eddf0717f12394fdda0c2b73bf"
+    },
+    {
+      "file": "public/assets/enemies/host_09.png",
+      "bytes": 71341,
+      "sha256": "6dd6a9be237c926fa795a9bf539a45b10a584de4944e7af50873e3447ff14182"
+    },
+    {
+      "file": "public/assets/enemies/host_10.glb",
+      "bytes": 249384,
+      "sha256": "20ebb12734ebe4bee7bcce191b2c5cdef0ae9307fc04d6dab35c8663ba46ac35"
+    },
+    {
+      "file": "public/assets/enemies/host_10.png",
+      "bytes": 90976,
+      "sha256": "826c001375ede726b2eae7a5215fb720f590d39b93d38548f83ce7b9b88558e9"
+    },
+    {
+      "file": "public/assets/enemies/host_11.glb",
+      "bytes": 236976,
+      "sha256": "7a5e1d5f1c5f236db438db71af2ed08c31f746b1ed5875bc2778aad4a09b876e"
+    },
+    {
+      "file": "public/assets/enemies/host_11.png",
+      "bytes": 75071,
+      "sha256": "d97555e9fe607853171dfae4c1aa5b242cf06484905f8e43780cd16754794b72"
+    },
+    {
+      "file": "public/assets/enemies/host_12.glb",
+      "bytes": 157368,
+      "sha256": "e3ed7bdd24dcb6aeaac5a7aae58a319f97720291383a45b57f463d3bf96c39a0"
+    },
+    {
+      "file": "public/assets/enemies/host_12.png",
+      "bytes": 75863,
+      "sha256": "5bca4b66038722eaa994b3e9c3d21241d150513ffa2611b602314b5644b64a99"
+    },
+    {
+      "file": "public/assets/enemies/host_13.glb",
+      "bytes": 200720,
+      "sha256": "031c002d7192f476de424b697252cb2bd36ea9864a516ccb0dee47c8fb404083"
+    },
+    {
+      "file": "public/assets/enemies/host_13.png",
+      "bytes": 79258,
+      "sha256": "d9011b7ba79fb81cfae3ce06d8c369cc58d55bfbe0a8295686b92894c888de7a"
+    },
+    {
+      "file": "public/assets/enemies/host_14.glb",
+      "bytes": 172756,
+      "sha256": "d689242e4e4df0e4dc5430308ca9682d08e03fcc54144d3e1a288101a5835214"
+    },
+    {
+      "file": "public/assets/enemies/host_14.png",
+      "bytes": 74756,
+      "sha256": "930cf7c342d23c4074c05d90401ea5e94b3397b94ca4a818a58802a16b4abaf0"
+    },
+    {
+      "file": "public/assets/enemies/host_15.glb",
+      "bytes": 181324,
+      "sha256": "039b58d1bdc90da2f5c5e4f2f076aefca420b1474de7e79f12407d31dd8fca82"
+    },
+    {
+      "file": "public/assets/enemies/host_15.png",
+      "bytes": 36007,
+      "sha256": "47997faa3da00ef183283848b470441ea82361b224eaf3b619540ef85b4bef04"
+    },
+    {
+      "file": "public/assets/enemies/host_16.glb",
+      "bytes": 161672,
+      "sha256": "03644ffee9ba02ed6334c96c040525963ba98857da80a256141abcab9d88469c"
+    },
+    {
+      "file": "public/assets/enemies/host_16.png",
+      "bytes": 71083,
+      "sha256": "75355ca6349bfd8d1a7bef9c9d7e07772e54adf63835c23da074e552444adae9"
+    },
+    {
+      "file": "public/assets/enemies/host_17.glb",
+      "bytes": 179716,
+      "sha256": "ca6b7d88a15b81f0e7496472d696e64a8b485fbe163b49aea52742fac276ae36"
+    },
+    {
+      "file": "public/assets/enemies/host_17.png",
+      "bytes": 87352,
+      "sha256": "2d1689972aaa45c6c0c1753f463781c02c9fa2fbeea626dc17c8d102080dacc8"
+    },
+    {
+      "file": "public/assets/enemies/host_18.glb",
+      "bytes": 159768,
+      "sha256": "0fea98249f2f02e1ad712500a05229c1ead4ee3b6152712d7533e1ad91aa02c5"
+    },
+    {
+      "file": "public/assets/enemies/host_18.png",
+      "bytes": 75337,
+      "sha256": "1b07ca47d9d6ecc26a53740d93fe5833564301e0e97109a33da4b1d219798ec0"
+    },
+    {
+      "file": "public/assets/enemies/host_19.glb",
+      "bytes": 204716,
+      "sha256": "15179a79e80f95f0f1e5f683ada644135ab5eea979a7e17931ffb55da5f8639a"
+    },
+    {
+      "file": "public/assets/enemies/host_19.png",
+      "bytes": 77454,
+      "sha256": "227926e19aacbf627fe80ab305bdeefd0c05ade66c3b7afe5484f405e5310970"
+    },
+    {
+      "file": "public/assets/enemies/host_20.glb",
+      "bytes": 179284,
+      "sha256": "6824fa427d1594dc66291cc1193777bbda124f74ce649457c384a6e8dc55de95"
+    },
+    {
+      "file": "public/assets/enemies/host_20.png",
+      "bytes": 84647,
+      "sha256": "f47e934e06cafdb4a409dd582acd1a2d05ef6a2a19ac196a3aa047df29c5db5a"
+    },
+    {
+      "file": "public/assets/enemies/host_21.glb",
+      "bytes": 148336,
+      "sha256": "43419e82b0f341d39bd5ba31c8c220cfed33850172d4c537cdfeb6dc654ab870"
+    },
+    {
+      "file": "public/assets/enemies/host_21.png",
+      "bytes": 83523,
+      "sha256": "0900748c0aa72e0da32974149f11706bcce67c8f960e3a19cf24132611d05c8e"
+    },
+    {
+      "file": "public/assets/enemies/host_22.glb",
+      "bytes": 165652,
+      "sha256": "6ae7ac633c99fe1a6350f12504415c4aaef702a2165e680358566d179523b583"
+    },
+    {
+      "file": "public/assets/enemies/host_22.png",
+      "bytes": 82120,
+      "sha256": "6d30453a6249205816208440af0a4db0b33327a03dd6ebd9f9c8a5b4c2496549"
+    },
+    {
+      "file": "public/assets/enemies/host_23.glb",
+      "bytes": 145916,
+      "sha256": "40c2076c6b28b4a405ef3348d24feb1f57c864ee178b74bfd6975148624d5dbd"
+    },
+    {
+      "file": "public/assets/enemies/host_23.png",
+      "bytes": 83243,
+      "sha256": "56145fe9ebd63126210ecc6c19cd4ef94350d956df241cd050570bbc007d889a"
+    },
+    {
+      "file": "public/assets/enemies/host_24.glb",
+      "bytes": 201020,
+      "sha256": "4183690d4539004e518b93fd655b635391b55d84d859bce6445455a458f536a6"
+    },
+    {
+      "file": "public/assets/enemies/host_24.png",
+      "bytes": 77603,
+      "sha256": "fd77f2f9adce8e05bc3abb45cc01a6868a5964febacda6d0a7cef50ce9a3a181"
+    },
+    {
+      "file": "public/assets/enemies/host_25.glb",
+      "bytes": 237544,
+      "sha256": "cbd0210fb8f3994673d941d2b777238df191feca1cd0d53848f5519d65137e53"
+    },
+    {
+      "file": "public/assets/enemies/host_25.png",
+      "bytes": 36930,
+      "sha256": "dfda9ed0b9ab81dd59f83e41b3894973462320e40f9170770eab3a60f985a112"
+    },
+    {
+      "file": "public/assets/enemies/host_26.glb",
+      "bytes": 143508,
+      "sha256": "715a3d2b21f62f49601e7393365d23d0a80d1c0e156a9b18db5895d34033d743"
+    },
+    {
+      "file": "public/assets/enemies/host_26.png",
+      "bytes": 69194,
+      "sha256": "b5be752ae5bab1ebe0d229336dc8e5e43a633fb70623714d0a9c277b6c59b838"
+    },
+    {
+      "file": "public/assets/enemies/host_27.glb",
+      "bytes": 195412,
+      "sha256": "be0a3ec4d9e3a2d270a2135da9974267854d27ce61e222b69f531c2114d59732"
+    },
+    {
+      "file": "public/assets/enemies/host_27.png",
+      "bytes": 39334,
+      "sha256": "af37d813363a096a313b61a89609fd51830c63c518a28b0577f43eecc0a0eacb"
+    },
+    {
+      "file": "public/assets/enemies/host_28.glb",
+      "bytes": 238432,
+      "sha256": "5a2b025f6d4f560b78e7d352b3aef368e62bb45e6de3e4b5a58475f2eab89f19"
+    },
+    {
+      "file": "public/assets/enemies/host_28.png",
+      "bytes": 36930,
+      "sha256": "c42c5f3f3624b8b24253e6ce4bfef4161cf9af29d64043fcd9acb8ca51d92a32"
+    },
+    {
+      "file": "public/assets/enemies/host_29.glb",
+      "bytes": 181140,
+      "sha256": "91f01b7ff8ebacd20953d54fb7b6b137260beb07b110aa34e7555b51ecb4801b"
+    },
+    {
+      "file": "public/assets/enemies/host_29.png",
+      "bytes": 38974,
+      "sha256": "84281b58d8e66f9217ed0613060e4bd6408bb77ff23d53d95e3538811dcf50da"
+    },
+    {
+      "file": "public/assets/enemies/host_30.glb",
+      "bytes": 190608,
+      "sha256": "5318ba6d4945c26347e8f073f65c7f4c7888a58a0d89bbb1d4bfce3bd9f3047c"
+    },
+    {
+      "file": "public/assets/enemies/host_30.png",
+      "bytes": 33681,
+      "sha256": "eda8015056b46bfb869546683336661e1e45601af0fb879204c77bf265eb05ef"
+    },
+    {
+      "file": "public/assets/enemies/host_31-ember.glb",
+      "bytes": 153212,
+      "sha256": "cc194e83c466c41505b8790b87396a0bd4484e0bc09d1fdf205c622fe8aaf012"
+    },
+    {
+      "file": "public/assets/enemies/host_31-ember.png",
+      "bytes": 74002,
+      "sha256": "e6c3b1446c97b927d0321209c562848371e96bb204f6f462838ce1bd82564338"
+    },
+    {
+      "file": "public/assets/enemies/host_31-wraith.glb",
+      "bytes": 153748,
+      "sha256": "d047bce84700270a7a1bf9d4b6aed058f4aa35262d7f1790274e5b7db22589a5"
+    },
+    {
+      "file": "public/assets/enemies/host_31-wraith.png",
+      "bytes": 83734,
+      "sha256": "f6759df6ee8e447a4324c09616cb2157cb42ff0290cfe1cdeba6658ba5024a19"
+    },
+    {
+      "file": "public/assets/enemies/host_31.glb",
+      "bytes": 153516,
+      "sha256": "f77bd6abba59e91c1fceaed07f36fdc98aedc2de8b307d3a3e139516d060d57b"
+    },
+    {
+      "file": "public/assets/enemies/host_31.png",
+      "bytes": 73996,
+      "sha256": "fca395099661e225d4ae213440c0ce8ae0d12c73e07ebaf279767b3d259ee62e"
+    },
+    {
+      "file": "public/assets/enemies/host_32.glb",
+      "bytes": 158376,
+      "sha256": "7c8c9bece7b89300b6c0467ef10769936e37c2a19fd3a2b2efb9c4c4eec27d8b"
+    },
+    {
+      "file": "public/assets/enemies/host_32.png",
+      "bytes": 82356,
+      "sha256": "70554e088df9b4db91b787f19cc0413496fc4e48428fe87ec4361d0a20e349b9"
+    },
+    {
+      "file": "public/assets/enemies/host_33.glb",
+      "bytes": 153208,
+      "sha256": "7230519a424f032bd3fe34f9b8372984befc926e67d76a5375c6957952502940"
+    },
+    {
+      "file": "public/assets/enemies/host_33.png",
+      "bytes": 79456,
+      "sha256": "6a1f1f8cf8f62009fb61d06e9ca26c40b58d40b31f8b59072e53f7f8b45b0d76"
+    },
+    {
+      "file": "public/assets/enemies/host_34.glb",
+      "bytes": 234356,
+      "sha256": "4ad276710f796355409c3b807206bcbf4b00a2d49dfe0ee67830b5ee50ed7004"
+    },
+    {
+      "file": "public/assets/enemies/host_34.png",
+      "bytes": 39531,
+      "sha256": "f32915c6d15892af0605b4ca0b018825aadb0bc3604b9d7add13518e2944b78d"
+    },
+    {
+      "file": "public/assets/enemies/host_35-ember.glb",
+      "bytes": 188476,
+      "sha256": "23b9c3c0a55645324a28b3c9b3ebb6d244d693d66c69bafb4fad1b789d19a45e"
+    },
+    {
+      "file": "public/assets/enemies/host_35-ember.png",
+      "bytes": 38471,
+      "sha256": "dbd2ecaf980762aab717a1dbf023b0440cf1b4d1c9bbc711513ec60a87c2b052"
+    },
+    {
+      "file": "public/assets/enemies/host_35-wraith.glb",
+      "bytes": 189320,
+      "sha256": "f23b33aca86d08bd3ff4c35181e348c8a0dfe6fb968ac630536eb761a1f6ed2e"
+    },
+    {
+      "file": "public/assets/enemies/host_35-wraith.png",
+      "bytes": 40458,
+      "sha256": "3a5c9cc3e47e4525a65ef339de75d3e922e7f22b5ab44f34a11d8ee9b1e79ab4"
+    },
+    {
+      "file": "public/assets/enemies/host_35.glb",
+      "bytes": 188464,
+      "sha256": "fdc463ceede953cfb30f043ca0298d385d727337503dd78d3c21036c1fe7a345"
+    },
+    {
+      "file": "public/assets/enemies/host_35.png",
+      "bytes": 38465,
+      "sha256": "4c47f57ea51612a0a7d77b4e32cc0c40e000f213aa51900eed05f1ddcfbecf44"
+    },
+    {
+      "file": "public/assets/enemies/host_36-ember.glb",
+      "bytes": 174944,
+      "sha256": "d5d46cfa98222a547cd6e10a943861df4b43d135150828e4a7449e37a31faa2d"
+    },
+    {
+      "file": "public/assets/enemies/host_36-ember.png",
+      "bytes": 76798,
+      "sha256": "7716a5aa2ed38977d638a3b3d292a468ff18ae6d41b32ed4d092193f5f28860c"
+    },
+    {
+      "file": "public/assets/enemies/host_36-wraith.glb",
+      "bytes": 175256,
+      "sha256": "c09722d66caf9638adc41700465be872c57b93c86d74630a08f9cf46581d2e95"
+    },
+    {
+      "file": "public/assets/enemies/host_36-wraith.png",
+      "bytes": 86025,
+      "sha256": "c3c191c2b5c3107aa7cead5f7dc1962c85eec8a27602506f437554256625dff1"
+    },
+    {
+      "file": "public/assets/enemies/host_36.glb",
+      "bytes": 174936,
+      "sha256": "59dd9edba44df9bdb1514414e2d8b9b92d458e2267d3d62bcf261ffd14e7a2f6"
+    },
+    {
+      "file": "public/assets/enemies/host_36.png",
+      "bytes": 76792,
+      "sha256": "9cfece5db6dc456f9bd254b5d7740c33d06268844c2259130b9d0a227c1e547c"
+    },
+    {
+      "file": "public/assets/enemies/host_37.glb",
+      "bytes": 213092,
+      "sha256": "95dbb8721604408d7651aff6768339ff157a4a34824b81eb50c7e4cfe215cddf"
+    },
+    {
+      "file": "public/assets/enemies/host_37.png",
+      "bytes": 76686,
+      "sha256": "c26a9d46233560d10c2a56d0937054f28b18d1783eab86646d0e9d6f35d8ed42"
+    },
+    {
+      "file": "public/assets/enemies/host_38-wraith.glb",
+      "bytes": 154420,
+      "sha256": "8390bfb5cc5f03e5843e1e929a45a13c7d6d498b2933cd2872dcd426ab8250f2"
+    },
+    {
+      "file": "public/assets/enemies/host_38-wraith.png",
+      "bytes": 81344,
+      "sha256": "ac94712bb266b565992cc8a602a71ce1e2d5604bfbc1f0a9e087263b7e425f03"
+    },
+    {
+      "file": "public/assets/enemies/host_38.glb",
+      "bytes": 159916,
+      "sha256": "c7474596fb63f774c77d28a27dc064b98d1568823afac1a033d0d65f20fb5201"
+    },
+    {
+      "file": "public/assets/enemies/host_38.png",
+      "bytes": 75337,
+      "sha256": "497838c344b29e3a7a693c4cfe847848b619879d50994f7826e3c98f3e6fc293"
+    },
+    {
+      "file": "public/assets/enemies/host_39.glb",
+      "bytes": 170592,
+      "sha256": "713c445ca9b0a3b1fe961dcdb863cc090d7e3dc120b8c368f491d44124b35755"
+    },
+    {
+      "file": "public/assets/enemies/host_39.png",
+      "bytes": 43628,
+      "sha256": "5794b3dae05d7ac6ba53e95a212e1a637e7342a21aa2253cce63bed490fc2bd3"
+    },
+    {
+      "file": "public/assets/enemies/host_40.glb",
+      "bytes": 309408,
+      "sha256": "8d1016a1fbe45ec1ca23cd36f1465b37796374e3b2dd161b88ea267a2d82f665"
+    },
+    {
+      "file": "public/assets/enemies/host_40.png",
+      "bytes": 43171,
+      "sha256": "71aefe28bd3e49d745a8c67165d7a528ca9df9b294b57f34856c940e664c3d6d"
+    },
+    {
+      "file": "public/assets/enemies/host_41.glb",
+      "bytes": 162764,
+      "sha256": "496dad8997ce4f690e1f11d998f4eee75849f8cae7ec196895fe803e9b0ef4e3"
+    },
+    {
+      "file": "public/assets/enemies/host_41.png",
+      "bytes": 75404,
+      "sha256": "79a0f5e8fe194c96f85fa8303fc435cbfda72567571a8bf2fe3370214e28b2c6"
+    },
+    {
+      "file": "public/assets/enemies/host_42.glb",
+      "bytes": 189104,
+      "sha256": "7e029d52b4b046a541f312dfde5a5abc5688eee14fb11104d1826b539fec23fe"
+    },
+    {
+      "file": "public/assets/enemies/host_42.png",
+      "bytes": 37268,
+      "sha256": "8e79be224b3406cd8092ade29a44ef5f415535167f4e8af71cb8c47653b5a57b"
+    },
+    {
+      "file": "public/assets/enemies/host_43.glb",
+      "bytes": 194920,
+      "sha256": "15ebaf94fad3b15e1d4969759521e891aa6b25390a7921ac685db2cabb94e083"
+    },
+    {
+      "file": "public/assets/enemies/host_43.png",
+      "bytes": 91823,
+      "sha256": "15b68c1ae1d6a650ceb45781a7ab08bbf873224cec6efc0f2c95a5c34145585e"
+    },
+    {
+      "file": "public/assets/enemies/host_44.glb",
+      "bytes": 170976,
+      "sha256": "0f62dcd6b280fc95467130a329ad69b9300c4f27dc28259461d7e06e729292ca"
+    },
+    {
+      "file": "public/assets/enemies/host_44.png",
+      "bytes": 78377,
+      "sha256": "0ceefbadf7e52e27c8b0431e24ecd4819860d2075b42b8e138ccdff283889422"
+    },
+    {
+      "file": "public/assets/enemies/host_45.glb",
+      "bytes": 293692,
+      "sha256": "2566fc62c1bbeac14c056d3b82179a4f5e3ee3aaa930acf5b25b3d7fed1beba7"
+    },
+    {
+      "file": "public/assets/enemies/host_45.png",
+      "bytes": 39015,
+      "sha256": "1f4d57d23ded52168bd01439bc0d7063c89adc6e85d0575e28ef0210691faf37"
+    },
+    {
+      "file": "public/assets/enemies/host_46.glb",
+      "bytes": 79012,
+      "sha256": "5b6410fa482e504c73daf479604ca90f4a72fddc4fc58227a8366d336bf25fcd"
+    },
+    {
+      "file": "public/assets/enemies/host_46.png",
+      "bytes": 72842,
+      "sha256": "65a79f35bd9c081466990dd5af64119664b54ad8511a2c4f5e0fdc5b595c4802"
+    },
+    {
+      "file": "public/assets/enemies/host_47.glb",
+      "bytes": 232236,
+      "sha256": "b4efbd8128adf9e446846c36b1f12e970b43a3e32b5249dda7d04d3d95912487"
+    },
+    {
+      "file": "public/assets/enemies/host_47.png",
+      "bytes": 76918,
+      "sha256": "c36c4cab8fe9db4759ea971d4f5651060644deb29523e11f5491122f9d3747dd"
+    },
+    {
+      "file": "public/assets/enemies/host_48.glb",
+      "bytes": 215468,
+      "sha256": "38a5e6ae877df13b1bd0e5e4196f5eca33d8f04b4bc0534206f9be54f8aeccbd"
+    },
+    {
+      "file": "public/assets/enemies/host_48.png",
+      "bytes": 38258,
+      "sha256": "63990a9da87e465f286a981239c1fa640f7bf9fcad572fcd581e0fcb91bfae52"
+    },
+    {
+      "file": "public/assets/enemies/host_49.glb",
+      "bytes": 178224,
+      "sha256": "260ef4745b20e0e8f8d964573bfdf3e57557c442e7586faa64dc000293659959"
+    },
+    {
+      "file": "public/assets/enemies/host_49.png",
+      "bytes": 81358,
+      "sha256": "7823412bfce949eb6dae1cbee12b5c59c29877ce07146d2f95766c1a781c1de2"
+    },
+    {
+      "file": "public/assets/enemies/host_50-devourer.glb",
+      "bytes": 596776,
+      "sha256": "c38ec63a82355088da180c5a7c992b2f0b41062d86f66ff56908eed078fc55af"
+    },
+    {
+      "file": "public/assets/enemies/host_50-devourer.png",
+      "bytes": 45905,
+      "sha256": "86601a32c40eec4cb0ea66d168fbc26577a08ac830a434eccf1ec19ce3ecca3a"
+    },
+    {
+      "file": "public/assets/enemies/host_50-tyrant.glb",
+      "bytes": 702688,
+      "sha256": "d86ceaace4068a294a3060c57f0b94dd00ddedb6162305de4d51e3760911d73e"
+    },
+    {
+      "file": "public/assets/enemies/host_50-tyrant.png",
+      "bytes": 46682,
+      "sha256": "3cf4cddf2ca2aedb7e9f36e8c3e439aa27420d28688b373656de7ccc0563fe13"
+    },
+    {
+      "file": "public/assets/enemies/host_50.glb",
+      "bytes": 573760,
+      "sha256": "12ac6b1bb20eaefdfa00eae9e322842006037ade889cd60c0fae4726c877f40b"
+    },
+    {
+      "file": "public/assets/enemies/host_50.png",
+      "bytes": 45585,
+      "sha256": "ab14e46ec3b5e52590679fd21b98b1280bb11dfd73ef596cd354631e8303042d"
+    },
+    {
+      "file": "public/assets/enemies/manifest.json",
+      "bytes": 48360,
+      "sha256": "57648761068fe19a47cc8006ba8e1e97156838a499f3b470218b89b021465580"
+    },
+    {
+      "file": "public/assets/geometric/champions/archangel.glb",
+      "bytes": 1472216,
+      "sha256": "51c6de8df1e35fa73858ae1ef41cd8de4f1ebff528732be4fec3ac15c91aadb6"
+    },
+    {
+      "file": "public/assets/geometric/champions/archbishop.glb",
+      "bytes": 1310240,
+      "sha256": "7fe96fcd51cf557a55fdae22a483ca4d2f64a7756195f2086a5df9bfe2790c09"
+    },
+    {
+      "file": "public/assets/geometric/champions/crownofages.glb",
+      "bytes": 2912564,
+      "sha256": "0e7a0740cd8bf82285568df9d2fa1464e0be58e6ac0a3475a8fb24c1029a2586"
+    },
+    {
+      "file": "public/assets/geometric/champions/dawnspire.glb",
+      "bytes": 1458776,
+      "sha256": "c4bf720dbd869386b17503b17eb63aaf1d4f2c8c5ecb133c80e79087412bf4fd"
+    },
+    {
+      "file": "public/assets/geometric/champions/eldergrove.glb",
+      "bytes": 1576424,
+      "sha256": "99ae37fddd536cdf294f0cb467e83d26c3300f132a34218261b9e28693713f7a"
+    },
+    {
+      "file": "public/assets/geometric/champions/elvenking.glb",
+      "bytes": 6153316,
+      "sha256": "0ee2f123fc0a68258fb94cc753c7da7530c890612f59a7861928d12baf3ddbea"
+    },
+    {
+      "file": "public/assets/geometric/champions/embercrown.glb",
+      "bytes": 1324548,
+      "sha256": "c104f257648a91d40f5dc8e6560c910364ccaa9715aa0f1ed2da0f709590f908"
+    },
+    {
+      "file": "public/assets/geometric/champions/emeraldgolem.glb",
+      "bytes": 1744488,
+      "sha256": "9a4607b5ea87e13fd2ed419741d2c5f58d591bda22c35c8d25a9b1d345989ba8"
+    },
+    {
+      "file": "public/assets/geometric/champions/fireballista.glb",
+      "bytes": 1720552,
+      "sha256": "d9678ccea4c4405fb2827d97a31239d7b5156215bde72fc138f295734261e723"
+    },
+    {
+      "file": "public/assets/geometric/champions/frostblade.glb",
+      "bytes": 2485904,
+      "sha256": "632bae86e5467b0591732acd35ca45d6cfbe39224c3cdb6e20ebd60b27643d80"
+    },
+    {
+      "file": "public/assets/geometric/champions/greenheart.glb",
+      "bytes": 5560880,
+      "sha256": "4461c41159738f9ba43af51af78110ada8808e7aec542562e8fe43de548bbe3f"
+    },
+    {
+      "file": "public/assets/geometric/champions/griffinbomber.glb",
+      "bytes": 3720512,
+      "sha256": "81459e2b59804c8c08a883909aceb49e5fffa933690e8a7a76c667093c5fb9e7"
+    },
+    {
+      "file": "public/assets/geometric/champions/highking.glb",
+      "bytes": 1939180,
+      "sha256": "6cbb1ac1720ef352534ad90beea266524a0dca37efce3a2f0a9600e0f9adf479"
+    },
+    {
+      "file": "public/assets/geometric/champions/kingdomprotector.glb",
+      "bytes": 999976,
+      "sha256": "618746b4831f1482d192bc197a635007ce44a679c5db6c5194b3ccafad0cad6d"
+    },
+    {
+      "file": "public/assets/geometric/champions/kingsrangerguard.glb",
+      "bytes": 6022104,
+      "sha256": "918274128cd45e6636af8346da692457c65e594470dbaefed26c8a655e423f5d"
+    },
+    {
+      "file": "public/assets/geometric/champions/kingsreach.glb",
+      "bytes": 1638536,
+      "sha256": "c49075e7e8af5ef1d6961804000146b3354de082729ac4efb6031b67fcfd5859"
+    },
+    {
+      "file": "public/assets/geometric/champions/ladyclaire.glb",
+      "bytes": 1194108,
+      "sha256": "9d63d385620c42a1bc4b7588b58dd9a80eee4379e9aa2989da1353f8ec0b7075"
+    },
+    {
+      "file": "public/assets/geometric/champions/mechanicalgolem.glb",
+      "bytes": 4443572,
+      "sha256": "18f0256519157bb74d5cf6cb642da7639385ca046fe7620082eb7e4f3ae8c90d"
+    },
+    {
+      "file": "public/assets/geometric/champions/monk.glb",
+      "bytes": 1186112,
+      "sha256": "0f41ee6a721dfa395c92516f8b3b0c532bccfe9df29de19ce884589a3d04ade9"
+    },
+    {
+      "file": "public/assets/geometric/champions/mothernature.glb",
+      "bytes": 1871028,
+      "sha256": "6517645006ff75cdcdcc49a0e713768b37599ae8ca0136f0d82cc8def48e1ed7"
+    },
+    {
+      "file": "public/assets/geometric/champions/phoenix.glb",
+      "bytes": 1807592,
+      "sha256": "2ca40b96d3d9c4757a477d3984e7ad984dace4b1318b35e074d6678898fca45b"
+    },
+    {
+      "file": "public/assets/geometric/champions/rangermentor.glb",
+      "bytes": 819268,
+      "sha256": "e3530b4d47611692301da01762c32760c5ded0b53d564c32f1d3e282783b3158"
+    },
+    {
+      "file": "public/assets/geometric/champions/rimewatch.glb",
+      "bytes": 3764676,
+      "sha256": "1d1179f4ff4f697fe3bdd259b5154eac7c14dc863637708709dfb0668af995f3"
+    },
+    {
+      "file": "public/assets/geometric/champions/roseguard.glb",
+      "bytes": 2599824,
+      "sha256": "5b501c242b280cc707b026ebc053179e7a8e4a67ac01a7722a2f969c07cb73cf"
+    },
+    {
+      "file": "public/assets/geometric/champions/royalarsenal.glb",
+      "bytes": 2881924,
+      "sha256": "7dd3168122ed05c72b15d72c151e5af3d11b09d1098c485162463cce3d9d72c6"
+    },
+    {
+      "file": "public/assets/geometric/champions/royalmarshal.glb",
+      "bytes": 920844,
+      "sha256": "989069d95dbb826ba5f5267cdf735aa976c8fa60ab00089b8918a1516ae63412"
+    },
+    {
+      "file": "public/assets/geometric/champions/royalranger.glb",
+      "bytes": 6149980,
+      "sha256": "013e87f9a6ec5eaf419eb12621b2642b88a7970fdd4b666f683c3e283c95be7f"
+    },
+    {
+      "file": "public/assets/geometric/champions/starfall.glb",
+      "bytes": 1605032,
+      "sha256": "b0507c6fcc469a6e644b37fb559646e19d8a5cd7daba300431da7704bed3db9c"
+    },
+    {
+      "file": "public/assets/geometric/champions/stonewarden.glb",
+      "bytes": 1434104,
+      "sha256": "7ddf30687ac5c3c789c61b3975811d5e19912c95845a239adaa8bc7f5fadf264"
+    },
+    {
+      "file": "public/assets/geometric/champions/stormcitadel.glb",
+      "bytes": 1405588,
+      "sha256": "fd77d69fc78e7602ccf29d10878f78c9e643bcac9b04f0cd010936d713a28923"
+    },
+    {
+      "file": "public/assets/geometric/champions/sunward.glb",
+      "bytes": 904776,
+      "sha256": "0238f5c9ba7c32be7eaea4ebf74a56acf26cd62498ab6fb7346a615886883cae"
+    },
+    {
+      "file": "public/assets/geometric/champions/tempest.glb",
+      "bytes": 1289468,
+      "sha256": "612f870f35c7a32a4723163365160a18df0b277426b6a196c19de25e042e4a09"
+    },
+    {
+      "file": "public/assets/geometric/champions/thornwarden.glb",
+      "bytes": 5750048,
+      "sha256": "0b84567e4656444a2f52aac635de27406eb1af188c6774b08bff7590980f6602"
+    },
+    {
+      "file": "public/assets/geometric/champions/thunderheart.glb",
+      "bytes": 1554200,
+      "sha256": "12726fa1b5c59f20746e712d9eecf5fa6d68b555bbe51f1ce69175fba13ee95e"
+    },
+    {
+      "file": "public/assets/geometric/champions/verdantguard.glb",
+      "bytes": 6013628,
+      "sha256": "c8c1eeec2711255b08c971a6fda1b65f0c55b02a9280af9db8d135c707df9882"
+    },
+    {
+      "file": "public/assets/geometric/champions/winterhold.glb",
+      "bytes": 1050364,
+      "sha256": "879fe71acf8a8bd8a9e31146b7b9fd287a7b42ff0389f0b2eaed6a0bda7fd940"
+    },
+    {
+      "file": "public/assets/geometric/champions/worldfire.glb",
+      "bytes": 1360368,
+      "sha256": "3205bee46d878877dc50074ac126af4b7861d6a6db1c7ccde4f3c6cc74727848"
+    },
+    {
+      "file": "public/assets/geometric/champions/wyvernhunter.glb",
+      "bytes": 5868568,
+      "sha256": "c63f101634a7c356bfc619f4bf3c58e05359e499229bfb57a2ba5db1848f3c90"
+    },
+    {
+      "file": "public/assets/geometric/defenders/archer-1.glb",
+      "bytes": 272840,
+      "sha256": "84ee62c04d21217b68d6bfcba2ef9870af84f29319c9eef094469a14ad85407e"
+    },
+    {
+      "file": "public/assets/geometric/defenders/archer-2.glb",
+      "bytes": 335792,
+      "sha256": "e239ae42b51fe505c72efd6e5719b08f52b68ad214b5262c06b96939708a843d"
+    },
+    {
+      "file": "public/assets/geometric/defenders/archer-3.glb",
+      "bytes": 420492,
+      "sha256": "d6af3779362528bb13762d281faed7c901fe09d3be4cf57466b376cd250e7a37"
+    },
+    {
+      "file": "public/assets/geometric/defenders/archer-4.glb",
+      "bytes": 438976,
+      "sha256": "290aef9097606a374c8ab91e913409a0db7cdb07243329ff08666e705dfe28b2"
+    },
+    {
+      "file": "public/assets/geometric/defenders/archer-5.glb",
+      "bytes": 507704,
+      "sha256": "5a9ddda7467bcf45722925320194911d06ca929cec34e5a4d2caca82635db57a"
+    },
+    {
+      "file": "public/assets/geometric/defenders/archer-6.glb",
+      "bytes": 559040,
+      "sha256": "0589f1cf358362e38a6b141651f6eb98248e917f32347eeb473cacd2d0675161"
+    },
+    {
+      "file": "public/assets/geometric/defenders/cleric-1.glb",
+      "bytes": 307900,
+      "sha256": "5608af5e191ad52be7e8eb000a71f78a59a371038760d472ae2dcb0870cc76c5"
+    },
+    {
+      "file": "public/assets/geometric/defenders/cleric-2.glb",
+      "bytes": 389392,
+      "sha256": "cfad514093710f2614ce8e156654a1afefbc35ba8b75a30518f97e9b2100ab34"
+    },
+    {
+      "file": "public/assets/geometric/defenders/cleric-3.glb",
+      "bytes": 396828,
+      "sha256": "a09b12e126578f400ec678c53b2b6170e3fe50e94604e29cd47179ecbda4e635"
+    },
+    {
+      "file": "public/assets/geometric/defenders/cleric-4.glb",
+      "bytes": 547232,
+      "sha256": "ec54097f060be067c5e7a057f5b57b7e58e8a97e644f8e8455920923eb3b05f7"
+    },
+    {
+      "file": "public/assets/geometric/defenders/cleric-5.glb",
+      "bytes": 554168,
+      "sha256": "69ad508eeced095f6317797214b8dbf54350110db4489b836cb14999bb1ad859"
+    },
+    {
+      "file": "public/assets/geometric/defenders/cleric-6.glb",
+      "bytes": 635548,
+      "sha256": "5fd321b35f96841c5fbcb0ae8ae951755e754d5896675b909430e1f0ad66d96d"
+    },
+    {
+      "file": "public/assets/geometric/defenders/druid-1.glb",
+      "bytes": 428484,
+      "sha256": "a4e9b077bc3866c1cd0c2f8a051220a516f25b1182fd2e83c68d9ea3e121d684"
+    },
+    {
+      "file": "public/assets/geometric/defenders/druid-2.glb",
+      "bytes": 429144,
+      "sha256": "8a790bea67dedf9e2176b7a09acab88b3ff439d6916e72e332d05def872a6f64"
+    },
+    {
+      "file": "public/assets/geometric/defenders/druid-3.glb",
+      "bytes": 337652,
+      "sha256": "29bacc1cfc40dac62059e984b5a126e66dfd43de8203a6d01617bdfc5b24a29f"
+    },
+    {
+      "file": "public/assets/geometric/defenders/druid-4.glb",
+      "bytes": 389040,
+      "sha256": "d7d9345cacde5f33e5d6d5f0d54aaa0c571fef02c600e3c6a7796765ee8efc7f"
+    },
+    {
+      "file": "public/assets/geometric/defenders/druid-5.glb",
+      "bytes": 403548,
+      "sha256": "71229e4cfc50e509d278c8ec260734ae11793b616aa7e468274075b6af1a26c2"
+    },
+    {
+      "file": "public/assets/geometric/defenders/druid-6.glb",
+      "bytes": 412604,
+      "sha256": "86a56b0a8d017d090326368fc97e5278febe81b3b188052da9dfe1d81e5af74b"
+    },
+    {
+      "file": "public/assets/geometric/defenders/frostwarden-1.glb",
+      "bytes": 998480,
+      "sha256": "e1d3d31e2a15a67ea6a7a9fcdb15029c0106fc9ac49b7c0984be5f8c6160c4b1"
+    },
+    {
+      "file": "public/assets/geometric/defenders/frostwarden-2.glb",
+      "bytes": 1005036,
+      "sha256": "b9e1a28e849cd56a8b499959e1c97060e2e321e013e51eda344798deac0bb2f0"
+    },
+    {
+      "file": "public/assets/geometric/defenders/frostwarden-3.glb",
+      "bytes": 1026348,
+      "sha256": "35c70b2a23fa2042e28ef6d006b45f50e5484abe4624461ae3a731ce85c3b0dd"
+    },
+    {
+      "file": "public/assets/geometric/defenders/frostwarden-4.glb",
+      "bytes": 1062100,
+      "sha256": "dcf7595e9564999f91e40af07a889c1635d8835b41fcf9ed132a5a35e7a02983"
+    },
+    {
+      "file": "public/assets/geometric/defenders/frostwarden-5.glb",
+      "bytes": 1139868,
+      "sha256": "21c9c34586a48aa3fb637e631f3a6565036f4d1cfb1280fee3498989a2b850f3"
+    },
+    {
+      "file": "public/assets/geometric/defenders/frostwarden-6.glb",
+      "bytes": 1178764,
+      "sha256": "1a4db891328ee77bb2ee7a6ac61a41fa2b8a60bec245e4cf4e7a864f0a88a424"
+    },
+    {
+      "file": "public/assets/geometric/defenders/mage-1.glb",
+      "bytes": 562744,
+      "sha256": "e4543001b331f0530208c9449425e0788f68197d04ed806007d91ce2fe788748"
+    },
+    {
+      "file": "public/assets/geometric/defenders/mage-2.glb",
+      "bytes": 604656,
+      "sha256": "0fa060480ce82cf7fea110a6d63bcb84b9d50c1d810b43c7edb91a7b5c4a7ee8"
+    },
+    {
+      "file": "public/assets/geometric/defenders/mage-3.glb",
+      "bytes": 628848,
+      "sha256": "36105c0464b161aa412856ea211177ebfcbc1865adf68e3ee0f9f8757feca500"
+    },
+    {
+      "file": "public/assets/geometric/defenders/mage-4.glb",
+      "bytes": 652364,
+      "sha256": "31ebed3c3540ad1fffd503212eaf2b0e5dae655bcef93d6b1c5be6d7c976bdf4"
+    },
+    {
+      "file": "public/assets/geometric/defenders/mage-5.glb",
+      "bytes": 1184476,
+      "sha256": "146250340f7cda2f2ece8befa2a4e742142ada1a46215fd452441ecafdb809e5"
+    },
+    {
+      "file": "public/assets/geometric/defenders/mage-6.glb",
+      "bytes": 824740,
+      "sha256": "fddba35142bddc1315de83e11be30d0d9cfdf4f54552c5b1dea5e18179b0eca6"
+    },
+    {
+      "file": "public/assets/geometric/defenders/runebreaker-1.glb",
+      "bytes": 481532,
+      "sha256": "b8ec609796019e8e3890a951ef80e2b3e0bbc74d1e2853e387b40d00dbcb3182"
+    },
+    {
+      "file": "public/assets/geometric/defenders/runebreaker-2.glb",
+      "bytes": 518060,
+      "sha256": "f428bc099a6c910e95b3e033d620274b77c0130842e55217c6fb55631cc88a2d"
+    },
+    {
+      "file": "public/assets/geometric/defenders/runebreaker-3.glb",
+      "bytes": 809460,
+      "sha256": "80867919f404bab8fdfa85f6861ccf2299640a918c7c2b4f54b9a81831038915"
+    },
+    {
+      "file": "public/assets/geometric/defenders/runebreaker-4.glb",
+      "bytes": 809360,
+      "sha256": "fe62679938ca2f7f835e656abff344fc36c7e28d72000111c24fca41f4d85b42"
+    },
+    {
+      "file": "public/assets/geometric/defenders/runebreaker-5.glb",
+      "bytes": 870024,
+      "sha256": "651b5b2573d483df7d27aa32115899ca6b9ca60cf1f960f21e351d8e37972845"
+    },
+    {
+      "file": "public/assets/geometric/defenders/runebreaker-6.glb",
+      "bytes": 886564,
+      "sha256": "fbf799adef6967b6a240b99356de7651238cfbffe483112dc792ced940703811"
+    },
+    {
+      "file": "public/assets/geometric/defenders/soldier-1.glb",
+      "bytes": 248364,
+      "sha256": "4d73ffeda6007f2ae8aa08aded1b96abbc23f9cdb77a407dbbe2ada8a26c4b96"
+    },
+    {
+      "file": "public/assets/geometric/defenders/soldier-2.glb",
+      "bytes": 251376,
+      "sha256": "e6466cbcc23a8679b30f777f7679dca932684920c02921a2ed5f108f582a28cd"
+    },
+    {
+      "file": "public/assets/geometric/defenders/soldier-3.glb",
+      "bytes": 308244,
+      "sha256": "f7c4c2795ee248e59ed440d9a23a08940ae1e207eea527503f38283202eb54aa"
+    },
+    {
+      "file": "public/assets/geometric/defenders/soldier-4.glb",
+      "bytes": 443568,
+      "sha256": "546b41b283253246d1dce651b68802d882e574cb2f728783b5dd0de1535f53d0"
+    },
+    {
+      "file": "public/assets/geometric/defenders/soldier-5.glb",
+      "bytes": 440160,
+      "sha256": "b0ea7a3ebe8e558ca16186852ad16cbca9e869557757986a524839830695f2d1"
+    },
+    {
+      "file": "public/assets/geometric/defenders/soldier-6.glb",
+      "bytes": 643536,
+      "sha256": "b1fd6dedde342088f639292153e01d40cfa1ee7d9a022b6ab0104e53f1213b7b"
+    },
+    {
+      "file": "public/assets/geometric/defenders/stormcaller-1.glb",
+      "bytes": 623952,
+      "sha256": "9ef495a0410ba07bf759d38a834a4570223bc59df575bace618984dfb1a6a7b9"
+    },
+    {
+      "file": "public/assets/geometric/defenders/stormcaller-2.glb",
+      "bytes": 720336,
+      "sha256": "9739667c3fa1d2e6801df8f8c76412d3b4318b35c0622dac7c605807a2951029"
+    },
+    {
+      "file": "public/assets/geometric/defenders/stormcaller-3.glb",
+      "bytes": 761700,
+      "sha256": "d1bca9f3ac2205c879f67f20328fd0049d560689b67f927440cc07ea36d539b2"
+    },
+    {
+      "file": "public/assets/geometric/defenders/stormcaller-4.glb",
+      "bytes": 1042660,
+      "sha256": "1a231f66b227cd658f57c5197ecd5552e38cb2194b5e59e5233de13c280c1e6b"
+    },
+    {
+      "file": "public/assets/geometric/defenders/stormcaller-5.glb",
+      "bytes": 919116,
+      "sha256": "c2fff595c0ef1f1dd8308ce2555509c453c6f438f57475eab5a72485243c96c5"
+    },
+    {
+      "file": "public/assets/geometric/defenders/stormcaller-6.glb",
+      "bytes": 1153580,
+      "sha256": "f603f6b8fd4fca9fcf751fb84146236304f5b3cd8a1be1ea2466cf6a50f9569c"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_01.glb",
+      "bytes": 314804,
+      "sha256": "e44fbc342bba292a94753a2df49f1615629b2dca84b7c906ad924fb8ec21c15e"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_02.glb",
+      "bytes": 215844,
+      "sha256": "bd16cc2dc5931e2f9141346bc4fddbf3c3f0164aa07dca56c948b4bddf589179"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_03.glb",
+      "bytes": 215864,
+      "sha256": "4e0e77dbe65363b690fdd5abf65e1f35985734f3f504e81ac69db6342baef396"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_04.glb",
+      "bytes": 285260,
+      "sha256": "5fac9406feffcc4913dc3112e1c527e4b0ceef5bf4aad2725c94c6a49f726014"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_05.glb",
+      "bytes": 360328,
+      "sha256": "d83bd1f007935db6301a85bc415d372192b42cb57160a6838a1d1cf4585eadd8"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_06.glb",
+      "bytes": 892564,
+      "sha256": "068082e93c41cc1ba343e3864581a8dce253e2ae7b4de7f460c263fa5fe62830"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_07.glb",
+      "bytes": 281800,
+      "sha256": "c55bedba04df8a2c5ddd40336c7f8005df45986b39da3c921e8724d9d0226afe"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_08.glb",
+      "bytes": 251436,
+      "sha256": "77eda133acaff89154f944f17350bd60d3ca405b72a93ceb5f4ac754e7012257"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_09.glb",
+      "bytes": 212948,
+      "sha256": "20196844542e145dac8bb2960b4cc752f06eff2fe7d9da8ada5eaa9ba435a5b8"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_10.glb",
+      "bytes": 417632,
+      "sha256": "96511b7dc0f1401beb8c3a3e2ac7bc4e79bc40bc16a186fd04909709b355b24a"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_11.glb",
+      "bytes": 493188,
+      "sha256": "ce94159325d6f06b23b7cc6ea15a01926fa4e8a1a469f493f72c2aa8c73f7f8e"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_12.glb",
+      "bytes": 213636,
+      "sha256": "e04285d89986611063579c284642bb918285c3672abef3c6acb6ec342ee3beab"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_13.glb",
+      "bytes": 852624,
+      "sha256": "850c376f1e51971da2d9b5ee2207cef382f1e700ffa09f43f3e7d0fe0d28f7ee"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_14.glb",
+      "bytes": 815628,
+      "sha256": "a818ed2a1f36e508a1f6c4728921c976c5381cd62f6a2da424296c8ad8c8f0ba"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_15.glb",
+      "bytes": 514100,
+      "sha256": "058425e0452f36c8d826799f7932f90b42a84b6ec91121ab5594a44756112eec"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_16.glb",
+      "bytes": 293140,
+      "sha256": "5f27dd6ad0c8f3d084dbdd186e222ac09f15c8de4ba0ae986812bf155d131a0e"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_17.glb",
+      "bytes": 458608,
+      "sha256": "408b24bb150fa2052d3820e5b514694f925ef84620a4814652043dc4db6e5c63"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_18.glb",
+      "bytes": 251088,
+      "sha256": "bba89ff498582a2a311fc3c83756042878e8c4b14de4e36abf21f307e22659fd"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_19.glb",
+      "bytes": 570160,
+      "sha256": "e45f66352e271b8cd7263ce53befe6c8092060130b0062d6f95933667e91968b"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_20.glb",
+      "bytes": 715916,
+      "sha256": "b2bd7ee78ad4729f6941fea0eddd5f15d3ec8634825dda62f053797fd1d2fabd"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_21.glb",
+      "bytes": 2147348,
+      "sha256": "e6aeef36671a42bfa7955f515f5023b12bf365eb10a90b52c25087129785ef84"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_22.glb",
+      "bytes": 1157452,
+      "sha256": "44ceab27fa3221ac4812b90c1b2e78872129e21d5e4d0ad4e45f1bd96840e59e"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_23.glb",
+      "bytes": 481320,
+      "sha256": "e919ded6d3adba6f7beb0308d7ef5aea6c226fbf2aed89f31f2a990d2551fc45"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_24.glb",
+      "bytes": 678140,
+      "sha256": "20ae466ef3c1e292b6e9f5b72762051b4f3b62547a8feb6c60eab0ae6b73aece"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_25.glb",
+      "bytes": 552548,
+      "sha256": "c957f2807f4b80afc9bc819da832ce63d53fd82916f416216786776cc33b4030"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_26.glb",
+      "bytes": 469828,
+      "sha256": "2fe9e15f76945fea2eb28877dd16a7a1e8c6ccd43c7b336046b6341361c85626"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_27.glb",
+      "bytes": 446764,
+      "sha256": "4efd6e24fc7b14035a86bfd0328ff6fc99851c9a2b428c3d3fbe8f035bc9a0a4"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_28.glb",
+      "bytes": 507768,
+      "sha256": "48ee480890dcdf7e1a7f359782c9fc234192127c21ff8e09d23e9d66e983c407"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_29.glb",
+      "bytes": 389364,
+      "sha256": "49080817da64e4920b0a5318a2121f06ef06780a791ce9730f1391d1a11eeaf1"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_30.glb",
+      "bytes": 558180,
+      "sha256": "ea18d9f3116cc2ab12651c6827abcdce5624026829b8dade7eaffefd75756621"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_31.glb",
+      "bytes": 423904,
+      "sha256": "c4858d359e1baa13d056c3b4fd260fc8b8771c473d7ec915d7e0f7e4a4ee1860"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_32.glb",
+      "bytes": 384700,
+      "sha256": "a23a94047bd557550aac14b49c916d1f5e45fd5e08a5062a620ac8edc128b1c8"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_33.glb",
+      "bytes": 534912,
+      "sha256": "924f19ecf8bae1b38cd25425106d84abf3862a18558d89c16535c4ab36eda6ed"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_34.glb",
+      "bytes": 432188,
+      "sha256": "cd73041ba73a90bf4d030ee9c46827addec5d51db6d7b18a49d5d76c64a71697"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_35.glb",
+      "bytes": 407812,
+      "sha256": "4a39b4750eaddd3ae2b4946397a842ffee1ddf1eb0a4d8a90f93ec5c46dbb8a9"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_36.glb",
+      "bytes": 383828,
+      "sha256": "1201bbb3c16c6fa0258aadf792ac938e8437863828857ff5f2d136794ad99853"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_37.glb",
+      "bytes": 578676,
+      "sha256": "cf33ff4749758b45fb975ec0154c3169b65825e68e7d7f5752ccef946bb4dad9"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_38.glb",
+      "bytes": 434108,
+      "sha256": "02a6ee5aaf5a02b88c30ac8713b7fc857fad977404d6cb0fb02e71f533485b5a"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_39.glb",
+      "bytes": 345292,
+      "sha256": "4983139d15cd8ed35c07b5891af13644290733ca95ef9518e9ddbfa461bfffa3"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_40.glb",
+      "bytes": 437980,
+      "sha256": "733d5e62186b23d9b7a6cd5682182e463ace31bb64e74afc770382cab4d4ad72"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_41.glb",
+      "bytes": 356308,
+      "sha256": "712d2439c577dd43e4f7a86cf0f37b343b8083b0607da2bba97eb707d2e7dd0b"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_42.glb",
+      "bytes": 480144,
+      "sha256": "92eaa76a2e9de87388bc0423dc6b73279e4dd5d5ca9c0a5df4d1e08860014f63"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_43.glb",
+      "bytes": 1115256,
+      "sha256": "4f3fa260d9ffa551d8deb883fb82030b925814fee5a2d46772551dbbf1c2fa9a"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_44.glb",
+      "bytes": 313796,
+      "sha256": "5a4efcfd7ea6d26e7a4aedf8b23860b9bde36e53059a49921df5259e20211002"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_45.glb",
+      "bytes": 599600,
+      "sha256": "62831227e9cd6515925afbc2721ac199399dc5b6853f50cb3943484ff301ef60"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_46.glb",
+      "bytes": 328764,
+      "sha256": "c20c7fc0b8b2f667532e83de30698e4b923921603a3607f3d342964b02456e73"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_47.glb",
+      "bytes": 724028,
+      "sha256": "99d0ac7fa4eed3a2d8ae7e43fd9e2fda0cf81d8cfc3c2847d0b989d464ad8289"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_48.glb",
+      "bytes": 463632,
+      "sha256": "d9ebeac661bbdc4cbdce4e2dd2cd6eb5e196a9e2f1d4ba8bd2a9617f52cfba68"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_49.glb",
+      "bytes": 306864,
+      "sha256": "1b5c384b90e3f88e850c0afbaef522e8a140cd0e74e38d88958ae0dfe90f91df"
+    },
+    {
+      "file": "public/assets/geometric/enemies/host_50.glb",
+      "bytes": 827552,
+      "sha256": "db703c1c77e690dbf37b3192cad42e1f11924d2839ef9d46366ad842aac6bc79"
+    },
+    {
+      "file": "public/assets/geometric/geometric-champions.json",
+      "bytes": 101340,
+      "sha256": "84880dd22cb69c430131a99124f44bbc2615f9571e48602df4355e88b0f0efb4"
+    },
+    {
+      "file": "public/assets/geometric/geometric-defenders.json",
+      "bytes": 126275,
+      "sha256": "e1cda729b20411e80b1264507610df03493f5b176449b4ffc14a1dd8217a7a98"
+    },
+    {
+      "file": "public/assets/geometric/geometric-enemies.json",
+      "bytes": 3160853,
+      "sha256": "eee20d920db0dd64aa127ffec6ac7b9b5c3bd97f8569c8c915ad20efb4b8f2d7"
+    },
+    {
+      "file": "public/assets/geometric/portraits/archangel.png",
+      "bytes": 436786,
+      "sha256": "49dbc2191f40f4b7c3d249a4a7e2cf4bbc425b83c5539447eb2a336a082a1a54"
+    },
+    {
+      "file": "public/assets/geometric/portraits/archbishop.png",
+      "bytes": 433104,
+      "sha256": "747a656436d135904f66092871b3e4373ed66f80ba823f9005ae4b5d9ebba858"
+    },
+    {
+      "file": "public/assets/geometric/portraits/archer-1.png",
+      "bytes": 317487,
+      "sha256": "d138cea7c83e3c069317f14164cdc8680955ee4315ff1dc756d213f834563e96"
+    },
+    {
+      "file": "public/assets/geometric/portraits/archer-2.png",
+      "bytes": 317565,
+      "sha256": "2e09e025c19a27ea1baae601dd2dbf5d61a973ce487600edde2faf5ce95ada56"
+    },
+    {
+      "file": "public/assets/geometric/portraits/archer-3.png",
+      "bytes": 325319,
+      "sha256": "309a833a0626b5a7b41b7b87681113f46bb6c7baede80b62e90a3fa0e2acae5a"
+    },
+    {
+      "file": "public/assets/geometric/portraits/archer-4.png",
+      "bytes": 324543,
+      "sha256": "0dc9ccf2daa71dec50d0fe1eca531515b01f04517a95ab0047d593e22cc7cdf1"
+    },
+    {
+      "file": "public/assets/geometric/portraits/archer-5.png",
+      "bytes": 338253,
+      "sha256": "4dd1170bc44590037165b9c044bd1a8ff5e099051716abcc0d04506330d1f03a"
+    },
+    {
+      "file": "public/assets/geometric/portraits/archer-6.png",
+      "bytes": 335077,
+      "sha256": "095c7ba87d90fe2c0dc2a1fcd351e6bc7c19be006c9c57e2ee6fdde1b0d371a4"
+    },
+    {
+      "file": "public/assets/geometric/portraits/cleric-1.png",
+      "bytes": 300388,
+      "sha256": "ccf896ff87de30387c1a9af8baf4b9e2953f89e27b0a3eb10e812c649f421656"
+    },
+    {
+      "file": "public/assets/geometric/portraits/cleric-2.png",
+      "bytes": 289933,
+      "sha256": "7a6413a43e6713b0e0e3535a1cd1ac314946122bca6622babbd5b83cd5a2d994"
+    },
+    {
+      "file": "public/assets/geometric/portraits/cleric-3.png",
+      "bytes": 293875,
+      "sha256": "9f0b42cc975c906d95ca7b26d63a14f5e1dabff34a71243336b96b63a0891721"
+    },
+    {
+      "file": "public/assets/geometric/portraits/cleric-4.png",
+      "bytes": 309669,
+      "sha256": "1f5a16dc638bf4934d5509cf03d7044eb5c97d940d4c6114748fa2a17fd5ebd2"
+    },
+    {
+      "file": "public/assets/geometric/portraits/cleric-5.png",
+      "bytes": 309628,
+      "sha256": "e9c95e29088187028342c8a238d634d2b638014cc90586fb19a5e0c977447fe0"
+    },
+    {
+      "file": "public/assets/geometric/portraits/cleric-6.png",
+      "bytes": 313760,
+      "sha256": "e77710102f60acddb1e56f9913f6cc086d494d27cfa3dbc6d30b5cec7843eec6"
+    },
+    {
+      "file": "public/assets/geometric/portraits/crownofages.png",
+      "bytes": 421354,
+      "sha256": "af34a0c0ccfd0569571a0181c085cfbaf2b3119e8992ed8e165d344d58bf526b"
+    },
+    {
+      "file": "public/assets/geometric/portraits/dawnspire.png",
+      "bytes": 432041,
+      "sha256": "f449caf10d068e7d9cac5ed6af89c8d64972af16bdf676890a214c692ef9554d"
+    },
+    {
+      "file": "public/assets/geometric/portraits/druid-1.png",
+      "bytes": 299460,
+      "sha256": "dd33a33e8fb2ae00d146cd94409ab04f1874842d81dde408fe2c68ced377374a"
+    },
+    {
+      "file": "public/assets/geometric/portraits/druid-2.png",
+      "bytes": 297693,
+      "sha256": "26cc47dc7310591ba0b844783e255549d5e5013e24b9082f1385e79b6ac3af90"
+    },
+    {
+      "file": "public/assets/geometric/portraits/druid-3.png",
+      "bytes": 303769,
+      "sha256": "d5f16010f1bfa01afece5daf5bfe42141e8238f76c54538c63906d774fee23e5"
+    },
+    {
+      "file": "public/assets/geometric/portraits/druid-4.png",
+      "bytes": 313151,
+      "sha256": "bf2ad963bcc05ef89b69d3acfbf2f9d0ab8af907c54fb4cb6e5329e40493d286"
+    },
+    {
+      "file": "public/assets/geometric/portraits/druid-5.png",
+      "bytes": 320211,
+      "sha256": "ad2b48a10acec37750a0022f2a619f524a1f83fd1621fa297f695c90f466551e"
+    },
+    {
+      "file": "public/assets/geometric/portraits/druid-6.png",
+      "bytes": 319514,
+      "sha256": "a12863e76953fe9c40965846bfba9166d9b76240efcbb3ceac9084f13b168efd"
+    },
+    {
+      "file": "public/assets/geometric/portraits/eldergrove.png",
+      "bytes": 412043,
+      "sha256": "9de07a26743c447cd3418f443d45bbbcb8a8c45c14c08b9c688222007cd91e64"
+    },
+    {
+      "file": "public/assets/geometric/portraits/elvenking.png",
+      "bytes": 372244,
+      "sha256": "e7fa4f13ce8a1a46bc9c6344d449cda4166e7639bf61324df1c57bd057d61b43"
+    },
+    {
+      "file": "public/assets/geometric/portraits/embercrown.png",
+      "bytes": 362661,
+      "sha256": "59ffa59d427266b3b88f1fdc3f40a93067c59bfb6e02864e39ea83ad58533b6a"
+    },
+    {
+      "file": "public/assets/geometric/portraits/emeraldgolem.png",
+      "bytes": 437916,
+      "sha256": "026f6f8ca9ade55e98282a6ad4ab86dcb2fcb35f6557508d2d79c1126584b9f1"
+    },
+    {
+      "file": "public/assets/geometric/portraits/fireballista.png",
+      "bytes": 428463,
+      "sha256": "a84830c2f639c558795a53e354af546beb638db0e8f28a13bd615a8f622a654a"
+    },
+    {
+      "file": "public/assets/geometric/portraits/frostblade.png",
+      "bytes": 373083,
+      "sha256": "8c3ec26d074ce6876347985774dbb2904d78a138bd5dba61a684b17821a71ceb"
+    },
+    {
+      "file": "public/assets/geometric/portraits/frostwarden-1.png",
+      "bytes": 265720,
+      "sha256": "5ddf80e1f6783d865cf19980fafc85b9aab91ebf517240f88ce9b3fc7027b8d8"
+    },
+    {
+      "file": "public/assets/geometric/portraits/frostwarden-2.png",
+      "bytes": 266147,
+      "sha256": "84e98ec870a3db75f312bd05bfeb2608008c2fe991119200f7f0b852acae29ed"
+    },
+    {
+      "file": "public/assets/geometric/portraits/frostwarden-3.png",
+      "bytes": 272489,
+      "sha256": "1e32df3284395201fb8c56226631768df49a8e9e0ece2ae8e73cf28f862547cd"
+    },
+    {
+      "file": "public/assets/geometric/portraits/frostwarden-4.png",
+      "bytes": 266944,
+      "sha256": "6d2b49a9228453b94dbeab233a3f1edf2a3ff190038d5867ef094b49d8cfa41d"
+    },
+    {
+      "file": "public/assets/geometric/portraits/frostwarden-5.png",
+      "bytes": 291324,
+      "sha256": "eddd2992fa78099afec7133265680a22f46b8888138894ef9a1ba008cf84ebc2"
+    },
+    {
+      "file": "public/assets/geometric/portraits/frostwarden-6.png",
+      "bytes": 291249,
+      "sha256": "17c6def8ed6813f291a8eb672e3011a10b5be30f2b84f52b2462146528ca01ce"
+    },
+    {
+      "file": "public/assets/geometric/portraits/greenheart.png",
+      "bytes": 413704,
+      "sha256": "14f4fc2d972d5d6a5f5af5267ecd74e3136b0cd4438a602e46046d7747165600"
+    },
+    {
+      "file": "public/assets/geometric/portraits/griffinbomber.png",
+      "bytes": 372469,
+      "sha256": "4d8586c5a851b9ec3f2567645d9d9891f26f4f795602612721ee74b3200d94c3"
+    },
+    {
+      "file": "public/assets/geometric/portraits/highking.png",
+      "bytes": 390336,
+      "sha256": "9dfe8c2769a5f93c5efde3464481085d05467b02886edbfa5794fae2fb2a41cd"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_01.png",
+      "bytes": 104060,
+      "sha256": "9207545cbd20071e6c462d32ad0d99fe11c6b52b8ee70310810db27879e0e2da"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_02.png",
+      "bytes": 79712,
+      "sha256": "05d08956020535e771a90a573b2558898dd6dbd235fac4ca5c16373064331747"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_03.png",
+      "bytes": 94809,
+      "sha256": "cba7ade4763711122f441cf8d7badcb99da72bd97565280513828982e895e257"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_04.png",
+      "bytes": 108487,
+      "sha256": "e34d4c66f215b9afc98615ad13dea3aa112a936c118d57cd4b97a2854ca86de6"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_05.png",
+      "bytes": 132366,
+      "sha256": "afae1f3f4b117651a51edfa60e8db9dd1067b899a8d28aec8fcd39791dbdb69d"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_06.png",
+      "bytes": 84559,
+      "sha256": "a01cd0aabbc35f9166c9a5ee74a37d2fd550a799b2c7051e35967df63907807e"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_07.png",
+      "bytes": 94981,
+      "sha256": "ad816527d3c887befc0d35b8e5e614b3760cacc868af8f7d1c3ded4844368bcd"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_08.png",
+      "bytes": 90249,
+      "sha256": "5a2784ce43a651c95c8fc056e3a0ce6996a6c62b34ae664f42af8b1502a7ba80"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_09.png",
+      "bytes": 105484,
+      "sha256": "3b250245031c93fa78407ba77ae8f3086c614aaa3a1698fcf4957e82f01fd3cd"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_10.png",
+      "bytes": 104493,
+      "sha256": "f684ed40f6b7a58e4f3213cc2aaba29b4d9fb36e244c05c5db5825cf623ecf7f"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_11.png",
+      "bytes": 104990,
+      "sha256": "a5c74cdbf96f6bce3a6ce6a18f55d6b0116db4bbc16b980f95fc11079b893a6c"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_12.png",
+      "bytes": 89265,
+      "sha256": "e86a2a3438878391aeb3cbe5131caab3392459e390bf3197e1210e98d3fa8ca1"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_13.png",
+      "bytes": 109326,
+      "sha256": "24ca6364af971ed65eb9a9928d6dd8c53b3c9146ef2681eef4936ab604eb3c9d"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_14.png",
+      "bytes": 90139,
+      "sha256": "83b5910a2063b843fd93682f492a074aecd1b77d330f4ba1fadda0dea36bad1e"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_15.png",
+      "bytes": 129963,
+      "sha256": "b09bdd400d6c7c8f783bb4a6c5e06592c921e2361bcdf15d3d6a28ea5a614194"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_16.png",
+      "bytes": 98751,
+      "sha256": "23aca1e46b080f43f1ea320b24206efbdeb35e7ae63a461db2ef7630620eaedf"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_17.png",
+      "bytes": 84298,
+      "sha256": "31c65f0dc05790f5e2b409cbec0c5a07a85876f302f5b1f1dfe59f10afff0902"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_18.png",
+      "bytes": 92003,
+      "sha256": "af427a4539ac85002f41a016ff2ddd0b5691c743d2d3d313185e33c89e80d34a"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_19.png",
+      "bytes": 182562,
+      "sha256": "05147c0496438af31ee29ad6adc1fb699d7e16824a0eab1ec44f6f025b349add"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_20.png",
+      "bytes": 97034,
+      "sha256": "2489d5954626a8ac15c224d66be9ed9d1a5c10b96a0d1355bf5d26220740b9dc"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_21.png",
+      "bytes": 98063,
+      "sha256": "7bfc9bde6fc4937c2715696bef549a5a6283a3060be75fe4c3a646dae20586e3"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_22.png",
+      "bytes": 116116,
+      "sha256": "00fe84be540a39598e51e47f515b9e64d9ebf0523de9c721a55e86502ca7a0ac"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_23.png",
+      "bytes": 98477,
+      "sha256": "ee3aa8faaad97ccff345f1ba80c9c887b0f7f0d5a8d2f3beeac7c81b55628d3a"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_24.png",
+      "bytes": 103491,
+      "sha256": "d641c95cffb29733ac02fab05745a947cc9b8610e2f64367619a4ca071699616"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_25.png",
+      "bytes": 128566,
+      "sha256": "9ebf68e2b78df121a2c63dad223c487e171c7490e9ea51bf2d05c580bb060fc3"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_26.png",
+      "bytes": 109070,
+      "sha256": "4a1eb0138d79a5d3217f937406cf25f0548bcb2f2910837105f2055377580371"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_27.png",
+      "bytes": 130300,
+      "sha256": "0064fe69aa7c5be16d2052dc649f43c4ffb0f7065561e391df2122bef7c17d77"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_28.png",
+      "bytes": 104937,
+      "sha256": "6fe980b2d9187517d71fb7e1f1a6cb428feaeb01bb3f40a2e6d3777a1aa5908e"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_29.png",
+      "bytes": 128961,
+      "sha256": "f074e09b908985ff0ff268ca15428b48af171f83bb2eb14c2536b12d14c8e337"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_30.png",
+      "bytes": 117516,
+      "sha256": "dba0f195fad1a56af29a9a9b470b95f8755e065cecf2b04428380f57ee45b234"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_31.png",
+      "bytes": 93543,
+      "sha256": "a73a7451caf85d6c455585c5d4b8bf17135408f9031567c641ef71d9e1c96823"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_32.png",
+      "bytes": 95217,
+      "sha256": "516314a75b03cabd5f0f38d49973913bec9892181314967bfbb5ab4ef98615d9"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_33.png",
+      "bytes": 98380,
+      "sha256": "18a3a4b52f9015c831420536d55295bcb2cd45defa43301a2352ec22cc70c105"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_34.png",
+      "bytes": 132362,
+      "sha256": "4edc385efd8578c6bcd068181d1c97c1568caecf4b749da92ecef695da2d060d"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_35.png",
+      "bytes": 131437,
+      "sha256": "5fbfcd82e8b8e14d36f0fb9cc80502d3cf4b7fffde8c8888d5b10f929fb58a2a"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_36.png",
+      "bytes": 90656,
+      "sha256": "285980e1e5861351e7c7f599a128824c90be7adf8121792c92798c131d0fb3cf"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_37.png",
+      "bytes": 154683,
+      "sha256": "f5bb1fa70480a32b8916d5b8b9ebbab86e9c4a389f710694a4743b6e3196fb0f"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_38.png",
+      "bytes": 102258,
+      "sha256": "fdb164e1180cdd8ef8298910cad5992b20eff44c96a4905aa0534e12b780c4f0"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_39.png",
+      "bytes": 97748,
+      "sha256": "8b1d7458704df3fce056c7a99a37b4762a6744c6108c30f7a9b506a5870ac806"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_40.png",
+      "bytes": 141112,
+      "sha256": "7323e2159af5020e527b8cf8c2607400c43748e4d7becb6305f3b38c23859ad5"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_41.png",
+      "bytes": 89208,
+      "sha256": "5dfedbec30fc55d7e68dcc73ea1ee187535961f41057765fa460e742e3f05652"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_42.png",
+      "bytes": 129824,
+      "sha256": "a7b6957fb5f4cf5d34d6778ce39b1a89a698309047e65d7d7798d7785b6c9c72"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_43.png",
+      "bytes": 111894,
+      "sha256": "e7dec6c0dedb2e91495c94d5d3440154c6df6034cbe5d7b9b3854e1d9e8b3b4a"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_44.png",
+      "bytes": 87022,
+      "sha256": "41c3510aa101e81dcfcdd9de00e8aa5818eb4f1011df7f2b16f11faae7e719c9"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_45.png",
+      "bytes": 126765,
+      "sha256": "d736d46c310b34e6f55402168e199d22e02c9596f19d2f023c49d2bc714b9eaa"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_46.png",
+      "bytes": 82830,
+      "sha256": "8838804dc604f27bc4b035525e82711a277473b013acf64200be765ebed358a0"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_47.png",
+      "bytes": 164485,
+      "sha256": "5db4681399b54948760fb30ea597eaab04bd9496ca1a71aaea365c2a24ba3872"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_48.png",
+      "bytes": 127620,
+      "sha256": "be4d7a05e5476280878fd43ae43836167c7bdfb0bcb99b96607a7a5f51113972"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_49.png",
+      "bytes": 97748,
+      "sha256": "677f985c55dabb7c45c997c713bf1580a61a0c98e4b717dcf783e873e72255ec"
+    },
+    {
+      "file": "public/assets/geometric/portraits/host_50.png",
+      "bytes": 137785,
+      "sha256": "1c7c035b696f6d64b97072045959e64860ff3bbeba69b9ea9bf27fd18395e1dd"
+    },
+    {
+      "file": "public/assets/geometric/portraits/kingdomprotector.png",
+      "bytes": 452919,
+      "sha256": "851371a34710b3371eb1a9c8942970235a680cab8ae64b92f66799f8a5dabe88"
+    },
+    {
+      "file": "public/assets/geometric/portraits/kingsrangerguard.png",
+      "bytes": 398532,
+      "sha256": "40cda05a5b1d34e3c764d19baeebf0bf9b6c2ebcdc62967f26a0072708fc7ed3"
+    },
+    {
+      "file": "public/assets/geometric/portraits/kingsreach.png",
+      "bytes": 421048,
+      "sha256": "49104a0bd75f8bfe1eb6fe5840833ab932e2140f9fc9ecc77929565b849dc776"
+    },
+    {
+      "file": "public/assets/geometric/portraits/ladyclaire.png",
+      "bytes": 458568,
+      "sha256": "8677d1bc96a8830caa1c67f9e39e2d22398b71b3fd9435089702185f47f8fa2c"
+    },
+    {
+      "file": "public/assets/geometric/portraits/mage-1.png",
+      "bytes": 285500,
+      "sha256": "e57af1495e01ae4755495276a9b37f84be388fc386a3f71aac4e5f1c64c603ef"
+    },
+    {
+      "file": "public/assets/geometric/portraits/mage-2.png",
+      "bytes": 285364,
+      "sha256": "a1cf1cc738582491d4c3551868fcfc67cfb8956010bd7320b9050603ec13eb04"
+    },
+    {
+      "file": "public/assets/geometric/portraits/mage-3.png",
+      "bytes": 295394,
+      "sha256": "292d49a1d6c6545db5e674413de13ab9cbd3ceee952935d4f0371ad25e9b1c3c"
+    },
+    {
+      "file": "public/assets/geometric/portraits/mage-4.png",
+      "bytes": 296464,
+      "sha256": "3a21ced4ef6fdf7abb8193e37615279e38f2d037edf5de484ff3cb0fbd3b7544"
+    },
+    {
+      "file": "public/assets/geometric/portraits/mage-5.png",
+      "bytes": 319536,
+      "sha256": "43bc27a76312e8dee410f38705e48707692174480c16e90642e142b1b989cb11"
+    },
+    {
+      "file": "public/assets/geometric/portraits/mage-6.png",
+      "bytes": 312607,
+      "sha256": "1c26bb266741254a33a90df9378b31eb2cff763aba1f167784fe8b6c12478449"
+    },
+    {
+      "file": "public/assets/geometric/portraits/mechanicalgolem.png",
+      "bytes": 406102,
+      "sha256": "7cd9cb8964b9b3317606941e9c62aa30b61c866064304662f9e079078469c50c"
+    },
+    {
+      "file": "public/assets/geometric/portraits/monk.png",
+      "bytes": 422547,
+      "sha256": "0e0ce110502fd4e31286b18c00cf13181ee54281c34540457784b7e3632f4ef1"
+    },
+    {
+      "file": "public/assets/geometric/portraits/mothernature.png",
+      "bytes": 461951,
+      "sha256": "c07d30c970bd3a46423e92594caec9ddf175bcba5f78cb05d711adaca877d242"
+    },
+    {
+      "file": "public/assets/geometric/portraits/phoenix.png",
+      "bytes": 371102,
+      "sha256": "882db962f8d6c2c3d2d40c70c72c71bdc99dca6e70e0a2d3b6a739b06fd7aa85"
+    },
+    {
+      "file": "public/assets/geometric/portraits/rangermentor.png",
+      "bytes": 368605,
+      "sha256": "3e2536db48b722c761230a847c8a95d672a8f9a0a89367bb766a6c5a398c8031"
+    },
+    {
+      "file": "public/assets/geometric/portraits/rimewatch.png",
+      "bytes": 367534,
+      "sha256": "698647c2d10b14c312b991d5a00e562b8f870106f9375df1d263cdc6ce14d671"
+    },
+    {
+      "file": "public/assets/geometric/portraits/roseguard.png",
+      "bytes": 377419,
+      "sha256": "fb8f08c6597d069266962e70823486a351cce55672f01dab4b5acf0262b6bedb"
+    },
+    {
+      "file": "public/assets/geometric/portraits/royalarsenal.png",
+      "bytes": 397303,
+      "sha256": "2a1c718f30bb24478ac25bdf319784ce85b625ae070928eb7e8a7d75755586bc"
+    },
+    {
+      "file": "public/assets/geometric/portraits/royalmarshal.png",
+      "bytes": 417946,
+      "sha256": "aeb24b3a570b4d1ce432cffd1214e4b9510e9ee0d16058bcf558eb27d9145c60"
+    },
+    {
+      "file": "public/assets/geometric/portraits/royalranger.png",
+      "bytes": 424861,
+      "sha256": "1964b9fb4eb18461960eb6607521bf4a957bc8145f2c92c6e4161aa10dfb856f"
+    },
+    {
+      "file": "public/assets/geometric/portraits/runebreaker-1.png",
+      "bytes": 332060,
+      "sha256": "e04e78f286646b4a18b0338d5c193a4bfb9397125ec4162dc3b75e1dda6462f5"
+    },
+    {
+      "file": "public/assets/geometric/portraits/runebreaker-2.png",
+      "bytes": 329237,
+      "sha256": "37c43d5a4bea3d1189a9431929c3ec2043ab760875365fd6626be2473d373165"
+    },
+    {
+      "file": "public/assets/geometric/portraits/runebreaker-3.png",
+      "bytes": 341867,
+      "sha256": "ae78d7fef60c09e60ba8ec45eced0963987041e785a93059dfb8c90bf5420820"
+    },
+    {
+      "file": "public/assets/geometric/portraits/runebreaker-4.png",
+      "bytes": 337971,
+      "sha256": "0cff9fd6aa220d20b170687fb0d46996a07cfcd5309d67e77f2409bbc3791ba7"
+    },
+    {
+      "file": "public/assets/geometric/portraits/runebreaker-5.png",
+      "bytes": 350070,
+      "sha256": "c7dfaf72ad64421d9c7188ab4626f03b588e665f4939ed9550f32181e71c6530"
+    },
+    {
+      "file": "public/assets/geometric/portraits/runebreaker-6.png",
+      "bytes": 338398,
+      "sha256": "205bf0eedb715585df0fcc5f4c2b7df9753ade6005d31cb6faa5683250ba80e2"
+    },
+    {
+      "file": "public/assets/geometric/portraits/soldier-1.png",
+      "bytes": 284111,
+      "sha256": "70d91206545e8b8d5f1c3b51b1935a0f18e85044b242ca7c768972dc5ec960f3"
+    },
+    {
+      "file": "public/assets/geometric/portraits/soldier-2.png",
+      "bytes": 273952,
+      "sha256": "8583f5cbe047d631b643d04413b0f0cc4283b774cf1fb7b21dddbe8e046981c9"
+    },
+    {
+      "file": "public/assets/geometric/portraits/soldier-3.png",
+      "bytes": 292854,
+      "sha256": "de665bc72950d06e3d31c91b184ac371a7b8c8c30410c01be893dee49ccfc1ce"
+    },
+    {
+      "file": "public/assets/geometric/portraits/soldier-4.png",
+      "bytes": 294893,
+      "sha256": "8e25590f207c41dbe9229acb019210799ffad9c3dfc398855c8b210fda0adb4d"
+    },
+    {
+      "file": "public/assets/geometric/portraits/soldier-5.png",
+      "bytes": 295563,
+      "sha256": "aaed879422310d84b07a44d8cb28a4d8f75c3d75911134927614725eb652da92"
+    },
+    {
+      "file": "public/assets/geometric/portraits/soldier-6.png",
+      "bytes": 300805,
+      "sha256": "9ebc8a4d775ba3b80c5f44749286edde56c27d9e7f5c9322c32173b82875d949"
+    },
+    {
+      "file": "public/assets/geometric/portraits/starfall.png",
+      "bytes": 308625,
+      "sha256": "29ce9553f9d68931536bd09ecd3518439a24cfcbec7a4cd5c006741f49a760a8"
+    },
+    {
+      "file": "public/assets/geometric/portraits/stonewarden.png",
+      "bytes": 392614,
+      "sha256": "ad38d72fab04ea3b581709526af1f1af034967400c5af455094405c0a0d95ced"
+    },
+    {
+      "file": "public/assets/geometric/portraits/stormcaller-1.png",
+      "bytes": 315040,
+      "sha256": "3a41500dd619f97474e0a242d17ad80c76d77bf6dfaf0e11037cbcc47d0f75b7"
+    },
+    {
+      "file": "public/assets/geometric/portraits/stormcaller-2.png",
+      "bytes": 327105,
+      "sha256": "c0548b035d40c0a46470154896224f4f2966bce903cc0959d57b4928fe886a19"
+    },
+    {
+      "file": "public/assets/geometric/portraits/stormcaller-3.png",
+      "bytes": 332769,
+      "sha256": "93932bba363e2751a3ce5db52e30b1ba376a95a0fa571c665bbc8e95b40fdb48"
+    },
+    {
+      "file": "public/assets/geometric/portraits/stormcaller-4.png",
+      "bytes": 345084,
+      "sha256": "395a9a6c19f6eb5290600088fb91b3ff35781a3edd2d24f8b4c3c33be56082d9"
+    },
+    {
+      "file": "public/assets/geometric/portraits/stormcaller-5.png",
+      "bytes": 354796,
+      "sha256": "6f68c6a67c19fe4937e9385ff095ba9252c5697c170939a5a09d5f713b21edcb"
+    },
+    {
+      "file": "public/assets/geometric/portraits/stormcaller-6.png",
+      "bytes": 359537,
+      "sha256": "d1279604e875a87f441fcce0febe1b7d9e0ccf8245a83b7230dce5a2d49cf754"
+    },
+    {
+      "file": "public/assets/geometric/portraits/stormcitadel.png",
+      "bytes": 454101,
+      "sha256": "0ecc2766ce171cdfb274024282cac4b923e0bb14a136824e7d033fa591600294"
+    },
+    {
+      "file": "public/assets/geometric/portraits/sunward.png",
+      "bytes": 401396,
+      "sha256": "c30aafa00fe2a84a3039a63d756af84cff4268ec372d5546f0a9faf6738bef60"
+    },
+    {
+      "file": "public/assets/geometric/portraits/tempest.png",
+      "bytes": 392004,
+      "sha256": "36041cd495a8b93959ea234215099c695944bd86eef239a1cbcf0f5e7764ec8d"
+    },
+    {
+      "file": "public/assets/geometric/portraits/thornwarden.png",
+      "bytes": 418918,
+      "sha256": "ad6772df0b82818d82fab3afd0d8959f3b47c4609c48b8cf1f8cfe31aa266612"
+    },
+    {
+      "file": "public/assets/geometric/portraits/thunderheart.png",
+      "bytes": 386927,
+      "sha256": "e0a25b239ef6fe2782959f6900bf860951abb4b36b1c5e4b4e00a7b1a8ba8b3b"
+    },
+    {
+      "file": "public/assets/geometric/portraits/verdantguard.png",
+      "bytes": 439738,
+      "sha256": "dc252f5cc5277d9a8bf5fdde4c8aeba1cceaf8832026defed58904bf87ca59aa"
+    },
+    {
+      "file": "public/assets/geometric/portraits/winterhold.png",
+      "bytes": 390362,
+      "sha256": "bcdce479848caab9f37b4b2980aa78177992a05fe5a0b7fdc44fd810f8885d7b"
+    },
+    {
+      "file": "public/assets/geometric/portraits/worldfire.png",
+      "bytes": 377489,
+      "sha256": "fe7ac13355fe407a9898a0421ed28bfffdc35d5814a9129ec353bd387e7ec574"
+    },
+    {
+      "file": "public/assets/geometric/portraits/wyvernhunter.png",
+      "bytes": 418272,
+      "sha256": "a587ff6b85049ba7f24717ed122f3f9013a8c1effe032a4ca9324e685fb1b8da"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/champions/5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1.png",
+      "bytes": 1804018,
+      "sha256": "5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/champions/72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5.png",
+      "bytes": 1851286,
+      "sha256": "72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/champions/72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3.png",
+      "bytes": 1802279,
+      "sha256": "72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/champions/999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0.png",
+      "bytes": 1877447,
+      "sha256": "999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/champions/9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50.png",
+      "bytes": 1905047,
+      "sha256": "9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/champions/d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e.png",
+      "bytes": 1993221,
+      "sha256": "d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/champions/fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5.png",
+      "bytes": 1940265,
+      "sha256": "fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/champions/fe3efca32ea3dca269f1f6b64213197526dc4e3641e78553eaf82fa3c3a8bc56.png",
+      "bytes": 1739428,
+      "sha256": "fe3efca32ea3dca269f1f6b64213197526dc4e3641e78553eaf82fa3c3a8bc56"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/champions/feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3.png",
+      "bytes": 1845197,
+      "sha256": "feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/09b08bdc0227d0c977395187c16aeaccccf81f4e119a945e8621df59098d82e7.png",
+      "bytes": 1629393,
+      "sha256": "09b08bdc0227d0c977395187c16aeaccccf81f4e119a945e8621df59098d82e7"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/14437dfe02d9de529dda492879d54c54f2fca0f15424a4340a75b852c069bc43.png",
+      "bytes": 1620545,
+      "sha256": "14437dfe02d9de529dda492879d54c54f2fca0f15424a4340a75b852c069bc43"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/1a7f2529f4d6a2317316b23de38b3507ba09a9b893464e4bf934e440d62ff0f5.png",
+      "bytes": 1671503,
+      "sha256": "1a7f2529f4d6a2317316b23de38b3507ba09a9b893464e4bf934e440d62ff0f5"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/1e9e2a4ab9e03f1c9b5e6728b8ed28dd8e545fb1a433167614e68872132f030f.png",
+      "bytes": 1768329,
+      "sha256": "1e9e2a4ab9e03f1c9b5e6728b8ed28dd8e545fb1a433167614e68872132f030f"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/29d04353e68cdcd503f26a200174e81bfc59d11379b552350520bc86dbf9c14a.png",
+      "bytes": 1706153,
+      "sha256": "29d04353e68cdcd503f26a200174e81bfc59d11379b552350520bc86dbf9c14a"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/2ddddad8e912a2c103fcc8beb44fe20873897b7fb66c0ff79ea21496643a73bc.png",
+      "bytes": 1635402,
+      "sha256": "2ddddad8e912a2c103fcc8beb44fe20873897b7fb66c0ff79ea21496643a73bc"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/2f9bbd6bd4dc8da0f511c147cf4111d1ab42aa40a032bc4fc2a991194edfa086.png",
+      "bytes": 1650105,
+      "sha256": "2f9bbd6bd4dc8da0f511c147cf4111d1ab42aa40a032bc4fc2a991194edfa086"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/373703111af0d810e01bef90f2ce80b7dde292f59ef2cde060a03a6c28b7a774.png",
+      "bytes": 1602195,
+      "sha256": "373703111af0d810e01bef90f2ce80b7dde292f59ef2cde060a03a6c28b7a774"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/38ca6afdd78f3f21f98f4bcc7f9ec1ea74352ecce4fe9f28c74ce4ee118e2bdc.png",
+      "bytes": 1560384,
+      "sha256": "38ca6afdd78f3f21f98f4bcc7f9ec1ea74352ecce4fe9f28c74ce4ee118e2bdc"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/39a4fc30ba8d512b78e8b49505ae7b7e5a3e9db75507c1f936c769fcf37271a9.png",
+      "bytes": 1670292,
+      "sha256": "39a4fc30ba8d512b78e8b49505ae7b7e5a3e9db75507c1f936c769fcf37271a9"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/49007ec90f5de6795b93c6dcb1566bab9b9712b4251985571fa5d8828e19f2f0.png",
+      "bytes": 1642078,
+      "sha256": "49007ec90f5de6795b93c6dcb1566bab9b9712b4251985571fa5d8828e19f2f0"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/4b29cfde28866124875357da30ab2f2f2cf4422cb22f5b0f852f6faa451ff9f5.png",
+      "bytes": 1648321,
+      "sha256": "4b29cfde28866124875357da30ab2f2f2cf4422cb22f5b0f852f6faa451ff9f5"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/4bdbc5edd58a35b2185dd63aab1e75dbf343a82fa7489658f784604191e418aa.png",
+      "bytes": 1679124,
+      "sha256": "4bdbc5edd58a35b2185dd63aab1e75dbf343a82fa7489658f784604191e418aa"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/4e891ceed929e0d2a953bb8bcdedd5d264d1df1ddc17c3be8455ea7e1f841c9e.png",
+      "bytes": 1615366,
+      "sha256": "4e891ceed929e0d2a953bb8bcdedd5d264d1df1ddc17c3be8455ea7e1f841c9e"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/4f5d9c76836b45d5faca3e37e73fe6a54e1d8c26a1341102ee5d50a7938712d6.png",
+      "bytes": 1619349,
+      "sha256": "4f5d9c76836b45d5faca3e37e73fe6a54e1d8c26a1341102ee5d50a7938712d6"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/50bd25d0b4c26a031f99761319715d6dc71994d9a62dd8030aaf9e01584c4979.png",
+      "bytes": 1611033,
+      "sha256": "50bd25d0b4c26a031f99761319715d6dc71994d9a62dd8030aaf9e01584c4979"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/513ed0f555708f9eb0e6710add5336e352cdfd7f4b9f567bd7293119dc1acee7.png",
+      "bytes": 1675172,
+      "sha256": "513ed0f555708f9eb0e6710add5336e352cdfd7f4b9f567bd7293119dc1acee7"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/59790d4ef36a25c1460a8c15b85a6fe0ac0e6f1121b5c70a910d9373217202a4.png",
+      "bytes": 1617841,
+      "sha256": "59790d4ef36a25c1460a8c15b85a6fe0ac0e6f1121b5c70a910d9373217202a4"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/5f95c7dae568cacca1b9128cc3d03656ae274f61693ab8e709a6c4f9ee41913c.png",
+      "bytes": 1618881,
+      "sha256": "5f95c7dae568cacca1b9128cc3d03656ae274f61693ab8e709a6c4f9ee41913c"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/6380faff066acf219b9e17ec1ec6621c50b796729d2a6667cf999c5f14432c7b.png",
+      "bytes": 1693520,
+      "sha256": "6380faff066acf219b9e17ec1ec6621c50b796729d2a6667cf999c5f14432c7b"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/6435d3783c95865956950bf04730421e2728f61a393b1d4cca17c19b567689c4.png",
+      "bytes": 1668858,
+      "sha256": "6435d3783c95865956950bf04730421e2728f61a393b1d4cca17c19b567689c4"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/663b91498efe67257156fc4c8e4e29f5e12b902a6a1e9ec1b7cef636427ce2b9.png",
+      "bytes": 1592207,
+      "sha256": "663b91498efe67257156fc4c8e4e29f5e12b902a6a1e9ec1b7cef636427ce2b9"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/668d1953e8e927fe82e233620c17c9b44197056db86a7a2bbb1de4488193fbdb.png",
+      "bytes": 1637632,
+      "sha256": "668d1953e8e927fe82e233620c17c9b44197056db86a7a2bbb1de4488193fbdb"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/714418ee5ca52796f587c5b4f02f1606298d274f7d75e2e93658c7a83d74b5a7.png",
+      "bytes": 1623635,
+      "sha256": "714418ee5ca52796f587c5b4f02f1606298d274f7d75e2e93658c7a83d74b5a7"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/785ae00a2f8f4d37d768ae68b9c8bd26f3cf85a655fe6b633b0c349e9d953897.png",
+      "bytes": 1651489,
+      "sha256": "785ae00a2f8f4d37d768ae68b9c8bd26f3cf85a655fe6b633b0c349e9d953897"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/7ef08539aaef110495be1f9c94966128f1fa5ebcd5b41c14895104584d6da937.png",
+      "bytes": 1757143,
+      "sha256": "7ef08539aaef110495be1f9c94966128f1fa5ebcd5b41c14895104584d6da937"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/806910df23bb2285bcd0b4155cf1323350e39c4af53995221e89721c2c73dc85.png",
+      "bytes": 1606595,
+      "sha256": "806910df23bb2285bcd0b4155cf1323350e39c4af53995221e89721c2c73dc85"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/855b295f2c3787d32199d3bd3f97d852502475072777b8947edb9356de58d33b.png",
+      "bytes": 1718148,
+      "sha256": "855b295f2c3787d32199d3bd3f97d852502475072777b8947edb9356de58d33b"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/904eb95be360352cdd982e4746579d2f49ca7021dbd884790e380e9ff0627e9a.png",
+      "bytes": 1651060,
+      "sha256": "904eb95be360352cdd982e4746579d2f49ca7021dbd884790e380e9ff0627e9a"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/917ed51ca699f34a3616fbb3c43656818948a00a45d1cfc6828322d03422dfd3.png",
+      "bytes": 1620255,
+      "sha256": "917ed51ca699f34a3616fbb3c43656818948a00a45d1cfc6828322d03422dfd3"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/97b7e03afdea8276141332de49482d35da7c9b3421e0c1d66f742adcfe7afc78.png",
+      "bytes": 1603748,
+      "sha256": "97b7e03afdea8276141332de49482d35da7c9b3421e0c1d66f742adcfe7afc78"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/9b789be0711dd88d5f72465d283084e1fbf4dbdc41a3f00819354a183a722e49.png",
+      "bytes": 1664007,
+      "sha256": "9b789be0711dd88d5f72465d283084e1fbf4dbdc41a3f00819354a183a722e49"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/9e1063d4401efed90166305b0ab0a77ef505e3743061b2e16641bd68207c522e.png",
+      "bytes": 1604168,
+      "sha256": "9e1063d4401efed90166305b0ab0a77ef505e3743061b2e16641bd68207c522e"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/b05d45b47375162cf1fcb6ae670079d873f21005a74ebc73730aa13e18d3faab.png",
+      "bytes": 1588916,
+      "sha256": "b05d45b47375162cf1fcb6ae670079d873f21005a74ebc73730aa13e18d3faab"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/b0869d7e8f944b48b038015ea0a5dc461c4ae921a7fd7eb4642cd2b5a8c18b70.png",
+      "bytes": 1655985,
+      "sha256": "b0869d7e8f944b48b038015ea0a5dc461c4ae921a7fd7eb4642cd2b5a8c18b70"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/b1eadab3aa0ef59adc540d5b78ca51b203a0bd39ecd513c7384597152def8538.png",
+      "bytes": 1695280,
+      "sha256": "b1eadab3aa0ef59adc540d5b78ca51b203a0bd39ecd513c7384597152def8538"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/c0c441d711f3e4a9d6fb0ac2905113396013d46563e9173942fb8143beef6c8d.png",
+      "bytes": 1757094,
+      "sha256": "c0c441d711f3e4a9d6fb0ac2905113396013d46563e9173942fb8143beef6c8d"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/c1ecc2578a237ed279340993446a518bc2b672150ab7edda1003e74414c1ce39.png",
+      "bytes": 1604337,
+      "sha256": "c1ecc2578a237ed279340993446a518bc2b672150ab7edda1003e74414c1ce39"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/c4c0b733016fb29d690d6bce644aea7454ce1351beac039a80d88cf44b60cf70.png",
+      "bytes": 1612102,
+      "sha256": "c4c0b733016fb29d690d6bce644aea7454ce1351beac039a80d88cf44b60cf70"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/c6e3d24f64661217c461eea9fd0f9717219a4a15f2706009f253c577da1e9bc8.png",
+      "bytes": 1568013,
+      "sha256": "c6e3d24f64661217c461eea9fd0f9717219a4a15f2706009f253c577da1e9bc8"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/d84955c7e791a6c22f1eb9feb15baf9f7d18079407ea42c3fc6a4dd350bb04ff.png",
+      "bytes": 1708935,
+      "sha256": "d84955c7e791a6c22f1eb9feb15baf9f7d18079407ea42c3fc6a4dd350bb04ff"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/dd97175837e92aaa2c19c8e8ae4753cddde14ee4be1340a42b9598c828c27545.png",
+      "bytes": 1707841,
+      "sha256": "dd97175837e92aaa2c19c8e8ae4753cddde14ee4be1340a42b9598c828c27545"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/e6058a3724acca6c264477aa26463ba9bf87a6d4785dab3d1e4eb8829f81a84c.png",
+      "bytes": 1547414,
+      "sha256": "e6058a3724acca6c264477aa26463ba9bf87a6d4785dab3d1e4eb8829f81a84c"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/e792c7774f2bf012411eb15f86a71b1cc8dcdb767d2a90172b7f6724cb835ea3.png",
+      "bytes": 1776676,
+      "sha256": "e792c7774f2bf012411eb15f86a71b1cc8dcdb767d2a90172b7f6724cb835ea3"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/ed4ecbabe98d093c47a1e3de1977288ddc1dc973f1805a0c0f07405d0baf7f2c.png",
+      "bytes": 1755031,
+      "sha256": "ed4ecbabe98d093c47a1e3de1977288ddc1dc973f1805a0c0f07405d0baf7f2c"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/f09f4f5cce5961be363de6895327f460713d90dd4a2e4ae1ba5dd3f051fac3ba.png",
+      "bytes": 1703259,
+      "sha256": "f09f4f5cce5961be363de6895327f460713d90dd4a2e4ae1ba5dd3f051fac3ba"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/f2d05b5a03c09fcbab161bdf38133da1c3addaec4e096dacb17cdd6e7370857e.png",
+      "bytes": 1683402,
+      "sha256": "f2d05b5a03c09fcbab161bdf38133da1c3addaec4e096dacb17cdd6e7370857e"
+    },
+    {
+      "file": "public/assets/geometric/reconstruction-references/defenders/fbd63503bcfc84b349a52e0de59709d83d2731c240362893a173d90ed03a3b72.png",
+      "bytes": 1713859,
+      "sha256": "fbd63503bcfc84b349a52e0de59709d83d2731c240362893a173d90ed03a3b72"
+    },
+    {
+      "file": "public/assets/geometric/source-manifest.json",
+      "bytes": 137585,
+      "sha256": "4ca5846c2256f0223ddf4f5e51971b0972f31c4af20005de06709e6e011a118a"
+    },
+    {
+      "file": "public/assets/models/advanced_archangel.glb",
+      "bytes": 220592,
+      "sha256": "77c262d533bfd3463e04cc433b037de0fbcf8697f749a3a88baf5d872dd004e1"
+    },
+    {
+      "file": "public/assets/models/advanced_archbishop.glb",
+      "bytes": 188228,
+      "sha256": "761ed9a9f64dc40e3053b5321d04ea34facdc7c852c5058b467cee22272387dd"
+    },
+    {
+      "file": "public/assets/models/advanced_crownofages.glb",
+      "bytes": 217688,
+      "sha256": "3c8173fe683e74b96c15ce40b754d4240e0feac414d73e27d8c7cbc99c7739fa"
+    },
+    {
+      "file": "public/assets/models/advanced_dawnspire.glb",
+      "bytes": 200368,
+      "sha256": "3927c88871bf4dbafa8ee8a0958472b723b4396806c627dc918bcfebbb345287"
+    },
+    {
+      "file": "public/assets/models/advanced_eldergrove.glb",
+      "bytes": 194796,
+      "sha256": "5f258cf3f54de2624623cc0d8661ef8e3e3d411b1382d6cad79cf6d1ab95d70e"
+    },
+    {
+      "file": "public/assets/models/advanced_elvenking.glb",
+      "bytes": 186740,
+      "sha256": "67b19310b3c9f1b47c275d2416a1e0fe906c02d277b2f2cc18885b68a9902a84"
+    },
+    {
+      "file": "public/assets/models/advanced_embercrown.glb",
+      "bytes": 151008,
+      "sha256": "6da7e9f17aeccb10fbb61a42af1b38cb2f1b66c43e467b597a0ca68c05b291b2"
+    },
+    {
+      "file": "public/assets/models/advanced_emeraldgolem.glb",
+      "bytes": 98888,
+      "sha256": "ff3e50e3f37b7c35480bca526b290e9dc368571ff16b7d97be4e3ae574bdf1b5"
+    },
+    {
+      "file": "public/assets/models/advanced_fireballista.glb",
+      "bytes": 242596,
+      "sha256": "4540ed5fddf36f98d65c342d4ae5aa004a33448d18cfc346a63d82e440ef1c15"
+    },
+    {
+      "file": "public/assets/models/advanced_frostblade.glb",
+      "bytes": 320344,
+      "sha256": "6d0b9d6608b81d42f56bb1d5d26062dca293f3833422d4ca2d0444df8c7c3c5c"
+    },
+    {
+      "file": "public/assets/models/advanced_greenheart.glb",
+      "bytes": 182912,
+      "sha256": "667ab8714c3b6f498b6893c719e4585697a112699f34bccde46b56b70392bf41"
+    },
+    {
+      "file": "public/assets/models/advanced_griffinbomber.glb",
+      "bytes": 240196,
+      "sha256": "0d8603c9fb5828dc9c509737f4e47aab30a6c55173247e81a2c8723b964c9342"
+    },
+    {
+      "file": "public/assets/models/advanced_highking.glb",
+      "bytes": 324992,
+      "sha256": "bad21ce121230080ad41e456bdd237ea1798628e4185aea7c6094cf575b13a35"
+    },
+    {
+      "file": "public/assets/models/advanced_kingdomprotector.glb",
+      "bytes": 330240,
+      "sha256": "a192482a0a9ce4703788eebd9d30bf76f16ec05d291df9db4f35ed6d954f50fb"
+    },
+    {
+      "file": "public/assets/models/advanced_kingsrangerguard.glb",
+      "bytes": 231352,
+      "sha256": "8c261d484f55856dc261972b2a8d30f430468ddfda5d9cec11d581f0280fa8c7"
+    },
+    {
+      "file": "public/assets/models/advanced_kingsreach.glb",
+      "bytes": 211784,
+      "sha256": "ae9a0b997f2a855cb0e1f2e583aae6e2d5636f8782b14ab4f9466ae653cb7b8d"
+    },
+    {
+      "file": "public/assets/models/advanced_ladyclaire.glb",
+      "bytes": 2004048,
+      "sha256": "1bbfb27ee8f27373168853378b4093249553597db4ff40bc51fc237fd1cd5a2b"
+    },
+    {
+      "file": "public/assets/models/advanced_lordbernhard.glb",
+      "bytes": 2300332,
+      "sha256": "3c000f1addcb8f1db06d3047847a9ce26afb5cae5f75a9ed7392af1e054cdf4e"
+    },
+    {
+      "file": "public/assets/models/advanced_mechanicalgolem.glb",
+      "bytes": 291824,
+      "sha256": "07bfb32ba88d17e0aa08ca9cd70c0d9adfd554f453e7ada09781ba28292e07da"
+    },
+    {
+      "file": "public/assets/models/advanced_monk.glb",
+      "bytes": 180296,
+      "sha256": "9ddd3e4bbd3f2e0fec6ccc303e4855c9e6befe4e4e07c1a31e254cdb4708e347"
+    },
+    {
+      "file": "public/assets/models/advanced_mothernature.glb",
+      "bytes": 123316,
+      "sha256": "9dc109049b56c05ee25e31fa193af3777d9657ce3d7b99e2f069ff8eaa91b7d5"
+    },
+    {
+      "file": "public/assets/models/advanced_phoenix.glb",
+      "bytes": 221620,
+      "sha256": "e573aab98c3e11503505358500fdd722cc16325637017bfad6804fb785d02c90"
+    },
+    {
+      "file": "public/assets/models/advanced_rangermentor.glb",
+      "bytes": 117692,
+      "sha256": "5fe35829caf3006fd341eef4e485c3edc1bf1f82cdf4783ab806a036712be95b"
+    },
+    {
+      "file": "public/assets/models/advanced_rimewatch.glb",
+      "bytes": 214104,
+      "sha256": "386addadae72d21670ec64886b93d1f64eaec6b414acdb5d704bb634ef649a5c"
+    },
+    {
+      "file": "public/assets/models/advanced_roseguard.glb",
+      "bytes": 333736,
+      "sha256": "ca323ed0d4b643dfe0ba703f2d2e5142bbc4484054f930f3899ab5dbc5dfe1f8"
+    },
+    {
+      "file": "public/assets/models/advanced_royalarsenal.glb",
+      "bytes": 226288,
+      "sha256": "bbe109c14585e2ca7687aaa9a57e41c3485f68431ab73b04a01ab41be5638d14"
+    },
+    {
+      "file": "public/assets/models/advanced_royalmarshal.glb",
+      "bytes": 223292,
+      "sha256": "c404c734eef9453898686636ff2fa102b28c193e99939eff1831e5ea7d2c81db"
+    },
+    {
+      "file": "public/assets/models/advanced_royalranger.glb",
+      "bytes": 204368,
+      "sha256": "2976ea6d22155d495af1f3b2634e1b9a39eafc89d2e63594794d7c17e8079267"
+    },
+    {
+      "file": "public/assets/models/advanced_starfall.glb",
+      "bytes": 87920,
+      "sha256": "6d1443f98cc74ed364bb2b3c14ae9cab62e218334ce98f0ab8f2765b7c03f429"
+    },
+    {
+      "file": "public/assets/models/advanced_stonewarden.glb",
+      "bytes": 217092,
+      "sha256": "56ebfa4770437dd64b80b2a67e6a75db682a86998d91953b590cf05c03824582"
+    },
+    {
+      "file": "public/assets/models/advanced_stormcitadel.glb",
+      "bytes": 194236,
+      "sha256": "7d6c2b4dff5b130c204ed8f08ab825d79eeb6333a364f4edcc64a030c799cb35"
+    },
+    {
+      "file": "public/assets/models/advanced_sunward.glb",
+      "bytes": 189968,
+      "sha256": "ba91b5aeeafffd4067fdec51d8942e8f7e7c9f559a6a939ec4273057e895d29f"
+    },
+    {
+      "file": "public/assets/models/advanced_tempest.glb",
+      "bytes": 170620,
+      "sha256": "e3b17d8d4f40ee372615be27e997e6fdb2b9774610649036efd90538ae80d6da"
+    },
+    {
+      "file": "public/assets/models/advanced_thornwarden.glb",
+      "bytes": 176004,
+      "sha256": "c49ddd67aa8b1258348c5c208e37451a4bca25b46f2481942aa29459fecf6845"
+    },
+    {
+      "file": "public/assets/models/advanced_thunderheart.glb",
+      "bytes": 209960,
+      "sha256": "d2e0908c2821b437ddddf91a21e5d43c9551e5c3764724104e54f0e9bb2ad223"
+    },
+    {
+      "file": "public/assets/models/advanced_verdantguard.glb",
+      "bytes": 188804,
+      "sha256": "bd08fcc46b141a931f4960a5f67f164f41409c61c2020670b498ecb91b6930cb"
+    },
+    {
+      "file": "public/assets/models/advanced_winterhold.glb",
+      "bytes": 88988,
+      "sha256": "38eba85442fef21951ba02cfd9df3e4a8a312e344bfd744739a568a3a024f65e"
+    },
+    {
+      "file": "public/assets/models/advanced_worldfire.glb",
+      "bytes": 153596,
+      "sha256": "779e72635453a6154dfa423b13dd5c684f8f64c7e9aa5b06a52e7e6f9a6bed44"
+    },
+    {
+      "file": "public/assets/models/advanced_wyvernhunter.glb",
+      "bytes": 183308,
+      "sha256": "fcf96bab9c6b729a6bc2c7cac6eb4e1be9f1f11a6b460131653877e6289a51a2"
+    },
+    {
+      "file": "public/assets/models/barrel.glb",
+      "bytes": 8604,
+      "sha256": "4944703e89023bdbb248a3192a8448b558198b2a489d8bac32be1c7e2c14db3b"
+    },
+    {
+      "file": "public/assets/models/barricade.glb",
+      "bytes": 5344,
+      "sha256": "523c5aac74ac3a9c92a219dd33b457b30c5d75fdffe48375b8a3b4f2dacf68f6"
+    },
+    {
+      "file": "public/assets/models/campfire.glb",
+      "bytes": 3936,
+      "sha256": "55844ce652955f9351219d603774916977f959094ae884139f94d78eee84ff55"
+    },
+    {
+      "file": "public/assets/models/castle_wall.glb",
+      "bytes": 7204,
+      "sha256": "147acdbca3f126bd57495b825c1b0e048b45a50c98c766a5b32f42edd3cbccee"
+    },
+    {
+      "file": "public/assets/models/cliff_module.glb",
+      "bytes": 7380,
+      "sha256": "051e347852fc69d1554880528f14775d1c36a85d3f6cf12426103e669f3c8162"
+    },
+    {
+      "file": "public/assets/models/crate.glb",
+      "bytes": 3788,
+      "sha256": "933dfad4729e9f2c35ff1c53a95c868bed8052e7a3a52d5bf2929e01908e8614"
+    },
+    {
+      "file": "public/assets/models/deciduous_tree.glb",
+      "bytes": 5548,
+      "sha256": "b270c33f037906d272a4e0ad21daf7e4f9281c14130e3d5bbe3f0b235c519374"
+    },
+    {
+      "file": "public/assets/models/human_alchemist_t1.glb",
+      "bytes": 15072,
+      "sha256": "6cb87891ef6cfc5468d8975cd0b71a0acbe0a8fe1daeb57ca8d5f6e9836ac2f7"
+    },
+    {
+      "file": "public/assets/models/human_alchemist_t2.glb",
+      "bytes": 16756,
+      "sha256": "b0129578134ee1540e45176194a99c74f947584b8bf292ffe10ec6bfe812fb2a"
+    },
+    {
+      "file": "public/assets/models/human_alchemist_t3.glb",
+      "bytes": 19252,
+      "sha256": "b1dd7e352423cc8a23e87d9b403c588ce68e19ef119eb507f574d11a03a64dad"
+    },
+    {
+      "file": "public/assets/models/human_alchemist_t4.glb",
+      "bytes": 24176,
+      "sha256": "e663182ecdaa65d7884c11237103d670b33e8fe7ee020463b261885592d20906"
+    },
+    {
+      "file": "public/assets/models/human_alchemist_t5.glb",
+      "bytes": 26964,
+      "sha256": "268a7592b984da74e51179fde7531134a7a5b8b08ec37e01ad973bf5f5022e3b"
+    },
+    {
+      "file": "public/assets/models/human_archer_t1.glb",
+      "bytes": 90040,
+      "sha256": "49a217e2ae4559d14bb6e65f827d2aae1ac8e5d5be403f4732a1a7070a459e5c"
+    },
+    {
+      "file": "public/assets/models/human_archer_t2.glb",
+      "bytes": 97672,
+      "sha256": "7f36d6a4bec7dda0cf99d319862274e8bc0067fe9e09f4735e240fe4c63bff8f"
+    },
+    {
+      "file": "public/assets/models/human_archer_t3.glb",
+      "bytes": 105232,
+      "sha256": "b96947c99d8bd1c08e69360f5685e114c93f85d2835c8b4944aec9a7dccb9159"
+    },
+    {
+      "file": "public/assets/models/human_archer_t4.glb",
+      "bytes": 104376,
+      "sha256": "91551ac9b85c24db9784528ce35816269ff92f70997c85a545e7ffa72084dd8e"
+    },
+    {
+      "file": "public/assets/models/human_archer_t5.glb",
+      "bytes": 110180,
+      "sha256": "e864d789f832450bb07bd24a9524ae5bb03d7c25cd07cd2e9a7ca54cf6bb756a"
+    },
+    {
+      "file": "public/assets/models/human_archer_t6.glb",
+      "bytes": 111948,
+      "sha256": "1539f166e126f335f47056a7766d58d5f73a8bb8dc82e38acbb24b77ec22766a"
+    },
+    {
+      "file": "public/assets/models/human_ballista_t1.glb",
+      "bytes": 20564,
+      "sha256": "5efb5a137e41255443b7ebbbf80cf4aab37c9dafea53bcd94ad376ba162bd1d4"
+    },
+    {
+      "file": "public/assets/models/human_ballista_t2.glb",
+      "bytes": 22248,
+      "sha256": "0fb17b053b17f032c6ec07162d3943c1830b6620cdf1b45a9581b0d38fc4b852"
+    },
+    {
+      "file": "public/assets/models/human_ballista_t3.glb",
+      "bytes": 24736,
+      "sha256": "40b5681880acfddd6ccffebb63ce9df919d8bd6482bfdbd9db8b4cddd9bc99e8"
+    },
+    {
+      "file": "public/assets/models/human_ballista_t4.glb",
+      "bytes": 29660,
+      "sha256": "bb0486ad96d686117ce74a6f0bc94ced2932677485b7b0461c9a4677cb4fe2e4"
+    },
+    {
+      "file": "public/assets/models/human_ballista_t5.glb",
+      "bytes": 32444,
+      "sha256": "212aebcb1ed306419216e2523cb20e9081870ee21d2a466bc68b4cd3c200285b"
+    },
+    {
+      "file": "public/assets/models/human_banner.glb",
+      "bytes": 6712,
+      "sha256": "0896ea63b923cf5d6e10f56ba78ddddbf97650bed31c5f7ef820551145da1278"
+    },
+    {
+      "file": "public/assets/models/human_cleric_t1.glb",
+      "bytes": 81804,
+      "sha256": "13aa988b15ef9c8a264251c65e5c584a00beac05157c52a194927cf29a22e9f4"
+    },
+    {
+      "file": "public/assets/models/human_cleric_t2.glb",
+      "bytes": 91424,
+      "sha256": "709637d14ddc213cb30afd92b09d9941455728f68e7a32ee1ef4fd12d44265ac"
+    },
+    {
+      "file": "public/assets/models/human_cleric_t3.glb",
+      "bytes": 91440,
+      "sha256": "e18b16f682a727b3267684bbf1b68894c67abb964a4370d64460da15eb980427"
+    },
+    {
+      "file": "public/assets/models/human_cleric_t4.glb",
+      "bytes": 101424,
+      "sha256": "d166242497c9c8fbd52a4debdeb345ae133720959bb678e9b9089c6596cfb83a"
+    },
+    {
+      "file": "public/assets/models/human_cleric_t5.glb",
+      "bytes": 101428,
+      "sha256": "a17588997a68597e44afa836e0df38c14f3d52672d7ae5eacbaf91d9aaa66382"
+    },
+    {
+      "file": "public/assets/models/human_cleric_t6.glb",
+      "bytes": 95364,
+      "sha256": "9895952772ef98c379ee262a63e4cd76e9886be1ffa10ced13b7850bb6350074"
+    },
+    {
+      "file": "public/assets/models/human_crossbow_t1.glb",
+      "bytes": 20560,
+      "sha256": "dc2226c7a23d000f7de939157d1ace954628668d72e9dfc6e883425240275a94"
+    },
+    {
+      "file": "public/assets/models/human_crossbow_t2.glb",
+      "bytes": 22244,
+      "sha256": "34fbb4f802d9a4336587123228a0d0ae670c82b33915478689e412c77ec56bbc"
+    },
+    {
+      "file": "public/assets/models/human_crossbow_t3.glb",
+      "bytes": 24732,
+      "sha256": "57d6a012d3a16590572e27ce05b879abccf0a2c8f4cfa91a59758560422aa247"
+    },
+    {
+      "file": "public/assets/models/human_crossbow_t4.glb",
+      "bytes": 29656,
+      "sha256": "cf46bba862e133256e46ac228d82386d5e55940826a68cf866f0cec6ff075130"
+    },
+    {
+      "file": "public/assets/models/human_crossbow_t5.glb",
+      "bytes": 32440,
+      "sha256": "197c21fdb07cf103837bfc8b80d92da6047ecdaefa1c5e160a7dadc928aef4ae"
+    },
+    {
+      "file": "public/assets/models/human_druid_t1.glb",
+      "bytes": 89584,
+      "sha256": "506e4ff9aa30c478a0d3afd8aeb4bac958decef7e6fc5e6d26cda07981483a80"
+    },
+    {
+      "file": "public/assets/models/human_druid_t2.glb",
+      "bytes": 94492,
+      "sha256": "609ef63c8eb8a672da12fa22b135d52229c6d480b3e8e1838fbaea0a6e164ad6"
+    },
+    {
+      "file": "public/assets/models/human_druid_t3.glb",
+      "bytes": 104176,
+      "sha256": "ea95d4334eb36dc8200fe19a76b00c2372e5c68e5b9681110e6cd694de8f743d"
+    },
+    {
+      "file": "public/assets/models/human_druid_t4.glb",
+      "bytes": 108508,
+      "sha256": "2cf8b1a706399a698688b564bef58d91010797a89b8e3c5b33c1b360b31a5754"
+    },
+    {
+      "file": "public/assets/models/human_druid_t5.glb",
+      "bytes": 110520,
+      "sha256": "484edb8f0ef1f6bbd799c54372f93e93d87dd8304435c3874ba4294ff989817f"
+    },
+    {
+      "file": "public/assets/models/human_druid_t6.glb",
+      "bytes": 110536,
+      "sha256": "459fa9653f0a53218f47b3711c5525fe2d8551dda665c2fde3c7d9b3ced58734"
+    },
+    {
+      "file": "public/assets/models/human_fire_t1.glb",
+      "bytes": 16616,
+      "sha256": "2e7d54ae4e5dedfccaede6f6c43d0f045d2870b7f0a80d4793ac415b5912effb"
+    },
+    {
+      "file": "public/assets/models/human_fire_t2.glb",
+      "bytes": 18296,
+      "sha256": "603feef923b892523f574ad9d66b5b13153baf4b9de77cccb2b891a0c4df2105"
+    },
+    {
+      "file": "public/assets/models/human_fire_t3.glb",
+      "bytes": 20784,
+      "sha256": "24f9fbf848d1d16d87205effa86956d86dbb5e3361124f84993455841cf6d696"
+    },
+    {
+      "file": "public/assets/models/human_fire_t4.glb",
+      "bytes": 25676,
+      "sha256": "551a2360b6dbacbd5edb725c52017944584108bb5f4cc5f2ea479febce3492ae"
+    },
+    {
+      "file": "public/assets/models/human_fire_t5.glb",
+      "bytes": 28468,
+      "sha256": "a5a339acab5b53fb525264d2b58bbb1a8af2e065f9dd5bb5edbedf1d5995bbb5"
+    },
+    {
+      "file": "public/assets/models/human_frost_t1.glb",
+      "bytes": 12404,
+      "sha256": "7553b385b2c65ed91c422d113305a320b14b953b841eeb326b9b73a139e3ae73"
+    },
+    {
+      "file": "public/assets/models/human_frost_t2.glb",
+      "bytes": 15088,
+      "sha256": "a6e7b084ed4b67ce54586a6927f8c2af2608d14515aa88f8911405456917f304"
+    },
+    {
+      "file": "public/assets/models/human_frost_t3.glb",
+      "bytes": 17508,
+      "sha256": "0db507968ad156c3fd31e5932fcfeb4b458dbd6eefd76406120c130ba97f595f"
+    },
+    {
+      "file": "public/assets/models/human_frost_t4.glb",
+      "bytes": 22968,
+      "sha256": "e4ab4dde88dc98dc9038926428f4674da7bd9fe40a7945c36e478040f58bd4e1"
+    },
+    {
+      "file": "public/assets/models/human_frost_t5.glb",
+      "bytes": 25756,
+      "sha256": "8db31be5ab44d6ae4ac16b1c7c6c4878f8746188232315d3ba86b8aec72344d8"
+    },
+    {
+      "file": "public/assets/models/human_frostwarden_t1.glb",
+      "bytes": 82388,
+      "sha256": "a3308cf72fd3900e8715319211a6d760d645ab3adb6be01a2d7efba8a76d40d3"
+    },
+    {
+      "file": "public/assets/models/human_frostwarden_t2.glb",
+      "bytes": 84932,
+      "sha256": "6cba7740d78a2f757acb07c88a9c51f807fe5d5a5aa28e0aab4e7cf23f8c59ab"
+    },
+    {
+      "file": "public/assets/models/human_frostwarden_t3.glb",
+      "bytes": 91024,
+      "sha256": "450ab54d0e3e0a22440b24aff0269cb924760a0d97f91629541318f11705a364"
+    },
+    {
+      "file": "public/assets/models/human_frostwarden_t4.glb",
+      "bytes": 91256,
+      "sha256": "43e35e8fae0c0fd8abd4f19cefd797daca93105ac81e438cf3b3d0d9e85d5a17"
+    },
+    {
+      "file": "public/assets/models/human_frostwarden_t5.glb",
+      "bytes": 91248,
+      "sha256": "83663c755c554d75b050f8be9f6e16328b210237bac8e42d554eb40aadc728c1"
+    },
+    {
+      "file": "public/assets/models/human_frostwarden_t6.glb",
+      "bytes": 95472,
+      "sha256": "b95da422216369eb2d0a583b6a3b27511f8719c0c7301ca57baf30a5e4374abb"
+    },
+    {
+      "file": "public/assets/models/human_keep.glb",
+      "bytes": 9896,
+      "sha256": "59bc611fce446d571f3098e43f57213fe491e9671016c93636e01cd4cb2474d8"
+    },
+    {
+      "file": "public/assets/models/human_mage_t1.glb",
+      "bytes": 73764,
+      "sha256": "ff1957bb4bc55f355eb4038333080581b891ed32be17ff762c86e451f90faffb"
+    },
+    {
+      "file": "public/assets/models/human_mage_t2.glb",
+      "bytes": 84600,
+      "sha256": "986763cf9c6e1152cb2a702cd47bae400f225d038e7e057f2b2c95553e943349"
+    },
+    {
+      "file": "public/assets/models/human_mage_t3.glb",
+      "bytes": 95044,
+      "sha256": "ac0af8e124212f5059fbb851bec3b425ab742267a7da65285b05fe38b2c25639"
+    },
+    {
+      "file": "public/assets/models/human_mage_t4.glb",
+      "bytes": 105384,
+      "sha256": "f0792c8cfe02519b4ca462357c24195e1403cb6a4b3d1628f08d3e145f87daa5"
+    },
+    {
+      "file": "public/assets/models/human_mage_t5.glb",
+      "bytes": 106644,
+      "sha256": "6368cf4f943bace853787285e4a15e00e00a40368e6e6f53790cc110ad26af9b"
+    },
+    {
+      "file": "public/assets/models/human_mage_t6.glb",
+      "bytes": 105892,
+      "sha256": "f886a63f754f250320b68b65ae3bfeef7bcb6a1676c31a534fcc220affe76897"
+    },
+    {
+      "file": "public/assets/models/human_runebreaker_t1.glb",
+      "bytes": 104616,
+      "sha256": "37c11ef80b3fff9e4bb00a05ca500137e29840cf863f21e016272003d7d8cc9f"
+    },
+    {
+      "file": "public/assets/models/human_runebreaker_t2.glb",
+      "bytes": 120100,
+      "sha256": "6f8b3c81ffc4854588454b029b59d2bd7a5201ca1b1870bcd332fa75e47ca981"
+    },
+    {
+      "file": "public/assets/models/human_runebreaker_t3.glb",
+      "bytes": 141644,
+      "sha256": "c74c6774b9a60d86a38c0b33561ffbf1a91cb5a250748bfe30c3743965da6a68"
+    },
+    {
+      "file": "public/assets/models/human_runebreaker_t4.glb",
+      "bytes": 143544,
+      "sha256": "de00f1ee4c7a880752c40018eac6f68b473b62db851130b2697d484e1c228303"
+    },
+    {
+      "file": "public/assets/models/human_runebreaker_t5.glb",
+      "bytes": 142188,
+      "sha256": "138b6776b5eb2224adf7dc0a95f53f8c9ed5b5d479c8779e820f775298881d06"
+    },
+    {
+      "file": "public/assets/models/human_runebreaker_t6.glb",
+      "bytes": 149708,
+      "sha256": "f1a922ccb110e21dcd404338e5b21656adc60d95097c065025f480f0a2ad514b"
+    },
+    {
+      "file": "public/assets/models/human_soldier_t1.glb",
+      "bytes": 87952,
+      "sha256": "000cb02203cfb3dc05ba9e5852bb6405ff85406b534b050e7093d2b56b4b747b"
+    },
+    {
+      "file": "public/assets/models/human_soldier_t2.glb",
+      "bytes": 89888,
+      "sha256": "ada06efd986db6b43f64da3ec32135487b2bc6c9233bbe5df4efa408fadce841"
+    },
+    {
+      "file": "public/assets/models/human_soldier_t3.glb",
+      "bytes": 109604,
+      "sha256": "28722e041cad5374a8df7aed591b99efd4e0ba04a8be82b2ac6b88472fdd94ce"
+    },
+    {
+      "file": "public/assets/models/human_soldier_t4.glb",
+      "bytes": 112240,
+      "sha256": "f2039e30c104d278d2f8d557f73cdf4a3eaa2801bc981d9e8990233829bee70d"
+    },
+    {
+      "file": "public/assets/models/human_soldier_t5.glb",
+      "bytes": 124524,
+      "sha256": "b2aa5cc50d25ab62683462a769c08042605230c588206483800f62b6f78480b4"
+    },
+    {
+      "file": "public/assets/models/human_soldier_t6.glb",
+      "bytes": 113000,
+      "sha256": "d10e7ef992096d55749450de3fbd33c9efff0e36f807b2245ea6bdcd91a2bd3c"
+    },
+    {
+      "file": "public/assets/models/human_stormcaller_t1.glb",
+      "bytes": 74708,
+      "sha256": "e42af6268e10237b11fc957373d06284fdefc9aa589385515b4da25d22036d90"
+    },
+    {
+      "file": "public/assets/models/human_stormcaller_t2.glb",
+      "bytes": 87072,
+      "sha256": "0df942082a14a1147b03d2cc28bd2c2c1f9fef83d6a37df6e79c95ab33c3fa65"
+    },
+    {
+      "file": "public/assets/models/human_stormcaller_t3.glb",
+      "bytes": 87312,
+      "sha256": "9da5db26dbad62a4a9737a25bd27206a5246685dfbd538c8dc8df68673340b8c"
+    },
+    {
+      "file": "public/assets/models/human_stormcaller_t4.glb",
+      "bytes": 87316,
+      "sha256": "cac0973e44f58b35c5b3db1979709e78af03ead8ef8204dcf5f169a107e1f79d"
+    },
+    {
+      "file": "public/assets/models/human_stormcaller_t5.glb",
+      "bytes": 89180,
+      "sha256": "aa266fef0381df4b93cc02b7b3a16c86e583235eca310371e9219d5986cf9b77"
+    },
+    {
+      "file": "public/assets/models/human_stormcaller_t6.glb",
+      "bytes": 95596,
+      "sha256": "e3efb01cee788c8901590d631a428df2772b7c880bcefb98898766043c50aacb"
+    },
+    {
+      "file": "public/assets/models/human_temple_t1.glb",
+      "bytes": 12328,
+      "sha256": "a37d511a342dcc2d30b2924f5e4c557a89b044de75d48d340513d32df2a2de9b"
+    },
+    {
+      "file": "public/assets/models/human_temple_t2.glb",
+      "bytes": 15016,
+      "sha256": "0f5ee80d911f3994b3d5b14f34fc55da765f00e5817c9da4c9a2021a13c4c2b0"
+    },
+    {
+      "file": "public/assets/models/human_temple_t3.glb",
+      "bytes": 17432,
+      "sha256": "be2d5367402739c93fac6085d2d029c69131676a29555f1eb1be778c86b39f8f"
+    },
+    {
+      "file": "public/assets/models/human_temple_t4.glb",
+      "bytes": 21892,
+      "sha256": "407a3b128025a68adac88ffde7736c4ef7ed4df7313465187e3499fc9fc1a609"
+    },
+    {
+      "file": "public/assets/models/human_temple_t5.glb",
+      "bytes": 24676,
+      "sha256": "b273284f8f846b37f37a09f3a7a7da636fc61816083dc18c4316774c727f36fc"
+    },
+    {
+      "file": "public/assets/models/manifest.json",
+      "bytes": 59386,
+      "sha256": "bd6007a2885162f823439d260008497b449b73b2e0c1a4ea129c5fa682b33849"
+    },
+    {
+      "file": "public/assets/models/medieval_house.glb",
+      "bytes": 3592,
+      "sha256": "231d8090bb8c5ab08057061f9076b517f75bda89f843bb1fee8888d366ddc688"
+    },
+    {
+      "file": "public/assets/models/orc_goblin.glb",
+      "bytes": 22376,
+      "sha256": "8e34e598d996f3d69164c0c354f78aad587209130b39d4fd2db4a78e7b819ceb"
+    },
+    {
+      "file": "public/assets/models/orc_grunt.glb",
+      "bytes": 22512,
+      "sha256": "9902c159ea33d826b3c511085f1cad951b21e08f36517adfa12374248bcee845"
+    },
+    {
+      "file": "public/assets/models/orc_ogre.glb",
+      "bytes": 23412,
+      "sha256": "d8f004b25a5732d17b590c93ba55e05aa2ce58a4f9b8f05b9c696eae774be3f8"
+    },
+    {
+      "file": "public/assets/models/orc_shaman.glb",
+      "bytes": 22672,
+      "sha256": "409d0f2627f478eebc64f40013f55441d4f3dfc6fd09917c02c317f2cc99e10d"
+    },
+    {
+      "file": "public/assets/models/orc_troll.glb",
+      "bytes": 21744,
+      "sha256": "0ffd04449c7a30699b9c7ae4f96fd8c93a46e9eeea540a2df18cc7d2a96a3dd4"
+    },
+    {
+      "file": "public/assets/models/orc_warcamp.glb",
+      "bytes": 7184,
+      "sha256": "75182a44a2cf923d5998f4e3ad5d5872f30c2997558d0252d60fcb12e5f5574d"
+    },
+    {
+      "file": "public/assets/models/orc_warlord.glb",
+      "bytes": 23948,
+      "sha256": "3c0c82d6f4622c5fb3f7dea623c6c3fe91703fda966e5399e14b23dd3abfbe0b"
+    },
+    {
+      "file": "public/assets/models/pine_tree.glb",
+      "bytes": 6180,
+      "sha256": "6dce1096e6a0300e37b328228f7d415b434c3027c7b7408267993554c404fc63"
+    },
+    {
+      "file": "public/assets/models/rock.glb",
+      "bytes": 3284,
+      "sha256": "9449a302757c994b2f6ccb1e74537ee136e0e0c010e1a646776b984c9344eb16"
+    },
+    {
+      "file": "public/assets/models/textures/ladyclaire_silk_normal.png",
+      "bytes": 236458,
+      "sha256": "43291a374c27699939d14f2cb88424bd2c194588188c0f8b8b578f55f6e44331"
+    },
+    {
+      "file": "public/assets/models/wooden_fence.glb",
+      "bytes": 5580,
+      "sha256": "bf8a0d88c1230c422069ee7ee6e63273bdfa63705aee2af02ba4b10d68a2a845"
+    },
+    {
+      "file": "public/assets/scenery/fortified-warcamp-v2.glb",
+      "bytes": 672888,
+      "sha256": "68a265d208a64a991bdd958c2f57bc3580cc859c5f01830642727e4154cab877"
+    },
+    {
+      "file": "public/assets/scenery/fortified-warcamp-v3.glb",
+      "bytes": 1866004,
+      "sha256": "3cd61da3a984043f053153a231e3b06075061aa88099bd5a70a5c71cdba6f543"
+    },
+    {
+      "file": "public/assets/scenery/fortified-warcamp-v4.glb",
+      "bytes": 2604444,
+      "sha256": "12a6faddb5fb6edef3d844a9b6a062c6746497dcb544d5b711de11eb7db32e5a"
+    },
+    {
+      "file": "public/assets/scenery/fortified-warcamp-v5.glb",
+      "bytes": 4980776,
+      "sha256": "2adf633e3b8892724474fb44c3469714d48f7735f1b27b1a17ce50c6331ea851"
+    },
+    {
+      "file": "public/assets/scenery/fortified-warcamp-v6.glb",
+      "bytes": 5506240,
+      "sha256": "2476c439892a81d8429bd61dde5edd97652670da886fd1f2df8dd1b7f9cf1524"
+    },
+    {
+      "file": "public/assets/scenery/fortified-warcamp-v8.glb",
+      "bytes": 5842184,
+      "sha256": "3a659f8fcf91b22f35d09c9a829eaa1de39b898691245f811e47310b19479076"
+    },
+    {
+      "file": "public/assets/scenery/layout-v5.json",
+      "bytes": 42495,
+      "sha256": "2c2d58b0d320c28ea79b5dd98fa54c679174b3cf6f3af8ade3531fe08c956ecb"
+    },
+    {
+      "file": "public/assets/scenery/layout-v6.json",
+      "bytes": 83235,
+      "sha256": "651cbde837b6bd6da1bbd6a8718877f97bde9005ecf428877ade2265f8facd30"
+    },
+    {
+      "file": "public/assets/scenery/layout-v7.json",
+      "bytes": 83622,
+      "sha256": "73b013c9b1e2547895772158daea563e928fa427b860f2d70adc60c4d6b920a5"
+    },
+    {
+      "file": "public/assets/scenery/manifest.json",
+      "bytes": 5914,
+      "sha256": "f853c11c388a797014eaac996804c0fe2844c7828a0c696a8a8eacadbaf92671"
+    },
+    {
+      "file": "public/assets/scenery/royal-castle-v2.glb",
+      "bytes": 509496,
+      "sha256": "df89470b5a851ed70d73445b9ea7a43f65edb0fa9bd2b266672560b2676ad7ee"
+    },
+    {
+      "file": "public/assets/scenery/royal-castle-v3.glb",
+      "bytes": 1303304,
+      "sha256": "130d0433e52c2924440c1c424cdc440e682d74e26b294585fb2ddd05d937ccc9"
+    },
+    {
+      "file": "public/assets/scenery/royal-castle-v4.glb",
+      "bytes": 2674156,
+      "sha256": "28003031c1b4dad0bf4f86e41ffd66357b0a70af8ee5b68111d14e5bc33c672c"
+    },
+    {
+      "file": "public/assets/scenery/royal-castle-v5.glb",
+      "bytes": 4159400,
+      "sha256": "1bfa1c4ceff8c6c5ec5711e67d5ae3c887d355d64f8efdade809352cfe05855f"
+    },
+    {
+      "file": "public/assets/scenery/royal-castle-v6.glb",
+      "bytes": 4666388,
+      "sha256": "970ec0af6c5fba7c203d178f79a515db3d121f488d24552b3ee248f09ecd7a2c"
+    },
+    {
+      "file": "public/assets/scenery/royal-castle-v7.glb",
+      "bytes": 5150648,
+      "sha256": "b9d8870794e737dee3483737f04a7f17be6a7b5394a9b56a7891f4d0f70b5e59"
+    },
+    {
+      "file": "public/assets/scenery/royal-castle-v9.glb",
+      "bytes": 6465380,
+      "sha256": "cb8f470524dc2e2f67b0591e168cb0a357c7daf56a4ba92e6e8673aa08f4a3d1"
+    }
+  ]
+}

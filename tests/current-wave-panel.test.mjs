@@ -5,7 +5,8 @@ import {Game} from '../game/core/game.js';
 import {currentWarbandInfo} from '../game/core/warband-info.js';
 import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../game/core/campaign-roster.js';
 import {currentWavePanelMarkup,updateCurrentWavePanel} from '../ui/current-wave-panel.js';
-import {enemyNumber} from '../game/core/enemy-rules.js';
+import {combatStatusModel,combatBossMarkup,updateCombatStatus} from '../ui/phase-ui.js';
+import {selectedEnemyMarkup} from '../ui/selected-enemy.js';
 
 const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
@@ -80,97 +81,59 @@ test('periodic live updates preserve sidebar scroll and skip unchanged content',
   enemy.dead=true;assert.equal(updateCurrentWavePanel(panel,game),true);assert.equal(body.scrollTop,147);assert.equal(panel.writes,3);
 });
 
-const bossHeader=html=>html.slice(html.indexOf('class="current-wave-boss-health"'),html.indexOf('<p class="current-wave-counts"'));
-function assertBossHealth(html,hp,maxHp){
-  const header=bossHeader(html);assert.match(header,/role="progressbar"/);
+
+const bossHeader=game=>combatBossMarkup(combatStatusModel(game));
+function assertBossHealth(game,hp,maxHp){
+  const header=bossHeader(game);assert.match(header,/role="progressbar"/);
   assert.ok(header.includes(`aria-valuenow="${hp}"`));assert.ok(header.includes(`aria-valuemax="${maxHp}"`));
-  assert.ok(header.includes(`${enemyNumber(hp)} / ${enemyNumber(maxHp)} HP`));
-  assert.ok(header.includes(`width:${Number((hp/maxHp*100).toFixed(3))}%`));
+  assert.ok(header.includes(`width:${Math.max(0,Math.min(100,hp/maxHp*100))}%`));
+  assert.doesNotMatch(currentWavePanelMarkup(game),/role="progressbar"|aria-valuenow|current-wave-boss-health/,'The side inspector must not duplicate aggregate live HP');
 }
 
-test('all five actual campaign bosses switch from approaching to real HP, update damage without count changes, and freeze during pause',()=>{
+test('all five actual campaign bosses keep one persistent HP bar, counts and static side profiles through damage and pause',()=>{
   for(const round of [10,20,30,40,50]){
-    const game=combat(round),control=combat(round),before=snapshot(game),body={scrollTop:93,scrollLeft:0},panel={closest:()=>body,innerHTML:''};
-    for(let pass=0;pass<10;pass++){
-      const html=currentWavePanelMarkup(game),header=bossHeader(html);
-      assert.match(header,/Boss approaching/);assert.doesNotMatch(header,/progressbar|aria-valuenow|\d[\d,]* HP/);
-      assert.doesNotMatch(html,/invaders remaining/);assert.match(html,/0 on the field · 1 approaching/);
-    }
-    assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
-    assert.equal(updateCurrentWavePanel(panel,game),true);
-    game.tick(.25);const enemy=game.combat.enemies.find(enemy=>enemy.boss);
-    assert.ok(enemy);assert.equal(enemy.hp,enemy.maxHp);assert.equal(game.combat.spawnQueue.length,0);
-    assert.equal(updateCurrentWavePanel(panel,game),true);assertBossHealth(panel.innerHTML,enemy.hp,enemy.maxHp);
-    assert.match(panel.innerHTML,/1 on the field · 0 approaching/);
-    assert.ok(game.combat.damage(enemy,enemy.maxHp*.2,'holy',{})>0,'Holy bypasses either actual boss immunity while retaining armor');
-    assert.equal(updateCurrentWavePanel(panel,game),true,'Damage must update the bar while live/queued counts stay fixed');
-    assertBossHealth(panel.innerHTML,enemy.hp,enemy.maxHp);assert.equal(body.scrollTop,93);
-    const hp=enemy.hp;game.paused=true;game.tick(3);
-    assert.equal(enemy.hp,hp);assert.equal(updateCurrentWavePanel(panel,game),false);assertBossHealth(panel.innerHTML,hp,enemy.maxHp);
-    game.combat.damage(enemy,enemy.maxHp*100,'holy',{});assert.equal(enemy.dead,true);
-    assert.equal(updateCurrentWavePanel(panel,game),true);assert.match(bossHeader(panel.innerHTML),/Boss defeated/);
-    assert.doesNotMatch(bossHeader(panel.innerHTML),/progressbar|aria-valuenow|\d[\d,]* HP/,'Death clears HP before the dead enemy array is swept');
+    const game=combat(round),control=combat(round),before=snapshot(game),body={scrollTop:93,scrollLeft:0},panel={closest:()=>body,innerHTML:''},banner={hidden:true,innerHTML:''};
+    for(let pass=0;pass<10;pass++){assert.match(bossHeader(game),/Boss approaching/);assert.doesNotMatch(bossHeader(game),/progressbar|aria-valuenow/);assert.match(currentWavePanelMarkup(game),/invaders remaining/);}
+    assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());assert.equal(updateCurrentWavePanel(panel,game),true);
+    game.tick(.25);const enemy=game.combat.enemies.find(enemy=>enemy.boss);assert.ok(enemy);assert.equal(enemy.hp,enemy.maxHp);assert.equal(updateCurrentWavePanel(panel,game),true);assertBossHealth(game,enemy.hp,enemy.maxHp);
+    assert.match(panel.innerHTML,/1 on the field · 0 approaching/);const staticMarkup=panel.innerHTML;updateCombatStatus(null,banner,game);const undamaged=banner.innerHTML;
+    assert.ok(game.combat.damage(enemy,enemy.maxHp*.2,'holy',{})>0);assert.equal(updateCurrentWavePanel(panel,game),false,'Individual damage does not rewrite unchanged stat profiles');assert.equal(panel.innerHTML,staticMarkup);
+    updateCombatStatus(null,banner,game);assert.notEqual(banner.innerHTML,undamaged);assertBossHealth(game,enemy.hp,enemy.maxHp);assert.equal(body.scrollTop,93);
+    const hp=enemy.hp;game.paused=true;game.tick(3);assert.equal(enemy.hp,hp);assertBossHealth(game,hp,enemy.maxHp);
+    game.combat.damage(enemy,enemy.maxHp*100,'holy',{});assert.equal(enemy.dead,true);assert.equal(updateCurrentWavePanel(panel,game),true);assert.match(bossHeader(game),/No boss on the field/);assert.doesNotMatch(bossHeader(game),/progressbar|aria-valuenow|defeated/);
   }
 });
 
-test('boss regeneration through the actual Game tick updates HP and the bar, with healing-block expiry and pause preserved',()=>{
-  const roster=structuredClone(data),wave=roster.waves[9];
-  wave.groups[0].variant={regen:.05};
-  const game=combat(10,42,roster);game.tick(.25);const enemy=game.combat.enemies.find(enemy=>enemy.boss);
-  game.combat.damage(enemy,enemy.maxHp*.5,'holy',{});
-  const injured=enemy.hp;game.combat.applyEffects(enemy,{healingBlockDuration:.2});game.tick(.5);
-  assert.ok(Math.abs(enemy.hp-(injured+enemy.maxHp*.05*.3))<1e-9,'The real heal integrates only after its block expires');
-  assertBossHealth(currentWavePanelMarkup(game),enemy.hp,enemy.maxHp);
-  game.paused=true;const paused=enemy.hp,html=currentWavePanelMarkup(game);game.tick(1);
-  assert.equal(enemy.hp,paused);assert.equal(currentWavePanelMarkup(game),html);
-  game.paused=false;game.tick(.5);assert.ok(enemy.hp>paused);assertBossHealth(currentWavePanelMarkup(game),enemy.hp,enemy.maxHp);
+test('actual boss regeneration and healing-block expiry update only the persistent bar and freeze during pause',()=>{
+  const roster=structuredClone(data);roster.waves[9].groups[0].variant={regen:.05};const game=combat(10,42,roster);game.tick(.25);const enemy=game.combat.enemies.find(enemy=>enemy.boss);
+  game.combat.damage(enemy,enemy.maxHp*.5,'holy',{});const injured=enemy.hp;game.combat.applyEffects(enemy,{healingBlockDuration:.2});game.tick(.5);
+  assert.ok(Math.abs(enemy.hp-(injured+enemy.maxHp*.05*.3))<1e-9);assertBossHealth(game,enemy.hp,enemy.maxHp);const side=currentWavePanelMarkup(game);
+  game.paused=true;const paused=enemy.hp;game.tick(1);assert.equal(enemy.hp,paused);assert.equal(currentWavePanelMarkup(game),side);
+  game.paused=false;game.tick(.5);assert.ok(enemy.hp>paused);assertBossHealth(game,enemy.hp,enemy.maxHp);assert.equal(currentWavePanelMarkup(game),side);
 });
 
-test('multiple bosses combine only living field HP, use actual variant/modifier maxima, and exclude queued bosses and minions',()=>{
-  const roster=structuredClone(data);
-  roster.waves[9]={name:'Combined assault',boss:true,groups:[{type:'host_10',count:3,interval:1,hp:2,variant:{hp:roster.enemies.host_10.hp*1.5}},{type:'host_01',count:1,interval:1}]};
-  const game=combat(10,9,roster),first=spawnQueued(game),second=spawnQueued(game);
-  assert.equal(first.maxHp,roster.enemies.host_10.hp*3);assert.equal(second.maxHp,first.maxHp);
-  const minion=game.combat.spawn('host_01',{hp:7});game.combat.damage(first,first.maxHp*.25,'holy',{});
-  let html=currentWavePanelMarkup(game);assert.match(bossHeader(html),/Combined boss health/);assert.match(bossHeader(html),/1 boss approaching/);
-  assertBossHealth(html,first.hp+second.hp,first.maxHp+second.maxHp);
-  assert.match(html,/3 on the field · 2 approaching/);
-  game.combat.damage(minion,minion.maxHp*.5,'holy',{});assertBossHealth(currentWavePanelMarkup(game),first.hp+second.hp,first.maxHp+second.maxHp);
-  game.combat.damage(first,first.maxHp*100,'holy',{});html=currentWavePanelMarkup(game);
-  assertBossHealth(html,second.hp,second.maxHp);assert.doesNotMatch(bossHeader(html),/Combined boss health/);
+test('multiple bosses sum only revealed living HP with actual modifier maxima, excluding queued bosses and minions',()=>{
+  const roster=structuredClone(data);roster.waves[9]={name:'Combined assault',boss:true,groups:[{type:'host_10',count:3,interval:1,hp:2,variant:{hp:roster.enemies.host_10.hp*1.5}},{type:'host_01',count:1,interval:1}]};
+  const game=combat(10,9,roster),first=spawnQueued(game),second=spawnQueued(game);assert.equal(first.maxHp,roster.enemies.host_10.hp*3);assert.equal(second.maxHp,first.maxHp);
+  const minion=game.combat.spawn('host_01',{hp:7});game.combat.damage(first,first.maxHp*.25,'holy',{});assertBossHealth(game,first.hp+second.hp,first.maxHp+second.maxHp);assert.match(bossHeader(game),/1 approaching/);assert.match(currentWavePanelMarkup(game),/3 on the field · 2 approaching/);
+  game.combat.damage(minion,minion.maxHp*.5,'holy',{});assertBossHealth(game,first.hp+second.hp,first.maxHp+second.maxHp);game.combat.damage(first,first.maxHp*100,'holy',{});assertBossHealth(game,second.hp,second.maxHp);
 });
 
-test('concealed boss HP is never read or leaked; actual reveal and concealment update the accessible bar',()=>{
-  const game=combat(10),enemy=spawnQueued(game),storedHp=enemy.maxHp*.731;
-  Object.assign(enemy,{cloaked:true,x:18,z:18});
-  assert.equal(game.combat.isRevealed(enemy),false);
-  Object.defineProperty(enemy,'hp',{configurable:true,get:()=>{throw Error('Concealed boss HP must not be read');}});
-  let html=currentWavePanelMarkup(game);assert.match(bossHeader(html),/Boss concealed/);assert.doesNotMatch(bossHeader(html),/progressbar|aria-valuenow| HP/);
-  Object.defineProperty(enemy,'hp',{configurable:true,writable:true,value:storedHp});
-  game.towers.push({id:91,family:'soldier',tier:1,state:'active',x:18,z:19});
-  assert.equal(game.combat.isRevealed(enemy),true);html=currentWavePanelMarkup(game);assertBossHealth(html,storedHp,enemy.maxHp);
-  game.towers[0].x=25;game.towers[0].z=25;assert.equal(game.combat.isRevealed(enemy),false);
-  assert.doesNotMatch(bossHeader(currentWavePanelMarkup(game)),/progressbar|aria-valuenow| HP/);
+test('concealed boss HP is never read and individual revealed boss health remains inspectable separately',()=>{
+  const game=combat(10),enemy=spawnQueued(game),storedHp=enemy.maxHp*.731;Object.assign(enemy,{cloaked:true,x:18,z:18});assert.equal(game.combat.isRevealed(enemy),false);
+  Object.defineProperty(enemy,'hp',{configurable:true,get:()=>{throw Error('Concealed boss HP must not be read');}});assert.match(bossHeader(game),/Boss concealed/);assert.doesNotMatch(currentWavePanelMarkup(game),/aria-valuenow|role="progressbar"/);assert.equal(selectedEnemyMarkup(enemy,{data:game.data,combat:game.combat}),'');
+  Object.defineProperty(enemy,'hp',{configurable:true,writable:true,value:storedHp});game.towers.push({id:91,family:'soldier',tier:1,state:'active',x:18,z:19});assert.equal(game.combat.isRevealed(enemy),true);assertBossHealth(game,storedHp,enemy.maxHp);assert.match(selectedEnemyMarkup(enemy,{data:game.data,combat:game.combat}),/role="progressbar"/);
+  game.towers[0].x=25;game.towers[0].z=25;assert.equal(game.combat.isRevealed(enemy),false);assert.doesNotMatch(bossHeader(game),/progressbar|aria-valuenow/);assert.equal(selectedEnemyMarkup(enemy,{data:game.data,combat:game.combat}),'');
 });
 
-test('a concealed boss among revealed and queued bosses cannot enter the combined health or expose identity, position or status',()=>{
-  const roster=structuredClone(data);roster.waves[9].groups[0].count=3;
-  const game=combat(10,23,roster),visible=spawnQueued(game),hidden=spawnQueued(game);
-  Object.assign(hidden,{cloaked:true,x:18,z:18,id:982313,statuses:{poison:{time:8.123,dps:72.987}}});
-  Object.defineProperty(hidden,'hp',{configurable:true,get:()=>{throw Error('Hidden health leaked into an aggregate');}});
-  const html=currentWavePanelMarkup(game),header=bossHeader(html);
-  assert.match(header,/Revealed boss health/);assertBossHealth(html,visible.hp,visible.maxHp);
-  assert.match(header,/1 boss approaching · 1 concealed boss/);
-  assert.doesNotMatch(html,/982313|8\.123|72\.987|data-inspected-enemy|Poisoned/);
+test('a concealed boss among revealed and queued bosses cannot enter the aggregate or expose individual state',()=>{
+  const roster=structuredClone(data);roster.waves[9].groups[0].count=3;const game=combat(10,23,roster),visible=spawnQueued(game),hidden=spawnQueued(game);Object.assign(hidden,{cloaked:true,x:18,z:18,id:982313,statuses:{poison:{time:8.123,dps:72.987}}});
+  Object.defineProperty(hidden,'hp',{configurable:true,get:()=>{throw Error('Hidden health leaked into an aggregate');}});assertBossHealth(game,visible.hp,visible.maxHp);assert.match(bossHeader(game),/1 concealed · 1 approaching/);assert.doesNotMatch(currentWavePanelMarkup(game)+bossHeader(game),/982313|8\.123|72\.987|data-inspected-enemy|Poisoned/);
 });
 
-test('boss bars clamp overfull/negative health and never expose nonfinite values or invalid progress bounds',()=>{
-  const game=combat(10),enemy=spawnQueued(game);
-  enemy.hp=enemy.maxHp*4;assertBossHealth(currentWavePanelMarkup(game),enemy.maxHp,enemy.maxHp);
-  enemy.hp=-7;assertBossHealth(currentWavePanelMarkup(game),0,enemy.maxHp);
-  for(const invalid of [NaN,Infinity,-Infinity]){
-    enemy.hp=invalid;const html=currentWavePanelMarkup(game);assertBossHealth(html,0,enemy.maxHp);assert.doesNotMatch(html,/NaN|Infinity/);
-  }
-  enemy.maxHp=Infinity;const header=bossHeader(currentWavePanelMarkup(game));
-  assert.match(header,/Boss health unavailable/);assert.doesNotMatch(header,/progressbar|NaN|Infinity|aria-valuemax="0"/);
+test('persistent bars clamp invalid health and boss departure never invents a defeated outcome',()=>{
+  const game=combat(10),enemy=spawnQueued(game);enemy.hp=enemy.maxHp*4;assertBossHealth(game,enemy.maxHp,enemy.maxHp);enemy.hp=-7;assertBossHealth(game,0,enemy.maxHp);
+  for(const invalid of [NaN,Infinity,-Infinity]){enemy.hp=invalid;assertBossHealth(game,0,enemy.maxHp);assert.doesNotMatch(bossHeader(game),/NaN|Infinity/);}
+  enemy.maxHp=Infinity;assert.match(bossHeader(game),/Boss health unavailable/);assert.doesNotMatch(bossHeader(game),/progressbar|NaN|Infinity|aria-valuemax="0"/);
+  game.combat.enemies=[];assert.match(bossHeader(game),/No boss on the field/);assert.doesNotMatch(bossHeader(game),/defeated/);
 });

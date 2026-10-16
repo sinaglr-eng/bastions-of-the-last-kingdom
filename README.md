@@ -2,7 +2,13 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-## Current release: 0.3.31 — Reliable Touch Controls and Clearer Battlefield
+## Current release: 0.4.0 — The Cartographer’s Table
+
+The approved paper interface now uses a shared five-card preparation folio, original-illustration portraits for all 136 identities, one phase-dependent wave note, measured DPS with MVP metadata, contextual map inspection and compact Ready/Combat docks. Actual command legality, hidden draws and the existing touch/pen release guards remain authoritative. Rank comparison is a display-only operation.
+
+All 1,448 current tests and the production build pass. The 0.3.31 stable tag, backup branch and verified offline source/production archives provide a documented rollback without rewriting history or changing statistics. See [the implementation and validation report](docs/UI_CARTOGRAPHER_V040_20261016.md) and [rollback instructions](docs/ROLLBACK_0.3.31.md). Physical iPad Safari testing remains unavailable; browser viewport checks are identified separately.
+
+## Previous release: 0.3.31 — Reliable Touch Controls and Clearer Battlefield
 
 Ordinary touch/pen commands now execute once on an accepted release, including Start wave and Demolish when a later compatibility click is missing or retargeted. Scoped click suppression rejects duplicate or ghost actions; identity checks and drag, cancellation, capture-loss and multi-touch guards protect the selected command and foundation. Control stacking keeps command targets reachable. Mouse and keyboard retain their existing paths.
 

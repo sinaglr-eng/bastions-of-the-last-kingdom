@@ -5,8 +5,13 @@ function sourceOf(image){
   const attribute=image.getAttribute('src'),source=image.src;
   if(!attribute||!source)return null;
   try{
-    const url=new URL(source,image.ownerDocument?.baseURI),match=url.pathname.match(/\/assets\/geometric\/portraits\/([^/]+)$/i);
-    if(!match||/^host_enemy(?:[_\-.]|$)/i.test(match[1])||/^host_\d+\.png$/i.test(match[1]))return null;
+    const url=new URL(source,image.ownerDocument?.baseURI);
+    const reference=url.pathname.match(/\/assets\/ui\/reference-portraits\/([^/]+\.png)$/i);
+    const legacy=url.pathname.match(/\/assets\/geometric\/portraits\/([^/]+)$/i);
+    // Both defender and enemy reference crops need the current-identity decode
+    // guard. Preserve the legacy catalogue's defender-only behavior for tools
+    // that still intentionally consume its model-render thumbnails.
+    if(!reference&&(!legacy||/^host_enemy(?:[_\-.]|$)/i.test(legacy[1])||/^host_\d+\.png$/i.test(legacy[1])))return null;
     return {attribute,source:url.href};
   }catch{return null;}
 }

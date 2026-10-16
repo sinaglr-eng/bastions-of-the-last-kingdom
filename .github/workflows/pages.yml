@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      release_ref:
+        description: 'Optional immutable release tag or commit to rebuild (for example v0.3.31-stable)'
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -18,6 +23,10 @@ jobs:
     steps:
       - name: Check out project
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ inputs.release_ref || github.sha }}
+      - name: Record checked-out release identity
+        run: git log -1 --format='%H %s'
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:

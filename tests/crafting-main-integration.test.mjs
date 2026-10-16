@@ -97,7 +97,7 @@ function panelFixture(){
   return new Element('aside');
 }
 function productionBrowser(game){
-  const host=panelFixture(),tabs=panelFixture(),phaseUi=new PhaseUiState(),app={dataset:{}},context={game,images:{},recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,recipeNavigationStep,craftingDockModel,updateCraftingDock,icon,phaseUi,app,world:{resize(){}},$:id=>id==='recipe-browser'?host:tabs};
+  const host=panelFixture(),tabs=panelFixture(),phaseUi=new PhaseUiState(),app={dataset:{}},context={game,images:{},previewPrevious:null,rankPreview:{identity:null,tier:null},syncFolio:noop,recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,recipeNavigationStep,craftingDockModel,updateCraftingDock,icon,phaseUi,app,world:{resize(){}},$:id=>id==='recipe-browser'?host:tabs};
   const methods=runInNewContext(`${browserSource}\n({renderRecipeBrowser,openRecipePreview,getFocus:()=>recipeFocus})`,context);
   // Production Game's change listener calls render(), including this renderer.
   game.on(type=>{if(type==='change')methods.renderRecipeBrowser();});
@@ -107,7 +107,7 @@ function productionBrowser(game){
 test('production browser captures dock and chain choices before replacing them during a phase transition',()=>{
   const game=actualGame(),browser=productionBrowser(game);game.pinned=recipe.id;browser.renderRecipeBrowser();
   browser.host.querySelector('.crafting-dock-disclosure').open=false;browser.host.querySelector('.crafting-chain').open=true;
-  game.phase='combat';browser.renderRecipeBrowser();assert.match(browser.host.innerHTML,/Browse champion recipes/);
+  game.phase='combat';browser.renderRecipeBrowser();assert.equal(browser.host.innerHTML,'');assert.equal(browser.host.hidden,true,'Combat leaves catalog access in the single top register');
   game.phase='select';browser.renderRecipeBrowser();assert.equal(browser.host.querySelector('.crafting-dock-disclosure').open,false);assert.equal(browser.host.querySelector('.crafting-chain').open,true);
 });
 

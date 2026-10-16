@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-16",
+  "status": "Requested concept refinements applied; game not implemented",
+  "revisedScreens": 8,
+  "additionalScreens": 2,
+  "totalSelectedScreens": 20,
+  "comments": [
+    {
+      "id": 1,
+      "result": "Unavailable Building controls removed; shared five-card choosing folio retained"
+    },
+    {
+      "id": 2,
+      "result": "Two- and three-recipe examples; one expanded detail"
+    },
+    {
+      "id": 3,
+      "result": "Shallow collapsed DPS strip; expanded capability preserved"
+    },
+    {
+      "id": 4,
+      "result": "Combination preview future odds removed"
+    },
+    {
+      "id": 5,
+      "result": "Existing marker renderer and activation preserved as authoritative; raster references illustrative"
+    },
+    {
+      "id": 6,
+      "result": "Ready permanent summaries/odds removed; compact action dock"
+    },
+    {
+      "id": 7,
+      "result": "Inspect keeper removed; map selection opens inspector"
+    }
+  ],
+  "selectedFiles": {
+    "01-building-ipad": "reviews/20261016-comments-02/01-building-ipad-r4.png",
+    "01-building-desktop": "reviews/20261016-comments-02/01-building-desktop-r4.png",
+    "02-choose-keeper-ipad": "reviews/20261016-comments-02/02-choose-keeper-ipad-r4.png",
+    "02-choose-keeper-desktop": "reviews/20261016-comments-02/02-choose-keeper-desktop-r4.png",
+    "03-combination-preview-ipad": "reviews/20261016-comments-02/03-combination-preview-ipad-r5.png",
+    "03-combination-preview-desktop": "reviews/20261016-comments-02/03-combination-preview-desktop-r5.png",
+    "04-ready-defender-ipad": "reviews/20261016-comments-02/04-ready-defender-ipad-r4.png",
+    "04-ready-defender-desktop": "reviews/20261016-comments-02/04-ready-defender-desktop-r4.png",
+    "05-combat-ipad": "reviews/20261016-comments-01/05-combat-ipad-r3.png",
+    "05-combat-desktop": "reviews/20261016-comments-01/05-combat-desktop-r3.png",
+    "06-current-wave-ipad": "reviews/20261016-comments-01/06-current-wave-ipad-r3.png",
+    "06-current-wave-desktop": "reviews/20261016-comments-01/06-current-wave-desktop-r3.png",
+    "07-future-waves-ipad": "07-future-waves-ipad-r2.png",
+    "07-future-waves-desktop": "07-future-waves-desktop-r2.png",
+    "08-recipe-catalog-ipad": "reviews/20261016-comments-01/08-recipe-catalog-ipad-r4.png",
+    "08-recipe-catalog-desktop": "reviews/20261016-comments-01/08-recipe-catalog-desktop-r3.png",
+    "09-recipe-navigation-ipad": "reviews/20261016-comments-01/09-recipe-navigation-ipad-r3.png",
+    "09-recipe-navigation-desktop": "09-recipe-navigation-desktop.png",
+    "10-three-combinations-ipad": "reviews/20261016-comments-02/10-three-combinations-ipad-r5.png",
+    "10-three-combinations-desktop": "reviews/20261016-comments-02/10-three-combinations-desktop-r5.png"
+  },
+  "visualReview": {
+    "imagesInspected": 10,
+    "recipeOptionsVerifiedAgainstRuntime": true,
+    "knownLimits": [
+      "Generated portrait identity, role badge colors and candidate bubbles can drift. Exact existing renderer/CSS wins over raster approximations.",
+      "The eight changed screens and additional pair illustrate these refinements; other five pairs retain earlier review artwork.",
+      "Raster concepts do not prove touch dimensions, legal campaign acquisition, live transitions or accessibility."
+    ],
+    "gameImplemented": false,
+    "specificRasterLimits": [
+      "Combination-preview badges are illustrative approximations. The iPad Mage badge has an incorrect minus and some discarded/consumed portraits differ; use the preserved runtime renderer and role allocation, never these pixels as replacement art.",
+      "The three-option iPad unmeasured DPS uses an information glyph; implementation must retain an accessible disclosure control.",
+      "Stormcaller and fixed champion portraits remain illustrative, not production asset replacements.",
+      "A blank portion of the Building footer is residual raster spacing; implementation should size the odds row to its content."
+    ]
+  },
+  "prompts": "prompts.json",
+  "targetedRefinements": "refinement-prompts.json",
+  "runtimeReference": "runtime-reference.json"
+}

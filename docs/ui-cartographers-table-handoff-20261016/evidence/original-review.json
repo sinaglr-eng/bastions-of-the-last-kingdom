@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-16",
+  "sourceVersion": "0.3.31",
+  "direction": "The Cartographer's Table",
+  "directionSelectedForFurtherDesign": true,
+  "screenDesignStatus": "PROPOSED - REVIEW PENDING - NOT IMPLEMENTED",
+  "productionGameChanges": false,
+  "galleryIsImageViewerOnly": true,
+  "scenarios": 9,
+  "deviceViews": 18,
+  "sourceOfTruth": [
+    "Current campaign/runtime adapters",
+    "design-notes.md",
+    "Current approved behavior"
+  ],
+  "generator": "Built-in image_gen",
+  "originalPrompts": "prompts.json",
+  "revisionPrompts": "revision-prompts.json",
+  "selectedFiles": "selected-files.json",
+  "originalFilesSuperseded": [
+    {
+      "original": "01-building-ipad.png",
+      "selected": "01-building-ipad-r2.png"
+    },
+    {
+      "original": "02-choose-keeper-ipad.png",
+      "selected": "02-choose-keeper-ipad-r2.png"
+    },
+    {
+      "original": "07-future-waves-ipad.png",
+      "selected": "07-future-waves-ipad-r2.png"
+    },
+    {
+      "original": "01-building-desktop.png",
+      "selected": "01-building-desktop-r2.png"
+    },
+    {
+      "original": "02-choose-keeper-desktop.png",
+      "selected": "02-choose-keeper-desktop-r2.png"
+    },
+    {
+      "original": "07-future-waves-desktop.png",
+      "selected": "07-future-waves-desktop-r2.png"
+    },
+    {
+      "original": "03-combination-preview-ipad.png",
+      "selected": "03-combination-preview-ipad-r2.png"
+    },
+    {
+      "original": "09-recipe-navigation-ipad.png",
+      "selected": "09-recipe-navigation-ipad-r2.png"
+    }
+  ],
+  "visualReview": {
+    "allOriginalScreenStudiesInspected": true,
+    "targetedRevisions": "Eight targeted revisions completed and visually inspected. Major invented wave abilities, incorrect ingredient labels, speculative card/rank numbers and invented recipe names were corrected; remaining raster limits are listed separately.",
+    "majorCorrectionsRequested": [
+      "Remove fabricated wave31 attacks/disarms/shield regeneration from both future-wave studies.",
+      "Correct the simple recipe's three ingredient names and future-odds meaning.",
+      "Remove invented basic-card statistics and invented rank-comparison numbers.",
+      "Replace invented recipe names and Kingslayer's incorrect copied multishot description."
+    ]
+  },
+  "remainingRasterLimits": [
+    "Numbers, actor counts/positions, portraits, interface scale, small symbols and text are illustrative, not runtime fixtures.",
+    "Small comparison summaries can still drift: use actual allocation (Cleric I Built plus Druid I/Archer I This round =1 built and2 this round), never a stale raster count.",
+    "All six future rank odds require readable I-VI labels in the actual UI; colored gem-like shapes in the Ready studies do not define an unlabeled rank system.",
+    "Ready iPad's Damage45 is base hit; MVP2 adds20% before defenses and other applicable modifiers. Do not treat45 as the final buffed hit.",
+    "Any residual RankI under a fixed champion does not approve a six-rank progression.",
+    "Recipe navigation graphics do not remove Holy/ability/against-defense filters or approve extra filter types. Catalog ordering/history must use runtime data.",
+    "Maps/queued-looking figures in construction and consumed-looking characters in Ready are illustration drift; phases and consumption rules follow actual Game state.",
+    "Future wave number tiles must be generated from all50 authored waves; the raster grid is not a reliable count/order contract.",
+    "Expanded DPS is an explicit study state, not an instruction to reset disclosures or force compact defaults.",
+    "Tap-target dimensions, safe areas, enlarged text, physical iPad/Safari and complete accessibility remain unverified."
+  ],
+  "additionalScope": "Pause, results and audio/settings behavior notes only; no extra raster pairs. Detailed engineering implementation handoff remains unfrozen pending screen review.",
+  "verification": {
+    "artifact": "artifact-verification.json",
+    "nativeViewer": "Device switch and first/last phase navigation inspected in Codex in-app browser; final revised image binding checked after rebuild.",
+    "gameTestsRun": false,
+    "physicalDeviceTestsRun": false
+  }
+}

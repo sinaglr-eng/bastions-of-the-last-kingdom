@@ -69,15 +69,15 @@ function fixture(){
   const profile={bestScore:0,bestWave:0,wins:0,discoveries:[]},waves=[],audio={unlock:noop,play:noop,resetRun:noop};
   const render=()=>{renders++;phaseUi.sync(game);functions.renderSidebar();functions.renderMapAction();};
   const bindings={game,app,window,document,world,phaseUi,CommandPointerInput,audio,data,images:{ruin:'approved-wall.png'},icon,endedPhase,
-    rankPreview:new DefenderRankPreview(),defenderPanelMarkup,dpsMeasurement:{view:()=>({rows:[]}),startWave:round=>waves.push(round),completeWave:noop},dpsTracker:{reset:noop,recordHit:noop},
-    draftCardActivation:{clear:noop},draftPointerInput:{click:noop},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop,render,
+    rankPreview:new DefenderRankPreview(),folioRecipeId:null,folioRecipeSelection:null,folioLayout:{restoreParts:noop},syncFolio:noop,defenderPanelMarkup,dpsMeasurement:{view:()=>({rows:[]}),startWave:round=>waves.push(round),completeWave:noop},dpsTracker:{reset:noop,recordHit:noop},
+    draftCardActivation:{clear:noop},draftPointerInput:{click:noop},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,cancelRecipePreview:noop,debugPanel:noop,render,
     $:id=>nodes.get(id)||null,panelDetails:new Map(),stampCraftButtons:noop,combatPanel:()=>'<p>Actual combat panel boundary</p>',tutorial:()=>'<p>Construction boundary</p>',
     resultFacts:{event:noop},guidance:{event:noop},profile,statistics:{tracker:{id:'listener-fixture',version:'0.3.31'}},saveProfile:noop,recordRunResult:noop,showResult:noop,notice:noop,towers:data.towers,balance:data.balance};
   const subscriber=main.split('\n').find(line=>line.trimStart().startsWith('game.on((type,payload)=>{'));assert.ok(subscriber,'Actual main subscriber exists');
   const keyboard=main.split('\n').find(line=>line.startsWith("window.addEventListener('keydown',e=>{if(e.key==='Escape'"));assert.ok(keyboard,'Actual keyboard listener exists');
   const commands=between('function handleCommand(','function commandPointerIdentity(');
   const wiring=between('function commandPointerIdentity(',"function toggleWorld(");
-  const startup=between('function startGame(','\ntry{images=');
+  const startup=between('function startGame(','\ntry{');
   const compiled=[declaration('sendWave'),declaration('mainAction'),declaration('towerPanel'),declaration('renderSidebar'),declaration('renderMapAction'),commands,wiring,keyboard,startup,
     `let dpsWave=null;${subscriber}\nreturn {handleCommand,renderSidebar,renderMapAction,startGame,commandPointerInput,replaceGame(next){game=next;}};`].join('\n');
   functions=Function(...Object.keys(bindings),compiled)(...Object.values(bindings));render();

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "owner": "/root/audit_audio",
+  "scope": "Current tutorial copy and visible Maze anchor; optional tour behavior retained",
+  "sourceAndTestPaths": [
+    "ui/tutorial.js",
+    "tests/context-guidance.test.mjs",
+    "tests/tutorial-v040.test.mjs"
+  ],
+  "evidencePaths": [
+    "output/design/cartographer-ui-v040-20261016/tutorial-targeted-tests.txt",
+    "output/design/cartographer-ui-v040-20261016/tutorial-allowlist.json",
+    "output/design/cartographer-ui-v040-20261016/tutorial-proof.json"
+  ]
+}

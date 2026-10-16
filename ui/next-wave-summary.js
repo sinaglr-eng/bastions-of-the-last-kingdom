@@ -48,7 +48,7 @@ function summaryParts(model,images={},options={}){
     const portrait=images['enemy:'+enemy.type],heading=`${portrait?`<img src="${escape(portrait)}" alt="" draggable="false">`:`<span class="next-wave-placeholder" aria-hidden="true">${icon(enemy.boss?'crown':'shield')}</span>`}<h3>${quantity(enemy.count)} × ${escape(enemy.name||'Unknown invader')}</h3>`;
     return `<article class="next-wave-group"><header>${heading}</header>${health(enemy)}${defenses(enemy)}</article>`;
   }).join(''):'<p class="next-wave-no-traits">Enemy composition unavailable.</p>'}`;
-  return {summary,body,kind:'next-wave-summary',scrollSelector:'.next-wave-summary-body',open:options.open!==false};
+  return {summary,body,kind:'next-wave-summary',summaryLabel:`Next wave ${numberLabel}; ${quantity(next.totalCount)} invaders`,bodyLabel:'Next wave resistances and abilities',scrollSelector:'.next-wave-summary-body',open:options.open!==false};
 }
 
 // Only the immediate authored composition enters this compact panel. Outlook,

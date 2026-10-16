@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "owner": "/root/audit_audio",
+  "scope": "A18 narrow catalog list return and focus recovery",
+  "sourceAndTestPaths": [
+    "ui/catalog-recipes.js",
+    "tests/catalog-recipes-d006.test.mjs",
+    "tests/recipe-navigation-v30.test.mjs"
+  ],
+  "evidencePaths": [
+    "output/design/cartographer-ui-v040-20261016/catalog-return-targeted-tests.txt",
+    "output/design/cartographer-ui-v040-20261016/catalog-return-allowlist.json",
+    "output/design/cartographer-ui-v040-20261016/catalog-return-proof.json"
+  ]
+}

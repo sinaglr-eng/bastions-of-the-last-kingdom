@@ -51,11 +51,11 @@ test('Engineer display uses E at every rank without changing canonical runtime R
   }
 });
 
-test('catalog shows visible description and abilities above portrait ingredient rows without Back to list',()=>{
+test('catalog keeps description and abilities above portrait ingredients while offering list return separately from exploration history',()=>{
   const target=recipe('frostblade'),html=championCatalogMarkup(fresh(),data,images,{state:{recipeId:target.id}});
   assert.ok(html.indexOf('aria-label="Abilities and description"')<html.indexOf('Exact ingredients'));
   assert.ok(html.indexOf('recipe-effects')<html.indexOf('Exact ingredients'));
-  assert.doesNotMatch(html,/Back to list|data-catalog-detail-close/);assert.match(html,/data-catalog-history="back"/);
+  assert.match(html,/class="text-button catalog-detail-back" data-catalog-close>‹ Back to list/);assert.match(html,/data-catalog-history="back"/);
   const css=readFileSync(new URL('../ui/catalog-recipes.css',import.meta.url),'utf8');
   assert.doesNotMatch(css,/has-detail\s+\.catalog-recipe-list\{display:none/);
   assert.doesNotMatch(css,/recipe-ingredients\{[^}]*grid-template-columns:repeat\(3/);

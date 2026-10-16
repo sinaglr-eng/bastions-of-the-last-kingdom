@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {towerDpsContents,updateTowerDpsPanel} from '../ui/tower-dps.js';
 import {nextWaveSummaryMarkup,updateNextWaveSummaryPanel} from '../ui/next-wave-summary.js';
+import {currentWaveSummaryMarkup,updateCurrentWaveSummaryPanel} from '../ui/current-wave-summary.js';
 import {WaveThreatAnalyzer} from '../game/core/wave-threats.js';
 import {Game} from '../game/core/game.js';
 import {campaignEnemies,campaignWaves,campaignTowers,campaignRecipes} from '../game/core/campaign-roster.js';
@@ -20,6 +21,8 @@ function panelFixture(){
   class Element{
     constructor(tag='div',attributes={}){this.tagName=tag.toUpperCase();this.attributes={...attributes};this.dataset=Object.fromEntries(Object.entries(attributes).filter(([key])=>key.startsWith('data-')).map(([key,value])=>[key.slice(5).replace(/-([a-z])/g,(_,letter)=>letter.toUpperCase()),value]));this.ownerDocument=document;this.parentNode=null;this.children=[];this.listeners=new Map();this._html='';this._open=Object.hasOwn(attributes,'open');this._scroll=0;this.writes=0;this.hidden=false;}
     matches(selector){if(selector.startsWith('.'))return (this.attributes.class||'').split(/\s+/).includes(selector.slice(1));if(selector.startsWith('['))return Object.hasOwn(this.attributes,selector.slice(1,-1));return this.tagName.toLowerCase()===selector;}
+    setAttribute(key,value){this.attributes[key]=String(value);}
+    getAttribute(key){return this.attributes[key]??null;}
     contains(node){for(let current=node;current;current=current.parentNode)if(current===this)return true;return false;}
     closest(selector){for(let current=this;current;current=current.parentNode)if(current.matches(selector))return current;return null;}
     querySelectorAll(selector){return this.children.flatMap(child=>[...(child.matches(selector)?[child]:[]),...child.querySelectorAll(selector)]);}
@@ -51,6 +54,7 @@ test('DPS is a native expanded disclosure with a stable accessible summary and u
   assert.match(html,/^<details class="battlefield-overlay-disclosure tower-dps-disclosure" open><summary/);
   assert.match(html,/Sum peak DPS<\/h2>/);assert.match(html,/Wave 7 · Paused/);assert.match(html,/21\.0 peak DPS this wave/);assert.match(html,/tower-dps-summary-score[^>]*>31\.0/);
   assert.ok(html.indexOf('data-id="2"')<html.indexOf('data-id="1"'));assert.doesNotMatch(html,/role="button"|aria-expanded/);
+  const summary=html.slice(html.indexOf('<summary'),html.indexOf('</summary>'));assert.doesNotMatch(summary,/<h2|Measured over/);assert.match(summary,/Peak DPS/);assert.match(summary,/· W7/);assert.match(summary,/Collapse Peak DPS 31.0; Wave 7; sum of individual defender peaks/);
 });
 
 test('DPS collapse and focused summary survive frequent damage refreshes and a new wave without replacing the native controls',()=>{
@@ -143,6 +147,31 @@ test('no upcoming wave hides the host without clearing its disclosure preference
   const {panel}=panelFixture();updateNextWaveSummaryPanel(panel,sample(),data,{});const details=panel.querySelector('details');details.open=false;
   assert.equal(nextWaveSummaryMarkup({next:null},data,{}),'');updateNextWaveSummaryPanel(panel,{next:null},data,{});assert.equal(panel.hidden,true);assert.equal(panel.querySelector('details'),details);
   updateNextWaveSummaryPanel(panel,sample(),data,{});assert.equal(panel.hidden,false);assert.equal(panel.querySelector('details'),details);assert.equal(details.open,false);
+});
+
+test('one shared Next/Current slot follows actual combat counts and preserves disclosure, focus and mode-specific scrolling',()=>{
+  const game=new Game(campaign,{seed:928}),control=new Game(campaign,{seed:928}),{panel,document}=panelFixture();
+  updateNextWaveSummaryPanel(panel,sample(),data,{});const details=panel.querySelector('details'),summary=panel.querySelector('summary');details.open=false;summary.focus();
+  game.phase=control.phase='combat';game.combat.start(game.wave);control.combat.start(control.wave);const before=JSON.stringify(game.combat.spawnQueue),initial=game.combat.spawnQueue.length;
+  updateCurrentWaveSummaryPanel(panel,game,campaign,{});assert.equal(panel.querySelector('details'),details);assert.equal(panel.querySelector('summary'),summary);assert.equal(details.open,false);assert.equal(document.activeElement,summary);
+  assert.equal(panel.querySelector('.next-wave-summary-body'),null);assert.match(panel.querySelector('.current-wave-summary-body').innerHTML,/maximum HP each/);assert.match(summary.innerHTML,new RegExp(`Current wave 1</strong><small>${initial} remaining · 0 on field · ${initial} queued`));assert.doesNotMatch(panel.innerHTML,/role="progressbar"|aria-valuenow/);
+  assert.match(summary.getAttribute('aria-label'),/^Expand Current wave 1/);details.open=true;assert.match(summary.getAttribute('aria-label'),/^Collapse Current wave 1/);
+  const body=panel.querySelector('.current-wave-summary-body');body.scrollTop=29;body.dispatch('scroll');const queued=game.combat.spawnQueue.shift();game.combat.spawn(queued.type,queued.modifiers);game.paused=true;updateCurrentWaveSummaryPanel(panel,game,campaign,{});
+  assert.match(summary.innerHTML,new RegExp(`${initial} remaining · 1 on field · ${initial-1} queued`));assert.equal(body.scrollTop,29);assert.match(body.innerHTML,/data-action="inspect-wave"/);assert.equal(JSON.stringify(control.combat.spawnQueue),before);assert.equal(game.rng(),control.rng());
+  details.open=false;game.phase='build';updateNextWaveSummaryPanel(panel,sample(),data,{});assert.equal(panel.querySelector('details'),details);assert.equal(details.open,false);assert.equal(panel.querySelector('.current-wave-summary-body'),null);assert.match(summary.getAttribute('aria-label'),/^Expand Next wave 14/);
+});
+
+test('Current summary never reads concealed individual HP and hides outside combat including ended runs',()=>{
+  const game=new Game(campaign,{seed:928});game.round=50;game.phase='combat';game.combat.start(game.wave);const queued=game.combat.spawnQueue.shift(),enemy=game.combat.spawn(queued.type,queued.modifiers);
+  Object.assign(enemy,{cloaked:true,id:987654,x:18.123,z:19.321,statuses:{poison:{time:4.567,dps:31.987}}});Object.defineProperty(enemy,'hp',{get:()=>{throw Error('Private HP read');}});game.combat.isRevealed=()=>false;
+  const html=currentWaveSummaryMarkup(game,campaign,{});assert.equal((html.match(/<strong>Current wave 50<\/strong>/g)||[]).length,1);assert.match(html,/maximum HP each/);assert.doesNotMatch(html,/987654|18\.123|19\.321|4\.567|31\.987|progressbar|aria-valuenow|Boss defeated|Next wave/);
+  for(const phase of ['build','select','ready','won','lost']){game.phase=phase;assert.equal(currentWaveSummaryMarkup(game,campaign,{}),'');}
+});
+
+test('collapsed DPS is honest before measurement, labels its wave and keeps archived MVP identity with exact-rank portraits',()=>{
+  const unmeasured=towerDpsContents([],data,{});assert.match(unmeasured,/Peak DPS —; Not measured/);assert.match(unmeasured,/Not measured yet/);
+  const old={...row(8,17,'soldier'),tier:3,archived:true,selectable:false,mvpLevel:4},html=towerDpsContents([old],data,{soldier:'WRONG-RANK-I.png'}, {wave:8,phase:'build'});
+  assert.match(html,/Peak DPS 17.0; Last wave 8/);assert.match(html,/· W8/);assert.match(html,/#8 · Rank III · MVP 4 · Combined \/ removed/);assert.match(html,/data-id="8"[^>]*disabled/);assert.doesNotMatch(html,/WRONG-RANK-I/);assert.match(html,/tower-dps-portrait-unavailable/);
 });
 
 test('foreground scrolling is contained without canceling native scroll or action clicks',()=>{

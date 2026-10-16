@@ -68,7 +68,7 @@ test('mystery fifth-slot selection changes only the pending slot and does not re
 
 test('same retained selection reopens after close, while ordinary paused refresh leaves the optional inspector closed',()=>{
   const view=interfaceFixture();view.game.keep();view.game.startCombat();const keeper=view.game.towers.find(t=>t.state==='active');view.game.select(keeper.id);assert.equal(view.phaseUi.inspectorOpen,true);view.phaseUi.close();view.game.paused=true;view.render();assert.equal(view.phaseUi.inspectorOpen,false);
-  const before=snapshot(view.game);view.game.select(keeper.id);assert.equal(view.phaseUi.inspectorOpen,true);assert.equal(snapshot(view.game),before);assert.equal(view.game.paused,true);assert.match(phaseStripMarkup(view.game,view.phaseUi),/Global combat pause/);
+  const before=snapshot(view.game);view.game.select(keeper.id);assert.equal(view.phaseUi.inspectorOpen,true);assert.equal(snapshot(view.game),before);assert.equal(view.game.paused,true);assert.equal(view.app.dataset.paused,'true');assert.equal(combatStatusModel(view.game).paused,true);assert.equal(phaseStripMarkup(view.game,view.phaseUi),'');
 });
 
 test('two combat rounds restore the full five-slot draft without changing optional disclosure choice or committing a candidate',()=>{

@@ -13,7 +13,7 @@ const source=name=>{
   const rest=main.slice(start),next=/\nfunction /.exec(rest);return rest.slice(0,next?.index??rest.length);
 };
 function actualCommands(game){
-  const bindings={game,world:{maze:{editing:false},doubleTap:{clear:noop}},audio:{unlock:noop},debug:false,
+  const bindings={cancelRecipePreview:()=>{},game,world:{maze:{editing:false},doubleTap:{clear:noop}},audio:{unlock:noop},debug:false,
     draftCardActivation:{clear:noop},draftPointerInput:{click:noop},codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop,
     app:{addEventListener:noop},window:{addEventListener:noop},document:{querySelector:()=>null}};
   return Function(...Object.keys(bindings),source('sendWave')+'\n'+source('handleCommand')+'\nreturn handleCommand;')(...Object.values(bindings));

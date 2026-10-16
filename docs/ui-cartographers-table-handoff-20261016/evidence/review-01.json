@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-16",
+  "status": "Seven requested design amendments applied to concepts; game not implemented",
+  "originalComments": "user-comments.json",
+  "currentDesign": "README.md",
+  "updatedImageCount": 11,
+  "selectedFiles": {
+    "01-building-ipad": "reviews/20261016-comments-01/01-building-ipad-r3.png",
+    "01-building-desktop": "reviews/20261016-comments-01/01-building-desktop-r3.png",
+    "02-choose-keeper-ipad": "reviews/20261016-comments-01/02-choose-keeper-ipad-r3.png",
+    "02-choose-keeper-desktop": "reviews/20261016-comments-01/02-choose-keeper-desktop-r3.png",
+    "03-combination-preview-ipad": "03-combination-preview-ipad-r2.png",
+    "03-combination-preview-desktop": "03-combination-preview-desktop.png",
+    "04-ready-defender-ipad": "04-ready-defender-ipad.png",
+    "04-ready-defender-desktop": "04-ready-defender-desktop.png",
+    "05-combat-ipad": "reviews/20261016-comments-01/05-combat-ipad-r3.png",
+    "05-combat-desktop": "reviews/20261016-comments-01/05-combat-desktop-r3.png",
+    "06-current-wave-ipad": "reviews/20261016-comments-01/06-current-wave-ipad-r3.png",
+    "06-current-wave-desktop": "reviews/20261016-comments-01/06-current-wave-desktop-r3.png",
+    "07-future-waves-ipad": "07-future-waves-ipad-r2.png",
+    "07-future-waves-desktop": "07-future-waves-desktop-r2.png",
+    "08-recipe-catalog-ipad": "reviews/20261016-comments-01/08-recipe-catalog-ipad-r4.png",
+    "08-recipe-catalog-desktop": "reviews/20261016-comments-01/08-recipe-catalog-desktop-r3.png",
+    "09-recipe-navigation-ipad": "reviews/20261016-comments-01/09-recipe-navigation-ipad-r3.png",
+    "09-recipe-navigation-desktop": "09-recipe-navigation-desktop.png"
+  },
+  "comments": [
+    {
+      "id": 1,
+      "result": "Redundant draft caption removed; construction odds retained"
+    },
+    {
+      "id": 2,
+      "result": "Future rank odds removed from Choose keeper; rank comparison retained"
+    },
+    {
+      "id": 3,
+      "result": "One Current wave summary above DPS during combat; Next wave after actual phase transition"
+    },
+    {
+      "id": 4,
+      "result": "Duplicate bottom catalog commands removed; top commands retained"
+    },
+    {
+      "id": 5,
+      "result": "Separate Pause and single Speed button; existing 1x/2x cycle"
+    },
+    {
+      "id": 6,
+      "result": "Combined revealed living boss current/max HP moved to top center"
+    },
+    {
+      "id": 7,
+      "result": "Built basics allocation fractions replace recipe-list row ordinals"
+    }
+  ],
+  "visualReview": {
+    "allElevenImagesInspected": true,
+    "recipeFractionsCheckedAgainstRuntime": true,
+    "restoration": "iPad catalog r4 restores In progress filter omitted in r3",
+    "limits": [
+      "Raster concepts do not exercise actual phase transitions or controls.",
+      "Fine typography, availability heading/order and touch dimensions require final implementation verification.",
+      "Original gameplay artwork, balance and production sources remain unchanged.",
+      "Top ordered-navigation position remains separate from ingredient progress."
+    ]
+  },
+  "source": "Built-in image_gen; exact edit prompts preserved",
+  "scope": "Concept gallery and design records only"
+}

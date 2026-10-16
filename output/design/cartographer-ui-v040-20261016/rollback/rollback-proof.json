@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-16",
+  "status": "READ-ONLY PREFLIGHT AND SYNTHETIC CREDENTIAL FALLBACK TESTS PASSED",
+  "deploymentDispatched": false,
+  "realCredentialsRead": false,
+  "localBranchOrTagMutated": false,
+  "workflowEdited": false,
+  "stableRemoteBackupBranchCommit": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+  "preflight": {
+    "Version": "0.3.31",
+    "StableTag": "v0.3.31-stable",
+    "VerifiedLocalAndRemoteCommit": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+    "MainWorkflow": "main does not yet expose the required release_ref checkout; publication gate remains pending",
+    "GitHubCliAvailable": false,
+    "CredentialsAccessed": false,
+    "Authentication": "Checked only after explicit -Deploy and successful workflow preflight",
+    "CredentialManagerFallback": "Available through git credential fill; prompts disabled; not accessed by preflight",
+    "DeployRequested": false,
+    "WorkflowReady": false
+  },
+  "credentialFallbackTests": "credential-fallback-tests.json",
+  "credentialFallbackTestCount": 4,
+  "sourceBackupProof": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/backups/releases/v0.3.31/source-backup-proof.json",
+  "sourceBackupProofSha256": "6085b3ad3b73662a53461682108b50f6e067fbb8952cf2ca37e71123dac49709",
+  "sourceEntryCount": 3819,
+  "sourceEntryBytes": 1147744583,
+  "archiveAllEntriesVerified": true,
+  "verification": "Every source ZIP entry SHA-256/size equals fresh immutable stable Git archive TAR export; CRC checked; expected START_GAME.cmd export CRLF documented"
+}

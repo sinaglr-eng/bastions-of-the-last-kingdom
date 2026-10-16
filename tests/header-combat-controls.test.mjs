@@ -30,13 +30,14 @@ function actionBoundary(game,header){
  return {world,dialog,functions,get renders(){return renders;},get unlocks(){return unlocks;},click(button){callbacks.get('click')({target:{closest:()=>button},detail:1});},keydown(event){callbacks.get('keydown')(event);}};
 }
 
-test('production header mounts combat controls inside the right action group immediately before Enemy Waves and leaves TIME in stats',()=>{
+test('production battlefield dock owns the single combat-control host beside Ready actions while TIME remains in the resource register',()=>{
  const start=source.indexOf('app.innerHTML=`'),end=source.indexOf('\nconst $=',start);assert.ok(start>=0&&end>start);
  const app={innerHTML:''},audio=new AudioManager(false);
  try{new Function('app','icon','profile','balance','audioControlsMarkup','audio',source.slice(start,end))(app,icon,{muted:false},data.balance,audioControlsMarkup,audio);}finally{audio.dispose();}
  const header=app.innerHTML.slice(0,app.innerHTML.indexOf('</header>')),actions=header.slice(header.indexOf('class="header-actions"'));
- assert.ok(actions.indexOf('id="header-combat-controls"')<actions.indexOf('data-action="warbands"'));assert.ok(actions.indexOf('id="header-combat-controls"')<actions.indexOf('data-action="codex"'));
- assert.match(actions,/role="group" aria-label="Combat controls"/);assert.doesNotMatch(header.slice(0,header.indexOf('class="header-actions"')),/id="header-combat-controls"/);
+ const dock=app.innerHTML.slice(app.innerHTML.indexOf('class="command-dock"'),app.innerHTML.indexOf('class="battlefield-overlays"'));
+ assert.doesNotMatch(header,/id="header-combat-controls"/);assert.equal((app.innerHTML.match(/id="header-combat-controls"/g)||[]).length,1);assert.match(dock,/id="header-combat-controls" role="group" aria-label="Combat controls" hidden/);assert.match(dock,/data-action="maze"/);assert.match(dock,/data-action="start" id="start-wave"/);
+ assert.match(actions,/data-action="warbands"/);assert.match(actions,/data-action="codex"/);assert.doesNotMatch(dock,/data-action="(?:pause|speed)"/,'The stable controls are mounted lazily once by their real updater');
  assert.match(header.slice(0,header.indexOf('class="header-actions"')),/hud-stat run-time[\s\S]*<small>TIME<\/small>/);
 });
 
@@ -53,18 +54,19 @@ test('noncombat phases hide and disable mounted controls and reuse them after th
  game.phase='combat';game.paused=true;game.speed=2;updateHeaderCombatControls(header.host,game);assert.equal(header.host.hidden,false);assert.equal(pause.disabled,false);assert.equal(speed.disabled,false);assert.equal(pause.label.textContent,'Resume');assert.equal(speed.textContent,'2×');assert.equal(header.host.writes,1);
 });
 
-test('actual delegated main clicks toggle pause and cycle 1→2→3→1 without altering authoritative inventory or RNG',()=>{
+test('actual delegated main clicks toggle pause and cycle only 1→2→1 without altering authoritative inventory or RNG',()=>{
  const game=new Game(data,{seed:591}),control=new Game(data,{seed:591}),header=headerFixture();game.phase=control.phase='combat';updateHeaderCombatControls(header.host,game);const boundary=actionBoundary(game,header),before=state(game);
  boundary.click(header.pause);assert.equal(game.paused,true);assert.equal(header.pause.label.textContent,'Resume');boundary.click(header.pause);assert.equal(game.paused,false);assert.equal(header.pause.label.textContent,'Pause');
- for(const rate of [2,3,1]){boundary.click(header.speed);assert.equal(game.speed,rate);assert.equal(header.speed.textContent,rate+'×');assert.equal(game.paused,false);}
- assert.equal(boundary.renders,5);assert.equal(boundary.unlocks,5);assert.equal(state(game),before);assert.equal(game.rng(),control.rng());assert.equal(header.host.writes,1);
+ for(const rate of [2,1,2,1]){boundary.click(header.speed);assert.equal(game.speed,rate);assert.equal(header.speed.textContent,rate+'×');assert.equal(game.paused,false);}
+ assert.equal(boundary.renders,6);assert.equal(boundary.unlocks,6);assert.equal(state(game),before);assert.equal(game.rng(),control.rng());assert.equal(header.host.writes,1);
  game.phase='ready';updateHeaderCombatControls(header.host,game);const rendered=boundary.renders,unlocks=boundary.unlocks;boundary.click(header.pause);boundary.click(header.speed);assert.equal(boundary.renders,rendered);assert.equal(boundary.unlocks,unlocks);assert.equal(game.paused,false);assert.equal(game.speed,1);
 });
 
 test('real Game clock and movement stop while paused and use the selected speed after resuming',()=>{
  const game=new Game(data,{seed:773}),header=headerFixture();game.phase='combat';game.combat.spawnQueue=[{time:1e6,type:'host_01'}];const enemy=game.combat.spawn('host_01');updateHeaderCombatControls(header.host,game);const boundary=actionBoundary(game,header);
  boundary.click(header.pause);const paused={elapsed:game.combat.elapsed,traveled:enemy.traveled,hp:enemy.hp};game.tick(.25);assert.equal(game.combat.elapsed,paused.elapsed);assert.equal(enemy.traveled,paused.traveled);assert.equal(enemy.hp,paused.hp);
- boundary.click(header.speed);boundary.click(header.speed);assert.equal(game.speed,3);boundary.click(header.pause);game.tick(.1);assert.ok(Math.abs(game.combat.elapsed-paused.elapsed-.3)<1e-9);assert.ok(Math.abs(enemy.traveled-paused.traveled-enemy.speed*.3)<1e-9);
+ boundary.click(header.speed);assert.equal(game.speed,2);boundary.click(header.pause);game.tick(.1);assert.ok(Math.abs(game.combat.elapsed-paused.elapsed-.2)<1e-9);assert.ok(Math.abs(enemy.traveled-paused.traveled-enemy.speed*.2)<1e-9);
+ boundary.click(header.speed);assert.equal(game.speed,1);game.tick(.1);assert.ok(Math.abs(game.combat.elapsed-paused.elapsed-.3)<1e-9);assert.ok(Math.abs(enemy.traveled-paused.traveled-enemy.speed*.3)<1e-9);
 });
 
 test('actual Space shortcut toggles once from the battlefield and does not leak through native header buttons or open dialogs',()=>{

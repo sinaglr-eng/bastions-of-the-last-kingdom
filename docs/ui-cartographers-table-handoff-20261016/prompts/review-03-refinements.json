@@ -1,0 +1,23 @@
+{
+  "generator": "Built-in image_gen",
+  "jobs": [
+    {
+      "key": "11-rank-comparison-ipad",
+      "prompt": "Make ONE local text correction to this exact screenshot. In the TOP-LEFT wave/DPS panel, the row reading 'Base direct DPS 514.7 · W8' is WRONG. Replace ONLY that row label with 'Peak DPS 514.7 · W8', preserving disclosure chevron. Leave the lower defender statistic 'Base direct DPS 192' unchanged. Keep every other pixel, all rank controls, names, cards, numeric values, ingredients, spacing and art unchanged. English only.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-03/11-rank-comparison-ipad-r6.png",
+      "output": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-03/11-rank-comparison-ipad-r7.png"
+    },
+    {
+      "key": "11-rank-comparison-desktop",
+      "prompt": "Make ONE tiny local text correction to this exact screenshot: in the lower selected-defender I–VI rank button row, fix the SECOND button so the labels read exactly 'I', 'II', 'III', 'IV', 'V', 'VI' left to right. The source erroneously has 'III' on the second button. IV remains selected. Do not change any other labels, numbers, actions, images, composition or stats.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-03/11-rank-comparison-desktop-r6.png",
+      "output": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-03/11-rank-comparison-desktop-r7.png"
+    },
+    {
+      "key": "10-three-combinations-ipad",
+      "prompt": "Make only two local label restorations, preserving this exact game concept. In expanded Frozen Celestial ingredient row, retain existing names/ranks Frost Warden V, Mage IV, Stormcaller IV and ADD a small readable 'This round' status under EACH of the three. In collapsed Angel and Lady Claire rows, ADD 'Missing ingredients' so they cannot appear available. Keep all three full recipe names and only Frozen Celestial expanded. Keep Preview combination reachable. Preserve numeric stats 30/30/6 tiles/1 s, Physical type, slow 36% / 3 s, all cards, actions, wave header, map, and all unrelated parts unchanged. If needed slightly increase row heights inside the existing folio; no overlap or tiny illegible text. English only.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-03/10-three-combinations-ipad-r6.png",
+      "output": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-03/10-three-combinations-ipad-r7.png"
+    }
+  ]
+}

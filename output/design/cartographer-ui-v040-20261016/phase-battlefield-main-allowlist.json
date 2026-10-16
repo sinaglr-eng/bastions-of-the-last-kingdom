@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "owner": "/root/audit_audio",
+  "scope": "Test fixture adaptation only; no production files changed",
+  "sourceAndTestPaths": [
+    "tests/battlefield-panel-main-integration.test.mjs",
+    "tests/phase-main-integration.test.mjs"
+  ],
+  "evidencePaths": [
+    "output/design/cartographer-ui-v040-20261016/phase-battlefield-main-targeted-tests.txt",
+    "output/design/cartographer-ui-v040-20261016/phase-battlefield-main-allowlist.json",
+    "output/design/cartographer-ui-v040-20261016/phase-battlefield-main-proof.json"
+  ]
+}

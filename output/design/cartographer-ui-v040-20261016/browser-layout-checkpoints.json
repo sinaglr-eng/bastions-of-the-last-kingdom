@@ -1,0 +1,4264 @@
+{
+  "checkedAt": "2026-10-16T11:55:50.942Z",
+  "checkpoints": [
+    {
+      "name": "building-desktop-1440",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 65.83333587646484
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/druid-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1440,
+      "panels": [
+        {
+          "clientWidth": 1440,
+          "height": 504,
+          "id": "battlefield",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 76
+        },
+        {
+          "clientWidth": 1440,
+          "height": 320,
+          "id": "preparation-folio",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 580
+        },
+        {
+          "clientWidth": 420,
+          "height": 441.3020935058594,
+          "id": "side-body",
+          "scrollWidth": 420,
+          "shown": true,
+          "width": 420,
+          "x": 598.6666870117188,
+          "y": 596
+        },
+        {
+          "clientWidth": 532,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 532,
+          "shown": false,
+          "width": 532,
+          "x": 20,
+          "y": 789
+        },
+        {
+          "clientWidth": 363,
+          "height": 292,
+          "id": "folio-plan",
+          "scrollWidth": 363,
+          "shown": true,
+          "width": 373.3333435058594,
+          "x": 1046.666748046875,
+          "y": 596
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "name": "building-ipad-1024",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 75.53125
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 75.53125
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 75.53125
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/druid-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 1024,
+          "height": 350,
+          "id": "battlefield",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 1009,
+          "height": 350,
+          "id": "preparation-folio",
+          "scrollWidth": 1009,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 418
+        },
+        {
+          "clientWidth": 478,
+          "height": 424.5104370117187,
+          "id": "side-body",
+          "scrollWidth": 478,
+          "shown": true,
+          "width": 478.2291870117187,
+          "x": 504.4270935058594,
+          "y": 432
+        },
+        {
+          "clientWidth": 466,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 466,
+          "shown": false,
+          "width": 465.7604370117187,
+          "x": 14,
+          "y": 625
+        },
+        {
+          "clientWidth": 502,
+          "height": 174.33334350585938,
+          "id": "folio-plan",
+          "scrollWidth": 502,
+          "shown": true,
+          "width": 502.8958435058594,
+          "x": 491.7604370117187,
+          "y": 581.6666870117188
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "recipe-navigation-desktop",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 65.83333587646484
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/druid-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostblade.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/roseguard.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/highking.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/crownofages.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/verdantguard.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/tempest.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcitadel.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/embercrown.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/worldfire.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/starfall.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thunderheart.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/phoenix.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/greenheart.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/eldergrove.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/kingsreach.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/sunward.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/winterhold.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/dawnspire.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/royalmarshal.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stonewarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/wyvernhunter.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/royalarsenal.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rangermentor.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/kingdomprotector.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mothernature.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/royalranger.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/kingsrangerguard.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/elvenking.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/fireballista.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/emeraldgolem.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/griffinbomber.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mechanicalgolem.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/monk.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archbishop.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archangel.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/ladyclaire.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/crownofages.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/highking.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-6.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-6.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1440,
+      "panels": [
+        {
+          "clientWidth": 1440,
+          "height": 504,
+          "id": "battlefield",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 76
+        },
+        {
+          "clientWidth": 1440,
+          "height": 320,
+          "id": "preparation-folio",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 580
+        },
+        {
+          "clientWidth": 420,
+          "height": 441.3020935058594,
+          "id": "side-body",
+          "scrollWidth": 420,
+          "shown": true,
+          "width": 420,
+          "x": 598.6666870117188,
+          "y": 596
+        },
+        {
+          "clientWidth": 532,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 532,
+          "shown": false,
+          "width": 532,
+          "x": 20,
+          "y": 789
+        },
+        {
+          "clientWidth": 363,
+          "height": 292,
+          "id": "folio-plan",
+          "scrollWidth": 363,
+          "shown": true,
+          "width": 373.3333435058594,
+          "x": 1046.666748046875,
+          "y": 596
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "name": "final-building-desktop-1440",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 65.83333587646484
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1440,
+      "panels": [
+        {
+          "clientWidth": 1440,
+          "height": 504,
+          "id": "battlefield",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 76
+        },
+        {
+          "clientWidth": 1440,
+          "height": 320,
+          "id": "preparation-folio",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 580
+        },
+        {
+          "clientWidth": 420,
+          "height": 441.3020935058594,
+          "id": "side-body",
+          "scrollWidth": 420,
+          "shown": true,
+          "width": 420,
+          "x": 598.6666870117188,
+          "y": 596
+        },
+        {
+          "clientWidth": 532,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 532,
+          "shown": false,
+          "width": 532,
+          "x": 20,
+          "y": 789
+        },
+        {
+          "clientWidth": 363,
+          "height": 292,
+          "id": "folio-plan",
+          "scrollWidth": 363,
+          "shown": true,
+          "width": 373.3333435058594,
+          "x": 1046.666748046875,
+          "y": 596
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "name": "final-building-ipad-1024",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 75.53125
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 75.53125
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 75.53125
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 1024,
+          "height": 350,
+          "id": "battlefield",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 1009,
+          "height": 350,
+          "id": "preparation-folio",
+          "scrollWidth": 1009,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 418
+        },
+        {
+          "clientWidth": 478,
+          "height": 424.5104370117187,
+          "id": "side-body",
+          "scrollWidth": 478,
+          "shown": true,
+          "width": 478.2291870117187,
+          "x": 504.4270935058594,
+          "y": 432
+        },
+        {
+          "clientWidth": 466,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 466,
+          "shown": false,
+          "width": 465.7604370117187,
+          "x": 14,
+          "y": 625
+        },
+        {
+          "clientWidth": 502,
+          "height": 462.8541870117187,
+          "id": "folio-plan",
+          "scrollWidth": 502,
+          "shown": true,
+          "width": 502.8958435058594,
+          "x": 491.7604370117187,
+          "y": 856.5104370117188
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "final-building-desktop-1715",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 81.125
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 81.13542175292969
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 81.125
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 81.13542175292969
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 81.125
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 81.13542175292969
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1715,
+      "panels": [
+        {
+          "clientWidth": 1715,
+          "height": 848,
+          "id": "battlefield",
+          "scrollWidth": 1715,
+          "shown": true,
+          "width": 1715.3333740234375,
+          "x": 0,
+          "y": 76
+        },
+        {
+          "clientWidth": 1715,
+          "height": 320,
+          "id": "preparation-folio",
+          "scrollWidth": 1715,
+          "shown": true,
+          "width": 1715.3333740234375,
+          "x": 0,
+          "y": 924
+        },
+        {
+          "clientWidth": 512,
+          "height": 424.5104370117187,
+          "id": "side-body",
+          "scrollWidth": 512,
+          "shown": true,
+          "width": 511.78125,
+          "x": 708.7916870117188,
+          "y": 940
+        },
+        {
+          "clientWidth": 642,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 642,
+          "shown": false,
+          "width": 642.125,
+          "x": 20,
+          "y": 1133
+        },
+        {
+          "clientWidth": 436,
+          "height": 292,
+          "id": "folio-plan",
+          "scrollWidth": 436,
+          "shown": true,
+          "width": 446.7604370117187,
+          "x": 1248.572998046875,
+          "y": 940
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 1244,
+        "width": 1715
+      }
+    },
+    {
+      "name": "final-building-ipad-1180",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 59.86458587646485
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 59.875
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 59.875
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 59.875
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 59.875
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 59.875
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1180,
+      "panels": [
+        {
+          "clientWidth": 1180,
+          "height": 416,
+          "id": "battlefield",
+          "scrollWidth": 1180,
+          "shown": true,
+          "width": 1180,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 1180,
+          "height": 336,
+          "id": "preparation-folio",
+          "scrollWidth": 1180,
+          "shown": true,
+          "width": 1180,
+          "x": 0,
+          "y": 484
+        },
+        {
+          "clientWidth": 384,
+          "height": 441.3020935058594,
+          "id": "side-body",
+          "scrollWidth": 384,
+          "shown": true,
+          "width": 384.2395935058594,
+          "x": 445.5729370117187,
+          "y": 498
+        },
+        {
+          "clientWidth": 397,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 397,
+          "shown": false,
+          "width": 396.90625,
+          "x": 14,
+          "y": 681
+        },
+        {
+          "clientWidth": 304,
+          "height": 310,
+          "id": "folio-plan",
+          "scrollWidth": 304,
+          "shown": true,
+          "width": 314.1875,
+          "x": 851.8125,
+          "y": 498
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      }
+    },
+    {
+      "name": "final-building-ipad-portrait",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 58.10416793823242
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 820,
+      "panels": [
+        {
+          "clientWidth": 820,
+          "height": 762,
+          "id": "battlefield",
+          "scrollWidth": 820,
+          "shown": true,
+          "width": 820,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 805,
+          "height": 350,
+          "id": "preparation-folio",
+          "scrollWidth": 805,
+          "shown": true,
+          "width": 820,
+          "x": 0,
+          "y": 830
+        },
+        {
+          "clientWidth": 374,
+          "height": 441.3020935058594,
+          "id": "side-body",
+          "scrollWidth": 374,
+          "shown": true,
+          "width": 373.625,
+          "x": 405.0416870117187,
+          "y": 844
+        },
+        {
+          "clientWidth": 366,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 366,
+          "shown": false,
+          "width": 366.375,
+          "x": 14,
+          "y": 1037
+        },
+        {
+          "clientWidth": 398,
+          "height": 462.8541870117187,
+          "id": "folio-plan",
+          "scrollWidth": 398,
+          "shown": true,
+          "width": 398.2916870117187,
+          "x": 392.375,
+          "y": 1285.3021240234375
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      }
+    },
+    {
+      "name": "final-building-low-landscape",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 38.19791793823242
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 38.20833587646485
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 38.19791793823242
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 38.20833587646485
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 38.19791793823242
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 38.20833587646485
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 844,
+      "panels": [
+        {
+          "clientWidth": 844,
+          "height": 150,
+          "id": "battlefield",
+          "scrollWidth": 844,
+          "shown": true,
+          "width": 844,
+          "x": 0,
+          "y": 60
+        },
+        {
+          "clientWidth": 844,
+          "height": 180,
+          "id": "preparation-folio",
+          "scrollWidth": 844,
+          "shown": true,
+          "width": 844,
+          "x": 0,
+          "y": 210
+        },
+        {
+          "clientWidth": 254,
+          "height": 533.6354370117188,
+          "id": "side-body",
+          "scrollWidth": 254,
+          "shown": true,
+          "width": 254.21875,
+          "x": 324.66668701171875,
+          "y": 220
+        },
+        {
+          "clientWidth": 278,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 278,
+          "shown": false,
+          "width": 278,
+          "x": 12,
+          "y": 375
+        },
+        {
+          "clientWidth": 220,
+          "height": 162,
+          "id": "folio-plan",
+          "scrollWidth": 220,
+          "shown": true,
+          "width": 231.11459350585935,
+          "x": 600.8854370117188,
+          "y": 220
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 390,
+        "width": 844
+      }
+    },
+    {
+      "name": "final-building-phone",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 54.9375
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 54.94791793823242
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 54.9375
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 54.94791793823242
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 54.94791793823242
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 54.9375
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 390,
+      "panels": [
+        {
+          "clientWidth": 390,
+          "height": 308,
+          "id": "battlefield",
+          "scrollWidth": 390,
+          "shown": true,
+          "width": 390,
+          "x": 0,
+          "y": 106
+        },
+        {
+          "clientWidth": 375,
+          "height": 430,
+          "id": "preparation-folio",
+          "scrollWidth": 375,
+          "shown": true,
+          "width": 390,
+          "x": 0,
+          "y": 414
+        },
+        {
+          "clientWidth": 355,
+          "height": 457.0416870117187,
+          "id": "side-body",
+          "scrollWidth": 355,
+          "shown": true,
+          "width": 354.66668701171875,
+          "x": 10,
+          "y": 693.0208740234375
+        },
+        {
+          "clientWidth": 355,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 355,
+          "shown": false,
+          "width": 354.66668701171875,
+          "x": 10,
+          "y": 601
+        },
+        {
+          "clientWidth": 355,
+          "height": 448.8541870117187,
+          "id": "folio-plan",
+          "scrollWidth": 355,
+          "shown": true,
+          "width": 354.66668701171875,
+          "x": 10,
+          "y": 1162.0625
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "reviewed-building-desktop",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 65.83333587646484
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1440,
+      "panels": [
+        {
+          "clientWidth": 1440,
+          "height": 480,
+          "id": "battlefield",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 76
+        },
+        {
+          "clientWidth": 1440,
+          "height": 344,
+          "id": "preparation-folio",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 556
+        },
+        {
+          "clientWidth": 420,
+          "height": 441.3020935058594,
+          "id": "side-body",
+          "scrollWidth": 420,
+          "shown": true,
+          "width": 420,
+          "x": 598.6666870117188,
+          "y": 572
+        },
+        {
+          "clientWidth": 542,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 542,
+          "shown": false,
+          "width": 542,
+          "x": 20,
+          "y": 765
+        },
+        {
+          "clientWidth": 363,
+          "height": 316,
+          "id": "folio-plan",
+          "scrollWidth": 363,
+          "shown": true,
+          "width": 373.3333435058594,
+          "x": 1046.666748046875,
+          "y": 572
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reviewed-building-1715x1244",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 81.125
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 81.13542175292969
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 81.125
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 81.13542175292969
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 81.125
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 81.13542175292969
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1715,
+      "panels": [
+        {
+          "clientWidth": 1715,
+          "height": 824,
+          "id": "battlefield",
+          "scrollWidth": 1715,
+          "shown": true,
+          "width": 1715.3333740234375,
+          "x": 0,
+          "y": 76
+        },
+        {
+          "clientWidth": 1715,
+          "height": 344,
+          "id": "preparation-folio",
+          "scrollWidth": 1715,
+          "shown": true,
+          "width": 1715.3333740234375,
+          "x": 0,
+          "y": 900
+        },
+        {
+          "clientWidth": 512,
+          "height": 424.5104370117187,
+          "id": "side-body",
+          "scrollWidth": 512,
+          "shown": true,
+          "width": 511.78125,
+          "x": 708.7916870117188,
+          "y": 916
+        },
+        {
+          "clientWidth": 652,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 652,
+          "shown": false,
+          "width": 652.125,
+          "x": 20,
+          "y": 1109
+        },
+        {
+          "clientWidth": 436,
+          "height": 316,
+          "id": "folio-plan",
+          "scrollWidth": 436,
+          "shown": true,
+          "width": 446.7604370117187,
+          "x": 1248.572998046875,
+          "y": 916
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 1244,
+        "width": 1715
+      }
+    },
+    {
+      "name": "reviewed-building-1180x820",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 59.86458587646485
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 59.875
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 59.875
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 59.875
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 59.875
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 59.875
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1180,
+      "panels": [
+        {
+          "clientWidth": 1180,
+          "height": 416,
+          "id": "battlefield",
+          "scrollWidth": 1715,
+          "shown": true,
+          "width": 1180,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 1180,
+          "height": 336,
+          "id": "preparation-folio",
+          "scrollWidth": 1180,
+          "shown": true,
+          "width": 1180,
+          "x": 0,
+          "y": 484
+        },
+        {
+          "clientWidth": 384,
+          "height": 441.3020935058594,
+          "id": "side-body",
+          "scrollWidth": 384,
+          "shown": true,
+          "width": 384.2395935058594,
+          "x": 445.5729370117187,
+          "y": 498
+        },
+        {
+          "clientWidth": 407,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 407,
+          "shown": false,
+          "width": 406.90625,
+          "x": 14,
+          "y": 681
+        },
+        {
+          "clientWidth": 304,
+          "height": 310,
+          "id": "folio-plan",
+          "scrollWidth": 304,
+          "shown": true,
+          "width": 314.1875,
+          "x": 851.8125,
+          "y": 498
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      }
+    },
+    {
+      "name": "reviewed-building-1024x768",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 75.53125
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 75.53125
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 75.53125
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 1024,
+          "height": 350,
+          "id": "battlefield",
+          "scrollWidth": 1024,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 1009,
+          "height": 350,
+          "id": "preparation-folio",
+          "scrollWidth": 1009,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 418
+        },
+        {
+          "clientWidth": 478,
+          "height": 424.5104370117187,
+          "id": "side-body",
+          "scrollWidth": 478,
+          "shown": true,
+          "width": 478.2291870117187,
+          "x": 504.4270935058594,
+          "y": 432
+        },
+        {
+          "clientWidth": 466,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 466,
+          "shown": false,
+          "width": 465.7604370117187,
+          "x": 14,
+          "y": 625
+        },
+        {
+          "clientWidth": 502,
+          "height": 462.8541870117187,
+          "id": "folio-plan",
+          "scrollWidth": 502,
+          "shown": true,
+          "width": 502.8958435058594,
+          "x": 491.7604370117187,
+          "y": 856.5104370117188
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "reviewed-building-820x1180",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 58.10416793823242
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 58.10416793823242
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 820,
+      "panels": [
+        {
+          "clientWidth": 820,
+          "height": 762,
+          "id": "battlefield",
+          "scrollWidth": 820,
+          "shown": true,
+          "width": 820,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 805,
+          "height": 350,
+          "id": "preparation-folio",
+          "scrollWidth": 805,
+          "shown": true,
+          "width": 820,
+          "x": 0,
+          "y": 830
+        },
+        {
+          "clientWidth": 374,
+          "height": 441.3020935058594,
+          "id": "side-body",
+          "scrollWidth": 374,
+          "shown": true,
+          "width": 373.625,
+          "x": 405.0416870117187,
+          "y": 844
+        },
+        {
+          "clientWidth": 366,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 366,
+          "shown": false,
+          "width": 366.375,
+          "x": 14,
+          "y": 1037
+        },
+        {
+          "clientWidth": 398,
+          "height": 462.8541870117187,
+          "id": "folio-plan",
+          "scrollWidth": 398,
+          "shown": true,
+          "width": 398.2916870117187,
+          "x": 392.375,
+          "y": 1285.3021240234375
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      }
+    },
+    {
+      "name": "reviewed-building-844x390",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 44
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 844,
+      "panels": [
+        {
+          "clientWidth": 844,
+          "height": 150,
+          "id": "battlefield",
+          "scrollWidth": 844,
+          "shown": true,
+          "width": 844,
+          "x": 0,
+          "y": 60
+        },
+        {
+          "clientWidth": 844,
+          "height": 180,
+          "id": "preparation-folio",
+          "scrollWidth": 844,
+          "shown": true,
+          "width": 844,
+          "x": 0,
+          "y": 210
+        },
+        {
+          "clientWidth": 254,
+          "height": 548.96875,
+          "id": "side-body",
+          "scrollWidth": 254,
+          "shown": true,
+          "width": 254.21875,
+          "x": 324.66668701171875,
+          "y": 220
+        },
+        {
+          "clientWidth": 278,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 278,
+          "shown": false,
+          "width": 278,
+          "x": 12,
+          "y": 375
+        },
+        {
+          "clientWidth": 220,
+          "height": 162,
+          "id": "folio-plan",
+          "scrollWidth": 220,
+          "shown": true,
+          "width": 231.11459350585935,
+          "x": 600.8854370117188,
+          "y": 220
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 390,
+        "width": 844
+      }
+    },
+    {
+      "name": "reviewed-building-390x844",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 54.9375
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 54.94791793823242
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 54.9375
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 54.94791793823242
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 54.94791793823242
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 54.9375
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 390,
+      "panels": [
+        {
+          "clientWidth": 390,
+          "height": 308,
+          "id": "battlefield",
+          "scrollWidth": 844,
+          "shown": true,
+          "width": 390,
+          "x": 0,
+          "y": 106
+        },
+        {
+          "clientWidth": 375,
+          "height": 430,
+          "id": "preparation-folio",
+          "scrollWidth": 375,
+          "shown": true,
+          "width": 390,
+          "x": 0,
+          "y": 414
+        },
+        {
+          "clientWidth": 355,
+          "height": 480.2395935058594,
+          "id": "side-body",
+          "scrollWidth": 355,
+          "shown": true,
+          "width": 354.66668701171875,
+          "x": 10,
+          "y": 692.625
+        },
+        {
+          "clientWidth": 355,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 355,
+          "shown": false,
+          "width": 354.66668701171875,
+          "x": 10,
+          "y": 601
+        },
+        {
+          "clientWidth": 355,
+          "height": 448.8541870117187,
+          "id": "folio-plan",
+          "scrollWidth": 355,
+          "shown": true,
+          "width": 354.66668701171875,
+          "x": 10,
+          "y": 1184.8646240234375
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "reviewed-building-zoom",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 81.125
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 81.13542175292969
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 81.125
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 81.13542175292969
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 81.125
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 81.13542175292969
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1715,
+      "panels": [
+        {
+          "clientWidth": 1715,
+          "height": 824,
+          "id": "battlefield",
+          "scrollWidth": 1715,
+          "shown": true,
+          "width": 1715.3333740234375,
+          "x": 0,
+          "y": 76
+        },
+        {
+          "clientWidth": 1715,
+          "height": 344,
+          "id": "preparation-folio",
+          "scrollWidth": 1715,
+          "shown": true,
+          "width": 1715.3333740234375,
+          "x": 0,
+          "y": 900
+        },
+        {
+          "clientWidth": 512,
+          "height": 424.5104370117187,
+          "id": "side-body",
+          "scrollWidth": 512,
+          "shown": true,
+          "width": 511.78125,
+          "x": 708.7916870117188,
+          "y": 916
+        },
+        {
+          "clientWidth": 652,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 652,
+          "shown": false,
+          "width": 652.125,
+          "x": 20,
+          "y": 1109
+        },
+        {
+          "clientWidth": 436,
+          "height": 316,
+          "id": "folio-plan",
+          "scrollWidth": 436,
+          "shown": true,
+          "width": 446.7604370117187,
+          "x": 1248.572998046875,
+          "y": 916
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 1244,
+        "width": 1715
+      }
+    },
+    {
+      "name": "reviewed-zoom200-css-viewport-desktop",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 61.34375
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 61.35416793823242
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 61.34375
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 61.35416793823242
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 61.35416793823242
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 61.34375
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 858,
+      "panels": [
+        {
+          "clientWidth": 858,
+          "height": 204,
+          "id": "battlefield",
+          "scrollWidth": 858,
+          "shown": true,
+          "width": 858,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 843,
+          "height": 350,
+          "id": "preparation-folio",
+          "scrollWidth": 843,
+          "shown": true,
+          "width": 858,
+          "x": 0,
+          "y": 272
+        },
+        {
+          "clientWidth": 393,
+          "height": 441.3020935058594,
+          "id": "side-body",
+          "scrollWidth": 393,
+          "shown": true,
+          "width": 393.1041870117187,
+          "x": 423.5520935058594,
+          "y": 286
+        },
+        {
+          "clientWidth": 385,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 385,
+          "shown": false,
+          "width": 384.8854370117187,
+          "x": 14,
+          "y": 479
+        },
+        {
+          "clientWidth": 417,
+          "height": 462.8541870117187,
+          "id": "folio-plan",
+          "scrollWidth": 417,
+          "shown": true,
+          "width": 417.7708435058594,
+          "x": 410.8854370117187,
+          "y": 727.3021240234375
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 622,
+        "width": 858
+      }
+    },
+    {
+      "name": "reviewed-zoom200-css-viewport-ipad",
+      "controls": [
+        {
+          "height": 44,
+          "text": "I",
+          "width": 75.27083587646484
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 75.28125
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 75.27083587646484
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 75.28125
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 75.28125
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 75.27083587646484
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 512,
+      "panels": [
+        {
+          "clientWidth": 512,
+          "height": 105.20833587646484,
+          "id": "battlefield",
+          "scrollWidth": 512,
+          "shown": true,
+          "width": 512,
+          "x": 0,
+          "y": 106
+        },
+        {
+          "clientWidth": 497,
+          "height": 172.7916717529297,
+          "id": "preparation-folio",
+          "scrollWidth": 497,
+          "shown": true,
+          "width": 512,
+          "x": 0,
+          "y": 211.20834350585935
+        },
+        {
+          "clientWidth": 477,
+          "height": 425.9583435058594,
+          "id": "side-body",
+          "scrollWidth": 477,
+          "shown": true,
+          "width": 476.6666870117187,
+          "x": 10,
+          "y": 489.8333435058594
+        },
+        {
+          "clientWidth": 477,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 477,
+          "shown": false,
+          "width": 476.6666870117187,
+          "x": 10,
+          "y": 398.2083435058594
+        },
+        {
+          "clientWidth": 477,
+          "height": 448.8541870117187,
+          "id": "folio-plan",
+          "scrollWidth": 477,
+          "shown": true,
+          "width": 476.6666870117187,
+          "x": 10,
+          "y": 927.7916870117188
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "build",
+      "viewport": {
+        "height": 384,
+        "width": 512
+      }
+    },
+    {
+      "name": "reviewed-select-desktop",
+      "controls": [
+        {
+          "height": 48,
+          "text": "Keep Cleric I",
+          "width": 542
+        },
+        {
+          "height": 44,
+          "text": "I",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 65.83333587646484
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 65.83333587646484
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/druid-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1440,
+      "panels": [
+        {
+          "clientWidth": 1440,
+          "height": 480,
+          "id": "battlefield",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 76
+        },
+        {
+          "clientWidth": 1440,
+          "height": 344,
+          "id": "preparation-folio",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1440,
+          "x": 0,
+          "y": 556
+        },
+        {
+          "clientWidth": 420,
+          "height": 483.5520935058594,
+          "id": "side-body",
+          "scrollWidth": 420,
+          "shown": true,
+          "width": 420,
+          "x": 598.6666870117188,
+          "y": 572
+        },
+        {
+          "clientWidth": 542,
+          "height": 48,
+          "id": "folio-actions",
+          "scrollWidth": 542,
+          "shown": true,
+          "width": 542,
+          "x": 20,
+          "y": 765
+        },
+        {
+          "clientWidth": 363,
+          "height": 316,
+          "id": "folio-plan",
+          "scrollWidth": 363,
+          "shown": true,
+          "width": 373.3333435058594,
+          "x": 1046.666748046875,
+          "y": 572
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "select",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reviewed-select-ipad",
+      "controls": [
+        {
+          "height": 48,
+          "text": "Keep Cleric I",
+          "width": 465.7604370117187
+        },
+        {
+          "height": 44,
+          "text": "I",
+          "width": 75.53125
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 75.53125
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 75.54167175292969
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 75.53125
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/druid-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 1024,
+          "height": 350,
+          "id": "battlefield",
+          "scrollWidth": 1440,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 1009,
+          "height": 350,
+          "id": "preparation-folio",
+          "scrollWidth": 1009,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 418
+        },
+        {
+          "clientWidth": 478,
+          "height": 466.7604370117187,
+          "id": "side-body",
+          "scrollWidth": 478,
+          "shown": true,
+          "width": 478.2291870117187,
+          "x": 504.4270935058594,
+          "y": 432
+        },
+        {
+          "clientWidth": 466,
+          "height": 48,
+          "id": "folio-actions",
+          "scrollWidth": 466,
+          "shown": true,
+          "width": 465.7604370117187,
+          "x": 14,
+          "y": 625
+        },
+        {
+          "clientWidth": 502,
+          "height": 462.8541870117187,
+          "id": "folio-plan",
+          "scrollWidth": 502,
+          "shown": true,
+          "width": 502.8958435058594,
+          "x": 491.7604370117187,
+          "y": 898.7604370117188
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "select",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "reviewed-ready-ipad",
+      "controls": [
+        {
+          "height": 44,
+          "text": "Maze plans",
+          "width": 128.11459350585938
+        },
+        {
+          "height": 48,
+          "text": "Start wave 1",
+          "width": 170
+        },
+        {
+          "height": 44,
+          "text": "I",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 44
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/druid-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 714,
+          "height": 700,
+          "id": "battlefield",
+          "scrollWidth": 714,
+          "shown": true,
+          "width": 714,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "preparation-folio",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 299,
+          "height": 647.3333740234375,
+          "id": "side-body",
+          "scrollWidth": 299,
+          "shown": true,
+          "width": 309.3333435058594,
+          "x": 714.6666870117188,
+          "y": 120.66667175292967
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-plan",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 322,
+          "height": 65.33333587646484,
+          "id": "command-dock",
+          "scrollWidth": 322,
+          "shown": true,
+          "width": 323.44793701171875,
+          "x": 374.5520935058594,
+          "y": 686.6666870117188
+        }
+      ],
+      "phase": "ready",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "reviewed-combat-ipad",
+      "controls": [
+        {
+          "height": 48,
+          "text": "Resume",
+          "width": 109.28125
+        },
+        {
+          "height": 48,
+          "text": "1×",
+          "width": 90
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 1024,
+          "height": 700,
+          "id": "battlefield",
+          "scrollWidth": 1024,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "preparation-folio",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "side-body",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-plan",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 223,
+          "height": 65.33333587646484,
+          "id": "command-dock",
+          "scrollWidth": 223,
+          "shown": true,
+          "width": 224.61459350585935,
+          "x": 783.3854370117188,
+          "y": 686.6666870117188
+        }
+      ],
+      "phase": "combat",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "reviewed-current-wave-ipad",
+      "controls": [
+        {
+          "height": 48,
+          "text": "Resume",
+          "width": 109.28125
+        },
+        {
+          "height": 48,
+          "text": "1×",
+          "width": 90
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 1024,
+          "height": 700,
+          "id": "battlefield",
+          "scrollWidth": 1024,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "preparation-folio",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "side-body",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-plan",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 223,
+          "height": 65.33333587646484,
+          "id": "command-dock",
+          "scrollWidth": 223,
+          "shown": true,
+          "width": 224.61459350585935,
+          "x": 783.3854370117188,
+          "y": 686.6666870117188
+        }
+      ],
+      "phase": "combat",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "reviewed-recipe-navigation-phone",
+      "controls": [
+        {
+          "height": 48,
+          "text": "Resume",
+          "width": 109.28125
+        },
+        {
+          "height": 48,
+          "text": "1×",
+          "width": 90
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/crownofages.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/highking.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/runebreaker-6.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/soldier-6.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 390,
+      "panels": [
+        {
+          "clientWidth": 390,
+          "height": 738,
+          "id": "battlefield",
+          "scrollWidth": 1024,
+          "shown": true,
+          "width": 390,
+          "x": 0,
+          "y": 106
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "preparation-folio",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "side-body",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-plan",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 223,
+          "height": 65.33333587646484,
+          "id": "command-dock",
+          "scrollWidth": 223,
+          "shown": true,
+          "width": 224.61459350585935,
+          "x": 155.3854217529297,
+          "y": 768.6666870117188
+        }
+      ],
+      "phase": "combat",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "name": "publication-current-wave-ipad",
+      "controls": [
+        {
+          "height": 48,
+          "text": "Resume",
+          "width": 109.28125
+        },
+        {
+          "height": 48,
+          "text": "1×",
+          "width": 90
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_01.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 714,
+          "height": 700,
+          "id": "battlefield",
+          "scrollWidth": 714,
+          "shown": true,
+          "width": 714,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "preparation-folio",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 309,
+          "height": 647.3333740234375,
+          "id": "side-body",
+          "scrollWidth": 309,
+          "shown": true,
+          "width": 309.3333435058594,
+          "x": 714.6666870117188,
+          "y": 120.66667175292967
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-plan",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 223,
+          "height": 65.33333587646484,
+          "id": "command-dock",
+          "scrollWidth": 223,
+          "shown": true,
+          "width": 224.61459350585935,
+          "x": 473.3854370117187,
+          "y": 686.6666870117188
+        }
+      ],
+      "phase": "combat",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "publication-rank-comparison-ipad",
+      "controls": [
+        {
+          "height": 44,
+          "text": "Maze plans",
+          "width": 128.11459350585938
+        },
+        {
+          "height": 48,
+          "text": "Start wave 31",
+          "width": 170
+        },
+        {
+          "height": 44,
+          "text": "I",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 44
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_31.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-4.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostblade.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/fireballista.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/rimewatch.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-2.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-3.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 714,
+          "height": 700,
+          "id": "battlefield",
+          "scrollWidth": 714,
+          "shown": true,
+          "width": 714,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "preparation-folio",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 299,
+          "height": 647.3333740234375,
+          "id": "side-body",
+          "scrollWidth": 299,
+          "shown": true,
+          "width": 309.3333435058594,
+          "x": 714.6666870117188,
+          "y": 120.66667175292967
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-plan",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 322,
+          "height": 65.33333587646484,
+          "id": "command-dock",
+          "scrollWidth": 322,
+          "shown": true,
+          "width": 323.44793701171875,
+          "x": 374.5520935058594,
+          "y": 686.6666870117188
+        }
+      ],
+      "phase": "ready",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "publication-three-combinations-ipad",
+      "controls": [
+        {
+          "height": 44,
+          "text": "Maze plans",
+          "width": 128.11459350585938
+        },
+        {
+          "height": 48,
+          "text": "Start wave 31",
+          "width": 170
+        },
+        {
+          "height": 44,
+          "text": "I",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "II",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "III",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "IV",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "V",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "text": "VI",
+          "width": 44
+        }
+      ],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_31.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-5.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/winterhold.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archangel.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/frostwarden-5.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/mage-4.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/stormcaller-4.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 714,
+          "height": 700,
+          "id": "battlefield",
+          "scrollWidth": 714,
+          "shown": true,
+          "width": 714,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "preparation-folio",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 299,
+          "height": 647.3333740234375,
+          "id": "side-body",
+          "scrollWidth": 299,
+          "shown": true,
+          "width": 309.3333435058594,
+          "x": 714.6666870117188,
+          "y": 120.66667175292967
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-plan",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 322,
+          "height": 65.33333587646484,
+          "id": "command-dock",
+          "scrollWidth": 322,
+          "shown": true,
+          "width": 323.44793701171875,
+          "x": 374.5520935058594,
+          "y": 686.6666870117188
+        }
+      ],
+      "phase": "ready",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    },
+    {
+      "name": "publication-combination-ready-ipad",
+      "controls": [],
+      "images": [
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/host_31.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/cleric-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/druid-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/archer-1.png?v=original-reference-20261016-v1"
+        },
+        {
+          "loaded": true,
+          "src": "/assets/ui/reference-portraits/thornwarden.png?v=original-reference-20261016-v1"
+        }
+      ],
+      "pageWidth": 1024,
+      "panels": [
+        {
+          "clientWidth": 714,
+          "height": 356,
+          "id": "battlefield",
+          "scrollWidth": 714,
+          "shown": true,
+          "width": 714,
+          "x": 0,
+          "y": 68
+        },
+        {
+          "clientWidth": 1024,
+          "height": 344,
+          "id": "preparation-folio",
+          "scrollWidth": 1024,
+          "shown": true,
+          "width": 1024,
+          "x": 0,
+          "y": 424
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "side-body",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-actions",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "folio-plan",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "clientWidth": 0,
+          "height": 0,
+          "id": "command-dock",
+          "scrollWidth": 0,
+          "shown": false,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "phase": "ready",
+      "viewport": {
+        "height": 768,
+        "width": 1024
+      }
+    }
+  ],
+  "additionalChecks": [
+    "Candidate Frost Warden V exposes exactly three actual-rank recipes",
+    "Only Lady Claire row expanded after selecting it",
+    "Exact Lady Claire preview uses selected Frost Warden foundation",
+    "One Combine click returns Ready with Lady Claire inspector and no recipe receipt",
+    "Boss review uses one persistent aggregate bar; Pause works with a single click"
+  ],
+  "limitations": [
+    "Browser viewport emulation; physical iPad Safari not available",
+    "200% equivalent CSS viewports tested; native browser zoom shortcut did not change viewport"
+  ],
+  "intermediateScreenshots": [
+    "reviewed-current-wave-ipad.jpg predates overflow fix",
+    "publication-combination-ready-ipad.jpg predates preview map-width fix",
+    "publication-three-combinations-ipad.jpg shows correct two recipes for retained Frost Warden; current candidate has three"
+  ]
+}

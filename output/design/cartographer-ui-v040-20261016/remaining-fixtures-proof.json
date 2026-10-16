@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-16T11:26:03.827Z",
+  "status": "PASS",
+  "productionMain": {
+    "path": "game/main.js",
+    "sha256": "e493ca2c188a23d00caaa805c1ea84f27f2b525869f507b2870b1154c413597e",
+    "editedByThisTask": false
+  },
+  "targetedTests": {
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0,
+    "log": "output/design/cartographer-ui-v040-20261016/remaining-fixtures-targeted-tests.txt",
+    "sha256": "d9ef750e0664f8336e72edc1c9a8f9370252104cd42f2dca159b20ca78c626f3"
+  },
+  "files": [
+    {
+      "path": "tests/header-combat-controls.test.mjs",
+      "sha256": "6e5b7e5be75f124325d60386ae1193e472f78dda779d31144c19fb951ff6d614",
+      "bytes": 13793
+    },
+    {
+      "path": "tests/phase-touch-d006.test.mjs",
+      "sha256": "41bca459c56cac9324dcb9069209b34e940fe5fb083d60d91cdaf825ecd3e2c5",
+      "bytes": 11063
+    },
+    {
+      "path": "tests/draft-presentation.test.mjs",
+      "sha256": "284ead7fb6836f3562ad9c84067a74322e09af148ecf95fea628cbcb940d1751",
+      "bytes": 10478
+    },
+    {
+      "path": "tests/command-points-ui.test.mjs",
+      "sha256": "d45008a37f224612172fd314bfc9a33089a8b4a49cdaedee8e87f36215d581e5",
+      "bytes": 10077
+    }
+  ],
+  "changes": [
+    "Single lazily mounted combat-control host belongs to the battlefield dock; Ready actions coexist there, header retains catalog/resource controls.",
+    "Production speed commands cycle1→2→1 repeatedly; real combat clock and movement verify both supported UI speeds while pause stops both. Existing explicit core3×/modal compatibility checks remain.",
+    "Paused Combat exposes its actual dataset/model and no obsolete phase strip; accepted same-ID touch, stale reserve, exact keeper and concealed boss tests retain original guards.",
+    "Actual renderDraft fixture supplies replaceChildren and the dedicated folio-command-actions host; scroll, campaign-length handler, hidden draws, RNG, and single-host CP actions are checked.",
+    "Returning rank-II reserve fixture supplies soldier:2 and explicitly rejects rank-I family fallback; physical reserve placement/identity/five-card and keeper guards unchanged."
+  ],
+  "limitations": [
+    "No production edits in this task.",
+    "Native layout, touch hit testing, WebGL and physical iPad certification remain separate release gates."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-16",
+  "generator": "Built-in image_gen",
+  "jobs": [
+    {
+      "key": "03-combination-preview-desktop",
+      "prompt": "Change ONLY map badges in this game UI. Keep entire lower folio and header, typography, DPS, artwork and terrain. Replace the bare minus/star/cross circles with EXACT EXISTING IMPLEMENTED badges from the second reference: arched portrait thumbnail frame with small role circle at lower right. Archer I at result anchor gets Elven Ranger portrait in gold frame with gold STAR, candidate bubble 3. Druid I gets Elven Ranger portrait with salmon MINUS, candidate bubble 2. Owned Cleric I gets the same consumed portrait/minus and NO candidate number. Mage I, Engineer I and Soldier I get wall glyph portraits and gray CROSS, candidate bubbles 1,4,5 respectively. Tiny leader line goes from each badge to its actual unit, never long curved webs joining units. Do not recolor consumed minus cyan; cyan is reserved for pinned planning. Do not replace a badge with just a circle or word plaque. Preserve exact existing badge silhouette from reference. Nothing else changes.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/03-combination-preview-desktop-r4.png",
+      "output": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/03-combination-preview-desktop-r5.png",
+      "references": [
+        "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/03-combination-preview-desktop-r4.png",
+        "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-refinements-v31/pinned-and-merge-colors.png"
+      ]
+    },
+    {
+      "key": "03-combination-preview-ipad",
+      "prompt": "Change ONLY the role badges over the map in the FIRST image. Keep ALL other image areas unchanged. Match the existing runtime reference SECOND image's badge styling: gold result STAR with result champion portrait; salmon consumed MINUS circles; gray discarded badges with WALL GLYPH portraits and CROSS, not portrait of discarded defender. Fix duplicated candidate numbers: Mage bubble 1, Druid 2, result Archer 3, Engineer 4, Soldier 5. Retained Cleric has NO number. Portrait badges keep rounded arch shape and thin leader to actual unit. Do not add any MERGE badge to this non-merge preview. No stats/text/layout changes.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/03-combination-preview-ipad-r4.png",
+      "output": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/03-combination-preview-ipad-r5.png",
+      "references": [
+        "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/03-combination-preview-ipad-r4.png",
+        "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-refinements-v31/pinned-and-merge-colors.png"
+      ]
+    },
+    {
+      "key": "10-three-combinations-ipad",
+      "prompt": "Make only three small text corrections to the FIRST game concept. In the top-left 'Next wave 39' paper remove the Goblin Dust Dancers name and goblin portrait entirely; leave a simple compact Next wave 39 header. Directly below it use the shallow single-line text 'Peak DPS — · Not measured' plus disclosure. Change both invented 'FROST' damage labels on Frost Warden V card/detail to 'MAGICAL', with purple magical symbol. Keep the THREE recipe rows, selected Frozen Celestial detail, all names and exact ranks, candidate cards, actions, map, art, resource bar, spacing and everything else unchanged. Do not remove or add a recipe.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/10-three-combinations-ipad-r4.png",
+      "output": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/10-three-combinations-ipad-r5.png",
+      "references": [
+        "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/10-three-combinations-ipad-r4.png"
+      ]
+    },
+    {
+      "key": "10-three-combinations-desktop",
+      "prompt": "Make one small local correction. In the top-left Next wave 39 summary remove ONLY the incorrect Goblin Dust Dancers label and goblin portrait, leaving a compact 'Next wave 39' heading followed by existing shallow 'Peak DPS — · Not measured' strip. Do not change any other pixel area, any recipe option, ingredient ranks, controls, map or style. All text English.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/10-three-combinations-desktop-r4.png",
+      "output": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/10-three-combinations-desktop-r5.png",
+      "references": [
+        "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/reviews/20261016-comments-02/10-three-combinations-desktop-r4.png"
+      ]
+    }
+  ]
+}

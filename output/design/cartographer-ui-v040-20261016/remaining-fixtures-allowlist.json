@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "owner": "/root/audit_audio",
+  "scope": "Approved UI expectation and DOM fixture adaptation only",
+  "sourceAndTestPaths": [
+    "tests/header-combat-controls.test.mjs",
+    "tests/phase-touch-d006.test.mjs",
+    "tests/draft-presentation.test.mjs",
+    "tests/command-points-ui.test.mjs"
+  ],
+  "evidencePaths": [
+    "output/design/cartographer-ui-v040-20261016/remaining-fixtures-targeted-tests.txt",
+    "output/design/cartographer-ui-v040-20261016/remaining-fixtures-allowlist.json",
+    "output/design/cartographer-ui-v040-20261016/remaining-fixtures-proof.json"
+  ]
+}

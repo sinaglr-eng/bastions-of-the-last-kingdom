@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-16",
+  "directory": "reviews/20261016-comments-03",
+  "status": "Third requested concept refinement; game not implemented",
+  "scenarioOverrides": {
+    "01-building": {
+      "focus": "The same preparation folio as Choose keeper: five slots, selected Mage rank stats/effects and a compact pinned plan."
+    },
+    "02-choose-keeper": {
+      "focus": "Archer II base stats and single-target behavior; two potential recipes with one expanded detail."
+    },
+    "05-combat": {
+      "focus": "One current-wave summary above DPS; Pause and one Speed button; catalogs stay in the header."
+    },
+    "06-current-wave": {
+      "focus": "Combined revealed boss health at top center; current-wave context above DPS; compact controls."
+    },
+    "08-recipe-catalog": {
+      "focus": "Find a goal; list rows show built basic ingredients / total required, separately from draft recruits."
+    },
+    "09-recipe-navigation": {
+      "focus": "Ingredient progress in list rows; ordered recipe navigation stays separate from exploration history."
+    },
+    "03-combination-preview": {
+      "focus": "One transformation and confirmation; preserve existing map badges and remove future odds."
+    },
+    "04-ready-defender": {
+      "focus": "Select a defender on the map to inspect; compact Maze plans and Start wave dock."
+    }
+  },
+  "rules": {
+    "combatWaveContext": "Current wave",
+    "betweenWaveContext": "Next wave",
+    "dpsPlacement": "Below the phase-dependent wave summary",
+    "speedControl": "One button cycles existing1x/2x; Pause stays separate",
+    "bossHealth": "Top-center revealed living boss current/max total",
+    "recipeRowCounter": "sum ownedCount / sum count; excludes draftCount",
+    "globalCatalogControls": "Top bar only",
+    "buildingActions": "Hide Reroll and Reserve until Choosing permits them",
+    "collapsedDps": "One shallow score / measurement wave / disclosure strip",
+    "multipleCombinations": "Compact vertical list; one shared expanded detail; preview never crafts",
+    "mapBadges": "Reuse existing renderer, portraits, role colors and guarded activation",
+    "previewOdds": "No future-rank odds in combination preview",
+    "readyDock": "Secondary Maze plans and primary Start wave only",
+    "inspection": "Select map defender; no Inspect keeper button",
+    "sharedPreparationFolio": "Building and Choosing share card geometry, detail location and styling; phase controls stay truthful",
+    "rankStatistics": "Damage / hit, Base direct DPS, Range, Interval from displayed rank",
+    "rankEffects": "Quantified abilities from the same displayed-rank profile; replace generic description",
+    "actualRank": "Compare rank only; Keep, Merge and crafting eligibility use actual inventory",
+    "baseVsMeasured": "Base direct DPS is single-target pre-defense; retained Peak DPS is independent",
+    "frostWardenType": "Physical, from current campaign override"
+  },
+  "previousReview": "reviews/20261016-comments-02",
+  "headerDescription": "Eleven phase and exploration studies for iPad and desktop. Shared preparation folio, numeric rank statistics and quantified defender effects, with an explicit rank-comparison example.",
+  "additionalScenarios": [
+    {
+      "id": "10-three-combinations",
+      "name": "Three combinations",
+      "phase": "Choosing / Frost Warden V / illustrative later-wave state",
+      "focus": "Frost Warden V: Physical damage, 36% slow for 3 s, numeric stats and three recipe options."
+    },
+    {
+      "id": "11-rank-comparison",
+      "name": "Rank comparison preview",
+      "phase": "Choosing / actual Archer II / preview rank IV",
+      "focus": "Displayed rank IV changes base stats to 48 damage and 192 DPS; the actual Archer II and Keep action remain unchanged."
+    }
+  ]
+}

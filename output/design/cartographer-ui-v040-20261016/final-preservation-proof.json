@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "status": "passed",
+  "baseline": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+  "worktree": "C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower Defense game",
+  "inputs": [
+    {
+      "file": "output/design/cartographer-ui-v040-20261016/before-protected.json",
+      "bytes": 192940,
+      "sha256": "fbddf41b43fb54a93e69aba8f16cc3586848e45152136a7878884c2a7b62c81b"
+    },
+    {
+      "file": "docs/ui-cartographers-table-handoff-20261016/PACKAGE_MANIFEST.json",
+      "bytes": 23447,
+      "sha256": "637292493fe5ae99bd6d8dc56b0e376821d293248c0e9ea2233de2bd0ac51c04"
+    },
+    {
+      "file": "docs/ui-cartographers-table-handoff-20261016/PORTRAIT_SOURCES.json",
+      "bytes": 199699,
+      "sha256": "a4be688f137b7ec680b7b4f8742ef759733d60cad97554057b5d12274d49121e"
+    },
+    {
+      "file": "public/assets/ui/reference-portraits/manifest.json",
+      "bytes": 155594,
+      "sha256": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4"
+    }
+  ],
+  "protected": {
+    "expected": 1039,
+    "checked": 1039,
+    "byteIdentical": 1038,
+    "allowedChanged": 1,
+    "unexpectedChanges": [],
+    "missing": [],
+    "allowedChanges": [
+      {
+        "file": "game/render/draft-markers.js",
+        "before": {
+          "bytes": 14776,
+          "sha256": "88c6bfef1b17fc55a9a0df3e4be0ed253ad765699c09198d40da5740465a88fe"
+        },
+        "after": {
+          "bytes": 14823,
+          "sha256": "9686534bff69fbb1023ff620fa4faeba81dcbec81a2d5cb20c8e5de3bdb54de5"
+        },
+        "semanticScope": "Only defenderPortrait import replaced with exact reference resolver; all remaining normalized source identical",
+        "normalizedContentVerified": true,
+        "baselineBytesMatchedGitRepresentation": true
+      }
+    ],
+    "originalFilesExceptApprovedImport": {
+      "count": 1038,
+      "baselineDigest": "a1e5c1a252668da9ea8dbc29749a2626c5a42ee1af7629c720d10d1f6995258c",
+      "currentDigest": "a1e5c1a252668da9ea8dbc29749a2626c5a42ee1af7629c720d10d1f6995258c",
+      "identical": true
+    },
+    "groups": {
+      "backend": {
+        "count": 11,
+        "bytes": 42592,
+        "unchanged": 11
+      },
+      "data": {
+        "count": 11,
+        "bytes": 198897,
+        "unchanged": 11
+      },
+      "game/audio": {
+        "count": 6,
+        "bytes": 45688,
+        "unchanged": 6
+      },
+      "game/core": {
+        "count": 33,
+        "bytes": 233471,
+        "unchanged": 33
+      },
+      "game/render": {
+        "count": 53,
+        "bytes": 446753,
+        "unchanged": 52
+      },
+      "public/assets/archer": {
+        "count": 7,
+        "bytes": 2222283,
+        "unchanged": 7
+      },
+      "public/assets/army": {
+        "count": 87,
+        "bytes": 9692199,
+        "unchanged": 87
+      },
+      "public/assets/audio": {
+        "count": 208,
+        "bytes": 22396942,
+        "unchanged": 208
+      },
+      "public/assets/designs": {
+        "count": 13,
+        "bytes": 2333049,
+        "unchanged": 13
+      },
+      "public/assets/enemies": {
+        "count": 121,
+        "bytes": 16336727,
+        "unchanged": 121
+      },
+      "public/assets/geometric": {
+        "count": 333,
+        "bytes": 289875465,
+        "unchanged": 333
+      },
+      "public/assets/models": {
+        "count": 139,
+        "bytes": 17885276,
+        "unchanged": 139
+      },
+      "public/assets/scenery": {
+        "count": 17,
+        "bytes": 46616574,
+        "unchanged": 17
+      }
+    },
+    "unexpectedAdded": [],
+    "authorizedNewUiPortraitFiles": 137
+  },
+  "package": {
+    "filesChecked": 167,
+    "unchanged": 167,
+    "mismatches": [],
+    "scope": "All packaged files except this manifest and the verification receipt",
+    "totalFiles": 169,
+    "excludedReceipts": [
+      "PACKAGE_MANIFEST.json",
+      "PACKAGE_VERIFICATION.json"
+    ]
+  },
+  "portraits": {
+    "identities": 136,
+    "categories": {
+      "towers": 48,
+      "champions": 37,
+      "claire": 1,
+      "enemies": 50
+    },
+    "uniqueApprovedOriginalSources": 107,
+    "manifestRevision": "original-reference-20261016-v1",
+    "outputAndSourceMismatches": [],
+    "exactPixels": {
+      "status": "passed",
+      "exactIdentityCrops": 136,
+      "verifiedOriginalRasters": 107,
+      "exactOriginalCropPixels": true,
+      "runtimeResamplingOrRepainting": false
+    },
+    "latestGalleryAliasCounts": {
+      "match": 94,
+      "different": 42,
+      "missing": 0
+    },
+    "sourcePrecedence": "Exact approved source tied to current model takes precedence over a different gallery revision. All differences are explicit; do not silently redraw models or substitute another art revision.",
+    "readOnlyPixelVerifier": {
+      "file": "tools/verify-reference-portraits.py",
+      "bytes": 1472,
+      "sha256": "6b6a91eb57c412fad46f3d79b26b4ea6c58d48f2fdb5e3aea290626fe843dbf9"
+    },
+    "runtimeGroups": {
+      "basicRanks": 48,
+      "fixedChampions": 38,
+      "enemies": 50
+    },
+    "sourceResolution": {
+      "packagedOriginalRasters": 107,
+      "originalSourceLocations": {
+        "ISO": 61,
+        "MAINReadOnly": 46
+      },
+      "note": "Logical gallery paths not copied into ISO were hashed in MAIN read-only; all 107 immutable packaged originals and all 136 output crops were also hashed independently in ISO"
+    }
+  },
+  "media": {
+    "protectedMp3": {
+      "count": 205,
+      "bytes": 22359519,
+      "digest": "cc38f0de22e8c2fac10ba58282f435bac16dd4c1266aca1812b9dd5d44083a39",
+      "groups": {
+        "public/assets/audio/allied-recast-20261011": {
+          "count": 92,
+          "bytes": 5060362
+        },
+        "public/assets/audio/attacks": {
+          "count": 15,
+          "bytes": 494526
+        },
+        "public/assets/audio/music": {
+          "count": 6,
+          "bytes": 11787737
+        },
+        "public/assets/audio/selection": {
+          "count": 92,
+          "bytes": 5016894
+        }
+      }
+    },
+    "activeAudio": {
+      "count": 113,
+      "bytes": 17342625,
+      "digest": "6991662edc592ce05eaeb3a1e169d5012c6902ed6aefcdd6ff60365d534ed48e",
+      "catalogues": [
+        {
+          "file": "public/assets/audio/approved-20261011/catalogue.json",
+          "bytes": 16621,
+          "sha256": "17e851632fa643e8a6011d06b548eccdcf6e327da31d653f48e8b945a1704175"
+        },
+        {
+          "file": "public/assets/audio/allied-recast-20261011/catalogue.json",
+          "bytes": 10401,
+          "sha256": "6da0eb466e3d1ecb31fa4d75abcf05eb5c0e22561a78b2c7e48cabcb08fc89d8"
+        }
+      ],
+      "catalogueHashMismatches": []
+    },
+    "modelBinary": {
+      "count": 352,
+      "bytes": 232389636,
+      "digest": "79c8a8a90794c27fc89890823c68adda29373452c786aab4ba2624736ea73e2a"
+    },
+    "artRevisions": {
+      "DEFENDER_ART_VERSION": {
+        "before": "basic-defenders-v7",
+        "current": "basic-defenders-v7",
+        "unchanged": true
+      },
+      "CHAMPION_ART_VERSION": {
+        "before": "champions-v8",
+        "current": "champions-v8",
+        "unchanged": true
+      },
+      "ENEMY_ART_VERSION": {
+        "before": "geometric-game-v7",
+        "current": "geometric-game-v7",
+        "unchanged": true
+      },
+      "SCENERY_ART_VERSION": {
+        "before": "scenery-v9",
+        "current": "scenery-v9",
+        "unchanged": true
+      }
+    }
+  },
+  "actionReview": {
+    "status": "passed",
+    "sourceChecks": {
+      "compactLegacyContainerEmptied": true,
+      "draftCardsOnlyInBuildSelect": true,
+      "numericShortcutPhaseGuard": true,
+      "perCardDuplicateActionsDisabled": true,
+      "hiddenAttributeRemovesLayout": true,
+      "previewHidesOtherFolioColumns": true,
+      "combineResetsRecipeReceiptBeforeRender": true
+    },
+    "sourceReceipts": [
+      {
+        "file": "game/main.js",
+        "bytes": 69381,
+        "sha256": "fb4c4ad3052b20fe0768fd2e6cbcbb8df1038bfe1e1bcad95ee41d6cc78c7fd6"
+      },
+      {
+        "file": "ui/cartographer.css",
+        "bytes": 44884,
+        "sha256": "3c2a39b1e65faaef695cf0e9900e6ad16427d48c5a585706eedbda69ae2e4bff"
+      },
+      {
+        "file": "ui/header-combat-controls.js",
+        "bytes": 1314,
+        "sha256": "356c49ecec7d442f02429ec3bf2648731fc68adff5e3ff73d6fd7594b29483bc"
+      },
+      {
+        "file": "ui/command-pointer-input.js",
+        "bytes": 5449,
+        "sha256": "020ec55a523e40a5cf7cdf68965753b6c7b019098206546adac72cc3144fce61"
+      },
+      {
+        "file": "ui/cartographer-folio.js",
+        "bytes": 6097,
+        "sha256": "06a262d0650ac1c2c32a9019a4d1c24ff59b6bb42375257f2c8fd506fc69bbf7"
+      }
+    ],
+    "meaningfulRegression": "tests/cartographer-layout-v040.test.mjs: actual renderer and keyboard exercise Build/Select/Ready/Combat, including an injected stale hidden historical card; phase-hidden Pause/Speed disabled and compact legacy subtree emptied",
+    "limits": "Static source, actual-function Node regression and file hashes; browser geometry/focusability/decode are separate root native evidence",
+    "regression": {
+      "cases": 15,
+      "testsReceipt": {
+        "file": "tests/cartographer-layout-v040.test.mjs",
+        "bytes": 28028,
+        "sha256": "c585e92afe89aff754d35c8fedd3d527331365a196ad20d454f8f85731a4a049"
+      },
+      "relatedTargeted": {
+        "tests": 68,
+        "passed": 68,
+        "failed": 0,
+        "log": {
+          "file": "output/design/cartographer-ui-v040-20261016/cartographer-layout-final-tests.log",
+          "bytes": 20018,
+          "sha256": "833e65454f0f1a8c0552e7c31898c10fe0ebd234a331ab97301c49f3e8354633"
+        }
+      }
+    },
+    "combineLifecycle": "Actual main subscriber resets only UI preview/recipe/snapshot state before change rendering; actual retained Ready craft and guarded retained-V merge show the resulting selected defender on the same foundation and preserve the pin"
+  },
+  "scope": "No runtime, docs, assets, backend or MAIN edits by this audit; only this new evidence and temporary audit script",
+  "limits": [
+    "Package preparation receipts remain historical and are not relabeled as current implementation results",
+    "Current source hashes do not prove deployed bytes or physical Safari/iPad behavior",
+    "42 latest gallery aliases differ from the immutable approved authoring sources; exact current-model source precedence is preserved",
+    "The 1039-input preservation inventory is a protected subset, not a whole-repository byte guarantee; authorized UI, crop, metadata, documentation and test changes are reviewed separately"
+  ]
+}

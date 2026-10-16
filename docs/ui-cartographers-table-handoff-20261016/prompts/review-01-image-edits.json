@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-16",
+  "status": "USER-REQUESTED DESIGN AMENDMENTS; CONCEPTS ONLY; GAME NOT IMPLEMENTED",
+  "generator": "Built-in image_gen",
+  "sourceSelection": {
+    "01-building-ipad": "01-building-ipad-r2.png",
+    "01-building-desktop": "01-building-desktop-r2.png",
+    "02-choose-keeper-ipad": "02-choose-keeper-ipad-r2.png",
+    "02-choose-keeper-desktop": "02-choose-keeper-desktop-r2.png",
+    "05-combat-ipad": "05-combat-ipad.png",
+    "05-combat-desktop": "05-combat-desktop.png",
+    "06-current-wave-ipad": "06-current-wave-ipad.png",
+    "06-current-wave-desktop": "06-current-wave-desktop.png",
+    "08-recipe-catalog-ipad": "08-recipe-catalog-ipad.png",
+    "08-recipe-catalog-desktop": "08-recipe-catalog-desktop.png",
+    "09-recipe-navigation-ipad": "09-recipe-navigation-ipad-r2.png"
+  },
+  "jobs": [
+    {
+      "key": "01-building-ipad",
+      "comments": [
+        1
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nRemove ONLY the redundant visible text \"Not this draft\" from the bottom future-odds line. Do not replace it with a synonym, helper paragraph, badge or new control. Keep \"Future draws\" and all six probabilities I49% II34% III17% IV0% V0% VI0%. Reclaim the text's space with natural spacing. Keep current3 revealed recruits and2 unrevealed slots and pinned progress exactly as before. Avoid introducing new statistics.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/01-building-ipad-r2.png",
+      "output": "reviews/20261016-comments-01/01-building-ipad-r3.png",
+      "device": "ipad"
+    },
+    {
+      "key": "02-choose-keeper-ipad",
+      "comments": [
+        2
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nRemove the ENTIRE \"Future rank odds\"/\"Future draws\" block from the Choose keeper folio, including all probability cells49%34%17%0%0%0%. Do not remove the separate six rank-COMPARISON buttons I II III IV V VI: those compare the selected Archer and must stay, without made-up numeric damage rows. Use freed space for a calm, wider selected-defender/combination area rather than a replacement information block. Keep actual selected Archer I base hit6,range4,interval0.25s and exactly five draft cards. Keep Keep Archer I, Reroll1CP, Reserve1CP and Preview combination. Correct the combination allocation summary to \"1 built · 2 this round\" with Cleric I Built, Druid I This round, Archer I This round. No odds in this view.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/02-choose-keeper-ipad-r2.png",
+      "output": "reviews/20261016-comments-01/02-choose-keeper-ipad-r3.png",
+      "device": "ipad"
+    },
+    {
+      "key": "05-combat-ipad",
+      "comments": [
+        3,
+        4,
+        5
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nDe-clutter COMBAT wave9:\n1. At upper LEFT REPLACE the entire \"Next wave10\" boss-preview section with a concise \"Current wave9\" section for Goblin Dust Dancers: \"7 remaining\", \"4 on field · 3 approaching\", with a small inspect/expand control. Do not show Mogrok, future boss stats or any Next wave panel during combat. Keep measured \"Sum peak DPS514.7 — Last wave8 — Measured individual peaks\" directly BELOW Current wave, including its five existing rows and MVP metadata.\n2. DELETE the duplicate Current wave banner near the bottom, and any duplicate Current wave box at top-right. There is exactly ONE current-wave summary, above DPS at left. Keep the selected Mage I peek at the right edge, concise.\n3. REMOVE Recipes and Enemy waves from the bottom controls: those commands already exist ONCE in the TOP bar and must stay there.\n4. Replace separate1x and2x controls with ONE labelled button \"Speed 1x\" and a small cycle glyph. It cycles1x/2x; never show a second speed button or expanded speed menu in this screenshot. Keep a SEPARATE Pause button.\n5. Replace the old full-width bottom slab with a compact TWO-BUTTON command dock near the bottom-right safe edge: Pause and Speed1x. The empty footer area becomes visible battlefield. Do not retain a giant blank bar.\nRetain only a slim pinned-recipe bookmark beneath DPS, not a large future-planning card. No other new panels. Keep Wave9/50 top resources. This is non-boss combat, no boss HP bar here.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/05-combat-ipad.png",
+      "output": "reviews/20261016-comments-01/05-combat-ipad-r3.png",
+      "device": "ipad"
+    },
+    {
+      "key": "06-current-wave-ipad",
+      "comments": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nBoss COMBAT wave10:\n1. Add a prominent but slim TOP-CENTER paper boss-health strip directly BELOW the persistent resource bar, across the free upper-center battlefield. Exact title \"Mogrok, the Gatebreaker\", exact text \"Boss health 2,130 / 4,226 HP\", red fill about50.4% on a dark track. This is the PRIMARY total boss-health display.\n2. Remove the HP bar and repeated currentHP fraction from the RIGHT inspector. Make that inspector short and content-sized rather than a tall near-empty column. Keep Current wave10/Mogrok identity, \"1 on field ·0 approaching\", Ground,Armor14,base speed1.65tiles/s, defender-return and close. No second HP bar.\n3. At LEFT replace Next wave11/Orc Hookbearers preview with a small Current wave10 summary,1boss,1onfield0approaching. Keep compact \"Sum peak DPS603.2 — Last wave9\" directly below. No Next wave preview anywhere during combat. No duplicate bottom Current wave banner.\n4. Keep Recipes and Enemy waves ONLY in the TOP bar. Remove bottom duplicates. Replace old Pause/1x/2x full-width slab with just TWO separated touch buttons in a compact bottom-right safe dock: \"Pause\" and \"Speed 1x\". No separate1x/2x buttons.\nPreserve the low-poly battle scene, established typography and the rest of the game data. The centered boss strip must not collide with the left summary, right inspector or top resource bar; leave clear space around it. No added boss powers.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/06-current-wave-ipad.png",
+      "output": "reviews/20261016-comments-01/06-current-wave-ipad-r3.png",
+      "device": "ipad"
+    },
+    {
+      "key": "08-recipe-catalog-ipad",
+      "comments": [
+        7
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nAdd a right-aligned column to the compact recipe LIST, headed exactly \"Built basics\". Each row's number means already BUILT basic ingredient equivalents / total required basics, not recipe order. These exact seven rows, exact counts, in actual catalog order:\nFrostsword Watchmen 2/3\nFrost Knight 2/5\nLionheart Champion 0/3\nKingslayer 2/11\nKing 2/13\nElven Ranger 1/3\nElven Elite Warrior 1/5.\nDo not show1/38,2/38,etc anywhere in the LIST column. No count includes current draft recruits; Druid I this round is NOT built. Keep portraits, full names, selected Kingslayer, search and filters. Add only ONE small column explanation \"Built basic ingredients / required\". Keep the details: Kingslayer base hit1,200,range10,interval0.75s,base direct DPS1,600, three component champions Missing, and explicit Pin Kingslayer planning action. Do not change the independently pinned Elven Ranger goal. This exact count fixture is illustrative; do not invent other counts or new champion names.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/08-recipe-catalog-ipad.png",
+      "output": "reviews/20261016-comments-01/08-recipe-catalog-ipad-r3.png",
+      "device": "ipad"
+    },
+    {
+      "key": "01-building-desktop",
+      "comments": [
+        1
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nRemove ONLY the redundant visible text \"Not this draft\" from the bottom future-odds line. Do not replace it with a synonym, helper paragraph, badge or new control. Keep \"Future draws\" and all six probabilities I49% II34% III17% IV0% V0% VI0%. Reclaim the text's space with natural spacing. Keep current3 revealed recruits and2 unrevealed slots and pinned progress exactly as before. Avoid introducing new statistics.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/01-building-desktop-r2.png",
+      "output": "reviews/20261016-comments-01/01-building-desktop-r3.png",
+      "device": "desktop"
+    },
+    {
+      "key": "02-choose-keeper-desktop",
+      "comments": [
+        2
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nRemove the ENTIRE \"Future rank odds\"/\"Future draws\" block from the Choose keeper folio, including all probability cells49%34%17%0%0%0%. Do not remove the separate six rank-COMPARISON buttons I II III IV V VI: those compare the selected Archer and must stay, without made-up numeric damage rows. Use freed space for a calm, wider selected-defender/combination area rather than a replacement information block. Keep actual selected Archer I base hit6,range4,interval0.25s and exactly five draft cards. Keep Keep Archer I, Reroll1CP, Reserve1CP and Preview combination. Correct the combination allocation summary to \"1 built · 2 this round\" with Cleric I Built, Druid I This round, Archer I This round. No odds in this view.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/02-choose-keeper-desktop-r2.png",
+      "output": "reviews/20261016-comments-01/02-choose-keeper-desktop-r3.png",
+      "device": "desktop"
+    },
+    {
+      "key": "05-combat-desktop",
+      "comments": [
+        3,
+        4,
+        5
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nDe-clutter COMBAT wave9:\n1. At upper LEFT REPLACE the entire \"Next wave10\" boss-preview section with a concise \"Current wave9\" section for Goblin Dust Dancers: \"7 remaining\", \"4 on field · 3 approaching\", with a small inspect/expand control. Do not show Mogrok, future boss stats or any Next wave panel during combat. Keep measured \"Sum peak DPS514.7 — Last wave8 — Measured individual peaks\" directly BELOW Current wave, including its five existing rows and MVP metadata.\n2. DELETE the duplicate Current wave banner near the bottom, and any duplicate Current wave box at top-right. There is exactly ONE current-wave summary, above DPS at left. Keep the selected Mage I peek at the right edge, concise.\n3. REMOVE Recipes and Enemy waves from the bottom controls: those commands already exist ONCE in the TOP bar and must stay there.\n4. Replace separate1x and2x controls with ONE labelled button \"Speed 1x\" and a small cycle glyph. It cycles1x/2x; never show a second speed button or expanded speed menu in this screenshot. Keep a SEPARATE Pause button.\n5. Replace the old full-width bottom slab with a compact TWO-BUTTON command dock near the bottom-right safe edge: Pause and Speed1x. The empty footer area becomes visible battlefield. Do not retain a giant blank bar.\nRetain only a slim pinned-recipe bookmark beneath DPS, not a large future-planning card. No other new panels. Keep Wave9/50 top resources. This is non-boss combat, no boss HP bar here.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/05-combat-desktop.png",
+      "output": "reviews/20261016-comments-01/05-combat-desktop-r3.png",
+      "device": "desktop"
+    },
+    {
+      "key": "06-current-wave-desktop",
+      "comments": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nBoss COMBAT wave10:\n1. Add a prominent but slim TOP-CENTER paper boss-health strip directly BELOW the persistent resource bar, across the free upper-center battlefield. Exact title \"Mogrok, the Gatebreaker\", exact text \"Boss health 2,130 / 4,226 HP\", red fill about50.4% on a dark track. This is the PRIMARY total boss-health display.\n2. Remove the HP bar and repeated currentHP fraction from the RIGHT inspector. Make that inspector short and content-sized rather than a tall near-empty column. Keep Current wave10/Mogrok identity, \"1 on field ·0 approaching\", Ground,Armor14,base speed1.65tiles/s, defender-return and close. No second HP bar.\n3. At LEFT replace Next wave11/Orc Hookbearers preview with a small Current wave10 summary,1boss,1onfield0approaching. Keep compact \"Sum peak DPS603.2 — Last wave9\" directly below. No Next wave preview anywhere during combat. No duplicate bottom Current wave banner.\n4. Keep Recipes and Enemy waves ONLY in the TOP bar. Remove bottom duplicates. Replace old Pause/1x/2x full-width slab with just TWO separated touch buttons in a compact bottom-right safe dock: \"Pause\" and \"Speed 1x\". No separate1x/2x buttons.\nPreserve the low-poly battle scene, established typography and the rest of the game data. The centered boss strip must not collide with the left summary, right inspector or top resource bar; leave clear space around it. No added boss powers.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/06-current-wave-desktop.png",
+      "output": "reviews/20261016-comments-01/06-current-wave-desktop-r3.png",
+      "device": "desktop"
+    },
+    {
+      "key": "08-recipe-catalog-desktop",
+      "comments": [
+        7
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nAdd a right-aligned column to the compact recipe LIST, headed exactly \"Built basics\". Each row's number means already BUILT basic ingredient equivalents / total required basics, not recipe order. These exact seven rows, exact counts, in actual catalog order:\nFrostsword Watchmen 2/3\nFrost Knight 2/5\nLionheart Champion 0/3\nKingslayer 2/11\nKing 2/13\nElven Ranger 1/3\nElven Elite Warrior 1/5.\nDo not show1/38,2/38,etc anywhere in the LIST column. No count includes current draft recruits; Druid I this round is NOT built. Keep portraits, full names, selected Kingslayer, search and filters. Add only ONE small column explanation \"Built basic ingredients / required\". Keep the details: Kingslayer base hit1,200,range10,interval0.75s,base direct DPS1,600, three component champions Missing, and explicit Pin Kingslayer planning action. Do not change the independently pinned Elven Ranger goal. This exact count fixture is illustrative; do not invent other counts or new champion names.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/08-recipe-catalog-desktop.png",
+      "output": "reviews/20261016-comments-01/08-recipe-catalog-desktop-r3.png",
+      "device": "desktop"
+    },
+    {
+      "key": "09-recipe-navigation-ipad",
+      "comments": [
+        7
+      ],
+      "prompt": "Use case: ui-mockup. Input is the clean EDIT TARGET of the Cartographer's Table game UI, not an annotated review screenshot. Apply the specified human review changes. Preserve its exact landscape aspect ratio, existing ivory paper/graphite/brass aesthetic, all unrelated names and values, 3D miniature battlefield, light, portraits and layout where unchanged. Output ONE full-screen game screenshot, no board, no device bezel, no comment numbers, blue annotation rectangles or gallery controls. All UI text ENGLISH only. Keep labels legible, compact, and buildable using HTML/CSS around the 3D canvas. Do not add mechanics, invented powers, buttons or explanatory clutter. Keep existing last-wave measured DPS with its context. No false HP on ordinary defenders. Preserve five recruit slots if present.\nIn the LEFT recipe LIST, REPLACE each ordinal1/38,2/38,etc with BUILT BASIC INGREDIENT progress. Header exactly \"Built basics\". Exact list and exact fractions:\nFrostsword Watchmen 2/3\nFrost Knight 2/5\nLionheart Champion 0/3\nKingslayer 2/11 (selected)\nKing 2/13\nElven Ranger 1/3\nElven Elite Warrior 1/5.\nThe numerator counts only built ingredient equivalents, not draft recruits; denominator is recursive basic requirements, NOT38. A small caption \"Built basic ingredients / required\" may clarify. Keep the separate TOP ordered-navigation page4/38 between Previous recipe Lionheart Champion and Next recipe King; that is navigation, not a list-row ingredient counter. Keep Back/Forward in exploration as a different row. Preserve correct ingredient cards Lionheart Champion+Frost Knight+Frostsword Watchmen, the expanded Frost Knight chain Frostsword Watchmen+Archer II+Mage III, the independent pinned Elven Ranger, and Pin Kingslayer action. Do not invent new abilities, names or extra cards.",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/ui-cartographers-table-20261016-v2/09-recipe-navigation-ipad-r2.png",
+      "output": "reviews/20261016-comments-01/09-recipe-navigation-ipad-r3.png",
+      "device": "ipad"
+    }
+  ]
+}

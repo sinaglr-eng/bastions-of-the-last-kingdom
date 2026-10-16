@@ -1,0 +1,1631 @@
+{
+  "date": "2026-10-16",
+  "sourceVersion": "0.3.31",
+  "scope": "Read-only base rank statistics and quantified ability copy. No MVP/support; not measured combat DPS.",
+  "ranks": {
+    "archer": [
+      {
+        "tier": 1,
+        "name": "Archer",
+        "type": "physical",
+        "damage": 6,
+        "directDps": 24,
+        "range": 4,
+        "interval": 0.25,
+        "effects": [
+          "Single-target attack"
+        ],
+        "raw": {
+          "name": "Archer",
+          "short": "Archer",
+          "unitCode": "A",
+          "referenceGem": "Aquamarine",
+          "referenceCode": "Q",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#d7b578",
+          "icon": "bow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Rapid single-target arrows",
+          "description": "A hooded ranger whose Mythic bow releases ten arrows a second.",
+          "strong": "Rapid single-target arrows",
+          "weak": "Heavy armor",
+          "damage": 6,
+          "interval": 0.25,
+          "range": 4,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 12,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 24,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 48,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 72,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 100.8,
+              "interval": 0.1,
+              "range": 5,
+              "type": "physical",
+              "projectileEffect": "physical"
+            }
+          ],
+          "projectileEffect": "physical"
+        }
+      },
+      {
+        "tier": 2,
+        "name": "Archer",
+        "type": "physical",
+        "damage": 12,
+        "directDps": 48,
+        "range": 4,
+        "interval": 0.25,
+        "effects": [
+          "Single-target attack"
+        ],
+        "raw": {
+          "name": "Archer",
+          "short": "Archer",
+          "unitCode": "A",
+          "referenceGem": "Aquamarine",
+          "referenceCode": "Q",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#d7b578",
+          "icon": "bow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Rapid single-target arrows",
+          "description": "A hooded ranger whose Mythic bow releases ten arrows a second.",
+          "strong": "Rapid single-target arrows",
+          "weak": "Heavy armor",
+          "damage": 12,
+          "interval": 0.25,
+          "range": 4,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 12,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 24,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 48,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 72,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 100.8,
+              "interval": 0.1,
+              "range": 5,
+              "type": "physical",
+              "projectileEffect": "physical"
+            }
+          ],
+          "projectileEffect": "physical"
+        }
+      },
+      {
+        "tier": 3,
+        "name": "Archer",
+        "type": "physical",
+        "damage": 24,
+        "directDps": 96,
+        "range": 4,
+        "interval": 0.25,
+        "effects": [
+          "Single-target attack"
+        ],
+        "raw": {
+          "name": "Archer",
+          "short": "Archer",
+          "unitCode": "A",
+          "referenceGem": "Aquamarine",
+          "referenceCode": "Q",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#d7b578",
+          "icon": "bow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Rapid single-target arrows",
+          "description": "A hooded ranger whose Mythic bow releases ten arrows a second.",
+          "strong": "Rapid single-target arrows",
+          "weak": "Heavy armor",
+          "damage": 24,
+          "interval": 0.25,
+          "range": 4,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 12,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 24,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 48,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 72,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 100.8,
+              "interval": 0.1,
+              "range": 5,
+              "type": "physical",
+              "projectileEffect": "physical"
+            }
+          ],
+          "projectileEffect": "physical"
+        }
+      },
+      {
+        "tier": 4,
+        "name": "Archer",
+        "type": "physical",
+        "damage": 48,
+        "directDps": 192,
+        "range": 4,
+        "interval": 0.25,
+        "effects": [
+          "Single-target attack"
+        ],
+        "raw": {
+          "name": "Archer",
+          "short": "Archer",
+          "unitCode": "A",
+          "referenceGem": "Aquamarine",
+          "referenceCode": "Q",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#d7b578",
+          "icon": "bow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Rapid single-target arrows",
+          "description": "A hooded ranger whose Mythic bow releases ten arrows a second.",
+          "strong": "Rapid single-target arrows",
+          "weak": "Heavy armor",
+          "damage": 48,
+          "interval": 0.25,
+          "range": 4,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 12,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 24,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 48,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 72,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 100.8,
+              "interval": 0.1,
+              "range": 5,
+              "type": "physical",
+              "projectileEffect": "physical"
+            }
+          ],
+          "projectileEffect": "physical"
+        }
+      },
+      {
+        "tier": 5,
+        "name": "Archer",
+        "type": "physical",
+        "damage": 72,
+        "directDps": 288,
+        "range": 4,
+        "interval": 0.25,
+        "effects": [
+          "Single-target attack"
+        ],
+        "raw": {
+          "name": "Archer",
+          "short": "Archer",
+          "unitCode": "A",
+          "referenceGem": "Aquamarine",
+          "referenceCode": "Q",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#d7b578",
+          "icon": "bow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Rapid single-target arrows",
+          "description": "A hooded ranger whose Mythic bow releases ten arrows a second.",
+          "strong": "Rapid single-target arrows",
+          "weak": "Heavy armor",
+          "damage": 72,
+          "interval": 0.25,
+          "range": 4,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 12,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 24,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 48,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 72,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 100.8,
+              "interval": 0.1,
+              "range": 5,
+              "type": "physical",
+              "projectileEffect": "physical"
+            }
+          ],
+          "projectileEffect": "physical"
+        }
+      },
+      {
+        "tier": 6,
+        "name": "Archer",
+        "type": "physical",
+        "damage": 100.8,
+        "directDps": 1007.9999999999999,
+        "range": 5,
+        "interval": 0.1,
+        "effects": [
+          "Single-target attack"
+        ],
+        "raw": {
+          "name": "Archer",
+          "short": "Archer",
+          "unitCode": "A",
+          "referenceGem": "Aquamarine",
+          "referenceCode": "Q",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#d7b578",
+          "icon": "bow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Rapid single-target arrows",
+          "description": "A hooded ranger whose Mythic bow releases ten arrows a second.",
+          "strong": "Rapid single-target arrows",
+          "weak": "Heavy armor",
+          "damage": 100.8,
+          "interval": 0.1,
+          "range": 5,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 12,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 24,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 48,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 72,
+              "interval": 0.25,
+              "range": 4,
+              "type": "physical",
+              "projectileEffect": "physical"
+            },
+            {
+              "damage": 100.8,
+              "interval": 0.1,
+              "range": 5,
+              "type": "physical",
+              "projectileEffect": "physical"
+            }
+          ],
+          "projectileEffect": "physical"
+        }
+      }
+    ],
+    "frostwarden": [
+      {
+        "tier": 1,
+        "name": "Frost Warden",
+        "type": "physical",
+        "damage": 6,
+        "directDps": 6,
+        "range": 6,
+        "interval": 1,
+        "effects": [
+          "12% movement slow for 3s"
+        ],
+        "raw": {
+          "name": "Frost Warden",
+          "short": "Frost Warden",
+          "unitCode": "F",
+          "referenceGem": "Sapphire",
+          "referenceCode": "B",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#9bdfe9",
+          "icon": "snow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Slows enemy movement",
+          "description": "A winter sentinel. Mythic frost also chills enemies beside the target.",
+          "strong": "Slows enemy movement",
+          "weak": "Resistant or scattered enemies",
+          "damage": 6,
+          "interval": 1,
+          "range": 6,
+          "slow": 0.12,
+          "slowDuration": 3,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.12,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.18,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 18,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.24,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.3,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 30,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.36,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 108,
+              "interval": 0.6,
+              "range": 6,
+              "slow": 0.55,
+              "slowDuration": 3,
+              "effectsRadius": 0.5,
+              "type": "physical",
+              "projectileEffect": "frost"
+            }
+          ],
+          "projectileEffect": "frost"
+        }
+      },
+      {
+        "tier": 2,
+        "name": "Frost Warden",
+        "type": "physical",
+        "damage": 12,
+        "directDps": 12,
+        "range": 6,
+        "interval": 1,
+        "effects": [
+          "18% movement slow for 3s"
+        ],
+        "raw": {
+          "name": "Frost Warden",
+          "short": "Frost Warden",
+          "unitCode": "F",
+          "referenceGem": "Sapphire",
+          "referenceCode": "B",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#9bdfe9",
+          "icon": "snow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Slows enemy movement",
+          "description": "A winter sentinel. Mythic frost also chills enemies beside the target.",
+          "strong": "Slows enemy movement",
+          "weak": "Resistant or scattered enemies",
+          "damage": 12,
+          "interval": 1,
+          "range": 6,
+          "slow": 0.18,
+          "slowDuration": 3,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.12,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.18,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 18,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.24,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.3,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 30,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.36,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 108,
+              "interval": 0.6,
+              "range": 6,
+              "slow": 0.55,
+              "slowDuration": 3,
+              "effectsRadius": 0.5,
+              "type": "physical",
+              "projectileEffect": "frost"
+            }
+          ],
+          "projectileEffect": "frost"
+        }
+      },
+      {
+        "tier": 3,
+        "name": "Frost Warden",
+        "type": "physical",
+        "damage": 18,
+        "directDps": 18,
+        "range": 6,
+        "interval": 1,
+        "effects": [
+          "24% movement slow for 3s"
+        ],
+        "raw": {
+          "name": "Frost Warden",
+          "short": "Frost Warden",
+          "unitCode": "F",
+          "referenceGem": "Sapphire",
+          "referenceCode": "B",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#9bdfe9",
+          "icon": "snow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Slows enemy movement",
+          "description": "A winter sentinel. Mythic frost also chills enemies beside the target.",
+          "strong": "Slows enemy movement",
+          "weak": "Resistant or scattered enemies",
+          "damage": 18,
+          "interval": 1,
+          "range": 6,
+          "slow": 0.24,
+          "slowDuration": 3,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.12,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.18,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 18,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.24,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.3,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 30,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.36,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 108,
+              "interval": 0.6,
+              "range": 6,
+              "slow": 0.55,
+              "slowDuration": 3,
+              "effectsRadius": 0.5,
+              "type": "physical",
+              "projectileEffect": "frost"
+            }
+          ],
+          "projectileEffect": "frost"
+        }
+      },
+      {
+        "tier": 4,
+        "name": "Frost Warden",
+        "type": "physical",
+        "damage": 24,
+        "directDps": 24,
+        "range": 6,
+        "interval": 1,
+        "effects": [
+          "30% movement slow for 3s"
+        ],
+        "raw": {
+          "name": "Frost Warden",
+          "short": "Frost Warden",
+          "unitCode": "F",
+          "referenceGem": "Sapphire",
+          "referenceCode": "B",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#9bdfe9",
+          "icon": "snow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Slows enemy movement",
+          "description": "A winter sentinel. Mythic frost also chills enemies beside the target.",
+          "strong": "Slows enemy movement",
+          "weak": "Resistant or scattered enemies",
+          "damage": 24,
+          "interval": 1,
+          "range": 6,
+          "slow": 0.3,
+          "slowDuration": 3,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.12,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.18,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 18,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.24,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.3,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 30,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.36,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 108,
+              "interval": 0.6,
+              "range": 6,
+              "slow": 0.55,
+              "slowDuration": 3,
+              "effectsRadius": 0.5,
+              "type": "physical",
+              "projectileEffect": "frost"
+            }
+          ],
+          "projectileEffect": "frost"
+        }
+      },
+      {
+        "tier": 5,
+        "name": "Frost Warden",
+        "type": "physical",
+        "damage": 30,
+        "directDps": 30,
+        "range": 6,
+        "interval": 1,
+        "effects": [
+          "36% movement slow for 3s"
+        ],
+        "raw": {
+          "name": "Frost Warden",
+          "short": "Frost Warden",
+          "unitCode": "F",
+          "referenceGem": "Sapphire",
+          "referenceCode": "B",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#9bdfe9",
+          "icon": "snow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Slows enemy movement",
+          "description": "A winter sentinel. Mythic frost also chills enemies beside the target.",
+          "strong": "Slows enemy movement",
+          "weak": "Resistant or scattered enemies",
+          "damage": 30,
+          "interval": 1,
+          "range": 6,
+          "slow": 0.36,
+          "slowDuration": 3,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.12,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.18,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 18,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.24,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.3,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 30,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.36,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 108,
+              "interval": 0.6,
+              "range": 6,
+              "slow": 0.55,
+              "slowDuration": 3,
+              "effectsRadius": 0.5,
+              "type": "physical",
+              "projectileEffect": "frost"
+            }
+          ],
+          "projectileEffect": "frost"
+        }
+      },
+      {
+        "tier": 6,
+        "name": "Frost Warden",
+        "type": "physical",
+        "damage": 108,
+        "directDps": 180,
+        "range": 6,
+        "interval": 0.6,
+        "effects": [
+          "55% movement slow for 3s · also within 0.5 tiles of the target"
+        ],
+        "raw": {
+          "name": "Frost Warden",
+          "short": "Frost Warden",
+          "unitCode": "F",
+          "referenceGem": "Sapphire",
+          "referenceCode": "B",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#9bdfe9",
+          "icon": "snow",
+          "type": "physical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Slows enemy movement",
+          "description": "A winter sentinel. Mythic frost also chills enemies beside the target.",
+          "strong": "Slows enemy movement",
+          "weak": "Resistant or scattered enemies",
+          "damage": 108,
+          "interval": 0.6,
+          "range": 6,
+          "slow": 0.55,
+          "slowDuration": 3,
+          "levels": [
+            {
+              "damage": 6,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.12,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.18,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 18,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.24,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.3,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 30,
+              "interval": 1,
+              "range": 6,
+              "slow": 0.36,
+              "slowDuration": 3,
+              "type": "physical",
+              "projectileEffect": "frost"
+            },
+            {
+              "damage": 108,
+              "interval": 0.6,
+              "range": 6,
+              "slow": 0.55,
+              "slowDuration": 3,
+              "effectsRadius": 0.5,
+              "type": "physical",
+              "projectileEffect": "frost"
+            }
+          ],
+          "projectileEffect": "frost",
+          "effectsRadius": 0.5
+        }
+      }
+    ],
+    "mage": [
+      {
+        "tier": 1,
+        "name": "Mage",
+        "type": "magical",
+        "damage": 12,
+        "directDps": 12,
+        "range": 5,
+        "interval": 1,
+        "effects": [
+          "30% magical splash · 3.6 damage to other enemies within 3 tiles"
+        ],
+        "raw": {
+          "name": "Mage",
+          "short": "Mage",
+          "unitCode": "M",
+          "referenceGem": "Ruby",
+          "referenceCode": "R",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#c59aef",
+          "icon": "spark",
+          "type": "magical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Arcane hit with pure splash damage",
+          "description": "An apprentice with an oversized hat. Impacts send an armor-ignoring shockwave into nearby foes.",
+          "strong": "Arcane hit with pure splash damage",
+          "weak": "Resistant or scattered enemies",
+          "damage": 12,
+          "interval": 1,
+          "range": 5,
+          "cleave": 0.3,
+          "cleaveRadius": 3,
+          "cleaveType": "magical",
+          "levels": [
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.3,
+              "cleaveRadius": 3,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.4,
+              "cleaveRadius": 3.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 36,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.5,
+              "cleaveRadius": 4,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 72,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.6,
+              "cleaveRadius": 4.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 144,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.7,
+              "cleaveRadius": 5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 450,
+              "interval": 1,
+              "range": 5,
+              "cleave": 1,
+              "cleaveRadius": 7,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            }
+          ],
+          "projectileEffect": "arcane"
+        }
+      },
+      {
+        "tier": 2,
+        "name": "Mage",
+        "type": "magical",
+        "damage": 24,
+        "directDps": 24,
+        "range": 5,
+        "interval": 1,
+        "effects": [
+          "40% magical splash · 9.6 damage to other enemies within 3.5 tiles"
+        ],
+        "raw": {
+          "name": "Mage",
+          "short": "Mage",
+          "unitCode": "M",
+          "referenceGem": "Ruby",
+          "referenceCode": "R",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#c59aef",
+          "icon": "spark",
+          "type": "magical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Arcane hit with pure splash damage",
+          "description": "An apprentice with an oversized hat. Impacts send an armor-ignoring shockwave into nearby foes.",
+          "strong": "Arcane hit with pure splash damage",
+          "weak": "Resistant or scattered enemies",
+          "damage": 24,
+          "interval": 1,
+          "range": 5,
+          "cleave": 0.4,
+          "cleaveRadius": 3.5,
+          "cleaveType": "magical",
+          "levels": [
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.3,
+              "cleaveRadius": 3,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.4,
+              "cleaveRadius": 3.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 36,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.5,
+              "cleaveRadius": 4,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 72,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.6,
+              "cleaveRadius": 4.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 144,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.7,
+              "cleaveRadius": 5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 450,
+              "interval": 1,
+              "range": 5,
+              "cleave": 1,
+              "cleaveRadius": 7,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            }
+          ],
+          "projectileEffect": "arcane"
+        }
+      },
+      {
+        "tier": 3,
+        "name": "Mage",
+        "type": "magical",
+        "damage": 36,
+        "directDps": 36,
+        "range": 5,
+        "interval": 1,
+        "effects": [
+          "50% magical splash · 18 damage to other enemies within 4 tiles"
+        ],
+        "raw": {
+          "name": "Mage",
+          "short": "Mage",
+          "unitCode": "M",
+          "referenceGem": "Ruby",
+          "referenceCode": "R",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#c59aef",
+          "icon": "spark",
+          "type": "magical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Arcane hit with pure splash damage",
+          "description": "An apprentice with an oversized hat. Impacts send an armor-ignoring shockwave into nearby foes.",
+          "strong": "Arcane hit with pure splash damage",
+          "weak": "Resistant or scattered enemies",
+          "damage": 36,
+          "interval": 1,
+          "range": 5,
+          "cleave": 0.5,
+          "cleaveRadius": 4,
+          "cleaveType": "magical",
+          "levels": [
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.3,
+              "cleaveRadius": 3,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.4,
+              "cleaveRadius": 3.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 36,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.5,
+              "cleaveRadius": 4,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 72,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.6,
+              "cleaveRadius": 4.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 144,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.7,
+              "cleaveRadius": 5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 450,
+              "interval": 1,
+              "range": 5,
+              "cleave": 1,
+              "cleaveRadius": 7,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            }
+          ],
+          "projectileEffect": "arcane"
+        }
+      },
+      {
+        "tier": 4,
+        "name": "Mage",
+        "type": "magical",
+        "damage": 72,
+        "directDps": 72,
+        "range": 5,
+        "interval": 1,
+        "effects": [
+          "60% magical splash · 43.2 damage to other enemies within 4.5 tiles"
+        ],
+        "raw": {
+          "name": "Mage",
+          "short": "Mage",
+          "unitCode": "M",
+          "referenceGem": "Ruby",
+          "referenceCode": "R",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#c59aef",
+          "icon": "spark",
+          "type": "magical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Arcane hit with pure splash damage",
+          "description": "An apprentice with an oversized hat. Impacts send an armor-ignoring shockwave into nearby foes.",
+          "strong": "Arcane hit with pure splash damage",
+          "weak": "Resistant or scattered enemies",
+          "damage": 72,
+          "interval": 1,
+          "range": 5,
+          "cleave": 0.6,
+          "cleaveRadius": 4.5,
+          "cleaveType": "magical",
+          "levels": [
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.3,
+              "cleaveRadius": 3,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.4,
+              "cleaveRadius": 3.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 36,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.5,
+              "cleaveRadius": 4,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 72,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.6,
+              "cleaveRadius": 4.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 144,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.7,
+              "cleaveRadius": 5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 450,
+              "interval": 1,
+              "range": 5,
+              "cleave": 1,
+              "cleaveRadius": 7,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            }
+          ],
+          "projectileEffect": "arcane"
+        }
+      },
+      {
+        "tier": 5,
+        "name": "Mage",
+        "type": "magical",
+        "damage": 144,
+        "directDps": 144,
+        "range": 5,
+        "interval": 1,
+        "effects": [
+          "70% magical splash · 100.8 damage to other enemies within 5 tiles"
+        ],
+        "raw": {
+          "name": "Mage",
+          "short": "Mage",
+          "unitCode": "M",
+          "referenceGem": "Ruby",
+          "referenceCode": "R",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#c59aef",
+          "icon": "spark",
+          "type": "magical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Arcane hit with pure splash damage",
+          "description": "An apprentice with an oversized hat. Impacts send an armor-ignoring shockwave into nearby foes.",
+          "strong": "Arcane hit with pure splash damage",
+          "weak": "Resistant or scattered enemies",
+          "damage": 144,
+          "interval": 1,
+          "range": 5,
+          "cleave": 0.7,
+          "cleaveRadius": 5,
+          "cleaveType": "magical",
+          "levels": [
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.3,
+              "cleaveRadius": 3,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.4,
+              "cleaveRadius": 3.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 36,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.5,
+              "cleaveRadius": 4,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 72,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.6,
+              "cleaveRadius": 4.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 144,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.7,
+              "cleaveRadius": 5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 450,
+              "interval": 1,
+              "range": 5,
+              "cleave": 1,
+              "cleaveRadius": 7,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            }
+          ],
+          "projectileEffect": "arcane"
+        }
+      },
+      {
+        "tier": 6,
+        "name": "Mage",
+        "type": "magical",
+        "damage": 450,
+        "directDps": 450,
+        "range": 5,
+        "interval": 1,
+        "effects": [
+          "100% magical splash · 450 damage to other enemies within 7 tiles"
+        ],
+        "raw": {
+          "name": "Mage",
+          "short": "Mage",
+          "unitCode": "M",
+          "referenceGem": "Ruby",
+          "referenceCode": "R",
+          "source": "https://dota2.fandom.com/wiki/Gem_TD",
+          "color": "#c59aef",
+          "icon": "spark",
+          "type": "magical",
+          "weight": 1,
+          "projectileSpeed": 20,
+          "role": "Arcane hit with pure splash damage",
+          "description": "An apprentice with an oversized hat. Impacts send an armor-ignoring shockwave into nearby foes.",
+          "strong": "Arcane hit with pure splash damage",
+          "weak": "Resistant or scattered enemies",
+          "damage": 450,
+          "interval": 1,
+          "range": 5,
+          "cleave": 1,
+          "cleaveRadius": 7,
+          "cleaveType": "magical",
+          "levels": [
+            {
+              "damage": 12,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.3,
+              "cleaveRadius": 3,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 24,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.4,
+              "cleaveRadius": 3.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 36,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.5,
+              "cleaveRadius": 4,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 72,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.6,
+              "cleaveRadius": 4.5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 144,
+              "interval": 1,
+              "range": 5,
+              "cleave": 0.7,
+              "cleaveRadius": 5,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            },
+            {
+              "damage": 450,
+              "interval": 1,
+              "range": 5,
+              "cleave": 1,
+              "cleaveRadius": 7,
+              "cleaveType": "magical",
+              "type": "magical",
+              "projectileEffect": "arcane"
+            }
+          ],
+          "projectileEffect": "arcane"
+        }
+      }
+    ]
+  },
+  "sourceHashes": {
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "game/core/math.js": "8ec21928faa5ac5255311e8854ef1028b3b5aa3849f5f7a89e89e7ed12bbecf6",
+    "game/core/campaign-roster.js": "2c4e0ec5198456da9d36663e272c6c60e36217e5bbc06474f63b455e75a08f5b",
+    "game/core/combat.js": "1605ad59791e760edca3386b2e22bad289f61a1b59c20826cc665d1c78d0f39f",
+    "game/core/combat-rules.js": "3a16d01b10b4dd9c631f0d89c839b29ab706a7a42d288c432b0a622006ed106c",
+    "game/core/game.js": "911fbe91e0a7e9a6f5fc4e467ebaa19d7e4bd867a633b4aa199bc25ed94a98bf",
+    "ui/defender-panel.js": "f70418f21db3e41a0776bc057fc4e2da3087b02c9689671b4162ee51523c3bc7",
+    "ui/defender-rank-preview.js": "2383ebb3ce3a9ad7de0874d5b750236164d5b5015e1b1ef866b9016ac0f6c306",
+    "ui/grimoire.js": "e2c329cc4ad93b3757dd41503c4b19074e81c81c802bd1df0fb41fb0d999e728",
+    "game/render/draft-markers.js": "88c6bfef1b17fc55a9a0df3e4be0ed253ad765699c09198d40da5740465a88fe",
+    "game/main.js": "cb498baf0fbe60a2e77925bbf855226b4b20c33a8ae46f7b6e2052c5505fae36"
+  }
+}

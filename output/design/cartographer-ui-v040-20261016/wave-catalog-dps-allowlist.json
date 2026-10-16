@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "baseline": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+  "owner": "/root/audit_audio",
+  "scope": "Wave/DPS/catalog/phase presentation only",
+  "sourceAndTestPaths": [
+    "ui/current-wave-summary.js",
+    "ui/current-wave-panel.js",
+    "ui/next-wave-summary.js",
+    "ui/tower-dps.js",
+    "ui/phase-ui.js",
+    "ui/catalog-recipes.js",
+    "tests/battlefield-overlay-panels.test.mjs",
+    "tests/current-wave-panel.test.mjs",
+    "tests/catalog-recipes-d006.test.mjs",
+    "tests/tower-dps.test.mjs",
+    "tests/phase-ui.test.mjs"
+  ],
+  "evidencePaths": [
+    "output/design/cartographer-ui-v040-20261016/wave-catalog-dps-targeted-tests.txt",
+    "output/design/cartographer-ui-v040-20261016/wave-catalog-dps-allowlist.json",
+    "output/design/cartographer-ui-v040-20261016/wave-catalog-dps-proof.json"
+  ],
+  "sharedOwnership": {
+    "tests/phase-ui.test.mjs": "Phase/boss cases by audio agent; final three defender cases by defender agent."
+  }
+}

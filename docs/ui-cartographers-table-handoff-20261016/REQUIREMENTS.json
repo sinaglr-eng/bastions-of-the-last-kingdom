@@ -1,0 +1,356 @@
+{
+  "date": "2026-10-16",
+  "status": "Approved UI scope, prepared for separately authorized implementation",
+  "scope": "UI only; existing game and scene preserved",
+  "specification": "DESIGN_SPEC.md",
+  "acceptance": "ACCEPTANCE.md",
+  "requirements": [
+    {
+      "id": "UI01",
+      "requirement": "Stable resource register and one top-level catalog access",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A14",
+        "A18",
+        "A27"
+      ]
+    },
+    {
+      "id": "UI02",
+      "requirement": "Shared Building and Choose keeper five-card/detail folio",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A01",
+        "A27"
+      ]
+    },
+    {
+      "id": "UI03",
+      "requirement": "Unknown slots and request/ARIA identity stay concealed",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A02",
+        "A25"
+      ]
+    },
+    {
+      "id": "UI04",
+      "requirement": "No unavailable Keep/Reroll/Reserve controls in Building",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A01",
+        "A07"
+      ]
+    },
+    {
+      "id": "UI05",
+      "requirement": "Future odds once in Building; absent in Select preview and Ready",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A03"
+      ]
+    },
+    {
+      "id": "UI06",
+      "requirement": "Actual selected identity and legal commitment actions preserved",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A04",
+        "A07",
+        "A10"
+      ]
+    },
+    {
+      "id": "UI07",
+      "requirement": "Displayed-rank four-field base statistic grid",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A04",
+        "A05"
+      ]
+    },
+    {
+      "id": "UI08",
+      "requirement": "Quantified effects replace generic defender prose and follow displayed rank",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A05"
+      ]
+    },
+    {
+      "id": "UI09",
+      "requirement": "Rank preview leaves actual rank, Keep and craft eligibility unchanged",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A04",
+        "A06"
+      ]
+    },
+    {
+      "id": "UI10",
+      "requirement": "Family count, targeting, attack pause, support and MVP remain truthful",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A06",
+        "A16"
+      ]
+    },
+    {
+      "id": "UI11",
+      "requirement": "Two or three recipe options share one expanded detail",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A08",
+        "A27"
+      ]
+    },
+    {
+      "id": "UI12",
+      "requirement": "Combination preview uses exact anchor, allocation and wall outcomes",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A09",
+        "A10"
+      ]
+    },
+    {
+      "id": "UI13",
+      "requirement": "Preserve current map badge design and guarded input; change picture source only",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A11",
+        "A24"
+      ]
+    },
+    {
+      "id": "UI14",
+      "requirement": "Ready has compact Maze plans and Start wave dock",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A13"
+      ]
+    },
+    {
+      "id": "UI15",
+      "requirement": "Map selection opens inspector; remove Inspect keeper",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A13"
+      ]
+    },
+    {
+      "id": "UI16",
+      "requirement": "Combat has one stable Pause/Resume and one supported Speed control",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A15"
+      ]
+    },
+    {
+      "id": "UI17",
+      "requirement": "Current wave in combat; Next wave between waves; one summary above DPS",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A14"
+      ]
+    },
+    {
+      "id": "UI18",
+      "requirement": "Compact measured DPS strip and expanded real peaks with MVP",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A16"
+      ]
+    },
+    {
+      "id": "UI19",
+      "requirement": "Boss live aggregate at top center; revealed living bosses only",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A17"
+      ]
+    },
+    {
+      "id": "UI20",
+      "requirement": "Recipe filters and compact list/detail remain usable",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A18"
+      ]
+    },
+    {
+      "id": "UI21",
+      "requirement": "Recipe rows show built/required basic allocation excluding provisional drafts",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A12"
+      ]
+    },
+    {
+      "id": "UI22",
+      "requirement": "Ordered filtered navigation and exploration history stay separate",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A19"
+      ]
+    },
+    {
+      "id": "UI23",
+      "requirement": "Future/current enemy facts and variant possibilities remain runtime-derived",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A20"
+      ]
+    },
+    {
+      "id": "UI24",
+      "requirement": "Concealed enemy individual state never leaks",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A17",
+        "A20",
+        "A25"
+      ]
+    },
+    {
+      "id": "UI25",
+      "requirement": "Modal exploration restores exact previous pause state",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A21"
+      ]
+    },
+    {
+      "id": "UI26",
+      "requirement": "Touch pen mouse keyboard and stale-command guards preserved",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A10",
+        "A27"
+      ]
+    },
+    {
+      "id": "UI27",
+      "requirement": "Independent Music 80% and Sounds 40% defaults and audio lifecycle preserved",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A22"
+      ]
+    },
+    {
+      "id": "UI28",
+      "requirement": "Help tutorial maze results Retry statistics and saves retained",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A23"
+      ]
+    },
+    {
+      "id": "UI29",
+      "requirement": "Desktop/iPad-first responsive layout with safe fallback and accessible controls",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A27"
+      ]
+    },
+    {
+      "id": "UI30",
+      "requirement": "All unit preview images use approved original geometric source-art pixels",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A24"
+      ]
+    },
+    {
+      "id": "UI31",
+      "requirement": "Exact per-identity crop provenance; multi-subject boards never used whole",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A24"
+      ]
+    },
+    {
+      "id": "UI32",
+      "requirement": "Identity-safe source-image decode/loading/error behavior",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A25"
+      ]
+    },
+    {
+      "id": "UI33",
+      "requirement": "No defender enemy map model animation effect or source-art changes",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A26"
+      ]
+    },
+    {
+      "id": "UI34",
+      "requirement": "No balance RNG recipe acquisition MVP save or statistics redesign",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A07",
+        "A12",
+        "A23",
+        "A26"
+      ]
+    },
+    {
+      "id": "UI35",
+      "requirement": "Release publication requires authorization in Master; no automatic main push",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A29"
+      ]
+    },
+    {
+      "id": "UI36",
+      "requirement": "Actual current tests/build/browser evidence distinguish known limits",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A28",
+        "A29"
+      ]
+    },
+    {
+      "id": "UI37",
+      "requirement": "Selection disclosure focus and scroll persist across routine refreshes",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A06",
+        "A16",
+        "A19",
+        "A27"
+      ]
+    },
+    {
+      "id": "UI38",
+      "requirement": "New UI asset resolver supports root/project base and separate cache revision",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A28"
+      ]
+    },
+    {
+      "id": "UI39",
+      "requirement": "Base direct DPS and nominal effects remain separate from measured damage and modifiers",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A04",
+        "A05",
+        "A16"
+      ]
+    },
+    {
+      "id": "UI40",
+      "requirement": "Preserve original gallery images prompts reviews and English current gallery copy",
+      "status": "Approved design; not implemented by this handoff",
+      "acceptance": [
+        "A24",
+        "A26",
+        "A28"
+      ]
+    }
+  ]
+}

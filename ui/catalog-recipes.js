@@ -1,5 +1,5 @@
 import {towerStats} from '../game/core/math.js';
-import {recipeFamily,recipeTier,recipeLabel,recipeTreeProgress} from '../game/core/recipes.js';
+import {recipeFamily,recipeTier,recipeLabel,recipeTreeProgress,expandedRecipeProgress} from '../game/core/recipes.js';
 import {builtTowerCount} from '../game/core/warband-info.js';
 import {championClassification} from '../game/render/champion-classification.js';
 import {championRecipeCard,championPerformanceSummary,defenderGuide} from './grimoire.js';
@@ -25,25 +25,27 @@ export function championCatalogModel(game,data=game.data,state={}){
   const rows=game.recipes.map(recipe=>{
     const family=recipeFamily(recipe),stats=towerStats({family,tier:recipeTier(recipe)},data),inventory=catalogRecipeInventory(game,recipe),tree=recipeTreeProgress(recipe,inventory,data);
     const counts={built:tree.filter(p=>p.ownedCount).length,draft:tree.filter(p=>p.draftCount).length,missing:tree.filter(p=>!p.ownedCount&&!p.draftCount).length};
+    const basics=expandedRecipeProgress(recipe,inventory,data),builtBasics=basics.reduce((total,piece)=>({ownedCount:total.ownedCount+piece.ownedCount,count:total.count+piece.count}),{ownedCount:0,count:0});
     const progress=walk(tree).some(node=>node.towerId!==null),available=legal.has(recipe.id);
     const matches=recipeLabel(recipe,data).toLocaleLowerCase('en-US').includes(query)&&recipeMatches(stats,filters,{family})&&(filters.status==='all'||filters.status==='available'&&available||filters.status==='progress'&&progress);
     const craftable=selectedLegal.has(recipe.id),reason=craftable?'':available?'Select an eligible ingredient on the battlefield to choose the result foundation.':game.commandMove.active?'Finish or cancel Move before combining.':['won','lost'].includes(game.phase)?'Run ended · Read-only recipe catalog.':game.phase==='combat'?'Recruit champions between waves.':counts.draft&&game.phase==='build'?'Place all five recruits before combining current candidates.':counts.missing?`${counts.missing} exact ${counts.missing===1?'ingredient is':'ingredients are'} missing.`:'Select a matching ingredient and satisfy the recipe’s current-round rules.';
-    return {recipe,family,name:recipeLabel(recipe,data),stats,inventory,tree,counts,progress,available,craftable,reason,builtCount:builtTowerCount(game.towers,family),matches};
+    return {recipe,family,name:recipeLabel(recipe,data),stats,inventory,tree,counts,builtBasics,progress,available,craftable,reason,builtCount:builtTowerCount(game.towers,family),matches};
   });
   return {state:filters,rows,matches:rows.filter(row=>row.matches),selected:rows.find(row=>row.recipe.id===filters.recipeId)||null};
 }
 
 const progressText=counts=>`✓ ${counts.built} Built · ◆ ${counts.draft} This round · ○ ${counts.missing} Missing`;
+const builtBasicsText=progress=>`Built basics ${progress.ownedCount}/${progress.count}`;
 function rowMarkup(row,images){
   const src=images[`${row.family}:${recipeTier(row.recipe)}`]||images[row.family];
-  return `<button type="button" class="recipe-catalog-row ${row.available?'available':''}" data-family="${escape(row.family)}" data-catalog-recipe="${escape(row.recipe.id)}" aria-label="Open ${escape(row.name)} recipe" aria-pressed="false" ${row.matches?'':'hidden'}>${src?`<img src="${escape(src)}" alt="" draggable="false">`:''}<span><strong>${escape(row.name)}</strong><small>${escape(championPerformanceSummary(row.stats))}</small><em>${progressText(row.counts)}</em></span><b aria-hidden="true">›</b></button>`;
+  return `<button type="button" class="recipe-catalog-row ${row.available?'available':''}" data-family="${escape(row.family)}" data-catalog-recipe="${escape(row.recipe.id)}" aria-label="Open ${escape(row.name)} recipe" aria-pressed="false" ${row.matches?'':'hidden'}>${src?`<img src="${escape(src)}" alt="" draggable="false">`:''}<span><strong>${escape(row.name)}</strong><small>${escape(championPerformanceSummary(row.stats))}</small><span class="recipe-catalog-built-basics" data-catalog-built-basics>${builtBasicsText(row.builtBasics)}</span><em>${progressText(row.counts)}</em></span><b aria-hidden="true">›</b></button>`;
 }
 function detailMarkup(row,game,data,images,state={},orderedRecipes=[]){
   if(!row)return '';
   const navigation=recipeNavigationModel(state.navigation),order=recipeCatalogNavigation(orderedRecipes,row.recipe.id);
   const ordered=`<nav class="catalog-recipe-order" aria-label="Filtered recipe catalog"><button type="button" class="text-button" data-catalog-order="previous" ${order.previousId?'':'disabled'}>‹ Previous recipe</button><span>${order.inCatalog?`${order.index+1} / ${order.count}`:'Outside current filters'}</span><button type="button" class="text-button" data-catalog-order="next" ${order.nextId?'':'disabled'}>Next recipe ›</button></nav>`;
   const history=`<nav class="catalog-recipe-history" aria-label="Recipe exploration history"><button type="button" class="text-button" data-catalog-history="back" ${navigation.canBack?'':'disabled'}>‹ Back in exploration</button><button type="button" class="text-button" data-catalog-history="forward" ${navigation.canForward?'':'disabled'}>Forward in exploration ›</button></nav>`;
-  return `${ordered}${history}${championRecipeCard(row.recipe,data,images,{compact:true,towerList:row.inventory,pinned:game.pinned===row.recipe.id,discovered:game.discoveries.has(row.family)||game.discoveries.has(row.recipe.id),level:game.economy.level,craftable:row.craftable,combinationAvailable:row.available,builtCount:row.builtCount})}${row.reason?`<p class="catalog-anchor-note">${escape(row.reason)}</p>`:''}`;
+  return `<button type="button" class="text-button catalog-detail-back" data-catalog-close>‹ Back to list</button>${ordered}${history}${championRecipeCard(row.recipe,data,images,{compact:true,towerList:row.inventory,pinned:game.pinned===row.recipe.id,discovered:game.discoveries.has(row.family)||game.discoveries.has(row.recipe.id),level:game.economy.level,craftable:row.craftable,combinationAvailable:row.available,builtCount:row.builtCount})}${row.reason?`<p class="catalog-anchor-note">${escape(row.reason)}</p>`:''}`;
 }
 
 export function championCatalogMarkup(game,data=game.data,images={}, {state={}}={}){
@@ -56,7 +58,7 @@ export function connectChampionCatalog(host,game,data=game.data,images={}, {stat
   for(const [key,value]of Object.entries(defaults))if(state[key]===undefined)state[key]=value;
   if(!state.navigation||typeof state.navigation!=='object')state.navigation={};
   if(state.recipeId)recipeNavigationVisit(state.navigation,state.recipeId);
-  let model=championCatalogModel(game,data,state),disposed=false,detailKey=null;
+  let model=championCatalogModel(game,data,state),disposed=false,detailKey=null,listReturnId=state.recipeId;
   const savedDisclosures=new Map(Object.entries(state.disclosures||{}));
   const saveDetails=()=>{for(const details of catalog.querySelectorAll('[data-catalog-disclosure]'))savedDisclosures.set(details.dataset.catalogDisclosure,details.open);state.disclosures=Object.fromEntries(savedDisclosures);};
   const restoreDetails=()=>{for(const details of catalog.querySelectorAll('[data-catalog-disclosure]'))if(savedDisclosures.has(details.dataset.catalogDisclosure))details.open=savedDisclosures.get(details.dataset.catalogDisclosure);};
@@ -88,16 +90,17 @@ export function connectChampionCatalog(host,game,data=game.data,images={}, {stat
   const input=event=>{if(event.target?.matches?.('[data-catalog-search]')){state.query=event.target.value;updateModel();filters.apply();}};
   const change=event=>{if(event.target?.dataset.recipeFilter){updateModel();filters.apply();}};
   const click=event=>{
-    const recipeButton=event.target.closest?.('[data-catalog-recipe]'),ingredient=event.target.closest?.('[data-catalog-ingredient]'),ordered=event.target.closest?.('[data-catalog-order]'),history=event.target.closest?.('[data-catalog-history]'),viewButton=event.target.closest?.('[data-catalog-view]'),statusButton=event.target.closest?.('[data-catalog-status]');
-    if(recipeButton&&!recipeButton.hidden){state.recipeId=recipeNavigationVisit(state.navigation,recipeButton.dataset.catalogRecipe);updateModel();renderDetail({focus:true});}
+    const recipeButton=event.target.closest?.('[data-catalog-recipe]'),ingredient=event.target.closest?.('[data-catalog-ingredient]'),ordered=event.target.closest?.('[data-catalog-order]'),history=event.target.closest?.('[data-catalog-history]'),close=event.target.closest?.('[data-catalog-close]'),viewButton=event.target.closest?.('[data-catalog-view]'),statusButton=event.target.closest?.('[data-catalog-status]');
+    if(recipeButton&&!recipeButton.hidden){listReturnId=recipeButton.dataset.catalogRecipe;state.recipeId=recipeNavigationVisit(state.navigation,listReturnId);updateModel();renderDetail({focus:true});}
     else if(ingredient&&model.rows.some(row=>row.recipe.id===ingredient.dataset.catalogIngredient)){state.recipeId=recipeNavigationVisit(state.navigation,ingredient.dataset.catalogIngredient);updateModel();renderDetail({focus:true});}
     else if(ordered&&!ordered.disabled){const order=recipeCatalogNavigation(model.matches,state.recipeId),id=ordered.dataset.catalogOrder==='previous'?order.previousId:order.nextId;if(id){state.recipeId=recipeNavigationVisit(state.navigation,id);updateModel();renderDetail({focus:true});}}
     else if(history&&!history.disabled){const id=recipeNavigationStep(state.navigation,history.dataset.catalogHistory==='back'?-1:1);if(id){state.recipeId=id;updateModel();renderDetail({focus:true});}}
+    else if(close&&!close.disabled){const rows=[...catalog.querySelectorAll('[data-catalog-recipe]')].filter(row=>!row.hidden&&!row.disabled),target=rows.find(row=>row.dataset.catalogRecipe===state.recipeId)||rows.find(row=>row.dataset.catalogRecipe===listReturnId)||rows[0]||catalog.querySelector('[data-catalog-search]');state.recipeId=null;updateModel();renderDetail();target?.focus({preventScroll:true});}
     else if(viewButton){state.view=viewButton.dataset.catalogView;view();updateModel();filters.apply();}
     else if(statusButton){state.status=statusButton.dataset.catalogStatus;updateModel();filters.apply();}
     else if(event.target.closest?.('[data-recipe-filter-reset]')){updateModel();filters.apply();}
   };
   catalog.addEventListener('input',input);catalog.addEventListener('change',change);catalog.addEventListener('click',click);
   view();renderDetail();
-  return {state,refresh(){if(disposed)return false;saveDetails();updateModel();for(const button of catalog.querySelectorAll('[data-catalog-recipe]')){const row=model.rows.find(row=>row.recipe.id===button.dataset.catalogRecipe);if(!row)continue;button.classList.toggle('available',row.available);const progress=button.querySelector('em');if(progress)progress.textContent=progressText(row.counts);const performance=button.querySelector('small');if(performance)performance.textContent=championPerformanceSummary(row.stats);}filters.apply();return true;},dispose(){saveDetails();disposed=true;filters.dispose();catalog.removeEventListener('input',input);catalog.removeEventListener('change',change);catalog.removeEventListener('click',click);}};
+  return {state,refresh(){if(disposed)return false;saveDetails();updateModel();for(const button of catalog.querySelectorAll('[data-catalog-recipe]')){const row=model.rows.find(row=>row.recipe.id===button.dataset.catalogRecipe);if(!row)continue;button.classList.toggle('available',row.available);const progress=button.querySelector('em');if(progress)progress.textContent=progressText(row.counts);const basics=button.querySelector('[data-catalog-built-basics]');if(basics)basics.textContent=builtBasicsText(row.builtBasics);const performance=button.querySelector('small');if(performance)performance.textContent=championPerformanceSummary(row.stats);}filters.apply();return true;},dispose(){saveDetails();disposed=true;filters.dispose();catalog.removeEventListener('input',input);catalog.removeEventListener('change',change);catalog.removeEventListener('click',click);}};
 }

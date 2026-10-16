@@ -1,5 +1,9 @@
 # Bastions of the Last Kingdom
 
+## UI edition 0.4.0 — 16 October 2026
+
+The approved Cartographer’s Table interface is implemented; see [the UI report](docs/UI_CARTOGRAPHER_V040_20261016.md) for its 22 concepts, original prompts, portrait provenance and validation. The existing game rules and the 0.3.31 balance remain unchanged. Ordinary players now cycle 1×/2× in the compact combat dock; the core simulation and developer test capabilities retain their existing speed support. All earlier dated rule/design records below remain historical evidence.
+
 ## CURRENT GAME RULES — verified baseline, 2026-10-13
 
 **Status: CURRENTLY IMPLEMENTED.** Audit of the current working tree, package version 0.3.27. This section supersedes conflicting descriptions in the historical material below. Existing local modifications were included in the inspection; this is not a claim about a committed or deployed build. Only documentation was changed for this audit.

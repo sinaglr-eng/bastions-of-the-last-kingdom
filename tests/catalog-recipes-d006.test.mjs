@@ -63,6 +63,28 @@ test('nested component coverage and duplicate requirements allocate each actual 
   const html=championRecipeCard(recipe,data,{}, {compact:true,towerList:row.inventory});assert.match(html,/Full ingredient chain/);assert.match(html,/Included in built Frost Knight/);assert.match(html,/Missing/);
 });
 
+test('Built basics rows reproduce the approved 2/11 Kingslayer and 2/13 King inventory using built ownership only',()=>{
+  const game=fresh(),control=fresh();for(const current of [game,control]){for(const piece of [{family:'cleric',tier:1},{family:'soldier',tier:1},{family:'stormcaller',tier:1}])retained(current,piece);placed(current,[{family:'mage',tier:1},{family:'druid',tier:1},{family:'runebreaker',tier:1}]);}
+  const before=snapshot(game),model=championCatalogModel(game,data),kingslayer=model.rows.find(row=>row.recipe.id==='highking'),king=model.rows.find(row=>row.recipe.id==='crownofages');
+  assert.deepEqual(kingslayer.builtBasics,{ownedCount:2,count:11});assert.deepEqual(king.builtBasics,{ownedCount:2,count:13});
+  const markup=championCatalogMarkup(game,data,{});for(const [id,total]of [['highking',11],['crownofages',13]]){const row=markup.split('data-catalog-recipe="'+id+'"')[1].split('</button>')[0];assert.ok(row.includes('Built basics 2/'+total));}
+  assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
+});
+
+test('a built Frost Knight covers exactly five Kingslayer basics, and refresh never double counts covered or duplicate identities',()=>{
+  const game=fresh(),knight=retained(game,{family:'frostblade',tier:1}),state={recipeId:'highking'},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state});
+  const row=host.querySelector('[data-catalog-recipe="highking"]'),button=row;connection.refresh();assert.equal(row.querySelector('[data-catalog-built-basics]').textContent,'Built basics 5/11');
+  game.towers.push({...knight});retained(game,{family:'archer',tier:2});retained(game,{family:'mage',tier:3});connection.refresh();assert.equal(host.querySelector('[data-catalog-recipe="highking"]'),button);assert.equal(row.querySelector('[data-catalog-built-basics]').textContent,'Built basics 5/11');
+  assert.deepEqual(championCatalogModel(game,data).rows.find(row=>row.recipe.id==='highking').builtBasics,{ownedCount:5,count:11});connection.dispose();
+});
+
+test('exact higher basic rank is one required leaf and provisional, hidden, stale and reserved candidates add no built basics',()=>{
+  const game=fresh(),retainedHigh=retained(game,{family:'soldier',tier:5});placed(game,[{family:'frostwarden',tier:1},{family:'soldier',tier:1},{family:'stormcaller',tier:1},{family:'archer',tier:2},{family:'mage',tier:3}]);
+  game.towers.push({id:10002,family:'frostwarden',tier:1,state:'active',placed:false},{id:10003,family:'rimewatch',tier:1,state:'ruin',placed:true});
+  let row=championCatalogModel(game,data).rows.find(row=>row.recipe.id==='highking');assert.deepEqual(row.builtBasics,{ownedCount:1,count:11});assert.equal(row.inventory.includes(retainedHigh),true);assert.equal(game.reserve(game.selection.id),true);
+  row=championCatalogModel(game,data).rows.find(row=>row.recipe.id==='highking');assert.deepEqual(row.builtBasics,{ownedCount:1,count:11});assert.ok(row.inventory.every(t=>t.placed!==false&&t.state!=='ruin'));assert.match(championCatalogMarkup(game,data,{}),/Built basics 1\/11/);
+});
+
 test('Mage descriptions use current Magical cleave and aura-only champions prominently display actual output',()=>{
   const mage=towerStats({family:'mage',tier:1},data),dragon=towerStats({family:'embercrown',tier:1},data),dragonRecipe=data.recipes.find(r=>r.id==='embercrown');
   const description=runtimeDefenderDescription(mage,{family:'mage'});assert.match(description,/Magical cleave/);assert.doesNotMatch(description,/pure/i);assert.ok(description.includes(`${Math.round(mage.cleave*100)}%`));
@@ -84,7 +106,7 @@ function fixture(markup){
     addEventListener(type,callback){if(!this.listeners.has(type))this.listeners.set(type,new Set());this.listeners.get(type).add(callback);}
     removeEventListener(type,callback){this.listeners.get(type)?.delete(callback);}
     dispatch(type,target=this){const event={type,target};for(let node=target;node;node=node.parentNode)for(const callback of node.listeners.get(type)||[])callback(event);}
-    focus(){document.activeElement=this;}
+    focus(options){document.activeElement=this;this.focusOptions=options;}
     get innerHTML(){return this._html;}
     set innerHTML(html){this._html=html;this.children.forEach(child=>child.parentNode=null);this.children=[];const stack=[this];for(const token of html.match(/<[^>]+>/g)||[]){if(token.startsWith('</')){if(stack.length>1)stack.pop();continue;}const tag=token.match(/^<([a-z][\w-]*)/i)?.[1];if(!tag)continue;const attributes={};for(const match of token.slice(tag.length+1,-1).matchAll(/([\w-]+)(?:="([^"]*)")?/g))attributes[match[1]]=match[2]??'';const element=new Element(tag,attributes),parent=stack.at(-1);element.parentNode=parent;parent.children.push(element);if(!['img','input','br','hr'].includes(tag)&&!token.endsWith('/>'))stack.push(element);}}
   }
@@ -97,7 +119,27 @@ test('catalog connector searches, combines filters, opens exact detail and invok
   const rows=catalog.querySelectorAll('[data-catalog-recipe]');assert.equal(rows.filter(row=>!row.hidden).length,1);
   const ability=catalog.querySelector('[data-recipe-filter="ability"]');ability.value='burn';catalog.dispatch('change',ability);assert.equal(rows.filter(row=>!row.hidden).length,1);
   const row=rows.find(row=>row.dataset.catalogRecipe==='embercrown');catalog.dispatch('click',row);assert.equal(state.recipeId,'embercrown');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Aura DPS/);assert.ok(details>0);
-  assert.equal(catalog.querySelector('[data-catalog-detail-close]'),null);assert.equal(state.recipeId,'embercrown');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);assert.equal(snapshot(game),before);connection.dispose();
+  assert.ok(catalog.querySelector('[data-catalog-close]'));assert.equal(state.recipeId,'embercrown');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);assert.equal(snapshot(game),before);connection.dispose();
+});
+
+test('Back to list clears only the detail and restores its existing row focus, filters, list scroll, history and pin',()=>{
+  const game=fresh(),control=fresh();game.pinned=control.pinned='highking';const state={query:'baby fire dragon',damage:'magical',ability:'burn',counter:'evasion'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog'),list=catalog.querySelector('.catalog-recipe-list'),row=catalog.querySelector('[data-catalog-recipe="embercrown"]');
+  list.scrollTop=57;catalog.dispatch('click',row);const history=JSON.stringify(state.navigation),pane=catalog.querySelector('.catalog-recipe-detail'),layout=catalog.querySelector('.catalog-recipe-layout');catalog.querySelector('[data-catalog-disclosure="chain:embercrown"]').open=true;
+  const close=catalog.querySelector('[data-catalog-close]');assert.ok(close);close.focus();catalog.dispatch('click',close);
+  assert.equal(state.recipeId,null);assert.equal(pane.hidden,true);assert.equal(layout.matches('.has-detail'),false);assert.equal(JSON.stringify(state.navigation),history);assert.equal(game.pinned,'highking');assert.equal(state.query,'baby fire dragon');assert.equal(state.damage,'magical');assert.equal(state.ability,'burn');assert.equal(state.counter,'evasion');assert.equal(list.scrollTop,57);assert.equal(host.ownerDocument.activeElement,row);assert.deepEqual(row.focusOptions,{preventScroll:true});assert.equal(row.attributes['aria-pressed'],'false');
+  connection.refresh();assert.equal(state.recipeId,null);assert.equal(pane.hidden,true);catalog.dispatch('click',row);assert.equal(state.recipeId,'embercrown');assert.equal(catalog.querySelector('[data-catalog-disclosure="chain:embercrown"]').open,true);assert.equal(JSON.stringify(state.navigation),history,'Reopening the current exploration entry does not invent a second visit');assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
+});
+
+test('returning from an out-of-filter component focuses the visible originating recipe without changing exploration history',()=>{
+  const game=fresh(),state={query:'Kingslayer'},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog'),origin=catalog.querySelector('[data-catalog-recipe="highking"]');
+  catalog.dispatch('click',origin);catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');assert.equal(catalog.querySelector('[data-catalog-recipe="frostblade"]').hidden,true);const history=JSON.stringify(state.navigation);
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-close]'));assert.equal(state.recipeId,null);assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,true);assert.equal(host.ownerDocument.activeElement,origin);assert.equal(JSON.stringify(state.navigation),history);assert.equal(state.query,'Kingslayer');assert.equal(catalog.querySelectorAll('[data-catalog-recipe]').filter(row=>!row.hidden).length,1);connection.dispose();
+});
+
+test('list return with no matching rows preserves the empty filter and restores keyboard focus to search',()=>{
+  const game=fresh(),state={recipeId:'highking'},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog'),input=catalog.querySelector('[data-catalog-search]');
+  input.value='No matching champion';catalog.dispatch('input',input);assert.equal(catalog.querySelectorAll('[data-catalog-recipe]').filter(row=>!row.hidden).length,0);const history=JSON.stringify(state.navigation);
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-close]'));assert.equal(state.recipeId,null);assert.equal(state.query,'No matching champion');assert.equal(input.value,'No matching champion');assert.equal(host.ownerDocument.activeElement,input);assert.deepEqual(input.focusOptions,{preventScroll:true});assert.equal(JSON.stringify(state.navigation),history);assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,true);connection.dispose();
 });
 
 test('basic guide has independent view, existing rank filters and corrected Mage information',()=>{

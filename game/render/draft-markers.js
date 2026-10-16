@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {recipeFamily,recipeLabel,rankLabel} from '../core/recipes.js';
-import {defenderPortrait} from '../release.js';
+import {referenceDefenderPortrait as defenderPortrait} from '../../ui/reference-portraits.js';
 import {RecipeMarkerActivation} from '../../ui/recipe-marker-input.js';
 import {mergeTowerKey,mergeTowerFromBadge} from '../../ui/draft-input.js';
 import {PointerTapGesture} from './touch-input.js';

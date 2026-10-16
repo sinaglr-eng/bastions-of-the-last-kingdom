@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "task": "Independent cartographer folio composition and preview lifecycle review",
+  "baselineHead": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+  "status": "Owned stable-ID follow-up frozen; reviewed integration paths pass",
+  "ownedEdits": [
+    {"path":"ui/defender-panel.js","sha256":"18c123ce42dbe78d7cff2627e34a6ff737e35c1ba2090b461a91d2267a3620ab","bytes":6606,"change":"Stable actual-tower IDs on Keep, Merge, downgrade, Move and Cancel Move only; core commands, datasets and validation keys retained"},
+    {"path":"tests/cartographer-layout-v040.test.mjs","sha256":"c585e92afe89aff754d35c8fedd3d527331365a196ad20d454f8f85731a4a049","bytes":28028,"newCases":15}
+  ],
+  "reviewedRootOwnedSource": [
+    {"path":"ui/cartographer-folio.js","sha256":"06a262d0650ac1c2c32a9019a4d1c24ff59b6bb42375257f2c8fd506fc69bbf7","bytes":6097,"editedByReviewer":false},
+    {"path":"game/main.js","sha256":"fb4c4ad3052b20fe0768fd2e6cbcbb8df1038bfe1e1bcad95ee41d6cc78c7fd6","bytes":69381,"editedByReviewer":false}
+  ],
+  "findings": [
+    {"issue":"Combination ingredient portrait could fall back to family rank-I art when a higher-rank exact key was unavailable","resolution":"Root restricted family fallback to tier I; regression verifies higher-rank neutral omission"},
+    {"issue":"Inspecting unavailable B after previewing legal A left A's previewRecipeId active in the new folio","resolution":"Root clears prior preview and passes explicit inspectedRecipeId; actual source regression verifies B is shown and A is absent"},
+    {"issue":"A stale invalidated recipe context could leave data-preview=true with empty preview markup and hidden normal columns","resolution":"Root derives displayed preview state from an actual eligible context; regression verifies safe return to normal folio without further Game mutation. Ordinary Game.select/beginMove already clear the core preview identity"},
+    {"issue":"Moving portaled controls could blur focus before capture, and replacements were outside the side-body fallback query","resolution":"Root captures the pre-move focused reference; this reviewer added stable command IDs. Fake DOM deliberately blurs moved focused descendants; actual renderSidebar restores Keep, Merge, downgrade, retained Move and a nonfirst recipe row"},
+    {"issue":"A fresh preview after changing actual selection inherited the old unit's cancel comparison snapshot","resolution":"Root recaptures for a fresh preview context. Actual Game sequence Cleric I/compare IV/preview, then Druid I/compare VI/new preview/cancel now retains the Druid VI comparison"},
+    {"issue":"Ready/Combat retained a hidden historical draw subtree and the 1–5 shortcut could still target it","resolution":"Root clears draft/action markup outside Build/Select and phase-guards the numeric shortcut. Actual renderer/input test preserves current Build/Select behavior without RNG use"},
+    {"issue":"Retained Ready confirmation could leave a disabled old recipe receipt and stale Game preview identity","resolution":"Root combine subscriber clears previewRecipeId, recipeFocus and previous comparison snapshot before rendering the actual resulting defender. Actual retained craft and guarded rank-V merge preserve the chosen foundation and pin"}
+  ],
+  "verification": {
+    "command":"node --test --test-reporter=tap tests/cartographer-layout-v040.test.mjs tests/preparation-folio-v040.test.mjs tests/defender-panel-preview-v30.test.mjs tests/defender-rank-preview.test.mjs tests/draft-pointer-input.test.mjs tests/command-main-integration-v31.test.mjs",
+    "exitCode":0,
+    "tests":68,
+    "passed":68,
+    "failed":0,
+    "log":{"path":"output/design/cartographer-ui-v040-20261016/cartographer-layout-final-tests.log","sha256":"833e65454f0f1a8c0552e7c31898c10fe0ebd234a331ab97301c49f3e8354633","bytes":20018},
+    "previousReadyCheckpoint":{"tests":66,"passed":66,"path":"output/design/cartographer-ui-v040-20261016/cartographer-layout-ready-tests.log","sha256":"d15cfe3c3c575e7bc5adf1d51e684c88fa6e7a7681246798a6890b8606723f67","bytes":19404},
+    "previousLayoutCheckpoint":{"tests":64,"passed":64,"path":"output/design/cartographer-ui-v040-20261016/cartographer-layout-tests.log","sha256":"276ed801a81ef49494e7732b43d34c214068876cdba6d7f00300afa787c29544","bytes":18731},
+    "independentLayoutCoverage":[
+      "Repeated sync preserves the same node identity and exactly one actions/recipes region; repeated restore/rerender disconnects old controls",
+      "Actual phase changes move the body back to its inspector anchor; explicit recipe browser moves to the right plan and returns to original anchor",
+      "Exact three-current-candidate, retained-plus-current mixed and retained-only Build previews use the real physical anchor, three allocated ingredients, two consumed pieces and correct unchosen-wall outcomes",
+      "Pure preview markup preserves selection, inventory, draft, resources, grid and seeded RNG; actual guarded confirmation succeeds once and stale repeat fails",
+      "Five hidden Build draw identity getters remain unread; no wrong higher-rank fallback or undefined URL",
+      "Invalidated exact context, unavailable recipe switch, cancel restore, second-selection snapshot and moved-control focus exercise actual production functions",
+      "Actual Ready eligible retained preview temporarily shows the folio; Cancel restores hidden preparation, sidebar anchor, committed draft resolution, actual selection/foundation/resources and seeded RNG",
+      "All 38 result profiles display exactly Damage / hit, Base direct DPS, Range and Interval plus canonical damage class from towerStats; actual MVP-10 anchor and authored data remain unchanged",
+      "Actual renderDraft clears the historical draw/action subtree outside Build/Select; actual 1–5 keydown never queries an injected stale hidden Ready/Combat card. Build/Select still use the actual pointer/activation path and preserve paired seeded RNG",
+      "Actual main subscriber after retained Ready confirmation or guarded rank-V merge clears all recipe receipt/snapshot presentation state, shows the actual resulting defender, preserves foundation and pin, and leaves core legality unchanged"
+    ]
+  },
+  "preservation": {
+    "earlierEvidence":"output/design/cartographer-ui-v040-20261016/defender-folio-proof.json retains the prior 98/98 checkpoint and its original source hashes; this supplement supersedes only the defender-panel hash after the ID-only follow-up",
+    "remainingOwnedRuntimeHashes":"ui/defender-rank-preview.js, ui/draft-cards.js and ui/preparation-folio.js remain at the previous frozen hashes",
+    "notEdited":["game/main.js","ui/cartographer-folio.js","CSS","game/core","data","assets and gallery sources","audio","release metadata","MAIN checkout"],
+    "limits":["DOM fixture verifies connectivity, identity, focus and rendered semantics; it is not browser geometry or asset decoding evidence","Physical Safari/iPad remains untested by this reviewer","Root owns browser QA, full suite/build and publication","No new unresolved concrete issue found in the reviewed paths"]
+  }
+}
