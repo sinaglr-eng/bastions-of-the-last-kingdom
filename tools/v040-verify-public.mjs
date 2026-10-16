@@ -15,7 +15,7 @@ const evidence=path.join(root,'output/design/cartographer-ui-v040-20261016');
 const publicBase=new URL('https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/');
 const sourceZip='C:/Users/sinag/Documents/ChatGPT/Tower Defense game/backups/releases/v0.3.31/bastions-v0.3.31-production.zip';
 const sourceZipSha256='a57f3ed1c5b9c759b7a54a8b54980efa4b99a1cf87f6c70d7b7255d89a70f52a';
-const releaseCommits={'0.4.0':execFileSync('git',['-C',root,'rev-parse','v0.4.0-stable^{commit}'],{encoding:'utf8'}).trim(),'0.3.31':'c01ac5a2ab1ef62e77d2ce545f24234b80b5c847'};
+const releaseCommits={'0.4.0':execFileSync('git',['-C',root,'rev-parse','v0.4.0-final^{commit}'],{encoding:'utf8'}).trim(),'0.3.31':'c01ac5a2ab1ef62e77d2ce545f24234b80b5c847'};
 const python=process.env.V040_PYTHON||'C:/Users/sinag/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe';
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const json=async file=>JSON.parse((await readFile(path.join(root,file),'utf8')).replace(/^\uFEFF/,''));

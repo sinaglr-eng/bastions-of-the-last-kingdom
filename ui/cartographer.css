@@ -102,3 +102,15 @@ html,body{min-width:320px;overflow:hidden}body{font:16px/1.45 "Segoe UI",Arial,s
 #app .recipe-ingredient-code{color:var(--muted-ink)}
 
 #app .tower-dps-list button:disabled{opacity:.7}
+
+/* Shared pinned-recipe details retain legible text and an opaque action footer. */
+#app .crafting-dock :is(p,small){color:var(--muted-ink)}
+#app .crafting-dock :is(.crafting-champion p,.crafting-round-rule,.crafting-unavailable,.crafting-progress-total,.crafting-downstream p,.crafting-chain p){font-size:13px;line-height:1.45}
+#app .crafting-dock .crafting-ingredient-state small{font-size:11px}
+#app .crafting-ingredient.built .crafting-ingredient-state,#app .crafting-chain-node.built>div>small{color:#376446}
+#app .crafting-ingredient.draft .crafting-ingredient-state,#app .crafting-chain-node.draft>div>small{color:#795a21}
+#app .crafting-ingredient.missing .crafting-ingredient-state,#app .crafting-chain-node.missing>div>small{color:#8d4334}
+#app .crafting-chain-node.covered>div{color:var(--muted-ink)}
+#app .crafting-dock .crafting-dock-actions{background:var(--paper)}
+#app .crafting-dock .crafting-recruit:disabled{background:var(--paper-light);border-color:var(--rule);color:var(--muted-ink);opacity:.7}
+#app .crafting-outcome{background:var(--paper-light);border:1px solid var(--rule)}#app .crafting-result{color:#795a21}
