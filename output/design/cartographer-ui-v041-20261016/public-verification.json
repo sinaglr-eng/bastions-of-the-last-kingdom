@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "startedAt": "2026-10-16T14:05:31.157Z",
+  "expected": {
+    "version": "0.4.1",
+    "uiRevision": "cartographer-crafted-20261016-v2",
+    "uiPortraitRevision": "reference-cutouts-20261016-v1"
+  },
+  "publicBase": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "authentication": "None; public GETs only; credentials omitted; no credential files or browser sessions read",
+  "concurrency": 6,
+  "cachePolicy": "Unique per-run query, no-store, no-cache headers",
+  "localManifestSha256": "50babe99b9f67691092a7720d05115311d47ee71f2c4f4871a393f91d981fb9d",
+  "release": {
+    "version": "0.4.1",
+    "uiRevision": "cartographer-crafted-20261016-v2",
+    "uiPortraitRevision": "reference-cutouts-20261016-v1",
+    "sha256": "a85b00c59b9504be05d858287147d38253169061ec092a4f743effe3fcaef060"
+  },
+  "compiled": [
+    {
+      "file": "assets/game-3bAScD4a.css",
+      "kind": "css",
+      "bytes": 255232,
+      "sha256": "64f07ad1b80bc2a704f617a9c54029d3cf50b4490efbe737c86629865d8332f0"
+    },
+    {
+      "file": "assets/game-Cj8R1kiG.js",
+      "kind": "javascript",
+      "bytes": 502370,
+      "sha256": "31c219a8c3714678f99c284f3720746e0578578272ee9e561a340ff9bdb67757"
+    },
+    {
+      "file": "assets/portrait-visibility-BzOuxggJ.js",
+      "kind": "javascript",
+      "bytes": 216559,
+      "sha256": "7e744086f552e6f8adcf863f4dbdc55f9bf216a2ff765122cdd486c901a580c0"
+    },
+    {
+      "file": "assets/portrait-visibility-Cq7vvpxZ.css",
+      "kind": "css",
+      "bytes": 107,
+      "sha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56"
+    },
+    {
+      "file": "assets/three-py1mPfXp.js",
+      "kind": "javascript",
+      "bytes": 653736,
+      "sha256": "b5517e381bab3b0b7b46d98b5157a285b25f6dd24d4daab92c63e54f7827b359"
+    }
+  ],
+  "uiMarkers": {
+    "javascript": {
+      "required": [
+        "assets/ui/reference-cutouts/",
+        "reference-cutouts-20261016-v1",
+        "atlas-book",
+        "catalog-index-page",
+        "catalog-reading-page",
+        "warbands-atlas",
+        "folio-construction-seal"
+      ],
+      "missing": []
+    },
+    "css": {
+      "required": [
+        "--folio-grain",
+        "--folio-frame",
+        "book-corners",
+        "catalog-reading-page",
+        "catalog-bookmark",
+        "preparation-folio"
+      ],
+      "missing": []
+    }
+  },
+  "portraits": {
+    "expected": 136,
+    "checked": 136,
+    "passed": 136,
+    "pngSignatures": 136,
+    "rgbaHeaders": 136,
+    "exactHashes": 136,
+    "servedBytes": 30418257,
+    "inventorySha256": "35874942d0347be21a71f68e577537b1802478577d40e7670d10750a538f741f"
+  },
+  "requests": 144,
+  "failures": [],
+  "limits": [
+    "HTTP signatures, hashes and bundle markers do not prove browser rendering, gameplay behavior, or physical iPad/Safari interaction."
+  ],
+  "indexSha256": "46b17c6b57a61fbf0477909ca5520c635c30061816c5788e75923fb24befbdfd",
+  "publicManifest": {
+    "revision": "reference-cutouts-20261016-v1",
+    "identities": 136,
+    "sha256": "64416209e4367d68289f35b0f2bd4782e9f29551f8a5bbad265963d131c88baf",
+    "comparison": "Exact identity paths, dimensions and output SHA-256 values from local verified cutout manifest"
+  },
+  "finishedAt": "2026-10-16T14:05:38.288Z",
+  "durationMs": 7131
+}

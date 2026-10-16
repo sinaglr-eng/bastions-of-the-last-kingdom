@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "version": "0.4.1",
+  "publishedAt": "2026-10-16T14:08:47.516Z",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.1",
+  "implementationCommit": "a32d662dd54fbbea4972f91a353d70b01640cb50",
+  "immutableTag": "v0.4.1",
+  "githubActions": {
+    "runId": 38911964171,
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/38911964171",
+    "tests": "success",
+    "build": "success",
+    "deploy": "success",
+    "proof": "publication-ci.json"
+  },
+  "localTests": {
+    "passed": 1454,
+    "failed": 0,
+    "proof": "final-tests-summary.json"
+  },
+  "productionBuild": "final-build-summary.json",
+  "publicVerification": {
+    "status": "passed",
+    "compiledExactHashes": 5,
+    "portraitsExactHashes": 136,
+    "proof": "public-verification.json",
+    "compiledProof": "compiled-hash-verification.json"
+  },
+  "browser": {
+    "status": "visually checked on served production URL",
+    "book": "public-recipes-desktop.jpg",
+    "defaultViewport": "public-recipes-1280.jpg",
+    "loadedIdentity": "Kingslayer via reference-cutouts/highking.png",
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "physicalIpadSafari": false,
+    "responsiveAndInputScope": "browser-validation.json"
+  },
+  "preservation": {
+    "protectedFiles": 1345,
+    "models": 352,
+    "audioFiles": 205,
+    "originalPortraitCrops": 136,
+    "originalApprovedSources": 107,
+    "originalCharacterRgb": "exact retained RGB preserved",
+    "proof": "preservation-audit.json",
+    "alphaProof": "portraits/pixel-verification.json"
+  },
+  "rollback": {
+    "stableTag": "v0.3.31-stable",
+    "stableCommit": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847",
+    "backupBranch": "codex/backup-v0.3.31",
+    "offlineBackupDirectory": "backups/releases/v0.3.31",
+    "previousUiTag": "v0.4.0-final",
+    "previousUiCommit": "993a1ee1289fa137a68b7bbdad48b81b2e18befe",
+    "helper": "tools/rollback-v0331.ps1",
+    "unchanged": true
+  },
+  "workspace": {
+    "mainMirrored": true,
+    "priorMainReadmeAndChangelogEditsPreserved": true,
+    "unrelatedSavedMainPathsUnchanged": 325,
+    "indexUntouchedByMirror": true
+  },
+  "publicationBoundary": "The immutable tag and deployment identify the implementation commit. Any subsequent evidence-only commit does not replace the verified compiled runtime."
+}
