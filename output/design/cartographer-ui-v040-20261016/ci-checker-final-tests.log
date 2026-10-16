@@ -1,0 +1,18 @@
+✔ CLI accepts explicit run/exact full SHA/latest main and rejects ambiguous or malformed inputs (1.1993ms)
+✔ public transport makes only bounded public GETs without credentials, redirects, logs or private response text (1.2635ms)
+✔ exact commit selects the latest matching main Pages run and then independently validates the run identity (0.7221ms)
+✔ pending run is reported as pending; missing final job evidence cannot be called success (0.2298ms)
+✔ required test/build/deploy skipped or failed steps reject success, even while workflow cleanup is pending (0.2945ms)
+✔ wrong main SHA, branch, workflow, event or run ID fails before jobs are accepted (0.1958ms)
+✔ job pagination retrieves the eventual deploy job without reading other endpoints (0.2494ms)
+✔ dispatch status explicitly separates workflow head identity from the stable release_ref checkout (0.5886ms)
+✔ no exact matching run is explicit and produces no fake run/job success (0.2139ms)
+✔ proof writes stay inside the isolated checkout and cannot overwrite a different deployment cycle (4.0793ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 63.6804

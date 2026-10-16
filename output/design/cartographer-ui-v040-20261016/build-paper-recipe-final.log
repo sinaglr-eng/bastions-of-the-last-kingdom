@@ -1,0 +1,21 @@
+$ vite build
+vite v7.1.7 building for production...
+transforming...
+✓ 184 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/archer.html                                0.82 kB │ gzip:   0.38 kB
+dist/index.html                                 1.22 kB │ gzip:   0.56 kB
+dist/assets/portrait-visibility-Cq7vvpxZ.css    0.11 kB │ gzip:   0.09 kB
+dist/assets/archer-DuO6Xkvi.css                 7.77 kB │ gzip:   2.45 kB
+dist/assets/game-OVzU5QdL.css                 183.93 kB │ gzip:  35.92 kB
+dist/assets/portrait-visibility-COwVypPW.js   216.55 kB │ gzip:  68.31 kB
+dist/assets/archer-DTYGGb_o.js                313.48 kB │ gzip:  53.31 kB
+dist/assets/game-BdHWr_DR.js                  495.10 kB │ gzip: 160.38 kB
+dist/assets/three-py1mPfXp.js                 653.74 kB │ gzip: 168.50 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 4.07s
