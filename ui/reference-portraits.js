@@ -1,8 +1,9 @@
 import {siteUrl} from '../game/site-url.js';
 
-// This revision belongs only to UI crops. Model, scenery and audio revisions
-// remain owned by their existing release catalogue.
-export const REFERENCE_PORTRAIT_REVISION='original-reference-20261016-v1';
+// UI cutouts keep exact original RGB pixels and add a transparent alpha mask.
+// Original crops remain immutable; model, scenery and audio revisions are separate.
+export const ORIGINAL_REFERENCE_PORTRAIT_REVISION='original-reference-20261016-v1';
+export const REFERENCE_PORTRAIT_REVISION='reference-cutouts-20261016-v1';
 const basicFamilies=['soldier','archer','mage','frostwarden','stormcaller','cleric','druid','runebreaker'];
 const championFamilies=['rimewatch','frostblade','roseguard','highking','crownofages','thornwarden','verdantguard','tempest','stormcitadel','embercrown','worldfire','starfall','thunderheart','phoenix','greenheart','eldergrove','kingsreach','sunward','winterhold','dawnspire','royalmarshal','stonewarden','wyvernhunter','royalarsenal','rangermentor','kingdomprotector','mothernature','royalranger','kingsrangerguard','elvenking','fireballista','emeraldgolem','griffinbomber','mechanicalgolem','monk','archbishop','archangel','ladyclaire'];
 const basics=new Set(basicFamilies),champions=new Set(championFamilies);
@@ -14,7 +15,7 @@ const identities=new Set([...basicFamilies.flatMap(family=>Array.from({length:6}
 // preload or hidden-draft identity request. Unknown inputs have no fallback.
 export function referencePortrait(id,{base,revision=REFERENCE_PORTRAIT_REVISION}={}){
   if(!identities.has(id))return null;
-  return `${siteUrl(`assets/ui/reference-portraits/${id}.png`,base)}?v=${encodeURIComponent(revision)}`;
+  return `${siteUrl(`assets/ui/reference-cutouts/${id}.png`,base)}?v=${encodeURIComponent(revision)}`;
 }
 
 export function referenceDefenderPortrait(family,tier=1,options){

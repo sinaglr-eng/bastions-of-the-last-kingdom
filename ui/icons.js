@@ -1,4 +1,7 @@
 const paths={
+  settings:'<path d="m9 3-.5 3-2 1.2L4 6l-2 3 2.3 2v2L2 15l2 3 2.5-1.2 2 1.2.5 3h6l.5-3 2-1.2L20 18l2-3-2.3-2v-2L22 9l-2-3-2.5 1.2-2-1.2-.5-3Z"/><circle cx="12" cy="12" r="3"/>',
+  compass:'<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5Zm-3.5-7v3M12 20v3M1 12h3M20 12h3"/>',
+  scroll:'<path d="M6 4h12v16H6M6 4C2 4 2 8 6 8M18 16c4 0 4 4 0 4M9 8h6M9 12h6M9 16h4"/>',
   maze:'<path d="M3 3h18v18H3V7h10v6H7v4h10V7M17 3v4M7 3v4M21 17h-4"/>',
   shield:'<path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="M9 9v6h6V9M12 6v3"/>',
   coin:'<circle cx="12" cy="12" r="8"/><path d="M14.5 8h-4a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4h-4M12 6v12"/>',

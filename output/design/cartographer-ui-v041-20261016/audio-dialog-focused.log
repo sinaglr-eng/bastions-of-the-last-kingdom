@@ -1,0 +1,13 @@
+✔ actual Recipes, Enemy Waves, Help, New run and Developer dialogs freeze combat without interrupting running music; explicit Pause stays paused (27.9951ms)
+✔ dialog replacement preserves the same transport, speech duck and committed line while recorded attacks stop (2.2984ms)
+✔ a committed speech load can finish under dialog suspension while stale recorded attacks cannot (1.9794ms)
+✔ actual Developer simulation callback supplies its manual pause state, and Mute all still suspends the same dialog soundtrack (3.2417ms)
+✔ actual blur and hidden-page handlers preserve the existing real background pause even with a dialog open (3.2134ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 126.0036

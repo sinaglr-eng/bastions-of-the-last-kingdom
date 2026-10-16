@@ -1,0 +1,66 @@
+{
+  "createdAt": "2026-10-16T13:55:01.256Z",
+  "command": "VITE_BASE_PATH=/bastions-of-the-last-kingdom/ node node_modules/vite/bin/vite.js build",
+  "basePath": "/bastions-of-the-last-kingdom/",
+  "passed": true,
+  "vite": "7.1.7",
+  "modules": 186,
+  "buildSeconds": 3.13,
+  "log": "final-build.log",
+  "warning": "Existing bundle-size advisory: some minified chunks exceed 500 kB.",
+  "replaces": "build-before-pin-contrast-summary.json",
+  "artifacts": [
+    {
+      "path": "index.html",
+      "bytes": 1220,
+      "sha256": "96fc6b1ad52c99214094b6f405e2f3254df0bcb235cf61471b17f034372be563",
+      "canonicalLfSha256": "46b17c6b57a61fbf0477909ca5520c635c30061816c5788e75923fb24befbdfd"
+    },
+    {
+      "path": "archer.html",
+      "bytes": 819,
+      "sha256": "a672dcb86c7574e84ed23b9281f07562caa55bf25b3b55eeb820a1078e6dd8f4",
+      "canonicalLfSha256": "a672dcb86c7574e84ed23b9281f07562caa55bf25b3b55eeb820a1078e6dd8f4"
+    },
+    {
+      "path": "assets/archer-DNMLr2_u.js",
+      "bytes": 313484,
+      "sha256": "5dab59dbed82afc044fbf900348a4afbde74220c18a37624199c8811b4739db7"
+    },
+    {
+      "path": "assets/archer-DuO6Xkvi.css",
+      "bytes": 7772,
+      "sha256": "6995f81669c3ef3c7a6a67554b937561241556482b0572b01bd1e3df7b2cdc04"
+    },
+    {
+      "path": "assets/game-3bAScD4a.css",
+      "bytes": 255232,
+      "sha256": "64f07ad1b80bc2a704f617a9c54029d3cf50b4490efbe737c86629865d8332f0"
+    },
+    {
+      "path": "assets/game-Cj8R1kiG.js",
+      "bytes": 502370,
+      "sha256": "31c219a8c3714678f99c284f3720746e0578578272ee9e561a340ff9bdb67757"
+    },
+    {
+      "path": "assets/portrait-visibility-BzOuxggJ.js",
+      "bytes": 216559,
+      "sha256": "7e744086f552e6f8adcf863f4dbdc55f9bf216a2ff765122cdd486c901a580c0"
+    },
+    {
+      "path": "assets/portrait-visibility-Cq7vvpxZ.css",
+      "bytes": 107,
+      "sha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56"
+    },
+    {
+      "path": "assets/three-py1mPfXp.js",
+      "bytes": 653736,
+      "sha256": "b5517e381bab3b0b7b46d98b5157a285b25f6dd24d4daab92c63e54f7827b359"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1058,
+      "sha256": "a85b00c59b9504be05d858287147d38253169061ec092a4f743effe3fcaef060"
+    }
+  ]
+}

@@ -29,7 +29,7 @@ test('initial catalog puts compact recipe entries before optional explanation an
   const html=championCatalogMarkup(fresh(),data,{});
   assert.equal((html.match(/class="recipe-catalog-row/g)||[]).length,38);assert.ok(html.indexOf('recipe-catalog-row')<html.indexOf('How recipes work'));
   assert.match(html,/data-catalog-view="champions"/);assert.match(html,/data-catalog-view="basics"/);assert.match(html,/data-catalog-search/);
-  assert.match(html,/<details data-catalog-disclosure="filters"><summary>Filters/);assert.doesNotMatch(html,/<details data-catalog-disclosure="filters" open/);
+  assert.match(html,/<details class="catalog-filter-tools" data-catalog-disclosure="filters"><summary>Filter options/);assert.doesNotMatch(html,/<details class="catalog-filter-tools" data-catalog-disclosure="filters" open/);
   assert.match(html,/<div class="catalog-basics-view" hidden>/);assert.equal((html.match(/compact-recipe-detail/g)||[]).length,0,'nothing forces a detail open initially');
 });
 
@@ -140,6 +140,18 @@ test('list return with no matching rows preserves the empty filter and restores 
   const game=fresh(),state={recipeId:'highking'},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog'),input=catalog.querySelector('[data-catalog-search]');
   input.value='No matching champion';catalog.dispatch('input',input);assert.equal(catalog.querySelectorAll('[data-catalog-recipe]').filter(row=>!row.hidden).length,0);const history=JSON.stringify(state.navigation);
   catalog.dispatch('click',catalog.querySelector('[data-catalog-close]'));assert.equal(state.recipeId,null);assert.equal(state.query,'No matching champion');assert.equal(input.value,'No matching champion');assert.equal(host.ownerDocument.activeElement,input);assert.deepEqual(input.focusOptions,{preventScroll:true});assert.equal(JSON.stringify(state.navigation),history);assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,true);connection.dispose();
+});
+
+test('the pinned bookmark opens its champion page from Basic defenders without changing filters, pin or campaign state',()=>{
+  const game=fresh(),control=fresh();game.pinned=control.pinned='highking';
+  const state={view:'basics',query:'Archer',damage:'physical'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog');
+  assert.equal(catalog.querySelector('.catalog-basics-view').hidden,false);
+  assert.equal(catalog.querySelector('.recipe-filter-count').textContent,'6 of 48 basic rank profiles match');
+  const bookmark=catalog.querySelector('.catalog-bookmark').querySelector('[data-catalog-ingredient]');catalog.dispatch('click',bookmark);
+  assert.equal(state.view,'champions');assert.equal(state.recipeId,'highking');assert.equal(catalog.querySelector('.catalog-champions-view').hidden,false);assert.equal(catalog.querySelector('.catalog-basics-view').hidden,true);assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);
+  assert.equal(state.query,'Archer');assert.equal(state.damage,'physical');assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Outside current filters/);
+  assert.equal(catalog.querySelector('.recipe-filter-count').textContent,'0 of 38 champions match');
+  assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
 });
 
 test('basic guide has independent view, existing rank filters and corrected Mage information',()=>{

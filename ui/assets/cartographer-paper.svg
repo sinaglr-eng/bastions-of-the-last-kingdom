@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 280 280">
+  <filter id="paper" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" stitchTiles="stitch" result="grain"/>
+    <feColorMatrix in="grain" type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope=".055"/></feComponentTransfer>
+  </filter>
+  <rect width="280" height="280" fill="#88744d" filter="url(#paper)"/>
+  <g fill="none" stroke="#ad9265" stroke-width=".45" opacity=".08">
+    <path d="M0 30L15 25L28 40L42 35L57 48L68 43M15 25L22 13L38 10M42 35L48 22L62 18M206 0L201 17L217 24L212 38L230 45L245 39L260 54L280 50M217 24L237 18L251 23M0 170L21 179L30 170L47 183L40 197L53 211M21 179L13 193L25 206L22 223M169 280L175 262L192 257L187 241L202 230L199 214M192 257L208 264L221 254L238 268L254 259L270 265L280 261"/>
+  </g>
+</svg>

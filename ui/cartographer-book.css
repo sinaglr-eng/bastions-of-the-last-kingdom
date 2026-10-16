@@ -1,0 +1,202 @@
+/* The atlas is a bound object: two readable leaves, a recessed fold, gilt
+   corners and working index tabs. Decorations never intercept input. */
+#app dialog:has(.atlas-book),#app dialog:has(.warbands-atlas){--book-paper:#f8efdc;--book-edge:#c8ac76;--book-ink:#302719;--book-muted:#6c5c43;width:min(1240px,calc(100vw - 218px));max-width:calc(100vw - 40px);max-height:calc(100dvh - 62px);padding:8px 10px 13px;overflow:visible;border:2px solid #604625;border-radius:8px 12px 12px 8px;background:linear-gradient(90deg,#755130,#ac8050 2%,#594125 49%,#392c20 50%,#795832 51%,#a27645 98%,#5b4027);box-shadow:0 2px 0 #c59b57,inset 0 0 0 2px #ceac6b,0 18px 34px #1b160c77,0 40px 80px #1b160c44}
+#app dialog:has(.atlas-book)::backdrop,#app dialog:has(.warbands-atlas)::backdrop{background:#1c21182b;backdrop-filter:none}
+#app dialog:has(.atlas-book)>#dialog-content,#app dialog:has(.warbands-atlas)>#dialog-content{position:relative;border:1px solid var(--book-edge);border-radius:3px 7px 7px 3px;background:var(--book-paper);box-shadow:0 2px 0 #fff4db,0 4px 0 #b89f73,0 6px 0 #f7ead0,0 8px 0 #9a7a49}
+#app dialog:has(.atlas-book) .dialog-header,#app dialog:has(.warbands-atlas) .dialog-header{position:relative;padding:13px 26px 10px;border:0;background:linear-gradient(100deg,#fff9ed,#f3e7cf 48.5%,#cfb98e 50%,#fff8e9 51.5%,#f7edd9);color:var(--book-ink);z-index:2}
+#app dialog:has(.atlas-book) .dialog-header h2,#app dialog:has(.warbands-atlas) .dialog-header h2{font:600 clamp(27px,2.6vw,37px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.025em;color:var(--book-ink)}
+#app dialog:has(.atlas-book) .dialog-header .eyebrow,#app dialog:has(.warbands-atlas) .dialog-header .eyebrow{color:#756242;font-size:11px;letter-spacing:.11em;margin-bottom:5px}
+#app dialog:has(.atlas-book) .dialog-header>.icon-button,#app dialog:has(.warbands-atlas) .dialog-header>.icon-button{width:46px;height:46px;border:1px solid #a28a65;box-shadow:inset 0 0 0 2px #fffaec,0 2px 2px #5c45211c;background:linear-gradient(#fffaf0,#e9ddc7);color:#342d22}
+#app dialog:has(.atlas-book) .dialog-body{max-height:none;overflow:visible;padding:0;background:transparent}
+#app .atlas-book{position:relative;isolation:isolate;display:block;background:none;color:var(--book-ink);font-size:15px}
+#app .atlas-book .catalog-recipe-layout,#app .atlas-book .catalog-recipe-layout.has-detail{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:stretch;gap:0;background:linear-gradient(90deg,#fbf3e3,#f7edd9 46%,#e2cfa8 49%,#ac8d5c 50%,#eee0c2 51.4%,#fff8e9 54%,#f8edda);min-height:360px;height:min(555px,calc(100dvh - 188px));border-radius:0 0 4px 4px}
+#app .catalog-index-page,#app .catalog-reading-page{position:relative;min-width:0;min-height:0;padding:12px 27px 42px;display:flex;flex-direction:column;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#bda273 transparent}
+#app .catalog-index-page{padding-right:32px;border-right:1px solid #a78b5766;box-shadow:inset -13px 0 18px -17px #644728}
+#app .catalog-reading-page{padding-left:32px;padding-bottom:10px;overflow:hidden;box-shadow:inset 14px 0 16px -18px #4b3217}
+#app .catalog-page-heading{position:relative;margin:0;padding:0;border:0;display:none}
+#app .catalog-page-heading .eyebrow{font-size:10px;letter-spacing:.13em;color:#7d6a4c}
+#app .catalog-page-heading h3{font:600 24px/1.15 Georgia,serif;margin:5px 70px 0 0;color:var(--book-ink)}
+#app .catalog-volume-count{position:absolute;right:0;bottom:13px;font:14px Georgia,serif;color:var(--book-muted)}
+#app .catalog-page-footer{position:absolute;bottom:11px;left:27px;right:27px;display:flex;justify-content:space-between;gap:16px;border-top:1px solid #cbb78f;padding-top:8px;font:10px/1.2 Georgia,serif;letter-spacing:.12em;color:#806b49}
+#app .atlas-book .catalog-view-tabs{position:absolute;z-index:3;top:50px;left:-108px;display:flex;flex-direction:column;gap:6px;width:108px;margin:0;padding:0}
+#app .atlas-book .catalog-view-tabs .text-button{display:flex;flex-direction:column;justify-content:center;gap:7px;min-height:94px;padding:10px 8px 10px 6px;border:1px solid #9b8054;border-right:0;border-radius:5px 0 0 5px;background:linear-gradient(90deg,#dec79c,#f9efd9 88%,#bca071);box-shadow:-4px 3px 0 #6b4b2d,inset 0 0 0 3px #f9eed961;color:#4a3a24;font:15px/1.2 Georgia,serif;text-align:center}
+#app .atlas-book .catalog-view-tabs .icon{width:29px;height:29px}
+#app .atlas-book .catalog-view-tabs [aria-pressed=true]{color:#fff8e5;background:linear-gradient(90deg,#1f5979,#337f9f 88%,#173c51);border-color:#143f59;box-shadow:-4px 3px 0 #6b4b2d,inset 0 0 0 3px #8cc4d33a;text-shadow:0 1px #173e55}
+#app .catalog-bookmark{position:absolute;right:-97px;top:70px;z-index:-1;width:98px;min-height:198px;padding:18px 9px 22px;background:linear-gradient(100deg,#c6ac7a,#f5e7c6 24%,#fff5dc 75%,#ddc69d);color:#4b3b25;border:1px solid #94784c;border-radius:0 5px 1px 0;box-shadow:5px 4px 0 #684b2a66;transform:rotate(2deg);text-align:center;clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 15px),0 100%)}
+#app .catalog-bookmark-label{display:block;font:11px/1.4 Georgia,serif;color:#6b583b;letter-spacing:.04em}
+#app .catalog-bookmark>img{display:block;object-fit:contain;width:75px;height:89px;margin:9px auto 5px;background:none}
+#app .catalog-bookmark>.icon{display:block;width:30px;height:30px;margin:16px auto;color:#386a7c}
+#app .catalog-bookmark>strong{display:block;font:600 14px/1.3 Georgia,serif;color:#372b1c}
+#app .catalog-bookmark p{font:15px/1.3 Georgia,serif!important;margin:12px 0}
+#app .catalog-bookmark small{display:block;font-size:11px;line-height:1.4;color:#6c5b3f}
+#app .catalog-bookmark .text-button{margin-top:8px;padding:5px 0;min-height:44px;font-size:11px;border:0;background:none;text-decoration:underline;white-space:normal;width:100%;color:#315969}
+#app .book-corners{position:absolute;inset:-78px -7px -7px;z-index:4;pointer-events:none}
+#app .book-corners>i{position:absolute;width:30px;height:30px;border:3px double #a07a3f;filter:drop-shadow(0 1px 0 #fff8df)}
+#app .book-corners>i::after{content:'';position:absolute;inset:4px;border:1px solid #bc985b;border-radius:3px}
+#app .book-corners>i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0;border-radius:7px 0 0 0}
+#app .book-corners>i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0;border-radius:0 7px 0 0}
+#app .book-corners>i:nth-child(3){right:0;bottom:0;border-left:0;border-top:0;border-radius:0 0 7px 0}
+#app .book-corners>i:nth-child(4){left:0;bottom:0;border-right:0;border-top:0;border-radius:0 0 0 7px}
+#app .atlas-book .catalog-search{flex:none;min-height:44px;border-color:#bba989;border-radius:3px;background:#fffaf0b8;box-shadow:inset 0 1px 3px #75604414}
+#app .atlas-book .catalog-search input{font-size:15px;min-height:44px;padding:8px 0;color:#332c20}
+#app .atlas-book .compact-recipe-filters{margin:6px 0 0;flex:none}
+#app .atlas-book .compact-recipe-filters>details>summary{min-height:30px;padding:5px 0;border:0;background:none;font-size:12px;color:#6c5b3f}
+#app .atlas-book .recipe-filter-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:3px 0 0}
+#app .atlas-book .recipe-filter-controls label{font:12px/1.3 Georgia,serif;color:#4f422e}
+#app .atlas-book .recipe-filter-controls select{display:block;width:100%;margin-top:4px;min-height:44px;padding:6px;font-size:13px;background:#fffaf0;border:1px solid #b7a17e;border-radius:3px;color:#362e21}
+#app .atlas-book .recipe-filter-controls>[data-recipe-filter-reset]{grid-column:1/-1;justify-self:end;min-height:32px;font-size:12px;padding:4px 0;border:0;background:none;text-decoration:underline;color:#6b5b42}
+#app .atlas-book [data-catalog-disclosure=filter-help]>summary{min-height:30px;padding:3px 0;font-size:12px}
+#app .atlas-book .recipe-filter-count{font-size:12px!important;margin:4px 0 9px!important;color:#6c5b43!important}
+#app .atlas-book .catalog-status-filters{margin:0 0 8px;gap:4px;flex:none}
+#app .atlas-book .catalog-status-filters>button{min-height:44px;padding:8px 4px;font:14px Georgia,serif;background:#f8efdf;border:1px solid #b8a17a;color:#4a3d29;border-radius:3px}
+#app .atlas-book .catalog-status-filters [aria-pressed=true]{background:linear-gradient(#39809c,#22607f);border-color:#23546b;color:#fffbed;box-shadow:inset 0 0 0 1px #8cc4d377}
+#app .atlas-book .catalog-champions-view{display:flex;flex-direction:column;min-height:100px;flex:1;background:none}
+#app .catalog-list-heading{display:flex;justify-content:space-between;gap:12px;font:12px Georgia,serif;color:#6f5d40;padding:3px 24px 6px 5px;border-bottom:1px solid #c8b58f}
+#app .atlas-book .catalog-recipe-list{display:block;max-height:none;min-height:90px;overflow:auto;overscroll-behavior:contain;flex:1;padding:0 2px;background:none;scrollbar-color:#bca77e transparent}
+#app .atlas-book .recipe-catalog-row{position:relative;display:flex;gap:8px;min-height:61px;padding:4px 8px 4px 3px;border:0;border-bottom:1px solid #ccbb9877;border-radius:0;background:transparent;box-shadow:none;color:#32291e}
+#app .atlas-book .recipe-catalog-row>img{width:43px;height:52px;margin:0;object-fit:contain;background:none}
+#app .atlas-book .recipe-catalog-row>span{display:block;padding-right:77px}
+#app .atlas-book .recipe-catalog-row strong{font:600 16px/1.2 Georgia,serif;padding-right:6px}
+#app .atlas-book .recipe-catalog-row small{font-size:11px;line-height:1.35;color:#6b5a40;padding-right:2px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+#app .atlas-book .recipe-catalog-row em{display:none}
+#app .atlas-book .recipe-catalog-built-basics{position:absolute;right:26px;top:50%;transform:translateY(-50%);width:70px;display:block;font:12px/1.3 Georgia,serif;color:#473b28;margin:0;text-align:center}
+#app .atlas-book .recipe-catalog-row>b{color:#665133;font:25px Georgia,serif;margin-left:2px}
+#app .atlas-book .recipe-catalog-row[aria-pressed=true]{background:#cbe5eb;border:1px solid #509ab1;box-shadow:inset 0 0 0 1px #e6f6fa;border-radius:3px}
+#app .atlas-book .recipe-catalog-row.available::before{content:'◆';position:absolute;right:5px;top:4px;color:#9a6d22;font-size:8px}
+#app .atlas-book .catalog-recipe-explanation{flex:none;margin:4px 0 0;border-color:#c7b48e}
+#app .atlas-book .catalog-recipe-explanation>summary{font-size:12px;min-height:34px;padding:7px 0;color:#6b5738}
+#app .atlas-book .catalog-recipe-detail{display:flex;flex-direction:column;max-height:none;min-height:0;overflow:hidden;background:none;padding:0;flex:1}
+#app .atlas-book .catalog-recipe-content{min-height:0;flex:1;overflow:auto;overscroll-behavior:contain;padding:0 4px 10px 0;scrollbar-width:thin;scrollbar-color:#bba075 transparent}
+#app .atlas-book .catalog-recipe-detail>.catalog-detail-toolbar,#app .atlas-book .catalog-recipe-detail>.catalog-recipe-order{flex:none}
+#app .catalog-reading-page>.catalog-page-footer{position:static;flex:none;margin-top:10px;padding-top:8px}
+#app .atlas-book .catalog-recipe-detail[hidden],#app .catalog-book-frontispiece[hidden]{display:none}
+#app .atlas-book .catalog-recipe-detail .recipe-card{display:flex;flex-direction:column;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:#332a1d}
+#app .atlas-book .catalog-detail-back{min-height:36px;width:auto;padding:4px 0;margin:0 0 5px;border:0;background:none;justify-content:flex-start;font:13px Georgia,serif;color:#5e4b2f}
+#app .atlas-book .catalog-recipe-order{padding:5px 0;border-block:1px solid #c9b58d;gap:6px;margin-bottom:3px}
+#app .atlas-book .catalog-recipe-order>button{min-height:44px;padding:5px;border:0;background:none;font:13px/1.25 Georgia,serif;color:#4c3d27}
+#app .atlas-book .catalog-recipe-order>span{font:15px Georgia,serif;color:#4b3c28}
+#app .atlas-book .catalog-recipe-history{gap:5px;margin-bottom:12px;border-bottom:1px solid #c9b58d}
+#app .atlas-book .catalog-recipe-history>button{min-height:36px;padding:4px;border:0;background:none;font:11px/1.3 Georgia,serif;color:#776248}
+#app .atlas-book .catalog-champion-heading{gap:17px;align-items:center;order:0}
+#app .atlas-book .catalog-champion-heading>img{width:121px!important;height:140px!important;max-width:34%;object-fit:contain;border:1px solid #c5ad80;border-radius:3px;padding:5px;background:radial-gradient(ellipse at 50% 78%,#d8c29a66,transparent 65%),linear-gradient(120deg,#ebdcc0,#fff6e5 48%,#e9d7b4);box-shadow:inset 0 0 0 3px #fff7e57a}
+#app .atlas-book .catalog-champion-heading h3{font:600 clamp(23px,1.9vw,28px)/1.06 Georgia,serif;letter-spacing:-.02em;margin:7px 0 10px;color:#30281c}
+#app .atlas-book .catalog-champion-heading .eyebrow{font-size:10px;line-height:1.5;color:#7b643e;letter-spacing:.05em}
+#app .atlas-book .catalog-champion-heading p{font-size:13px;line-height:1.45;color:#5e4f38}
+#app .atlas-book .compact-recipe-detail .recipe-stat-grid{order:1;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-block:1px solid #c9b58c;padding:12px 0;margin:14px 0 5px;background:#e3cf9f30}
+#app .atlas-book .recipe-stat-grid>div{padding:0 10px;border-left:1px solid #cbb99377;min-width:0}
+#app .atlas-book .recipe-stat-grid>div:first-child{border:0}
+#app .atlas-book .recipe-stat-grid dt{font:11px/1.35 Georgia,serif;color:#685538}
+#app .atlas-book .recipe-stat-grid dd{font:600 20px/1.3 Georgia,serif;color:#302719;margin:3px 0 0}
+#app .atlas-book .recipe-built{order:2;margin:6px 0 14px;font-size:12px;color:#6b583a}
+#app .atlas-book .recipe-card>.recipe-ability-heading{order:3;font:600 21px/1.2 Georgia,serif;text-transform:none;letter-spacing:0;color:#392d1b;margin:0 0 7px}
+#app .atlas-book .recipe-round-rule{order:3;background:#eadfbf;border:1px solid #c4ad7b;font-size:12px;padding:8px}
+#app .atlas-book .catalog-recipe-detail .recipe-ingredients{order:4;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0 0 13px;padding:0}
+#app .atlas-book .compact-recipe-detail .recipe-ingredient-row{display:flex;flex-direction:column;align-items:stretch;gap:4px;min-height:148px;padding:7px;border:1px solid #c8b28b;border-radius:3px;background:linear-gradient(#fff8ea70,#e8d9bb40);box-shadow:inset 0 0 0 2px #fff9ed66;font-size:13px;color:#433521}
+#app .atlas-book .recipe-ingredient-row>.recipe-ingredient-portrait{width:100%!important;height:67px!important;object-fit:contain;margin:0;background:none}
+#app .atlas-book .recipe-ingredient-label,#app .atlas-book .recipe-ingredient-link{font:600 13px/1.25 Georgia,serif;text-align:center;padding:3px 0;min-height:44px;color:#3e321f;flex:1;overflow-wrap:normal}
+#app .atlas-book .recipe-ingredient-code{font:11px/1.4 system-ui,sans-serif;color:#766044}
+#app .atlas-book .recipe-ingredient-status{font-size:11px;white-space:normal;text-align:center;color:#8b432f}
+#app .atlas-book .recipe-ingredient-status.owned-progress{color:#386742}
+#app .atlas-book .recipe-ingredient-status.draft-progress{color:#276c7a}
+#app .atlas-book .catalog-recipe-actions{flex:none;position:relative;z-index:2;display:flex;gap:9px;background:#f8edda;padding:9px 0 0;margin:0;border-top:1px solid #ccb68a;box-shadow:0 -5px 10px #f8edda}
+#app .atlas-book .catalog-recipe-actions>button{min-height:48px;font:600 16px/1.2 Georgia,serif;gap:10px;border:1px solid #8d6c2c;background:linear-gradient(#c39b4e,#997329);color:#fff9e9;box-shadow:inset 0 0 0 2px #ead09a80,0 2px 1px #644a2422}
+#app .atlas-book .catalog-recipe-actions>button .icon{width:23px;height:23px}
+#app .atlas-book .catalog-recipe-actions>.recipe-pin{background:linear-gradient(#dcebee,#b7d4db)!important;color:#234b56;border-color:#5f8d98}
+#app .atlas-book .catalog-effects{order:6;border-top:0;margin:2px 0 9px;padding:0}
+#app .atlas-book .catalog-effects>p{font:15px/1.5 Georgia,serif;margin:0 0 10px;color:#53442e}
+#app .atlas-book .recipe-effects{font-size:13px;line-height:1.45;margin:5px 0 8px;padding-left:19px;color:#51432e}
+#app .atlas-book .recipe-ability-heading{font-size:11px;color:#7c633b}
+#app .atlas-book .catalog-effects details>summary{min-height:34px;padding:7px 0;font-size:12px;color:#725d3d}
+#app .atlas-book .recipe-basic-breakdown{order:7;border-color:#c7b18a;margin-top:2px}
+#app .atlas-book .recipe-basic-breakdown>summary{font:600 17px Georgia,serif;min-height:44px;color:#49391f;padding:11px 0}
+#app .atlas-book .catalog-anchor-note{font-size:12px;line-height:1.45;color:#756043;margin:8px 0 0}
+#app .catalog-book-frontispiece{margin:auto;text-align:center;max-width:345px;padding:25px 14px 50px;color:#725f40}
+#app .catalog-frontispiece-emblem{display:grid;place-items:center;margin:0 auto 24px;width:100px;height:115px;border:1px solid #b89c69;border-radius:45% 45% 48% 48%;outline:4px double #d5bd8f;outline-offset:6px;background:linear-gradient(#efe2c4,#e0c894)}
+#app .catalog-frontispiece-emblem>.icon{width:57px;height:57px;color:#826431;stroke-width:1}
+#app .catalog-book-frontispiece>.eyebrow{display:block;font-size:10px;letter-spacing:.15em;color:#8d744a;margin-top:20px}
+#app .catalog-book-frontispiece h3{font:500 36px/1.1 Georgia,serif;letter-spacing:-.025em;margin:15px 0 20px;color:#47371f}
+#app .catalog-book-frontispiece p{font:16px/1.6 Georgia,serif!important;color:#766244}
+#app .catalog-frontispiece-rule{position:relative;font-size:12px;color:#ae8d53;margin:22px 0}
+#app .catalog-frontispiece-rule::before,#app .catalog-frontispiece-rule::after{content:'';position:absolute;top:50%;width:38%;height:1px;background:#c5ac7e}
+#app .catalog-frontispiece-rule::before{left:0}#app .catalog-frontispiece-rule::after{right:0}
+#app .catalog-book-frontispiece small{font:italic 15px/1.5 Georgia,serif;color:#806b49}
+#app .atlas-book[data-catalog-mode=basics] .catalog-recipe-layout{grid-template-columns:1fr;background:linear-gradient(90deg,#faf1df,#fff8e9 48%,#f1e4c9)}
+#app .atlas-book[data-catalog-mode=basics] .catalog-reading-page,#app .atlas-book[data-catalog-mode=basics] .catalog-volume-count{display:none}
+#app .atlas-book[data-catalog-mode=basics] .catalog-index-page{padding-right:27px;border:0;box-shadow:none}
+#app .atlas-book[data-catalog-mode=basics] .catalog-basics-view{overflow:auto;min-height:0}
+#app .atlas-book button:focus-visible,#app .atlas-book summary:focus-visible,#app .atlas-book input:focus-visible,#app .warbands-atlas button:focus-visible{outline:3px solid #247c98;outline-offset:2px}
+#app .atlas-book button:disabled{opacity:.45;cursor:default}
+#app .atlas-book .catalog-detail-toolbar{display:flex;align-items:center;gap:9px;border-bottom:1px solid #c9b58d;margin-bottom:0}
+#app .atlas-book .catalog-detail-toolbar>.catalog-detail-back{flex:none;min-height:44px;max-width:100px;white-space:normal;font-size:12px;margin:0}
+#app .atlas-book .catalog-detail-toolbar>.catalog-recipe-history{flex:1;min-width:0;margin:0;border:0;gap:3px}
+#app .atlas-book .catalog-detail-toolbar .catalog-recipe-history>button{min-height:44px;font-size:11px;padding:4px}
+#app .atlas-book .catalog-recipe-order{margin-bottom:12px;border-top:0}
+#app .atlas-book .catalog-champion-profile{order:0;display:grid;grid-template-columns:112px minmax(0,1fr);grid-template-rows:auto auto;gap:7px 14px;align-items:center;margin-bottom:14px}
+#app .atlas-book .catalog-champion-profile>.catalog-champion-heading{display:contents}
+#app .atlas-book .catalog-champion-profile>.catalog-champion-heading>img{grid-column:1;grid-row:1/3;width:112px!important;height:140px!important;max-width:100%;align-self:start}
+#app .atlas-book .catalog-champion-profile>.catalog-champion-heading>div{grid-column:2;grid-row:1;min-width:0}
+#app .atlas-book .catalog-champion-profile .catalog-champion-heading h3{font-size:27px;margin:5px 0 0}
+#app .atlas-book .catalog-champion-profile .catalog-champion-heading p{display:none}
+#app .atlas-book .catalog-champion-profile .catalog-champion-heading .eyebrow{font-size:9px;line-height:1.4;letter-spacing:.035em}
+#app .atlas-book .catalog-champion-profile>.recipe-stat-grid{grid-column:2;grid-row:2;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 0;margin:0;padding:0;border:0;background:none;align-self:start}
+#app .atlas-book .catalog-champion-profile>.recipe-stat-grid>div{padding:0 7px;border-left:1px solid #cbb99399}
+#app .atlas-book .catalog-champion-profile>.recipe-stat-grid>div:nth-child(odd){border-left:0;padding-left:0}
+#app .atlas-book .catalog-champion-profile>.recipe-stat-grid dt{font-size:11px;line-height:1.2}
+#app .atlas-book .catalog-champion-profile>.recipe-stat-grid dd{font-size:19px;line-height:1.2;margin-top:3px}
+#app .atlas-book .catalog-champion-profile>.recipe-built{display:none}
+#app .atlas-book .catalog-recipe-content .recipe-ingredients{gap:8px;margin-bottom:10px}
+#app .atlas-book .catalog-recipe-content .recipe-ingredient-row{min-height:130px}
+#app .atlas-book .catalog-recipe-content .recipe-ingredient-row>.recipe-ingredient-portrait{height:54px!important}
+#app .atlas-book .catalog-filter-meta{display:flex;align-items:start;justify-content:space-between;gap:8px;min-height:27px;margin-top:3px}
+#app .atlas-book .catalog-filter-tools{position:relative;min-width:0}
+#app .atlas-book .catalog-filter-tools>summary{font-size:11px;min-height:27px;padding:4px 0;background:none;border:0}
+#app .atlas-book .catalog-filter-meta>.recipe-filter-count{font-size:11px!important;margin:4px 0!important;white-space:nowrap}
+#app .atlas-book .catalog-filter-tools[open]{flex:1}
+#app .atlas-book .catalog-filter-tools[open]+.recipe-filter-count{display:none}
+#app .atlas-book .catalog-filter-tools>[data-recipe-filter-reset]{min-height:44px;padding:6px 8px;border:1px solid #b9a27b;background:#f6ead2;font-size:13px}
+/* Wave atlas: a numbered index above a single selected field report. */
+#app dialog:has(.warbands-atlas){width:min(1160px,calc(100vw - 80px))}
+#app dialog:has(.warbands-atlas) .dialog-body{padding:0 25px 21px;background:linear-gradient(105deg,#fbf3e3,#f5e8d0 50%,#fff7e7);max-height:calc(100dvh - 165px);overflow:auto}
+#app .warbands-atlas{color:#392d1d}
+#app .warbands-atlas .warbands-progress{margin:1px 0 12px;font:13px Georgia,serif;color:#7c6542}
+#app .warbands-atlas-index{position:relative;margin:0 0 17px;padding:15px 13px 12px;border:1px solid #c9b087;border-radius:4px;background:#fff7e866;box-shadow:inset 0 0 0 3px #f9f0dd}
+#app .warbands-atlas-index>h3{font:600 18px Georgia,serif;color:#5d492d;margin:-6px 0 12px}
+#app .warbands-atlas-pages{display:grid;grid-template-columns:repeat(auto-fit,minmax(36px,1fr));gap:5px}
+#app .warbands-atlas-pages>button{position:relative;min-width:0;min-height:44px;padding:6px 2px;border:1px solid #c1a981;border-radius:3px;background:linear-gradient(#fffaf0,#eee0c6);box-shadow:inset 0 0 0 2px #fff7e6;font:16px Georgia,serif;color:#493a24}
+#app .warbands-atlas-pages>button[aria-pressed=true]{background:linear-gradient(#d6ad60,#bc8c3d);border-color:#9d722f;box-shadow:inset 0 0 0 2px #f1d99f;color:#352513;font-weight:bold}
+#app .warbands-atlas-pages>button[data-atlas-current=true]{outline:2px solid #387b97;outline-offset:0}
+#app .warbands-atlas-pages>button[data-atlas-boss=true]::after{content:'◆';position:absolute;right:1px;bottom:0;font-size:8px;color:#a43e2d}
+#app .warbands-atlas-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;margin-top:9px;color:#796446}
+#app .warbands-atlas-legend .atlas-current-key{color:#2c6c85}#app .warbands-atlas-legend .atlas-boss-key{color:#943d2e}
+#app .warbands-atlas .warband-card{border:1px solid #c3a97e;background:linear-gradient(105deg,#fff8ea8c,#efe1c233);border-radius:5px;padding:0;box-shadow:inset 0 0 0 4px #fff6e570;margin:0}
+#app .warbands-atlas .warband-wave-row{display:none}
+#app .warbands-atlas .warband-wave-body{padding:19px 20px 14px;border:0}
+#app .warbands-atlas .warband-wave-body>.eyebrow{text-align:center;font-size:11px;letter-spacing:.12em;color:#8b7145}
+#app .warbands-atlas .warband-wave-name{font:600 29px/1.15 Georgia,serif;text-align:center;color:#392b18;margin:8px 0 10px}
+#app .warbands-atlas .warband-wave-status{text-align:center;color:#3b7282;font-size:11px!important}
+#app .warbands-atlas .warband-group{display:grid;grid-template-columns:minmax(150px,.72fr) minmax(0,2fr);gap:0 25px;padding-top:8px}
+#app .warbands-atlas .warband-detail-heading{grid-column:1;grid-row:1/5;display:flex;flex-direction:column;align-items:center;gap:8px;padding:15px 8px;border-right:1px solid #cfb98c}
+#app .warbands-atlas .warband-detail-heading>img{width:170px!important;height:220px!important;max-width:100%;object-fit:contain;filter:drop-shadow(0 9px 6px #6c583c25)}
+#app .warbands-atlas .warband-detail-heading>h3{font:600 19px/1.2 Georgia,serif;text-align:center;color:#4b381c}
+#app .warbands-atlas .warband-group>p{grid-column:2;margin:0 0 7px!important;font:16px Georgia,serif;color:#5c472a}
+#app .warbands-atlas .warband-comparison{grid-column:2;min-width:0}
+#app .warbands-atlas .warband-shared-stats{font:16px/1.55 Georgia,serif!important;margin:0 0 12px;color:#3c2f1c;padding-bottom:12px;border-bottom:1px solid #cab38a}
+#app .warbands-atlas .warband-common-abilities>strong{font:600 15px Georgia,serif;color:#4c3a20}
+#app .warbands-atlas .warband-variant-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:14px 0 10px}
+#app .warbands-atlas .warband-variant-columns>.warband-variant{padding:15px 13px;border:1px solid #cdb78e;border-radius:4px;background:linear-gradient(115deg,#fdf6e7,#edddbc55);box-shadow:inset 0 0 0 2px #fff7e8a1}
+#app .warbands-atlas .warband-variant-columns>.warband-variant:only-child{grid-column:1/-1}
+#app .warbands-atlas .warband-variant>strong{font:600 18px/1.25 Georgia,serif;color:#4b351b;margin-bottom:13px}
+#app .warbands-atlas .enemy-trait-list{font-size:15px;line-height:1.5;color:#554126;margin:8px 0}
+#app .warbands-atlas .warband-variant .enemy-trait-list li{font-size:15px;line-height:1.5}
+#app .warbands-atlas .warband-variant .enemy-defense-glyph{width:25px;height:25px;background:#e0cea7;border-color:#a88c58;color:#614c2c}
+#app .warbands-atlas .warband-lore{grid-column:2;border-color:#c7b187;margin-top:4px}
+#app .warbands-atlas .warband-lore>summary{font:14px Georgia,serif;min-height:44px;color:#725632}
+#app .warbands-atlas .minor-note{font-size:13px!important;color:#806947}
+#app .warbands-atlas-nav{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:14px;margin-top:16px}
+#app .warbands-atlas-nav>button{min-height:48px;padding:10px 12px;border:1px solid #b09a75;border-radius:3px;background:linear-gradient(#fffbf3,#eee2cc);box-shadow:inset 0 0 0 2px #fff8eb;font:600 16px/1.2 Georgia,serif;color:#493923;justify-content:center}
+#app .warbands-atlas-nav>button:disabled{opacity:.4}
+@media(min-width:751px) and (min-height:601px){#app dialog:has(.atlas-book){margin:auto auto 20px}}
+@media(max-width:1100px){#app dialog:has(.atlas-book){width:calc(100vw - 132px)}#app .atlas-book .catalog-view-tabs{left:-65px;width:65px}#app .atlas-book .catalog-view-tabs .text-button{font-size:12px;padding:9px 4px;min-height:87px}#app .catalog-bookmark{right:-57px;width:58px;padding:11px 5px 20px;min-height:180px}#app .catalog-bookmark>img{width:47px;height:70px}#app .catalog-bookmark>strong{font-size:12px}#app .catalog-bookmark-label{font-size:10px}#app .catalog-bookmark small,#app .catalog-bookmark p{display:none}#app .catalog-bookmark .text-button{font-size:10px;line-height:1.2}#app .catalog-index-page,#app .catalog-reading-page{padding-inline:19px}#app .catalog-page-heading h3{font-size:22px}#app .atlas-book .catalog-recipe-layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}#app .atlas-book .catalog-champion-heading>img{width:82px!important;height:106px!important}#app .atlas-book .catalog-champion-heading{gap:10px}#app .atlas-book .recipe-stat-grid>div{padding-inline:6px}#app .atlas-book .recipe-stat-grid dd{font-size:18px}#app .atlas-book .recipe-ingredient-row>.recipe-ingredient-portrait{height:57px!important}#app .atlas-book .recipe-ingredient-label,#app .atlas-book .recipe-ingredient-link{font-size:12px}#app .atlas-book .recipe-catalog-row strong{font-size:15px}#app .atlas-book .recipe-catalog-row>img{width:39px;height:54px}#app .warbands-atlas .warband-group{gap:0 17px}#app .warbands-atlas .warband-wave-name{font-size:26px}}
+@media(max-width:750px){#app dialog:has(.atlas-book),#app dialog:has(.warbands-atlas){width:calc(100vw - 24px);max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:5px 5px 9px}#app dialog:has(.atlas-book) .dialog-header,#app dialog:has(.warbands-atlas) .dialog-header{padding:15px 13px 12px;background:linear-gradient(110deg,#fff8ea,#eddfc1)}#app dialog:has(.atlas-book) .dialog-header h2,#app dialog:has(.warbands-atlas) .dialog-header h2{font-size:26px}#app .atlas-book .catalog-view-tabs{position:relative;top:auto;left:auto;display:flex;flex-direction:row;width:auto;padding:0 12px;gap:5px;background:#f2e5cb}#app .atlas-book .catalog-view-tabs .text-button{flex:1;flex-direction:row;min-height:48px;font-size:15px;gap:8px;border:1px solid #b69d72;border-radius:4px 4px 0 0;box-shadow:inset 0 0 0 2px #fff6df77;padding:8px}#app .atlas-book .catalog-view-tabs .icon{width:22px;height:22px}#app .catalog-bookmark{display:none}#app .book-corners{inset:-73px -3px -4px}#app .book-corners>i{width:20px;height:20px}#app .atlas-book .catalog-recipe-layout,#app .atlas-book .catalog-recipe-layout.has-detail{display:block;height:calc(100dvh - 175px);min-height:180px;background:linear-gradient(100deg,#f7ecd6,#fff8e9 12%,#fbf2df 95%,#ddc79f)}#app .catalog-index-page,#app .catalog-reading-page{height:100%;padding:15px 17px 39px;border:0;box-shadow:none}#app .catalog-reading-page{display:none}#app .atlas-book .catalog-recipe-layout.has-detail .catalog-index-page{display:none}#app .atlas-book .catalog-recipe-layout.has-detail .catalog-reading-page{display:flex}#app .atlas-book .catalog-recipe-layout.has-detail .catalog-recipe-list{display:block}#app .atlas-book .catalog-recipe-list{max-height:none;min-height:90px}#app .atlas-book .catalog-champions-view{min-height:90px}#app .atlas-book .catalog-detail-back{font-size:15px;min-height:44px}#app .atlas-book .catalog-recipe-history>button{min-height:44px;font-size:12px}#app .atlas-book .recipe-catalog-row{min-height:80px}#app .atlas-book .recipe-catalog-row strong{font-size:17px}#app .atlas-book .recipe-catalog-row small{font-size:12px}#app .atlas-book .recipe-catalog-row em{font-size:11px}#app .atlas-book .recipe-catalog-row>img{width:49px;height:62px}#app .atlas-book .recipe-catalog-built-basics{font-size:13px}#app .atlas-book .catalog-champion-heading>img{width:96px!important;height:119px!important}#app .atlas-book .catalog-champion-heading h3{font-size:27px}#app .atlas-book .recipe-stat-grid dt{font-size:12px}#app .atlas-book .recipe-stat-grid dd{font-size:20px}#app .atlas-book .recipe-ingredient-label,#app .atlas-book .recipe-ingredient-link{font-size:13px}#app .atlas-book .catalog-effects>p{font-size:16px}#app .atlas-book .recipe-effects{font-size:15px}#app .atlas-book[data-catalog-mode=basics] .catalog-index-page{display:flex!important}#app .atlas-book[data-catalog-mode=basics] .catalog-reading-page{display:none!important}#app .catalog-page-footer{left:17px;right:17px}#app dialog:has(.warbands-atlas) .dialog-body{padding:0 12px 14px;max-height:calc(100dvh - 135px)}#app .warbands-atlas-index{padding:12px 8px 10px}#app .warbands-atlas-pages{grid-template-columns:repeat(auto-fit,minmax(38px,1fr));gap:5px}#app .warbands-atlas .warband-wave-body{padding:14px 12px}#app .warbands-atlas .warband-wave-name{font-size:24px}#app .warbands-atlas .warband-group{display:block}#app .warbands-atlas .warband-detail-heading{display:flex;flex-direction:row;align-items:center;gap:15px;border:0;padding:0 0 12px}#app .warbands-atlas .warband-detail-heading>img{width:85px!important;height:110px!important}#app .warbands-atlas .warband-detail-heading>h3{text-align:left;font-size:21px}#app .warbands-atlas .warband-variant-columns{gap:9px}#app .warbands-atlas .warband-variant-columns>.warband-variant{padding:11px 9px}#app .warbands-atlas .warband-variant>strong{font-size:17px}#app .warbands-atlas .warband-variant .enemy-trait-list li{font-size:14px}#app .warbands-atlas-nav{gap:7px;grid-template-columns:1fr 1fr}#app .warbands-atlas-nav>button{font-size:14px;padding:9px 5px}#app .warbands-atlas-nav>[data-action=close]{grid-column:1/-1;grid-row:2}}
+@media(max-width:420px){#app .atlas-book .recipe-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px 0!important}#app .atlas-book .recipe-stat-grid>div:nth-child(3){border-left:0}#app .atlas-book .recipe-ingredient-row>.recipe-ingredient-portrait{height:54px!important}#app .atlas-book .catalog-recipe-detail .recipe-ingredients{gap:6px}#app .atlas-book .compact-recipe-detail .recipe-ingredient-row{padding:6px 4px}#app .atlas-book .catalog-champion-heading h3{font-size:24px}#app .atlas-book .recipe-filter-controls{gap:5px}#app .atlas-book .recipe-filter-controls select{font-size:12px;padding:5px 3px}#app .atlas-book .recipe-filter-controls label{font-size:11px}#app .warbands-atlas .warband-variant-columns{grid-template-columns:1fr}}
+@media(orientation:landscape) and (max-height:600px){#app dialog:has(.atlas-book),#app dialog:has(.warbands-atlas){max-height:calc(100dvh - 20px)}#app dialog:has(.atlas-book) .dialog-header,#app dialog:has(.warbands-atlas) .dialog-header{padding:8px 17px}#app dialog:has(.atlas-book) .dialog-header h2,#app dialog:has(.warbands-atlas) .dialog-header h2{font-size:24px}#app dialog:has(.atlas-book) .dialog-header .eyebrow,#app dialog:has(.warbands-atlas) .dialog-header .eyebrow{display:none}#app .atlas-book .catalog-recipe-layout,#app .atlas-book .catalog-recipe-layout.has-detail{height:calc(100dvh - 94px);min-height:150px}#app .catalog-index-page,#app .catalog-reading-page{overflow:auto}#app .atlas-book .catalog-champions-view{min-height:200px;flex:none}#app .atlas-book .catalog-recipe-list{max-height:250px;min-height:150px}#app .atlas-book .catalog-view-tabs{top:26px}#app .catalog-page-footer{position:static;margin-top:20px}#app .book-corners{inset:-50px -7px -7px}#app dialog:has(.warbands-atlas) .dialog-body{max-height:calc(100dvh - 90px)}#app .warbands-atlas .warband-detail-heading>img{height:160px!important}#app .catalog-bookmark{top:32px}}

@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "reviewer": "Codex portrait agent",
+  "date": "2026-10-16",
+  "scope": "Visual inspection of all 136 delivered identities on paper and dark contact sheets, with source comparisons for ambiguous pale clothing. This is asset inspection, not physical-device testing.",
+  "manifestSha256": "50babe99b9f67691092a7720d05115311d47ee71f2c4f4871a393f91d981fb9d",
+  "identitiesReviewed": 136,
+  "backgrounds": [
+    "paper #F5EBD4",
+    "dark #365459"
+  ],
+  "findings": [
+    "No opaque rectangular source backgrounds remain.",
+    "Pale hoods, robes, ivory stoles and silver armor are retained.",
+    "Original pedestals, floating figures, crystals, weapons and bowstrings remain visible.",
+    "Bow and staff openings show the frame background.",
+    "All displayed gallery names and current captions are English."
+  ],
+  "correctedDuringReview": [
+    "Archer IV and Druid IV/VI pale hoods",
+    "Frost Warden II/IV/VI collar, hood and robe facets",
+    "Cleric V/VI and Archbishop ivory stoles",
+    "Angel and Lady Claire pale clothing",
+    "Frostsword Watchmen ivory cape hem",
+    "Lady Claire source background glow and staff opening",
+    "Thin source-board rule near Lionheart Champion"
+  ],
+  "sheets": [
+    {
+      "file": "contact-dark-01.jpg",
+      "sha256": "87db1644d8c7229a922e5a98473c2a51671584c0b8cd6f3ce808ce764d49ffcd"
+    },
+    {
+      "file": "contact-dark-02.jpg",
+      "sha256": "dabc505ca64e344fd610fade0befac998743d19f82ccacf9450d1760608a6adb"
+    },
+    {
+      "file": "contact-dark-03.jpg",
+      "sha256": "3016ad98f5659668c750bb7b96aa715acd818a8980769ab05849511ccfa24666"
+    },
+    {
+      "file": "contact-dark-04.jpg",
+      "sha256": "dc8a7a83974d8ccfd9d885563af0f9b0e6ec9084e2cd4a17754735eae87f3cdf"
+    },
+    {
+      "file": "contact-dark-05.jpg",
+      "sha256": "e4db5fde641004e2cbfef7e0b52c9f31ad4fd5531a2072524d4012ca70520a3c"
+    },
+    {
+      "file": "contact-dark-06.jpg",
+      "sha256": "7bb81103217123dd665fae2439c23b95605688ca8cc8bda911845e23da241f59"
+    },
+    {
+      "file": "contact-paper-01.jpg",
+      "sha256": "3e1cda88ebecc8b5fb0ef347b7002ef7add99f19e96f285120e979fce2ec3592"
+    },
+    {
+      "file": "contact-paper-02.jpg",
+      "sha256": "4c00c0575c130d93309ca3da2171b476ed84e87bd1727d7c37a4129ea4061b8a"
+    },
+    {
+      "file": "contact-paper-03.jpg",
+      "sha256": "fbe52bece5e39d35e875c08d35ddc1e872aa6746c740163e215e1cb020870365"
+    },
+    {
+      "file": "contact-paper-04.jpg",
+      "sha256": "388625db8405bda0a773554e38f4d964775cbbb21a1c8124fc47b85b083bded9"
+    },
+    {
+      "file": "contact-paper-05.jpg",
+      "sha256": "2b465c03984a17855d382b3b3b78e01c1d71bf93316c82e67aff61f1c5f9a77c"
+    },
+    {
+      "file": "contact-paper-06.jpg",
+      "sha256": "4b148cbde7f5206a4c7b74b2d73208e972f6926f8629a2442e12217ed1287793"
+    }
+  ]
+}

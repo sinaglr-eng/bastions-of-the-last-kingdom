@@ -32,14 +32,14 @@ export function preparationRecipeModel(game,tower,{selectedRecipeId=null}={}){
 export function preparationRecipesMarkup(game,tower,images={},options={}){
   const model=preparationRecipeModel(game,tower,options),selected=model.selected;
   const detailId=`folio-recipe-detail-${tower.id}`;
-  const rows=model.options.map(option=>{
-    const recipe=option.recipe,family=recipeFamily(recipe),src=portrait(family,recipeTier(recipe),game.data,images),active=recipe.id===selected?.recipe.id;
-    return `<button type="button" id="folio-option-${tower.id}-${escape(recipe.id)}" class="folio-recipe-row ${active?'active':''}" data-action="folio-recipe" data-id="${escape(recipe.id)}" aria-expanded="${active}" aria-controls="${detailId}">${src?`<img src="${escape(src)}" alt="" draggable="false">`:''}<span><strong>${escape(recipeLabel(recipe,game.data))}</strong><small>${escape(option.status)}</small></span><span class="folio-recipe-chevron" aria-hidden="true">${active?'⌃':'⌄'}</span></button>`;
-  }).join('');
   const ingredients=selected?.rows.map(row=>{
     const src=portrait(row.family,row.tier,game.data,images),state=row.state==='built'?'Built':row.state==='draft'?'This round':'Missing';
     return `<li class="folio-ingredient ${row.state}">${src?`<img src="${escape(src)}" alt="" draggable="false">`:''}<span><strong>${escape(row.name)} · ${rankLabel(row.tier)}</strong><small>${state}</small></span></li>`;
   }).join('');
   const detail=selected?`<section class="folio-recipe-detail" id="${detailId}" data-recipe-id="${escape(selected.recipe.id)}" aria-label="${escape(recipeLabel(selected.recipe,game.data))} ingredients"><h4>${escape(recipeLabel(selected.recipe,game.data))}</h4>${selected.recipe.currentRoundOnly?'<p class="folio-recipe-rule">Secret recipe · Exact ingredients from this round only.</p>':''}<ul class="folio-ingredients">${ingredients}</ul><button type="button" id="folio-preview-${tower.id}-${escape(selected.recipe.id)}" class="text-button folio-preview-combination" data-action="craft-preview" data-id="${escape(selected.recipe.id)}" ${selected.canPreview?'':'disabled'}>Preview combination</button>${selected.canPreview?'':`<p class="folio-recipe-reason">${escape(selected.status)}</p>`}</section>`:'';
-  return `<section class="folio-recipes potential-combinations" aria-label="Potential combinations"><h3>Potential combinations (${model.options.length})</h3><p class="folio-recipe-rank">${game.data.towers[tower.family].advanced?'Fixed champion recipes':`Actual rank ${rankLabel(tower.tier)} recipes`}</p><div class="folio-recipe-list">${rows||'<p>No recipe uses this actual rank.</p>'}</div>${detail}</section>`;
+  const rows=model.options.map(option=>{
+    const recipe=option.recipe,family=recipeFamily(recipe),src=portrait(family,recipeTier(recipe),game.data,images),active=recipe.id===selected?.recipe.id;
+    return `<button type="button" id="folio-option-${tower.id}-${escape(recipe.id)}" class="folio-recipe-row ${active?'active':''}" data-action="folio-recipe" data-id="${escape(recipe.id)}" aria-expanded="${active}" aria-controls="${detailId}">${src?`<img src="${escape(src)}" alt="" draggable="false">`:''}<span><strong>${escape(recipeLabel(recipe,game.data))}</strong><small>${escape(option.status)}</small></span><span class="folio-recipe-chevron" aria-hidden="true">${active?'⌃':'⌄'}</span></button>${active?detail:''}`;
+  }).join('');
+  return `<section class="folio-recipes potential-combinations" aria-label="Potential combinations"><h3>Potential combinations (${model.options.length})</h3><p class="folio-recipe-rank">${game.data.towers[tower.family].advanced?'Fixed champion recipes':`Actual rank ${rankLabel(tower.tier)} recipes`}</p><div class="folio-recipe-list">${rows||'<p>No recipe uses this actual rank.</p>'}</div></section>`;
 }

@@ -1,0 +1,85 @@
+{
+  "version": "0.4.1",
+  "checkedAt": "2026-10-16T13:56:37.610Z",
+  "browser": "Codex in-app desktop browser",
+  "physicalIpadSafari": false,
+  "baseline": "ed9527a0bcd005df8987145f75a3bac16be880ab",
+  "phaseCaptures": [
+    "01-building-desktop.jpg",
+    "02-choose-keeper-desktop.jpg",
+    "03-combination-preview-desktop.jpg",
+    "04-ready-defender-desktop.jpg",
+    "05-combat-desktop.jpg",
+    "06-current-wave-desktop.jpg",
+    "07-future-waves-desktop.jpg",
+    "08-recipes-desktop.jpg",
+    "09-recipe-navigation-desktop.jpg",
+    "10-three-combinations-desktop.jpg",
+    "11-rank-comparison-desktop.jpg"
+  ],
+  "responsiveChecks": [
+    {
+      "size": "1440x900",
+      "scope": "All eleven concept states, normal selection, exact combination, rank comparison, current and future wave reports, recipe navigation"
+    },
+    {
+      "size": "1715x1244",
+      "scope": "Recipe book, pinned bookmark, visible action footer"
+    },
+    {
+      "size": "1180x820",
+      "scope": "Recipe book, combination preview, all four folio metrics, all six inspector rank buttons, complete Keep/Downgrade/Reroll/Reserve targets; single-click Start/Pause and Demolish"
+    },
+    {
+      "size": "1024x768",
+      "scope": "Wave atlas bounds and no page-level horizontal overflow"
+    },
+    {
+      "size": "820x1180",
+      "scope": "Construction folio and map bounds"
+    },
+    {
+      "size": "390x844",
+      "scope": "Single-leaf recipe book and vertically scrollable selection folio with accessible actions"
+    },
+    {
+      "size": "844x390",
+      "scope": "Low-height book bounds and fixed action footer"
+    }
+  ],
+  "actions": [
+    "Single-click Start wave 16 entered combat at desktop and iPad-sized viewport",
+    "Single-click Demolish cleared selected wall at 1180x820",
+    "Single-click Keep Mage I while previewing VI preserved actual rank I",
+    "Single-click Keep Frost Warden V while previewing VI preserved actual rank V",
+    "Real Lady Claire Combine completed",
+    "Pause and current-wave inspection worked",
+    "Kingslayer ordered Next reached King; ingredient exploration Back restored Kingslayer",
+    "Pinned Kingslayer bookmark returned from Basic defenders to Champions and actual Kingslayer detail"
+  ],
+  "lastMeasuredActions": {
+    "viewport": "1180x820",
+    "keep": {
+      "width": 161.56,
+      "height": 64
+    },
+    "downgrade": {
+      "width": 157.56,
+      "height": 44
+    },
+    "reroll": {
+      "width": 84.65,
+      "height": 48
+    },
+    "reserve": {
+      "width": 84.65,
+      "height": 48
+    }
+  },
+  "console": {
+    "warnings": 0,
+    "errors": 0,
+    "scope": "Captured local browser log check"
+  },
+  "limits": "Viewport checks use a desktop browser and are not a full eleven-state/device matrix or a physical iPad Safari certification."
+}

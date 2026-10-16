@@ -157,3 +157,44 @@ test('developer final-wave and empty-guide copy avoid campaign completion claims
   assert.match(ordinary,/50 waves completed · 0 waves remaining/);assert.match(ordinary,/All waves completed/);assert.doesNotMatch(ordinary,/Completed wave 3|data-wave="3"|Sandbox guide|Prior wave/);
   const empty=warbandsOverviewMarkup(data.waves,data.enemies,images,options({waveLimit:0,developerMode:true}));assert.match(empty,/No waves in this guide/);assert.doesNotMatch(empty,/Wave 0/);
 });
+
+test('the open atlas changes only its selected page, retaining exact wave 31 variants, current-wave marker and seeded campaign state',()=>{
+  const {host,document}=catalogHost(),game=new Game(data,{seed:708}),control=new Game(data,{seed:708}),before=JSON.stringify({towers:game.towers,draws:game.draft.draws,round:game.round,phase:game.phase,cp:game.commandPoints.value,gold:game.economy.gold});
+  updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({atlas:true,round:9}));
+  assert.equal(host.querySelectorAll('.warband-card').length,1);
+  assert.equal(host.querySelector('.warband-card').dataset.wave,'9');
+  assert.equal(host.querySelector('.warband-wave-details').open,true);
+  const index=host.querySelector('.warbands-atlas-pages');
+  assert.equal(index.querySelectorAll('button').length,42);
+  assert.equal(index.querySelector('[data-atlas-wave="8"]'),null);
+  host.click(index.querySelector('[data-atlas-wave="31"]'));
+  assert.equal(host.querySelectorAll('.warband-card').length,1);
+  assert.equal(host.querySelector('.warband-card').dataset.wave,'31');
+  assert.equal(document.activeElement.dataset.atlasWave,'31');
+  assert.match(host.innerHTML,/Current campaign wave 9/);
+  assert.match(host.innerHTML,/Gold · selected page 31/);
+  assert.equal((host.innerHTML.match(/12,443 HP · 20 armor · 2\.05 tiles\/s/g)||[]).length,1);
+  assert.equal((host.innerHTML.match(/3 hit-blocking shields/g)||[]).length,1);
+  assert.match(host.innerHTML,/Immune to Magical damage/);assert.match(host.innerHTML,/Immune to Physical damage/);
+  assert.equal(JSON.stringify({towers:game.towers,draws:game.draft.draws,round:game.round,phase:game.phase,cp:game.commandPoints.value,gold:game.economy.gold}),before);
+  assert.equal(game.rng(),control.rng());
+});
+
+test('atlas page, index focus and nested lore survive live refresh; ordered endpoints respect the remaining campaign cap',()=>{
+  const {host,document}=catalogHost();updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({atlas:true,round:31}));
+  host.click(host.querySelector('.warbands-atlas-pages').querySelector('[data-atlas-wave="38"]'));
+  host.querySelector('.warband-lore').open=true;host.scrollTop=103;
+  updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({atlas:true,round:31,phase:'combat'}));
+  assert.equal(host.querySelector('.warband-card').dataset.wave,'38');assert.equal(host.querySelector('.warband-lore').open,true);assert.equal(document.activeElement.dataset.atlasWave,'38');assert.equal(host.scrollTop,103);
+  const nav=host.querySelector('.warbands-atlas-nav');host.click(nav.querySelector('[data-atlas-wave="39"]'));
+  assert.equal(host.querySelector('.warband-card').dataset.wave,'39');
+  host.click(host.querySelector('.warbands-atlas-pages').querySelector('[data-atlas-wave="50"]'));
+  assert.equal(host.querySelector('.warbands-atlas-nav').querySelector('[data-atlas-wave="51"]').disabled,true);
+  host.click(host.querySelector('.warbands-atlas-nav').querySelector('[data-atlas-wave="51"]'));
+  assert.equal(host.querySelector('.warband-card').dataset.wave,'50');
+  const short=catalogHost().host;updateWarbandsOverviewPanel(short,data.waves,data.enemies,images,options({atlas:true,round:9,waveLimit:10}));
+  assert.equal(short.querySelector('.warbands-atlas-pages').querySelectorAll('button').length,2);
+  assert.equal(short.querySelector('.warbands-atlas-nav').querySelector('[data-atlas-wave="8"]').disabled,true);
+  updateWarbandsOverviewPanel(short,data.waves,data.enemies,images,options({atlas:true,round:10,waveLimit:10}));
+  assert.equal(short.querySelector('.warband-card').dataset.wave,'10');
+});

@@ -56,7 +56,7 @@ export function upcomingWarbandMarkup(wave,enemies,{balance}={}){
   }).join('');
 }
 
-export function warbandCardsMarkup(waves,enemies,images,{balance,startWave=1,currentWave=null,phase=null,liveWarband,liveBossHealth,compact=false}={}){
+export function warbandCardsMarkup(waves,enemies,images,{balance,startWave=1,currentWave=null,phase=null,liveWarband,liveBossHealth,compact=false,expanded=false}={}){
   return waves.map((wave,index)=>{
     const first=enemies[wave.groups[0].type],number=startWave+index,current=number===currentWave;
     const groups=wave.groups.map(group=>{
@@ -65,6 +65,6 @@ export function warbandCardsMarkup(waves,enemies,images,{balance,startWave=1,cur
       return `<div class="warband-group" data-enemy="${escape(group.type)}"><img src="${escape(images['enemy:'+group.type]||'')}" alt="${escape(definition.name)}"><h3>${escape(definition.name)}</h3><p class="warband-appearance">${escape(definition.appearance)}</p><small>${escape(aura)}</small><p>${enemyNumber(group.count)} ${wave.boss?'warlord':'invaders'}</p><strong class="warband-traits">${escape(definition.threat)}</strong>${randomVariants(wave,group,definition)?'<p class="minor-note">Each enemy independently chooses a random variant; the wave may contain a mix.</p>':''}${variantsMarkup(wave,group,definition)}<p class="wave-counter">${escape(definition.counter||'Focus your damage along the route.')}</p></div>`;
     }).join('');
     const body=`<div class="eyebrow">WAVE ${String(number).padStart(2,'0')} · ${wave.boss?'WARLORD · ':''}${first.flying?'AIR':'GROUND'}</div>${current?`<p class="warband-wave-status">${phase==='combat'?'In combat':phase==='lost'?'Run ended · wave not completed':'Next assault'}</p>`:''}${wave.name?`<h2 class="warband-wave-name">${escape(wave.name)}</h2>`:''}${current&&phase==='combat'&&wave.boss?bossHealthMarkup(liveBossHealth):''}${current&&phase==='combat'&&Array.isArray(liveWarband)?currentCompositionMarkup(liveWarband):''}${groups}`;
-    return `<article class="warband-card ${wave.boss?'boss':''}${current?' current':''}${compact?' compact':''}" data-wave="${number}"${current?' data-current-wave="true"':''}>${compact?`<details class="warband-wave-details" data-warband-disclosure="wave:${number}"><summary class="warband-wave-row" data-warband-focus="wave:${number}">${compactSummary(wave,enemies,images,number,{balance})}</summary><div class="warband-wave-body">${body}</div></details>`:body}</article>`;
+    return `<article class="warband-card ${wave.boss?'boss':''}${current?' current':''}${compact?' compact':''}" data-wave="${number}"${current?' data-current-wave="true"':''}>${compact?`<details class="warband-wave-details" data-warband-disclosure="wave:${number}"${expanded?' open':''}><summary class="warband-wave-row" data-warband-focus="wave:${number}">${compactSummary(wave,enemies,images,number,{balance})}</summary><div class="warband-wave-body">${body}</div></details>`:body}</article>`;
   }).join('');
 }

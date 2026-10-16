@@ -203,8 +203,8 @@ test('original-reference defenders and all fifty enemy identities receive native
   await flush();for(const image of images)assert.equal(image.getAttribute(state),'ready');connection.dispose();
 });
 
-test('reference enemy to compared defender to enemy races cannot reveal a stale identity or accept its failure',async()=>{
-  const {root,Image}=documentFixture(),source=id=>`/bastions/assets/ui/reference-portraits/${id}.png?v=ui1`;
+test('transparent enemy to compared defender to enemy races cannot reveal a stale identity or accept its failure',async()=>{
+  const {root,Image}=documentFixture(),source=id=>`/bastions/assets/ui/reference-cutouts/${id}.png?v=ui1`;
   const image=new Image(source('host_50'));root.append(image);const connection=connectApprovedPortraitVisibility(root),enemy=image.requests[0];
   image.setAttribute('src',source('mage-4'));await flush();const comparison=image.requests[1];
   enemy.resolve();await flush();assert.equal(image.getAttribute(state),'loading');
@@ -212,4 +212,13 @@ test('reference enemy to compared defender to enemy races cannot reveal a stale 
   comparison.reject();await flush();assert.equal(image.getAttribute(state),'loading');
   image.requests[2].resolve();await flush();assert.equal(image.getAttribute(state),'ready');
   assert.equal(image.src,new URL(source('host_50'),'https://example.test').href);connection.dispose();
+});
+
+test('all transparent reference identities are gated by their own native decode under a project base',async()=>{
+  const {root,Image}=documentFixture();
+  const manifest=JSON.parse(readFileSync(new URL('../public/assets/ui/reference-cutouts/manifest.json',import.meta.url),'utf8'));
+  const images=manifest.identities.map(({id})=>new Image(`/bastions/assets/ui/reference-cutouts/${id}.png?v=ui-cutout`));root.append(...images);
+  const connection=connectApprovedPortraitVisibility(root);
+  for(const image of images){assert.equal(image.getAttribute(state),'loading');assert.equal(image.requests.length,1);image.requests[0].resolve();}
+  await flush();for(const image of images)assert.equal(image.getAttribute(state),'ready');connection.dispose();
 });

@@ -1,0 +1,490 @@
+/* The approved Cartographer's Table: a material and composition pass.
+   The existing phase state, node ownership and guarded input remain authoritative. */
+:root {
+  --paper: #f8efde;
+  --paper-light: #fffaf1;
+  --ink: #28251f;
+  --muted-ink: #6f6250;
+  --rule: #cbb895;
+  --brass: #ae8340;
+  --folio-grain: url('./assets/cartographer-paper.svg');
+  --folio-frame: url('./assets/cartographer-frame.svg');
+  --folio-serif: Georgia, 'Times New Roman', serif;
+  --folio-cyan: #168eaf;
+}
+
+#app { --register: 70px; --drawer: 354px; }
+#app:is([data-phase=build],[data-phase=select]),
+#app[data-combination-preview=true] { --folio: clamp(280px, 37.4dvh, 366px); }
+#app:is([data-phase=ready],[data-phase=combat],[data-phase=won],[data-phase=lost]):not([data-combination-preview=true]) { --folio: 0px; }
+#app :is(.topbar,.preparation-folio,.sidebar,.battlefield-overlays>aside,.command-dock,.persistent-boss,.pinned-goal,.phase-strip,.player-menu>div,.audio-controls) {
+  background-color: var(--paper);
+  background-image: var(--folio-grain), linear-gradient(100deg,#fffaf164,#f1dfbc24 65%,#fffaf167);
+}
+#app :is(.preparation-folio,.sidebar,.battlefield-overlays>aside,.command-dock,.persistent-boss,.pinned-goal,.phase-strip) {
+  border: 12px solid transparent;
+  border-image: var(--folio-frame) 24 / 12px / 0 stretch;
+  border-radius: 6px;
+  box-shadow: 0 2px 0 #fff9e7b3 inset, 0 3px 0 #a38a6060, 0 7px 18px #30241336;
+}
+#app :is(button,summary) { -webkit-tap-highlight-color: transparent; }
+#app :is(.text-button,.secondary-button,.icon-button) {
+  background: linear-gradient(#fffcf8,#f3eee4);
+  border-color: #ab9c84;
+  box-shadow: 0 1px 0 #fff inset, 0 1px 2px #69523415;
+  border-radius: 3px;
+}
+#app :is(.text-button,.secondary-button) { font-family: var(--folio-serif); font-size: 16px; }
+#app :is(.text-button,.secondary-button):hover { background: linear-gradient(#fffdf7,#eadfc9); }
+#app :is(.primary-button,.folio-preview-combination) {
+  border: 1px solid #8c6224;
+  box-shadow: inset 0 0 0 2px #f8dda1, inset 0 0 0 3px #b78b3f, 0 2px 3px #5b3d252b;
+  background: linear-gradient(110deg,#e0b65c,#f3d27e 47%,#d9ac4d);
+  font-family: var(--folio-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: #241b0e;
+  border-radius: 4px;
+  padding-inline: 18px;
+}
+#app .primary-button:hover { background: linear-gradient(110deg,#f1cc79,#ffe4a2 47%,#e8bd62); }
+#app :is(button,summary):focus-visible { outline: 3px solid #067d9f; outline-offset: 3px; }
+
+/* A narrow engraved resource register, with the title and its heraldic seal. */
+#app .topbar { gap: 20px; padding: 7px 20px; border-bottom: 2px solid #c7ac7c; box-shadow: 0 2px 7px #2f241d30; }
+#app .brand { min-width: 230px; gap: 12px; }
+#app .brand>div:last-child { display: block; }
+#app .crest { width: 39px; height: 48px; background: #414642; color: #d6ac5b; border: 2px solid #b29a6c; box-shadow: inset 0 0 0 2px #e3cf9f55; }
+#app .brand h1 { font: 700 23px/1.08 var(--folio-serif); letter-spacing: -.7px; text-transform: none; }
+#app .brand small { display: block; font: 700 19px/1.15 var(--folio-serif); letter-spacing: -.4px; color: var(--ink); }
+#app .top-stats { gap: 0; justify-content: space-around; }
+#app .hud-stat { flex: 1; align-items: center; gap: 10px; min-width: 0; padding: 0 18px; border-left: 1px solid #bba078; }
+#app .hud-stat small { font: 14px/1.1 var(--folio-serif); letter-spacing: 0; text-transform: none; color: var(--ink); }
+#app .hud-stat strong { margin-top: 2px; font: 700 25px/1.1 var(--folio-serif); }
+#app .hud-stat strong span { font: inherit; color: inherit; }
+#app .hud-stat>.icon { display: block; width: 30px; height: 33px; flex: none; color: #aa7e29; }
+#app .hud-stat.wave>.icon,#app .hud-stat.keep>.icon { color: #913c31; }
+#app .header-actions { gap: 8px; padding-left: 10px; border-left: 1px solid #bba078; }
+#app .header-actions>.text-button { font-size: 17px; width: auto; padding-inline: 11px; min-height: 44px; background: transparent; border-color: transparent; box-shadow: none; }
+#app .header-actions>.text-button>.icon { width: 25px; height: 25px; }
+
+/* The folio is a physical sheet set onto the table, not a full-width toolbar. */
+#app .preparation-folio { left: 10px; right: 10px; bottom: calc(9px + var(--safe-bottom)); height: calc(var(--folio) - 12px); padding: 3px 10px 7px; grid-template-columns: minmax(0,1.72fr) minmax(0,1fr) minmax(0,.95fr); }
+#app .preparation-folio:has(.folio-plan[hidden]) { grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); }
+#app #battlefield { bottom: calc(var(--folio) + var(--safe-bottom)); }
+#app .folio-candidates { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1.45fr); grid-auto-rows: max-content; align-content: start; gap: 8px; padding-right: 15px; }
+#app .folio-candidates>#draft,#app .folio-candidates>#economy { grid-column: 1/-1; }
+#app .folio-candidates>#folio-actions { grid-column: 1; }
+#app .folio-candidates>#folio-command-actions { grid-column: 2; }
+#app .folio-candidates>:is(#folio-actions,#folio-command-actions):empty { display: none; }
+#app .folio-inspection { padding: 0 14px; border-left-color: #bfa982; }
+#app .folio-plan { padding: 0 0 0 14px; border-left-color: #bfa982; }
+#app .draft-heading { min-height: 31px; margin-bottom: 8px; justify-content: flex-start; gap: 22px; }
+#app .draft-heading h3 { display: flex; align-items: baseline; gap: 17px; font: 700 29px/1.1 var(--folio-serif); letter-spacing: -.8px; }
+#app .draft-heading .draft-sub { display: block; font: 400 15px/1.25 var(--folio-serif); letter-spacing: 0; color: var(--ink); white-space: normal; }
+#app .draws { height: clamp(132px,calc(var(--folio) - 168px),198px); gap: 8px; }
+#app .draw-slot { height: 100%; }
+#app .draw-card { height: 100%; min-height: 132px; padding: 5px; border: 1px solid #c4af8d; border-radius: 4px; background: linear-gradient(#e8ddc9,#f9f0df 70%); box-shadow: inset 0 0 0 3px #fffaf0; overflow: hidden; }
+#app .draw-card:before { inset: 5px 5px 54px; height: auto; background: radial-gradient(ellipse at 50% 80%,#a58e6533,transparent 66%),linear-gradient(#ded1bb,#eee3d1); border: 1px solid #e1d0b4; border-radius: 2px; opacity: 1; }
+#app .draw-card img { top: 8px; left: 50%; width: calc(100% - 10px); height: calc(100% - 62px); max-width: none; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 3px 2px #473a2724); }
+#app .draw-card.active { border: 2px solid #04a9d2; background: #fff9ef; box-shadow: 0 0 0 1px #7bdff0, inset 0 0 0 3px #fff; }
+#app .draw-card.pinned { border-color: #087f9c; box-shadow: inset 0 -4px #25b3ca, inset 0 0 0 3px #fffaf0; }
+#app .draw-card.pinned.active { border-color: #04a9d2; box-shadow: 0 0 0 1px #7bdff0, inset 0 -4px #25b3ca, inset 0 0 0 3px #fff; }
+#app .draw-card .index { top: 8px; left: 8px; display: grid; place-items: center; min-width: 22px; height: 23px; padding: 0 3px; color: #fff9ec; background: #8a7a63d9; border-radius: 2px; font: 14px/1 var(--folio-serif); z-index: 2; }
+#app .draw-card .tier-pips { top: 8px; right: 7px; font-size: 12px; padding: 2px 4px; background: #fff9eced; border-radius: 2px; }
+#app .draw-card .draw-name { bottom: 29px; left: 8px; right: 6px; color: var(--ink); font: 700 16px/1.1 var(--folio-serif); white-space: normal; overflow: visible; }
+#app .draw-card .draw-damage { position: absolute; display: flex; align-items: center; gap: 5px; bottom: 7px; left: 8px; right: 5px; text-align: left; font: 11px/1.15 'Segoe UI',Arial,sans-serif; text-transform: uppercase; letter-spacing: .15px; color: #3d4846; }
+#app .draw-damage>.icon { width: 17px; height: 17px; flex: none; }
+#app .mystery-card .mystery-sigil { width: 64px; height: calc(100% - 68px); min-height: 62px; margin: 8px auto 0; background: #c5b39455; border: 0; color: #8e7958; font: 48px/1 var(--folio-serif); clip-path: polygon(28% 0,72% 0,85% 13%,82% 37%,100% 54%,100% 100%,0 100%,0 54%,18% 37%,15% 13%); }
+#app .mystery-card .draw-name { bottom: 16px; font-size: 14px; text-align: center; font-weight: 400; }
+#app .draw-card .draw-recipe-ingredient { top: 36px; left: 7px; font-size: 9px; background: #bcecf2; color: #075268; border: 1px solid #168eaf; }
+#app .draw-reservation { font-size: 9px; bottom: 3px; }
+#app #folio-actions .defender-main-actions,#app #folio-command-actions .draft-command-actions { margin: 0; gap: 7px; }
+#app #folio-actions .defender-main-actions>button { min-width: 0; font-size: 16px; }
+#app #folio-actions .defender-main-actions>button { padding: 7px 8px; line-height: 1.15; }
+#app #folio-actions .primary-button { color: #f4d17e; background: linear-gradient(#393a33,#242821); border-color: #92703b; box-shadow: inset 0 0 0 2px #ceb274,inset 0 0 0 3px #7e663c,0 2px 3px #48351d40; }
+#app #folio-actions .primary-button:hover { background: linear-gradient(#4b4b40,#30352b); }
+#app #folio-actions [data-action=merge] { border-color: #8a5daa; color: #563071; background: #f0e9f5; }
+#app #folio-actions .defender-main-actions>.tower-downgrade-keep { font-size: 12px; line-height: 1.2; padding: 6px; }
+#app #folio-command-actions .command-button { font: 16px/1.15 var(--folio-serif); min-height: 48px; padding-inline: 7px; }
+#app #folio-command-actions .command-disabled-reason { font-size: 11px; }
+#app .draft-mastery { margin: 1px 0 0; padding: 7px 0 0; }
+#app .mastery-odds { display: grid; grid-template-columns: 1fr; gap: 3px; }
+#app .mastery-odds-label { grid-row: auto; font: 15px var(--folio-serif); color: var(--ink); }
+#app .mastery-odds .probability { height: 3px; opacity: .7; }
+#app .prob-labels { gap: 5px; }
+#app .draft-mastery .prob-labels { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 5px; }
+#app .prob-labels span { display: flex; flex-direction: column; gap: 0; align-items: center; border: 1px solid #d7c4a5; background: #fff9ef7a; border-radius: 2px; padding: 2px; font: 13px/1.1 var(--folio-serif); }
+#app .prob-labels em { color: #514838; }
+
+/* Shared identity and comparison retain a quiet, legible two-by-two ledger. */
+#app .folio-inspection .defender-heading { gap: 9px; margin-bottom: 5px; }
+#app .folio-inspection .defender-heading>img { width: 59px; height: 64px; flex: none; padding: 3px; background: linear-gradient(#e3d6bf,#f6ecda); border: 1px solid #d2bea0; }
+#app .folio-inspection .defender-heading h2 { font-size: 22px!important; line-height: 1.08; }
+#app .folio-inspection .defender-heading p { font-size: 12px; margin-top: 3px; }
+#app .folio-inspection .defender-built-count { font-size: 11px; }
+#app .damage-tag { display: inline-flex; padding: 1px 7px; border-radius: 2px; background: #e6dcc666; color: #494232; font-size: 11px; letter-spacing: .4px; }
+#app .folio-inspection .defender-abilities { padding-left: 0; list-style: none; font: 14px/1.3 var(--folio-serif); margin: 5px 0; }
+#app .folio-inspection .defender-abilities li { display: block; margin: 3px 0; }
+#app .rank-preview { margin: 5px 0; }
+#app .rank-preview-heading { font: 13px/1.2 var(--folio-serif); letter-spacing: 0; text-transform: none; }
+#app .rank-preview-buttons { gap: 4px; grid-template-columns: repeat(6,minmax(44px,1fr)); overflow-x: auto; }
+#app .rank-preview-buttons button { min-height: 44px; font: 17px var(--folio-serif); border-color: #b9af9c; background: linear-gradient(#fffdfb,#eeeae5); box-shadow: inset 0 0 0 2px #fff; }
+#app .rank-preview-buttons button[aria-pressed=true] { color: #153d44; border-color: #00a2c9; background: linear-gradient(#b8e9f2,#8ed4e7); box-shadow: inset 0 0 0 2px #e7fbff,0 0 0 1px #89dce9; }
+#app .rank-preview-caption { font: 12px/1.25 var(--folio-serif); color: #5f513e; }
+#app .folio-inspection .rank-preview:has(button[data-current][aria-pressed=true]) .rank-preview-caption { display: none; }
+#app .folio-inspection .rank-preview:has(button[data-current][aria-pressed=false]) .rank-preview-heading { display: none; }
+#app .folio-inspection .rank-preview:has(button[data-current][aria-pressed=false]) { display: flex; flex-direction: column; }
+#app .folio-inspection .rank-preview-caption { order: -1; margin: 0 0 5px; }
+#app .stat-grid,#app .folio-inspection .stat-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 5px; border: 0; margin: 5px 0; padding: 0; }
+#app .stat-grid>div { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 5px 8px; border: 1px solid #cdb99b; border-radius: 3px; background: #fffaf05c; }
+#app .stat-grid span { font: 13px/1.15 var(--folio-serif); color: #4e4539; text-align: center; text-transform: none; letter-spacing: 0; margin: 0; }
+#app .stat-grid strong { font: 700 22px/1.1 var(--folio-serif); }
+#app .folio-inspection .stat-grid>div { padding: 3px 6px; gap: 0; }
+#app .folio-inspection .stat-grid strong { font-size: 21px; }
+#app .folio-inspection .defender-core { display: flex; flex-direction: column; }
+#app .folio-inspection .defender-core>.damage-tag { align-self: flex-start; order: 0; }
+#app .folio-inspection .defender-core>.defender-abilities { order: 1; }
+#app .folio-inspection .defender-core>.rank-preview { order: 2; }
+#app .folio-inspection .defender-core>.stat-grid { order: 3; }
+#app .folio-inspection .defender-core>.folio-base-note { order: 5; }
+#app .folio-inspection .defender-core:has(.defender-abilities li:nth-child(3))>.defender-abilities { order: 4; }
+#app .folio-inspection .folio-base-note { font-size: 11px; line-height: 1.25; }
+#app .folio-recipes h3 { font: 18px/1.2 var(--folio-serif); margin: 1px 0 4px; }
+#app .folio-recipe-rank { font: 12px/1.2 var(--folio-serif); }
+#app .folio-recipe-row { min-height: 55px; margin: 0; padding: 6px 8px; border: 0; border-bottom: 1px solid #d2bfa0; border-radius: 0; background: transparent; }
+#app .folio-recipe-row img { width: 43px; height: 47px; background: linear-gradient(#e4d6bd,#f7edda); border: 1px solid #d3c0a3; border-radius: 3px; }
+#app .folio-recipe-row strong { font-size: 17px; }
+#app .folio-recipe-row small { font-size: 12px; }
+#app .folio-recipe-row.active,#app .folio-recipe-row[aria-expanded=true] { background: #d9edf0; border: 1px solid #4b9db0; border-radius: 3px 3px 0 0; }
+#app .folio-recipe-detail { padding: 5px 8px 8px; border: 1px solid #b9d6d8; border-top: 0; background: #fffaf075; }
+#app .folio-recipe-detail h4 { font-size: 15px; margin: 0; }
+#app .folio-ingredients { gap: 3px; margin: 5px 0; }
+#app .folio-ingredient { min-height: 35px; gap: 6px; font-size: 12px; }
+#app .folio-ingredient img { width: 29px; height: 34px; }
+#app .folio-ingredient>span { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; flex: 1; }
+#app .folio-ingredient strong { font-weight: 400; }
+#app .folio-ingredient small { font-size: 11px; margin-left: auto; }
+#app .folio-ingredient.built small { color: #28623c; }
+#app .folio-ingredient.draft small { color: #006989; }
+#app .folio-ingredient.missing small { color: #983e32; }
+#app .folio-preview-combination { font: 14px var(--folio-serif); min-height: 44px; }
+#app .folio-recipe-reason { font-size: 11px; }
+
+/* Field notes and the bounded inspector float above the unchanged battlefield. */
+#app .battlefield-overlays { width: 270px; gap: 8px; top: calc(var(--register) + 14px); --battlefield-overlay-content-max: 210px; }
+#app .battlefield-overlays>aside { border-width: 9px; border-image-width: 9px; }
+#app .battlefield-overlay-summary { padding: 4px 5px 6px; min-height: 44px; }
+#app .battlefield-overlay-content { padding: 7px 6px 6px; }
+#app :is(.next-wave-heading,.current-wave-heading)>strong,#app .tower-dps-heading>span:first-child { font: 700 20px/1.15 var(--folio-serif); }
+#app .next-wave-name,#app .current-wave-name { font-size: 18px; }
+#app .next-wave-group>header img,#app .current-wave-summary-group img { width: 55px; height: 63px; background: linear-gradient(#e2d4ba,#f2e7d2); border: 1px solid #cebb9a; border-radius: 3px; }
+#app .next-wave-group h3,#app .current-wave-summary-group h3 { font: 16px/1.2 var(--folio-serif); }
+#app .next-wave-group>p,#app .current-wave-summary-group p { font: 14px/1.4 var(--folio-serif); margin: 5px 0; }
+#app .next-wave-traits li,#app .current-wave-summary-group .enemy-trait-list li { font-size: 13px; }
+#app .tower-dps-list { gap: 0; }
+#app .tower-dps-list button { min-height: 53px; padding: 4px 3px; border: 0; border-bottom: 1px solid #d5c4a6; background: transparent; border-radius: 0; grid-template-columns: 14px 33px minmax(0,1fr) auto; gap: 5px; }
+#app .tower-dps-list img { width: 33px; height: 40px; }
+#app .tower-dps-name strong { font: 14px/1.2 var(--folio-serif); }
+#app .tower-dps-name small { font-size: 10px; }
+#app .tower-dps-summary-score { color: #3c3424; font: 700 23px var(--folio-serif); }
+#app .tower-dps-value { color: #544425; font-size: 15px; }
+#app .tower-dps-bar { height: 2px; background: #b18b453b; }
+#app .tower-dps-body>h2 { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+#app .tower-dps-disclosure[open] .tower-dps-heading>span:first-child::before { content: 'Sum '; }
+#app .sidebar { top: calc(var(--register) + 16px); right: 14px; bottom: auto; max-height: calc(100dvh - var(--register) - 126px - var(--safe-bottom)); width: calc(var(--drawer) - 14px); min-height: 0; padding: 0; }
+#app:is([data-phase=ready],[data-phase=combat],[data-phase=won],[data-phase=lost]) #battlefield { right: 0; }
+#app:is([data-phase=ready],[data-phase=combat]) .command-dock { right: max(16px,env(safe-area-inset-right)); }
+#app:is([data-phase=ready],[data-phase=combat]) .pinned-goal { right: auto; left: max(14px,env(safe-area-inset-left)); bottom: calc(55px + var(--safe-bottom)); width: 270px; }
+#app .side-top { min-height: 44px; padding: 0 3px 6px; }
+#app .side-top .phase { font: 17px var(--folio-serif); letter-spacing: 0; }
+#app .sidebar .side-body { padding: 10px 6px 5px; }
+#app .sidebar .defender-heading>img { width: 91px; height: 104px; background: linear-gradient(#e2d4bb,#f5ecda); border-color: #c9b594; }
+#app .sidebar .defender-heading h2 { font-size: 25px; }
+#app .sidebar .defender-heading p { font-size: 13px; }
+#app .sidebar .defender-abilities { font: 15px/1.4 var(--folio-serif); padding-left: 16px; }
+#app .sidebar .stat-grid { gap: 0; border-block: 1px solid #c8b18b; }
+#app .sidebar .stat-grid>div { flex-direction: row; justify-content: space-between; align-items: baseline; border: 0; border-radius: 0; border-bottom: 1px solid #deceb2; padding: 7px 4px; background: transparent; }
+#app .sidebar .stat-grid span { text-align: left; font-size: 14px; }
+#app .sidebar .stat-grid strong { font-size: 20px; }
+#app .sidebar .stat-grid { grid-template-columns: 1fr; }
+#app .sidebar .folio-base-note { font-size: 12px; }
+#app .current-wave-profile { background: transparent; border-color: #c9b695; padding: 9px 0; }
+#app .current-wave-profile-heading { display: block; }
+#app .current-wave-profile-heading>img { width: 110px; height: 126px; float: left; margin: 0 10px 8px 0; object-fit: contain; background: linear-gradient(#e0d2ba,#f5ead7); border: 1px solid #ceba97; border-radius: 3px; }
+#app .current-wave-profile-stats { clear: both; }
+#app .current-wave-panel h2 { font: 700 25px/1.15 var(--folio-serif); margin-block: 6px 10px; }
+#app .current-wave-profile-stats div { padding: 6px 0; border-color: #d8c7a8; }
+#app .current-wave-inspection-note { padding-top: 10px; border-top: 1px solid #c9b695; }
+#app .command-dock { padding: 2px; border-width: 10px; border-image-width: 10px; bottom: calc(16px + var(--safe-bottom)); }
+#app .map-start,#app .header-combat-controls { gap: 10px; }
+#app .map-start .primary-button { min-width: 205px; min-height: 57px; font-size: 22px; }
+#app .map-start>.text-button { min-height: 57px; font-size: 18px; }
+#app .header-combat-controls .text-button { min-width: 150px; min-height: 54px; font: 20px var(--folio-serif); }
+#app .header-combat-controls .icon { width: 26px; height: 26px; }
+#app .persistent-boss { width: min(470px,calc(100% - var(--inspection) - 580px)); padding: 1px 10px 6px; text-align: center; }
+#app .persistent-boss-label { display: block; font: 700 21px/1.2 var(--folio-serif); }
+#app .persistent-boss-label span { display: block; font: 14px/1.4 var(--folio-serif); }
+#app .persistent-boss-track { height: 16px; padding: 2px; background: #283238; border: 1px solid #362c23; box-shadow: inset 0 0 0 1px #faf0d9; border-radius: 3px; }
+#app .persistent-boss-track span { background: linear-gradient(#bb493b,#9d2e23); }
+#app .pinned-goal { padding: 1px; border-width: 8px; border-image-width: 8px; }
+
+/* Wave and measured DPS are two entries on one reconnaissance sheet. */
+#app .battlefield-overlays {
+  gap: 0;
+  background-color: var(--paper);
+  background-image: var(--folio-grain),linear-gradient(100deg,#fffaf164,#f1dfbc24 65%,#fffaf167);
+  border: 10px solid transparent;
+  border-image: var(--folio-frame) 24 / 10px / 0 stretch;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 #fff9e7b3 inset,0 3px 0 #a38a6060,0 7px 18px #30241336;
+}
+#app .battlefield-overlays>aside { background: none; border: 0; border-image: none; box-shadow: none; border-radius: 0; }
+#app .battlefield-overlays>aside+aside { border-top: 1px solid #c8b28b; margin-top: 5px; padding-top: 4px; }
+#app .battlefield-overlays .battlefield-overlay-summary { padding: 5px 5px 8px; }
+#app .battlefield-overlays .battlefield-overlay-content { padding: 6px 5px 8px; }
+#app .battlefield-overlays .battlefield-overlay-disclosure[open]>.battlefield-overlay-summary { border-bottom-color: #d9c8aa; }
+#app .folio-construction-note { position: relative; display: grid; grid-template-columns: 55px minmax(0,1fr); gap: 5px 14px; align-content: center; max-width: 480px; min-height: 220px; padding: 18px 20px; margin: 10px auto 0; color: #564a38; }
+#app .folio-construction-seal { grid-column: 1; grid-row: 1/5; align-self: start; display: grid; place-items: center; width: 55px; height: 65px; color: #92764a; }
+#app .folio-construction-seal>.icon { width: 53px; height: 53px; }
+#app .folio-construction-note>.eyebrow { grid-column: 2; font: 11px/1.4 'Segoe UI',Arial,sans-serif; letter-spacing: 1.5px; color: #81663f; }
+#app .folio-construction-note>h2 { grid-column: 2; font: 26px/1.1 var(--folio-serif); margin: 0 0 3px; }
+#app .folio-construction-note>.minor-note { grid-column: 2; font: 16px/1.5 var(--folio-serif); margin: 0; color: #564a38; }
+#app .folio-construction-footnote { grid-column: 2; border-top: 1px solid #cab795; padding-top: 10px; margin: 10px 0 0; font: italic 13px/1.45 var(--folio-serif); color: #7a684d; }
+
+/* Exact transformations read as one horizontal illustrated equation. */
+#app .combination-preview { gap: 9px; }
+#app .combination-preview header { gap: 8px 16px; border-bottom: 1px solid #d0bc99; padding-bottom: 6px; }
+#app .combination-preview header .eyebrow { font: 13px var(--folio-serif); color: #79603c; }
+#app .combination-preview header h2 { font-size: 27px; }
+#app .combination-preview header p { font: 15px var(--folio-serif); }
+#app .combination-flow { grid-template-columns: minmax(0,1.5fr) 25px minmax(0,1fr) minmax(0,.75fr); gap: 14px; }
+#app .combination-pieces { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+#app .combination-pieces li { position: relative; flex: 1; min-width: 105px; padding: 7px; flex-direction: column; align-items: center; text-align: center; background: #fffaf078; border: 1px solid #d1bb95; border-radius: 3px; }
+#app .combination-pieces img { width: 72px; height: 90px; background: linear-gradient(#e2d4ba,#f3e8d3); border-radius: 2px; }
+#app .combination-pieces strong { font: 700 16px var(--folio-serif); }
+#app .combination-pieces small { font-size: 11px; margin-top: 2px; }
+#app .combination-arrow { font-size: 37px; color: #b7893d; }
+#app .combination-result { padding: 7px; border: 1px solid #c6ab7e; background: #fffaf05e; border-radius: 3px; }
+#app .combination-result>img { width: 90px; height: 110px; margin-right: 8px; }
+#app .combination-result h3 { font-size: 21px; }
+#app .combination-result .stat-grid { clear: both; }
+#app .combination-result .stat-grid>div { padding: 3px; }
+#app .combination-result .stat-grid strong { font-size: 18px; }
+#app .combination-result p,#app .combination-result li { font-size: 12px; }
+#app .combination-walls { padding-left: 13px; }
+#app .combination-walls h3 { font-size: 19px; }
+#app .combination-walls p,#app .combination-walls li { font-size: 12px; line-height: 1.35; }
+#app .combination-preview footer { padding-top: 5px; border-top: 1px solid #d0bc99; background: var(--paper); }
+#app .combination-preview footer .primary-button { order: -1; min-width: 250px; }
+
+@media (max-width:1390px) and (min-width:751px) {
+  #app { --register: 64px; --drawer: 354px; }
+  #app .topbar { gap: 12px; padding-inline: 13px; }
+  #app .brand { min-width: 205px; gap: 8px; }
+  #app .brand h1 { font-size: 21px; }
+  #app .brand small { font-size: 17px; }
+  #app .hud-stat { padding-inline: 12px; gap: 7px; }
+  #app .hud-stat>.icon { width: 26px; }
+  #app .hud-stat strong { font-size: 23px; }
+  #app .hud-stat small { font-size: 12px; }
+  #app .header-actions>.text-button { font-size: 15px; padding-inline: 7px; }
+  #app .preparation-folio { grid-template-columns: minmax(0,1.65fr) minmax(0,1fr) minmax(0,.92fr); padding-inline: 5px; }
+  #app .folio-inspection { padding-inline: 10px; }
+  #app .folio-candidates { padding-right: 10px; }
+  #app .folio-plan { padding-left: 10px; }
+  #app .draft-heading h3 { font-size: 25px; }
+  #app .draft-heading { gap: 12px; }
+  #app .draw-card .draw-name { font-size: 14px; }
+  #app .draw-card .draw-damage { font-size: 10px; gap: 3px; }
+  #app .draw-card .draw-damage>.icon { width: 14px; height: 14px; }
+  #app .folio-inspection .defender-heading h2 { font-size: 21px; }
+  #app .folio-inspection .defender-heading>img { width: 57px; height: 64px; }
+  #app .battlefield-overlays { width: 248px; --battlefield-overlay-content-max: 185px; }
+}
+@media (max-width:1179px) and (min-width:751px) {
+  #app .brand { min-width: 38px; }
+  #app .brand>div:last-child { display: none; }
+  #app .hud-stat { padding-inline: 10px; }
+  #app .header-actions>.text-button { font-size: 14px; }
+  #app .preparation-folio,#app .preparation-folio:has(.folio-plan[hidden]) { grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); grid-template-rows: max-content max-content; overflow: auto; align-content: start; }
+  #app .folio-candidates { grid-column: 1; grid-row: 1/3; position: sticky; top: 0; align-self: start; height: max-content; background-color: var(--paper); background-image: var(--folio-grain); z-index: 1; overflow: visible; }
+  #app .folio-inspection { grid-column: 2; grid-row: 1; overflow: visible; height: auto; min-height: max-content; }
+  #app .folio-plan { grid-column: 2; grid-row: 2; padding-top: 10px; margin-top: 10px; border-top: 1px solid var(--rule); overflow: visible; height: auto; min-height: max-content; }
+  #app .folio-inspection .stat-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #app .folio-inspection .stat-grid>div { flex-direction: row; justify-content: space-between; padding: 4px 6px; }
+  #app .folio-inspection .stat-grid strong { font-size: 19px; }
+  #app .folio-inspection .folio-base-note { font-size: 11px; }
+  #app .folio-ingredients { display: flex; flex-wrap: wrap; gap: 7px; }
+  #app .folio-ingredient { flex: 1; min-width: 105px; }
+  #app .folio-ingredient>span { display: block; }
+  #app .folio-ingredient small { margin: 0; }
+  #app .folio-ingredients img { width: 34px; height: 42px; }
+  #app .battlefield-overlays { width: 230px; --battlefield-overlay-content-max: 145px; }
+  #app .map-start .primary-button { min-width: 175px; min-height: 52px; font-size: 20px; }
+  #app .map-start>.text-button { min-height: 52px; font-size: 17px; }
+  #app .header-combat-controls .text-button { min-width: 120px; }
+  #app .persistent-boss { left: calc(245px + (100% - var(--inspection) - 305px)/2); width: calc(100% - var(--inspection) - 305px); }
+}
+@media (min-width:751px) and (max-height:800px) {
+  #app .draws { height: clamp(132px,calc(var(--folio) - 168px),170px); }
+  #app .draw-card img { height: calc(100% - 58px); }
+  #app .folio-inspection .defender-heading>img { width: 48px; height: 53px; }
+  #app .folio-inspection .defender-heading h2 { font-size: 20px; }
+  #app .folio-inspection .defender-heading p { font-size: 11px; }
+  #app .folio-inspection .defender-abilities { font-size: 13px; }
+  #app .folio-inspection .stat-grid>div { padding: 3px 4px; }
+  #app .folio-inspection .stat-grid strong { font-size: 19px; }
+  #app .folio-base-note { font-size: 10px; }
+  #app .draft-heading h3 { font-size: 24px; }
+  #app .draft-heading .draft-sub { font-size: 13px; }
+}
+@media (min-width:751px) and (max-width:980px) {
+  #app .brand { min-width: 38px; }
+  #app .brand>div:last-child { display: none; }
+  #app .hud-stat { padding-inline: 7px; }
+  #app .hud-stat>.icon { display: none; }
+  #app .hud-stat.command-points small { font-size: 0; }
+  #app .hud-stat.command-points small::after { content: 'CP'; font: 12px var(--folio-serif); }
+  #app .header-actions { gap: 5px; padding-left: 5px; }
+  #app .header-actions>.text-button { font-size: 14px; padding-inline: 5px; }
+  #app .header-actions>.text-button>.icon { width: 20px; height: 20px; }
+}
+@media (min-width:981px) and (max-width:1390px) {
+  #app .brand { min-width: 180px; }
+  #app .brand>div:last-child { display: block; }
+  #app .brand h1 { font-size: 20px; }
+  #app .brand small { font-size: 15px; }
+}
+@media (min-width:981px) and (max-width:1100px) {
+  #app .hud-stat { padding-inline: 8px; }
+  #app .hud-stat>.icon { width: 23px; }
+  #app .hud-stat.command-points small { font-size: 0; }
+  #app .hud-stat.command-points small::after { content: 'CP'; font: 12px var(--folio-serif); }
+}
+@media (min-width:751px) and (max-width:1280px) and (min-height:601px) {
+  #app:is([data-phase=build],[data-phase=select]),
+  #app[data-combination-preview=true] { --folio: clamp(304px,43dvh,366px); }
+  #app .combination-result>img { width: 68px; height: 80px; margin-right: 6px; }
+  #app .combination-result h3 { font-size: 19px; line-height: 1.15; margin-bottom: 4px; }
+  #app .combination-result .stat-grid { gap: 4px; margin: 4px 0; }
+  #app .combination-result .stat-grid>div { flex-direction: row; justify-content: space-between; gap: 4px; padding: 4px; }
+  #app .combination-result .stat-grid span { font-size: 11px; text-align: left; }
+  #app .combination-result .stat-grid strong { font-size: 17px; }
+  #app .combination-preview header { padding-bottom: 4px; gap: 4px 12px; }
+  #app .combination-preview header h2 { font-size: 24px; }
+}
+@media (min-width:751px) {
+  #app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-of-type(2)) { grid-template-columns: minmax(0,1.85fr) minmax(0,1fr); }
+  #app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-of-type(2)) .draws { height: clamp(116px,calc(var(--folio) - 186px),180px); }
+  #app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-of-type(2)) .draw-card { min-height: 116px; }
+  #app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-of-type(2)) #folio-command-actions .command-button { display: grid; grid-template-columns: 16px minmax(0,1fr); grid-template-rows: auto auto; align-items: center; justify-content: center; gap: 2px 4px; min-height: 48px; font-size: 14px; padding: 7px 5px; line-height: 1.15; white-space: normal; }
+  #app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-of-type(2)) #folio-command-actions .command-button>.icon { grid-column: 1; grid-row: 1; width: 15px; height: 15px; }
+  #app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-of-type(2)) #folio-command-actions .command-button>span { grid-column: 2; grid-row: 1; min-width: 0; }
+  #app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-of-type(2)) #folio-command-actions .command-button>b { grid-column: 1/-1; grid-row: 2; font: 12px/1.1 var(--folio-serif); color: #6b593e; }
+}
+@media (max-width:750px) {
+  #app { --register: 106px; --inspection: 0px!important; --drawer: min(350px,calc(100vw - 20px)); }
+  #app:is([data-phase=build],[data-phase=select]) { --folio: min(440px,53dvh); }
+  #app[data-combination-preview=true] { --folio: min(470px,57dvh); }
+  #app .topbar { flex-wrap: wrap; align-content: center; gap: 5px 8px; padding: 5px 10px; }
+  #app .brand { display: none; }
+  #app .top-stats { width: 100%; flex: none; gap: 0; justify-content: space-between; }
+  #app .hud-stat { display: flex; padding: 0 8px; border-left: 1px solid #cbb895; flex: initial; }
+  #app .hud-stat:first-child { border-left: 0; padding-left: 0; }
+  #app .hud-stat:last-child { padding-right: 0; }
+  #app .hud-stat.score,#app .hud-stat.run-time { display: none; }
+  #app .hud-stat>.icon { display: none; }
+  #app .hud-stat small { font: 11px/1 var(--folio-serif); }
+  #app .hud-stat strong { font: 700 20px/1.2 var(--folio-serif); }
+  #app .header-actions { width: 100%; border: 0; padding: 0; gap: 5px; }
+  #app .header-actions>.text-button { font-size: 15px; flex: 1; padding-inline: 5px; min-width: 0; }
+  #app .header-actions>.text-button>.icon { width: 19px; height: 19px; }
+  #app .preparation-folio,#app .preparation-folio:has(.folio-plan[hidden]) { left: 5px; right: 5px; bottom: calc(5px + var(--safe-bottom)); height: calc(var(--folio) - 8px); padding: 2px 2px 8px; border-width: 9px; border-image-width: 9px; grid-template-columns: minmax(0,1fr); grid-template-rows: none; grid-auto-rows: max-content; gap: 12px; overflow: auto; align-content: start; }
+  #app .folio-candidates,#app .folio-inspection,#app .folio-plan { position: static; grid-column: 1; grid-row: auto; min-height: 0; height: auto; overflow: visible; padding: 0; border-left: 0; }
+  #app .folio-candidates { gap: 7px; grid-template-columns: minmax(0,1fr); }
+  #app .folio-candidates>#folio-actions,#app .folio-candidates>#folio-command-actions { grid-column: 1; }
+  #app .folio-inspection,#app .folio-plan { border-top: 1px solid #c7b18d; padding-top: 12px; }
+  #app .draft-heading { gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  #app .draft-heading h3 { font-size: 24px; }
+  #app .draft-heading .draft-sub { font-size: 13px; }
+  #app .draws { height: 146px; gap: 4px; }
+  #app .draw-card { min-height: 136px; border-radius: 3px; }
+  #app .draw-card:before { bottom: 53px; }
+  #app .draw-card img { height: 86px; width: calc(100% - 6px); top: 5px; }
+  #app .draw-card .index { top: 5px; left: 4px; min-width: 17px; height: 20px; font-size: 11px; }
+  #app .draw-card .tier-pips { top: 6px; right: 3px; font-size: 10px; padding: 1px; }
+  #app .draw-card .draw-name { left: 4px; right: 3px; bottom: 26px; font-size: 12px; line-height: 1.05; }
+  #app .draw-card .draw-damage { bottom: 7px; left: 4px; right: 3px; font-size: 8px; gap: 2px; letter-spacing: 0; }
+  #app .draw-card .draw-damage>.icon { width: 11px; height: 11px; }
+  #app .mystery-card .mystery-sigil { width: 38px; min-height: 64px; height: 80px; font-size: 34px; }
+  #app .mystery-card .draw-name { font-size: 11px; }
+  #app .draw-card .draw-recipe-ingredient { top: 29px; left: 4px; padding: 1px; }
+  #app #folio-actions .defender-main-actions>button,#app #folio-command-actions .command-button { font-size: 16px; }
+  #app .folio-inspection .defender-heading>img { width: 73px; height: 81px; }
+  #app .folio-inspection .defender-heading h2 { font-size: 25px; }
+  #app .folio-inspection .defender-abilities { font: 16px/1.4 var(--folio-serif); }
+  #app .folio-inspection .stat-grid span { font-size: 14px; }
+  #app .folio-inspection .stat-grid strong { font-size: 24px; }
+  #app .folio-inspection .folio-base-note { font-size: 12px; }
+  #app .battlefield-overlays { width: 207px; left: 8px; top: calc(var(--register) + 8px); --battlefield-overlay-content-max: 100px; gap: 6px; max-height: calc(100dvh - var(--register) - var(--folio) - 20px); }
+  #app .battlefield-overlays { border-width: 7px; border-image-width: 7px; gap: 0; }
+  #app .battlefield-overlays>aside { border: 0; }
+  #app .battlefield-overlays>aside+aside { border-top: 1px solid #c8b28b; }
+  #app .battlefield-overlay-summary { padding: 2px; }
+  #app .battlefield-overlay-content { padding: 4px 2px; }
+  #app :is(.next-wave-heading,.current-wave-heading)>strong,#app .tower-dps-heading>span:first-child { font-size: 16px; }
+  #app .next-wave-group>header img,#app .current-wave-summary-group img { width: 39px; height: 48px; }
+  #app .sidebar { right: 8px; top: auto; bottom: calc(87px + var(--safe-bottom)); height: auto; max-height: min(62dvh,calc(100dvh - var(--register) - 100px)); width: var(--drawer); border-width: 9px; border-image-width: 9px; }
+  #app .command-dock { right: 8px; bottom: calc(9px + var(--safe-bottom)); border-width: 8px; border-image-width: 8px; }
+  #app:is([data-phase=ready],[data-phase=combat]) .command-dock { right: 8px; }
+  #app .map-start,#app .header-combat-controls { gap: 7px; }
+  #app .map-start .primary-button { min-width: 155px; min-height: 49px; font-size: 18px; padding-inline: 12px; }
+  #app .map-start>.text-button { min-height: 49px; font-size: 15px; padding-inline: 8px; }
+  #app .header-combat-controls .text-button { min-width: 115px; min-height: 49px; font-size: 18px; }
+  #app .persistent-boss { left: 222px; right: 8px; width: auto; min-width: 0; transform: none; border-width: 6px; border-image-width: 6px; padding: 2px; }
+  #app .persistent-boss-label { font-size: 13px; }
+  #app .persistent-boss-label span { font-size: 11px; }
+  #app .persistent-boss-track { height: 11px; }
+  #app .pinned-goal { right: 8px; width: 215px; }
+  #app:is([data-phase=ready],[data-phase=combat]) .pinned-goal { left: 8px; bottom: calc(90px + var(--safe-bottom)); width: 207px; }
+  #app .combination-flow { display: flex; flex-direction: column; gap: 12px; overflow: visible; }
+  #app .combination-preview header h2 { font-size: 24px; }
+  #app .combination-preview header p { font-size: 14px; }
+  #app .combination-preview { height: auto; }
+  #app .combination-pieces li { min-width: 78px; padding: 5px; }
+  #app .combination-pieces img { width: 58px; height: 73px; }
+  #app .combination-pieces strong { font-size: 14px; }
+  #app .combination-walls { padding: 9px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
+  #app .combination-preview footer { position: sticky; bottom: 0; z-index: 2; flex-wrap: wrap; padding: 8px 0 0; }
+  #app .combination-preview footer>* { flex: 1; }
+  #app .combination-preview footer .primary-button { min-width: min(100%,250px); font-size: 17px; }
+  #app .folio-construction-note { min-height: 0; grid-template-columns: 38px minmax(0,1fr); padding: 10px 5px; gap: 5px 10px; margin: 0; }
+  #app .folio-construction-seal { width: 38px; height: 44px; }
+  #app .folio-construction-seal>.icon { width: 38px; height: 38px; }
+  #app .folio-construction-note>h2 { font-size: 24px; }
+}
+@media (max-height:600px) and (min-width:751px) {
+  #app { --register: 58px; }
+  #app:is([data-phase=build],[data-phase=select]),#app[data-combination-preview=true] { --folio: 46dvh; }
+  #app .preparation-folio,#app .preparation-folio:has(.folio-plan[hidden]) { grid-template-columns: minmax(300px,1.2fr) minmax(270px,1fr) minmax(225px,.8fr); grid-template-rows: minmax(0,1fr); padding: 0 3px 3px; overflow: auto; }
+  #app .folio-candidates,#app .folio-inspection,#app .folio-plan { position: static; grid-row: 1; grid-column: auto; overflow: auto; min-height: 0; height: auto; border-top: 0; margin: 0; padding-top: 0; }
+  #app .folio-candidates { display: block; }
+  #app .draws { height: 132px; grid-template-columns: repeat(5,minmax(58px,1fr)); }
+  #app .draw-card { min-height: 128px; }
+  #app .draw-card img { height: 75px; }
+  #app .draw-card .draw-name { font-size: 12px; }
+  #app .draw-card .draw-damage { font-size: 8px; }
+  #app .draft-heading { min-height: 26px; margin-bottom: 5px; }
+  #app .draft-heading h3 { font-size: 20px; }
+  #app #folio-actions,#app #folio-command-actions { margin-top: 7px; }
+  #app .battlefield-overlays { --battlefield-overlay-content-max: 60px; width: 210px; top: calc(var(--register) + 7px); }
+  #app .sidebar { top: calc(var(--register) + 7px); max-height: calc(100dvh - var(--register) - 95px); }
+  #app .header-combat-controls .text-button { min-height: 48px; }
+  #app .command-dock { bottom: 8px; border-width: 7px; border-image-width: 7px; }
+  #app .control-hint,#app .map-compass,#app #context-guidance { display: none; }
+}
+@media (max-height:600px) and (max-width:750px) {
+  #app:is([data-phase=build],[data-phase=select]) { --folio: 45dvh; }
+  #app[data-combination-preview=true] { --folio: 55dvh; }
+}

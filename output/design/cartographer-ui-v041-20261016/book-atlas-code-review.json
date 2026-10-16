@@ -1,0 +1,55 @@
+{
+  "schema": "cartographer-book-review-v1",
+  "reviewedAt": "2026-10-16T13:51:17.2939864Z",
+  "scope": "Code and focused tests only; no shared-browser interaction by this reviewer.",
+  "result": "passed",
+  "focusedTests": 77,
+  "failed": 0,
+  "testOutput": "book-atlas-focused-tests.txt",
+  "findings": [
+    {
+      "status": "fixed",
+      "summary": "Pinned bookmark opened an invisible champion detail while Basic defenders remained selected.",
+      "change": "Component/bookmark navigation switches to Champions and reapplies filters so its result count is current, while preserving filters and the pinned goal.",
+      "test": "the pinned bookmark opens its champion page from Basic defenders without changing filters, pin or campaign state"
+    }
+  ],
+  "reviewedBehaviors": [
+    "Exact Game recipe availability and stamped craft guards remain authoritative.",
+    "Fixed footer contains a single Pin command and only a legally available Recruit champion command.",
+    "Recipe ordered navigation and exploration history remain independent.",
+    "Wave atlas selection is read-only, with exact remaining-wave bounds and campaign caps.",
+    "Modal opening and closing still use the existing saved pause state.",
+    "No core, data, balance, model, audio or statistics code edited by the book work."
+  ],
+  "limitations": [
+    "Physical iPad/Safari not tested.",
+    "Final integrated browser screenshots and full-suite/publication receipts are owned by the release verification."
+  ],
+  "sourceHashes": [
+    {
+      "path": "ui/catalog-recipes.js",
+      "sha256": "87ed1a5760e815adaf3c6e20e11627ddca4f76fcc992268445998af3c71bd721"
+    },
+    {
+      "path": "ui/warbands-overview.js",
+      "sha256": "f50b6b0ebc82f51ef2219c9a2dd629ad046aca44b50d4f8fbd8a2d5417d05b0e"
+    },
+    {
+      "path": "ui/grimoire.js",
+      "sha256": "1cb78849d0644df02096dc52230fd0d300178d435cf3c8b52191fe21dc1de9c9"
+    },
+    {
+      "path": "ui/recipe-filters.js",
+      "sha256": "4b9b1f1884f9ab297d8f379a1915a7dd857e5c00da3cd6097954cb00bea64586"
+    },
+    {
+      "path": "ui/warband-cards.js",
+      "sha256": "95c35598ea1a4bc7f0685bd2383c41dcad293568899c8d723f9e70a94dab995f"
+    },
+    {
+      "path": "ui/cartographer-book.css",
+      "sha256": "33c431ac44a4cd6d6fabf084345685292c8c601a36db05fa1846b9f54477e6f6"
+    }
+  ]
+}

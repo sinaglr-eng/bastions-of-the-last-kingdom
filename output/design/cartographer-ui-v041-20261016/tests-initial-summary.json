@@ -1,0 +1,21 @@
+{
+  "command": "node --test tests/*.test.mjs",
+  "npmScriptEquivalent": true,
+  "npmAvailable": false,
+  "tests": 1453,
+  "passed": 1449,
+  "failed": 4,
+  "skipped": 0,
+  "cancelled": 0,
+  "durationMs": 50424.117,
+  "log": "tests-initial.log",
+  "failures": [
+    {
+      "file": "tests/audio-main-dialog-music.test.mjs",
+      "count": 4,
+      "error": "ReferenceError: recipeNavigationVisit is not defined",
+      "classification": "Extracted main codex function fixture lacks newly used imported dependency; actual production import exists. Fixture also supplies empty recipeCatalogState instead of real navigation state."
+    }
+  ],
+  "changedExpectations": false
+}

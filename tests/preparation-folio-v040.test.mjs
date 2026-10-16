@@ -26,11 +26,11 @@ test('Archer II→IV changes one displayed portrait/effects/base grid while actu
   const game=candidates(),control=candidates(),tower=game.selection,preview=new DefenderRankPreview(),images={'archer:2':'/archer-II.png','archer:4':'/archer-IV.png'};
   const key=drawKeeperKey(game,0),before=snapshot(game),render=()=>defenderPanelMarkup(game,tower,{images,rankPreview:preview});
   let html=render();assert.deepEqual(['Damage / hit','Base direct DPS','Range','Interval'].map(label=>metric(html,label)),['12','48','4','0.25s']);
-  assert.match(html,/Targets 1 · No additional status effect/);assert.match(html,/aria-label="Keep Archer II">Keep Archer II/);
+  assert.match(html,/Targets 1 · No additional status effect/);assert.match(html,/aria-label="Keep Archer II">(?:<svg[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/svg>\s*)?Keep Archer II<\/button>/);
   assert.equal(preview.select(tower,4,data),true);html=render();
   assert.deepEqual(['Damage / hit','Base direct DPS','Range','Interval'].map(label=>metric(html,label)),['48','192','4','0.25s']);
   assert.match(html,/src="\/archer-IV.png"[^>]*data-portrait-rank="4"/);assert.doesNotMatch(html.slice(0,html.indexOf('</header>')),/src="\/archer-II.png"/);
-  assert.match(html,/Actual rank II · Candidate/);assert.match(html,/Preview rank IV · Actual rank II unchanged/);assert.match(html,/aria-label="Keep Archer II">Keep Archer II/);
+  assert.match(html,/Actual rank II · Candidate/);assert.match(html,/Preview rank IV · Actual rank II unchanged/);assert.match(html,/aria-label="Keep Archer II">(?:<svg[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/svg>\s*)?Keep Archer II<\/button>/);
   assert.deepEqual(optionIds(html),recipesUsing(tower,game.recipes).map(recipe=>recipe.id));assert.equal(optionIds(html).length,2);
   const cards=draftCardsMarkup(game,data,images,{actions:false});assert.equal((cards.match(/src="\/archer-II.png"/g)||[]).length,5);assert.doesNotMatch(cards,/archer-IV.png|keep-draw|merge-tower|has-keep|mergeable/);
   assert.equal(button(html,'keep-draw').match(/data-keeper-key="([^"]+)"/)[1],key);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());

@@ -1,0 +1,51 @@
+{
+  "createdAt": "2026-10-16T13:55:01.251Z",
+  "command": "node --test tests/*.test.mjs",
+  "npmScriptEquivalent": true,
+  "tests": 1454,
+  "passed": 1454,
+  "failed": 0,
+  "skipped": 0,
+  "cancelled": 0,
+  "durationMs": 50417.402,
+  "log": "final-tests.log",
+  "focusedAudioDialog": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "log": "audio-dialog-focused.log"
+  },
+  "fixtureRepair": "Imported the actual recipeNavigationVisit dependency and initialized championCatalogDefaults; every audio assertion retained.",
+  "initialFailureEvidence": "tests-initial-summary.json",
+  "postTestChange": "Scoped CSS-only Pin contrast correction in cartographer-book.css. Final production build was repeated after this correction; runtime JavaScript was frozen.",
+  "sourceSnapshot": [
+    {
+      "path": "game/main.js",
+      "sha256": "6194972965645b6866b46fac2a0ba7ac7f6d408c335152ba2a9f42377055579b"
+    },
+    {
+      "path": "ui/catalog-recipes.js",
+      "sha256": "87ed1a5760e815adaf3c6e20e11627ddca4f76fcc992268445998af3c71bd721"
+    },
+    {
+      "path": "ui/draft-cards.js",
+      "sha256": "b0e3abfdc8a4e8121907f16564c6b52a8a5acbcc096abb24d3a986cb2ee96254"
+    },
+    {
+      "path": "ui/preparation-folio.js",
+      "sha256": "381e28cd111d4e80c6333d98e56ede0b748a7ae7975c1c08e300eeb2b5f17351"
+    },
+    {
+      "path": "ui/cartographer-crafted.css",
+      "sha256": "56d5c2c126e69ac6c68fc9cf19fad0f3068a6753d946daa0a6e496bbe0bbbd9b"
+    },
+    {
+      "path": "ui/cartographer-book.css",
+      "sha256": "f8c47ae979952ab569fa3e0133b7fdf12e6979db03436e2dc3794abfddcab738"
+    },
+    {
+      "path": "tests/audio-main-dialog-music.test.mjs",
+      "sha256": "90eac0b29033a3edb91538e07d6cdcfdb817d5ad555717b8fd7ae72f5c04325f"
+    }
+  ]
+}

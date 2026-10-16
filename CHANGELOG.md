@@ -1,5 +1,11 @@
 # Releases
 
+## 0.4.1 — The Cartographer’s Table, concept fidelity — 16 October 2026
+
+Refines all eleven approved concept states with engraved paper frames, restrained grain, clearer serif typography and framed geometric character cutouts. Recipes becomes a bound open book with a compact index, facing recipe page, adjacent portrait/statistics, illustrated ingredients, chapter tabs, pinned bookmark and fixed action footer. Enemy Waves gains a numbered remaining-wave atlas with a single selected report, exact shared/variant facts and guarded page navigation.
+
+Adds 136 transparent PNG derivatives while preserving every original source image/crop, prompt, review, model and audio asset. Retains actual recipe allocation, display-only rank comparison, seeded state, modal pause restoration and existing Start/Demolish input guards. The 0.3.31 stable rollback and offline backups remain available. See [the implementation and validation report](docs/UI_CARTOGRAPHER_V041_20261016.md).
+
 ## 0.4.0 — The Cartographer’s Table — 16 October 2026
 
 Implements the approved 22-concept UI handoff and three review rounds: warm paper register/folio/atlas, one shared hidden-safe five-card draft, actual-rank commitments separate from displayed-rank effects/portraits/base statistics, one expanded combination detail, exact Combine/Cancel previews, compact Ready and Combat docks, a phase-dependent wave note and measured DPS/MVP strip. Uses 136 verified original-reference crops with identity-safe decoding. Recipe allocation, filtered Next/Previous and exploration history remain independent; Back to list restores focus.
