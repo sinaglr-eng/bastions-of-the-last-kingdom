@@ -1,5 +1,15 @@
 # Releases
 
+## 0.4.3 — Direct crafting and clearer field notes — 18 October 2026
+
+Prepared release; local validation and browser QA pass, publication remains pending. Addresses the 30 follow-up comments on 0.4.2: responsive full-height recruit portraits without internal scrolling, narrow-screen Recruits / Defender / Recipes pages with unavailable-page fallback, equal commitment buttons, distinct Reroll/Reserve colors with CP icons, larger disclosure cues, the battlefield beneath the folio, a visible elapsed-time clock and six fitted rank controls.
+
+Adds Pin/Unpin and champion-ingredient requirement links directly to Potential combinations. Removes the entire Combination preview sheet/step; legal Create actions commit through current exact allocation, real foundation and stale-token guards. Map badges inspect first and create only on an accepted unchanged pointer pair. Removes crafting history controls while retaining ordered recipe switching. Simplifies the Recipes book by removing the visible outer heading, search and redundant help/filter furniture; Close sits outside the upper-right book edge, while direct filters and classification colors remain.
+
+Uses all 50 original FRONT enemy references through provenance-recorded RGB-preserving transparent derivatives. Replaces the real MVP award beam with confetti/stars, compacts MVP and support copy, keeps five complete expanded DPS rows, removes the timing note, compresses the DPS heading and lets wave summaries use natural height. Removes Maze plans from the Start dock while preserving independent Suggested maze/M. Enlarges the red Defeat outcome and adds destroyed-human-city art. All **1,504 tests**, the 192-module production build and local responsive browser QA pass; 482 snapshot files remain unchanged across tests/build, with zero browser warnings/errors. [The 30-comment report](docs/UI_POLISH_V043_20261018.md) records 23 captures and actual creation, MVP and defeat checks. Pages CI/public checks remain pending; physical iPad/Safari is unavailable. Preserves balance, hidden draws, exact recipe rules, historical approved assets and earlier release history.
+
+<!-- V043_RELEASE_GATES_PENDING -->
+
 ## 0.4.2 — Compact planning and clearer field books — 18 October 2026
 
 Addresses all 39 comments on 0.4.1. Reduces construction, wave-note and inspector footprints; distinguishes Wave/Command Point icons; exposes Maze plans before the first placement; and adds 3× and 5× combat speeds. Potential combinations follows the viewed rank, supports champion downstream exploration and collapses correctly while actual defenders and ingredients remain unchanged. Legal guarded Create actions appear below the draft choices. Collapsed pinned recipes move into a compact external strip, and the full planning pane scrolls without a nested overscroll trap.

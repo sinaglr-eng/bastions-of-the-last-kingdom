@@ -183,9 +183,9 @@ test('the peak UI names the actual five-game-second maximum and wave, with an ac
   assert.match(html,/Wave 7 · Paused/);assert.match(html,/aria-label="Defenders ordered by peak actual DPS this wave"/);
   assert.match(html,/aria-label="Select Mage, rank I, defender 1, MVP 0, 20\.0 peak DPS this wave"/);
   assert.match(html,/<strong class="tower-dps-value">20\.0<\/strong>/);assert.doesNotMatch(html,/Last 5 game seconds/);
-  assert.match(towerDpsContents(rows,data,{}, {phase:'build',paused:true,wave:7}),/Completed wave 7 · Measured over 5 game seconds/);
+  assert.match(towerDpsContents(rows,data,{}, {phase:'build',paused:true,wave:7}),/Last wave 7/);assert.doesNotMatch(html,/tower-dps-note|Completed wave|Measured over/);
   assert.doesNotMatch(towerDpsContents(rows,data,{}, {phase:'build',paused:true,wave:7}),/Paused/);
-  assert.match(towerDpsContents([],data,{}, {phase:'build'}),/Not measured yet · First combat pending/);
+  assert.match(towerDpsContents([],data,{}, {phase:'build'}),/Not measured yet/);
 });
 
 test('actual crafting archives the focused DPS identity and the panel returns focus to its summary instead of a disabled historical row',()=>{

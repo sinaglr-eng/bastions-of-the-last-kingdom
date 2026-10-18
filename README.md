@@ -2,6 +2,14 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
+## Prepared release: 0.4.3 — Direct crafting and clearer field notes
+
+Implements the 30 follow-up comments on 0.4.2: full-height responsive recruit portraits, narrow-screen Recruits / Defender / Recipes pages, equal commitment controls with distinct CP actions, direct Pin and clickable champion ingredients in Potential combinations, and direct guarded Create actions without a separate Combination preview step. The Recipes book removes redundant search/help/history furniture while retaining direct filters, ordered recipe navigation and colored classifications. All 50 enemy atlas portraits use approved original FRONT views through RGB-preserving transparent derivatives.
+
+Real MVP awards use brief confetti and stars. Compact MVP/support copy, a one-row DPS heading, five complete DPS entries, natural-height wave summaries, six fitted rank buttons and the visible real-time clock improve field readability. Defeat gains a larger red outcome and a destroyed-city illustration. All **1,504 tests**, the 192-module production build and local desktop/tablet/phone browser QA pass, with zero browser warnings/errors. [The 30-comment report](docs/UI_POLISH_V043_20261018.md) links exact hashes, 23 captures and actual craft/MVP/defeat observations. Pages CI and public checks remain pending; physical iPad/Safari verification is unavailable. Complex long phone notes can require collapsing a panel. Exact recipe allocation, hidden draws, game rules, historical assets and prior recovery points are preserved.
+
+<!-- V043_RELEASE_GATES_PENDING -->
+
 ## Published release: 0.4.2 — Compact planning and clearer field books
 
 Addresses the 39 comments on 0.4.1: smaller construction and inspection panels, distinct Wave/Command Point icons, Maze plans before building, 3×/5× speed, and recipe suggestions that follow the displayed rank without changing the actual defender. Legal Create actions sit under the draft choices; collapsed pinned recipes move to a compact external strip. MVP and support are always visible beneath Move, and current damage/DPS includes a readable base-and-bonus breakdown. Real MVP awards gain a brief light beam and MVP +1 label.

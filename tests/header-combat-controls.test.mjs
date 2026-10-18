@@ -36,7 +36,7 @@ test('production battlefield dock owns the single combat-control host beside Rea
  try{new Function('app','icon','profile','balance','audioControlsMarkup','audio',source.slice(start,end))(app,icon,{muted:false},data.balance,audioControlsMarkup,audio);}finally{audio.dispose();}
  const header=app.innerHTML.slice(0,app.innerHTML.indexOf('</header>')),actions=header.slice(header.indexOf('class="header-actions"'));
  const dock=app.innerHTML.slice(app.innerHTML.indexOf('class="command-dock"'),app.innerHTML.indexOf('class="battlefield-overlays"'));
- assert.doesNotMatch(header,/id="header-combat-controls"/);assert.equal((app.innerHTML.match(/id="header-combat-controls"/g)||[]).length,1);assert.match(dock,/id="header-combat-controls" role="group" aria-label="Combat controls" hidden/);assert.match(dock,/data-action="maze"/);assert.match(dock,/data-action="start" id="start-wave"/);
+ assert.doesNotMatch(header,/id="header-combat-controls"/);assert.equal((app.innerHTML.match(/id="header-combat-controls"/g)||[]).length,1);assert.match(dock,/id="header-combat-controls" role="group" aria-label="Combat controls" hidden/);assert.doesNotMatch(dock,/data-action="maze"/,'Maze plans no longer occupy the combat-control dock');assert.match(app.innerHTML,/<details class="map-tools">[\s\S]*data-action="maze"/,'The existing maze action remains accessible within Map tools');assert.match(dock,/data-action="start" id="start-wave"/);
  assert.match(actions,/data-action="warbands"/);assert.match(actions,/data-action="codex"/);assert.doesNotMatch(dock,/data-action="(?:pause|speed)"/,'The stable controls are mounted lazily once by their real updater');
  assert.match(header.slice(0,header.indexOf('class="header-actions"')),/hud-stat run-time[\s\S]*<small>TIME<\/small>/);
 });

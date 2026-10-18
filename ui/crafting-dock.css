@@ -51,7 +51,6 @@
 .crafting-alternatives{display:flex;gap:5px;flex-wrap:wrap;margin:5px 0}
 .crafting-alternatives .text-button{min-height:39px;font-size:10px;padding:6px;white-space:normal}
 .crafting-alternatives .active{border-color:#f6cc69;color:#f6cc69}
-.crafting-history{display:flex;gap:6px;margin:0 0 8px}.crafting-history>button{flex:1;justify-content:center;min-height:40px;font-size:10px;padding:5px;white-space:normal}
 .crafting-downstream{margin:9px 0;border-top:1px solid #42778380;padding-top:8px}.crafting-downstream h4{font:14px Georgia,serif;margin:0 0 4px}.crafting-downstream p{font-size:10px;color:#c8d8d3;margin:0 0 5px}.crafting-downstream>div{display:grid;gap:5px}.crafting-downstream .text-button{display:flex;gap:8px;min-height:44px;white-space:normal;text-align:left;font-size:12px}.crafting-downstream img{width:28px;height:34px;object-fit:contain;flex:none}.crafting-downstream button>span:first-of-type{flex:1;min-width:0}
 .crafting-other-pinned{display:flex;align-items:center;gap:6px;padding:6px;background:#13404b7d;border-radius:4px;font-size:11px;line-height:1.3;margin-bottom:8px}
 .crafting-dock-pinned-goal:empty{display:none}.crafting-dock-pinned-goal{padding:6px 8px 0}.crafting-dock-pinned-goal .crafting-other-pinned{margin-bottom:0}
@@ -77,8 +76,6 @@
 #app .folio-plan .crafting-dock{overflow:visible;box-shadow:none}
 #app .folio-plan{touch-action:pan-y;overscroll-behavior-y:contain}
 #app .folio-plan .crafting-dock{touch-action:pan-y;overscroll-behavior:auto}
-#app .crafting-history{gap:5px;margin:0 0 5px}
-#app .crafting-history>button{flex:0 1 auto;min-height:44px;padding:3px 8px;font-size:12px;line-height:1.15;white-space:nowrap}
 #app .crafting-order{display:flex;align-items:center;gap:5px;margin:0 0 8px}
 #app .crafting-order>button{flex:1;min-height:44px;padding:3px 7px;font-size:12px;white-space:nowrap}
 #app .crafting-order>span{font-size:11px;white-space:nowrap;color:var(--muted-ink,#c8d8d3)}
@@ -96,6 +93,13 @@
 #app .folio-downstream>div{display:grid;gap:4px}
 #app .folio-downstream button{justify-content:space-between;min-height:44px;padding:4px 7px;font-size:13px;text-align:left;white-space:normal}
 #app .folio-plan-back{min-height:44px;padding:4px 7px;font-size:12px;margin-bottom:5px}
+#app .folio-recipe-detail-heading{display:flex;align-items:center;gap:7px;justify-content:space-between}
+#app .folio-recipe-detail-heading h4{flex:1;min-width:0}
+#app .folio-recipe-pin{flex:none;min-height:44px;padding:5px 7px;font-size:12px;white-space:normal;gap:4px}
+#app .folio-recipe-pin .icon{width:16px;height:16px;flex:none}
+#app .folio-recipe-pin.is-pinned{background:#d9edf0;color:#245261;border-color:#6b9ba7}
+#app .folio-ingredient-link{display:inline-flex;align-items:center;justify-content:flex-start;gap:5px;min-height:44px;padding:2px 0;border:0;background:none;text-decoration:underline;text-underline-offset:3px;color:#245a6a;font:inherit;text-align:left;white-space:normal;cursor:pointer;touch-action:manipulation}
+#app .folio-ingredient-link>span{flex:none;text-decoration:none}
 #app .folio-create-actions{display:grid;gap:5px;margin-top:6px;grid-column:1/-1}
 #app .folio-create-actions .folio-create-champion{min-height:48px;padding:6px 9px;font-size:15px;color:#36270f;background:linear-gradient(#f5dc9b,#d6ae5b);border-color:#a07b37;box-shadow:inset 0 0 0 2px #fff4cf}
 @media(max-width:750px){#app .is-compact-external.crafting-dock{right:8px;width:min(280px,calc(100% - 16px));bottom:calc(var(--folio) + var(--safe-bottom) + 7px)}}

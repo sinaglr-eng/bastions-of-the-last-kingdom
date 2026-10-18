@@ -1,0 +1,99 @@
+{
+  "schema": "book-atlas-reference-review-v043",
+  "language": "English",
+  "status": "Final desktop and iPad-sized atlas/recipe-book captures visually reviewed against the original references",
+  "referencesInspected": [
+    "docs/ui-cartographers-table-handoff-20261016/reference-ui/07-future-waves-desktop.png",
+    "docs/ui-cartographers-table-handoff-20261016/reference-ui/07-future-waves-ipad.png",
+    "docs/ui-cartographers-table-handoff-20261016/reference-ui/08-recipe-catalog-desktop.png",
+    "docs/ui-cartographers-table-handoff-20261016/reference-ui/08-recipe-catalog-ipad.png"
+  ],
+  "baselineInspected": "output/design/ui-refinements-v042-20261018/27-public-book.jpg",
+  "runtimeCapturesInspected": [
+    "output/design/ui-refinements-v043-20261018/02-book-first-comparison.jpg",
+    "output/design/ui-refinements-v043-20261018/03-atlas-first-comparison.jpg",
+    "output/design/ui-refinements-v043-20261018/04-atlas-tablet-first-comparison.jpg",
+    "output/design/ui-refinements-v043-20261018/09-atlas-desktop-final.jpg",
+    "output/design/ui-refinements-v043-20261018/10-atlas-front-44.jpg",
+    "output/design/ui-refinements-v043-20261018/11-atlas-tablet-final.jpg",
+    "output/design/ui-refinements-v043-20261018/12-recipe-book-final.jpg",
+    "output/design/ui-refinements-v043-20261018/22-ipad-size-book-final.jpg"
+  ],
+  "recipeBookComparison": {
+    "referenceComposition": "An open object anchored below the map: facing leaves, curved page edges, thin leather cover, left index tabs and an external planning bookmark.",
+    "observedImprovements": [
+      "The new native SVG outline visibly bows at the center fold and separates the page stack from its cover.",
+      "The former full-width Recipes title bar is absent; the accessible heading remains in the document and Close floats outside the upper-right edge.",
+      "The index and selected reading page remain side by side, with useful battlefield context above them.",
+      "Basic, Intermediate, Advanced and TOP badges are visibly distinct in blue, green, purple and gold.",
+      "Search, How recipes work, Filter options and their extra help/reset controls no longer occupy the page. Three direct filters remain.",
+      "The selected champion keeps its fixed title and Pin action above the scrolling recipe body. Page numbers occupy their own footer rows."
+    ],
+    "correctionsAfterCapture": [
+      "The pale This round status in capture 02 was traced to a legacy important draft-progress rule. A scoped important dark-teal rule now overrides it throughout the book."
+    ],
+    "finalCaptureObservations": [
+      "Capture 12 at 1715 by 1244 shows the complete bowed cover and facing leaves anchored below the map. Its top is approximately 42 percent of the viewport height, compared with approximately 41 percent in reference 08 desktop.",
+      "The outside Close button, left tabs and right bookmark are visibly attached to the book edge. Both numbered page footers have clear space and do not overlap the scrollable content.",
+      "The first four visible classification levels are explicitly labeled and visibly blue, green, purple and gold. This round now renders in dark teal against the cream ingredient card.",
+      "The fixed champion heading and single-line Pin recipe action remain above the ordered Previous and Next recipe controls. The removed global title bar, search, filter disclosure, recipe-help disclosure and About Base DPS section do not appear.",
+      "Capture 22 at 1024 by 768 was independently inspected by both the book/atlas agent and the recipe-flow reporting agent. Both facing leaves, all three direct filters, availability controls, external index tabs, bookmark, outside Close and separate numbered footers remain within the viewport. The champion title wraps to two lines while Pin recipe remains a single line without overlap.",
+      "Native list and content scrollbars remain inside the leaves at 1024 by 768. The index shows fewer full rows and the ingredient-card status continues below the reading viewport. Both page footers remain clear of these scroll regions."
+    ],
+    "limits": [
+      "The final book follows the reference composition, but it is not a pixel-identical reproduction: the existing approved geometric character art, current exact recipe content and current typography are retained.",
+      "The current explicit top Pin control follows the later user instruction rather than the concept image's bottom Pin placement.",
+      "The 1024 by 768 adaptation starts the book higher in the viewport than reference 08 iPad and shows fewer complete index rows at once. It retains readable controls and native scrolling rather than shrinking the full desktop content to fit.",
+      "Phone layout uses accessible index/reading page tabs because two full leaves cannot remain legible at phone width. This saved-image review does not establish physical touch behavior or a final phone-sized recipe-book capture."
+    ]
+  },
+  "enemyAtlasComparison": {
+    "referenceComposition": "A framed parchment field report: compact wave index above one shared profile, followed by visibly divided variant information and large character artwork.",
+    "observedImprovements": [
+      "The atlas uses the existing fine parchment frame rather than the recipe book's heavy leather cover.",
+      "The wave title, count, shared statistics and shared abilities span the report before the divided variant panels.",
+      "Both actual wave-31 immunity variants remain separate; shared HP, armor, speed and shields appear once.",
+      "The actual field portrait is shown once. It is not duplicated or recolored to invent missing variant illustrations.",
+      "The lore remains expanded and uses readable ink, with the existing exact mechanics preserved alongside it."
+    ],
+    "correctionsAfterCapture": [
+      "Capture 03 was too low in the viewport. The atlas now centers with automatic vertical margins and a bounded desktop height of 82 dynamic viewport units, capped at 980 pixels.",
+      "Capture 03 wrapped the desktop wave index at 27 columns. Desktop widths above 1280 pixels now use exactly 25 columns; narrower layouts retain responsive wrapping."
+    ],
+    "finalCaptureObservations": [
+      "Capture 09 at 1715 by 1244 shows the entire wave-31 report centered with approximately equal 159-pixel upper and lower margins. The report has the reference's broad parchment proportions, header icon, two-row 25-column index and full-width shared profile.",
+      "Wave 31 visibly has two distinct named immunity panels beside one large front-facing field portrait. Its shared shield behavior appears once above them; lore and guidance remain expanded and legible below the panels.",
+      "Capture 10 shows the wave-44 front portrait fully within its frame and a single-form report without empty variant panels. The exact immunity and blink text remains visible above the expanded lore.",
+      "Capture 11 at 1180 by 820 retains the heading, Close control, all 50 wave buttons, shared profile and both variant headers in the visible viewport. The report's native scrollbar is visible; the lower portrait and lore continue below the fold."
+    ],
+    "limits": [
+      "The original concepts depict two distinct variant illustrations. The approved runtime image map currently supplies one portrait per campaign identity, so this implementation does not claim a pixel-identical variant-art match.",
+      "The final atlas is an adaptation rather than a pixel-identical copy: it uses approved geometric artwork, current exact mechanics and the previously requested expanded lore. The concept's bottom Previous, Return and Next controls remain removed under the later user instruction.",
+      "At the iPad-sized viewport the report requires native vertical scrolling, so capture 11 alone does not prove readability of the lower lore or complete portrait. This agent inspected saved images; the release owner owns live scrolling and interaction verification."
+    ]
+  },
+  "checks": {
+    "focusedTests": {
+      "tests": 67,
+      "pass": 67,
+      "fail": 0
+    },
+    "cssParse": "passed",
+    "classificationContrastRatios": {
+      "Basic": 7.41,
+      "Intermediate": 6.23,
+      "Advanced": 6.13,
+      "TOPAndSecret": 5.86
+    },
+    "thisRoundContrastAgainstPaper": 6.39,
+    "portraitDataOrGameplayChangesByThisTask": false,
+    "releaseOwnerChecksReported": [
+      "At the 1180-pixel atlas viewport the release owner scrolled to the lower ability and lore content, then back to the wave index.",
+      "The release owner reported the wave-44 front image loaded and all 50 front portraits passed source-pixel verification. These checks are reported separately from this agent's saved-image inspection."
+    ]
+  },
+  "pending": [
+    "Physical iPad Safari verification is unavailable and is not claimed.",
+    "A dedicated final phone-sized recipe-book capture is not included; phone folio and rank fit are recorded separately in browser-qa.json."
+  ]
+}

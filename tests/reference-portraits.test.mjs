@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {referencePortrait,referenceDefenderPortrait,referenceEnemyPortrait,referencePortraitImageMap,REFERENCE_PORTRAIT_REVISION,ORIGINAL_REFERENCE_PORTRAIT_REVISION} from '../ui/reference-portraits.js';
+import {referencePortrait,referenceDefenderPortrait,referenceEnemyPortrait,referencePortraitImageMap,REFERENCE_PORTRAIT_REVISION,ENEMY_FRONT_PORTRAIT_REVISION,ORIGINAL_REFERENCE_PORTRAIT_REVISION} from '../ui/reference-portraits.js';
 
 const json=path=>JSON.parse(readFileSync(new URL(path,import.meta.url),'utf8'));
 const sources=json('../docs/ui-cartographers-table-handoff-20261016/PORTRAIT_SOURCES.json');
@@ -15,7 +15,7 @@ test('the UI catalogue resolves all and only 136 approved exact identities under
   for(const row of sources.rows){
     ids.add(row.id);
     const options={base:'/bastions-of-the-last-kingdom/'};
-    const expected=`/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/${row.id==='host_50'?'host_50-crimson':row.id}.png?v=${REFERENCE_PORTRAIT_REVISION}`;
+    const enemy=row.category==='enemies',expected=`/bastions-of-the-last-kingdom/assets/ui/${enemy?'reference-enemy-fronts':'reference-cutouts'}/${row.id}.png?v=${enemy?ENEMY_FRONT_PORTRAIT_REVISION:REFERENCE_PORTRAIT_REVISION}`;
     assert.equal(referencePortrait(row.id,options),expected);
     assert.equal(row.category==='enemies'?referenceEnemyPortrait(row.id,options):referenceDefenderPortrait(row.family,row.tier??1,options),expected,row.id);
     assert.equal(referencePortrait(row.id,{base:'/'}),expected.replace('/bastions-of-the-last-kingdom/','/'));
@@ -32,7 +32,7 @@ test('rank and fixed-champion lookup never falls back to another identity',()=>{
   assert.equal(referenceDefenderPortrait('host_01'),null);
   assert.match(referenceDefenderPortrait('mage',4),/\/mage-4\.png\?v=/);
   assert.match(referenceDefenderPortrait('ladyclaire'),/\/ladyclaire\.png\?v=/);
-  assert.match(referenceEnemyPortrait('host_50'),/\/host_50-crimson\.png\?v=/);
+  assert.match(referenceEnemyPortrait('host_50'),/\/reference-enemy-fronts\/host_50\.png\?v=/);
 });
 
 test('image-map aliases preserve current consumers without reserving an unknown or wall identity',()=>{
@@ -40,7 +40,7 @@ test('image-map aliases preserve current consumers without reserving an unknown 
   assert.equal(Object.keys(images).length,182);
   assert.equal(images.archer,images['archer:1']);assert.notEqual(images['archer:1'],images['archer:2']);
   assert.equal(images.frostblade,images['frostblade:1']);assert.equal(images['frostblade:2'],undefined);
-  assert.equal(images['enemy:host_50'],'/project/assets/ui/reference-cutouts/host_50-crimson.png?v=ui%20review%202');
+  assert.equal(images['enemy:host_50'],'/project/assets/ui/reference-enemy-fronts/host_50.png?v=ui%20review%202');
   assert.equal(images.unknown,undefined);assert.equal(images.ruin,undefined);assert.equal(images.reserved,undefined);
   const wall='data:image/png;base64,existing-wall';assert.equal({...images,ruin:wall}.ruin,wall);
   assert.notEqual(images,referencePortraitImageMap());

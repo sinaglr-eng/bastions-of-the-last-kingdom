@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "revision": "enemy-front-cutouts-20261018-v1",
+  "coordinateSpace": "Top-left FRONT source crop pixels, before transparent-margin trim",
+  "sourceRectangle": [0, 33, 512, 472],
+  "reviewStatus": "approved",
+  "reviewScope": "Agent visual review of all 50 identities on four paper and four dark contact sheets, plus individual host_44 and host_50 source/output details. FRONT identity, complete weapons/mount/wings, pale facets, detached captions and panel borders were checked. Original artwork approval is separate and preserved.",
+  "identities": {
+    "host_20": {
+      "opaqueProbesSource": [[264, 92]],
+      "reviewDecision": "Complete FRONT bone headdress, staff, face, tusks and pedestal. Pale ivory horn facets remain opaque without paper-colored holes."
+    },
+    "host_27": {
+      "opaqueProbesSource": [[255, 315]],
+      "reviewDecision": "Complete FRONT skeletal bat, rider, spear, wing bones and pedestal. The pale central skull remains opaque; intentional wing gaps stay transparent."
+    },
+    "host_40": {
+      "opaqueProbesSource": [[260, 115]],
+      "reviewDecision": "Complete FRONT skeletal warlord and spread bone wings. Ivory skull and rib facets remain intact, with actual gaps between bones transparent."
+    },
+    "host_49": {
+      "opaqueProbesSource": [[260, 250]],
+      "reviewDecision": "Complete FRONT guardian, open mouth, teeth, tusks, claws and pedestal. Ivory upper teeth remain opaque and the turquoise mouth crystal retains its source color."
+    },
+    "host_44": {
+      "removePolygons": [
+        [[0, 0], [162, 0], [147, 25], [0, 25]],
+        [[166, 0], [512, 0], [512, 25], [171, 25]]
+      ],
+      "reviewDecision": "Uses the actual FRONT axe-bearing figure, replacing the historical LEFT crop. Separate alpha exclusions remove heading letters touching the axe tip while retaining the pointed weapon silhouette. Full front helmet, axe, robe and pedestal are present."
+    },
+    "host_50": {
+      "sourceRectangle": [0, 40, 512, 472],
+      "reviewDecision": "Uses the FRONT panel of the separately approved crimson reference. The upper boundary sits below the sheet heading and above the complete glowing sword tip; mount, wings, rider and pedestal remain complete. The historical 0.4.2 crimson derivative is untouched."
+    }
+  }
+}

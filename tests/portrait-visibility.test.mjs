@@ -222,3 +222,9 @@ test('all transparent reference identities are gated by their own native decode 
   for(const image of images){assert.equal(image.getAttribute(state),'loading');assert.equal(image.requests.length,1);image.requests[0].resolve();}
   await flush();for(const image of images)assert.equal(image.getAttribute(state),'ready');connection.dispose();
 });
+test('all fifty FRONT enemy portraits use the native identity guard and stale front decodes cannot reveal a replacement',async()=>{
+  const {root,Image}=documentFixture(),source=id=>`/bastions/assets/ui/reference-enemy-fronts/${id}.png?v=enemy-front-cutouts-20261018-v1`,images=Array.from({length:50},(_,index)=>new Image(source(`host_${String(index+1).padStart(2,'0')}`)));
+  root.append(...images);const connection=connectApprovedPortraitVisibility(root);for(const image of images){assert.equal(image.getAttribute(state),'loading');assert.equal(image.requests.length,1);}
+  const changed=images[43],old=changed.requests[0];changed.setAttribute('src',source('host_50'));await flush();old.resolve();await flush();assert.equal(changed.getAttribute(state),'loading','The obsolete executioner decode cannot reveal Bernhard');
+  changed.requests[1].resolve();for(const image of images.filter(image=>image!==changed))image.requests[0].resolve();await flush();for(const image of images)assert.equal(image.getAttribute(state),'ready');assert.equal(changed.src,new URL(source('host_50'),'https://example.test').href);connection.dispose();
+});

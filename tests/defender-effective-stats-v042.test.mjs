@@ -68,13 +68,13 @@ test('current profile renders readable base and bonus lines, and permanent MVP/s
   assert.ok(move>=0&&move<mvp&&mvp<support&&support<core);assert.doesNotMatch(html,/data-detail-key="mvp"|<summary>MVP/);
   assert.match(html,/data-effective-stats="" data-stats-scope="current"/);assert.match(html,/Direct DPS/);assert.match(html,/Base \d/);assert.match(html,/Own MVP \+30%/);assert.match(html,/Damage aura/);assert.match(html,/Attack-speed aura/);assert.doesNotMatch(html,/Base direct DPS<\/span>/);
   const preview=new DefenderRankPreview();preview.select(tower,4,game.data);const rankHtml=defenderPanelMarkup(game,tower,{rankPreview:preview});
-  assert.match(rankHtml,/Base values only; current MVP and support bonuses are not applied/);assert.match(rankHtml,/data-stats-scope="base-preview"/);
+  assert.doesNotMatch(rankHtml,/folio-base-note|data-effective-note/);assert.match(rankHtml,/data-stats-scope="base-preview"/);
   assert.doesNotMatch(defenderEffectiveStatsMarkup(game,tower,{view:{...tower,tier:4}}),/data-contribution/);
 });
 test('draft candidate detail omits inactive support filler and clearly distinguishes its actual base profile from a rank preview',()=>{
   const game=arena(),tower=unit(game,'archer',{state:'draft'});game.phase='select';
-  const html=defenderPanelMarkup(game,tower);assert.match(html,/Base candidate values; MVP and support bonuses apply after keeping this defender/);assert.doesNotMatch(html,/Retain this defender to receive support effects|class="selected-support"|class="mvp-details"|this rank preview/);
-  const preview=new DefenderRankPreview();preview.select(tower,4,game.data);const compared=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(compared,/bonuses are not applied to this rank preview/);assert.doesNotMatch(compared,/Base candidate values|class="selected-support"/);
+  const html=defenderPanelMarkup(game,tower);assert.match(html,/Actual rank I · Base profile/);assert.doesNotMatch(html,/Retain this defender to receive support effects|class="selected-support"|class="mvp-details"|folio-base-note|data-effective-note/);
+  const preview=new DefenderRankPreview();preview.select(tower,4,game.data);const compared=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(compared,/Preview rank IV · Actual rank I unchanged/);assert.match(compared,/data-stats-scope="base-preview"/);assert.doesNotMatch(compared,/folio-base-note|class="selected-support"/);
 });
 test('actual HUD refresh uses run-local defender/support rules and leaves an unchanged metric node mounted',()=>{
   const approved=JSON.stringify(data),game=new Game(structuredClone(data),{seed:471}),tower=unit(game,'archer',{mvpLevel:3});unit(game,'archbishop');game.phase='ready';game.selected=tower.id;

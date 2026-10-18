@@ -6,7 +6,7 @@ function sourceOf(image){
   if(!attribute||!source)return null;
   try{
     const url=new URL(source,image.ownerDocument?.baseURI);
-    const reference=url.pathname.match(/\/assets\/ui\/reference-(?:portraits|cutouts)\/([^/]+\.png)$/i);
+    const reference=url.pathname.match(/\/assets\/ui\/reference-(?:portraits|cutouts|enemy-fronts)\/([^/]+\.png)$/i);
     const legacy=url.pathname.match(/\/assets\/geometric\/portraits\/([^/]+)$/i);
     // Both defender and enemy reference crops/cutouts need the current-identity decode
     // guard. Preserve the legacy catalogue's defender-only behavior for tools

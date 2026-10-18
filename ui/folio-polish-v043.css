@@ -1,0 +1,91 @@
+/* Recruits use the available sheet height; the game continues beneath its edges. */
+#app #battlefield { bottom: 0!important; }
+#app .folio-candidates { display: grid; grid-template-columns: minmax(0,1fr)!important; grid-template-rows: minmax(0,1fr); grid-auto-rows: max-content; align-content: stretch; align-self: stretch; position: static; height: 100%; gap: 7px; overflow: visible!important; background: none; }
+#app .folio-candidates>#draft { display: grid; grid-template-rows: max-content minmax(0,1fr); gap: 6px; grid-column: 1/-1; min-height: 0; }
+#app .folio-candidates .draft-heading { margin: 0; }
+#app .folio-candidates .draws { height: 100%!important; min-height: 0; overflow: visible!important; grid-template-columns: repeat(5,minmax(0,1fr)); }
+#app .folio-candidates .draw-slot { height: 100%; min-height: 0; }
+#app .folio-candidates .draw-card { height: 100%; min-height: 0!important; }
+#app .folio-candidates .draw-card img { top: 4px; height: calc(100% - 45px); max-height: none; width: 100%; }
+#app .folio-candidates .draw-card .draw-name { font-size: clamp(11px,.87vw,15px); bottom: 23px; }
+#app .folio-candidates .draw-card:before { inset: 4px 4px 43px; }
+#app .folio-candidates .mystery-sigil { height: calc(100% - 38px); min-height: 0; margin: 4px auto 0; }
+#app .folio-candidates>#economy { grid-column: 1/-1; padding: 0; }
+#app .folio-decision-row { grid-column: 1/-1; display: grid; grid-template-columns: repeat(var(--decision-count,3),minmax(0,1fr)); gap: 7px; align-items: stretch; }
+#app .folio-decision-row:not(:has(button)) { display: none; }
+#app .folio-decision-row :is(#folio-actions,#folio-command-actions,.defender-main-actions,.draft-command-actions,.command-action,.command-move-panel) { display: contents; }
+#app .folio-decision-row :is(button,.command-button,.tower-downgrade-keep) { box-sizing: border-box; height: 48px!important; min-height: 48px!important; min-width: 0!important; width: 100%; margin: 0!important; padding: 5px!important; font-size: clamp(10px,.8vw,14px)!important; line-height: 1.15; justify-content: center; }
+#app .folio-decision-row .command-move-panel:before { content: none; }
+#app .folio-decision-row :is(.command-move-heading,.command-move-panel p) { grid-column: 1/-1; margin: 0; }
+#app .folio-decision-row .command-disabled-reason { display: none; }
+#app .folio-decision-row .command-button { display: flex; align-items: center; flex-wrap: nowrap; gap: 4px; }
+#app .command-cost { display: inline-flex; align-items: center; gap: 3px; font: inherit; color: inherit; white-space: nowrap; }
+#app .command-cost>.icon { width: 17px; height: 17px; flex: none; }
+#app .folio-decision-row [data-action=reroll] { background: #d9ebef; border-color: #648f9a; color: #174b59; }
+#app .folio-decision-row [data-action=reserve] { background: #e7def1; border-color: #9980ac; color: #563b6a; }
+#app .folio-decision-row [data-action=move] { background: #f2e6c9; border-color: #b39b65; color: #60491e; }
+#app .folio-decision-row [data-action=reroll]:not(:disabled):hover { background: #c4e1e8; }
+#app .folio-decision-row [data-action=reserve]:not(:disabled):hover { background: #dacbea; }
+#app #folio-create-actions { grid-column: 1/-1; }
+#app .rank-preview-buttons { grid-template-columns: repeat(6,minmax(0,1fr))!important; overflow: visible!important; width: 100%; min-width: 0; }
+#app .rank-preview-buttons>button { min-width: 0!important; width: 100%; padding: 3px 0; }
+#app .folio-inspection .stat-grid { padding: 0; }
+#app .folio-inspection .defender-heading { margin-bottom: 4px; }
+#app .folio-recipe-detail-heading { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+#app .folio-recipe-detail-heading h4 { margin: 0; font-size: 14px; }
+#app .potential-combinations .folio-recipe-pin { display: inline-flex; align-items: center; justify-content: center; flex: none; width: auto; min-height: 36px; margin: 0; padding: 4px 8px; gap: 5px; font-size: 12px; }
+#app .potential-combinations .folio-ingredient-link { display: inline-flex; align-items: center; width: auto; min-height: 28px; margin: 0; padding: 0; border: 0; background: none; font-size: 12px; color: #175e70; gap: 4px; text-decoration: underline; }
+#app .topbar .hud-stat.run-time { display: flex!important; opacity: 1; min-width: 66px; }
+#app .topbar .hud-stat.run-time strong { font-variant-numeric: tabular-nums; }
+#app .topbar .hud-stat.run-time>.icon { color: #72572b; }
+#app .top-stats { gap: clamp(9px,1.15vw,22px); }
+#app .run-result.is-defeat>.eyebrow { display: inline-block; margin: 10px 0; padding: 8px 20px; border: 1px solid #a34c3d; border-radius: 3px; color: #fff0d5; background: #832f2c; font: 700 clamp(23px,2.5vw,34px)/1.15 Georgia,serif; letter-spacing: 1px; }
+#app .run-result.is-victory>.eyebrow { color: #356039; font-size: 24px; font-weight: 700; }
+#app .run-result-defeat-art { display: block; width: 100%; height: clamp(150px,24dvh,260px); object-fit: cover; object-position: center 46%; border: 1px solid #a27d4b; border-radius: 4px; margin: 8px auto 14px; }
+#app .run-result.is-defeat .run-result-symbol { display: none; }
+#app .run-result-outcome-copy { color: #793e2c; font-size: 16px; margin: 0 0 8px; }
+#app .folio-page-tabs { display: none; }
+@media (max-width:1050px) {
+  #app .topbar .top-stats { display: grid; grid-template-columns: .9fr 1.3fr .8fr .65fr 1.1fr; grid-template-rows: auto!important; align-content: center; gap: 6px; }
+  #app .topbar .hud-stat { min-width: 0!important; gap: 0; }
+  #app .topbar .hud-stat>.icon { display: none; }
+  #app .topbar .hud-stat small { font-size: 9px; letter-spacing: 0; }
+  #app .topbar .hud-stat strong { font-size: 18px; }
+  #app .topbar .hud-stat.run-time { grid-column: auto!important; grid-row: auto!important; }
+  #app .preparation-folio:not([data-preview=true]),#app .preparation-folio:not([data-preview=true]):has(.folio-plan[hidden]) { display: grid; grid-template-columns: minmax(0,1fr); grid-template-rows: 34px minmax(0,1fr); grid-auto-rows: auto; align-content: stretch; gap: 6px; overflow: hidden; }
+  #app .folio-page-tabs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 5px; grid-column: 1; grid-row: 1; }
+  #app .folio-page-tabs button { min-height: 34px; height: 34px; padding: 3px 8px; font-size: 13px; }
+  #app .folio-page-tabs [aria-pressed=true] { color: #fff6df; border-color: #436f80; background: #35697e; }
+  #app .preparation-folio :is(.folio-candidates,.folio-inspection,.folio-plan) { grid-column: 1; grid-row: 2; min-height: 0; height: 100%; max-height: none; align-self: stretch; padding: 0; border: 0; position: static; }
+  #app:not([data-folio-page=draft]) .folio-candidates,#app:not([data-folio-page=defender]) .folio-inspection,#app:not([data-folio-page=recipes]) .folio-plan { display: none!important; }
+  #app .folio-inspection,#app .folio-plan { overflow: auto; }
+  #app .folio-inspection .defender-panel { display: grid; grid-template-columns: minmax(190px,.7fr) minmax(0,1.3fr); gap: 4px 12px; }
+  #app .folio-inspection .defender-heading { grid-column: 1; grid-row: 1; }
+  #app .folio-inspection .defender-core { grid-column: 2; grid-row: 1/5; }
+  #app .folio-inspection .mvp-details,#app .folio-inspection .selected-support { grid-column: 1; }
+}
+@media (max-width:1200px) { #app .topbar { gap: 10px; } #app .topbar .brand { min-width: 0; } #app .topbar .hud-stat.run-time { min-width: 58px; } }
+@media (max-width:750px) {
+  #app:is([data-phase=build],[data-phase=select]):not([data-combination-preview=true]),#app:is([data-phase=build],[data-phase=select]):has(#folio-create-actions:not(:empty)) { --folio: min(430px,54dvh); }
+  #app .folio-candidates { min-height: 0; }
+  #app .folio-candidates .draw-card .draw-name { font-size: 11px; }
+  #app .topbar .hud-stat.run-time { min-width: 43px; }
+  #app .topbar .hud-stat.run-time>.icon { display: none; }
+  #app .topbar .hud-stat.run-time strong { font-size: 14px; }
+  #app .topbar .hud-stat.run-time small { font-size: 8px; }
+  #app .top-stats { gap: 6px; }
+  #app .folio-decision-row .command-button { flex-wrap: wrap; gap: 2px; }
+  #app .folio-decision-row .command-button>span { width: 100%; }
+  #app .folio-decision-row .command-button>.icon { display: none; }
+  #app .folio-decision-row .tower-downgrade-keep { font-size: 9px!important; line-height: 1.05; padding: 4px 2px!important; }
+}
+@media (max-width:600px) and (min-height:601px) {
+  #app .folio-candidates .draws { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: repeat(2,minmax(0,1fr)); gap: 5px; }
+  #app .folio-candidates .draw-card img { height: calc(100% - 36px); }
+  #app .folio-candidates .draw-card .draw-name { bottom: 15px; }
+  #app .folio-candidates .draw-card .draw-damage { bottom: 2px; font-size: 8px; }
+  #app .folio-inspection .defender-panel { display: block; }
+}
+@media (max-height:600px) and (min-width:751px) and (max-width:1050px) { #app:is([data-phase=build],[data-phase=select]):not([data-combination-preview=true]),#app:is([data-phase=build],[data-phase=select]):has(#folio-create-actions:not(:empty)) { --folio: 70dvh; } }
+
+@media (max-width:1250px) { #app .topbar .command-points small { font-size:0; } #app .topbar .command-points small::after { content:"CP"; font-size:9px; } }

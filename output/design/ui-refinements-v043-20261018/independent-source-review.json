@@ -1,0 +1,48 @@
+{
+  "schema": "ui-refinements-v043-independent-source-review-v1",
+  "createdAt": "2026-10-18T10:56:37.8511579Z",
+  "baseline": "8290085c428f56b7561b2bb6f86b178fd743df23",
+  "status": "Passed; reported responsive tab availability finding resolved and covered by production regressions",
+  "reviewed": [
+    "game/main.js: recipe inspection, draft refresh, command host and HUD integration",
+    "ui/recipe-marker-input.js: actual inventory token and two accepted pointer activations",
+    "ui/crafting-dock.js: current physical inventory validation and creation boundary",
+    "ui/preparation-folio.js and ui/preparation-recipe-navigation.js: hypothetical inspection, history and actual anchor separation",
+    "ui/reference-portraits.js and ui/portrait-visibility.js: FRONT namespace identity and current native decode ownership",
+    "game/render/mvp-halo.js: real award event, cosmetic clock, reduced motion and resource disposal",
+    "ui/tower-dps.js and ui/field-readability-v043.css: measured scores, five complete rows and natural wave summary height",
+    "ui/warband-cards.js and ui/warbands-overview.js: actual variant comparison and FRONT image-map consumers",
+    "game/main.js responsive folio-tab handler: native disabled and aria-pressed behavior, page state and CSS-hidden panes",
+    "ui/field-readability-v043.css final compact DPS header and bounded side-by-side open notes on shorter wide screens"
+  ],
+  "validated": [
+    "No combat/core/data/backend/audio rules changed against baseline",
+    "Crafting still passes through Game.craft with a current physical inventory key",
+    "Front derivatives use separate paths; old assets remain unchanged",
+    "Cosmetic MVP effect does not sample gameplay RNG or mutate defender statistics",
+    "Header/draft fixtures preserve RNG and verify five visible choices without programmatic scrolling",
+    "Responsive page availability uses actual pane content; unavailable active pages fall back before native disabled and aria-pressed updates",
+    "Production regressions cover wall selection, selection loss, new draft, pin/unpin and cleared inspection context",
+    "Final complete suite passed 1504/1504 with zero failures; tests-final.log retained",
+    "Production Vite build passed: 192 modules, base /bastions-of-the-last-kingdom/, build-final.log",
+    "All 482 snapshotted source files remained unchanged during tests and build, and between the tested and built source sets",
+    "Final preservation audit passes; original asset bytes, 559 MAIN paths and both Git indexes remain preserved",
+    "Release owner confirmed compact DPS summary now fits one line in the live browser"
+  ],
+  "limitations": [
+    "Remaining responsive panel geometry, MVP/craft/defeat visual QA and physical tablet touch checks are owned by the release integrator"
+  ],
+  "mainWrites": false,
+  "sourceHashesAtReview": {
+    "game/main.js": "f7a6f568d842ab4239bcccb032752403406cbc1ac5f64a4a38b42d5c6fe7f0f4",
+    "ui/folio-polish-v043.css": "653e7b59f56a6ddf6249f37d25619a3aa8a27ef8e96932e6ed676e0f9782f417",
+    "ui/field-readability-v043.css": "0f3e17d805672c7351d8293ed66b7214a0b297cd809bff5836706532ca1e7877"
+  },
+  "resolvedFinding": {
+    "issue": "A disabled responsive page could remain selected after its context disappeared; wall selection could enable an empty Recipes pane",
+    "fix": "syncFolio computes actual content availability, falls back to Recruits, then updates native disabled and aria-pressed states",
+    "productionFile": "game/main.js",
+    "regressionFile": "tests/cartographer-layout-v040.test.mjs",
+    "status": "Resolved and included in passing 1504-test final suite"
+  }
+}

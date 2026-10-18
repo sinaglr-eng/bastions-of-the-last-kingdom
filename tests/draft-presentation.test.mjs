@@ -108,25 +108,26 @@ test('a committed champion and discarded castle walls retain their existing sepa
   assert.doesNotMatch(html,/wrong-family-only-fallback/);assert.equal(state(game),before);
 });
 
-test('production draft refresh retains local horizontal scroll and reveals a newly selected card without moving the page or using RNG',()=>{
+test('production draft refresh renders all five choices without programmatic scrolling, updates decision count and preserves game state and RNG',()=>{
   const source=readFileSync(new URL('../game/main.js',import.meta.url),'utf8'),start=source.indexOf('function renderDraft('),end=source.indexOf('\nfunction ',start+1);
   assert.ok(start>=0&&end>start);
   const game=new Game(data,{seed:137}),control=new Game(data,{seed:137}),host={dataset:{},writes:0};let strip;
   const createStrip=()=>{
-    let left=0;return {get scrollLeft(){return left;},set scrollLeft(value){left=Math.max(0,Math.min(130,value));},getBoundingClientRect:()=>({left:10,right:380}),querySelector(selector){
+    let left=0;return {scrollWrites:0,get scrollLeft(){return left;},set scrollLeft(value){this.scrollWrites++;left=Math.max(0,Math.min(130,value));},getBoundingClientRect:()=>({left:10,right:380}),querySelector(selector){
       const index=Number(selector.match(/data-index="(\d+)"/)?.[1]);return Number.isInteger(index)?{closest:()=>({getBoundingClientRect:()=>({left:10+index*101-left,right:106+index*101-left})})}:null;
     }};
   };
   Object.defineProperty(host,'innerHTML',{get:()=>host.markup||'',set:markup=>{host.writes++;host.markup=markup;strip=createStrip();}});host.querySelector=selector=>selector==='.draws'?strip:null;
   const compact={hidden:false,innerHTML:'stale controls',clears:0,replaceChildren(){this.innerHTML='';this.clears++;}},commands={innerHTML:''},createActions={innerHTML:''},modePicker={addEventListener(type,callback){assert.equal(type,'change');this.change=callback;}},$=id=>id==='draft'?host:id==='compact-draft-actions'?compact:id==='folio-command-actions'?commands:id==='folio-create-actions'?createActions:id==='mode'&&host.markup.includes('id="mode"')?modePicker:null;
-  const render=new Function('game','$','icon','commandPointsMarkup','data','images','draftCardsMarkup','actualAvailableRecipeActionsMarkup','rankPreview',`let mode=50,intelligenceKey=null;${source.slice(start,end)};return renderDraft;`)(game,$,icon,commandPointsMarkup,data,images,draftCardsMarkup,actualAvailableRecipeActionsMarkup,new DefenderRankPreview());
+  const decisionCount=[],decisionRow={style:{setProperty(name,value){assert.equal(name,'--decision-count');decisionCount.push(value);}},querySelectorAll(selector){assert.equal(selector,'button');return [...(commands.innerHTML+createActions.innerHTML).matchAll(/<button\b/g)];}},app={querySelector(selector){assert.equal(selector,'.folio-decision-row');return decisionRow;}};
+  const render=new Function('game','$','icon','commandPointsMarkup','data','images','draftCardsMarkup','actualAvailableRecipeActionsMarkup','rankPreview','app',`let mode=50,intelligenceKey=null;${source.slice(start,end)};return renderDraft;`)(game,$,icon,commandPointsMarkup,data,images,draftCardsMarkup,actualAvailableRecipeActionsMarkup,new DefenderRankPreview(),app);
   const before=state(game);render();assert.equal(strip.scrollLeft,0);strip.scrollLeft=113;
   assert.equal(compact.hidden,true);assert.equal(compact.innerHTML,'');assert.equal(compact.clears,1);assert.equal(commands.innerHTML,'','Building has no unavailable draft commitment controls');
   assert.ok(modePicker.change,'The first construction render connects the campaign-length control');assert.match(host.innerHTML,/id="mode"/);
-  for(let pass=0;pass<20;pass++){render();assert.equal(strip.scrollLeft,113);assert.equal((host.innerHTML.match(/class="draw-slot/g)||[]).length,5);assert.doesNotMatch(host.innerHTML,/<img/);}
+  for(let pass=0;pass<20;pass++){render();assert.equal(strip.scrollLeft,0);assert.equal(strip.scrollWrites,0,'Five visible slots do not request horizontal or page scrolling');assert.equal((host.innerHTML.match(/class="draw-slot/g)||[]).length,5);assert.doesNotMatch(host.innerHTML,/<img/);assert.equal(decisionCount.at(-1),1);}
   assert.equal(state(game),before);assert.equal(game.rng(),control.rng());
-  game.activeDraw=4;render();assert.equal(strip.scrollLeft,130,'Newly chosen last slot is exposed within the local strip');
-  game.activeDraw=0;render();assert.equal(strip.scrollLeft,0,'Choosing the first slot exposes it without page scrolling');
+  game.activeDraw=4;render();assert.equal(strip.scrollLeft,0);assert.equal(strip.scrollWrites,0);assert.equal(host.dataset.focusedDraw,'1:4','The last selected choice is still tracked without scrolling');
+  game.activeDraw=0;render();assert.equal(strip.scrollLeft,0);assert.equal(strip.scrollWrites,0);assert.equal(host.dataset.focusedDraw,'1:0');
   assert.equal(game.place(3,3),true);render();assert.doesNotMatch(host.innerHTML,/id="mode"/,'Campaign length is no longer offered after the first placement');
-  for(const x of [4,5,6,7])assert.equal(game.place(x,3),true);render();assert.equal(game.phase,'select');assert.match(commands.innerHTML,/data-action="reroll"/);assert.match(commands.innerHTML,/data-action="reserve"/);assert.doesNotMatch(host.innerHTML,/data-action="(?:reroll|reserve)"/,'CP actions have one folio host');
+  for(const x of [4,5,6,7])assert.equal(game.place(x,3),true);render();assert.equal(game.phase,'select');assert.match(commands.innerHTML,/data-action="reroll"/);assert.match(commands.innerHTML,/data-action="reserve"/);assert.doesNotMatch(host.innerHTML,/data-action="(?:reroll|reserve)"/,'CP actions have one folio host');assert.equal(decisionCount.at(-1),2,'The unified row sizes its two actual CP actions');
 });

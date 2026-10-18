@@ -45,7 +45,7 @@ const markup=state=>{const current=view(state);return towerDpsContents(current.r
 test('first construction, revealed recruits and ready phase show truthful unmeasured state without fictional draft performers',()=>{
   const state=session(),{game}=state;
   const initial=view(state);assert.deepEqual(initial.rows,[]);assert.equal(initial.options.measured,false);assert.equal(initial.options.wave,null);
-  assert.match(markup(state),/Not measured yet · First combat pending/);assert.match(markup(state),/tower-dps-summary-score[^>]*>—<\/strong>/);assert.doesNotMatch(markup(state),/0\.0|tower-dps-select/);
+  assert.match(markup(state),/Not measured yet/);assert.match(markup(state),/tower-dps-summary-score[^>]*>—<\/strong>/);assert.doesNotMatch(markup(state),/0\.0|tower-dps-select/);
   draft(game,['archer','mage','druid','cleric','frostwarden']);
   assert.equal(game.phase,'select');assert.deepEqual(view(state).rows,[]);assert.equal(view(state).options.measured,false);
   game.select(game.roundCandidates[0].tower.id);assert.equal(game.keep(),true);assert.equal(game.phase,'ready');
@@ -92,7 +92,7 @@ test('completed wave preserves the hit-captured peak and its source clock throug
   game.tick(600);assert.equal(game.combat.elapsed,clock);assert.deepEqual(view(state).rows,completed.rows);
   game.draft.roundForced={family:'mage',tier:1};assert.equal(game.place(15,20),true);
   assert.equal(game.roundCandidates.length,1);assert.deepEqual(view(state).rows,completed.rows);assert.ok(view(state).rows.every(row=>row.state==='active'));
-  const html=markup(state);assert.match(html,/Completed wave 1 · Measured over 5 game seconds/);assert.match(html,/Last wave 1/);assert.doesNotMatch(html,/Wave 2|Select Mage/);
+  const html=markup(state);assert.doesNotMatch(html,/tower-dps-note|Completed wave|Measured over/);assert.match(html,/Last wave 1/);assert.doesNotMatch(html,/Wave 2|Select Mage/);
   const rendered=html,stored=structuredClone(state.measurement.completedRows);view(state).rows[0].dps=999;
   assert.deepEqual(state.measurement.completedRows,stored,'Callers cannot overwrite stored completed rows');assert.equal(markup(state),rendered);
 });
@@ -126,7 +126,7 @@ test('compact summary sums individual measured peaks even when their windows occ
   const html=markup(state),summary=html.slice(html.indexOf('<summary'),html.indexOf('</summary>'));
   assert.match(summary,/tower-dps-summary-score[^>]*>30\.0<\/strong>/);assert.doesNotMatch(summary,/tower-dps-value/);assert.match(summary,/Sum of individual defender peak DPS this wave/);
   game.completeWave();const completed=markup(state),completedSummary=completed.slice(completed.indexOf('<summary'),completed.indexOf('</summary>'));
-  assert.match(completedSummary,/Last wave 1/);assert.match(completedSummary,/>30\.0<\/strong>/);assert.match(completed,/Completed wave 1/);
+  assert.match(completedSummary,/Last wave 1/);assert.match(completedSummary,/>30\.0<\/strong>/);assert.doesNotMatch(completed,/tower-dps-note|Completed wave|Measured over/);
 });
 
 test('a new game session starts unmeasured independently of the prior session completed score',()=>{

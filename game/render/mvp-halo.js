@@ -53,14 +53,18 @@ function awardLabel(){
 }
 
 export function createMvpAward({createLabel=awardLabel}={}){
-  const group=new THREE.Group();group.name='MVP award divine light';group.userData.mvpAward=true;
-  const beam=(top,bottom,opacity)=>{
-    const material=new THREE.MeshBasicMaterial({color:'#fff0b2',transparent:true,opacity,depthWrite:false,side:THREE.DoubleSide,blending:THREE.AdditiveBlending});
-    const mesh=new THREE.Mesh(new THREE.CylinderGeometry(top,bottom,7,24,1,true),material);mesh.position.y=3.5;mesh.userData.awardOpacity=opacity;mesh.renderOrder=8;group.add(mesh);
-  };
-  beam(.1,.58,.21);beam(.04,.26,.35);
-  const material=new THREE.MeshBasicMaterial({color:'#ffe69b',transparent:true,opacity:.85,depthWrite:false,blending:THREE.AdditiveBlending});
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(.62,.035,5,40),material);ring.rotation.x=Math.PI/2;ring.position.y=.08;ring.userData.awardOpacity=.85;group.add(ring);
+  const group=new THREE.Group();group.name='MVP award confetti and stars';group.userData.mvpAward=true;
+  const confetti=new THREE.PlaneGeometry(.075,.17),shape=new THREE.Shape();
+  for(let index=0;index<=10;index++){const angle=index*Math.PI/5+Math.PI/2,radius=index%2?.052:.12,x=Math.cos(angle)*radius,y=Math.sin(angle)*radius;if(index===0)shape.moveTo(x,y);else shape.lineTo(x,y);}
+  const star=new THREE.ShapeGeometry(shape),materials=['#eac55f','#57b7c5','#e08ba4','#a599dd','#80bf91'].map(color=>new THREE.MeshBasicMaterial({color,transparent:true,opacity:1,depthWrite:false,side:THREE.DoubleSide}));
+  // Deterministic placement is cosmetic and never samples the combat/draft RNG.
+  for(let index=0;index<34;index++){
+    const isStar=index>=24,angle=index*2.399963229728653,radius=.5+(index%5)*.15,height=1.75+(index%6)*.18;
+    const piece=new THREE.Mesh(isStar?star:confetti,materials[isStar?0:index%materials.length]);
+    piece.position.set(Math.cos(angle)*radius,height,Math.sin(angle)*radius);
+    piece.rotation.set(isStar?-Math.PI/2:index*.37,index*.61,index*.49);piece.userData.awardOpacity=1;
+    piece.userData.mvpAwardParticle={kind:isStar?'star':'confetti',index,angle,radius,height,rotation:piece.rotation.clone()};group.add(piece);
+  }
   const label=createLabel?.();if(label){label.position.y=2.8;label.userData.mvpAwardLabel=true;label.userData.awardOpacity=1;group.add(label);}
   return group;
 }
@@ -73,7 +77,7 @@ function disposeAward(group){
 // The real mvp-awarded event is the only entry point. This cosmetic clock is
 // independent of game speed and keeps the reward readable after a wave ends.
 export class MvpAwardEffects{
-  constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x,y,z),duration=3.2,reducedMotion=()=>false,createLabel=awardLabel}={}){
+  constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x,y,z),duration=2.8,reducedMotion=()=>false,createLabel=awardLabel}={}){
     this.scene=scene;this.position=position;this.duration=duration;this.reducedMotion=reducedMotion;this.createLabel=createLabel;this.awards=new Map();this.seen=new Set();
   }
   award(payload,time=0){
@@ -93,8 +97,13 @@ export class MvpAwardEffects{
       for(const object of row.group.children){
         if(object.material)object.material.opacity=object.userData.awardOpacity*fade;
         if(object.userData.mvpAwardLabel)object.position.y=2.8+(still?0:progress*.9);
+        const particle=object.userData.mvpAwardParticle;
+        if(particle){
+          const {angle,radius,height,index,rotation,kind}=particle,travel=still?0:progress,spread=radius+travel*.7,turn=angle+travel*(kind==='star'?.45:.8);
+          object.position.set(Math.cos(turn)*spread,height+Math.sin(travel*Math.PI)*.65-travel*1.1,Math.sin(turn)*spread);
+          object.rotation.set(rotation.x+(still?0:elapsed*(kind==='star'?.2:1.8)),rotation.y+(still?0:elapsed*.8),rotation.z+(still?0:elapsed*(index%2?1.4:-1.4)));
+        }
       }
-      if(!still){const ring=row.group.children[2];ring.scale.setScalar(1+Math.sin(Math.min(1,progress*2)*Math.PI)*.18);}
     }
   }
   dispose(){for(const row of this.awards.values())disposeAward(row.group);this.awards.clear();this.seen.clear();}

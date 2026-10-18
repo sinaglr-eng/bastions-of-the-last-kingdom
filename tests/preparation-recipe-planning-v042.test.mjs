@@ -64,3 +64,25 @@ test('Create action commits the selected physical foundation once and a hypothet
   const key=tag.match(/data-craft-key="([^"]+)"/)[1];assert.equal(craftRecipeFromDock(game,recipe.id,tower.id,key),true);
   assert.equal(tower.family,recipeFamily(recipe));assert.equal(craftRecipeFromDock(game,recipe.id,tower.id,key),false);
 });
+
+test('Potential combinations exposes the selected recipe Pin or Unpin without changing actual planning inventory',()=>{
+  const game=recruit([{family:'archer',tier:2}]),tower=game.selection,model=preparationRecipeModel(game,tower),recipe=model.selected.recipe;
+  let before=snapshot(game),html=preparationRecipesMarkup(game,tower);
+  assert.match(html,new RegExp(`class="text-button folio-recipe-pin " data-action="pin" data-id="${recipe.id}" aria-pressed="false"`));assert.match(html,/> Pin recipe<\/button>/);assert.equal(snapshot(game),before);
+  game.pinned=recipe.id;before=snapshot(game);html=preparationRecipesMarkup(game,tower);
+  assert.match(html,new RegExp(`class="text-button folio-recipe-pin is-pinned" data-action="pin" data-id="${recipe.id}" aria-pressed="true"`));assert.match(html,/> Unpin<\/button>/);assert.equal(snapshot(game),before);
+});
+
+test('champion ingredient links inspect exact requirements and nested Back restores the prior downstream recipe without inventing ownership',()=>{
+  const game=recruit([{family:'soldier',tier:1}]),control=recruit([{family:'soldier',tier:1}]),tower=game.selection,planningNavigation=new PreparationRecipeNavigation(),options={planningNavigation};
+  preparationRecipeModel(game,tower,options);planningNavigation.enter('rimewatch','highking');
+  const before=snapshot(game),html=preparationRecipesMarkup(game,tower,{},options);
+  assert.match(html,/data-action="folio-ingredient-recipe" data-id="frostblade"/);assert.match(html,/aria-label="Explore Frost Knight recipe"/);
+  planningNavigation.inspect('frostblade');let model=preparationRecipeModel(game,tower,options);
+  assert.deepEqual(model.options.map(option=>option.recipe.id),['frostblade']);assert.deepEqual(model.selected.rows.map(({family,tier})=>({family,tier})),game.recipes.find(recipe=>recipe.id==='frostblade').ingredients);assert.equal(model.selected.canPreview,false);
+  const detail=preparationRecipesMarkup(game,tower,{},options);assert.match(detail,/Champion recipe requirements/);assert.match(detail,/data-action="folio-ingredient-recipe" data-id="rimewatch"/);assert.match(detail,/data-action="folio-plan-back"/);assert.match(detail,/data-action="pin" data-id="frostblade"/);
+  planningNavigation.inspect('rimewatch');model=preparationRecipeModel(game,tower,options);assert.equal(model.selected.recipe.id,'rimewatch');assert.equal(planningNavigation.inspect('rimewatch'),false,'The current component cannot add a duplicate history entry.');
+  assert.equal(planningNavigation.back(),true);assert.equal(preparationRecipeModel(game,tower,options).selected.recipe.id,'frostblade');
+  assert.equal(planningNavigation.back(),true);model=preparationRecipeModel(game,tower,options);assert.equal(model.contextRecipe.id,'rimewatch');assert.equal(model.selected.recipe.id,'highking');assert.equal(model.inspectedRecipe,null);
+  assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
+});

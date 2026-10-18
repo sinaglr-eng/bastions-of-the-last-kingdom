@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="cover" x2="0" y2="1"><stop stop-color="#9b713c"/><stop offset=".45" stop-color="#614425"/><stop offset="1" stop-color="#906433"/></linearGradient>
+    <linearGradient id="left" x2="1" y2="0"><stop stop-color="#e5d3ae"/><stop offset=".045" stop-color="#f7edda"/><stop offset=".82" stop-color="#fbf4e7"/><stop offset="1" stop-color="#e1d0ac"/></linearGradient>
+    <linearGradient id="right" x2="1" y2="0"><stop stop-color="#decaa1"/><stop offset=".08" stop-color="#fbf4e7"/><stop offset=".94" stop-color="#f8efdd"/><stop offset="1" stop-color="#e1ceaa"/></linearGradient>
+    <linearGradient id="fold" x2="1" y2="0"><stop stop-color="#8a6a3a" stop-opacity="0"/><stop offset=".43" stop-color="#947747" stop-opacity=".23"/><stop offset=".5" stop-color="#6f502b" stop-opacity=".47"/><stop offset=".59" stop-color="#fffaf0" stop-opacity=".5"/><stop offset="1" stop-color="#fffaf0" stop-opacity="0"/></linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".64" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".035"/></feComponentTransfer></filter>
+    <clipPath id="pages"><path d="M24 27Q360 9 700 35Q1040 9 1376 27L1381 680Q1035 664 700 691Q365 664 19 680Z"/></clipPath>
+    <g id="corner" fill="none" stroke="#b59051" stroke-width="2">
+      <path d="M20 62V29Q20 20 31 20H65M26 57V32H58M30 28C45 42 49 19 38 21C31 23 39 33 47 29M23 42L29 47L35 41M35 24L40 30L46 24"/>
+    </g>
+  </defs>
+  <path d="M16 16Q360 1 700 26Q1040 1 1384 16L1394 695Q1040 682 700 707Q360 682 6 695Z" fill="url(#cover)" stroke="#51391e" stroke-width="3"/>
+  <path d="M21 21Q360 7 700 31Q1040 7 1379 21L1388 689Q1040 676 700 701Q360 676 12 689Z" fill="none" stroke="#d1aa66" stroke-width="2"/>
+  <path d="M22 34Q360 16 700 42L700 697Q365 672 17 687Z" fill="#e7d8b9" stroke="#b79b68"/>
+  <path d="M700 42Q1040 16 1378 34L1383 687Q1035 672 700 697Z" fill="#eee0c4" stroke="#b79b68"/>
+  <path d="M24 27Q360 9 700 35L700 691Q365 664 19 680Z" fill="url(#left)" stroke="#c7af83"/>
+  <path d="M700 35Q1040 9 1376 27L1381 680Q1035 664 700 691Z" fill="url(#right)" stroke="#c7af83"/>
+  <g fill="none" stroke="#bda57b" stroke-width="1" opacity=".7"><path d="M25 675Q365 660 698 686M24 681Q365 666 698 692M702 686Q1035 660 1375 675M702 692Q1035 666 1376 681"/><path d="M30 37Q360 19 682 43M718 43Q1040 19 1370 37" opacity=".4"/></g>
+  <rect x="676" y="31" width="48" height="665" fill="url(#fold)"/>
+  <rect width="1400" height="720" filter="url(#grain)" clip-path="url(#pages)" opacity=".6"/>
+  <use href="#corner"/><use href="#corner" transform="translate(1400 0) scale(-1 1)"/>
+  <use href="#corner" transform="translate(0 713) scale(1 -1)"/><use href="#corner" transform="translate(1400 713) scale(-1 -1)"/>
+</svg>

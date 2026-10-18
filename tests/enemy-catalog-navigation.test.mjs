@@ -181,6 +181,14 @@ test('the open atlas changes only its selected page, retaining exact wave 31 var
   assert.equal(game.rng(),control.rng());
 });
 
+test('reference-shaped atlas keeps shared facts above one field portrait and two truthful variant panels',()=>{
+  const html=warbandsOverviewMarkup(data.waves,data.enemies,images,options({atlas:true,round:9,selectedWave:31}));
+  assert.match(html,/Wave 31 — Orc Dual-Seal Inquisitors/);assert.match(html,/warband-atlas-comparison" data-variant-count="2"/);
+  assert.equal((html.match(/class="warband-atlas-portrait"/g)||[]).length,1);assert.equal((html.match(/class="warband-variant" data-variant-index=/g)||[]).length,2);
+  assert.ok(html.indexOf('class="warband-shared-stats"')<html.indexOf('class="warband-illustrated-comparison"'));assert.equal((html.match(/12,443 HP · 20 armor · 2\.05 tiles\/s/g)||[]).length,1);
+  assert.match(html,/Immune to Magical damage/);assert.match(html,/Immune to Physical damage/);assert.doesNotMatch(html,/warbands-atlas-nav|Return to battlefield/);
+});
+
 test('atlas page, index focus and lore survive refresh; index-only navigation respects the remaining campaign cap',()=>{
   const {host,document}=catalogHost();updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({atlas:true,round:31}));
   host.click(host.querySelector('.warbands-atlas-pages').querySelector('[data-atlas-wave="38"]'));

@@ -1,0 +1,3011 @@
+{
+  "revision": "enemy-front-cutouts-20261018-v1",
+  "sourceManifest": "public/assets/ui/reference-portraits/manifest.json",
+  "sourceManifestSha256": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4",
+  "maskSettings": "tools/enemy-front-cutout-masks.json",
+  "maskSettingsSha256": "291e0afc765f9878faaa36a8d72d2a450810f5a46be1663a1b14a98aee882161",
+  "algorithm": "Original deterministic border-calibrated alpha-only cutout",
+  "historicalAssetsPreserved": true,
+  "historicalAssetsSha256": {
+    "public/assets/ui/reference-portraits/archangel.png": "d198ebbb51ad57ecbfe18254e68b013bc2af0b7f963c6db70c0acc5f57a95786",
+    "public/assets/ui/reference-portraits/archbishop.png": "2e13a0d079363e2640eb500c2efc35ae4887c95d7f8395cf4d9af9fa7275c162",
+    "public/assets/ui/reference-portraits/archer-1.png": "1f65554276252b5e360edba7b47a16e7b9d74e122c63f7851d96034c6c553e11",
+    "public/assets/ui/reference-portraits/archer-2.png": "5b7dbb9d4102a90d84f4dc7b440444288dd566043fc00f32906b5956475f28d2",
+    "public/assets/ui/reference-portraits/archer-3.png": "197c91e59e54cbbd4b9351131f2001eaa320774fb174eabe2c5ebebf64390910",
+    "public/assets/ui/reference-portraits/archer-4.png": "f662e26794ad15d9039eefb53217bb8927a4254b2969f9dec91166bc2a95ee8d",
+    "public/assets/ui/reference-portraits/archer-5.png": "f80f5f7a0fd846971d93618b27644a54b31d0aff198677a5f666948d63a7028b",
+    "public/assets/ui/reference-portraits/archer-6.png": "1ef470ec16c92934365d03db004c7c0482a87cadcc7744555280f41ce00ac0e4",
+    "public/assets/ui/reference-portraits/cleric-1.png": "54e2e1c2fb209a11a475da4a23e60791729409c9f46fae8445e95f0bccef564c",
+    "public/assets/ui/reference-portraits/cleric-2.png": "10dd62e7ee5e34616385917d7cdfa8d78e7a6dc6973d60018fc60e94534eef5f",
+    "public/assets/ui/reference-portraits/cleric-3.png": "a286d97219ad2e7e07946fdc5c2d069c9826b3199d8bba65bb8b88fddf429388",
+    "public/assets/ui/reference-portraits/cleric-4.png": "3b7cf57e5430cd387cea83419387fde4fb3ddc12174ac9ef36e3a5849e1a4a68",
+    "public/assets/ui/reference-portraits/cleric-5.png": "eeb1c0d9746e6b6426854a30b5e2f0846999028f420eb18481a26687b2c324ad",
+    "public/assets/ui/reference-portraits/cleric-6.png": "f9c9b75e9f528ffc6ab4c74ba5b408ed768acc2228d36cdae0289caa86e7b201",
+    "public/assets/ui/reference-portraits/crownofages.png": "9261d6e7455d57627ca26c85306b100e4a751ba7eac7f7fd651b870830ff711d",
+    "public/assets/ui/reference-portraits/dawnspire.png": "05071b9d64ad01031c4b303bfec3aced2b1dbb2e3786044e67c5cf6d62ac6afc",
+    "public/assets/ui/reference-portraits/druid-1.png": "0540a77f346072480a6bc44a74e1dd4d319e5d0803799280d3eb0417695b4340",
+    "public/assets/ui/reference-portraits/druid-2.png": "49579bc5e6ec074d64dbc695b1c45a1451e4fa56360043617412c1b85f0ea8ce",
+    "public/assets/ui/reference-portraits/druid-3.png": "ea1984a1c0577d11569254ecda0d74134bc552f7b56c46ecc207683ac0adf5ba",
+    "public/assets/ui/reference-portraits/druid-4.png": "7ff790839b3c789ec5917ef9472dd743e8d2aedf11c8f304223c22ee750a1649",
+    "public/assets/ui/reference-portraits/druid-5.png": "d05c5a35076a82297b9b1aab0c7a3df0b7369ef0bb46ff54a394b5372c70204c",
+    "public/assets/ui/reference-portraits/druid-6.png": "3d9e6ba2dfd6c40c72f64e649dc10fd73bee1875f1e7bbd228bc6db5b1e090c6",
+    "public/assets/ui/reference-portraits/eldergrove.png": "b24cf6b6e88613b36e86e166e432b0fd40d3ad32d00223943f924ae4328af25f",
+    "public/assets/ui/reference-portraits/elvenking.png": "5c1ee4232efa2eba217e8896f8ffa1d62c842b02be31e4ed9cdf5d47a6659b11",
+    "public/assets/ui/reference-portraits/embercrown.png": "70be02f270bf43b3dc5c88e74e034e9d3b3af112e95ea535bbed8c3fd536584f",
+    "public/assets/ui/reference-portraits/emeraldgolem.png": "ccbe7a2ac4fdd1d9d57fb8264d793cc9c22661ccfbd4d68a87492f204de1fccc",
+    "public/assets/ui/reference-portraits/fireballista.png": "4e9dc2ee2ab495617c14a8fbc696ff9f277922afa88289e952b11c12ad6e3f03",
+    "public/assets/ui/reference-portraits/frostblade.png": "32559dbe6c9ad8e56e775cee73b09fa1e92576981fa6756d16fe4dd806fcd965",
+    "public/assets/ui/reference-portraits/frostwarden-1.png": "860f6d8516c5228b54e0ec7e12e97c953e24f9d64ae1337cd90c2446e718c71a",
+    "public/assets/ui/reference-portraits/frostwarden-2.png": "dc371ea1c2ca29b62f4b647785fe3fed4a051617f61fb7ecc93fd6eb56b95c74",
+    "public/assets/ui/reference-portraits/frostwarden-3.png": "864093061bedcb408e3433090298f514ab9ffac1b8ac9cac15d56a5b05ea9399",
+    "public/assets/ui/reference-portraits/frostwarden-4.png": "5d0725c56e70bd5f49cd2a80337e6701bffa68e80f3b88c65926e0eea1395cc6",
+    "public/assets/ui/reference-portraits/frostwarden-5.png": "38aa70b7839f3e5516434c0bf1a270d6b2f3e612d68698a4671bd10c9ccb4a85",
+    "public/assets/ui/reference-portraits/frostwarden-6.png": "9a72ab4168abe3ad1724daa9abe5b79e9360512787d2344a721d89491c763345",
+    "public/assets/ui/reference-portraits/greenheart.png": "5918c533f612dfee18c44c7e0a0dd2afe63f8be939c3ef56392a19273e6836b4",
+    "public/assets/ui/reference-portraits/griffinbomber.png": "052ba0e6241b018a74e93061404cf20903404562e377628b0160a6c44923df61",
+    "public/assets/ui/reference-portraits/highking.png": "e426f2e470f396c433c379b7375efa98e55af63a049e8bb6890d4d3affb63fee",
+    "public/assets/ui/reference-portraits/host_01.png": "9fc7808572ffb0215b2e6b25bfac9ae4e7b38829a748a5e6281ee24a31f46dd9",
+    "public/assets/ui/reference-portraits/host_02.png": "a9c9f497eb81c17c66d6d58564a92636b6e57d692755734011a2e9f6a85706ad",
+    "public/assets/ui/reference-portraits/host_03.png": "569b1cb7150dc4bc4b8c7a156c7d47c6e1371cd0a4168f2b43c98dddb6b34e72",
+    "public/assets/ui/reference-portraits/host_04.png": "a3da8471c6627243f1c2c04d482f40e7c251bbd1555bb8bf66cd578e1f717033",
+    "public/assets/ui/reference-portraits/host_05.png": "bdcb7c4d6e560c94ad8d6957a90a99d02dd0fbac312bea2279bd2565f2395f3a",
+    "public/assets/ui/reference-portraits/host_06.png": "034b81b50636a6c16aa5480e3a315e3f7b6e6c131e03806a73a3944cb2b1c8c1",
+    "public/assets/ui/reference-portraits/host_07.png": "57f4b4e220e2bebde17ed09d0703657ef288aadc71b990bd485c74320237db04",
+    "public/assets/ui/reference-portraits/host_08.png": "c0d3838551fa31458d1c37eb462824349e13d7cc5db204d47977f6ec8ef8fca3",
+    "public/assets/ui/reference-portraits/host_09.png": "6fac9fba54f468fcd3f671ba7b25373c7831666bb1e8c4aa826dcc8460b43241",
+    "public/assets/ui/reference-portraits/host_10.png": "a9030b424a1fcb874b6ca666a7c063893c6bf6c4a774b51e0bb74c84edbd8ed7",
+    "public/assets/ui/reference-portraits/host_11.png": "59dd41b77be811d000cf55a6f0092539193ea500a8b0a053dad9e6c5012954b8",
+    "public/assets/ui/reference-portraits/host_12.png": "0842fbdcd6c9aabc94200e5b4f1ab3a137289a92d5cf977e5d78c7f274cdae2b",
+    "public/assets/ui/reference-portraits/host_13.png": "a598cb2a1eb54c158e7789d1b1de37db75afaccbe28ffa34338b26796ea892fd",
+    "public/assets/ui/reference-portraits/host_14.png": "9187524a52a5d0c47f3fc9409806d3dda831b07b0df8cd4446fd93174feddf97",
+    "public/assets/ui/reference-portraits/host_15.png": "e253bbb74736a39d946bfe6c9d9db4711d094bde82b177d8071c90c483342411",
+    "public/assets/ui/reference-portraits/host_16.png": "28f22296c57b5c9e72c2b7987d35b9b045204732b675a1d07667c4ef33f6f8a3",
+    "public/assets/ui/reference-portraits/host_17.png": "5b277f4bde21211553048d097681362a1ce5dccfdad7a34f579ca1b282018aa0",
+    "public/assets/ui/reference-portraits/host_18.png": "a774daff44cfaa44039815ab88098eba71ead78d738bb58b5a322d80b0273e28",
+    "public/assets/ui/reference-portraits/host_19.png": "643929c14be7f8e55ac277ae73e0de0cd4eda839706e3ba69005b16b989332ba",
+    "public/assets/ui/reference-portraits/host_20.png": "506adc949daf9cf44a1da6050959ae28a5818a819daa174dc2408940278bff6c",
+    "public/assets/ui/reference-portraits/host_21.png": "ec52d932f4bac32bee6fa7d5f2011c7a7f59ff4c88c8775184fa3ea157bb16ae",
+    "public/assets/ui/reference-portraits/host_22.png": "200158df097b1483851d4441b430266e1c28a55de2a9dcbecc00c4a2f835e0ad",
+    "public/assets/ui/reference-portraits/host_23.png": "4d712c946c556c87275c670ab73f64043b0b9ee15d60c63d742cb4b8d3a4b1ee",
+    "public/assets/ui/reference-portraits/host_24.png": "9d1f7a02b6fcb44b8a89e072bfe06a2e39d48fdb9206dada4bd28605324f7307",
+    "public/assets/ui/reference-portraits/host_25.png": "bc1b6ff68a00571ad4d8784097696e22f77b72d7d508fe2628e48ec753d85ebb",
+    "public/assets/ui/reference-portraits/host_26.png": "20489fd6a556c14d85c0d777de4503e5da337c28a5c956679f39dc6c4062e4f0",
+    "public/assets/ui/reference-portraits/host_27.png": "6d29307fab329a1b196677f04ba86cdba1313716b4e59cf1fdec649ca70a0103",
+    "public/assets/ui/reference-portraits/host_28.png": "180a7bc6bf383fbdc727564a3039239d42dad8bad1bca39062651d48deaff6d8",
+    "public/assets/ui/reference-portraits/host_29.png": "544c2b3d7961d4902f6d453f880bc7c3875267e4879486088e6f0a1090722519",
+    "public/assets/ui/reference-portraits/host_30.png": "4b39abd820e0ec7d3eec394f0eeb7a1ef537ae9142b88316b27945344e3191e8",
+    "public/assets/ui/reference-portraits/host_31.png": "303abda79c00132c260c4cc14e750d02ccb3edfc856a0ec5bc8e88996bc1e02f",
+    "public/assets/ui/reference-portraits/host_32.png": "9965d60573f5ecb3ccbc18f9ae2fedb3bb06dacc538c2f30ab6ae307a57ed881",
+    "public/assets/ui/reference-portraits/host_33.png": "360e69563697195b685dd263c42aa26c2167215995112c0fe3633e85cf5890dc",
+    "public/assets/ui/reference-portraits/host_34.png": "28707febebc8638870e23cfe6af38205cdf1c014ca32d6891a96a4dd114ebd7b",
+    "public/assets/ui/reference-portraits/host_35.png": "1a7740d67beca4a84ba618ff5075b7c8c80dc0943aaf8898702554eb21102aef",
+    "public/assets/ui/reference-portraits/host_36.png": "49112b99abd0e72379fedbf6a3769bbe14e4183d1ddefee3237ecc70835ee23e",
+    "public/assets/ui/reference-portraits/host_37.png": "bfdc4393b92dc8a4f2f03fde822ea80d71042e62e88012dac2fd663dacec0166",
+    "public/assets/ui/reference-portraits/host_38.png": "7c0df98f72f3f6235a923a2143b9ac1b7924d74ab4165036ac708df300b4888a",
+    "public/assets/ui/reference-portraits/host_39.png": "f47b934740cab954b05d345c0045deed8f5c5ad827f3f3d12f755154ce98e5bc",
+    "public/assets/ui/reference-portraits/host_40.png": "fcff82c3e0683e033a45330f9b7e3b986b0f79845f7ca7f47116de74a4d9cedb",
+    "public/assets/ui/reference-portraits/host_41.png": "88c065db00f544bebb77551a22ae80dddcfbb98ff9f08cb74abbd50f747314b9",
+    "public/assets/ui/reference-portraits/host_42.png": "e678bc5f040a66bdbb3dffec3961239a141320331899325f51c9632f46ed20fc",
+    "public/assets/ui/reference-portraits/host_43.png": "0a5e52a1042e199459cfe1059f0034778d09046d01bc3c101f974a2f0f5228af",
+    "public/assets/ui/reference-portraits/host_44.png": "1743db173c9154837cf5d952dfea0fa1ff1a40e10315e2ea20d32dfb652dd237",
+    "public/assets/ui/reference-portraits/host_45.png": "b4db7d52c641d206677d5e5e9a3d029afa4a33a4d744bfa80a56b1a7abd908b4",
+    "public/assets/ui/reference-portraits/host_46.png": "87f03003db97d68dab97d5e7a3857d9d2d8dd883ff1fac411b606a9849f22fb8",
+    "public/assets/ui/reference-portraits/host_47.png": "7b2579735b8e2887452b9943a32529f2c72916b87704cbd33f47fb99e51f36be",
+    "public/assets/ui/reference-portraits/host_48.png": "a032d1991f1ea896db69cd53a9262ed3019c9c878e434d6f004491280bdbda03",
+    "public/assets/ui/reference-portraits/host_49.png": "179705f50b2f45d7c0d5f116464ccfee7d3443f5df282f38e81faf0a9f7b8b87",
+    "public/assets/ui/reference-portraits/host_50.png": "7eb6cbd99fe588eeadec7c62682185951955c7039b334bbfdea4b708287768a1",
+    "public/assets/ui/reference-portraits/kingdomprotector.png": "d2b120ac0f35f17183386d10c4a6e362417e9093d0d15205dd6c1aff7b13f98f",
+    "public/assets/ui/reference-portraits/kingsrangerguard.png": "1d2235d999e33476a1f9e9cb8561a2dadbd82d956a40fef929a3fd4163246202",
+    "public/assets/ui/reference-portraits/kingsreach.png": "4eb07593db761d9d54da0af1b844dfb132f5aa234f854d399d169cce8d3e10ba",
+    "public/assets/ui/reference-portraits/ladyclaire.png": "c820f9b3d6abd2e3a574c7ada0a63ee4ac62ab23bea599a2279330350d36855c",
+    "public/assets/ui/reference-portraits/mage-1.png": "c22c003498a62d5b31092ab7c117070f1058adcebb852a91b2c4567c91813d3b",
+    "public/assets/ui/reference-portraits/mage-2.png": "6fec3ad52a24ed0a5a366ffcbea9e8f541335f25d02a5d53472a3e95ff8341d5",
+    "public/assets/ui/reference-portraits/mage-3.png": "c014e892e75e6e95f5838549194d74fe910b7010178284021a89ebca20d9f765",
+    "public/assets/ui/reference-portraits/mage-4.png": "ec72c1db570ca1f3b6c75a62dddb0adf066e3eebdaf243f25a5ac72098bd4135",
+    "public/assets/ui/reference-portraits/mage-5.png": "05becd14f7a8e28417d744e9a35d752ae399cf720065094c1ad5c1aad81e378f",
+    "public/assets/ui/reference-portraits/mage-6.png": "36c9f7ac51bcfea9b355fc6a8f72e867cb10e9987a74de3841b76a7fcb142715",
+    "public/assets/ui/reference-portraits/manifest.json": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4",
+    "public/assets/ui/reference-portraits/mechanicalgolem.png": "ebc3660b3ee1e20dbdeab252210e440d628710d512d796d520517aa432725de6",
+    "public/assets/ui/reference-portraits/monk.png": "49b680b6d6e809926ad248ad65570b1e3792a7e238272248aea3a4ada55936eb",
+    "public/assets/ui/reference-portraits/mothernature.png": "2512b9bd6ec5e0aea1dc74a1514cc30ebbeee7308bc2f6b6a0cbbd9c28e3c9d3",
+    "public/assets/ui/reference-portraits/phoenix.png": "dcf140d45619a38fe2a60c1f2e111b39c650ea13c62745bc3999fdfc46c7001d",
+    "public/assets/ui/reference-portraits/rangermentor.png": "1e13c2d657b2b0c925f7721f4467f61b8656cdcdc5c0a09089e567568fc81cac",
+    "public/assets/ui/reference-portraits/rimewatch.png": "dfbe415e8db4619c78616b6784989997487e89437e6bd2377206ddc621977eb5",
+    "public/assets/ui/reference-portraits/roseguard.png": "e253fa50036611d09595d2a490fec1a3bb9c23c37378eadac0ffbc1b6283dbff",
+    "public/assets/ui/reference-portraits/royalarsenal.png": "c608b7958138c126c3eddf65c3a8bf19abbf321ccd272d361e69367ea52bb0e2",
+    "public/assets/ui/reference-portraits/royalmarshal.png": "f0ab729ff9cd9d576ff6fbaaad1d273b98bbafe4661c82934db50c28d89b3e03",
+    "public/assets/ui/reference-portraits/royalranger.png": "8e080d46322d1c6e14b8290eee034568bb00d29dd10f17dbeeb338a450830c18",
+    "public/assets/ui/reference-portraits/runebreaker-1.png": "9682ba9773fddaecebb4b057c8271962f433ef6f4c7331baf7d706a1b7b2c1a8",
+    "public/assets/ui/reference-portraits/runebreaker-2.png": "5196227f76ac72e8ffd093d6fc0727cb190f2f3924f3aff2861975cb1b01d628",
+    "public/assets/ui/reference-portraits/runebreaker-3.png": "c479ef42e192871acf6c38f3cb8b51b486b21d679886cf9b06f35ee3dc74e4bb",
+    "public/assets/ui/reference-portraits/runebreaker-4.png": "18741788d8a41f169e89dac0657b961a1f4e54884dbec55f41c9c4f50677a341",
+    "public/assets/ui/reference-portraits/runebreaker-5.png": "82782cbf70741b03820f873a3da2acfc94494d267ff1b24355f2fc655e282325",
+    "public/assets/ui/reference-portraits/runebreaker-6.png": "392103769c135c3bacb8c7c17f80a22956249d61463266b79b5389a9abc50789",
+    "public/assets/ui/reference-portraits/soldier-1.png": "4c819e434b51ce37b657eb0825649b0dcbe0df9f947bab052131e98358b1bc35",
+    "public/assets/ui/reference-portraits/soldier-2.png": "f559a54dca7c0411e6c975ab38be99485ef2c93552ae95dfb8f104467c4eac31",
+    "public/assets/ui/reference-portraits/soldier-3.png": "c18fa4e0bb5562efc16e6d265ab337c8faec9fe39c084c6189115c192a54a66f",
+    "public/assets/ui/reference-portraits/soldier-4.png": "de54a932cc05e319024f9c6452e6ece7c85c11f3e99369e84bab0f30f421a9bf",
+    "public/assets/ui/reference-portraits/soldier-5.png": "1e92ded6a9bc74151baab926b5471bd0cfb49e53fe1ec9b13ef2eeb6caaa9bd5",
+    "public/assets/ui/reference-portraits/soldier-6.png": "a8f7d349d3bf976bcb0a61ed210e9b564fdbbe14f7c5c735d4fe850485cbb2aa",
+    "public/assets/ui/reference-portraits/starfall.png": "860b46c5c0e519ac384fdae57741439ee98acd4321b867fcca8493e96370080a",
+    "public/assets/ui/reference-portraits/stonewarden.png": "cb149f42ccde765f5ec4b5b14e4b455f8226a480f88d3c3b7572fc2acccd241f",
+    "public/assets/ui/reference-portraits/stormcaller-1.png": "9202eaa03de3450ea7bc9495d700ab5401f6b6f05eee9559b0a55134f369ad20",
+    "public/assets/ui/reference-portraits/stormcaller-2.png": "32fc654ef08bf028ba7f99f78d49b7f2799b1a8594724a13ebc5344ab5d01a16",
+    "public/assets/ui/reference-portraits/stormcaller-3.png": "568e0d9e2b0ee121b6a8a690692061f0b0f4b6b39129df8f498a9bf1a1172d7b",
+    "public/assets/ui/reference-portraits/stormcaller-4.png": "5d2b4acbf39c695a53b73ea56c214bada62a9392f7cb1dca6f55dc1c1bbdd9a3",
+    "public/assets/ui/reference-portraits/stormcaller-5.png": "1db82d9d7ae8c54b72924c8d5dad71eaaa2db3f1069355a370fee8bf5f041cc9",
+    "public/assets/ui/reference-portraits/stormcaller-6.png": "8409479676a04ffbb2a8bf838e2af8745b7bb40b4a7928162a6666db469ccaa8",
+    "public/assets/ui/reference-portraits/stormcitadel.png": "20191f9179fe737a172a1e8ea94bec0ef901379c80adef14ef420eefc98da8e5",
+    "public/assets/ui/reference-portraits/sunward.png": "b6b60e16e98662541d023db3e53e74994c65852d43cdfca781f94c33f32746d8",
+    "public/assets/ui/reference-portraits/tempest.png": "2af3e952e34e73f5c36a42536fd85a556045c6801178bccc3b6a4e42eee5326f",
+    "public/assets/ui/reference-portraits/thornwarden.png": "77f099182b23a9e1deaefe8935b8b6b0d3acb04f61213de7bde5c6da52c0fe69",
+    "public/assets/ui/reference-portraits/thunderheart.png": "ba810b765524b523f0567f39b532d028fcb2b5578923c7141150e794bfc0f655",
+    "public/assets/ui/reference-portraits/verdantguard.png": "d5243554a08cdccbcb1d478746d454057d9d8028ca75eb48f0fa60ba24a46b9a",
+    "public/assets/ui/reference-portraits/winterhold.png": "645fc87356552bb64742562c0b32bf9389736ea1c0293fa31fc8bd7e352f0843",
+    "public/assets/ui/reference-portraits/worldfire.png": "fc482c9f585c9848771dd5bd196818535cbdb034b8f50549ea4120b4f05af5a5",
+    "public/assets/ui/reference-portraits/wyvernhunter.png": "677a5ad9c34e13b4a0de7a2ab04dfccc89506f7754ef4c357cc8f1936d0bc9b0",
+    "public/assets/ui/reference-cutouts/archangel.png": "0a1d7275ec09cdd7755ceb91fa12151ba6ea259d0bdb6fda9c9d4fd547b0f802",
+    "public/assets/ui/reference-cutouts/archbishop.png": "c15e6885873b64e6fd03c7317b9dae6f4bbc67bce80e3b36cbecc7a6300d6ebd",
+    "public/assets/ui/reference-cutouts/archer-1.png": "d4114409b9d4e001cfc2a53e36ea86e1e04703fe9a3f1f772c8358c2a34580c0",
+    "public/assets/ui/reference-cutouts/archer-2.png": "15596d31b88c7a3272bfa15079fe34edc58ede2f5e2c464f87a4dbecfe04f212",
+    "public/assets/ui/reference-cutouts/archer-3.png": "4759b146271f53a34cb7775e59989162906e5008bdbbbc04e97bfc8bf35760e1",
+    "public/assets/ui/reference-cutouts/archer-4.png": "d3e17feaf030c98997e33d2cfd530c19f3b41adc43232ee82a968146207ac826",
+    "public/assets/ui/reference-cutouts/archer-5.png": "7fe5f38596b69bb252f4f4215432e20e520bf08326fabedb497db84dfbb49a83",
+    "public/assets/ui/reference-cutouts/archer-6.png": "5eb2133bc28535928fc915e34955e05306bd414564147da5ea14d53bc6d7e204",
+    "public/assets/ui/reference-cutouts/cleric-1.png": "6eccc495f235e41a52c1634ca73389659bfa29a13ae8d90cc9a916b605a2fa7d",
+    "public/assets/ui/reference-cutouts/cleric-2.png": "8378550fa4337158924ec3788abb5e95a0c83e46336ca000e21bb39e343ac9ac",
+    "public/assets/ui/reference-cutouts/cleric-3.png": "3613564767fe3caa9c6dc77d9401d19078c672956edad0984942f82a5a9ef89e",
+    "public/assets/ui/reference-cutouts/cleric-4.png": "e92c6af9549bea497954d29f6f5b0cf50684b044d6e6397b2d6b1b04f7d8d318",
+    "public/assets/ui/reference-cutouts/cleric-5.png": "24d977b8444f2307da93724c25a7f36e98933061739d12028e6dec4aa05f92e5",
+    "public/assets/ui/reference-cutouts/cleric-6.png": "d9f7999b78be8f0de77d5005dffac2983bd5f4cb5c8f53b5f32868d1dc283bbf",
+    "public/assets/ui/reference-cutouts/crownofages.png": "f394024225a593c8e0efc8b519847967457486d4f51339c0e5e7efe7d16b32e5",
+    "public/assets/ui/reference-cutouts/dawnspire.png": "ca79204ecf0bd9484bf3eaa4ba7c78b478bbdbe04f4cc06cf054b810550e204e",
+    "public/assets/ui/reference-cutouts/druid-1.png": "ea3a7a2ff622c0b8941c3e57ee48d59cdb93406eb5e6d7d5237ff85fb7967587",
+    "public/assets/ui/reference-cutouts/druid-2.png": "fab3acc10633ffe5ea73e913267c689b0da2a37c6c5b3cdf5f237b534560c612",
+    "public/assets/ui/reference-cutouts/druid-3.png": "75bf20974a26fafd373ee0ee0bef74c23a7a228a7d4339e179e251b311d3b02d",
+    "public/assets/ui/reference-cutouts/druid-4.png": "f497dd578bf295abee860adc6c9f6cfe7ec187f0c48dad6219ad4066ca97a84f",
+    "public/assets/ui/reference-cutouts/druid-5.png": "58a2375f9ddf84240ad82b431b4633afc635e439cbbdc4b49576e4b9960236a6",
+    "public/assets/ui/reference-cutouts/druid-6.png": "4fa890dd0aa66985f1ce8e21d362d21f7f5d7f79c0a6a283b49d34d1e2d20872",
+    "public/assets/ui/reference-cutouts/eldergrove.png": "93efa71eb685feafeddc16d5a7c92a5f3e18394d8af2d04a3a5e5d4263c531b4",
+    "public/assets/ui/reference-cutouts/elvenking.png": "d02c775d5f64a1324553d34d3e11b045633789b06c42ae081a4c27f2a002c9ad",
+    "public/assets/ui/reference-cutouts/embercrown.png": "75677b52b2232ccd057d9fdf0affa31c8a6aefa6805ca177e5316efeaf337813",
+    "public/assets/ui/reference-cutouts/emeraldgolem.png": "e69b89c6b1fa13cc7ed3c45942f357ceede344d0873da16c7e592e5c766d82d7",
+    "public/assets/ui/reference-cutouts/fireballista.png": "16d171a0db30a99675ecb3d655b081aa34f659661204f8913774413cea879826",
+    "public/assets/ui/reference-cutouts/frostblade.png": "3a6200fc63c8d5a737a7bd5a9e92248bb10c257451c93e4963acdf346904129c",
+    "public/assets/ui/reference-cutouts/frostwarden-1.png": "f4141551f1e6cca9231776021a3cb277932551b0a9b2e070642d17af3b289e21",
+    "public/assets/ui/reference-cutouts/frostwarden-2.png": "3256697fec00ed07a46921cd03ddc81aa4d2006050c996bb280bc8d3a88cff26",
+    "public/assets/ui/reference-cutouts/frostwarden-3.png": "8513c9558e71b174624d07f5950bbfc17fae7ceeb0a4749f546ec1b83454ab66",
+    "public/assets/ui/reference-cutouts/frostwarden-4.png": "d68cde8c6736b09e101f2e157efae8e5b1249c41570a9ee564f8512fadb6fcde",
+    "public/assets/ui/reference-cutouts/frostwarden-5.png": "446ee0e4cd7283d8a7dd9c4381979861093adca365030181867a7fed3f6af8b5",
+    "public/assets/ui/reference-cutouts/frostwarden-6.png": "f57269e18346ba710066091442bfc5801e6dde084061ad0fd0d266d9f067f7ee",
+    "public/assets/ui/reference-cutouts/greenheart.png": "beaf8cfc31d6e702da9a19205183b6e76b765e9b7af25b42e554db1a87163db7",
+    "public/assets/ui/reference-cutouts/griffinbomber.png": "1c8121aadd8c47922e985a317ba90558cb3abb253de6888e386cfb7b1a6ba198",
+    "public/assets/ui/reference-cutouts/highking.png": "d11d427f5db02d40ca7bcf633b3d31b62951d9635205f7319236dc964f4f9d0e",
+    "public/assets/ui/reference-cutouts/host_01.png": "076babe29e66f36e17accb17ccc3dcf4775bbd26047d82075667a5be005e7ff2",
+    "public/assets/ui/reference-cutouts/host_02.png": "5bb46dc44bdc7409a73ac5a7e5f94dd984a602c663255bd80766939abb004a24",
+    "public/assets/ui/reference-cutouts/host_03.png": "5e80b8af5e4c0bd248279dcaaf1a25ff32632d1180cfd504764cbcc39975ab87",
+    "public/assets/ui/reference-cutouts/host_04.png": "4bc67d6c6cec2fcfc91bde67f066635d68bf85cbc3ef8b494e266fe445431cde",
+    "public/assets/ui/reference-cutouts/host_05.png": "19b6b9d63cebc651c6ded60c0451ac4bf0b4200d7243682c2fe9263578ab838f",
+    "public/assets/ui/reference-cutouts/host_06.png": "22c911addb32b8461c1f57904ddc920980a0bdd1a53b6574d939ea678e5d321c",
+    "public/assets/ui/reference-cutouts/host_07.png": "d62bf9d4a1131f74b647d22f10b4cd7633232e13071d08a00ca4f2ef7a495faf",
+    "public/assets/ui/reference-cutouts/host_08.png": "093ff7018c2d8a61bfcac0044cc43890894759f1dfea0568115e6bb6ff8c3c48",
+    "public/assets/ui/reference-cutouts/host_09.png": "afb21d554cf3896affbf28aa1053269bbc8c0698a7c6d6bf00671854129ab860",
+    "public/assets/ui/reference-cutouts/host_10.png": "3cd9bedd25f21a6073a013f997501ca5297794f902b01cbaf7bc5cfbdb55a844",
+    "public/assets/ui/reference-cutouts/host_11.png": "1866f17164d246dfa9f12b8e045665acdbe907a91c6c401e0fc0e85a89fb370b",
+    "public/assets/ui/reference-cutouts/host_12.png": "c454d5b36159d6504da69087de1dfaee773b5cc20e424dff4fa69603cbca2845",
+    "public/assets/ui/reference-cutouts/host_13.png": "f2864331f0976d5b214e0ebfaf8940e030e58e9f57857b4f7257dfa368286898",
+    "public/assets/ui/reference-cutouts/host_14.png": "7cf937223e00ecff976753062aaa0a4d76d95fe59d0292f2630191fd906b08d2",
+    "public/assets/ui/reference-cutouts/host_15.png": "c8f1f313cdd72ea002169f07f6bb106bd7e6d9ff95d981509fbc4d359e291ebb",
+    "public/assets/ui/reference-cutouts/host_16.png": "4c159ec48ef851378d63d97427f86b384fc7095552cb2eb35ad50661d8c82966",
+    "public/assets/ui/reference-cutouts/host_17.png": "433d6acd976902da366f02398a8b9a93e1accac10075b91f9a32e38ad3ddb6e6",
+    "public/assets/ui/reference-cutouts/host_18.png": "ab4d3c6efbb5bba5fa0b57f30a4c5cdb9d46a6816bdec2239937a05c491e6f88",
+    "public/assets/ui/reference-cutouts/host_19.png": "e17273d1760bd522e264e9b40f2cdb74da6f914c01607693a04f37f6c3fe1f16",
+    "public/assets/ui/reference-cutouts/host_20.png": "01dfeae2d8ca0930e5020ebcd96acfc6f1af44e8d34fc1b2554164c01e6b37c1",
+    "public/assets/ui/reference-cutouts/host_21.png": "63ba69f12f0fedb35afad8baf17ff1cbd63854e4075695ac8cd44e63c34f28da",
+    "public/assets/ui/reference-cutouts/host_22.png": "1229a319c9162e0d0f9f36ccdb1e6c4ba9a3006a1d48d44462dde870584f0ab1",
+    "public/assets/ui/reference-cutouts/host_23.png": "e2edb4eec30575c2562183c6953f669860b3b4017ff5a2bd109ced4fde996512",
+    "public/assets/ui/reference-cutouts/host_24.png": "0da28dc13c927758054c7aee27520a670169fb8c9934f6c9840432f75dd65782",
+    "public/assets/ui/reference-cutouts/host_25.png": "60858cf5fc017cfd188550f3a95f6c0a08fcae5d4c9587cb4be64f6bc2ee55d9",
+    "public/assets/ui/reference-cutouts/host_26.png": "d33165e813f89036859787284bd57fd9d6ca9f642e8def4e413e7e1e6770d9af",
+    "public/assets/ui/reference-cutouts/host_27.png": "deef4ea8ae2390a36a67b48a5ae887c7b3bce7da67e81da9f597bb3c21b85e45",
+    "public/assets/ui/reference-cutouts/host_28.png": "6302e7b838c11e2d8cef67c6b63893793ef4c65dc6b1c009b1bbf3b077373c7e",
+    "public/assets/ui/reference-cutouts/host_29.png": "2384bdfb6bb9786f3fd534ae58c48a0f199cfaa05f9bce48e37ac14750bc2157",
+    "public/assets/ui/reference-cutouts/host_30.png": "a101729b593341844509471cf9da3b192bae721d853deb8aaeec2d7aed2fea4c",
+    "public/assets/ui/reference-cutouts/host_31.png": "10cef2a100ba3419be1217d3180f5e25c65298bc0f622afdacaa92af55a99626",
+    "public/assets/ui/reference-cutouts/host_32.png": "b933fa20724c410e20ec4141189b6d8017bf751f903d0351c142563b3642ba36",
+    "public/assets/ui/reference-cutouts/host_33.png": "f1580b33060b02571c72a3adaf13242384a5cea0d4dca30af3d1f155c900d3a4",
+    "public/assets/ui/reference-cutouts/host_34.png": "873faa9b481e297b1408a105aa027eae264a86ffe1f6c4f094626bb079c5fda7",
+    "public/assets/ui/reference-cutouts/host_35.png": "d8df48d8b40dae8e28816f915f97da669cc34e80860e6939dd297fc4d8bb2ce1",
+    "public/assets/ui/reference-cutouts/host_36.png": "d9835f046ceaf8f1bacde75f8d67638498d7297f79a015935a5d82c3890ee4ee",
+    "public/assets/ui/reference-cutouts/host_37.png": "788b459a934e937456f27a9ffafac196cbc6fdbabb9a79eeac0544b385b94f8f",
+    "public/assets/ui/reference-cutouts/host_38.png": "eeb1290da67a47f94da6d513d0a12f2ee4c1ecc463c23d18f7475fbe79d79922",
+    "public/assets/ui/reference-cutouts/host_39.png": "d9779d8182a0f66218919c81ca1ad16cc42c18be71160edce25a87c2965b314e",
+    "public/assets/ui/reference-cutouts/host_40.png": "f53bdae95d8689a0df35fc75d09ea38b61479433211d24609d84d1d5fc2e16b3",
+    "public/assets/ui/reference-cutouts/host_41.png": "216e3e0ad9b5ecc6a004aefdbee2e8ef872d9812c2207db80732d648b9f95207",
+    "public/assets/ui/reference-cutouts/host_42.png": "f4a7d721bab9aff32a889e1e329de49e3d0a89c56f6126c5ad36f2ec3733b54f",
+    "public/assets/ui/reference-cutouts/host_43.png": "ce27149dc2057c249f9622ff954386bcc496f791976af76a5a516340645228a2",
+    "public/assets/ui/reference-cutouts/host_44.png": "f5b0198467a26df83672281c741ec005ae1e394165336ef748c0a195adfe688f",
+    "public/assets/ui/reference-cutouts/host_45.png": "7793583c745fc447dee0d8ce6801e77f9cd63db7239271666bf2a81508bb2999",
+    "public/assets/ui/reference-cutouts/host_46.png": "fb98939e3cddc81a75be762441d6cd91e3cdf0a7709e5cad1f5b6cbcf0f66ed3",
+    "public/assets/ui/reference-cutouts/host_47.png": "a9082833388e564666f10d1fcd52fb2dc3705cddc1f30a3e30a25e8263a24e01",
+    "public/assets/ui/reference-cutouts/host_48.png": "e740e2c8997cf2d33794cd63fef0a38242a3dc63b99db0e49c71558963f3bbd3",
+    "public/assets/ui/reference-cutouts/host_49.png": "c29ea86c9858ac4c33cdcf750fa133e36e3f0f619a69886b0508ac7fa2ab8160",
+    "public/assets/ui/reference-cutouts/host_50-crimson.png": "61a4a3e4dae617b6af817d3f825aee707012adb104b357678465f80272eaa82a",
+    "public/assets/ui/reference-cutouts/host_50.png": "0e602d1d469d5bcaa8bec82a3e8bef6efc2e147061bcf185bdc663add614146c",
+    "public/assets/ui/reference-cutouts/kingdomprotector.png": "03d99f3dc1741ab77f2ade0b499c63a01898a9f462ce176e511dfcb5e48b0df9",
+    "public/assets/ui/reference-cutouts/kingsrangerguard.png": "ebab0690e734ef804e1968536b9c8ee3f9e50b29d35de3865bb3774cb4c97813",
+    "public/assets/ui/reference-cutouts/kingsreach.png": "5b4dca8c1df99615c31e1cfa3f8b0e80c9368ebd30ff7eeb80a3eb4fa24c6050",
+    "public/assets/ui/reference-cutouts/ladyclaire.png": "aa61240b5773b48c5a2d8c204838cf6995edb3987d740ae2a6514c0946322824",
+    "public/assets/ui/reference-cutouts/mage-1.png": "0be88130146e55cba99d41d0fe9d239988b05ef2471d81354bc151554ec261d7",
+    "public/assets/ui/reference-cutouts/mage-2.png": "d2777c3ba96a27d3b9bd6e5e74ca791328b264b7ba6b7fb8fa18151cbbee59c5",
+    "public/assets/ui/reference-cutouts/mage-3.png": "05fce441c6e4c8b71080600e4b8eacc985f0772d201ae92c3ab824290375b9a2",
+    "public/assets/ui/reference-cutouts/mage-4.png": "1ae7bde7603a9e3da85510cdd3e872f9444984c80083a21e3a99a1f274f414d8",
+    "public/assets/ui/reference-cutouts/mage-5.png": "934c25be34128ec048ea79f508f9ed26d0a135a571776c709ca879b10af08ff5",
+    "public/assets/ui/reference-cutouts/mage-6.png": "00b6b39e5b4c2e0968b7805977a00e2887dd2ed1a5ee407077081d7f6fc1114f",
+    "public/assets/ui/reference-cutouts/manifest.json": "50babe99b9f67691092a7720d05115311d47ee71f2c4f4871a393f91d981fb9d",
+    "public/assets/ui/reference-cutouts/mechanicalgolem.png": "739f4e34519d04031b337704baa946585451902f918cdb857f7b40f6ca3c7141",
+    "public/assets/ui/reference-cutouts/monk.png": "e0ea3f6f7c25075b9e4206d47347c29ab0599f557598b9d64dc5505c703ceaf3",
+    "public/assets/ui/reference-cutouts/mothernature.png": "fc88ddb3906694dbae6ef364280f1e8cdb0dc56d269c7467ce13ff91b3865889",
+    "public/assets/ui/reference-cutouts/phoenix.png": "54dbe617220065e34f6cf24e788e780e13ca9f7423ded2e4a2aabbd7058b6905",
+    "public/assets/ui/reference-cutouts/rangermentor.png": "2aa1df1b61831157bbfd67479987b450eb0024c8e699d6e8df8d021db8d75a2a",
+    "public/assets/ui/reference-cutouts/rimewatch.png": "7bec3134c347c45d631899f9bd969fa0aa7c1d98d28606f4413db120c9c586f8",
+    "public/assets/ui/reference-cutouts/roseguard.png": "261bb120c5adcd5baff8b0e38ee3ba8104e8d60555cbf78da27fe58f81e7de93",
+    "public/assets/ui/reference-cutouts/royalarsenal.png": "36e90a72923c13159e7936976f9645aa0bf7ca1f0d715321e54f3226d5306000",
+    "public/assets/ui/reference-cutouts/royalmarshal.png": "8f8dadfc1fcc0f3ee83c3fb0446d763811fc14cd0d11c20bf4f576a756ef9794",
+    "public/assets/ui/reference-cutouts/royalranger.png": "bbcdf7ce94978ee62fd6b0ec9ae763ff6978c9fc3326c33d9a9c0b87f361d042",
+    "public/assets/ui/reference-cutouts/runebreaker-1.png": "bad0d01ba508a78ceaf9b69718227596a8721879aedf180fb4dfe7ff832d20b2",
+    "public/assets/ui/reference-cutouts/runebreaker-2.png": "40b178fe1e8ea06b62182eb7ff252bdedc231005aebc7487fdaf60958c94202e",
+    "public/assets/ui/reference-cutouts/runebreaker-3.png": "5e809fd9cdcbef609e833ae7d093c4c9bf793fe4dd9d349e609a51ea971a580a",
+    "public/assets/ui/reference-cutouts/runebreaker-4.png": "50f464c8459abf2fe1481bf396b8e70ba7f5bb6c028483e1f0a7ead29c7ea97d",
+    "public/assets/ui/reference-cutouts/runebreaker-5.png": "ec71167644b2f3b5d691141d200b1c5fc88b3be31f7e8efe7b16a1546026dbac",
+    "public/assets/ui/reference-cutouts/runebreaker-6.png": "009cdca0be5e9e6b2447066af14e32e26b6e3accf2cdbcdeff7aade24f2d33f5",
+    "public/assets/ui/reference-cutouts/soldier-1.png": "27e0b1e9e2d9528608c18e6cb7af503731c64232d18cd2a1875cc79464aee945",
+    "public/assets/ui/reference-cutouts/soldier-2.png": "05d1a60e938a807dcac4d7facbe5cacd06f69d477c0ca850431f6dc93016425f",
+    "public/assets/ui/reference-cutouts/soldier-3.png": "3f143a045e38df89007c684d403c2cc602a1b5b4a2eed1d18a8da4ad25a1afd2",
+    "public/assets/ui/reference-cutouts/soldier-4.png": "153b3a6e7cb65a1fabdd9d75c0e2e0df5e96835f3e9981e85331a90e54fd1a75",
+    "public/assets/ui/reference-cutouts/soldier-5.png": "dbb6195c07210aa285bd0d4bfbcf987ce6597a1f1a145aa15f8f069a6fb36f37",
+    "public/assets/ui/reference-cutouts/soldier-6.png": "73c7c37f2bad3891f2c9f1b78443fe32bebb45deba077339dc9175cd6b975bf6",
+    "public/assets/ui/reference-cutouts/starfall.png": "380b698287247979d32b4888a2990742f369ce27b9f3b23a86e7bfb5fdb39790",
+    "public/assets/ui/reference-cutouts/stonewarden.png": "a35aefca825aefb1b898f9fab45fe832d52ed9d2990cc6d5d20d048477748c71",
+    "public/assets/ui/reference-cutouts/stormcaller-1.png": "6aca3213faba89ca3ec1a5b7a784c022dad1199fc93ab9129447afa1004dbb88",
+    "public/assets/ui/reference-cutouts/stormcaller-2.png": "f5189a5612cbb27c6aae1fc6c0e384ba212104b1bfb715473aeb035a0e456f81",
+    "public/assets/ui/reference-cutouts/stormcaller-3.png": "680732555d73d0dd068f4d40f678c0b5bc35f5563a49aadcea72e3a6a63a2a60",
+    "public/assets/ui/reference-cutouts/stormcaller-4.png": "cee5afc04478825a39e2909247685713660026584ed0e532a551dcb3490bf6d6",
+    "public/assets/ui/reference-cutouts/stormcaller-5.png": "cc8ba0077748b7f3024ab1ab9657518c7c13ae813e3df49006423f5d896efe71",
+    "public/assets/ui/reference-cutouts/stormcaller-6.png": "00e4c01d182a20a683baad34d77c83903a0f89b6e307f6f6059ef7e5affd0ca7",
+    "public/assets/ui/reference-cutouts/stormcitadel.png": "88b420e3a8e438c2383bf883e7fc5b34fd384899d90c7c9bee87d5901e8ec0a9",
+    "public/assets/ui/reference-cutouts/sunward.png": "9df9313c3aa094c40e183af6c134fe2eed7394a815ad42ab211559f7f54f38bd",
+    "public/assets/ui/reference-cutouts/tempest.png": "c0fb2306689dd6752796e32b3d5af9fbdfa3d2ad8a90825bee17dda6e2ef9cc5",
+    "public/assets/ui/reference-cutouts/thornwarden.png": "86daa6b7abb17a0bb8fe8623c289e00cea1b20e6fb16970e9baa308d0b00829b",
+    "public/assets/ui/reference-cutouts/thunderheart.png": "7c3a05e7ced232b19bed495f0ad3aa41372ce6d4cf1036afac10db2e861e2098",
+    "public/assets/ui/reference-cutouts/verdantguard.png": "c09c1e0355427dfa4f0a18f35053f1fa7de2b0ea182b45980ed5ae328efd1c1e",
+    "public/assets/ui/reference-cutouts/winterhold.png": "b17b856e558a25bcf12932a6290a75681afca9a5324e3b2f4f72bc438ad5f84f",
+    "public/assets/ui/reference-cutouts/worldfire.png": "26f6ffe24ba71a4a9c200c8e3dd70bd72c1307361645301f6e77bb8e372412d5",
+    "public/assets/ui/reference-cutouts/wyvernhunter.png": "6e8bd387aaaf8e9658c3aba313ddab52e63e80ea7966b244362625ddeabfbee5",
+    "public/assets/ui/portrait-variants/lord-bernhard-crimson-reference.png": "e57b84ce6650d7633003e7599ec064f310cfc408ed70de5af2e9d75e8b8cce32",
+    "public/assets/ui/portrait-variants/manifest.json": "1f3fcdcfea71c0c438f219b083de4c3262f0858b882ca11b94924bc10df682fd"
+  },
+  "visualReview": "Agent visual review of all 50 identities on four paper and four dark contact sheets, plus individual host_44 and host_50 source/output details. FRONT identity, complete weapons/mount/wings, pale facets, detached captions and panel borders were checked. Original artwork approval is separate and preserved.",
+  "opencvVersion": "5.0.0",
+  "numpyVersion": "2.3.5",
+  "identities": [
+    {
+      "id": "host_01",
+      "name": "Orc Skull Scavengers",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/a5e72491393d8cd542de1e3c19560f6e7b5d311d14240b3f14619add86db6baf.png",
+      "sourceSha256": "a5e72491393d8cd542de1e3c19560f6e7b5d311d14240b3f14619add86db6baf",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        38,
+        14,
+        393,
+        434
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_01.png",
+      "dimensions": [
+        355,
+        420
+      ],
+      "sha256": "f81e33d4c914ae3ac0a61a8efd6a61c6ed15c66d562182f2735d350c6fbcdbe1",
+      "transparentPixels": 58053,
+      "opaquePixels": 89336,
+      "edgePixels": 1711,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_02",
+      "name": "Goblin Thornstriders",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/7a89aafc9fa34fee0156fb45c3ff3067bc83d734e51b1bd76c1bdeca0ebf20ac.png",
+      "sourceSha256": "7a89aafc9fa34fee0156fb45c3ff3067bc83d734e51b1bd76c1bdeca0ebf20ac",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        156,
+        7,
+        402,
+        438
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_02.png",
+      "dimensions": [
+        246,
+        431
+      ],
+      "sha256": "e94cead5800a9b660c6543aca33ef9536e66292485eaf44dfaffba287f38dbca",
+      "transparentPixels": 59012,
+      "opaquePixels": 44424,
+      "edgePixels": 2590,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_03",
+      "name": "Ogre Gluttons",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/e088f7023e011ed88ae66147fd6721bde53fbb3454b71d4212a005fde3786fc2.png",
+      "sourceSha256": "e088f7023e011ed88ae66147fd6721bde53fbb3454b71d4212a005fde3786fc2",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        47,
+        22,
+        445,
+        435
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_03.png",
+      "dimensions": [
+        398,
+        413
+      ],
+      "sha256": "92e8b57f8d5b0afa165106746bfee25ca33b47664f9f8799151508b005287f93",
+      "transparentPixels": 62240,
+      "opaquePixels": 100043,
+      "edgePixels": 2091,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            501,
+            35,
+            1,
+            299
+          ],
+          "pixels": 299,
+          "reason": "Detached sheet border"
+        },
+        {
+          "sourceBounds": [
+            501,
+            344,
+            1,
+            126
+          ],
+          "pixels": 126,
+          "reason": "Detached sheet border"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_04",
+      "name": "Orc Scrap Tinkers",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/d5205cc58789195a3884e000f9063825a1ec0817f468ff26472bec6d0b2e4286.png",
+      "sourceSha256": "d5205cc58789195a3884e000f9063825a1ec0817f468ff26472bec6d0b2e4286",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        33,
+        14,
+        407,
+        438
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_04.png",
+      "dimensions": [
+        374,
+        424
+      ],
+      "sha256": "e6dbbb006f36ba68b411635d35c85a7a54c63e6889799e6d757a939ec53906ed",
+      "transparentPixels": 63929,
+      "opaquePixels": 92599,
+      "edgePixels": 2048,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_05",
+      "name": "Bat Scouts",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/6bd7be7b195147f6ae8073d1a3e7efef1d481b689485f36ed93bc626abf20758.png",
+      "sourceSha256": "6bd7be7b195147f6ae8073d1a3e7efef1d481b689485f36ed93bc626abf20758",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        24,
+        18,
+        496,
+        432
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_05.png",
+      "dimensions": [
+        472,
+        414
+      ],
+      "sha256": "1a9cac453d0dd7d6dd9e0f91269692b368a479650225fbb2eb81cc3b79bf5c15",
+      "transparentPixels": 118403,
+      "opaquePixels": 74339,
+      "edgePixels": 2666,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_06",
+      "name": "Mossback Trolls",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/607a95bbd91dd7393aa1c2a4d50894cfc9f38eaa8198b7c34fe82d4ecdb60be8.png",
+      "sourceSha256": "607a95bbd91dd7393aa1c2a4d50894cfc9f38eaa8198b7c34fe82d4ecdb60be8",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        41,
+        11,
+        438,
+        436
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_06.png",
+      "dimensions": [
+        397,
+        425
+      ],
+      "sha256": "4dcc97a5f8804db87337ff6c94db8ee1e00ee9ddd610566e5317a2842064f892",
+      "transparentPixels": 55218,
+      "opaquePixels": 111249,
+      "edgePixels": 2258,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_07",
+      "name": "Marsh Orc Hunters",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/f3ecc114d250f3a0d071ebadb7d5d2268db78bd3b3acebc3d114ae4171facb47.png",
+      "sourceSha256": "f3ecc114d250f3a0d071ebadb7d5d2268db78bd3b3acebc3d114ae4171facb47",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        114,
+        9,
+        374,
+        436
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_07.png",
+      "dimensions": [
+        260,
+        427
+      ],
+      "sha256": "690abfd4d49d00aa46c141e491df59293dfe11e14fa849885ed642da1b413a9b",
+      "transparentPixels": 43099,
+      "opaquePixels": 65661,
+      "edgePixels": 2260,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_08",
+      "name": "Shadowblood Trolls",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/9c69f7814f50186c666c3e89df9b0774326579a062af9352c3e04990cbf735de.png",
+      "sourceSha256": "9c69f7814f50186c666c3e89df9b0774326579a062af9352c3e04990cbf735de",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        63,
+        7,
+        468,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_08.png",
+      "dimensions": [
+        405,
+        432
+      ],
+      "sha256": "b9bd208be522d856d86e4cbc77330c3d59a785eb4785cce94ef36c9fd6d51691",
+      "transparentPixels": 52981,
+      "opaquePixels": 119532,
+      "edgePixels": 2447,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_09",
+      "name": "Goblin Dust Dancers",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/756e1cd62618a1800cfb6345659b45e0c3d8ea178b99439030d26a957af2e479.png",
+      "sourceSha256": "756e1cd62618a1800cfb6345659b45e0c3d8ea178b99439030d26a957af2e479",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        55,
+        50,
+        469,
+        431
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_09.png",
+      "dimensions": [
+        414,
+        381
+      ],
+      "sha256": "bfefea0a4db890e513e7325043d483a04dadf648ae688c557f9362514b618a5a",
+      "transparentPixels": 78338,
+      "opaquePixels": 76988,
+      "edgePixels": 2408,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            65,
+            33,
+            8,
+            14
+          ],
+          "pixels": 51,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            164,
+            33,
+            4,
+            10
+          ],
+          "pixels": 40,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            172,
+            33,
+            4,
+            10
+          ],
+          "pixels": 40,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            261,
+            33,
+            4,
+            10
+          ],
+          "pixels": 40,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            320,
+            33,
+            4,
+            10
+          ],
+          "pixels": 40,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            417,
+            33,
+            7,
+            14
+          ],
+          "pixels": 50,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            499,
+            33,
+            4,
+            10
+          ],
+          "pixels": 40,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_10",
+      "name": "Mogrok, the Gatebreaker",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/83a7bf2065fe495d0cb7045486a519c14b832f92faad39050fe5d813898a8349.png",
+      "sourceSha256": "83a7bf2065fe495d0cb7045486a519c14b832f92faad39050fe5d813898a8349",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        20,
+        8,
+        485,
+        434
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_10.png",
+      "dimensions": [
+        465,
+        426
+      ],
+      "sha256": "968bacd165e1bf6555c2d7dfcba64065c2a1c8eb06c0d1eae929ae15a5cce0eb",
+      "transparentPixels": 71654,
+      "opaquePixels": 124109,
+      "edgePixels": 2327,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_11",
+      "name": "Orc Hookbearers",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/7307a7130e655b8b68b256b4e37af08da83ae6bcf17497519f4ff12921cd8896.png",
+      "sourceSha256": "7307a7130e655b8b68b256b4e37af08da83ae6bcf17497519f4ff12921cd8896",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        50,
+        7,
+        465,
+        431
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_11.png",
+      "dimensions": [
+        415,
+        424
+      ],
+      "sha256": "20bd5d471af3e5cee167084f15882bea0462d55fac9ef98a4885623302708f3a",
+      "transparentPixels": 78666,
+      "opaquePixels": 94832,
+      "edgePixels": 2462,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_12",
+      "name": "Goblin Bell Devourers",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/096f26fc2ebd4179940718af33ebf08fd7d747034468fabdea4116371d42000c.png",
+      "sourceSha256": "096f26fc2ebd4179940718af33ebf08fd7d747034468fabdea4116371d42000c",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        94,
+        18,
+        396,
+        438
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_12.png",
+      "dimensions": [
+        302,
+        420
+      ],
+      "sha256": "356e0e4ec1ee7a9e1974d67a1534c0595bd8a87a56fca2009a46da2ad0a42fc1",
+      "transparentPixels": 49490,
+      "opaquePixels": 75296,
+      "edgePixels": 2054,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            510,
+            406,
+            1,
+            22
+          ],
+          "pixels": 22,
+          "reason": "Detached sheet border"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_13",
+      "name": "Red Tusk Orc Huntresses",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/50760b74929008293b7c36006a7d96fca2f46c0b6807cebce14028ef9e471e6a.png",
+      "sourceSha256": "50760b74929008293b7c36006a7d96fca2f46c0b6807cebce14028ef9e471e6a",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        72,
+        10,
+        436,
+        438
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_13.png",
+      "dimensions": [
+        364,
+        428
+      ],
+      "sha256": "d2bf1bd0410862a661e4ef9466925705f78eae127b003fecd6629fb3d0b5282b",
+      "transparentPixels": 65341,
+      "opaquePixels": 87896,
+      "edgePixels": 2555,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_14",
+      "name": "Orc Mirror Shieldbearers",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/a27eec893daf407c03c55e724689c305e5f434dd9d976a43c571ca37baeff7be.png",
+      "sourceSha256": "a27eec893daf407c03c55e724689c305e5f434dd9d976a43c571ca37baeff7be",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        109,
+        4,
+        423,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_14.png",
+      "dimensions": [
+        314,
+        435
+      ],
+      "sha256": "1f5c7475c72d086397701347b430d5cffb79f29e1d91ea94128982b41de01e5f",
+      "transparentPixels": 45394,
+      "opaquePixels": 88773,
+      "edgePixels": 2423,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            507,
+            35,
+            2,
+            435
+          ],
+          "pixels": 856,
+          "reason": "Detached sheet border"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_15",
+      "name": "Blood Bat Riders",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/5efa290a33703575775ca96ed3acb3ec06f8c77573977449a42686bb9c16b89a.png",
+      "sourceSha256": "5efa290a33703575775ca96ed3acb3ec06f8c77573977449a42686bb9c16b89a",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        35,
+        2,
+        471,
+        425
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_15.png",
+      "dimensions": [
+        436,
+        423
+      ],
+      "sha256": "fa9fcf762f60acfc37e57551b54f2ef9234f7ec3d62f4c33b9ec39e14ff690d8",
+      "transparentPixels": 91086,
+      "opaquePixels": 90571,
+      "edgePixels": 2771,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            225,
+            467,
+            10,
+            5
+          ],
+          "pixels": 29,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            237,
+            467,
+            11,
+            5
+          ],
+          "pixels": 35,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            251,
+            467,
+            14,
+            5
+          ],
+          "pixels": 40,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            269,
+            467,
+            5,
+            5
+          ],
+          "pixels": 18,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            283,
+            467,
+            12,
+            5
+          ],
+          "pixels": 37,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_16",
+      "name": "Orc Ash Pickpockets",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/54e34d00a320a7fc96e878a2e363fc2c2314a80fa9d2766f0273c7f87eb6d1de.png",
+      "sourceSha256": "54e34d00a320a7fc96e878a2e363fc2c2314a80fa9d2766f0273c7f87eb6d1de",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        98,
+        14,
+        413,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_16.png",
+      "dimensions": [
+        315,
+        425
+      ],
+      "sha256": "a57a18470eb3f18d1c0c5d3a37e0734a7c2fa8fefc912c59a205bf201913bbf7",
+      "transparentPixels": 43260,
+      "opaquePixels": 89006,
+      "edgePixels": 1609,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_17",
+      "name": "Cursed Totem Trolls",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/ba9a2cd6b05d0273acf4866f3db4d7710c7669a08f6d4e34881d28ba2d37ae22.png",
+      "sourceSha256": "ba9a2cd6b05d0273acf4866f3db4d7710c7669a08f6d4e34881d28ba2d37ae22",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        59,
+        5,
+        459,
+        437
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_17.png",
+      "dimensions": [
+        400,
+        432
+      ],
+      "sha256": "bd24494c27bc85055e74ca6689cb3906aaa6ad5a1f88cde496343cc160dcd8ca",
+      "transparentPixels": 78481,
+      "opaquePixels": 92123,
+      "edgePixels": 2196,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_18",
+      "name": "Silent Orc Executioners",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/c494fbef57f69e5cbb9c51b286db47a0f7837c4a2acfbc5df515efe25fc57a8f.png",
+      "sourceSha256": "c494fbef57f69e5cbb9c51b286db47a0f7837c4a2acfbc5df515efe25fc57a8f",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        111,
+        0,
+        422,
+        436
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_18.png",
+      "dimensions": [
+        311,
+        436
+      ],
+      "sha256": "7b3260aef2b5025b92ba9edf5b1e021dfdeb6b7b78f7b5e355487777eabd4880",
+      "transparentPixels": 53451,
+      "opaquePixels": 80520,
+      "edgePixels": 1625,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            510,
+            82,
+            1,
+            18
+          ],
+          "pixels": 18,
+          "reason": "Detached sheet border"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_19",
+      "name": "Bloodwolf Orc Riders",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/cb6f179ae6d96254d2c1402bb7afbedb7d345dfc0565d816d67a402b905d2450.png",
+      "sourceSha256": "cb6f179ae6d96254d2c1402bb7afbedb7d345dfc0565d816d67a402b905d2450",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        92,
+        37,
+        420,
+        437
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_19.png",
+      "dimensions": [
+        328,
+        400
+      ],
+      "sha256": "3f03fdf52eff8aba4060fbf3bbd0b064aabffcae4f7943f1cbb8199cc8e04b9e",
+      "transparentPixels": 57445,
+      "opaquePixels": 72113,
+      "edgePixels": 1642,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_20",
+      "name": "Gorvash, the Bone Patriarch",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/7d35d96387d95997fd01cb312b736955f880e8f6b7d5afc5638123b616ef1270.png",
+      "sourceSha256": "7d35d96387d95997fd01cb312b736955f880e8f6b7d5afc5638123b616ef1270",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        57,
+        7,
+        447,
+        438
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_20.png",
+      "dimensions": [
+        390,
+        431
+      ],
+      "sha256": "7e49e0b2a08c8fc9b4334095ae738810328d1366b03f0a4bf6573ad6f5c45021",
+      "transparentPixels": 61601,
+      "opaquePixels": 103232,
+      "edgePixels": 3257,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [
+        [
+          264,
+          92
+        ]
+      ],
+      "reviewStatus": "approved",
+      "reviewDecision": "Complete FRONT bone headdress, staff, face, tusks and pedestal. Pale ivory horn facets remain opaque without paper-colored holes.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_21",
+      "name": "Rotroot Trolls",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/c62135e61cb901eecbea78a75b1dea026177aa61e7c4eecad8d8bd277f180687.png",
+      "sourceSha256": "c62135e61cb901eecbea78a75b1dea026177aa61e7c4eecad8d8bd277f180687",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        63,
+        7,
+        444,
+        436
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_21.png",
+      "dimensions": [
+        381,
+        429
+      ],
+      "sha256": "22061c7cb215f951306bf955ca6ad47a06795298003f83b663ba2d6c681aba54",
+      "transparentPixels": 55571,
+      "opaquePixels": 105154,
+      "edgePixels": 2724,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            511,
+            47,
+            1,
+            25
+          ],
+          "pixels": 25,
+          "reason": "Detached sheet border"
+        },
+        {
+          "sourceBounds": [
+            511,
+            273,
+            1,
+            19
+          ],
+          "pixels": 19,
+          "reason": "Detached sheet border"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_22",
+      "name": "Iron Ram Ogres",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/de8a10851446a9dbdc1130e11d22185b7d2665caa59576473e2c101134c26d17.png",
+      "sourceSha256": "de8a10851446a9dbdc1130e11d22185b7d2665caa59576473e2c101134c26d17",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        32,
+        16,
+        448,
+        438
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_22.png",
+      "dimensions": [
+        416,
+        422
+      ],
+      "sha256": "640b63e769011bc77c1f588acad885b7f3a52c5899c02dbd51a2076681a22262",
+      "transparentPixels": 66216,
+      "opaquePixels": 106608,
+      "edgePixels": 2728,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            510,
+            270,
+            1,
+            21
+          ],
+          "pixels": 21,
+          "reason": "Detached sheet border"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_23",
+      "name": "Shard-Soul Orc Warlocks",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/c7a366bf166f1bc6f779b5a73cef300a46ec4b9ee00813886f4a77a44647149b.png",
+      "sourceSha256": "c7a366bf166f1bc6f779b5a73cef300a46ec4b9ee00813886f4a77a44647149b",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        125,
+        4,
+        444,
+        437
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_23.png",
+      "dimensions": [
+        319,
+        433
+      ],
+      "sha256": "37739117684da79abb5e927924543883f8cf7213fffcb67b941a1cb66655ef21",
+      "transparentPixels": 61733,
+      "opaquePixels": 73793,
+      "edgePixels": 2601,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            510,
+            129,
+            1,
+            23
+          ],
+          "pixels": 23,
+          "reason": "Detached sheet border"
+        },
+        {
+          "sourceBounds": [
+            510,
+            335,
+            1,
+            23
+          ],
+          "pixels": 23,
+          "reason": "Detached sheet border"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_24",
+      "name": "Riveted Goblin Mutants",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/3a2e5ec81c3a262bde3f736ce9a54ff27dd5fd8d43d66bf6c48e9c0e8dd89f5e.png",
+      "sourceSha256": "3a2e5ec81c3a262bde3f736ce9a54ff27dd5fd8d43d66bf6c48e9c0e8dd89f5e",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        32,
+        20,
+        489,
+        438
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_24.png",
+      "dimensions": [
+        457,
+        418
+      ],
+      "sha256": "51d5b8b52de555f6c90ef8c95585a43b0a29b281cf0433b15219c1767f7c2afa",
+      "transparentPixels": 78595,
+      "opaquePixels": 109558,
+      "edgePixels": 2873,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_25",
+      "name": "Iron Bat Orc Riders",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/6d3deadf5bf7e2272beab1a46387b5fabe78df4d073f96383bb907cf6504e5e3.png",
+      "sourceSha256": "6d3deadf5bf7e2272beab1a46387b5fabe78df4d073f96383bb907cf6504e5e3",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        18,
+        36,
+        492,
+        419
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_25.png",
+      "dimensions": [
+        474,
+        383
+      ],
+      "sha256": "65a9ac96c6a50a4e3710c3cc62cc20a2a316f585369493652b717060e12b2c15",
+      "transparentPixels": 72095,
+      "opaquePixels": 106899,
+      "edgePixels": 2548,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            219,
+            465,
+            10,
+            7
+          ],
+          "pixels": 42,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            231,
+            465,
+            12,
+            7
+          ],
+          "pixels": 58,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            245,
+            465,
+            16,
+            7
+          ],
+          "pixels": 57,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            263,
+            465,
+            8,
+            7
+          ],
+          "pixels": 38,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            274,
+            465,
+            3,
+            7
+          ],
+          "pixels": 21,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            279,
+            465,
+            12,
+            7
+          ],
+          "pixels": 48,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_26",
+      "name": "Orc Spell Eaters",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/4e6a8bc1328b0e53596d3bc2f45fb05ba791aead3f2ca4beeb168f2e35a1667d.png",
+      "sourceSha256": "4e6a8bc1328b0e53596d3bc2f45fb05ba791aead3f2ca4beeb168f2e35a1667d",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        39,
+        21,
+        468,
+        416
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_26.png",
+      "dimensions": [
+        429,
+        395
+      ],
+      "sha256": "bfad78e594c745e0e8f8963fbc99ccc86351aa618b3c26595c17d269390b5ca2",
+      "transparentPixels": 63738,
+      "opaquePixels": 103438,
+      "edgePixels": 2279,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            246,
+            462,
+            11,
+            10
+          ],
+          "pixels": 73,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            259,
+            463,
+            12,
+            9
+          ],
+          "pixels": 77,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            273,
+            462,
+            17,
+            10
+          ],
+          "pixels": 77,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            292,
+            462,
+            9,
+            10
+          ],
+          "pixels": 56,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            303,
+            462,
+            3,
+            10
+          ],
+          "pixels": 30,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            307,
+            462,
+            13,
+            10
+          ],
+          "pixels": 64,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_27",
+      "name": "Spectral Bat Riders",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/c80e819748ff125ac9a63dec674ec9eb8cba6ce2746a59fbe87a6e9f97a39d8c.png",
+      "sourceSha256": "c80e819748ff125ac9a63dec674ec9eb8cba6ce2746a59fbe87a6e9f97a39d8c",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        24,
+        15,
+        498,
+        438
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_27.png",
+      "dimensions": [
+        474,
+        423
+      ],
+      "sha256": "9d06a3bc4840a5a9b59f0788228b5229c19bdcf8ae71ae40778813b86ca39e24",
+      "transparentPixels": 105846,
+      "opaquePixels": 91626,
+      "edgePixels": 3030,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            60,
+            33,
+            7,
+            10
+          ],
+          "pixels": 36,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            359,
+            33,
+            7,
+            10
+          ],
+          "pixels": 36,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [
+        [
+          255,
+          315
+        ]
+      ],
+      "reviewStatus": "approved",
+      "reviewDecision": "Complete FRONT skeletal bat, rider, spear, wing bones and pedestal. The pale central skull remains opaque; intentional wing gaps stay transparent.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_28",
+      "name": "Goblin Scrapwings",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/ba184c715414486bae297f8e54b384e41c139639241fbabda6d3220c7a443cda.png",
+      "sourceSha256": "ba184c715414486bae297f8e54b384e41c139639241fbabda6d3220c7a443cda",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        37,
+        16,
+        496,
+        427
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_28.png",
+      "dimensions": [
+        459,
+        411
+      ],
+      "sha256": "4125db45ddc406fcab6fc4031b37b75fb40cc058b5072afc0356f7899ca432dc",
+      "transparentPixels": 92386,
+      "opaquePixels": 93646,
+      "edgePixels": 2617,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            230,
+            470,
+            9,
+            2
+          ],
+          "pixels": 17,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            286,
+            470,
+            12,
+            2
+          ],
+          "pixels": 23,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_29",
+      "name": "Prismatic Bat Tricksters",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/1a8773b991cf02d8ef00f0d1b9b46a30228490d10b67c1c80904ff1f7880a344.png",
+      "sourceSha256": "1a8773b991cf02d8ef00f0d1b9b46a30228490d10b67c1c80904ff1f7880a344",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        50,
+        26,
+        455,
+        426
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_29.png",
+      "dimensions": [
+        405,
+        400
+      ],
+      "sha256": "9dce9495c566cbf3bd56ca714efcb5849f22fd817aca178686c78141a9171fdb",
+      "transparentPixels": 75922,
+      "opaquePixels": 83589,
+      "edgePixels": 2489,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_30",
+      "name": "Zaruun, Lord of Storm Wings",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/0a9305f5ef43f791a959abe2f81effb5c5eb9cfc88c3a5e16054a3a5e21df689.png",
+      "sourceSha256": "0a9305f5ef43f791a959abe2f81effb5c5eb9cfc88c3a5e16054a3a5e21df689",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        12,
+        27,
+        491,
+        428
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_30.png",
+      "dimensions": [
+        479,
+        401
+      ],
+      "sha256": "750c5b324c8f8afb1636b7fe8971618916c74579f903acdfbdb7700dc307392a",
+      "transparentPixels": 74826,
+      "opaquePixels": 114087,
+      "edgePixels": 3166,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_31",
+      "name": "Orc Dual-Seal Inquisitors",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/7de73f17356ecc13f3b829d20b3b288a30f9e7b2d3bcf3ab4c992bc3db8616cb.png",
+      "sourceSha256": "7de73f17356ecc13f3b829d20b3b288a30f9e7b2d3bcf3ab4c992bc3db8616cb",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        146,
+        17,
+        439,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_31.png",
+      "dimensions": [
+        293,
+        422
+      ],
+      "sha256": "33e287d0c83ce8f802e1c0b10d9ebec20d567714128f6e292a0c853f422c1c91",
+      "transparentPixels": 39505,
+      "opaquePixels": 82224,
+      "edgePixels": 1917,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_32",
+      "name": "Soul-Drinker Trolls",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/f0114906482e4e3be10d5b4e227ee80018b4ee9f44f6697ec539045d430c11c7.png",
+      "sourceSha256": "f0114906482e4e3be10d5b4e227ee80018b4ee9f44f6697ec539045d430c11c7",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        100,
+        8,
+        479,
+        428
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_32.png",
+      "dimensions": [
+        379,
+        420
+      ],
+      "sha256": "08cafb47730f9a5478d9b39be7c6489a0c85dd59f51c677851a39af9734ddb1b",
+      "transparentPixels": 60540,
+      "opaquePixels": 96077,
+      "edgePixels": 2563,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_33",
+      "name": "Orc Wraiths of the Shattered World",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/1e1f8bc5aa7cf1455439275d4600726dc27393907cfe4a5a70c9a1658b4ca9fe.png",
+      "sourceSha256": "1e1f8bc5aa7cf1455439275d4600726dc27393907cfe4a5a70c9a1658b4ca9fe",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        98,
+        22,
+        419,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_33.png",
+      "dimensions": [
+        321,
+        417
+      ],
+      "sha256": "408196266eeb75d46a59d6bd16521c4f88e3e5d562aa5b0288b3caa37062c54a",
+      "transparentPixels": 53260,
+      "opaquePixels": 78296,
+      "edgePixels": 2301,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_34",
+      "name": "Goblin Gallows Fliers",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/b78cbd8199a82a607ac6cafdf4fa5eac43f9b0b4f94e1e8870707c884859b1da.png",
+      "sourceSha256": "b78cbd8199a82a607ac6cafdf4fa5eac43f9b0b4f94e1e8870707c884859b1da",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        17,
+        33,
+        505,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_34.png",
+      "dimensions": [
+        488,
+        406
+      ],
+      "sha256": "11a0bc96d606232a0b84e18831471015a2c9c9242f3fc0cca2d7bc820f5a98f5",
+      "transparentPixels": 121015,
+      "opaquePixels": 74091,
+      "edgePixels": 3022,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_35",
+      "name": "Eclipse Bat Guard",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/3ae38b9511cb98e3aabb922a73d989dbc6d18fc62dc902d09d658c9eae6aa854.png",
+      "sourceSha256": "3ae38b9511cb98e3aabb922a73d989dbc6d18fc62dc902d09d658c9eae6aa854",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        18,
+        3,
+        480,
+        433
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_35.png",
+      "dimensions": [
+        462,
+        430
+      ],
+      "sha256": "9d9f36175f8901e56105a91e24a4657d04d311cd6ab1463e890f96325d326741",
+      "transparentPixels": 95874,
+      "opaquePixels": 100209,
+      "edgePixels": 2577,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_36",
+      "name": "Orc Oathbreakers",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/6898d21bad29df4985f0ff4e55384b17affd625d862b3dc5a3a3599cf9831a89.png",
+      "sourceSha256": "6898d21bad29df4985f0ff4e55384b17affd625d862b3dc5a3a3599cf9831a89",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        95,
+        24,
+        455,
+        430
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_36.png",
+      "dimensions": [
+        360,
+        406
+      ],
+      "sha256": "8ab7b68b285ad36cb38361aff4dff1d73675d87117c564d1c2a68aea269ad860",
+      "transparentPixels": 57941,
+      "opaquePixels": 85716,
+      "edgePixels": 2503,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_37",
+      "name": "Riftwolf Orc Riders",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/ed4d428f094faff8428c0fe63e9384c6e8dca7a2aade40db49c875cce2953a91.png",
+      "sourceSha256": "ed4d428f094faff8428c0fe63e9384c6e8dca7a2aade40db49c875cce2953a91",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        144,
+        0,
+        432,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_37.png",
+      "dimensions": [
+        288,
+        439
+      ],
+      "sha256": "20c54817cc7b8747de1d2b6dc86cafdbc54d5049c50ac7b052b21a4ddd3117b8",
+      "transparentPixels": 62612,
+      "opaquePixels": 61887,
+      "edgePixels": 1933,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_38",
+      "name": "Black Marsh Knifemen / Blood-Leech Trolls",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/66fec81fdb7df9ff5efc428c8614efe4821a5226ea3a239567f5ec80099e3c04.png",
+      "sourceSha256": "66fec81fdb7df9ff5efc428c8614efe4821a5226ea3a239567f5ec80099e3c04",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        107,
+        20,
+        453,
+        436
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_38.png",
+      "dimensions": [
+        346,
+        416
+      ],
+      "sha256": "e72f5f59dde3261a1f5d1a7038fa8a2143c27ac0e313fed5724115ee8b69a618",
+      "transparentPixels": 66203,
+      "opaquePixels": 75571,
+      "edgePixels": 2162,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_39",
+      "name": "Thunder Manta Orc Riders",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/385ce97b68c064f6f3bc026407b38ca7c99c862019b42a0ede62aec5614d8d9a.png",
+      "sourceSha256": "385ce97b68c064f6f3bc026407b38ca7c99c862019b42a0ede62aec5614d8d9a",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        16,
+        20,
+        503,
+        425
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_39.png",
+      "dimensions": [
+        487,
+        405
+      ],
+      "sha256": "96537a00bedd5d9946e464cbadd154269ff653f4c7452d808ef118947ed505a9",
+      "transparentPixels": 120807,
+      "opaquePixels": 74218,
+      "edgePixels": 2210,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            222,
+            469,
+            11,
+            3
+          ],
+          "pixels": 32,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            234,
+            469,
+            12,
+            3
+          ],
+          "pixels": 30,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            249,
+            469,
+            13,
+            3
+          ],
+          "pixels": 30,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            280,
+            469,
+            13,
+            3
+          ],
+          "pixels": 38,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_40",
+      "name": "Vorlak, the Hollow Sky King",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/02c373208eb310189ad7a1e5db22173e50ebcfeea3628c70c7d5d47a2ab4ea5f.png",
+      "sourceSha256": "02c373208eb310189ad7a1e5db22173e50ebcfeea3628c70c7d5d47a2ab4ea5f",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        25,
+        9,
+        505,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_40.png",
+      "dimensions": [
+        480,
+        430
+      ],
+      "sha256": "02a0aa8405dfbffd003a3711ffa485bcd40023e87b3a23ad19e98f82dbbb3ee8",
+      "transparentPixels": 92148,
+      "opaquePixels": 110245,
+      "edgePixels": 4007,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [
+        [
+          260,
+          115
+        ]
+      ],
+      "reviewStatus": "approved",
+      "reviewDecision": "Complete FRONT skeletal warlord and spread bone wings. Ivory skull and rib facets remain intact, with actual gaps between bones transparent.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_41",
+      "name": "Orc Crystal Phalanx",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/4eea18cf33680a965dfb51a285bd4b0299076023bae5e4f100b5b523bde02882.png",
+      "sourceSha256": "4eea18cf33680a965dfb51a285bd4b0299076023bae5e4f100b5b523bde02882",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        146,
+        13,
+        469,
+        436
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_41.png",
+      "dimensions": [
+        323,
+        423
+      ],
+      "sha256": "f5c4c90617a86d1f3cfa5983aa2fd19cfc3c416924f33cb9a0ac33533dc8cc39",
+      "transparentPixels": 50465,
+      "opaquePixels": 84194,
+      "edgePixels": 1970,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_42",
+      "name": "Fire Bat Orc Lancers",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/b0fdbdd76ce9c9ddb1bac85d26813ef19e0683300bd66e4aa8647685c0c6f0e6.png",
+      "sourceSha256": "b0fdbdd76ce9c9ddb1bac85d26813ef19e0683300bd66e4aa8647685c0c6f0e6",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        54,
+        60,
+        484,
+        427
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_42.png",
+      "dimensions": [
+        430,
+        367
+      ],
+      "sha256": "5348bbed56c066bdd991b0f1ea4092cfe2f96b8f7e3746f719acd73aa2f8ea72",
+      "transparentPixels": 85622,
+      "opaquePixels": 69944,
+      "edgePixels": 2244,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            71,
+            33,
+            8,
+            10
+          ],
+          "pixels": 43,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            422,
+            33,
+            7,
+            10
+          ],
+          "pixels": 39,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            232,
+            469,
+            11,
+            3
+          ],
+          "pixels": 32,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            245,
+            469,
+            11,
+            3
+          ],
+          "pixels": 29,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            260,
+            469,
+            11,
+            3
+          ],
+          "pixels": 26,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            290,
+            469,
+            13,
+            3
+          ],
+          "pixels": 39,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_43",
+      "name": "Ogres of the Imprisoned Souls",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/57ad6b0d09ed99269672ba09f47b59aeda7c1233379cf87736a8083f3d68e008.png",
+      "sourceSha256": "57ad6b0d09ed99269672ba09f47b59aeda7c1233379cf87736a8083f3d68e008",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        50,
+        10,
+        494,
+        433
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_43.png",
+      "dimensions": [
+        444,
+        423
+      ],
+      "sha256": "e3b3c64845f5f7cd470502cd18f7ed29683ba46a6b303444c4413264a2e885b3",
+      "transparentPixels": 72577,
+      "opaquePixels": 112312,
+      "edgePixels": 2923,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_44",
+      "name": "Orc Ash Executioners",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/6e1f9a0a440ca261250b267d21dc56fe4803957069288455d4df7f2c6f9f3221.png",
+      "sourceSha256": "6e1f9a0a440ca261250b267d21dc56fe4803957069288455d4df7f2c6f9f3221",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        105,
+        1,
+        440,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_44.png",
+      "dimensions": [
+        335,
+        438
+      ],
+      "sha256": "181ca7c0532c33762569185ec5ce442a7dba9c97e9452dbd967e22f9cfa58e6b",
+      "transparentPixels": 67135,
+      "opaquePixels": 77619,
+      "edgePixels": 1976,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Uses the actual FRONT axe-bearing figure, replacing the historical LEFT crop. Separate alpha exclusions remove heading letters touching the axe tip while retaining the pointed weapon silhouette. Full front helmet, axe, robe and pedestal are present.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_45",
+      "name": "Flying Drummers of the Black Horde",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/63cdc0295cbcf7aa713dc096bf48f4cb888f5fb80f3023e615282ba695a273ee.png",
+      "sourceSha256": "63cdc0295cbcf7aa713dc096bf48f4cb888f5fb80f3023e615282ba695a273ee",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        9,
+        35,
+        508,
+        429
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_45.png",
+      "dimensions": [
+        499,
+        394
+      ],
+      "sha256": "1317624c6c18a32913423c46bd1aa41aa95ffdfc6f099388d3ec5423d96d2f7a",
+      "transparentPixels": 93280,
+      "opaquePixels": 100705,
+      "edgePixels": 2621,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_46",
+      "name": "Ogre Revenants in Hollow Armor",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/d9319e94ae2f233e28713e80abc7f4619bcdc426a65b5184b390fbec370f3abd.png",
+      "sourceSha256": "d9319e94ae2f233e28713e80abc7f4619bcdc426a65b5184b390fbec370f3abd",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        119,
+        14,
+        463,
+        431
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_46.png",
+      "dimensions": [
+        344,
+        417
+      ],
+      "sha256": "23a4611b76986147292c6bb118dce6314d62a53485d87618fd00f881fb674c3c",
+      "transparentPixels": 53439,
+      "opaquePixels": 87601,
+      "edgePixels": 2408,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_47",
+      "name": "Orc Riders of the Last Howl",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/2e4f64b055e3735a01e3963951eb95c5018c7d812f842012bcd3d4243549ad79.png",
+      "sourceSha256": "2e4f64b055e3735a01e3963951eb95c5018c7d812f842012bcd3d4243549ad79",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        128,
+        18,
+        454,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_47.png",
+      "dimensions": [
+        326,
+        421
+      ],
+      "sha256": "8becf585fdb4dd40ecf51a14f301ae1f83061b9ade648f1de21c9e0afb7ceacc",
+      "transparentPixels": 63126,
+      "opaquePixels": 71934,
+      "edgePixels": 2186,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            65,
+            33,
+            7,
+            11
+          ],
+          "pixels": 39,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            484,
+            33,
+            7,
+            11
+          ],
+          "pixels": 39,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_48",
+      "name": "Bat Thieves of Black Fire",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/88a96cf30a6324d88f97d49497e811e037cb802744a9640f63f054676e061dde.png",
+      "sourceSha256": "88a96cf30a6324d88f97d49497e811e037cb802744a9640f63f054676e061dde",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        28,
+        25,
+        510,
+        431
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_48.png",
+      "dimensions": [
+        482,
+        406
+      ],
+      "sha256": "b3b3b89a743eb2d6b70839ab067ad328c581c36592204188965f14577c60fb22",
+      "transparentPixels": 111043,
+      "opaquePixels": 81829,
+      "edgePixels": 2820,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            61,
+            33,
+            7,
+            11
+          ],
+          "pixels": 38,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            118,
+            33,
+            4,
+            9
+          ],
+          "pixels": 28,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            140,
+            33,
+            4,
+            9
+          ],
+          "pixels": 35,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            152,
+            33,
+            4,
+            9
+          ],
+          "pixels": 34,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            163,
+            33,
+            4,
+            9
+          ],
+          "pixels": 34,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            171,
+            33,
+            4,
+            9
+          ],
+          "pixels": 35,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            396,
+            33,
+            4,
+            9
+          ],
+          "pixels": 35,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            441,
+            33,
+            7,
+            10
+          ],
+          "pixels": 36,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Top-left FRONT panel; full subject and equipment, without heading or view caption.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_49",
+      "name": "Troll Guardians of the Deep Maw",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "docs/ui-cartographers-table-handoff-20261016/reference-art/55637bd24f0276d7882795aa0dfbd0846c610215be7929e53de5dc1d65729fff.png",
+      "sourceSha256": "55637bd24f0276d7882795aa0dfbd0846c610215be7929e53de5dc1d65729fff",
+      "sourceRole": "Immutable geometric model-authoring reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        33,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        48,
+        4,
+        484,
+        439
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_49.png",
+      "dimensions": [
+        436,
+        435
+      ],
+      "sha256": "3ac50b0135310298aa1fe1f4046102f031b9cc516dd2f37d277a616e89b3b2ec",
+      "transparentPixels": 53746,
+      "opaquePixels": 134028,
+      "edgePixels": 1886,
+      "preservedRgb": true,
+      "removedSheetComponents": [],
+      "opaqueProbesSource": [
+        [
+          260,
+          250
+        ]
+      ],
+      "reviewStatus": "approved",
+      "reviewDecision": "Complete FRONT guardian, open mouth, teeth, tusks, claws and pedestal. Ivory upper teeth remain opaque and the turquoise mouth crystal retains its source color.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    },
+    {
+      "id": "host_50",
+      "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+      "category": "enemies",
+      "view": "FRONT",
+      "source": "public/assets/ui/portrait-variants/lord-bernhard-crimson-reference.png",
+      "sourceSha256": "e57b84ce6650d7633003e7599ec064f310cfc408ed70de5af2e9d75e8b8cce32",
+      "sourceRole": "Approved crimson geometric reference",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceRectangle": [
+        0,
+        40,
+        512,
+        472
+      ],
+      "rectangleMode": "left, top, right, bottom",
+      "trimRectangle": [
+        24,
+        0,
+        450,
+        422
+      ],
+      "output": "public/assets/ui/reference-enemy-fronts/host_50.png",
+      "dimensions": [
+        426,
+        422
+      ],
+      "sha256": "550818ad4829d89b40bb9982cb6118fae40f9ba21ab55317a67471ca8fb8261a",
+      "transparentPixels": 79529,
+      "opaquePixels": 96934,
+      "edgePixels": 3309,
+      "preservedRgb": true,
+      "removedSheetComponents": [
+        {
+          "sourceBounds": [
+            212,
+            468,
+            9,
+            4
+          ],
+          "pixels": 30,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            223,
+            468,
+            10,
+            4
+          ],
+          "pixels": 33,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            235,
+            468,
+            13,
+            4
+          ],
+          "pixels": 36,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            250,
+            468,
+            6,
+            4
+          ],
+          "pixels": 18,
+          "reason": "Detached sheet caption fragment"
+        },
+        {
+          "sourceBounds": [
+            264,
+            468,
+            11,
+            4
+          ],
+          "pixels": 36,
+          "reason": "Detached sheet caption fragment"
+        }
+      ],
+      "opaqueProbesSource": [],
+      "reviewStatus": "approved",
+      "reviewDecision": "Uses the FRONT panel of the separately approved crimson reference. The upper boundary sits below the sheet heading and above the complete glowing sword tip; mount, wings, rider and pedestal remain complete. The historical 0.4.2 crimson derivative is untouched.",
+      "operation": "Exact approved RGB crop; deterministic independent alpha mask and transparent-margin trim only"
+    }
+  ]
+}

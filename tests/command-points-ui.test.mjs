@@ -69,7 +69,7 @@ test('prices and visible reasons explain initial placement, used reroll, committ
   game.select(game.draft.draws[0].towerId);assert.equal(game.reserve(),true);
   assert.match(button(commandPointsMarkup(game),'reserve'),/disabled/);assert.match(commandPointsMarkup(game),/One defender is already reserved/);
   const poor=placedGame();poor.commandPoints.value=0;const html=commandPointsMarkup(poor);
-  assert.match(button(html,'reroll'),/disabled/);assert.match(button(html,'reserve'),/disabled/);assert.match(html,/Not enough Command Points/);assert.equal((html.match(/<b>1 CP<\/b>/g)||[]).length,2);
+  assert.match(button(html,'reroll'),/disabled/);assert.match(button(html,'reserve'),/disabled/);assert.match(html,/Not enough Command Points/);assert.equal((html.match(/class="command-cost"/g)||[]).length,2);assert.equal((html.match(/<span>1 CP<\/span>/g)||[]).length,2);
 });
 
 test('configured costs are rendered and disabled reasons are escaped without changing game state',()=>{

@@ -164,7 +164,7 @@ test('explicit action tokens reject changed selection, phase, recipe, inventory,
 test('pinned goal stays visible while another recipe is inspected',()=>{
   const game=fresh();game.pinned=ranger.id;const other=data.recipes.find(r=>r.id!==ranger.id&&!r.currentRoundOnly);
   const model=craftingDockModel(game,{recipeId:other.id}),html=craftingDockMarkup(game,{}, {recipeId:other.id});
-  assert.equal(model.pinned.recipe.id,ranger.id);assert.equal(model.plan.recipe.id,other.id);assert.match(html,/Pinned · Elven Ranger/);assert.match(html,/Recipe preview/);assert.match(html,/Unpin/);
+  assert.equal(model.pinned.recipe.id,ranger.id);assert.equal(model.plan.recipe.id,other.id);assert.match(html,/Pinned · Elven Ranger/);assert.match(html,/Recipe details/);assert.match(html,/Unpin/);
 });
 
 test('explicit unavailable recipe inspection never silently changes to another available combination',()=>{

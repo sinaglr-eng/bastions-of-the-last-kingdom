@@ -47,7 +47,6 @@ export class DraftMarkers {
     this.otherPointerEnd=event=>{if(!this.pointers.has(event.pointerId)&&this.gesture.active(event.pointerId))this.gesture.cancel(event);};
     window.addEventListener('pointerdown',this.otherPointerDown);window.addEventListener('pointerup',this.otherPointerEnd);window.addEventListener('pointercancel',this.otherPointerEnd);
     this.lines=document.createElementNS('http://www.w3.org/2000/svg','svg');this.lines.classList.add('recipe-map-links');this.layer.append(this.lines);
-    this.legend=document.createElement('div');this.legend.className='recipe-map-legend';this.legend.hidden=true;container.append(this.legend);
   }
   create(number){
     const group=new THREE.Group();
@@ -119,8 +118,6 @@ export class DraftMarkers {
     }
     for(const [id,badge]of this.badges)badge.el.classList.toggle('pinned-recruit-map-badge',pinned.has(id));
     for(const [id,badge]of this.mergeBadges)badge.el.classList.toggle('pinned-recruit-map-badge',pinned.has(id));
-    const preview=game.recipePreview;this.legend.hidden=!preview;
-    if(preview)this.legend.textContent=`${recipeLabel(preview.recipe,game.data)} · Double-click ★ to create here · − ingredients → walls${preview.discarded.length?' · × unchosen → walls':''}`;
   }
   update(time,camera,viewportHeight){
     for(const [id,marker] of this.items){
@@ -148,5 +145,5 @@ export class DraftMarkers {
     }
   }
   release(marker){this.scene.remove(marker);const materials=new Set();marker.traverse(o=>{o.geometry?.dispose();if(o.material)materials.add(o.material);});materials.forEach(m=>m.dispose());marker.userData.texture.dispose();}
-  dispose(){this.cancel();window.removeEventListener('blur',this.cancel);window.removeEventListener('scroll',this.cancel,true);window.removeEventListener('pointerdown',this.otherPointerDown);window.removeEventListener('pointerup',this.otherPointerEnd);window.removeEventListener('pointercancel',this.otherPointerEnd);this.items.forEach(m=>this.release(m));this.items.clear();this.badges.clear();this.mergeBadges.clear();this.pinnedBadges.clear();this.layer.remove();this.legend.remove();}
+  dispose(){this.cancel();window.removeEventListener('blur',this.cancel);window.removeEventListener('scroll',this.cancel,true);window.removeEventListener('pointerdown',this.otherPointerDown);window.removeEventListener('pointerup',this.otherPointerEnd);window.removeEventListener('pointercancel',this.otherPointerEnd);this.items.forEach(m=>this.release(m));this.items.clear();this.badges.clear();this.mergeBadges.clear();this.pinnedBadges.clear();this.layer.remove();}
 }

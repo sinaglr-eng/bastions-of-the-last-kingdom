@@ -25,12 +25,19 @@ test('name search is English, case-insensitive and intersects every existing run
   assert.equal(state.query,'  baby fire DRAGON ','read-only model preserves UI input');
 });
 
-test('initial catalog puts compact recipe entries before optional explanation and keeps basic guide in its own view',()=>{
+test('catalog keeps the three direct filters and basic guide while removed search and help blocks stay absent',()=>{
   const html=championCatalogMarkup(fresh(),data,{});
-  assert.equal((html.match(/class="recipe-catalog-row/g)||[]).length,38);assert.ok(html.indexOf('recipe-catalog-row')<html.indexOf('How recipes work'));
-  assert.match(html,/data-catalog-view="champions"/);assert.match(html,/data-catalog-view="basics"/);assert.match(html,/data-catalog-search/);
-  assert.match(html,/<details class="catalog-filter-tools" data-catalog-disclosure="filters"><summary>Filter options/);assert.doesNotMatch(html,/<details class="catalog-filter-tools" data-catalog-disclosure="filters" open/);
-  assert.match(html,/<div class="catalog-basics-view" hidden>/);assert.equal((html.match(/compact-recipe-detail/g)||[]).length,0,'nothing forces a detail open initially');
+  assert.equal((html.match(/class="recipe-catalog-row/g)||[]).length,38);assert.match(html,/data-catalog-view="champions"/);assert.match(html,/data-catalog-view="basics"/);
+  assert.equal((html.match(/data-recipe-filter="/g)||[]).length,3);assert.doesNotMatch(html,/data-catalog-search|catalog-filter-tools|Filter options|How filters work|data-recipe-filter-reset|How recipes work/);
+  assert.match(html,/<div class="catalog-basics-view" hidden>/);assert.equal((html.match(/compact-recipe-detail/g)||[]).length,0);
+});
+
+test('recipe rows and selected profile expose the canonical classification as a visible badge',()=>{
+  const game=fresh(),html=championCatalogMarkup(game,data,{}, {state:{recipeId:'highking'}});
+  for(const [family,classification]of [['rimewatch','Basic'],['frostblade','Intermediate'],['highking','Advanced'],['crownofages','TOP'],['ladyclaire','Secret']]){
+    const row=html.split(`data-catalog-recipe="${family}"`)[1].split('</button>')[0];assert.ok(row.includes(`data-classification="${classification}">${classification}</span>`));
+  }
+  const detail=html.split('class="recipe-card compact-recipe-detail')[1];assert.match(detail,/class="champion-classification" data-classification="Advanced">Advanced<\/span>/);assert.doesNotMatch(detail,/About Base direct DPS|data-catalog-disclosure="dps:/);
 });
 
 test('catalog progress uses real revealed identities and preserves ownership in combat',()=>{
@@ -113,28 +120,28 @@ function fixture(markup){
   const host=new Element();host.innerHTML=markup;return host;
 }
 
-test('catalog connector searches, combines filters, opens exact detail and invokes integration stamping without gameplay mutation',()=>{
-  const game=fresh(),host=fixture(championCatalogMarkup(game,data,{})),state={},before=snapshot(game);let details=0;const connection=connectChampionCatalog(host,game,data,{}, {state,onDetail:()=>details++}),catalog=host.querySelector('.champion-catalog');
-  const input=catalog.querySelector('[data-catalog-search]');input.value='baby fire dragon';catalog.dispatch('input',input);
-  const rows=catalog.querySelectorAll('[data-catalog-recipe]');assert.equal(rows.filter(row=>!row.hidden).length,1);
-  const ability=catalog.querySelector('[data-recipe-filter="ability"]');ability.value='burn';catalog.dispatch('change',ability);assert.equal(rows.filter(row=>!row.hidden).length,1);
-  const row=rows.find(row=>row.dataset.catalogRecipe==='embercrown');catalog.dispatch('click',row);assert.equal(state.recipeId,'embercrown');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Aura DPS/);assert.ok(details>0);
-  assert.equal(catalog.querySelector('[data-catalog-close]'),null);assert.equal(catalog.querySelector('[data-catalog-history]'),null);assert.equal(state.recipeId,'embercrown');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);assert.equal(snapshot(game),before);connection.dispose();
+test('catalog connector combines direct filters, clears obsolete search state and opens exact detail without gameplay mutation',()=>{
+  const game=fresh(),host=fixture(championCatalogMarkup(game,data,{})),state={query:'obsolete saved search'},before=snapshot(game);let details=0;const connection=connectChampionCatalog(host,game,data,{}, {state,onDetail:()=>details++}),catalog=host.querySelector('.champion-catalog');
+  assert.equal(state.query,'');assert.equal(catalog.querySelector('[data-catalog-search]'),null);
+  for(const [key,value]of [['damage','magical'],['ability','burn'],['counter','evasion']]){const control=catalog.querySelector('[data-recipe-filter="'+key+'"]');control.value=value;catalog.dispatch('change',control);}
+  const rows=catalog.querySelectorAll('[data-catalog-recipe]');assert.equal(rows.filter(row=>!row.hidden).length,4);
+  const row=rows.find(row=>row.dataset.catalogRecipe==='embercrown');catalog.dispatch('click',row);assert.equal(state.recipeId,'embercrown');assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Aura DPS/);assert.doesNotMatch(catalog.querySelector('.catalog-recipe-detail').innerHTML,/About Base direct DPS|data-catalog-disclosure="dps:/);assert.ok(details>0);
+  assert.equal(catalog.querySelector('[data-catalog-close]'),null);assert.equal(catalog.querySelector('[data-catalog-history]'),null);assert.equal(snapshot(game),before);connection.dispose();
 });
 
 test('narrow book page tabs retain the selected detail, tree choices, filters, list scroll and pin without changing gameplay',()=>{
   const game=fresh(),control=fresh();game.pinned=control.pinned='highking';const state={query:'baby fire dragon',damage:'magical',ability:'burn',counter:'evasion'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog'),list=catalog.querySelector('.catalog-recipe-list'),row=catalog.querySelector('[data-catalog-recipe="embercrown"]');
   list.scrollTop=57;catalog.dispatch('click',row);const history=JSON.stringify(state.navigation);catalog.querySelector('[data-catalog-disclosure="chain:embercrown"]').open=true;
   const indexTab=catalog.querySelector('[data-catalog-page="index"]'),readingTab=catalog.querySelector('[data-catalog-page="reading"]');assert.ok(indexTab);assert.ok(readingTab);catalog.dispatch('click',indexTab);
-  assert.equal(catalog.dataset.mobilePage,'index');assert.equal(state.recipeId,'embercrown');assert.equal(readingTab.disabled,false);assert.equal(indexTab.attributes['aria-pressed'],'true');assert.equal(host.ownerDocument.activeElement,catalog.querySelector('[data-catalog-search]'));
-  assert.equal(state.query,'baby fire dragon');assert.equal(state.damage,'magical');assert.equal(state.ability,'burn');assert.equal(state.counter,'evasion');assert.equal(list.scrollTop,57);assert.equal(game.pinned,'highking');
+  assert.equal(catalog.dataset.mobilePage,'index');assert.equal(state.recipeId,'embercrown');assert.equal(readingTab.disabled,false);assert.equal(indexTab.attributes['aria-pressed'],'true');assert.equal(host.ownerDocument.activeElement,row);
+  assert.equal(state.query,'');assert.equal(state.damage,'magical');assert.equal(state.ability,'burn');assert.equal(state.counter,'evasion');assert.equal(list.scrollTop,57);assert.equal(game.pinned,'highking');
   catalog.dispatch('click',readingTab);assert.equal(catalog.dataset.mobilePage,'reading');assert.equal(catalog.querySelector('[data-catalog-disclosure="chain:embercrown"]').open,true);assert.equal(JSON.stringify(state.navigation),history);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
 });
 
 test('out-of-filter component remains readable while index access preserves the active filter and allows exact row selection',()=>{
-  const game=fresh(),state={query:'Kingslayer'},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog'),origin=catalog.querySelector('[data-catalog-recipe="highking"]');
+  const game=fresh(),state={ability:'critical'},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog'),origin=catalog.querySelector('[data-catalog-recipe="highking"]');
   catalog.dispatch('click',origin);catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');assert.equal(catalog.querySelector('[data-catalog-recipe="frostblade"]').hidden,true);
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-page="index"]'));assert.equal(state.recipeId,'frostblade');assert.equal(state.query,'Kingslayer');assert.equal(catalog.querySelectorAll('[data-catalog-recipe]').filter(row=>!row.hidden).length,1);
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-page="index"]'));assert.equal(state.recipeId,'frostblade');assert.equal(state.ability,'critical');assert.equal(catalog.querySelectorAll('[data-catalog-recipe]').filter(row=>!row.hidden).length,3);
   catalog.dispatch('click',origin);assert.equal(state.recipeId,'highking');assert.equal(catalog.dataset.mobilePage,'reading');connection.dispose();
 });
 
@@ -146,28 +153,28 @@ test('fixed recipe heading owns the sole Pin action outside scrolling content, w
 
 test('the pinned bookmark opens its champion page from Basic defenders without changing filters, pin or campaign state',()=>{
   const game=fresh(),control=fresh();game.pinned=control.pinned='highking';
-  const state={view:'basics',query:'Archer',damage:'physical'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog');
+  const state={view:'basics',query:'obsolete Archer search',damage:'holy'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog');
   assert.equal(catalog.querySelector('.catalog-basics-view').hidden,false);
   assert.equal(catalog.querySelector('.recipe-filter-count').textContent,'6 of 48 basic rank profiles match');
   const bookmark=catalog.querySelector('.catalog-bookmark').querySelector('[data-catalog-ingredient]');catalog.dispatch('click',bookmark);
   assert.equal(state.view,'champions');assert.equal(state.recipeId,'highking');assert.equal(catalog.querySelector('.catalog-champions-view').hidden,false);assert.equal(catalog.querySelector('.catalog-basics-view').hidden,true);assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);
-  assert.equal(state.query,'Archer');assert.equal(state.damage,'physical');assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Outside current filters/);
-  assert.equal(catalog.querySelector('.recipe-filter-count').textContent,'0 of 38 champions match');
+  assert.equal(state.query,'');assert.equal(state.damage,'holy');assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Outside current filters/);
+  assert.equal(catalog.querySelector('.recipe-filter-count').textContent,championCatalogModel(game,data,state).matches.length+' of 38 champions match');
   assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
 });
 
 test('basic guide has independent view, existing rank filters and corrected Mage information',()=>{
   const game=fresh(),host=fixture(championCatalogMarkup(game,data,{})),state={},connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog');
   const basic=catalog.querySelector('[data-catalog-view="basics"]');catalog.dispatch('click',basic);assert.equal(state.view,'basics');assert.equal(catalog.querySelector('.catalog-basics-view').hidden,false);assert.equal(catalog.querySelector('.catalog-champions-view').hidden,true);
-  const input=catalog.querySelector('[data-catalog-search]');input.value='mage';catalog.dispatch('input',input);
+  const control=catalog.querySelector('[data-recipe-filter="damage"]');control.value='holy';catalog.dispatch('change',control);
   assert.equal(catalog.querySelectorAll('[data-filter-family]').filter(entry=>!entry.hidden).length,1);assert.match(catalog.querySelector('.recipe-filter-count').textContent,/6 of 48 basic rank profiles/);connection.dispose();
 });
 
-test('pin rerenders preserve selected recipe, search and independent explanation/filter/tree disclosure choices',()=>{
-  const game=fresh(),state={recipeId:ranger.id},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog');
-  catalog.querySelector('[data-catalog-disclosure="filters"]').open=true;catalog.querySelector(`[data-catalog-disclosure="chain:${ranger.id}"]`).open=true;connection.dispose();game.pinned=ranger.id;
+test('pin rerenders preserve selected recipe, direct filters and ingredient-chain disclosure choices',()=>{
+  const game=fresh(),state={recipeId:ranger.id,damage:'physical'},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog');
+  catalog.querySelector(`[data-catalog-disclosure="chain:${ranger.id}"]`).open=true;connection.dispose();game.pinned=ranger.id;
   host.innerHTML=championCatalogMarkup(game,data,{}, {state});const next=connectChampionCatalog(host,game,data,{}, {state}),restored=host.querySelector('.champion-catalog');
-  assert.equal(state.recipeId,ranger.id);assert.equal(restored.querySelector('[data-catalog-disclosure="filters"]').open,true);assert.equal(restored.querySelector(`[data-catalog-disclosure="chain:${ranger.id}"]`).open,true);assert.match(restored.querySelector('.catalog-recipe-detail').innerHTML,/Unpin recipe/);next.dispose();
+  assert.equal(state.recipeId,ranger.id);assert.equal(state.damage,'physical');assert.equal(restored.querySelector('[data-catalog-disclosure="filters"]'),null);assert.equal(restored.querySelector(`[data-catalog-disclosure="chain:${ranger.id}"]`).open,true);assert.match(restored.querySelector('.catalog-recipe-detail').innerHTML,/Unpin recipe/);next.dispose();
 });
 
 test('catalog refresh updates allocated row progress and detail after a real reserve while keeping disclosure choices',()=>{

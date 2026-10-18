@@ -89,7 +89,7 @@ test('selected Frostsword exposes downstream Frost Knight requirements without c
   assert.deepEqual(downstreamRecipes(recipe('rimewatch'),data).map(row=>row.id),model.downstream.map(row=>row.id));
   const html=craftingDockMarkup(game,images,{navigation});assert.match(html,/Combine Frostsword Watchmen further/);assert.match(html,/data-action="recipe-explore" data-id="frostblade"/);
   recipeNavigationVisit(navigation,'frostblade');const detail=craftingDockModel(game,{recipeId:'frostblade'});assert.deepEqual(detail.plan.rows.map(({family,tier})=>({family,tier})),recipe('frostblade').ingredients);
-  const target=craftingDockMarkup(game,images,{recipeId:'frostblade',navigation});assert.match(target,/data-action="recipe-explore" data-id="rimewatch"/);assert.match(target,/data-action="recipe-history-back"[^>]*>/);
+  const target=craftingDockMarkup(game,images,{recipeId:'frostblade',navigation});assert.match(target,/data-action="recipe-explore" data-id="rimewatch"/);assert.doesNotMatch(target,/crafting-history|data-action="recipe-history-(?:back|forward)"/);assert.match(target,/data-action="recipe-prev"/);assert.match(target,/data-action="recipe-next"/);
   assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
 });
 
@@ -182,17 +182,17 @@ function fixture(markup){
 }
 
 test('catalog component navigation keeps filtered rows, selected reading page, disclosures, focus and actual gameplay intact',()=>{
-  const game=fresh(),control=fresh(),state={recipeId:'highking',query:'Kingslayer'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,images,{state}));let callbacks=0;
+  const game=fresh(),control=fresh(),state={recipeId:'highking',ability:'critical'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,images,{state}));let callbacks=0;
   let connection=connectChampionCatalog(host,game,data,images,{state,onDetail:()=>callbacks++}),catalog=host.querySelector('.champion-catalog');
   catalog.querySelector('[data-catalog-disclosure="chain:highking"]').open=true;
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');assert.equal(state.query,'Kingslayer');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);
-  assert.equal(catalog.querySelectorAll('[data-catalog-recipe]').filter(row=>!row.hidden).length,1);assert.ok(host.ownerDocument.activeElement.matches('[data-catalog-detail-heading]'));
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');assert.equal(state.ability,'critical');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);
+  assert.equal(catalog.querySelectorAll('[data-catalog-recipe]').filter(row=>!row.hidden).length,3);assert.ok(host.ownerDocument.activeElement.matches('[data-catalog-detail-heading]'));
   catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="rimewatch"]'));assert.equal(state.recipeId,'rimewatch');
   catalog.dispatch('click',catalog.querySelector('[data-catalog-page="index"]'));assert.equal(state.recipeId,'rimewatch');
   catalog.dispatch('click',catalog.querySelector('[data-catalog-recipe="highking"]'));assert.equal(state.recipeId,'highking');assert.equal(catalog.querySelector('[data-catalog-disclosure="chain:highking"]').open,true);
   catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');
   connection.dispose();host.innerHTML=championCatalogMarkup(game,data,images,{state});connection=connectChampionCatalog(host,game,data,images,{state});catalog=host.querySelector('.champion-catalog');
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="rimewatch"]'));assert.equal(state.recipeId,'rimewatch');assert.equal(state.query,'Kingslayer');assert.ok(callbacks>=5);
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="rimewatch"]'));assert.equal(state.recipeId,'rimewatch');assert.equal(state.ability,'critical');assert.ok(callbacks>=5);
   assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
 });
 
@@ -206,8 +206,8 @@ test('production catalog Next and Previous follow Kingslayer to King without req
   assert.ok(callbacks>=3);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
 });
 
-test('production catalog ordered navigation intersects search, runtime filters and progress status without mutating gameplay',()=>{
-  for(const filter of [{query:'king'},{damage:'physical',ability:'slow',counter:'magic-immunity'},{status:'progress'},{status:'available'}]){
+test('production catalog ordered navigation intersects direct runtime filters and progress status without mutating gameplay',()=>{
+  for(const filter of [{ability:'critical'},{damage:'physical',ability:'slow',counter:'magic-immunity'},{status:'progress'},{status:'available'}]){
     const game=fresh(),control=fresh();if(filter.status==='progress'){retained(game,{family:'rimewatch',tier:1});retained(control,{family:'rimewatch',tier:1});}
     if(filter.status==='available')for(const target of ['rimewatch','thornwarden'].map(recipe))for(const piece of target.ingredients){retained(game,piece);retained(control,piece);}
     const expected=championCatalogModel(game,data,filter).matches.map(row=>row.recipe.id);assert.ok(expected.length>=2);
@@ -219,20 +219,17 @@ test('production catalog ordered navigation intersects search, runtime filters a
   }
 });
 
-test('ordered catalog endpoints and empty/single-result filters disable navigation rather than wrapping or falling back',()=>{
-  const game=fresh(),state={recipeId:data.recipes[0].id},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,images,{state})),connection=connectChampionCatalog(host,game,data,images,{state}),catalog=host.querySelector('.champion-catalog');
+test('ordered catalog endpoints and empty/single-result direct filters disable navigation without wrapping',()=>{
+  const game=fresh(),state={recipeId:data.recipes[0].id},host=fixture(championCatalogMarkup(game,data,images,{state})),connection=connectChampionCatalog(host,game,data,images,{state}),catalog=host.querySelector('.champion-catalog');
   assert.equal(catalog.querySelector('[data-catalog-order="previous"]').disabled,true);catalog.dispatch('click',catalog.querySelector('[data-catalog-order="previous"]'));assert.equal(state.recipeId,data.recipes[0].id);
   state.recipeId=data.recipes.at(-1).id;connection.refresh();assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);catalog.dispatch('click',catalog.querySelector('[data-catalog-order="next"]'));assert.equal(state.recipeId,data.recipes.at(-1).id);
-  const input=catalog.querySelector('[data-catalog-search]');state.recipeId='highking';input.value='Kingslayer';catalog.dispatch('input',input);
-  assert.equal(catalog.querySelector('[data-catalog-order="previous"]').disabled,true);assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);
-  input.value='No matching champion';catalog.dispatch('input',input);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Outside current filters/);assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);
-  input.value='king';catalog.dispatch('input',input);assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,false);catalog.dispatch('click',catalog.querySelector('[data-catalog-order="next"]'));assert.equal(state.recipeId,'crownofages');
-  assert.equal(snapshot(game),before);connection.dispose();
+  const ranger=recipe('thornwarden');for(const piece of ranger.ingredients)retained(game,piece);state.recipeId=ranger.id;state.status='available';connection.refresh();assert.equal(championCatalogModel(game,data,state).matches.length,1);assert.equal(catalog.querySelector('[data-catalog-order="previous"]').disabled,true);assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);
+  const before=snapshot(game);state.damage='magical';state.ability='critical';state.status='all';connection.refresh();assert.equal(championCatalogModel(game,data,state).matches.length,0);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Outside current filters/);assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);assert.equal(snapshot(game),before);connection.dispose();
 });
 
 test('component exploration outside filtered order returns through the index without changing filters or pin',()=>{
-  const game=fresh(),control=fresh(),state={recipeId:'highking',query:'king'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,images,{state})),connection=connectChampionCatalog(host,game,data,images,{state}),catalog=host.querySelector('.champion-catalog');
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');assert.equal(state.query,'king');
+  const game=fresh(),control=fresh(),state={recipeId:'highking',ability:'critical'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,images,{state})),connection=connectChampionCatalog(host,game,data,images,{state}),catalog=host.querySelector('.champion-catalog');
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');assert.equal(state.ability,'critical');
   assert.equal(catalog.querySelector('[data-catalog-order="previous"]').disabled,true);assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Outside current filters/);
   assert.equal(catalog.querySelector('[data-catalog-history="back"]'),null);catalog.dispatch('click',catalog.querySelector('[data-catalog-page="index"]'));assert.equal(state.recipeId,'frostblade');
   catalog.dispatch('click',catalog.querySelector('[data-catalog-recipe="highking"]'));assert.equal(state.recipeId,'highking');

@@ -1,0 +1,362 @@
+{
+  "schema": "ui-refinements-v043-browser-qa-v1",
+  "language": "English",
+  "createdAt": "2026-10-18T10:59:38.412Z",
+  "version": "0.4.3",
+  "status": "passed",
+  "scope": "Local live-browser QA reported by the release owner, with saved-image reference comparison; public deployment remains pending",
+  "evidenceSource": "Release-owner observations supplied to the reporting agent after source and screenshot freeze",
+  "console": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "scenarios": [
+    {
+      "id": "phone-recruits",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "passed",
+      "observed": "All five recruits are available without internal draft scrolling; elapsed run time remains visible.",
+      "metrics": {
+        "draft": {
+          "height": 352,
+          "scrollHeight": 352,
+          "width": 342,
+          "scrollWidth": 342
+        }
+      },
+      "screenshots": [
+        "07-phone-recruits.jpg"
+      ]
+    },
+    {
+      "id": "phone-ranks",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "passed",
+      "observed": "All six rank controls fit the Defender page without horizontal scrolling.",
+      "metrics": {
+        "rankRow": {
+          "width": 342,
+          "scrollWidth": 342,
+          "buttons": 6,
+          "buttonWidthApprox": 53
+        }
+      },
+      "screenshots": [
+        "20-phone-defender-ranks-final.jpg"
+      ]
+    },
+    {
+      "id": "short-landscape-recruits",
+      "viewport": [
+        844,
+        390
+      ],
+      "status": "passed",
+      "observed": "All five recruit portraits remain visible in the available draft height.",
+      "metrics": {
+        "draft": {
+          "height": 191,
+          "scrollHeight": 191,
+          "visiblePortraits": 5,
+          "portraitHeightApprox": 56
+        }
+      },
+      "screenshots": [
+        "08-landscape-recruits.jpg"
+      ]
+    },
+    {
+      "id": "ipad-sized-recruits",
+      "viewport": [
+        1024,
+        768
+      ],
+      "status": "passed",
+      "observed": "All five recruits fit without internal vertical or horizontal scrolling.",
+      "metrics": {
+        "draft": {
+          "height": 178,
+          "scrollHeight": 178,
+          "width": 966,
+          "scrollWidth": 966
+        }
+      },
+      "screenshots": [
+        "21-ipad-size-recruits-final.jpg"
+      ]
+    },
+    {
+      "id": "short-field-notes",
+      "viewport": [
+        1180,
+        820
+      ],
+      "status": "passed",
+      "observed": "Wave and DPS panels sit side by side; the wave summary uses its natural content height and five DPS entries are complete.",
+      "metrics": {
+        "waveSummary": {
+          "height": 413,
+          "scrollHeight": 413
+        },
+        "dps": {
+          "height": 236,
+          "fullyVisibleRows": 5
+        }
+      },
+      "screenshots": [
+        "18-tablet-field-notes-final.jpg"
+      ]
+    },
+    {
+      "id": "long-wave-note",
+      "status": "passed",
+      "observed": "The next-wave 42 summary is readable during construction with no internal scrolling.",
+      "metrics": {
+        "wave": 42,
+        "body": {
+          "height": 189,
+          "scrollHeight": 189
+        }
+      },
+      "screenshots": [
+        "19-long-wave-build-final.jpg"
+      ]
+    },
+    {
+      "id": "real-mvp-award",
+      "status": "passed",
+      "observed": "A real MVP award displayed confetti, stars and MVP +1 on its recipient.",
+      "screenshots": [
+        "14-mvp-confetti-award.jpg"
+      ]
+    },
+    {
+      "id": "direct-lady-claire-creation",
+      "status": "passed",
+      "observed": "Lady Claire was actually created by the direct guarded action without a Combination preview sheet.",
+      "screenshots": [
+        "15-direct-craft-final.jpg"
+      ]
+    },
+    {
+      "id": "pin-and-component-requirements",
+      "status": "passed",
+      "observed": "Archdruid was pinned and its Master Druid ingredient requirements were explored.",
+      "screenshots": [
+        "16-tablet-recipe-components-final.jpg"
+      ]
+    },
+    {
+      "id": "real-defeat",
+      "status": "passed",
+      "observed": "In an actual Sandbox run with an empty defender lineup and one keep life, an enemy leaked and caused defeat. The red Defeat label and destroyed-city illustration were visible; the image loaded at its natural 1672 × 941 dimensions.",
+      "metrics": {
+        "startingKeepLife": 1,
+        "defeatArtNaturalDimensions": [
+          1672,
+          941
+        ]
+      },
+      "screenshots": [
+        "17-defeat-city-final.jpg"
+      ]
+    },
+    {
+      "id": "book-and-atlas",
+      "status": "passed",
+      "observed": "The release owner completed the final desktop/tablet book and atlas checks. Saved-image comparison confirms the reference composition, readable classification/status copy and separate footers; the atlas uses actual FRONT portraits and exact variant panels.",
+      "referenceReview": "book-atlas-reference-review.json",
+      "screenshots": [
+        "09-atlas-desktop-final.jpg",
+        "10-atlas-front-44.jpg",
+        "11-atlas-tablet-final.jpg",
+        "12-recipe-book-final.jpg",
+        "22-ipad-size-book-final.jpg"
+      ]
+    },
+    {
+      "id": "final-desktop-folio",
+      "status": "passed",
+      "observed": "The final folio retains the battlefield beneath its edges and presents the recruit/action layout.",
+      "screenshots": [
+        "23-final-desktop-folio.jpg"
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "01-dynamic-draft-desktop.jpg",
+      "caption": "Desktop recruit portrait and commitment-row comparison",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "559935217f75b0fb2c31fe892dcb3ed70b3d7ed8e3d2df6f3b5ba63bcec5752f"
+    },
+    {
+      "file": "02-book-first-comparison.jpg",
+      "caption": "Initial Recipes comparison, before the recorded contrast corrections",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "54bf216e9adf14395c3cb137b6ba62170598f44bad13c0ae8f1af1eff3cf7c19"
+    },
+    {
+      "file": "03-atlas-first-comparison.jpg",
+      "caption": "Initial desktop atlas comparison, before the recorded positioning corrections",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "6a3611e0f9175def691339cccd773229430f7e8f9ab388031df3198ee5addbac"
+    },
+    {
+      "file": "04-atlas-tablet-first-comparison.jpg",
+      "caption": "Initial tablet atlas comparison",
+      "width": 1180,
+      "height": 820,
+      "sha256": "c1de8e94913790d16b27caa09e3361004645a649631f503f86502d2df31b5d2f"
+    },
+    {
+      "file": "05-tablet-portrait-recruits.jpg",
+      "caption": "Tablet portrait Recruits page",
+      "width": 820,
+      "height": 1180,
+      "sha256": "5c3b5f037f2f63f3b589ecd3d63825a4acd04a6bd6b4332d08caf666e09265e0"
+    },
+    {
+      "file": "06-tablet-portrait-defender.jpg",
+      "caption": "Tablet portrait Defender page",
+      "width": 820,
+      "height": 1180,
+      "sha256": "72321516aa4450d101ed30dd0879603f883c341883ad6650cd4520bb655bc773"
+    },
+    {
+      "file": "07-phone-recruits.jpg",
+      "caption": "Final 390 × 844 Recruits page and visible run clock",
+      "width": 390,
+      "height": 271,
+      "sha256": "3b1748446136bc32efaefb366b4fb24d74cdaee909d1a11243d4114f7827dcdc"
+    },
+    {
+      "file": "08-landscape-recruits.jpg",
+      "caption": "Final 844 × 390 Recruits page with all five portraits",
+      "width": 844,
+      "height": 390,
+      "sha256": "5dcf300ca3f1dd93c3f1f1b2390a5eedfbdacb8fcc8629427960bd22dd33d217"
+    },
+    {
+      "file": "09-atlas-desktop-final.jpg",
+      "caption": "Final centered desktop atlas and 25-column index",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "fb76ea73bd4e96499d3a61bd7e6a9b815641b0c390e3bd01e36dd85b9f6987c4"
+    },
+    {
+      "file": "10-atlas-front-44.jpg",
+      "caption": "Wave 44 FRONT portrait and exact single-form report",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "4f6670d7c581104c1654ed90b7d251721513a60693ecb4fdf65cb5ac4a1754a6"
+    },
+    {
+      "file": "11-atlas-tablet-final.jpg",
+      "caption": "Tablet atlas with native report scrolling",
+      "width": 1180,
+      "height": 820,
+      "sha256": "1a444026e5a0a1fefdd9b234e7573689efbae60ffd8d8d7f803cfe8de84d71b8"
+    },
+    {
+      "file": "12-recipe-book-final.jpg",
+      "caption": "Final desktop Recipes book",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "be866f6832bf5462d7b68acbd4e4d145ad953d3e00ea40de9f90e36b4e87c11d"
+    },
+    {
+      "file": "13-support-dps-wave-final.jpg",
+      "caption": "Current support, measured DPS and wave summary",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "e9a9e98d16a8a07872820b349b1ca6f4c8db6463631d8232aa514df7138b1f6f"
+    },
+    {
+      "file": "14-mvp-confetti-award.jpg",
+      "caption": "Actual MVP +1 award with confetti and stars",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "f08f45c13f47fedd91ad755e8d3c7d2dedae7dc1ed8b087f78ac77ed9440dac8"
+    },
+    {
+      "file": "15-direct-craft-final.jpg",
+      "caption": "Actual direct Lady Claire creation without a preview sheet",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "d8a33e4f8ad96fcf48d9d3b33689a1a17ebd6028a9b3ff5e2053c7fde94b64aa"
+    },
+    {
+      "file": "16-tablet-recipe-components-final.jpg",
+      "caption": "Pinned Archdruid and Master Druid component exploration",
+      "width": 820,
+      "height": 1180,
+      "sha256": "dcab3ef1c6a025148be3e3e16e28f086c13ff5998f94512d96cddc41d4a3dfd3"
+    },
+    {
+      "file": "17-defeat-city-final.jpg",
+      "caption": "Actual leaked-enemy defeat, red label and loaded destroyed-city art",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "061a0375a9d79a859fdd6f5cfc8b363c2ead53134fe356c22ec88edcb23f202b"
+    },
+    {
+      "file": "18-tablet-field-notes-final.jpg",
+      "caption": "Final 1180 × 820 field notes with five complete DPS entries",
+      "width": 1180,
+      "height": 820,
+      "sha256": "9ee3c202a265ad7fa90e766724d9b79346dc1a67ffc06657a65c10f9d2a813e9"
+    },
+    {
+      "file": "19-long-wave-build-final.jpg",
+      "caption": "Wave 42 natural-height summary during construction",
+      "width": 1180,
+      "height": 820,
+      "sha256": "7687a532a0291faff800ccf64eb22b2b5834b062fbed83a2f28482f369c32c34"
+    },
+    {
+      "file": "20-phone-defender-ranks-final.jpg",
+      "caption": "Phone Defender page with all six fitted rank controls",
+      "width": 390,
+      "height": 844,
+      "sha256": "25df26b80b4eb0f47f7963a21f94d8c5d7a560e21c209973ed871cc29c9a1fe5"
+    },
+    {
+      "file": "21-ipad-size-recruits-final.jpg",
+      "caption": "Final 1024 × 768 five-card recruit layout",
+      "width": 1024,
+      "height": 768,
+      "sha256": "8199c1d92817bbc04037efe366cd964af33c3d05dea3b97dbe1b1932c4fe8111"
+    },
+    {
+      "file": "22-ipad-size-book-final.jpg",
+      "caption": "Final 1024 × 768 Recipes book",
+      "width": 1024,
+      "height": 768,
+      "sha256": "db068f48e4c76475fdddac5e9e9a62e7ec4664109725e8baac4ffec888e21077"
+    },
+    {
+      "file": "23-final-desktop-folio.jpg",
+      "caption": "Final desktop folio with the battlefield beneath it",
+      "width": 1715,
+      "height": 1244,
+      "sha256": "bee1b1e0ed4481a685209c6e6915ec8d1191d9c38807a67f7e3a35ab052863af"
+    }
+  ],
+  "limits": [
+    "Physical iPad hardware and Safari were unavailable; browser viewport checks are not physical-device certification.",
+    "Complex long notes on phone can require the player to collapse a panel to preserve battlefield space.",
+    "Tablet atlas content continues in the report native vertical scroll; a single screenshot does not show every lower portrait/lore paragraph.",
+    "The book/atlas adapts the original composition while retaining approved geometric art and current exact mechanics; no second variant illustration is invented.",
+    "These are local checks. Exact-commit Pages CI, credential-free public hash checks and public browser verification remain pending."
+  ]
+}

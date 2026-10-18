@@ -4,8 +4,8 @@ import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 import {Game} from '../game/core/game.js';
 import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../game/core/campaign-roster.js';
-import {createFolioLayout,combinationPreviewMarkup} from '../ui/cartographer-folio.js';
-import {craftingDockModel,updateCraftingDock,craftRecipeFromDock,craftRecipeKey} from '../ui/crafting-dock.js';
+import {createFolioLayout} from '../ui/cartographer-folio.js';
+import {craftingDockModel,craftingDockMarkup,updateCraftingDock,craftRecipeFromDock,craftRecipeKey} from '../ui/crafting-dock.js';
 import {recipeNavigationVisit} from '../ui/recipe-navigation.js';
 import {defenderPanelMarkup} from '../ui/defender-panel.js';
 import {DefenderRankPreview} from '../ui/defender-rank-preview.js';
@@ -13,9 +13,7 @@ import {PhaseUiState,endedPhase} from '../ui/phase-ui.js';
 import {DpsMeasurement} from '../ui/dps-measurement.js';
 import {TowerDpsTracker} from '../game/core/tower-dps.js';
 import {icon} from '../ui/icons.js';
-import {towerStats} from '../game/core/math.js';
 import {recipeFamily,recipeTier} from '../game/core/recipes.js';
-import {baseAttackDps,formatTowerNumber,damageTypeName} from '../ui/grimoire.js';
 import {draftCardsMarkup} from '../ui/draft-cards.js';
 import {commandPointsMarkup} from '../ui/command-points.js';
 import {DraftCardActivation,DraftCardPointerInput,mergeTowerKey,mergeTowerFromBadge} from '../ui/draft-input.js';
@@ -56,7 +54,7 @@ function documentFixture(){
     before(node){const parent=this.parentNode;node.detach();const index=parent.children.indexOf(this);parent.children.splice(index,0,node);node.parentNode=parent;}
     after(node){const parent=this.parentNode;node.detach();const index=parent.children.indexOf(this);parent.children.splice(index+1,0,node);node.parentNode=parent;}
     replaceChildren(...nodes){for(const child of [...this.children])child.detach();this._html='';this.append(...nodes);}
-    matches(selector){if(selector.startsWith('#'))return this.id===selector.slice(1);if(selector.startsWith('.'))return this.className.split(/\s+/).includes(selector.slice(1));if(/^(?:\[[^\]]+\])+$/.test(selector))return [...selector.matchAll(/\[([^=\]]+)(?:="([^"]*)")?\]/g)].every(([,key,value])=>Object.hasOwn(this.attributes,key)&&(value===undefined||this.attributes[key]===value));return this.tagName===selector.toUpperCase();}
+    matches(selector){if(selector.startsWith('#'))return this.id===selector.slice(1);if(selector.startsWith('.'))return this.className.split(/\s+/).includes(selector.slice(1));if(/^(?:\[[^\]]+\])+$/.test(selector))return [...selector.matchAll(/\[([^=\]]+)(?:=(?:"([^"]*)"|([^\]]+)))?\]/g)].every(([,key,quoted,plain])=>Object.hasOwn(this.attributes,key)&&((quoted??plain)===undefined||this.attributes[key]===(quoted??plain)));return this.tagName===selector.toUpperCase();}
     querySelectorAll(selector){return this.children.flatMap(child=>[...(child.matches(selector)?[child]:[]),...child.querySelectorAll(selector)]);}
     querySelector(selector){return this.querySelectorAll(selector)[0]||null;}
     closest(selector){return this.matches(selector)?this:this.parentNode?.closest(selector)||null;}
@@ -70,7 +68,7 @@ function documentFixture(){
   document.getElementById=id=>app.id===id?app:app.querySelector('#'+id);document.createComment=text=>new Element('#comment',{'data-comment':text});
   const add=(id,parent=app,tag='div')=>{const node=new Element(tag,{id});parent.append(node);return node;};
   const sidebar=add('sidebar'),body=add('side-body',sidebar),browser=add('recipe-browser',sidebar);add('side-top',sidebar);add('inspector-tabs',sidebar);
-  const folio=add('preparation-folio');for(const id of ['folio-inspection','folio-actions','folio-plan','folio-preview'])add(id,folio);add('folio-recipes',document.getElementById('folio-plan'));
+  const folio=add('preparation-folio');folio.innerHTML=main.match(/<nav class="folio-page-tabs"[^\n]+?<\/nav>/)[0];app.dataset.folioPage='draft';for(const id of ['draft-history','folio-inspection','folio-actions','folio-plan','folio-preview'])add(id,folio);add('folio-recipes',document.getElementById('folio-plan'));
   const layout=createFolioLayout(document);return {document,app,body,browser,sidebar,folio,layout,get:document.getElementById,Element};
 }
 
@@ -84,6 +82,47 @@ function mainFixture(game,{subscriber=false}={}){
   else game.on(type=>{if(type==='change')context.render();});
   context.render();return {...dom,...methods,game,rankPreview,phaseUi,context,render:context.render};
 }
+
+function productionTabCommands(view){
+  Object.assign(view.context,{audio:{unlock:noop},draftCardActivation:{clear:noop},debug:false,codex:noop,warbands:noop,help:noop,sendWave:noop,closeDialog:noop,debugPanel:noop});
+  Object.assign(view.context.world,{maze:{editing:false},doubleTap:{clear:noop}});
+  const handle=runInNewContext(declaration('handleCommand')+'\nhandleCommand',view.context);
+  return page=>{const button=view.app.querySelectorAll('[data-action="folio-tab"]').find(button=>button.dataset.page===page);assert.ok(button,page);handle({target:button});return button;};
+}
+
+test('production responsive folio tabs switch the shared panes without changing real selection, rank, action nodes or RNG',()=>{
+  const game=recipeGame(),control=recipeGame(),view=mainFixture(game),activate=productionTabCommands(view),tower=game.selection;
+  view.rankPreview.select(tower,4,data);view.render();const before=snapshot(game),keep=view.get('folio-actions').querySelector('[data-action="keep-draw"]'),tabs=view.app.querySelectorAll('[data-action="folio-tab"]');
+  assert.deepEqual(tabs.map(tab=>tab.dataset.page),['draft','defender','recipes']);
+  for(const [page,pane]of [['draft','draft-history'],['defender','folio-inspection'],['recipes','folio-plan']])assert.equal(tabs.find(tab=>tab.dataset.page===page).attributes['aria-controls'],pane);
+  for(const page of ['defender','recipes','draft','recipes']){
+    const tab=tabs.find(tab=>tab.dataset.page===page);tab.focus();activate(page);
+    assert.equal(view.app.dataset.folioPage,page);assert.equal(tab.disabled,false);assert.equal(view.document.activeElement,tab);assert.equal(tabs.filter(tab=>tab.attributes['aria-pressed']==='true').length,1);assert.equal(tab.attributes['aria-pressed'],'true');
+    assert.equal(view.get('side-body').parentNode,view.get('folio-inspection'));assert.equal(view.get('folio-actions').querySelector('[data-action="keep-draw"]'),keep);assert.equal(game.selection,tower);assert.equal(view.rankPreview.view(tower,data).tier,4);assert.equal(snapshot(game),before);
+  }
+  assert.equal(game.rng(),control.rng());
+});
+
+test('production folio falls back to Recruits when selection disappears or a new draft leaves the selected page unavailable',()=>{
+  for(const transition of ['selection-cleared','next-draft']){
+    const game=recipeGame(),control=recipeGame(),view=mainFixture(game),activate=productionTabCommands(view);activate('defender');assert.equal(view.app.dataset.folioPage,'defender');
+    if(transition==='selection-cleared')game.select(null);
+    else for(const current of [game,control]){assert.equal(current.keep(),true);assert.equal(current.startCombat(),true);current.completeWave();assert.equal(current.phase,'build');assert.equal(current.selection,null);}
+    view.render();const tabs=view.app.querySelectorAll('[data-action="folio-tab"]'),draft=tabs.find(tab=>tab.dataset.page==='draft');
+    assert.equal(view.app.dataset.folioPage,'draft');assert.equal(draft.attributes['aria-pressed'],'true');assert.equal(draft.disabled,false);assert.equal(tabs.filter(tab=>tab.attributes['aria-pressed']==='true').length,1);
+    for(const page of ['defender','recipes']){const tab=tabs.find(tab=>tab.dataset.page===page);assert.equal(tab.disabled,true);assert.equal(tab.attributes['aria-pressed'],'false');activate(page);assert.equal(view.app.dataset.folioPage,'draft');}
+    assert.equal(game.rng(),control.rng());
+  }
+});
+
+test('production Recipes availability follows real plan content for walls, pins, unpinning and cleared inspection context',()=>{
+  const game=recipeGame();assert.equal(game.keep(),true);assert.equal(game.startCombat(),true);game.completeWave();const wall=game.towers.find(tower=>tower.state==='ruin');game.select(wall.id);
+  const view=mainFixture(game),activate=productionTabCommands(view),tabs=view.app.querySelectorAll('[data-action="folio-tab"]'),recipes=tabs.find(tab=>tab.dataset.page==='recipes');
+  assert.equal(view.get('folio-plan').hidden,true);assert.equal(recipes.disabled,true,'A castle wall cannot enable an empty Recipes pane.');activate('recipes');assert.equal(view.app.dataset.folioPage,'draft');activate('defender');assert.equal(view.app.dataset.folioPage,'defender','Wall inspection still has real content.');
+  game.select(null);game.pinned=ranger.id;view.render();assert.equal(recipes.disabled,false);activate('recipes');assert.equal(view.app.dataset.folioPage,'recipes');assert.equal(view.get('folio-plan').hidden,false);
+  view.openRecipePreview(ranger.id);game.pinned=null;view.render();assert.equal(recipes.disabled,false);assert.equal(view.app.dataset.folioPage,'recipes','Unpinning keeps an explicitly inspected recipe readable.');
+  view.context.recipeFocus=null;view.render();assert.equal(recipes.disabled,true);assert.equal(view.app.dataset.folioPage,'draft');assert.equal(recipes.attributes['aria-pressed'],'false');assert.equal(tabs.find(tab=>tab.dataset.page==='draft').attributes['aria-pressed'],'true');
+});
 
 test('repeated sync moves the same action/recipe nodes once and restores them to inspector across actual phases',()=>{
   const game=place(new Game(data,{seed:904}),Array.from({length:5},()=>({family:'archer',tier:2}))),view=documentFixture();view.body.innerHTML=defenderPanelMarkup(game,game.selection);
@@ -115,38 +154,39 @@ test('restore plus actual rerender never leaves old or duplicate commands connec
   view.phaseUi.open('unit');view.render();assert.equal(view.browser.hidden,true);assert.equal(view.browser.parentNode,view.sidebar);assert.equal(view.get('folio-recipes').hidden,false);
 });
 
-for(const kind of ['draft','mixed','retained'])test(`exact ${kind} preview is read-only, uses the chosen physical foundation and retains guarded confirmation`,()=>{
+for(const kind of ['draft','mixed','retained'])test(`exact ${kind} recipe details are read-only and the direct Create action preserves physical foundation guards`,()=>{
   const game=recipeGame(kind),control=recipeGame(kind),before=snapshot(game),context=craftingDockModel(game,{recipeId:ranger.id,anchorId:game.selected}).context;assert.ok(context);
-  const html=combinationPreviewMarkup(game,{},ranger.id);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());assert.match(html,new RegExp(`Result at \\(${context.anchor.x+1}, ${context.anchor.z+1}\\)`));
-  for(const tower of context.pieces)assert.match(html,new RegExp(`Foundation \\(${tower.x+1}, ${tower.z+1}\\)`));assert.equal(context.pieces.length,3);assert.equal(context.consumed.length,2);assert.equal(context.discarded.length,kind==='retained'?0:kind==='mixed'?3:2);
-  assert.match(html,/data-action="craft-cancel"/);const tag=html.match(/<button[^>]*data-action="craft-dock"[^>]*>/)[0];assert.match(tag,new RegExp(`data-tower-id="${context.anchor.id}"`));assert.ok(tag.includes(`data-craft-key="${context.key}"`));
-  if(kind==='retained'){assert.match(html,/The current draft stays available/);assert.equal(game.draft.draws.filter(draw=>!draw.placed).length,5);}
-  else assert.match(html,/Unchosen recruits → castle walls/);
+  const html=craftingDockMarkup(game,{}, {recipeId:ranger.id});assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());assert.match(html,/Exact combination outcome/);
+  assert.equal(context.pieces.length,3);assert.equal(context.consumed.length,2);assert.equal(context.discarded.length,kind==='retained'?0:kind==='mixed'?3:2);
+  assert.doesNotMatch(html,/combination-preview|craft-cancel|Combination preview/);const tag=html.match(/<button[^>]*data-action="craft-dock"[^>]*>/)[0];assert.match(tag,new RegExp(`data-tower-id="${context.anchor.id}"`));assert.ok(tag.includes(`data-craft-key="${context.key}"`));
+  if(kind==='retained'){assert.match(html,/This combination preserves the current draft/);assert.equal(game.draft.draws.filter(draw=>!draw.placed).length,5);}
+  else assert.match(html,/Unchosen current recruits → walls/);
   const anchor=context.anchor,key=context.key;assert.equal(craftRecipeFromDock(game,ranger.id,anchor.id,key),true);assert.equal(anchor.family,ranger.id);assert.equal(craftRecipeFromDock(game,ranger.id,anchor.id,key),false);
 });
 
-test('retained Build preview never reads five hidden identities or falls back to rank-I art for an unavailable higher-rank picture',()=>{
+test('retained Build recipe inspection never reads hidden identities or falls back to rank-I art for an unavailable higher-rank picture',()=>{
   const game=recipeGame('retained');for(const draw of game.draft.draws)for(const key of ['family','tier'])Object.defineProperty(draw,key,{get(){throw Error('Latent identity read');},configurable:true});
-  assert.match(combinationPreviewMarkup(game,{},ranger.id),/The current draft stays available/);
+  assert.match(craftingDockMarkup(game,{}, {recipeId:ranger.id}),/This combination preserves the current draft/);
   const recipe=data.recipes.find(recipe=>recipe.ingredients.some(piece=>!data.towers[piece.family].advanced&&piece.tier>1)),other=new Game(data,{seed:904});recipe.ingredients.forEach((piece,index)=>retained(other,piece,index));other.select(other.towers[0].id);
-  const high=recipe.ingredients.find(piece=>!data.towers[piece.family].advanced&&piece.tier>1),html=combinationPreviewMarkup(other,{[high.family]:'/rank-I-fallback-forbidden.png'},recipe.id);assert.ok(html);assert.doesNotMatch(html,/rank-I-fallback-forbidden|src="(?:undefined|null|)"/);
+  const high=recipe.ingredients.find(piece=>!data.towers[piece.family].advanced&&piece.tier>1),html=craftingDockMarkup(other,{[high.family]:'/rank-I-fallback-forbidden.png'}, {recipeId:recipe.id});assert.ok(html);assert.doesNotMatch(html,/rank-I-fallback-forbidden|src="(?:undefined|null|)"/);
 });
 
-test('an invalidated exact context cannot leave an empty preview that hides normal folio columns',()=>{
-  const game=recipeGame(),view=documentFixture();view.body.innerHTML=defenderPanelMarkup(game,game.selection);assert.equal(game.previewRecipe(ranger.id),true);view.layout.sync(game,{preview:true});assert.equal(view.folio.dataset.preview,'true');assert.match(view.get('folio-preview').innerHTML,/Combine Elven Ranger/);
-  game.towers.find(tower=>tower.family===ranger.ingredients[1].family).tier=6;assert.equal(combinationPreviewMarkup(game), '');const before=snapshot(game);view.layout.sync(game,{preview:true});assert.equal(view.folio.dataset.preview,'false');assert.equal(view.get('folio-preview').hidden,true);assert.equal(view.app.dataset.combinationPreview,'false');assert.equal(view.get('folio-preview').innerHTML,'');assert.equal(snapshot(game),before);
+test('retired preview state cannot replace or hide the normal preparation folio',()=>{
+  const game=recipeGame(),view=documentFixture();view.body.innerHTML=defenderPanelMarkup(game,game.selection);assert.equal(game.previewRecipe(ranger.id),true);view.get('folio-preview').innerHTML='<p>Stale preview receipt</p>';
+  const before=snapshot(game);view.layout.sync(game,{preview:true});assert.equal(view.folio.hidden,false);assert.equal(view.folio.dataset.preview,'false');assert.equal(view.get('folio-preview').hidden,true);assert.equal(view.get('folio-preview').innerHTML,'');assert.equal(view.app.dataset.combinationPreview,'false');assert.ok(view.get('folio-actions').querySelector('[data-action="keep-draw"]'));assert.equal(snapshot(game),before);
+  game.phase='ready';view.layout.sync(game,{preview:true});assert.equal(view.folio.hidden,true,'Ready cannot reopen a replacement combination sheet.');
 });
 
-test('production preview/cancel restores compared rank and actual selection without changing inventory, draw, pin, resources or RNG',()=>{
+test('production recipe inspection preserves compared rank and physical selection without a replacement preview step',()=>{
   const view=mainFixture(recipeGame()),control=recipeGame(),tower=view.game.selection;view.rankPreview.select(tower,4,data);view.context.folioRecipeId=ranger.id;view.render();const before=snapshot(view.game),identity=view.rankPreview.identity;
-  view.openRecipePreview(ranger.id);assert.equal(view.game.previewRecipeId,ranger.id);assert.equal(view.folio.dataset.preview,'true');assert.match(view.get('folio-preview').innerHTML,/Exact ingredients/);assert.equal(snapshot(view.game),before);
-  view.rankPreview.tier=6;view.cancelRecipePreview();assert.equal(view.game.previewRecipeId,null);assert.equal(view.rankPreview.identity,identity);assert.equal(view.rankPreview.tier,4);assert.equal(view.context.folioRecipeId,ranger.id);assert.equal(view.phaseUi.view,'unit');assert.equal(view.folio.dataset.preview,'false');assert.equal(snapshot(view.game),before);assert.equal(view.game.rng(),control.rng());
+  view.openRecipePreview(ranger.id);assert.equal(view.game.previewRecipeId,null);assert.equal(view.folio.dataset.preview,'false');assert.equal(view.get('folio-preview').innerHTML,'');assert.match(view.browser.innerHTML,/Exact recipe ingredients/);assert.equal(snapshot(view.game),before);assert.equal(view.rankPreview.view(tower,data).tier,4);
+  view.cancelRecipePreview();assert.equal(view.game.previewRecipeId,null);assert.equal(view.rankPreview.identity,identity);assert.equal(view.rankPreview.tier,4);assert.equal(view.context.folioRecipeId,ranger.id);assert.equal(view.phaseUi.view,'unit');assert.equal(view.folio.dataset.preview,'false');assert.equal(snapshot(view.game),before);assert.equal(view.game.rng(),control.rng());
 });
 
-test('actual Ready retained recipe preview opens a temporary folio and Cancel restores hidden preparation with the same foundation',()=>{
+test('actual Ready retained recipe inspection keeps preparation hidden and preserves the same direct-creation foundation',()=>{
   const ready=()=>{const game=recipeGame('retained'),anchor=game.selection;place(game,Array.from({length:5},()=>({family:'soldier',tier:2})));assert.equal(game.keep(),true);game.select(anchor.id);assert.equal(game.phase,'ready');assert.ok(game.availableRecipes().some(recipe=>recipe.id===ranger.id));return game;};
   const game=ready(),control=ready(),view=mainFixture(game),anchor=game.selection,before=snapshot(game),position=[anchor.x,anchor.z];assert.equal(view.folio.hidden,true);assert.equal(view.body.parentNode,view.sidebar);assert.equal(game.draft.resolved,true);
-  view.openRecipePreview(ranger.id);assert.equal(game.phase,'ready');assert.equal(view.folio.hidden,false);assert.equal(view.folio.dataset.preview,'true');assert.equal(view.app.dataset.combinationPreview,'true');assert.equal(view.app.dataset.folioInspector,'false');assert.equal(view.body.parentNode,view.sidebar);assert.match(view.get('folio-preview').innerHTML,/Combine Elven Ranger/);assert.equal(snapshot(game),before);
+  view.openRecipePreview(ranger.id);assert.equal(game.phase,'ready');assert.equal(view.folio.hidden,true);assert.equal(view.folio.dataset.preview,'false');assert.equal(view.app.dataset.combinationPreview,'false');assert.equal(view.app.dataset.folioInspector,'false');assert.equal(view.body.parentNode,view.sidebar);assert.equal(view.get('folio-preview').innerHTML,'');assert.match(view.browser.innerHTML,/Exact recipe ingredients/);assert.equal(snapshot(game),before);
   view.cancelRecipePreview();assert.equal(view.folio.hidden,true);assert.equal(view.folio.dataset.preview,'false');assert.equal(view.app.dataset.combinationPreview,'false');assert.equal(view.get('folio-preview').hidden,true);assert.equal(view.get('folio-preview').innerHTML,'');assert.equal(view.body.parentNode,view.sidebar);assert.equal(game.selection,anchor);assert.deepEqual([anchor.x,anchor.z],position);assert.equal(game.previewRecipeId,null);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
 });
 
@@ -154,8 +194,8 @@ test('actual main combine subscriber replaces recipe receipts with the new defen
   for(const action of ['craft','merge']){
     const game=action==='craft'?recipeGame('retained'):new Game(data,{seed:904});if(action==='merge'){retained(game,{family:'archer',tier:5},0);retained(game,{family:'archer',tier:5},1);}
     const anchor=game.towers[0],position=[anchor.x,anchor.z],id=anchor.id;place(game,Array.from({length:5},()=>({family:'soldier',tier:2})));assert.equal(game.keep(),true);game.select(id);game.pinned=data.recipes.find(recipe=>recipe.id!==ranger.id).id;
-    const view=mainFixture(game,{subscriber:true}),pin=game.pinned;view.rankPreview.select(anchor,6,data);view.openRecipePreview(ranger.id);assert.equal(view.context.recipeFocus,ranger.id);assert.ok(view.context.previewPrevious);
-    if(action==='craft'){assert.equal(game.previewRecipeId,ranger.id);assert.equal(craftRecipeFromDock(game,ranger.id,id,craftRecipeKey(game,ranger.id,id)),true);}
+    const view=mainFixture(game,{subscriber:true}),pin=game.pinned;view.rankPreview.select(anchor,6,data);view.openRecipePreview(ranger.id);assert.equal(view.context.recipeFocus,ranger.id);assert.equal(game.previewRecipeId,null);
+    if(action==='craft'){assert.equal(craftRecipeFromDock(game,ranger.id,id,craftRecipeKey(game,ranger.id,id)),true);}
     else assert.equal(mergeTowerFromBadge(game,id,mergeTowerKey(game,id)),true);
     assert.equal(game.phase,'ready');assert.equal(game.selection,anchor);assert.equal(anchor.id,id);assert.deepEqual([anchor.x,anchor.z],position);assert.equal(game.pinned,pin);assert.equal(view.context.recipeFocus,null);assert.equal(view.context.previewPrevious,null);assert.equal(game.previewRecipeId,null);assert.equal(view.phaseUi.inspectorOpen,false,'A completed combination leaves the battlefield clear.');assert.equal(view.folio.hidden,true);assert.equal(view.get('folio-preview').innerHTML,'');assert.ok(view.body.innerHTML.includes(`<h2 class="tower-name">${data.towers[anchor.family].name}</h2>`));
     if(action==='craft'){assert.equal(anchor.family,ranger.id);assert.equal(anchor.tier,1);}else{assert.equal(anchor.family,'archer');assert.equal(anchor.tier,6);}
@@ -163,17 +203,17 @@ test('actual main combine subscriber replaces recipe receipts with the new defen
   }
 });
 
-test('all current combination results expose exactly four canonical base metrics and damage metadata without altering actual ingredients',()=>{
+test('all current recipes create directly from exact real allocations and reject the completed action without an intermediate preview',()=>{
   const original=JSON.stringify(data);assert.equal(data.recipes.length,38);
   for(const recipe of data.recipes){
-    const game=new Game(data,{seed:904});game.economy.xp=100000;place(game,[...recipe.ingredients,{family:'soldier',tier:2},{family:'mage',tier:2}]);game.selection.mvpLevel=10;const before=snapshot(game),stats=towerStats({family:recipeFamily(recipe),tier:recipeTier(recipe)},data),html=combinationPreviewMarkup(game,{},recipe.id),result=html.match(/<section class="combination-result">([\s\S]*?)<\/section>/)?.[1];assert.ok(result,recipe.id);
-    const metrics=[...result.matchAll(/<div><span>([^<]+)<\/span><strong>([^<]+)<\/strong><\/div>/g)].map(match=>[match[1],match[2]]);assert.deepEqual(metrics,[['Damage / hit',formatTowerNumber(stats.damage)],['Base direct DPS',formatTowerNumber(baseAttackDps(stats))],['Range',formatTowerNumber(stats.range)],['Interval',formatTowerNumber(stats.interval)+'s']],recipe.id);assert.ok(result.includes(`<span class="damage-tag">${damageTypeName(stats.type)}</span>`));assert.equal((result.match(/class="stat-grid"/g)||[]).length,1);assert.equal(snapshot(game),before,recipe.id+' result markup cannot change the MVP-10 actual ingredient');
+    const game=new Game(data,{seed:904});game.economy.xp=100000;place(game,[...recipe.ingredients,{family:'soldier',tier:2},{family:'mage',tier:2}]);game.selection.mvpLevel=10;const before=snapshot(game),anchor=game.selection,position=[anchor.x,anchor.z],html=actualAvailableRecipeActionsMarkup(game),tag=html.match(new RegExp(`<button[^>]*data-id="${recipe.id}"[^>]*>`))?.[0];assert.ok(tag,recipe.id);
+    assert.equal(snapshot(game),before);assert.equal(game.previewRecipeId,null);assert.doesNotMatch(html,/combination-preview|craft-preview|craft-cancel/);const key=tag.match(/data-craft-key="([^"]+)"/)[1];assert.equal(craftRecipeFromDock(game,recipe.id,anchor.id,key),true);assert.equal(anchor.family,recipeFamily(recipe));assert.equal(anchor.tier,recipeTier(recipe));assert.deepEqual([anchor.x,anchor.z],position);assert.equal(anchor.mvpLevel,10);assert.equal(craftRecipeFromDock(game,recipe.id,anchor.id,key),false);
   }
   assert.equal(JSON.stringify(data),original);
 });
 
-test('production unavailable inspection after a legal preview clears the old combination and shows only the explicitly requested recipe',()=>{
-  const view=mainFixture(recipeGame()),before=snapshot(view.game);view.openRecipePreview(ranger.id);assert.equal(view.folio.dataset.preview,'true');const unavailable=data.recipes.find(recipe=>!view.game.availableRecipes().some(actual=>actual.id===recipe.id));view.openRecipePreview(unavailable.id);
+test('production inspection shows only the explicitly requested recipe without opening any combination preview',()=>{
+  const view=mainFixture(recipeGame()),before=snapshot(view.game);view.openRecipePreview(ranger.id);assert.equal(view.folio.dataset.preview,'false');assert.equal(view.game.previewRecipeId,null);const unavailable=data.recipes.find(recipe=>!view.game.availableRecipes().some(actual=>actual.id===recipe.id));view.openRecipePreview(unavailable.id);
   assert.equal(view.game.previewRecipeId,null);assert.equal(view.context.recipeFocus,unavailable.id);assert.equal(view.folio.dataset.preview,'false');assert.equal(view.browser.hidden,false);assert.equal(view.browser.parentNode,view.get('folio-plan'));assert.equal(view.get('folio-preview').innerHTML,'');assert.equal(craftingDockModel(view.game,{recipeId:view.context.recipeFocus}).context,null);assert.equal(snapshot(view.game),before);
 });
 
@@ -196,7 +236,7 @@ test('actual draft renderer removes Ready/Combat history controls and production
   const from=main.indexOf('function activateDraw('),to=main.indexOf("app.addEventListener('pointerdown'",from);assert.ok(from>=0&&to>from);const activateSource=main.slice(from,to);
   for(const phase of ['build','select','ready','combat']){
     const game=create(phase),control=create(phase),dom=documentFixture();for(const id of ['draft','compact-draft-actions','folio-command-actions','folio-create-actions','dialog'])dom.app.append(new dom.Element(id==='dialog'?'dialog':'div',{id}));
-    const world={keys:new Set(),maze:{editing:false},sync:noop},audio={unlock:noop},callbacks=new Map(),context={game,data,images:{},world,audio,$:dom.get,document:dom.document,window:{addEventListener:(type,callback)=>callbacks.set(type,callback)},phaseUi:new PhaseUiState(),rankPreview:new DefenderRankPreview(),mode:50,intelligenceKey:null,draftCardsMarkup,commandPointsMarkup,actualAvailableRecipeActionsMarkup,icon,render:noop,draftCardActivation:new DraftCardActivation()};
+    const world={keys:new Set(),maze:{editing:false},sync:noop},audio={unlock:noop},callbacks=new Map(),context={game,data,app:dom.app,images:{},world,audio,$:dom.get,document:dom.document,window:{addEventListener:(type,callback)=>callbacks.set(type,callback)},phaseUi:new PhaseUiState(),rankPreview:new DefenderRankPreview(),mode:50,intelligenceKey:null,draftCardsMarkup,commandPointsMarkup,actualAvailableRecipeActionsMarkup,icon,render:noop,draftCardActivation:new DraftCardActivation()};
     const methods=runInNewContext(declaration('renderDraft')+'\n'+activateSource+'\n'+keyboard+'\n({renderDraft,activateDraw})',context),input=new DraftCardPointerInput({activate:(index,event)=>methods.activateDraw(index,event)});let queries=0;
     dom.document.querySelector=selector=>{queries++;const index=selector.match(/data-index="(\d+)"/)?.[1],card=dom.get('draft').querySelectorAll('[data-action="draw"]').find(card=>card.dataset.index===index);if(card)card.click=()=>input.click(game,{target:card,detail:0});return card;};
     const before=snapshot(game);methods.renderDraft();assert.equal(snapshot(game),before,'Rendering '+phase+' cannot mutate Game');
@@ -210,12 +250,14 @@ test('actual draft renderer removes Ready/Combat history controls and production
   }
 });
 
-test('production map actions expose Maze plans before placing recruits while Start remains exclusive to Ready',()=>{
+test('production map tools keep Suggested maze separate from the Start action, which remains exclusive to Ready',()=>{
+  const commandDock=main.match(/<div class="command-dock"[^\n]+/)[0],mapTools=main.match(/<details class="map-tools"[^\n]+/)[0];
+  assert.doesNotMatch(commandDock,/data-action="maze"|Maze plans/);assert.match(mapTools,/data-action="maze"[^>]+aria-label="Suggested maze"/);
   for(const phase of ['build','select','ready','combat']){
     const game=new Game(data,{seed:906});if(phase!=='build')place(game,Array.from({length:5},()=>({family:'archer',tier:2})));if(['ready','combat'].includes(phase))assert.equal(game.keep(),true);if(phase==='combat')assert.equal(game.startCombat(),true);
     const dom=documentFixture(),map=new dom.Element('div',{id:'map-start'}),start=new dom.Element('button',{id:'start-wave'});dom.app.append(map);map.append(start);
     const render=runInNewContext(declaration('renderMapAction')+'\nrenderMapAction',{game,$:dom.get,icon}),before=snapshot(game);render();
-    assert.equal(map.hidden,phase==='combat',`Maze plans remain reachable during ${phase}.`);assert.equal(start.hidden,phase!=='ready');assert.equal(snapshot(game),before);
+    assert.equal(map.hidden,phase!=='ready',`The Start container is exclusive to Ready during ${phase}.`);assert.equal(start.hidden,phase!=='ready');assert.equal(snapshot(game),before);
   }
 });
 

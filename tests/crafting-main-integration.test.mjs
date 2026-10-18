@@ -111,9 +111,9 @@ test('production browser captures dock and chain choices before replacing them d
   game.phase='select';browser.renderRecipeBrowser();assert.equal(browser.host.querySelector('.crafting-dock-disclosure').open,false);assert.equal(browser.host.querySelector('.crafting-chain').open,true);
 });
 
-test('production available preview updates the exact recipe without commitment and an unavailable inspected recipe stays explicit',()=>{
-  const game=actualGame(),control=actualGame(),browser=productionBrowser(game),before=snapshot(game);browser.openRecipePreview(recipe.id);
-  assert.equal(game.previewRecipeId,recipe.id);assert.equal(browser.getFocus(),recipe.id);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
+test('production inspection shows the exact recipe without an intermediate preview and keeps an unavailable recipe explicit',()=>{
+  const game=actualGame(),control=actualGame(),browser=productionBrowser(game),before=snapshot(game);game.previewRecipe=()=>{throw Error('The retired preview step cannot be called.');};browser.openRecipePreview(recipe.id);
+  assert.equal(game.previewRecipeId,null);assert.equal(browser.getFocus(),recipe.id);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
   const unavailable=data.recipes.find(r=>r.id!==recipe.id&&!game.availableRecipes().some(available=>available.id===r.id));browser.openRecipePreview(unavailable.id);
   assert.equal(browser.getFocus(),unavailable.id);assert.equal(snapshot(game),before);assert.equal(craftingDockModel(game,{recipeId:browser.getFocus()}).context,null);assert.doesNotMatch(browser.host.querySelector('.crafting-dock-actions').innerHTML,/data-action="craft-dock"/);
 });

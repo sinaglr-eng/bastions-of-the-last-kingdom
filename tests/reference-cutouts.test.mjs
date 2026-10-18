@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {inflateSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
-import {REFERENCE_PORTRAIT_REVISION,referencePortrait} from '../ui/reference-portraits.js';
+import {REFERENCE_PORTRAIT_REVISION,ENEMY_FRONT_PORTRAIT_REVISION,referencePortrait} from '../ui/reference-portraits.js';
 
 const bytes=path=>readFileSync(new URL(`../${path}`,import.meta.url));
 const json=path=>JSON.parse(bytes(path).toString('utf8'));
@@ -27,7 +27,7 @@ test('Bernhard uses the approved crimson reference with exact source RGB and rea
     else if(output.pixels[at]>60&&output.pixels[at]>2*output.pixels[at+1]&&output.pixels[at]>1.7*output.pixels[at+2])crimson++;
   }
   assert.ok(transparent>output.width*output.height*.2);assert.ok(crimson>4000);
-  assert.match(referencePortrait('host_50'),/host_50-crimson\.png/);
+  assert.match(referencePortrait('host_50'),/reference-enemy-fronts\/host_50\.png/);
 });
 
 // Independent decoder for the delivered non-interlaced, eight-bit RGB/RGBA
@@ -59,7 +59,7 @@ function decodePng(buffer){
   return {width,height,channels,pixels};
 }
 
-test('every runtime portrait is a transparent derivative of the same exact original identity',()=>{
+test('all 136 historical cutouts remain exact transparent derivatives while runtime enemies use separate front portraits',()=>{
   assert.equal(manifest.identities.length,136);assert.equal(manifest.revision,REFERENCE_PORTRAIT_REVISION);
   assert.equal(json('public/release.json').uiPortraitRevision,manifest.revision);
   assert.equal(manifest.maskSha256,hash(bytes('tools/reference-cutout-masks.json')));
@@ -69,7 +69,7 @@ test('every runtime portrait is a transparent derivative of the same exact origi
     const before=sourceById.get(row.id),sourceBytes=bytes(row.sourceCrop),outputBytes=bytes(row.output);
     assert.equal(hash(sourceBytes),before.sha256,row.id);assert.equal(hash(outputBytes),row.sha256,row.id);
     assert.equal(row.sourceCropSha256,before.sha256);assert.equal(row.originalSourceSha256,before.sourceSha256);
-    assert.equal(referencePortrait(row.id,{base:'/project/'}),`/project/assets/ui/reference-cutouts/${row.id==='host_50'?'host_50-crimson':row.id}.png?v=${REFERENCE_PORTRAIT_REVISION}`);
+    const enemy=row.category==='enemies';assert.equal(referencePortrait(row.id,{base:'/project/'}),`/project/assets/ui/${enemy?'reference-enemy-fronts':'reference-cutouts'}/${row.id}.png?v=${enemy?ENEMY_FRONT_PORTRAIT_REVISION:REFERENCE_PORTRAIT_REVISION}`);
     const source=decodePng(sourceBytes),output=decodePng(outputBytes);
     assert.equal(output.channels,4,row.id);assert.deepEqual([output.width,output.height],row.dimensions);
     const [left,top,right,bottom]=row.sourceCropBounds;

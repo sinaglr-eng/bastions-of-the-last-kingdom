@@ -4,6 +4,7 @@ import {siteUrl} from '../game/site-url.js';
 // Original crops remain immutable; model, scenery and audio revisions are separate.
 export const ORIGINAL_REFERENCE_PORTRAIT_REVISION='original-reference-20261016-v1';
 export const REFERENCE_PORTRAIT_REVISION='reference-cutouts-20261016-v1';
+export const ENEMY_FRONT_PORTRAIT_REVISION='enemy-front-cutouts-20261018-v1';
 const basicFamilies=['soldier','archer','mage','frostwarden','stormcaller','cleric','druid','runebreaker'];
 const championFamilies=['rimewatch','frostblade','roseguard','highking','crownofages','thornwarden','verdantguard','tempest','stormcitadel','embercrown','worldfire','starfall','thunderheart','phoenix','greenheart','eldergrove','kingsreach','sunward','winterhold','dawnspire','royalmarshal','stonewarden','wyvernhunter','royalarsenal','rangermentor','kingdomprotector','mothernature','royalranger','kingsrangerguard','elvenking','fireballista','emeraldgolem','griffinbomber','mechanicalgolem','monk','archbishop','archangel','ladyclaire'];
 const basics=new Set(basicFamilies),champions=new Set(championFamilies);
@@ -13,9 +14,10 @@ const identities=new Set([...basicFamilies.flatMap(family=>Array.from({length:6}
 
 // Pure URL lookup: constructing this catalogue never creates an Image, fetch,
 // preload or hidden-draft identity request. Unknown inputs have no fallback.
-export function referencePortrait(id,{base,revision=REFERENCE_PORTRAIT_REVISION}={}){
+export function referencePortrait(id,{base,revision}={}){
   if(!identities.has(id))return null;
-  return `${siteUrl(`assets/ui/reference-cutouts/${id==='host_50'?'host_50-crimson':id}.png`,base)}?v=${encodeURIComponent(revision)}`;
+  const enemy=enemies.has(id),folder=enemy?'reference-enemy-fronts':'reference-cutouts';
+  return `${siteUrl(`assets/ui/${folder}/${id}.png`,base)}?v=${encodeURIComponent(revision??(enemy?ENEMY_FRONT_PORTRAIT_REVISION:REFERENCE_PORTRAIT_REVISION))}`;
 }
 
 export function referenceDefenderPortrait(family,tier=1,options){
