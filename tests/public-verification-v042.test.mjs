@@ -39,9 +39,14 @@ test('release metadata mismatch stops verification before any bulk assets or com
   assert.equal(report.status,'failed');assert.equal(requests.length,1);assert.equal(report.portraits.checked,0);assert.ok(report.failures.some(row=>row.error.includes('Expected version=0.4.2')));
 });
 
-test('Git LF/CRLF checkout differences preserve the same immutable manifest record and production HTML',async()=>{
-  const {fetchImpl}=fixture({'index.html':Buffer.from(indexHtml.toString('utf8').replaceAll('\n','\r\n')),'assets/ui/reference-cutouts/manifest.json':Buffer.from(JSON.stringify(manifest,null,2)+'\n')}),report=await verify({fetchImpl});
-  assert.equal(report.status,'passed');assert.equal(report.localBuildComparison.index,true);assert.equal(report.portraits.passed,136);
+test('LF, CRLF and Vite CRCRLF boundaries preserve the same immutable manifest and HTML while other differences remain rejected',async()=>{
+  for(const ending of ['\r\n','\r\r\n'])for(const changedSide of ['public','local']){
+    const changed=Buffer.from(indexHtml.toString('utf8').replaceAll('\n',ending));
+    const {fetchImpl}=fixture({'index.html':changedSide==='public'?changed:indexHtml,'assets/ui/reference-cutouts/manifest.json':Buffer.from(JSON.stringify(manifest,null,2)+'\n')}),report=await verify({fetchImpl,localBuild:{...localBuild,indexHtml:changedSide==='local'?changed:indexHtml}});
+    assert.equal(report.status,'passed',`${changedSide} ${JSON.stringify(ending)}`);assert.equal(report.localBuildComparison.index,true);assert.equal(report.portraits.passed,136);
+  }
+  const {fetchImpl}=fixture({'index.html':Buffer.from(indexHtml.toString('utf8').replace('<html>','<html lang="en">'))}),changedMarkup=await verify({fetchImpl});
+  assert.equal(changedMarkup.status,'failed');assert.equal(changedMarkup.localBuildComparison.index,false);assert.equal(changedMarkup.portraits.checked,0);assert.ok(changedMarkup.failures.some(row=>row.error.includes('Public index differs')));
 });
 
 test('exact local bundle comparison detects a stale compiled response even if all required UI markers still exist',async()=>{

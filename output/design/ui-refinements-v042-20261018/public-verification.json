@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "startedAt": "2026-10-18T06:24:18.238Z",
+  "expected": {
+    "version": "0.4.2",
+    "uiRevision": "cartographer-refined-20261018-v3",
+    "uiPortraitRevision": "reference-cutouts-20261016-v1",
+    "uiEnemyPortraitRevision": "bernhard-crimson-20261018-v1"
+  },
+  "publicBase": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "authentication": "None; public GETs only; credentials omitted; no credential files or browser sessions read",
+  "concurrency": 6,
+  "cachePolicy": "Unique per-run query, no-store, no-cache headers",
+  "localManifestSha256": "50babe99b9f67691092a7720d05115311d47ee71f2c4f4871a393f91d981fb9d",
+  "release": {
+    "version": "0.4.2",
+    "uiRevision": "cartographer-refined-20261018-v3",
+    "uiPortraitRevision": "reference-cutouts-20261016-v1",
+    "uiEnemyPortraitRevision": "bernhard-crimson-20261018-v1",
+    "sha256": "859ecae23a385cdc835e129f522dfdc306001f00c8c8e05b25926c9aa87da223"
+  },
+  "compiled": [
+    {
+      "file": "assets/game-cmrkMtzz.js",
+      "kind": "javascript",
+      "bytes": 524749,
+      "sha256": "f1e98d30ecd7b4ea986669624642347266627c3a622004a1f321e5158c0d88fe"
+    },
+    {
+      "file": "assets/game-CsaE3vnw.css",
+      "kind": "css",
+      "bytes": 274920,
+      "sha256": "40709d007639e366de858d4af5f7fc9724e8b27815fc22cbe3511db1349637dd"
+    },
+    {
+      "file": "assets/portrait-visibility-Cq7vvpxZ.css",
+      "kind": "css",
+      "bytes": 107,
+      "sha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56"
+    },
+    {
+      "file": "assets/portrait-visibility-D9MtfM7S.js",
+      "kind": "javascript",
+      "bytes": 216577,
+      "sha256": "4445175ba5623e4b3d252ee6d9375db0db09fb8daf5527373697fef44e6ed51d"
+    },
+    {
+      "file": "assets/three-CsW0CHmH.js",
+      "kind": "javascript",
+      "bytes": 653736,
+      "sha256": "60edbf437b01edf099aaa3288e82b9b83188b689b24a2f102841e82811fa3902"
+    }
+  ],
+  "uiMarkers": {
+    "javascript": {
+      "required": [
+        "assets/ui/reference-cutouts/",
+        "reference-cutouts-20261016-v1",
+        "atlas-book",
+        "catalog-index-page",
+        "catalog-reading-page",
+        "warbands-atlas",
+        "folio-construction-seal",
+        "catalog-selected-heading",
+        "warband-story",
+        "host_50-crimson",
+        "folio-champion-context",
+        "data-effective-stats"
+      ],
+      "missing": []
+    },
+    "css": {
+      "required": [
+        "--folio-grain",
+        "--folio-frame",
+        "book-corners",
+        "catalog-reading-page",
+        "catalog-bookmark",
+        "preparation-folio",
+        "catalog-heading-pin",
+        "is-compact-external",
+        "folio-create-actions"
+      ],
+      "missing": []
+    }
+  },
+  "localBuildComparison": {
+    "status": "passed",
+    "index": true,
+    "indexComparison": "Exact HTML text after normalizing CR runs immediately before LF (including CRLF and CRCRLF) to LF; all other HTML text is preserved; compiled assets use exact raw bytes",
+    "entries": true,
+    "exactHashes": 5
+  },
+  "portraits": {
+    "expected": 136,
+    "checked": 136,
+    "passed": 136,
+    "pngSignatures": 136,
+    "rgbaHeaders": 136,
+    "exactHashes": 136,
+    "servedBytes": 30418257,
+    "inventorySha256": "35874942d0347be21a71f68e577537b1802478577d40e7670d10750a538f741f"
+  },
+  "crimson": {
+    "expected": 1,
+    "checked": 1,
+    "passed": 1,
+    "manifestSha256": "fe074b9d8ea0a156e0a54ab7bd545efd8d73294cce80da47ee11d1a80025ba11",
+    "revision": "bernhard-crimson-20261018-v1",
+    "bytes": 258524,
+    "sha256": "61a4a3e4dae617b6af817d3f825aee707012adb104b357678465f80272eaa82a",
+    "dimensions": [
+      426,
+      422
+    ],
+    "rgbaHeader": true,
+    "activeLookup": "host_50 maps to host_50-crimson.png in the exact compiled bundle"
+  },
+  "requests": 146,
+  "failures": [],
+  "limits": [
+    "HTTP signatures, hashes and bundle markers do not prove browser rendering, gameplay behavior, or physical iPad/Safari interaction."
+  ],
+  "indexSha256": "f301db889b03db9a2be44545815efd70cd5cd9a43ff4cabac7f8fd660df7b8ed",
+  "publicManifest": {
+    "revision": "reference-cutouts-20261016-v1",
+    "identities": 136,
+    "sha256": "64416209e4367d68289f35b0f2bd4782e9f29551f8a5bbad265963d131c88baf",
+    "immutableCanonicalSha256": "5d6f7703ad89fec39b4f5b05d2510e4fce3ecf387e7b9812b851805ca191cc0d",
+    "comparison": "Immutable canonical JSON record; exact identity paths, dimensions and output SHA-256 values from local verified cutout manifest"
+  },
+  "finishedAt": "2026-10-18T06:24:24.141Z",
+  "durationMs": 5904
+}

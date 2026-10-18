@@ -1,0 +1,13 @@
+{
+  "release": "0.4.2",
+  "status": "passed",
+  "operation": "Explicit task-owned allowlist copied from isolated release checkout into the primary workspace",
+  "initialFilesCopied": 100,
+  "capturedPrimaryPathsChecked": 278,
+  "unownedPrimaryPathsChecked": 234,
+  "unownedChanges": [],
+  "sourceAndPrimaryGitIndexesUnchanged": true,
+  "documentHandling": "README and CHANGELOG use reviewed clean three-way merges preserving the primary workspace's pre-existing differences. Game source and binary payloads match the approved isolated source exactly.",
+  "recoveryPoints": {"v0.3.31-stable": "c01ac5a2ab1ef62e77d2ce545f24234b80b5c847", "v0.4.0-final": "993a1ee1289fa137a68b7bbdad48b81b2e18befe", "v0.4.1": "a32d662dd54fbbea4972f91a353d70b01640cb50", "v0.4.2": "6b2febcd5f06ef4fff2ab59e246a177698a4f343"},
+  "boundary": "No branch reset, deletion, staging in the primary workspace, statistics migration or backend deployment was performed. This receipt is added after the initial verified transfer."
+}

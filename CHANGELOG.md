@@ -6,9 +6,7 @@ Addresses all 39 comments on 0.4.1. Reduces construction, wave-note and inspecto
 
 Refines the open-book geometry, readable ingredient chains, straight bookmark, fixed title-row Pin action, separate footers and numbered pages. Removes the requested book history and atlas bottom navigation controls. Enlarges enemy portraits and opens lore by default, with 50 new English campaign chronicles. Adds Bernhard’s transparent crimson-reference derivative while preserving the original 136 portraits. Keeps MVP/support expanded beneath Move, shows current damage/DPS with base and bonus contributions, and briefly marks real MVP awards with a light beam and MVP +1. Final defenders no longer automatically open the inspector.
 
-All **1,480 tests** and the production build pass; [the 39-comment report](docs/UI_REFINEMENTS_V042_20261018.md) links the exact local receipts. Final browser signoff and publication evidence remain pending. Physical iPad/Safari verification is unavailable. Existing combat rules, exact recipe allocation, hidden draws, original art/audio and 0.3.31 recovery points remain preserved.
-
-<!-- V042_CHANGELOG_RELEASE_PENDING: Local tests/build passed. Add final browser and publication receipts only after verification. -->
+All **1,480 tests**, the production build and Pages CI pass. The public game matches the verified compiled hashes, all 136 original portrait hashes and Bernhard's additional crimson cutout; integrated browser review covers six responsive sizes. [The 39-comment report](docs/UI_REFINEMENTS_V042_20261018.md) links local, CI and public receipts. Physical iPad/Safari verification is unavailable. Existing combat rules, exact recipe allocation, hidden draws, original art/audio and 0.3.31 recovery points remain preserved.
 
 ## 0.4.1 — The Cartographer’s Table, concept fidelity — 16 October 2026
 

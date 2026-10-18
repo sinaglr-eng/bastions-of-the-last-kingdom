@@ -1,0 +1,14 @@
+✔ 0.4.2 public checker verifies immutable 136 portraits, active crimson PNG and exact compiled build with credential-free GETs (97.9054ms)
+✔ release metadata mismatch stops verification before any bulk assets or compiled requests (17.593ms)
+✔ LF, CRLF and Vite CRCRLF boundaries preserve the same immutable manifest and HTML while other differences remain rejected (312.5406ms)
+✔ exact local bundle comparison detects a stale compiled response even if all required UI markers still exist (76.3239ms)
+✔ crimson portrait corruption fails independently of the unchanged original 136 portraits (69.3573ms)
+✔ missing final local build and changed immutable manifest are rejected before network requests (31.0634ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 673.3697

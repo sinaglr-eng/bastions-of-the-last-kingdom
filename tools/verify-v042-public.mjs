@@ -20,7 +20,9 @@ const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const invariant=(condition,message)=>{if(!condition)throw Error(message);};
 const parseJson=bytes=>JSON.parse(bytes.toString('utf8').replace(/^\uFEFF/,''));
 const jsonSha=value=>sha(Buffer.from(JSON.stringify(value)));
-const htmlText=value=>Buffer.from(value).toString('utf8').replace(/\r\n/g,'\n');
+// Windows/Vite HTML can contain CRCRLF at an existing line boundary. Normalize
+// only CR runs immediately before LF; preserve every other HTML difference.
+const htmlText=value=>Buffer.from(value).toString('utf8').replace(/\r+\n/g,'\n');
 const signature='89504e470d0a1a0a';
 const markers={
   javascript:['assets/ui/reference-cutouts/','reference-cutouts-20261016-v1','atlas-book','catalog-index-page','catalog-reading-page','warbands-atlas','folio-construction-seal','catalog-selected-heading','warband-story','host_50-crimson','folio-champion-context','data-effective-stats'],
@@ -60,7 +62,7 @@ export async function verifyPublic({base=defaultBase,manifest,manifestSha256=nul
   const report={schemaVersion:1,status:'running',startedAt:new Date(started).toISOString(),expected,
     publicBase:String(base),authentication:'None; public GETs only; credentials omitted; no credential files or browser sessions read',
     concurrency,cachePolicy:'Unique per-run query, no-store, no-cache headers',localManifestSha256:manifestSha256,
-    release:null,compiled:[],uiMarkers:null,localBuildComparison:{status:'not checked',index:false,indexComparison:'Exact HTML text after LF/CRLF normalization; compiled assets use exact raw bytes',entries:false,exactHashes:0},portraits:{expected:136,checked:0,passed:0,pngSignatures:0,rgbaHeaders:0,exactHashes:0,servedBytes:0},crimson:{expected:1,checked:0,passed:0},
+    release:null,compiled:[],uiMarkers:null,localBuildComparison:{status:'not checked',index:false,indexComparison:'Exact HTML text after normalizing CR runs immediately before LF (including CRLF and CRCRLF) to LF; all other HTML text is preserved; compiled assets use exact raw bytes',entries:false,exactHashes:0},portraits:{expected:136,checked:0,passed:0,pngSignatures:0,rgbaHeaders:0,exactHashes:0,servedBytes:0},crimson:{expected:1,checked:0,passed:0},
     requests:0,failures:[],limits:['HTTP signatures, hashes and bundle markers do not prove browser rendering, gameplay behavior, or physical iPad/Safari interaction.']};
   const fail=(file,error)=>report.failures.push({file,error:error instanceof Error?error.message:String(error)});
   let publicBase;
