@@ -1,0 +1,257 @@
+{
+  "revision": "outcome-scenes-20261018-v2",
+  "generator": "Built-in ImageGen",
+  "date": "2026-10-18",
+  "transparentBackground": false,
+  "copiedWithoutPixelEdits": true,
+  "sha256Policy": {
+    "jsonMetadata": "utf8-lf",
+    "otherFiles": "exact-bytes"
+  },
+  "identities": [
+    {
+      "id": "defeat-02",
+      "outcome": "lost",
+      "file": "public/assets/ui/results/v045/defeat-02.png",
+      "prompt": "Use case: stylized-concept. Asset type: new wide DEFEAT scene variant for Bastions of the Last Kingdom. Create a new cohesive faceted toy-like tabletop diorama, not a collage. Reference 1 is the exact approved Elven Mage: cuboid pale face with square black eyes, pointed ears, green layered-leaf hair and hood, gold diamond forehead band, deep green-and-teal robe with gold edging, wooden staff holding a blue crystal, hovering colored crystals. Reference 2 is the exact Elven Ranger: green leaf hood and cape, pointed ears, simple square eyes, brown boots, wooden bow and white-fletched quiver. These two defenders are defeated but alive: the mage sits wearily on a broken pale stone step with lowered staff and dim scattered crystals, while the ranger kneels with bow lowered beside him. Reference 3 is Mogrok, the Gatebreaker: large chunky beige-skinned orc boss, iron horned helmet, riveted grey shoulder plates, massive skull mace and tall iron-banded wooden shield. Reference 4 is an Orc Mirror Shieldbearer: olive-green orc with iron helmet, dark iron armor, pointed spear and tall black mirrored shield with a silver diamond, floating iron diamond shards. Mogrok and the shieldbearer are unmistakably triumphant, standing above the defeated elves at a collapsed pale-stone human gate, proud raised mace and spear. Preserve all four exact distinctive identities, equipment, faces, colors and silhouettes from their references. Reference 5 supplies style and world ONLY: match its clean large planar facets, matte toy materials, warm soft shadows, pale stone walls, small geometric roofs and blue human banners. Do NOT reuse its characters or composition. Composition: wide landscape 16:9, closer three-quarter view of the crumbled gate courtyard, four large recognizable figures, complete heads, weapons, shield and poses visible, no individual display pedestals. Fallen blue banner and splintered wooden defenses in the foreground, a few stylized amber fires and gentle smoke behind. The orcs clearly won, the elves clearly lost. No wounds, gore, corpses or harm to animals. No realistic gritty anatomy or textures. No text, captions, letters, numerals, UI, watermarks or border.",
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/tempest.png",
+          "role": "Approved character identity",
+          "sha256": "c0fb2306689dd6752796e32b3d5af9fbdfa3d2ad8a90825bee17dda6e2ef9cc5"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/thornwarden.png",
+          "role": "Approved character identity",
+          "sha256": "86daa6b7abb17a0bb8fe8623c289e00cea1b20e6fb16970e9baa308d0b00829b"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_10.png",
+          "role": "Approved character identity",
+          "sha256": "968bacd165e1bf6555c2d7dfcba64065c2a1c8eb06c0d1eae929ae15a5cce0eb"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_14.png",
+          "role": "Approved character identity",
+          "sha256": "1f5c7475c72d086397701347b430d5cffb79f29e1d91ea94128982b41de01e5f"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "role": "Preserved 044 outcome world and rendering style",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "subjects": {
+        "defenders": [
+          "Elven Mage",
+          "Elven Ranger"
+        ],
+        "enemies": [
+          "Mogrok, the Gatebreaker",
+          "Orc Mirror Shieldbearers"
+        ]
+      },
+      "review": "Inspected against all four approved identity references and the preserved 044 style scene. Elven Mage sits with lowered blue-crystal staff and scattered colored crystals; green-hood Elven Ranger kneels with lowered bow and white quiver. Mogrok raises his skull mace above the elves with his horned helmet and iron-banded wooden shield. The olive-green Mirror Shieldbearer carries the black diamond shield, spear and floating metal shards. Their approved colors, silhouettes, equipment and square faces remain recognizable. Clear human defeat, no gore, labels or UI.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2277495,
+      "sha256": "4de70fdd9d05cf2e35bb33c157fe27e4a86e854098b9dfa3831db7ae48b4b4fb",
+      "sourceGenerationFile": "exec-2a4c24bc-aca8-4e1c-9bbf-a330e115a62f.png"
+    },
+    {
+      "id": "defeat-03",
+      "outcome": "lost",
+      "file": "public/assets/ui/results/v045/defeat-03.png",
+      "prompt": "Use case: stylized-concept. Asset type: new wide DEFEAT outcome illustration for Bastions of the Last Kingdom. Create one new cohesive three-dimensional toy miniature scene from the approved identity references. Reference 1 is Paladin: chunky silver plate armor and enclosed silver helmet with square black eye slots, gold edging, gold sun chest emblem, red tabard, huge silver hammer with gold sun, red-and-gold shield with raised gold cross. Reference 2 is Baby Fire Dragon: small orange faceted dragon with cream belly, short brown horns, black square eyes, little orange wings and a flame at the tip of its tail. These exact defenders are defeated but alive: Paladin sits with weary bowed helmet and rests his lowered hammer against the ground, his recognizable red-cross shield lying beside him. The small orange dragon crouches next to Paladin with folded wings, lowered head and a small subdued tail flame, unharmed. Reference 3 is Silent Orc Executioner: olive-green cuboid face with square black eyes, very tall pointed charcoal hood with purple facets, strapped muzzle mask, black-purple cloak and twin crescent hand blades. Reference 4 is Bloodwolf Orc Rider: green tusked orc in brown hood, red-spiked shoulder armor, large red-grey club, riding a chunky charcoal-grey wolf with angular red iron head armor and glowing red square eyes. These exact two enemy identities are victorious, the hooded executioner standing with proud raised blades and the orc rider holding his club aloft on the alert wolf. Reference 5 is style/world only: crisp large facets, matte geometric toy characters, soft shadows, pale stone human keep and blue banners. Do not copy its old characters or arrangement. Scene: breached human drawbridge and a broken pale stone wall at dusk, wooden gate fragments and fallen blue pennants, simple geometric conifers and stylized orange embers in the distance. Wide landscape 16:9, the four subjects form one readable group at the same ground level, large enough for the player's result screen. Keep complete heads, distinctive equipment and the whole small dragon and wolf visible; no separate display bases. Clear orc victory, quiet defeated defenders, readable warm-cool lighting. No gore, wounds, dead figures, dead animals, graphic violence, photographic realism, text, lettering, labels, numbers, UI, watermark or border.",
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/kingdomprotector.png",
+          "role": "Approved character identity",
+          "sha256": "03d99f3dc1741ab77f2ade0b499c63a01898a9f462ce176e511dfcb5e48b0df9"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/embercrown.png",
+          "role": "Approved character identity",
+          "sha256": "75677b52b2232ccd057d9fdf0affa31c8a6aefa6805ca177e5316efeaf337813"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_18.png",
+          "role": "Approved character identity",
+          "sha256": "7b3260aef2b5025b92ba9edf5b1e021dfdeb6b7b78f7b5e355487777eabd4880"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_19.png",
+          "role": "Approved character identity",
+          "sha256": "3f03fdf52eff8aba4060fbf3bbd0b064aabffcae4f7943f1cbb8199cc8e04b9e"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "role": "Preserved 044 outcome world and rendering style",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "subjects": {
+        "defenders": [
+          "Paladin",
+          "Baby Fire Dragon"
+        ],
+        "enemies": [
+          "Silent Orc Executioners",
+          "Bloodwolf Orc Riders"
+        ]
+      },
+      "review": "Inspected against all four approved identity references and the preserved 044 style scene. Paladin sits with bowed silver-and-gold helmet, sun hammer lowered and red-gold cross shield beside him. The small orange Baby Fire Dragon crouches unharmed with brown horns, folded wings, cream belly and tail flame. Purple pointed-hood Silent Orc Executioner raises both crescent blades; red-armored Bloodwolf Orc Rider raises his club on the charcoal wolf. Both factions and outcome read clearly, no gore, labels or UI.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2249658,
+      "sha256": "c5f04d55af0bf4a4aaec5d52bfb090820ad36b706066848b04c171f931059b69",
+      "sourceGenerationFile": "exec-5942895d-ae76-49e1-b2ac-8f928cd24c35.png"
+    },
+    {
+      "id": "victory-02",
+      "outcome": "won",
+      "file": "public/assets/ui/results/v045/victory-02.png",
+      "prompt": "Use case: stylized-concept. Asset type: new wide VICTORY outcome illustration for Bastions of the Last Kingdom. Create a fresh coherent toy-like faceted tabletop diorama from the supplied approved identity references, not a collage. Reference 1 is King: a white-bearded cuboid-faced king wearing a gold crown with purple jewels, silver armor, white fur collar, purple cloak, purple-and-gold fleur-de-lis shield and horse cloth, holding a bright blue crystalline sword while mounted on his grey armored horse. Reference 2 is Elven Elite Warrior: small pointed-eared cuboid face and black square eyes, layered green leaf hood and cloak, gold pointed leaf crown, green-and-gold armor, gold-green longbow and white-fletched quiver. These exact defenders are joyful unmistakable winners: the King raises his blue sword from his grey horse while the elf raises his golden bow in celebration beside him. Reference 3 is defeated Lord Bernhard, the Black Sorcerer on the Wyvern Queen: faceless dark hood with black spiked throne armor, red chest gems and black-crimson sword, riding a charcoal faceted wyvern with crimson wing membranes, sharp red horn edges and brown saddle. Show Bernhard slumped with lowered hood, his extinguished red-black sword on the ground; his exact wyvern crouches peacefully with head low and wings folded, clearly subdued and alive. Reference 4 is defeated Orc Dual-Seal Inquisitor: green tusked square face under a tall twin-point charcoal hood with gold trim, dark robe with gold diamond seals, skull shoulder charms, wooden circular seal staff and black/gold sun shield. He sits disarmed and subdued to one side, staff and shield lowered. Reference 5 is style/world ONLY, match its clean planar facets, matte toy surfaces, square faces, blue human banners and pale-stone kingdom, but do not copy its characters or arrangement. Scene: intact blue-bannered human keep beside the green valley and river after the final battle, snapped dark crimson enemy pennants and harmless siege debris at ground level. Wide landscape 16:9, all four character identities including King/horse and Bernhard/wyvern clearly recognizable, no separate display pedestals, whole heads and distinctive weapons visible. Warm clear morning light, human triumph over Bernhard, no victorious enemies or defeated humans. No gore, wounds, corpses, graphic violence, realistic gritty anatomy, text, lettering, labels, numerals, UI, watermark or border.",
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/crownofages.png",
+          "role": "Approved character identity",
+          "sha256": "f394024225a593c8e0efc8b519847967457486d4f51339c0e5e7efe7d16b32e5"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/verdantguard.png",
+          "role": "Approved character identity",
+          "sha256": "c09c1e0355427dfa4f0a18f35053f1fa7de2b0ea182b45980ed5ae328efd1c1e"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_50.png",
+          "role": "Approved character identity",
+          "sha256": "550818ad4829d89b40bb9982cb6118fae40f9ba21ab55317a67471ca8fb8261a"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_31.png",
+          "role": "Approved character identity",
+          "sha256": "33e287d0c83ce8f802e1c0b10d9ebec20d567714128f6e292a0c853f422c1c91"
+        },
+        {
+          "file": "public/assets/ui/results/v044/victory.png",
+          "role": "Preserved 044 outcome world and rendering style",
+          "sha256": "b52df65307d67977a851177fc5912c21a4b0c8f7f43cc899f702310c69d2a27e"
+        }
+      ],
+      "subjects": {
+        "defenders": [
+          "King",
+          "Elven Elite Warrior"
+        ],
+        "enemies": [
+          "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "Orc Dual-Seal Inquisitors"
+        ]
+      },
+      "review": "Inspected against all four approved identity references and the preserved 044 style scene. White-bearded King celebrates mounted on his grey horse with raised blue sword, gold jeweled crown and purple fleur-de-lis heraldry. Gold-leaf-crowned Elven Elite Warrior raises his gold-green bow. Bernhard slumps with dark hood, crimson gems and dropped black-red sword beside his subdued black/crimson wyvern. Gold-trimmed Dual-Seal Inquisitor sits disarmed with skull shoulder charms, seal staff and sun shield lowered. Clear human victory, no gore, labels or UI.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2378379,
+      "sha256": "7a86162cf423fedbf66a67c0d717a9c059798582be0b38a1bcd6a5468682ba58",
+      "sourceGenerationFile": "exec-08a9d6eb-e7e0-4cd5-8c8a-faa56b5a745f.png"
+    },
+    {
+      "id": "victory-03",
+      "outcome": "won",
+      "file": "public/assets/ui/results/v045/victory-03.png",
+      "prompt": "Use case: stylized-concept. Asset type: new wide VICTORY scene variant for Bastions of the Last Kingdom. Generate a new cohesive faceted toy miniature diorama using these exact approved identity references, not a collage. Reference 1 is Lady Claire: pale cuboid face with square green eyes, long golden faceted hair, gold crown with amber diamond, white robe with gold borders, amber chest jewel, gold ring-topped staff, a few hovering amber crystals. Reference 2 is Archangel: full bright gold armor and gold enclosed helmet with black square eye slots, round gold halo, large angular white feather wings, long golden crystal sword and white waist panels. Lady Claire and Archangel are the clear victorious celebrating defenders: Claire joyfully raises her ring staff, her amber crystals shine, and the Archangel raises the golden sword with wings spread in a proud protective arc. Reference 3 is defeated Lord Bernhard, the Black Sorcerer on the Wyvern Queen: faceless dark hood, charcoal spiked throne armor, crimson gems and black-red sword, charcoal angular wyvern with crimson wing membranes, red horn edges and brown saddle. Show this exact Bernhard slumped below the heroes with lowered hood and dropped extinguished sword, his exact wyvern crouched with lowered head and folded wings, visibly subdued but alive. Reference 4 is defeated Mogrok, the Gatebreaker: massive beige-skinned square-faced orc, horned iron helmet, riveted shoulder plates, skull mace and iron-banded wooden shield. Show him seated in surrender off to one side with lowered weapon and shield, clearly defeated. Reference 5 is style and world ONLY: match large crisp planar facets, matte toy materials, soft shadows, pale stone keep, blue banners and simplified geometric landscape; do not copy its cast or arrangement. Scene: a broad pale-stone castle terrace above the intact kingdom, blue victory banners, rolling geometric green hills, scattered fallen crimson enemy standards. Wide landscape 16:9, all four exact identities recognizable and large enough for an outcome banner, complete important heads, wings, equipment and gestures inside frame. One shared ground plane, no individual display bases. Clear golden sunlight and joyful human victory over Bernhard. No gore, wounds, corpses, harm to animals, realistic gritty painting, lettering, captions, labels, numbers, text, UI, watermark or border.",
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/ladyclaire.png",
+          "role": "Approved character identity",
+          "sha256": "aa61240b5773b48c5a2d8c204838cf6995edb3987d740ae2a6514c0946322824"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/dawnspire.png",
+          "role": "Approved character identity",
+          "sha256": "ca79204ecf0bd9484bf3eaa4ba7c78b478bbdbe04f4cc06cf054b810550e204e"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_50.png",
+          "role": "Approved character identity",
+          "sha256": "550818ad4829d89b40bb9982cb6118fae40f9ba21ab55317a67471ca8fb8261a"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_10.png",
+          "role": "Approved character identity",
+          "sha256": "968bacd165e1bf6555c2d7dfcba64065c2a1c8eb06c0d1eae929ae15a5cce0eb"
+        },
+        {
+          "file": "public/assets/ui/results/v044/victory.png",
+          "role": "Preserved 044 outcome world and rendering style",
+          "sha256": "b52df65307d67977a851177fc5912c21a4b0c8f7f43cc899f702310c69d2a27e"
+        }
+      ],
+      "subjects": {
+        "defenders": [
+          "Lady Claire",
+          "Archangel"
+        ],
+        "enemies": [
+          "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "Mogrok, the Gatebreaker"
+        ]
+      },
+      "review": "Inspected against all four approved identity references and the preserved 044 style scene. Lady Claire raises her ring staff with gold crown, white-gold robe, amber jewels and square green eyes. Gold-armored Archangel raises his sword with halo and angular white wings. Bernhard slumps with dark hood and crimson gems, black-red sword dropped beside his crouched crimson-winged wyvern. Horned Mogrok sits subdued with skull mace and wooden shield lowered. Clear human victory, no gore, labels or UI.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2318690,
+      "sha256": "d96348d2f97a98b852d738d552422a8047a878f871a937dd2e3e8c7cb4959aef",
+      "sourceGenerationFile": "exec-cd154f49-4886-47fc-8be3-4fa8d55881f9.png"
+    }
+  ],
+  "preservedAssets": [
+    {
+      "id": "defeat-01",
+      "outcome": "lost",
+      "file": "public/assets/ui/results/v044/defeat.png",
+      "sourceManifest": "public/assets/ui/results/v044/manifest.json",
+      "sourceIdentity": "defeat",
+      "preservedWithoutChanges": true,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2179822,
+      "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+    },
+    {
+      "id": "victory-01",
+      "outcome": "won",
+      "file": "public/assets/ui/results/v044/victory.png",
+      "sourceManifest": "public/assets/ui/results/v044/manifest.json",
+      "sourceIdentity": "victory",
+      "preservedWithoutChanges": true,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2299564,
+      "sha256": "b52df65307d67977a851177fc5912c21a4b0c8f7f43cc899f702310c69d2a27e"
+    }
+  ],
+  "preservedManifest": {
+    "file": "public/assets/ui/results/v044/manifest.json",
+    "sha256": "70840fe49eac6f73a63845d077611ec9b148ba47d47b085eac9f0197f27b39ff"
+  },
+  "selection": {
+    "scenesPerOutcome": 3,
+    "presentationRandomSource": "Math.random, independent of Game.rng",
+    "cache": "One choice per ended Game attempt; existing wave events invalidate the attempt cache",
+    "consecutiveRepeatPolicy": "Exclude the previous scene of the same outcome when choosing the next ended attempt"
+  }
+}

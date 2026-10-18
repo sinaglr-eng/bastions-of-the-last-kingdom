@@ -1,0 +1,27 @@
+✔ 0.4.5 public checker verifies all historical assets, both 0.4.4 outcomes, four new variants and exact build with credential-free GETs (247.8725ms)
+✔ release metadata mismatch stops verification before any bulk assets or compiled requests (29.9791ms)
+✔ LF, CRLF and Vite CRCRLF boundaries preserve JSON records and HTML while other HTML differences remain rejected (624.772ms)
+✔ exact local bundle comparison detects a stale compiled response even if all required UI markers still exist (146.4619ms)
+✔ compiled portrait templates need the exact namespace identities even when revisions and all local/public bytes still match (286.4499ms)
+✔ crimson portrait corruption fails independently of the unchanged original 136 portraits (143.0478ms)
+✔ missing final local build and changed immutable manifest are rejected before network requests (53.1021ms)
+✔ invalid local FRONT view, source, RGB, alpha, identity, trim or historical metadata fails before any request (336.6233ms)
+✔ a changed public FRONT manifest cannot silently replace the locally verified crop metadata (37.4435ms)
+✔ FRONT PNG corruption and a non-RGBA header fail independently of every historical portrait and defeat art (286.3231ms)
+✔ changed defeat prompt/provenance is rejected and invalid local asset identity fails before requests (57.5784ms)
+✔ defeat PNG corruption is rejected after the unchanged original, crimson and 50 FRONT portraits pass (133.281ms)
+✔ both approved outcome identities retain complete prompts, generation settings, dimensions and all ordered input reference hashes before any GET (379.598ms)
+✔ a public outcome provenance change cannot replace an approved prompt or input reference despite unchanged artwork (61.3486ms)
+✔ missing or corrupted new outcome PNGs and wrong dimensions fail independently of every historical image and the other outcome (645.2705ms)
+✔ compiled outcome path and both-result presentation markers remain necessary with exact public/local bytes and valid artwork (714.3373ms)
+✔ new variant prompts, reference identities, historical pool and selection provenance are immutable before any request (489.9493ms)
+✔ changed public variant provenance stops before assets while the original outcome manifest stays independently protected (64.2372ms)
+✔ all four new variant PNGs reject missing files, corrupted bytes and wrong geometry independently of historical assets (1103.9565ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5927.7256

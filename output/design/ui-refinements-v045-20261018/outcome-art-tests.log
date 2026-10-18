@@ -1,0 +1,31 @@
+Command: node --test tests/run-results.test.mjs tests/outcome-art-v045.test.mjs tests/phase-main-integration.test.mjs
+Working directory: isolated geometric-game-release worktree
+Exit code: 0
+
+✔ all six outcome scenes resolve to the reviewed original PNGs with matching provenance and English alternatives (25.4054ms)
+✔ presentation sampling covers every scene, separates outcome pools and excludes the preceding scene of the same outcome (0.25ms)
+✔ reopening one ended run keeps the same scene and does not resample or access simulation RNG (0.1354ms)
+✔ a real Sandbox restart of the same Game and wave chooses a new scene, while repeated result review remains stable (19.2697ms)
+✔ selecting and rendering result art changes no gameplay fields or seeded random draws (3.4401ms)
+✔ non-ended phases choose no illustration, and a later ended attempt is independently sampled (0.1241ms)
+✔ actual main render and event wiring follow repeated draft, keeper, combat and pause transitions with five slots restored (26.4586ms)
+✔ actual advanced-menu warning and Cancel preserve run eligibility; confirmation alone activates exclusion (5.5442ms)
+✔ actual Current-wave detail toggles independently of map-selected unit inspection and preserves combat resources (9.4692ms)
+✔ actual result-review route presents ended facts and inspectors without construction guidance or executable unit controls (25.3876ms)
+✔ a real second-wave defeat separates one completed wave and records the actual last flying leak with clamped health loss (40.3944ms)
+✔ each observed leak counts actual health damage separately from recovered health and duplicate event delivery (4.7881ms)
+✔ actual 10-wave and 50-wave victories include the completed final wave and never display a defeat wave (216.0206ms)
+✔ actual Sandbox jumps and restarted losses count only completed wave IDs, including a later final-wave victory (35.0802ms)
+✔ a real Sandbox loss without earlier completions reports zero from the available observer, and ordinary fallback remains intact (10.0629ms)
+✔ results and ended review stay read-only, preserve tracker sequence and RNG, and expose explicit retry/return actions (8.6546ms)
+✔ missing event history and duration produce honest unavailable detail; developer results remain locally retryable (0.8286ms)
+✔ last recorded spawn and enemy names are factual copied values escaped in result markup (4.8825ms)
+✔ an actual offline leaderboard rejection leaves local result and retry ahead of the optional online section (5.0104ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 871.2062

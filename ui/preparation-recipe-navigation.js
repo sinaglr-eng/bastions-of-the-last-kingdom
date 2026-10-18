@@ -1,7 +1,7 @@
 // This history belongs to recipe planning, not the physical defender. Neither
 // changing the viewed rank nor following a champion changes Game selection.
 export function togglePreparationRecipeSelection(currentId,clickedId,defaultId=null){
-  return (currentId===null||currentId===undefined?defaultId:currentId)===clickedId?false:clickedId;
+  return currentId===clickedId?false:clickedId;
 }
 
 export class PreparationRecipeNavigation{

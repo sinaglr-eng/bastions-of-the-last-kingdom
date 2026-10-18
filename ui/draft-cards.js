@@ -11,9 +11,9 @@ const reservationBadge=pending=>`<span class="draw-reservation ${pending?'pendin
 const portrait=(family,tier,data,images)=>images[`${family}:${tier}`]||((tier===1||data.towers[family]?.advanced)?images[family]:null);
 const portraitMarkup=src=>src?`<img src="${src}" alt="" draggable="false">`:'<span class="draw-portrait-empty" aria-hidden="true"></span>';
 const damageRow=stats=>`<span class="draw-damage" data-damage-type="${stats.type}">${icon(stats.type==='magical'?'spark':stats.type==='holy'?'sun':'target')}<span>${damageTypeName(stats.type)}</span></span>`;
-// Decorative geometry conveys an unknown recruit and its destination without
-// loading a portrait or consulting an unrevealed defender's identity.
-const mysteryPlacement=`<span class="mystery-sigil" aria-hidden="true"><svg class="mystery-placement" viewBox="0 0 88 112" focusable="false"><path class="placement-tile" d="m44 84 32 15-32 12-32-12Z"/><path class="placement-guide" d="M44 91v12m-6-6h12"/><g class="mystery-figure"><path d="m26 71 17 1-1 20H27Zm19 1 17-1-1 21H45Z"/><path d="m27 43 34 0 6 31H21Z"/><path d="m27 46-9 4-5 21 10 2m38-27 9 4 5 21-10 2"/><path class="mystery-head" d="M31 12h26l7 12-5 16H29l-5-16Z"/><path class="mystery-facet" d="m31 12 2 13-4 15m28-28-2 13 4 15"/></g><path class="mystery-question" d="M37 23c0-7 14-7 14 0 0 5-7 5-7 10"/><circle class="mystery-question-dot" cx="44" cy="37" r="1.7"/><path class="placement-arrow" d="M75 71v14m-5-5 5 5 5-5"/></svg></span>`;
+// One large question mark identifies the unknown recruit without loading a
+// portrait or consulting an unrevealed defender's identity.
+const mysteryPlacement=`<span class="mystery-sigil" aria-hidden="true"><svg class="mystery-placement" viewBox="0 0 88 100" focusable="false"><path class="mystery-question" d="M28 28c0-23 36-23 36-2 0 17-20 18-20 34"/><circle class="mystery-question-dot" cx="44" cy="80" r="5"/></svg></span>`;
 function reservedCard(draw,index,game,data,images,{pending=false}={}){
   const defender=pending?game.draft.reserveSelection?.defender||draw.identity||draw:draw.identity||draw;
   const family=defender.family||draw.family,tier=defender.tier||draw.tier,stats=data.towers[family];

@@ -26,9 +26,14 @@ test('every chosen basic rank filters suggestions by that displayed rank while a
   }
 });
 
-test('an initially expanded first row can collapse and reopen without a fallback reopening it',()=>{
+test('Potential combinations and each recipe begin collapsed; first click opens, second closes and third reopens',()=>{
   const game=recruit([{family:'archer',tier:2}]),tower=game.selection,planningNavigation=new PreparationRecipeNavigation();
-  const options={planningNavigation},first=preparationRecipeModel(game,tower,options).selected.recipe.id;
+  const options={planningNavigation},initial=preparationRecipeModel(game,tower,options),first=initial.options[0].recipe.id;
+  assert.equal(initial.selected,null);
+  let html=preparationRecipesMarkup(game,tower,{},options);
+  assert.match(html,/<details class="folio-combinations-disclosure" data-detail-key="potential-combinations">/);
+  assert.doesNotMatch(html,/<details[^>]*\bopen\b|aria-expanded="true"|class="folio-recipe-detail"/);
+  planningNavigation.toggle(first,first);
   assert.match(preparationRecipesMarkup(game,tower,{},options),/aria-expanded="true"/);
   planningNavigation.toggle(first,first);
   assert.equal(preparationRecipeModel(game,tower,options).selected,null);
@@ -66,10 +71,10 @@ test('Create action commits the selected physical foundation once and a hypothet
 });
 
 test('Potential combinations exposes the selected recipe Pin or Unpin without changing actual planning inventory',()=>{
-  const game=recruit([{family:'archer',tier:2}]),tower=game.selection,model=preparationRecipeModel(game,tower),recipe=model.selected.recipe;
-  let before=snapshot(game),html=preparationRecipesMarkup(game,tower);
+  const game=recruit([{family:'archer',tier:2}]),tower=game.selection,model=preparationRecipeModel(game,tower),recipe=model.options[0].recipe,options={selectedRecipeId:recipe.id};
+  let before=snapshot(game),html=preparationRecipesMarkup(game,tower,{},options);
   assert.match(html,new RegExp(`class="text-button folio-recipe-pin " data-action="pin" data-id="${recipe.id}" aria-pressed="false"`));assert.match(html,/> Pin recipe<\/button>/);assert.equal(snapshot(game),before);
-  game.pinned=recipe.id;before=snapshot(game);html=preparationRecipesMarkup(game,tower);
+  game.pinned=recipe.id;before=snapshot(game);html=preparationRecipesMarkup(game,tower,{},options);
   assert.match(html,new RegExp(`class="text-button folio-recipe-pin is-pinned" data-action="pin" data-id="${recipe.id}" aria-pressed="true"`));assert.match(html,/> Unpin<\/button>/);assert.equal(snapshot(game),before);
 });
 

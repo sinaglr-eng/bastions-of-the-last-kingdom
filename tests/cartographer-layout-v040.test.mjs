@@ -90,6 +90,39 @@ function productionTabCommands(view){
   return page=>{const button=view.app.querySelectorAll('[data-action="folio-tab"]').find(button=>button.dataset.page===page);assert.ok(button,page);handle({target:button});return button;};
 }
 
+test('native Potential combinations stays closed initially and preserves deliberate disclosure across folio moves and rank refreshes',()=>{
+  const game=recipeGame(),control=recipeGame(),view=mainFixture(game),tower=game.selection;
+  const disclosure=()=>view.app.querySelector('[data-detail-key="potential-combinations"]');
+  assert.equal(disclosure().open,false);assert.equal(disclosure().parentNode.parentNode.id,'folio-recipes');
+  assert.equal(view.app.querySelector('.folio-recipe-detail'),null);
+  const before=snapshot(game);
+  disclosure().open=true;view.render();assert.equal(disclosure().open,true);
+  view.context.preparationNavigation.toggle(game.recipes.find(recipe=>recipe.id==='thornwarden').id);view.render();
+  assert.ok(view.app.querySelector('.folio-recipe-detail'));assert.equal(disclosure().open,true);
+  view.rankPreview.select(tower,4,data);view.render();assert.equal(disclosure().open,true);assert.equal(view.app.querySelector('.folio-recipe-detail'),null,'Changing viewed rank does not select a recipe');
+  disclosure().open=false;view.rankPreview.select(tower,1,data);view.render();assert.equal(disclosure().open,false);
+  for(let pass=0;pass<3;pass++){view.render();assert.equal(disclosure().open,false);}
+  assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
+});
+
+test('one compact attack toggle beside the name runs the real command in both global pause states and disappears after the run',()=>{
+  const game=recipeGame(),control=recipeGame();assert.equal(game.keep(),true);assert.equal(control.keep(),true);assert.equal(game.startCombat(),true);assert.equal(control.startCombat(),true);
+  const view=mainFixture(game),tower=game.selection;
+  Object.assign(view.context,{audio:{unlock:noop},draftCardActivation:{clear:noop},debug:false,codex:noop,warbands:noop,help:noop,sendWave:noop,closeDialog:noop,debugPanel:noop});
+  Object.assign(view.context.world,{maze:{editing:false},doubleTap:{clear:noop}});
+  const handle=runInNewContext(declaration('handleCommand')+'\nhandleCommand',view.context);
+  for(const globalPause of [false,true]){
+    game.paused=globalPause;view.render();
+    let buttons=view.app.querySelectorAll('[data-action="tower-pause"]');assert.equal(buttons.length,1);
+    const button=buttons[0];assert.equal(button.parentNode.className,'defender-name-row');assert.equal(button.attributes['aria-label'],'Pause unit attacks');assert.equal(button.attributes.title,'Pause unit attacks');assert.equal(button.attributes['aria-pressed'],'false');
+    handle({target:button});assert.equal(tower.attackPaused,true);assert.equal(game.paused,globalPause);
+    buttons=view.app.querySelectorAll('[data-action="tower-pause"]');assert.equal(buttons.length,1);assert.equal(buttons[0].attributes['aria-label'],'Resume unit attacks');assert.equal(buttons[0].attributes['aria-pressed'],'true');
+    handle({target:buttons[0]});assert.equal(tower.attackPaused,false);assert.equal(game.paused,globalPause);
+  }
+  for(const phase of ['won','lost']){game.phase=phase;view.render();assert.equal(view.app.querySelector('[data-action="tower-pause"]'),null);}
+  assert.equal(game.rng(),control.rng());
+});
+
 test('production responsive folio tabs switch the shared panes without changing real selection, rank, action nodes or RNG',()=>{
   const game=recipeGame(),control=recipeGame(),view=mainFixture(game),activate=productionTabCommands(view),tower=game.selection;
   view.rankPreview.select(tower,4,data);view.render();const before=snapshot(game),keep=view.get('folio-actions').querySelector('[data-action="keep-draw"]'),tabs=view.app.querySelectorAll('[data-action="folio-tab"]');

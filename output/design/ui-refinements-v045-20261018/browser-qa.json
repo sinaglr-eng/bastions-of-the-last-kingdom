@@ -1,0 +1,239 @@
+{
+  "schema": "ui-refinements-v045-native-browser-qa-v1",
+  "status": "passed",
+  "recordedAt": "2026-10-18T16:18:33.696Z",
+  "browser": "Codex in-app browser",
+  "urls": [
+    "http://127.0.0.1:5197/?debug&seed=4045",
+    "http://127.0.0.1:5198/bastions-of-the-last-kingdom/?debug&seed=4045"
+  ],
+  "method": "Actual UI interaction with seeded review/Sandbox tools, read-only DOM geometry and native screenshots; no hidden Game state assignments.",
+  "viewports": [
+    [
+      1715,
+      1244
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      1180,
+      820
+    ],
+    [
+      1280,
+      900
+    ],
+    [
+      1280,
+      720
+    ]
+  ],
+  "checks": {
+    "pageNumbers": "No static catalog-page-number elements or Page1/2 labels; recipe ordinal stays functional.",
+    "filters": "Desktop/tablet toolbar83.86px high vs154px selected baseline; all three filters and progress choices work. Holy produces8matches. Phone final toolbar116.86px, all three labels/selects on one row,390px document without horizontal overflow.",
+    "campaign": "Normal entry/restart displays1/50 and no campaign-length selector; source passes waves.length to normal new games.",
+    "mystery": "One large question mark with unchanged visible/accessible placement instruction; nofigure/tile/arrow.",
+    "combinations": "Actual preparation folio starts closed, summary32px. Deliberate group open/close survives rank refreshes; first recipe click opens its detail.",
+    "viewedRank": "Actual rankIStormcaller from real lineup shows1builtI,2builtII,0builtIII while actualidentity remainsI. See viewed-rank-count.json.",
+    "pause": "Exactlyone28px pause/play icon beside name witharia-label/title/pressed, removesbottomduplicate and togglesactualdefender evenviewingII/globalpaused; redactualpausemarker remains.",
+    "outcomes": {
+      "first": {
+        "complete": true,
+        "dimensions": [
+          1672,
+          941
+        ],
+        "id": "defeat-03",
+        "src": "/bastions-of-the-last-kingdom/assets/ui/results/v045/defeat-03.png"
+      },
+      "reopened": "defeat-03",
+      "second": {
+        "complete": true,
+        "dimensions": [
+          1672,
+          941
+        ],
+        "id": "defeat-01",
+        "src": "/bastions-of-the-last-kingdom/assets/ui/results/v044/defeat.png"
+      },
+      "victory": {
+        "complete": true,
+        "dimensions": [
+          1672,
+          941
+        ],
+        "id": "victory-02",
+        "src": "/bastions-of-the-last-kingdom/assets/ui/results/v045/victory-02.png"
+      },
+      "diagnostics": [
+        {
+          "level": "warn",
+          "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+          "timestamp": "2026-10-18T16:11:07.013Z",
+          "url": "http://127.0.0.1:5198/bastions-of-the-last-kingdom/assets/game-B0-KkxB8.js"
+        },
+        {
+          "level": "warn",
+          "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+          "timestamp": "2026-10-18T16:13:47.957Z",
+          "url": "http://127.0.0.1:5198/bastions-of-the-last-kingdom/assets/game-B0-KkxB8.js"
+        },
+        {
+          "level": "warn",
+          "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+          "timestamp": "2026-10-18T16:15:24.150Z",
+          "url": "http://127.0.0.1:5198/bastions-of-the-last-kingdom/assets/game-B0-KkxB8.js"
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Physical iPad/Safari unavailable.",
+    "Early development server was started before new image files existed while public watching was excluded; initial failed capture11is preserved but is not acceptance evidence. Final12/13/14checks use the completed production build.",
+    "Outcome scenes illustrate campaign endings; actual Sandbox recorded result facts remain factual."
+  ],
+  "captures": [
+    {
+      "file": "01-new-draft-desktop.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 285180,
+      "sha256": "cb283473cff82649255d7fed431adfda7aadff16dc08bf975e0b0b0ffe26a639",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "02-book-compact-desktop.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 289283,
+      "sha256": "c6e70397cce269f80307998d9835e2f773d9ed562330f331b665e0571b9b5f99",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "03-book-index-phone.jpg",
+      "dimensions": [
+        390,
+        844
+      ],
+      "bytes": 48427,
+      "sha256": "5ef8ca36293f7d0e207a2a61bd783ab67ba80616e28e3808ea673ad3ef59521a",
+      "acceptance": "Superseded by08phone correction"
+    },
+    {
+      "file": "04-viewed-rank-II.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 292671,
+      "sha256": "e8065012ba2068979ee31fca0a882cec80f279ad83d6be62300ed111e120a203",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "05-header-unit-pause.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 294275,
+      "sha256": "175e3091609f95449e5e228fd1e787ab1445a6a8626b42ceded2eca4c057522f",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "06-manual-combinations.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 290118,
+      "sha256": "e5d4cba171fee9ab7390c0ce6aa7910a71e8a242e49ca6f884394541e5a5d236",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "07-folio-default-collapsed.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 279625,
+      "sha256": "2cd2168d21333eef11d83d1e7fc91374e22e8e08636ed52e23a441178fd578e1",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "08-book-index-phone-final.jpg",
+      "dimensions": [
+        390,
+        844
+      ],
+      "bytes": 52167,
+      "sha256": "9b9c1591fc03eeca393cd63dc9e222a36907d2ea9994ec1249e1b31a25a62272",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "09-book-tablet.jpg",
+      "dimensions": [
+        1180,
+        820
+      ],
+      "bytes": 145180,
+      "sha256": "a6bbae1c8047ec93d1dec7d40209993f3487f6db4a72a6d615701cfd7c18f3ec",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "10-actual-defeat-first.jpg",
+      "dimensions": [
+        1280,
+        900
+      ],
+      "bytes": 118236,
+      "sha256": "7058be462ebe2e4d542bb748f5bff9cfee027825e5acbfe1531d123a31c44e0c",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "11-actual-defeat-second.jpg",
+      "dimensions": [
+        1280,
+        900
+      ],
+      "bytes": 85629,
+      "sha256": "93e17cf21a1b60c9eb049df107827c0d4ba5ec7bc893604e35e850def7f0cf88",
+      "acceptance": "Initial dev-server public scan omitted newly added images; superseded by12/13production checks"
+    },
+    {
+      "file": "12-production-defeat-first.jpg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 88033,
+      "sha256": "796628002408a1e7a639985b30b9cfb76c69fc936fdc728a450edd078912d39e",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "13-production-defeat-second.jpg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 87210,
+      "sha256": "e548cec4b9942fd0ffdefcb88a0d7ef011169e2b7365f6e57dfb3aa5798c3c57",
+      "acceptance": "Reviewed native evidence"
+    },
+    {
+      "file": "14-production-victory.jpg",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "bytes": 92095,
+      "sha256": "fddbcfc46efa1d98eaf2a46e0e521ae4d597931fc440a39890922ace394215c1",
+      "acceptance": "Reviewed native evidence"
+    }
+  ]
+}

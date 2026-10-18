@@ -15,13 +15,13 @@ const snapshot=game=>JSON.stringify({towers:game.towers,draws:game.draft.draws,s
 const escape=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 function candidates(family='runebreaker',tier=1){const game=new Game(data,{seed:844});game.draft.roundForced={family,tier};for(let index=0;index<5;index++)assert.equal(game.place(4+index,4),true);game.select(game.towers[0].id);return game;}
 
-test('unknown recruit placement SVG and visible map instruction do not consult hidden identities or consume RNG',()=>{
+test('unknown recruit question mark and visible map instruction do not consult hidden identities or consume RNG',()=>{
   const game=new Game(data,{seed:844}),control=new Game(data,{seed:844});
   for(const draw of game.draft.draws)for(const field of ['family','tier'])Object.defineProperty(draw,field,{get(){throw Error('Hidden identity read');},configurable:true});
   const before={selected:game.selected,phase:game.phase,activeDraw:game.activeDraw,towers:game.towers.length,cp:game.commandPoints.value};
   for(let pass=0;pass<3;pass++){
     const html=draftCardsMarkup(game,data,{});
-    assert.equal((html.match(/class="draw-name">Place a defender on the map</g)||[]).length,5);assert.equal((html.match(/class="mystery-placement"/g)||[]).length,5);assert.equal((html.match(/class="placement-tile"/g)||[]).length,5);
+    assert.equal((html.match(/class="draw-name">Place a defender on the map</g)||[]).length,5);assert.equal((html.match(/class="mystery-placement"/g)||[]).length,5);assert.equal((html.match(/class="mystery-question"/g)||[]).length,5);assert.doesNotMatch(html,/mystery-figure|placement-tile|placement-arrow/);
     assert.equal((html.match(/aria-label="\d: Place a defender on the map\. Build on an empty tile to reveal\."/g)||[]).length,5);assert.doesNotMatch(html,/Unrevealed defender/);
     assert.equal((html.match(/data-action="draw"/g)||[]).length,5);assert.doesNotMatch(html,/<img|<image|href=|data-action="(?:keep-draw|merge-tower)"/);
   }

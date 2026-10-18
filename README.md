@@ -2,7 +2,13 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-## Published release: 0.4.4 — Sculpted books and clearer commands
+## Release 0.4.5 — A simpler preparation folio
+
+Implements the eight follow-up requests on 0.4.4: remove static book page numbers, compact the direct recipe filters, keep the public campaign at 50 waves, simplify mystery recruit cards, collapse Potential combinations initially, show built counts for the inspected rank, and move the individual attack pause control beside the defender name. Adds randomly selected result-scene variants using approved defender and enemy identities. [The eight-comment report](docs/UI_REFINEMENTS_V045_20261018.md) tracks implementation, artwork provenance and the pending release gates.
+
+Implementation and verification pass all **1,562 tests**, the **199-module** production build and **207 local build checks**. Native review records 14 captures, actual loaded outcome changes, stable result reopening and responsive UI geometry. Publication and guarded MAIN delivery remain pending.
+
+## Previous published release: 0.4.4 — Sculpted books and clearer commands
 
 Addresses the 15 follow-up comments on 0.4.3: gold Reroll/Reserve controls, a compact complete defender profile, actual-rank built counts, distinct damage-class labels, an explicit placement prompt, a stable pinned portrait, and one top-center command dock. Paused defenders receive a marker tied to their individual attack state. The Recipes book now exposes its shaped parchment leaves and center crease; the atlas has an ornate paper frame, larger serif statistics and separate real variant panels without the removed wave-index legend. New victory and defeat scenes use the approved character identities and geometric world style, with complete provenance.
 

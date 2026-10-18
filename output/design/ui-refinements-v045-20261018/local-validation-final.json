@@ -1,0 +1,75 @@
+{
+  "schema": "ui-refinements-v045-local-validation-v1",
+  "startedAt": "2026-10-18T16:05:10.239Z",
+  "completedAt": "2026-10-18T16:06:09.116Z",
+  "status": "passed",
+  "base": "/bastions-of-the-last-kingdom/",
+  "sourceFiles": 500,
+  "tests": {
+    "exitCode": 0,
+    "total": 1562,
+    "passed": 1562,
+    "failed": 0,
+    "sourceChangesDuringRun": [],
+    "error": null
+  },
+  "build": {
+    "exitCode": 0,
+    "modules": 199,
+    "sourceChangesDuringRun": [],
+    "sourceChangesAfterTests": [],
+    "error": null,
+    "assets": [
+      {
+        "file": "assets/archer-BGJ64zjr.js",
+        "bytes": 313484,
+        "sha256": "371ba6f6d9e51af1e25a572e7af7683c75957594e705a8a0c7e5710fe36fcbd4"
+      },
+      {
+        "file": "assets/archer-DuO6Xkvi.css",
+        "bytes": 7772,
+        "sha256": "6995f81669c3ef3c7a6a67554b937561241556482b0572b01bd1e3df7b2cdc04"
+      },
+      {
+        "file": "assets/game-B0-KkxB8.js",
+        "bytes": 530481,
+        "sha256": "cfe3885db86f3b43a2f10720b85d485865ac10ce30858fba9d47c29338aedb31"
+      },
+      {
+        "file": "assets/game-Ccma4yp8.css",
+        "bytes": 328693,
+        "sha256": "da70757957f25d1f735997c51f3892407ab63ebe59930d11f5947a80400fd40c"
+      },
+      {
+        "file": "assets/portrait-visibility-CjGvrIAn.js",
+        "bytes": 216590,
+        "sha256": "8801845e33b6b4c96508703d1233ded5a3b8111361a721b4df4bf31983c446ee"
+      },
+      {
+        "file": "assets/portrait-visibility-Cq7vvpxZ.css",
+        "bytes": 107,
+        "sha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56"
+      },
+      {
+        "file": "assets/three-xuukYDL3.js",
+        "bytes": 653736,
+        "sha256": "5d645847b6ec862cefc17f450d72b3b5a742a7c45e668bd22b247b7845131995"
+      },
+      {
+        "file": "index.html",
+        "bytes": 1220,
+        "sha256": "0361fcff114a67414f54a4d1822821455cd85d3f44d54ce7619d93db7e9ca7ed"
+      },
+      {
+        "file": "archer.html",
+        "bytes": 819,
+        "sha256": "cb1367e7c6dee33765d81ab66bb4e1cc2e5e607bb48adc74f658eac19af38d57"
+      },
+      {
+        "file": "release.json",
+        "bytes": 1182,
+        "sha256": "7145f293a60fd19c9e3a3ae1ddc0ea0f704eb14fe4a47e2efacf621219c6d3db"
+      }
+    ]
+  }
+}

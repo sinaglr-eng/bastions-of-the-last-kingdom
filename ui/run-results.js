@@ -1,6 +1,7 @@
 import {formatRunDuration} from './run-clock.js';
 import {icon} from './icons.js';
 import {siteUrl} from '../game/site-url.js';
+import {OUTCOME_ART_SCENES,selectOutcomeArt} from './outcome-art.js';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const count=value=>Number.isFinite(value)?Math.max(0,Math.floor(value)):0;
@@ -46,7 +47,7 @@ export function runResultModel(game,{tracker=null,facts=null}={}){
   const leaks=observed?.leaks??(Number.isFinite(lastWave?.leaks)?count(lastWave.leaks):null);
   const healthLost=observed?(observed.healthKnown?observed.healthLost:null):Number.isFinite(lastWave?.startHealth)&&Number.isFinite(lastWave?.endHealth)?Math.max(0,lastWave.startHealth-lastWave.endHealth):null;
   const lastLeak=facts?.lastLeak?.wave===wave?{...facts.lastLeak}:null,lastThreat=lastLeak|| (facts?.lastSpawn?.wave===wave?{...facts.lastSpawn}:null);
-  return {ended,won,outcome:game.phase,wave,waveLimit:limit,completedWaves,defeatWave:game.phase==='lost'?wave:null,score:count(game.score),kills:count(game.kills),elapsedSeconds:Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?game.elapsedSeconds:null,totalLeaks:Number.isFinite(game.leaks)?count(game.leaks):null,finalWaveName:game.wave?.name||null,finalWaveLeaks:leaks,finalWaveHealthLost:healthLost,lastLeak,lastThreat,developerMode:!!game.developerMode};
+  return {ended,won,outcome:game.phase,wave,waveLimit:limit,completedWaves,defeatWave:game.phase==='lost'?wave:null,score:count(game.score),kills:count(game.kills),elapsedSeconds:Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?game.elapsedSeconds:null,totalLeaks:Number.isFinite(game.leaks)?count(game.leaks):null,finalWaveName:game.wave?.name||null,finalWaveLeaks:leaks,finalWaveHealthLost:healthLost,lastLeak,lastThreat,developerMode:!!game.developerMode,art:selectOutcomeArt(game)};
 }
 
 function factsMarkup(model){
@@ -58,8 +59,8 @@ function factsMarkup(model){
 function outcomeArtMarkup(model){
   const won=model.won;
   const copy=won?'The kingdom’s defenders raise their banners in triumph.':'The last human keep has fallen to the orc horde.';
-  const alt=won?'Frost Knight, Lionheart Champion and Master Druid celebrate above the defeated Lord Bernhard and his wyvern':'The victorious Marsh Orc Hunter and Orc Ash Executioner stand beside defeated Frost Knight and Lionheart Champion';
-  return `<p class="run-result-outcome-copy">${copy}</p><img class="run-result-art ${won?'run-result-victory-art':'run-result-defeat-art'}" src="${siteUrl('assets/ui/results/v044/'+(won?'victory':'defeat')+'.png')}" alt="${alt}">`;
+  const art=model.art||OUTCOME_ART_SCENES[won?'won':'lost'][0];
+  return `<p class="run-result-outcome-copy">${copy}</p><img class="run-result-art ${won?'run-result-victory-art':'run-result-defeat-art'}" data-outcome-art="${art.id}" src="${siteUrl(art.path)}" alt="${escape(art.alt)}">`;
 }
 
 export function runResultMarkup(model,{scoreVersionMarkup='',leaderboardMarkup=''}={}){

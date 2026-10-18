@@ -1,5 +1,13 @@
 # Releases
 
+## 0.4.5 — A simpler preparation folio — 18 October 2026
+
+Addresses eight follow-up comments on 0.4.4. Removes static book page numbers and compacts the three direct filters and progress choices. Keeps the current public campaign at 50 waves, simplifies mystery recruit cards, starts Potential combinations collapsed, updates built counts for the inspected rank, and places a compact individual attack pause control beside the defender name. Adds new result-art variants with approved defenders and enemies and random per-result selection.
+
+Implementation and review pass all **1,562 tests**, the **199-module** build and **207 local fixture requests**. Native checks verify loaded result variants, stable reopening and compact controls. [The English implementation report](docs/UI_REFINEMENTS_V045_20261018.md) records the eight changes and pending publication/delivery gates. Previous approved images, prompts, historical records and recovery points remain protected.
+
+<!-- V045_RELEASE_GATES_PENDING -->
+
 ## 0.4.4 — Sculpted books and clearer commands — 18 October 2026
 
 Addresses 15 follow-up comments on 0.4.3. Matches Reroll/Reserve to gold creation controls, fits the complete Engineer profile with thinner rank buttons, counts built defenders at the actual selected rank, distinguishes Physical/Magical/Holy labels, and adds a native mystery symbol with explicit placement guidance. Preserves pinned portrait nodes across refreshes. Moves the single Ready/Combat command group to the top center and shows a red marker only for an actual individually paused defender.

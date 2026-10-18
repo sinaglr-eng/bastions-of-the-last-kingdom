@@ -129,7 +129,7 @@ const displayedBuiltCount=html=>Number(html.match(/class="defender-built-count">
 function placeRound(game,family,tier=1){game.draft.roundForced={family,tier};for(let x=3;x<8;x++)assert.equal(game.place(x,2+game.round),true);game.select(game.roundCandidates[0].tower.id);}
 function nextRound(game){assert.equal(game.startCombat(),true);game.completeWave();}
 
-test('header counts only kept defenders at the actual family and rank, independent of a compared rank or candidate/reserve/wall stock',()=>{
+test('header counts only kept defenders at the viewed family and rank, excluding candidate/reserve/wall stock',()=>{
   const game=new Game(data,{seed:807}),control=new Game(data,{seed:807});
   for(const current of [game,control]){
     placeRound(current,'mage',1);assert.equal(current.keep(),true);nextRound(current);
@@ -139,9 +139,9 @@ test('header counts only kept defenders at the actual family and rank, independe
   const first=game.towers.find(t=>t.state==='active'),candidate=game.roundCandidates[0].tower,preview=new DefenderRankPreview();
   first.attackPaused=true;assert.equal(preview.select(candidate,6,data),true);
   let before=snapshot(game),html=defenderPanelMarkup(game,candidate,{rankPreview:preview});
-  assert.equal(displayedBuiltCount(html),0);assert.match(html,/0 built at rank V/);assert.match(html,/Actual rank V · Candidate/);assert.equal(game.draft.draws.filter(draw=>!draw.placed).length,4);assert.equal(snapshot(game),before);
-  preview.select(first,6,data);html=defenderPanelMarkup(game,first,{rankPreview:preview});assert.equal(displayedBuiltCount(html),1);assert.match(html,/1 built at rank I/);assert.match(html,/Preview rank VI · Actual rank I unchanged/);
-  const rankIV=game.towers.find(t=>t.state==='active'&&t.tier===4);preview.select(rankIV,1,data);html=defenderPanelMarkup(game,rankIV,{rankPreview:preview});assert.equal(displayedBuiltCount(html),1);assert.match(html,/1 built at rank IV/);assert.equal(snapshot(game),before);
+  assert.equal(displayedBuiltCount(html),0);assert.match(html,/0 built at rank VI/);assert.match(html,/Actual rank V · Candidate/);assert.equal(game.draft.draws.filter(draw=>!draw.placed).length,4);assert.equal(snapshot(game),before);
+  preview.select(first,6,data);html=defenderPanelMarkup(game,first,{rankPreview:preview});assert.equal(displayedBuiltCount(html),0);assert.match(html,/0 built at rank VI/);assert.match(html,/Preview rank VI · Actual rank I unchanged/);
+  const rankIV=game.towers.find(t=>t.state==='active'&&t.tier===4);preview.select(rankIV,1,data);html=defenderPanelMarkup(game,rankIV,{rankPreview:preview});assert.equal(displayedBuiltCount(html),1);assert.match(html,/1 built at rank I/);assert.equal(snapshot(game),before);
   for(const current of [game,control]){for(let x=4;x<8;x++)assert.equal(current.place(x,2+current.round),true);current.select(current.roundCandidates[0].tower.id);assert.equal(current.reserve(),true);}
   before=snapshot(game);html=defenderPanelMarkup(game,candidate,{rankPreview:preview});assert.equal(displayedBuiltCount(html),0);assert.match(html,/Reserved · Inactive wall/);assert.equal(snapshot(game),before);
   assert.equal(game.towers.filter(t=>t.family==='mage'&&t.state==='active').length,2);assert.ok(game.towers.some(t=>t.family==='mage'&&t.state==='ruin'));assert.equal(game.rng(),control.rng());
@@ -158,7 +158,7 @@ test('header counts each advanced family independently and reflects a real keep 
 
 test('ended rank planning remains visible and read-only; walls and reserved defenders do not gain planning controls',()=>{
   const game=candidates(),tower=game.selection;assert.equal(game.keep(),true);const preview=new DefenderRankPreview();preview.select(tower,4,data);
-  for(const phase of ['won','lost']){game.phase=phase;const before=snapshot(game),html=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(html,/class="folio-recipes potential-combinations"/);assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);assert.match(html,/Preview rank IV · Actual rank I unchanged/);assert.equal(displayedBuiltCount(html),1);assert.doesNotMatch(html,/data-detail-key="(?:recipes|ranks)"|data-action="(?:keep-draw|merge|downgrade|tower-pause)"|id="targeting"/);assert.equal(snapshot(game),before);}
+  for(const phase of ['won','lost']){game.phase=phase;const before=snapshot(game),html=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(html,/class="folio-recipes potential-combinations"/);assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);assert.match(html,/Preview rank IV · Actual rank I unchanged/);assert.equal(displayedBuiltCount(html),0);assert.doesNotMatch(html,/data-detail-key="(?:recipes|ranks)"|data-action="(?:keep-draw|merge|downgrade|tower-pause)"|id="targeting"/);assert.equal(snapshot(game),before);}
   const wall=game.towers.find(t=>t.state==='ruin');const html=defenderPanelMarkup(game,wall,{rankPreview:preview});assert.doesNotMatch(html,/defender-built-count|potential-combinations|rank-preview/);
 });
 

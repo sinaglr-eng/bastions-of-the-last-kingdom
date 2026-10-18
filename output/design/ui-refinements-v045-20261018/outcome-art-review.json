@@ -1,0 +1,123 @@
+{
+  "revision": "outcome-scenes-20261018-v2",
+  "generator": "Built-in ImageGen",
+  "generated": [
+    {
+      "id": "defeat-02",
+      "file": "public/assets/ui/results/v045/defeat-02.png",
+      "subjects": {
+        "defenders": [
+          "Elven Mage",
+          "Elven Ranger"
+        ],
+        "enemies": [
+          "Mogrok, the Gatebreaker",
+          "Orc Mirror Shieldbearers"
+        ]
+      },
+      "review": "Inspected against all four approved identity references and the preserved 044 style scene. Elven Mage sits with lowered blue-crystal staff and scattered colored crystals; green-hood Elven Ranger kneels with lowered bow and white quiver. Mogrok raises his skull mace above the elves with his horned helmet and iron-banded wooden shield. The olive-green Mirror Shieldbearer carries the black diamond shield, spear and floating metal shards. Their approved colors, silhouettes, equipment and square faces remain recognizable. Clear human defeat, no gore, labels or UI.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2277495,
+      "sha256": "4de70fdd9d05cf2e35bb33c157fe27e4a86e854098b9dfa3831db7ae48b4b4fb"
+    },
+    {
+      "id": "defeat-03",
+      "file": "public/assets/ui/results/v045/defeat-03.png",
+      "subjects": {
+        "defenders": [
+          "Paladin",
+          "Baby Fire Dragon"
+        ],
+        "enemies": [
+          "Silent Orc Executioners",
+          "Bloodwolf Orc Riders"
+        ]
+      },
+      "review": "Inspected against all four approved identity references and the preserved 044 style scene. Paladin sits with bowed silver-and-gold helmet, sun hammer lowered and red-gold cross shield beside him. The small orange Baby Fire Dragon crouches unharmed with brown horns, folded wings, cream belly and tail flame. Purple pointed-hood Silent Orc Executioner raises both crescent blades; red-armored Bloodwolf Orc Rider raises his club on the charcoal wolf. Both factions and outcome read clearly, no gore, labels or UI.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2249658,
+      "sha256": "c5f04d55af0bf4a4aaec5d52bfb090820ad36b706066848b04c171f931059b69"
+    },
+    {
+      "id": "victory-02",
+      "file": "public/assets/ui/results/v045/victory-02.png",
+      "subjects": {
+        "defenders": [
+          "King",
+          "Elven Elite Warrior"
+        ],
+        "enemies": [
+          "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "Orc Dual-Seal Inquisitors"
+        ]
+      },
+      "review": "Inspected against all four approved identity references and the preserved 044 style scene. White-bearded King celebrates mounted on his grey horse with raised blue sword, gold jeweled crown and purple fleur-de-lis heraldry. Gold-leaf-crowned Elven Elite Warrior raises his gold-green bow. Bernhard slumps with dark hood, crimson gems and dropped black-red sword beside his subdued black/crimson wyvern. Gold-trimmed Dual-Seal Inquisitor sits disarmed with skull shoulder charms, seal staff and sun shield lowered. Clear human victory, no gore, labels or UI.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2378379,
+      "sha256": "7a86162cf423fedbf66a67c0d717a9c059798582be0b38a1bcd6a5468682ba58"
+    },
+    {
+      "id": "victory-03",
+      "file": "public/assets/ui/results/v045/victory-03.png",
+      "subjects": {
+        "defenders": [
+          "Lady Claire",
+          "Archangel"
+        ],
+        "enemies": [
+          "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "Mogrok, the Gatebreaker"
+        ]
+      },
+      "review": "Inspected against all four approved identity references and the preserved 044 style scene. Lady Claire raises her ring staff with gold crown, white-gold robe, amber jewels and square green eyes. Gold-armored Archangel raises his sword with halo and angular white wings. Bernhard slumps with dark hood and crimson gems, black-red sword dropped beside his crouched crimson-winged wyvern. Horned Mogrok sits subdued with skull mace and wooden shield lowered. Clear human victory, no gore, labels or UI.",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2318690,
+      "sha256": "d96348d2f97a98b852d738d552422a8047a878f871a937dd2e3e8c7cb4959aef"
+    }
+  ],
+  "preserved": [
+    {
+      "id": "defeat-01",
+      "outcome": "lost",
+      "file": "public/assets/ui/results/v044/defeat.png",
+      "sourceManifest": "public/assets/ui/results/v044/manifest.json",
+      "sourceIdentity": "defeat",
+      "preservedWithoutChanges": true,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2179822,
+      "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+    },
+    {
+      "id": "victory-01",
+      "outcome": "won",
+      "file": "public/assets/ui/results/v044/victory.png",
+      "sourceManifest": "public/assets/ui/results/v044/manifest.json",
+      "sourceIdentity": "victory",
+      "preservedWithoutChanges": true,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 2299564,
+      "sha256": "b52df65307d67977a851177fc5912c21a4b0c8f7f43cc899f702310c69d2a27e"
+    }
+  ],
+  "allFourOutputsInspected": true,
+  "allInputsInspectedBeforeGeneration": true,
+  "pixelEdits": false
+}

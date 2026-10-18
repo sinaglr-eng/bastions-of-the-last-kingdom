@@ -30,6 +30,9 @@ test('catalog keeps the three direct filters and basic guide while removed searc
   assert.equal((html.match(/class="recipe-catalog-row/g)||[]).length,38);assert.match(html,/data-catalog-view="champions"/);assert.match(html,/data-catalog-view="basics"/);
   assert.equal((html.match(/data-recipe-filter="/g)||[]).length,3);assert.doesNotMatch(html,/data-catalog-search|catalog-filter-tools|Filter options|How filters work|data-recipe-filter-reset|How recipes work/);
   assert.match(html,/<div class="catalog-basics-view" hidden>/);assert.equal((html.match(/compact-recipe-detail/g)||[]).length,0);
+  for(const state of [{},{view:'basics'},{recipeId:'frostblade'}]){
+    assert.doesNotMatch(championCatalogMarkup(fresh(),data,{}, {state}),/catalog-page-number|aria-label="Page [12]"/);
+  }
 });
 
 test('recipe rows and selected profile expose the canonical classification as a visible badge',()=>{
