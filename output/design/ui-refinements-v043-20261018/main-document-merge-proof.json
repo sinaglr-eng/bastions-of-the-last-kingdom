@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "clean",
+  "createdAt": "2026-10-18T11:35:29.653Z",
+  "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+  "main": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+  "baselineSnapshot": "tmp/v043-main-before.json",
+  "baselineSnapshotSha256": "0cd3eb4b94e81acac2be0bfe6ebd5d954f5ab7a03a36357476e9bc94ff8e0e2e",
+  "mode": "ISO candidate files only; no MAIN writes and no index operations",
+  "documents": [
+    {
+      "file": "README.md",
+      "status": "clean-three-way-merge",
+      "baseCommit": "8290085c428f56b7561b2bb6f86b178fd743df23",
+      "baselineMainSha256": "50c25183423c02920042ec5d97d18e4c4caa64647818eba9eb9cda87c7a917f8",
+      "baseBlobSha256": "e62567058d74f0c21786f0d2d919b552d0d56c8178d794b04d5d50211ccd1f6a",
+      "isoSourceSha256": "90cb8a6479c503c2feb789ebf77ba1838a99bea507e2a716747d1e51e455e005",
+      "candidate": "tmp/v043-merged-README.md",
+      "candidateSha256": "18d50d8beb1b37203052446016aa69bcd166b85263906c24c892a54629d51ac0",
+      "candidateBytes": 43296,
+      "normalization": "Inputs are LF-normalized solely for Git merge; original MAIN/source files are never written",
+      "reviewPatch": "output/design/ui-refinements-v043-20261018/main-document-merge.patch"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "status": "clean-three-way-merge",
+      "baseCommit": "8290085c428f56b7561b2bb6f86b178fd743df23",
+      "baselineMainSha256": "441e4e2b7c104ab775b3a5bbf2619904dc8179f54255fdff8e1577e89de616e4",
+      "baseBlobSha256": "4a17774b3781f1376e3370934625841f73c0f21a199f39d092cdaefa30cc2340",
+      "isoSourceSha256": "01c6400dcc3b7954ffa3c67e74686ff981a9bf669cbc553825ac9667c2df8196",
+      "candidate": "tmp/v043-merged-CHANGELOG.md",
+      "candidateSha256": "7307f5e377470b731bb4805f567261b402620b4f3e812962866a04976b1b2a32",
+      "candidateBytes": 55554,
+      "normalization": "Inputs are LF-normalized solely for Git merge; original MAIN/source files are never written",
+      "reviewPatch": "output/design/ui-refinements-v043-20261018/main-document-merge.patch"
+    }
+  ]
+}

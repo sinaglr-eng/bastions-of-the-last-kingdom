@@ -28,7 +28,7 @@ const jsonSha=value=>sha(Buffer.from(JSON.stringify(value)));
 const htmlText=value=>Buffer.from(value).toString('utf8').replace(/\r+\n/g,'\n');
 const signature='89504e470d0a1a0a';
 const markers={
-  javascript:['assets/ui/reference-cutouts/','reference-cutouts-20261016-v1','atlas-book','catalog-index-page','catalog-reading-page','warbands-atlas','folio-construction-seal','catalog-selected-heading','warband-story','assets/ui/reference-enemy-fronts/','enemy-front-cutouts-20261018-v1','defeat-city-v043.png','folio-ingredient-recipe','folio-champion-context','data-effective-stats'],
+  javascript:['"reference-cutouts"','reference-cutouts-20261016-v1','atlas-book','catalog-index-page','catalog-reading-page','warbands-atlas','folio-construction-seal','catalog-selected-heading','warband-story','"reference-enemy-fronts"','enemy-front-cutouts-20261018-v1','defeat-city-v043.png','folio-ingredient-recipe','folio-champion-context','data-effective-stats'],
   css:['--folio-grain','--folio-frame','book-corners','catalog-reading-page','catalog-bookmark','preparation-folio','catalog-heading-pin','is-compact-external','folio-create-actions','folio-decision-row','run-result-defeat-art'],
 };
 

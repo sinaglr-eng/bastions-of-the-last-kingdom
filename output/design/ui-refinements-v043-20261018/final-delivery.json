@@ -1,0 +1,43 @@
+{
+  "schema": "ui-refinements-v043-final-delivery-v1",
+  "status": "passed",
+  "recordedAt": "2026-10-18T11:36:32.054Z",
+  "release": "0.4.3",
+  "sourceHead": "0fd1fa7b5a222c6118a0dd6f9a2f35be245c464d",
+  "deployedCommit": "0fd1fa7b5a222c6118a0dd6f9a2f35be245c464d",
+  "main": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+  "reviewedPayloadDigest": "0f2974ba51088ee936f56af6e27c48b1ee474f1ee684cc40447adb5eada269aa",
+  "verifiedOwnedFiles": 178,
+  "unownedBaselineChanges": [],
+  "gitIndexesUnchangedDuringDelivery": true,
+  "indexHashes": {
+    "source": "bced7726a4a0b246245d2776382ea6fa7b6e0abf8b1be171fb0cf306d40b2067",
+    "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+  },
+  "operationalReceiptsCopied": [
+    "main-mirror-allowlist.json",
+    "main-mirror-dry-run.json",
+    "main-mirror-apply.json"
+  ],
+  "publicVerification": {
+    "status": "passed",
+    "requests": 199
+  },
+  "notes": "Every owned MAIN file matches the reviewed payload, including the separately merged README and CHANGELOG. Existing unrelated files and MAIN index were preserved.",
+  "releaseTag": "v0.4.3",
+  "runtimeUnchangedAfterDeployment": true,
+  "postDeploymentChanges": [
+    "CHANGELOG.md",
+    "README.md",
+    "docs/UI_POLISH_V043_20261018.md",
+    "output/design/ui-refinements-v043-20261018/browser-qa.json",
+    "output/design/ui-refinements-v043-20261018/public-verifier-tests.log",
+    "tests/public-verification-v043.test.mjs",
+    "tools/verify-v043-public.mjs"
+  ],
+  "receiptSha256": {
+    "publication-ci-proof.json": "2d811fc86ad725cca3cee7dea8b7b199e049bf80fe7e62c6e4d46cb2dc69f6f0",
+    "public-verification.json": "a60c417d315f040bf1c06ee67d48cd9500872b525803727c7a5672948f28823b",
+    "public-browser-qa.json": "d269e89015b849eb1e06306736bfb609df92061c7c50115921b199e6e35ae658"
+  }
+}

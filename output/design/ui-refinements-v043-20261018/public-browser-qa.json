@@ -1,0 +1,116 @@
+{
+  "schema": "ui-refinements-v043-public-browser-qa-v1",
+  "language": "English",
+  "status": "passed",
+  "recordedAt": "2026-10-18T11:33:18.201Z",
+  "deployedCommit": "0fd1fa7b5a222c6118a0dd6f9a2f35be245c464d",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.3",
+  "evidenceSource": "Release owner live public-browser observations and native saved-image inspection",
+  "console": {
+    "warnings": 0,
+    "errors": 0
+  },
+  "scenarios": [
+    {
+      "id": "public-initial-game",
+      "viewport": [
+        1280,
+        720
+      ],
+      "status": "passed",
+      "loadedGameEntries": [
+        "game-gJKqdz4y.js",
+        "game-Bdmh1BFW.css"
+      ],
+      "portraitCssLoaded": true,
+      "metrics": {
+        "draft": {
+          "width": 713,
+          "scrollWidth": 713,
+          "height": 218,
+          "scrollHeight": 218
+        }
+      },
+      "elapsedClock": "00:12",
+      "screenshot": "24-public-game-final.jpg"
+    },
+    {
+      "id": "public-atlas-front-44",
+      "viewport": [
+        1715,
+        1244
+      ],
+      "status": "passed",
+      "wave": 44,
+      "portrait": {
+        "loaded": true,
+        "naturalDimensions": [
+          335,
+          438
+        ],
+        "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/assets/ui/reference-enemy-fronts/host_44.png?v=enemy-front-cutouts-20261018-v1"
+      },
+      "screenshot": "25-public-atlas-front-44.jpg"
+    },
+    {
+      "id": "public-recipe-book",
+      "viewport": [
+        1715,
+        1244
+      ],
+      "status": "passed",
+      "recipe": "Ancient Dragon Patriarch",
+      "family": "phoenix",
+      "classification": {
+        "label": "TOP",
+        "color": "gold"
+      },
+      "portrait": {
+        "loaded": true,
+        "family": "phoenix"
+      },
+      "removedControlsAbsent": [
+        "Search",
+        "How recipes work",
+        "Filter options/reset/help tools",
+        "About Base DPS note"
+      ],
+      "close": {
+        "outsideBookEdge": true,
+        "sizePx": 48
+      },
+      "screenshot": "26-public-book-final.jpg"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "24-public-game-final.jpg",
+      "caption": "Public initial game, natural-height draft and real elapsed clock",
+      "width": 1280,
+      "height": 720,
+      "bytes": 137212,
+      "sha256": "d8bb6dd4e99bd2e4492ccd438649bb22389659dbba7ec5eed0ad33b11f4a537c"
+    },
+    {
+      "file": "25-public-atlas-front-44.jpg",
+      "caption": "Public wave-44 atlas with loaded FRONT portrait",
+      "width": 1715,
+      "height": 1244,
+      "bytes": 245151,
+      "sha256": "b70cbe56be67fbaa81ce7a2b083fc922f64a16f6be742c5d1059682add1d0bbb"
+    },
+    {
+      "file": "26-public-book-final.jpg",
+      "caption": "Public Ancient Dragon Patriarch recipe, TOP badge and outside Close",
+      "width": 1715,
+      "height": 1244,
+      "bytes": 290923,
+      "sha256": "03838f9807bf5149c18e0dcd242751167fb0cce3b4c787038490eb436dd5d71d"
+    }
+  ],
+  "limits": [
+    "These public checks verify initial loading and atlas/book inspection. Public crafting, MVP awards and defeat were not exercised; their actual interaction evidence is from local browser QA.",
+    "Physical iPad hardware and Safari were unavailable; no physical-device certification is claimed."
+  ],
+  "readOnly": true
+}

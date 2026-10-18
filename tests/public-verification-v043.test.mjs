@@ -11,7 +11,7 @@ const crimsonBytes=bytes('public/assets/ui/portrait-variants/manifest.json'),cri
 const frontBytes=bytes('public/assets/ui/reference-enemy-fronts/manifest.json'),frontManifest=JSON.parse(frontBytes);
 const defeatBytes=bytes('public/assets/ui/results/manifest.json'),defeatManifest=JSON.parse(defeatBytes);
 const release={version:'0.4.3',uiRevision:'cartographer-polished-20261018-v4',uiPortraitRevision:manifest.revision,uiEnemyPortraitRevision:frontManifest.revision};
-const javascript=Buffer.from('assets/ui/reference-cutouts/ reference-cutouts-20261016-v1 atlas-book catalog-index-page catalog-reading-page warbands-atlas folio-construction-seal catalog-selected-heading warband-story assets/ui/reference-enemy-fronts/ enemy-front-cutouts-20261018-v1 defeat-city-v043.png folio-ingredient-recipe folio-champion-context data-effective-stats');
+const javascript=Buffer.from('const Ap="reference-cutouts-20261016-v1",Cp="enemy-front-cutouts-20261018-v1";function portrait(id,enemy){return`assets/ui/${enemy?"reference-enemy-fronts":"reference-cutouts"}/${id}.png`}; /* atlas-book catalog-index-page catalog-reading-page warbands-atlas folio-construction-seal catalog-selected-heading warband-story defeat-city-v043.png folio-ingredient-recipe folio-champion-context data-effective-stats */');
 const css=Buffer.from('--folio-grain --folio-frame book-corners catalog-reading-page catalog-bookmark preparation-folio catalog-heading-pin is-compact-external folio-create-actions folio-decision-row run-result-defeat-art');
 const indexHtml=Buffer.from('<!doctype html>\n<html><head><script type="module" src="./assets/index-fixture.js"></script><link rel="stylesheet" href="./assets/index-fixture.css"></head></html>');
 const localBuild={indexHtml,assets:{'assets/index-fixture.js':javascript,'assets/index-fixture.css':css}};
@@ -55,6 +55,14 @@ test('LF, CRLF and Vite CRCRLF boundaries preserve JSON records and HTML while o
 test('exact local bundle comparison detects a stale compiled response even if all required UI markers still exist',async()=>{
   const {fetchImpl}=fixture({'assets/index-fixture.js':Buffer.concat([javascript,Buffer.from(' stale')])}),report=await verify({fetchImpl});
   assert.equal(report.status,'failed');assert.equal(report.localBuildComparison.status,'failed');assert.ok(report.failures.some(row=>row.error.includes('Public compiled bytes differ')));
+});
+
+test('compiled portrait templates need the exact namespace identities even when revisions and all local/public bytes still match',async()=>{
+  assert.doesNotMatch(javascript.toString(),/assets\/ui\/reference-(?:cutouts|enemy-fronts)\//,'Vite composes the path through a template rather than emitting a complete literal URL.');
+  for(const namespace of ['reference-cutouts','reference-enemy-fronts']){
+    const changed=Buffer.from(javascript.toString().replace(`"${namespace}"`,`"missing-${namespace}"`)),{fetchImpl}=fixture({'assets/index-fixture.js':changed}),report=await verify({fetchImpl,localBuild:{...localBuild,assets:{...localBuild.assets,'assets/index-fixture.js':changed}}});
+    assert.equal(report.status,'failed');assert.equal(report.localBuildComparison.status,'passed','Exact byte validation remains independent of required namespace identity.');assert.equal(report.portraits.passed,136);assert.equal(report.fronts.passed,50);assert.ok(report.uiMarkers.javascript.missing.includes(`"${namespace}"`));assert.ok(report.failures.some(row=>row.file==='compiled-javascript'));
+  }
 });
 
 test('crimson portrait corruption fails independently of the unchanged original 136 portraits',async()=>{

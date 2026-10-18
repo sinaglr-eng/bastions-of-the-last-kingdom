@@ -1,25 +1,26 @@
-✔ 0.4.2 public checker verifies immutable 136 portraits, active crimson PNG and exact compiled build with credential-free GETs (97.3394ms)
-✔ release metadata mismatch stops verification before any bulk assets or compiled requests (18.0524ms)
-✔ LF, CRLF and Vite CRCRLF boundaries preserve the same immutable manifest and HTML while other differences remain rejected (305.6883ms)
-✔ exact local bundle comparison detects a stale compiled response even if all required UI markers still exist (75.1192ms)
-✔ crimson portrait corruption fails independently of the unchanged original 136 portraits (71.1972ms)
-✔ missing final local build and changed immutable manifest are rejected before network requests (28.8125ms)
-✔ 0.4.3 public checker verifies immutable 136 portraits, legacy crimson, all 50 FRONT cutouts, defeat art and exact compiled build with credential-free GETs (131.5333ms)
-✔ release metadata mismatch stops verification before any bulk assets or compiled requests (19.6141ms)
-✔ LF, CRLF and Vite CRCRLF boundaries preserve JSON records and HTML while other HTML differences remain rejected (446.6323ms)
-✔ exact local bundle comparison detects a stale compiled response even if all required UI markers still exist (95.4195ms)
-✔ crimson portrait corruption fails independently of the unchanged original 136 portraits (99.9593ms)
-✔ missing final local build and changed immutable manifest are rejected before network requests (42.4297ms)
-✔ invalid local FRONT view, source, RGB, alpha, identity, trim or historical metadata fails before any request (243.4606ms)
-✔ a changed public FRONT manifest cannot silently replace the locally verified crop metadata (26.2755ms)
-✔ FRONT PNG corruption and a non-RGBA header fail independently of every historical portrait and defeat art (192.454ms)
-✔ changed defeat prompt/provenance is rejected and invalid local asset identity fails before requests (43.0481ms)
-✔ defeat PNG corruption is rejected after the unchanged original, crimson and 50 FRONT portraits pass (94.4394ms)
-ℹ tests 17
+✔ 0.4.2 public checker verifies immutable 136 portraits, active crimson PNG and exact compiled build with credential-free GETs (102.1996ms)
+✔ release metadata mismatch stops verification before any bulk assets or compiled requests (18.6324ms)
+✔ LF, CRLF and Vite CRCRLF boundaries preserve the same immutable manifest and HTML while other differences remain rejected (311.9248ms)
+✔ exact local bundle comparison detects a stale compiled response even if all required UI markers still exist (80.2991ms)
+✔ crimson portrait corruption fails independently of the unchanged original 136 portraits (70.8956ms)
+✔ missing final local build and changed immutable manifest are rejected before network requests (31.9252ms)
+✔ 0.4.3 public checker verifies immutable 136 portraits, legacy crimson, all 50 FRONT cutouts, defeat art and exact compiled build with credential-free GETs (133.9314ms)
+✔ release metadata mismatch stops verification before any bulk assets or compiled requests (19.3901ms)
+✔ LF, CRLF and Vite CRCRLF boundaries preserve JSON records and HTML while other HTML differences remain rejected (460.6905ms)
+✔ exact local bundle comparison detects a stale compiled response even if all required UI markers still exist (97.831ms)
+✔ compiled portrait templates need the exact namespace identities even when revisions and all local/public bytes still match (197.5914ms)
+✔ crimson portrait corruption fails independently of the unchanged original 136 portraits (98.193ms)
+✔ missing final local build and changed immutable manifest are rejected before network requests (41.6205ms)
+✔ invalid local FRONT view, source, RGB, alpha, identity, trim or historical metadata fails before any request (253.4319ms)
+✔ a changed public FRONT manifest cannot silently replace the locally verified crop metadata (29.6358ms)
+✔ FRONT PNG corruption and a non-RGBA header fail independently of every historical portrait and defeat art (193.9173ms)
+✔ changed defeat prompt/provenance is rejected and invalid local asset identity fails before requests (44.1791ms)
+✔ defeat PNG corruption is rejected after the unchanged original, crimson and 50 FRONT portraits pass (101.8393ms)
+ℹ tests 18
 ℹ suites 0
-ℹ pass 17
+ℹ pass 18
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 1511.1664
+ℹ duration_ms 1751.6589
