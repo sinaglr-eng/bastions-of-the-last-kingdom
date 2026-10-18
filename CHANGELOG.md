@@ -4,9 +4,9 @@
 
 Addresses eight follow-up comments on 0.4.4. Removes static book page numbers and compacts the three direct filters and progress choices. Keeps the current public campaign at 50 waves, simplifies mystery recruit cards, starts Potential combinations collapsed, updates built counts for the inspected rank, and places a compact individual attack pause control beside the defender name. Adds new result-art variants with approved defenders and enemies and random per-result selection.
 
-Implementation and review pass all **1,562 tests**, the **199-module** build and **207 local fixture requests**. Native checks verify loaded result variants, stable reopening and compact controls. [The English implementation report](docs/UI_REFINEMENTS_V045_20261018.md) records the eight changes and pending publication/delivery gates. Previous approved images, prompts, historical records and recovery points remain protected.
+Published from [`0e651f0d8b3d25b8dc1ac1eae5e672977d5b91df`](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/commit/0e651f0d8b3d25b8dc1ac1eae5e672977d5b91df). All **1,562 tests**, the **199-module** build, [Pages CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/39144470172) and **207 public GET/hash checks** pass. [The English eight-comment report](docs/UI_REFINEMENTS_V045_20261018.md) records all changes, four new generated scenes, stable per-attempt random selection, actual loaded outcome checks and guarded MAIN delivery. Historical artwork, prompts, core rules and previous release tags remain protected.
 
-<!-- V045_RELEASE_GATES_PENDING -->
+<!-- V045_RELEASE_GATES_COMPLETE -->
 
 ## 0.4.4 — Sculpted books and clearer commands — 18 October 2026
 

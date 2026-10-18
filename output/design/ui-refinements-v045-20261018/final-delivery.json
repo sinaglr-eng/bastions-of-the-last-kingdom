@@ -1,0 +1,40 @@
+{
+  "schema": "ui-refinements-v045-final-delivery-v1",
+  "status": "passed",
+  "recordedAt": "2026-10-18T16:27:52.031Z",
+  "release": "0.4.5",
+  "sourceHead": "0e651f0d8b3d25b8dc1ac1eae5e672977d5b91df",
+  "deployedCommit": "0e651f0d8b3d25b8dc1ac1eae5e672977d5b91df",
+  "main": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+  "reviewedPayloadDigest": "6041daf3beeca6d5d5f53fb0dac5c74ca9acbe009f63e07644396f42726f3f79",
+  "verifiedOwnedFiles": 73,
+  "unownedBaselinePathsVerified": 808,
+  "unownedBaselineChanges": [],
+  "gitIndexesUnchangedDuringDelivery": true,
+  "indexHashes": {
+    "source": "bfb4f3fbfddb6d8bc07076070a42aac9ae6485d7a3d5f47e1be120f8a4a99da2",
+    "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+  },
+  "operationalReceiptsCopied": [
+    "main-mirror-allowlist.json",
+    "main-mirror-dry-run.json",
+    "main-mirror-apply.json"
+  ],
+  "publicVerification": {
+    "status": "passed",
+    "requests": 207
+  },
+  "notes": "Every owned MAIN file matches the reviewed payload, including the separately merged README and CHANGELOG. Existing unrelated files and MAIN index were preserved.",
+  "releaseTag": "v0.4.5",
+  "runtimeUnchangedAfterDeployment": true,
+  "postDeploymentChanges": [
+    "CHANGELOG.md",
+    "README.md",
+    "docs/UI_REFINEMENTS_V045_20261018.md"
+  ],
+  "receiptSha256": {
+    "publication-ci-proof.json": "9f13e07e8260e30ecaeb348d0fae4c9f85e1a546314ed19558aabfd7c42cc912",
+    "public-verification.json": "719c945f984e57cc254073dc906e91b552eb7e2253d0949149859641dee7417c",
+    "public-browser-qa.json": "687f0e29320187e0791e56e52eb9cc84adf6bbfd5c447bb9690a852fde9ff4c5"
+  }
+}

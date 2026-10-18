@@ -2,11 +2,11 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-## Release 0.4.5 — A simpler preparation folio
+## Published release: 0.4.5 — A simpler preparation folio
 
-Implements the eight follow-up requests on 0.4.4: remove static book page numbers, compact the direct recipe filters, keep the public campaign at 50 waves, simplify mystery recruit cards, collapse Potential combinations initially, show built counts for the inspected rank, and move the individual attack pause control beside the defender name. Adds randomly selected result-scene variants using approved defender and enemy identities. [The eight-comment report](docs/UI_REFINEMENTS_V045_20261018.md) tracks implementation, artwork provenance and the pending release gates.
+Implements the eight follow-up requests on 0.4.4: remove static book page numbers, compact the direct recipe filters, keep the public campaign at 50 waves, simplify mystery recruit cards, collapse Potential combinations initially, show built counts for the inspected rank, and move the individual attack pause control beside the defender name. Adds randomly selected result-scene variants using approved defender and enemy identities. [The eight-comment report](docs/UI_REFINEMENTS_V045_20261018.md) tracks implementation, artwork provenance and completed validation and delivery.
 
-Implementation and verification pass all **1,562 tests**, the **199-module** production build and **207 local build checks**. Native review records 14 captures, actual loaded outcome changes, stable result reopening and responsive UI geometry. Publication and guarded MAIN delivery remain pending.
+All **1,562 tests**, the **199-module** build, [Pages CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/39144470172) and **207 public GET/hash checks** pass. Native review verifies responsive filters, viewed-rank counts, default-closed combinations and loaded randomized outcome scenes. Exact ImageGen prompts and approved reference hashes are preserved. Historical assets, game rules and recovery points remain protected. Physical iPad/Safari certification is unavailable.
 
 ## Previous published release: 0.4.4 — Sculpted books and clearer commands
 

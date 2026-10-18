@@ -2,7 +2,7 @@
 
 This follow-up addresses the eight comments made against 0.4.4. Current UI copy and this report are in English. Historical prompts, approved artwork and previous release records remain unchanged.
 
-**Release status: locally verified; publication pending.** The final source-matched suite passes **1,562 tests**, the correct-base production build compiles **199 modules**, and the local public-verifier smoke passes **207 requests**. Publication and guarded delivery are recorded only after completion.
+**Release status: published and verified.** Release [`0e651f0d8b3d25b8dc1ac1eae5e672977d5b91df`](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/commit/0e651f0d8b3d25b8dc1ac1eae5e672977d5b91df) is tagged `v0.4.5`. All **1,562 tests**, the **199-module** build, [Pages CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/39144470172) and **207 public GET/hash checks** pass.
 
 ## Scope and preservation
 
@@ -34,7 +34,7 @@ The book's bowed paper silhouette, continuous center crease and native decoratio
 - [Verifier fixtures](../output/design/ui-refinements-v045-20261018/public-verifier-tests.log): 19 passed. [Actual local build smoke](../output/design/ui-refinements-v045-20261018/local-public-checker-smoke.json): 207 local fixture requests passed; this is not a public deployment claim.
 - [Preservation audit](../output/design/ui-refinements-v045-20261018/preservation-audit.json): all 3,100 protected baseline files match, including every renderer module, 600 model files, 205 audio files and all prior public assets. All 830 captured MAIN paths and both indexes were unchanged before handoff.
 - [Native browser review](../output/design/ui-refinements-v045-20261018/browser-qa.json) records actual UI states and responsive geometry. Physical iPad/Safari certification is unavailable.
-- Exact-commit publication, public asset verification and guarded MAIN delivery remain pending.
+- Publication and delivery evidence are recorded below.
 
 ## Outcome artwork
 
@@ -44,4 +44,13 @@ The new defeats show Elven Mage/Elven Ranger beneath Mogrok/Orc Mirror Shieldbea
 
 The initial development server was started before the new public images existed and did not rescan its ignored public tree. Its retained early defeat capture has an unloaded image; final outcome checks use the finished production build with all PNGs served, rather than treating that early capture as proof.
 
-<!-- V045_RELEASE_GATES_PENDING -->
+## Published verification and delivery
+
+- [Exact-commit CI proof](../output/design/ui-refinements-v045-20261018/publication-ci-proof.json): test, build, artifact upload and publish all passed for `0e651f0d8b3d25b8dc1ac1eae5e672977d5b91df`.
+- [Public verification](../output/design/ui-refinements-v045-20261018/public-verification.json): 207 successful GETs, exact HTML and all five compiled hashes, 136 original cutouts, legacy crimson, 50 FRONT derivatives, the previous city scene, both 0.4.4 scenes and all four 0.4.5 variants. Complete metadata and ordered reference hashes are preserved; PNG/compiled bytes match exactly.
+- [Public browser QA](../output/design/ui-refinements-v045-20261018/public-browser-qa.json): the deployed 50-wave UI and compact book without static page numbers were verified through two native browser captures. All 42 catalog portraits loaded; no browser errors or warnings were reported.
+- [Final guarded delivery](../output/design/ui-refinements-v045-20261018/final-delivery.json): owned MAIN payloads match the reviewed bytes, pre-existing README/CHANGELOG edits survive clean three-way merges, all unowned captured paths and the MAIN index remain unchanged.
+
+The deployed runtime remains unchanged by the documentation/evidence follow-up. The 0.3.31 recovery point and earlier release tags are preserved.
+
+<!-- V045_RELEASE_GATES_COMPLETE -->

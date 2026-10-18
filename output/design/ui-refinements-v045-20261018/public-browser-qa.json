@@ -1,0 +1,59 @@
+{
+  "schema": "v045-native-public-browser-qa-v1",
+  "status": "passed",
+  "recordedAt": "2026-10-18T16:27:05.370Z",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.5",
+  "viewport": [
+    1715,
+    1244
+  ],
+  "captures": [
+    {
+      "file": "15-public-game.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 289823,
+      "sha256": "e82684a85694451d28162878fd4130cc2edd06a76a2c9edf9f45467089d65786"
+    },
+    {
+      "file": "16-public-book.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 289632,
+      "sha256": "ddd90e5fc3f6b128daf24becc5d71ccdb125375871a14f0bdf816d89de623098"
+    }
+  ],
+  "checks": {
+    "campaign": "New normal game displays 1 / 50 without a campaign-length selector.",
+    "mystery": "Five unrevealed cards use one large question mark and the placement instruction.",
+    "book": "Static leaf numbers and their accessibility labels are absent; changing recipe navigation remains.",
+    "toolbar": {
+      "height": 83.86458587646484,
+      "progressHeights": [
+        27,
+        27,
+        27
+      ],
+      "selectHeights": [
+        30,
+        30,
+        30
+      ],
+      "width": 527
+    },
+    "portraits": {
+      "checked": 42,
+      "loaded": 42
+    }
+  },
+  "diagnostics": [],
+  "limitations": [
+    "Physical Safari/iPad unavailable.",
+    "Actual outcome cycling and stable reopening were exercised against the identical local production build; public assets and compiled bytes pass the separate 207-request verifier."
+  ],
+  "visualReview": "Both native captures were individually inspected. The battlefield, large question marks, compact filters, bowed book leaves, continuous gutter and approved portraits render correctly."
+}
