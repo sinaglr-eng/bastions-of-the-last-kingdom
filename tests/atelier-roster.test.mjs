@@ -13,7 +13,8 @@ test('Atelier includes each of the 50 actual campaign visuals once, in wave orde
   assert.deepEqual(rows.map(row=>row.wave),Array.from({length:50},(_,i)=>i+1));
   assert.equal(rows[49].id,'host_50');assert.match(rows[49].name,/Lord Bernhard/);assert.equal(rows[49].flying,true);assert.equal(rows[49].boss,true);
   const manifest=JSON.parse(readFileSync(new URL('../public/assets/geometric/geometric-enemies.json',import.meta.url)));
-  assert.deepEqual(new Set(rows.map(row=>row.id)),new Set(manifest.entries.map(row=>row.id)));
+  assert.deepEqual(new Set(rows.map(row=>row.id)),new Set(manifest.entries.filter(row=>!row.id.endsWith('-wraith')).map(row=>row.id)));
+  assert.equal(manifest.entries.length,54,'Approved V6 also preserves the four structural variants');
   assert.ok(!rows.some(row=>row.id==='lordbernhard'));
 });
 

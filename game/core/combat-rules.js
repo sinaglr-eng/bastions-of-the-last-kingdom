@@ -15,6 +15,8 @@ export function statusEffectAllowed(enemy,effect){
   if(['poison','burn','healBlock'].includes(effect))return !enemy.magicImmune;
   return true;
 }
+export const attackTargetAllowed=(stats,enemy)=>!enemy.flying||!(stats.melee||stats.groundOnly);
+export const slowAuraApplies=(stats,enemy)=>!!stats.slowAura&&statusEffectAllowed(enemy,'slow')&&(!stats.slowAuraGroundOnly||!enemy.flying);
 export const effectDamageType=(stats,effect)=>ignoresDamageImmunity(stats)?'holy':effect==='bleed'?'physical':'magical';
 export function canonicalCombatStats(stats){
   const result={...stats,type:damageType(stats.type),projectileEffect:stats.projectileEffect||stats.type};

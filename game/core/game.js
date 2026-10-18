@@ -152,15 +152,18 @@ export class Game {
     if(!this.canCombine(t)||!this.towers.includes(t))return null;
     const candidates=this.roundCandidates.map(c=>c.tower);
     if(t.tier!==5)return this.phase==='select'?mergePartner(t,candidates,this.data):null;
-    const draws=this.draft.draws,eligibleCandidates=candidates.filter(tower=>draws.some(draw=>draw.placed&&!draw.reservedForNextDraft&&draw.towerId===tower.id));
-    const completeDraft=this.phase==='select'&&!this.draft.resolved&&draws.length===this.data.balance.drawsPerRound&&draws.every(draw=>draw.placed)&&new Set(draws.map(draw=>draw.towerId)).size===draws.length&&eligibleCandidates.length===draws.filter(draw=>!draw.reservedForNextDraft).length;
-    const pool=this.towers.filter(tower=>tower.state==='active'||completeDraft&&eligibleCandidates.includes(tower));
-    return pool.includes(t)?mergePartner(t,pool,this.data):null;
+    const draws=this.draft.draws;
+    // Only fresh V rolls from this completed unresolved draft can create VI.
+    // Returning reserves retain their origin and never become fresh rolls.
+    const completeDraft=this.phase==='select'&&!this.draft.resolved&&draws.length===this.data.balance.drawsPerRound&&draws.every(draw=>draw.placed)&&new Set(draws.map(draw=>draw.towerId)).size===draws.length&&candidates.length===draws.filter(draw=>!draw.reservedForNextDraft).length;
+    if(!completeDraft)return null;
+    const fresh=candidates.filter(tower=>draws.some(draw=>draw.placed&&draw.origin==='random'&&!draw.reservedForNextDraft&&draw.towerId===tower.id&&draw.family===tower.family&&draw.tier===tower.tier));
+    return fresh.includes(t)?mergePartner(t,fresh,this.data):null;
   }
   merge() {
     const t=this.selection;
     const partner=this.mergePartner(t);
-    if(!partner)return this.message('Merge matching current candidates, or two matching Rank V defenders between waves.');
+    if(!partner)return this.message('Merge two matching fresh candidates after all five placements. Rank VI requires two new Rank V rolls from this draft.');
     const draftUsed=t.state==='draft'||partner.state==='draft';
     const draftIndex=this.draft.draws.findIndex(draw=>[t,partner].some(tower=>tower.state==='draft'&&tower.id===draw.towerId));
     t.mvpLevel=inheritedMvpLevel([t,partner]);partner.state='ruin';t.tier++;t.kills=(t.kills||0)+(partner.kills||0);t.state='active';

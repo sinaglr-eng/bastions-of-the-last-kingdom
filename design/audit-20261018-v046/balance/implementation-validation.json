@@ -1,0 +1,111 @@
+{
+  "status": "passed",
+  "date": "2026-10-18T18:57:02.653973+00:00",
+  "implementationScope": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06"
+  ],
+  "additionalObservationEvents": [
+    "enemy-heal: actual positive regeneration/recharge gain, current visibility, no extra RNG",
+    "recover: actual positive keep-health gain only; original proc roll preserved"
+  ],
+  "tests": {
+    "command": "node --test --test-reporter=tap (28 focused test files)",
+    "passed": 319,
+    "failed": 0,
+    "log": "validation-integration.log"
+  },
+  "sourceHashes": {
+    "game/core/army-readiness.js": "398a38a40697918dde8c0d46bf90de0f655ce46a9da331d858052310f5d5058b",
+    "game/core/campaign-roster.js": "3cf05ba7d1282e9da4bf0205ee6f23a12b43281cf0fc2261a3d2be2a420c3994",
+    "game/core/combat-rules.js": "566193798b4645dcf28e28372c656bc3d6345d553d6e563d65a64767df74361a",
+    "game/core/combat.js": "88cd04e3aa5425470c8618a4f50953c2d0784e80537a3be5da32041a8f16ef4f",
+    "game/core/game.js": "4e271cda0bc42e64817afa895738dd3b84246dcd10f9d73f8bc2e74a71ec3ad1",
+    "game/core/math.js": "713738088e24309f6b988fc28fa0c8c474c20fb309027a2ab8928652ebb483ad",
+    "game/core/mvp.js": "a6709982ff3baa435d2df655810bd32c30949df999f2949192d7c40e6e63e4b5",
+    "game/core/recipes.js": "95d564d550a39f24c6c9b0047d5bb8d2a6f35629d9727b5abed48eecfd3b0503",
+    "game/core/run-statistics.js": "7e36bf59f88a6de45f753efdb763d73bb2f8b2745d91f488a17056be26e0f2da",
+    "game/render/support-effects.js": "69cb9cf82a20669d3e8d50458036eeb380d7d67ac665fe5ecef9c55301997c4a",
+    "ui/context-guidance.js": "d391ef58bbd0656cf018c79bfe549016ff9751256d1a38e1efa37545383de272",
+    "ui/defender-effective-stats.js": "65d40ee9f3f43011de0353cdf0841afffa0ba061c07ceb8d8bf056dfd5897980",
+    "ui/draft-input.js": "690202dd53462c231c10d18056793fc828e926e89ba092b6b7ad7d13789662fe",
+    "ui/grimoire.js": "6190a7a8f2662eda8fdc584b9ef4f534322d898c8ac3d3777a2cfca53df755b6",
+    "ui/mvp-details.js": "110445ecf3c1a85106ac2bcc3a07c37c6f011f8a24952b75e3db11db5210079b",
+    "ui/preparation-folio.js": "78dbdc30e7542811f13683f44a8b22d28b52daff3f49dcbce83f11673ed1b4ac",
+    "ui/selected-enemy.js": "33e6c51c855a3744a01713fcaf4168e5186cb88cc6f25dfccdca8b955fbe4865",
+    "tests/approved-balance-v046.test.mjs": "c23da8f644b045acf44500eb8648d2cf992085df749faaeabb23486d179a7684",
+    "tests/army-readiness.test.mjs": "804e6ee713350e97e3dd7e6258f0c36da71c216d139eb7695f2079798ab7c7f8",
+    "tests/combat-overhaul.test.mjs": "1c7a1c160635341e2d91d70604927eb57cb2c199de96107697a142c2796fb514",
+    "tests/defender-effective-stats-v042.test.mjs": "5d89c947acb36d579c9984df1865111782a42c9f417ad12703c9e98dca7c2dc7",
+    "tests/defender-rank-preview.test.mjs": "a00e544f7c0653084504ae1d8ff54503255874c0fbab6325944985406e3472d7",
+    "tests/enemy-defense-symbols.test.mjs": "db417323a9f8dba1e327df5d947290c7a70c4adc2865ccd28691cfb8c2cae48f",
+    "tests/grimoire-display.test.mjs": "63d306db74f23516f2e0aef476945f9208a384ce78fd9552f1dc5417a97d4d3f",
+    "tests/mvp-presentation.test.mjs": "326582823b0b058408129cc89f39045eaf3f80cafe4dccd1fecbf2a05779502e",
+    "tests/mvp.test.mjs": "146433426d4f568ceac9ec327c8a77e78ea59cfd0abd54b2d1a393710511f621",
+    "tests/preparation-folio-v040.test.mjs": "97883d692dafed5773268455b322a5d38e442115e525707a92131a25c3690bea",
+    "tests/rank-five-retained-merge.test.mjs": "d623ac8abd6de75f7c57d1f0f87532972092f1585d7a3e25331eb346512183d4",
+    "tests/ranks-recipes.test.mjs": "49e89b7dcc295172c6c52b64b3b12618f0756e1c5e19f0a7d26f20c091065f0e",
+    "tests/selected-enemy-panel.test.mjs": "1249b344d943f9ac2a862c2a77eb42354d38e6ce87688de810a37542bb11b2a4",
+    "tests/support-effects.test.mjs": "81a003e45ebcfec04d5152e6c553d2157a2f2e043e34b92e3e0c098c715a52a2",
+    "tests/approved-defender-identity.test.mjs": "6fbe3f66af1cabac5cb43e2081800b112bcefb0a42cc3bc279224eff379eacb5",
+    "tests/approved-roster.test.mjs": "b5b9cca7aa53bdb730f7562949e0be8ca0f1ff598d4debe7d3674634eac250fa",
+    "tests/cartographer-layout-v040.test.mjs": "848d87a6dfd13cd734de87f80eb68a5faeb181da0c0ff8f34aa2e4593b4f3879",
+    "tests/context-guidance.test.mjs": "362392ccb96b398bd5795d953d0a4a8ca5a642886033f13d9442f29aa9f17020",
+    "tests/defender-specialization.test.mjs": "0355dadc0c2f5c7e4289970ba2d13f6d03d12b6f4e2079548d8bb02d66dec920",
+    "tests/defense-review.test.mjs": "fbaa7208a7e38285e09cec7c5800e71a56b90a575ece1cfb5c20f5ecfdb9db17",
+    "tests/developer-console.test.mjs": "063967a6b3154df652dd471a37519f3f231240b331ad2d1301edf789412c1121",
+    "tests/recipe-breakdown.test.mjs": "c953e2ee23abfa9e4c1e80e305b9f679c64340891c7cfe3f488bbaa8abf4dae9"
+  },
+  "verified": [
+    "All 48 basic-rank and 38 champion primary ranges match the preserved approved proposal",
+    "MVP +5% per level up to +50%; no allied damage or enemy armor aura, stale old armor field ignored, strongest inheritance unchanged",
+    "Rank VI requires two fresh current random-origin V profiles and complete unique placed current draft identities; retained/reserved/cross-draft pairs blocked, reroll and staleness enforced",
+    "Frozen Celestial ground-only direct and aura channels remain separate from melee and respect Physical control immunity",
+    "Ranger slow entry/exit, strongest overlapping source, hit slow, boss multiplier, pause and immunity",
+    "Archdruid +1, Nature Spirit +3 and Mother Nature +3 strongest-only within five; no widening of independent offensive effect areas",
+    "Bomber branch 20/35/45 reduction at 4/4.5/5.5; existing 64/4s hit retained, strongest-only and zero armor floor",
+    "Old VI/MVP test setups preserved and interpreted using current own-MVP multiplier",
+    "Read-only source-area/ability/armor inspection and sampled control credit match the updated channels",
+    "Enemy-heal/recover actual gains, full-health and blocked suppression, coincident DOT and original RNG behavior"
+  ],
+  "limits": [
+    "Focused behavior and numeric configuration validation is not proof of campaign completion or human win rate.",
+    "No claim of legal-draft campaign reachability for advanced recipes requiring multiple VI ingredients. Dwarship recipe remains unchanged.",
+    "No game/scoring/campaign completion measurements are inferred from inserted Sandbox lineups.",
+    "Root integrates final full-suite/build/browser verification and B07 presentation separately."
+  ],
+  "previousFocusedValidation": {
+    "passed": 226,
+    "failed": 0,
+    "log": "validation-focused.log"
+  },
+  "integrationTriage": {
+    "testFilesAdjusted": [
+      "approved-defender-identity",
+      "approved-roster",
+      "cartographer-layout-v040",
+      "context-guidance",
+      "defender-specialization",
+      "defense-review",
+      "developer-console",
+      "recipe-breakdown"
+    ],
+    "productionMechanicsChanged": false,
+    "corrections": [
+      "Identity regression now includes approved basic rank range overrides while preserving all unrelated gameplay and original sources",
+      "Main combine subscriber uses an actual fresh current-draft V pair; retained crafting behavior remains covered",
+      "Defense review observes the approved Griffin radius: diagonal enemy initially outside, real moved enemy inside, Physical/Magical immunity preserved",
+      "Existing MVP/control help and Sandbox expectations use approved +5% per level and no MVP auras",
+      "Recipe merge fixtures now create actual placed current-draft identities via Game.place rather than incomplete hand-authored draws"
+    ],
+    "narrativeCorrections": [
+      "Stormcaller Mythic description now says eight tiles, preserving original twelve-tile archive copy",
+      "Mage cleave description no longer claims armor bypass; Cleric describes strongest standard blessing",
+      "Ranger descriptions include new local slow auras, and Oathbreaker ability text reports actual two-second on-hit slow"
+    ]
+  }
+}

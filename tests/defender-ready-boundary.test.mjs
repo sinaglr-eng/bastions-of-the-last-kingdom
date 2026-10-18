@@ -80,8 +80,16 @@ test('all 48 approved basic ranks and 38 champions pass the actual battlefield p
       assert.equal(ready.actor.position.y,WALL_DECK_HEIGHT);assert.ok(ready.attack?.geometric,'the real source rig is installed, not a decorative replacement');
       assert.ok(Math.abs(ready.actor.scale.x-BATTLEFIELD_UNIT_SCALE*defenderClassificationMultiplier(entry.family)*defenderPresentationMultiplier(entry.family))<1e-12);
       assert.equal(!!ready.aura,!!data.towers[entry.family].advanced);
-      const source=field.imported.get(key),sourceParts=new Map();source.traverse(node=>{if(node.isMesh)sourceParts.set(node.geometry,node.material);});
-      let borrowed=0;ready.actor.traverse(node=>{if(node.isMesh&&sourceParts.has(node.geometry)){borrowed++;assert.equal(node.material,sourceParts.get(node.geometry));}});assert.ok(borrowed>0);
+      const source=field.imported.get(key),sourceParts=new Map(),sourceMaterials=new Set(),sourcePositions=new Set();
+      const positionHash=geometry=>{const a=geometry.attributes.position.array;return createHash('sha256').update(Buffer.from(a.buffer,a.byteOffset,a.byteLength)).digest('hex');};
+      source.traverse(node=>{if(node.isMesh){sourceParts.set(node.geometry,node.material);sourceMaterials.add(node.material);sourcePositions.add(positionHash(node.geometry));}});
+      let borrowed=0,deforming=0;
+      ready.actor.traverse(node=>{
+        if(!node.isMesh)return;
+        if(sourceParts.has(node.geometry)){borrowed++;assert.equal(node.material,sourceParts.get(node.geometry));}
+        else if(node.geometry.userData.motionOwned){deforming++;assert.ok(sourcePositions.has(positionHash(node.geometry)),entry.id+' private deforming buffer starts at the exact approved source rest');assert.ok(sourceMaterials.has(node.material),entry.id+' deforming geometry retains the exact approved PBR material');}
+      });
+      assert.ok(borrowed+deforming>0,entry.id+' actual approved geometry is borrowed or privately cloned for deformation');
       assert.equal(field.defenderLoader.statusFor(tower,data.towers),'ready');
     }
   });

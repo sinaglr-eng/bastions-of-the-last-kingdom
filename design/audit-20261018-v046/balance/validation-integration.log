@@ -1,0 +1,1924 @@
+TAP version 13
+# Subtest: B05: every one of the 48 basic ranks and 38 champion primary ranges matches the approved source without rewriting archive data
+ok 1 - B05: every one of the 48 basic ranks and 38 champion primary ranges matches the approved source without rewriting archive data
+  ---
+  duration_ms: 2.6384
+  type: 'test'
+  ...
+# Subtest: current rank/ability narratives reflect the approved range and stacking mechanics while original authoring copy stays intact
+ok 2 - current rank/ability narratives reflect the approved range and stacking mechanics while original authoring copy stays intact
+  ---
+  duration_ms: 15.1111
+  type: 'test'
+  ...
+# Subtest: B01: MVP contributes exactly 5% per level and max 50% across primary, DOT, aura and lightning, with no ally bonus or old armor field
+ok 3 - B01: MVP contributes exactly 5% per level and max 50% across primary, DOT, aura and lightning, with no ally bonus or old armor field
+  ---
+  duration_ms: 43.4674
+  type: 'test'
+  ...
+# Subtest: B03: Frozen Celestial direct targeting and impact are ground only without melee contact restrictions; its own slow radius is separate
+ok 4 - B03: Frozen Celestial direct targeting and impact are ground only without melee contact restrictions; its own slow radius is separate
+  ---
+  duration_ms: 4.4383
+  type: 'test'
+  ...
+# Subtest: B04: royalranger slow aura has a fixed footprint, strongest-only air hit, no linger, boss and immunity rules
+ok 5 - B04: royalranger slow aura has a fixed footprint, strongest-only air hit, no linger, boss and immunity rules
+  ---
+  duration_ms: 2.1366
+  type: 'test'
+  ...
+# Subtest: B04: kingsrangerguard slow aura has a fixed footprint, strongest-only air hit, no linger, boss and immunity rules
+ok 6 - B04: kingsrangerguard slow aura has a fixed footprint, strongest-only air hit, no linger, boss and immunity rules
+  ---
+  duration_ms: 2.0252
+  type: 'test'
+  ...
+# Subtest: B04: elvenking slow aura has a fixed footprint, strongest-only air hit, no linger, boss and immunity rules
+ok 7 - B04: elvenking slow aura has a fixed footprint, strongest-only air hit, no linger, boss and immunity rules
+  ---
+  duration_ms: 1.922
+  type: 'test'
+  ...
+# Subtest: B05: Archdruid +1, Nature Spirit +3 and Mother Nature +3 affect targeting only, reach exactly five and never sum
+ok 8 - B05: Archdruid +1, Nature Spirit +3 and Mother Nature +3 affect targeting only, reach exactly five and never sum
+  ---
+  duration_ms: 2.2075
+  type: 'test'
+  ...
+# Subtest: B06: the bomber branch applies the strongest fixed armor reduction within its own footprint, preserves hit shred, immunity and zero floor
+ok 9 - B06: the bomber branch applies the strongest fixed armor reduction within its own footprint, preserves hit shred, immunity and zero floor
+  ---
+  duration_ms: 1.9761
+  type: 'test'
+  ...
+# Subtest: B04 overlapping real ranger auras choose one strongest slow and switch immediately when that source pauses or leaves
+ok 10 - B04 overlapping real ranger auras choose one strongest slow and switch immediately when that source pauses or leaves
+  ---
+  duration_ms: 2.1232
+  type: 'test'
+  ...
+# Subtest: B06 royalmarshal: its real aura boundary stays fixed under +3 range support and disappears on pause
+ok 11 - B06 royalmarshal: its real aura boundary stays fixed under +3 range support and disappears on pause
+  ---
+  duration_ms: 1.3499
+  type: 'test'
+  ...
+# Subtest: B06 griffinbomber: its real aura boundary stays fixed under +3 range support and disappears on pause
+ok 12 - B06 griffinbomber: its real aura boundary stays fixed under +3 range support and disappears on pause
+  ---
+  duration_ms: 2.1751
+  type: 'test'
+  ...
+# Subtest: B06 mechanicalgolem: its real aura boundary stays fixed under +3 range support and disappears on pause
+ok 13 - B06 mechanicalgolem: its real aura boundary stays fixed under +3 range support and disappears on pause
+  ---
+  duration_ms: 1.1483
+  type: 'test'
+  ...
+# Subtest: B03/B04 statistics credit only active, in-radius, eligible slow providers and preserve no false Holy immunity bypass
+ok 14 - B03/B04 statistics credit only active, in-radius, eligible slow providers and preserve no false Holy immunity bypass
+  ---
+  duration_ms: 2.029
+  type: 'test'
+  ...
+# Subtest: historically owned VI setups and MVP levels remain loadable and use current approved personal bonuses
+ok 15 - historically owned VI setups and MVP levels remain loadable and use current approved personal bonuses
+  ---
+  duration_ms: 10.2628
+  type: 'test'
+  ...
+# Subtest: B07 observation events report only actual enemy healing gains at original deadlines, no full-HP/blocked labels and no extra RNG
+ok 16 - B07 observation events report only actual enemy healing gains at original deadlines, no full-HP/blocked labels and no extra RNG
+  ---
+  duration_ms: 3.9949
+  type: 'test'
+  ...
+# Subtest: B07 recover event carries actual partial keep recovery and no full-keep label without changing recovery RNG draws
+ok 17 - B07 recover event carries actual partial keep recovery and no full-keep label without changing recovery RNG draws
+  ---
+  duration_ms: 2.3027
+  type: 'test'
+  ...
+# Subtest: all 46 live identities match the approved reconstruction names and all 92 current voice identities
+ok 18 - all 46 live identities match the approved reconstruction names and all 92 current voice identities
+  ---
+  duration_ms: 6.3929
+  type: 'test'
+  ...
+# Subtest: all 38 champion descriptions use current approved copy while stable recipes stay unchanged
+ok 19 - all 38 champion descriptions use current approved copy while stable recipes stay unchanged
+  ---
+  duration_ms: 0.9313
+  type: 'test'
+  ...
+# Subtest: Archangel reacts to a nearby allied magical hit at the 25 percent boundary, with ten bounces
+ok 20 - Archangel reacts to a nearby allied magical hit at the 25 percent boundary, with ten bounces
+  ---
+  duration_ms: 14.6373
+  type: 'test'
+  ...
+# Subtest: Archangel ignores own attacks, physical hits, blocked hits, immunity, inactive allies and distant casters
+ok 21 - Archangel ignores own attacks, physical hits, blocked hits, immunity, inactive allies and distant casters
+  ---
+  duration_ms: 12.7023
+  type: 'test'
+  ...
+# Subtest: Royal Ranger recovery caps keep health; armor-breaking champion attacks award no gold
+ok 22 - Royal Ranger recovery caps keep health; armor-breaking champion attacks award no gold
+  ---
+  duration_ms: 1.9633
+  type: 'test'
+  ...
+# Subtest: Monk combines two different blessing ranks and never doubles identical Priest or Cleric auras
+ok 23 - Monk combines two different blessing ranks and never doubles identical Priest or Cleric auras
+  ---
+  duration_ms: 0.3076
+  type: 'test'
+  ...
+# Subtest: Mechanical Golem suppresses healing and exposes magic immune enemies to its armor aura
+ok 24 - Mechanical Golem suppresses healing and exposes magic immune enemies to its armor aura
+  ---
+  duration_ms: 3.1955
+  type: 'test'
+  ...
+# Subtest: Stone Gaze requires facing the golem for two seconds, petrifies for three and doubles physical damage
+ok 25 - Stone Gaze requires facing the golem for two seconds, petrifies for three and doubles physical damage
+  ---
+  duration_ms: 2.0137
+  type: 'test'
+  ...
+# Subtest: Dragonrider forked lightning strikes exactly five independent targets and obeys magic immunity
+ok 26 - Dragonrider forked lightning strikes exactly five independent targets and obeys magic immunity
+  ---
+  duration_ms: 1.7356
+  type: 'test'
+  ...
+# Subtest: no army is explicitly empty and every meaningful threat is weak
+ok 27 - no army is explicitly empty and every meaningful threat is weak
+  ---
+  duration_ms: 2.097
+  type: 'test'
+  ...
+# Subtest: only current active defenders enter the composition
+ok 28 - only current active defenders enter the composition
+  ---
+  duration_ms: 1.498
+  type: 'test'
+  ...
+# Subtest: actual basic tier statistics update the directional rating
+ok 29 - actual basic tier statistics update the directional rating
+  ---
+  duration_ms: 0.8586
+  type: 'test'
+  ...
+# Subtest: family changes and newly active defenders invalidate composition cache
+ok 30 - family changes and newly active defenders invalidate composition cache
+  ---
+  duration_ms: 12.0062
+  type: 'test'
+  ...
+# Subtest: Move, identity, ordering, kills and targeting preference do not recompute readiness
+ok 31 - Move, identity, ordering, kills and targeting preference do not recompute readiness
+  ---
+  duration_ms: 0.5813
+  type: 'test'
+  ...
+# Subtest: melee cannot respond to flying targets while real ranged and burn auras can
+ok 32 - melee cannot respond to flying targets while real ranged and burn auras can
+  ---
+  duration_ms: 0.5674
+  type: 'test'
+  ...
+# Subtest: Magical damage cannot bypass Magical immunity while independent Physical control still works
+ok 33 - Magical damage cannot bypass Magical immunity while independent Physical control still works
+  ---
+  duration_ms: 0.8764
+  type: 'test'
+  ...
+# Subtest: physical immunity rejects physical/piercing but allows real magical aura damage
+ok 34 - physical immunity rejects physical/piercing but allows real magical aura damage
+  ---
+  duration_ms: 0.283
+  type: 'test'
+  ...
+# Subtest: an isolated Magical-immune boss cannot be damaged by Mage Magical secondary cleave
+ok 35 - an isolated Magical-immune boss cannot be damaged by Mage Magical secondary cleave
+  ---
+  duration_ms: 0.2754
+  type: 'test'
+  ...
+# Subtest: own MVP level and attack pause invalidate actual composition capability while allied aura coverage stays explicit
+ok 36 - own MVP level and attack pause invalidate actual composition capability while allied aura coverage stays explicit
+  ---
+  duration_ms: 2.9781
+  type: 'test'
+  ...
+# Subtest: effective armor, penetration and on-hit shredding affect actual damage capability
+ok 37 - effective armor, penetration and on-hit shredding affect actual damage capability
+  ---
+  duration_ms: 1.576
+  type: 'test'
+  ...
+# Subtest: reactive armor is evaluated at its real maximum stacks equally for Physical and Magical damage
+ok 38 - reactive armor is evaluated at its real maximum stacks equally for Physical and Magical damage
+  ---
+  duration_ms: 1.29
+  type: 'test'
+  ...
+# Subtest: healing block requires a landed hit and never inherits aura immunity piercing
+ok 39 - healing block requires a landed hit and never inherits aura immunity piercing
+  ---
+  duration_ms: 0.5585
+  type: 'test'
+  ...
+# Subtest: regeneration pressure uses modified maximum health and the real percentage rate
+ok 40 - regeneration pressure uses modified maximum health and the real percentage rate
+  ---
+  duration_ms: 1.3569
+  type: 'test'
+  ...
+# Subtest: independent poison stacks add nominal hit-stream damage while burn remains strongest-only
+ok 41 - independent poison stacks add nominal hit-stream damage while burn remains strongest-only
+  ---
+  duration_ms: 2.9935
+  type: 'test'
+  ...
+# Subtest: direct hit shell can prevent effect application while independent aura damage bypasses it
+ok 42 - direct hit shell can prevent effect application while independent aura damage bypasses it
+  ---
+  duration_ms: 1.3133
+  type: 'test'
+  ...
+# Subtest: shield response distinguishes blocked on-hit poison from independent damage aura
+ok 43 - shield response distinguishes blocked on-hit poison from independent damage aura
+  ---
+  duration_ms: 1.3412
+  type: 'test'
+  ...
+# Subtest: real multishot improves grouped response without multiplying isolated boss damage
+ok 44 - real multishot improves grouped response without multiplying isolated boss damage
+  ---
+  duration_ms: 1.255
+  type: 'test'
+  ...
+# Subtest: forked attacks that hit the original target count, while chains require another enemy
+ok 45 - forked attacks that hit the original target count, while chains require another enemy
+  ---
+  duration_ms: 1.255
+  type: 'test'
+  ...
+# Subtest: self haste is real but allied support is not globally applied or dependent on coordinates
+ok 46 - self haste is real but allied support is not globally applied or dependent on coordinates
+  ---
+  duration_ms: 2.4262
+  type: 'test'
+  ...
+# Subtest: control protection and actual extended detection are reported as placement-dependent capabilities
+ok 47 - control protection and actual extended detection are reported as placement-dependent capabilities
+  ---
+  duration_ms: 0.3822
+  type: 'test'
+  ...
+# Subtest: Ranger anti-air slow respects Physical immunity and has no Magical-immunity bypass requirement
+ok 48 - Ranger anti-air slow respects Physical immunity and has no Magical-immunity bypass requirement
+  ---
+  duration_ms: 0.3604
+  type: 'test'
+  ...
+# Subtest: possible variants use the weakest matching case instead of assuming the favorable roll
+ok 49 - possible variants use the weakest matching case instead of assuming the favorable roll
+  ---
+  duration_ms: 0.3139
+  type: 'test'
+  ...
+# Subtest: unknown towers, incomplete enemies and empty analyses are safe and conservative
+ok 50 - unknown towers, incomplete enemies and empty analyses are safe and conservative
+  ---
+  duration_ms: 0.274
+  type: 'test'
+  ...
+# Subtest: evaluation never draws randomness, mutates inputs or produces numeric outcome predictions
+ok 51 - evaluation never draws randomness, mutates inputs or produces numeric outcome predictions
+  ---
+  duration_ms: 1.83
+  type: 'test'
+  ...
+# Subtest: configured relative-health and ordinal thresholds are honored without changing combat data
+ok 52 - configured relative-health and ordinal thresholds are honored without changing combat data
+  ---
+  duration_ms: 1.3788
+  type: 'test'
+  ...
+# Subtest: the analyzer primary threats bound readiness rows without changing the full intelligence details
+ok 53 - the analyzer primary threats bound readiness rows without changing the full intelligence details
+  ---
+  duration_ms: 0.2235
+  type: 'test'
+  ...
+# Subtest: conditional petrification is described truthfully for blink without assuming enemy facing
+ok 54 - conditional petrification is described truthfully for blink without assuming enemy facing
+  ---
+  duration_ms: 0.2961
+  type: 'test'
+  ...
+# Subtest: all actual campaign previews evaluate deterministically with canonical classified variant IDs
+ok 55 - all actual campaign previews evaluate deterministically with canonical classified variant IDs
+  ---
+  duration_ms: 33.9841
+  type: 'test'
+  ...
+# Subtest: real untagged opening wave has a conservative damage response before and after keeping a defender
+ok 56 - real untagged opening wave has a conservative damage response before and after keeping a defender
+  ---
+  duration_ms: 0.5867
+  type: 'test'
+  ...
+# Subtest: an explicitly nonboss variant does not inherit its aggregate group boss flag
+ok 57 - an explicitly nonboss variant does not inherit its aggregate group boss flag
+  ---
+  duration_ms: 1.1453
+  type: 'test'
+  ...
+# Subtest: Holy damage remains an immunity response while its control and healing-block companions obey the actual category gates
+ok 58 - Holy damage remains an immunity response while its control and healing-block companions obey the actual category gates
+  ---
+  duration_ms: 1.9741
+  type: 'test'
+  ...
+# Subtest: nominal Dread hit-refresh cadence reduces composition capacity and genuine self protection restores it
+ok 59 - nominal Dread hit-refresh cadence reduces composition capacity and genuine self protection restores it
+  ---
+  duration_ms: 3.1886
+  type: 'test'
+  ...
+# Subtest: native Potential combinations stays closed initially and preserves deliberate disclosure across folio moves and rank refreshes
+ok 60 - native Potential combinations stays closed initially and preserves deliberate disclosure across folio moves and rank refreshes
+  ---
+  duration_ms: 142.3691
+  type: 'test'
+  ...
+# Subtest: one compact attack toggle beside the name runs the real command in both global pause states and disappears after the run
+ok 61 - one compact attack toggle beside the name runs the real command in both global pause states and disappears after the run
+  ---
+  duration_ms: 59.4136
+  type: 'test'
+  ...
+# Subtest: production responsive folio tabs switch the shared panes without changing real selection, rank, action nodes or RNG
+ok 62 - production responsive folio tabs switch the shared panes without changing real selection, rank, action nodes or RNG
+  ---
+  duration_ms: 30.7545
+  type: 'test'
+  ...
+# Subtest: production folio falls back to Recruits when selection disappears or a new draft leaves the selected page unavailable
+ok 63 - production folio falls back to Recruits when selection disappears or a new draft leaves the selected page unavailable
+  ---
+  duration_ms: 48.7756
+  type: 'test'
+  ...
+# Subtest: production Recipes availability follows real plan content for walls, pins, unpinning and cleared inspection context
+ok 64 - production Recipes availability follows real plan content for walls, pins, unpinning and cleared inspection context
+  ---
+  duration_ms: 12.3954
+  type: 'test'
+  ...
+# Subtest: repeated sync moves the same action/recipe nodes once and restores them to inspector across actual phases
+ok 65 - repeated sync moves the same action/recipe nodes once and restores them to inspector across actual phases
+  ---
+  duration_ms: 8.7547
+  type: 'test'
+  ...
+# Subtest: native pinned-recipe collapse moves the same dock outside the folio and immediately frees its planning pane
+ok 66 - native pinned-recipe collapse moves the same dock outside the folio and immediately frees its planning pane
+  ---
+  duration_ms: 8.3594
+  type: 'test'
+  ...
+# Subtest: restore plus actual rerender never leaves old or duplicate commands connected; explicit recipe browser returns to original anchor
+ok 67 - restore plus actual rerender never leaves old or duplicate commands connected; explicit recipe browser returns to original anchor
+  ---
+  duration_ms: 37.8188
+  type: 'test'
+  ...
+# Subtest: exact draft recipe details are read-only and the direct Create action preserves physical foundation guards
+ok 68 - exact draft recipe details are read-only and the direct Create action preserves physical foundation guards
+  ---
+  duration_ms: 13.6577
+  type: 'test'
+  ...
+# Subtest: exact mixed recipe details are read-only and the direct Create action preserves physical foundation guards
+ok 69 - exact mixed recipe details are read-only and the direct Create action preserves physical foundation guards
+  ---
+  duration_ms: 16.8883
+  type: 'test'
+  ...
+# Subtest: exact retained recipe details are read-only and the direct Create action preserves physical foundation guards
+ok 70 - exact retained recipe details are read-only and the direct Create action preserves physical foundation guards
+  ---
+  duration_ms: 9.6903
+  type: 'test'
+  ...
+# Subtest: retained Build recipe inspection never reads hidden identities or falls back to rank-I art for an unavailable higher-rank picture
+ok 71 - retained Build recipe inspection never reads hidden identities or falls back to rank-I art for an unavailable higher-rank picture
+  ---
+  duration_ms: 10.402
+  type: 'test'
+  ...
+# Subtest: retired preview state cannot replace or hide the normal preparation folio
+ok 72 - retired preview state cannot replace or hide the normal preparation folio
+  ---
+  duration_ms: 5.5911
+  type: 'test'
+  ...
+# Subtest: production recipe inspection preserves compared rank and physical selection without a replacement preview step
+ok 73 - production recipe inspection preserves compared rank and physical selection without a replacement preview step
+  ---
+  duration_ms: 17.698
+  type: 'test'
+  ...
+# Subtest: actual Ready retained recipe inspection keeps preparation hidden and preserves the same direct-creation foundation
+ok 74 - actual Ready retained recipe inspection keeps preparation hidden and preserves the same direct-creation foundation
+  ---
+  duration_ms: 23.5321
+  type: 'test'
+  ...
+# Subtest: actual main combine subscriber replaces recipe receipts with the new defender after Ready craft or guarded merge
+ok 75 - actual main combine subscriber replaces recipe receipts with the new defender after Ready craft or guarded merge
+  ---
+  duration_ms: 42.3367
+  type: 'test'
+  ...
+# Subtest: all current recipes create directly from exact real allocations and reject the completed action without an intermediate preview
+ok 76 - all current recipes create directly from exact real allocations and reject the completed action without an intermediate preview
+  ---
+  duration_ms: 170.4774
+  type: 'test'
+  ...
+# Subtest: production inspection shows only the explicitly requested recipe without opening any combination preview
+ok 77 - production inspection shows only the explicitly requested recipe without opening any combination preview
+  ---
+  duration_ms: 8.9229
+  type: 'test'
+  ...
+# Subtest: a new actual selection starts a fresh cancel snapshot instead of inheriting the previous preview comparison
+ok 78 - a new actual selection starts a fresh cancel snapshot instead of inheriting the previous preview comparison
+  ---
+  duration_ms: 15.8318
+  type: 'test'
+  ...
+# Subtest: production sidebar restores focus to portaled Keep/Merge/downgrade and retained Move after actual replacement
+ok 79 - production sidebar restores focus to portaled Keep/Merge/downgrade and retained Move after actual replacement
+  ---
+  duration_ms: 13.7714
+  type: 'test'
+  ...
+# Subtest: actual draft renderer removes Ready/Combat history controls and production 1–5 keys act only in Build/Select
+ok 80 - actual draft renderer removes Ready/Combat history controls and production 1–5 keys act only in Build/Select
+  ---
+  duration_ms: 29.6437
+  type: 'test'
+  ...
+# Subtest: production map tools keep Suggested maze separate from the Start action, which remains exclusive to Ready
+ok 81 - production map tools keep Suggested maze separate from the Start action, which remains exclusive to Ready
+  ---
+  duration_ms: 19.7885
+  type: 'test'
+  ...
+# Subtest: production rank command removes a legal Lady Claire Create action for preview VI and restores it at actual V without changing the draft or RNG
+ok 82 - production rank command removes a legal Lady Claire Create action for preview VI and restores it at actual V without changing the draft or RNG
+  ---
+  duration_ms: 17.1813
+  type: 'test'
+  ...
+# Subtest: all 86 current profiles use exactly three damage classes and explicit ability changes, without rewriting archived data
+ok 83 - all 86 current profiles use exactly three damage classes and explicit ability changes, without rewriting archived data
+  ---
+  duration_ms: 5.0145
+  type: 'test'
+  ...
+# Subtest: armor reduces all three classes; only Holy damage ignores both damage immunities and no elemental resistance survives
+ok 84 - armor reduces all three classes; only Holy damage ignores both damage immunities and no elemental resistance survives
+  ---
+  duration_ms: 0.3598
+  type: 'test'
+  ...
+# Subtest: evasion, depletion-recharging shields and shell still stop Holy direct hits; True Strike and DOT use their actual separate contracts
+ok 85 - evasion, depletion-recharging shields and shell still stop Holy direct hits; True Strike and DOT use their actual separate contracts
+  ---
+  duration_ms: 8.0312
+  type: 'test'
+  ...
+# Subtest: Magical immunity blocks poison/fire while Physical immunity blocks slow/freeze, including Holy companion effects
+ok 86 - Magical immunity blocks poison/fire while Physical immunity blocks slow/freeze, including Holy companion effects
+  ---
+  duration_ms: 4.9562
+  type: 'test'
+  ...
+# Subtest: armor reduction can land through damage immunity, respects evasion/shields, uses strongest amount and never goes negative
+ok 87 - armor reduction can land through damage immunity, respects evasion/shields, uses strongest amount and never goes negative
+  ---
+  duration_ms: 2.735
+  type: 'test'
+  ...
+# Subtest: ten successful Druid I hits add ten independent 5s stacks and credit each owner actual HP with no refresh of earlier hits
+ok 88 - ten successful Druid I hits add ten independent 5s stacks and credit each owner actual HP with no refresh of earlier hits
+  ---
+  duration_ms: 4.1724
+  type: 'test'
+  ...
+# Subtest: Fire Ballista adds 120 Magical burn/s on a real physical hit; it does not burn a Magical-immune target or stack burn
+ok 89 - Fire Ballista adds 120 Magical burn/s on a real physical hit; it does not burn a Magical-immune target or stack burn
+  ---
+  duration_ms: 2.7541
+  type: 'test'
+  ...
+# Subtest: Golem can proc and petrify a damage-immune foe while its Physical hit remains blocked and hidden targets remain hidden
+ok 90 - Golem can proc and petrify a damage-immune foe while its Physical hit remains blocked and hidden targets remain hidden
+  ---
+  duration_ms: 2.1013
+  type: 'test'
+  ...
+# Subtest: standard haste uses strongest 100%, Archbishop adds its separate500%, and all actual damage channels receive current support/MVP scaling
+ok 91 - standard haste uses strongest 100%, Archbishop adds its separate500%, and all actual damage channels receive current support/MVP scaling
+  ---
+  duration_ms: 2.7128
+  type: 'test'
+  ...
+# Subtest: console rule overrides remain run-local; actual traces expose armor→shell→effectiveHP and blocked attempts without extra RNG
+ok 92 - console rule overrides remain run-local; actual traces expose armor→shell→effectiveHP and blocked attempts without extra RNG
+  ---
+  duration_ms: 4.8239
+  type: 'test'
+  ...
+# Subtest: actual Holy impacts bypass damage immunity but every companion effect obeys its normal immunity category
+ok 93 - actual Holy impacts bypass damage immunity but every companion effect obeys its normal immunity category
+  ---
+  duration_ms: 20.8519
+  type: 'test'
+  ...
+# Subtest: actual Frozen Celestial aura and Holy frost bounce cannot slow Physical-immune enemies; Golem alone retains explicit petrification bypass
+ok 94 - actual Frozen Celestial aura and Holy frost bounce cannot slow Physical-immune enemies; Golem alone retains explicit petrification bypass
+  ---
+  duration_ms: 4.3605
+  type: 'test'
+  ...
+# Subtest: changing an active target to an immune profile cannot preserve an obsolete Holy status bypass
+ok 95 - changing an active target to an immune profile cannot preserve an obsolete Holy status bypass
+  ---
+  duration_ms: 2.237
+  type: 'test'
+  ...
+# Subtest: Dread requires real owned HP damage, has no proximity trigger and excludes shield/evasion/immunity/Shell blocks and phantom sources
+ok 96 - Dread requires real owned HP damage, has no proximity trigger and excludes shield/evasion/immunity/Shell blocks and phantom sources
+  ---
+  duration_ms: 6.6482
+  type: 'test'
+  ...
+# Subtest: Dread refreshes three game seconds without stacking and survives the provoking enemy death, while pause freezes its expiry
+ok 97 - Dread refreshes three game seconds without stacking and survives the provoking enemy death, while pause freezes its expiry
+  ---
+  duration_ms: 1.8254
+  type: 'test'
+  ...
+# Subtest: Dread cooldown integrates only its three-second interval equally for coarse/fine ticks and partial control protection
+ok 98 - Dread cooldown integrates only its three-second interval equally for coarse/fine ticks and partial control protection
+  ---
+  duration_ms: 25.292
+  type: 'test'
+  ...
+# Subtest: owned DOT and launched projectiles refresh paused-source Dread at any range, while actual support can suppress its attack penalty
+ok 99 - owned DOT and launched projectiles refresh paused-source Dread at any range, while actual support can suppress its attack penalty
+  ---
+  duration_ms: 2.5938
+  type: 'test'
+  ...
+# Subtest: actual secondary chains and damage auras provoke their real owner; consumed projectile sources cannot gain active-defender Dread
+ok 100 - actual secondary chains and damage auras provoke their real owner; consumed projectile sources cannot gain active-defender Dread
+  ---
+  duration_ms: 1.9423
+  type: 'test'
+  ...
+# Subtest: all current Refraction profiles use three charges and live charges never reset periodically
+ok 101 - all current Refraction profiles use three charges and live charges never reset periodically
+  ---
+  duration_ms: 1.7742
+  type: 'test'
+  ...
+# Subtest: depleting the final shield during one two-second projectile tick does not recharge it in that same tick
+ok 102 - depleting the final shield during one two-second projectile tick does not recharge it in that same tick
+  ---
+  duration_ms: 1.5353
+  type: 'test'
+  ...
+# Subtest: actual enemy inspection shows depletion-only shield countdown and continues to distinguish Holy damage from blocked effects
+ok 103 - actual enemy inspection shows depletion-only shield countdown and continues to distinguish Holy damage from blocked effects
+  ---
+  duration_ms: 25.2865
+  type: 'test'
+  ...
+# Subtest: actual recharge uses four-second deadlines and blink advances six route tiles every five seconds across large ticks
+ok 104 - actual recharge uses four-second deadlines and blink advances six route tiles every five seconds across large ticks
+  ---
+  duration_ms: 1.8477
+  type: 'test'
+  ...
+# Subtest: all current regeneration profiles use twenty percent, wave38 twenty-five percent, and actual modified maxHP/healing-block expiry set recovery
+ok 105 - all current regeneration profiles use twenty percent, wave38 twenty-five percent, and actual modified maxHP/healing-block expiry set recovery
+  ---
+  duration_ms: 2.7083
+  type: 'test'
+  ...
+# Subtest: Console timing overrides are run-private, expose Dread duration and retain explicit old Refraction periods as depletion delays
+ok 106 - Console timing overrides are run-private, expose Dread duration and retain explicit old Refraction periods as depletion delays
+  ---
+  duration_ms: 4.2619
+  type: 'test'
+  ...
+# Subtest: first placement guidance is optional and rendering/acknowledging consumes no inventory, CP, RNG or pause state
+ok 107 - first placement guidance is optional and rendering/acknowledging consumes no inventory, CP, RNG or pause state
+  ---
+  duration_ms: 11.4701
+  type: 'test'
+  ...
+# Subtest: CP appears only at the first legal relevant action and dismissal/restoration prevents repeated later-round introductions
+ok 108 - CP appears only at the first legal relevant action and dismissal/restoration prevents repeated later-round introductions
+  ---
+  duration_ms: 41.0936
+  type: 'test'
+  ...
+# Subtest: actual first wave MVP event offers a short tip without changing the award, and later awards do not repeat acknowledged guidance
+ok 109 - actual first wave MVP event offers a short tip without changing the award, and later awards do not repeat acknowledged guidance
+  ---
+  duration_ms: 8.2168
+  type: 'test'
+  ...
+# Subtest: an unacknowledged CP tip stays optional between waves and never expands combat or paused-combat guidance
+ok 110 - an unacknowledged CP tip stays optional between waves and never expands combat or paused-combat guidance
+  ---
+  duration_ms: 17.8371
+  type: 'test'
+  ...
+# Subtest: seen preferences reject hostile types, duplicates and unknown IDs; unavailable storage need not block dismissal
+ok 111 - seen preferences reject hostile types, duplicates and unknown IDs; unavailable storage need not block dismissal
+  ---
+  duration_ms: 7.133
+  type: 'test'
+  ...
+# Subtest: guidance describes current CP/MVP rules and the seven optional tour steps follow the approved folio, atlas and combat dock
+ok 112 - guidance describes current CP/MVP rules and the seven optional tour steps follow the approved folio, atlas and combat dock
+  ---
+  duration_ms: 1.4395
+  type: 'test'
+  ...
+# Subtest: actual MVP plus Priest damage and speed buffs match real projectile damage and attack cadence
+ok 113 - actual MVP plus Priest damage and speed buffs match real projectile damage and attack cadence
+  ---
+  duration_ms: 19.9972
+  type: 'test'
+  ...
+# Subtest: current Dread and multiple disrupted barricades lower the same actual cooldown rate, with additive DPS contributions
+ok 114 - current Dread and multiple disrupted barricades lower the same actual cooldown rate, with additive DPS contributions
+  ---
+  duration_ms: 4.7818
+  type: 'test'
+  ...
+# Subtest: paused, melancholy and real disarm report zero current direct DPS without destroying their damage bonus
+ok 115 - paused, melancholy and real disarm report zero current direct DPS without destroying their damage bonus
+  ---
+  duration_ms: 2.6932
+  type: 'test'
+  ...
+# Subtest: candidates and different-rank comparisons remain base only and never borrow active MVP, aura or enemy penalties
+ok 116 - candidates and different-rank comparisons remain base only and never borrow active MVP, aura or enemy penalties
+  ---
+  duration_ms: 2.2365
+  type: 'test'
+  ...
+# Subtest: current profile renders readable base and bonus lines, and permanent MVP/support appear directly after Move
+ok 117 - current profile renders readable base and bonus lines, and permanent MVP/support appear directly after Move
+  ---
+  duration_ms: 24.9487
+  type: 'test'
+  ...
+# Subtest: draft candidate detail omits inactive support filler and clearly distinguishes its actual base profile from a rank preview
+ok 118 - draft candidate detail omits inactive support filler and clearly distinguishes its actual base profile from a rank preview
+  ---
+  duration_ms: 2.9012
+  type: 'test'
+  ...
+# Subtest: actual HUD refresh uses run-local defender/support rules and leaves an unchanged metric node mounted
+ok 119 - actual HUD refresh uses run-local defender/support rules and leaves an unchanged metric node mounted
+  ---
+  duration_ms: 10.8669
+  type: 'test'
+  ...
+# Subtest: candidate folio keeps actual actions and puts all previewed effects before ranks and the single base grid
+ok 120 - candidate folio keeps actual actions and puts all previewed effects before ranks and the single base grid
+  ---
+  duration_ms: 48.3693
+  type: 'test'
+  ...
+# Subtest: every basic rank and champion shows all engine-derived abilities once, with only Holy immunity copy condensed in the inspector
+ok 121 - every basic rank and champion shows all engine-derived abilities once, with only Holy immunity copy condensed in the inspector
+  ---
+  duration_ms: 124.818
+  type: 'test'
+  ...
+# Subtest: previewing VI leaves actual rank I Keep/Merge keys, legal result and stale-command guards intact without consuming RNG
+ok 122 - previewing VI leaves actual rank I Keep/Merge keys, legal result and stale-command guards intact without consuming RNG
+  ---
+  duration_ms: 25.6132
+  type: 'test'
+  ...
+# Subtest: targeting, current support, measured peak and MVP belong to the actual unit after previewing another rank
+ok 123 - targeting, current support, measured peak and MVP belong to the actual unit after previewing another rank
+  ---
+  duration_ms: 9.8087
+  type: 'test'
+  ...
+# Subtest: reserved units keep their existing inactive explanatory pane and never acquire preview actions or stats
+ok 124 - reserved units keep their existing inactive explanatory pane and never acquire preview actions or stats
+  ---
+  duration_ms: 7.4186
+  type: 'test'
+  ...
+# Subtest: actual sidebar refresh keeps permanent MVP/potential/ranks visible and preserves rank-button focus and scroll after switching the main stats
+ok 125 - actual sidebar refresh keeps permanent MVP/potential/ranks visible and preserves rank-button focus and scroll after switching the main stats
+  ---
+  duration_ms: 12.8857
+  type: 'test'
+  ...
+# Subtest: header counts only kept defenders at the viewed family and rank, excluding candidate/reserve/wall stock
+ok 126 - header counts only kept defenders at the viewed family and rank, excluding candidate/reserve/wall stock
+  ---
+  duration_ms: 34.7446
+  type: 'test'
+  ...
+# Subtest: header counts each advanced family independently and reflects a real keep transition without counting its draft peers
+ok 127 - header counts each advanced family independently and reflects a real keep transition without counting its draft peers
+  ---
+  duration_ms: 17.2454
+  type: 'test'
+  ...
+# Subtest: ended rank planning remains visible and read-only; walls and reserved defenders do not gain planning controls
+ok 128 - ended rank planning remains visible and read-only; walls and reserved defenders do not gain planning controls
+  ---
+  duration_ms: 8.5755
+  type: 'test'
+  ...
+# Subtest: Holy inspector uses the requested short sentence while shared ability/help text retains companion immunity and defense semantics
+ok 129 - Holy inspector uses the requested short sentence while shared ability/help text retains companion immunity and defense semantics
+  ---
+  duration_ms: 9.6348
+  type: 'test'
+  ...
+# Subtest: all six ranks of every basic defender use actual rank stats without changing the unit
+ok 130 - all six ranks of every basic defender use actual rank stats without changing the unit
+  ---
+  duration_ms: 2.4611
+  type: 'test'
+  ...
+# Subtest: rank comparisons preserve draft rolls, gold, selection and the actual merge result
+ok 131 - rank comparisons preserve draft rolls, gold, selection and the actual merge result
+  ---
+  duration_ms: 28.804
+  type: 'test'
+  ...
+# Subtest: downgrade uses the real selected rank even while Tier VI is displayed
+ok 132 - downgrade uses the real selected rank even while Tier VI is displayed
+  ---
+  duration_ms: 6.9924
+  type: 'test'
+  ...
+# Subtest: production downgrade-and-keep stays beside the actual heading before optional details and follows actual rank, gold and reserve guards
+ok 133 - production downgrade-and-keep stays beside the actual heading before optional details and follows actual rank, gold and reserve guards
+  ---
+  duration_ms: 42.2901
+  type: 'test'
+  ...
+# Subtest: new selections and transformed units reset previews; champions, walls and invalid ranks cannot acquire one
+ok 134 - new selections and transformed units reset previews; champions, walls and invalid ranks cannot acquire one
+  ---
+  duration_ms: 0.2487
+  type: 'test'
+  ...
+# Subtest: production sidebar potential combinations follow the displayed rank and reset to the real selection
+ok 135 - production sidebar potential combinations follow the displayed rank and reset to the real selection
+  ---
+  duration_ms: 28.8793
+  type: 'test'
+  ...
+# Subtest: preview recipes expose actual retained and placed ingredients without inventing the displayed rank or enabling its craft
+ok 136 - preview recipes expose actual retained and placed ingredients without inventing the displayed rank or enabling its craft
+  ---
+  duration_ms: 42.5936
+  type: 'test'
+  ...
+# Subtest: production defender panel removes descriptive, Strong/Weak and pause-explanation prose while preserving every rank, abilities and commands
+ok 137 - production defender panel removes descriptive, Strong/Weak and pause-explanation prose while preserving every rank, abilities and commands
+  ---
+  duration_ms: 310.8369
+  type: 'test'
+  ...
+# Subtest: production retained Rank V sidebar has no merge action in ready and rejects stale previous-version commands
+ok 138 - production retained Rank V sidebar has no merge action in ready and rejects stale previous-version commands
+  ---
+  duration_ms: 9.9247
+  type: 'test'
+  ...
+# Subtest: production retained Rank V sidebar has no merge action in build and rejects stale previous-version commands
+ok 139 - production retained Rank V sidebar has no merge action in build and rejects stale previous-version commands
+  ---
+  duration_ms: 8.5743
+  type: 'test'
+  ...
+# Subtest: production retained Rank V sidebar has no merge action in select and rejects stale previous-version commands
+ok 140 - production retained Rank V sidebar has no merge action in select and rejects stale previous-version commands
+  ---
+  duration_ms: 12.4949
+  type: 'test'
+  ...
+# Subtest: a stale selected-panel Merge action cannot change the new selection, changed pair or foundation
+ok 141 - a stale selected-panel Merge action cannot change the new selection, changed pair or foundation
+  ---
+  duration_ms: 22.0784
+  type: 'test'
+  ...
+# Subtest: druid spreads effects, reserves shots and falls back to selected priority
+ok 142 - druid spreads effects, reserves shots and falls back to selected priority
+  ---
+  duration_ms: 10.4804
+  type: 'test'
+  ...
+# Subtest: runebreaker spreads effects, reserves shots and falls back to selected priority
+ok 143 - runebreaker spreads effects, reserves shots and falls back to selected priority
+  ---
+  duration_ms: 3.9198
+  type: 'test'
+  ...
+# Subtest: failed shielded shots release their effect reservation and immune targets do not steal poison spreading
+ok 144 - failed shielded shots release their effect reservation and immune targets do not steal poison spreading
+  ---
+  duration_ms: 2.7384
+  type: 'test'
+  ...
+# Subtest: successive in-flight shots spread across distinct unmarked enemies
+ok 145 - successive in-flight shots spread across distinct unmarked enemies
+  ---
+  duration_ms: 6.9196
+  type: 'test'
+  ...
+# Subtest: marshal armor aura uses its own radius, strongest reduction, and disappears when consumed
+ok 146 - marshal armor aura uses its own radius, strongest reduction, and disappears when consumed
+  ---
+  duration_ms: 2.9426
+  type: 'test'
+  ...
+# Subtest: wyvern hunter applies anti-air effects only to flying targets
+ok 147 - wyvern hunter applies anti-air effects only to flying targets
+  ---
+  duration_ms: 1.8901
+  type: 'test'
+  ...
+# Subtest: catapult stun can refresh and shortened boss duration
+ok 148 - catapult stun can refresh and shortened boss duration
+  ---
+  duration_ms: 1.8041
+  type: 'test'
+  ...
+# Subtest: arsenal and ranger blessing bypass evasion, but still respect shields and physical immunity
+ok 149 - arsenal and ranger blessing bypass evasion, but still respect shields and physical immunity
+  ---
+  duration_ms: 1.4521
+  type: 'test'
+  ...
+# Subtest: protector shortens disarm windows and reduces dread without stacking duplicate auras
+ok 150 - protector shortens disarm windows and reduces dread without stacking duplicate auras
+  ---
+  duration_ms: 1.6266
+  type: 'test'
+  ...
+# Subtest: fixed champion profiles ignore obsolete ranks and enhancements while source data stays immutable
+ok 151 - fixed champion profiles ignore obsolete ranks and enhancements while source data stays immutable
+  ---
+  duration_ms: 1.0626
+  type: 'test'
+  ...
+# Subtest: new abilities are visible in the grimoire
+ok 152 - new abilities are visible in the grimoire
+  ---
+  duration_ms: 15.4355
+  type: 'test'
+  ...
+# Subtest: bosses retain half the slowing strength of regular invaders
+ok 153 - bosses retain half the slowing strength of regular invaders
+  ---
+  duration_ms: 1.7438
+  type: 'test'
+  ...
+# Subtest: protector reduces dread in the actual attack clock
+ok 154 - protector reduces dread in the actual attack clock
+  ---
+  duration_ms: 1.5504
+  type: 'test'
+  ...
+# Subtest: development defense lineup preserves real wave14, guard stats and spawned defenses, including the physical-immune wraith and three initial charges
+ok 155 - development defense lineup preserves real wave14, guard stats and spawned defenses, including the physical-immune wraith and three initial charges
+  ---
+  duration_ms: 30.5658
+  type: 'test'
+  ...
+# Subtest: unpaused review depletes the reachable mirror and retains immunities while the real griffin armor-reduction aura is active
+ok 156 - unpaused review depletes the reachable mirror and retains immunities while the real griffin armor-reduction aura is active
+  ---
+  duration_ms: 38.9663
+  type: 'test'
+  ...
+# Subtest: activation flags the real run synchronously and waits for durable invalidation before permitting mutations
+ok 157 - activation flags the real run synchronously and waits for durable invalidation before permitting mutations
+  ---
+  duration_ms: 11.4416
+  type: 'test'
+  ...
+# Subtest: failed invalidation remains permanently flagged and can be retried without admitting test commands early
+ok 158 - failed invalidation remains permanently flagged and can be retried without admitting test commands early
+  ---
+  duration_ms: 7.8322
+  type: 'test'
+  ...
+# Subtest: disposing during asynchronous activation prevents a late ready state and preserves the exclusion
+ok 159 - disposing during asynchronous activation prevents a late ready state and preserves the exclusion
+  ---
+  duration_ms: 7.4357
+  type: 'test'
+  ...
+# Subtest: activated rules are isolated from approved data, unrelated games and immutable global defaults
+ok 160 - activated rules are isolated from approved data, unrelated games and immutable global defaults
+  ---
+  duration_ms: 7.7949
+  type: 'test'
+  ...
+# Subtest: Campaign Test reset installs a fresh excluded Game using approved rules, real resources and five latent drafts
+ok 161 - Campaign Test reset installs a fresh excluded Game using approved rules, real resources and five latent drafts
+  ---
+  duration_ms: 13.6895
+  type: 'test'
+  ...
+# Subtest: Campaign Test refuses Sandbox interventions and follows real placement, keep and sequential combat
+ok 162 - Campaign Test refuses Sandbox interventions and follows real placement, keep and sequential combat
+  ---
+  duration_ms: 24.889
+  type: 'test'
+  ...
+# Subtest: Sandbox supports authored basic rank VI and champions without ordinary placement or committed voice events
+ok 163 - Sandbox supports authored basic rank VI and champions without ordinary placement or committed voice events
+  ---
+  duration_ms: 6.7334
+  type: 'test'
+  ...
+# Subtest: Sandbox placement still rejects occupied, checkpoint, invalid coordinates and unknown families atomically
+ok 164 - Sandbox placement still rejects occupied, checkpoint, invalid coordinates and unknown families atomically
+  ---
+  duration_ms: 6.2502
+  type: 'test'
+  ...
+# Subtest: manual MVP and attack pause use real active defenders and leave approved combat stats unchanged
+ok 165 - manual MVP and attack pause use real active defenders and leave approved combat stats unchanged
+  ---
+  duration_ms: 8.8314
+  type: 'test'
+  ...
+# Subtest: Sandbox resources, simulation speed and pause validate values without coupling speed to the seed
+ok 166 - Sandbox resources, simulation speed and pause validate values without coupling speed to the seed
+  ---
+  duration_ms: 6.3319
+  type: 'test'
+  ...
+# Subtest: forced variants use actual authored queue profiles and reproducible per-invader random variants stay separate
+ok 167 - forced variants use actual authored queue profiles and reproducible per-invader random variants stay separate
+  ---
+  duration_ms: 12.7225
+  type: 'test'
+  ...
+# Subtest: invalid variant/wave commands do not clear current drafts or mutate the battlefield
+ok 168 - invalid variant/wave commands do not clear current drafts or mutate the battlefield
+  ---
+  duration_ms: 4.2039
+  type: 'test'
+  ...
+# Subtest: Sandbox starting at a chosen wave clears draft/Move state and lowers construction mastery correctly when returning to wave one
+ok 169 - Sandbox starting at a chosen wave clears draft/Move state and lowers construction mastery correctly when returning to wave one
+  ---
+  duration_ms: 5.7622
+  type: 'test'
+  ...
+# Subtest: restart restores the saved pre-wave lineup, resources, MVP levels, rules and seeded enemy queue
+ok 170 - restart restores the saved pre-wave lineup, resources, MVP levels, rules and seeded enemy queue
+  ---
+  duration_ms: 7.8158
+  type: 'test'
+  ...
+# Subtest: temporary numeric enemy profiles reach future real variants without mutating already spawned enemies
+ok 171 - temporary numeric enemy profiles reach future real variants without mutating already spawned enemies
+  ---
+  duration_ms: 5.515
+  type: 'test'
+  ...
+# Subtest: timing overrides are read dynamically by actual combat, including legitimate zero defense settings
+ok 172 - timing overrides are read dynamically by actual combat, including legitimate zero defense settings
+  ---
+  duration_ms: 3.2679
+  type: 'test'
+  ...
+# Subtest: spawn permits authored bosses/variants during combat and accounts for each additional actual invader
+ok 173 - spawn permits authored bosses/variants during combat and accounts for each additional actual invader
+  ---
+  duration_ms: 4.1994
+  type: 'test'
+  ...
+# Subtest: save/load round trip preserves approved variant differences, rank, MVP, attack pause and inactive walls
+ok 174 - save/load round trip preserves approved variant differences, rank, MVP, attack pause and inactive walls
+  ---
+  duration_ms: 10.8481
+  type: 'test'
+  ...
+# Subtest: saved temporary profiles and timing are reapplied in an isolated validated import
+ok 175 - saved temporary profiles and timing are reapplied in an isolated validated import
+  ---
+  duration_ms: 9.6407
+  type: 'test'
+  ...
+# Subtest: import clears obsolete live/projectile/queue selections and wave-local contribution after a completed test
+ok 176 - import clears obsolete live/projectile/queue selections and wave-local contribution after a completed test
+  ---
+  duration_ms: 7.4071
+  type: 'test'
+  ...
+# Subtest: invalid late placement, resource, variant, schema and executable fields are rejected before any import commit
+ok 177 - invalid late placement, resource, variant, schema and executable fields are rejected before any import commit
+  ---
+  duration_ms: 27.8084
+  type: 'test'
+  ...
+# Subtest: actual armor→Shell→effective HP damage traces expose no private enemy positions or mutable references
+ok 178 - actual armor→Shell→effective HP damage traces expose no private enemy positions or mutable references
+  ---
+  duration_ms: 5.741
+  type: 'test'
+  ...
+# Subtest: blocked actual hits retain defense reason and contribute no effective damage or MVP score
+ok 179 - blocked actual hits retain defense reason and contribute no effective damage or MVP score
+  ---
+  duration_ms: 5.017
+  type: 'test'
+  ...
+# Subtest: real completed waves produce one bounded test result with setup/rule provenance and damage excluding overkill
+ok 180 - real completed waves produce one bounded test result with setup/rule provenance and damage excluding overkill
+  ---
+  duration_ms: 5.0579
+  type: 'test'
+  ...
+# Subtest: trace and intervention buffers remain bounded across repeated real damage and simulation changes
+ok 181 - trace and intervention buffers remain bounded across repeated real damage and simulation changes
+  ---
+  duration_ms: 6.2013
+  type: 'test'
+  ...
+# Subtest: restoring approved rules is between-wave only and never restores statistics eligibility
+ok 182 - restoring approved rules is between-wave only and never restores statistics eligibility
+  ---
+  duration_ms: 4.3761
+  type: 'test'
+  ...
+# Subtest: missing or mismatched reset installation cannot silently detach the active console from its Game
+ok 183 - missing or mismatched reset installation cannot silently detach the active console from its Game
+  ---
+  duration_ms: 11.2032
+  type: 'test'
+  ...
+# Subtest: normal timestamp seeds remain intact during invalidation and are exported/reset as the same unsigned seededRandom input
+ok 184 - normal timestamp seeds remain intact during invalidation and are exported/reset as the same unsigned seededRandom input
+  ---
+  duration_ms: 8.6007
+  type: 'test'
+  ...
+# Subtest: Sandbox can test all fifty authored waves from a ten-wave campaign while Campaign Test preserves its original limit
+ok 185 - Sandbox can test all fifty authored waves from a ten-wave campaign while Campaign Test preserves its original limit
+  ---
+  duration_ms: 11.383
+  type: 'test'
+  ...
+# Subtest: Sandbox replay restores native enemy/shot identities and the real ID-staggered disarm timeline; Campaign retains natural serial progression
+ok 186 - Sandbox replay restores native enemy/shot identities and the real ID-staggered disarm timeline; Campaign retains natural serial progression
+  ---
+  duration_ms: 15.6689
+  type: 'test'
+  ...
+# Subtest: actual wave14 spawn shows three shield panels despite existing model shards, deflects3→0 and restores3 two seconds after depletion
+ok 187 - actual wave14 spawn shows three shield panels despite existing model shards, deflects3→0 and restores3 two seconds after depletion
+  ---
+  duration_ms: 61.1382
+  type: 'test'
+  ...
+# Subtest: actual Magical immunity remains visible while obsolete resistance/ward/shred fields cannot invent a defense
+ok 188 - actual Magical immunity remains visible while obsolete resistance/ward/shred fields cannot invent a defense
+  ---
+  duration_ms: 7.8609
+  type: 'test'
+  ...
+# Subtest: real fixed armor aura reductions suppress effective reactive protection, then restore it outside range or after resume
+ok 189 - real fixed armor aura reductions suppress effective reactive protection, then restore it outside range or after resume
+  ---
+  duration_ms: 5.1996
+  type: 'test'
+  ...
+# Subtest: obsolete ward never creates a symbol while healing-block, regeneration and periodic healing follow actual availability
+ok 190 - obsolete ward never creates a symbol while healing-block, regeneration and periodic healing follow actual availability
+  ---
+  duration_ms: 2.7054
+  type: 'test'
+  ...
+# Subtest: the live Dread symbol describes the real on-hit modifier independently of each target range
+ok 191 - the live Dread symbol describes the real on-hit modifier independently of each target range
+  ---
+  duration_ms: 2.4336
+  type: 'test'
+  ...
+# Subtest: all three real direct-hit classes face shields, evasion and armor-then-Shell; Holy bypasses only the two damage immunities
+ok 192 - all three real direct-hit classes face shields, evasion and armor-then-Shell; Holy bypasses only the two damage immunities
+  ---
+  duration_ms: 2.5731
+  type: 'test'
+  ...
+# Subtest: native defense descriptions use isolated console timings and stack limits, including valid zero decay
+ok 193 - native defense descriptions use isolated console timings and stack limits, including valid zero decay
+  ---
+  duration_ms: 13.9646
+  type: 'test'
+  ...
+# Subtest: only real defense layers remain across obsolete resistance caps, fixed shred, MVP reduction, immunity and fractional shield charges
+ok 194 - only real defense layers remain across obsolete resistance caps, fixed shred, MVP reduction, immunity and fractional shield charges
+  ---
+  duration_ms: 0.5903
+  type: 'test'
+  ...
+# Subtest: shared UI paths remain distinctive and configured wave descriptions never pretend depleted live defenses remain active
+ok 195 - shared UI paths remain distinctive and configured wave descriptions never pretend depleted live defenses remain active
+  ---
+  duration_ms: 0.4453
+  type: 'test'
+  ...
+# Subtest: actual defense draw queues contain only colored small particles and charge panels, with no dark disk or floor ring
+ok 196 - actual defense draw queues contain only colored small particles and charge panels, with no dark disk or floor ring
+  ---
+  duration_ms: 1.7011
+  type: 'test'
+  ...
+# Subtest: several small camera-facing glyphs and matching dots rise/fall around measured actors, freeze under reduced motion and remain private and bounded
+ok 197 - several small camera-facing glyphs and matching dots rise/fall around measured actors, freeze under reduced motion and remain private and bounded
+  ---
+  duration_ms: 35.5573
+  type: 'test'
+  ...
+# Subtest: base DPS excludes criticals, multiple targets, damage over time and support bonuses
+ok 198 - base DPS excludes criticals, multiple targets, damage over time and support bonuses
+  ---
+  duration_ms: 1.086
+  type: 'test'
+  ...
+# Subtest: current support descriptions explain strongest standard blessings and the separate nonduplicate Archbishop bonus
+ok 199 - current support descriptions explain strongest standard blessings and the separate nonduplicate Archbishop bonus
+  ---
+  duration_ms: 15.6018
+  type: 'test'
+  ...
+# Subtest: current Holy ability and rank guide separate damage from status immunity and explain the fresh Royal V merge restriction
+ok 200 - current Holy ability and rank guide separate damage from status immunity and explain the fresh Royal V merge restriction
+  ---
+  duration_ms: 11.5886
+  type: 'test'
+  ...
+# Subtest: each of 38 current champion cards uses approved classification, descriptions and actual damage channels without modifying archived records
+ok 201 - each of 38 current champion cards uses approved classification, descriptions and actual damage channels without modifying archived records
+  ---
+  duration_ms: 17.6686
+  type: 'test'
+  ...
+# Subtest: pinned higher recipes show champion branches, aggregated basic totals and actual crafting ingredients
+ok 202 - pinned higher recipes show champion branches, aggregated basic totals and actual crafting ingredients
+  ---
+  duration_ms: 1.8599
+  type: 'test'
+  ...
+# Subtest: fully covered draft recipes show blue provisional counts and zero retained ownership
+ok 203 - fully covered draft recipes show blue provisional counts and zero retained ownership
+  ---
+  duration_ms: 0.4187
+  type: 'test'
+  ...
+# Subtest: mixed recruit rows label retained counts separately from visible candidates
+ok 204 - mixed recruit rows label retained counts separately from visible candidates
+  ---
+  duration_ms: 0.2431
+  type: 'test'
+  ...
+# Subtest: development merge fixture builds five real candidates and one exact pair for all eight basic families and five mergeable ranks
+ok 205 - development merge fixture builds five real candidates and one exact pair for all eight basic families and five mergeable ranks
+  ---
+  duration_ms: 344.0077
+  type: 'test'
+  ...
+# Subtest: default fixture clears previous combat actors and invalid fixture requests leave the current game untouched
+ok 206 - default fixture clears previous combat actors and invalid fixture requests leave the current game untouched
+  ---
+  duration_ms: 7.0367
+  type: 'test'
+  ...
+# Subtest: MAX MVP halo follows an unselected active model, leaves classification geometry alone and disposes on rank/state/replacement changes
+ok 207 - MAX MVP halo follows an unselected active model, leaves classification geometry alone and disposes on rank/state/replacement changes
+  ---
+  duration_ms: 9.1849
+  type: 'test'
+  ...
+# Subtest: only an actual new MVP award creates brief confetti and stars around its recipient, without any beam or light
+ok 208 - only an actual new MVP award creates brief confetti and stars around its recipient, without any beam or light
+  ---
+  duration_ms: 3.8835
+  type: 'test'
+  ...
+# Subtest: reduced motion keeps award confetti, stars and label still while retaining a brief visible reward and cleaning resources
+ok 209 - reduced motion keeps award confetti, stars and label still while retaining a brief visible reward and cleaning resources
+  ---
+  duration_ms: 1.9574
+  type: 'test'
+  ...
+# Subtest: selected MVP detail displays actual level and individual attack pause without inventing bonuses for drafts or walls
+ok 210 - selected MVP detail displays actual level and individual attack pause without inventing bonuses for drafts or walls
+  ---
+  duration_ms: 0.405
+  type: 'test'
+  ...
+# Subtest: wave award uses actual lost HP, excludes overkill and blocked hits, emits once before wave-complete and resets next combat
+ok 211 - wave award uses actual lost HP, excludes overkill and blocked hits, emits once before wave-complete and resets next combat
+  ---
+  duration_ms: 9.5791
+  type: 'test'
+  ...
+# Subtest: winner ties prefer existing MVP then earlier build; level10 is skipped and zero damage awards nobody
+ok 212 - winner ties prefer existing MVP then earlier build; level10 is skipped and zero damage awards nobody
+  ---
+  duration_ms: 9.2126
+  type: 'test'
+  ...
+# Subtest: all damage event paths credit actual original owner, including poison/burn/bleed/aura/forks and secondary cleave
+ok 213 - all damage event paths credit actual original owner, including poison/burn/bleed/aura/forks and secondary cleave
+  ---
+  duration_ms: 5.4716
+  type: 'test'
+  ...
+# Subtest: MVP has no enemy armor effect and stale imported MVP armor fields cannot change any damage class
+ok 214 - MVP has no enemy armor effect and stale imported MVP armor fields cannot change any damage class
+  ---
+  duration_ms: 2.354
+  type: 'test'
+  ...
+# Subtest: MVP adds only own 5% per level up to 50%, with no bonus from nearby MAX MVP allies
+ok 215 - MVP adds only own 5% per level up to 50%, with no bonus from nearby MAX MVP allies
+  ---
+  duration_ms: 1.7642
+  type: 'test'
+  ...
+# Subtest: every basic merge and all38 current champion crafts inherit max ingredient MVP, never sum it or delete the selected identity
+ok 216 - every basic merge and all38 current champion crafts inherit max ingredient MVP, never sum it or delete the selected identity
+  ---
+  duration_ms: 380.5668
+  type: 'test'
+  ...
+# Subtest: only successful actual champion crafts earn a run discovery, including already-known and inherited-champion recipes
+ok 217 - only successful actual champion crafts earn a run discovery, including already-known and inherited-champion recipes
+  ---
+  duration_ms: 15.0828
+  type: 'test'
+  ...
+# Subtest: per-tower pause stops new shots/offensive aura, but launched shots, existing DOT and supporting auras continue without RNG or CP changes
+ok 218 - per-tower pause stops new shots/offensive aura, but launched shots, existing DOT and supporting auras continue without RNG or CP changes
+  ---
+  duration_ms: 1.5906
+  type: 'test'
+  ...
+# Subtest: pausing offensive armor/slow auras restores enemy armor/movement and no MVP armor support remains
+ok 219 - pausing offensive armor/slow auras restores enemy armor/movement and no MVP armor support remains
+  ---
+  duration_ms: 1.2254
+  type: 'test'
+  ...
+# Subtest: Archer II→IV changes the displayed profile and recipe suggestions while actual Keep and cards stay II
+ok 220 - Archer II→IV changes the displayed profile and recipe suggestions while actual Keep and cards stay II
+  ---
+  duration_ms: 43.413
+  type: 'test'
+  ...
+# Subtest: one canonical profile supplies quantified Mage splash and Frost Warden V/VI effects before rankbar and four metrics
+ok 221 - one canonical profile supplies quantified Mage splash and Frost Warden V/VI effects before rankbar and four metrics
+  ---
+  duration_ms: 15.4959
+  type: 'test'
+  ...
+# Subtest: actual direct DPS includes effective support/MVP while aura-only profiles keep zero direct output with a quantified per-enemy effect
+ok 222 - actual direct DPS includes effective support/MVP while aura-only profiles keep zero direct output with a quantified per-enemy effect
+  ---
+  duration_ms: 12.2078
+  type: 'test'
+  ...
+# Subtest: Build/Select share five selection cards and detail without hidden identity reads, duplicate commands or changed RNG
+ok 223 - Build/Select share five selection cards and detail without hidden identity reads, duplicate commands or changed RNG
+  ---
+  duration_ms: 17.8005
+  type: 'test'
+  ...
+# Subtest: multiple actual combinations remain visible while exactly one selected ingredient detail changes without pin/preview/selection mutation
+ok 224 - multiple actual combinations remain visible while exactly one selected ingredient detail changes without pin/preview/selection mutation
+  ---
+  duration_ms: 25.8542
+  type: 'test'
+  ...
+# Subtest: all 38 current recipes expose actual ingredient allocations and preserve existing stale/final confirmation guards
+ok 225 - all 38 current recipes expose actual ingredient allocations and preserve existing stale/final confirmation guards
+  ---
+  duration_ms: 216.5568
+  type: 'test'
+  ...
+# Subtest: retained champions satisfy one subtree and reserved/stale/hidden copies cannot enter current draft recipe inventory
+ok 226 - retained champions satisfy one subtree and reserved/stale/hidden copies cannot enter current draft recipe inventory
+  ---
+  duration_ms: 5.5012
+  type: 'test'
+  ...
+# Subtest: retained rank V merge, downgrade cost, Move and ended/reserved inspection remain bound to actual state
+ok 227 - retained rank V merge, downgrade cost, Move and ended/reserved inspection remain bound to actual state
+  ---
+  duration_ms: 19.6374
+  type: 'test'
+  ...
+# Subtest: unavailable higher-rank pictures use a neutral empty slot instead of a family rank-I fallback or undefined URL
+ok 228 - unavailable higher-rank pictures use a neutral empty slot instead of a family rank-I fallback or undefined URL
+  ---
+  duration_ms: 5.3653
+  type: 'test'
+  ...
+# Subtest: B02 soldier: retained V pair is rejected during ready without mutation
+ok 229 - B02 soldier: retained V pair is rejected during ready without mutation
+  ---
+  duration_ms: 38.2539
+  type: 'test'
+  ...
+# Subtest: B02 soldier: retained V pair is rejected during build without mutation
+ok 230 - B02 soldier: retained V pair is rejected during build without mutation
+  ---
+  duration_ms: 24.0654
+  type: 'test'
+  ...
+# Subtest: B02 soldier: retained V pair is rejected during select without mutation
+ok 231 - B02 soldier: retained V pair is rejected during select without mutation
+  ---
+  duration_ms: 36.0903
+  type: 'test'
+  ...
+# Subtest: B02 archer: retained V pair is rejected during ready without mutation
+ok 232 - B02 archer: retained V pair is rejected during ready without mutation
+  ---
+  duration_ms: 24.5108
+  type: 'test'
+  ...
+# Subtest: B02 archer: retained V pair is rejected during build without mutation
+ok 233 - B02 archer: retained V pair is rejected during build without mutation
+  ---
+  duration_ms: 25.2393
+  type: 'test'
+  ...
+# Subtest: B02 archer: retained V pair is rejected during select without mutation
+ok 234 - B02 archer: retained V pair is rejected during select without mutation
+  ---
+  duration_ms: 35.0496
+  type: 'test'
+  ...
+# Subtest: B02 druid: retained V pair is rejected during ready without mutation
+ok 235 - B02 druid: retained V pair is rejected during ready without mutation
+  ---
+  duration_ms: 16.7567
+  type: 'test'
+  ...
+# Subtest: B02 druid: retained V pair is rejected during build without mutation
+ok 236 - B02 druid: retained V pair is rejected during build without mutation
+  ---
+  duration_ms: 21.7907
+  type: 'test'
+  ...
+# Subtest: B02 druid: retained V pair is rejected during select without mutation
+ok 237 - B02 druid: retained V pair is rejected during select without mutation
+  ---
+  duration_ms: 26.4574
+  type: 'test'
+  ...
+# Subtest: B02 mage: retained V pair is rejected during ready without mutation
+ok 238 - B02 mage: retained V pair is rejected during ready without mutation
+  ---
+  duration_ms: 19.2458
+  type: 'test'
+  ...
+# Subtest: B02 mage: retained V pair is rejected during build without mutation
+ok 239 - B02 mage: retained V pair is rejected during build without mutation
+  ---
+  duration_ms: 17.612
+  type: 'test'
+  ...
+# Subtest: B02 mage: retained V pair is rejected during select without mutation
+ok 240 - B02 mage: retained V pair is rejected during select without mutation
+  ---
+  duration_ms: 25.5866
+  type: 'test'
+  ...
+# Subtest: B02 cleric: retained V pair is rejected during ready without mutation
+ok 241 - B02 cleric: retained V pair is rejected during ready without mutation
+  ---
+  duration_ms: 17.111
+  type: 'test'
+  ...
+# Subtest: B02 cleric: retained V pair is rejected during build without mutation
+ok 242 - B02 cleric: retained V pair is rejected during build without mutation
+  ---
+  duration_ms: 15.3545
+  type: 'test'
+  ...
+# Subtest: B02 cleric: retained V pair is rejected during select without mutation
+ok 243 - B02 cleric: retained V pair is rejected during select without mutation
+  ---
+  duration_ms: 22.0927
+  type: 'test'
+  ...
+# Subtest: B02 runebreaker: retained V pair is rejected during ready without mutation
+ok 244 - B02 runebreaker: retained V pair is rejected during ready without mutation
+  ---
+  duration_ms: 15.0198
+  type: 'test'
+  ...
+# Subtest: B02 runebreaker: retained V pair is rejected during build without mutation
+ok 245 - B02 runebreaker: retained V pair is rejected during build without mutation
+  ---
+  duration_ms: 15.3823
+  type: 'test'
+  ...
+# Subtest: B02 runebreaker: retained V pair is rejected during select without mutation
+ok 246 - B02 runebreaker: retained V pair is rejected during select without mutation
+  ---
+  duration_ms: 24.2674
+  type: 'test'
+  ...
+# Subtest: B02 frostwarden: retained V pair is rejected during ready without mutation
+ok 247 - B02 frostwarden: retained V pair is rejected during ready without mutation
+  ---
+  duration_ms: 14.8829
+  type: 'test'
+  ...
+# Subtest: B02 frostwarden: retained V pair is rejected during build without mutation
+ok 248 - B02 frostwarden: retained V pair is rejected during build without mutation
+  ---
+  duration_ms: 16.3219
+  type: 'test'
+  ...
+# Subtest: B02 frostwarden: retained V pair is rejected during select without mutation
+ok 249 - B02 frostwarden: retained V pair is rejected during select without mutation
+  ---
+  duration_ms: 22.5552
+  type: 'test'
+  ...
+# Subtest: B02 stormcaller: retained V pair is rejected during ready without mutation
+ok 250 - B02 stormcaller: retained V pair is rejected during ready without mutation
+  ---
+  duration_ms: 15.0723
+  type: 'test'
+  ...
+# Subtest: B02 stormcaller: retained V pair is rejected during build without mutation
+ok 251 - B02 stormcaller: retained V pair is rejected during build without mutation
+  ---
+  duration_ms: 15.2903
+  type: 'test'
+  ...
+# Subtest: B02 stormcaller: retained V pair is rejected during select without mutation
+ok 252 - B02 stormcaller: retained V pair is rejected during select without mutation
+  ---
+  duration_ms: 21.2077
+  type: 'test'
+  ...
+# Subtest: B02 retained V pair is rejected during the actual reward transition and does not affect the next draft
+ok 253 - B02 retained V pair is rejected during the actual reward transition and does not affect the next draft
+  ---
+  duration_ms: 7.919
+  type: 'test'
+  ...
+# Subtest: B02 retained V plus current V is rejected from retained foundation
+ok 254 - B02 retained V plus current V is rejected from retained foundation
+  ---
+  duration_ms: 8.1119
+  type: 'test'
+  ...
+# Subtest: B02 retained V plus current V is rejected from draft foundation
+ok 255 - B02 retained V plus current V is rejected from draft foundation
+  ---
+  duration_ms: 8.2024
+  type: 'test'
+  ...
+# Subtest: B02 soldier: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+ok 256 - B02 soldier: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+  ---
+  duration_ms: 8.9452
+  type: 'test'
+  ...
+# Subtest: B02 archer: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+ok 257 - B02 archer: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+  ---
+  duration_ms: 9.1139
+  type: 'test'
+  ...
+# Subtest: B02 druid: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+ok 258 - B02 druid: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+  ---
+  duration_ms: 8.0935
+  type: 'test'
+  ...
+# Subtest: B02 mage: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+ok 259 - B02 mage: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+  ---
+  duration_ms: 9.2582
+  type: 'test'
+  ...
+# Subtest: B02 cleric: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+ok 260 - B02 cleric: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+  ---
+  duration_ms: 8.0884
+  type: 'test'
+  ...
+# Subtest: B02 runebreaker: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+ok 261 - B02 runebreaker: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+  ---
+  duration_ms: 8.1864
+  type: 'test'
+  ...
+# Subtest: B02 frostwarden: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+ok 262 - B02 frostwarden: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+  ---
+  duration_ms: 7.8621
+  type: 'test'
+  ...
+# Subtest: B02 stormcaller: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+ok 263 - B02 stormcaller: two fresh V rolls resolve one keeper at its foundation, max MVP, no RNG/resources
+  ---
+  duration_ms: 8.2536
+  type: 'test'
+  ...
+# Subtest: B02 eligibility requires complete distinct actual slots, unresolved phase, current round and exact rolled identities
+ok 264 - B02 eligibility requires complete distinct actual slots, unresolved phase, current round and exact rolled identities
+  ---
+  duration_ms: 48.6389
+  type: 'test'
+  ...
+# Subtest: B02 returning reserved V cannot combine with a fresh V even after reroll; other fresh pairs remain valid
+ok 265 - B02 returning reserved V cannot combine with a fresh V even after reroll; other fresh pairs remain valid
+  ---
+  duration_ms: 7.2132
+  type: 'test'
+  ...
+# Subtest: B02 inactive reserve cannot merge while another fresh pair resolves the draft and carries that reserve
+ok 266 - B02 inactive reserve cannot merge while another fresh pair resolves the draft and carries that reserve
+  ---
+  duration_ms: 4.4453
+  type: 'test'
+  ...
+# Subtest: B02 reroll uses resulting current profiles and invalidates pre-reroll merge tokens
+ok 267 - B02 reroll uses resulting current profiles and invalidates pre-reroll merge tokens
+  ---
+  duration_ms: 8.1351
+  type: 'test'
+  ...
+# Subtest: B02 current V badges reject changed eligibility after selection and stale identities, foundation, MVP or another game
+ok 268 - B02 current V badges reject changed eligibility after selection and stale identities, foundation, MVP or another game
+  ---
+  duration_ms: 36.477
+  type: 'test'
+  ...
+# Subtest: B02 lower ranks retain their prior same-draft rules and cannot borrow retained lower ranks
+ok 269 - B02 lower ranks retain their prior same-draft rules and cannot borrow retained lower ranks
+  ---
+  duration_ms: 45.6059
+  type: 'test'
+  ...
+# Subtest: all eight gem identities have six finite, distinct rank profiles
+ok 270 - all eight gem identities have six finite, distinct rank profiles
+  ---
+  duration_ms: 1.5469
+  type: 'test'
+  ...
+# Subtest: two Royal V defenders merge into Mythic VI at the chosen tile, with VI capped
+ok 271 - two Royal V defenders merge into Mythic VI at the chosen tile, with VI capped
+  ---
+  duration_ms: 19.2277
+  type: 'test'
+  ...
+# Subtest: formation recipes form an acyclic graph and craft from every valid anchor with exact output ranks
+ok 272 - formation recipes form an acyclic graph and craft from every valid anchor with exact output ranks
+  ---
+  duration_ms: 384.4596
+  type: 'test'
+  ...
+# Subtest: wrong ranks and one copy of a repeated ingredient cannot satisfy a recipe
+ok 273 - wrong ranks and one copy of a repeated ingredient cannot satisfy a recipe
+  ---
+  duration_ms: 0.8607
+  type: 'test'
+  ...
+# Subtest: standard blessings use the strongest rank and Archbishop adds one independent bonus without duplicate stacking
+ok 274 - standard blessings use the strongest rank and Archbishop adds one independent bonus without duplicate stacking
+  ---
+  duration_ms: 0.3889
+  type: 'test'
+  ...
+# Subtest: magical cleave obeys each victim’s armor without damaging the primary twice
+ok 275 - magical cleave obeys each victim’s armor without damaging the primary twice
+  ---
+  duration_ms: 1.6151
+  type: 'test'
+  ...
+# Subtest: poison scales independently of hit damage and the strongest armor reduction survives refresh
+ok 276 - poison scales independently of hit damage and the strongest armor reduction survives refresh
+  ---
+  duration_ms: 1.3656
+  type: 'test'
+  ...
+# Subtest: stormcaller fires at three distinct targets and Mythic frost applies nearby slow
+ok 277 - stormcaller fires at three distinct targets and Mythic frost applies nearby slow
+  ---
+  duration_ms: 1.5298
+  type: 'test'
+  ...
+# Subtest: burning and slowing auras work without projectiles and stop when the tower is consumed
+ok 278 - burning and slowing auras work without projectiles and stop when the tower is consumed
+  ---
+  duration_ms: 1.0723
+  type: 'test'
+  ...
+# Subtest: Mythic rapid fire preserves its rate across frame sizes and stacked blessings
+ok 279 - Mythic rapid fire preserves its rate across frame sizes and stacked blessings
+  ---
+  duration_ms: 4.0387
+  type: 'test'
+  ...
+# Subtest: Kingslayer recursively requires eleven recruits with repeated exact ranks aggregated
+ok 280 - Kingslayer recursively requires eleven recruits with repeated exact ranks aggregated
+  ---
+  duration_ms: 3.2185
+  type: 'test'
+  ...
+# Subtest: all 39 fixed recipes resolve entirely to valid basic ranks
+ok 281 - all 39 fixed recipes resolve entirely to valid basic ranks
+  ---
+  duration_ms: 1.6258
+  type: 'test'
+  ...
+# Subtest: ready ingredient champions satisfy only their allotted subtree without requiring consumed recruits again
+ok 282 - ready ingredient champions satisfy only their allotted subtree without requiring consumed recruits again
+  ---
+  duration_ms: 0.88
+  type: 'test'
+  ...
+# Subtest: basic inventory respects rank, state and physical identity and never exceeds requested amounts
+ok 283 - basic inventory respects rank, state and physical identity and never exceeds requested amounts
+  ---
+  duration_ms: 0.2759
+  type: 'test'
+  ...
+# Subtest: a single owned champion cannot satisfy three repeated champion ingredient nodes
+ok 284 - a single owned champion cannot satisfy three repeated champion ingredient nodes
+  ---
+  duration_ms: 0.3278
+  type: 'test'
+  ...
+# Subtest: malformed recipe chains fail explicitly instead of recursing forever or dropping required ingredients
+ok 285 - malformed recipe chains fail explicitly instead of recursing forever or dropping required ingredients
+  ---
+  duration_ms: 3.4151
+  type: 'test'
+  ...
+# Subtest: draft ingredients remain provisional and champion overlap cannot duplicate retained leaves
+ok 286 - draft ingredients remain provisional and champion overlap cannot duplicate retained leaves
+  ---
+  duration_ms: 0.3526
+  type: 'test'
+  ...
+# Subtest: unplaced draws never affect retained ownership or placed-draft availability
+ok 287 - unplaced draws never affect retained ownership or placed-draft availability
+  ---
+  duration_ms: 2.5672
+  type: 'test'
+  ...
+# Subtest: recruit merging still advances each matching draft pair from I through VI and stops at VI
+ok 288 - recruit merging still advances each matching draft pair from I through VI and stops at VI
+  ---
+  duration_ms: 54.545
+  type: 'test'
+  ...
+# Subtest: filters expose exactly Physical, Magical and Holy and classify real armor/immunity counters
+ok 289 - filters expose exactly Physical, Magical and Holy and classify real armor/immunity counters
+  ---
+  duration_ms: 1.8198
+  type: 'test'
+  ...
+# Subtest: independent secondary and aura channels can counter immunity, while on-hit poison cannot invent a blocked primary
+ok 290 - independent secondary and aura channels can counter immunity, while on-hit poison cannot invent a blocked primary
+  ---
+  duration_ms: 0.4033
+  type: 'test'
+  ...
+# Subtest: all four Rangers advertise normal air debuffs, never full defense bypass; ordinary Archers have no air armor debuff
+ok 291 - all four Rangers advertise normal air debuffs, never full defense bypass; ordinary Archers have no air armor debuff
+  ---
+  duration_ms: 0.4556
+  type: 'test'
+  ...
+# Subtest: only actual True Strike/support or non-direct fire aura counters evasion; Cleric detection uses actual family context
+ok 292 - only actual True Strike/support or non-direct fire aura counters evasion; Cleric detection uses actual family context
+  ---
+  duration_ms: 0.2443
+  type: 'test'
+  ...
+# Subtest: all86 real profiles match actual channels, combined filters intersect, and guide copy explains conditional effects without obsolete defenses
+ok 293 - all86 real profiles match actual channels, combined filters intersect, and guide copy explains conditional effects without obsolete defenses
+  ---
+  duration_ms: 21.1087
+  type: 'test'
+  ...
+# Subtest: inspection uses the actual variant, modified maximum HP, live HP and individual portrait rather than a configured wave profile
+ok 294 - inspection uses the actual variant, modified maximum HP, live HP and individual portrait rather than a configured wave profile
+  ---
+  duration_ms: 24.1984
+  type: 'test'
+  ...
+# Subtest: actual alternate immunity and reactive-armor abilities are never mixed together in the individual view
+ok 295 - actual alternate immunity and reactive-armor abilities are never mixed together in the individual view
+  ---
+  duration_ms: 5.2256
+  type: 'test'
+  ...
+# Subtest: current armor matches all three actual damage classes after strongest fixed shred without MVP reduction; obsolete resistance fields never render
+ok 296 - current armor matches all three actual damage classes after strongest fixed shred without MVP reduction; obsolete resistance fields never render
+  ---
+  duration_ms: 5.0794
+  type: 'test'
+  ...
+# Subtest: current movement matches actual traveled distance at 1×/3× through rush, allied haste, slow, control and pause, with no guessed pre-tick value
+ok 297 - current movement matches actual traveled distance at 1×/3× through rush, allied haste, slow, control and pause, with no guessed pre-tick value
+  ---
+  duration_ms: 13.6133
+  type: 'test'
+  ...
+# Subtest: active status durations and healing-block state update with real combat while regeneration descriptions use modified HP
+ok 298 - active status durations and healing-block state update with real combat while regeneration descriptions use modified HP
+  ---
+  duration_ms: 3.5221
+  type: 'test'
+  ...
+# Subtest: individual abilities follow run-local console rules, never obsolete resistance or magic-shred status fields
+ok 299 - individual abilities follow run-local console rules, never obsolete resistance or magic-shred status fields
+  ---
+  duration_ms: 5.3072
+  type: 'test'
+  ...
+# Subtest: hidden, defeated, removed, stale-clone and preparation-phase actors cannot render through the panel API
+ok 300 - hidden, defeated, removed, stale-clone and preparation-phase actors cannot render through the panel API
+  ---
+  duration_ms: 2.0837
+  type: 'test'
+  ...
+# Subtest: ended inspection preserves actual surviving invader values and frozen wording without exposing hidden or removed actors
+ok 301 - ended inspection preserves actual surviving invader values and frozen wording without exposing hidden or removed actors
+  ---
+  duration_ms: 4.3045
+  type: 'test'
+  ...
+# Subtest: health/progress and presentation values stay finite and clamped, positive fractional HP never displays zero, and content is escaped
+ok 302 - health/progress and presentation values stay finite and clamped, positive fractional HP never displays zero, and content is escaped
+  ---
+  duration_ms: 2.4936
+  type: 'test'
+  ...
+# Subtest: dynamic refresh caches source markup and preserves sidebar scroll plus the focused command through real value changes
+ok 303 - dynamic refresh caches source markup and preserves sidebar scroll plus the focused command through real value changes
+  ---
+  duration_ms: 3.6145
+  type: 'test'
+  ...
+# Subtest: all 87 authored defender variants display exactly the numerical supportBonuses result without changing source data
+ok 304 - all 87 authored defender variants display exactly the numerical supportBonuses result without changing source data
+  ---
+  duration_ms: 33.5361
+  type: 'test'
+  ...
+# Subtest: the strongest ordinary haste wins across ranks and stack labels, while identical ties and actual self-support remain explicit
+ok 305 - the strongest ordinary haste wins across ranks and stack labels, while identical ties and actual self-support remain explicit
+  ---
+  duration_ms: 0.4073
+  type: 'test'
+  ...
+# Subtest: all 86 current campaign variants display the canonical strongest-only support values without mutating approved definitions
+ok 306 - all 86 current campaign variants display the canonical strongest-only support values without mutating approved definitions
+  ---
+  duration_ms: 33.9242
+  type: 'test'
+  ...
+# Subtest: real Otomad adds its separate 500% haste to the strongest ordinary source, never stacking duplicate providers
+ok 307 - real Otomad adds its separate 500% haste to the strongest ordinary source, never stacking duplicate providers
+  ---
+  duration_ms: 0.7659
+  type: 'test'
+  ...
+# Subtest: MVP personal damage has no projected armor circle or enemy armor symbol, even at max and while paused
+ok 308 - MVP personal damage has no projected armor circle or enemy armor symbol, even at max and while paused
+  ---
+  duration_ms: 16.8377
+  type: 'test'
+  ...
+# Subtest: paused offensive auras vanish while detection remains and MVP projects no aura; Physical immunity blocks Holy slowing
+ok 309 - paused offensive auras vanish while detection remains and MVP projects no aura; Physical immunity blocks Holy slowing
+  ---
+  duration_ms: 4.7405
+  type: 'test'
+  ...
+# Subtest: run-local disarm duration and reach drive the actual attack block and its native marker without changing global defaults
+ok 310 - run-local disarm duration and reach drive the actual attack block and its native marker without changing global defaults
+  ---
+  duration_ms: 6.1009
+  type: 'test'
+  ...
+# Subtest: exact aura boundary counts; drafts, ruins, consumed sources and out-of-range sources stop immediately even before combat
+ok 311 - exact aura boundary counts; drafts, ruins, consumed sources and out-of-range sources stop immediately even before combat
+  ---
+  duration_ms: 0.219
+  type: 'test'
+  ...
+# Subtest: enemy dread, periodic disarm and stacking scorched barricades match the actual combat clock and resistance
+ok 312 - enemy dread, periodic disarm and stacking scorched barricades match the actual combat clock and resistance
+  ---
+  duration_ms: 2.11
+  type: 'test'
+  ...
+# Subtest: selected source radii use each real rule: support, independent burn range, frost, armor aura, detection and reactive frost
+ok 313 - selected source radii use each real rule: support, independent burn range, frost, armor aura, detection and reactive frost
+  ---
+  duration_ms: 0.6346
+  type: 'test'
+  ...
+# Subtest: all persistent enemy statuses and effective debuff auras have distinct glyphs; immunity and boss slowing match core
+ok 314 - all persistent enemy statuses and effective debuff auras have distinct glyphs; immunity and boss slowing match core
+  ---
+  duration_ms: 1.9444
+  type: 'test'
+  ...
+# Subtest: owned instanced overlays have bounded counts, visible independent glyph geometry, no picking and no hidden-enemy leaks
+ok 315 - owned instanced overlays have bounded counts, visible independent glyph geometry, no picking and no hidden-enemy leaks
+  ---
+  duration_ms: 5.0552
+  type: 'test'
+  ...
+# Subtest: actual periodic disarm has one hovering broken sword and matching bounded red aura only while combat blocks attacks
+ok 316 - actual periodic disarm has one hovering broken sword and matching bounded red aura only while combat blocks attacks
+  ---
+  duration_ms: 7.0244
+  type: 'test'
+  ...
+# Subtest: paused combat preserves the real disarm window while an unpaused cosmetic clock keeps its sword orbit moving
+ok 317 - paused combat preserves the real disarm window while an unpaused cosmetic clock keeps its sword orbit moving
+  ---
+  duration_ms: 5.025
+  type: 'test'
+  ...
+# Subtest: reduced motion freezes instance matrices/materials; cleanup is idempotent and never mutates defender materials
+ok 318 - reduced motion freezes instance matrices/materials; cleanup is idempotent and never mutates defender materials
+  ---
+  duration_ms: 9.242
+  type: 'test'
+  ...
+# Subtest: wall-cap edge tint leaves stone paving unobstructed, uses one stable hue, and covers negative-only defenders without mutating GLB materials
+ok 319 - wall-cap edge tint leaves stone paving unobstructed, uses one stable hue, and covers negative-only defenders without mutating GLB materials
+  ---
+  duration_ms: 27.7409
+  type: 'test'
+  ...
+1..319
+# tests 319
+# suites 0
+# pass 319
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1176.538

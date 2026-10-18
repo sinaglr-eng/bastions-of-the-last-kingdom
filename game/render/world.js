@@ -3,7 +3,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {rankAdornment,animateRank,disposeRankAdornment} from './ranks.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
-import {MvpHalos,MvpAwardEffects} from './mvp-halo.js';
+import {MvpAwardEffects} from './mvp-halo.js';
 import {DefenderPauseMarkers} from './defender-pause-markers.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
@@ -15,13 +15,14 @@ import {animateGeometricOrbits} from './geometric-orbits.js';
 import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
 import {beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from './battle-animation.js';
 import {CombatEffects} from './combat-effects.js';
+import {CombatStatusVfx} from './combat-status-vfx.js';
+import {EnemyModelLoader,neededEnemyModelKeys} from './enemy-model-loader.js';
 import {CriticalHitLabels} from './critical-hit-labels.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
 import {EnemyConcealmentEffects} from './enemy-concealment-effects.js';
 import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS,takeCheckpointEffects,animateCheckpointEffects,disposeCheckpointEffects} from './checkpoint-marker.js';
-import {fetchGeometricEntries,geometricEntryUrl,loadModelEntries} from './geometric-assets.js';
-import {disposeGeometricResources,adoptDecodedGeometricAsset} from './geometric-resources.js';
-import {optimizeGeometricSiblings} from './geometric-batching.js';
+import {fetchGeometricEntries,geometricEntryUrl} from './geometric-assets.js';
+import {disposeGeometricResources} from './geometric-resources.js';
 import {SupportEffects} from './support-effects.js';
 import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,pointedTower,defenderLoadingTemplate} from './defender-assets.js';
 import {applyDefenderClassificationScale} from './defender-classification-scale.js';
@@ -41,7 +42,8 @@ import {upcomingInvader} from './warcamp-preview.js';
 import {createLandmarkScenery} from './scenery-landmarks.js';
 import {valleyEnvironment} from './environment.js';
 import {meadowTerrain,interiorGrid} from './terrain.js';
-import {towerStats,supportBonuses} from '../core/math.js';
+import {towerStats,supportBonuses,combatTowerStats,offensiveAuraRange,distance} from '../core/math.js';
+import {statusEffectAllowed} from '../core/combat-rules.js';
 import {optimize} from './models.js';
 
 const HALF=(SIZE-1)/2;
@@ -50,6 +52,14 @@ export class Battlefield {
   constructor(container,game,onTile) {
     this.container=container;this.game=game;this.onTile=onTile;this.time=0;this.models=new Map();this.enemies=new Map();this.shots=new Map();this.effects=[];this.templates=new Map();this.imported=new Map();this.enemyTemplates=new Map();this.showPath=true;this.showGrid=true;this.showRanges=false;this.hover=null;this.pathRevision=-1;this.keys=new Set();this.shake=0;
     this.corpses=new Map();this.disposed=false;
+    const enemyGLTF=new GLTFLoader();
+    this.enemyLoader=new EnemyModelLoader({
+      load:entry=>enemyGLTF.loadAsync(geometricEntryUrl(entry)),
+      install:(entry,asset)=>{asset.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});return installEnemyTemplate(this,entry,asset.scene);},
+      release:(key,asset)=>{if(this.enemyTemplates.get(key)===asset.scene)this.enemyTemplates.delete(key);disposeGeometricResources(asset.scene);},
+      protectedKeys:()=>new Set([...neededEnemyModelKeys(this.game),...[...this.corpses.values()].map(f=>f.userData.assetKey)]),
+      onFailure:(entry,error)=>console.warn(`Enemy model could not load: ${entry.file}`,error),
+    });
     this.defenderRecoveryAt=0;this.defenderManifestRetryAt=Infinity;this.defenderManifestAttempts=0;
     const defenderGLTF=new GLTFLoader();
     this.defenderLoader=new DefenderModelLoader({
@@ -79,7 +89,9 @@ export class Battlefield {
     this.scene.add(new THREE.HemisphereLight('#e0eee0','#465847',2));
     const sun=new THREE.DirectionalLight('#fff0cc',3.4);sun.position.set(-18,38,13);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-35;sun.shadow.camera.right=35;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;sun.shadow.camera.far=100;sun.shadow.normalBias=0.04;sun.shadow.bias=-0.0001;this.scene.add(sun);
     this.scene.add(new THREE.AmbientLight('#b2c6c6',0.25));
-    this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5*BATTLEFIELD_UNIT_SCALE+WALL_DECK_HEIGHT,targetHeight:e=>(e?.flying?.8:0)+(e?.boss?1.4:1)*BATTLEFIELD_UNIT_SCALE*enemyPresentationMultiplier(e),getStats:t=>towerStats(t,this.game.data),getMuzzle:(source,out,options)=>attackMuzzle(this.models.get(source?.id)?.attack,out,options),getSimulationTime:()=>this.motionTime||0,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
+    const desktop=container.clientWidth>=1200&&!window.matchMedia?.('(pointer: coarse)').matches,targetHeight=e=>(e?.flying?.8:0)+(e?.boss?1.4:1)*BATTLEFIELD_UNIT_SCALE*enemyPresentationMultiplier(e);
+    this.combatEffects=new CombatEffects(this.scene,{position:v3,sourceHeight:1.5*BATTLEFIELD_UNIT_SCALE+WALL_DECK_HEIGHT,targetHeight,getStats:t=>towerStats(t,this.game.data),getMuzzle:(source,out,options)=>attackMuzzle(this.models.get(source?.id)?.attack,out,options),getSimulationTime:()=>this.game.combat.elapsed,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches,maxDetailed:desktop?192:96,maxProjectiles:desktop?144:64,maxEffects:desktop?48:32,maxBreaths:desktop?8:4});
+    this.combatStatusVfx=new CombatStatusVfx(this.scene,{position:v3,targetHeight,isVisible:e=>this.game.combat.isRevealed(e),getTime:()=>this.game.combat.elapsed,reducedMotion:()=>!!this.reducedMotion?.matches,maxInstances:desktop?512:256});
     this.supportEffects=new SupportEffects(this.scene,{position:v3,baseHeight:WALL_DECK_HEIGHT+.15,pedestalHeight:WALL_DECK_HEIGHT,reducedMotion:()=>!!this.reducedMotion?.matches,isVisible:e=>this.game.combat.isRevealed(e)});
     this.enemyAbilityEffects=new EnemyAbilityEffects(this.scene,{position:v3,camera:()=>this.camera,balance:()=>this.game.data.balance,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
     this.enemyConcealmentEffects=new EnemyConcealmentEffects(this.scene,{position:v3,isVisible:e=>this.game.combat.isRevealed(e),reducedMotion:()=>!!this.reducedMotion?.matches});
@@ -131,21 +143,15 @@ export class Battlefield {
     await Promise.all([this.loadDefenders(),this.loadEnemies(),this.landmarks.load()]);
   }
   async loadEnemies(){
+    if(this.enemyManifestLoading||this.disposed)return;
+    this.enemyManifestLoading=true;
     try{
-      const entries=await fetchGeometricEntries('geometric-enemies.json'),loader=new GLTFLoader();
-      const failures=await loadModelEntries(entries,async entry=>{
-        const gltf=await loader.loadAsync(geometricEntryUrl(entry));
-        adoptDecodedGeometricAsset(gltf,asset=>{
-          asset.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});
-          optimizeGeometricSiblings(asset.scene,{animations:asset.animations});
-          return installEnemyTemplate(this,entry,asset.scene);
-        },{isDisposed:()=>this.disposed});
-      },{isDisposed:()=>this.disposed});
-      for(const {entry,error} of failures)console.warn(`Enemy model could not load: ${entry.file}`,error);
+      const entries=await fetchGeometricEntries('geometric-enemies.json');
       if(this.disposed)return;
-      this.previewKey=null;this.updateCampPreview();
-    }catch(error){if(!this.disposed)console.warn('Geometric enemy assets unavailable.',error);}
+      this.enemyLoader.index(entries);this.requestEnemyModels();
+    }catch(error){if(!this.disposed)console.warn('Geometric enemy assets unavailable.',error);}finally{this.enemyManifestLoading=false;}
   }
+  requestEnemyModels(){this.enemyLoader.request(neededEnemyModelKeys(this.game));}
   async loadDefenders() {
     if(this.defenderManifestLoading||this.disposed)return;
     this.defenderManifestLoading=true;this.defenderManifestAttempts=(this.defenderManifestAttempts||0)+1;
@@ -248,7 +254,6 @@ export class Battlefield {
     return this.templates.get(markerKey);
   }
   sync() {
-    this.mvpHalos??=new MvpHalos();
     this.updateCampPreview();
     const ids=new Set(this.game.towers.map(t=>t.id));
     for(const [id,value]of this.models)if(!ids.has(id)){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);this.scene.remove(value.object);this.models.delete(id);}
@@ -288,7 +293,7 @@ export class Battlefield {
     syncEnemySelectionRing(this.enemySelectionRing,this.game.enemySelection,this.enemies.get(this.game.selectedEnemy));
     if(selected)this.selectionRing.position.copy(v3(selected.x,0.065,selected.z));
     this.range.visible=!!selected&&!['ruin','reserved'].includes(selected.state);
-    if(this.range.visible){this.range.position.copy(v3(selected.x,0.07,selected.z));this.range.scale.setScalar(towerStats(selected,this.game.data).range+supportBonuses(selected,this.game.towers,this.game.data).range);}
+    if(this.range.visible){this.range.position.copy(v3(selected.x,0.07,selected.z));this.range.scale.setScalar(combatTowerStats(selected,this.game.towers,this.game.data).stats.range);}
     this.grid.visible=this.showGrid&&this.game.phase!=='combat';
     this.pathGroup.visible=this.showPath&&!this.maze.editing;
     this.maze.sync();
@@ -300,7 +305,7 @@ export class Battlefield {
   }
   rebuildRanges() {
     this.rangeGroup.children.slice().forEach(o=>{this.rangeGroup.remove(o);o.geometry.dispose();o.material.dispose();});
-    for(const t of this.game.towers.filter(t=>t.state==='active')){const m=new THREE.Mesh(new THREE.RingGeometry(0.985,1,48),new THREE.MeshBasicMaterial({color:this.game.data.towers[t.family].color,transparent:true,opacity:0.22,side:THREE.DoubleSide}));m.rotation.x=-Math.PI/2;m.position.copy(v3(t.x,0.06,t.z));m.scale.setScalar(towerStats(t,this.game.data).range+supportBonuses(t,this.game.towers,this.game.data).range);this.rangeGroup.add(m);}this.rangeGroup.visible=true;
+    for(const t of this.game.towers.filter(t=>t.state==='active')){const m=new THREE.Mesh(new THREE.RingGeometry(0.985,1,48),new THREE.MeshBasicMaterial({color:this.game.data.towers[t.family].color,transparent:true,opacity:0.22,side:THREE.DoubleSide}));m.rotation.x=-Math.PI/2;m.position.copy(v3(t.x,0.06,t.z));m.scale.setScalar(combatTowerStats(t,this.game.towers,this.game.data).stats.range);this.rangeGroup.add(m);}this.rangeGroup.visible=true;
   }
   selectPointer(e){
     this.movePointer(e);
@@ -335,6 +340,7 @@ export class Battlefield {
     if(valid){const draw=this.game.draft.draws[this.game.activeDraw];if(draw){this.ghost.traverse(o=>{if(o.isMesh)o.material.dispose();});this.ghost.clear();const t=this.template({family:'ruin',tier:1,state:'ruin'}).clone(true);t.traverse(o=>{if(o.isMesh){o.material=o.material.clone();o.material.transparent=true;o.material.opacity=0.45;o.castShadow=false;}});this.ghost.add(t);this.ghost.position.copy(v3(x,0.04,z));this.ghost.visible=true;}}
   }
   event(type,payload) {
+    this.combatStatusVfx?.event(type,payload);
     if(type==='mvp-awarded')this.mvpAwards?.award(payload,this.time);
     this.criticalHitLabels?.event(type,payload);
     if(type==='change')this.sync();
@@ -342,8 +348,8 @@ export class Battlefield {
       const state=currentEnemyRoute(this.game),revision=`${this.game.grid.revision}:${this.game.round}:${this.game.phase}:${state.flying}`;
       if(this.pathRevision!==revision){this.pathRevision=revision;this.rebuildPath(state);this.maze.sync();}
     }
-    if(type==='wave-complete'){this.clearCorpses();this.enemyAbilityEffects?.clear();}
-    if(type==='won'||type==='lost')this.enemyAbilityEffects?.clear();
+    if(type==='wave-complete'){this.clearCorpses();this.enemyAbilityEffects?.clear();this.combatEffects.clear();}
+    if(type==='won'||type==='lost'){this.enemyAbilityEffects?.clear();this.combatEffects.clear();}
     if(type==='shot'||type==='aura-attack'){
       const value=this.models.get(payload.source.id);
       if(value){
@@ -378,12 +384,12 @@ export class Battlefield {
   tileScreen(x,z) {const p=v3(x,0.08,z).project(this.camera),r=this.renderer.domElement.getBoundingClientRect();return {x:r.left+(p.x+1)*r.width/2,y:r.top+(-p.y+1)*r.height/2};}
   update(dt) {
     this.recoverDefenderModels();
+    this.requestEnemyModels();
     this.time+=dt;this.mvpAwards?.update(this.time);this.draftMarkers.update(this.time,this.camera,this.container.clientHeight);
-    this.mvpHalos?.sync(this.models,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateCheckpointEffects(this.checkpointEffects,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateRouteOverlay(this.pathGroup,dt,{reducedMotion:!!this.reducedMotion?.matches,paused:this.game.phase==='combat'&&this.game.paused});
     const battleDt=this.game.paused?0:dt*this.game.speed;
-    this.motionTime=(this.motionTime||0)+battleDt;
+    this.motionTime=this.game.combat.elapsed;
     if(this.campPreview){const enemy=this.campPreview.userData.previewEnemy;this.campPreview.position.y=(enemy.flying?.5:0)+animateEnemyMotion(this.campPreview,enemy,this.time,{moving:false,reducedMotion:!!this.reducedMotion?.matches});}
     for(const v of this.models.values())if(v.tower.state!=='reserved'){animateRank(v.object,this.time);animateChampionAura(v.aura,this.time,{reducedMotion:!!this.reducedMotion?.matches});}
     this.valley.update(dt,this.time,this.camera.position.distanceTo(this.controls.target));
@@ -423,24 +429,34 @@ export class Battlefield {
       if(value.attack?.geometric)animateGeometricOrbits(value.actor,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches,melancholy});
       else if(this.game.data.towers[value.tower.family]?.secret)animateSecretChampion(value.actor,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches,melancholy});
     }
-    this.enemyAbilityEffects?.sync(this.game.combat.enemies,this.enemies,this.time);
+    this.enemyAbilityEffects?.sync(this.game.combat.enemies,this.enemies,this.motionTime);
     this.enemyConcealmentEffects?.sync(this.game.combat.enemies,{time:this.motionTime,cosmeticTime:this.time,figures:this.enemies,active:this.game.phase==='combat'});
     this.enemyAbilityEffects?.update(battleDt);
-    this.combatEffects.syncProjectiles(this.game.combat.projectiles,this.time);this.combatEffects.update(battleDt,this.time);
+    this.combatEffects.syncProjectiles(this.game.combat.projectiles,this.motionTime);this.combatEffects.update(battleDt,this.motionTime);
     this.criticalHitLabels?.update(battleDt,this.camera,this.container.clientWidth,this.container.clientHeight,{reducedMotion:!!this.reducedMotion?.matches,isRevealed:enemy=>this.game.combat.isRevealed(enemy)});
-    this.supportEffects.sync(this.game.towers,this.game.data,{selected:this.game.selection,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase,time:this.time});
+    this.supportEffects.sync(this.game.towers,this.game.data,{selected:this.game.selection,combat:this.game.phase==='combat'?this.game.combat:null,phase:this.game.phase,time:this.motionTime});
+    const heatTargets=new Set();
+    if(this.game.phase==='combat')for(const tower of this.game.towers){if(tower.state!=='active'||tower.attackPaused)continue;const stats=towerStats(tower,this.game.data);if(!stats.burnAura)continue;for(const enemy of this.game.combat.enemies)if(!enemy.dead&&this.game.combat.isRevealed(enemy)&&distance(tower,enemy)<=offensiveAuraRange(stats,'burn')&&statusEffectAllowed(enemy,'burn'))heatTargets.add(enemy.id);}
+    this.combatStatusVfx.sync(this.game.phase==='combat'?this.game.combat.enemies:[],{states:this.supportEffects.enemyStates,figures:this.enemies,time:this.motionTime,heatTargets});
     for(const fx of this.effects){fx.life-=dt;fx.object.material.opacity=Math.max(0,fx.life/fx.max)*0.75;if(!fx.line)fx.object.scale.setScalar(0.5+(1-fx.life/fx.max)*fx.size*3);}
     this.effects=this.effects.filter(fx=>{if(fx.life>0)return true;this.scene.remove(fx.object);fx.object.geometry.dispose();fx.object.material.dispose();return false;});
     for(const p of this.labelItems){const v=new THREE.Vector3(p.x,p.height,p.z).project(this.camera);p.el.style.transform=`translate(${(v.x+1)*this.container.clientWidth/2}px,${(-v.y+1)*this.container.clientHeight/2}px) translate(-50%,-100%)`;p.el.style.display=Math.abs(v.x)>1||Math.abs(v.y)>1?'none':'';}
     if(this.shake>0){this.shake=Math.max(0,this.shake-dt);this.camera.position.y+=Math.sin(this.time*73)*this.shake*0.25;}
     this.renderer.render(this.scene,this.camera);
+    if(this.game.developerMode){
+      // Read-only diagnostics for reproducible developer reviews, never simulation input.
+      const stamp=performance.now();this.reviewFrames??=[];
+      if(this.reviewFrameAt)this.reviewFrames.push(stamp-this.reviewFrameAt);this.reviewFrameAt=stamp;if(this.reviewFrames.length>120)this.reviewFrames.shift();
+      const sorted=[...this.reviewFrames].sort((a,b)=>a-b),percentile=p=>sorted[Math.min(sorted.length-1,Math.floor(sorted.length*p))]||0;
+      this.renderer.domElement.dataset.renderReview=JSON.stringify({frames:sorted.length,medianMs:percentile(.5),p95Ms:percentile(.95),calls:this.renderer.info.render.calls,triangles:this.renderer.info.render.triangles,geometryBuffers:this.renderer.info.memory.geometries,enemyModels:[...this.enemyTemplates.keys()],pendingEnemies:this.enemyLoader.pending.size,visibleEnemies:[...this.enemies.values()].filter(e=>e.visible).length,corpses:this.corpses.size,detailedVfx:this.combatEffects.effects.length+this.combatEffects.projectiles.size,fallbackPaths:this.combatEffects.paths.records.length,statusInstances:this.combatStatusVfx.count,statusBatches:[...this.combatStatusVfx.batches].filter(([,b])=>b.count).length,statusTargets:[...this.combatStatusVfx.targets.values()],combatTime:this.motionTime,paused:this.game.paused,speed:this.game.speed});
+    }
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
     this.defenderPauseMarkers?.dispose();
-    this.mvpHalos?.dispose();this.mvpAwards?.dispose();
+    this.mvpAwards?.dispose();
     this.criticalHitLabels?.dispose();
-    this.disposed=true;this.defenderLoader.dispose();this.combatEffects.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
+    this.disposed=true;this.defenderLoader.dispose();this.combatEffects.dispose();this.combatStatusVfx.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
     this.defenderLoadingStatus?.remove();
     disposeEnemySelectionRing(this.enemySelectionRing);
     disposeCheckpointEffects(this.checkpointEffects);
@@ -449,6 +465,7 @@ export class Battlefield {
     checkpointMaterials.forEach(material=>material.dispose());this.checkpointMeshes?.removeFromParent();
     for(const enemy of this.enemies.values())disposeEnemyFigure(enemy);this.enemies.clear();
     if(this.campPreview)disposeEnemyFigure(this.campPreview);this.landmarks.dispose();
+    this.enemyLoader.dispose();
     for(const value of this.models.values()){disposeAttack(value.attack);disposeChampionAura(value.aura);disposeRankAdornment(value.actor);disposeDefenderInstance(value.actor);}
     // Imported actor clones borrow these sources. Release only after every
     // actor and corpse is gone; renderer.dispose alone leaves their buffers.

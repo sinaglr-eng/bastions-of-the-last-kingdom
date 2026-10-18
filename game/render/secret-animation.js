@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {distance,supportBonuses,towerStats} from '../core/math.js';
+import {distance,combatTowerStats} from '../core/math.js';
 
 export const SECRET_ATTACK_RELEASE=.36;
 const families=new Set(['ladyclaire','lordbernhard']);
@@ -37,12 +37,11 @@ export function releaseSecretAttack(rig,{interval=rig?.interval,rate=rig?.rate??
   sample(rig,SECRET_ATTACK_RELEASE,{reducedMotion});return true;
 }
 export function secretAttackContext(tower,game){
-  const combat=game.phase==='combat',stats=towerStats(tower,game.data),bonuses=supportBonuses(tower,game.towers,game.data);
-  stats.range+=bonuses.range;let dread=0;
-  for(const enemy of game.combat.enemies)if(!enemy.dead&&enemy.untouchable&&distance(tower,enemy)<4)dread=Math.max(dread,enemy.untouchable*(1-(bonuses.controlResistance||0)));
+  const combat=game.phase==='combat',{stats,bonuses}=combatTowerStats(tower,game.towers,game.data);
+  const dread=(tower.dread?.until>game.combat.elapsed?tower.dread.amount:0)*(1-(bonuses.controlResistance||0));
   let rate=bonuses.haste*(1-dread);
   for(const other of game.towers)if(other.state==='ruin'&&other.weakened>0&&distance(tower,other)<2)rate*=.85;
-  const blocked=tower.state!=='active'||!!tower.disarmed||(tower.melancholyUntil||0)>game.combat.elapsed;
+  const blocked=tower.state!=='active'||!!tower.attackPaused||!!tower.disarmed||(tower.melancholyUntil||0)>game.combat.elapsed;
   return {combat,blocked,interval:stats.interval,rate,cooldown:tower.cooldown,target:combat&&!blocked?game.combat.targetList(tower,stats)[0]||null:null,stamp:combat?game.combat.elapsed:null};
 }
 export function updateSecretAnimation(rig,dt,{interval=rig?.interval,rate=rig?.rate??1,cooldown=Infinity,target=null,combat=false,blocked=false,stamp=null,reducedMotion=false}={}){

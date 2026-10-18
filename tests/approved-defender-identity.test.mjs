@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {campaignTowers,campaignRecipes,CAMPAIGN_COMBAT_OVERRIDES,CAMPAIGN_ABILITY_DESCRIPTIONS} from '../game/core/campaign-roster.js';
+import {campaignTowers,campaignRecipes,CAMPAIGN_COMBAT_OVERRIDES,CAMPAIGN_ABILITY_DESCRIPTIONS,CAMPAIGN_BASIC_RANGES} from '../game/core/campaign-roster.js';
 import {canonicalCombatStats} from '../game/core/combat-rules.js';
 import {APPROVED_DEFENDER_NAMES,APPROVED_CHAMPION_DESCRIPTIONS} from '../game/core/approved-defender-names.js';
 const load=file=>JSON.parse(readFileSync(new URL('../'+file,import.meta.url),'utf8'));
@@ -15,7 +15,7 @@ test('all 46 live identities match the approved reconstruction names and all 92 
   for(const [id,name] of Object.entries(APPROVED_DEFENDER_NAMES)){
     assert.equal(live[id].name,name,id);assert.equal(live[id].short,name,id);
     const overrides=CAMPAIGN_COMBAT_OVERRIDES[id]||{},expected=canonicalCombatStats({...gameplay(historical[id]),projectileEffect:historical[id].type,...overrides});
-    if(historical[id].levels)expected.levels=historical[id].levels.map(level=>canonicalCombatStats({...level,type:expected.type,projectileEffect:expected.projectileEffect,...(overrides.cleaveType?{cleaveType:overrides.cleaveType}:{})}));
+    if(historical[id].levels)expected.levels=historical[id].levels.map((level,index)=>canonicalCombatStats({...level,...(CAMPAIGN_BASIC_RANGES[id]?{range:CAMPAIGN_BASIC_RANGES[id][index]}:{}),type:expected.type,projectileEffect:expected.projectileEffect,...(overrides.cleaveType?{cleaveType:overrides.cleaveType}:{})}));
     assert.deepEqual(gameplay(live[id]),expected,id+' identity changes preserve unrelated gameplay properties');
     const clips=recordings.clips.filter(clip=>clip.character_id===id);assert.equal(clips.length,2,id);
     for(const clip of clips)assert.equal(clip.character,name,id+' approved recorded identity');

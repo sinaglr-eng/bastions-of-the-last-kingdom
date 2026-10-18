@@ -28,8 +28,8 @@ test('reduced motion keeps award confetti, stars and label still while retaining
  awards.update(1.4);assert.equal(label.position.y,y);assert.deepEqual(group.children.map(child=>[...child.position,...child.rotation.toArray()]),transforms);assert.ok(group.children[0].material.opacity>0);awards.dispose();assert.equal(scene.children.length,0);assert.equal(awards.seen.size,0);
 });
 test('selected MVP detail displays actual level and individual attack pause without inventing bonuses for drafts or walls',()=>{
- assert.match(mvpDetailsMarkup({state:'active',mvpLevel:4}),/MVP Level: 4 \/ 10/);assert.match(mvpDetailsMarkup({state:'active',mvpLevel:4}),/Own damage \+40%/);
- const max=mvpDetailsMarkup({state:'active',mvpLevel:10,attackPaused:true});assert.match(max,/MAX MVP/);assert.match(max,/\+75%/);assert.match(max,/Resume this defender/);assert.match(max,/aria-pressed="true"/);
+ assert.match(mvpDetailsMarkup({state:'active',mvpLevel:4}),/MVP Level: 4 \/ 10/);assert.match(mvpDetailsMarkup({state:'active',mvpLevel:4}),/Own damage \+20%/);
+ const max=mvpDetailsMarkup({state:'active',mvpLevel:10,attackPaused:true});assert.match(max,/MAX MVP/);assert.match(max,/Own damage \+50%/);assert.doesNotMatch(max,/Enemy armor|Nearby allies|75%/);assert.match(max,/Resume this defender/);assert.match(max,/aria-pressed="true"/);
  assert.doesNotMatch(max,/<small>|Pauses new attacks|Support and MVP auras stay active/);assert.match(max,/data-action="tower-pause"/);
  assert.equal(mvpDetailsMarkup({state:'draft',mvpLevel:10}),'');assert.equal(mvpDetailsMarkup({state:'ruin',mvpLevel:10}),'');
 });

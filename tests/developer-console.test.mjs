@@ -73,7 +73,7 @@ test('Sandbox placement still rejects occupied, checkpoint, invalid coordinates 
 test('manual MVP and attack pause use real active defenders and leave approved combat stats unchanged',async()=>{
   const console=await session(),tower=add(console),original=JSON.stringify(console.game.data.towers.soldier);
   console.setMvp(tower.id,10);console.setAttackPaused(tower.id,true);assert.equal(tower.mvpLevel,10);assert.equal(tower.attackPaused,true);
-  assert.equal(combatTowerStats(tower,console.game.towers,console.game.data).stats.damage,combatTowerStats({...tower,mvpLevel:0},[],console.game.data).stats.damage*2);
+  assert.equal(combatTowerStats(tower,console.game.towers,console.game.data).stats.damage,combatTowerStats({...tower,mvpLevel:0},[],console.game.data).stats.damage*1.5);
   tower.state='ruin';assert.throws(()=>console.setMvp(tower.id,5),/active/);assert.throws(()=>console.setAttackPaused(tower.id,false),/active/);assert.equal(JSON.stringify(console.game.data.towers.soldier),original);
 });
 

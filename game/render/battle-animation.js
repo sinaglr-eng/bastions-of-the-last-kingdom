@@ -3,6 +3,8 @@ import {attackVisualKind} from './combat-effects.js';
 import {createSecretAnimation,releaseSecretAttack,updateSecretAnimation,resetSecretAnimation,disposeSecretAnimation} from './secret-animation.js';
 import {geometricMetadata,beginGroundedDeath,animateGroundedDeath} from './geometric-motion.js';
 import {applyReconstructedAttack} from './reconstruction-adapter.js';
+import {createEnemyDeathMotion,resolveEnemyDeathId} from './model-death-motion.js';
+import {bindApprovedMotion,approvedMotionAnchor,releaseApprovedAttack,animateApprovedAttack,resetApprovedAttack,sampleApprovedAttack,disposeApprovedMotion} from './approved-model-motion.js';
 
 const CLAN_AURAS=['#c85e43','#77bfd5','#93be69','#b287d3','#e2bb67'];
 export function bossAura(clan=0){
@@ -24,9 +26,23 @@ export function animateBossAura(root,time){
 
 // The same detailed figure falls, then rests on the terrain until the round ends.
 export function beginDeath(root,enemy){
+  if(root.userData.death)return root;
+  const assetId=resolveEnemyDeathId(enemy,root,{assetId:root.userData.assetKey});
+  if(root.userData.body?.userData.approvedMotionTemplate&&assetId){
+    const motion=createEnemyDeathMotion(THREE,root,enemy,{groundHeight:root.userData.groundY??0,clearance:.025,assetId});
+    root.userData.modelDeath=motion;
+    root.userData.death={elapsed:0,duration:motion.duration,settled:false,kind:'approved-model-motion'};
+    return root;
+  }
   return beginGroundedDeath(root,enemy);
 }
 export function animateDeath(root,dt){
+  const motion=root.userData.modelDeath,death=root.userData.death;
+  if(motion&&death){
+    if(death.settled)return;
+    death.elapsed=Math.min(motion.duration,death.elapsed+(Number.isFinite(dt)?Math.max(0,dt):0));
+    motion.update(death.elapsed);death.settled=motion.finished;return;
+  }
   animateGroundedDeath(root,dt);
 }
 
@@ -70,6 +86,9 @@ function bindRigidArms(rig){
 export function attackRig(actor,family,stats={}){
   if(!actor)return null;
   const kind=attackVisualKind(family,stats),pose=ATTACK_POSES[kind],pivots=[];
+  const approved=bindApprovedMotion(actor);
+  if(approved)return {actor,family,kind,pose,approved,geometric:actor.userData,
+    attackStyle:actor.userData.attackStyle,stage:'idle',active:false,disposed:false,owned:[],pivots:[],joints:new Map()};
   for(const name of JOINT_NAMES){
     const node=actor.getObjectByName(name);
     if(node)pivots.push({node,name,rotation:node.rotation.clone(),position:node.position.clone()});
@@ -146,13 +165,15 @@ function updateBowString(rig){
   if(restStraight)nockPoint.lerpVectors(topPoint,bottomPoint,.5).lerp(point,draw);
   [topPoint,nockPoint,bottomPoint,nockPoint].forEach((p,i)=>positions.setXYZ(i,p.x,p.y,p.z));positions.needsUpdate=true;
 }
-export function attackMuzzle(rig,out=new THREE.Vector3(),{breath=false}={}){
+export function attackMuzzle(rig,out=new THREE.Vector3(),{breath=false,kind}={}){
+  if(rig?.approved&&!rig.disposed)return approvedMotionAnchor(rig.actor,out,{breath,kind:kind||(rig.attackStyle==='bow'?'nock':rig.attackStyle==='staff'?'staff':rig.attackStyle==='breath'?'mouth':'weapon')});
   const muzzle=breath?rig?.breathMuzzle:rig?.muzzle;
   if(!rig||rig.disposed||!muzzle)return null;
   rig.actor.updateMatrixWorld(true);return muzzle.getWorldPosition(out);
 }
 export function triggerAttack(rig,payload={}){
   if(!rig||rig.disposed)return;
+  if(rig.approved){releaseApprovedAttack(rig.approved,payload);rig.active=rig.approved.stage!=='idle';rig.stage=rig.approved.stage;return;}
   if(rig.native){releaseSecretAttack(rig.native,{interval:payload.stats?.interval,rate:payload.visualRate,stamp:payload.combatTime,reducedMotion:payload.reducedMotion});rig.active=true;return;}
   if(rig.geometric){
     const breath=!!payload.breath;
@@ -288,6 +309,7 @@ function applyBowDraw(rig,draw){
 }
 export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={}){
   if(!rig||rig.disposed)return;
+  if(rig.approved){animateApprovedAttack(rig.approved,dt,time,{...context,reducedMotion});rig.active=rig.approved.stage!=='idle';rig.stage=rig.approved.stage;return;}
   if(rig.native){
     updateSecretAnimation(rig.native,dt,{...context,reducedMotion});rig.active=rig.native.stage!=='idle';
     if(rig.glow){const phase=rig.native.phase;rig.glow.visible=rig.active;rig.glow.scale.setScalar(reducedMotion?1:.6+Math.sin(phase*Math.PI)*1.05);}
@@ -425,6 +447,7 @@ export function animateAttack(rig,dt,time=0,{reducedMotion=false,...context}={})
   applyBreath(rig,reducedMotion);
 }
 export function resetAttack(rig,{preserveBreath=false}={}){
+  if(rig?.approved){resetApprovedAttack(rig.approved);rig.active=false;rig.stage='idle';return;}
   if(!rig)return;rig.elapsed=rig.duration;rig.active=false;rig.stage='idle';
   if(!preserveBreath&&rig.breathTrack){rig.breathTrack.active=false;rig.breathTrack.elapsed=rig.breathTrack.duration;}
   if(rig.native){resetSecretAnimation(rig.native);if(rig.glow)rig.glow.visible=false;return;}
@@ -437,17 +460,22 @@ export function resetAttack(rig,{preserveBreath=false}={}){
 export function previewGeometricAttack(rig,{duration=1}={}){
   if(!rig?.geometric||rig.disposed)return false;
   resetAttack(rig);rig.duration=Number.isFinite(duration)?Math.max(.001,duration):1;rig.elapsed=0;rig.stage='preview';rig.active=true;
+  if(rig.approved){rig.approved.stage='preview';sampleApprovedAttack(rig.approved,0);return true;}
   animateAttack(rig,0);return true;
 }
 export function updateGeometricPreview(rig,dt,{reducedMotion=false,onRelease=()=>{}}={}){
   if(!rig?.geometric||rig.disposed||rig.stage!=='preview')return false;
   const elapsed=Number.isFinite(dt)?Math.max(0,dt):0;if(!elapsed)return true;
   const previous=rig.elapsed/rig.duration,next=Math.min(1,previous+elapsed/rig.duration);
-  if(previous<.42&&next>=.42){rig.elapsed=rig.duration*.42;animateAttack(rig,0,0,{reducedMotion});onRelease({elapsedAfterRelease:(next-.42)*rig.duration});}
-  rig.elapsed=next*rig.duration;animateAttack(rig,0,0,{reducedMotion});return true;
+  const release=rig.approved?.releasePhase??.42;
+  if(previous<release&&next>=release){rig.elapsed=rig.duration*release;if(rig.approved)sampleApprovedAttack(rig.approved,release,{reducedMotion});else animateAttack(rig,0,0,{reducedMotion});onRelease({elapsedAfterRelease:(next-release)*rig.duration});}
+  rig.elapsed=next*rig.duration;
+  if(rig.approved){sampleApprovedAttack(rig.approved,next,{reducedMotion});if(next>=1)resetAttack(rig);}
+  else animateAttack(rig,0,0,{reducedMotion});return true;
 }
 export function disposeAttack(rig){
   if(!rig||rig.disposed)return;resetAttack(rig);
+  if(rig.approved){disposeApprovedMotion(rig.actor);rig.disposed=true;return;}
   disposeSecretAnimation(rig.native);
   for(const object of rig.owned){object.traverse(node=>{node.geometry?.dispose();node.material?.dispose();});object.removeFromParent();}
   for(const entry of rig.authoredStrings||[])entry.node.visible=entry.visible;

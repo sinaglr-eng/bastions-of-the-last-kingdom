@@ -35,13 +35,13 @@ test('actual alternate immunity and reactive-armor abilities are never mixed tog
   }
 });
 
-test('current armor matches all three actual damage classes after strongest fixed shred and MVP reduction; obsolete resistance fields never render',()=>{
+test('current armor matches all three actual damage classes after strongest fixed shred without MVP reduction; obsolete resistance fields never render',()=>{
   const game=arena(),enemy=game.combat.spawn('host_28',{armor:5,resists:{magic:.3,fire:.4}});
   enemy.reactiveStacks=4;enemy.statuses.shred={amount:7,time:4};enemy.ward=.2;enemy.magicShred=.1;enemy.resists={magic:.3,fire:.4};
   game.towers=[{id:1,family:'soldier',tier:1,state:'active',x:enemy.x,z:enemy.z,mvpLevel:10,attackPaused:true}];game.combat.prepareArmor(enemy);
-  const view=selectedEnemyView(enemy,options(game));assert.equal(view.reactive,32);assert.equal(view.shred,7);assert.equal(view.mvpFraction,.1);close(view.armor,(enemy.armor+32-7)*.9);
+  const view=selectedEnemyView(enemy,options(game));assert.equal(view.reactive,32);assert.equal(view.shred,7);assert.equal(view.mvpFraction,undefined);close(view.armor,enemy.armor+32-7);
   for(const type of ['physical','magical','holy'])close(game.combat.damage(enemy,100,type,{}),100*data.balance.armorConstant/(data.balance.armorConstant+view.armor));
-  const html=selectedEnemyMarkup(enemy,options(game));assert.deepEqual(view.resistances,[]);assert.doesNotMatch(html,/Magic resistance|Fire resistance|resistance shred/);assert.match(html,/MVP −10% after fixed shred/);
+  const html=selectedEnemyMarkup(enemy,options(game));assert.deepEqual(view.resistances,[]);assert.doesNotMatch(html,/Magic resistance|Fire resistance|resistance shred/);assert.doesNotMatch(html,/MVP −/);
   enemy.statuses.shred.amount=999;game.combat.prepareArmor(enemy);assert.equal(selectedEnemyView(enemy,options(game)).armor,0,'Actual effective armor has the same zero floor as damage');
 });
 

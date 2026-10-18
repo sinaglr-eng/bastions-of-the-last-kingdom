@@ -1,0 +1,3211 @@
+{
+  "schemaVersion": 1,
+  "section": "enemies",
+  "scope": "death-animation",
+  "status": "prototype",
+  "language": "en",
+  "modelCount": 54,
+  "runtimeFile": "game/render/model-death-motion.js",
+  "workshopModule": "output/design/motion-animation-v1/enemy-death-motion.js",
+  "approvalBasis": "User authorized animating remaining models and triggering an enemy death animation when the unit dies. These are initial deterministic death prototypes awaiting full visual approval.",
+  "assetPolicy": "Read-only source GLBs. Animate the private spawned hierarchy only; no approved source model, geometry, texture, material, rig or gallery is overwritten.",
+  "api": {
+    "factory": "createEnemyDeathMotion(THREE, figure, enemyOrEntry, options)",
+    "options": {
+      "groundHeight": "World-space horizontal terrain plane; otherwise figure.userData.groundY or0.",
+      "assetId": "Optional explicit canonical host asset ID.",
+      "clearance": "Nonnegative world-space support clearance, default0.015.",
+      "preview": "Explicit true allows a fresh workshop replay driver on a restored instance; gameplay retains one-shot guard."
+    },
+    "body": "figure.userData.body when present; otherwise figure itself.",
+    "update": "Elapsed seconds since death. Monotonic, clamped to duration, non-looping. Earlier or repeated values cannot restart the fall.",
+    "sample": "Optional deterministic preview seeking in elapsed seconds. Sampling does not rearm or reset the monotonic game clock or finished flag; gameplay should call update only.",
+    "reset": "Restore the exact captured pre-death pose, hierarchy, materials and indicator visibility; mark this driver finished/cancelled. Does not rearm.",
+    "dispose": "Idempotent reset and release only privately cloned death materials and temporary pivot. Never dispose source geometry or materials.",
+    "finished": "True after duration or explicit reset. The final corpse remains rendered until the round owner removes it.",
+    "rootOwnership": "No root position X/Z, root navigation Y, root orientation or source scale change. The private fall pivot owns world-vertical descent inside the actor."
+  },
+  "capture": {
+    "basis": "Current rendered pose at actual death, not rest/T-pose; current gait geometry, limb quaternions, body attitude and scaling are retained.",
+    "assembly": "A pure-translation pivot is inserted below the same parent; its owned children retain exact world transforms at time0.",
+    "indicators": "Health bar, aura and refraction overlay are hidden, excluded from contact bounds, and restored on explicit reset.",
+    "ownership": "No severed limbs, gore, detached rider, weapon handoff or new projectile."
+  },
+  "grounding": {
+    "method": "Capture all actual rendered mesh position vertices. Re-evaluate their transformed worldY after every death pose, including real semantic joint motion, current root yaw and nonuniform scale. Skinned/morphed vertices use the actual software vertex transform.",
+    "target": "Interpolate the captured lowest rendered point toward the supplied terrain plane plus clearance. Flying bodies descend from their actual current lowest point; they do not snap to ground or reset their altitude first.",
+    "scope": "Exact bound of the evaluated rendered vertices against a horizontal plane, not physics or terrain triangle contact. Held equipment and wings participate.",
+    "limitations": [
+      "A rigid weapon or wing can support the overall corpse above its torso; articulated release or ragdoll contacts are not implemented.",
+      "Inclined/stepped terrain needs a future terrain-sampling contact policy; this implementation accepts a horizontal groundHeight.",
+      "Collision between the corpse and other units, buildings or its own attachments is not certified."
+    ]
+  },
+  "anatomyPolicy": {
+    "ground": "Short stagger and forward-side collapse. Knee/hip slackening is added only if real named semantic hinges exist.",
+    "wolf": "Fore/hind leg hinges buckle when present, then the entire mount rolls onto its side; rider and all tack remain attached.",
+    "flight": "Wing hinge fold if present; coherent loss of lift, bank and descent of the entire mount/rider assembly. Fused wings are not disconnected or falsely called independently folded.",
+    "mechanical": "Existing machine hinges slacken; rigid frame/cockpit stays intact. No rubber geometry deformation or explosion.",
+    "manta": "Nearly flat descent preserves the broad armored center; it does not use a biped vertical-to-horizontal topple.",
+    "spectral": "Private material clones fade to22 percent of captured opacity and dim emissive light; a grounded translucent corpse residue persists.",
+    "hollowArmor": "Solid armor remains opaque; only private inner emissive intensity decays. No invisible flesh or gore is introduced."
+  },
+  "sharedPhases": [
+    {
+      "name": "Current-pose capture",
+      "normalized": [
+        0,
+        0
+      ],
+      "effect": "Exact body pose and source hierarchy are captured before any fall."
+    },
+    {
+      "name": "Stagger and hinge failure",
+      "normalized": [
+        0.06,
+        0.48
+      ],
+      "effect": "Real knee/hip or wing channels slacken from their current pose; a short lateral stagger is strongest before0.23."
+    },
+    {
+      "name": "Main collapse",
+      "normalized": [
+        0.12,
+        0.86
+      ],
+      "effect": "Smooth full-body attitude change with a small transient bank for fliers."
+    },
+    {
+      "name": "Terrain settling",
+      "normalized": [
+        0.12,
+        0.9
+      ],
+      "effect": "World-space support minimum descends to the actual horizontal terrain plane plus clearance; no upward bounce is added."
+    },
+    {
+      "name": "Spectral/fire decay where applicable",
+      "normalized": [
+        0.36,
+        1
+      ],
+      "effect": "Owned materials alone dim; physical branches retain their original materials."
+    },
+    {
+      "name": "Persistent final corpse",
+      "normalized": [
+        1,
+        1
+      ],
+      "effect": "One shot finishes and stops evaluating; corpse removal belongs to round cleanup."
+    }
+  ],
+  "qaRequirements": [
+    "Trigger death during a moving gait and verify no reset to rest or jump at time0.",
+    "Verify each of the54 IDs, including all4 explicit wraith variants, resolves to the correct branch.",
+    "View the entire fall from front, profile and game camera, checking equipment, rider/collar support and silhouette.",
+    "Check no corpse penetrates the horizontal ground plane under actual battlefield scaling and heading.",
+    "Confirm duplicate death events and earlier elapsed times never restart a corpse.",
+    "Confirm reset/replay is explicit workshop behavior and shared cached assets remain unchanged.",
+    "Review wing/knee channels honestly: current flat fused geometry may provide only coherent body fall, not separate joint folding."
+  ],
+  "targetedTests": {
+    "file": "tests/model-death-motion.test.mjs",
+    "status": "passed",
+    "tests": 6,
+    "scope": "Synthetic actual Three.js hierarchy tests: all54 dispatch/current gameflying flags; captured non-rest pose; one-shot duplicate/monotonic clock; scale/yaw grounding acrossallbranches; material isolation/residue/disposal; deterministic samples and exact reset/hierarchy restoration.",
+    "visualApproval": false
+  },
+  "models": [
+    {
+      "id": "host_01",
+      "name": "Orc Skull Scavengers",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A compact green orc with a pointed brown hood, short booted legs, a skull belt, a large rear sack and a cleaver in the anatomical right hand.",
+      "deathDesign": "Loaded stagger, then forward-side collapse; sack and cleaver stay attached.",
+      "durationSeconds": 1.1,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.066,
+          0.528
+        ],
+        "collapse": [
+          0.132,
+          0.946
+        ],
+        "settling": [
+          0.132,
+          0.99
+        ],
+        "optionalDissipation": [
+          0.396,
+          1.1
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Loaded stagger, then forward-side collapse; sack and cleaver stay attached.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_01.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_01/front.png"
+      ]
+    },
+    {
+      "id": "host_02",
+      "name": "Goblin Thornstriders",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A narrow green goblin with oversized pointed ears, very thin limbs, small boots, pale ankle spines and a long upright spear.",
+      "deathDesign": "Light leg failure and quick narrow collapse; spear remains in its grip.",
+      "durationSeconds": 0.96,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0576,
+          0.4608
+        ],
+        "collapse": [
+          0.1152,
+          0.8256
+        ],
+        "settling": [
+          0.1152,
+          0.864
+        ],
+        "optionalDissipation": [
+          0.3456,
+          0.96
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Light leg failure and quick narrow collapse; spear remains in its grip.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_02.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_02/front.png"
+      ]
+    },
+    {
+      "id": "host_03",
+      "name": "Ogre Gluttons",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A broad pale ogre with a large rounded belly, very short legs, pot-like metal headwear, a rectangular wooden mallet and a hanging pan.",
+      "deathDesign": "Belly-led heavy collapse; pan and mallet remain with their hands.",
+      "durationSeconds": 1.4,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.084,
+          0.672
+        ],
+        "collapse": [
+          0.168,
+          1.204
+        ],
+        "settling": [
+          0.168,
+          1.26
+        ],
+        "optionalDissipation": [
+          0.504,
+          1.4
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Belly-led heavy collapse; pan and mallet remain with their hands.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_03.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_03/front.png"
+      ]
+    },
+    {
+      "id": "host_04",
+      "name": "Orc Scrap Tinkers",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A small green tinker under mismatched metal plates, carrying a hammer and a cabinet-like mechanical backpack with a visible gear or crank.",
+      "deathDesign": "Rear load checks the stagger before the whole equipped body falls.",
+      "durationSeconds": 1.2,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.072,
+          0.576
+        ],
+        "collapse": [
+          0.144,
+          1.032
+        ],
+        "settling": [
+          0.144,
+          1.08
+        ],
+        "optionalDissipation": [
+          0.432,
+          1.2
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Rear load checks the stagger before the whole equipped body falls.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_04.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_04/front.png"
+      ]
+    },
+    {
+      "id": "host_05",
+      "name": "Bat Scouts",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "A small dark bat with large ears and segmented purple membranes carries a green scout beneath its chest in a square harness; a spear points down beside the rider.",
+      "deathDesign": "Lose lift, fold real wing hinges if present and descend with the hanging scout supported.",
+      "durationSeconds": 1.55,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.3,
+        "yawRadians": 0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.093,
+          0.744
+        ],
+        "collapse": [
+          0.186,
+          1.333
+        ],
+        "settling": [
+          0.186,
+          1.395
+        ],
+        "optionalDissipation": [
+          0.558,
+          1.55
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Lose lift, fold real wing hinges if present and descend with the hanging scout supported.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_05.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_05/front.png"
+      ]
+    },
+    {
+      "id": "host_06",
+      "name": "Mossback Trolls",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A massive green troll with long blocky arms, short planted legs, a low head, stone growths and mushrooms across the back, and a heavy stone-headed implement.",
+      "deathDesign": "Slow massive collapse; moss, stones and tool stay on the same body.",
+      "durationSeconds": 1.48,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0888,
+          0.7104
+        ],
+        "collapse": [
+          0.1776,
+          1.2728
+        ],
+        "settling": [
+          0.1776,
+          1.332
+        ],
+        "optionalDissipation": [
+          0.5328,
+          1.48
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Slow massive collapse; moss, stones and tool stay on the same body.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_06.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_06/front.png"
+      ]
+    },
+    {
+      "id": "host_07",
+      "name": "Marsh Orc Hunters",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A green hunter wears a pale toothed animal-jaw helmet and layered reed-like cloak over short boots, carrying a tall barbed spear.",
+      "deathDesign": "Hunting stance breaks into a guarded forward-side fall.",
+      "durationSeconds": 1.08,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0648,
+          0.5184
+        ],
+        "collapse": [
+          0.1296,
+          0.9288
+        ],
+        "settling": [
+          0.1296,
+          0.972
+        ],
+        "optionalDissipation": [
+          0.3888,
+          1.08
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Hunting stance breaks into a guarded forward-side fall.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_07.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_07/front.png"
+      ]
+    },
+    {
+      "id": "host_08",
+      "name": "Shadowblood Trolls",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "The approved model is a coherent blue-gray troll with long clawed arms, short legs, teal arm growths and a dark continuous head cowl and skirt.",
+      "deathDesign": "The approved solid troll collapses coherently; no invented floating limb separation.",
+      "durationSeconds": 1.38,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0828,
+          0.6624
+        ],
+        "collapse": [
+          0.1656,
+          1.1868
+        ],
+        "settling": [
+          0.1656,
+          1.242
+        ],
+        "optionalDissipation": [
+          0.4968,
+          1.38
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "The approved solid troll collapses coherently; no invented floating limb separation.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_08.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_08/front.png"
+      ]
+    },
+    {
+      "id": "host_09",
+      "name": "Goblin Dust Dancers",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A narrow hooded green goblin with a covered lower face, angular cloak scraps, small boots and one dagger in each hand.",
+      "deathDesign": "Brief evasive stagger ends in a compact side collapse with both daggers retained.",
+      "durationSeconds": 0.98,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0588,
+          0.4704
+        ],
+        "collapse": [
+          0.1176,
+          0.8428
+        ],
+        "settling": [
+          0.1176,
+          0.882
+        ],
+        "optionalDissipation": [
+          0.3528,
+          0.98
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Brief evasive stagger ends in a compact side collapse with both daggers retained.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_09.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_09/front.png"
+      ]
+    },
+    {
+      "id": "host_10",
+      "name": "Mogrok, the Gatebreaker",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A wide armored ogre boss with a horned helmet, layered shoulder plates, a ram-headed striking implement and an enormous door-like shield.",
+      "deathDesign": "Armored boss loses balance slowly; door shield and ram tool fall with him.",
+      "durationSeconds": 1.6,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.096,
+          0.768
+        ],
+        "collapse": [
+          0.192,
+          1.376
+        ],
+        "settling": [
+          0.192,
+          1.44
+        ],
+        "optionalDissipation": [
+          0.576,
+          1.6
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Armored boss loses balance slowly; door shield and ram tool fall with him.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_10.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_10/front.png"
+      ]
+    },
+    {
+      "id": "host_11",
+      "name": "Orc Hookbearers",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A square-chested green infantry orc with a metal cap, trophy helmets on the shoulders, hanging chains and a separate curved hook in each hand.",
+      "deathDesign": "Square guard drops into a compact collapse; hook chains stay connected.",
+      "durationSeconds": 1.14,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0684,
+          0.5472
+        ],
+        "collapse": [
+          0.1368,
+          0.9804
+        ],
+        "settling": [
+          0.1368,
+          1.026
+        ],
+        "optionalDissipation": [
+          0.4104,
+          1.14
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Square guard drops into a compact collapse; hook chains stay connected.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_11.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_11/front.png"
+      ]
+    },
+    {
+      "id": "host_12",
+      "name": "Goblin Bell Devourers",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A small green goblin is largely overshadowed by a huge cracked bronze bell, with a short bone-headed mallet and tiny booted legs below.",
+      "deathDesign": "Bell burden leads a delayed side-forward fall without detaching the bell.",
+      "durationSeconds": 1.3,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.078,
+          0.624
+        ],
+        "collapse": [
+          0.156,
+          1.118
+        ],
+        "settling": [
+          0.156,
+          1.17
+        ],
+        "optionalDissipation": [
+          0.468,
+          1.3
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Bell burden leads a delayed side-forward fall without detaching the bell.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_12.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_12/front.png"
+      ]
+    },
+    {
+      "id": "host_13",
+      "name": "Red Tusk Orc Huntresses",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A green armored huntress with broad shoulders, two long red braids, visible tusks, sturdy boots and a long axe in the right hand.",
+      "deathDesign": "Knees give way and the armed body falls to one side with the axe retained.",
+      "durationSeconds": 1.06,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0636,
+          0.5088
+        ],
+        "collapse": [
+          0.1272,
+          0.9116
+        ],
+        "settling": [
+          0.1272,
+          0.954
+        ],
+        "optionalDissipation": [
+          0.3816,
+          1.06
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Knees give way and the armed body falls to one side with the axe retained.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_13.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_13/front.png"
+      ]
+    },
+    {
+      "id": "host_14",
+      "name": "Orc Mirror Shieldbearers",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A compact armored orc stands behind a tall dark mirror shield with a diamond detail, carrying a spear and accompanied by three separate floating shards.",
+      "deathDesign": "Guard buckles behind its shield; no new shield bash or mirror shatter.",
+      "durationSeconds": 1.2,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.072,
+          0.576
+        ],
+        "collapse": [
+          0.144,
+          1.032
+        ],
+        "settling": [
+          0.144,
+          1.08
+        ],
+        "optionalDissipation": [
+          0.432,
+          1.2
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Guard buckles behind its shield; no new shield bash or mirror shatter.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_14.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_14/front.png"
+      ]
+    },
+    {
+      "id": "host_15",
+      "name": "Blood Bat Riders",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "A seated red-haired green rider carries a broad axe above a square red-purple bat with torn angular membranes, a blunt muzzle and small clawed hindfeet. The actual GLB axe handle and broad asymmetric axe remain owned by the anatomical right-hand assembly.",
+      "deathDesign": "Loss of wing power becomes a grounded fall with rider, short legs and neck collar attached.",
+      "durationSeconds": 1.62,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.3,
+        "yawRadians": 0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0972,
+          0.7776
+        ],
+        "collapse": [
+          0.1944,
+          1.3932
+        ],
+        "settling": [
+          0.1944,
+          1.458
+        ],
+        "optionalDissipation": [
+          0.5832,
+          1.62
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Loss of wing power becomes a grounded fall with rider, short legs and neck collar attached.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_15.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_15/front.png"
+      ]
+    },
+    {
+      "id": "host_16",
+      "name": "Orc Ash Pickpockets",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A hooded green thief has an angular amber face plate, a chest rune, a right-hand dagger and two conspicuous gold-colored purses widening the hips.",
+      "deathDesign": "Short recoiling stagger becomes a compact collapse; purses and dagger remain attached.",
+      "durationSeconds": 1.04,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0624,
+          0.4992
+        ],
+        "collapse": [
+          0.1248,
+          0.8944
+        ],
+        "settling": [
+          0.1248,
+          0.936
+        ],
+        "optionalDissipation": [
+          0.3744,
+          1.04
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Short recoiling stagger becomes a compact collapse; purses and dagger remain attached.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_16.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_16/front.png"
+      ]
+    },
+    {
+      "id": "host_17",
+      "name": "Cursed Totem Trolls",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A hunched green troll has very long arms, short boots, a right-hand wooden club and a rear branching totem carrying exactly three pale skulls.",
+      "deathDesign": "Totem-laden body topples slowly; all three skulls remain supported.",
+      "durationSeconds": 1.48,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0888,
+          0.7104
+        ],
+        "collapse": [
+          0.1776,
+          1.2728
+        ],
+        "settling": [
+          0.1776,
+          1.332
+        ],
+        "optionalDissipation": [
+          0.5328,
+          1.48
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Totem-laden body topples slowly; all three skulls remain supported.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_17.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_17/front.png"
+      ]
+    },
+    {
+      "id": "host_18",
+      "name": "Silent Orc Executioners",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A green executioner is enclosed by a tall pointed dark hood, a barred face covering and purple-trimmed hanging cloth, with a curved blade in each hand.",
+      "deathDesign": "Low guarded collapse preserves both actual curved blades.",
+      "durationSeconds": 1.12,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0672,
+          0.5376
+        ],
+        "collapse": [
+          0.1344,
+          0.9632
+        ],
+        "settling": [
+          0.1344,
+          1.008
+        ],
+        "optionalDissipation": [
+          0.4032,
+          1.12
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Low guarded collapse preserves both actual curved blades.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_18.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_18/front.png"
+      ]
+    },
+    {
+      "id": "host_19",
+      "name": "Bloodwolf Orc Riders",
+      "variantOf": null,
+      "category": "wolf",
+      "appearance": "A red-eyed gray wolf with a sharp muzzle, substantial paws and red armor carries a forward-seated green orc with a right-hand cleaver and secured riding gear.",
+      "deathDesign": "Four-leg buckle and side fall; saddle, reins and rider remain one supported assembly.",
+      "durationSeconds": 1.46,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 0.14,
+        "rollRadians": 1.46,
+        "yawRadians": 0.06,
+        "description": "Grounded side-lying whole mount with rider/tack attached."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.58,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0876,
+          0.7008
+        ],
+        "collapse": [
+          0.1752,
+          1.2556
+        ],
+        "settling": [
+          0.1752,
+          1.314
+        ],
+        "optionalDissipation": [
+          0.5256,
+          1.46
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Four-leg buckle and side fall; saddle, reins and rider remain one supported assembly.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_19.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_19/front.png"
+      ]
+    },
+    {
+      "id": "host_20",
+      "name": "Gorvash, the Bone Patriarch",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A massive green patriarch has long arms, a broad leather-clad torso, a tall open rib crown, a strapped rear throne and a segmented pale bone club.",
+      "deathDesign": "Heavy boss collapse carries crown, throne and bone club without disassembly.",
+      "durationSeconds": 1.64,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0984,
+          0.7872
+        ],
+        "collapse": [
+          0.1968,
+          1.4104
+        ],
+        "settling": [
+          0.1968,
+          1.476
+        ],
+        "optionalDissipation": [
+          0.5904,
+          1.64
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Heavy boss collapse carries crown, throne and bone club without disassembly.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_20.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_20/front.png"
+      ]
+    },
+    {
+      "id": "host_21",
+      "name": "Rotroot Trolls",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "The approved troll combines visible green anatomy with dense moss cowls, a bark-and-foliage chest, branched crown, curled root fists and bark-covered feet.",
+      "deathDesign": "Dense bark-and-moss body settles as a single fallen mass; no foliage explosion.",
+      "durationSeconds": 1.52,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0912,
+          0.7296
+        ],
+        "collapse": [
+          0.1824,
+          1.3072
+        ],
+        "settling": [
+          0.1824,
+          1.368
+        ],
+        "optionalDissipation": [
+          0.5472,
+          1.52
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Dense bark-and-moss body settles as a single fallen mass; no foliage explosion.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_21.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_21/front.png"
+      ]
+    },
+    {
+      "id": "host_22",
+      "name": "Iron Ram Ogres",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A broad green ogre is enclosed in continuous metal armor with huge curled ram horns, thick shoulder pieces, substantial boots and a square-headed right-hand hammer.",
+      "deathDesign": "Rigid armored body drops and topples; ram horns and hammer remain intact.",
+      "durationSeconds": 1.42,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0852,
+          0.6816
+        ],
+        "collapse": [
+          0.1704,
+          1.2212
+        ],
+        "settling": [
+          0.1704,
+          1.278
+        ],
+        "optionalDissipation": [
+          0.5112,
+          1.42
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Rigid armored body drops and topples; ram horns and hammer remain intact.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_22.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_22/front.png"
+      ]
+    },
+    {
+      "id": "host_23",
+      "name": "Shard-Soul Orc Warlocks",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A pale cyan hooded warlock has visible feet and hands, a dark angular robe, a tall staff and three floating mask fragments around the head.",
+      "deathDesign": "Grounded caster collapse; floating masks do not make the whole body a flying unit.",
+      "durationSeconds": 1.24,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0744,
+          0.5952
+        ],
+        "collapse": [
+          0.1488,
+          1.0664
+        ],
+        "settling": [
+          0.1488,
+          1.116
+        ],
+        "optionalDissipation": [
+          0.4464,
+          1.24
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Grounded caster collapse; floating masks do not make the whole body a flying unit.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_23.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_23/front.png"
+      ]
+    },
+    {
+      "id": "host_24",
+      "name": "Riveted Goblin Mutants",
+      "variantOf": null,
+      "category": "mechanical",
+      "appearance": "A small green pilot sits inside a tall riveted frame with broad mechanical fists, two heavy leg assemblies and a grid of chest armor plates.",
+      "deathDesign": "Real frame hinges slacken where present; the intact machine drops with pilot enclosed.",
+      "durationSeconds": 1.42,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.2,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.32,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.32,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0852,
+          0.6816
+        ],
+        "collapse": [
+          0.1704,
+          1.2212
+        ],
+        "settling": [
+          0.1704,
+          1.278
+        ],
+        "optionalDissipation": [
+          0.5112,
+          1.42
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Real frame hinges slacken where present; the intact machine drops with pilot enclosed.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_24.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_24/front.png"
+      ]
+    },
+    {
+      "id": "host_25",
+      "name": "Iron Bat Orc Riders",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "A compact helmeted rider holds a crossbow above a heavily plated bat with a metal face, broad angular purple wings and reinforced joints.",
+      "deathDesign": "Armored loss of lift; rider, crossbow grips and neck collar remain with the mount.",
+      "durationSeconds": 1.72,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.3,
+        "yawRadians": 0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.1032,
+          0.8256
+        ],
+        "collapse": [
+          0.2064,
+          1.4792
+        ],
+        "settling": [
+          0.2064,
+          1.548
+        ],
+        "optionalDissipation": [
+          0.6192,
+          1.72
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Armored loss of lift; rider, crossbow grips and neck collar remain with the mount.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_25.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_25/front.png"
+      ]
+    },
+    {
+      "id": "host_26",
+      "name": "Orc Spell Eaters",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A broad green orc has a prominent jaw, five dark amber-marked collar blocks, a brown skirt, sturdy boots and a heavy spiked hammer.",
+      "deathDesign": "Stocky guarded collapse retains collar blocks and spiked hammer.",
+      "durationSeconds": 1.24,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0744,
+          0.5952
+        ],
+        "collapse": [
+          0.1488,
+          1.0664
+        ],
+        "settling": [
+          0.1488,
+          1.116
+        ],
+        "optionalDissipation": [
+          0.4464,
+          1.24
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Stocky guarded collapse retains collar blocks and spiked hammer.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_26.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_26/front.png"
+      ]
+    },
+    {
+      "id": "host_27",
+      "name": "Spectral Bat Riders",
+      "variantOf": null,
+      "category": "spectral-flight",
+      "appearance": "A masked rider with a spear sits above a pale skeletal bat, open ribbed torso and long bony wing struts carrying cyan translucent membranes.",
+      "deathDesign": "Skeletal mount falls with rider attached, then dims into a persistent translucent residue.",
+      "durationSeconds": 1.72,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.3,
+        "yawRadians": 0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "Private translucent dissipation",
+        "finalOpacityFraction": 0.22,
+        "emissiveRemainingFraction": 0.2,
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.1032,
+          0.8256
+        ],
+        "collapse": [
+          0.2064,
+          1.4792
+        ],
+        "settling": [
+          0.2064,
+          1.548
+        ],
+        "optionalDissipation": [
+          0.6192,
+          1.72
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Skeletal mount falls with rider attached, then dims into a persistent translucent residue.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_27.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_27/front.png"
+      ]
+    },
+    {
+      "id": "host_28",
+      "name": "Goblin Scrapwings",
+      "variantOf": null,
+      "category": "mechanical-flight",
+      "appearance": "A compact green goblin occupies a riveted cockpit between triangular fabric wings and straight spars, carrying a separate rigid crossbow.",
+      "deathDesign": "Mechanical lift fails; real hinges fold if present and the cockpit descends intact.",
+      "durationSeconds": 1.58,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.2,
+        "rollRadians": -0.3,
+        "yawRadians": -0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.32,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.32,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0948,
+          0.7584
+        ],
+        "collapse": [
+          0.1896,
+          1.3588
+        ],
+        "settling": [
+          0.1896,
+          1.422
+        ],
+        "optionalDissipation": [
+          0.5688,
+          1.58
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Mechanical lift fails; real hinges fold if present and the cockpit descends intact.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_28.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_28/front.png"
+      ]
+    },
+    {
+      "id": "host_29",
+      "name": "Prismatic Bat Tricksters",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "A narrow violet bat carries a hooded rider, dagger and cyan faceted crystals; revised bent legs and saddle sit ahead of wing roots.",
+      "deathDesign": "Uneven loss of lift becomes a grounded bat-and-rider collapse; no duplicate body is spawned.",
+      "durationSeconds": 1.58,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.3,
+        "yawRadians": 0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0948,
+          0.7584
+        ],
+        "collapse": [
+          0.1896,
+          1.3588
+        ],
+        "settling": [
+          0.1896,
+          1.422
+        ],
+        "optionalDissipation": [
+          0.5688,
+          1.58
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Uneven loss of lift becomes a grounded bat-and-rider collapse; no duplicate body is spawned.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_29.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_29/front.png"
+      ]
+    },
+    {
+      "id": "host_30",
+      "name": "Zaruun, Lord of Storm Wings",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "Zaruun combines a broad mount, five-panel wings, four copper neck horns and a crowned rider with an asymmetric axe and fitted cloth.",
+      "deathDesign": "Large wing failure and heavy grounded descent preserve rider and load-bearing tack.",
+      "durationSeconds": 1.9,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.3,
+        "yawRadians": -0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.114,
+          0.912
+        ],
+        "collapse": [
+          0.228,
+          1.634
+        ],
+        "settling": [
+          0.228,
+          1.71
+        ],
+        "optionalDissipation": [
+          0.684,
+          1.9
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Large wing failure and heavy grounded descent preserve rider and load-bearing tack.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_30.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_30/front.png"
+      ]
+    },
+    {
+      "id": "host_31",
+      "name": "Orc Dual-Seal Inquisitors",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A green orc wears a tall split hood, gold-edged robes and shoulder skull tags, carrying a narrow shield and seal staff.",
+      "deathDesign": "Two-seal caster staggers and falls without changing either held seal or weapon.",
+      "durationSeconds": 1.18,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0708,
+          0.5664
+        ],
+        "collapse": [
+          0.1416,
+          1.0148
+        ],
+        "settling": [
+          0.1416,
+          1.062
+        ],
+        "optionalDissipation": [
+          0.4248,
+          1.18
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Two-seal caster staggers and falls without changing either held seal or weapon.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_31.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_31/front.png"
+      ]
+    },
+    {
+      "id": "host_32",
+      "name": "Soul-Drinker Trolls",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A pale heavy troll has an open ribbed chest containing a cyan lantern, a held staff, rough waist cloth and broad hands.",
+      "deathDesign": "Tall burdened troll collapses slowly; soul vessels remain attached.",
+      "durationSeconds": 1.5,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.09,
+          0.72
+        ],
+        "collapse": [
+          0.18,
+          1.29
+        ],
+        "settling": [
+          0.18,
+          1.35
+        ],
+        "optionalDissipation": [
+          0.54,
+          1.5
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Tall burdened troll collapses slowly; soul vessels remain attached.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_32.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_32/front.png"
+      ]
+    },
+    {
+      "id": "host_33",
+      "name": "Orc Wraiths of the Shattered World",
+      "variantOf": null,
+      "category": "spectral",
+      "appearance": "The violet hooded figure has crystalline limbs, a blade and real neck and waist voids; a silver band supports the lower garment.",
+      "deathDesign": "Ground spectral figure collapses and dims; approved voids remain literal and no gore appears.",
+      "durationSeconds": 1.52,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "Private translucent dissipation",
+        "finalOpacityFraction": 0.22,
+        "emissiveRemainingFraction": 0.2,
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0912,
+          0.7296
+        ],
+        "collapse": [
+          0.1824,
+          1.3072
+        ],
+        "settling": [
+          0.1824,
+          1.368
+        ],
+        "optionalDissipation": [
+          0.5472,
+          1.52
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Ground spectral figure collapses and dims; approved voids remain literal and no gore appears.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_33.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_33/front.png"
+      ]
+    },
+    {
+      "id": "host_34",
+      "name": "Goblin Gallows Fliers",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "A narrow skeletal-looking bat carries a skull-masked goblin below two lines, with dorsal X harness, backpack, tied purses and hanging boots.",
+      "deathDesign": "Lift fails while the suspended gallows and rider stay in their authored assembly.",
+      "durationSeconds": 1.66,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.3,
+        "yawRadians": -0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0996,
+          0.7968
+        ],
+        "collapse": [
+          0.1992,
+          1.4276
+        ],
+        "settling": [
+          0.1992,
+          1.494
+        ],
+        "optionalDissipation": [
+          0.5976,
+          1.66
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Lift fails while the suspended gallows and rider stay in their authored assembly.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_34.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_34/front.png"
+      ]
+    },
+    {
+      "id": "host_35",
+      "name": "Eclipse Bat Guard",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "A violet bat has angular membranes and two supported crescent plates near wing roots; its helmeted rider carries a spear above short seated legs.",
+      "deathDesign": "Defensive bat loses lift and settles with armor, rider and collar intact.",
+      "durationSeconds": 1.7,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.3,
+        "yawRadians": 0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.102,
+          0.816
+        ],
+        "collapse": [
+          0.204,
+          1.462
+        ],
+        "settling": [
+          0.204,
+          1.53
+        ],
+        "optionalDissipation": [
+          0.612,
+          1.7
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Defensive bat loses lift and settles with armor, rider and collar intact.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_35.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_35/front.png"
+      ]
+    },
+    {
+      "id": "host_36",
+      "name": "Orc Oathbreakers",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A crowned green orc carries a sword and broken royal shield, with unequal shoulder armor, solid dark chest plates and a short waist garment.",
+      "deathDesign": "Armored oathbreaker buckles into a shield-side collapse.",
+      "durationSeconds": 1.22,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0732,
+          0.5856
+        ],
+        "collapse": [
+          0.1464,
+          1.0492
+        ],
+        "settling": [
+          0.1464,
+          1.098
+        ],
+        "optionalDissipation": [
+          0.4392,
+          1.22
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Armored oathbreaker buckles into a shield-side collapse.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_36.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_36/front.png"
+      ]
+    },
+    {
+      "id": "host_37",
+      "name": "Riftwolf Orc Riders",
+      "variantOf": null,
+      "category": "wolf",
+      "appearance": "A dark wolf has a sharp muzzle, faceted divided body and violet fractures; the mounted orc carries a forked spear above its saddle.",
+      "deathDesign": "Wolf forequarters and hindquarters buckle before a side fall; rider stays seated.",
+      "durationSeconds": 1.5,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 0.14,
+        "rollRadians": 1.46,
+        "yawRadians": 0.06,
+        "description": "Grounded side-lying whole mount with rider/tack attached."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.58,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.09,
+          0.72
+        ],
+        "collapse": [
+          0.18,
+          1.29
+        ],
+        "settling": [
+          0.18,
+          1.35
+        ],
+        "optionalDissipation": [
+          0.54,
+          1.5
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Wolf forequarters and hindquarters buckle before a side fall; rider stays seated.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_37.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_37/front.png"
+      ]
+    },
+    {
+      "id": "host_38",
+      "name": "Black Marsh Knifemen / Blood-Leech Trolls",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "The base model is a compact dark-cloaked knifeman with low angular hood, red face covering, two blades, fitted belt and planted boots.",
+      "deathDesign": "Compact knife-bearing collapse; no spectral substitution of the base appearance.",
+      "durationSeconds": 1.1,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.066,
+          0.528
+        ],
+        "collapse": [
+          0.132,
+          0.946
+        ],
+        "settling": [
+          0.132,
+          0.99
+        ],
+        "optionalDissipation": [
+          0.396,
+          1.1
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Compact knife-bearing collapse; no spectral substitution of the base appearance.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_38.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_38/front.png"
+      ]
+    },
+    {
+      "id": "host_39",
+      "name": "Thunder Manta Orc Riders",
+      "variantOf": null,
+      "category": "manta",
+      "appearance": "A broad flat manta carries layered back armor and a red-masked central rider; delta wings and a long tail create its horizontal silhouette.",
+      "deathDesign": "Fin power decays; the broad armored center descends nearly flat with rider supported.",
+      "durationSeconds": 1.78,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 0.16,
+        "rollRadians": 0.12,
+        "yawRadians": 0.08,
+        "description": "Nearly flat grounded armored manta and supported rider."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.1068,
+          0.8544
+        ],
+        "collapse": [
+          0.2136,
+          1.5308
+        ],
+        "settling": [
+          0.2136,
+          1.602
+        ],
+        "optionalDissipation": [
+          0.6408,
+          1.78
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Fin power decays; the broad armored center descends nearly flat with rider supported.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_39.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_39/front.png"
+      ]
+    },
+    {
+      "id": "host_40",
+      "name": "Vorlak, the Hollow Sky King",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "Vorlak has an open ribbed torso, separate dark shell plates, a central suspended necromancer, broad wings, two hind legs and hooked tail.",
+      "deathDesign": "Large hollow sky mount loses lift and grounds as one coherent boss assembly.",
+      "durationSeconds": 1.94,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.3,
+        "yawRadians": -0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.1164,
+          0.9312
+        ],
+        "collapse": [
+          0.2328,
+          1.6684
+        ],
+        "settling": [
+          0.2328,
+          1.746
+        ],
+        "optionalDissipation": [
+          0.6984,
+          1.94
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Large hollow sky mount loses lift and grounds as one coherent boss assembly.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_40.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_40/front.png"
+      ]
+    },
+    {
+      "id": "host_41",
+      "name": "Orc Crystal Phalanx",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A helmeted orc has rectangular shoulder plates, long spear and a large faceted smoky shield with three cyan octahedra along its top.",
+      "deathDesign": "Crystal guard buckles and falls behind its intact equipment.",
+      "durationSeconds": 1.26,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0756,
+          0.6048
+        ],
+        "collapse": [
+          0.1512,
+          1.0836
+        ],
+        "settling": [
+          0.1512,
+          1.134
+        ],
+        "optionalDissipation": [
+          0.4536,
+          1.26
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Crystal guard buckles and falls behind its intact equipment.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_41.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_41/front.png"
+      ]
+    },
+    {
+      "id": "host_42",
+      "name": "Fire Bat Orc Lancers",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "An amber-winged bat carries an armored rider and exceptionally long lance; compact knees and boots remain ahead of the actual wing roots.",
+      "deathDesign": "Wing power stops and the lancer descends with lance, knees and neck support retained.",
+      "durationSeconds": 1.66,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.3,
+        "yawRadians": -0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0996,
+          0.7968
+        ],
+        "collapse": [
+          0.1992,
+          1.4276
+        ],
+        "settling": [
+          0.1992,
+          1.494
+        ],
+        "optionalDissipation": [
+          0.5976,
+          1.66
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Wing power stops and the lancer descends with lance, knees and neck support retained.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_42.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_42/front.png"
+      ]
+    },
+    {
+      "id": "host_43",
+      "name": "Ogres of the Imprisoned Souls",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "A broad armored ogre carries a mace and two shoulder cages containing pale shapes; layered plates and a three-opening mask emphasize upper mass.",
+      "deathDesign": "Heavy ogre drops with soul prison and weapon still attached; no new soul projectile.",
+      "durationSeconds": 1.58,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0948,
+          0.7584
+        ],
+        "collapse": [
+          0.1896,
+          1.3588
+        ],
+        "settling": [
+          0.1896,
+          1.422
+        ],
+        "optionalDissipation": [
+          0.5688,
+          1.58
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Heavy ogre drops with soul prison and weapon still attached; no new soul projectile.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_43.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_43/front.png"
+      ]
+    },
+    {
+      "id": "host_44",
+      "name": "Orc Ash Executioners",
+      "variantOf": null,
+      "category": "biped",
+      "appearance": "A narrow dark-robed orc has an angular mask crown, warm chest seal and a tall heavy execution weapon carried beside the body.",
+      "deathDesign": "Armed forward-side collapse keeps the approved execution weapon in the grip.",
+      "durationSeconds": 1.16,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0696,
+          0.5568
+        ],
+        "collapse": [
+          0.1392,
+          0.9976
+        ],
+        "settling": [
+          0.1392,
+          1.044
+        ],
+        "optionalDissipation": [
+          0.4176,
+          1.16
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Armed forward-side collapse keeps the approved execution weapon in the grip.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_44.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_44/front.png"
+      ]
+    },
+    {
+      "id": "host_45",
+      "name": "Flying Drummers of the Black Horde",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "A broad-backed bat carries two goblin drummers beside a central hexagonal drum; exactly four connected arms, four hands and four held sticks define the crew.",
+      "deathDesign": "Transport bat loses lift; two drummers, four arms and drum stay in the same assembly.",
+      "durationSeconds": 1.74,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.3,
+        "yawRadians": 0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.1044,
+          0.8352
+        ],
+        "collapse": [
+          0.2088,
+          1.4964
+        ],
+        "settling": [
+          0.2088,
+          1.566
+        ],
+        "optionalDissipation": [
+          0.6264,
+          1.74
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Transport bat loses lift; two drummers, four arms and drum stay in the same assembly.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_45.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_45/front.png"
+      ]
+    },
+    {
+      "id": "host_46",
+      "name": "Ogre Revenants in Hollow Armor",
+      "variantOf": null,
+      "category": "hollow-armor",
+      "appearance": "A giant gray armored figure has an empty helmet and thorax, cyan-green fire between plate edges and a large sword; internal flesh is absent.",
+      "deathDesign": "Rigid hollow armor drops through real hinges where present; inner emissive fire weakens, without flesh.",
+      "durationSeconds": 1.6,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.2,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.32,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.32,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "Private inner-fire dimming",
+        "armorOpacityUnchanged": true,
+        "emissiveRemainingFraction": 0.08,
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.096,
+          0.768
+        ],
+        "collapse": [
+          0.192,
+          1.376
+        ],
+        "settling": [
+          0.192,
+          1.44
+        ],
+        "optionalDissipation": [
+          0.576,
+          1.6
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Rigid hollow armor drops through real hinges where present; inner emissive fire weakens, without flesh.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_46.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_46/front.png"
+      ]
+    },
+    {
+      "id": "host_47",
+      "name": "Orc Riders of the Last Howl",
+      "variantOf": null,
+      "category": "wolf",
+      "appearance": "A massive-fronted wolf has an ivory mask, serrated back and heavy tack; its rider carries a weapon and an angular red banner.",
+      "deathDesign": "Heavy wolf buckles and rolls onto its side; banner, mask, rider and tack remain attached.",
+      "durationSeconds": 1.62,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 0.14,
+        "rollRadians": 1.46,
+        "yawRadians": 0.06,
+        "description": "Grounded side-lying whole mount with rider/tack attached."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.58,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0972,
+          0.7776
+        ],
+        "collapse": [
+          0.1944,
+          1.3932
+        ],
+        "settling": [
+          0.1944,
+          1.458
+        ],
+        "optionalDissipation": [
+          0.5832,
+          1.62
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Heavy wolf buckles and rolls onto its side; banner, mask, rider and tack remain attached.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_47.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_47/front.png"
+      ]
+    },
+    {
+      "id": "host_48",
+      "name": "Bat Thieves of Black Fire",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "A narrow dark bat carries a hooded goblin with dagger, two triangular scarves, gold purses and small bells, lighter in silhouette than the lancer.",
+      "deathDesign": "Quick asymmetric loss of lift ends on the ground with thief and equipment supported.",
+      "durationSeconds": 1.62,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.3,
+        "yawRadians": -0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0972,
+          0.7776
+        ],
+        "collapse": [
+          0.1944,
+          1.3932
+        ],
+        "settling": [
+          0.1944,
+          1.458
+        ],
+        "optionalDissipation": [
+          0.5832,
+          1.62
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Quick asymmetric loss of lift ends on the ground with thief and equipment supported.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_48.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_48/front.png"
+      ]
+    },
+    {
+      "id": "host_49",
+      "name": "Troll Guardians of the Deep Maw",
+      "variantOf": null,
+      "category": "heavy",
+      "appearance": "The giant has an arched black plated back, long arms, large ivory claws and a toothed second mouth embedded in its belly.",
+      "deathDesign": "Shell-backed giant topples as a massive intact body; abdominal mouth stays part of the torso.",
+      "durationSeconds": 1.72,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.1032,
+          0.8256
+        ],
+        "collapse": [
+          0.2064,
+          1.4792
+        ],
+        "settling": [
+          0.2064,
+          1.548
+        ],
+        "optionalDissipation": [
+          0.6192,
+          1.72
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Shell-backed giant topples as a massive intact body; abdominal mouth stays part of the torso.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_49.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_49/front.png"
+      ]
+    },
+    {
+      "id": "host_50",
+      "name": "Lord Bernhard",
+      "variantOf": null,
+      "category": "flight",
+      "appearance": "Lord Bernhard has a hidden hooded face, black throne and robes, crimson-accented near-black wyvern, right-hand sword and left-hand reins.",
+      "deathDesign": "Wyvern queen loses lift while throne, rider, sword and reins remain attached through the grounded fall.",
+      "durationSeconds": 2,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.3,
+        "yawRadians": -0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; original materials remain shared and untouched",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.12,
+          0.96
+        ],
+        "collapse": [
+          0.24,
+          1.72
+        ],
+        "settling": [
+          0.24,
+          1.8
+        ],
+        "optionalDissipation": [
+          0.72,
+          2
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Wyvern queen loses lift while throne, rider, sword and reins remain attached through the grounded fall.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_50.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_50/front.png"
+      ]
+    },
+    {
+      "id": "host_31-wraith",
+      "name": "Spectral Dual-Seal Inquisitors",
+      "variantOf": "host_31",
+      "category": "spectral",
+      "appearance": "The variant retains split hood, staff and shield but has cool cyan frames and silver seal motifs; the approved current abdomen remains opaque.",
+      "deathDesign": "Grounded spectral caster collapses and dims to a persistent residue, retaining seal ownership.",
+      "durationSeconds": 1.56,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "Private translucent dissipation",
+        "finalOpacityFraction": 0.22,
+        "emissiveRemainingFraction": 0.2,
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0936,
+          0.7488
+        ],
+        "collapse": [
+          0.1872,
+          1.3416
+        ],
+        "settling": [
+          0.1872,
+          1.404
+        ],
+        "optionalDissipation": [
+          0.5616,
+          1.56
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Grounded spectral caster collapses and dims to a persistent residue, retaining seal ownership.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_31-wraith.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_31-wraith/front.png"
+      ]
+    },
+    {
+      "id": "host_35-wraith",
+      "name": "Spectral Eclipse Bat Riders",
+      "variantOf": "host_35",
+      "category": "spectral-flight",
+      "appearance": "The spectral mount has an ivory skull, open rib windows, pale membranes and open crescent frames, with a compact rider supported above it.",
+      "deathDesign": "Spectral bat and supported rider lose lift together, fall, then dim to a grounded residue.",
+      "durationSeconds": 1.8,
+      "flying": true,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.3,
+        "yawRadians": -0.08,
+        "description": "Grounded fallen mount and rider as one supported assembly."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "Private translucent dissipation",
+        "finalOpacityFraction": 0.22,
+        "emissiveRemainingFraction": 0.2,
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.108,
+          0.864
+        ],
+        "collapse": [
+          0.216,
+          1.548
+        ],
+        "settling": [
+          0.216,
+          1.62
+        ],
+        "optionalDissipation": [
+          0.648,
+          1.8
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Spectral bat and supported rider lose lift together, fall, then dim to a grounded residue.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_35-wraith.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_35-wraith/front.png"
+      ]
+    },
+    {
+      "id": "host_36-wraith",
+      "name": "Spectral Oathbreakers",
+      "variantOf": "host_36",
+      "category": "spectral",
+      "appearance": "The cool oathbreaker has an open octagonal thorax, asymmetric armor remnants, damaged crown, sword, broken shield and waist cloth across real gaps.",
+      "deathDesign": "Spectral armored guard collapses without shattering the shield, then dims.",
+      "durationSeconds": 1.58,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": 0.2,
+        "yawRadians": 0.08,
+        "description": "Grounded forward-side collapsed whole body."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "Private translucent dissipation",
+        "finalOpacityFraction": 0.22,
+        "emissiveRemainingFraction": 0.2,
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0948,
+          0.7584
+        ],
+        "collapse": [
+          0.1896,
+          1.3588
+        ],
+        "settling": [
+          0.1896,
+          1.422
+        ],
+        "optionalDissipation": [
+          0.5688,
+          1.58
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Spectral armored guard collapses without shattering the shield, then dims.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_36-wraith.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_36-wraith/front.png"
+      ]
+    },
+    {
+      "id": "host_38-wraith",
+      "name": "Blood-Leech Trolls",
+      "variantOf": "host_38",
+      "category": "heavy",
+      "appearance": "A solid pale Blood-Leech Troll with two red sacs; its historical variant asset suffix does not denote an incorporeal body.",
+      "deathDesign": "Solid pale troll collapses with both red blood-leech sacs attached; the historical variant suffix does not imply vapor or opacity loss.",
+      "durationSeconds": 1.64,
+      "flying": false,
+      "poseStart": "Exact current pose at death, including gait phase and mount/rider relationship.",
+      "finalPose": {
+        "pitchRadians": 1.45,
+        "rollRadians": -0.2,
+        "yawRadians": -0.08,
+        "description": "Grounded solid forward-side troll corpse; both red sacs remain attached and opaque."
+      },
+      "hinges": {
+        "policy": "Supplementary only when actual semantic joints are present; no invented disconnected articulation on fused meshes.",
+        "kneeRadians": 0.48,
+        "hipRadians": -0.18,
+        "wingFoldRadians": 0.48,
+        "realChannelNames": "shin_L/R/FL/FR/BL/BR; upper_leg equivalents; wing_L/R or left/right_wing_pivot; torso/head pivots."
+      },
+      "materialEffect": {
+        "kind": "None; solid troll and red sacs remain opaque with original materials unchanged",
+        "corpseRemains": true
+      },
+      "timingSeconds": {
+        "staggerAndHingeFailure": [
+          0.0984,
+          0.7872
+        ],
+        "collapse": [
+          0.1968,
+          1.4104
+        ],
+        "settling": [
+          0.1968,
+          1.476
+        ],
+        "optionalDissipation": [
+          0.5904,
+          1.64
+        ]
+      },
+      "contacts": "Keep all existing hand grips, rider knees, saddle/reins and under-neck collar support attached. The whole corpse and all held equipment participate in ground support.",
+      "qaFocus": [
+        "Solid pale troll collapses with both red blood-leech sacs attached; the historical variant suffix does not imply vapor or opacity loss.",
+        "Confirm no time0 pose reset, no repeat, no root navigation displacement and no source-resource mutation."
+      ],
+      "sourceReferences": [
+        "data/enemies.json",
+        "output/design/enemy-approval-local/catalog.json",
+        "output/design/enemies-reconstruction-v6/refined/models/host_38-wraith.glb",
+        "output/design/enemies-reconstruction-v6/refined/renders/host_38-wraith/front.png"
+      ]
+    }
+  ]
+}

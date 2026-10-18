@@ -10,7 +10,7 @@ const calls=root=>{let count=0;root.traverse(node=>{if(node.isMesh)count+=Array.
 export const retiredGeometricBuffers=root=>retired.get(root)||[];
 
 function eligible(node,animated){
-  if(!node.isMesh||node.isSkinnedMesh||node.isInstancedMesh||node.children.length||!node.visible||node.userData.reconstructionBowString||dynamicName.test(node.name)||animated.has(node.name)||animated.has(node.uuid))return false;
+  if(!node.isMesh||node.isSkinnedMesh||node.isInstancedMesh||node.geometry?.userData.motionOwned||node.children.length||!node.visible||node.userData.reconstructionBowString||dynamicName.test(node.name)||animated.has(node.name)||animated.has(node.uuid))return false;
   for(let current=node;current;current=current.parent)if(current.userData.visualCue||protectedName.test(current.name)||current.userData.geometricBatch)return false;
   const {geometry,material}=node;
   if(Array.isArray(material)||!material?.isMeshStandardMaterial||material.transparent||material.onBeforeCompile!==THREE.Material.prototype.onBeforeCompile||material.customProgramCacheKey!==THREE.Material.prototype.customProgramCacheKey)return false;

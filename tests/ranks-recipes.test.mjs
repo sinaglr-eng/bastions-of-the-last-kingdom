@@ -17,7 +17,7 @@ test('all eight gem identities have six finite, distinct rank profiles',()=>{
     gems.add(s.referenceGem);assert.equal(s.levels.length,6);
     for(let tier=1;tier<=6;tier++){const t=towerStats(unit(family,tier),data);assert.ok(t.damage>=0&&Number.isFinite(t.damage));assert.ok(t.interval>0&&t.range>0);if(tier>1)assert.ok(t.damage>=s.levels[tier-2].damage);}
   }
-  assert.equal(gems.size,8);assert.equal(towerStats(unit('archer',6),data).interval,.1);assert.equal(towerStats(unit('stormcaller',6),data).range,12);assert.equal(towerStats(unit('druid',6),data).poisonDps,384);
+  assert.equal(gems.size,8);assert.equal(towerStats(unit('archer',6),data).interval,.1);assert.equal(towerStats(unit('stormcaller',6),data).range,8);assert.equal(towerStats(unit('druid',6),data).poisonDps,384);
 });
 test('two Royal V defenders merge into Mythic VI at the chosen tile, with VI capped',()=>{
   const g=new Game(data,{seed:2});g.draft.forced={family:'runebreaker',tier:5};g.draft.roll(0);for(let x=10;x<15;x++)g.place(x,10);
@@ -48,7 +48,7 @@ test('standard blessings use the strongest rank and Archbishop adds one independ
   const archer=unit('archer'),one=unit('cleric',1,2),duplicate=unit('cleric',1,3),two=unit('cleric',2,4);
   const bonuses=supportBonuses(archer,[archer,one,duplicate,two],data);assert.equal(bonuses.haste,1.3);
   two.state='ruin';assert.equal(supportBonuses(archer,[one,duplicate,two],data).haste,1.2);
-  const grove=unit('eldergrove',1,5),sun=unit('sunward',1,6);assert.deepEqual(supportBonuses(archer,[grove,sun],data),{haste:1.6,damage:1.5,range:3});
+  const grove=unit('eldergrove',1,5),sun=unit('sunward',1,6);assert.deepEqual(supportBonuses(archer,[grove,sun],data),{haste:1.6,damage:1.5,range:1});
   const priest=unit('monk',1,7),archbishop=unit('archbishop',1,8),duplicateArchbishop=unit('archbishop',1,9);
   assert.equal(supportBonuses(archer,[one,priest,archbishop,duplicateArchbishop],data).haste,7);
   priest.state='ruin';assert.equal(supportBonuses(archer,[one,archbishop,duplicateArchbishop],data).haste,6.2);

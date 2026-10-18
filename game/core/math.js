@@ -20,12 +20,12 @@ export function weightedIndex(weights, rng = Math.random) {
 }
 export const distance = (a, b) => Math.hypot(a.x - b.x, a.z - b.z);
 import {damageType,canonicalCombatStats,scaleDamageStats} from './combat-rules.js';
-import {mvpDamageBonus,mvpAllyDamageBonus} from './mvp.js';
+import {mvpDamageBonus} from './mvp.js';
 // Kept as a compatibility export for old integrations; no current damage
 // class or Ranger can bypass all airborne defenses.
 export const bypassesAirDefenses = () => false;
 export function damageDefenseBreakdown(amount,type,enemy,stats,balance){
-  const canonical=damageType(type,stats.type),armor=Math.max(0,(enemy.armor||0)+(enemy.reactiveStacks||0)*(enemy.reactiveArmor||0)-(enemy.armorShred||0))*(1-Math.max(0,Math.min(1,enemy.mvpArmorReduction||0)))*(1-Math.max(0,Math.min(1,stats.penetration||0)));
+  const canonical=damageType(type,stats.type),armor=Math.max(0,(enemy.armor||0)+(enemy.reactiveStacks||0)*(enemy.reactiveArmor||0)-(enemy.armorShred||0))*(1-Math.max(0,Math.min(1,stats.penetration||0)));
   const constant=balance.armorConstant||30,multiplier=constant/(constant+armor);
   const blockReason=canonical==='physical'&&enemy.physicalImmune?'physical-immunity':canonical==='magical'&&enemy.magicImmune?'magic-immunity':null;
   return {type:canonical,effectiveArmor:armor,armorMultiplier:multiplier,afterArmor:blockReason?0:amount*multiplier,blockReason};
@@ -54,7 +54,12 @@ export function supportBonuses(tower,towers,data) {
   return {haste:1+[...haste.values()].reduce((a,b)=>a+b,0),damage:1+damage,range,...(trueStrike?{trueStrike}:{}),...(controlResistance?{controlResistance}:{})};
 }
 export function combatTowerStats(tower,towers,data){
-  const bonuses=supportBonuses(tower,towers,data),multiplier=(1+mvpDamageBonus(tower)+mvpAllyDamageBonus(tower,towers))*bonuses.damage;
-  const stats=scaleDamageStats(towerStats(tower,data),multiplier);stats.range+=bonuses.range;stats.trueStrike||=!!bonuses.trueStrike;
+  const bonuses=supportBonuses(tower,towers,data),multiplier=(1+mvpDamageBonus(tower))*bonuses.damage;
+  const stats=scaleDamageStats(towerStats(tower,data),multiplier);
+  if(stats.damage>0)stats.range+=bonuses.range;
+  stats.trueStrike||=!!bonuses.trueStrike;
   return {stats,bonuses,multiplier};
 }
+
+// Offensive effect footprints are independent of direct targeting and range support.
+export const offensiveAuraRange=(stats,kind)=>kind==='burn'?stats.burnAuraRange??stats.range:kind==='slow'?stats.slowAuraRange??stats.range:stats.effectRange??stats.range;

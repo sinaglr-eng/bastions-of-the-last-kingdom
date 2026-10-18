@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-18T16:00:51.937705+00:00",
+  "status": "approved-by-user",
+  "historicalUserStatement": "schvaluji analyzu, priprav detailni popisy pohybu a zacni animovat modely. U zakladnich obrancu zachovej stejny utok pro vsechny ranky.",
+  "approvedAnalysis": "output/design/motion-analysis-v1/analysis.json",
+  "sha256": "44c8bfd1b6ee8b1ae0090aa23cf95157cc7b9328fbd75024655ab7cb257e4c1b",
+  "scope": {
+    "enemies": 54,
+    "basicDefenderFamilies": 8,
+    "basicDefenderRanks": 48,
+    "champions": 38,
+    "motionProfiles": 100
+  },
+  "implementationAuthorization": "Prepare detailed motion specifications and begin animation work in separate working paths. Basic defender ranks I–VI share the same attack.",
+  "protectedOriginals": "Approved basic defender V7 and champion V8 deliveries remain unchanged."
+}

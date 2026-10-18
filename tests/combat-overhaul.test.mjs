@@ -33,7 +33,7 @@ test('all 86 current profiles use exactly three damage classes and explicit abil
 
 test('armor reduces all three classes; only Holy damage ignores both damage immunities and no elemental resistance survives',()=>{
   for(const type of DAMAGE_TYPES)close(damageAfterDefense(100,type,{armor:30,resists:{magic:.99,fire:.99}}, {},data.balance),50);
-  for(const type of DAMAGE_TYPES)close(damageAfterDefense(100,type,{armor:60,armorShred:30,mvpArmorReduction:.1},{penetration:0},data.balance),100*30/57);
+  for(const type of DAMAGE_TYPES)close(damageAfterDefense(100,type,{armor:60,armorShred:30,mvpArmorReduction:.1},{penetration:0},data.balance),100*30/60);
   assert.equal(damageAfterDefense(100,'physical',{armor:30,physicalImmune:true},{},data.balance),0);
   assert.equal(damageAfterDefense(100,'magical',{armor:30,magicImmune:true},{},data.balance),0);
   close(damageAfterDefense(100,'holy',{armor:30,magicImmune:true,physicalImmune:true},{},data.balance),50);
@@ -98,9 +98,9 @@ test('standard haste uses strongest 100%, Archbishop adds its separate500%, and 
   const game=arena(),source=tower(game,'phoenix',1,{mvpLevel:10}),high=tower(game,'monk'),arch=tower(game,'archbishop'),foreign=tower(game,'soldier',1,{mvpLevel:10});
   tower(game,'cleric',6);tower(game,'dawnspire');
   const bonuses=supportBonuses(source,game.towers,data);assert.equal(bonuses.haste,7);assert.equal(bonuses.damage,2);
-  const {stats,multiplier}=combatTowerStats(source,game.towers,data);close(multiplier,5.5);
-  for(const key of ['damage','burnAura','poisonDps','forkedDamage'])close(stats[key],towerStats(source,data)[key]*5.5);
-  high.attackPaused=arch.attackPaused=foreign.attackPaused=true;assert.equal(combatTowerStats(source,game.towers,data).multiplier,5.5,'Paused support and MVP auras remain active');
+  const {stats,multiplier}=combatTowerStats(source,game.towers,data);close(multiplier,3);
+  for(const key of ['damage','burnAura','poisonDps','forkedDamage'])close(stats[key],towerStats(source,data)[key]*3);
+  high.attackPaused=arch.attackPaused=foreign.attackPaused=true;assert.equal(combatTowerStats(source,game.towers,data).multiplier,3,'Paused ally support and own MVP bonus remain active');
 });
 
 test('console rule overrides remain run-local; actual traces expose armor→shell→effectiveHP and blocked attempts without extra RNG',()=>{

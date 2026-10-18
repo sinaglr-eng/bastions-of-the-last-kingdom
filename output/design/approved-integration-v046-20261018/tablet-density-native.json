@@ -1,0 +1,38 @@
+{
+  "schema": "v046-native-tablet-review-v1",
+  "capturedAt": "2026-10-18T19:22:00.444Z",
+  "viewport": {
+    "width": 1715,
+    "height": 1244
+  },
+  "diagnostics": {
+    "calls": 1612,
+    "combatTime": 39.53729999999904,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_38",
+      "host_39",
+      "host_49",
+      "host_50"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 2119,
+    "medianMs": 17.69999998807907,
+    "p95Ms": 18.5,
+    "paused": true,
+    "pendingEnemies": 0,
+    "speed": 3,
+    "statusBatches": 1,
+    "statusInstances": 9,
+    "statusTargets": [],
+    "triangles": 890654,
+    "visibleEnemies": 31
+  },
+  "note": "The attempted tablet override did not resize the battle tab. The saved image and diagnostics are desktop observations; no tablet performance claim.",
+  "requestedViewport": {
+    "width": 1180,
+    "height": 820
+  }
+}

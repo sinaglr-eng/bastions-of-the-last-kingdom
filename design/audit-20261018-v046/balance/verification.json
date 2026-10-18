@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-18",
+  "sourceVersion": "0.4.5",
+  "status": "USER APPROVED DESIGN; NOT IMPLEMENTED; DEFERRED TO MASTER",
+  "runtimeProfiles": 86,
+  "basicFamiliesCovered": 8,
+  "championsCovered": 38,
+  "protectedSourceFiles": 18,
+  "protectedSourcesUnchanged": true,
+  "gameplayTestsRun": false,
+  "campaignCompletionClaimed": false,
+  "analyticalOnly": true,
+  "resolvedDecision": "P1: remove only MVP armor aura; preserve champion armor auras",
+  "numericalApprovalPending": false,
+  "rangeBonusByProvider": {
+    "eldergrove": 1,
+    "rangermentor": 3,
+    "mothernature": 3
+  }
+}

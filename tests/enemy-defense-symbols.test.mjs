@@ -54,7 +54,7 @@ test('actual Magical immunity remains visible while obsolete resistance/ward/shr
   }finally{fx.dispose();}
 });
 
-test('real fixed armor aura and MVP reductions suppress effective reactive protection, then restore it outside range or after resume',()=>{
+test('real fixed armor aura reductions suppress effective reactive protection, then restore it outside range or after resume',()=>{
   const game=arena();
   const reactive=spawn(game,'host_24');game.combat.damage(reactive,10,'physical',{directHit:true});
   assert.ok(kinds(reactive).includes('reactive'));
@@ -63,7 +63,7 @@ test('real fixed armor aura and MVP reductions suppress effective reactive prote
   breaker.x=10;breaker.attackPaused=true;game.tick(.01);assert.equal(reactive.armorShred,0);assert.ok(kinds(reactive).includes('reactive'));
   breaker.attackPaused=false;game.tick(.01);assert.equal(reactive.armorShred,30);assert.equal(kinds(reactive).includes('reactive'),false);
   game.towers=[];reactive.statuses.shred={amount:1e5,time:.01};game.tick(.02);game.combat.prepareArmor(reactive);assert.ok(kinds(reactive).includes('reactive'),'the symbol returns after real fixed-shred expiry');
-  reactive.mvpArmorReduction=1;assert.equal(kinds(reactive).includes('reactive'),false,'zero effective armor cannot advertise a reactive defense');reactive.mvpArmorReduction=0;
+  reactive.mvpArmorReduction=1;assert.equal(kinds(reactive).includes('reactive'),true,'An obsolete MVP field cannot suppress actual reactive armor');reactive.mvpArmorReduction=0;
   reactive.reactiveStacks=0;assert.equal(kinds(reactive).includes('reactive'),false,'ordinary armor cannot retain a reactive shield');
 });
 

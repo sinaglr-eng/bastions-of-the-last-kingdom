@@ -2,7 +2,16 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-## Published release: 0.4.5 — A simpler preparation folio
+## Release candidate: 0.4.6 — Approved armies, motion and combat effects
+
+Integrates the approved B01–B07 changes: MVP grants +5% personal damage per level up to +50%, rank VI requires two matching rank V defenders freshly drawn in the current completed draft, Frozen Celestial attacks and slows ground enemies only, and approved ranges, ranger slow auras and dwarven armor auras use their separate radii. All **54 approved V6 enemy models** are copied exactly. Separate runtime motion covers **48 basic ranks, 38 champions and 54 enemies**, including one-shot enemy deaths, while original V7/V8 geometry, materials and textures remain preserved. Actual resolved attacks and statuses drive the revised effects. Basic defenders now fits the book with a family/rank index on the left and the selected rank on the right, retaining all three filters and 48 profiles.
+
+The latest local gate passes **1,636 tests** and the **210-module** production build. An actual local-distribution smoke passes **265 GET/hash checks**, including all 54 new enemy files; this is local evidence. [The implementation report](docs/APPROVED_INTEGRATION_V046_20261018.md) links approvals, preservation checks, native desktop/phone book review and controlled combat observations. Source models remain static GLBs with separate procedural runtime motion; baked clips, final human pose approval, legal-draft campaign completion, win rates and physical iPad/Safari performance are not certified. Earlier release descriptions below retain their historical rules; the 0.4.6 report records the current approved changes.
+
+<!-- V046_PUBLICATION_PENDING -->
+**Publication pending:** the runtime commit, Pages CI result, public asset verification and release tag will be recorded after delivery. No 0.4.6 deployment is claimed here.
+
+## Previous published release: 0.4.5 — A simpler preparation folio
 
 Implements the eight follow-up requests on 0.4.4: remove static book page numbers, compact the direct recipe filters, keep the public campaign at 50 waves, simplify mystery recruit cards, collapse Potential combinations initially, show built counts for the inspected rank, and move the individual attack pause control beside the defender name. Adds randomly selected result-scene variants using approved defender and enemy identities. [The eight-comment report](docs/UI_REFINEMENTS_V045_20261018.md) tracks implementation, artwork provenance and completed validation and delivery.
 

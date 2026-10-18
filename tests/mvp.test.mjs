@@ -42,19 +42,17 @@ test('all damage event paths credit actual original owner, including poison/burn
   assert.ok(g.mvp.damageFor(b)>towerStats(b,data).damage,'Actual fire aura/fork damage is included, not just primary damage');
 });
 
-test('MVP armor percentage applies after strongest fixed shred, every class, radius2 and never sums allied levels',()=>{
+test('MVP has no enemy armor effect and stale imported MVP armor fields cannot change any damage class',()=>{
   const g=arena(),a=unit(g,'soldier',{mvpLevel:5}),b=unit(g,'soldier',{mvpLevel:10}),e=foe(g,{armor:100});
-  g.combat.applyEffects(e,{type:'physical',shred:30},a);close(mvpArmorReduction(e,g.towers),.1);close(e.mvpArmorReduction,.1);
-  for(const type of ['physical','magical','holy'])close(damageAfterDefense(100,type,e,{},data.balance),100*30/93);
-  b.z=16;g.combat.prepareArmor(e);close(e.mvpArmorReduction,.05);a.state='ruin';g.combat.prepareArmor(e);assert.equal(e.mvpArmorReduction,0);
-  b.z=15;b.attackPaused=true;g.combat.prepareArmor(e);close(e.mvpArmorReduction,.1,'boundary2 counts and paused MVP support remains active');
+  g.combat.applyEffects(e,{type:'physical',shred:30},a);assert.equal(mvpArmorReduction(e,g.towers),0);assert.equal(e.mvpArmorReduction,undefined);
+  e.mvpArmorReduction=.9;for(const type of ['physical','magical','holy'])close(damageAfterDefense(100,type,e,{},data.balance),30);
+  b.attackPaused=true;g.combat.prepareArmor(e);assert.equal(e.mvpArmorReduction,undefined);
 });
 
-test('level10 ally75% is strongest, excludes self, and combines additively with own10%/level before normal aura multiplication',()=>{
+test('MVP adds only own 5% per level up to 50%, with no bonus from nearby MAX MVP allies',()=>{
   const g=arena(),source=unit(g,'archer',{mvpLevel:5}),a=unit(g,'soldier',{mvpLevel:10}),b=unit(g,'soldier',{mvpLevel:10});
-  assert.equal(mvpAllyDamageBonus(source,[source,a,b]),.75);assert.equal(mvpAllyDamageBonus(a,[a]),0);
-  close(combatTowerStats(source,g.towers,data).stats.damage,towerStats(source,data).damage*2.25);
-  a.z=b.z=15;assert.equal(mvpAllyDamageBonus(source,g.towers),0);a.z=14;assert.equal(mvpAllyDamageBonus(source,g.towers),.75);
+  assert.equal(mvpAllyDamageBonus(source,[source,a,b]),0);assert.equal(mvpAllyDamageBonus(a,[a]),0);close(combatTowerStats(source,g.towers,data).stats.damage,towerStats(source,data).damage*1.25);
+  source.mvpLevel=10;close(combatTowerStats(source,g.towers,data).stats.damage,towerStats(source,data).damage*1.5);
   assert.equal(mvpLevel({mvpLevel:99}),10);assert.equal(mvpLevel({mvpLevel:-1}),0);assert.equal(mvpLevel({mvpLevel:NaN}),0);
 });
 
@@ -106,9 +104,9 @@ test('per-tower pause stops new shots/offensive aura, but launched shots, existi
   let calls=0;g.rng=()=>{calls++;return .5;};assert.equal(g.setTowerAttackPaused(source.id,false),true);assert.equal(calls,0);g.rng=rng;
 });
 
-test('pausing offensive armor/slow auras restores enemy armor/movement while retaining the same source MVP armor support',()=>{
+test('pausing offensive armor/slow auras restores enemy armor/movement and no MVP armor support remains',()=>{
   const g=arena(),bomber=unit(g,'griffinbomber',{mvpLevel:10}),frost=unit(g,'winterhold'),enemy=foe(g,{armor:60,speed:1});enemy.route=[{x:12,z:13},{x:12,z:25}];enemy.pathIndex=1;
-  g.tick(.1);assert.equal(enemy.armorShred,30);close(enemy.mvpArmorReduction,.1);assert.ok(enemy.currentSpeed<1);
-  g.setTowerAttackPaused(bomber.id,true);g.setTowerAttackPaused(frost.id,true);g.tick(.1);assert.equal(enemy.armorShred,0);close(enemy.mvpArmorReduction,.1);close(enemy.currentSpeed,1);
-  g.setTowerAttackPaused(bomber.id,false);g.setTowerAttackPaused(frost.id,false);g.tick(.1);assert.equal(enemy.armorShred,30);assert.ok(enemy.currentSpeed<1);
+  g.tick(.1);assert.equal(enemy.armorShred,35);assert.equal(enemy.mvpArmorReduction,undefined);assert.ok(enemy.currentSpeed<1);
+  g.setTowerAttackPaused(bomber.id,true);g.setTowerAttackPaused(frost.id,true);g.tick(.1);assert.equal(enemy.armorShred,0);assert.equal(enemy.mvpArmorReduction,undefined);close(enemy.currentSpeed,1);
+  g.setTowerAttackPaused(bomber.id,false);g.setTowerAttackPaused(frost.id,false);g.tick(.1);assert.equal(enemy.armorShred,35);assert.ok(enemy.currentSpeed<1);
 });

@@ -163,7 +163,7 @@ test('production defender panel removes descriptive, Strong/Weak and pause-expla
       assert.doesNotMatch(html,/<p class="(?:strength|weakness)"|Strong:|Weak:|<small>Pauses new attacks|Support and MVP auras stay active/);
       assert.doesNotMatch(html,/<p class="role">/);if(html.includes('<p>No combination uses this defender at the viewed rank.</p>'))fallback=true;
       assert.match(html,/<h2 class="tower-name">/);assert.match(html,/class="defender-heading folio-identity"/);assert.match(html,/class="tower-effects/);assert.match(html,/Damage \/ hit/);assert.match(html,/Direct DPS/);assert.match(html,/Target priority/);
-      assert.match(html,/MVP Level: 10 \/ 10/);assert.match(html,/Own damage \+100%/);assert.match(html,/\+75% damage/);assert.match(html,/data-action="tower-pause" aria-pressed="false" aria-label="Pause unit attacks"/);assert.ok(html.indexOf('data-action="tower-pause"')<html.indexOf('</header>'));assert.ok(html.indexOf('class="rank-preview"')<html.indexOf('Target priority')||definition.advanced);assert.ok(html.indexOf('class="mvp-details"')<html.indexOf('class="selected-support"'));assert.ok(html.indexOf('class="selected-support"')<html.indexOf('Target priority'));
+      assert.match(html,/MVP Level: 10 \/ 10/);assert.match(html,/Own damage \+50%/);assert.doesNotMatch(html,/Nearby allies gain|Enemy armor −/);assert.match(html,/data-action="tower-pause" aria-pressed="false" aria-label="Pause unit attacks"/);assert.ok(html.indexOf('data-action="tower-pause"')<html.indexOf('</header>'));assert.ok(html.indexOf('class="rank-preview"')<html.indexOf('Target priority')||definition.advanced);assert.ok(html.indexOf('class="mvp-details"')<html.indexOf('class="selected-support"'));assert.ok(html.indexOf('class="selected-support"')<html.indexOf('Target priority'));
       if(!definition.advanced)assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);
     }
     assert.equal(panelGameSnapshot(game),before,'Panel changes and comparisons leave actual towers and draft unchanged');
@@ -187,18 +187,15 @@ function productionMergeClick(game){
   runInNewContext(mainSource.slice(start,end),{game,app,CommandPointerInput,window:{addEventListener:noop},document:{addEventListener:noop,elementFromPoint:()=>null},world:{maze:{editing:false},doubleTap:{clear:noop}},audio:{unlock:noop},draftCardActivation:{clear:noop},mergeTowerFromBadge,debug:false,codex:noop,warbands:noop,help:noop,sendWave:noop,closeDialog:noop,cancelRecipePreview:noop,debugPanel:noop});
   return button=>{let stopped=false;const event={target:{closest:()=>button},detail:1,preventDefault:noop,stopImmediatePropagation:()=>{stopped=true;}};captures.get('click')?.(event);if(!stopped)callbacks.get('click')(event);};
 }
-for(const phase of ['ready','build','select'])test(`production retained Rank V sidebar action works in ${phase} using the actual selected foundation and preserves the pending draft`,()=>{
-  const {game,pair:[tower,partner]}=retainedVPanelGame(phase),preview=new DefenderRankPreview(),render=productionPanel(game,preview),click=productionMergeClick(game);
-  assert.equal(preview.select(tower,1,campaignData),true);const html=render(tower),tag=html.match(/<button[^>]*data-action="merge"[^>]*>/)?.[0];assert.ok(tag);assert.match(html,/Merge to rank VI/);
-  const draft=JSON.stringify(game.draft.draws),resolved=game.draft.resolved,position=[tower.x,tower.z],occupied=[...game.grid.occupied];
-  const button={dataset:{action:'merge',towerId:tag.match(/data-tower-id="([^"]+)"/)[1],mergeKey:tag.match(/data-merge-key="([^"]+)"/)[1]},disabled:false};click(button);
-  assert.equal(game.selection,tower);assert.equal(tower.tier,6);assert.equal(partner.state,'ruin');assert.deepEqual([tower.x,tower.z],position);assert.deepEqual([...game.grid.occupied],occupied);assert.equal(JSON.stringify(game.draft.draws),draft);assert.equal(game.draft.resolved,resolved);assert.equal(game.phase,phase);
-  assert.doesNotMatch(render(tower),/data-action="merge"/);const completed=panelGameSnapshot(game);click(button);assert.equal(panelGameSnapshot(game),completed,'Even a stale native command cannot merge beyond VI');
+for(const phase of ['ready','build','select'])test(`production retained Rank V sidebar has no merge action in ${phase} and rejects stale previous-version commands`,()=>{
+  const {game,pair:[tower]}=retainedVPanelGame(phase),preview=new DefenderRankPreview(),render=productionPanel(game,preview),click=productionMergeClick(game);
+  assert.equal(preview.select(tower,1,campaignData),true);assert.doesNotMatch(render(tower),/data-action="merge"|Merge to rank VI/);
+  const before=panelGameSnapshot(game);click({dataset:{action:'merge',towerId:String(tower.id),mergeKey:'previous-version-retained-pair'},disabled:false});assert.equal(panelGameSnapshot(game),before);assert.equal(tower.tier,5);
 });
 
 test('a stale selected-panel Merge action cannot change the new selection, changed pair or foundation',()=>{
-  for(const change of [game=>game.select(game.towers[5].id),game=>game.towers[5].mvpLevel=8,game=>game.towers[0].x++,game=>game.phase='build']){
-    const {game,pair:[tower]}=retainedVPanelGame('ready'),render=productionPanel(game,new DefenderRankPreview()),click=productionMergeClick(game),tag=render(tower).match(/<button[^>]*data-action="merge"[^>]*>/)[0];
+  for(const change of [game=>game.select(game.towers[1].id),game=>game.towers[1].mvpLevel=8,game=>game.towers[0].x++,game=>game.phase='build']){
+    const game=new Game(campaignData,{seed:731});game.draft.roundForced={family:'archer',tier:5};for(let x=3;x<8;x++)game.place(x,3);const tower=game.towers[0];game.select(tower.id);const render=productionPanel(game,new DefenderRankPreview()),click=productionMergeClick(game),tag=render(tower).match(/<button[^>]*data-action="merge"[^>]*>/)[0];
     const button={dataset:{action:'merge',towerId:tag.match(/data-tower-id="([^"]+)"/)[1],mergeKey:tag.match(/data-merge-key="([^"]+)"/)[1]},disabled:false};
     change(game);const before=panelGameSnapshot(game);click(button);assert.equal(panelGameSnapshot(game),before);assert.equal(tower.tier,5);
   }

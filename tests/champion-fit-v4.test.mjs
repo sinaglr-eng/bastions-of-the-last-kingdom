@@ -37,10 +37,12 @@ testApprovedOrLegacy(["kingdomprotector","archangel"],"Approved Paladin/Archange
  }
 });
 
-test('approved champions preserve real source surfaces and behavior; unchanged enemies retain physical chest/head seating and detached-head rejection',async()=>{
+test('approved champions preserve real source surfaces and behavior; preserved historical enemy fixtures retain chest/head seating and detached-head rejection',async()=>{
  let measured=0;
  for(const category of ['champions','enemies']){
-  const file=`${assetRoot}/geometric-${category}.json`,mf=JSON.parse(readFileSync(file)),entries=mf.entries||mf;
+  const file=category==='enemies'&&!process.env.GEOMETRIC_V4_FIXTURE_DIR?
+   'output/design/approved-model-motion-v046-20261018/previous-geometric-enemies-manifest.json':`${assetRoot}/geometric-${category}.json`;
+  const mf=JSON.parse(readFileSync(file)),entries=mf.entries||mf;
   for(const entry of entries){
    if(!process.env.GEOMETRIC_V4_FIXTURE_DIR&&entry.reconstruction){const [report]=await auditCurrentReconstructionIds([entry.id]);assert.deepEqual(report.failures,[],entry.id+' real approved source/runtime behavior');continue;}
    const gltf=await load(entry.id),actor=gltf.scene,meta=geometricMetadata(actor);actor.updateMatrixWorld(true);

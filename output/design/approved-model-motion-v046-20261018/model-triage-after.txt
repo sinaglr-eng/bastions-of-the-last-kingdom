@@ -1,0 +1,45 @@
+✔ all 46 live identities match the approved reconstruction names and all 92 current voice identities (4.9339ms)
+✔ all 38 champion descriptions use current approved copy while stable recipes stay unchanged (1.146ms)
+✔ approved enemy appearance has all 54 exact V6 files and four structural variants (458.9826ms)
+✔ all approved defenders bind real motion, preserve templates, release from posed geometry and freeze on zero dt (772.6266ms)
+✔ all approved champions bind real motion, preserve templates, release from posed geometry and freeze on zero dt (2323.8232ms)
+✔ all 54 approved enemy actors articulate, freeze independently and perform one persistent grounded death (2478.7359ms)
+✔ release identity is cosmetic and repeated multishot events do not restart the same cast (11.6712ms)
+✔ actual champion motion excludes runtime aura geometry added before attack binding (19.3107ms)
+✔ Approved Paladin/Archangel preserve actual source helmet surfaces and runtime transforms (652.4742ms)
+✔ approved champions preserve real source surfaces and behavior; preserved historical enemy fixtures retain chest/head seating and detached-head rejection (20474.4357ms)
+✔ approved champion projectiles retain real source/runtime behavior; enemy crossbows retain actual grip/palm/wrist contact through recoil (56.6416ms)
+✔ Approved mounted creatures preserve source wing/rider surfaces and run conservative attack behavior (1.7002ms)
+✔ Approved Kingslayer/mounted knights preserve full source surfaces and functional isolated attacks (1.54ms)
+✔ Approved Nature Spirit preserves native continuous body and actual PBR surfaces during runtime casting (0.5939ms)
+✔ all 48 approved basic ranks and 38 champions pass the actual battlefield pending-to-ready boundary with exact GLB identity (2590.9517ms)
+✔ late old-rank and old-family downloads cannot flash or replace the currently selected approved variant (38.2291ms)
+✔ network failures retry only after bounded cooldowns, exhaust after three batches, and recover on an explicit Retry (0.5122ms)
+✔ a missing key from a partial manifest recovers immediately when a later index supplies it (0.1652ms)
+✔ removed placed identities cannot start queued loads or missing-entry retries; returning placed identities resume immediately (1.0427ms)
+✔ neutral loading/unavailable models preserve real Reserved occupancy, foundation, selection, map visibility and mystery RNG (18.416ms)
+✔ failed roster fetches have finite cooldown recovery and never request hidden cards or overlapping manifest downloads (1.6004ms)
+✔ the preserved historical Dust Dancer retains narrower physical legs bound to its native and unchanged original source (27.4987ms)
+✔ 200 real narrow-stance gait frames retain ground, surfaces, alternating support and untouched cached peers (66.4697ms)
+✔ narrow-stance checks reject old wide footwear geometry even when joints and author metadata still claim the corrected stance (15.7778ms)
+✔ the current geometric edition covers all140 approved models: 48 basic ranks, 38 champions and 54 enemies (1.3602ms)
+✔ all140 actual Three.js imports preserve approved export bytes, finite geometry, original PBR factors and axis-converted bounds (4279.3983ms)
+✔ preserved historical rounded-cap fixture rejects a displaced shell with unchanged native declarations (8.2341ms)
+✔ current campaign has exactly eight basic families and 38 obtainable champions while historical Bernhard remains archived (6.1244ms)
+✔ hostile Bernhard retains archived identity provenance and base stats while approved direct-hit shell changes apply to each real spawn (3.6814ms)
+✔ the actual final-wave heading uses the hostile Bernhard identity without changing any archived wave composition or combat modifier (2.1627ms)
+✔ blink events describe the actual checkpoint-preserving teleport separately from ordinary residual frame movement (1.899ms)
+✔ pause and petrification suppress displacement, hidden teleport stays hidden, and existing blink-through-freeze semantics remain unchanged (8.9949ms)
+✔ the real renderer death event retains grounded corpses until the single wave-complete event before reward or final victory (10.9381ms)
+✔ the real battlefield keeps the mounted lightning cast aim and arm progress while its fire aura attacks another target (53.2699ms)
+✔ geometric manifests normalize rank and category and loader limits decoding, collects failures and stops dispatch after disposal (3.9101ms)
+✔ manifest fetch surfaces HTTP and malformed-content failures without claiming the geometric roster loaded (0.3168ms)
+✔ the three actual production manifests decode all140 approved identities and point at real GLBs (175.0161ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21355.7983

@@ -1,8 +1,7 @@
-import {distance,damageDefenseBreakdown,towerStats,combatTowerStats} from './math.js';
+import {distance,damageDefenseBreakdown,towerStats,combatTowerStats,offensiveAuraRange} from './math.js';
 import {enemyRevealed} from './visibility.js';
 import {enemyRulesFor,enemyDisarmActive} from './enemy-rules.js';
-import {damageType,effectDamageType,statusEffectAllowed} from './combat-rules.js';
-import {mvpArmorReduction} from './mvp.js';
+import {damageType,effectDamageType,statusEffectAllowed,attackTargetAllowed,slowAuraApplies} from './combat-rules.js';
 
 const poisonStatus=applications=>{
   return {dps:applications.reduce((sum,application)=>sum+application.dps,0),time:Math.max(...applications.map(application=>application.time)),stacks:applications.length,applications};
@@ -39,7 +38,7 @@ export class CombatManager {
   isRevealed(enemy){return enemyRevealed(enemy,this.game);}
   canSee(enemy,tower){return enemyRevealed(enemy,this.game,tower);}
   targetList(tower,stats) {
-    const candidates=this.enemies.filter(e=>!e.dead&&this.canSee(e,tower)&&(!stats.melee||!e.flying)&&distance(tower,e)<=stats.range);
+    const candidates=this.enemies.filter(e=>!e.dead&&this.canSee(e,tower)&&attackTargetAllowed(stats,e)&&distance(tower,e)<=stats.range);
     const priority=tower.priority||'first';
     const sorters={first:(a,b)=>b.traveled/b.pathLength-a.traveled/a.pathLength,last:(a,b)=>a.traveled/a.pathLength-b.traveled/b.pathLength,strongest:(a,b)=>b.hp-a.hp,weakest:(a,b)=>a.hp-b.hp,fastest:(a,b)=>b.speed-a.speed,slowest:(a,b)=>a.speed-b.speed};
     const ordered=candidates.sort(sorters[priority]||sorters.first),effect=stats.spreadEffect;
@@ -55,9 +54,10 @@ export class CombatManager {
     enemy.armorShred=enemy.statuses.shred?.amount||0;
     for(const tower of this.game.towers)if(tower.state==='active'){
       const stats=towerStats(tower,this.game.data);
-      if(!tower.attackPaused&&stats.armorShredAura&&distance(tower,enemy)<=(stats.effectRange??stats.range))enemy.armorShred=Math.max(enemy.armorShred,stats.armorShredAura);
+      if(!tower.attackPaused&&stats.armorShredAura&&distance(tower,enemy)<=offensiveAuraRange(stats,'armor'))enemy.armorShred=Math.max(enemy.armorShred,stats.armorShredAura);
     }
-    enemy.mvpArmorReduction=mvpArmorReduction(enemy,this.game.towers);
+    // Old test setups or integrations cannot restore the removed MVP armor aura.
+    delete enemy.mvpArmorReduction;
   }
   damage(enemy,amount,type,stats={},source){return this.resolveDamage(enemy,amount,type,stats,source).appliedDamage;}
   resolveDamage(enemy,amount,type,stats={},source){
@@ -142,7 +142,7 @@ export class CombatManager {
     else delete enemy.statuses.poison;
   }
   landedProcs(stats,source,{landedDamage=true}={}) {
-    if(landedDamage&&stats.recoverChance&&this.game.rng()<stats.recoverChance){this.game.lives=Math.min(this.game.data.balance.startingLives,this.game.lives+(stats.recoverLives||1));this.game.emit('recover',{source});}
+    if(landedDamage&&stats.recoverChance&&this.game.rng()<stats.recoverChance){const before=this.game.lives;this.game.lives=Math.min(this.game.data.balance.startingLives,this.game.lives+(stats.recoverLives||1));const amount=this.game.lives-before;if(amount>0)this.game.emit('recover',{source,amount});}
     if(stats.stoneGazeChance&&this.game.rng()<stats.stoneGazeChance)source.stoneGaze={remaining:stats.stoneGazeDuration||6,facing:new Map(),petrified:new Set(),stats};
   }
   updateStoneGazes(dt) {
@@ -184,8 +184,8 @@ export class CombatManager {
     const {target,stats,source}=shot;
     // A target that recloaks before impact cannot be struck or disclose its
     // hidden position through impact particles. Existing damage-over-time stays.
-    if(!this.canSee(target,source))return;
-    const victims=stats.splash ? this.enemies.filter(e=>!e.dead&&(!stats.melee||(!e.flying&&distance(e,source)<=stats.range+.25))&&distance(e,target)<=stats.splash) : target.dead||(stats.melee&&(target.flying||distance(source,target)>stats.range+.25))?[]:[target];
+    if(!this.canSee(target,source)||!attackTargetAllowed(stats,target))return;
+    const victims=stats.splash ? this.enemies.filter(e=>!e.dead&&attackTargetAllowed(stats,e)&&(!stats.melee||distance(e,source)<=stats.range+.25)&&distance(e,target)<=stats.splash) : target.dead||(stats.melee&&(target.flying||distance(source,target)>stats.range+.25))?[]:[target];
     const critical=!!(stats.critChance&&this.game.rng()<stats.critChance);
     const hitDamage=stats.damage*(critical?stats.critMultiplier:1),hitStats={...stats,directHit:true,critical};
     const landed=[],contacted=[];
@@ -262,7 +262,7 @@ export class CombatManager {
       const frenzy=enemy.rush&&this.elapsed%R.rush.period<R.rush.duration?enemy.rush:enemy.type==='berserker'&&enemy.hp<enemy.maxHp*R.rush.berserkerThreshold?R.rush.berserkerSpeed:1;
       let slow=Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
       this.prepareArmor(enemy);
-      for(const t of this.game.towers)if(t.state==='active'&&!t.attackPaused){const s=towerStats(t,this.game.data);if(statusEffectAllowed(enemy,'slow')&&s.slowAura&&distance(t,enemy)<=s.range)slow=Math.max(slow,s.slowAura);}
+      for(const t of this.game.towers)if(t.state==='active'&&!t.attackPaused){const s=towerStats(t,this.game.data);if(slowAuraApplies(s,enemy)&&distance(t,enemy)<=offensiveAuraRange(s,'slow'))slow=Math.max(slow,s.slowAura);}
       if(enemy.boss)slow*=this.game.data.balance.bossSlowMultiplier??.5;
       const move=amount=>{
         let travel=amount;
@@ -303,10 +303,10 @@ export class CombatManager {
       }
       if(tower.attackPaused)continue;
       if(stats.burnAura){
-        const victims=this.enemies.filter(e=>!e.dead&&this.canSee(e,tower)&&distance(e,tower)<=stats.range);
+        const victims=this.enemies.filter(e=>!e.dead&&this.canSee(e,tower)&&distance(e,tower)<=offensiveAuraRange(stats,'burn'));
         for(const e of victims)this.damage(e,stats.burnAura*dt,effectDamageType(stats,'fire'),{...stats,effect:'fire'},tower);
         tower.auraPulse=(tower.auraPulse||0)-dt;
-        if(victims.length&&tower.auraPulse<=0){this.game.emit('aura-attack',{source:tower,target:victims[0],stats,effect:'fire'});this.game.emit('impact',{source:tower,target:victims[0],stats,effect:'fire',aura:true,x:tower.x,z:tower.z,color:stats.color,radius:stats.range});tower.auraPulse=.7;}
+        if(victims.length&&tower.auraPulse<=0){this.game.emit('aura-attack',{source:tower,target:victims[0],stats,effect:'fire'});this.game.emit('impact',{source:tower,target:victims[0],stats,effect:'fire',aura:true,x:tower.x,z:tower.z,color:stats.color,radius:offensiveAuraRange(stats,'burn')});tower.auraPulse=.7;}
       }
       if(stats.damage<=0||tower.disarmed)continue;
       tower.cooldown-=((dt-melancholySlice)-Math.max(0,dreadSlice-melancholySlice)*dread)*boost;
@@ -341,9 +341,14 @@ export class CombatManager {
   updateEnemyHealing(enemy,dt,blockedFor){
     const R=this.rules;
     const clockEpsilon=1e-9;
+    const heal=(value,cause)=>{
+      const before=enemy.hp;enemy.hp=Math.min(enemy.maxHp,enemy.hp+value);
+      const amount=enemy.hp-before;
+      if(amount>0)this.game.emit('enemy-heal',{enemy,cause,amount,visible:this.isRevealed(enemy)});
+    };
     const regenerate=(from,to)=>{
       const active=Math.max(0,to-Math.max(from,blockedFor));
-      if(enemy.regen>0&&active>0)enemy.hp=Math.min(enemy.maxHp,enemy.hp+enemy.maxHp*enemy.regen*active);
+      if(enemy.regen>0&&active>0)heal(enemy.maxHp*enemy.regen*active,'regeneration');
     };
     let cursor=0;
     if(enemy.recharge>0){
@@ -352,7 +357,7 @@ export class CombatManager {
         const at=Math.min(dt,Math.max(0,deadline));regenerate(cursor,at);
         // Compare each real deadline with expiry, instead of sampling a block
         // at the beginning/end of a large tick and losing eligible pulses.
-        if(at+clockEpsilon>=blockedFor)enemy.hp=Math.min(enemy.maxHp,enemy.hp+Math.max(0,enemy.maxHp-enemy.hp)*enemy.recharge);
+        if(at+clockEpsilon>=blockedFor)heal(Math.max(0,enemy.maxHp-enemy.hp)*enemy.recharge,'recharge');
         cursor=at;deadline+=R.recharge.period;
       }
       enemy.rechargeClock=deadline-dt;

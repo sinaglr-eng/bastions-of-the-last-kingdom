@@ -43,12 +43,12 @@ test('unpaused review depletes the reachable mirror and retains immunities while
   const deflected=[];game.on((kind,payload)=>{if(kind==='deflect'&&payload.enemy===reachable)deflected.push(payload.enemy.shields);});
   game.paused=false;for(let i=0;i<60;i++)game.tick(.05);
   assert.deepEqual(deflected.slice(0,3),[2,1,0]);assert.equal(reachable.shields,0);assert.equal(comparison.shields,3);assert.equal(comparison.hp,comparison.maxHp);
-  assert.equal(pickpocket.armorShred,30);assert.equal(wraith.armorShred,30);assert.ok(kinds(pickpocket).includes('magicImmune'),'real magic immunity persists even when an aura applies armor reduction');
-  assert.equal(game.combat.damage(wraith,100,'holy',{}),100,'the20 armor is fully reduced by the actual30-point aura');
+  assert.equal(pickpocket.armorShred,0,'The diagonal enemy is outside the approved 4.5-tile footprint');assert.equal(wraith.armorShred,35);pickpocket.x=24;game.combat.prepareArmor(pickpocket);assert.equal(pickpocket.armorShred,35,'Moving the actual magic-immune enemy inside the footprint applies fixed shred');assert.ok(kinds(pickpocket).includes('magicImmune'),'real magic immunity persists even when an aura applies armor reduction');
+  assert.equal(game.combat.damage(wraith,100,'holy',{}),100,'the20 armor is fully reduced by the actual35-point aura');
   assert.equal(game.combat.damage(wraith,100,'physical',{}),0,'armor reduction cannot bypass Physical immunity');
   assert.equal(game.combat.damage(pickpocket,100,'magical',{}),0,'armor reduction cannot bypass Magical immunity');
   assert.ok(kinds(wraith).includes('physicalImmune'),'shred never cosmetically suppresses real immunity');
   griffin.state='ruin';game.tick(.05);assert.equal(wraith.armorShred,0);assert.equal(game.combat.damage(wraith,100,'holy',{}),60,'consuming the aura restores actual20 armor mitigation');
-  griffin.state='active';game.tick(.05);assert.equal(wraith.armorShred,30);assert.equal(game.combat.damage(wraith,100,'holy',{}),100);
+  griffin.state='active';game.tick(.05);assert.equal(wraith.armorShred,35);assert.equal(game.combat.damage(wraith,100,'holy',{}),100);
   assert.equal(JSON.stringify(data),before,'inspection continues to use unchanged production combat data');
 });

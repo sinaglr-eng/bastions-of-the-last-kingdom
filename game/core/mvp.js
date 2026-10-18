@@ -1,12 +1,9 @@
-export const MVP_RULES=Object.freeze({maxLevel:10,damagePerLevel:.1,armorReductionPerLevel:.01,auraRange:2,maxAuraDamageBonus:.75});
+export const MVP_RULES=Object.freeze({maxLevel:10,damagePerLevel:.05});
 export const mvpLevel=tower=>Math.max(0,Math.min(MVP_RULES.maxLevel,Math.floor(Number.isFinite(tower?.mvpLevel)?tower.mvpLevel:0)));
 export const mvpDamageBonus=tower=>mvpLevel(tower)*MVP_RULES.damagePerLevel;
-const nearby=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z)<=MVP_RULES.auraRange;
-export function mvpArmorReduction(enemy,towers){
-  let level=0;for(const tower of towers)if(tower.state==='active'&&nearby(tower,enemy))level=Math.max(level,mvpLevel(tower));
-  return level*MVP_RULES.armorReductionPerLevel;
-}
-export const mvpAllyDamageBonus=(tower,towers)=>towers.some(other=>other!==tower&&other.state==='active'&&mvpLevel(other)===MVP_RULES.maxLevel&&nearby(tower,other))?MVP_RULES.maxAuraDamageBonus:0;
+// Compatibility exports for archived integrations. MVP has only a personal bonus.
+export const mvpArmorReduction=()=>0;
+export const mvpAllyDamageBonus=()=>0;
 export const inheritedMvpLevel=towers=>towers.reduce((level,tower)=>Math.max(level,mvpLevel(tower)),0);
 
 export class MvpManager{

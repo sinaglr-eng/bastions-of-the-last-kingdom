@@ -225,8 +225,10 @@ test('actual Ready retained recipe inspection keeps preparation hidden and prese
 
 test('actual main combine subscriber replaces recipe receipts with the new defender after Ready craft or guarded merge',()=>{
   for(const action of ['craft','merge']){
-    const game=action==='craft'?recipeGame('retained'):new Game(data,{seed:904});if(action==='merge'){retained(game,{family:'archer',tier:5},0);retained(game,{family:'archer',tier:5},1);}
-    const anchor=game.towers[0],position=[anchor.x,anchor.z],id=anchor.id;place(game,Array.from({length:5},()=>({family:'soldier',tier:2})));assert.equal(game.keep(),true);game.select(id);game.pinned=data.recipes.find(recipe=>recipe.id!==ranger.id).id;
+    const game=action==='craft'?recipeGame('retained'):new Game(data,{seed:904});
+    if(action==='craft'){place(game,Array.from({length:5},()=>({family:'soldier',tier:2})));assert.equal(game.keep(),true);}
+    else{place(game,[{family:'archer',tier:5},{family:'archer',tier:5},{family:'soldier',tier:2},{family:'mage',tier:1},{family:'druid',tier:1}]);assert.equal(game.phase,'select');}
+    const anchor=game.towers[0],position=[anchor.x,anchor.z],id=anchor.id;game.select(id);game.pinned=data.recipes.find(recipe=>recipe.id!==ranger.id).id;
     const view=mainFixture(game,{subscriber:true}),pin=game.pinned;view.rankPreview.select(anchor,6,data);view.openRecipePreview(ranger.id);assert.equal(view.context.recipeFocus,ranger.id);assert.equal(game.previewRecipeId,null);
     if(action==='craft'){assert.equal(craftRecipeFromDock(game,ranger.id,id,craftRecipeKey(game,ranger.id,id)),true);}
     else assert.equal(mergeTowerFromBadge(game,id,mergeTowerKey(game,id)),true);

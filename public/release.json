@@ -1,5 +1,5 @@
 {
-  "version": "0.4.5",
+  "version": "0.4.6",
   "edition": "The Cartographer’s Table",
   "date": "2026-10-18",
   "basicClasses": 8,
@@ -7,7 +7,7 @@
   "secretChampions": 1,
   "defenderVariants": 86,
   "artRevision": "basic-defenders-v7",
-  "enemyArtRevision": "geometric-game-v7",
+  "enemyArtRevision": "approved-enemies-v6",
   "championRecipes": 38,
   "championAscension": false,
   "championClassifications": {
@@ -18,7 +18,7 @@
     "Secret": 1
   },
   "authoring": "Blender 5.2",
-  "enemyVariants": 50,
+  "enemyVariants": 54,
   "enemyLanguage": "en",
   "sceneryRevision": 9,
   "championArtRevision": "champions-v8",
@@ -35,8 +35,11 @@
   "mvpMaximumLevel": 10,
   "developerConsole": true,
   "classificationScaleStep": 1.1,
-  "uiRevision": "cartographer-streamlined-20261018-v6",
+  "uiRevision": "cartographer-approved-balance-motion-20261018-v7",
   "uiPortraitRevision": "reference-cutouts-20261016-v1",
   "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
-  "uiOutcomeArtRevision": "outcome-scenes-20261018-v2"
+  "uiOutcomeArtRevision": "outcome-scenes-20261018-v2",
+  "motionRevision": "approved-motion-v1",
+  "vfxRevision": "attack-ability-vfx-20261018-v1",
+  "balanceRevision": "approved-b01-b06-20261018"
 }

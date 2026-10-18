@@ -1,6 +1,12 @@
 import * as THREE from 'three';
 import {enemyModel} from './models.js';
 import {ENEMY_RULES as R,enemyDisarmActive} from '../core/enemy-rules.js';
+import {prepareApprovedMotionTemplate,bindApprovedMotion,disposeApprovedMotion} from './approved-model-motion.js';
+
+export function enemyTemplateKey(enemy={}){
+  return typeof enemy.visualAsset==='string'&&enemy.visualAsset.startsWith('host_')?enemy.visualAsset:
+    typeof enemy.type==='string'?enemy.type:enemy.id;
+}
 
 export function enemyAssetKey(enemy,templates){
   if(enemy.visualAsset&&templates.has(enemy.visualAsset))return enemy.visualAsset;
@@ -11,6 +17,7 @@ export function enemyFigure(enemy,templates){
   const key=enemyAssetKey(enemy,templates),template=templates.get(key);
   if(!template){const fallback=enemyModel(enemy.type,enemy);fallback.userData.assetKey=null;return fallback;}
   const root=new THREE.Group(),body=template.clone(true),limbs=[],wings=[];
+  bindApprovedMotion(body);
   root.add(body);root.userData.sharedAsset=true;root.userData.body=body;root.userData.assetKey=key;
   root.userData.visualCues=[];root.userData.ownedMaterials=[];
   body.traverse(o=>{
@@ -28,7 +35,7 @@ export function enemyFigure(enemy,templates){
   return root;
 }
 export function installEnemyTemplate(view,entry,scene){
-  if(view.disposed)return false;view.enemyTemplates.set(entry.id,scene);
+  if(view.disposed)return false;prepareApprovedMotionTemplate(scene,entry);view.enemyTemplates.set(entry.id,scene);
   for(const enemy of view.game.combat.enemies){
     const figure=view.enemies.get(enemy.id);if(!figure)continue;
     if(enemyAssetKey(enemy,view.enemyTemplates)!==figure.userData.assetKey){figure.removeFromParent();disposeEnemyFigure(figure);view.enemies.delete(enemy.id);}
@@ -56,6 +63,7 @@ export function animateEnemyCues(root,enemy,elapsed,{reducedMotion=false}={}){
   }
 }
 export function disposeEnemyFigure(root){
+  root.userData.modelDeath?.dispose();disposeApprovedMotion(root.userData.body);
   // Imported clones share the pack's geometries and materials with future spawns.
   root.userData.bar?.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});
   root.userData.aura?.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});

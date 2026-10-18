@@ -5,6 +5,7 @@ import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
 import {animateGeometricOrbits} from './geometric-orbits.js';
 import {ENEMY_RULES as R} from '../core/enemy-rules.js';
+import {approvedMotionController} from './approved-model-motion.js';
 
 export function createAtelierEnemyPreview(scene,definition,template,{camera,balance}={}){
   const enemy={...definition,id:definition.wave,x:0,z:0,traveled:0,dead:false,statuses:{},shields:definition.refraction||0,rechargeClock:R.recharge.period,blinkClock:0};
@@ -26,6 +27,7 @@ export function updateAtelierEnemyPreview(preview,dt,{reducedMotion=false,showEf
   let bob=0;
   if(preview.moving)bob=animateEnemyMotion(preview.figure,preview.enemy,preview.time,{moving:true,reducedMotion});
   else{
+    approvedMotionController(preview.figure.userData.body)?.motion.reset();
     const rig=preview.figure.userData.geometricMotion;
     if(rig){resetGeometricMotion(rig);rig.clock=preview.time;rig.traveled=preview.enemy.traveled;}
   }

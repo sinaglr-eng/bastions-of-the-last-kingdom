@@ -1,7 +1,10 @@
 // Animate each figure's private hierarchy; native geometry and shared templates
 // retain their authored rest pose. Combat and exhibition use separate clocks.
+import {animateApprovedEnemy} from './approved-model-motion.js';
 export function animateEnemyMotion(figure,enemy,time,{moving=true,reducedMotion=false}={}){
   if(figure.userData.death)return 0;
+  const approved=animateApprovedEnemy(figure.userData.body,enemy,time,{moving,reducedMotion});
+  if(approved!==null)return approved;
   const geometric=animateGeometricEnemyMotion(figure,enemy,time,{moving,reducedMotion});
   if(geometric!==null)return geometric;
   const body=figure.userData.body;if(!body)return 0;

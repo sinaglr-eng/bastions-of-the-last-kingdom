@@ -1,0 +1,179 @@
+{
+  "setup": {
+    "schemaVersion": 1,
+    "mode": "sandbox",
+    "seed": 4046,
+    "waveLimit": 50,
+    "wave": 38,
+    "variant": "random",
+    "resources": {
+      "gold": 0,
+      "lives": 100,
+      "cp": 3
+    },
+    "enemyRules": {},
+    "enemies": {},
+    "towers": [
+      {
+        "family": "druid",
+        "tier": 1,
+        "x": 2,
+        "z": 6,
+        "mvpLevel": 0
+      },
+      {
+        "family": "stormcaller",
+        "tier": 1,
+        "x": 3,
+        "z": 9,
+        "mvpLevel": 0
+      },
+      {
+        "family": "embercrown",
+        "tier": 1,
+        "x": 6,
+        "z": 13,
+        "mvpLevel": 0
+      },
+      {
+        "family": "royalranger",
+        "tier": 1,
+        "x": 7,
+        "z": 15,
+        "mvpLevel": 10
+      }
+    ]
+  },
+  "actualWave": 38,
+  "ready": {
+    "calls": 1194,
+    "combatTime": 0,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_01",
+      "host_38",
+      "host_38-wraith"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 1168,
+    "medianMs": 16.700000002980232,
+    "p95Ms": 17.599999994039536,
+    "paused": true,
+    "pendingEnemies": 0,
+    "speed": 1,
+    "statusBatches": 0,
+    "statusInstances": 0,
+    "statusTargets": [],
+    "triangles": 698933,
+    "visibleEnemies": 0
+  },
+  "combat": {
+    "calls": 1615,
+    "combatTime": 15.015800000000043,
+    "corpses": 0,
+    "detailedVfx": 3,
+    "enemyModels": [
+      "host_38",
+      "host_38-wraith",
+      "host_02",
+      "host_39"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 1944,
+    "medianMs": 16.69999998807907,
+    "p95Ms": 17.30000001192093,
+    "paused": true,
+    "pendingEnemies": 0,
+    "speed": 1,
+    "statusBatches": 4,
+    "statusInstances": 43,
+    "statusTargets": [
+      [
+        "poison"
+      ],
+      [
+        "poison"
+      ],
+      [
+        "poison",
+        "slow"
+      ],
+      [
+        "heat"
+      ],
+      [
+        "slow",
+        "heat"
+      ],
+      [
+        "slow",
+        "heat"
+      ],
+      [
+        "heat"
+      ],
+      [
+        "heat"
+      ]
+    ],
+    "triangles": 1848135,
+    "visibleEnemies": 15
+  },
+  "paused": {
+    "calls": 1681,
+    "combatTime": 15.015800000000043,
+    "corpses": 0,
+    "detailedVfx": 3,
+    "enemyModels": [
+      "host_38",
+      "host_38-wraith",
+      "host_02",
+      "host_39"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 1945,
+    "medianMs": 16.600000008940697,
+    "p95Ms": 17.299999997019768,
+    "paused": true,
+    "pendingEnemies": 0,
+    "speed": 1,
+    "statusBatches": 4,
+    "statusInstances": 43,
+    "statusTargets": [
+      [
+        "poison"
+      ],
+      [
+        "poison"
+      ],
+      [
+        "poison",
+        "slow"
+      ],
+      [
+        "heat"
+      ],
+      [
+        "slow",
+        "heat"
+      ],
+      [
+        "slow",
+        "heat"
+      ],
+      [
+        "heat"
+      ],
+      [
+        "heat"
+      ]
+    ],
+    "triangles": 1871527,
+    "visibleEnemies": 15
+  },
+  "diagnostics": []
+}

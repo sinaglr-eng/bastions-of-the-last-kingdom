@@ -1,0 +1,107 @@
+{
+  "schema": "v046-native-browser-qa-v1",
+  "status": "passed",
+  "completedAt": "2026-10-18T19:22:17.791Z",
+  "browser": "ChatGPT in-app browser / Chromium",
+  "viewports": [
+    {
+      "width": 1715,
+      "height": 1244
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 1280,
+      "height": 720
+    }
+  ],
+  "checks": [
+    "Basic defenders fits two book leaves; independent selected-rank page",
+    "Phone index and selected-rank tabs; Holy filter six Cleric ranks",
+    "Actual wave 1 approved enemy models and one-shot death corpses",
+    "Actual mixed-variant wave 38 poison, burning aura and mouth-origin breath; global pause freezes simulation time",
+    "Actual authored wave49 with31 live enemies",
+    "54-enemy Atelier roster and approved wolf model walk playback",
+    "Dragon attack playback with jaw/mouth anchors verified separately against all four source GLBs"
+  ],
+  "density": {
+    "calls": 1568,
+    "combatTime": 38.43329999999904,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_38",
+      "host_39",
+      "host_49",
+      "host_50"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 2119,
+    "medianMs": 17.5,
+    "p95Ms": 18.899999991059303,
+    "paused": true,
+    "pendingEnemies": 0,
+    "speed": 3,
+    "statusBatches": 1,
+    "statusInstances": 12,
+    "statusTargets": [],
+    "triangles": 876169,
+    "visibleEnemies": 31
+  },
+  "tablet": {
+    "calls": 1612,
+    "combatTime": 39.53729999999904,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_38",
+      "host_39",
+      "host_49",
+      "host_50"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 2119,
+    "medianMs": 17.69999998807907,
+    "p95Ms": 18.5,
+    "paused": true,
+    "pendingEnemies": 0,
+    "speed": 3,
+    "statusBatches": 1,
+    "statusInstances": 9,
+    "statusTargets": [],
+    "triangles": 890654,
+    "visibleEnemies": 31,
+    "actualViewport": {
+      "width": 1715,
+      "height": 1244
+    },
+    "note": "The attempted tablet override did not resize this existing battle tab. These metrics and capture 10 are desktop observations, not tablet measurements."
+  },
+  "diagnostics": {
+    "game": [],
+    "atelier": []
+  },
+  "limitations": [
+    "Tablet viewport on desktop Chromium is not physical iPad/Safari performance certification.",
+    "Final density timing samples are paused; these are render observations, not a controlled moving-combat benchmark.",
+    "Developer fixtures do not establish legal 50-wave completion or win rate.",
+    "The final mouth-caller mapping was repaired after these initial combat captures; actual-GLTF regression and final public review verify the corrected release path."
+  ],
+  "captures": [
+    "01-basic-book-desktop.jpg",
+    "02-basic-book-phone-detail.jpg",
+    "03-basic-book-phone-index.jpg",
+    "04-actual-wave1-new-models.jpg",
+    "05-wave38-poison-fire-new-enemies.jpg",
+    "06-wave38-paused-detail.jpg",
+    "07-bloodwolf-approved-model-gait.jpg",
+    "08-wave49-31-enemies.jpg",
+    "09-bloodwolf-walk-phase.jpg",
+    "10-tablet-wave49.jpg",
+    "11-dragon-attack.jpg"
+  ]
+}

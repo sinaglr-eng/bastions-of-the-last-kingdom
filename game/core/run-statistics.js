@@ -1,5 +1,6 @@
 import {GAME_VERSION} from '../release.js';
-import {supportBonuses,towerStats,distance} from './math.js';
+import {supportBonuses,towerStats,distance,offensiveAuraRange} from './math.js';
+import {slowAuraApplies} from './combat-rules.js';
 
 const number=n=>Math.round((Number(n)||0)*100)/100;
 const unit=t=>({id:t.id,family:t.family,tier:t.tier,x:t.x,z:t.z});
@@ -36,12 +37,12 @@ export class RunStatistics {
     if(!this.current||this.game.phase!=='combat'||this.game.paused||dt<=0)return;
     this.sampleClock+=dt*this.game.speed;if(this.sampleClock<.25)return;
     const w=this.current,slice=this.sampleClock;this.sampleClock=0;
-    const auras=this.game.towers.filter(t=>t.state==='active').map(t=>({tower:t,stats:towerStats(t,this.game.data)})).filter(t=>t.stats.slowAura);
+    const auras=this.game.towers.filter(t=>t.state==='active'&&!t.attackPaused).map(t=>({tower:t,stats:towerStats(t,this.game.data)})).filter(t=>t.stats.slowAura);
     for(const enemy of this.game.combat.enemies){if(enemy.dead)continue;
       for(const [key,status] of Object.entries(enemy.statuses||{}))if(status.time>0){const seconds=Math.min(slice,status.time);w.effects[key]=(w.effects[key]||0)+seconds;}
       let effect=enemy.statuses.petrify||enemy.statuses.freeze;
       if(!effect){effect=[enemy.statuses.slow,enemy.statuses.gazeSlow].filter(s=>s?.time>0).sort((a,b)=>b.amount-a.amount)[0];
-        for(const {tower,stats} of auras)if((!enemy.physicalImmune||stats.type==='holy')&&distance(tower,enemy)<=stats.range&&stats.slowAura>(effect?.amount||0))effect={amount:stats.slowAura,time:slice,source:tower,aura:true};
+        for(const {tower,stats} of auras)if(slowAuraApplies(stats,enemy)&&distance(tower,enemy)<=offensiveAuraRange(stats,'slow')&&stats.slowAura>(effect?.amount||0))effect={amount:stats.slowAura,time:slice,source:tower,aura:true};
       }
       const row=this.waveUnits.get(effect?.source?.id);if(row){const seconds=Math.min(slice,effect.time);row.controlSeconds+=seconds;if(effect.aura)w.effects.slowAura=(w.effects.slowAura||0)+seconds;}
     }

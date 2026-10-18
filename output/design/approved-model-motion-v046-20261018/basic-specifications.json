@@ -1,0 +1,2451 @@
+{
+  "schemaVersion": 1,
+  "section": "basicDefenders",
+  "scope": "attack-animation-specifications",
+  "status": "prototype",
+  "language": "en",
+  "implementationFile": "output/design/motion-animation-v1/basic-motion.js",
+  "approvalBasis": "User-approved motion analysis; detailed specification and initial animation implementation authorized. Final animated poses still require visual review.",
+  "assetPolicy": "Read approved V7 GLBs into a private runtime instance. Do not write or replace any approved model, rig, material, source, render or gallery.",
+  "runtimeContract": {
+    "factory": "createBasicMotion(THREE, scene, entry)",
+    "entry": "id, family, rank and actual anatomical height in GLB scene units",
+    "update": "update(timeSeconds, {mode: attack|idle|rest, speed: nonnegative multiplier, phase: optional normalized scrub})",
+    "time": "The viewer owns its clock/playback rate. Pass speed=1 when the clock is already scaled.",
+    "returned": "update, reset, summary, channels, duration in seconds, releaseTime in seconds, status prototype",
+    "reset": "Restores exact captured local position, quaternion and scale for all twenty bones.",
+    "events": "Markers describe the existing game event. The module emits no projectiles, damage, aura changes or production events."
+  },
+  "rig": {
+    "source": "Approved V7 twenty-bone skeleton inspected directly in GLB JSON and actual parent transforms.",
+    "sceneAxes": {
+      "right": "+X",
+      "up": "+Y",
+      "forward": "-Z"
+    },
+    "boneAxes": "Bone local +Y follows its segment, but parent/rest quaternions differ by family. Mage chest includes a 180 degree rest rotation; no shared local Euler hinge assumption is used.",
+    "solver": "Rotation-only analytic two-bone IK uses actual upper-arm/elbow/wrist positions and the rest elbow bend plane. Desired world orientation is converted through the actual parent quaternion.",
+    "handOrientation": "Scene-axis delta applied to captured world hand orientation; existing skin ownership preserves rigid grip without reparenting.",
+    "animatedBones": [
+      "chest",
+      "head",
+      "right_upper_arm",
+      "right_forearm",
+      "right_hand",
+      "left_upper_arm",
+      "left_forearm",
+      "left_hand"
+    ],
+    "fixedBones": [
+      "root",
+      "pelvis",
+      "spine",
+      "neck",
+      "left_shoulder",
+      "right_shoulder",
+      "left_thigh",
+      "right_thigh",
+      "left_shin",
+      "right_shin",
+      "left_foot",
+      "right_foot"
+    ],
+    "channelType": "Bone quaternion only; no translation, scale, mesh morph, material or geometry channel."
+  },
+  "sharedRankRule": {
+    "mandatory": true,
+    "description": "Each family uses one normalized trajectory, phase order, amplitudes and event phase for I–VI. Only actual rest fit, anatomical arm lengths/height and existing base attack interval vary.",
+    "fit": "Ready offsets and wrist paths are expressed in fractions of anatomical height. Actual rest landmarks, including rank-specific equipment seats, are retained.",
+    "forbidden": "No rank-specific attack type, extra hit, weapon substitution, reload path or alternate limb gesture."
+  },
+  "phaseCurve": {
+    "interpolation": "Cubic smoothstep; independent evaluation from rest every frame prevents accumulation.",
+    "gather": [
+      0,
+      0.2
+    ],
+    "forward": "0.20 to family event phase",
+    "event": "Family event phase",
+    "recoil": "Event to event+0.10",
+    "return": "Event+0.10 to1.00",
+    "loop": "Phase0 and1 are the same attack-ready pose; idle/reset is the approved display rest.",
+    "reachEnvelope": "0 -> -0.18 at0.20 ->1 at event ->0.78 at event+0.10 ->0 at1.00",
+    "knownLimitations": [
+      "The first idle-to-attack switch is immediate; a production blend is not implemented.",
+      "No cloth, strap physics, finger articulation, arrow or bowstring deformation, projectile spawning or hit reactions.",
+      "Collision, floor, full mesh deformations and all48 animated silhouettes require visual review; numerical bone checks do not certify them.",
+      "Existing single-bone equipment follows its grip; no automatic retargeting of rigid armor attachments is claimed."
+    ]
+  },
+  "profiles": [
+    {
+      "id": "soldier",
+      "name": "Soldier",
+      "role": "Confirmed: physical, single-target melee; the current melee filter excludes flying enemies. The spear at rank I is an appearance difference, not a new ranged mechanic.",
+      "motionIdentity": "Compact forward thrust; spear at I and sword at II–VI use one identical normalized attack.",
+      "readiness": "The upright display grip rotates into a common diagonal thrust guard. The hand retracts by 0.045 anatomical height along the actual rest arm direction to retain elbow travel.",
+      "sharedRanks": "I–VI, same gesture and phase order",
+      "partOwnership": {
+        "right_hand": "Spear I or sword II–VI; all weapon components stay on their existing skin owner.",
+        "left_hand": "Empty I/II; shield with grip and straps III–VI. No new shield bash."
+      },
+      "contacts": "Both soles remain at rest; no root travel or forward lunge. The weapon does not chase the target beyond reach.",
+      "readyPose": "Stand with both boots grounded, knees soft and the weapon hand slightly behind the front shoulder. Keep the left forearm in a compact guard that works both empty and with a shield.",
+      "phases": [
+        {
+          "name": "Gather",
+          "normalized": [
+            0,
+            0.2
+          ],
+          "description": "Shift pressure toward the rear foot and turn the shoulders slightly. Lower the weapon from its upright display pose into a short forward attack line while the head continues tracking the target."
+        },
+        {
+          "name": "Forward action",
+          "normalized": [
+            0.2,
+            0.38
+          ],
+          "description": "Use one compact forward thrust for every rank: right shoulder and elbow extend together, the torso leans only within the planted stance, and the left guard stays near the chest. This reads naturally as a spear thrust at I and a sword thrust at II–VI."
+        },
+        {
+          "name": "Release or impact marker",
+          "normalized": [
+            0.38,
+            0.38
+          ],
+          "description": "The tip reaches its forward maximum at the existing melee contact event. Keep the arm short of a locked elbow and preserve a readable weapon-to-target line; do not stretch a blade or translate the defender to force contact."
+        },
+        {
+          "name": "Short recoil",
+          "normalized": [
+            0.38,
+            0.48
+          ],
+          "description": "Maintain the forward silhouette while the reach returns to78 percent; add one small restrained wrist recoil."
+        },
+        {
+          "name": "Recovery",
+          "normalized": [
+            0.48,
+            1
+          ],
+          "description": "Retract along the same line, restore the upright guard and return weight between both boots. The shield settles just after the chest, with no extra bash or second damage event."
+        }
+      ],
+      "trajectoryParameters": {
+        "units": "Distances as fractions of anatomical height; angles in degrees; identical coefficients at every rank.",
+        "readyRightOffset": [
+          0,
+          0.025,
+          -0.015
+        ],
+        "rightReachVector": [
+          -0.015,
+          0.025,
+          -0.085
+        ],
+        "rightReadyRetraction": 0.045,
+        "rightHandPitch": [
+          -56,
+          -22
+        ],
+        "rightHandYaw": 0,
+        "readyLeftOffset": [
+          0,
+          0.012,
+          -0.008
+        ],
+        "leftReachVector": [
+          0,
+          0.004,
+          -0.012
+        ],
+        "chestPitchGatherAndReach": [
+          -1.4,
+          -2.2
+        ],
+        "chestYawReach": -2.5,
+        "archerSpecial": null
+      },
+      "eventMarkers": [
+        {
+          "name": "Existing melee contact",
+          "normalized": 0.38,
+          "gameplayAuthority": "Existing combat event; this module produces only a pose."
+        }
+      ],
+      "secondaryMotion": {
+        "specified": "Cape and front tab respond with a small delayed sway where those parts exist. Helmet, armor plates, shield straps and weapon grip remain fitted to their owners.",
+        "implemented": "Small chest/head response only. Cape, robe, beard, leaves, straps and plates follow their existing skinning; dedicated simulation is not implemented."
+      },
+      "constraints": "One shared thrust, including the left-arm track, across I–VI. A free fist follows the same guard as the later shield arm. Keep the long spear clear of the head, tile edge and rear cape; no shield bash is added.",
+      "qaRequirements": [
+        "Spear clears the head and rear cape while changing from upright display to thrust guard.",
+        "Sword remains a thrust weapon in this shared action; do not replace it with a slash at later ranks.",
+        "Shield straps, shield and palm remain one supported left-hand assembly.",
+        "Check front, side and game-distance playback at every rank, especially I and VI.",
+        "Check exact foot plants, wrist grips, book/shield support, armor/cape clearance and phase0/1 loop continuity.",
+        "Confirm same normalized bone path at I–VI and event alignment at normal, slow and fastest configured cadence."
+      ],
+      "rankModels": [
+        {
+          "id": "soldier-1",
+          "name": "Soldier I",
+          "appearance": "Blue tunic and trousers, brown cropped angular hair, bare hands and a tall right-hand spear; no armor or shield.",
+          "profile": "soldier",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.38,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.38
+            ],
+            "recoil": [
+              0.38,
+              0.48
+            ],
+            "return": [
+              0.48,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/soldier-1.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/soldier-1.json"
+        },
+        {
+          "id": "soldier-2",
+          "name": "Soldier II",
+          "appearance": "Green tunic and trousers; open-faced steel helmet with a raised sagittal ridge and side/rear cheek plates; short right-hand steel sword.",
+          "profile": "soldier",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.38,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.38
+            ],
+            "recoil": [
+              0.38,
+              0.48
+            ],
+            "return": [
+              0.48,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/soldier-2.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/soldier-2.json"
+        },
+        {
+          "id": "soldier-3",
+          "name": "Soldier III",
+          "appearance": "Wine tunic and trousers, same steel helmet, longer right sword and left wooden kite shield with steel rim and diamond boss.",
+          "profile": "soldier",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.38,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.38
+            ],
+            "recoil": [
+              0.38,
+              0.48
+            ],
+            "return": [
+              0.48,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/soldier-3.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/soldier-3.json"
+        },
+        {
+          "id": "soldier-4",
+          "name": "Soldier IV",
+          "appearance": "Ivory clothing beneath shaped steel chest/back armor and convex steel pauldrons, leather shoulder straps with rear studs, steel knee bands; wooden left shield.",
+          "profile": "soldier",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.38,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.38
+            ],
+            "recoil": [
+              0.38,
+              0.48
+            ],
+            "return": [
+              0.48,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/soldier-4.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/soldier-4.json"
+        },
+        {
+          "id": "soldier-5",
+          "name": "Soldier V",
+          "appearance": "Ochre clothing, steel breast/back plate and skirt tassets, steel gauntlets/bracers and knee bands, gold sword guard/pommel, steel-faced left shield with silver rim.",
+          "profile": "soldier",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.38,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.38
+            ],
+            "recoil": [
+              0.38,
+              0.48
+            ],
+            "return": [
+              0.48,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/soldier-5.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/soldier-5.json"
+        },
+        {
+          "id": "soldier-6",
+          "name": "Soldier VI",
+          "appearance": "Closed steel greathelm with a real black horizontal V-shaped visor opening, full steel armor and steel boots; split ivory/gold cape, four gold cape brooches, gold belt buckle, long ivory/gold front tab and gold-rimmed steel left shield.",
+          "profile": "soldier",
+          "status": "prototype",
+          "durationSeconds": 0.7,
+          "eventTimeSeconds": 0.266,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.14
+            ],
+            "forward": [
+              0.14,
+              0.266
+            ],
+            "recoil": [
+              0.266,
+              0.336
+            ],
+            "return": [
+              0.336,
+              0.7
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/soldier-6.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/soldier-6.json"
+        }
+      ],
+      "sourceReferences": [
+        "output/design/basic-defenders-reconstruction-v7/analysis/soldier-reference-analysis.json",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/soldier-1/front.png",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/soldier-6/front.png",
+        "data/towers.json",
+        "game/core/combat.js"
+      ]
+    },
+    {
+      "id": "archer",
+      "name": "Archer",
+      "role": "Confirmed: rapid physical arrows. The current intervals are already very short, so a full realistic quiver-to-string reload for every shot would conflict with the firing rate.",
+      "motionIdentity": "Compact repeating draw, release and return, including the same raised preparation at every rank.",
+      "readiness": "The approved right wrist is low beside the waist. Attack mode raises it to a shared normalized draw position; the left bow wrist moves to 0.62 anatomical height. Reset returns to literal display rest.",
+      "sharedRanks": "I–VI, same gesture and phase order",
+      "partOwnership": {
+        "left_hand": "Complete bow, grip, reinforcement and current rigid bowstring.",
+        "right_hand": "Existing free drawing hand. No arrow, fingers or string control is created."
+      },
+      "contacts": "The bow stays in the left palm. The current bowstring is rigid: string deflection, nocked-arrow placement and finger release are future work, not falsely claimed in this prototype.",
+      "readyPose": "Turn the chest slightly sideways toward the target, hold the left bow hand forward and prepare the right hand near the draw line. Keep both feet fixed and the face visible beside the bow.",
+      "phases": [
+        {
+          "name": "Gather",
+          "normalized": [
+            0,
+            0.2
+          ],
+          "description": "Use a small elastic pull of the right elbow and a restrained shoulder opening. The left wrist maintains the bow aim without swinging the long limbs across the face."
+        },
+        {
+          "name": "Forward action",
+          "normalized": [
+            0.2,
+            0.42
+          ],
+          "description": "Use the same compact draw, release and return at all ranks. Read the attack mainly through the right forearm, left-hand steadiness and a short bow reaction; avoid a large body sway that would blur rapid fire."
+        },
+        {
+          "name": "Release or impact marker",
+          "normalized": [
+            0.42,
+            0.42
+          ],
+          "description": "Release one existing arrow at the actual shot event, with the right hand relaxing slightly backward and the bow reacting forward. Any visible nocked arrow is presentation for that same shot, never an extra projectile."
+        },
+        {
+          "name": "Short recoil",
+          "normalized": [
+            0.42,
+            0.52
+          ],
+          "description": "Maintain the forward silhouette while the reach returns to78 percent; add one small restrained wrist recoil."
+        },
+        {
+          "name": "Recovery",
+          "normalized": [
+            0.52,
+            1
+          ],
+          "description": "The right hand returns directly to the prepared drawing line. A separate occasional quiver reach can be considered later only as a non-firing idle gesture; it is not part of this shared repeating attack."
+        }
+      ],
+      "trajectoryParameters": {
+        "units": "Distances as fractions of anatomical height; angles in degrees; identical coefficients at every rank.",
+        "readyRightOffset": null,
+        "rightReachVector": [
+          0.028,
+          0.004,
+          0.028
+        ],
+        "rightReadyRetraction": 0.045,
+        "rightHandPitch": [
+          0,
+          0
+        ],
+        "rightHandYaw": 0,
+        "readyLeftOffset": [
+          0,
+          0,
+          0
+        ],
+        "leftReachVector": [
+          0,
+          0,
+          -0.006
+        ],
+        "chestPitchGatherAndReach": [
+          -0.3,
+          -0.5
+        ],
+        "chestYawReach": 0,
+        "archerSpecial": {
+          "rightReady": [
+            0.075,
+            0.61,
+            -0.14
+          ],
+          "leftWristHeight": 0.62,
+          "leftForwardOffset": 0.012,
+          "note": "Same raised preparation at all ranks; rightReadyRetraction does not apply to Archer."
+        }
+      },
+      "eventMarkers": [
+        {
+          "name": "Existing shot or discharge",
+          "normalized": 0.42,
+          "gameplayAuthority": "Existing combat event; this module produces only a pose."
+        }
+      ],
+      "secondaryMotion": {
+        "specified": "Quiver remains fixed to its straps. Cape tails and bow tips have a small delayed settling response; arrow shafts stored in the quiver do not move independently as if loose.",
+        "implemented": "Small chest/head response only. Cape, robe, beard, leaves, straps and plates follow their existing skinning; dedicated simulation is not implemented."
+      },
+      "constraints": "Exactly the same attack path and phase order at I–VI. Do not swap hands or animate one rank with a different reload. Keep the draw hand clear of the hood, right-rear quiver and reinforced left gauntlet.",
+      "qaRequirements": [
+        "Right draw hand must be near a plausible draw line and clear of the face and hood.",
+        "Long bow limbs and VI left knuckle plate clear the head, cuff and string corridor.",
+        "The 0.10 second VI cycle is stylized rapid fire; no quiver reach or full physical reload is inserted.",
+        "Check front, side and game-distance playback at every rank, especially I and VI.",
+        "Check exact foot plants, wrist grips, book/shield support, armor/cape clearance and phase0/1 loop continuity.",
+        "Confirm same normalized bone path at I–VI and event alignment at normal, slow and fastest configured cadence."
+      ],
+      "rankModels": [
+        {
+          "id": "archer-1",
+          "name": "Archer I",
+          "appearance": "Blue angular peaked hood/tunic/trousers, simple left bow, bare hands, vertical brown right-rear quiver with cream fletching; no cape or visible buckle.",
+          "profile": "archer",
+          "status": "prototype",
+          "durationSeconds": 0.25,
+          "eventTimeSeconds": 0.105,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.05
+            ],
+            "forward": [
+              0.05,
+              0.105
+            ],
+            "recoil": [
+              0.105,
+              0.13
+            ],
+            "return": [
+              0.13,
+              0.25
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/archer-1.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/archer-1.json"
+        },
+        {
+          "id": "archer-2",
+          "name": "Archer II",
+          "appearance": "Green hood/tunic/trousers, olive shoulder capelet with silver round clasp, diagonal leather chest/back strap; plain left bow and bare hands.",
+          "profile": "archer",
+          "status": "prototype",
+          "durationSeconds": 0.25,
+          "eventTimeSeconds": 0.105,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.05
+            ],
+            "forward": [
+              0.05,
+              0.105
+            ],
+            "recoil": [
+              0.105,
+              0.13
+            ],
+            "return": [
+              0.13,
+              0.25
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/archer-2.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/archer-2.json"
+        },
+        {
+          "id": "archer-3",
+          "name": "Archer III",
+          "appearance": "Wine pointed open hood and clothing, brown leather layered vest and crossed chest/back straps, brown capelet and wrist bracers, silver square buckle, angular recurved left bow with dark grip wraps.",
+          "profile": "archer",
+          "status": "prototype",
+          "durationSeconds": 0.25,
+          "eventTimeSeconds": 0.105,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.05
+            ],
+            "forward": [
+              0.05,
+              0.105
+            ],
+            "recoil": [
+              0.105,
+              0.13
+            ],
+            "return": [
+              0.13,
+              0.25
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/archer-3.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/archer-3.json"
+        },
+        {
+          "id": "archer-4",
+          "name": "Archer IV",
+          "appearance": "Ivory hood/clothing/cape with two long split tails, brown layered leather vest/cross straps and bracers, silver buckle; tall angular left bow and strongly diagonal right-rear quiver.",
+          "profile": "archer",
+          "status": "prototype",
+          "durationSeconds": 0.25,
+          "eventTimeSeconds": 0.105,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.05
+            ],
+            "forward": [
+              0.05,
+              0.105
+            ],
+            "recoil": [
+              0.105,
+              0.13
+            ],
+            "return": [
+              0.13,
+              0.25
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/archer-4.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/archer-4.json"
+        },
+        {
+          "id": "archer-5",
+          "name": "Archer V",
+          "appearance": "Gold hood/tunic/cape, muted gold trousers, crossed brown straps and steel pauldrons; asymmetric steel/bracer panels, left bow reinforced with steel tip caps and limb bands; bare hands.",
+          "profile": "archer",
+          "status": "prototype",
+          "durationSeconds": 0.25,
+          "eventTimeSeconds": 0.105,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.05
+            ],
+            "forward": [
+              0.05,
+              0.105
+            ],
+            "recoil": [
+              0.105,
+              0.13
+            ],
+            "return": [
+              0.13,
+              0.25
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/archer-5.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/archer-5.json"
+        },
+        {
+          "id": "archer-6",
+          "name": "Archer VI",
+          "appearance": "Light gold/ivory hood/cape/clothing over dark leather, gold-edged steel chest/shoulder/bracer panels, asymmetric bow-hand knuckle plate, bare free right hand; steel-reinforced left bow and diagonal quiver.",
+          "profile": "archer",
+          "status": "prototype",
+          "durationSeconds": 0.1,
+          "eventTimeSeconds": 0.042,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.02
+            ],
+            "forward": [
+              0.02,
+              0.042
+            ],
+            "recoil": [
+              0.042,
+              0.052
+            ],
+            "return": [
+              0.052,
+              0.1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/archer-6.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/archer-6.json"
+        }
+      ],
+      "sourceReferences": [
+        "output/design/basic-defenders-reconstruction-v7/analysis/archer-reference-analysis.json",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/archer-1/front.png",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/archer-6/front.png",
+        "data/towers.json",
+        "game/core/combat.js"
+      ]
+    },
+    {
+      "id": "mage",
+      "name": "Mage",
+      "role": "Confirmed: an arcane direct hit with armor-ignoring splash around the impact. The splash belongs at the target and does not require another cast gesture.",
+      "motionIdentity": "Calm forward staff presentation with an unchanged supporting left arm.",
+      "readiness": "The staff rises slightly from display rest; a shared inward retraction reserves elbow room. The left wrist remains close to its existing book seat.",
+      "sharedRanks": "I–VI, same gesture and phase order",
+      "partOwnership": {
+        "right_hand": "Shaft, crystal, socket and retaining pieces remain rigidly gripped.",
+        "left_hand": "Free I–III; closed book IV/V; open book VI. The book never opens or changes hand."
+      },
+      "contacts": "Feet do not move. The left-hand world orientation is held at rest while its wrist follows a very small support lift; this is not two-handed staff use.",
+      "readyPose": "Hold the staff beside the right shoulder and keep the left forearm near the lower chest, suitable for either a free hand or supported book. The robe and broad hat remain visually calm.",
+      "phases": [
+        {
+          "name": "Gather",
+          "normalized": [
+            0,
+            0.2
+          ],
+          "description": "Gather with a small chest lift and right-elbow bend. Raise the staff only enough to clear its grounded rest; a small left-forearm lift reads as focusing or presenting the book without opening or closing it."
+        },
+        {
+          "name": "Forward action",
+          "normalized": [
+            0.2,
+            0.43
+          ],
+          "description": "Make a controlled short forward staff presentation with a restrained torso turn. The crystal, shaft and grip move as one rigid tool; the left forearm follows the same supporting track at every rank."
+        },
+        {
+          "name": "Release or impact marker",
+          "normalized": [
+            0.43,
+            0.43
+          ],
+          "description": "The existing arcane projectile leaves along the crystal-to-target line at the shot event. Its later impact creates the configured splash, without a second hand strike or an invented area pulse at the caster."
+        },
+        {
+          "name": "Short recoil",
+          "normalized": [
+            0.43,
+            0.53
+          ],
+          "description": "Maintain the forward silhouette while the reach returns to78 percent; add one small restrained wrist recoil."
+        },
+        {
+          "name": "Recovery",
+          "normalized": [
+            0.53,
+            1
+          ],
+          "description": "Ease the staff back beside the body and lower it toward its rest. Let the raised chest settle after the hands while maintaining the book support and keeping the open pages clear of the cloak clasp."
+        }
+      ],
+      "trajectoryParameters": {
+        "units": "Distances as fractions of anatomical height; angles in degrees; identical coefficients at every rank.",
+        "readyRightOffset": [
+          0,
+          0.025,
+          -0.008
+        ],
+        "rightReachVector": [
+          -0.012,
+          0.032,
+          -0.065
+        ],
+        "rightReadyRetraction": 0.045,
+        "rightHandPitch": [
+          -3,
+          -10
+        ],
+        "rightHandYaw": -3,
+        "readyLeftOffset": [
+          0,
+          0.004,
+          0
+        ],
+        "leftReachVector": [
+          0,
+          0.004,
+          0
+        ],
+        "chestPitchGatherAndReach": [
+          0.6,
+          -1.4
+        ],
+        "chestYawReach": -1.2,
+        "archerSpecial": null
+      },
+      "eventMarkers": [
+        {
+          "name": "Existing shot or discharge",
+          "normalized": 0.43,
+          "gameplayAuthority": "Existing combat event; this module produces only a pose."
+        }
+      ],
+      "secondaryMotion": {
+        "specified": "The robe hem and cape give one small delayed response. Tall hat and crystal stay rigid and attached; there is no rubbery hat bend or random page flutter during every attack.",
+        "implemented": "Small chest/head response only. Cape, robe, beard, leaves, straps and plates follow their existing skinning; dedicated simulation is not implemented."
+      },
+      "constraints": "Same right-arm and left-support gesture for all six ranks. Preserve staff ownership and the VI open book; do not add book-opening, two-handed overhead casting or head motion that intersects the high V/VI collar.",
+      "qaRequirements": [
+        "VI open pages remain supported and clear of the gold clasp and high collar.",
+        "IV/V closed-book orientation remains literal; no page-side rotation is introduced.",
+        "Tall hat, crystal and collar retain their geometry; the projectile event is distinct from impact splash.",
+        "Check front, side and game-distance playback at every rank, especially I and VI.",
+        "Check exact foot plants, wrist grips, book/shield support, armor/cape clearance and phase0/1 loop continuity.",
+        "Confirm same normalized bone path at I–VI and event alignment at normal, slow and fastest configured cadence."
+      ],
+      "rankModels": [
+        {
+          "id": "mage-1",
+          "name": "Mage I",
+          "appearance": "Blue small closed pointed cap, flat cuboid face visible below its sloping band, small neck cowl and pleated robe; free left palm and short purple crystal staff.",
+          "profile": "mage",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.43,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.43
+            ],
+            "recoil": [
+              0.43,
+              0.53
+            ],
+            "return": [
+              0.53,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/mage-1.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/mage-1.json"
+        },
+        {
+          "id": "mage-2",
+          "name": "Mage II",
+          "appearance": "Green broad pitched brim and straight closed cone with brown band; cuboid face remains flat up to the brim opening, rear nape visible; small neck cowl, free left palm.",
+          "profile": "mage",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.43,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.43
+            ],
+            "recoil": [
+              0.43,
+              0.53
+            ],
+            "return": [
+              0.53,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/mage-2.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/mage-2.json"
+        },
+        {
+          "id": "mage-3",
+          "name": "Mage III",
+          "appearance": "Plum bent closed hat, broad thin ivory-edged two-leaf mantle, simple cuboid face under the dished brim; no book, left palm free.",
+          "profile": "mage",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.43,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.43
+            ],
+            "recoil": [
+              0.43,
+              0.53
+            ],
+            "return": [
+              0.53,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/mage-3.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/mage-3.json"
+        },
+        {
+          "id": "mage-4",
+          "name": "Mage IV",
+          "appearance": "Ivory broad brim and straight cone, pale two-leaf mantle, closed purple book with pale page block at top/right and fitted metal corners, held at lower outer corner.",
+          "profile": "mage",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.43,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.43
+            ],
+            "recoil": [
+              0.43,
+              0.53
+            ],
+            "return": [
+              0.53,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/mage-4.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/mage-4.json"
+        },
+        {
+          "id": "mage-5",
+          "name": "Mage V",
+          "appearance": "Gold hat with three front gold band bars, continuous cuboid face above a central dark neck opening; lower lateral jaw is INSIDE the high gold turned collar. High rear collar, gold cape, two circular clasps, closed purple book.",
+          "profile": "mage",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.43,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.43
+            ],
+            "recoil": [
+              0.43,
+              0.53
+            ],
+            "return": [
+              0.53,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/mage-5.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/mage-5.json"
+        },
+        {
+          "id": "mage-6",
+          "name": "Mage VI",
+          "appearance": "Ivory taller seated hat with gold band, cuboid face with small source lower jaw bevel, high turned collar and gold-edged cape; source OPEN purple book supported in front of the left clasp, straight upright purple-crystal staff.",
+          "profile": "mage",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.43,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.43
+            ],
+            "recoil": [
+              0.43,
+              0.53
+            ],
+            "return": [
+              0.53,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/mage-6.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/mage-6.json"
+        }
+      ],
+      "sourceReferences": [
+        "output/design/basic-defenders-reconstruction-v7/analysis/mage-reference-analysis.json",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/mage-1/front.png",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/mage-6/front.png",
+        "data/towers.json",
+        "game/core/combat.js"
+      ]
+    },
+    {
+      "id": "frostwarden",
+      "name": "Frost Warden",
+      "role": "Confirmed: ranged frost damage and movement slow. Rank VI also affects nearby enemies through the configured frost effect; it still uses the same casting action.",
+      "motionIdentity": "Defensive short staff push; faster VI preserves the exact family gesture.",
+      "readiness": "Raise the right wrist slightly before presenting the ice staff. The left shield wrist stays at its actual rest position and orientation.",
+      "sharedRanks": "I–VI, same gesture and phase order",
+      "partOwnership": {
+        "right_hand": "Single crystal, fork or trident stays one rigid staff assembly.",
+        "left_hand": "Free I/II; strapped diamond or hexagonal ice shield III–VI."
+      },
+      "contacts": "Feet and left shield grip remain planted/supported. Staff-ground contact is not maintained during the raised casting pose; no ground strike is added.",
+      "readyPose": "Plant both boots firmly, keep the padded shoulders square and hold the left forearm as a low defensive guard. Keep the staff upright beside the right shoulder.",
+      "phases": [
+        {
+          "name": "Gather",
+          "normalized": [
+            0,
+            0.2
+          ],
+          "description": "Brace with a small knee compression and draw the right elbow slightly inward. Lift the staff from its ground rest before tilting it; do not drag its lower end through the ground."
+        },
+        {
+          "name": "Forward action",
+          "normalized": [
+            0.2,
+            0.4
+          ],
+          "description": "Present the ice staff forward with a short controlled push and slight upper-body inclination. Maintain a guarded left arm whether it carries an empty fist or the later shield."
+        },
+        {
+          "name": "Release or impact marker",
+          "normalized": [
+            0.4,
+            0.4
+          ],
+          "description": "The existing frost shot releases from the staff direction at the combat event. All prongs of the VI trident remain one rigid assembly; three tips do not imply three new projectiles."
+        },
+        {
+          "name": "Short recoil",
+          "normalized": [
+            0.4,
+            0.5
+          ],
+          "description": "Maintain the forward silhouette while the reach returns to78 percent; add one small restrained wrist recoil."
+        },
+        {
+          "name": "Recovery",
+          "normalized": [
+            0.5,
+            1
+          ],
+          "description": "Return the staff to vertical and settle it into its rest without a hard staff slam. Keep the shield raised only slightly, then restore balanced pressure across both boots."
+        }
+      ],
+      "trajectoryParameters": {
+        "units": "Distances as fractions of anatomical height; angles in degrees; identical coefficients at every rank.",
+        "readyRightOffset": [
+          0,
+          0.022,
+          -0.006
+        ],
+        "rightReachVector": [
+          0,
+          0.015,
+          -0.073
+        ],
+        "rightReadyRetraction": 0.045,
+        "rightHandPitch": [
+          -2,
+          -9
+        ],
+        "rightHandYaw": 0,
+        "readyLeftOffset": [
+          0,
+          0,
+          0
+        ],
+        "leftReachVector": [
+          0,
+          0,
+          0
+        ],
+        "chestPitchGatherAndReach": [
+          -0.4,
+          -1.6
+        ],
+        "chestYawReach": -0.7,
+        "archerSpecial": null
+      },
+      "eventMarkers": [
+        {
+          "name": "Existing shot or discharge",
+          "normalized": 0.4,
+          "gameplayAuthority": "Existing combat event; this module produces only a pose."
+        }
+      ],
+      "secondaryMotion": {
+        "specified": "The cape responds gently after the chest. Padded collar, ice shoulder globes and crystalline shield remain rigid, with no breathing deformation of their facets.",
+        "implemented": "Small chest/head response only. Cape, robe, beard, leaves, straps and plates follow their existing skinning; dedicated simulation is not implemented."
+      },
+      "constraints": "One shared restrained push for I–VI. The left guard track must accommodate the larger hexagonal shield and the right track must clear the high padding and VI shoulder globes.",
+      "qaRequirements": [
+        "All VI trident prongs remain one rigid tool and imply one shot.",
+        "High shoulder padding and VI ice globes constrain the right elbow corridor.",
+        "The larger left shield stays seated with visible straps; no shield expansion or extra slam.",
+        "Check front, side and game-distance playback at every rank, especially I and VI.",
+        "Check exact foot plants, wrist grips, book/shield support, armor/cape clearance and phase0/1 loop continuity.",
+        "Confirm same normalized bone path at I–VI and event alignment at normal, slow and fastest configured cadence."
+      ],
+      "rankModels": [
+        {
+          "id": "frostwarden-1",
+          "name": "Frost Warden I",
+          "appearance": "Blue closed pointed hood and shallow peaked brow framing a continuous rectangular face; ivory padding wraps neck and shoulders, right cyan single-crystal staff, free left hand.",
+          "profile": "frostwarden",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.4,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.4
+            ],
+            "recoil": [
+              0.4,
+              0.5
+            ],
+            "return": [
+              0.5,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-1.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/frostwarden-1.json"
+        },
+        {
+          "id": "frostwarden-2",
+          "name": "Frost Warden II",
+          "appearance": "Green closed hood with the same inset flat face, ivory shoulder padding and two-tip cyan fork; continuous head behind forehead edge, free left hand.",
+          "profile": "frostwarden",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.4,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.4
+            ],
+            "recoil": [
+              0.4,
+              0.5
+            ],
+            "return": [
+              0.5,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-2.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/frostwarden-2.json"
+        },
+        {
+          "id": "frostwarden-3",
+          "name": "Frost Warden III",
+          "appearance": "Plum hood/tunic, ivory padded neck and shoulders, continuous flat cuboid face behind brow/temple folds, left diamond ice shield with two actual leather straps and right single-tip staff.",
+          "profile": "frostwarden",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.4,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.4
+            ],
+            "recoil": [
+              0.4,
+              0.5
+            ],
+            "return": [
+              0.5,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-3.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/frostwarden-3.json"
+        },
+        {
+          "id": "frostwarden-4",
+          "name": "Frost Warden IV",
+          "appearance": "Ivory hood/tunic, inset continuous face behind the entire brow/temple opening, ivory padding, steel sleeves/cuffs and left diamond ice shield with real leather support straps.",
+          "profile": "frostwarden",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.4,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.4
+            ],
+            "recoil": [
+              0.4,
+              0.5
+            ],
+            "return": [
+              0.5,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-4.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/frostwarden-4.json"
+        },
+        {
+          "id": "frostwarden-5",
+          "name": "Frost Warden V",
+          "appearance": "Gold hood and cape with rectangular face behind shallow peaked brow, ivory padding, steel cuffs and left cyan hexagonal shield with pale central raised ice panel.",
+          "profile": "frostwarden",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.4,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.4
+            ],
+            "recoil": [
+              0.4,
+              0.5
+            ],
+            "return": [
+              0.5,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-5.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/frostwarden-5.json"
+        },
+        {
+          "id": "frostwarden-6",
+          "name": "Frost Warden VI",
+          "appearance": "Ivory hood and gold cape, source rectangular face continuous behind the entire peaked brow; four compact front padding fields and paired rear folds between two cyan shoulder globes. Left hexagonal shield, right three-tip trident.",
+          "profile": "frostwarden",
+          "status": "prototype",
+          "durationSeconds": 0.6,
+          "eventTimeSeconds": 0.24,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.12
+            ],
+            "forward": [
+              0.12,
+              0.24
+            ],
+            "recoil": [
+              0.24,
+              0.3
+            ],
+            "return": [
+              0.3,
+              0.6
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/frostwarden-6.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/frostwarden-6.json"
+        }
+      ],
+      "sourceReferences": [
+        "output/design/basic-defenders-reconstruction-v7/analysis/frostwarden-reference-analysis.json",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/frostwarden-1/front.png",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/frostwarden-6/front.png",
+        "data/towers.json",
+        "game/core/combat.js"
+      ]
+    },
+    {
+      "id": "cleric",
+      "name": "Cleric",
+      "role": "Confirmed: a small holy attack plus a continuous allied attack-speed aura. The aura is not a separate repeated projectile or a healing attack.",
+      "motionIdentity": "Gentle forward cross presentation, separate from the passive blessing aura.",
+      "readiness": "Lift the cross modestly and keep the left palm near its supported book position. Head gathering is restrained to avoid the mitre and open pages.",
+      "sharedRanks": "I–VI, same gesture and phase order",
+      "partOwnership": {
+        "right_hand": "Entire cross staff and ferrule follow the right palm.",
+        "left_hand": "Free I–III; closed holy book IV/V; open holy book VI."
+      },
+      "contacts": "Both boots remain fixed; book support is continuous. No page turn, off-hand exchange or overhead two-hand gesture.",
+      "readyPose": "Keep both soles planted, chest upright and shoulders relaxed. Support the left hand or book at the lower chest and hold the cross in a clear upright silhouette.",
+      "phases": [
+        {
+          "name": "Gather",
+          "normalized": [
+            0,
+            0.2
+          ],
+          "description": "Make a small respectful head inclination and draw the staff hand close to the body. The left support arm rises slightly without tilting an open book into the face."
+        },
+        {
+          "name": "Forward action",
+          "normalized": [
+            0.2,
+            0.46
+          ],
+          "description": "Lift and present the cross with a gentle forward blessing gesture. Use a small chest opening rather than an aggressive overhead swing, keeping the mitre and long stoles aligned."
+        },
+        {
+          "name": "Release or impact marker",
+          "normalized": [
+            0.46,
+            0.46
+          ],
+          "description": "The existing holy shot releases at the staff presentation. The continuous aura may have a separate quiet visual pulse later, but this proposal does not make its strength depend on the attack animation."
+        },
+        {
+          "name": "Short recoil",
+          "normalized": [
+            0.46,
+            0.56
+          ],
+          "description": "Maintain the forward silhouette while the reach returns to78 percent; add one small restrained wrist recoil."
+        },
+        {
+          "name": "Recovery",
+          "normalized": [
+            0.56,
+            1
+          ],
+          "description": "Return the staff smoothly toward vertical rest, then settle the chest and head. The left palm continues supporting the book for the whole motion."
+        }
+      ],
+      "trajectoryParameters": {
+        "units": "Distances as fractions of anatomical height; angles in degrees; identical coefficients at every rank.",
+        "readyRightOffset": [
+          0,
+          0.018,
+          -0.004
+        ],
+        "rightReachVector": [
+          -0.008,
+          0.04,
+          -0.046
+        ],
+        "rightReadyRetraction": 0.045,
+        "rightHandPitch": [
+          0,
+          -6
+        ],
+        "rightHandYaw": 0,
+        "readyLeftOffset": [
+          0,
+          0.004,
+          0
+        ],
+        "leftReachVector": [
+          0,
+          0.004,
+          0
+        ],
+        "chestPitchGatherAndReach": [
+          0.4,
+          -0.9
+        ],
+        "chestYawReach": -0.5,
+        "archerSpecial": null
+      },
+      "eventMarkers": [
+        {
+          "name": "Existing shot or discharge",
+          "normalized": 0.46,
+          "gameplayAuthority": "Existing combat event; this module produces only a pose."
+        }
+      ],
+      "secondaryMotion": {
+        "specified": "Stole ends and cape trail the chest lightly. Book, cross, mitre rim and robe attachments retain their shape and contact; no automatic page-turn is included.",
+        "implemented": "Small chest/head response only. Cape, robe, beard, leaves, straps and plates follow their existing skinning; dedicated simulation is not implemented."
+      },
+      "constraints": "The same staff and left-support tracks serve I–VI. Do not turn lower-rank free-hand gestures into a large two-handed cast that would fail with VI’s open book; preserve cross-to-hood clearance.",
+      "qaRequirements": [
+        "Open pages stay above the left palm and clear of the face and stole.",
+        "Cross staff clears the hood and mitre through the entire return.",
+        "One holy shot is marked; the passive attack-speed aura is not a second attack or healing action.",
+        "Check front, side and game-distance playback at every rank, especially I and VI.",
+        "Check exact foot plants, wrist grips, book/shield support, armor/cape clearance and phase0/1 loop continuity.",
+        "Confirm same normalized bone path at I–VI and event alignment at normal, slow and fastest configured cadence."
+      ],
+      "rankModels": [
+        {
+          "id": "cleric-1",
+          "name": "Cleric I",
+          "appearance": "Blue angular hood and robe; simple gold Latin-cross staff; free left hand",
+          "profile": "cleric",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.46,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.46
+            ],
+            "recoil": [
+              0.46,
+              0.56
+            ],
+            "return": [
+              0.56,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/cleric-1.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/cleric-1.json"
+        },
+        {
+          "id": "cleric-2",
+          "name": "Cleric II",
+          "appearance": "Green closed pointed mitre with ivory center stripe/gold band; green robe and front/rear ivory stole tails",
+          "profile": "cleric",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.46,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.46
+            ],
+            "recoil": [
+              0.46,
+              0.56
+            ],
+            "return": [
+              0.56,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/cleric-2.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/cleric-2.json"
+        },
+        {
+          "id": "cleric-3",
+          "name": "Cleric III",
+          "appearance": "Plum closed gold-edged mitre and robe; ivory/gold cuffs and stoles, front cross accents",
+          "profile": "cleric",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.46,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.46
+            ],
+            "recoil": [
+              0.46,
+              0.56
+            ],
+            "return": [
+              0.56,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/cleric-3.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/cleric-3.json"
+        },
+        {
+          "id": "cleric-4",
+          "name": "Cleric IV",
+          "appearance": "Ivory/gold closed mitre, shoulder cope/clasps and layered robe; closed dark holy book in left hand",
+          "profile": "cleric",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.46,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.46
+            ],
+            "recoil": [
+              0.46,
+              0.56
+            ],
+            "return": [
+              0.56,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/cleric-4.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/cleric-4.json"
+        },
+        {
+          "id": "cleric-5",
+          "name": "Cleric V",
+          "appearance": "Gold closed mitre/cope and cloak; ivory stoles, embossed closed dark book in left hand",
+          "profile": "cleric",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.46,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.46
+            ],
+            "recoil": [
+              0.46,
+              0.56
+            ],
+            "return": [
+              0.56,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/cleric-5.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/cleric-5.json"
+        },
+        {
+          "id": "cleric-6",
+          "name": "Cleric VI",
+          "appearance": "Ivory closed gold-edged mitre, gold cloak, central crossed tabard and suspended gold strip; open book supported by left palm",
+          "profile": "cleric",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.46,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.46
+            ],
+            "recoil": [
+              0.46,
+              0.56
+            ],
+            "return": [
+              0.56,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/cleric-6.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/cleric-6.json"
+        }
+      ],
+      "sourceReferences": [
+        "output/design/basic-defenders-reconstruction-v7/analysis/cleric-reference-analysis.json",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/cleric-1/front.png",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/cleric-6/front.png",
+        "data/towers.json",
+        "game/core/combat.js"
+      ]
+    },
+    {
+      "id": "druid",
+      "name": "Druid",
+      "role": "Confirmed: ranged poison that first spreads to unmarked eligible enemies. The animation should aim toward the actual selected target without adding a throw, summon or melee hit.",
+      "motionIdentity": "Short shallow inward-forward staff sweep with a small free-palm countergesture.",
+      "readiness": "The right staff is held above its ground rest; the free left palm has a small outward-forward response. Antlers and leaf collar set the shoulder clearance envelope.",
+      "sharedRanks": "I–VI, same gesture and phase order",
+      "partOwnership": {
+        "right_hand": "Wooden staff and all attached leaves.",
+        "left_hand": "Free existing palm at every rank; no book or shield appears."
+      },
+      "contacts": "No heel lift, stepping, root yaw or kneeling is implemented. The fixed free palm does not gain new finger topology.",
+      "readyPose": "Adopt a low relaxed stance with the feet grounded and knees soft. Keep the leaf staff to the right and the left palm open near the waist.",
+      "phases": [
+        {
+          "name": "Gather",
+          "normalized": [
+            0,
+            0.2
+          ],
+          "description": "Transfer a little weight backward, rotate the shoulders slightly and draw the staff hand inward. The head leads the target choice while the antlers remain clear of the arm."
+        },
+        {
+          "name": "Forward action",
+          "normalized": [
+            0.2,
+            0.41
+          ],
+          "description": "Sweep the staff forward in a short shallow curve, accompanied by a small opening of the free left palm. The movement should feel organic and springy, with less formal symmetry than the Mage."
+        },
+        {
+          "name": "Release or impact marker",
+          "normalized": [
+            0.41,
+            0.41
+          ],
+          "description": "Release the existing poison shot at the end of the shallow sweep. Staff leaves remain attached rather than being torn off as ammunition; poison spread still follows the current targeting rules."
+        },
+        {
+          "name": "Short recoil",
+          "normalized": [
+            0.41,
+            0.51
+          ],
+          "description": "Maintain the forward silhouette while the reach returns to78 percent; add one small restrained wrist recoil."
+        },
+        {
+          "name": "Recovery",
+          "normalized": [
+            0.51,
+            1
+          ],
+          "description": "Allow a modest recoil of the staff and return to the low balanced stance. The left palm closes only to its existing relaxed shape, without introducing new finger geometry."
+        }
+      ],
+      "trajectoryParameters": {
+        "units": "Distances as fractions of anatomical height; angles in degrees; identical coefficients at every rank.",
+        "readyRightOffset": [
+          0.008,
+          0.02,
+          -0.008
+        ],
+        "rightReachVector": [
+          -0.043,
+          0.02,
+          -0.076
+        ],
+        "rightReadyRetraction": 0.045,
+        "rightHandPitch": [
+          -2,
+          -11
+        ],
+        "rightHandYaw": -11,
+        "readyLeftOffset": [
+          0,
+          0.004,
+          0
+        ],
+        "leftReachVector": [
+          -0.006,
+          0.016,
+          -0.025
+        ],
+        "chestPitchGatherAndReach": [
+          0.4,
+          -1.8
+        ],
+        "chestYawReach": -3.2,
+        "archerSpecial": null
+      },
+      "eventMarkers": [
+        {
+          "name": "Existing shot or discharge",
+          "normalized": 0.41,
+          "gameplayAuthority": "Existing combat event; this module produces only a pose."
+        }
+      ],
+      "secondaryMotion": {
+        "specified": "Cape tips and leaf collar respond with a small delayed sway. Antlers are part of the head assembly; the foliage stays supported by the wood rather than spinning independently.",
+        "implemented": "Small chest/head response only. Cape, robe, beard, leaves, straps and plates follow their existing skinning; dedicated simulation is not implemented."
+      },
+      "constraints": "One shared cycle across bare-foot and booted ranks. Keep heels grounded during the cast, avoid large hip turns through the cape, and preserve the left-hand freedom at all ranks.",
+      "qaRequirements": [
+        "Bare feet I/II and boots III–VI remain equally fixed.",
+        "Staff leaves remain attached and are not projectile ammunition.",
+        "Cape and antlers clear the wrists; poison targeting and damage-over-time remain game logic.",
+        "Check front, side and game-distance playback at every rank, especially I and VI.",
+        "Check exact foot plants, wrist grips, book/shield support, armor/cape clearance and phase0/1 loop continuity.",
+        "Confirm same normalized bone path at I–VI and event alignment at normal, slow and fastest configured cadence."
+      ],
+      "rankModels": [
+        {
+          "id": "druid-1",
+          "name": "Druid I",
+          "appearance": "Bare chest, brown irregular faceted hair, blue torn shorts, bare feet, single-leaf wooden staff",
+          "profile": "druid",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.41,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.41
+            ],
+            "recoil": [
+              0.41,
+              0.51
+            ],
+            "return": [
+              0.51,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/druid-1.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/druid-1.json"
+        },
+        {
+          "id": "druid-2",
+          "name": "Druid II",
+          "appearance": "Bare chest, brown irregular faceted hair, green torn shorts, bare feet, single-leaf wooden staff",
+          "profile": "druid",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.41,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.41
+            ],
+            "recoil": [
+              0.41,
+              0.51
+            ],
+            "return": [
+              0.51,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/druid-2.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/druid-2.json"
+        },
+        {
+          "id": "druid-3",
+          "name": "Druid III",
+          "appearance": "Plum angular hood/tunic, two forked wooden antlers, olive leaf collar, boots and single-leaf staff",
+          "profile": "druid",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.41,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.41
+            ],
+            "recoil": [
+              0.41,
+              0.51
+            ],
+            "return": [
+              0.51,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/druid-3.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/druid-3.json"
+        },
+        {
+          "id": "druid-4",
+          "name": "Druid IV",
+          "appearance": "Ivory angular hood/tunic, forked antlers, olive leaf collar, ragged layered ivory cape, boots; two-leaf staff",
+          "profile": "druid",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.41,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.41
+            ],
+            "recoil": [
+              0.41,
+              0.51
+            ],
+            "return": [
+              0.51,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/druid-4.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/druid-4.json"
+        },
+        {
+          "id": "druid-5",
+          "name": "Druid V",
+          "appearance": "Gold hood/tunic, ivory ragged cape, two leather bracers, forked antlers and three-leaf wooden staff",
+          "profile": "druid",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.41,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.41
+            ],
+            "recoil": [
+              0.41,
+              0.51
+            ],
+            "return": [
+              0.51,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/druid-5.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/druid-5.json"
+        },
+        {
+          "id": "druid-6",
+          "name": "Druid VI",
+          "appearance": "Ivory hood/tunic, long ragged ivory cape, leather bracers, larger branched antlers and three-leaf wooden staff",
+          "profile": "druid",
+          "status": "prototype",
+          "durationSeconds": 1,
+          "eventTimeSeconds": 0.41,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.2
+            ],
+            "forward": [
+              0.2,
+              0.41
+            ],
+            "recoil": [
+              0.41,
+              0.51
+            ],
+            "return": [
+              0.51,
+              1
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/druid-6.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/druid-6.json"
+        }
+      ],
+      "sourceReferences": [
+        "output/design/basic-defenders-reconstruction-v7/analysis/druid-reference-analysis.json",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/druid-1/front.png",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/druid-6/front.png",
+        "data/towers.json",
+        "game/core/combat.js"
+      ]
+    },
+    {
+      "id": "runebreaker",
+      "name": "Engineer",
+      "role": "Confirmed: ranged physical runic bolts that reduce armor. The approved model has a hammer and ruler, not a crossbow or gun; use the hammer as the visible focus for the existing bolt.",
+      "motionIdentity": "Short forceful hammer projection with a small downward finish; ranged runic bolt, not melee contact.",
+      "readiness": "The right wrist retracts slightly and raises before the punch. The ruler remains low in the left hand, away from the right striking corridor.",
+      "sharedRanks": "I–VI, same gesture and phase order",
+      "partOwnership": {
+        "right_hand": "Whole mallet, double-ended or claw/block hammer, including its existing rune.",
+        "left_hand": "Marked ruler remains a supported rigid tool."
+      },
+      "contacts": "Boots and root remain fixed. The hammer does not need to touch a distant target; its forward beat indicates the existing ranged armor-reducing bolt.",
+      "readyPose": "Stand firmly behind the apron, keep the ruler low and slightly outside the torso, and carry the hammer near the right shoulder with its striking face oriented forward.",
+      "phases": [
+        {
+          "name": "Gather",
+          "normalized": [
+            0,
+            0.2
+          ],
+          "description": "Brace the knees and draw the right elbow back a little. Keep the ruler hand out of the hammer’s path; no imaginary anvil or impact surface is required."
+        },
+        {
+          "name": "Forward action",
+          "normalized": [
+            0.2,
+            0.36
+          ],
+          "description": "Make a short forceful forward hammer punch with a small downward finish. It reads as projecting a runic impact toward the target rather than physically striking a distant enemy."
+        },
+        {
+          "name": "Release or impact marker",
+          "normalized": [
+            0.36,
+            0.36
+          ],
+          "description": "Emit the existing armor-reducing bolt at the hammer’s forward beat. The ruler and chest rune are not extra firing sources, and the action does not add an area shockwave or ground strike."
+        },
+        {
+          "name": "Short recoil",
+          "normalized": [
+            0.36,
+            0.45999999999999996
+          ],
+          "description": "Maintain the forward silhouette while the reach returns to78 percent; add one small restrained wrist recoil."
+        },
+        {
+          "name": "Recovery",
+          "normalized": [
+            0.45999999999999996,
+            1
+          ],
+          "description": "Pull the hammer back under control, settle the weight through the boots and restore the slightly asymmetric ready stance. The left ruler remains supported throughout."
+        }
+      ],
+      "trajectoryParameters": {
+        "units": "Distances as fractions of anatomical height; angles in degrees; identical coefficients at every rank.",
+        "readyRightOffset": [
+          0,
+          0.026,
+          -0.004
+        ],
+        "rightReachVector": [
+          -0.008,
+          -0.025,
+          -0.072
+        ],
+        "rightReadyRetraction": 0.045,
+        "rightHandPitch": [
+          -2,
+          -20
+        ],
+        "rightHandYaw": 0,
+        "readyLeftOffset": [
+          0,
+          0.003,
+          0
+        ],
+        "leftReachVector": [
+          0,
+          0.002,
+          0
+        ],
+        "chestPitchGatherAndReach": [
+          0.6,
+          -2.1
+        ],
+        "chestYawReach": -1.5,
+        "archerSpecial": null
+      },
+      "eventMarkers": [
+        {
+          "name": "Existing shot or discharge",
+          "normalized": 0.36,
+          "gameplayAuthority": "Existing combat event; this module produces only a pose."
+        }
+      ],
+      "secondaryMotion": {
+        "specified": "The beard and apron can settle once after the body, while goggles, rune socket and hammer pieces remain fitted rigid parts. Keep the ruler markings legible and stable.",
+        "implemented": "Small chest/head response only. Cape, robe, beard, leaves, straps and plates follow their existing skinning; dedicated simulation is not implemented."
+      },
+      "constraints": "Same short hammer punch for all ranks despite mallet, double-ended and claw-head variants. Preserve right hammer/left ruler ownership, face orientation and all established recesses; no gun, new mechanism or tool handoff.",
+      "qaRequirements": [
+        "Hammer striking face remains forward and the claw does not reverse into the beard.",
+        "VI recessed chest rune, metal apron and cuffs retain clearance.",
+        "No gun, imaginary anvil, ground shockwave or ruler projectile is added.",
+        "Check front, side and game-distance playback at every rank, especially I and VI.",
+        "Check exact foot plants, wrist grips, book/shield support, armor/cape clearance and phase0/1 loop continuity.",
+        "Confirm same normalized bone path at I–VI and event alignment at normal, slow and fastest configured cadence."
+      ],
+      "rankModels": [
+        {
+          "id": "runebreaker-1",
+          "name": "Engineer I",
+          "appearance": "Blue peaked cap and short tunic; plain wood mallet with rectangular front striking face and small top wedge; no apron, goggles or cuffs; plain belt.",
+          "profile": "runebreaker",
+          "status": "prototype",
+          "durationSeconds": 0.6,
+          "eventTimeSeconds": 0.216,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.12
+            ],
+            "forward": [
+              0.12,
+              0.216
+            ],
+            "recoil": [
+              0.216,
+              0.276
+            ],
+            "return": [
+              0.276,
+              0.6
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-1.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/runebreaker-1.json"
+        },
+        {
+          "id": "runebreaker-2",
+          "name": "Engineer II",
+          "appearance": "Green peaked cap/tunic; leather apron front and back with two straps and two rivets each; steel double-ended hammer with center wood band; no cuffs/goggles.",
+          "profile": "runebreaker",
+          "status": "prototype",
+          "durationSeconds": 0.6,
+          "eventTimeSeconds": 0.216,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.12
+            ],
+            "forward": [
+              0.12,
+              0.216
+            ],
+            "recoil": [
+              0.216,
+              0.276
+            ],
+            "return": [
+              0.276,
+              0.6
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-2.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/runebreaker-2.json"
+        },
+        {
+          "id": "runebreaker-3",
+          "name": "Engineer III",
+          "appearance": "Plum cap/tunic; brown head band, two octagonal steel goggles with dark lenses; orange rear haircut; leather apron and RIGHT leather cuff; steel block hammer.",
+          "profile": "runebreaker",
+          "status": "prototype",
+          "durationSeconds": 0.6,
+          "eventTimeSeconds": 0.216,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.12
+            ],
+            "forward": [
+              0.12,
+              0.216
+            ],
+            "recoil": [
+              0.216,
+              0.276
+            ],
+            "return": [
+              0.276,
+              0.6
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-3.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/runebreaker-3.json"
+        },
+        {
+          "id": "runebreaker-4",
+          "name": "Engineer IV",
+          "appearance": "Ivory round cap/work garment; goggles and band; long split ivory apron/front and back, brown straps/belt; RIGHT leather cuff; steel claw hammer round forward striking face.",
+          "profile": "runebreaker",
+          "status": "prototype",
+          "durationSeconds": 0.6,
+          "eventTimeSeconds": 0.216,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.12
+            ],
+            "forward": [
+              0.12,
+              0.216
+            ],
+            "recoil": [
+              0.216,
+              0.276
+            ],
+            "return": [
+              0.276,
+              0.6
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-4.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/runebreaker-4.json"
+        },
+        {
+          "id": "runebreaker-5",
+          "name": "Engineer V",
+          "appearance": "Ochre cap/shirt; goggles; large orange rear hair mass; long steel apron front/back, straps/rivets and paired steel cuffs; steel claw hammer with violet side rune.",
+          "profile": "runebreaker",
+          "status": "prototype",
+          "durationSeconds": 0.6,
+          "eventTimeSeconds": 0.216,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.12
+            ],
+            "forward": [
+              0.12,
+              0.216
+            ],
+            "recoil": [
+              0.216,
+              0.276
+            ],
+            "return": [
+              0.276,
+              0.6
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-5.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/runebreaker-5.json"
+        },
+        {
+          "id": "runebreaker-6",
+          "name": "Engineer VI",
+          "appearance": "Ivory cap/long split coat; goggles; short orange nape visible, upper chest/back steel plates, paired steel cuffs; violet chest rune and violet side rune on solid steel block hammer.",
+          "profile": "runebreaker",
+          "status": "prototype",
+          "durationSeconds": 0.6,
+          "eventTimeSeconds": 0.216,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.12
+            ],
+            "forward": [
+              0.12,
+              0.216
+            ],
+            "recoil": [
+              0.216,
+              0.276
+            ],
+            "return": [
+              0.276,
+              0.6
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/runebreaker-6.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/runebreaker-6.json"
+        }
+      ],
+      "sourceReferences": [
+        "output/design/basic-defenders-reconstruction-v7/analysis/runebreaker-reference-analysis.json",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/runebreaker-1/front.png",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/runebreaker-6/front.png",
+        "data/towers.json",
+        "game/core/combat.js"
+      ]
+    },
+    {
+      "id": "stormcaller",
+      "name": "Stormcaller",
+      "role": "Confirmed: a single attack event may strike three selected enemies. The right-hand gesture should communicate one discharge rather than three serial casts.",
+      "motionIdentity": "Crisp right-palm lightning presentation with a brief recoil; one discharge for simultaneous selected targets.",
+      "readiness": "Keep the lightning hand beside the chest and the free left palm low. The head remains close to its approved corrected centered posture.",
+      "sharedRanks": "I–VI, same gesture and phase order",
+      "partOwnership": {
+        "right_hand": "Entire single or three-pronged golden lightning assembly.",
+        "left_hand": "Free lower cupped palm; no second weapon or extra lightning object."
+      },
+      "contacts": "Soles and lower body stay fixed. Existing held lightning geometry remains present throughout the preview; glow/projectile visibility is future event presentation.",
+      "readyPose": "Keep both boots grounded, the right lightning hand raised beside the chest and the free left palm lower and slightly forward. The hair and headband retain their rigid silhouette.",
+      "phases": [
+        {
+          "name": "Gather",
+          "normalized": [
+            0,
+            0.2
+          ],
+          "description": "Draw the right elbow a little toward the chest and compress the knees subtly. Open the chest and counterbalance with a small movement of the lower left arm."
+        },
+        {
+          "name": "Forward action",
+          "normalized": [
+            0.2,
+            0.35
+          ],
+          "description": "Extend the right palm in a crisp short forward presentation, then stop decisively. Let the torso follow only slightly so the lightning silhouette stays readable from the gameplay camera."
+        },
+        {
+          "name": "Release or impact marker",
+          "normalized": [
+            0.35,
+            0.35
+          ],
+          "description": "All currently configured target strikes originate from the same discharge beat. Multiple lightning branches on the model remain one supported object and do not independently create extra hits."
+        },
+        {
+          "name": "Short recoil",
+          "normalized": [
+            0.35,
+            0.44999999999999996
+          ],
+          "description": "Maintain the forward silhouette while the reach returns to78 percent; add one small restrained wrist recoil."
+        },
+        {
+          "name": "Recovery",
+          "normalized": [
+            0.44999999999999996,
+            1
+          ],
+          "description": "Give the right forearm one small elastic recoil, then return to the prepared hand height. The left palm settles after the chest without crossing the torso."
+        }
+      ],
+      "trajectoryParameters": {
+        "units": "Distances as fractions of anatomical height; angles in degrees; identical coefficients at every rank.",
+        "readyRightOffset": [
+          0,
+          0.014,
+          -0.004
+        ],
+        "rightReachVector": [
+          -0.012,
+          0.025,
+          -0.081
+        ],
+        "rightReadyRetraction": 0.045,
+        "rightHandPitch": [
+          0,
+          -8
+        ],
+        "rightHandYaw": -3,
+        "readyLeftOffset": [
+          0,
+          0.003,
+          0
+        ],
+        "leftReachVector": [
+          0,
+          0.009,
+          -0.018
+        ],
+        "chestPitchGatherAndReach": [
+          0.5,
+          -1.6
+        ],
+        "chestYawReach": -1.4,
+        "archerSpecial": null
+      },
+      "eventMarkers": [
+        {
+          "name": "Existing shot or discharge",
+          "normalized": 0.35,
+          "gameplayAuthority": "Existing combat event; this module produces only a pose."
+        }
+      ],
+      "secondaryMotion": {
+        "specified": "Cape tails respond after the torso. Silver hair, headband, shoulder roofs and lightning facets remain rigid and seated, with no detached pieces or invented orbiting lightning.",
+        "implemented": "Small chest/head response only. Cape, robe, beard, leaves, straps and plates follow their existing skinning; dedicated simulation is not implemented."
+      },
+      "constraints": "One shared hand presentation across I–VI. The larger branching lightning and VI shoulder armor set the clearance limit. Do not raise the hand through the hair or substitute a staff that the model does not hold.",
+      "qaRequirements": [
+        "VI shoulder roofs and swept silver hair clear the wrist and lightning.",
+        "All configured target strikes share one event marker, not three serial arm motions.",
+        "Lightning stays attached; no orbiting fragments or staff substitution.",
+        "Check front, side and game-distance playback at every rank, especially I and VI.",
+        "Check exact foot plants, wrist grips, book/shield support, armor/cape clearance and phase0/1 loop continuity.",
+        "Confirm same normalized bone path at I–VI and event alignment at normal, slow and fastest configured cadence."
+      ],
+      "rankModels": [
+        {
+          "id": "stormcaller-1",
+          "name": "Stormcaller I",
+          "appearance": "Blue short tunic, swept silver hair, single gold lightning shape and free lower left palm.",
+          "profile": "stormcaller",
+          "status": "prototype",
+          "durationSeconds": 1.3,
+          "eventTimeSeconds": 0.455,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.26
+            ],
+            "forward": [
+              0.26,
+              0.455
+            ],
+            "recoil": [
+              0.455,
+              0.585
+            ],
+            "return": [
+              0.585,
+              1.3
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-1.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/stormcaller-1.json"
+        },
+        {
+          "id": "stormcaller-2",
+          "name": "Stormcaller II",
+          "appearance": "Green clothing, rank headband and split cape; single right-hand gold lightning.",
+          "profile": "stormcaller",
+          "status": "prototype",
+          "durationSeconds": 1.3,
+          "eventTimeSeconds": 0.455,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.26
+            ],
+            "forward": [
+              0.26,
+              0.455
+            ],
+            "recoil": [
+              0.455,
+              0.585
+            ],
+            "return": [
+              0.585,
+              1.3
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-2.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/stormcaller-2.json"
+        },
+        {
+          "id": "stormcaller-3",
+          "name": "Stormcaller III",
+          "appearance": "Plum clothing, headband, split cape and right cuff; single right-hand lightning.",
+          "profile": "stormcaller",
+          "status": "prototype",
+          "durationSeconds": 1.3,
+          "eventTimeSeconds": 0.455,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.26
+            ],
+            "forward": [
+              0.26,
+              0.455
+            ],
+            "recoil": [
+              0.455,
+              0.585
+            ],
+            "return": [
+              0.585,
+              1.3
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-3.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/stormcaller-3.json"
+        },
+        {
+          "id": "stormcaller-4",
+          "name": "Stormcaller IV",
+          "appearance": "Ivory clothing with gold-trimmed cape, paired cuffs and single right-hand lightning.",
+          "profile": "stormcaller",
+          "status": "prototype",
+          "durationSeconds": 1.3,
+          "eventTimeSeconds": 0.455,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.26
+            ],
+            "forward": [
+              0.26,
+              0.455
+            ],
+            "recoil": [
+              0.455,
+              0.585
+            ],
+            "return": [
+              0.585,
+              1.3
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-4.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/stormcaller-4.json"
+        },
+        {
+          "id": "stormcaller-5",
+          "name": "Stormcaller V",
+          "appearance": "Ochre rank clothing and split cape; right palm supports branching three-pronged lightning.",
+          "profile": "stormcaller",
+          "status": "prototype",
+          "durationSeconds": 1.3,
+          "eventTimeSeconds": 0.455,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.26
+            ],
+            "forward": [
+              0.26,
+              0.455
+            ],
+            "recoil": [
+              0.455,
+              0.585
+            ],
+            "return": [
+              0.585,
+              1.3
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-5.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/stormcaller-5.json"
+        },
+        {
+          "id": "stormcaller-6",
+          "name": "Stormcaller VI",
+          "appearance": "Ivory and gold clothing, headband, pitched shoulder armor and three-pronged right-hand lightning.",
+          "profile": "stormcaller",
+          "status": "prototype",
+          "durationSeconds": 0.6,
+          "eventTimeSeconds": 0.21,
+          "phaseSeconds": {
+            "gather": [
+              0,
+              0.12
+            ],
+            "forward": [
+              0.12,
+              0.21
+            ],
+            "recoil": [
+              0.21,
+              0.27
+            ],
+            "return": [
+              0.27,
+              0.6
+            ]
+          },
+          "sourceGLB": "output/design/basic-defenders-reconstruction-v7/models/stormcaller-6.glb",
+          "sourceMetadata": "output/design/basic-defenders-reconstruction-v7/final/stormcaller-6.json"
+        }
+      ],
+      "sourceReferences": [
+        "output/design/basic-defenders-reconstruction-v7/analysis/stormcaller-reference-analysis.json",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/stormcaller-1/front.png",
+        "output/design/basic-defenders-reconstruction-v7/final/renders/stormcaller-6/front.png",
+        "data/towers.json",
+        "game/core/combat.js"
+      ]
+    }
+  ],
+  "initialRigChecks": {
+    "scope": "In-memory reconstruction of actual48 GLB node/bone rest hierarchies using Three.js, without geometry export or asset writes.",
+    "models": 48,
+    "phaseSamples": 4896,
+    "finiteTransforms": true,
+    "exactFootPositionsWithinMeters": 1e-10,
+    "loopQuaternionComponentsWithin": 1e-12,
+    "resetWristPositionWithinMeters": 1e-10,
+    "reachClamps": 0,
+    "minimumRightWristDisplacementHeight": 0.07101193645008064,
+    "visualOrMeshCollisionAcceptance": false
+  }
+}

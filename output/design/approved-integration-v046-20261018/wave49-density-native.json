@@ -1,0 +1,36 @@
+{
+  "schema": "v046-native-density-review-v1",
+  "capturedAt": "2026-10-18T19:21:03.941Z",
+  "viewport": {
+    "width": 1715,
+    "height": 1244
+  },
+  "actualWave": 49,
+  "actualAuthoredEnemies": 31,
+  "scenario": "Native Developer Console, existing four defenders, no enemy stat overrides, speed 3×; statistics excluded",
+  "diagnostics": {
+    "calls": 1568,
+    "combatTime": 38.43329999999904,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_38",
+      "host_39",
+      "host_49",
+      "host_50"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 2119,
+    "medianMs": 17.5,
+    "p95Ms": 18.899999991059303,
+    "paused": true,
+    "pendingEnemies": 0,
+    "speed": 3,
+    "statusBatches": 1,
+    "statusInstances": 12,
+    "statusTargets": [],
+    "triangles": 876169,
+    "visibleEnemies": 31
+  }
+}

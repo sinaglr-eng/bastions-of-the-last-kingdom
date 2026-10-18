@@ -1,8 +1,7 @@
 import * as THREE from 'three';
-import {distance,towerStats} from '../core/math.js';
+import {distance,towerStats,offensiveAuraRange} from '../core/math.js';
 import {enemyRulesFor,enemyDisarmActive,defenderDreadState} from '../core/enemy-rules.js';
-import {statusEffectAllowed} from '../core/combat-rules.js';
-import {mvpArmorReduction,mvpLevel,MVP_RULES} from '../core/mvp.js';
+import {statusEffectAllowed,slowAuraApplies} from '../core/combat-rules.js';
 
 // Read-only display of the actual rules in supportBonuses/CombatManager.
 // A source includes itself in the current game. Maxima win inside each haste
@@ -117,10 +116,9 @@ export function supportSourceAreas(tower,data,{towers=[]}={}){
   if(s.aura){const a=s.aura,keys=positiveKeys.filter(k=>k==='haste'?a.haste||Object.values(a.hasteGroups||{}).some(v=>v>0):k==='damage'?a.damageBonus:k==='range'?a.rangeBonus:a[k]);if(keys.length)areas.push({key:'support',keys,radius:a.range,label:`Support reach · ${a.range} tiles`,color:'#86f0c9',glyph:'arrows'});}
   const debuffs=[['burnAura','burn','Burning aura','#ff9a51'],['slowAura','slow','Slowing aura','#71d1e6'],['armorShredAura','armor','Armor reduction aura','#ffd088']];
   for(const [prop,key,label,color]of debuffs)if(s[prop]&&!tower.attackPaused){
-    const radius=prop==='burnAura'?s.range+towerSupportState(tower,towers,data).bonuses.range:(prop==='slowAura'?s.range:s.effectRange??s.range);
-    areas.push({key,keys:[key],radius,label:`${label} · ${radius} tiles`,color,glyph:ENEMY_EFFECT_STYLES[key].glyph});
+    const radius=offensiveAuraRange(s,key==='armor'?'armor':key);
+    areas.push({key,keys:[key],radius,label:`${label} · ${radius} tiles${prop==='slowAura'&&s.slowAuraGroundOnly?' · ground only':''}`,color,glyph:ENEMY_EFFECT_STYLES[key].glyph});
   }
-  if(mvpLevel(tower)>0)areas.push({key:'mvpArmor',keys:['armor'],radius:MVP_RULES.auraRange,label:`MVP armor reduction · ${mvpLevel(tower)}% · ${MVP_RULES.auraRange} tiles`,color:ENEMY_EFFECT_STYLES.armor.color,glyph:ENEMY_EFFECT_STYLES.armor.glyph});
   const detection=tower.family==='cleric'?R.reveal.clericRadius:s.detectionRange||0;
   if(detection)areas.push({key:'detection',keys:['detection'],radius:Math.max(R.reveal.defenderRadius,detection),label:`Hidden-enemy detection · ${Math.max(R.reveal.defenderRadius,detection)} tiles`,color:'#fff8e4',glyph:'target'});
   if(s.bouncingFrostTrigger==='nearby-ally-magic-hit')areas.push({key:'reaction',keys:['reaction'],radius:s.bouncingFrostTriggerRange||6,label:`Reacts to allied magic hits · ${s.bouncingFrostTriggerRange||6} tiles`,color:'#a5ddff',glyph:'snowflake'});
@@ -137,12 +135,11 @@ export function enemyStatusState(enemy,towers,data,options={}){
   for(const tower of towers){
     if(tower.state!=='active')continue;const s=options.statsFor?options.statsFor(tower):towerStats(tower,data),d=distance(tower,enemy);
     if(tower.attackPaused)continue;
-    if(statusEffectAllowed(enemy,'slow')&&s.slowAura&&d<=s.range)slow=Math.max(slow,s.slowAura);
-    if(d<=(s.effectRange??s.range))armor=Math.max(armor,s.armorShredAura||0);
+    if(slowAuraApplies(s,enemy)&&d<=offensiveAuraRange(s,'slow'))slow=Math.max(slow,s.slowAura);
+    if(d<=offensiveAuraRange(s,'armor'))armor=Math.max(armor,s.armorShredAura||0);
   }
   if(enemy.boss)slow*=data.balance.bossSlowMultiplier??.5;
-  const fraction=mvpArmorReduction(enemy,towers),baseArmor=Math.max(0,(enemy.armor||0)+(enemy.reactiveArmor||0)*(enemy.reactiveStacks||0));
-  add('slow',slow);add('armor',armor+Math.max(0,baseArmor-armor)*fraction);
+  add('slow',slow);add('armor',armor);
   for(const key of ['freeze','petrify','poison','burn','bleed','healBlock'])if(statusEffectAllowed(enemy,key)&&statuses[key]?.time>0)add(key,statuses[key].dps||statuses[key].time);
   return [...effects.values()];
 }
@@ -250,9 +247,7 @@ export class SupportEffects{
     this.tint.instanceMatrix.needsUpdate=true;if(this.tint.instanceColor)this.tint.instanceColor.needsUpdate=true;
     if(combatActive(options)){
       const statCache=new Map(),statsFor=tower=>{const key=`${tower.family}:${tower.tier}:${tower.upgrades||0}`;if(!statCache.has(key))statCache.set(key,towerStats(tower,data));return statCache.get(key);};
-      // Offensive auras and every active MVP source can affect enemy markers.
-      // MVP support remains active when the source's own attacks are paused.
-      const auraTowers=towers.filter(t=>t.state==='active'&&(mvpLevel(t)>0||['slowAura','armorShredAura'].some(k=>statsFor(t)[k])));
+      const auraTowers=towers.filter(t=>t.state==='active'&&!t.attackPaused&&['slowAura','armorShredAura'].some(k=>statsFor(t)[k]));
       for(const enemy of combat.enemies||[]){
         if(enemy.dead||!this.isVisible(enemy))continue;const effects=enemyStatusState(enemy,auraTowers,data,{statsFor});if(!effects.length)continue;this.enemyStates.set(enemy.id,effects);
         const ordered=Object.keys(ENEMY_EFFECT_STYLES);

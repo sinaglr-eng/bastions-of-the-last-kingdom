@@ -20,11 +20,11 @@ test('different families receive mechanisms matching roots, breath, lightning, b
   assert.equal(attackVisualKind('stonewarden'),'siege');assert.equal(attackVisualKind('cleric',{type:'holy'}),'holy');
   assert.equal(attackVisualKind('frostwarden',{type:'frost'}),'frost');assert.equal(attackVisualKind('mage',{type:'arcane'}),'arcane');assert.equal(attackVisualKind('archer'),'arrow');
 });
-test('canonical damage classes preserve authored ice bolts and spell presentation while secondary burning stays visible',()=>{
+test('canonical damage classes preserve sword-released frost and spell presentation while secondary burning stays visible',()=>{
   assert.equal(attackVisualKind('frostwarden',{type:'physical',projectileEffect:'frost'}),'frost');
   assert.equal(attackVisualKind('mage',{type:'magical',projectileEffect:'arcane'}),'arcane');
   const scene=new THREE.Scene(),fx=new CombatEffects(scene),s=shot('rimewatch',1,{type:'physical',projectileEffect:'frost'});
-  fx.shot(s);assert.equal(fx.projectiles.get(1).object.name,'Frost-coated crossbow bolt');
+  fx.shot(s);assert.equal(fx.projectiles.get(1).object.name,'frost shaped spell');
   fx.impact({x:7,z:8,source:{family:'fireballista'},target:s.target,effect:'fire',stats:{type:'physical'}});assert.equal(fx.effects.at(-1).object.name,'flame attack impact');
   fx.dispose();assert.equal(scene.children.length,0);
 });
@@ -33,17 +33,18 @@ test('Thunderheart actual stats launch arcane lightning while its separate burni
   const stats=JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url),'utf8')).thunderheart;
   assert.equal(stats.type,'arcane');assert.ok(stats.burnAura>0);assert.equal(attackVisualKind('thunderheart',stats),'lightning');
   const scene=new THREE.Scene(),origins=[],fx=new CombatEffects(scene,{getMuzzle:(_source,out,options)=>{origins.push(!!options?.breath);return out.set(options?.breath?2:1,1.5,2);}}),s=shot('thunderheart',1,stats),before=structuredClone(s);
-  fx.event('shot',s);assert.equal(fx.projectiles.get(1).kind,'lightning');assert.equal(fx.projectiles.get(1).object.name,'Forked lightning');assert.ok(fx.projectiles.get(1).object.isLine);
+  fx.event('shot',s);assert.equal(fx.projectiles.get(1).kind,'lightning');assert.equal(fx.projectiles.get(1).object.name,'Primary electric shot');assert.ok(fx.projectiles.get(1).object.isLine);
   fx.event('aura-attack',{source:s.source,target:s.target,stats});assert.equal(fx.effects.at(-1).object.name,'Dragon fire breath');assert.ok(origins.includes(true),'aura fire explicitly requests its distinct dragon-mouth origin');
   assert.equal(fx.projectiles.get(1).kind,'lightning','an aura pulse preserves the existing weapon shot');assert.deepEqual(s,before,'visual abilities do not change the actual damage, burnAura, target or timing');
   finiteScene(scene);fx.dispose();assert.equal(scene.children.length,0);
 });
 
-test('druid shots grow roots at enemy feet, never fly a generic bullet from the tower',()=>{
+test('druid spores travel from the actual release anchor without visually rooting the target',()=>{
   const scene=new THREE.Scene(),fx=new CombatEffects(scene,{position:(x,y,z)=>new THREE.Vector3(x-18,y,z-18)}),s=shot('druid');
   const original=structuredClone(s);fx.syncProjectiles([s],1);const visual=fx.projectiles.get(s.id);
-  assert.equal(visual.kind,'roots');assert.equal(visual.object.name,'Living roots under target');
-  assert.deepEqual(visual.object.position.toArray(),[-11,.03,-10]);assert.equal(visual.object.getObjectByName('Rising poisonous thorns').count,7);
+  assert.equal(visual.kind,'roots');assert.equal(visual.object.name,'poison shaped spell');
+  assert.ok(visual.object.position.y>1);assert.equal(visual.object.getObjectByName('Rising poisonous thorns'),undefined);
+  assert.ok(visual.object.position.x>-17&&visual.object.position.x<-11,'The spore follows actual shot progress between source and target');
   assert.deepEqual(s,original,'Visuals do not mutate timing, stats, position or targets');fx.dispose();assert.equal(scene.children.length,0);
 });
 
@@ -51,7 +52,7 @@ test('lobbed bombs arc above their path while ballista bolts remain direct and f
   const scene=new THREE.Scene(),fx=new CombatEffects(scene),catapult=shot('stonewarden',1),ballista=shot('kingsreach',2),dragon=shot('worldfire',3);
   fx.syncProjectiles([catapult,ballista,dragon],1);
   assert.ok(fx.projectiles.get(1).object.position.y>fx.projectiles.get(2).object.position.y+1);
-  assert.equal(fx.projectiles.get(1).object.name,'Lobbed siege charge');assert.equal(fx.projectiles.get(2).object.name,'Crafted arrow');
+  assert.equal(fx.projectiles.get(1).object.name,'Sling-released catapult stone');assert.equal(fx.projectiles.get(2).object.name,'Crafted arrow');
   assert.equal(fx.projectiles.get(3).object.name,'Dragon fire breath');assert.ok(fx.projectiles.get(3).object.scale.y>8);
   finiteScene(scene);fx.dispose();
 });
@@ -72,7 +73,7 @@ test('projectile limits stay stable under large volleys and effect resources rel
   fx.impact({x:3,z:4,source:{family:'druid'}});const old=fx.effects[0].object,disposed=new Map();
   for(const resource of resources(old)){disposed.set(resource,0);resource.addEventListener('dispose',()=>disposed.set(resource,disposed.get(resource)+1));}
   fx.impact({x:3,z:4,stats:{type:'frost'}});assert.equal(fx.effects.length,1);for(const count of disposed.values())assert.equal(count,1);
-  fx.update(2,2);assert.equal(fx.effects.length,0);fx.syncProjectiles([],3);assert.equal(fx.projectiles.size,0);assert.equal(scene.children.length,0);
+  fx.update(2,2);assert.equal(fx.effects.length,0);fx.syncProjectiles([],3);assert.equal(fx.projectiles.size,0);assert.equal(fx.paths.records.length,0);assert.equal(scene.children.filter(c=>c.visible).length,0);
   fx.dispose();fx.dispose();for(const count of disposed.values())assert.equal(count,1);
 });
 

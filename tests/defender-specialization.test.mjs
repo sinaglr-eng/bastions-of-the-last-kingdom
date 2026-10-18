@@ -80,7 +80,7 @@ test('fixed champion profiles ignore obsolete ranks and enhancements while sourc
  assert.equal(towerStats(unit('winterhold',1,100),data).slowAura,towerStats(unit('winterhold'),data).slowAura);
  assert.equal(JSON.stringify(data.towers),before);
  assert.equal(mergePartner(unit('sunward',1,5),[unit('sunward',2,5)],data),null,'Fixed champions never use the new basic Royal V merge');
- const partner=unit('archer',2,5);assert.equal(mergePartner(unit('archer',1,5),[partner],data),partner,'Retained basic Royal V pairs are now eligible');
+ const partner=unit('archer',2,5);assert.equal(mergePartner(unit('archer',1,5),[partner],data),null,'Retained basic Royal V pairs cannot create VI; only fresh current-draft V rolls qualify');
  assert.equal(mergePartner(unit('archer',1,6),[unit('archer',2,6)],data),null,'Mythic VI remains the final basic rank');
 });
 

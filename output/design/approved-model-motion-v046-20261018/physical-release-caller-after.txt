@@ -1,0 +1,28 @@
+✔ approved enemy appearance has all 54 exact V6 files and four structural variants (446.2399ms)
+✔ all approved defenders bind real motion, preserve templates, release from posed geometry and freeze on zero dt (708.7493ms)
+✔ all approved champions bind real motion, preserve templates, release from posed geometry and freeze on zero dt (2153.0049ms)
+✔ all 54 approved enemy actors articulate, freeze independently and perform one persistent grounded death (2469.8302ms)
+✔ release identity is cosmetic and repeated multishot events do not restart the same cast (10.3754ms)
+✔ actual champion motion excludes runtime aura geometry added before attack binding (19.608ms)
+✔ production CombatEffects uses actual animated dragon and Thunderbird mouths and the Archangel staff (130.9189ms)
+✔ Atelier includes each of the 50 actual campaign visuals once, in wave order, with the hostile final boss (1.3255ms)
+✔ gallery URLs preserve the exact defender rank or enemy for subsequent appearance comments (0.277ms)
+✔ battlefield reduction applies once to private actors while preserving source geometry, position, aim and platform height (0.719ms)
+✔ Atelier describes actual cloak/disarm and reactive armor rather than claiming no abilities (0.1973ms)
+✔ different families receive mechanisms matching roots, breath, lightning, blades, siege and magic (0.578ms)
+✔ canonical damage classes preserve sword-released frost and spell presentation while secondary burning stays visible (3.6745ms)
+✔ Thunderheart actual stats launch arcane lightning while its separate burning aura breathes fire (3.0333ms)
+✔ druid spores travel from the actual release anchor without visually rooting the target (1.0925ms)
+✔ lobbed bombs arc above their path while ballista bolts remain direct and flame streams connect source and target (1.9665ms)
+✔ hidden enemies leave no projectiles, trails, impact effects or chain endpoints (0.7249ms)
+✔ projectile limits stay stable under large volleys and effect resources release once on cap, expiry and disposal (1.8352ms)
+✔ all effect styles stay finite and reduced motion removes decorative movement (4.2766ms)
+✔ attack poses articulate only local X/Z and explicit pivots, preserving world position, aim, scale and shared geometry (1.5455ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6073.1198

@@ -34,7 +34,7 @@ test('Monk combines two different blessing ranks and never doubles identical Pri
  monk.state='ruin';assert.equal(supportBonuses(archer,[monk],data).haste,1);
 });
 test('Mechanical Golem suppresses healing and exposes magic immune enemies to its armor aura',()=>{
- const g=arena(),t=unit('mechanicalgolem'),e=foe(g),immune=foe(g,12);immune.magicImmune=true;e.regen=100;e.hp-=1000;g.towers=[t];g.rng=()=>.9;strike(g,t,e);assert.equal(e.statuses.healBlock.time,3);const before=e.hp;g.tick(.1);assert.ok(e.hp<before);assert.equal(immune.armorShred,30);assert.equal(immune.statuses.poison,undefined);
+ const g=arena(),t=unit('mechanicalgolem'),e=foe(g),immune=foe(g,12);immune.magicImmune=true;e.regen=100;e.hp-=1000;g.towers=[t];g.rng=()=>.9;strike(g,t,e);assert.equal(e.statuses.healBlock.time,3);const before=e.hp;g.tick(.1);assert.ok(e.hp<before);assert.equal(immune.armorShred,45);assert.equal(immune.statuses.poison,undefined);
  delete e.statuses.poison;delete e.statuses.healBlock;const after=e.hp;g.tick(.1);assert.ok(e.hp>after);t.state='ruin';g.tick(.1);assert.equal(immune.armorShred,0);
 });
 test('Stone Gaze requires facing the golem for two seconds, petrifies for three and doubles physical damage',()=>{

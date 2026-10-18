@@ -23,7 +23,7 @@ test('actual MVP plus Priest damage and speed buffs match real projectile damage
   assert.equal(JSON.stringify(game.towers),before);assert.ok(combat.bonuses.damage>1);assert.ok(combat.bonuses.haste>1);
   close(result.damage,combat.stats.damage);close(result.dps,combat.stats.damage/base.interval*combat.bonuses.haste);close(result.interval,base.interval/combat.bonuses.haste);
   close(result.damage,base.damage+sum(result.damageParts));close(result.dps,base.damage/base.interval+sum(result.dpsParts));
-  assert.deepEqual(result.damageParts.map(p=>p.key),['mvp','mvp-ally','aura']);
+  assert.deepEqual(result.damageParts.map(p=>p.key),['mvp','aura']);
   const shots=[];game.on((type,payload)=>{if(type==='shot'&&payload.source===tower)shots.push({time:game.combat.elapsed,damage:payload.stats.damage});});
   for(let i=0;i<100;i++)game.tick(.001);
   assert.ok(shots.length>=1);close(shots[0].damage,result.damage);
@@ -46,7 +46,7 @@ test('current Dread and multiple disrupted barricades lower the same actual cool
 
 test('paused, melancholy and real disarm report zero current direct DPS without destroying their damage bonus',()=>{
   const game=arena(),tower=unit(game,'archer',{mvpLevel:5,attackPaused:true}),base=towerStats(tower,game.data);
-  const paused=defenderEffectiveStats(game,tower);close(paused.damage,base.damage*1.5);assert.equal(paused.dps,0);assert.equal(paused.interval,null);assert.equal(paused.stopped,'Attacks paused');
+  const paused=defenderEffectiveStats(game,tower);close(paused.damage,base.damage*1.25);assert.equal(paused.dps,0);assert.equal(paused.interval,null);assert.equal(paused.stopped,'Attacks paused');
   close(base.damage/base.interval+sum(paused.dpsParts),0);tower.attackPaused=false;tower.melancholyUntil=5;
   assert.equal(defenderEffectiveStats(game,tower).stopped,'Melancholy · cannot attack');tower.melancholyUntil=0;
   const enemy=game.combat.spawn('host_01',{variant:{hp:100000,armor:0,speed:0,disarm:true}});enemy.x=12;enemy.z=13;
@@ -66,7 +66,7 @@ test('current profile renders readable base and bonus lines, and permanent MVP/s
   const game=arena(),tower=unit(game,'archer',{mvpLevel:3});unit(game,'archbishop');game.phase='ready';
   const html=defenderPanelMarkup(game,tower),move=html.indexOf('data-action="move"'),mvp=html.indexOf('class="mvp-details"'),support=html.indexOf('class="selected-support"'),core=html.indexOf('class="defender-core"');
   assert.ok(move>=0&&move<mvp&&mvp<support&&support<core);assert.doesNotMatch(html,/data-detail-key="mvp"|<summary>MVP/);
-  assert.match(html,/data-effective-stats="" data-stats-scope="current"/);assert.match(html,/Direct DPS/);assert.match(html,/Base \d/);assert.match(html,/Own MVP \+30%/);assert.match(html,/Damage aura/);assert.match(html,/Attack-speed aura/);assert.doesNotMatch(html,/Base direct DPS<\/span>/);
+  assert.match(html,/data-effective-stats="" data-stats-scope="current"/);assert.match(html,/Direct DPS/);assert.match(html,/Base \d/);assert.match(html,/Own MVP \+15%/);assert.match(html,/Damage aura/);assert.match(html,/Attack-speed aura/);assert.doesNotMatch(html,/Base direct DPS<\/span>/);
   const preview=new DefenderRankPreview();preview.select(tower,4,game.data);const rankHtml=defenderPanelMarkup(game,tower,{rankPreview:preview});
   assert.doesNotMatch(rankHtml,/folio-base-note|data-effective-note/);assert.match(rankHtml,/data-stats-scope="base-preview"/);
   assert.doesNotMatch(defenderEffectiveStatsMarkup(game,tower,{view:{...tower,tier:4}}),/data-contribution/);

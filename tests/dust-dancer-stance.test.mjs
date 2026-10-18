@@ -13,7 +13,11 @@ import {disposeDecodedGeometricAsset} from '../game/render/geometric-resources.j
 import {partSemanticV5} from '../tools/audit-geometric-proportions-v5.mjs';
 
 const definition=JSON.parse(readFileSync(new URL('../data/enemies.json',import.meta.url))).host_09;
-const entry=JSON.parse(readFileSync(new URL('../public/assets/geometric/geometric-enemies.json',import.meta.url))).entries.find(e=>e.id==='host_09');
+// V6 has its own approved source anatomy and model-specific motion (covered by
+// approved-model-motion-v046.test.mjs). These exact 400 mm stance and rigid-IK
+// negative tests preserve the previous geometric V7 fixture without applying
+// its unrelated hierarchy or measurements to the newly approved sculpture.
+const entry=JSON.parse(readFileSync(new URL('../output/design/approved-model-motion-v046-20261018/previous-geometric-enemies-manifest.json',import.meta.url))).entries.find(e=>e.id==='host_09');
 const pose=root=>{const out=[];root.traverse(n=>out.push([n.name,...n.position.toArray(),...n.quaternion.toArray(),...n.scale.toArray()]));return JSON.stringify(out);};
 const meshes=root=>{const out=[];root.traverse(n=>{if(n.isMesh)out.push(n);});return out;};
 async function load(){
@@ -46,7 +50,7 @@ function physicalScopeGaps(figure){
   });
 }
 
-test('the actual production Dust Dancer has narrower physical legs bound to its fresh native and unchanged original source',async()=>{
+test('the preserved historical Dust Dancer retains narrower physical legs bound to its native and unchanged original source',async()=>{
   const loaded=await load();try{
     assert.equal(entry.stanceRevision,'geometric-game-v7');assert.match(entry.native,/geometric-game-v7\/enemies\/host_09\.blend$/);assert.ok(existsSync(new URL('../'+entry.native,import.meta.url)),'Fresh editable native source exists');
     const sourceBytes=readFileSync(new URL('../public/geometric-turnarounds-v1/'+entry.source,import.meta.url));assert.equal(createHash('sha256').update(sourceBytes).digest('hex'),entry.sourceSha256);

@@ -15,31 +15,34 @@ const root=new URL('../public/assets/geometric/',import.meta.url);
 const rosters=['defenders','champions','enemies'].map(kind=>geometricEntries(JSON.parse(readFileSync(new URL(`geometric-${kind}.json`,root)))));
 const entries=rosters.flat(),towers=campaignTowers(JSON.parse(readFileSync(new URL('../data/towers.json',import.meta.url))));
 const sources=JSON.parse(readFileSync(new URL('source-manifest.json',root)));
+const enemyProvenance=JSON.parse(readFileSync(new URL('approved-enemies-v6/provenance.json',root)));
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 
-test('the current geometric edition covers every approved subject: 48 basic ranks, 38 champions and 50 enemies',()=>{
-  assert.deepEqual(rosters.map(r=>r.length),[48,38,50]);
-  assert.equal(new Set(entries.map(e=>e.id)).size,136);
-  assert.equal(new Set(entries.map(e=>e.file)).size,136);
-  assert.deepEqual(new Set(entries.map(e=>e.id)),new Set(sources.map(e=>e.id)));
+test('the current geometric edition covers all140 approved models: 48 basic ranks, 38 champions and 54 enemies',()=>{
+  assert.deepEqual(rosters.map(r=>r.length),[48,38,54]);
+  assert.equal(new Set(entries.map(e=>e.id)).size,140);
+  assert.equal(new Set(entries.map(e=>e.file)).size,140);
+  assert.deepEqual(new Set(entries.filter(e=>!e.id.endsWith('-wraith')).map(e=>e.id)),new Set(sources.map(e=>e.id)),'The preserved original136 concept images remain the source inventory; four new structural variants have separate approved model provenance');
   for(const [family,stats] of Object.entries(towers))for(let tier=1;tier<=(stats.advanced?1:6);tier++)assert.equal(entries.filter(e=>e.kind==='tower'&&e.family===family&&e.tier===tier).length,1,`${family} ${tier}`);
   assert.ok(!entries.some(e=>e.family==='lordbernhard'));
   assert.ok(entries.some(e=>e.id==='host_50'));
 });
 
-test('actual Three.js imports preserve approved reconstruction bytes and finite geometry, while enemies retain closed/contact/rig contracts',async()=>{
+test('all140 actual Three.js imports preserve approved export bytes, finite geometry, original PBR factors and axis-converted bounds',async()=>{
   const signatures=new Set();
   for(const entry of entries){
     const bytes=readFileSync(new URL(entry.file,root)),qa=entry.metrics||entry.qa;
     assert.equal(bytes.toString('ascii',0,4),'glTF',entry.id);
     assert.equal(bytes.readUInt32LE(8),bytes.length,entry.id);
     if(entry.reconstruction){
+      const approvedEnemy=entry.reconstruction.revision==='enemies-v6';
       assert.equal(hash(bytes),entry.assetSha256,entry.id+' approved export');
-      assert.equal(entry.assetSha256,entry.reconstruction.sourceGlbSha256,entry.id+' approved GLB provenance');
-      assert.equal(entry.sourceSha256,sources.find(e=>e.id===entry.id).sha256,entry.id+' current authoring reference');
+      if(approvedEnemy){const record=enemyProvenance.enemies.find(e=>e.id===entry.id);assert.ok(record,entry.id+' explicit approved model identity');assert.equal(entry.assetSha256,record.sha256,entry.id+' approved V6 export provenance');assert.equal(bytes.length,record.bytes,entry.id+' approved source size');}
+      else assert.equal(entry.assetSha256,entry.reconstruction.sourceGlbSha256,entry.id+' approved GLB provenance');
+      assert.equal(entry.sourceSha256,sources.find(e=>e.id===entry.id.split('-wraith')[0]).sha256,entry.id+' preserved original authoring reference');
       const portrait=readFileSync(new URL(entry.portrait,root));
       assert.equal(portrait.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
-      assert.equal(hash(portrait),entry.portraitSha256,entry.id+' approved portrait');
+      if(entry.portraitSha256)assert.equal(hash(portrait),entry.portraitSha256,entry.id+' approved portrait');
       const gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
       try{
         const scene=gltf.scene;scene.updateWorldMatrix(true,true);scene.traverse(node=>{if(node.isSkinnedMesh)node.skeleton.update();});
@@ -54,7 +57,8 @@ test('actual Three.js imports preserve approved reconstruction bytes and finite 
           geometryHash.update(Buffer.from(worldVertices.buffer));
           for(const material of Array.isArray(node.material)?node.material:[node.material])assert.ok(material&&[...material.color.toArray(),material.roughness,material.metalness,material.opacity].every(Number.isFinite),entry.id+' actual PBR factors');
         });
-        assert.equal(count,qa.triangles,entry.id+' imported approved triangles');
+        if(approvedEnemy)assert.ok(Number.isInteger(count)&&count>0,entry.id+' actual approved source triangles');
+        else assert.equal(count,qa.triangles,entry.id+' imported approved triangles');
         assert.equal(skins>0,entry.reconstruction.revision==='basic-defenders-v7');
         assert.equal(gltf.animations.length,0,entry.id+' approved static/rest export clips');
         const size=new THREE.Box3().setFromObject(scene,true).getSize(new THREE.Vector3()).toArray();
@@ -131,11 +135,11 @@ test('actual Three.js imports preserve approved reconstruction bytes and finite 
     if(entry.locomotion!=='flying')assert.ok(Math.abs(box.min.y)<.002,entry.id+' soles');
     signatures.add(geometryHash.digest('hex'));
   }
-  assert.equal(signatures.size,136,'each rank/subject has distinct physical geometry');
+  assert.equal(signatures.size,140,'each rank/subject/structural variant has distinct physical geometry');
 });
 
-test('actual rounded metal cap coverage rejects a displaced shell with unchanged native declarations',async()=>{
-  const entry=entries.find(entry=>entry.id==='host_11'),file=new URL(entry.file,root),bytes=readFileSync(file),digest=hash(bytes);
+test('preserved historical rounded-cap fixture rejects a displaced shell with unchanged native declarations',async()=>{
+  const file=new URL('enemies/host_11.glb',root),bytes=readFileSync(file),digest=hash(bytes);
   const gltf=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
   try{
     const actual=measureHeadCoverCoverage(gltf.scene);

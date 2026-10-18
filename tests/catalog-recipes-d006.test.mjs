@@ -7,6 +7,8 @@ import {towerStats} from '../game/core/math.js';
 import {championCatalogModel,championCatalogMarkup,connectChampionCatalog,catalogRecipeInventory} from '../ui/catalog-recipes.js';
 import {championPerformanceSummary,runtimeDefenderDescription,championRecipeCard,defenderGuide} from '../ui/grimoire.js';
 import {recipeMatches} from '../ui/recipe-filters.js';
+import {basicCatalogProfiles,basicCatalogIndexMarkup,basicCatalogDetailMarkup} from '../ui/catalog-basics.js';
+import {baseAttackDps,formatTowerNumber,abilityLines} from '../ui/grimoire.js';
 
 const raw=Object.fromEntries(['balance','towers','recipes','enemies','waves'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
@@ -185,4 +187,46 @@ test('catalog refresh updates allocated row progress and detail after a real res
   const state={recipeId:ranger.id},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog');
   catalog.querySelector(`[data-catalog-disclosure="chain:${ranger.id}"]`).open=true;assert.equal(game.reserve(),true);connection.refresh();
   const row=catalog.querySelector(`[data-catalog-recipe="${ranger.id}"]`);assert.match(row.querySelector('em').textContent,/○ 1 Missing/);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Missing/);assert.doesNotMatch(catalog.querySelector('.catalog-recipe-detail').innerHTML,/data-action="craft"/);assert.equal(catalog.querySelector(`[data-catalog-disclosure="chain:${ranger.id}"]`).open,true);connection.dispose();
+});
+
+test('basic book keeps all 48 canonical ranks in its index and renders one exact rank profile on the reading leaf',()=>{
+  const profiles=basicCatalogProfiles(data),index=basicCatalogIndexMarkup(data,{});
+  assert.equal(profiles.length,48);assert.equal(new Set(profiles.map(row=>`${row.family}:${row.tier}`)).size,48);
+  assert.equal((index.match(/data-filter-family=/g)||[]).length,8);assert.equal((index.match(/data-filter-tier=/g)||[]).length,48);assert.doesNotMatch(index,/<table|rank-scroll/);
+  const guidance=basicCatalogDetailMarkup(profiles[0],data,{},profiles);
+  assert.match(guidance,/two matching Royal V defenders freshly drawn and placed in the current draft/);assert.match(guidance,/Previously retained or reserved defenders cannot form this pair/);assert.doesNotMatch(guidance,/including retained pairs|retained defender plus a current candidate|retained-only pair preserves/);
+  for(const row of profiles){
+    const expected=towerStats({family:row.family,tier:row.tier},data),html=basicCatalogDetailMarkup(row,data,{},profiles);
+    assert.deepEqual(row.stats,expected);assert.ok(html.includes(`data-basic-profile="${row.family}:${row.tier}"`));
+    for(const value of [expected.damage,baseAttackDps(expected),expected.range])assert.ok(html.includes(`<dd>${formatTowerNumber(value)}</dd>`));
+    assert.ok(html.includes(`<dd>${formatTowerNumber(expected.interval)}s</dd>`));assert.equal((html.match(/data-basic-profile=/g)||[]).length,1);
+    assert.ok(abilityLines(expected).length);assert.doesNotMatch(html,/data-action="craft|data-action="pin|catalog-page-number/);
+  }
+});
+
+test('basic rank selection occupies the right leaf and remains independent of champion choice, filters and game state',()=>{
+  const game=fresh(),control=fresh(),state={recipeId:'highking'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog');
+  const navigation=JSON.stringify(state.navigation);catalog.dispatch('click',catalog.querySelector('[data-catalog-view="basics"]'));
+  const button=catalog.querySelectorAll('[data-catalog-basic-family]').find(button=>button.dataset.catalogBasicFamily==='mage'&&button.dataset.catalogBasicTier==='4');catalog.dispatch('click',button);
+  const pane=catalog.querySelector('.catalog-basic-detail');assert.ok(pane.closest('.catalog-reading-page'));assert.ok(button.closest('.catalog-index-page'));assert.equal(pane.hidden,false);assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,true);assert.match(pane.innerHTML,/data-basic-profile="mage:4"|Magical cleave/);
+  assert.equal(state.basicFamily,'mage');assert.equal(state.basicTier,4);assert.equal(button.attributes['aria-pressed'],'true');assert.equal(catalog.dataset.mobilePage,'reading');assert.equal(host.ownerDocument.activeElement,pane.querySelector('[data-catalog-basic-heading]'));
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-view="champions"]'));assert.equal(state.recipeId,'highking');assert.equal(pane.hidden,true);assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);assert.equal(JSON.stringify(state.navigation),navigation);
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-view="basics"]'));assert.equal(state.basicFamily,'mage');assert.equal(state.basicTier,4);assert.match(pane.innerHTML,/data-basic-profile="mage:4"/);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
+});
+
+test('basic filters retain the inspected rank, restrict ordered navigation to matching ranks and keep narrow page focus',()=>{
+  const game=fresh(),state={view:'basics',basicFamily:'mage',basicTier:4},host=fixture(championCatalogMarkup(game,data,{}, {state})),connection=connectChampionCatalog(host,game,data,{}, {state}),catalog=host.querySelector('.champion-catalog'),pane=catalog.querySelector('.catalog-basic-detail');
+  const damage=catalog.querySelector('[data-recipe-filter="damage"]');damage.value='holy';catalog.dispatch('change',damage);
+  assert.equal(catalog.querySelector('.recipe-filter-count').textContent,'6 of 48 basic rank profiles match');assert.equal(catalog.querySelectorAll('[data-filter-family]').filter(group=>!group.hidden).length,1);assert.match(pane.innerHTML,/data-basic-profile="mage:4"/);assert.match(pane.innerHTML,/Outside current filters/);assert.equal(pane.querySelector('[data-catalog-basic-order="next"]').disabled,true);
+  const cleric=catalog.querySelectorAll('[data-catalog-basic-family]').find(button=>button.dataset.catalogBasicFamily==='cleric'&&button.dataset.catalogBasicTier==='2');catalog.dispatch('click',cleric);
+  assert.equal(state.basicFamily,'cleric');assert.equal(state.basicTier,2);catalog.dispatch('click',pane.querySelector('[data-catalog-basic-order="next"]'));assert.equal(state.basicTier,3);catalog.dispatch('click',pane.querySelector('[data-catalog-basic-order="previous"]'));assert.equal(state.basicTier,2);
+  const indexTab=catalog.querySelector('[data-catalog-page="index"]'),readingTab=catalog.querySelector('[data-catalog-page="reading"]');assert.equal(indexTab.textContent,'Defender index');assert.equal(readingTab.textContent,'Selected rank');
+  catalog.dispatch('click',indexTab);assert.equal(catalog.dataset.mobilePage,'index');assert.equal(host.ownerDocument.activeElement,cleric);catalog.dispatch('click',readingTab);assert.equal(catalog.dataset.mobilePage,'reading');assert.equal(host.ownerDocument.activeElement,pane.querySelector('[data-catalog-basic-heading]'));assert.equal(state.damage,'holy');connection.dispose();
+});
+
+test('basic inspection preserves its loaded portrait, scroll, disclosures and selected rank across refresh and rerender',()=>{
+  const game=fresh(),state={view:'basics',basicFamily:'mage',basicTier:4},images={'mage:4':'mage-four.png'},host=fixture(championCatalogMarkup(game,data,images, {state}));let connection=connectChampionCatalog(host,game,data,images, {state}),catalog=host.querySelector('.champion-catalog'),pane=catalog.querySelector('.catalog-basic-detail');
+  const image=pane.querySelector('img'),list=catalog.querySelector('.catalog-basic-list');image.setAttribute('data-approved-portrait-state','loaded');list.scrollTop=71;pane.querySelector('.catalog-basic-content').scrollTop=37;pane.querySelector('[data-catalog-disclosure="basic-explanation"]').open=true;
+  connection.refresh();assert.equal(pane.querySelector('img'),image);assert.equal(pane.querySelector('.catalog-basic-content').scrollTop,37);assert.equal(pane.querySelector('[data-catalog-disclosure="basic-explanation"]').open,true);connection.dispose();
+  host.innerHTML=championCatalogMarkup(game,data,images, {state});connection=connectChampionCatalog(host,game,data,images, {state});catalog=host.querySelector('.champion-catalog');pane=catalog.querySelector('.catalog-basic-detail');assert.equal(catalog.querySelector('.catalog-basic-list').scrollTop,71);assert.match(pane.innerHTML,/data-basic-profile="mage:4"/);assert.equal(pane.querySelector('[data-catalog-disclosure="basic-explanation"]').open,true);connection.dispose();
 });

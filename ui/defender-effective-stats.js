@@ -1,5 +1,5 @@
 import {towerStats,combatTowerStats} from '../game/core/math.js';
-import {mvpDamageBonus,mvpAllyDamageBonus} from '../game/core/mvp.js';
+import {mvpDamageBonus} from '../game/core/mvp.js';
 import {towerSupportState} from '../game/render/support-effects.js';
 import {baseAttackDps,formatTowerNumber} from './grimoire.js';
 
@@ -11,12 +11,11 @@ export function defenderEffectiveStats(game,tower,{data=game.data,view=tower}={}
   const neutral={stats:base,bonuses:{damage:1,haste:1,range:0},multiplier:1};
   const combat=live?combatTowerStats(tower,game.towers,data):neutral;
   const support=live?towerSupportState(tower,game.towers,data,{combat:game.combat,phase:game.phase}):{byKey:{}};
-  const own=live?mvpDamageBonus(tower):0,ally=live?mvpAllyDamageBonus(tower,game.towers):0;
+  const own=live?mvpDamageBonus(tower):0;
   const damageBase=base.damage||0,dpsBase=baseAttackDps(base),damageParts=[],dpsParts=[];
   const add=(key,label,fraction)=>{if(fraction){damageParts.push({key,label,value:damageBase*fraction});dpsParts.push({key,label,value:dpsBase*fraction});}};
   add('mvp',`Own MVP +${Math.round(own*100)}%`,own);
-  add('mvp-ally',`Allied MVP aura +${Math.round(ally*100)}%`,ally);
-  add('aura',`Damage aura +${Math.round((combat.bonuses.damage-1)*100)}%`,(1+own+ally)*(combat.bonuses.damage-1));
+  add('aura',`Damage aura +${Math.round((combat.bonuses.damage-1)*100)}%`,(1+own)*(combat.bonuses.damage-1));
   let dps=baseAttackDps(combat.stats),rate=combat.bonuses.haste;
   if(rate!==1){dpsParts.push({key:'haste',label:`Attack-speed aura +${Math.round((rate-1)*100)}%`,value:dps*(rate-1)});dps*=rate;}
   for(const [key,label]of [['dread','Dread'],['weakened','Barricade disruption']]){
@@ -25,7 +24,7 @@ export function defenderEffectiveStats(game,tower,{data=game.data,view=tower}={}
   }
   const stopped=live&&(tower.attackPaused?'Attacks paused':support.byKey.melancholy?'Melancholy · cannot attack':support.byKey.disarm?'Disarmed · cannot attack':null);
   if(stopped&&dps){dpsParts.push({key:'stopped',label:stopped,value:-dps});dps=0;}
-  return {live,base,stats:combat.stats,damage:combat.stats.damage||0,dps,range:combat.stats.range,interval:stopped||rate<=0?null:base.interval/rate,damageParts,dpsParts,rangeBonus:combat.bonuses.range,haste:combat.bonuses.haste,stopped};
+  return {live,base,stats:combat.stats,damage:combat.stats.damage||0,dps,range:combat.stats.range,interval:stopped||rate<=0?null:base.interval/rate,damageParts,dpsParts,rangeBonus:combat.stats.range-base.range,haste:combat.bonuses.haste,stopped};
 }
 
 const contributionMarkup=parts=>parts.length?`<dl class="effective-stat-breakdown">${parts.map(part=>`<div data-contribution="${part.key}"><dt>${part.label}</dt><dd>${part.value<0?'−':'+'}${formatTowerNumber(Math.abs(part.value))}</dd></div>`).join('')}</dl>`:'';

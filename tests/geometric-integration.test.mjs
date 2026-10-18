@@ -32,7 +32,7 @@ function blinkFixture(game,{stealth=false,petrified=false,freeze=false,clock=.01
   const enemy=game.combat.spawn('host_33');Object.assign(enemy,{x:20,z:20,route:[{x:20,z:20},{x:20,z:22},{x:23,z:22},{x:23,z:27}],pathIndex:1,pathLength:10,traveled:0,speed:2,blink:4,blinkClock:clock,stealth,cloaked:stealth,statuses:{...(petrified?{petrify:{time:2}}:{}),...(freeze?{freeze:{time:2}}:{})}});return enemy;
 }
 function corpseField(game){
-  const field=Object.create(Battlefield.prototype);Object.assign(field,{game,scene:new THREE.Scene(),enemies:new Map(),enemyTemplates:new Map(),corpses:new Map(),models:new Map(),effects:[],combatEffects:{event(){}},pathGroup:new THREE.Group(),maze:{sync(){}},updateRouteLegend(){},sync(){},burst(){}});
+  const field=Object.create(Battlefield.prototype);Object.assign(field,{game,scene:new THREE.Scene(),enemies:new Map(),enemyTemplates:new Map(),corpses:new Map(),models:new Map(),effects:[],combatEffects:{event(){},clear(){}},pathGroup:new THREE.Group(),maze:{sync(){}},updateRouteLegend(){},sync(){},burst(){}});
   field.enemyAbilityEffects=new EnemyAbilityEffects(field.scene,{isVisible:e=>game.combat.isRevealed(e)});
   const off=game.on((type,payload)=>field.event(type,payload));return {field,off};
 }
@@ -133,10 +133,10 @@ test('manifest fetch surfaces HTTP and malformed-content failures without claimi
   }finally{globalThis.fetch=original;}
 });
 
-test('the three actual production manifests decode all 136 generated identities and point at real GLBs',()=>{
-  let count=0;for(const [manifest,expected] of [['geometric-defenders.json',48],['geometric-champions.json',38],['geometric-enemies.json',50]]){
+test('the three actual production manifests decode all140 approved identities and point at real GLBs',()=>{
+  let count=0;for(const [manifest,expected] of [['geometric-defenders.json',48],['geometric-champions.json',38],['geometric-enemies.json',54]]){
     const raw=JSON.parse(readFileSync(new URL('../public/assets/geometric/'+manifest,import.meta.url))),entries=geometricEntries(raw);assert.equal(entries.length,expected,manifest);const ids=new Set(entries.map(entry=>entry.id));assert.equal(ids.size,expected,manifest);
     for(const entry of entries){const file=entry.file.startsWith('assets/')?entry.file.slice('assets/geometric/'.length):entry.file,bytes=readFileSync(new URL('../public/assets/geometric/'+file,import.meta.url));assert.equal(bytes.readUInt32LE(0),0x46546c67,entry.file);assert.equal(bytes.readUInt32LE(4),2,entry.file);assert.equal(bytes.readUInt32LE(8),bytes.length,entry.file);}
     count+=entries.length;
-  }assert.equal(count,136);
+  }assert.equal(count,140);
 });

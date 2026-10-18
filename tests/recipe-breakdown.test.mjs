@@ -106,9 +106,9 @@ test('unplaced draws never affect retained ownership or placed-draft availabilit
 
 test('recruit merging still advances each matching draft pair from I through VI and stops at VI',()=>{
   for(const tier of [1,2,3,4,5,6]){
-    const game=new Game(data,{seed:1});game.phase='select';
-    game.towers=Array.from({length:5},(_,index)=>({...unit(index<2?'soldier':'archer',index<2?tier:1,index+1,'draft'),round:game.round}));
-    game.draft.draws=game.towers.map(tower=>({placed:true,towerId:tower.id}));game.selected=1;
+    const game=new Game(data,{seed:1});
+    for(let index=0;index<5;index++){game.draft.roundForced={family:index<2?'soldier':'archer',tier:index<2?tier:1};assert.equal(game.place(11+index,10),true);}
+    assert.equal(game.phase,'select');game.select(game.towers[0].id);
     assert.equal(!!mergePartner(game.selection,game.towers,data),tier<6);
     assert.equal(game.merge(),tier<6);
     assert.equal(game.selection.tier,tier<6?tier+1:6);

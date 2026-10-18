@@ -1,5 +1,16 @@
 # Releases
 
+## 0.4.6 — Approved armies, motion and combat effects — 18 October 2026
+
+Integrates approved B01–B07. MVP now adds +5% personal damage per level, capped at +50%, with its ally-damage and enemy-armor auras removed. Rank VI requires two matching rank V defenders freshly drawn and placed in the same completed current draft; retained and reserved units cannot supply that pair. Frozen Celestial's attack and slow aura are ground-only. Approved direct ranges, independent aura radii, ranger slow auras and dwarven armor reductions are applied, including Archdruid +1 range and the preserved Nature Spirit/Mother Nature +3 exception. Dwarship's recipe remains unchanged.
+
+Copies all **54 approved enemy V6 GLBs** with exact source hashes. Adds separate private-instance living motion for all **140 active models** and one-shot deaths for the 54 enemy identities, retaining original basic V7/champion V8 geometry, materials and textures. Attack and status effects follow moving source anchors, actual hit outcomes, real chain/fork paths, poison stacks, burn/heat, control and positive healing, with visibility, pause, reduced-motion, capacity and cleanup guards. Basic defenders uses facing index/reading leaves with all three filters and 48 selectable rank profiles; champion navigation remains independent.
+
+The latest local gate passes **1,636 tests** and the **210-module** production build. The actual local-distribution smoke passes **265 GET/hash checks**, including all 54 enemy GLBs, three active model manifests and provenance. [The English integration report](docs/APPROVED_INTEGRATION_V046_20261018.md) distinguishes implementation evidence from preserved historical approval/workshop records. Controlled developer scenarios do not certify legal-draft campaign completion or win rates; physical iPad/Safari testing, baked animation clips and final human pose approval remain unavailable.
+
+<!-- V046_PUBLICATION_PENDING -->
+**Publication pending:** the runtime commit, Pages CI result, public asset verification and release tag will be recorded after delivery. No 0.4.6 deployment is claimed here.
+
 ## 0.4.5 — A simpler preparation folio — 18 October 2026
 
 Addresses eight follow-up comments on 0.4.4. Removes static book page numbers and compacts the three direct filters and progress choices. Keeps the current public campaign at 50 waves, simplifies mystery recruit cards, starts Potential combinations collapsed, updates built counts for the inspected rank, and places a compact individual attack pause control beside the defender name. Adds new result-art variants with approved defenders and enemies and random per-result selection.

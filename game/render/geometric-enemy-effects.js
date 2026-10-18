@@ -61,7 +61,7 @@ export class EnemyAbilityEffects{
     if(!figure?.userData.body)return {height:1.5,radius:.38};
     if(this.measurements.has(figure))return this.measurements.get(figure);
     figure.updateWorldMatrix(true,true);const bounds=new THREE.Box3(),inverse=figure.matrixWorld.clone().invert();
-    figure.userData.body.traverse(node=>{const p=node.geometry?.attributes.position;if(!node.isMesh||!p)return;const matrix=new THREE.Matrix4().multiplyMatrices(inverse,node.matrixWorld);for(let i=0;i<p.count;i++)bounds.expandByPoint(new THREE.Vector3().fromBufferAttribute(p,i).applyMatrix4(matrix));});
+    figure.userData.body.traverse(node=>{if(!node.isMesh||!node.geometry?.attributes.position)return;const geometry=node.geometry;if(!geometry.boundingBox)geometry.computeBoundingBox();const matrix=new THREE.Matrix4().multiplyMatrices(inverse,node.matrixWorld),box=geometry.boundingBox;for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z])bounds.expandByPoint(new THREE.Vector3(x,y,z).applyMatrix4(matrix));});
     const measure={bounds};this.measurements.set(figure,measure);return measure;
   }
   sync(enemies,figures=new Map(),time=0,{camera,balance}={}){

@@ -82,7 +82,7 @@ test('an isolated Magical-immune boss cannot be damaged by Mage Magical secondar
 test('own MVP level and attack pause invalidate actual composition capability while allied aura coverage stays explicit',()=>{
   const fixture=custom({plain:stats({damage:100})}),engine=new ArmyReadiness(fixture),preview=analysis(['highHealth'],{hp:5000}),t=tower('plain');
   const base=engine.evaluate(preview,[t]);t.mvpLevel=10;const upgraded=engine.evaluate(preview,[t]);assert.notEqual(upgraded,base);assert.ok(upgraded.rows[0].ordinal>base.rows[0].ordinal);
-  t.attackPaused=true;const paused=engine.evaluate(preview,[t]);assert.equal(paused.rows[0].ordinal,0);assert.notEqual(paused,upgraded);assert.match(paused.scope,/MVP armor-aura coverage.*not evaluated/);
+  t.attackPaused=true;const paused=engine.evaluate(preview,[t]);assert.equal(paused.rows[0].ordinal,0);assert.notEqual(paused,upgraded);assert.match(paused.scope,/Allied aura overlap, placement, range coverage and maze length are not evaluated/);
   t.attackPaused=false;assert.equal(engine.evaluate(preview,[t]),upgraded);
 });
 

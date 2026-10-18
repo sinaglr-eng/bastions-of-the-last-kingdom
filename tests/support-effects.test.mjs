@@ -60,24 +60,18 @@ test('real Otomad adds its separate 500% haste to the strongest ordinary source,
   priest.state='ruin';assert.equal(state().bonuses.haste,1.6,'Remaining weaker standard support becomes the actual winner');
 });
 
-test('ordinary MVP sources keep their real armor marker and radius while paused, then disappear at the actual two-tile boundary',()=>{
+test('MVP personal damage has no projected armor circle or enemy armor symbol, even at max and while paused',()=>{
   const g=arena(),soldier={...unit('soldier'),mvpLevel:10,attackPaused:true},enemy=foe(g,12),fx=new SupportEffects(new THREE.Scene());g.towers=[soldier];enemy.armor=100;
-  const sync=()=>{g.combat.prepareArmor(enemy);fx.sync(g.towers,data,{selected:soldier,combat:g.combat,phase:g.phase});};
-  try{
-    sync();assert.equal(enemy.mvpArmorReduction,.1);assert.equal(fx.batches.get('enemy:armor').count,1);assert.equal(fx.enemyStates.get(enemy.id).find(row=>row.key==='armor').value,10);
-    assert.equal(fx.selectedAreas.find(area=>area.key==='mvpArmor').radius,2);assert.match(fx.selectedAreas.find(area=>area.key==='mvpArmor').label,/10%/);
-    enemy.x=12.001;sync();assert.equal(enemy.mvpArmorReduction,0);assert.equal(fx.batches.get('enemy:armor').count,0);
-    enemy.x=12;soldier.state='reserved';sync();assert.equal(enemy.mvpArmorReduction,0);assert.equal(fx.batches.get('enemy:armor').count,0);assert.equal(fx.radius.visible,false);
-  }finally{fx.dispose();}
+  try{g.combat.prepareArmor(enemy);fx.sync(g.towers,data,{selected:soldier,combat:g.combat,phase:g.phase});assert.equal(enemy.mvpArmorReduction,undefined);assert.equal(fx.batches.get('enemy:armor').count,0);assert.deepEqual(fx.selectedAreas,[]);assert.equal(fx.radius.visible,false);}finally{fx.dispose();}
 });
 
-test('paused offensive auras vanish while detection and MVP support remain; Physical immunity blocks Holy slowing',()=>{
+test('paused offensive auras vanish while detection remains and MVP projects no aura; Physical immunity blocks Holy slowing',()=>{
   const current={...data,towers:campaignTowers(data.towers)},g=new Game(current,{seed:7}),enemy=g.combat.spawn('host_01');g.phase='combat';g.combat.spawnQueue=[{time:9999,type:'host_01'}];Object.assign(enemy,{x:11,z:10,speed:0,hp:1e9,maxHp:1e9,armor:100,physicalImmune:true,magicImmune:true});
   const frost={...unit('winterhold'),mvpLevel:10},armor=unit('mechanicalgolem',2),cleric={...unit('cleric',3),attackPaused:true};g.towers=[frost,armor,cleric];
-  g.combat.update(.01);let effects=enemyStatusState(enemy,g.towers,current);assert.equal(effects.find(row=>row.key==='slow'),undefined,'The actual Holy frost aura obeys Physical control immunity');assert.equal(enemy.armorShred,30);assert.equal(effects.find(row=>row.key==='armor').value,37);
+  g.combat.update(.01);let effects=enemyStatusState(enemy,g.towers,current);assert.equal(effects.find(row=>row.key==='slow'),undefined,'The actual Holy frost aura obeys Physical control immunity');assert.equal(enemy.armorShred,45);assert.equal(effects.find(row=>row.key==='armor').value,45);
   frost.attackPaused=true;armor.attackPaused=true;g.combat.update(.01);effects=enemyStatusState(enemy,g.towers,current);
-  assert.equal(enemy.armorShred,0);assert.equal(enemy.mvpArmorReduction,.1);assert.equal(effects.find(row=>row.key==='slow'),undefined);assert.equal(effects.find(row=>row.key==='armor').value,10);
-  assert.deepEqual(supportSourceAreas(frost,current).map(row=>row.key),['mvpArmor']);assert.deepEqual(supportSourceAreas(armor,current),[]);assert.ok(supportSourceAreas(cleric,current).some(row=>row.key==='detection'));
+  assert.equal(enemy.armorShred,0);assert.equal(enemy.mvpArmorReduction,undefined);assert.equal(effects.find(row=>row.key==='slow'),undefined);assert.equal(effects.find(row=>row.key==='armor'),undefined);
+  assert.deepEqual(supportSourceAreas(frost,current).map(row=>row.key),[]);assert.deepEqual(supportSourceAreas(armor,current),[]);assert.ok(supportSourceAreas(cleric,current).some(row=>row.key==='detection'));
 });
 
 test('run-local disarm duration and reach drive the actual attack block and its native marker without changing global defaults',()=>{
@@ -112,9 +106,9 @@ test('enemy dread, periodic disarm and stacking scorched barricades match the ac
   g.tick(3);assert.equal(towerSupportState(target,g.towers,data,{combat:g.combat}).byKey.dread,undefined,'Dread expires on its game-time deadline');
 });
 
-test('selected source radii use each real rule: support, burn enhanced range, frost, armor aura, detection and reactive frost',()=>{
+test('selected source radii use each real rule: support, independent burn range, frost, armor aura, detection and reactive frost',()=>{
   for(const tower of allUnits())for(const area of supportSourceAreas(tower,data,{towers:[tower]})){assert.ok(Number.isFinite(area.radius)&&area.radius>0);assert.ok(area.keys.length&&area.label&&area.glyph);}
-  const druid=unit('eldergrove',2),fire=unit('worldfire');assert.equal(supportSourceAreas(fire,data,{towers:[fire,druid]}).find(a=>a.key==='burn').radius,towerStats(fire,data).range+3);
+  const druid=unit('eldergrove',2),fire=unit('worldfire');assert.equal(supportSourceAreas(fire,data,{towers:[fire,druid]}).find(a=>a.key==='burn').radius,towerStats(fire,data).range);
   const bomber=unit('royalmarshal');assert.equal(supportSourceAreas(bomber,data).find(a=>a.key==='armor').radius,4);
   assert.equal(supportSourceAreas(unit('cleric'),data).find(a=>a.key==='detection').radius,6);
   assert.equal(supportSourceAreas(unit('archangel'),data).find(a=>a.key==='reaction').radius,6);

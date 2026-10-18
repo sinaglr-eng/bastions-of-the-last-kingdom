@@ -25,10 +25,10 @@ const button=(html,action)=>html.match(new RegExp(`<button[^>]*data-action="${ac
 test('Archer II→IV changes the displayed profile and recipe suggestions while actual Keep and cards stay II',()=>{
   const game=candidates(),control=candidates(),tower=game.selection,preview=new DefenderRankPreview(),images={'archer:2':'/archer-II.png','archer:4':'/archer-IV.png'};
   const key=drawKeeperKey(game,0),before=snapshot(game),render=()=>defenderPanelMarkup(game,tower,{images,rankPreview:preview});
-  let html=render();assert.deepEqual(['Damage / hit','Base direct DPS','Range','Interval'].map(label=>metric(html,label)),['12','48','4','0.25s']);
+  let html=render();assert.deepEqual(['Damage / hit','Base direct DPS','Range','Interval'].map(label=>metric(html,label)),['12','48','3.5','0.25s']);
   assert.match(html,/Targets 1 · No additional status effect/);assert.match(html,/aria-label="Keep Archer II">(?:<svg[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/svg>\s*)?Keep Archer II<\/button>/);
   assert.equal(preview.select(tower,4,data),true);html=render();
-  assert.deepEqual(['Damage / hit','Base direct DPS','Range','Interval'].map(label=>metric(html,label)),['48','192','4','0.25s']);
+  assert.deepEqual(['Damage / hit','Base direct DPS','Range','Interval'].map(label=>metric(html,label)),['48','192','3.5','0.25s']);
   assert.match(html,/src="\/archer-IV.png"[^>]*data-portrait-rank="4"/);assert.doesNotMatch(html.slice(0,html.indexOf('</header>')),/src="\/archer-II.png"/);
   assert.match(html,/Actual rank II · Candidate/);assert.match(html,/Preview rank IV · Actual rank II unchanged/);assert.match(html,/aria-label="Keep Archer II">(?:<svg[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/svg>\s*)?Keep Archer II<\/button>/);
   assert.deepEqual(optionIds(html),recipesUsing({...tower,tier:4},game.recipes).map(recipe=>recipe.id));assert.match(html,/Viewed rank IV recipes/);assert.doesNotMatch(html,/data-action="craft-dock"/);
@@ -50,9 +50,9 @@ test('actual direct DPS includes effective support/MVP while aura-only profiles 
   const game=candidates(),tower=game.selection;assert.equal(game.keep(),true);game.mvp.setLevel(tower,10);
   const source=Object.keys(data.towers).find(family=>data.towers[family].aura?.damageBonus);assert.ok(source);game.towers.push({id:999,family:source,tier:1,state:'active',x:tower.x,z:tower.z,mvpLevel:0});
   assert.ok(combatTowerStats(tower,game.towers,data).stats.damage>towerStats(tower,data).damage);
-  const effective=combatTowerStats(tower,game.towers,data),html=defenderPanelMarkup(game,tower,{peak:{dps:321}});assert.equal(Number(metric(html,'Damage / hit')),effective.stats.damage);assert.equal(Number(metric(html,'Direct DPS').replaceAll(',','')),effective.stats.damage/effective.stats.interval*effective.bonuses.haste);assert.match(html,/Own MVP \+100%/);assert.match(html,/Damage aura \+50%/);assert.match(html,/Measured peak · 321 DPS/);assert.match(html,/MVP Level: 10 \/ 10/);
+  const effective=combatTowerStats(tower,game.towers,data),html=defenderPanelMarkup(game,tower,{peak:{dps:321}});assert.equal(Number(metric(html,'Damage / hit')),effective.stats.damage);assert.equal(Number(metric(html,'Direct DPS').replaceAll(',','')),effective.stats.damage/effective.stats.interval*effective.bonuses.haste);assert.match(html,/Own MVP \+50%/);assert.match(html,/Damage aura \+50%/);assert.match(html,/Measured peak · 321 DPS/);assert.match(html,/MVP Level: 10 \/ 10/);
   const family=Object.keys(data.towers).find(family=>data.towers[family].burnAura&&data.towers[family].damage===0),aura={...tower,family,tier:1};
-  const auraHtml=defenderPanelMarkup(game,aura);assert.equal(metric(auraHtml,'Base direct DPS'),'0');assert.match(auraHtml,/Magical aura damage\/s per enemy within 6 tiles/);assert.equal((auraHtml.match(/aura damage\/s per enemy/g)||[]).length,1);assert.doesNotMatch(auraHtml,/data-action="preview-rank"/);assert.doesNotMatch(auraHtml.slice(0,auraHtml.indexOf('</header>')),/Actual rank I/);
+  const auraHtml=defenderPanelMarkup(game,aura);assert.equal(metric(auraHtml,'Base direct DPS'),'0');assert.match(auraHtml,/Magical aura damage\/s per enemy within 4.5 tiles/);assert.equal((auraHtml.match(/aura damage\/s per enemy/g)||[]).length,1);assert.doesNotMatch(auraHtml,/data-action="preview-rank"/);assert.doesNotMatch(auraHtml.slice(0,auraHtml.indexOf('</header>')),/Actual rank I/);
 });
 
 test('Build/Select share five selection cards and detail without hidden identity reads, duplicate commands or changed RNG',()=>{

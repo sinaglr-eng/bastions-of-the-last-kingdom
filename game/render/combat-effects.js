@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {CombatPathBatch} from './combat-path-batch.js';
 
 const ROOTS=new Set(['druid','greenheart','eldergrove','mothernature','rangermentor']);
 const DRAGONS=new Set(['embercrown','worldfire','thunderheart','phoenix']);
@@ -11,6 +12,9 @@ const secretFamily=family=>family==='ladyclaire'||family==='lordbernhard';
 export const attackVisualColor=(family,kind)=>secretFamily(family)?'#ffda72':ATTACK_COLORS[kind];
 export function attackVisualKind(family,stats={}){
   const presentation=stats.projectileEffect||stats.effect||stats.type;
+  if(['tempest','stormcitadel','royalarsenal'].includes(family))return 'arcane';
+  if(['rimewatch','winterhold','archangel'].includes(family))return 'frost';
+  if(family==='kingdomprotector')return 'holy';
   if(family==='runebreaker')return 'runic';
   if(family==='emeraldgolem')return 'stone';
   if(family==='mechanicalgolem')return 'dart';
@@ -161,36 +165,42 @@ function hammerStrike(color){
 /** Cosmetic presentation only; never updates projectile timing, targets or damage. */
 export class CombatEffects{
   constructor(scene,{position=(x,y,z)=>new THREE.Vector3(x,y,z),sourceHeight=1.5,targetHeight=enemy=>enemy?.flying?1.9:enemy?.boss?1.4:1,
-    getStats=()=>({}),getMuzzle=null,getSimulationTime=null,isVisible=()=>true,reducedMotion=false,maxEffects=48,maxProjectiles=96}={}){
+    getStats=()=>({}),getMuzzle=null,getSimulationTime=null,isVisible=()=>true,reducedMotion=false,maxEffects=48,maxProjectiles=96,maxDetailed=192,maxBreaths=8}={}){
     this.scene=scene;this.position=position;this.sourceHeight=sourceHeight;this.targetHeight=targetHeight;this.getStats=getStats;this.getMuzzle=getMuzzle;this.getSimulationTime=getSimulationTime;this.isVisible=isVisible;this.reducedMotion=reducedMotion;
     this.maxEffects=Math.max(1,Math.floor(maxEffects));this.maxProjectiles=Math.max(1,Math.floor(maxProjectiles));this.effects=[];this.projectiles=new Map();this.disposed=false;this.time=0;
+    this.maxDetailed=maxDetailed;this.maxBreaths=maxBreaths;this.paths=new CombatPathBatch(scene);this.procPaths=[];this.resolved=new WeakMap();this.dreadAccents=new Map();
   }
   motion(){return !(typeof this.reducedMotion==='function'?this.reducedMotion():this.reducedMotion);}
   visible(target){return !target||this.isVisible(target)!==false;}
-  animationClock(source,time=this.time){const simulation=secretFamily(source?.family)?this.getSimulationTime?.():null;return Number.isFinite(simulation)?simulation:time;}
+  animationClock(source,time=this.time){const simulation=this.getSimulationTime?.();return Number.isFinite(simulation)?simulation:time;}
   point(target,height){return this.position(target.x,height,target.z);}
   muzzle(source,fallback=source,options={}){
-    const out=new THREE.Vector3(),point=this.getMuzzle?.(source,out,options);
+    const kind=['embercrown','worldfire','thunderheart','phoenix','starfall'].includes(source?.family)?'mouth':['archer','thornwarden','verdantguard','royalranger','wyvernhunter','kingsrangerguard','elvenking'].includes(source?.family)?'nock':['mage','cleric','druid','frostwarden','stormcaller','tempest','stormcitadel','royalarsenal','greenheart','eldergrove','mothernature','rangermentor','sunward','monk','archbishop','archangel','ladyclaire'].includes(source?.family)?'staff':'weapon';
+    const out=new THREE.Vector3(),point=this.getMuzzle?.(source,out,{kind,...options});
     return point&&[point.x,point.y,point.z].every(Number.isFinite)?out.copy(point):this.point(fallback,this.sourceHeight);
   }
   addEffect(object,duration,animate,target=null){
     if(this.disposed||!this.visible(target)){disposeObject(object);return null;}
-    while(this.effects.length>=this.maxEffects)this.removeEffect(this.effects[0]);
-    sealMaterials(object);this.scene.add(object);const effect={object,duration,elapsed:0,animate,target};this.effects.push(effect);return effect;
+    while(this.effects.length&&(this.effects.length>=this.maxEffects||this.effects.length+this.projectiles.size>=this.maxDetailed))this.removeEffect(this.effects[0],true);
+    if(this.effects.length+this.projectiles.size>=this.maxDetailed){disposeObject(object);return null;}
+    sealMaterials(object);this.scene.add(object);const createdAt=this.getSimulationTime?.(),effect={object,duration,elapsed:0,createdAt:Number.isFinite(createdAt)?createdAt:null,animate,target};this.effects.push(effect);return effect;
   }
-  removeEffect(effect){disposeObject(effect.object);const index=this.effects.indexOf(effect);if(index>=0)this.effects.splice(index,1);}
+  removeEffect(effect,fallback=false){if(fallback&&effect.pathPacket&&this.procPaths.length<4096)this.procPaths.push({payload:effect.pathPacket,at:effect.createdAt??this.time});disposeObject(effect.object);const index=this.effects.indexOf(effect);if(index>=0)this.effects.splice(index,1);}
   removeProjectile(id){const record=this.projectiles.get(id);if(record){disposeObject(record.object);this.projectiles.delete(id);}}
   shot(shot){
     if(this.disposed||!shot?.source||!shot.target||!this.visible(shot.target))return null;
     if(this.projectiles.has(shot.id))return this.projectiles.get(shot.id);
-    if(this.projectiles.size>=this.maxProjectiles)return null;
+    if(this.projectiles.size>=this.maxProjectiles||this.projectiles.size+this.effects.length>=this.maxDetailed)return null;
     const stats=shot.stats||this.getStats(shot.source),damageKind=attackVisualKind(shot.source.family,stats);
     // These approved physical weapons stab along their shaft. Keep the same
     // combat packet and timing while displaying a narrow forward impact.
-    const spear=damageKind==='melee'&&(['frostblade','roseguard'].includes(shot.source.family)||shot.source.family==='soldier'&&shot.source.tier===1);
+    const spear=damageKind==='melee'&&['soldier','frostblade','roseguard'].includes(shot.source.family);
     const kind=spear?'thrust':damageKind,color=attackVisualColor(shot.source.family,kind);
-    const lobbed=kind==='siege'&&LOBBED.has(shot.source.family),physicalBolt=kind==='frost'&&shot.source.family==='rimewatch';
-    const object=physicalBolt?frostBolt(color):kind==='roots'?thorns(color):kind==='flame'?flameStream(color):kind==='lightning'?zigzag(color):kind==='melee'?slash(color):kind==='thrust'?spearImpact(color):kind==='hammer'?hammerStrike(color):kind==='runic'?runicBolt(color):kind==='stone'?stoneShard(color):kind==='dart'?toxicDart(color):kind==='venomArrow'?arrow(color,true):lobbed?bomb(color):kind==='arrow'||kind==='siege'?arrow(color):spell(kind,color);
+    const lobbed=kind==='siege'&&LOBBED.has(shot.source.family),physicalBolt=false;
+    if(kind==='flame'&&this.breathCount()>=this.maxBreaths)return null;
+    const object=physicalBolt?frostBolt(color):kind==='roots'?spell('poison',color):kind==='flame'?flameStream(color):kind==='lightning'?zigzag(color,'Primary electric shot'):kind==='melee'?slash(color):kind==='thrust'?spearImpact(color):kind==='hammer'?hammerStrike(color):kind==='runic'?runicBolt(color):kind==='stone'?stoneShard(color):kind==='dart'?bomb(color):kind==='venomArrow'?arrow(color,true):lobbed?bomb(color):kind==='arrow'||kind==='siege'?arrow(color):spell(kind,color);
+    if(kind==='dart')object.name='Hand-thrown toxic canister';
+    if(shot.source.family==='stonewarden'){object.name='Sling-released catapult stone';object.children.forEach(child=>{if(child.name==='Visible bomb fuse'||child.name==='Bomb fuse spark')child.visible=false;});}
     if(secretFamily(shot.source.family))object.name=shot.source.family==='lordbernhard'?'Sword-released golden magical bolt':'Staff-released golden spell';
     if(kind==='siege'&&!lobbed)object.scale.setScalar(1.4);
     sealMaterials(object);this.scene.add(object);const record={object,kind,shot,stats,color,lobbed,physicalBolt,origin:this.muzzle(shot.source,shot.start||shot.source)};this.projectiles.set(shot.id,record);this.poseProjectile(record,this.time);
@@ -206,9 +216,7 @@ export class CombatEffects{
     const {object,kind,shot,lobbed}=record,p=clampProgress(shot.progress),motion=this.motion();
     time=this.animationClock(shot.source,time);
     const start=kind==='flame'?this.muzzle(shot.source,shot.start||shot.source):record.origin,end=this.point(shot.target,this.targetHeight(shot.target));
-    if(kind==='roots'){
-      object.position.copy(this.point(shot.target,.03));object.scale.setScalar(1);object.scale.y=motion ? .16+.84*Math.sin(Math.min(1,p*1.35)*Math.PI/2) : .85;
-    }else if(kind==='lightning'){
+    if(kind==='lightning'){
       animateZigzag(object,start,start.clone().lerp(end,Math.max(.08,p)),time,shot.id||0,motion);
     }else if(kind==='flame'){
       orientY(object,start,end);animateBreath(object,time*2.8,motion);
@@ -231,25 +239,31 @@ export class CombatEffects{
   syncProjectiles(shots,time=this.time){
     if(this.disposed)return;this.time=Number.isFinite(time)?time%1e6:0;
     for(const effect of [...this.effects])if(!this.visible(effect.target))this.removeEffect(effect);
-    const visibleShots=shots.filter(shot=>this.visible(shot.target)).slice(0,this.maxProjectiles);
+    const visibleShots=shots.filter(shot=>this.visible(shot.target));
     const active=new Set(visibleShots.map(shot=>shot.id));
     for(const id of this.projectiles.keys())if(!active.has(id))this.removeProjectile(id);
-    for(const shot of visibleShots){const record=this.shot(shot);if(record){record.shot=shot;this.poseProjectile(record,this.time);}}
+    const paths=[];
+    for(const shot of visibleShots){const record=this.shot(shot);if(record){record.shot=shot;this.poseProjectile(record,this.time);}else{const from=this.muzzle(shot.source,shot.start||shot.source),end=this.point(shot.target,this.targetHeight(shot.target)),kind=attackVisualKind(shot.source.family,shot.stats||this.getStats(shot.source));paths.push({from,to:from.clone().lerp(end,clampProgress(shot.progress)),color:attackVisualColor(shot.source.family,kind)});}}
+    this.procPaths=this.procPaths.filter(row=>this.time-row.at<.24&&this.visible(row.payload.from)&&this.visible(row.payload.to));
+    for(const row of this.procPaths){const p=row.payload;paths.push({from:p.from.family?this.muzzle(p.from):this.point(p.from,this.targetHeight(p.from)),to:this.point(p.to,this.targetHeight(p.to)),color:p.effect==='frost'?ATTACK_COLORS.frost:p.color||ATTACK_COLORS.lightning});}
+    this.paths.sync(paths);
   }
   impact(payload){
     if(this.disposed||!this.visible(payload.target))return;
     const stats=payload.stats||{},kind=payload.effect==='fire'||payload.aura&&stats.burnAura?'flame':payload.effect==='poison'?'roots':attackVisualKind(payload.source?.family,{...stats,projectileEffect:payload.effect||stats.projectileEffect}),color=attackVisualColor(payload.source?.family,kind);
-    const centre=this.position(payload.x,.04,payload.z),radius=Math.min(1.1,Math.max(.28,payload.radius||.4));
-    const object=kind==='roots'?thorns(color):new THREE.Group();object.name=`${kind} attack impact`;object.position.copy(centre);
-    if(kind!=='roots')object.add(groundRing(color,radius));
-    if(kind!=='roots'){
+    if(payload.aura)return; // Sparse actual victim heat belongs to the reconciled status batch.
+    const result=this.resolved.get(payload.target)?.get(payload.source?.id),blocked=result&&result.effectiveDamage<=0;
+    const centre=payload.target?this.point(payload.target,this.targetHeight(payload.target)):this.position(payload.x,.04,payload.z),radius=blocked?.18:Math.min(.55,Math.max(.18,payload.radius||.3)),tint=blocked?'#9aa6a4':color;
+    const object=new THREE.Group();object.name=blocked?'Resolved blocked contact':`${kind} attack impact`;object.position.copy(centre);
+    object.add(groundRing(tint,radius));
+    {
       const shardGeometry=kind==='frost'?new THREE.ConeGeometry(.035,.24,4):new THREE.OctahedronGeometry(.044,0),sparkMat=material(color,.88,true);
+      if(blocked)sparkMat.color.set(tint);
       const sparks=new THREE.InstancedMesh(shardGeometry,sparkMat,8);sparks.name=`${kind} impact sparks`;sparks.raycast=noRaycast;sparks.frustumCulled=false;object.add(sparks);
     }
     const duration=kind==='roots' ? .62 : kind==='siege'||kind==='flame' ? .48 : .28;
     this.addEffect(object,duration,(effect,p,motion)=>{
-      if(kind==='roots'){effect.scale.y=motion?Math.sin(p*Math.PI)*1.15:.8;}
-      else{
+      {
         effect.children[0].scale.setScalar(motion ? .55+p*1.15 : 1);
         const sparks=effect.children[1],pose=impactPose;
         for(let i=0;i<8;i++){
@@ -261,38 +275,57 @@ export class CombatEffects{
     },payload.target);
   }
   breath(payload){
-    if(!payload.source||!payload.target||!this.visible(payload.target))return;
+    if(!payload.source||!payload.target||!this.visible(payload.target)||this.breathCount()>=this.maxBreaths)return;
     const object=flameStream(ATTACK_COLORS.flame),start=this.muzzle(payload.source,payload.source,{breath:true}),end=this.point(payload.target,this.targetHeight(payload.target));
     orientY(object,start,end);
-    this.addEffect(object,.57,(effect,p,motion)=>{
+    const effect=this.addEffect(object,.57,(effect,p,motion)=>{
       // Follow the target without changing its combat location or the actor's aim.
       orientY(effect,this.muzzle(payload.source,payload.source,{breath:true}),this.point(payload.target,this.targetHeight(payload.target)));
       animateBreath(effect,p*2,motion);
       fadeObject(effect,Math.sin(Math.PI*Math.min(1,p*1.1))*.85);
-    },payload.target);
+    },payload.target);if(effect)effect.breath=true;
+  }
+  breathCount(){return this.effects.filter(e=>e.breath).length+[...this.projectiles.values()].filter(p=>p.kind==='flame').length;}
+  recover(payload){
+    if(!(payload.amount>0)||!payload.source)return;
+    const object=new THREE.Group();object.name='Confirmed keep recovery';const start=this.muzzle(payload.source);
+    for(let i=0;i<3;i++)object.add(mesh(new THREE.OctahedronGeometry(.045,0),material(i?'#b4eab7':'#ffe3a1',.7,true),'Actual recovery mote'));
+    object.position.copy(start);this.addEffect(object,.42,(effect,p,motion)=>{effect.position.copy(start);effect.children.forEach((m,i)=>{const a=i*Math.PI*2/3;m.position.set(Math.cos(a)*.12,(motion?p:.5)*.5,Math.sin(a)*.12);});fadeObject(effect,1-p);});
+  }
+  dread(payload){
+    const {enemy,source}=payload,clock=this.animationClock(source);
+    if(!(payload.effectiveDamage>0)||payload.visible===false||!enemy?.untouchable||source?.dread?.source!==enemy||!(source.dread.until>clock)||!this.visible(enemy))return;
+    if(clock-(this.dreadAccents.get(source.id)??-Infinity)<.3)return;
+    this.dreadAccents.set(source.id,clock);const object=zigzag('#b69acb','Actual Dread reaction tether');
+    const record=this.addEffect(object,.18,(effect,p,motion)=>{animateZigzag(effect,this.point(enemy,this.targetHeight(enemy)),this.muzzle(source),clock,source.id,motion);fadeObject(effect,(1-p)*.45);},enemy);if(record)record.endpoints=[enemy,source];
   }
   chain(payload){
-    if(!payload.from||!payload.to||!this.visible(payload.from)||!this.visible(payload.to))return;
-    const object=zigzag(payload.color||ATTACK_COLORS.lightning,'Jumping elemental lightning');
+    if(payload.visible===false||!payload.from||!payload.to||!this.visible(payload.from)||!this.visible(payload.to))return;
+    if(this.effects.length>=this.maxEffects||this.effects.length+this.projectiles.size>=this.maxDetailed){if(this.procPaths.length<4096)this.procPaths.push({payload,at:this.animationClock(payload.source)});return;}
+    const frost=payload.effect==='frost',fork=!!payload.from.family;
+    const object=frost?spell('frost',ATTACK_COLORS.frost):zigzag(payload.color||ATTACK_COLORS.lightning,fork?'Actual source fork branch':'Actual enemy chain link');
     // Subsequent enemy-to-enemy chain packets carry the original tower colour,
     // rather than its reference. This palette belongs to the two Secret towers.
     const source=secretFamily(payload.from.family)?payload.from:payload.color==='#ffd969'?{family:'ladyclaire'}:null;
-    this.addEffect(object,.24,(effect,p,motion)=>{animateZigzag(effect,secretFamily(payload.from.family)?this.muzzle(payload.from):this.point(payload.from,.9),this.point(payload.to,this.targetHeight(payload.to)),this.animationClock(source),payload.to.id||0,motion);fadeObject(effect,1-p);},payload.to);
+    const record=this.addEffect(object,.24,(effect,p,motion)=>{const start=payload.from.family?this.muzzle(payload.from):this.point(payload.from,this.targetHeight(payload.from)),end=this.point(payload.to,this.targetHeight(payload.to));if(frost){effect.position.lerpVectors(start,end,p);effect.scale.setScalar(.8);}else animateZigzag(effect,start,end,this.animationClock(source),payload.to.id||0,motion);fadeObject(effect,1-p);},payload.to);if(record){record.endpoints=[payload.from,payload.to];record.pathPacket=payload;}
   }
   event(type,payload={}){
     if(this.disposed)return;
+    if(type==='damage-trace'&&payload.enemy){let bySource=this.resolved.get(payload.enemy);if(!bySource){bySource=new Map();this.resolved.set(payload.enemy,bySource);}bySource.set(payload.source?.id,payload);this.dread(payload);}
     if(type==='shot')this.shot(payload);
     else if(type==='impact')this.impact(payload);
     else if(type==='aura-attack'&&((payload.stats||this.getStats(payload.source)).burnAura||attackVisualKind(payload.source?.family,payload.stats||this.getStats(payload.source))==='flame'))this.breath(payload);
     else if(type==='chain')this.chain(payload);
+    else if(type==='recover')this.recover(payload);
   }
   update(dt,time=this.time){
     if(this.disposed)return;this.time=Number.isFinite(time)?time%1e6:0;const elapsed=Number.isFinite(dt)?Math.max(0,dt):0;
     for(const effect of [...this.effects]){
-      effect.elapsed+=elapsed;
-      if(effect.elapsed>=effect.duration||!this.visible(effect.target)){this.removeEffect(effect);continue;}
+      effect.elapsed=effect.createdAt===null?effect.elapsed+elapsed:Math.max(0,this.animationClock(null)-effect.createdAt);
+      if(effect.elapsed>=effect.duration||!this.visible(effect.target)||effect.endpoints?.some(e=>!this.visible(e))){this.removeEffect(effect);continue;}
       effect.animate(effect.object,clampProgress(effect.elapsed/effect.duration),this.motion());
     }
   }
-  dispose(){if(this.disposed)return;for(const id of [...this.projectiles.keys()])this.removeProjectile(id);for(const effect of [...this.effects])this.removeEffect(effect);this.disposed=true;}
+  clear(){for(const id of [...this.projectiles.keys()])this.removeProjectile(id);for(const effect of [...this.effects])this.removeEffect(effect);this.procPaths=[];this.paths.clear();this.resolved=new WeakMap();this.dreadAccents.clear();}
+  dispose(){if(this.disposed)return;this.clear();this.paths.dispose();this.disposed=true;}
 }

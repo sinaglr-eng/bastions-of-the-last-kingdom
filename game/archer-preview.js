@@ -8,7 +8,7 @@ import {createChampionAura,animateChampionAura,disposeChampionAura} from './rend
 import {animateSecretChampion} from './render/secret-champions.js';
 import {animateGeometricOrbits} from './render/geometric-orbits.js';
 import {cloneDefenderTemplate,disposeDefenderInstance} from './render/defender-assets.js';
-import {attackRig,attackMuzzle,disposeAttack,previewGeometricAttack,updateGeometricPreview,resetAttack} from './render/battle-animation.js';
+import {attackRig,attackMuzzle,disposeAttack,previewGeometricAttack,updateGeometricPreview,resetAttack,animateAttack} from './render/battle-animation.js';
 import {towerStats} from './core/math.js';
 import balance from '../data/balance.json';
 import {previewSecretAttack,updateSecretPreview,resetSecretAnimation} from './render/secret-animation.js';
@@ -20,9 +20,11 @@ import historicalWaves from '../data/waves.json';
 import originalSources from '../public/assets/geometric/source-manifest.json';
 import basicManifest from '../public/assets/geometric/geometric-defenders.json';
 import championManifest from '../public/assets/geometric/geometric-champions.json';
+import enemyManifest from '../public/assets/geometric/geometric-enemies.json';
+import {prepareApprovedMotionTemplate} from './render/approved-model-motion.js';
 import {prepareReconstructedDefender} from './render/reconstruction-adapter.js';
 import {atelierRankColors,atelierRankEquipment,atelierAuraDescriptions,galleryEnemyProperties,approvedCharacterName} from './render/atelier-copy.js';
-import {geometricEntries} from './render/geometric-assets.js';
+import {geometricEntries,geometricEntryUrl} from './render/geometric-assets.js';
 import {basicFamilyFrame} from './render/atelier-framing.js';
 import {campaignTowers,campaignEnemies,campaignWaves} from './core/campaign-roster.js';
 import {atelierEnemyRoster,atelierSelection,atelierSelectionQuery} from './core/atelier-roster.js';
@@ -40,15 +42,20 @@ import '../ui/portrait-visibility.css';
 const basicFrames=geometricEntries(basicManifest);
 const modelEntries=new Map([...basicFrames,...geometricEntries(championManifest)].map(entry=>[entry.id,entry]));
 const towers=Object.fromEntries(Object.entries(campaignTowers(historicalTowers)).map(([id,definition])=>[id,{...definition,name:approvedCharacterName(modelEntries.get(definition.advanced?id:`${id}-1`),definition.name)}]));
-const enemyRows=atelierEnemyRoster(campaignEnemies(historicalEnemies),campaignWaves(historicalWaves));
+const enemyEntries=new Map(geometricEntries(enemyManifest).map(entry=>[entry.id,entry]));
+const campaignEnemyRows=atelierEnemyRoster(campaignEnemies(historicalEnemies),campaignWaves(historicalWaves));
+const enemyRows=[...enemyEntries.values()].map(entry=>{
+ const base=campaignEnemyRows.find(row=>row.id===entry.id.split('-')[0]);
+ return {...base,id:entry.id,visualAsset:entry.id,name:entry.name||base.name};
+});
 const enemies=Object.fromEntries(enemyRows.map(row=>[row.id,row]));
 const initial=atelierSelection(location.search,towers,enemies);
 let roster=initial.roster,family=initial.id;
 const isEnemy=()=>roster==='enemies',members=()=>isEnemy()?enemies:towers;
 const lastSelection={defenders:roster==='defenders'?family:'archer',enemies:roster==='enemies'?family:enemyRows[0].id};
 const roman=['I','II','III','IV','V','VI'],colors=atelierRankColors,rankEquipment=atelierRankEquipment;
-const portrait=(id,tier=1)=>enemies[id]?enemyPortrait(id):defenderPortrait(id,tier);
-const asset=(id,rank)=>releaseAsset(isEnemy()?`assets/geometric/enemies/${id}.glb`:geometricModelPath(id,rank,towers[id].advanced));
+const portrait=(id,tier=1)=>enemies[id]?enemyPortrait(id.split('-')[0]):defenderPortrait(id,tier);
+const asset=(id,rank)=>isEnemy()?geometricEntryUrl(enemyEntries.get(id)):releaseAsset(geometricModelPath(id,rank,towers[id].advanced));
 const basicCount=Object.values(towers).filter(t=>!t.advanced).length,championCount=Object.values(towers).filter(t=>t.advanced).length;
 const variantCount=basicCount*6+championCount;
 document.querySelector('#atelier').innerHTML=`
@@ -88,7 +95,7 @@ document.querySelector('.stage-heading').append(viewPresets);
 viewPresets.addEventListener('click',event=>{const button=event.target.closest('[data-view]');if(!button)return;if(wallsVisible)toggleWalls();controls.autoRotate=false;document.querySelector('#rotate').setAttribute('aria-pressed','false');const angle=Number(button.dataset.angle)*Math.PI/180;controls.target.copy(viewCentre);camera.position.copy(viewCentre).add(new THREE.Vector3(5*Math.sin(angle),1.06,-5*Math.cos(angle)).multiplyScalar(viewRadius));controls.update();viewPresets.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));});
 const previewTarget={id:-2,x:0,z:-2.5},previewTargetMesh=new THREE.Mesh(new THREE.TorusGeometry(.15,.018,4,24),new THREE.MeshBasicMaterial({color:'#ffe9b5',transparent:true,opacity:.8,depthWrite:false,toneMapped:false}));
 previewTargetMesh.name='Atelier spell target';previewTargetMesh.position.set(previewTarget.x,1,previewTarget.z);previewTargetMesh.visible=false;scene.add(previewTargetMesh);
-const previewEffects=new CombatEffects(scene,{sourceHeight:1.5,getMuzzle:(_source,out)=>attackMuzzle(modelAttack,out),maxEffects:8,maxProjectiles:2,reducedMotion:()=>!!reducedMotion?.matches});
+const previewEffects=new CombatEffects(scene,{sourceHeight:1.5,getMuzzle:(_source,out,options)=>attackMuzzle(modelAttack,out,options),maxEffects:8,maxProjectiles:2,reducedMotion:()=>!!reducedMotion?.matches});
 const reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
 const auraDescriptions=atelierAuraDescriptions;
 const wallGroup=new THREE.Group();wallGroup.visible=false;
@@ -135,19 +142,19 @@ function setEffectVisibility(){
  if(enemyPreview)updateAtelierEnemyPreview(enemyPreview,0,{reducedMotion:!!reducedMotion?.matches,showEffects:effectsVisible});
 }
 async function showRank(rank){
- selected=rank;const request=++sequence,selectedFamily=family,selectedRoster=roster,definition=members()[family],enemy=isEnemy(),advanced=!enemy&&definition.advanced,url=asset(family,rank),entry=enemy?null:modelEntries.get(advanced?family:`${family}-${rank}`);
+ selected=rank;const request=++sequence,selectedFamily=family,selectedRoster=roster,definition=members()[family],enemy=isEnemy(),advanced=!enemy&&definition.advanced,url=asset(family,rank),entry=enemy?enemyEntries.get(family):modelEntries.get(advanced?family:`${family}-${rank}`);
  clearModel();host.dataset.modelIdentity='';host.setAttribute('aria-busy','true');renderer.render(scene,camera);animationControls.hidden=true;document.title=`${definition.name}${enemy?` · wave ${definition.wave}`:advanced?'':` ${roman[rank-1]}`} · Royal Atelier`;
  history.replaceState(null,'',location.pathname+atelierSelectionQuery({roster,id:family,tier:rank}));
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelector('#selected-rank').textContent=enemy?`WAVE ${definition.wave} · ${definition.flying?'FLIGHT':'WALK'}`:advanced?`${championClassification(family).toUpperCase()} · CHAMPION`:`${defenderCode(definition,rank)} · ${colors[rank-1].toUpperCase()}`;
  document.querySelector('#rank-detail').textContent=enemy?`${definition.hp} HP · ${definition.armor||0} armor · speed ${definition.speed}. ${galleryEnemyProperties(definition).join(' · ')||'No special resistances.'}`:advanced?`${family==='archangel'?'Gold and ivory equipment with a bright gold aura.':auraDescriptions[championAuraLevel(family)]} Find the recipe in the game Grimoire.`:`${rankEquipment[family]?.[rank-1]||''} ${rank===6?'Ivory and gold equipment, a radiant aura and orbiting sparks. Mythic rank is obtained by merging two rank V units.':`${colors[rank-1]} equipment and a colored base rim. The unit card uses the same rank color.`}`;
  document.querySelector('#download-model').href=url;document.querySelector('#download-portrait').href=portrait(family,rank);
- const sourceId=!enemy&&!advanced?`${family}-${rank}`:family,source=originalSources.find(row=>row.id===sourceId);
+ const sourceId=enemy?family.split('-')[0]:!advanced?`${family}-${rank}`:family,source=originalSources.find(row=>row.id===sourceId);
  referenceLink.href=siteUrl(source.publicPath||`geometric-turnarounds-v1/${source.file}`);
  referenceLink.title=source.currentModelReconstruction?'The exact approved authoring concept used for this reconstruction.':'Historical geometric source reference.';
  document.querySelector('#load-status').textContent='Loading approved Blender model…';
  try{
-  if(!cache.has(url))cache.set(url,loader.loadAsync(url).then(decoded=>{if(atelierDisposed){disposeDecodedGeometricAsset(decoded);throw new Error('Atelier closed');}decoded.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});prepareReconstructedDefender(decoded.scene,entry);optimizeGeometricSiblings(decoded.scene,{animations:decoded.animations});return decoded;}).catch(error=>{cache.delete(url);throw error;}));
+  if(!cache.has(url))cache.set(url,loader.loadAsync(url).then(decoded=>{if(atelierDisposed){disposeDecodedGeometricAsset(decoded);throw new Error('Atelier closed');}decoded.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});if(!prepareApprovedMotionTemplate(decoded.scene,entry)){prepareReconstructedDefender(decoded.scene,entry);optimizeGeometricSiblings(decoded.scene,{animations:decoded.animations});}return decoded;}).catch(error=>{cache.delete(url);throw error;}));
   const gltf=await cache.get(url);if(request!==sequence||selectedFamily!==family||selectedRoster!==roster||atelierDisposed)return;
   gltf.scene.animations=gltf.animations;
   if(enemy){enemyPreview=createAtelierEnemyPreview(scene,definition,gltf.scene,{camera,balance});model=enemyPreview.figure;}
@@ -188,6 +195,7 @@ function frame(now){
  if(enemyPreview)updateAtelierEnemyPreview(enemyPreview,animationDt,{reducedMotion:!!reducedMotion?.matches,showEffects:effectsVisible&&!wallsVisible});
  else if(model){
   animateRank(model,previewClock);
+  if(modelAttack?.approved&&modelAttack.stage!=='preview')animateAttack(modelAttack,animationDt,previewClock,{combat:false,reducedMotion:!!reducedMotion?.matches});
   if(modelAttack?.native||modelAttack?.geometric){
    const updater=modelAttack.geometric?updateGeometricPreview:updateSecretPreview,rig=modelAttack.geometric?modelAttack:modelAttack.native;
    updater(rig,animationDt,{reducedMotion:!!reducedMotion?.matches,onRelease:({elapsedAfterRelease})=>{

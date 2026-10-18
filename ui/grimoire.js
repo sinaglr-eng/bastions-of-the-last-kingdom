@@ -1,4 +1,4 @@
-import {towerStats} from '../game/core/math.js';
+import {towerStats,offensiveAuraRange} from '../game/core/math.js';
 import {rankColor} from '../game/render/ranks.js';
 import {rankLabel,recipeFamily,recipeTier,recipeLabel,recipeProgress,expandedRecipeProgress,recipeTreeProgress} from '../game/core/recipes.js';
 import {displayDefenderCode as defenderCode} from './recipe-navigation.js';
@@ -38,10 +38,11 @@ export function abilityLines(s){
   if(s.poisonDps||s.poison)parts.push(`${formatTowerNumber(s.poisonDps||s.damage*s.poison)} ${damageTypeName(effectDamageType(s,'poison'))} poison damage/s per successful hit; each hit adds an independent 5s stack`);
   if(s.burnDps||s.burn)parts.push(`${formatTowerNumber(s.burnDps||s.damage*s.burn)} ${damageTypeName(effectDamageType(s,'burn'))} burning damage/s for ${s.dotDuration||3}s; strongest burn applies`);
   if(s.shred)parts.push(`−${s.shred} enemy armor · 4s`);
+  if(s.groundOnly)parts.push('Direct attacks affect ground targets only');
   if(s.spreadEffect)parts.push(`Unmarked targets first; then selected priority`);
   if(s.armorShredAura)parts.push(`−${s.armorShredAura} enemy armor aura · ${s.effectRange??s.range} tiles`);
-  if(s.antiAirShred)parts.push(`Flying targets: −${s.antiAirShred} armor · ${Math.round(s.antiAirSlow*100)}% slow · ${s.slowDuration||3}s (armor reduction lasts 4s)`);
-  else if(s.antiAirSlow)parts.push(`Flying targets: ${Math.round(s.antiAirSlow*100)}% slow`);
+  if(s.antiAirShred)parts.push(`Flying targets: −${s.antiAirShred} armor · ${Math.round(s.antiAirSlow*100)}% slow · ${s.slowDuration||2}s (armor reduction lasts 4s)`);
+  else if(s.antiAirSlow)parts.push(`Flying targets: ${Math.round(s.antiAirSlow*100)}% slow for ${s.slowDuration||2}s`);
   if(s.freeze)parts.push(`${Math.round(s.freeze*100)}% stun chance · ${s.freezeDuration||.8}s (half duration on warlords)${s.stunRecovery?` · ${s.stunRecovery}s recovery`:''}`);
   if(s.trueStrike)parts.push('Ignores evasion');
   if(s.slow)parts.push(`${Math.round(s.slow*100)}% movement slow for ${s.slowDuration||2}s${s.effectsRadius?` · also within ${s.effectsRadius} tiles of the target`:''}`);
@@ -55,8 +56,8 @@ export function abilityLines(s){
   if(s.aura?.rangeBonus)parts.push(`+${formatTowerNumber(s.aura.rangeBonus)} ally range within ${auraRange} tiles; strongest bonus applies`);
   if(s.aura?.trueStrike)parts.push(`Allies ignore evasion within ${auraRange} tiles`);
   if(s.aura?.controlResistance)parts.push(`${Math.round(s.aura.controlResistance*100)}% protection from disarm and dread for allies within ${auraRange} tiles`);
-  if(s.burnAura)parts.push(`${formatTowerNumber(s.burnAura)} ${damageTypeName(effectDamageType(s,'burn'))} fire damage/s within ${s.range} tiles`);
-  if(s.slowAura)parts.push(`${Math.round(s.slowAura*100)}% movement slow aura within ${s.range} tiles`);
+  if(s.burnAura)parts.push(`${formatTowerNumber(s.burnAura)} ${damageTypeName(effectDamageType(s,'burn'))} fire damage/s within ${offensiveAuraRange(s,'burn')} tiles`);
+  if(s.slowAura)parts.push(`${Math.round(s.slowAura*100)}% movement slow aura within ${offensiveAuraRange(s,'slow')} tiles${s.slowAuraGroundOnly?' · ground only':''}`);
   if(s.critChance)parts.push(`${Math.round(s.critChance*100)}% chance of ×${s.critMultiplier} damage`);
   if(s.chain)parts.push(`${Math.round((s.chainChance||1)*100)}% chance of lightning hitting ${s.chain} other enemies within ${s.chainRange||4} tiles${s.chainSequential?' per jump':''}; ${formatTowerNumber(s.chainDamage||s.damage*.55)} ${damageTypeName(s.type)} damage each`);
   if(s.forkedTargets)parts.push(`${Math.round((s.forkedChance||1)*100)}% forked lightning · ${s.forkedTargets} targets within ${s.forkedRange||10} tiles · ${formatTowerNumber(s.forkedDamage)} ${damageTypeName(effectDamageType(s,'lightning'))} damage each`);
@@ -117,6 +118,6 @@ export function championRecipeCard(recipe,data,images,{towerList=[],pinned=false
   </article>`;
 }
 export function defenderGuide(data,images,{championsIntro=true,compact=false}={}){
-  const explanation='<p>Physical, Magical and Holy damage all face armor. Magical immunity blocks Magical damage, poison, burning and healing block; Physical immunity blocks Physical damage, slowing and freezing. Only Holy damage ignores these immunities; companion effects retain their normal immunity categories. Evasion, shields and direct-hit shells still apply to all three types. Poison stacks independently for 5s per successful hit.</p><p>Open a defender to compare every rank. Ranks I–IV merge only matching recruits among the current round’s five placed candidates. Two same-family Royal V defenders create a Mythic VI between waves, including retained pairs or a retained defender plus a current candidate. Using a current candidate requires all five placements and commits this round’s keeper; a retained-only pair preserves the pending draft. Mythic units are earned through merging.</p>';
+  const explanation='<p>Physical, Magical and Holy damage all face armor. Magical immunity blocks Magical damage, poison, burning and healing block; Physical immunity blocks Physical damage, slowing and freezing. Only Holy damage ignores these immunities; companion effects retain their normal immunity categories. Evasion, shields and direct-hit shells still apply to all three types. Poison stacks independently for 5s per successful hit.</p><p>Open a defender to compare every rank. Ranks I–IV merge only matching recruits among the current round’s five placed candidates. Mythic VI requires two freshly drawn, same-family Royal V defenders in the same completed unresolved draft. Returning reserved defenders and retained defenders cannot create VI. The merge commits this round’s keeper.</p>';
   return `<section class="defender-guide ${compact?'compact-defender-guide':''}"><h3>Eight defenders. Six ranks.</h3>${compact?`<details class="catalog-guide-explanation" data-catalog-disclosure="basic-explanation"><summary>How ranks and damage work</summary>${explanation}</details>`:explanation}<div class="defender-roster">${Object.entries(data.towers).filter(([,s])=>!s.advanced).map(([family,s])=>`<details class="defender-entry" data-filter-family="${family}" data-catalog-disclosure="basic:${family}"><summary><img src="${images[family]||''}" alt="${s.name}"><span><strong>${s.name}</strong><small>${defenderCode(s)}</small><em>${family==='mage'?'Magical cleave':s.role}</em></span></summary><p>${runtimeDefenderDescription(towerStats({family,tier:1},data),{family})}</p><div class="rank-scroll"><table><thead><tr><th>Rank</th><th>Damage</th><th>Base DPS</th><th>Interval</th><th>Range</th><th>Ability</th></tr></thead><tbody>${s.levels.map((_,i)=>{const t=towerStats({family,tier:i+1},data);return `<tr data-filter-tier="${i+1}"><td style="color:${rankColor(i+1)}"><img class="rank-mini" src="${images[`${family}:${i+1}`]||''}" alt="${s.name}, rank ${ROMAN[i]}">${defenderCode(s,i+1)}</td><td>${formatTowerNumber(t.damage)}</td><td>${formatTowerNumber(baseAttackDps(t))}</td><td>${formatTowerNumber(t.interval)}s</td><td>${t.range}</td><td>${abilityText(t)}</td></tr>`;}).join('')}</tbody></table></div></details>`).join('')}</div></section>${championsIntro?`<h3 class="recipe-title">Champion recipes</h3><p>${Object.values(data.towers).filter(s=>s.advanced).length} champions. Each recipe consumes exactly three defenders of the stated ranks. Secret champions require all three ingredients among the current round’s five new defenders; ordinary recipes can use previously retained units.</p><p class="dps-explanation">${BASE_DPS_NOTE}</p>`:''}`;
 }

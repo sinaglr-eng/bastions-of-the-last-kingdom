@@ -33,7 +33,7 @@ export function keepDrawKeeper(game,index,expectedId,expectedKey){
 const mergeGameIds=new WeakMap();let nextMergeGameId=1;
 // A visible merge button describes a specific eligible pair and inventory.
 // Keep that description so a stale pointer release cannot merge a changed
-// pair or use a different foundation, including retained Rank V defenders.
+// pair or use a different foundation.
 export function mergeTowerKey(game,towerId){
   if(game.moveSelection)return null;
   const tower=game.towers.find(candidate=>candidate.id===towerId);if(!tower)return null;

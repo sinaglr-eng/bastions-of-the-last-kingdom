@@ -16,7 +16,7 @@ export function selectedEnemyView(enemy,{data,combat}={}){
   if(!enemy||enemy.dead||!Number.isSafeInteger(enemy.id)||enemy.id<=0||!combat?.enemies?.includes(enemy)||combat.game&&!['combat','won','lost'].includes(combat.game.phase)||typeof combat.isRevealed!=='function'||!combat.isRevealed(enemy))return null;
   const maxHp=Math.max(0,finite(enemy.maxHp)),hp=clamp(finite(enemy.hp),0,maxHp);
   const baseArmor=finite(enemy.armor),reactive=Math.max(0,finite(enemy.reactiveArmor)*finite(enemy.reactiveStacks)),shred=finite(enemy.armorShred);
-  const mvpFraction=clamp(finite(enemy.mvpArmorReduction),0,1),armor=damageDefenseBreakdown(0,'holy',{armor:baseArmor,reactiveArmor:finite(enemy.reactiveArmor),reactiveStacks:finite(enemy.reactiveStacks),armorShred:shred,mvpArmorReduction:mvpFraction},{},data?.balance||{}).effectiveArmor;
+  const armor=damageDefenseBreakdown(0,'holy',{armor:baseArmor,reactiveArmor:finite(enemy.reactiveArmor),reactiveStacks:finite(enemy.reactiveStacks),armorShred:shred},{},data?.balance||{}).effectiveArmor;
   const effects=Object.entries(enemy.statuses||{}).filter(([kind,status])=>kind!=='shredMagic'&&Number.isFinite(status?.time)&&status.time>0).map(([kind,status])=>{
     let detail='';
     if(['slow','gazeSlow'].includes(kind)&&Number.isFinite(status.amount))detail=percent(clamp(status.amount,0,1))+' movement slow';
@@ -26,7 +26,7 @@ export function selectedEnemyView(enemy,{data,combat}={}){
   const abilities={...enemy,hp:maxHp,maxHp};delete abilities.resists;delete abilities.ward;delete abilities.magicShred;
   for(const key of ['regen','evasion','refraction','krakenShell','reactiveArmor','recharge','rush','hasteAura','untouchable','thief'])abilities[key]=finite(enemy[key]);
   return {id:enemy.id,type:enemy.type,name:enemy.name||'Invader',ended:['won','lost'].includes(combat.game?.phase),flying:!!enemy.flying,boss:!!enemy.boss,hp,maxHp,healthPercent:maxHp>0?hp/maxHp*100:0,
-    baseArmor,reactive,shred,mvpFraction,armor,resistances:[],physicalImmune:!!enemy.physicalImmune,magicImmune:!!enemy.magicImmune,
+    baseArmor,reactive,shred,armor,resistances:[],physicalImmune:!!enemy.physicalImmune,magicImmune:!!enemy.magicImmune,
     baseSpeed:Math.max(0,finite(enemy.speed)),currentSpeed:Number.isFinite(enemy.currentSpeed)?Math.max(0,enemy.currentSpeed):null,
     effects,traitDetails:warbandTraitDetails(abilities,combat.rules||enemyRulesFor(data)),shields:Math.max(0,finite(enemy.shields)),shieldCapacity:Math.max(0,finite(enemy.refraction)),
     shieldRechargeRemaining:enemy.shields===0&&Number.isFinite(enemy.shieldReadyAt)?Math.max(0,enemy.shieldReadyAt-combat.elapsed):null,
@@ -44,7 +44,7 @@ export function selectedEnemyMarkup(enemy,{data,images={},combat}={}){
     ${view.ended?'<p class="enemy-inspection-live-note">Run ended · Read-only invader snapshot. The simulation is stopped; these values describe the final recorded state.</p>':''}
     <div class="enemy-inspection-health"><div><span>Health</span><strong>${number(hpText)} / ${number(maxHpText)} HP</strong></div><div class="enemy-inspection-health-bar" role="progressbar" aria-label="Remaining enemy health" aria-valuemin="0" aria-valuemax="${view.maxHp||1}" aria-valuenow="${view.hp}" aria-valuetext="${number(hpText)} of ${number(maxHpText)} HP"><span style="width:${view.healthPercent}%"></span></div></div>
     <dl class="enemy-inspection-stats"><div><dt>${view.ended?'Final armor':'Current armor'}</dt><dd>${number(view.armor)}</dd></div><div><dt>Base speed</dt><dd>${number(view.baseSpeed)} tiles/s</dd></div>${view.currentSpeed!==null?`<div><dt>${view.ended?'Recorded speed':'Current speed'}</dt><dd>${number(view.currentSpeed)} tiles/s</dd></div>`:''}</dl>
-    <p class="enemy-inspection-armor">Base ${number(view.baseArmor)} · Reactive +${number(view.reactive)}${view.shred?' · Shred −'+number(view.shred):''}${view.mvpFraction?' · MVP −'+percent(view.mvpFraction)+' after fixed shred':''}</p>
+    <p class="enemy-inspection-armor">Base ${number(view.baseArmor)} · Reactive +${number(view.reactive)}${view.shred?' · Shred −'+number(view.shred):''}</p>
     <p class="enemy-inspection-live-note">${view.ended?'Effects and timers are frozen at run end.':'Speeds and effect durations use game time.'}</p>
     ${view.physicalImmune||view.magicImmune?`<p class="enemy-inspection-immunities">${[view.physicalImmune?'Physical damage, slowing and freezing immunity':'',view.magicImmune?'Magical damage, poison, burning and healing-block immunity':''].filter(Boolean).join(' · ')} · Only Holy damage bypasses immunity; companion effects remain blocked</p>`:''}
     ${view.shieldCapacity>0?`<p class="enemy-inspection-live-note">Active shields: ${number(view.shields)} / ${number(view.shieldCapacity)}${view.shieldRechargeRemaining!==null?` · ${view.ended?'Shield recharge remaining at run end:':'Shields return in'} ${number(view.shieldRechargeRemaining)} game seconds`:''}</p>`:''}${view.rechargeRemaining!==null?`<p class="enemy-inspection-live-note">${view.ended?'Recharge remaining at run end:':'Next recharge:'} ${number(view.rechargeRemaining)} game seconds${view.effects.some(effect=>effect.name==='Healing blocked')?' · healing blocked':''}</p>`:''}

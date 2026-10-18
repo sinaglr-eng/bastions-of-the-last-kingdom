@@ -1,0 +1,4629 @@
+{
+  "date": "2026-10-18",
+  "status": "USER APPROVED VFX DESIGN; NOT IMPLEMENTED; DEFERRED TO MASTER",
+  "approvalRecord": "approval.json",
+  "language": "en",
+  "scope": "Presentation only",
+  "motionApproval": {
+    "schemaVersion": 1,
+    "recordedAt": "2026-10-18T16:00:51.937705+00:00",
+    "status": "approved-by-user",
+    "historicalUserStatement": "schvaluji analyzu, priprav detailni popisy pohybu a zacni animovat modely. U zakladnich obrancu zachovej stejny utok pro vsechny ranky.",
+    "approvedAnalysis": "output/design/motion-analysis-v1/analysis.json",
+    "sha256": "44c8bfd1b6ee8b1ae0090aa23cf95157cc7b9328fbd75024655ab7cb257e4c1b",
+    "scope": {
+      "enemies": 54,
+      "basicDefenderFamilies": 8,
+      "basicDefenderRanks": 48,
+      "champions": 38,
+      "motionProfiles": 100
+    },
+    "implementationAuthorization": "Prepare detailed motion specifications and begin animation work in separate working paths. Basic defender ranks I–VI share the same attack.",
+    "protectedOriginals": "Approved basic defender V7 and champion V8 deliveries remain unchanged."
+  },
+  "balanceApproval": "../balance-proposal-20261018-v1/approval.json",
+  "effects": [
+    {
+      "id": "physical-contact",
+      "look": "Short ivory tip streak or thin blade crescent, then a small directional contact spark.",
+      "trigger": "Actual shot/contact and resolved outcome.",
+      "limits": "A ranged sword or lance gesture remains ranged. No long-lived slash field or bonus hit."
+    },
+    {
+      "id": "arrow",
+      "look": "A clear arrow or bolt with a fine warm-grey trail and brief nock glint. Poison arrows retain their physical shaft with a green tip.",
+      "trigger": "Existing shot, its progress and impact.",
+      "limits": "One rendered path per actual target; no permanent line or invented volley."
+    },
+    {
+      "id": "arcane",
+      "look": "A small faceted violet/cyan spell head, tapered trail and compact geometric impact burst.",
+      "trigger": "Existing spell shot and arrival.",
+      "limits": "Elven multishot is simultaneous target fan-out; it is not chain lightning."
+    },
+    {
+      "id": "holy",
+      "look": "Ivory/gold focus at the actual staff, cross, palm or weapon endpoint; a small travelling spell and radiant impact.",
+      "trigger": "Existing Holy shot and resolved contact.",
+      "limits": "Holy is a defense class. Color does not add healing, resurrection or armor bypass."
+    },
+    {
+      "id": "runic",
+      "look": "Amber angular glyph fragments leave the hammer focus; a compact forged projectile and broken-shield accent at the target.",
+      "trigger": "Engineer shot, actual shred state.",
+      "limits": "No floor hammer impact at the defender, new melee range or new ground shockwave damage."
+    },
+    {
+      "id": "siege",
+      "look": "A visible bolt, bomb, stone or thrown canister leaves the approved release point; a local dust/shard burst at impact.",
+      "trigger": "Actual shot progress and impact; mechanism pose supplies only its release anchor.",
+      "limits": "Arc height is cosmetic; preserve shot lifetime. Local bomb sparks do not imply new splash or burn."
+    },
+    {
+      "id": "dragon-breath",
+      "look": "A narrow bright core with 2–3 low-poly orange flame ribbons opens into a short tapered plume from inside the animated mouth; embers fade toward the affected area.",
+      "trigger": "Existing mouth pose plus active fire channel and visible eligible enemies. Aura-only sources use continuous aura state, not a new attack timer.",
+      "limits": "Breath is cosmetic. Never turn a circular aura into a directional damage cone, add damage ticks or gate damage by jaw opening."
+    },
+    {
+      "id": "heat-aura",
+      "look": "A sparse low orange heat veil near affected enemies and a few lifted embers, with no opaque floor carpet.",
+      "trigger": "Actual continuously applied burn-aura damage and current visibility.",
+      "limits": "Keep independent of ordinary shots and breath pulses. Do not pretend aura damage creates a lingering burn status."
+    },
+    {
+      "id": "lightning",
+      "look": "An angular electric line with a thin white core and blue outer glow. A small target-centred halo flashes for 0.06–0.10 combat seconds; total accent fades in 0.16–0.24 seconds.",
+      "trigger": "Actual primary electric shot, chain packet or fork packet and resolved outcome.",
+      "limits": "The local halo lights the area using a lightweight overlay/emissive effect, not full-screen flash. A failed hit has contact/block feedback, not a successful-damage flash."
+    },
+    {
+      "id": "chain",
+      "look": "Render exactly the emitted enemy-to-enemy connections with short local flashes. Gold-white for Lady Claire, blue-white for Thunderbird.",
+      "trigger": "Actual chain events; retain packet from/to and order.",
+      "limits": "No invented hops, extra target, delayed damage or second body cast. Simultaneous simulation hops may receive a brief ordered reveal within the visual lifetime only."
+    },
+    {
+      "id": "fork",
+      "look": "One origin with several simultaneously visible branching lightning paths to the actual fork targets.",
+      "trigger": "Actual fork proc paths; preserve source-to-target topology emitted by combat.",
+      "limits": "Visually distinct from a chain. Do not force targets through the primary victim or assume all configured targets were found."
+    },
+    {
+      "id": "frost",
+      "look": "An icy faceted shard/ribbon and a small pale-blue impact mist, with Holy ivory in the core where appropriate.",
+      "trigger": "Actual frost shot and outcome.",
+      "limits": "A frost-colored hit does not prove freeze. The ordinary slow uses a separate restrained status cue."
+    },
+    {
+      "id": "frost-bounce",
+      "look": "A pale-blue/ivory bead with a short crystalline ribbon between actual bounce endpoints. Each real contact briefly sheds 2–3 ice chips.",
+      "trigger": "Actual frost chain packets, including Angel allied-hit procs.",
+      "limits": "Do not use electric zigzags. Do not restart Angel body casting, add allies as enemies or invent a stun."
+    },
+    {
+      "id": "poison-cloud",
+      "look": "A small translucent green cloud follows the infected enemy around the lower torso, with 2–4 sparse drifting motes. Keep its centre open so the silhouette stays readable.",
+      "trigger": "Post-resolution enemy.statuses.poison with active applications.",
+      "limits": "One cloud per enemy, not per poison stack/source. Density has a low cap. No spreading, root cage, immobilization or persistent floor puddle. Hidden enemies emit none."
+    },
+    {
+      "id": "burn-status",
+      "look": "Short orange tongues and rising embers cling to the actually burning target; distinguish from green poison smoke.",
+      "trigger": "Active enemy.statuses.burn.",
+      "limits": "Track real expiry and immunity; do not attach to every fire-looking projectile or every heat-aura tick."
+    },
+    {
+      "id": "slow-status",
+      "look": "Frost sources: a quiet broken cyan ring with a few ice grains. Ranger sources: thin teal wind bands around the lower body; flying targets receive bands at body altitude.",
+      "trigger": "Actual strongest effective slow, after immunity/boss rules and aura membership.",
+      "limits": "Never visually root a merely slowed enemy. One status treatment per target; freeze/petrify takes priority. Ground-only Frozen Celestial follows approved B03 when implemented."
+    },
+    {
+      "id": "stun",
+      "look": "A short gold/white star loop above the head and a small impact burst for blunt sources; icy crystals only for genuinely frost-themed sources.",
+      "trigger": "Active freeze status used by the engine as a stun.",
+      "limits": "Do not apply icy appearance to every generic stun. Match actual duration/recovery; no added knockback or new animation timing."
+    },
+    {
+      "id": "stone-gaze",
+      "look": "A low-intensity emerald eye/focus cue identifies an active Golem gaze. Only qualifying visible enemies accumulate a quiet mineral edge accent; actual petrification adds a removable stone shell and crack motes.",
+      "trigger": "Actual source.stoneGaze and per-enemy facing/petrify state.",
+      "limits": "No guaranteed petrification and no generic status immunity rule: preserve the explicit Golem exception. Do not replace approved body materials."
+    },
+    {
+      "id": "armor-break",
+      "look": "A compact amber broken-shield glyph and a few outward metallic flakes; persistent reduction uses a restrained existing status segment.",
+      "trigger": "Actual strongest flat shred/aura contribution.",
+      "limits": "No model armor removal or additive aura graphics. Champion armor auras remain; MVP armor aura is removed by approved B01."
+    },
+    {
+      "id": "heal-block",
+      "look": "A muted rose broken-cross marker with a thin interrupted ring near the target.",
+      "trigger": "Active healBlock status.",
+      "limits": "No heal-block symbol from poison alone. Do not show healing success while healing is blocked."
+    },
+    {
+      "id": "critical",
+      "look": "A stronger directional gold-white impact wedge and up to 3 brighter chips, with optional existing critical indicator.",
+      "trigger": "Resolved effectiveDamage > 0 and confirmed critical result.",
+      "limits": "No pre-roll critical windup, extra projectile, camera shake or whole-screen white flash."
+    },
+    {
+      "id": "support",
+      "look": "Quiet recipient cues: cyan clock arcs for haste; amber blade notch for damage; mint arrowheads for range; ivory reticle for True Strike; lavender shield for control protection.",
+      "trigger": "Actual effective recipient support state; use existing support semantics.",
+      "limits": "Show source radius/links on inspection. No constant full-radius circles or one effect per duplicate support. Preserve the existing understandable symbols."
+    },
+    {
+      "id": "recover",
+      "look": "A small gold-green mote acknowledges the source and keep-health display only after an actual heal.",
+      "trigger": "Confirmed recover event and real health increase.",
+      "limits": "Never fire on every poison hit or show +1 when the keep was already full."
+    },
+    {
+      "id": "enemy-defense",
+      "look": "Magic immunity: amber angular ward; Physical immunity: cool violet broken blade; Refraction: actual charge sectors; Shell: compact grey impact plates; reactive armor: restrained plate accents following live stacks.",
+      "trigger": "Actual spawned variant fields, shield counts, block outcomes and reactiveStacks.",
+      "limits": "Do not infer abilities from name, color or geometry. Refraction recharge is distinct from HP recharge; Shell is distinct from immunity."
+    },
+    {
+      "id": "enemy-healing",
+      "look": "Continuous regeneration: sparse green-gold motes only while effective healing occurs. HP Recharge: one cyan/green inward pulse at an actual successful recharge deadline.",
+      "trigger": "Positive HP gain attributable to regen/recharge, with healBlock and full HP respected.",
+      "limits": "Proposed read-only healing presentation record is needed to distinguish coincident damage/healing. Net frame HP alone is insufficient; no invented heal event exists today."
+    },
+    {
+      "id": "enemy-control",
+      "look": "Dread: a brief violet tether from the actual reaction source, then a small spiral on the affected defender. Disarm: a red broken-weapon sign on the actually disabled defender. Sapper: low dust/amber cracks on truly weakened ruins and affected defenders.",
+      "trigger": "Actual dread deadline, disarm window/protection and weakened state.",
+      "limits": "A locomotion or weapon flourish cannot cast any of these. Dread is a reaction to real owned damage, not mere proximity or reflected HP damage."
+    },
+    {
+      "id": "enemy-movement",
+      "look": "Rush/haste: short backward red/amber motion accents; Blink: a compact departure/arrival fold, not a line across the skipped path; Evasion: a short side-edge wisp only on a real dodge.",
+      "trigger": "Actual active speed window, teleport event or evasion block outcome.",
+      "limits": "Keep route/gait authoritative. No per-frame footprints for flyers, no physical displacement on evasion and no extra movement ability."
+    },
+    {
+      "id": "stealth",
+      "look": "A small grey-violet cloak/reveal puff at a legitimately visible transition, using existing concealment rules.",
+      "trigger": "Authorized reveal/cloak transition and visible endpoints.",
+      "limits": "No clouds, chains, lights, status icons, tracks or death accents may reveal a concealed position. Flight over water needs no invented splash."
+    },
+    {
+      "id": "mvp-personal",
+      "look": "Retain the personal MVP star/badge and inspectable own bonus. An optional quiet personal gold accent follows actual award only.",
+      "trigger": "Actual MVP award/current own level after approved B01.",
+      "limits": "No ally buff halo, armor-reduction aura, persistent support beam or MVP 10 damage pulse."
+    },
+    {
+      "id": "melancholy",
+      "look": "Reserved subdued blue-grey focus with the offensive release suppressed.",
+      "trigger": "Only a nonzero enabled mechanic and actual active melancholy state.",
+      "limits": "DISABLED in current runtime: chance 0, duration 0. No new Melancholy effect or ability may be activated by this VFX proposal."
+    }
+  ],
+  "basic": [
+    {
+      "id": "soldier",
+      "name": "Soldier",
+      "rankIds": [
+        "soldier-1",
+        "soldier-2",
+        "soldier-3",
+        "soldier-4",
+        "soldier-5",
+        "soldier-6"
+      ],
+      "approvedMotion": "Compact forward thrust; spear at I and sword at II–VI use one identical normalized attack.",
+      "releaseMarker": 0.38,
+      "effects": [
+        "physical-contact"
+      ],
+      "anchor": "Actual spear/sword tip; contact on the real melee outcome.",
+      "note": "One shared thrust for I–VI; no later-rank slash or shield bash."
+    },
+    {
+      "id": "archer",
+      "name": "Archer",
+      "rankIds": [
+        "archer-1",
+        "archer-2",
+        "archer-3",
+        "archer-4",
+        "archer-5",
+        "archer-6"
+      ],
+      "approvedMotion": "Compact repeating draw, release and return, including the same raised preparation at every rank.",
+      "releaseMarker": 0.42,
+      "effects": [
+        "arrow"
+      ],
+      "anchor": "Actual bow nock at the common release.",
+      "note": "Same draw/release for I–VI; density is capped at high haste."
+    },
+    {
+      "id": "mage",
+      "name": "Mage",
+      "rankIds": [
+        "mage-1",
+        "mage-2",
+        "mage-3",
+        "mage-4",
+        "mage-5",
+        "mage-6"
+      ],
+      "approvedMotion": "Calm forward staff presentation with an unchanged supporting left arm.",
+      "releaseMarker": 0.43,
+      "effects": [
+        "arcane"
+      ],
+      "anchor": "Actual staff focus.",
+      "note": "Magical cleave uses only real secondary targets, not a new ring of damage."
+    },
+    {
+      "id": "frostwarden",
+      "name": "Frost Warden",
+      "rankIds": [
+        "frostwarden-1",
+        "frostwarden-2",
+        "frostwarden-3",
+        "frostwarden-4",
+        "frostwarden-5",
+        "frostwarden-6"
+      ],
+      "approvedMotion": "Defensive short staff push; faster VI preserves the exact family gesture.",
+      "releaseMarker": 0.4,
+      "effects": [
+        "frost",
+        "slow-status"
+      ],
+      "anchor": "Actual staff focus at the short push.",
+      "note": "Physical hit with frost presentation; display slow rather than automatic freeze."
+    },
+    {
+      "id": "cleric",
+      "name": "Cleric",
+      "rankIds": [
+        "cleric-1",
+        "cleric-2",
+        "cleric-3",
+        "cleric-4",
+        "cleric-5",
+        "cleric-6"
+      ],
+      "approvedMotion": "Gentle forward cross presentation, separate from the passive blessing aura.",
+      "releaseMarker": 0.46,
+      "effects": [
+        "holy",
+        "support"
+      ],
+      "anchor": "Cross or staff focus at the common presentation.",
+      "note": "Passive haste/detection remains independent; a blessing does not create healing."
+    },
+    {
+      "id": "druid",
+      "name": "Druid",
+      "rankIds": [
+        "druid-1",
+        "druid-2",
+        "druid-3",
+        "druid-4",
+        "druid-5",
+        "druid-6"
+      ],
+      "approvedMotion": "Short shallow inward-forward staff sweep with a small free-palm countergesture.",
+      "releaseMarker": 0.41,
+      "effects": [
+        "arcane",
+        "poison-cloud"
+      ],
+      "anchor": "Actual staff focus during its shallow sweep.",
+      "note": "Green thorn/spore projectile; replace misleading immobilizing root cage with poison cloud."
+    },
+    {
+      "id": "runebreaker",
+      "name": "Engineer",
+      "rankIds": [
+        "runebreaker-1",
+        "runebreaker-2",
+        "runebreaker-3",
+        "runebreaker-4",
+        "runebreaker-5",
+        "runebreaker-6"
+      ],
+      "approvedMotion": "Short forceful hammer projection with a small downward finish; ranged runic bolt, not melee contact.",
+      "releaseMarker": 0.36,
+      "effects": [
+        "runic",
+        "armor-break"
+      ],
+      "anchor": "Actual hammer focus at its short projection.",
+      "note": "Display name Engineer; ranged runic shot, not ground hammer melee."
+    },
+    {
+      "id": "stormcaller",
+      "name": "Stormcaller",
+      "rankIds": [
+        "stormcaller-1",
+        "stormcaller-2",
+        "stormcaller-3",
+        "stormcaller-4",
+        "stormcaller-5",
+        "stormcaller-6"
+      ],
+      "approvedMotion": "Crisp right-palm lightning presentation with a brief recoil; one discharge for simultaneous selected targets.",
+      "releaseMarker": 0.35,
+      "effects": [
+        "lightning"
+      ],
+      "anchor": "Actual right palm; existing book remains supported.",
+      "note": "Up to three current simultaneous primary target paths, not a new chain proc."
+    }
+  ],
+  "champions": [
+    {
+      "id": "rimewatch",
+      "name": "Frostsword Watchmen",
+      "approvedAction": "Drive one short diagonal cut from the torso; the second hand follows the hilt instead of sliding independently along the blade.",
+      "approvedRelease": "Anchor release to the existing shot event. A restrained frost accent may identify the confirmed slowing hit; the sweep creates no extra contact damage.",
+      "runtime": {
+        "name": "Frostsword Watchmen",
+        "short": "Frostsword Watchmen",
+        "referenceTower": "Silver",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Basic",
+        "advanced": true,
+        "color": "#a4d4db",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 120,
+        "interval": 1,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Slow 2",
+        "description": "Frost ranged champion that slows one hit target.",
+        "strong": "Slow 2",
+        "weak": "Requires exact recipe ingredients",
+        "slow": 0.2,
+        "slowDuration": 3,
+        "model": "ranger",
+        "unitKind": "champion",
+        "referenceAbility": "Slow 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "frost"
+      },
+      "effects": [
+        "frost",
+        "slow-status"
+      ],
+      "look": "An icy edge ribbon leaves the two-hand diagonal sword cut; one frost shard reaches the actual ranged target."
+    },
+    {
+      "id": "frostblade",
+      "name": "Frost Knight",
+      "approvedAction": "Extend the right shoulder and elbow in a short lance thrust, retaining the shield and rein relationship on the opposite side.",
+      "approvedRelease": "The existing shot event anchors extension. Cleave belongs to the confirmed target-side outcome, never several independent spear contacts or extra thrusts.",
+      "runtime": {
+        "name": "Frost Knight",
+        "short": "Frost Knight",
+        "referenceTower": "Silver Knight",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#d8c69a",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 420,
+        "interval": 0.8,
+        "range": 7,
+        "projectileSpeed": 22,
+        "role": "Cleave 3; Slow 3",
+        "description": "Physical ranged champion with Physical secondary cleave and a 25% movement slow.",
+        "strong": "Cleave 3; Slow 3",
+        "weak": "Requires exact recipe ingredients",
+        "slow": 0.25,
+        "slowDuration": 3,
+        "cleave": 0.5,
+        "cleaveRadius": 4,
+        "cleaveType": "physical",
+        "model": "paladin",
+        "unitKind": "champion",
+        "referenceAbility": "Cleave 3; Slow 3",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "physical-contact",
+        "slow-status"
+      ],
+      "look": "A narrow lance-axis streak and travelling physical strike; pale-blue slow and secondary cleave accents appear at actual affected targets."
+    },
+    {
+      "id": "roseguard",
+      "name": "Lionheart Champion",
+      "approvedAction": "Deliver a precise forward jab with restrained torso rotation, retaining the lion shield silhouette, rein control and a stable pelvis over the saddle.",
+      "approvedRelease": "Align the extended lance pose to the existing shot event. Confirmed critical impacts may receive sharper target-side emphasis only after their outcome is known.",
+      "runtime": {
+        "name": "Lionheart Champion",
+        "short": "Lionheart Champion",
+        "referenceTower": "Pink Diamond",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#dda3b9",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 240,
+        "interval": 1,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Crit 1; Damage",
+        "description": "Physical damage champion with powerful critical hits.",
+        "strong": "Crit 1; Damage",
+        "weak": "Requires exact recipe ingredients",
+        "critChance": 0.1,
+        "critMultiplier": 5,
+        "model": "paladin",
+        "unitKind": "champion",
+        "referenceAbility": "Crit 1; Damage",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "physical-contact",
+        "critical"
+      ],
+      "look": "A precise lance-line strike; lion-gold critical impact only after the real roll."
+    },
+    {
+      "id": "highking",
+      "name": "Kingslayer",
+      "approvedAction": "Unwind into one forceful oblique cut, keeping the sword clear of the horse neck and the left rein hand throughout its arc.",
+      "approvedRelease": "Release follows the existing shot event. Slow, cleave and critical accents reflect actual combat outcomes and do not each trigger another body attack.",
+      "runtime": {
+        "name": "Kingslayer",
+        "short": "Kingslayer",
+        "referenceTower": "Huge Pink Diamond",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Advanced",
+        "advanced": true,
+        "color": "#d8c69a",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 1200,
+        "interval": 0.75,
+        "range": 10,
+        "projectileSpeed": 22,
+        "role": "Cleave 3; Crit 1; Damage; Slow 3",
+        "description": "Combines the Lionheart critical hit and Frost Knight frost-cleave toolkit.",
+        "strong": "Cleave 3; Crit 1; Damage; Slow 3",
+        "weak": "Requires exact recipe ingredients",
+        "critChance": 0.15,
+        "critMultiplier": 5,
+        "cleave": 0.5,
+        "cleaveRadius": 4,
+        "cleaveType": "physical",
+        "slow": 0.25,
+        "slowDuration": 3,
+        "model": "paladin",
+        "unitKind": "champion",
+        "referenceAbility": "Cleave 3; Crit 1; Damage; Slow 3",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Jméno Lionheart Champion se přesouvá z této jednotky na Pink Diamond. Při zavádění používat stabilní ID.",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "physical-contact",
+        "slow-status",
+        "critical"
+      ],
+      "look": "A brief oblique sword-edge trace and ranged strike; separate compact slow/cleave/critical target feedback, never extra swings."
+    },
+    {
+      "id": "crownofages",
+      "name": "King",
+      "approvedAction": "Execute a compact commanding downward cut, transferring rotation through the torso without pulling the pelvis away from the saddle.",
+      "approvedRelease": "Anchor release to the existing shot event. Armor-breaking feedback appears at the confirmed impact; crown and regalia emit no independent attacks.",
+      "runtime": {
+        "name": "King",
+        "short": "King",
+        "referenceTower": "Koh-i-noor Diamond",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Mythic",
+        "advanced": true,
+        "color": "#f8de8e",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 2700,
+        "interval": 0.65,
+        "range": 12,
+        "projectileSpeed": 22,
+        "role": "Crit 1; Damage",
+        "description": "Top Physical ruler with 20% critical-hit chance, Physical cleave and strong armor reduction.",
+        "strong": "Crit 1; Damage",
+        "weak": "Requires exact recipe ingredients",
+        "critChance": 0.2,
+        "critMultiplier": 5,
+        "shred": 64,
+        "model": "paladin",
+        "unitKind": "champion",
+        "referenceAbility": "Crit 1; Damage",
+        "referenceVerification": "Wiki: neúplné",
+        "referenceNote": "Starší extrakt navíc uvádí 50% cleave, +640 damage a −64 armor. Nejde o potvrzení stejné verze jako wiki.",
+        "cleave": 0.5,
+        "cleaveRadius": 4,
+        "cleaveType": "physical",
+        "projectileEffect": "physical",
+        "slow": 0.3,
+        "slowDuration": 3
+      },
+      "effects": [
+        "physical-contact",
+        "armor-break",
+        "slow-status",
+        "critical"
+      ],
+      "look": "One commanding downward sword trace; steel/gold target strike and broken-shield accents at real shred victims."
+    },
+    {
+      "id": "thornwarden",
+      "name": "Elven Ranger",
+      "approvedAction": "Complete a short draw with the string visibly following the hand; keep the left arm supportive rather than unnaturally locked straight.",
+      "approvedRelease": "Use the existing shot-event group for one release. The current four-target volley may fan visually after leaving the bow without extra arm attacks.",
+      "runtime": {
+        "name": "Elven Ranger",
+        "short": "Elven Ranger",
+        "referenceTower": "Malachite",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Basic",
+        "advanced": true,
+        "color": "#afca88",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 45,
+        "interval": 0.8,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Split 1",
+        "description": "Physical archer champion that attacks three distinct targets at once.",
+        "strong": "Split 1",
+        "weak": "Requires exact recipe ingredients",
+        "multishot": 3,
+        "model": "ranger",
+        "unitKind": "champion",
+        "referenceAbility": "Split 1",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "arrow"
+      ],
+      "look": "One bow release fans into the actual three-target volley; fine leaf-green trim remains cosmetic."
+    },
+    {
+      "id": "verdantguard",
+      "name": "Elven Elite Warrior",
+      "approvedAction": "Hold a compact full-draw silhouette, right elbow behind the shoulder line and left wrist aligned with the bow grip.",
+      "approvedRelease": "Release once at the existing shot-event group. Seven target paths belong to current multishot, not seven physical hands or staggered additional combat shots.",
+      "runtime": {
+        "name": "Elven Elite Warrior",
+        "short": "Elven Elite Warrior",
+        "referenceTower": "Vivid Malachite",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#b1d982",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 150,
+        "interval": 0.7,
+        "range": 7,
+        "projectileSpeed": 22,
+        "role": "Split 2",
+        "description": "Physical elf champion that attacks five distinct targets at once.",
+        "strong": "Split 2",
+        "weak": "Requires exact recipe ingredients",
+        "multishot": 5,
+        "model": "ranger",
+        "unitKind": "champion",
+        "referenceAbility": "Split 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "arrow"
+      ],
+      "look": "One expert release produces up to five actual arrow paths; short bright tips keep the volley readable."
+    },
+    {
+      "id": "tempest",
+      "name": "Elven Mage",
+      "approvedAction": "Open the palm and extend the chest a little while the right hand steadies the staff, creating a clear focus-to-target line.",
+      "approvedRelease": "Anchor five-target release to the existing shot-event group. Separate paths leave together without requiring five successive casts, arm motions or crystal launches.",
+      "runtime": {
+        "name": "Elven Mage",
+        "short": "Elven Mage",
+        "referenceTower": "Uranium-238",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#b8b4ec",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 300,
+        "interval": 0.5,
+        "range": 7,
+        "projectileSpeed": 22,
+        "role": "Split 2",
+        "description": "Magical caster that attacks five distinct targets at once.",
+        "strong": "Split 2",
+        "weak": "Requires exact recipe ingredients",
+        "multishot": 5,
+        "model": "conjurer",
+        "unitKind": "champion",
+        "referenceAbility": "Split 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "arcane"
+      },
+      "effects": [
+        "arcane"
+      ],
+      "look": "Violet/cyan focus-to-target spell fan for up to five real targets. Decorative crystals do not fire independently."
+    },
+    {
+      "id": "stormcitadel",
+      "name": "Elven Archmage",
+      "approvedAction": "Present the staff crown and open the palm through a broad shallow gesture; remain centered instead of lunging toward the lane.",
+      "approvedRelease": "Anchor the ten-target release to the existing shot-event group. Keep it unified rather than converting ten targets into a sequential sweeping beam.",
+      "runtime": {
+        "name": "Elven Archmage",
+        "short": "Elven Archmage",
+        "referenceTower": "Uranium-235",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Advanced",
+        "advanced": true,
+        "color": "#a5cfee",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 720,
+        "interval": 0.5,
+        "range": 8,
+        "projectileSpeed": 22,
+        "role": "Radiation",
+        "description": "Magical caster that attacks ten distinct targets at once.",
+        "strong": "Radiation",
+        "weak": "Requires exact recipe ingredients",
+        "multishot": 10,
+        "model": "archmage",
+        "unitKind": "champion",
+        "referenceAbility": "Radiation",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "arcane"
+      },
+      "effects": [
+        "arcane"
+      ],
+      "look": "An ivory-cyan crown focus emits up to ten real simultaneous spell paths, with restrained shared release glow."
+    },
+    {
+      "id": "embercrown",
+      "name": "Baby Fire Dragon",
+      "approvedAction": "Open the muzzle slightly and broaden the wing roots while heat presence remains continuous around the already implemented aura area.",
+      "approvedRelease": "No projectile or new impact exists. The current aura-attack presentation pulse may emphasize warmth without changing continuously applied damage.",
+      "runtime": {
+        "name": "Baby Fire Dragon",
+        "short": "Baby Fire Dragon",
+        "referenceTower": "Asteriated Ruby",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Basic",
+        "advanced": true,
+        "color": "#efaa75",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 0,
+        "interval": 0.5,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Burn 1",
+        "description": "Aura-only baby dragon dealing continuous fire damage around itself.",
+        "strong": "Burn 1",
+        "weak": "Requires exact recipe ingredients",
+        "burnAura": 240,
+        "model": "firebaby",
+        "unitKind": "champion",
+        "referenceAbility": "Burn 1",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Oheň je aura, nikoli nový plošný projektil.",
+        "projectileEffect": "fire"
+      },
+      "effects": [
+        "dragon-breath",
+        "heat-aura"
+      ],
+      "look": "Small orange mouth plume and sparse nearby embers while the existing circular fire aura affects enemies. No ordinary damaging projectile."
+    },
+    {
+      "id": "worldfire",
+      "name": "Mother Fire Dragon",
+      "approvedAction": "Lift the head and open the jaw modestly as wing roots spread; this expression communicates heat and does not initiate a new damaging exhalation.",
+      "approvedRelease": "There is no discrete release. Existing aura visual pulses can emphasize throat and chest while their original continuous application remains unchanged.",
+      "runtime": {
+        "name": "Mother Fire Dragon",
+        "short": "Mother Fire Dragon",
+        "referenceTower": "Volcano",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#efa876",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 0,
+        "interval": 0.5,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Burn 2",
+        "description": "Aura-only mother dragon with a stronger continuous fire aura.",
+        "strong": "Burn 2",
+        "weak": "Requires exact recipe ingredients",
+        "burnAura": 1200,
+        "model": "firemother",
+        "unitKind": "champion",
+        "referenceAbility": "Burn 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "fire"
+      },
+      "effects": [
+        "dragon-breath",
+        "heat-aura"
+      ],
+      "look": "A wider layered orange plume follows the opened mouth; stronger local embers identify the same continuous aura role."
+    },
+    {
+      "id": "starfall",
+      "name": "Thunderbird",
+      "approvedAction": "Give one firm downstroke and short forward head emphasis; a small torso pitch supplies intent while preserving the bird silhouette.",
+      "approvedRelease": "Anchor the primary release to the existing shot event. Additional lightning appears only on its actual conditional outcome with existing target relationships.",
+      "runtime": {
+        "name": "Thunderbird",
+        "short": "Thunderbird",
+        "referenceTower": "Bloodstone",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#cda3ed",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 300,
+        "interval": 1,
+        "range": 7,
+        "projectileSpeed": 22,
+        "role": "Lightning Chain",
+        "description": "Magical bird with a chance of lightning hitting four additional targets.",
+        "strong": "Lightning Chain",
+        "weak": "Requires exact recipe ingredients",
+        "chain": 4,
+        "chainChance": 0.2,
+        "model": "thunderbird",
+        "unitKind": "champion",
+        "referenceAbility": "Lightning Chain",
+        "referenceVerification": "Wiki: neúplné",
+        "referenceNote": "Dosavadní Bastions: 4 vedlejší zásahy. Neoznačovat tento počet za hodnotu doloženou wiki.",
+        "projectileEffect": "arcane",
+        "chainDamage": 165
+      },
+      "effects": [
+        "arcane",
+        "chain",
+        "lightning"
+      ],
+      "look": "Wing/beak release emits a small electric-looking primary spell; real conditional secondary arcs flash locally. No guaranteed chain on every wingbeat."
+    },
+    {
+      "id": "thunderheart",
+      "name": "Elemental Male Dragon",
+      "approvedAction": "Project the head in a short decisive normal attack, using wing-root expansion rather than inventing a human arm-casting action.",
+      "approvedRelease": "Anchor ordinary release to the existing shot event. Forked lightning accents occur only after the actual landed-hit proc; heat stays continuously active.",
+      "runtime": {
+        "name": "Elemental Male Dragon",
+        "short": "Elemental Male Dragon",
+        "referenceTower": "Antique Bloodstone",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Advanced",
+        "advanced": true,
+        "color": "#cfa1e4",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 210,
+        "interval": 1,
+        "range": 8,
+        "projectileSpeed": 22,
+        "role": "Forked Lightning; Burn 2",
+        "description": "Advanced Magical dragon with critical hits and chained lightning.",
+        "strong": "Forked Lightning; Burn 2",
+        "weak": "Requires exact recipe ingredients",
+        "burnAura": 1200,
+        "model": "dragon",
+        "unitKind": "champion",
+        "referenceAbility": "Forked Lightning; Burn 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Rozvětvený blesk zasáhne 5 cílů; není to běžný řetězový blesk. Wiki hodnota je původní, nikoli vyvážená hodnota Bastions.",
+        "forkedTargets": 5,
+        "forkedChance": 0.25,
+        "forkedDamage": 3000,
+        "forkedRange": 50,
+        "projectileEffect": "arcane"
+      },
+      "effects": [
+        "lightning",
+        "fork",
+        "dragon-breath",
+        "heat-aura"
+      ],
+      "look": "Separate the mouth electric primary attack from low orange heat breath/embers; actual fork proc branches from its runtime origin."
+    },
+    {
+      "id": "phoenix",
+      "name": "Ancient Dragon Patriarch",
+      "approvedAction": "Lift and project the muzzle once as wing shoulders broaden, retaining the ancient layered-scale silhouette and a connected rigid horn crown.",
+      "approvedRelease": "Normal release follows the existing shot event. Poison and fork feedback follow actual effects; continuous aura damage never waits for the jaw gesture.",
+      "runtime": {
+        "name": "Ancient Dragon Patriarch",
+        "short": "Ancient Dragon Patriarch",
+        "referenceTower": "The Crown Prince",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Mythic",
+        "advanced": true,
+        "color": "#ffc17c",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 1200,
+        "interval": 0.6,
+        "range": 10,
+        "projectileSpeed": 22,
+        "role": "Fire aura, forked lightning and poisonous attacks",
+        "description": "Top dragon with poison damage, powerful critical hits and evasion bypass.",
+        "strong": "Fire aura, forked lightning and poisonous attacks",
+        "weak": "Requires exact recipe ingredients",
+        "burnAura": 7500,
+        "poisonDps": 384,
+        "dotDuration": 5,
+        "model": "dragon",
+        "unitKind": "champion",
+        "referenceAbility": "Wiki schopnosti neuvádí",
+        "referenceVerification": "Doplnění ze staršího extraktu",
+        "referenceNote": "Wiki potvrzuje recept, ale efekty jsou prázdné. Extrakt zachycuje jinou verzi a má zvláštní 2s tik hoření.",
+        "forkedTargets": 5,
+        "forkedChance": 0.25,
+        "forkedDamage": 7500,
+        "forkedRange": 50,
+        "adaptedAbility": true,
+        "adaptationNote": "Abilities filled from the older extracted Gem TD version because the requested wiki leaves them blank.",
+        "projectileEffect": "fire"
+      },
+      "effects": [
+        "dragon-breath",
+        "heat-aura",
+        "poison-cloud",
+        "fork"
+      ],
+      "look": "A heavy orange mouth attack with a sparse venom-green tip; infected targets get green smoke, while actual fork lightning remains an independent white-blue accent."
+    },
+    {
+      "id": "greenheart",
+      "name": "Master Druid",
+      "approvedAction": "Extend the focus hand in a short offering-like cast while the right wrist and staff provide a steady counterline.",
+      "approvedRelease": "Anchor thorn release to the existing shot event. Poison feedback follows the confirmed hit rather than beginning early during the hand gesture.",
+      "runtime": {
+        "name": "Master Druid",
+        "short": "Master Druid",
+        "referenceTower": "Jade",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Basic",
+        "advanced": true,
+        "color": "#b5d491",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 30,
+        "interval": 0.5,
+        "range": 8,
+        "projectileSpeed": 22,
+        "role": "Poison 4",
+        "description": "Poison specialist with a long-range direct attack.",
+        "strong": "Poison 4",
+        "weak": "Requires exact recipe ingredients",
+        "poisonDps": 24,
+        "dotDuration": 5,
+        "model": "grovekeeper",
+        "unitKind": "champion",
+        "referenceAbility": "Poison 4",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Wiki uvádí nižší DPS než základní Emerald se stejně pojmenovanou schopností. Zachovat údaj této konkrétní věže a označit rozdíl.",
+        "projectileEffect": "poison"
+      },
+      "effects": [
+        "arcane",
+        "poison-cloud"
+      ],
+      "look": "A green faceted thorn/spore spell leaves the offering-like hand/staff focus; low translucent poison follows real infected targets."
+    },
+    {
+      "id": "eldergrove",
+      "name": "Archdruid",
+      "approvedAction": "Extend the palm and direct the staff crown along the target line, using a small wrist action rather than a spear-like physical lunge.",
+      "approvedRelease": "Anchor poison release to the current shot event. Range guidance continues independently and creates no extra projectile or additional cast event.",
+      "runtime": {
+        "name": "Archdruid",
+        "short": "Archdruid",
+        "referenceTower": "Grey Jade",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#a7c88b",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 90,
+        "interval": 0.5,
+        "range": 8,
+        "projectileSpeed": 22,
+        "role": "Poison 5; Overlook",
+        "description": "Poison specialist that extends allied attack range.",
+        "strong": "Poison 5; Overlook",
+        "weak": "Requires exact recipe ingredients",
+        "poisonDps": 48,
+        "dotDuration": 5,
+        "aura": {
+          "range": 8,
+          "rangeBonus": 3
+        },
+        "model": "grovekeeper",
+        "unitKind": "champion",
+        "referenceAbility": "Poison 5; Overlook",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "poison"
+      },
+      "effects": [
+        "arcane",
+        "poison-cloud",
+        "support"
+      ],
+      "look": "Green focus-to-target thorn spell; quiet recipient range arrowheads show approved +1 support without repeated buff casting."
+    },
+    {
+      "id": "kingsreach",
+      "name": "Ballista",
+      "approvedAction": "Release the latch so both limbs unload together and the continuous string advances symmetrically toward its relaxed position.",
+      "approvedRelease": "Bolt departure anchors to the existing shot event. Armor reduction is confirmed at target impact and does not require a second visible mechanical discharge.",
+      "runtime": {
+        "name": "Ballista",
+        "short": "Ballista",
+        "referenceTower": "Gold",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#e7bf6b",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 180,
+        "interval": 0.8,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Corrupt 1",
+        "description": "Physical siege weapon that reduces the hit target armor.",
+        "strong": "Corrupt 1",
+        "weak": "Requires exact recipe ingredients",
+        "shred": 30,
+        "model": "ballista",
+        "unitKind": "siege",
+        "referenceAbility": "Corrupt 1",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "arrow",
+        "armor-break"
+      ],
+      "look": "A visible heavy bolt leaves the actual string nock as limbs unload; metallic flakes identify target armor reduction."
+    },
+    {
+      "id": "sunward",
+      "name": "Priest",
+      "approvedAction": "Open the palm in a concise benediction as the torso rises gently and the right hand steadies the tall staff.",
+      "approvedRelease": "Ordinary holy release anchors to the existing shot event. Support and detection continue independently and must not appear to expire when the gesture finishes.",
+      "runtime": {
+        "name": "Priest",
+        "short": "Priest",
+        "referenceTower": "Chrysoberyl Cat's Eye",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#f0d895",
+        "icon": "crown",
+        "type": "holy",
+        "damage": 18,
+        "interval": 1,
+        "range": 5,
+        "projectileSpeed": 22,
+        "role": "Aura 5; Inspire",
+        "description": "Support priest providing attack speed, hit-damage bonus and hidden-enemy detection.",
+        "strong": "Aura 5; Inspire",
+        "weak": "Requires exact recipe ingredients",
+        "aura": {
+          "range": 5,
+          "haste": 0.6,
+          "damageBonus": 0.5,
+          "stackKey": "opal-5"
+        },
+        "model": "priestess",
+        "unitKind": "champion",
+        "referenceAbility": "Aura 5; Inspire",
+        "referenceVerification": "Wiki",
+        "referenceNote": "+60 attack speed je jednotka Dota; procenta v Bastions jsou adaptace.",
+        "detectionRange": 6,
+        "projectileEffect": "holy"
+      },
+      "effects": [
+        "holy",
+        "support"
+      ],
+      "look": "Ivory/gold staff focus and a small radiant projectile; existing support symbols remain quiet between attacks."
+    },
+    {
+      "id": "winterhold",
+      "name": "Frozen Celestial",
+      "approvedAction": "Give a short forward-downward blade presentation, letting connected faceted torso segments turn rather than squash as if made of soft flesh.",
+      "approvedRelease": "Anchor the normal release to the existing shot event. The passive aura remains independent; no new stun or freeze pulse is assigned to the cut.",
+      "runtime": {
+        "name": "Frozen Celestial",
+        "short": "Frozen Celestial",
+        "referenceTower": "Yellow Saphire",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#aedfe9",
+        "icon": "crown",
+        "type": "holy",
+        "damage": 60,
+        "interval": 1,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Ice",
+        "description": "Holy frost champion with a strong continuous movement-slow aura.",
+        "strong": "Ice",
+        "weak": "Requires exact recipe ingredients",
+        "slowAura": 0.75,
+        "model": "colossus",
+        "unitKind": "champion",
+        "referenceAbility": "Ice",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Ponechán schválený současný název.",
+        "projectileEffect": "frost"
+      },
+      "effects": [
+        "frost",
+        "slow-status"
+      ],
+      "look": "Pale Holy frost leaves the forward-downward blade presentation. The low cold veil marks real slow recipients; approved ground-only restriction applies after B03 integration."
+    },
+    {
+      "id": "dawnspire",
+      "name": "Archangel",
+      "approvedAction": "Present one measured downward stroke, using the empty hand as counterbalance and preserving a stable center above the original footprint.",
+      "approvedRelease": "Anchor holy release to the existing shot event. Target slow follows the actual impact; support and detection need no extra sword swings or wing bursts.",
+      "runtime": {
+        "name": "Archangel",
+        "short": "Archangel",
+        "referenceTower": "Star Sapphire",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Mythic",
+        "advanced": true,
+        "color": "#f2dd9f",
+        "icon": "crown",
+        "type": "holy",
+        "damage": 450,
+        "interval": 0.6,
+        "range": 9,
+        "projectileSpeed": 22,
+        "role": "Winter aura, attack-speed blessing and hidden-enemy detection",
+        "description": "Top holy champion combining slow, attack-speed support and detection.",
+        "strong": "Winter aura, attack-speed blessing and hidden-enemy detection",
+        "weak": "Requires exact recipe ingredients",
+        "slowAura": 0.75,
+        "aura": {
+          "range": 6,
+          "haste": 0.8,
+          "stackKey": "standard"
+        },
+        "model": "seraph",
+        "unitKind": "champion",
+        "referenceAbility": "Wiki schopnosti neuvádí",
+        "referenceVerification": "Doplnění ze staršího extraktu",
+        "referenceNote": "Wiki potvrzuje recept. Dosavadní Bastions má vlastní holy útok a kombinaci rychlostní aury se zpomalením.",
+        "slow": 0.75,
+        "slowDuration": 3,
+        "detectionRange": 6,
+        "adaptedAbility": true,
+        "adaptationNote": "Abilities filled from the older extracted Gem TD version because the requested wiki leaves them blank; flat slow becomes a capped percentage.",
+        "projectileEffect": "holy"
+      },
+      "effects": [
+        "holy",
+        "slow-status",
+        "support"
+      ],
+      "look": "A restrained golden sword-edge release with an icy-white core; cold recipient cues remain independent of haste and detection."
+    },
+    {
+      "id": "royalmarshal",
+      "name": "Dwarf Firebomber",
+      "approvedAction": "Make a compact three-quarter toss, elbow leading and hand opening without tearing the work-coat sleeve away from the arm.",
+      "approvedRelease": "Anchor bomb release to the existing shot event and current target trajectory. The aura stays independent and is not newly sprayed from backpack cylinders.",
+      "runtime": {
+        "name": "Dwarf Firebomber",
+        "short": "Dwarf Firebomber",
+        "referenceTower": "Paraiba Tourmaline",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#b49755",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 90,
+        "interval": 0.6,
+        "range": 6,
+        "projectileSpeed": 22,
+        "role": "Decadent",
+        "description": "Physical bomber with a local armor-reduction aura.",
+        "strong": "Decadent",
+        "weak": "Requires exact recipe ingredients",
+        "armorShredAura": 15,
+        "effectRange": 4,
+        "model": "firebomber",
+        "unitKind": "champion",
+        "referenceAbility": "Decadent",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Ohnivá bomba může být vizuální motiv; předloha nepřidává burn.",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "siege",
+        "armor-break"
+      ],
+      "look": "A lit-fuse bomb leaves the three-quarter hand toss; compact orange sparks/dust at the actual single target. Armor aura remains an independent amber cue, not a burning spray."
+    },
+    {
+      "id": "stonewarden",
+      "name": "Catapult",
+      "approvedAction": "Accelerate the arm forward as one lever; the bowl carries the stone until the clearly defined release rather than letting it float beforehand.",
+      "approvedRelease": "Stone departure anchors to the existing shot event. Conditional stun is shown only at its confirmed impact, never as a second physical arm strike.",
+      "runtime": {
+        "name": "Catapult",
+        "short": "Catapult",
+        "referenceTower": "Dark Emerald",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#647d70",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 240,
+        "interval": 0.5,
+        "range": 7,
+        "projectileSpeed": 22,
+        "role": "Stun",
+        "description": "Physical catapult with a chance to stun a hit target.",
+        "strong": "Stun",
+        "weak": "Requires exact recipe ingredients",
+        "freeze": 0.1,
+        "freezeDuration": 2,
+        "stunRecovery": 0,
+        "model": "catapult",
+        "unitKind": "siege",
+        "referenceAbility": "Stun",
+        "referenceVerification": "Wiki: neúplné",
+        "referenceNote": "Starší extrakt uvádí stun 2 s.",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "siege",
+        "stun"
+      ],
+      "look": "Stone leaves the real throwing bowl; dust/chips at contact and a gold star loop only if the actual stun succeeds."
+    },
+    {
+      "id": "wyvernhunter",
+      "name": "Ranger",
+      "approvedAction": "Draw along the arrow axis with the right elbow clearly behind the shoulder; raise the bow only for an airborne selected target.",
+      "approvedRelease": "Anchor release to the existing shot event. Anti-air feedback follows a confirmed eligible hit instead of appearing automatically on every arrow.",
+      "runtime": {
+        "name": "Ranger",
+        "short": "Ranger",
+        "referenceTower": "Quartz",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Basic",
+        "advanced": true,
+        "color": "#79a5bd",
+        "icon": "crown",
+        "type": "physical",
+        "damage": 45,
+        "interval": 0.6,
+        "range": 5,
+        "projectileSpeed": 22,
+        "role": "Anti-Fly 1",
+        "description": "Physical ranger whose debuffs specifically counter flying enemies.",
+        "strong": "Anti-Fly 1",
+        "weak": "Requires exact recipe ingredients",
+        "antiAirShred": 20,
+        "antiAirSlow": 0.4,
+        "slowDuration": 3,
+        "model": "ranger",
+        "unitKind": "champion",
+        "referenceAbility": "Anti-Fly 1",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Účinek se vztahuje na létající cíle.",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "arrow",
+        "armor-break",
+        "slow-status"
+      ],
+      "look": "A clean arrow follows the aimed bow axis; anti-air armor/slow accents apply only to eligible flying targets."
+    },
+    {
+      "id": "royalarsenal",
+      "name": "Elven King",
+      "approvedAction": "Extend the palm in a brief royal command and emphasize the staff, avoiding both an archer’s draw and mechanical recoil.",
+      "approvedRelease": "Anchor the coordinated three-target release to the existing shot-event group. Four visible spirits need not each fire; decoration must never create a fourth attack.",
+      "runtime": {
+        "name": "Elven King",
+        "short": "Elven King",
+        "referenceTower": "Deplemented-Kyparium",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Mythic",
+        "advanced": true,
+        "color": "#426e8a",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 6000,
+        "interval": 0.25,
+        "range": 10,
+        "projectileSpeed": 22,
+        "role": "Three rapid physical shots ignore evasion",
+        "description": "Top Magical champion with rapid three-target attacks that ignore evasion.",
+        "strong": "Three rapid physical shots ignore evasion",
+        "weak": "Requires exact recipe ingredients",
+        "multishot": 3,
+        "trueStrike": true,
+        "adaptedAbility": true,
+        "model": "cannon",
+        "unitKind": "siege",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "arcane"
+      ],
+      "look": "Three real magical spell paths leave the commanding hand/staff focus. Use a regal gold/cyan spell identity; no catapult rock or fourth shot from decorative spirits."
+    },
+    {
+      "id": "rangermentor",
+      "name": "Nature Spirit",
+      "approvedAction": "Unfurl that arm toward the target as the upper presence rotates slightly against the slower lower seed orbit.",
+      "approvedRelease": "Poison release anchors to the existing shot event. Allied range and aim stay passive and require no additional attack, repeated manual buff or separate projectile.",
+      "runtime": {
+        "name": "Nature Spirit",
+        "short": "Nature Spirit",
+        "referenceTower": "Monkey King Jade",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Advanced",
+        "advanced": true,
+        "color": "#547b61",
+        "icon": "crown",
+        "type": "magical",
+        "damage": 150,
+        "interval": 0.5,
+        "range": 10,
+        "projectileSpeed": 22,
+        "role": "Poison 5; Overlook; Monkey King Bar",
+        "description": "Advanced poison spirit that extends allied attack range.",
+        "strong": "Poison 5; Overlook; Monkey King Bar",
+        "weak": "Requires exact recipe ingredients",
+        "poisonDps": 96,
+        "dotDuration": 5,
+        "aura": {
+          "range": 6,
+          "rangeBonus": 3,
+          "trueStrike": true
+        },
+        "model": "bear",
+        "unitKind": "champion",
+        "referenceAbility": "Poison 5; Overlook; Monkey King Bar",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "projectileEffect": "poison"
+      },
+      "effects": [
+        "arcane",
+        "poison-cloud",
+        "support"
+      ],
+      "look": "A green spore spell leaves the unfurling focus hand; quiet mint range/ivory aim symbols preserve current +3 allied range bonus."
+    },
+    {
+      "id": "kingdomprotector",
+      "name": "Paladin",
+      "approvedAction": "Drive one compact forward-downward stroke through hips and torso while keeping the left guard between the body and the attack direction.",
+      "approvedRelease": "Anchor the visual release to the existing shot event and impact feedback to the actual hit. Resistance stays an independent passive support state.",
+      "runtime": {
+        "name": "Paladin",
+        "short": "Paladin",
+        "referenceTower": "Deepsea Pearl",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "stage": "Intermediate",
+        "advanced": true,
+        "color": "#698caa",
+        "icon": "crown",
+        "type": "holy",
+        "damage": 240,
+        "interval": 0.6,
+        "range": 5,
+        "projectileSpeed": 22,
+        "role": "Resist",
+        "description": "Holy support champion protecting allies from enemy disarm and dread.",
+        "strong": "Resist",
+        "weak": "Requires exact recipe ingredients",
+        "aura": {
+          "range": 5,
+          "controlResistance": 1
+        },
+        "model": "paladin",
+        "unitKind": "champion",
+        "referenceAbility": "Resist",
+        "referenceVerification": "Wiki: neúplné",
+        "referenceNote": "Starší extrakt uvádí magickou imunitu v auře 600. Dosavadní hra má vlastní adaptaci odolnosti proti ovládání.",
+        "adaptedAbility": true,
+        "adaptationNote": "Resist is represented by complete protection from disarm and attack suppression; this game has no incoming tower spell damage.",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "holy",
+        "support"
+      ],
+      "look": "A short gold hammer-edge trace and travelling Holy strike follows the existing ranged release; lavender protection belongs to actual recipients."
+    },
+    {
+      "id": "mothernature",
+      "name": "Mother Nature",
+      "approvedAction": "Present the palm firmly and incline the root staff toward the target, retaining the calm face rather than delivering a physical staff blow.",
+      "approvedRelease": "Anchor poison release to the existing shot event. Passive range and aim support continue independently and should not appear to restart on each cast.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Mythic",
+        "color": "#728d65",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "magical",
+        "damage": 9492,
+        "interval": 0.5,
+        "range": 13,
+        "poisonDps": 1898.4,
+        "dotDuration": 5,
+        "aura": {
+          "range": 6,
+          "rangeBonus": 3,
+          "trueStrike": true
+        },
+        "model": "grovekeeper",
+        "name": "Mother Nature",
+        "short": "Mother Nature",
+        "referenceTower": "Diamond Cullinan",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Poison 5; Overlook; Monkey King Bar; Damage",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Wiki uvádí i alternativní jednorázový recept D1+D2+D3+D4+D5. Tento přehled používá hlavní třísložkový recept.",
+        "unitKind": "champion",
+        "description": "Top nature champion with heavy poison damage, range support and evasion bypass.",
+        "role": "Poison 5; Overlook; Monkey King Bar; Damage",
+        "strong": "Poison 5; Overlook; Monkey King Bar; Damage",
+        "projectileEffect": "poison"
+      },
+      "effects": [
+        "arcane",
+        "poison-cloud",
+        "support"
+      ],
+      "look": "Root-staff focus emits a vivid green thorn/spore projectile; a single bounded cloud marks each poison victim, and recipient range/aim cues retain +3."
+    },
+    {
+      "id": "royalranger",
+      "name": "Master Ranger",
+      "approvedAction": "Complete a tight expert draw with minimal chest sway and clear contact between glove, real string and nocked arrow.",
+      "approvedRelease": "Arrow departure anchors to the existing shot event. Poison and anti-air effects follow eligible hits; keep recovery may receive a small acknowledgment only when confirmed.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Advanced",
+        "color": "#476b8d",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "physical",
+        "damage": 90,
+        "interval": 0.5,
+        "range": 9,
+        "poisonDps": 48,
+        "dotDuration": 5,
+        "antiAirShred": 30,
+        "antiAirSlow": 0.4,
+        "recoverChance": 0.01,
+        "recoverLives": 1,
+        "model": "ranger",
+        "name": "Master Ranger",
+        "short": "Master Ranger",
+        "referenceTower": "Lucky Chinese Jade",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Poison 5; Recover; Anti-Fly 1",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "unitKind": "champion",
+        "description": "Poison ranger retaining anti-air debuffs and occasionally restoring keep health.",
+        "role": "Poison 5; Recover; Anti-Fly 1",
+        "strong": "Poison 5; Recover; Anti-Fly 1",
+        "projectileEffect": "poison",
+        "slowDuration": 3
+      },
+      "effects": [
+        "arrow",
+        "poison-cloud",
+        "armor-break",
+        "slow-status",
+        "recover"
+      ],
+      "look": "Physical arrow with a green venom tip; actual poison and flying-hit debuffs plus rare confirmed keep recovery. Approved new general slow aura uses teal wind bands."
+    },
+    {
+      "id": "kingsrangerguard",
+      "name": "Dark Ranger",
+      "approvedAction": "Reach full draw with restrained torso rotation, visible face below the hood and the right wrist beside the cheek rather than inside it.",
+      "approvedRelease": "Anchor one release to the existing shot event. Slow and resistance feedback appear only for the confirmed eligible flying-target hit.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Advanced",
+        "color": "#637caa",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "physical",
+        "damage": 60,
+        "interval": 0.6,
+        "range": 8,
+        "antiAirShred": 35,
+        "antiAirSlow": 0.5,
+        "model": "ranger",
+        "name": "Dark Ranger",
+        "short": "Dark Ranger",
+        "referenceTower": "Charming Lazurite",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Anti-Fly 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "unitKind": "champion",
+        "description": "Physical ranger reducing flying-target armor and slowing their movement.",
+        "role": "Anti-Fly 2",
+        "strong": "Anti-Fly 2",
+        "projectileEffect": "physical",
+        "slowDuration": 3
+      },
+      "effects": [
+        "arrow",
+        "armor-break",
+        "slow-status"
+      ],
+      "look": "A dark steel arrow with a muted blue-violet edge; flying-hit debuffs stay target-specific. Approved general slow aura uses teal wind bands, with no invented poison."
+    },
+    {
+      "id": "elvenking",
+      "name": "Ranger Oathbreaker",
+      "approvedAction": "Use a decisive full draw and slight forward chest emphasis, preserving coherent angular bow limbs, visible string and glove contact.",
+      "approvedRelease": "Anchor ordinary release to the existing shot event. Fire splash appears only after its actual landed-hit proc and is not a second fire arrow.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Mythic",
+        "color": "#b7aa57",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "physical",
+        "damage": 2316,
+        "interval": 0.6,
+        "range": 8,
+        "antiAirSlow": 0.75,
+        "burnedChance": 0.15,
+        "burnedMultiplier": 20,
+        "burnedRadius": 4,
+        "model": "ranger",
+        "adaptedAbility": true,
+        "name": "Ranger Oathbreaker",
+        "short": "Ranger Oathbreaker",
+        "referenceTower": "Golden Jubilee",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Burned; Anti-Fly 3",
+        "referenceVerification": "Wiki: nejasný popis",
+        "referenceNote": "Starší extrakt má jiné hodnoty Anti-Fly 2 a 100% magický zásah. Nekombinovat je do údajně přesného efektu wiki.",
+        "unitKind": "champion",
+        "description": "Top physical ranger with a strong anti-air slow and a chance of fire splash.",
+        "adaptationNote": "Wiki Burned shorthand interpreted as 15% chance of 20x magical splash within four tiles; movement reduction capped at 75%.",
+        "role": "Burned; Anti-Fly 3",
+        "strong": "Burned; Anti-Fly 3",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "arrow",
+        "slow-status",
+        "burn-status"
+      ],
+      "look": "One strong physical arrow; only actual Burned proc creates a local orange radial burst over real victims. Instant fire splash is not a lingering burn status unless one exists. Approved aura uses teal wind bands."
+    },
+    {
+      "id": "fireballista",
+      "name": "Fire Ballista",
+      "approvedAction": "Unload both limbs together in a crisp symmetrical snap, moving the nock forward through the center instead of twisting the entire bow frame.",
+      "approvedRelease": "Anchor departure to the existing shot event. Armor-breaking feedback remains a confirmed target impact, not another discharge from each decorative collar.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Advanced",
+        "color": "#b57844",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "physical",
+        "damage": 360,
+        "interval": 0.8,
+        "range": 7,
+        "shred": 40,
+        "model": "ballista",
+        "name": "Fire Ballista",
+        "short": "Fire Ballista",
+        "referenceTower": "Egypt Gold",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Corrupt 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Název Fire nemění mechaniku: wiki neuvádí hoření, ohnivou auru ani změnu typu poškození.",
+        "unitKind": "siege",
+        "description": "Physical ballista with target armor reduction and 120 Magical burning damage/s for 3s.",
+        "role": "Corrupt 2 · armor-breaking bolts",
+        "strong": "Heavy armor with physical support",
+        "projectileEffect": "physical",
+        "burnDps": 120,
+        "dotDuration": 3
+      },
+      "effects": [
+        "arrow",
+        "burn-status",
+        "armor-break"
+      ],
+      "look": "A heavy bolt with a small ember tip leaves the nock; actual burn clings to the target, alongside a compact broken-shield accent."
+    },
+    {
+      "id": "emeraldgolem",
+      "name": "Golem",
+      "approvedAction": "Present the forearm weapon squarely and give one short release recoil instead of making the whole construct throw or detach its fist.",
+      "approvedRelease": "Anchor ordinary fire to the existing shot event. A confirmed gaze may hold the head steadily toward its sector but cannot guarantee petrification.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Advanced",
+        "color": "#718b63",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "physical",
+        "damage": 450,
+        "interval": 0.5,
+        "range": 7,
+        "shred": 20,
+        "freeze": 0.1,
+        "freezeDuration": 2,
+        "stoneGazeChance": 0.01,
+        "stoneGazeRange": 10,
+        "stoneGazeDuration": 6,
+        "stoneGazeSlow": 0.8,
+        "stoneGazeFacingTime": 2,
+        "petrifyDuration": 3,
+        "petrifyPhysicalBonus": 1,
+        "model": "colossus",
+        "adaptedAbility": true,
+        "name": "Golem",
+        "short": "Golem",
+        "referenceTower": "Emerald Golem",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Stun; Corrupt 1; Stone Gaze",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Podmínka pohledu na golema je součástí předlohy. Corrupt zde uvádí −20, ne −30 jako Gold.",
+        "unitKind": "champion",
+        "description": "Physical golem with armor reduction, stun chance and conditional Stone Gaze.",
+        "adaptationNote": "The wiki leaves gaze duration and slow strength unspecified; this campaign uses six seconds and 80% slow.",
+        "role": "Stun; Corrupt 1; Stone Gaze",
+        "strong": "Stun; Corrupt 1; Stone Gaze",
+        "projectileEffect": "physical",
+        "petrifyIgnoresImmunity": true
+      },
+      "effects": [
+        "siege",
+        "armor-break",
+        "stun",
+        "stone-gaze"
+      ],
+      "look": "A stone/metal forearm projectile and short recoil; real armor break/stun feedback. Only an active gaze lights the eye focus and only actual petrification adds the stone shell."
+    },
+    {
+      "id": "griffinbomber",
+      "name": "Dwarf Griffin bomber",
+      "approvedAction": "Toss overhand clear of beak and feathers, preserving left-hand rein control and stable rider hips throughout the throw.",
+      "approvedRelease": "Anchor release to the existing shot event. Conditional stun follows the actual landed-hit result; both debuff auras continue independently rather than being recast.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Advanced",
+        "color": "#b49755",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "physical",
+        "damage": 390,
+        "interval": 0.6,
+        "range": 7,
+        "freeze": 0.1,
+        "freezeDuration": 2,
+        "armorShredAura": 30,
+        "auraPiercesImmunity": true,
+        "effectRange": 7,
+        "model": "griffin",
+        "name": "Dwarf Griffin bomber",
+        "short": "Dwarf Griffin bomber",
+        "referenceTower": "Elaborately Carved Tourmaline",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Stun; Decadent 2",
+        "referenceVerification": "Wiki",
+        "referenceNote": "",
+        "unitKind": "champion",
+        "description": "Mounted Physical bomber combining stun with a strongest-only armor-reduction aura.",
+        "role": "Stun; Decadent 2",
+        "strong": "Stun; Decadent 2",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "siege",
+        "armor-break",
+        "stun"
+      ],
+      "look": "A bomb leaves the rider hand above the beak; local orange fragments and actual stun stars. The mount does not breathe fire; armor aura stays independent."
+    },
+    {
+      "id": "mechanicalgolem",
+      "name": "Dwarship",
+      "approvedAction": "Use a short outward-downward right-arm throw with the left hand on the rail, retaining coherent coat, glove and beard contacts.",
+      "approvedRelease": "Anchor release to the existing shot event. Slow and healing suppression retain current target-area rules; no new explosion damage, travel delay or poison cloud is proposed.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Mythic",
+        "color": "#7298a5",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "physical",
+        "damage": 126,
+        "interval": 1,
+        "range": 8,
+        "poisonDps": 384,
+        "dotDuration": 5,
+        "shred": 64,
+        "armorShredAura": 30,
+        "auraPiercesImmunity": true,
+        "effectRange": 12,
+        "slow": 0.5,
+        "slowDuration": 3,
+        "effectsRadius": 3,
+        "healingBlockDuration": 3,
+        "model": "titan",
+        "name": "Dwarship",
+        "short": "Dwarship",
+        "referenceTower": "Sapphire Star of Adam",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Wiki schopnosti neuvádí",
+        "referenceVerification": "Doplnění ze staršího extraktu",
+        "referenceNote": "Recept je na wiki; schopnosti doložené jen jinou verzí. Extrakt uvádí poloměr slow 300 a aury 1 200.",
+        "unitKind": "champion",
+        "description": "Top airship support champion with poison, armor reduction, local slow and healing prevention.",
+        "adaptedAbility": true,
+        "adaptationNote": "Abilities filled from the older extracted Gem TD version because the requested wiki leaves them blank.",
+        "role": "Toxic attacks, armor reduction and healing suppression",
+        "strong": "Toxic attacks, armor reduction and healing suppression",
+        "projectileEffect": "physical"
+      },
+      "effects": [
+        "siege",
+        "poison-cloud",
+        "armor-break",
+        "slow-status",
+        "heal-block"
+      ],
+      "look": "A toxic canister follows the approved right-hand throw, not an invented cannon firing gesture. Target poison smoke is separate from the real local slow/heal-block area and independent armor aura."
+    },
+    {
+      "id": "monk",
+      "name": "High Priest",
+      "approvedAction": "Present the staff briefly and use a calm chest-led chant gesture, retaining a clear sun emblem and readable book cover.",
+      "approvedRelease": "Anchor ordinary holy release to the existing shot event. Passive chants and protection remain independent of how widely the book arm moves.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Advanced",
+        "color": "#aa845e",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "holy",
+        "damage": 240,
+        "interval": 0.6,
+        "range": 5,
+        "aura": {
+          "range": 5,
+          "haste": 1,
+          "stackKey": "standard",
+          "damageBonus": 0.5,
+          "controlResistance": 1
+        },
+        "detectionRange": 6,
+        "model": "monk",
+        "name": "High Priest",
+        "short": "High Priest",
+        "referenceTower": "Red Coral",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Aura 4; Aura 5; Inspire; Resist",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Zachovat dvě samostatné skupiny rychlostních aur při převodu do Bastions.",
+        "unitKind": "champion",
+        "description": "Holy High Priest providing strongest-only +100% standard attack speed, damage support and control protection.",
+        "role": "Aura 4; Aura 5; Inspire; Resist",
+        "strong": "Aura 4; Aura 5; Inspire; Resist",
+        "projectileEffect": "holy"
+      },
+      "effects": [
+        "holy",
+        "support"
+      ],
+      "look": "A short ivory/gold staff release while the book remains supported; quiet recipient clock, blade and shield cues identify the actual support."
+    },
+    {
+      "id": "archbishop",
+      "name": "Archbishop",
+      "approvedAction": "Extend one measured benediction from elbow and wrist; a slight chest rise distinguishes the action from idle without a large body sway.",
+      "approvedRelease": "Anchor ordinary holy release to the existing shot event. The support aura continues independently and should not pulse as if it were manually recast.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Mythic",
+        "color": "#c2996e",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "holy",
+        "damage": 18,
+        "interval": 1,
+        "range": 5,
+        "aura": {
+          "range": 5,
+          "haste": 5,
+          "stackKey": "otomad",
+          "damageBonus": 1,
+          "controlResistance": 1
+        },
+        "model": "archbishop",
+        "name": "Archbishop",
+        "short": "Archbishop",
+        "referenceTower": "Carmen-Lucia",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Otomad",
+        "referenceVerification": "Wiki",
+        "referenceNote": "Starší extrakt uvádí i zděděnou podporu a jiné Otomad +200. Prioritu má hodnota +500 z požadované wiki.",
+        "unitKind": "champion",
+        "description": "Holy support champion with separate +500% attack speed, +100% damage and full control protection within 5 tiles.",
+        "role": "Otomad",
+        "strong": "Otomad",
+        "projectileEffect": "holy"
+      },
+      "effects": [
+        "holy",
+        "support"
+      ],
+      "look": "Measured gold-white benediction and projectile; continuous support uses a quiet distinct Otomad clock accent, never one pulse per accelerated allied shot."
+    },
+    {
+      "id": "archangel",
+      "name": "Angel",
+      "approvedAction": "Extend palm and focus in a soft outward cast with small wing-root lift rather than a sword-warrior slash or charging movement.",
+      "approvedRelease": "Anchor ordinary release to the existing shot event. Confirmed allied-triggered bounces may use a separate brief palm or orb response without restarting the body cast.",
+      "runtime": {
+        "advanced": true,
+        "stage": "Advanced",
+        "color": "#90bddb",
+        "icon": "crown",
+        "projectileSpeed": 22,
+        "weak": "Requires exact recipe ingredients",
+        "type": "holy",
+        "damage": 180,
+        "interval": 1,
+        "range": 5,
+        "slowAura": 0.7,
+        "bouncingFrost": 10,
+        "bouncingFrostChance": 0.25,
+        "bouncingFrostDamage": 250,
+        "bouncingFrostRange": 10,
+        "bouncingFrostTrigger": "nearby-ally-magic-hit",
+        "bouncingFrostTriggerRange": 6,
+        "slow": 0.3,
+        "slowDuration": 3,
+        "model": "seraph",
+        "adaptedAbility": true,
+        "name": "Angel",
+        "short": "Angel",
+        "referenceTower": "Northern Saber's Eye",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Wiki schopnosti neuvádí",
+        "referenceVerification": "Doplnění ze staršího extraktu",
+        "referenceNote": "Wiki potvrzuje recept, nikoli efekty. Spouštěč je runová deska (pedal/slate), nikoli běžný útok. Poškození koule není v extraktu vyčísleno.",
+        "unitKind": "champion",
+        "description": "Holy Angel whose Holy frost bounces are triggered by nearby allied Magical or Holy hits.",
+        "adaptationNote": "User-approved adaptation: 25% chance when an ally within six tiles lands a magical attack; ten frost bounces at the Archangel's attack damage. Own attacks, blocked hits and secondary bounces do not trigger it.",
+        "role": "Winter aura and allied-magic-triggered frost bounces",
+        "strong": "Winter aura and allied-magic-triggered frost bounces",
+        "projectileEffect": "frost"
+      },
+      "effects": [
+        "frost",
+        "frost-bounce",
+        "slow-status"
+      ],
+      "look": "Soft palm/orb frost release. Allied-triggered frost beads follow actual bounce packets, with a small focus acknowledgment that does not restart the body cast."
+    },
+    {
+      "id": "ladyclaire",
+      "name": "Lady Claire",
+      "approvedAction": "Open the palm and give a concise staff emphasis while preserving poised expression and stable gown silhouette, without a heavy warrior lunge.",
+      "approvedRelease": "Anchor ordinary release to the existing shot event and proc accents to actual outcomes. On Melancholy, suppress that release and enter a quiet lowered posture.",
+      "runtime": {
+        "advanced": true,
+        "secret": true,
+        "stage": "Secret",
+        "name": "Lady Claire",
+        "short": "Lady Claire",
+        "color": "#ffd969",
+        "icon": "crown",
+        "type": "holy",
+        "damage": 1225,
+        "interval": 0.5,
+        "range": 10,
+        "projectileSpeed": 22,
+        "chain": 5,
+        "chainSequential": true,
+        "chainChance": 0.2,
+        "chainDamage": 250,
+        "chainRange": 10,
+        "forkedTargets": 5,
+        "forkedChance": 0.5,
+        "forkedDamage": 2500,
+        "forkedRange": 50,
+        "melancholyChance": 0,
+        "melancholyDuration": 0,
+        "model": "secretcaster",
+        "unitKind": "champion",
+        "description": "Secret Holy champion with sequential and forked lightning; each chained target takes 250 Holy damage.",
+        "role": "Chain lightning, forked lightning and Melancholy",
+        "strong": "Lightning strikes spread through enemy groups",
+        "weak": "Melancholy can stop her attacks for five seconds",
+        "referenceTower": "Fantastic Miss Shrimp",
+        "source": "https://dota2.fandom.com/wiki/Gem_TD",
+        "referenceAbility": "Lightning Chain; Forked Lightning; Melancholy",
+        "referenceVerification": "Wiki and older author extract for missing parameters",
+        "referenceNote": "Requested wiki supplies damage 1225, range 1000, chain chance 20% and fork chance 50%. Its attack interval and detailed proc values are blank.",
+        "adaptedAbility": true,
+        "adaptationSource": "https://clementbera.github.io/Website/advancedTowers.html",
+        "adaptationNote": "Missing parameters use the specific Fantastic Miss Shrimp author extract: interval 0.5s, chain damage 150 to five other enemies within 1000 per jump, fork damage 2500 to five enemies within 5000, and 3% attack-start Melancholy for 5s. Current wiki chances override the extract's older chances. Range uses 100 source units per tile; requested damage values remain unscaled.",
+        "projectileEffect": "arcane"
+      },
+      "effects": [
+        "holy",
+        "chain",
+        "fork",
+        "lightning"
+      ],
+      "look": "Gold-white focus at the actual ring-staff endpoint; distinct sequential chain and simultaneous fork paths illuminate only actual target surroundings. No Melancholy cue while disabled."
+    }
+  ],
+  "enemies": [
+    {
+      "id": "host_01",
+      "name": "Orc Skull Scavengers",
+      "approvedMotion": "Proposed scavenging trudge: alert enough to advance, but subtly pulled backward and sideways by the sack rather than marching symmetrically.",
+      "variants": [
+        {
+          "baseId": "host_01",
+          "variantIndex": 0,
+          "name": "Orc Skull Scavengers",
+          "visualAsset": "host_01",
+          "motionModelId": "host_01",
+          "actualFields": {},
+          "model": "goblin",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_02",
+      "name": "Goblin Thornstriders",
+      "approvedMotion": "Proposed darting locomotion built around a narrow forward silhouette, quick weight transfers and a surprisingly stable spear hand.",
+      "variants": [
+        {
+          "baseId": "host_02",
+          "variantIndex": 0,
+          "name": "Goblin Thornstriders",
+          "visualAsset": "host_02",
+          "motionModelId": "host_02",
+          "actualFields": {},
+          "model": "wolf",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_03",
+      "name": "Ogre Gluttons",
+      "approvedMotion": "Proposed rolling waddle with substantial side-to-side weight exchange, restrained head movement and a recognizably heavy but not collapsing belly.",
+      "variants": [
+        {
+          "baseId": "host_03",
+          "variantIndex": 0,
+          "name": "Ogre Gluttons",
+          "visualAsset": "host_03",
+          "motionModelId": "host_03",
+          "actualFields": {},
+          "model": "grunt",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_04",
+      "name": "Orc Scrap Tinkers",
+      "approvedMotion": "Proposed busy mechanical shuffle: the living body initiates motion while the heavy collection of scrap follows with small delayed knocks.",
+      "variants": [
+        {
+          "baseId": "host_04",
+          "variantIndex": 0,
+          "name": "Orc Scrap Tinkers",
+          "visualAsset": "host_04",
+          "motionModelId": "host_04",
+          "actualFields": {},
+          "model": "sapper",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_05",
+      "name": "Bat Scouts",
+      "approvedMotion": "Proposed light scouting flight with an active bat and a clearly suspended, securely supported passenger.",
+      "variants": [
+        {
+          "baseId": "host_05",
+          "variantIndex": 0,
+          "name": "Bat Scouts",
+          "visualAsset": "host_05",
+          "motionModelId": "host_05",
+          "actualFields": {},
+          "model": "wyvern",
+          "flying": true,
+          "effects": [],
+          "thiefNote": null
+        },
+        {
+          "baseId": "host_05",
+          "variantIndex": 1,
+          "name": "Bat Scouts · Moon Clan",
+          "visualAsset": "host_05",
+          "motionModelId": "host_05",
+          "actualFields": {
+            "evasion": 0.25
+          },
+          "model": "balloon",
+          "flying": true,
+          "effects": [
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_06",
+      "name": "Mossback Trolls",
+      "approvedMotion": "Proposed deliberate earthbound lope with a low center of mass and a back garden that feels carried by the torso.",
+      "variants": [
+        {
+          "baseId": "host_06",
+          "variantIndex": 0,
+          "name": "Mossback Trolls",
+          "visualAsset": "host_06",
+          "motionModelId": "host_06",
+          "actualFields": {},
+          "model": "troll",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_07",
+      "name": "Marsh Orc Hunters",
+      "approvedMotion": "Proposed cautious stalking with measured foot placement, quiet upper-body control and a spear held ready rather than swinging freely.",
+      "variants": [
+        {
+          "baseId": "host_07",
+          "variantIndex": 0,
+          "name": "Marsh Orc Hunters",
+          "visualAsset": "host_07",
+          "motionModelId": "host_07",
+          "actualFields": {},
+          "model": "grunt",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_08",
+      "name": "Shadowblood Trolls",
+      "approvedMotion": "Proposed low predatory lumber. Use the approved connected anatomy; older floating-block description is not permission to separate limbs during ordinary locomotion.",
+      "variants": [
+        {
+          "baseId": "host_08",
+          "variantIndex": 0,
+          "name": "Shadowblood Trolls",
+          "visualAsset": "host_08",
+          "motionModelId": "host_08",
+          "actualFields": {
+            "regen": 0.2,
+            "stealth": true
+          },
+          "model": "assassin",
+          "flying": false,
+          "effects": [
+            "enemy-healing",
+            "stealth"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_09",
+      "name": "Goblin Dust Dancers",
+      "approvedMotion": "Proposed springy evasive footwork with a forward torso, asymmetric arm shapes and controlled side-to-side redirection.",
+      "variants": [
+        {
+          "baseId": "host_09",
+          "variantIndex": 0,
+          "name": "Goblin Dust Dancers",
+          "visualAsset": "host_09",
+          "motionModelId": "host_09",
+          "actualFields": {
+            "evasion": 0.25
+          },
+          "model": "assassin",
+          "flying": false,
+          "effects": [
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_10",
+      "name": "Mogrok, the Gatebreaker",
+      "approvedMotion": "Proposed siege advance: persistent forward weight, low cadence and visible effort controlling two very unequal loads.",
+      "variants": [
+        {
+          "baseId": "host_10",
+          "variantIndex": 0,
+          "name": "Mogrok, the Gatebreaker",
+          "visualAsset": "host_10",
+          "motionModelId": "host_10",
+          "actualFields": {},
+          "model": "ogre",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_11",
+      "name": "Orc Hookbearers",
+      "approvedMotion": "Proposed disciplined advance with a slightly threatening shoulder sway and both hook points remaining clearly presented.",
+      "variants": [
+        {
+          "baseId": "host_11",
+          "variantIndex": 0,
+          "name": "Orc Hookbearers",
+          "visualAsset": "host_11",
+          "motionModelId": "host_11",
+          "actualFields": {},
+          "model": "grunt",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_12",
+      "name": "Goblin Bell Devourers",
+      "approvedMotion": "Proposed burdened scuttle whose small body visibly supports the bell instead of moving like an unencumbered goblin.",
+      "variants": [
+        {
+          "baseId": "host_12",
+          "variantIndex": 0,
+          "name": "Goblin Bell Devourers",
+          "visualAsset": "host_12",
+          "motionModelId": "host_12",
+          "actualFields": {
+            "disarm": true
+          },
+          "model": "shaman",
+          "flying": false,
+          "effects": [
+            "enemy-control"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_13",
+      "name": "Red Tusk Orc Huntresses",
+      "approvedMotion": "Proposed confident hunting stride, more upright and controlled than the goblin runners, with a stable axe-side shoulder.",
+      "variants": [
+        {
+          "baseId": "host_13",
+          "variantIndex": 0,
+          "name": "Red Tusk Orc Huntresses",
+          "visualAsset": "host_13",
+          "motionModelId": "host_13",
+          "actualFields": {},
+          "model": "berserker",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_14",
+      "name": "Orc Mirror Shieldbearers",
+      "approvedMotion": "Proposed guarded shield advance with small controlled steps and an upper body organized around the protective left-side plane.",
+      "variants": [
+        {
+          "baseId": "host_14",
+          "variantIndex": 0,
+          "name": "Orc Mirror Shieldbearers",
+          "visualAsset": "host_14",
+          "motionModelId": "host_14",
+          "actualFields": {
+            "refraction": 3
+          },
+          "model": "shield",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_15",
+      "name": "Blood Bat Riders",
+      "approvedMotion": "Proposed forceful, living flight with heavier torso lift than the scout and a rider seated into the mount rather than suspended below it.",
+      "variants": [
+        {
+          "baseId": "host_15",
+          "variantIndex": 0,
+          "name": "Blood Bat Riders",
+          "visualAsset": "host_15",
+          "motionModelId": "host_15",
+          "actualFields": {
+            "regen": 0.2
+          },
+          "model": "bat",
+          "flying": true,
+          "effects": [
+            "enemy-healing"
+          ],
+          "thiefNote": null
+        },
+        {
+          "baseId": "host_15",
+          "variantIndex": 1,
+          "name": "Blood Bat Riders · Moon Clan",
+          "visualAsset": "host_15",
+          "motionModelId": "host_15",
+          "actualFields": {
+            "evasion": 0.25,
+            "regen": 0.2
+          },
+          "model": "bat",
+          "flying": true,
+          "effects": [
+            "enemy-healing",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_16",
+      "name": "Orc Ash Pickpockets",
+      "approvedMotion": "Proposed restrained sneaking that becomes a quick escape, with the bulky purses adding a distinctive delayed hip response.",
+      "variants": [
+        {
+          "baseId": "host_16",
+          "variantIndex": 0,
+          "name": "Orc Ash Pickpockets",
+          "visualAsset": "host_16",
+          "motionModelId": "host_16",
+          "actualFields": {
+            "magicImmune": true,
+            "thief": 50
+          },
+          "model": "warlock",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": "Gold-loss feedback only at the existing leak/gold change; no coin attack."
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_17",
+      "name": "Cursed Totem Trolls",
+      "approvedMotion": "Proposed ritual-like heavy march with an offset rear load and a comparatively steady head beneath the tall skull silhouette.",
+      "variants": [
+        {
+          "baseId": "host_17",
+          "variantIndex": 0,
+          "name": "Cursed Totem Trolls",
+          "visualAsset": "host_17",
+          "motionModelId": "host_17",
+          "actualFields": {
+            "untouchable": 0.75
+          },
+          "model": "shaman",
+          "flying": false,
+          "effects": [
+            "enemy-control"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_18",
+      "name": "Silent Orc Executioners",
+      "approvedMotion": "Proposed quiet, controlled procession: minimal head bob and deliberate feet make the character ominous without becoming a hovering robe.",
+      "variants": [
+        {
+          "baseId": "host_18",
+          "variantIndex": 0,
+          "name": "Silent Orc Executioners",
+          "visualAsset": "host_18",
+          "motionModelId": "host_18",
+          "actualFields": {
+            "stealth": true,
+            "disarm": true
+          },
+          "model": "assassin",
+          "flying": false,
+          "effects": [
+            "enemy-control",
+            "stealth"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_19",
+      "name": "Bloodwolf Orc Riders",
+      "approvedMotion": "Proposed coordinated mount locomotion; the wolf creates propulsion while the rider reacts through the seat, reins and compact bent legs.",
+      "variants": [
+        {
+          "baseId": "host_19",
+          "variantIndex": 0,
+          "name": "Bloodwolf Orc Riders",
+          "visualAsset": "host_19",
+          "motionModelId": "host_19",
+          "actualFields": {
+            "rush": 5
+          },
+          "model": "wolf",
+          "flying": false,
+          "effects": [
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_20",
+      "name": "Gorvash, the Bone Patriarch",
+      "approvedMotion": "Proposed stately crushing advance: the body carries ceremonial loads with authority rather than the comic wobble of the younger ogre.",
+      "variants": [
+        {
+          "baseId": "host_20",
+          "variantIndex": 0,
+          "name": "Gorvash, the Bone Patriarch",
+          "visualAsset": "host_20",
+          "motionModelId": "host_20",
+          "actualFields": {},
+          "model": "ogre",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_21",
+      "name": "Rotroot Trolls",
+      "approvedMotion": "Proposed rooted but mobile lumber: living joints drive the stride while woody masses retain their structure and foliage follows with restrained softness.",
+      "variants": [
+        {
+          "baseId": "host_21",
+          "variantIndex": 0,
+          "name": "Rotroot Trolls",
+          "visualAsset": "host_21",
+          "motionModelId": "host_21",
+          "actualFields": {
+            "regen": 0.2
+          },
+          "model": "troll",
+          "flying": false,
+          "effects": [
+            "enemy-healing"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_22",
+      "name": "Iron Ram Ogres",
+      "approvedMotion": "Proposed armored piston-like march, with deliberate living weight underneath rigid plates rather than the loose movement of a cloth-clad troll.",
+      "variants": [
+        {
+          "baseId": "host_22",
+          "variantIndex": 0,
+          "name": "Iron Ram Ogres",
+          "visualAsset": "host_22",
+          "motionModelId": "host_22",
+          "actualFields": {},
+          "model": "shield",
+          "flying": false,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_23",
+      "name": "Shard-Soul Orc Warlocks",
+      "approvedMotion": "Proposed quiet spectral procession. Floating masks do not by themselves establish that the entire approved character should fly or lose grounded footwork.",
+      "variants": [
+        {
+          "baseId": "host_23",
+          "variantIndex": 0,
+          "name": "Shard-Soul Orc Warlocks",
+          "visualAsset": "host_23",
+          "motionModelId": "host_23",
+          "actualFields": {
+            "physicalImmune": true,
+            "refraction": 3
+          },
+          "model": "warlock",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_24",
+      "name": "Riveted Goblin Mutants",
+      "approvedMotion": "Proposed deliberate machine stepping, with a small living pilot responding inside a large rigid load-bearing frame.",
+      "variants": [
+        {
+          "baseId": "host_24",
+          "variantIndex": 0,
+          "name": "Riveted Goblin Mutants",
+          "visualAsset": "host_24",
+          "motionModelId": "host_24",
+          "actualFields": {
+            "reactiveArmor": 8
+          },
+          "model": "sapper",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_25",
+      "name": "Iron Bat Orc Riders",
+      "approvedMotion": "Proposed weighty sustained flight with slower-looking, purposeful wing effort and a rider whose weapon remains independently readable.",
+      "variants": [
+        {
+          "baseId": "host_25",
+          "variantIndex": 0,
+          "name": "Iron Bat Orc Riders",
+          "visualAsset": "host_25",
+          "motionModelId": "host_25",
+          "actualFields": {},
+          "model": "wyvern",
+          "flying": true,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_26",
+      "name": "Orc Spell Eaters",
+      "approvedMotion": "Proposed stubborn forward stomp with a comparatively stable neck and an upper body constrained by the heavy collar.",
+      "variants": [
+        {
+          "baseId": "host_26",
+          "variantIndex": 0,
+          "name": "Orc Spell Eaters",
+          "visualAsset": "host_26",
+          "motionModelId": "host_26",
+          "actualFields": {
+            "magicImmune": true
+          },
+          "model": "berserker",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_27",
+      "name": "Spectral Bat Riders",
+      "approvedMotion": "Proposed eerie sustained flight that retains recognizable bat propulsion while using smoother torso travel than the fleshy mounts.",
+      "variants": [
+        {
+          "baseId": "host_27",
+          "variantIndex": 0,
+          "name": "Spectral Bat Riders",
+          "visualAsset": "host_27",
+          "motionModelId": "host_27",
+          "actualFields": {
+            "physicalImmune": true,
+            "untouchable": 0.75
+          },
+          "model": "bat",
+          "flying": true,
+          "effects": [
+            "enemy-defense",
+            "enemy-control"
+          ],
+          "thiefNote": null
+        },
+        {
+          "baseId": "host_27",
+          "variantIndex": 1,
+          "name": "Spectral Bat Riders · Moon Clan",
+          "visualAsset": "host_27",
+          "motionModelId": "host_27",
+          "actualFields": {
+            "physicalImmune": true,
+            "evasion": 0.25,
+            "untouchable": 0.75
+          },
+          "model": "bat",
+          "flying": true,
+          "effects": [
+            "enemy-defense",
+            "enemy-control",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_28",
+      "name": "Goblin Scrapwings",
+      "approvedMotion": "Propose steady hovering machinery with deliberate hinged strokes and small hull pitch corrections, rather than an undulating animal spine.",
+      "variants": [
+        {
+          "baseId": "host_28",
+          "variantIndex": 0,
+          "name": "Goblin Scrapwings",
+          "visualAsset": "host_28",
+          "motionModelId": "host_28",
+          "actualFields": {
+            "reactiveArmor": 8
+          },
+          "model": "balloon",
+          "flying": true,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        },
+        {
+          "baseId": "host_28",
+          "variantIndex": 1,
+          "name": "Goblin Scrapwings · Moon Clan",
+          "visualAsset": "host_28",
+          "motionModelId": "host_28",
+          "actualFields": {
+            "evasion": 0.25,
+            "stealth": true
+          },
+          "model": "balloon",
+          "flying": true,
+          "effects": [
+            "enemy-movement",
+            "stealth"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_29",
+      "name": "Prismatic Bat Tricksters",
+      "approvedMotion": "Use economical, quick bat strokes with a relatively quiet rider, making the small silhouette agile without specifying travel speed.",
+      "variants": [
+        {
+          "baseId": "host_29",
+          "variantIndex": 0,
+          "name": "Prismatic Bat Tricksters",
+          "visualAsset": "host_29",
+          "motionModelId": "host_29",
+          "actualFields": {
+            "evasion": 0.25,
+            "refraction": 3
+          },
+          "model": "bat",
+          "flying": true,
+          "effects": [
+            "enemy-defense",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        },
+        {
+          "baseId": "host_29",
+          "variantIndex": 1,
+          "name": "Prismatic Bat Tricksters · Moon Clan",
+          "visualAsset": "host_29",
+          "motionModelId": "host_29",
+          "actualFields": {
+            "evasion": 0.25,
+            "refraction": 3
+          },
+          "model": "bat",
+          "flying": true,
+          "effects": [
+            "enemy-defense",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_30",
+      "name": "Zaruun, Lord of Storm Wings",
+      "approvedMotion": "Propose powerful wingbeats with restrained torso heave; the rider absorbs lift through seated hips rather than bouncing independently.",
+      "variants": [
+        {
+          "baseId": "host_30",
+          "variantIndex": 0,
+          "name": "Zaruun, Lord of Storm Wings",
+          "visualAsset": "host_30",
+          "motionModelId": "host_30",
+          "actualFields": {},
+          "model": "dragon",
+          "flying": true,
+          "effects": [],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_31",
+      "name": "Orc Dual-Seal Inquisitors",
+      "approvedMotion": "Use an upright measured march, expressing authority through planted feet and controlled equipment rather than supernatural floating.",
+      "variants": [
+        {
+          "baseId": "host_31",
+          "variantIndex": 0,
+          "name": "Ashen Dual-Seal Inquisitors",
+          "visualAsset": "host_31-ember",
+          "motionModelId": "host_31",
+          "actualFields": {
+            "magicImmune": true,
+            "refraction": 3
+          },
+          "model": "warlock",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_32",
+      "name": "Soul-Drinker Trolls",
+      "approvedMotion": "Give it a weighty stride with low shoulder roll and a protected chest cavity, rather than a loose human walk.",
+      "variants": [
+        {
+          "baseId": "host_32",
+          "variantIndex": 0,
+          "name": "Soul-Drinker Trolls",
+          "visualAsset": "host_32",
+          "motionModelId": "host_32",
+          "actualFields": {
+            "recharge": 0.5
+          },
+          "model": "shaman",
+          "flying": false,
+          "effects": [
+            "enemy-healing"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_33",
+      "name": "Orc Wraiths of the Shattered World",
+      "approvedMotion": "Propose restrained spectral ground progression with shallow foot placement and slight segment lag, retaining visible legs instead of replacing them with flight.",
+      "variants": [
+        {
+          "baseId": "host_33",
+          "variantIndex": 0,
+          "name": "Orc Wraiths of the Shattered World",
+          "visualAsset": "host_33",
+          "motionModelId": "host_33",
+          "actualFields": {
+            "physicalImmune": true,
+            "blink": 6
+          },
+          "model": "assassin",
+          "flying": false,
+          "effects": [
+            "enemy-defense",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_34",
+      "name": "Goblin Gallows Fliers",
+      "approvedMotion": "Treat bat and rider as coupled masses: the animal drives flight, and the goblin follows through real back attachments.",
+      "variants": [
+        {
+          "baseId": "host_34",
+          "variantIndex": 0,
+          "name": "Goblin Gallows Fliers",
+          "visualAsset": "host_34",
+          "motionModelId": "host_34",
+          "actualFields": {
+            "evasion": 0.25,
+            "thief": 50
+          },
+          "model": "bat",
+          "flying": true,
+          "effects": [
+            "enemy-movement"
+          ],
+          "thiefNote": "Gold-loss feedback only at the existing leak/gold change; no coin attack."
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_35",
+      "name": "Eclipse Bat Guard",
+      "approvedMotion": "Use disciplined even beats with a stable guard posture, letting the animal carry the load while the rider keeps a quiet upper body.",
+      "variants": [
+        {
+          "baseId": "host_35",
+          "variantIndex": 0,
+          "name": "Ashen Eclipse Bat Riders",
+          "visualAsset": "host_35-ember",
+          "motionModelId": "host_35",
+          "actualFields": {
+            "magicImmune": true
+          },
+          "model": "wyvern",
+          "flying": true,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_36",
+      "name": "Orc Oathbreakers",
+      "approvedMotion": "Use a guarded soldier's gait that acknowledges unequal equipment mass without introducing an unsupported permanent limp.",
+      "variants": [
+        {
+          "baseId": "host_36",
+          "variantIndex": 0,
+          "name": "Ashen Oathbreakers",
+          "visualAsset": "host_36-ember",
+          "motionModelId": "host_36",
+          "actualFields": {
+            "magicImmune": true
+          },
+          "model": "shield",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_37",
+      "name": "Riftwolf Orc Riders",
+      "approvedMotion": "Use predatory quadruped progression with distinct forequarter and hindquarter compression; the rider follows through supported seated hips.",
+      "variants": [
+        {
+          "baseId": "host_37",
+          "variantIndex": 0,
+          "name": "Riftwolf Orc Riders",
+          "visualAsset": "host_37",
+          "motionModelId": "host_37",
+          "actualFields": {
+            "blink": 6
+          },
+          "model": "wolf",
+          "flying": false,
+          "effects": [
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_38",
+      "name": "Black Marsh Knifemen / Blood-Leech Trolls",
+      "approvedMotion": "Propose a low cautious stalk that retains the solid body and readable two-handed blade silhouette.",
+      "variants": [
+        {
+          "baseId": "host_38",
+          "variantIndex": 0,
+          "name": "Black Marsh Knifemen",
+          "visualAsset": "host_38",
+          "motionModelId": "host_38",
+          "actualFields": {
+            "stealth": true,
+            "disarm": true
+          },
+          "model": "assassin",
+          "flying": false,
+          "effects": [
+            "enemy-control",
+            "stealth"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_39",
+      "name": "Thunder Manta Orc Riders",
+      "approvedMotion": "Propose smooth fin-driven travel with a stable armored center and a rider seated above the load-bearing back.",
+      "variants": [
+        {
+          "baseId": "host_39",
+          "variantIndex": 0,
+          "name": "Thunder Manta Orc Riders",
+          "visualAsset": "host_39",
+          "motionModelId": "host_39",
+          "actualFields": {
+            "evasion": 0.25,
+            "untouchable": 0.75,
+            "krakenShell": 100
+          },
+          "model": "wyvern",
+          "flying": true,
+          "effects": [
+            "enemy-defense",
+            "enemy-control",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_40",
+      "name": "Vorlak, the Hollow Sky King",
+      "approvedMotion": "Use deliberate skeletal wing power and restrained body heave, making the central figure read as carried inside a hollow creature.",
+      "variants": [
+        {
+          "baseId": "host_40",
+          "variantIndex": 0,
+          "name": "Vorlak, the Hollow Sky King",
+          "visualAsset": "host_40",
+          "motionModelId": "host_40",
+          "actualFields": {
+            "krakenShell": 110
+          },
+          "model": "dragon",
+          "flying": true,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_41",
+      "name": "Orc Crystal Phalanx",
+      "approvedMotion": "Propose compact formation marching with the shield leading and the spear confined to a controlled vertical or slightly forward corridor.",
+      "variants": [
+        {
+          "baseId": "host_41",
+          "variantIndex": 0,
+          "name": "Orc Crystal Phalanx",
+          "visualAsset": "host_41",
+          "motionModelId": "host_41",
+          "actualFields": {
+            "refraction": 3
+          },
+          "model": "shield",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        },
+        {
+          "baseId": "host_41",
+          "variantIndex": 1,
+          "name": "Orc Crystal Phalanx · Moon Clan",
+          "visualAsset": "host_41",
+          "motionModelId": "host_41",
+          "actualFields": {
+            "evasion": 0.25,
+            "refraction": 3
+          },
+          "model": "shield",
+          "flying": false,
+          "effects": [
+            "enemy-defense",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_42",
+      "name": "Fire Bat Orc Lancers",
+      "approvedMotion": "Use focused forward flight with a steady lance axis, leaving lift and route motion to the bat's actual wing mechanism.",
+      "variants": [
+        {
+          "baseId": "host_42",
+          "variantIndex": 0,
+          "name": "Fire Bat Orc Lancers",
+          "visualAsset": "host_42",
+          "motionModelId": "host_42",
+          "actualFields": {
+            "magicImmune": true,
+            "rush": 2
+          },
+          "model": "bat",
+          "flying": true,
+          "effects": [
+            "enemy-defense",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_43",
+      "name": "Ogres of the Imprisoned Souls",
+      "approvedMotion": "Use a heavy deliberate trudge with preparation before each step and restrained sway below the two supported cages.",
+      "variants": [
+        {
+          "baseId": "host_43",
+          "variantIndex": 0,
+          "name": "Ogres of the Imprisoned Souls",
+          "visualAsset": "host_43",
+          "motionModelId": "host_43",
+          "actualFields": {
+            "evasion": 0.25,
+            "untouchable": 0.75,
+            "recharge": 0.5
+          },
+          "model": "shaman",
+          "flying": false,
+          "effects": [
+            "enemy-healing",
+            "enemy-control",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_44",
+      "name": "Orc Ash Executioners",
+      "approvedMotion": "Propose a severe controlled procession with little head motion, treating the weapon as a real offset mass.",
+      "variants": [
+        {
+          "baseId": "host_44",
+          "variantIndex": 0,
+          "name": "Orc Ash Executioners",
+          "visualAsset": "host_44",
+          "motionModelId": "host_44",
+          "actualFields": {
+            "magicImmune": true,
+            "blink": 6
+          },
+          "model": "berserker",
+          "flying": false,
+          "effects": [
+            "enemy-defense",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_45",
+      "name": "Flying Drummers of the Black Horde",
+      "approvedMotion": "Use stable transport beats with separately responding riders; the mount remains the sole driver of flight locomotion.",
+      "variants": [
+        {
+          "baseId": "host_45",
+          "variantIndex": 0,
+          "name": "Flying Drummers of the Black Horde",
+          "visualAsset": "host_45",
+          "motionModelId": "host_45",
+          "actualFields": {
+            "hasteAura": 1.5,
+            "disarm": true
+          },
+          "model": "balloon",
+          "flying": true,
+          "effects": [
+            "enemy-control",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_46",
+      "name": "Ogre Revenants in Hollow Armor",
+      "approvedMotion": "Propose a weighty articulated armor walk, with deliberate plate placement and a stable spectral core rather than soft-body breathing.",
+      "variants": [
+        {
+          "baseId": "host_46",
+          "variantIndex": 0,
+          "name": "Ogre Revenants in Hollow Armor",
+          "visualAsset": "host_46",
+          "motionModelId": "host_46",
+          "actualFields": {
+            "physicalImmune": true
+          },
+          "model": "shield",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_47",
+      "name": "Orc Riders of the Last Howl",
+      "approvedMotion": "Use powerful quadruped motion with stronger forequarter mass and a more grounded rider response than the lighter riftwolf.",
+      "variants": [
+        {
+          "baseId": "host_47",
+          "variantIndex": 0,
+          "name": "Orc Riders of the Last Howl",
+          "visualAsset": "host_47",
+          "motionModelId": "host_47",
+          "actualFields": {
+            "magicImmune": true,
+            "untouchable": 0.75,
+            "rush": 5
+          },
+          "model": "berserker",
+          "flying": false,
+          "effects": [
+            "enemy-defense",
+            "enemy-control",
+            "enemy-movement"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_48",
+      "name": "Bat Thieves of Black Fire",
+      "approvedMotion": "Use agile readable flight with a quiet central body, controlled recovery and an anticipatory but supported rider posture.",
+      "variants": [
+        {
+          "baseId": "host_48",
+          "variantIndex": 0,
+          "name": "Bat Thieves of Black Fire",
+          "visualAsset": "host_48",
+          "motionModelId": "host_48",
+          "actualFields": {
+            "magicImmune": true,
+            "evasion": 0.25,
+            "disarm": true,
+            "thief": 50
+          },
+          "model": "bat",
+          "flying": true,
+          "effects": [
+            "enemy-defense",
+            "enemy-control",
+            "enemy-movement"
+          ],
+          "thiefNote": "Gold-loss feedback only at the existing leak/gold change; no coin attack."
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_49",
+      "name": "Troll Guardians of the Deep Maw",
+      "approvedMotion": "Propose a heavy broad trudge, with hips supporting shell and arm weight while the abdominal mouth stays part of the body.",
+      "variants": [
+        {
+          "baseId": "host_49",
+          "variantIndex": 0,
+          "name": "Troll Guardians of the Deep Maw",
+          "visualAsset": "host_49",
+          "motionModelId": "host_49",
+          "actualFields": {
+            "krakenShell": 200,
+            "recharge": 0.5
+          },
+          "model": "ogre",
+          "flying": false,
+          "effects": [
+            "enemy-defense",
+            "enemy-healing"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_50",
+      "name": "Lord Bernhard",
+      "approvedMotion": "Use commanding heavy flight with a stable throne and clear wing articulation, emphasizing scale without changing authoritative gameplay travel speed.",
+      "variants": [
+        {
+          "baseId": "host_50",
+          "variantIndex": 0,
+          "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "visualAsset": "host_50",
+          "motionModelId": "host_50",
+          "actualFields": {
+            "krakenShell": 210
+          },
+          "model": "dragon",
+          "flying": true,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        },
+        {
+          "baseId": "host_50",
+          "variantIndex": 1,
+          "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "visualAsset": "host_50-tyrant",
+          "motionModelId": "host_50",
+          "actualFields": {
+            "magicImmune": true,
+            "krakenShell": 210
+          },
+          "model": "dragon",
+          "flying": true,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        },
+        {
+          "baseId": "host_50",
+          "variantIndex": 2,
+          "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+          "visualAsset": "host_50-devourer",
+          "motionModelId": "host_50",
+          "actualFields": {
+            "krakenShell": 273
+          },
+          "model": "dragon",
+          "flying": true,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_31-wraith",
+      "name": "Spectral Dual-Seal Inquisitors",
+      "approvedMotion": "Use a lighter controlled march while respecting solid lower anatomy and rigid frames, rather than treating the whole model as vapor.",
+      "variants": [
+        {
+          "baseId": "host_31",
+          "variantIndex": 1,
+          "name": "Spectral Dual-Seal Inquisitors",
+          "visualAsset": "host_31-wraith",
+          "motionModelId": "host_31-wraith",
+          "actualFields": {
+            "physicalImmune": true,
+            "refraction": 3
+          },
+          "model": "warlock",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_35-wraith",
+      "name": "Spectral Eclipse Bat Riders",
+      "approvedMotion": "Propose buoyant but coherent skeletal flight, distinguishing the open body from the solid violet base without making bones flexible.",
+      "variants": [
+        {
+          "baseId": "host_35",
+          "variantIndex": 1,
+          "name": "Spectral Eclipse Bat Riders",
+          "visualAsset": "host_35-wraith",
+          "motionModelId": "host_35-wraith",
+          "actualFields": {
+            "physicalImmune": true
+          },
+          "model": "wyvern",
+          "flying": true,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_36-wraith",
+      "name": "Spectral Oathbreakers",
+      "approvedMotion": "Use poised segmented ground motion, transmitting movement through existing frames instead of inventing a solid torso.",
+      "variants": [
+        {
+          "baseId": "host_36",
+          "variantIndex": 1,
+          "name": "Spectral Oathbreakers",
+          "visualAsset": "host_36-wraith",
+          "motionModelId": "host_36-wraith",
+          "actualFields": {
+            "physicalImmune": true
+          },
+          "model": "shield",
+          "flying": false,
+          "effects": [
+            "enemy-defense"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    },
+    {
+      "id": "host_38-wraith",
+      "name": "Blood-Leech Trolls",
+      "approvedMotion": "Use a heavy troll gait with broad support and delayed sac motion, clearly separate from the compact knifeman's cautious stalk.",
+      "variants": [
+        {
+          "baseId": "host_38",
+          "variantIndex": 1,
+          "name": "Blood-Leech Trolls",
+          "visualAsset": "host_38-wraith",
+          "motionModelId": "host_38-wraith",
+          "actualFields": {
+            "regen": 0.25
+          },
+          "model": "assassin",
+          "flying": false,
+          "effects": [
+            "enemy-healing"
+          ],
+          "thiefNote": null
+        }
+      ],
+      "locomotionNote": "Keep approved walk/run/flight and one-shot death. Dust only at grounded contact; no automatic attacks or spells from the gait."
+    }
+  ],
+  "enemyVariants": [
+    {
+      "baseId": "host_01",
+      "variantIndex": 0,
+      "name": "Orc Skull Scavengers",
+      "visualAsset": "host_01",
+      "motionModelId": "host_01",
+      "actualFields": {},
+      "model": "goblin",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_02",
+      "variantIndex": 0,
+      "name": "Goblin Thornstriders",
+      "visualAsset": "host_02",
+      "motionModelId": "host_02",
+      "actualFields": {},
+      "model": "wolf",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_03",
+      "variantIndex": 0,
+      "name": "Ogre Gluttons",
+      "visualAsset": "host_03",
+      "motionModelId": "host_03",
+      "actualFields": {},
+      "model": "grunt",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_04",
+      "variantIndex": 0,
+      "name": "Orc Scrap Tinkers",
+      "visualAsset": "host_04",
+      "motionModelId": "host_04",
+      "actualFields": {},
+      "model": "sapper",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_05",
+      "variantIndex": 0,
+      "name": "Bat Scouts",
+      "visualAsset": "host_05",
+      "motionModelId": "host_05",
+      "actualFields": {},
+      "model": "wyvern",
+      "flying": true,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_05",
+      "variantIndex": 1,
+      "name": "Bat Scouts · Moon Clan",
+      "visualAsset": "host_05",
+      "motionModelId": "host_05",
+      "actualFields": {
+        "evasion": 0.25
+      },
+      "model": "balloon",
+      "flying": true,
+      "effects": [
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_06",
+      "variantIndex": 0,
+      "name": "Mossback Trolls",
+      "visualAsset": "host_06",
+      "motionModelId": "host_06",
+      "actualFields": {},
+      "model": "troll",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_07",
+      "variantIndex": 0,
+      "name": "Marsh Orc Hunters",
+      "visualAsset": "host_07",
+      "motionModelId": "host_07",
+      "actualFields": {},
+      "model": "grunt",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_08",
+      "variantIndex": 0,
+      "name": "Shadowblood Trolls",
+      "visualAsset": "host_08",
+      "motionModelId": "host_08",
+      "actualFields": {
+        "regen": 0.2,
+        "stealth": true
+      },
+      "model": "assassin",
+      "flying": false,
+      "effects": [
+        "enemy-healing",
+        "stealth"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_09",
+      "variantIndex": 0,
+      "name": "Goblin Dust Dancers",
+      "visualAsset": "host_09",
+      "motionModelId": "host_09",
+      "actualFields": {
+        "evasion": 0.25
+      },
+      "model": "assassin",
+      "flying": false,
+      "effects": [
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_10",
+      "variantIndex": 0,
+      "name": "Mogrok, the Gatebreaker",
+      "visualAsset": "host_10",
+      "motionModelId": "host_10",
+      "actualFields": {},
+      "model": "ogre",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_11",
+      "variantIndex": 0,
+      "name": "Orc Hookbearers",
+      "visualAsset": "host_11",
+      "motionModelId": "host_11",
+      "actualFields": {},
+      "model": "grunt",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_12",
+      "variantIndex": 0,
+      "name": "Goblin Bell Devourers",
+      "visualAsset": "host_12",
+      "motionModelId": "host_12",
+      "actualFields": {
+        "disarm": true
+      },
+      "model": "shaman",
+      "flying": false,
+      "effects": [
+        "enemy-control"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_13",
+      "variantIndex": 0,
+      "name": "Red Tusk Orc Huntresses",
+      "visualAsset": "host_13",
+      "motionModelId": "host_13",
+      "actualFields": {},
+      "model": "berserker",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_14",
+      "variantIndex": 0,
+      "name": "Orc Mirror Shieldbearers",
+      "visualAsset": "host_14",
+      "motionModelId": "host_14",
+      "actualFields": {
+        "refraction": 3
+      },
+      "model": "shield",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_15",
+      "variantIndex": 0,
+      "name": "Blood Bat Riders",
+      "visualAsset": "host_15",
+      "motionModelId": "host_15",
+      "actualFields": {
+        "regen": 0.2
+      },
+      "model": "bat",
+      "flying": true,
+      "effects": [
+        "enemy-healing"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_15",
+      "variantIndex": 1,
+      "name": "Blood Bat Riders · Moon Clan",
+      "visualAsset": "host_15",
+      "motionModelId": "host_15",
+      "actualFields": {
+        "evasion": 0.25,
+        "regen": 0.2
+      },
+      "model": "bat",
+      "flying": true,
+      "effects": [
+        "enemy-healing",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_16",
+      "variantIndex": 0,
+      "name": "Orc Ash Pickpockets",
+      "visualAsset": "host_16",
+      "motionModelId": "host_16",
+      "actualFields": {
+        "magicImmune": true,
+        "thief": 50
+      },
+      "model": "warlock",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": "Gold-loss feedback only at the existing leak/gold change; no coin attack."
+    },
+    {
+      "baseId": "host_17",
+      "variantIndex": 0,
+      "name": "Cursed Totem Trolls",
+      "visualAsset": "host_17",
+      "motionModelId": "host_17",
+      "actualFields": {
+        "untouchable": 0.75
+      },
+      "model": "shaman",
+      "flying": false,
+      "effects": [
+        "enemy-control"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_18",
+      "variantIndex": 0,
+      "name": "Silent Orc Executioners",
+      "visualAsset": "host_18",
+      "motionModelId": "host_18",
+      "actualFields": {
+        "stealth": true,
+        "disarm": true
+      },
+      "model": "assassin",
+      "flying": false,
+      "effects": [
+        "enemy-control",
+        "stealth"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_19",
+      "variantIndex": 0,
+      "name": "Bloodwolf Orc Riders",
+      "visualAsset": "host_19",
+      "motionModelId": "host_19",
+      "actualFields": {
+        "rush": 5
+      },
+      "model": "wolf",
+      "flying": false,
+      "effects": [
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_20",
+      "variantIndex": 0,
+      "name": "Gorvash, the Bone Patriarch",
+      "visualAsset": "host_20",
+      "motionModelId": "host_20",
+      "actualFields": {},
+      "model": "ogre",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_21",
+      "variantIndex": 0,
+      "name": "Rotroot Trolls",
+      "visualAsset": "host_21",
+      "motionModelId": "host_21",
+      "actualFields": {
+        "regen": 0.2
+      },
+      "model": "troll",
+      "flying": false,
+      "effects": [
+        "enemy-healing"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_22",
+      "variantIndex": 0,
+      "name": "Iron Ram Ogres",
+      "visualAsset": "host_22",
+      "motionModelId": "host_22",
+      "actualFields": {},
+      "model": "shield",
+      "flying": false,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_23",
+      "variantIndex": 0,
+      "name": "Shard-Soul Orc Warlocks",
+      "visualAsset": "host_23",
+      "motionModelId": "host_23",
+      "actualFields": {
+        "physicalImmune": true,
+        "refraction": 3
+      },
+      "model": "warlock",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_24",
+      "variantIndex": 0,
+      "name": "Riveted Goblin Mutants",
+      "visualAsset": "host_24",
+      "motionModelId": "host_24",
+      "actualFields": {
+        "reactiveArmor": 8
+      },
+      "model": "sapper",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_25",
+      "variantIndex": 0,
+      "name": "Iron Bat Orc Riders",
+      "visualAsset": "host_25",
+      "motionModelId": "host_25",
+      "actualFields": {},
+      "model": "wyvern",
+      "flying": true,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_26",
+      "variantIndex": 0,
+      "name": "Orc Spell Eaters",
+      "visualAsset": "host_26",
+      "motionModelId": "host_26",
+      "actualFields": {
+        "magicImmune": true
+      },
+      "model": "berserker",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_27",
+      "variantIndex": 0,
+      "name": "Spectral Bat Riders",
+      "visualAsset": "host_27",
+      "motionModelId": "host_27",
+      "actualFields": {
+        "physicalImmune": true,
+        "untouchable": 0.75
+      },
+      "model": "bat",
+      "flying": true,
+      "effects": [
+        "enemy-defense",
+        "enemy-control"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_27",
+      "variantIndex": 1,
+      "name": "Spectral Bat Riders · Moon Clan",
+      "visualAsset": "host_27",
+      "motionModelId": "host_27",
+      "actualFields": {
+        "physicalImmune": true,
+        "evasion": 0.25,
+        "untouchable": 0.75
+      },
+      "model": "bat",
+      "flying": true,
+      "effects": [
+        "enemy-defense",
+        "enemy-control",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_28",
+      "variantIndex": 0,
+      "name": "Goblin Scrapwings",
+      "visualAsset": "host_28",
+      "motionModelId": "host_28",
+      "actualFields": {
+        "reactiveArmor": 8
+      },
+      "model": "balloon",
+      "flying": true,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_28",
+      "variantIndex": 1,
+      "name": "Goblin Scrapwings · Moon Clan",
+      "visualAsset": "host_28",
+      "motionModelId": "host_28",
+      "actualFields": {
+        "evasion": 0.25,
+        "stealth": true
+      },
+      "model": "balloon",
+      "flying": true,
+      "effects": [
+        "enemy-movement",
+        "stealth"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_29",
+      "variantIndex": 0,
+      "name": "Prismatic Bat Tricksters",
+      "visualAsset": "host_29",
+      "motionModelId": "host_29",
+      "actualFields": {
+        "evasion": 0.25,
+        "refraction": 3
+      },
+      "model": "bat",
+      "flying": true,
+      "effects": [
+        "enemy-defense",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_29",
+      "variantIndex": 1,
+      "name": "Prismatic Bat Tricksters · Moon Clan",
+      "visualAsset": "host_29",
+      "motionModelId": "host_29",
+      "actualFields": {
+        "evasion": 0.25,
+        "refraction": 3
+      },
+      "model": "bat",
+      "flying": true,
+      "effects": [
+        "enemy-defense",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_30",
+      "variantIndex": 0,
+      "name": "Zaruun, Lord of Storm Wings",
+      "visualAsset": "host_30",
+      "motionModelId": "host_30",
+      "actualFields": {},
+      "model": "dragon",
+      "flying": true,
+      "effects": [],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_31",
+      "variantIndex": 0,
+      "name": "Ashen Dual-Seal Inquisitors",
+      "visualAsset": "host_31-ember",
+      "motionModelId": "host_31",
+      "actualFields": {
+        "magicImmune": true,
+        "refraction": 3
+      },
+      "model": "warlock",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_31",
+      "variantIndex": 1,
+      "name": "Spectral Dual-Seal Inquisitors",
+      "visualAsset": "host_31-wraith",
+      "motionModelId": "host_31-wraith",
+      "actualFields": {
+        "physicalImmune": true,
+        "refraction": 3
+      },
+      "model": "warlock",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_32",
+      "variantIndex": 0,
+      "name": "Soul-Drinker Trolls",
+      "visualAsset": "host_32",
+      "motionModelId": "host_32",
+      "actualFields": {
+        "recharge": 0.5
+      },
+      "model": "shaman",
+      "flying": false,
+      "effects": [
+        "enemy-healing"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_33",
+      "variantIndex": 0,
+      "name": "Orc Wraiths of the Shattered World",
+      "visualAsset": "host_33",
+      "motionModelId": "host_33",
+      "actualFields": {
+        "physicalImmune": true,
+        "blink": 6
+      },
+      "model": "assassin",
+      "flying": false,
+      "effects": [
+        "enemy-defense",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_34",
+      "variantIndex": 0,
+      "name": "Goblin Gallows Fliers",
+      "visualAsset": "host_34",
+      "motionModelId": "host_34",
+      "actualFields": {
+        "evasion": 0.25,
+        "thief": 50
+      },
+      "model": "bat",
+      "flying": true,
+      "effects": [
+        "enemy-movement"
+      ],
+      "thiefNote": "Gold-loss feedback only at the existing leak/gold change; no coin attack."
+    },
+    {
+      "baseId": "host_35",
+      "variantIndex": 0,
+      "name": "Ashen Eclipse Bat Riders",
+      "visualAsset": "host_35-ember",
+      "motionModelId": "host_35",
+      "actualFields": {
+        "magicImmune": true
+      },
+      "model": "wyvern",
+      "flying": true,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_35",
+      "variantIndex": 1,
+      "name": "Spectral Eclipse Bat Riders",
+      "visualAsset": "host_35-wraith",
+      "motionModelId": "host_35-wraith",
+      "actualFields": {
+        "physicalImmune": true
+      },
+      "model": "wyvern",
+      "flying": true,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_36",
+      "variantIndex": 0,
+      "name": "Ashen Oathbreakers",
+      "visualAsset": "host_36-ember",
+      "motionModelId": "host_36",
+      "actualFields": {
+        "magicImmune": true
+      },
+      "model": "shield",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_36",
+      "variantIndex": 1,
+      "name": "Spectral Oathbreakers",
+      "visualAsset": "host_36-wraith",
+      "motionModelId": "host_36-wraith",
+      "actualFields": {
+        "physicalImmune": true
+      },
+      "model": "shield",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_37",
+      "variantIndex": 0,
+      "name": "Riftwolf Orc Riders",
+      "visualAsset": "host_37",
+      "motionModelId": "host_37",
+      "actualFields": {
+        "blink": 6
+      },
+      "model": "wolf",
+      "flying": false,
+      "effects": [
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_38",
+      "variantIndex": 0,
+      "name": "Black Marsh Knifemen",
+      "visualAsset": "host_38",
+      "motionModelId": "host_38",
+      "actualFields": {
+        "stealth": true,
+        "disarm": true
+      },
+      "model": "assassin",
+      "flying": false,
+      "effects": [
+        "enemy-control",
+        "stealth"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_38",
+      "variantIndex": 1,
+      "name": "Blood-Leech Trolls",
+      "visualAsset": "host_38-wraith",
+      "motionModelId": "host_38-wraith",
+      "actualFields": {
+        "regen": 0.25
+      },
+      "model": "assassin",
+      "flying": false,
+      "effects": [
+        "enemy-healing"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_39",
+      "variantIndex": 0,
+      "name": "Thunder Manta Orc Riders",
+      "visualAsset": "host_39",
+      "motionModelId": "host_39",
+      "actualFields": {
+        "evasion": 0.25,
+        "untouchable": 0.75,
+        "krakenShell": 100
+      },
+      "model": "wyvern",
+      "flying": true,
+      "effects": [
+        "enemy-defense",
+        "enemy-control",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_40",
+      "variantIndex": 0,
+      "name": "Vorlak, the Hollow Sky King",
+      "visualAsset": "host_40",
+      "motionModelId": "host_40",
+      "actualFields": {
+        "krakenShell": 110
+      },
+      "model": "dragon",
+      "flying": true,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_41",
+      "variantIndex": 0,
+      "name": "Orc Crystal Phalanx",
+      "visualAsset": "host_41",
+      "motionModelId": "host_41",
+      "actualFields": {
+        "refraction": 3
+      },
+      "model": "shield",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_41",
+      "variantIndex": 1,
+      "name": "Orc Crystal Phalanx · Moon Clan",
+      "visualAsset": "host_41",
+      "motionModelId": "host_41",
+      "actualFields": {
+        "evasion": 0.25,
+        "refraction": 3
+      },
+      "model": "shield",
+      "flying": false,
+      "effects": [
+        "enemy-defense",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_42",
+      "variantIndex": 0,
+      "name": "Fire Bat Orc Lancers",
+      "visualAsset": "host_42",
+      "motionModelId": "host_42",
+      "actualFields": {
+        "magicImmune": true,
+        "rush": 2
+      },
+      "model": "bat",
+      "flying": true,
+      "effects": [
+        "enemy-defense",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_43",
+      "variantIndex": 0,
+      "name": "Ogres of the Imprisoned Souls",
+      "visualAsset": "host_43",
+      "motionModelId": "host_43",
+      "actualFields": {
+        "evasion": 0.25,
+        "untouchable": 0.75,
+        "recharge": 0.5
+      },
+      "model": "shaman",
+      "flying": false,
+      "effects": [
+        "enemy-healing",
+        "enemy-control",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_44",
+      "variantIndex": 0,
+      "name": "Orc Ash Executioners",
+      "visualAsset": "host_44",
+      "motionModelId": "host_44",
+      "actualFields": {
+        "magicImmune": true,
+        "blink": 6
+      },
+      "model": "berserker",
+      "flying": false,
+      "effects": [
+        "enemy-defense",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_45",
+      "variantIndex": 0,
+      "name": "Flying Drummers of the Black Horde",
+      "visualAsset": "host_45",
+      "motionModelId": "host_45",
+      "actualFields": {
+        "hasteAura": 1.5,
+        "disarm": true
+      },
+      "model": "balloon",
+      "flying": true,
+      "effects": [
+        "enemy-control",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_46",
+      "variantIndex": 0,
+      "name": "Ogre Revenants in Hollow Armor",
+      "visualAsset": "host_46",
+      "motionModelId": "host_46",
+      "actualFields": {
+        "physicalImmune": true
+      },
+      "model": "shield",
+      "flying": false,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_47",
+      "variantIndex": 0,
+      "name": "Orc Riders of the Last Howl",
+      "visualAsset": "host_47",
+      "motionModelId": "host_47",
+      "actualFields": {
+        "magicImmune": true,
+        "untouchable": 0.75,
+        "rush": 5
+      },
+      "model": "berserker",
+      "flying": false,
+      "effects": [
+        "enemy-defense",
+        "enemy-control",
+        "enemy-movement"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_48",
+      "variantIndex": 0,
+      "name": "Bat Thieves of Black Fire",
+      "visualAsset": "host_48",
+      "motionModelId": "host_48",
+      "actualFields": {
+        "magicImmune": true,
+        "evasion": 0.25,
+        "disarm": true,
+        "thief": 50
+      },
+      "model": "bat",
+      "flying": true,
+      "effects": [
+        "enemy-defense",
+        "enemy-control",
+        "enemy-movement"
+      ],
+      "thiefNote": "Gold-loss feedback only at the existing leak/gold change; no coin attack."
+    },
+    {
+      "baseId": "host_49",
+      "variantIndex": 0,
+      "name": "Troll Guardians of the Deep Maw",
+      "visualAsset": "host_49",
+      "motionModelId": "host_49",
+      "actualFields": {
+        "krakenShell": 200,
+        "recharge": 0.5
+      },
+      "model": "ogre",
+      "flying": false,
+      "effects": [
+        "enemy-defense",
+        "enemy-healing"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_50",
+      "variantIndex": 0,
+      "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+      "visualAsset": "host_50",
+      "motionModelId": "host_50",
+      "actualFields": {
+        "krakenShell": 210
+      },
+      "model": "dragon",
+      "flying": true,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_50",
+      "variantIndex": 1,
+      "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+      "visualAsset": "host_50-tyrant",
+      "motionModelId": "host_50",
+      "actualFields": {
+        "magicImmune": true,
+        "krakenShell": 210
+      },
+      "model": "dragon",
+      "flying": true,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    },
+    {
+      "baseId": "host_50",
+      "variantIndex": 2,
+      "name": "Lord Bernhard, the Black Sorcerer on the Wyvern Queen",
+      "visualAsset": "host_50-devourer",
+      "motionModelId": "host_50",
+      "actualFields": {
+        "krakenShell": 273
+      },
+      "model": "dragon",
+      "flying": true,
+      "effects": [
+        "enemy-defense"
+      ],
+      "thiefNote": null
+    }
+  ],
+  "conflicts": [
+    [
+      "Elven Ranger",
+      "Motion text refers to four targets.",
+      "Runtime multishot is 3. Keep one release, show only the actual three or fewer targets."
+    ],
+    [
+      "Elven Elite Warrior",
+      "Motion text refers to seven targets.",
+      "Runtime multishot is 5. Keep one release, show only actual targets."
+    ],
+    [
+      "Frost Knight / Kingslayer / King",
+      "Some motion role text calls cleave Pure.",
+      "Current cleave defense class is Physical. Do not restore obsolete Pure bypass."
+    ],
+    [
+      "Elven Mage / Elven Archmage",
+      "Current visual dispatcher groups them with lightning sources.",
+      "Proposed ordinary attack is arcane fan-out, not an extra chain ability."
+    ],
+    [
+      "Elven King",
+      "Stable ID royalarsenal is currently grouped with lobbed siege visuals.",
+      "Approved gesture is a staff/palm command; current damage is Magical, multishot 3. Use spell paths."
+    ],
+    [
+      "Dwarship",
+      "Current renderer presents a cannon toxic dart; motion specifies a hand throw.",
+      "Use the approved thrown-canister release. Poison is present, so infected targets receive cosmetic smoke. No new AOE poison."
+    ],
+    [
+      "Fire Ballista",
+      "Historical motion text says the Fire name adds no burning.",
+      "Current runtime explicitly has burnDps 120 / 3 seconds. Show actual burn."
+    ],
+    [
+      "Lady Claire",
+      "Motion analysis includes Melancholy cancellation.",
+      "Runtime chance and duration are both 0. Keep dormant support only, no activation."
+    ],
+    [
+      "Dragons",
+      "Some runtime prose mentions critical hits or evasion bypass.",
+      "No live critChance or trueStrike on these dragon profiles. Do not infer extra effects from prose or ID phoenix."
+    ],
+    [
+      "Angel / Archangel",
+      "Stable IDs archangel and dawnspire can be misleading.",
+      "archangel = Angel with allied-triggered frost bounces; dawnspire = sword-bearing Archangel."
+    ],
+    [
+      "Enemy variants",
+      "A shared base ID or Moon Clan name can obscure overrides.",
+      "Merge actual spawned variant over base. Blood-Leech Troll is regen, not stealth/disarm; Moon Scrapwings replace reactive armor with stealth plus evasion."
+    ],
+    [
+      "Legacy enemy archetypes",
+      "Some combat branches test enemy.type === sapper/shaman/berserker.",
+      "A campaign model field with that name does not activate the legacy type branch. Do not assign sapping, proximity haste or low-HP rage merely from model appearance."
+    ]
+  ],
+  "requirements": [
+    {
+      "id": "V01",
+      "title": "Visual layer only",
+      "description": "No change to damage, targets, timings, RNG, status durations, immunity, route or economy. B01–B06 remain a separate approved balance change."
+    },
+    {
+      "id": "V02",
+      "title": "Preserve approved assets",
+      "description": "Keep V7/V8/V6 geometry, rig, materials, textures, palettes, source images, original prompts and motion originals byte-identical. Temporary external overlays are separately owned and removable."
+    },
+    {
+      "id": "V03",
+      "title": "Shared basic identity",
+      "description": "I–VI share the approved family motion and VFX vocabulary. Rank may modestly raise clarity/detail within caps; never add extra attacks, beams or huge clouds."
+    },
+    {
+      "id": "V04",
+      "title": "Authoritative events",
+      "description": "Animation describes preparation/release. Only actual shot, resolved damage, proc, current status and effective aura state create gameplay VFX."
+    },
+    {
+      "id": "V05",
+      "title": "Moving anchors",
+      "description": "Use actual animated world-space mouth, palm, staff focus, bow nock, throwing hand/bowl or weapon tip; bind per model through verified metadata in new paths, not a guessed height offset."
+    },
+    {
+      "id": "V06",
+      "title": "No temporal distortion",
+      "description": "Keep shot lifetime, progress, target and impact. Shortened animation recovery under haste cannot delay shots or stack new anticipations. One body release can accompany simultaneous multishot."
+    },
+    {
+      "id": "V07",
+      "title": "Separate channels",
+      "description": "Persistent aura, direct attack, proc and target status are independent channels. One target with poison/burn/slow receives a bounded composite cue."
+    },
+    {
+      "id": "V08",
+      "title": "Correct target feedback",
+      "description": "Blocked/evaded/immune hits can show appropriate contact/defense feedback, but no successful-damage flash or status cue unless the runtime effect exists. Generic impact alone is insufficient."
+    },
+    {
+      "id": "V09",
+      "title": "Visibility",
+      "description": "Respect actual reveal state for sources, targets, paths, lights, smoke, footprints and deaths. Hidden endpoints suppress the revealing path; no effect reveals a hidden enemy."
+    },
+    {
+      "id": "V10",
+      "title": "Ground and flight",
+      "description": "Use target body altitude; ground-only effects follow B03 after integration. Poison smoke follows flying victims at body level; ground status rings never falsely attach them to the floor."
+    },
+    {
+      "id": "V11",
+      "title": "Readable color and shape",
+      "description": "Poison = green smoke/drop; burn = orange tongues; electric = angular line; frost = pale shards; Holy = ivory/gold core. Use glyph/shape as well as color; retain established effect symbols."
+    },
+    {
+      "id": "V12",
+      "title": "Local flash only",
+      "description": "Lightning briefly brightens a small area around actual targets. No camera shake, full-screen strobe, permanent bloom wash or point light for every projectile."
+    },
+    {
+      "id": "V13",
+      "title": "Quiet auras",
+      "description": "Ordinary combat shows affected recipients and sparse source accents. Full support/slow/shred radii and source links appear on inspection; do not cover the map with circles."
+    },
+    {
+      "id": "V14",
+      "title": "Approved balance compatibility",
+      "description": "No MVP ally/armor aura after B01. Preserve champion armor auras. Archdruid +1; Nature Spirit/Mother Nature +3. Ranger auras and Frozen Celestial ground targeting read actual integrated fields, never activate from this mapping alone."
+    },
+    {
+      "id": "V15",
+      "title": "Pause, speed and reduced motion",
+      "description": "Use one combat clock with speed applied once. Pause freezes transient and persistent motion. Reduced motion removes flash/repeated wobble and uses static angular links/status glyphs without losing information."
+    },
+    {
+      "id": "V16",
+      "title": "Budgets and lifecycle",
+      "description": "Pool and batch VFX; seed visual variation separately from gameplay RNG. Cap clouds by target and detail by screen space. Dispose on death, expiry, hide, reset and scene teardown; no stale source links."
+    },
+    {
+      "id": "V17",
+      "title": "Review in context",
+      "description": "Preview isolated release/travel/hit/proc/status and crowded battles at iPad/desktop scale, both immunity variants, flying targets, pause, high haste and reduced motion. A preview must explicitly distinguish forced demonstration from actual proc probability."
+    },
+    {
+      "id": "V18",
+      "title": "Approval and execution boundary",
+      "description": "The user explicitly approved B07 on 18 October 2026. Implementation remains deferred to Master verze hry; design approval does not authorize implementation in this chat or production deployment."
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "A01",
+      "description": "One row for every one of 8 basic families, 38 champions and 54 enemy motion identities; 48 basic rank IDs remain linked."
+    },
+    {
+      "id": "A02",
+      "description": "Source approval analysis SHA-256 matches the approval receipt; preserve all approved original assets and source materials."
+    },
+    {
+      "id": "A03",
+      "description": "No gameplay RNG draw, damage/status call, target selection or clock change originates from presentation."
+    },
+    {
+      "id": "A04",
+      "description": "Every basic I/VI pair keeps the same gesture, source anchor identity and effect vocabulary."
+    },
+    {
+      "id": "A05",
+      "description": "Four dragon mouth plumes remain attached through jaw opening, turns, pause and reset; no throat clipping or chest-origin flame."
+    },
+    {
+      "id": "A06",
+      "description": "Aura-only Baby/Mother dragons keep circular continuous damage, including affected enemies outside the illustrative plume direction."
+    },
+    {
+      "id": "A07",
+      "description": "Direct dragon shots, ongoing heat and fork procs render independently without resetting each other."
+    },
+    {
+      "id": "A08",
+      "description": "Stormcaller multishot, Thunderbird chain, Lady Claire sequential chain and fork have the actual distinct graph topology."
+    },
+    {
+      "id": "A09",
+      "description": "Angel frost bounce is icy, can originate from the allied-hit proc, and does not restart the ordinary body cast."
+    },
+    {
+      "id": "A10",
+      "description": "A real poison application adds one green cloud; additional stacks modify bounded density only. Expiry removes it."
+    },
+    {
+      "id": "A11",
+      "description": "Poison blocked by immunity/shield/evasion creates no infection cloud; hidden infected targets reveal no smoke."
+    },
+    {
+      "id": "A12",
+      "description": "Dwarship local slow/heal-block victims are not automatically poisoned or damaged by the decorative burst."
+    },
+    {
+      "id": "A13",
+      "description": "Generic Catapult/Griffin stun uses star feedback; frost slow is not rendered as full immobilization."
+    },
+    {
+      "id": "A14",
+      "description": "Golem gaze requires the actual proc/facing state; petrification shell appears only on actual petrify, with the explicit immunity exception preserved."
+    },
+    {
+      "id": "A15",
+      "description": "Fire Ballista shows actual burn; Oathbreaker instant Burned splash creates no invented lingering burn."
+    },
+    {
+      "id": "A16",
+      "description": "No false dragon critical, fourth Elven Ranger arrow, seventh Elite Warrior arrow, Elven King siege bomb or active Claire Melancholy."
+    },
+    {
+      "id": "A17",
+      "description": "Runtime ranger auras and ground-only Frozen Celestial match separately integrated B03/B04; presentation never creates those mechanics."
+    },
+    {
+      "id": "A18",
+      "description": "No MVP ally or armor aura after B01; champion armor auras and strongest-only cues remain."
+    },
+    {
+      "id": "A19",
+      "description": "Archdruid +1 and Nature Spirit/Mother Nature +3 recipient range cues match actual effective state and do not sum."
+    },
+    {
+      "id": "A20",
+      "description": "All 62 current enemy spawn configurations select VFX from merged fields, including Moon Clan evasion, override removal and all three final-boss variants."
+    },
+    {
+      "id": "A21",
+      "description": "Host 31/35/36 Ashen and Spectral variants retain their actual opposite immunities. Host 38 knifer and troll have distinct stealth/disarm versus regen cues."
+    },
+    {
+      "id": "A22",
+      "description": "Refraction sector loss/recharge follows actual shields. HP recharge and regeneration show actual unblocked healing, never a false heal at full HP."
+    },
+    {
+      "id": "A23",
+      "description": "Dread follows real damage reaction, disarm follows active/protected windows, blink uses actual endpoints, and evasion does not move the actor."
+    },
+    {
+      "id": "A24",
+      "description": "Global pause, supported speed modes and reduced motion have deterministic seek/reset; no double speed multiplication."
+    },
+    {
+      "id": "A25",
+      "description": "Dense actual campaign scenes at iPad and desktop resolution stay within measured VFX budgets; effects leave target silhouettes, HP bars and route readable."
+    },
+    {
+      "id": "A26",
+      "description": "Reset, defeat, victory, scene teardown, cloak transitions and enemy death leave zero pooled ownership leaks or ghost effects; original one-shot death motion remains unchanged."
+    }
+  ]
+}

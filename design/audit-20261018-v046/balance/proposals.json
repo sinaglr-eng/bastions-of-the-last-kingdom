@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-18",
+  "sourceVersion": "0.4.5",
+  "status": "USER APPROVED DESIGN; NOT IMPLEMENTED; IMPLEMENTATION DEFERRED TO MASTER",
+  "approvalRecord": "approval.json",
+  "decisions": [
+    {
+      "id": "B01",
+      "topic": "MVP",
+      "proposal": {
+        "maxLevel": 10,
+        "damagePerLevel": 0.05,
+        "maximumOwnBonus": 0.5,
+        "allyDamageAura": 0,
+        "armorReductionAura": 0
+      },
+      "preserve": [
+        "Award and max-level progression",
+        "Highest-level inheritance, never summation",
+        "Existing independent support bonuses"
+      ]
+    },
+    {
+      "id": "B02",
+      "topic": "Basic rank VI acquisition",
+      "proposal": "Two freshly drawn identical basic-family rank V units in the same completed unresolved current draft; no retained defender, cross-draft carry, reserve origin or inactive reserve eligibility",
+      "reroll": "A completed legal reroll counts as the current draft; both identities must remain among its actual five placed slots",
+      "existingRankVI": "Preserve already owned/saved rank VI; rule applies to future acquisition"
+    },
+    {
+      "id": "B03",
+      "topic": "Frozen Celestial",
+      "proposal": {
+        "damageType": "holy",
+        "damage": 60,
+        "interval": 1,
+        "attackRange": 5,
+        "slowAura": 0.75,
+        "slowAuraRadius": 4.5,
+        "attackTargets": "ground only",
+        "auraTargets": "ground only"
+      },
+      "bossNominalSlow": 0.375
+    },
+    {
+      "id": "B04",
+      "topic": "Ranger slow auras",
+      "proposal": [
+        {
+          "family": "royalranger",
+          "name": "Master Ranger",
+          "slowAura": 0.25,
+          "slowAuraRadius": 3.5
+        },
+        {
+          "family": "kingsrangerguard",
+          "name": "Dark Ranger",
+          "slowAura": 0.3,
+          "slowAuraRadius": 3.5
+        },
+        {
+          "family": "elvenking",
+          "name": "Ranger Oathbreaker",
+          "slowAura": 0.4,
+          "slowAuraRadius": 4
+        }
+      ],
+      "rules": "Continuous within radius; ground and flying subject to current physical-effect immunity; strongest slow only; existing stronger on-hit anti-air slows retained; boss multiplier preserved; no new lingering status"
+    },
+    {
+      "id": "B05",
+      "topic": "Ranges",
+      "basicRanks": {
+        "soldier": [
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5
+        ],
+        "archer": [
+          3.5,
+          3.5,
+          3.5,
+          3.5,
+          3.5,
+          4.5
+        ],
+        "druid": [
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "mage": [
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "cleric": [
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "runebreaker": [
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "frostwarden": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "stormcaller": [
+          5,
+          4.5,
+          4.5,
+          4.5,
+          4.5,
+          8
+        ]
+      },
+      "championAttackOrPrimaryRanges": {
+        "rimewatch": 5,
+        "frostblade": 5.5,
+        "roseguard": 5,
+        "highking": 7.5,
+        "crownofages": 9,
+        "thornwarden": 5.5,
+        "verdantguard": 6,
+        "tempest": 5.5,
+        "stormcitadel": 6.5,
+        "embercrown": 4.5,
+        "worldfire": 5,
+        "starfall": 6,
+        "thunderheart": 6.5,
+        "phoenix": 8,
+        "greenheart": 6,
+        "eldergrove": 6,
+        "kingsreach": 6,
+        "sunward": 4.5,
+        "winterhold": 5,
+        "dawnspire": 7,
+        "royalmarshal": 5.5,
+        "stonewarden": 7,
+        "wyvernhunter": 5,
+        "royalarsenal": 8,
+        "rangermentor": 7,
+        "kingdomprotector": 4.5,
+        "mothernature": 9,
+        "royalranger": 7,
+        "kingsrangerguard": 6.5,
+        "elvenking": 7.5,
+        "fireballista": 7,
+        "emeraldgolem": 5.5,
+        "griffinbomber": 6.5,
+        "mechanicalgolem": 7,
+        "monk": 4.5,
+        "archbishop": 4.5,
+        "archangel": 4.5,
+        "ladyclaire": 8
+      },
+      "additionalRangeRules": {
+        "rangeSupportProviders": [
+          "eldergrove",
+          "rangermentor",
+          "mothernature"
+        ],
+        "rangeBonusByProvider": {
+          "eldergrove": 1,
+          "rangermentor": 3,
+          "mothernature": 3
+        },
+        "rangeSupportRadius": 5,
+        "slowAuraRadii": {
+          "winterhold": 4.5,
+          "dawnspire": 5,
+          "archangel": 4,
+          "royalranger": 3.5,
+          "kingsrangerguard": 3.5,
+          "elvenking": 4
+        },
+        "burnAuraRadii": {
+          "embercrown": 4.5,
+          "worldfire": 5,
+          "thunderheart": 5.5,
+          "phoenix": 6.5
+        },
+        "dawnspireAllySupportRadius": 5,
+        "emeraldgolemStoneGazeRange": 7,
+        "ladyclaireChainRange": 6,
+        "otherAllySupportRadii": "Preserve current 5-tile radius unless explicitly listed"
+      }
+    },
+    {
+      "id": "B06",
+      "topic": "Firebomber armor reduction chain",
+      "scopeDecision": "P1 resolved: remove only MVP armor aura; preserve champion armor auras. Primary numerical proposal approved; implementation deferred to Master.",
+      "primaryProposal": [
+        {
+          "family": "royalmarshal",
+          "auraArmorReduction": 20,
+          "auraRadius": 4
+        },
+        {
+          "family": "griffinbomber",
+          "auraArmorReduction": 35,
+          "auraRadius": 4.5
+        },
+        {
+          "family": "mechanicalgolem",
+          "auraArmorReduction": 45,
+          "auraRadius": 5.5,
+          "onHitArmorReduction": 64
+        }
+      ],
+      "stacking": "Strongest flat reduction only, not sum with on-hit shred; armor minimum zero; immunity behavior unchanged"
+    }
+  ],
+  "resolvedInterpretation": {
+    "id": "P1",
+    "question": "Remove only MVP armor aura, or every champion armor-reduction aura?",
+    "answerVerbatim": "Pouze armor aura MVP",
+    "resolvedDate": "2026-10-18",
+    "decision": "Remove only MVP armor aura; preserve champion armor auras. B06 primary strength and radius values approved on 2026-10-18; implementation deferred to Master.",
+    "discardedAlternative": "Removing all champion armor auras and replacing them with on-hit reductions is excluded from the current proposal."
+  },
+  "notClaimed": [
+    "Campaign completion",
+    "Human win rate",
+    "Validated balance of combined proposal",
+    "New runtime implementation"
+  ]
+}

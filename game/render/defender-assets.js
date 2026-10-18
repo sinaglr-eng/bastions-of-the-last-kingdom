@@ -2,6 +2,7 @@ import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {Group,Mesh,RingGeometry,BoxGeometry,MeshBasicMaterial,DoubleSide} from 'three';
 import {prepareReconstructedDefender} from './reconstruction-adapter.js';
 import {optimizeGeometricSiblings} from './geometric-batching.js';
+import {prepareApprovedMotionTemplate,prepareApprovedMotionActor,disposeApprovedMotion} from './approved-model-motion.js';
 
 // A pending asset must not impersonate a defender from a different renderer
 // or rank. This low, selectable dial retains the occupied tile while the
@@ -26,19 +27,25 @@ export function cloneDefenderTemplate(source){
   const sourceMeshes=[];source.traverse(node=>{if(node.isSkinnedMesh)sourceMeshes.push(node);});
   const skeletons=new Map();let index=0;
   actor.traverse(node=>{if(!node.isSkinnedMesh)return;const sourceSkin=sourceMeshes[index++].skeleton;if(skeletons.has(sourceSkin))node.skeleton=skeletons.get(sourceSkin);else skeletons.set(sourceSkin,node.skeleton);});
+  // Mark only the approved source hierarchy before callers add live auras,
+  // ranks, loading/status geometry or other actor-owned presentation effects.
+  prepareApprovedMotionActor(actor);
   return actor;
 }
 const disposedInstances=new WeakSet();
 export function disposeDefenderInstance(actor){
   if(!actor||disposedInstances.has(actor))return;disposedInstances.add(actor);
+  disposeApprovedMotion(actor);
   const skeletons=new Set();actor.traverse(node=>{if(node.isSkinnedMesh)skeletons.add(node.skeleton);});
   for(const skeleton of skeletons)skeleton.dispose();
 }
 
 export function installDefenderTemplate(field,entry,scene,animations=scene.animations||[]){
   if(field.disposed)return false;
-  prepareReconstructedDefender(scene,entry);
-  optimizeGeometricSiblings(scene,{animations});
+  if(!prepareApprovedMotionTemplate(scene,entry)){
+    prepareReconstructedDefender(scene,entry);
+    optimizeGeometricSiblings(scene,{animations});
+  }
   scene.animations=[...animations];
   scene.userData.defenderModelStatus='ready';scene.userData.defenderModelKey=`${entry.family}:${entry.tier}`;
   field.imported.set(`${entry.family}:${entry.tier}`,scene);

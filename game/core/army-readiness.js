@@ -1,9 +1,9 @@
 import {damageAfterDefense, combatTowerStats} from './math.js';
 import {enemyRulesFor} from './enemy-rules.js';
-import {damageType,effectDamageType,statusEffectAllowed} from './combat-rules.js';
+import {damageType,effectDamageType,statusEffectAllowed,attackTargetAllowed,slowAuraApplies} from './combat-rules.js';
 
 const DEFAULTS=Object.freeze({minStrongCoverage:.75,minGoodCoverage:.5,minFairCoverage:.25,damageWindowSeconds:5,burstHealthFraction:.2,shieldHitsPerSecond:2,minimumUsefulControl:.1,regenerationPressureMultiplier:1,areaTargetBudget:3});
-export const READINESS_SCOPE='Composition only; own MVP bonuses and self support count. Allied aura overlap, MVP armor-aura coverage, placement, range coverage and maze length are not evaluated.';
+export const READINESS_SCOPE='Composition only; own MVP bonuses and self support count. Allied aura overlap, placement, range coverage and maze length are not evaluated.';
 const clamp=n=>Math.max(0,Math.min(1,n));
 const positive=n=>Number.isFinite(n)?Math.max(0,n):0;
 const magical=type=>damageType(type)==='magical';
@@ -58,7 +58,7 @@ function matches(id,variant,enemy){
 function capabilities(models,enemy,count,data,cfg){
   const R=enemyRulesFor(data),balance={armorConstant:30,...data.balance},adjusted={...enemy,armorShred:0};
   const flags={magic:false,physical:false,holy:false,shred:false,antiHeal:false,control:false,conditionalGaze:false,area:false,bypass:false,protection:false,extendedDetection:false,trueStrike:false};
-  const reaches=s=>!s.melee||!enemy.flying;
+  const reaches=s=>attackTargetAllowed(s,enemy);
   const defended=(amount,type,s,direct=false)=>{
     let value=damageAfterDefense(positive(amount),type,adjusted,s,balance);
     if(direct)value=Math.max(0,value-positive(enemy.krakenShell));
@@ -83,7 +83,7 @@ function capabilities(models,enemy,count,data,cfg){
     let rate=baseRate;
     const controlAllowed=statusEffectAllowed(enemy,'slow');
     if(s.burnAura){const type=effectDamageType(s,'burn'),value=defended(s.burnAura,type,s);aura+=value;tag(type,value);flags.bypass||=value>0;flags.area||=value>0&&count>1;}
-    if(controlAllowed)slow=Math.max(slow,positive(s.slowAura));
+    if(slowAuraApplies(s,enemy))slow=Math.max(slow,positive(s.slowAura));
     if(!reaches(s)||s.damage<=0)continue;
     const hit=hitAmount(s),value=defended(hit,s.type,s,true),landed=value>0;
     if(enemy.untouchable>0&&(landed||s.burnAura&&defended(s.burnAura,effectDamageType(s,'burn'),s)>0)){
