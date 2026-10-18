@@ -1,0 +1,62 @@
+{
+  "schema": "v044-native-public-browser-qa-v1",
+  "status": "passed",
+  "recordedAt": "2026-10-18T14:27:53.111Z",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.4",
+  "viewport": [
+    1715,
+    1244
+  ],
+  "captures": [
+    {
+      "file": "20-public-game.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 292978,
+      "sha256": "42d48928b48b1da22b4a5e2d98ed835bae67683323525da34e0c41d31829d460"
+    },
+    {
+      "file": "21-public-book.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 288613,
+      "sha256": "853dd012e17867f42623746b28fd108cc3451c4489200ae78d26f91940c10362"
+    },
+    {
+      "file": "22-public-atlas.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 267733,
+      "sha256": "513eef7230423cbadf9b44c26762f705445b8ec8e38386f01d13d36214ced4a3"
+    }
+  ],
+  "checks": {
+    "game": "Published new placement copy and native SVG present; actual3D battlefield loaded.",
+    "book": "Native sculpted leaves, continuous crease, footer clearance and four loaded approved portrait PNGs verified.",
+    "atlas": {
+      "image": [
+        {
+          "complete": true,
+          "naturalWidth": 335,
+          "src": "/bastions-of-the-last-kingdom/assets/ui/reference-enemy-fronts/host_44.png?v=enemy-front-cutouts-20261018-v1",
+          "state": "ready"
+        }
+      ],
+      "indexButtons": 50,
+      "legendPresent": false,
+      "title": "Wave 44 — Orc Ash Executioners"
+    }
+  },
+  "diagnostics": [],
+  "limitations": [
+    "Physical Safari/iPad unavailable.",
+    "Actual outcomes exercised locally against identical published compiled bytes; both deployed scene PNGs independently verified by202GET checker."
+  ],
+  "visualReview": "Saved public screenshots20/21/22 individually inspected at native resolution; paper shape, gutter, portraits and full index render correctly."
+}

@@ -1,14 +1,14 @@
 # Releases
 
-## 0.4.4 — Sculpted books and clearer commands — 18 October 2026 — prepared
+## 0.4.4 — Sculpted books and clearer commands — 18 October 2026
 
 Addresses 15 follow-up comments on 0.4.3. Matches Reroll/Reserve to gold creation controls, fits the complete Engineer profile with thinner rank buttons, counts built defenders at the actual selected rank, distinguishes Physical/Magical/Holy labels, and adds a native mystery symbol with explicit placement guidance. Preserves pinned portrait nodes across refreshes. Moves the single Ready/Combat command group to the top center and shows a red marker only for an actual individually paused defender.
 
 Removes the opaque rectangular book overlay so bowed paper, page edges and a recessed central crease remain visible. Gives the atlas an ornate parchment surface, stronger serif hierarchy and real shared-statistic cells; keeps actual variant traits separate and removes the entire index legend. Compacts ordered recipe navigation and centers disclosure SVGs inside stationary frames. Adds versioned victory/defeat illustrations using approved defender, orc and Bernhard references with recorded prompts, hashes and reviews.
 
-All **1,534 local tests**, the 197-module build and 202 local-dist verifier fixture GETs pass after the final layout adjustment. Native review records 19 captures at five viewport sizes. CI, publication and public verification remain pending. [The English implementation report](docs/UI_REFINEMENTS_V044_20261018.md) records the evidence and certification limits. No campaign balance, core combat rules, recipes, resource costs or historical assets are changed.
+Published from [`6330f1decb1f953c2fa12318e3c47f48d4232bb9`](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/commit/6330f1decb1f953c2fa12318e3c47f48d4232bb9) through successful [Pages CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/39135501434). All **1,534 tests**, the **197-module** build and **202 public GET/hash checks** pass. Native review records 19 local captures at five sizes and public book/atlas checks. [The English implementation report](docs/UI_REFINEMENTS_V044_20261018.md) records all 15 changes, full image-generation prompts and reference hashes, factual outcome checks, preservation and certification limits. No campaign balance, core combat rules, recipes, resource costs or historical assets change.
 
-<!-- V044_RELEASE_GATES_PENDING -->
+<!-- V044_RELEASE_GATES_COMPLETE -->
 
 ## 0.4.3 — Direct crafting and clearer field notes — 18 October 2026
 
