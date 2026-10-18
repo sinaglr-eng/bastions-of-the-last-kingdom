@@ -3,7 +3,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {rankAdornment,animateRank,disposeRankAdornment} from './ranks.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
-import {MvpHalos} from './mvp-halo.js';
+import {MvpHalos,MvpAwardEffects} from './mvp-halo.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
 import {pointedEnemy,createEnemySelectionRing,syncEnemySelectionRing,disposeEnemySelectionRing} from './enemy-pointer.js';
@@ -65,6 +65,7 @@ export class Battlefield {
     this.reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)');
     this.edgePointer=null;this.compass=container.parentElement.querySelector('.map-compass');
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#9bbcc1');this.scene.fog=new THREE.Fog('#9bbcc1',88,155);
+    this.mvpAwards=new MvpAwardEffects(this.scene,{position:v3,reducedMotion:()=>!!this.reducedMotion?.matches});
     this.camera=new THREE.PerspectiveCamera(38,1,0.1,210);this.camera.position.set(7,53,41);
     this.renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.18;container.append(this.renderer.domElement);
     this.renderer.domElement.setAttribute('aria-label','3D battlefield. Tap to place or select; drag one finger to pan; use two fingers to rotate or pinch to zoom.');this.renderer.domElement.tabIndex=0;
@@ -332,6 +333,7 @@ export class Battlefield {
     if(valid){const draw=this.game.draft.draws[this.game.activeDraw];if(draw){this.ghost.traverse(o=>{if(o.isMesh)o.material.dispose();});this.ghost.clear();const t=this.template({family:'ruin',tier:1,state:'ruin'}).clone(true);t.traverse(o=>{if(o.isMesh){o.material=o.material.clone();o.material.transparent=true;o.material.opacity=0.45;o.castShadow=false;}});this.ghost.add(t);this.ghost.position.copy(v3(x,0.04,z));this.ghost.visible=true;}}
   }
   event(type,payload) {
+    if(type==='mvp-awarded')this.mvpAwards?.award(payload,this.time);
     this.criticalHitLabels?.event(type,payload);
     if(type==='change')this.sync();
     if(['spawn','death','leak'].includes(type)){
@@ -374,7 +376,7 @@ export class Battlefield {
   tileScreen(x,z) {const p=v3(x,0.08,z).project(this.camera),r=this.renderer.domElement.getBoundingClientRect();return {x:r.left+(p.x+1)*r.width/2,y:r.top+(-p.y+1)*r.height/2};}
   update(dt) {
     this.recoverDefenderModels();
-    this.time+=dt;this.draftMarkers.update(this.time,this.camera,this.container.clientHeight);
+    this.time+=dt;this.mvpAwards?.update(this.time);this.draftMarkers.update(this.time,this.camera,this.container.clientHeight);
     this.mvpHalos?.sync(this.models,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateCheckpointEffects(this.checkpointEffects,this.time,{reducedMotion:!!this.reducedMotion?.matches});
     animateRouteOverlay(this.pathGroup,dt,{reducedMotion:!!this.reducedMotion?.matches,paused:this.game.phase==='combat'&&this.game.paused});
@@ -432,7 +434,7 @@ export class Battlefield {
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
-    this.mvpHalos?.dispose();
+    this.mvpHalos?.dispose();this.mvpAwards?.dispose();
     this.criticalHitLabels?.dispose();
     this.disposed=true;this.defenderLoader.dispose();this.combatEffects.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();
     this.defenderLoadingStatus?.remove();

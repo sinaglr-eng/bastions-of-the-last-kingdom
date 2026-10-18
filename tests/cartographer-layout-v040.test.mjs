@@ -19,6 +19,8 @@ import {baseAttackDps,formatTowerNumber,damageTypeName} from '../ui/grimoire.js'
 import {draftCardsMarkup} from '../ui/draft-cards.js';
 import {commandPointsMarkup} from '../ui/command-points.js';
 import {DraftCardActivation,DraftCardPointerInput,mergeTowerKey,mergeTowerFromBadge} from '../ui/draft-input.js';
+import {PreparationRecipeNavigation} from '../ui/preparation-recipe-navigation.js';
+import {actualAvailableRecipeActionsMarkup} from '../ui/preparation-folio.js';
 
 const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
@@ -54,14 +56,15 @@ function documentFixture(){
     before(node){const parent=this.parentNode;node.detach();const index=parent.children.indexOf(this);parent.children.splice(index,0,node);node.parentNode=parent;}
     after(node){const parent=this.parentNode;node.detach();const index=parent.children.indexOf(this);parent.children.splice(index+1,0,node);node.parentNode=parent;}
     replaceChildren(...nodes){for(const child of [...this.children])child.detach();this._html='';this.append(...nodes);}
-    matches(selector){if(selector.startsWith('#'))return this.id===selector.slice(1);if(selector.startsWith('.'))return this.className.split(/\s+/).includes(selector.slice(1));const attr=selector.match(/^\[([^=\]]+)(?:="([^"]*)")?\]$/);return attr?Object.hasOwn(this.attributes,attr[1])&&(attr[2]===undefined||this.attributes[attr[1]]===attr[2]):this.tagName===selector.toUpperCase();}
+    matches(selector){if(selector.startsWith('#'))return this.id===selector.slice(1);if(selector.startsWith('.'))return this.className.split(/\s+/).includes(selector.slice(1));if(/^(?:\[[^\]]+\])+$/.test(selector))return [...selector.matchAll(/\[([^=\]]+)(?:="([^"]*)")?\]/g)].every(([,key,value])=>Object.hasOwn(this.attributes,key)&&(value===undefined||this.attributes[key]===value));return this.tagName===selector.toUpperCase();}
     querySelectorAll(selector){return this.children.flatMap(child=>[...(child.matches(selector)?[child]:[]),...child.querySelectorAll(selector)]);}
     querySelector(selector){return this.querySelectorAll(selector)[0]||null;}
     closest(selector){return this.matches(selector)?this:this.parentNode?.closest(selector)||null;}
     get innerHTML(){return this._html;}
     set innerHTML(html){this.replaceChildren();this._html=html;this.writes++;const stack=[this];for(const token of html.match(/<[^>]+>/g)||[]){if(token.startsWith('</')){if(stack.length>1)stack.pop();continue;}const tag=token.match(/^<([a-z][\w-]*)/i)?.[1];if(!tag)continue;const attrs={};for(const item of token.slice(tag.length+1,-1).matchAll(/([\w-]+)(?:="([^"]*)")?/g))attrs[item[1]]=item[2]??'';const child=new Element(tag,attrs);stack.at(-1).append(child);if(!['img','input','br','hr','path','circle','line','polyline','rect'].includes(tag)&&!token.endsWith('/>'))stack.push(child);}}
     focus(){document.activeElement=this;}
-    addEventListener(){}
+    addEventListener(type,listener){this.listeners??=new Map();if(!this.listeners.has(type))this.listeners.set(type,[]);this.listeners.get(type).push(listener);}
+    dispatchEvent(event){for(const listener of this.listeners?.get(event.type)||[])listener(event);}
   }
   const app=new Element('main',{id:'app'});document.root=app;document.activeElement=app;
   document.getElementById=id=>app.id===id?app:app.querySelector('#'+id);document.createComment=text=>new Element('#comment',{'data-comment':text});
@@ -73,7 +76,7 @@ function documentFixture(){
 
 function mainFixture(game,{subscriber=false}={}){
   const dom=documentFixture(),rankPreview=new DefenderRankPreview(),phaseUi=new PhaseUiState();phaseUi.sync(game);
-  const context={...dom,game,data,images:{},rankPreview,phaseUi,folioLayout:dom.layout,folioRecipeId:null,folioRecipeSelection:null,previewPrevious:null,recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,craftingDockModel,updateCraftingDock,defenderPanelMarkup,DpsMeasurement,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),icon,endedPhase,panelDetails:new Map(),stampCraftButtons:noop,world:{sync:noop,resize:noop},$:dom.get,tutorial:()=>'<p>Build</p>'};
+  const context={...dom,game,data,images:{},rankPreview,preparationNavigation:new PreparationRecipeNavigation(),phaseUi,folioLayout:dom.layout,folioRecipeId:null,folioRecipeSelection:null,previewPrevious:null,recipeFocus:null,recipeNavigation:{history:[],index:-1},recipeNavigationVisit,craftingDockModel,updateCraftingDock,defenderPanelMarkup,DpsMeasurement,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),icon,endedPhase,panelDetails:new Map(),stampCraftButtons:noop,world:{sync:noop,resize:noop},$:dom.get,tutorial:()=>'<p>Build</p>'};
   const source=[singleLine('syncFolio'),singleLine('cancelRecipePreview'),singleLine('towerPanel'),declaration('renderSidebar'),declaration('renderRecipeBrowser'),singleLine('openRecipePreview')].join('\n');
   const methods=runInNewContext(source+'\n({syncFolio,cancelRecipePreview,renderSidebar,renderRecipeBrowser,openRecipePreview})',context);
   context.render=()=>{methods.renderSidebar();methods.renderRecipeBrowser();methods.syncFolio();};
@@ -88,6 +91,21 @@ test('repeated sync moves the same action/recipe nodes once and restores them to
   for(let pass=0;pass<12;pass++){view.layout.sync(game);assert.equal(view.body.parentNode,view.get('folio-inspection'));assert.equal(actions.parentNode,view.get('folio-actions'));assert.equal(recipes.parentNode,view.get('folio-recipes'));assert.equal(view.app.querySelectorAll('.folio-actions').length,1);assert.equal(view.app.querySelectorAll('.folio-recipes').length,1);assert.equal(actions.querySelector('[data-action="keep-draw"]'),keep);}
   view.layout.restoreParts();assert.equal(actions.parentNode,view.body);assert.equal(recipes.parentNode,view.body);game.keep();view.body.innerHTML=defenderPanelMarkup(game,game.selection);view.layout.sync(game);assert.equal(view.folio.hidden,true);assert.equal(view.body.parentNode,view.sidebar);assert.equal(keep.isConnected,false);
   assert.equal(game.startCombat(),true);view.layout.sync(game);assert.equal(view.body.parentNode,view.sidebar);assert.equal(view.app.querySelectorAll('.folio-actions').length,1);
+});
+
+test('native pinned-recipe collapse moves the same dock outside the folio and immediately frees its planning pane',()=>{
+  const game=recipeGame(),view=documentFixture(),recipe=data.recipes.find(recipe=>!game.availableRecipes().some(actual=>actual.id===recipe.id));
+  game.pinned=recipe.id;view.body.innerHTML=defenderPanelMarkup(game,game.selection);updateCraftingDock(view.browser,game,{}, {recipeId:recipe.id});
+  view.layout.sync(game,{view:'recipe',inspectedRecipeId:recipe.id});
+  const dock=view.browser.querySelector('.crafting-dock-disclosure'),summary=view.browser.querySelector('.crafting-dock-summary'),before=snapshot(game);
+  assert.equal(view.browser.parentNode,view.get('folio-plan'));assert.equal(view.get('folio-recipes').hidden,true);
+  summary.focus();dock.open=false;view.browser.dispatchEvent({type:'toggle',target:dock});
+  assert.equal(view.browser.parentNode,view.app);assert.equal(view.browser.previousSibling,view.folio);assert.match(view.browser.className,/is-compact-external/);
+  assert.equal(view.get('folio-recipes').hidden,false);assert.equal(view.get('folio-plan').hidden,false);assert.equal(view.document.activeElement,summary);
+  assert.equal(view.app.querySelectorAll('.crafting-dock-disclosure').length,1,'The compact strip reuses the physical controls.');
+  dock.open=true;view.browser.dispatchEvent({type:'toggle',target:dock});
+  assert.equal(view.browser.parentNode,view.get('folio-plan'));assert.doesNotMatch(view.browser.className,/is-compact-external/);assert.equal(view.get('folio-recipes').hidden,true);
+  assert.equal(view.browser.querySelector('.crafting-dock-disclosure'),dock);assert.equal(view.document.activeElement,summary);assert.equal(snapshot(game),before);
 });
 
 test('restore plus actual rerender never leaves old or duplicate commands connected; explicit recipe browser returns to original anchor',()=>{
@@ -139,8 +157,9 @@ test('actual main combine subscriber replaces recipe receipts with the new defen
     const view=mainFixture(game,{subscriber:true}),pin=game.pinned;view.rankPreview.select(anchor,6,data);view.openRecipePreview(ranger.id);assert.equal(view.context.recipeFocus,ranger.id);assert.ok(view.context.previewPrevious);
     if(action==='craft'){assert.equal(game.previewRecipeId,ranger.id);assert.equal(craftRecipeFromDock(game,ranger.id,id,craftRecipeKey(game,ranger.id,id)),true);}
     else assert.equal(mergeTowerFromBadge(game,id,mergeTowerKey(game,id)),true);
-    assert.equal(game.phase,'ready');assert.equal(game.selection,anchor);assert.equal(anchor.id,id);assert.deepEqual([anchor.x,anchor.z],position);assert.equal(game.pinned,pin);assert.equal(view.context.recipeFocus,null);assert.equal(view.context.previewPrevious,null);assert.equal(game.previewRecipeId,null);assert.equal(view.phaseUi.view,'unit');assert.equal(view.folio.hidden,true);assert.equal(view.get('folio-preview').innerHTML,'');assert.ok(view.body.innerHTML.includes(`<h2 class="tower-name">${data.towers[anchor.family].name}</h2>`));
+    assert.equal(game.phase,'ready');assert.equal(game.selection,anchor);assert.equal(anchor.id,id);assert.deepEqual([anchor.x,anchor.z],position);assert.equal(game.pinned,pin);assert.equal(view.context.recipeFocus,null);assert.equal(view.context.previewPrevious,null);assert.equal(game.previewRecipeId,null);assert.equal(view.phaseUi.inspectorOpen,false,'A completed combination leaves the battlefield clear.');assert.equal(view.folio.hidden,true);assert.equal(view.get('folio-preview').innerHTML,'');assert.ok(view.body.innerHTML.includes(`<h2 class="tower-name">${data.towers[anchor.family].name}</h2>`));
     if(action==='craft'){assert.equal(anchor.family,ranger.id);assert.equal(anchor.tier,1);}else{assert.equal(anchor.family,'archer');assert.equal(anchor.tier,6);}
+    const result=snapshot(game);game.select(id);assert.equal(view.phaseUi.inspectorOpen,true,'Explicitly selecting the result opens its details.');assert.equal(view.phaseUi.view,'unit');assert.equal(snapshot(game),result);
   }
 });
 
@@ -176,8 +195,8 @@ test('actual draft renderer removes Ready/Combat history controls and production
   const keyboard=main.split('\n').find(line=>line.startsWith("window.addEventListener('keydown',e=>{if(e.key==='Escape'"));assert.ok(keyboard);
   const from=main.indexOf('function activateDraw('),to=main.indexOf("app.addEventListener('pointerdown'",from);assert.ok(from>=0&&to>from);const activateSource=main.slice(from,to);
   for(const phase of ['build','select','ready','combat']){
-    const game=create(phase),control=create(phase),dom=documentFixture();for(const id of ['draft','compact-draft-actions','folio-command-actions','dialog'])dom.app.append(new dom.Element(id==='dialog'?'dialog':'div',{id}));
-    const world={keys:new Set(),maze:{editing:false},sync:noop},audio={unlock:noop},callbacks=new Map(),context={game,data,images:{},world,audio,$:dom.get,document:dom.document,window:{addEventListener:(type,callback)=>callbacks.set(type,callback)},phaseUi:new PhaseUiState(),mode:50,intelligenceKey:null,draftCardsMarkup,commandPointsMarkup,icon,render:noop,draftCardActivation:new DraftCardActivation()};
+    const game=create(phase),control=create(phase),dom=documentFixture();for(const id of ['draft','compact-draft-actions','folio-command-actions','folio-create-actions','dialog'])dom.app.append(new dom.Element(id==='dialog'?'dialog':'div',{id}));
+    const world={keys:new Set(),maze:{editing:false},sync:noop},audio={unlock:noop},callbacks=new Map(),context={game,data,images:{},world,audio,$:dom.get,document:dom.document,window:{addEventListener:(type,callback)=>callbacks.set(type,callback)},phaseUi:new PhaseUiState(),rankPreview:new DefenderRankPreview(),mode:50,intelligenceKey:null,draftCardsMarkup,commandPointsMarkup,actualAvailableRecipeActionsMarkup,icon,render:noop,draftCardActivation:new DraftCardActivation()};
     const methods=runInNewContext(declaration('renderDraft')+'\n'+activateSource+'\n'+keyboard+'\n({renderDraft,activateDraw})',context),input=new DraftCardPointerInput({activate:(index,event)=>methods.activateDraw(index,event)});let queries=0;
     dom.document.querySelector=selector=>{queries++;const index=selector.match(/data-index="(\d+)"/)?.[1],card=dom.get('draft').querySelectorAll('[data-action="draw"]').find(card=>card.dataset.index===index);if(card)card.click=()=>input.click(game,{target:card,detail:0});return card;};
     const before=snapshot(game);methods.renderDraft();assert.equal(snapshot(game),before,'Rendering '+phase+' cannot mutate Game');
@@ -189,4 +208,36 @@ test('actual draft renderer removes Ready/Combat history controls and production
     else{assert.equal(queries,0,'Even a retained stale hidden card must never be queried in '+phase);assert.equal(snapshot(game),before);}
     assert.equal(game.rng(),control.rng(),phase+' keyboard/renderer consumes no RNG');
   }
+});
+
+test('production map actions expose Maze plans before placing recruits while Start remains exclusive to Ready',()=>{
+  for(const phase of ['build','select','ready','combat']){
+    const game=new Game(data,{seed:906});if(phase!=='build')place(game,Array.from({length:5},()=>({family:'archer',tier:2})));if(['ready','combat'].includes(phase))assert.equal(game.keep(),true);if(phase==='combat')assert.equal(game.startCombat(),true);
+    const dom=documentFixture(),map=new dom.Element('div',{id:'map-start'}),start=new dom.Element('button',{id:'start-wave'});dom.app.append(map);map.append(start);
+    const render=runInNewContext(declaration('renderMapAction')+'\nrenderMapAction',{game,$:dom.get,icon}),before=snapshot(game);render();
+    assert.equal(map.hidden,phase==='combat',`Maze plans remain reachable during ${phase}.`);assert.equal(start.hidden,phase!=='ready');assert.equal(snapshot(game),before);
+  }
+});
+
+test('production rank command removes a legal Lady Claire Create action for preview VI and restores it at actual V without changing the draft or RNG',()=>{
+  const recipe=data.recipes.find(recipe=>recipe.id==='ladyclaire');assert.ok(recipe);
+  const create=()=>{const game=new Game(data,{seed:9402});game.economy.xp=100000;return place(game,[...recipe.ingredients,{family:'archer',tier:1},{family:'cleric',tier:1}]);};
+  const game=create(),control=create(),view=mainFixture(game),tower=game.selection;assert.equal(tower.tier,5);assert.ok(game.availableRecipes(tower).some(candidate=>candidate.id===recipe.id));
+  for(const id of ['draft','compact-draft-actions','folio-command-actions','folio-create-actions'])view.folio.append(new view.Element('div',{id}));
+  Object.assign(view.context,{actualAvailableRecipeActionsMarkup,draftCardsMarkup,commandPointsMarkup,mode:50,intelligenceKey:null,audio:{unlock:noop},draftCardActivation:{clear:noop},debug:false,codex:noop,warbands:noop,help:noop,sendWave:noop,closeDialog:noop,debugPanel:noop});
+  Object.assign(view.context.world,{maze:{editing:false},doubleTap:{clear:noop}});
+  const commands=runInNewContext(declaration('renderDraft')+'\n'+declaration('handleCommand')+'\n({renderDraft,handleCommand})',view.context);
+  commands.renderDraft();
+  const footer=view.get('folio-create-actions'),initial=footer.querySelectorAll('[data-action="craft-dock"]').find(button=>button.dataset.id===recipe.id),before=snapshot(game);
+  assert.ok(initial);assert.match(footer.innerHTML,/Create Lady Claire/);assert.equal(Number(initial.dataset.towerId),tower.id);assert.ok(initial.dataset.craftKey);
+  for(const tier of [6,5]){
+    const button=view.body.querySelectorAll('[data-action="preview-rank"]').find(button=>Number(button.dataset.tier)===tier);assert.ok(button);
+    commands.handleCommand({target:button});
+    assert.equal(view.rankPreview.view(tower,data).tier,tier);assert.equal(tower.tier,5);assert.equal(game.selection,tower);assert.equal(snapshot(game),before);
+    const creation=footer.querySelectorAll('[data-action="craft-dock"]').find(button=>button.dataset.id===recipe.id);
+    if(tier===6){assert.equal(footer.innerHTML,'');assert.equal(creation,undefined,'A hypothetical rank must remove every physical creation token.');}
+    else{assert.ok(creation);assert.notEqual(creation,initial);assert.equal(creation.dataset.craftKey,initial.dataset.craftKey);assert.match(footer.innerHTML,/Create Lady Claire/);}
+    const focused=view.body.querySelectorAll('[data-action="preview-rank"]').find(button=>Number(button.dataset.tier)===tier);assert.equal(view.document.activeElement,focused,'The refreshed rank control keeps keyboard focus.');
+  }
+  assert.equal(game.rng(),control.rng(),'Rank commands and footer refresh consume no draw or combat randomness.');
 });

@@ -5,7 +5,7 @@ import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 import {Game} from '../game/core/game.js';
 import {campaignTowers,campaignRecipes,campaignEnemies,campaignWaves} from '../game/core/campaign-roster.js';
-import {towerStats} from '../game/core/math.js';
+import {towerStats,combatTowerStats} from '../game/core/math.js';
 import {defenderPanelMarkup} from '../ui/defender-panel.js';
 import {DefenderRankPreview} from '../ui/defender-rank-preview.js';
 import {abilityLines,baseAttackDps,formatTowerNumber,defenderGuide} from '../ui/grimoire.js';
@@ -16,6 +16,7 @@ import {DpsMeasurement} from '../ui/dps-measurement.js';
 import {TowerDpsTracker} from '../game/core/tower-dps.js';
 import {icon} from '../ui/icons.js';
 import {preparationEffects} from '../ui/preparation-folio.js';
+import {PreparationRecipeNavigation} from '../ui/preparation-recipe-navigation.js';
 
 const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
@@ -54,9 +55,10 @@ test('every basic rank and champion shows all engine-derived abilities once, wit
       assert.equal((html.match(/class="tower-effects/g)||[]).length,1);assert.doesNotMatch(html,/data-detail-key="abilities"|rank-comparison-stats|concise-effects/);
       assert.ok(html.indexOf('folio-effects')<html.indexOf('folio-metrics'));assert.ok(html.indexOf('folio-metrics')<html.indexOf('folio-recipes'));
       assert.ok(html.indexOf('class="defender-core"')<html.indexOf('id="targeting"'));
-      assert.ok(core(html).includes(`Base direct DPS</span><strong>${formatTowerNumber(baseAttackDps(stats))}</strong>`));
-      assert.ok(core(html).includes(`Range</span><strong>${formatTowerNumber(stats.range)}</strong>`));
-      assert.ok(core(html).includes(`Interval</span><strong>${formatTowerNumber(stats.interval)}s</strong>`));
+      const actual=tier===tower.tier,effective=actual?combatTowerStats(tower,game.towers,data):{stats,bonuses:{haste:1}};
+      assert.ok(core(html).includes(`Direct DPS</span><strong>${formatTowerNumber(baseAttackDps(effective.stats)*effective.bonuses.haste)}</strong>`));
+      assert.ok(core(html).includes(`Range</span><strong>${formatTowerNumber(effective.stats.range)}</strong>`));
+      assert.ok(core(html).includes(`Interval</span><strong>${formatTowerNumber(stats.interval/effective.bonuses.haste)}s</strong>`));
       assert.equal(tower.tier,1);if(definition.advanced)assert.doesNotMatch(html,/data-detail-key="ranks"|data-action="preview-rank"/);
     }
   }
@@ -81,7 +83,7 @@ test('targeting, current support, measured peak and MVP belong to the actual uni
   const preview=new DefenderRankPreview();preview.select(tower,2,data);const before=snapshot(game),html=defenderPanelMarkup(game,tower,{rankPreview:preview,peak:{dps:123}});
   assert.match(html,/<option value="last" selected>Last/);assert.match(html,/data-action="tower-pause" aria-pressed="true"/);assert.match(html,/MVP Level: 7 \/ 10/);
   assert.ok(html.includes(mvpDetailsMarkup(tower).replace(/<button[\s\S]*?<\/button>/,'')));assert.ok(html.includes(selectedSupportMarkup(tower,game.towers,data,{combat:game.combat,phase:game.phase})));
-  assert.match(html,/Measured peak · Actual rank I · 123 DPS/);assert.ok(html.indexOf('class="defender-core"')<html.indexOf('id="targeting"'));assert.ok(html.indexOf('id="targeting"')<html.indexOf('data-detail-key="mvp"'));
+  assert.match(html,/Measured peak · Actual rank I · 123 DPS/);assert.ok(html.indexOf('class="defender-core"')<html.indexOf('id="targeting"'));assert.ok(html.indexOf('class="mvp-details"')<html.indexOf('class="selected-support"'));assert.ok(html.indexOf('class="selected-support"')<html.indexOf('class="defender-core"'));assert.doesNotMatch(html,/data-detail-key="mvp"|<summary>MVP/);
   assert.equal(snapshot(game),before);
   game.phase='lost';const ended=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(ended,/Read-only defender inspection/);assert.doesNotMatch(ended,/data-action="(?:keep-draw|merge|downgrade|tower-pause)"|id="targeting"/);
 });
@@ -108,16 +110,16 @@ function sidebarHost(){
   const body=new Element(),top=new Element();document.getElementById=id=>body.querySelector('#'+id);return {body,top,document};
 }
 
-test('actual sidebar refresh keeps potential/ranks visible and preserves MVP disclosure, rank-button focus and scroll after switching the main stats',()=>{
+test('actual sidebar refresh keeps permanent MVP/potential/ranks visible and preserves rank-button focus and scroll after switching the main stats',()=>{
   const game=candidates(),tower=game.selection;game.keep();const rankPreview=new DefenderRankPreview(),{body,top,document}=sidebarHost(),main=readFileSync(new URL('../game/main.js',import.meta.url),'utf8');
   const source=name=>{const start=main.indexOf('function '+name+'(');assert.ok(start>=0);const end=main.indexOf('\nfunction ',start+1);return main.slice(start,end);};
-  const context={phaseUi:new PhaseUiState(),game,rankPreview,folioRecipeId:null,folioRecipeSelection:null,folioLayout:{restoreParts(){}},syncFolio:()=>{},images:{},data,$:id=>id==='side-body'?body:id==='side-top'?top:body.querySelector('#'+id),document,icon,defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),panelDetails:new Map(),endedPhase:phase=>['won','lost'].includes(phase),stampCraftButtons:()=>{}};
+  const context={phaseUi:new PhaseUiState(),game,rankPreview,preparationNavigation:new PreparationRecipeNavigation(),folioRecipeId:null,folioRecipeSelection:null,folioLayout:{restoreParts(){}},syncFolio:()=>{},images:{},data,$:id=>id==='side-body'?body:id==='side-top'?top:body.querySelector('#'+id),document,icon,defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),panelDetails:new Map(),endedPhase:phase=>['won','lost'].includes(phase),stampCraftButtons:()=>{}};
   const render=runInNewContext(source('towerPanel')+'\n'+source('renderSidebar')+'\nrenderSidebar',context);render();
-  body.querySelector('[data-detail-key="mvp"]').open=true;
+  assert.equal(body.querySelector('.mvp-details').tag,'section');assert.equal(body.querySelector('[data-detail-key="mvp"]'),null);
   for(const selector of ['.potential-combinations','.rank-preview'])assert.ok(body.querySelector(selector));
   for(const key of ['recipes','ranks'])assert.equal(body.querySelector(`[data-detail-key="${key}"]`),null);
   body.scrollTop=174;body.querySelector('[data-tier="2"]').focus();rankPreview.select(tower,2,data);render();
-  assert.equal(body.querySelector('[data-detail-key="mvp"]').open,true);
+  assert.equal(body.querySelector('.mvp-details').tag,'section');assert.equal(body.querySelector('[data-detail-key="mvp"]'),null);
   for(const selector of ['.potential-combinations','.rank-preview']){const section=body.querySelector(selector);assert.ok(section);assert.equal(section.tag,'section');assert.equal(section.parentNode.tag==='details',false);}
   assert.equal(body.scrollTop,174);assert.equal(document.activeElement,body.querySelector('[data-tier="2"]'));assert.match(core(body.innerHTML),/Preview rank II · Actual rank I unchanged/);
   assert.ok(body.innerHTML.indexOf('folio-effects')<body.innerHTML.indexOf('class="rank-preview"'));assert.ok(body.innerHTML.indexOf('class="rank-preview"')<body.innerHTML.indexOf('folio-metrics'));assert.ok(body.innerHTML.indexOf('folio-metrics')<body.innerHTML.indexOf('folio-recipes'));

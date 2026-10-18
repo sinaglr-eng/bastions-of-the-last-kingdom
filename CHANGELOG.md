@@ -1,5 +1,15 @@
 # Releases
 
+## 0.4.2 — Compact planning and clearer field books — 18 October 2026
+
+Addresses all 39 comments on 0.4.1. Reduces construction, wave-note and inspector footprints; distinguishes Wave/Command Point icons; exposes Maze plans before the first placement; and adds 3× and 5× combat speeds. Potential combinations follows the viewed rank, supports champion downstream exploration and collapses correctly while actual defenders and ingredients remain unchanged. Legal guarded Create actions appear below the draft choices. Collapsed pinned recipes move into a compact external strip, and the full planning pane scrolls without a nested overscroll trap.
+
+Refines the open-book geometry, readable ingredient chains, straight bookmark, fixed title-row Pin action, separate footers and numbered pages. Removes the requested book history and atlas bottom navigation controls. Enlarges enemy portraits and opens lore by default, with 50 new English campaign chronicles. Adds Bernhard’s transparent crimson-reference derivative while preserving the original 136 portraits. Keeps MVP/support expanded beneath Move, shows current damage/DPS with base and bonus contributions, and briefly marks real MVP awards with a light beam and MVP +1. Final defenders no longer automatically open the inspector.
+
+All **1,480 tests** and the production build pass; [the 39-comment report](docs/UI_REFINEMENTS_V042_20261018.md) links the exact local receipts. Final browser signoff and publication evidence remain pending. Physical iPad/Safari verification is unavailable. Existing combat rules, exact recipe allocation, hidden draws, original art/audio and 0.3.31 recovery points remain preserved.
+
+<!-- V042_CHANGELOG_RELEASE_PENDING: Local tests/build passed. Add final browser and publication receipts only after verification. -->
+
 ## 0.4.1 — The Cartographer’s Table, concept fidelity — 16 October 2026
 
 Refines all eleven approved concept states with engraved paper frames, restrained grain, clearer serif typography and framed geometric character cutouts. Recipes becomes a bound open book with a compact index, facing recipe page, adjacent portrait/statistics, illustrated ingredients, chapter tabs, pinned bookmark and fixed action footer. Enemy Waves gains a numbered remaining-wave atlas with a single selected report, exact shared/variant facts and guarded page navigation.

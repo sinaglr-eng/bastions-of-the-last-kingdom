@@ -51,11 +51,11 @@ test('Engineer display uses E at every rank without changing canonical runtime R
   }
 });
 
-test('catalog keeps description and abilities above portrait ingredients while offering list return separately from exploration history',()=>{
+test('catalog keeps abilities above portrait ingredients with a fixed title action and ordered navigation',()=>{
   const target=recipe('frostblade'),html=championCatalogMarkup(fresh(),data,images,{state:{recipeId:target.id}});
   assert.ok(html.indexOf('aria-label="Abilities and description"')<html.indexOf('Exact ingredients'));
   assert.ok(html.indexOf('recipe-effects')<html.indexOf('Exact ingredients'));
-  assert.match(html,/class="text-button catalog-detail-back" data-catalog-close>‹ Back to list/);assert.match(html,/data-catalog-history="back"/);
+  assert.match(html,/class="catalog-selected-heading"/);assert.match(html,/data-catalog-order="next"/);assert.doesNotMatch(html,/data-catalog-close|data-catalog-history/);
   const css=readFileSync(new URL('../ui/catalog-recipes.css',import.meta.url),'utf8');
   assert.doesNotMatch(css,/has-detail\s+\.catalog-recipe-list\{display:none/);
   assert.doesNotMatch(css,/recipe-ingredients\{[^}]*grid-template-columns:repeat\(3/);
@@ -181,28 +181,28 @@ function fixture(markup){
   const host=new Element();host.innerHTML=markup;return host;
 }
 
-test('catalog component navigation keeps filtered rows, context history, disclosures, focus and actual gameplay intact',()=>{
+test('catalog component navigation keeps filtered rows, selected reading page, disclosures, focus and actual gameplay intact',()=>{
   const game=fresh(),control=fresh(),state={recipeId:'highking',query:'Kingslayer'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,images,{state}));let callbacks=0;
   let connection=connectChampionCatalog(host,game,data,images,{state,onDetail:()=>callbacks++}),catalog=host.querySelector('.champion-catalog');
   catalog.querySelector('[data-catalog-disclosure="chain:highking"]').open=true;
   catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');assert.equal(state.query,'Kingslayer');assert.equal(catalog.querySelector('.catalog-recipe-detail').hidden,false);
   assert.equal(catalog.querySelectorAll('[data-catalog-recipe]').filter(row=>!row.hidden).length,1);assert.ok(host.ownerDocument.activeElement.matches('[data-catalog-detail-heading]'));
   catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="rimewatch"]'));assert.equal(state.recipeId,'rimewatch');
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-history="back"]'));assert.equal(state.recipeId,'frostblade');
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-history="back"]'));assert.equal(state.recipeId,'highking');assert.equal(catalog.querySelector('[data-catalog-disclosure="chain:highking"]').open,true);
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-history="forward"]'));assert.equal(state.recipeId,'frostblade');
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-page="index"]'));assert.equal(state.recipeId,'rimewatch');
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-recipe="highking"]'));assert.equal(state.recipeId,'highking');assert.equal(catalog.querySelector('[data-catalog-disclosure="chain:highking"]').open,true);
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');
   connection.dispose();host.innerHTML=championCatalogMarkup(game,data,images,{state});connection=connectChampionCatalog(host,game,data,images,{state});catalog=host.querySelector('.champion-catalog');
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-history="forward"]'));assert.equal(state.recipeId,'rimewatch');assert.equal(state.query,'Kingslayer');assert.ok(callbacks>=5);
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="rimewatch"]'));assert.equal(state.recipeId,'rimewatch');assert.equal(state.query,'Kingslayer');assert.ok(callbacks>=5);
   assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
 });
 
 test('production catalog Next and Previous follow Kingslayer to King without requiring prior exploration history',()=>{
   const game=fresh(),control=fresh(),before=snapshot(game),state={recipeId:'highking'},host=fixture(championCatalogMarkup(game,data,images,{state}));let callbacks=0;
   const connection=connectChampionCatalog(host,game,data,images,{state,onDetail:()=>callbacks++}),catalog=host.querySelector('.champion-catalog');
-  assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,false);assert.equal(catalog.querySelector('[data-catalog-history="forward"]').disabled,true);
+  assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,false);assert.equal(catalog.querySelector('[data-catalog-history="forward"]'),null);
   catalog.dispatch('click',catalog.querySelector('[data-catalog-order="next"]'));assert.equal(state.recipeId,'crownofages');assert.ok(host.ownerDocument.activeElement.matches('[data-catalog-detail-heading]'));
   catalog.dispatch('click',catalog.querySelector('[data-catalog-order="previous"]'));assert.equal(state.recipeId,'highking');
-  const html=catalog.querySelector('.catalog-recipe-detail').innerHTML;assert.match(html,/aria-label="Filtered recipe catalog"/);assert.match(html,/>Next recipe ›</);assert.match(html,/>‹ Back in exploration</);
+  const html=catalog.querySelector('.catalog-recipe-detail').innerHTML;assert.match(html,/aria-label="Filtered recipe catalog"/);assert.match(html,/>Next recipe ›</);assert.doesNotMatch(html,/data-catalog-history|data-catalog-close/);
   assert.ok(callbacks>=3);assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
 });
 
@@ -230,12 +230,12 @@ test('ordered catalog endpoints and empty/single-result filters disable navigati
   assert.equal(snapshot(game),before);connection.dispose();
 });
 
-test('component exploration outside filtered order has separate Back/Forward controls and returns to ordered catalog context',()=>{
+test('component exploration outside filtered order returns through the index without changing filters or pin',()=>{
   const game=fresh(),control=fresh(),state={recipeId:'highking',query:'king'},before=snapshot(game),host=fixture(championCatalogMarkup(game,data,images,{state})),connection=connectChampionCatalog(host,game,data,images,{state}),catalog=host.querySelector('.champion-catalog');
   catalog.dispatch('click',catalog.querySelector('[data-catalog-ingredient="frostblade"]'));assert.equal(state.recipeId,'frostblade');assert.equal(state.query,'king');
   assert.equal(catalog.querySelector('[data-catalog-order="previous"]').disabled,true);assert.equal(catalog.querySelector('[data-catalog-order="next"]').disabled,true);assert.match(catalog.querySelector('.catalog-recipe-detail').innerHTML,/Outside current filters/);
-  assert.equal(catalog.querySelector('[data-catalog-history="back"]').disabled,false);catalog.dispatch('click',catalog.querySelector('[data-catalog-history="back"]'));assert.equal(state.recipeId,'highking');
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-history="forward"]'));assert.equal(state.recipeId,'frostblade');catalog.dispatch('click',catalog.querySelector('[data-catalog-history="back"]'));
-  catalog.dispatch('click',catalog.querySelector('[data-catalog-order="next"]'));assert.equal(state.recipeId,'crownofages');assert.equal(catalog.querySelector('[data-catalog-history="forward"]').disabled,true);
+  assert.equal(catalog.querySelector('[data-catalog-history="back"]'),null);catalog.dispatch('click',catalog.querySelector('[data-catalog-page="index"]'));assert.equal(state.recipeId,'frostblade');
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-recipe="highking"]'));assert.equal(state.recipeId,'highking');
+  catalog.dispatch('click',catalog.querySelector('[data-catalog-order="next"]'));assert.equal(state.recipeId,'crownofages');assert.equal(catalog.querySelector('[data-catalog-history="forward"]'),null);
   assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());connection.dispose();
 });

@@ -5,17 +5,18 @@ import {readFileSync} from 'node:fs';
 import {CombatManager} from '../game/core/combat.js';
 import {warbandCardsMarkup,upcomingWarbandMarkup} from '../ui/warband-cards.js';
 import {warbandTraitDetails} from '../game/core/warband-info.js';
+import {enemyCampaignLore} from '../ui/enemy-campaign-lore.js';
 
 const enemies=campaignEnemies(JSON.parse(readFileSync(new URL('../data/enemies.json',import.meta.url)))),waves=campaignWaves(JSON.parse(readFileSync(new URL('../data/waves.json',import.meta.url))));
 const images=Object.fromEntries(Object.keys(enemies).map(type=>['enemy:'+type,'/assets/geometric/portraits/'+type+'.png']));
 const escape=text=>text.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-test('all 50 actual guide cards preserve portraits/flavor while displaying every configured variant numerical ability visibly',()=>{
+test('all 50 actual guide cards preserve portraits and show campaign stories with every configured variant numerical ability visibly',()=>{
   const before=JSON.stringify({enemies,waves,images}),markup=warbandCardsMarkup(waves,enemies,images,{balance:{}});
   assert.equal((markup.match(/<article class="warband-card/g)||[]).length,50);
   for(const wave of waves)for(const group of wave.groups){
     const base=enemies[group.type];
-    assert.ok(markup.includes(`src="${images['enemy:'+group.type]}"`));assert.ok(markup.includes(escape(base.appearance)));assert.ok(markup.includes(escape(base.name)));assert.ok(markup.includes(escape(base.threat)));
+    assert.ok(markup.includes(`src="${images['enemy:'+group.type]}"`));assert.ok(markup.includes(escape(enemyCampaignLore(group.type)||base.appearance)));assert.ok(markup.includes(escape(base.name)));assert.ok(markup.includes(escape(base.threat)));
     if(base.counter)assert.ok(markup.includes(escape(base.counter)));
     const upcoming=upcomingWarbandMarkup(wave,enemies);
     for(const variant of base.variants||[{}])for(const row of warbandTraitDetails({...base,...variant})){
@@ -50,7 +51,7 @@ test('guide health/speed/armor modifiers discard historical resistance overrides
   const route=[{x:0,z:0},{x:10,z:0}],game={data:{enemies},grid:{route,checkpoints:route},emit(){}},combat=new CombatManager(game),enemy=combat.spawn(type,{...wave,...wave.groups[0]});
   const markup=upcomingWarbandMarkup(wave,enemies);
   assert.ok(markup.includes(enemy.maxHp+' HP'));assert.ok(markup.includes(enemy.armor+' armor'));assert.ok(markup.includes(enemy.speed+' tiles/s'));assert.ok(!markup.includes('fire resistance'));
-  const unsafe={...base,name:'<Name & "quote">',appearance:'<script>art</script>',counter:'<counter>',threat:'<threat>'},custom={...enemies,[type]:unsafe},safe=warbandCardsMarkup([wave],custom,{['enemy:'+type]:'" onerror="bad'});
+  const unsafe={...base,name:'<Name & "quote">',appearance:'<script>art</script>',counter:'<counter>',threat:'<threat>'},custom={...enemies,external_profile:unsafe},customWave={...wave,groups:wave.groups.map(group=>({...group,type:'external_profile'}))},safe=warbandCardsMarkup([customWave],custom,{'enemy:external_profile':'" onerror="bad'});
   for(const field of ['name','appearance','counter','threat'])assert.ok(safe.includes(escape(unsafe[field])));
   assert.ok(!safe.includes('<script>')&&!safe.includes('src="" onerror='));assert.ok(safe.includes('src="&quot; onerror=&quot;bad"'));
   assert.equal(upcomingWarbandMarkup(null,enemies),'');

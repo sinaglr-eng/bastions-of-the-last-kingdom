@@ -20,6 +20,7 @@ import {icon} from '../ui/icons.js';
 import {defenderPanelMarkup} from '../ui/defender-panel.js';
 import {DpsMeasurement} from '../ui/dps-measurement.js';
 import {TowerDpsTracker} from '../game/core/tower-dps.js';
+import {PreparationRecipeNavigation} from '../ui/preparation-recipe-navigation.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const basics=Object.entries(data.towers).filter(([,stats])=>!stats.advanced).map(([family])=>family);
@@ -99,7 +100,7 @@ const campaignData={...data,towers:campaignTowers(data.towers),recipes:campaignR
 function productionPanel(game,preview){
   assert.ok(panelSource.startsWith('function towerPanel(t)'));
   return runInNewContext(`${qualitySource}\n${panelSource}\ntowerPanel`,{
-    game,rankPreview:preview,folioRecipeId:null,data:campaignData,towers:campaignData.towers,balance:data.balance,
+    game,rankPreview:preview,folioRecipeId:null,preparationNavigation:new PreparationRecipeNavigation(),data:campaignData,towers:campaignData.towers,balance:data.balance,
     defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),
     images:{},roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
     defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,
@@ -123,11 +124,11 @@ function recipePanelGame(){
 const potentialIds=html=>[...html.matchAll(/data-action="folio-recipe" data-id="([^"]+)"/g)].map(match=>match[1]);
 const panelGameSnapshot=game=>JSON.stringify({towers:game.towers,draws:game.draft.draws,gold:game.economy.gold,xp:game.economy.xp,phase:game.phase,selected:game.selected,round:game.round,occupied:[...game.grid.occupied],discoveries:[...game.discoveries]});
 
-test('production sidebar potential combinations stay at the actual rank during comparison and reset to the real selection',()=>{
+test('production sidebar potential combinations follow the displayed rank and reset to the real selection',()=>{
   const game=recipePanelGame(),preview=new DefenderRankPreview(),render=productionPanel(game,preview),tower=game.selection;
   const rankI=potentialIds(render(tower));assert.ok(rankI.includes('rimewatch'));assert.ok(!rankI.includes('verdantguard'));
   assert.equal(preview.select(tower,2,campaignData),true);
-  const rankII=potentialIds(render(tower));assert.deepEqual(rankII,rankI);assert.ok(!rankII.includes('verdantguard'));assert.equal(tower.tier,1);
+  const rankII=potentialIds(render(tower));assert.deepEqual(rankII,recipesUsing({...tower,tier:2},game.recipes).map(recipe=>recipe.id));assert.ok(rankII.includes('verdantguard'));assert.ok(!rankII.includes('rimewatch'));assert.equal(tower.tier,1);
   assert.equal(preview.select(tower,1,campaignData),true);assert.deepEqual(potentialIds(render(tower)),rankI);
   preview.select(tower,2,campaignData);
   const other=game.towers.find(t=>t.family==='cleric'&&t.state==='draft');game.select(other.id);
@@ -139,10 +140,10 @@ test('preview recipes expose actual retained and placed ingredients without inve
   const game=recipePanelGame(),control=recipePanelGame(),preview=new DefenderRankPreview(),render=productionPanel(game,preview);
   const before=panelGameSnapshot(game),dataBefore=JSON.stringify(campaignData),tower=game.selection;
   preview.select(tower,2,campaignData);const html=render(tower);
-  assert.ok(potentialIds(html).includes('rimewatch'));assert.ok(!potentialIds(html).includes('verdantguard'));
+  assert.ok(!potentialIds(html).includes('rimewatch'));assert.ok(potentialIds(html).includes('verdantguard'));
   assert.match(html,/class="folio-ingredient built"/);assert.match(html,/class="folio-ingredient draft"/);
   assert.ok(!game.towers.some(t=>t.family==='soldier'&&t.tier===2&&t.state!=='ruin'));
-  assert.doesNotMatch(html,/data-action="craft" data-id="verdantguard"/);
+  assert.match(html,/Viewed rank II recipes|Planning view/);assert.doesNotMatch(html,/data-action="(?:craft|craft-dock)" data-id="verdantguard"/);
   assert.ok(!game.availableRecipes(tower).some(recipe=>recipe.id==='verdantguard'));
   assert.equal(panelGameSnapshot(game),before);assert.equal(JSON.stringify(campaignData),dataBefore);
   assert.equal(game.rng(),control.rng(),'Rendering recipe previews consumes no RNG');
@@ -158,9 +159,9 @@ test('production defender panel removes descriptive, Strong/Weak and pause-expla
       if(!definition.advanced)assert.equal(preview.select(tower,tier,campaignData),true);
       const html=render(tower);
       assert.doesNotMatch(html,/<p class="(?:strength|weakness)"|Strong:|Weak:|<small>Pauses new attacks|Support and MVP auras stay active/);
-      assert.doesNotMatch(html,/<p class="role">/);if(html.includes('<p>No recipe uses this actual rank.</p>'))fallback=true;
-      assert.match(html,/<h2 class="tower-name">/);assert.match(html,/class="defender-heading folio-identity"/);assert.match(html,/class="tower-effects/);assert.match(html,/Damage \/ hit/);assert.match(html,/Base direct DPS/);assert.match(html,/Target priority/);
-      assert.match(html,/MVP Level: 10 \/ 10/);assert.match(html,/Own damage \+100%/);assert.match(html,/\+75% damage/);assert.match(html,/data-action="tower-pause" aria-pressed="false">[\s\S]*Pause unit attacks/);assert.ok(html.indexOf('class="rank-preview"')<html.indexOf('Target priority')||definition.advanced);assert.ok(html.indexOf('Target priority')<html.indexOf('data-detail-key="mvp"'));
+      assert.doesNotMatch(html,/<p class="role">/);if(html.includes('<p>No combination uses this defender at the viewed rank.</p>'))fallback=true;
+      assert.match(html,/<h2 class="tower-name">/);assert.match(html,/class="defender-heading folio-identity"/);assert.match(html,/class="tower-effects/);assert.match(html,/Damage \/ hit/);assert.match(html,/Direct DPS/);assert.match(html,/Target priority/);
+      assert.match(html,/MVP Level: 10 \/ 10/);assert.match(html,/Own damage \+100%/);assert.match(html,/\+75% damage/);assert.match(html,/data-action="tower-pause" aria-pressed="false">[\s\S]*Pause unit attacks/);assert.ok(html.indexOf('class="rank-preview"')<html.indexOf('Target priority')||definition.advanced);assert.ok(html.indexOf('class="mvp-details"')<html.indexOf('class="selected-support"'));assert.ok(html.indexOf('class="selected-support"')<html.indexOf('Target priority'));
       if(!definition.advanced)assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);
     }
     assert.equal(panelGameSnapshot(game),before,'Panel changes and comparisons leave actual towers and draft unchanged');

@@ -70,3 +70,32 @@
   .crafting-progress-total,.crafting-phase,.crafting-round-rule{font-size:9px;margin:4px 0}.crafting-unavailable{font-size:9px;margin:3px 0}.crafting-outcome{padding:4px 5px}.crafting-outcome p{font-size:9px}.crafting-chain>summary{min-height:36px;font-size:10px}.draw-recipe-ingredient{font-size:8px;top:21px;padding:2px 3px}.draw-recipe-ingredient>span{max-width:45px;overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){.crafting-disclosure-chevron{transition:none}}
+
+/* One native scroll owner covers the complete planning pane. Nested automatic
+   scroll boxes with overscroll containment previously trapped wheel/touch input. */
+#app .folio-plan .crafting-dock-body{overflow:visible;overscroll-behavior:auto;max-height:none}
+#app .folio-plan .crafting-dock{overflow:visible;box-shadow:none}
+#app .folio-plan{touch-action:pan-y;overscroll-behavior-y:contain}
+#app .folio-plan .crafting-dock{touch-action:pan-y;overscroll-behavior:auto}
+#app .crafting-history{gap:5px;margin:0 0 5px}
+#app .crafting-history>button{flex:0 1 auto;min-height:44px;padding:3px 8px;font-size:12px;line-height:1.15;white-space:nowrap}
+#app .crafting-order{display:flex;align-items:center;gap:5px;margin:0 0 8px}
+#app .crafting-order>button{flex:1;min-height:44px;padding:3px 7px;font-size:12px;white-space:nowrap}
+#app .crafting-order>span{font-size:11px;white-space:nowrap;color:var(--muted-ink,#c8d8d3)}
+#app .crafting-dock-disclosure:not([open])~.crafting-dock-actions{display:none}
+#app .is-compact-external.crafting-dock{position:absolute;z-index:10;left:auto;right:16px;bottom:calc(var(--folio) + var(--safe-bottom) + 10px);width:min(330px,calc(100% - 32px));max-height:none;margin:0;padding:0;border:1px solid #648c91;border-radius:3px;background:var(--paper,#f7eedb);box-shadow:0 3px 10px #30220f30;overflow:hidden}
+#app .is-compact-external .crafting-dock-summary{min-height:48px;padding:4px 8px;border:0;gap:6px}
+#app .is-compact-external .crafting-dock-summary strong{font-size:14px}
+#app .is-compact-external .crafting-dock-summary small{font-size:10px;margin-top:2px}
+#app .is-compact-external .crafting-summary-portrait{width:32px;height:38px}
+#app .is-compact-external .crafting-dock-pinned-goal,#app .is-compact-external .crafting-dock-actions{display:none}
+#app:has(.is-compact-external:not([hidden]))>.pinned-goal{display:none}
+#app .folio-downstream{border-top:1px solid var(--rule,#bfa982);padding-top:6px;margin-top:6px}
+#app .folio-downstream h5{font:14px/1.25 Georgia,serif;margin:0 0 4px}
+#app .folio-downstream p{font-size:11px;margin:0}
+#app .folio-downstream>div{display:grid;gap:4px}
+#app .folio-downstream button{justify-content:space-between;min-height:44px;padding:4px 7px;font-size:13px;text-align:left;white-space:normal}
+#app .folio-plan-back{min-height:44px;padding:4px 7px;font-size:12px;margin-bottom:5px}
+#app .folio-create-actions{display:grid;gap:5px;margin-top:6px;grid-column:1/-1}
+#app .folio-create-actions .folio-create-champion{min-height:48px;padding:6px 9px;font-size:15px;color:#36270f;background:linear-gradient(#f5dc9b,#d6ae5b);border-color:#a07b37;box-shadow:inset 0 0 0 2px #fff4cf}
+@media(max-width:750px){#app .is-compact-external.crafting-dock{right:8px;width:min(280px,calc(100% - 16px));bottom:calc(var(--folio) + var(--safe-bottom) + 7px)}}

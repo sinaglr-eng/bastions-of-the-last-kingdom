@@ -15,7 +15,7 @@ test('the UI catalogue resolves all and only 136 approved exact identities under
   for(const row of sources.rows){
     ids.add(row.id);
     const options={base:'/bastions-of-the-last-kingdom/'};
-    const expected=`/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/${row.id}.png?v=${REFERENCE_PORTRAIT_REVISION}`;
+    const expected=`/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/${row.id==='host_50'?'host_50-crimson':row.id}.png?v=${REFERENCE_PORTRAIT_REVISION}`;
     assert.equal(referencePortrait(row.id,options),expected);
     assert.equal(row.category==='enemies'?referenceEnemyPortrait(row.id,options):referenceDefenderPortrait(row.family,row.tier??1,options),expected,row.id);
     assert.equal(referencePortrait(row.id,{base:'/'}),expected.replace('/bastions-of-the-last-kingdom/','/'));
@@ -32,7 +32,7 @@ test('rank and fixed-champion lookup never falls back to another identity',()=>{
   assert.equal(referenceDefenderPortrait('host_01'),null);
   assert.match(referenceDefenderPortrait('mage',4),/\/mage-4\.png\?v=/);
   assert.match(referenceDefenderPortrait('ladyclaire'),/\/ladyclaire\.png\?v=/);
-  assert.match(referenceEnemyPortrait('host_50'),/\/host_50\.png\?v=/);
+  assert.match(referenceEnemyPortrait('host_50'),/\/host_50-crimson\.png\?v=/);
 });
 
 test('image-map aliases preserve current consumers without reserving an unknown or wall identity',()=>{
@@ -40,7 +40,7 @@ test('image-map aliases preserve current consumers without reserving an unknown 
   assert.equal(Object.keys(images).length,182);
   assert.equal(images.archer,images['archer:1']);assert.notEqual(images['archer:1'],images['archer:2']);
   assert.equal(images.frostblade,images['frostblade:1']);assert.equal(images['frostblade:2'],undefined);
-  assert.equal(images['enemy:host_50'],'/project/assets/ui/reference-cutouts/host_50.png?v=ui%20review%202');
+  assert.equal(images['enemy:host_50'],'/project/assets/ui/reference-cutouts/host_50-crimson.png?v=ui%20review%202');
   assert.equal(images.unknown,undefined);assert.equal(images.ruin,undefined);assert.equal(images.reserved,undefined);
   const wall='data:image/png;base64,existing-wall';assert.equal({...images,ruin:wall}.ruin,wall);
   assert.notEqual(images,referencePortraitImageMap());

@@ -2,7 +2,15 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-## Current release: 0.4.1 — The Cartographer’s Table, concept fidelity
+## Release candidate: 0.4.2 — Compact planning and clearer field books
+
+Addresses the 39 comments on 0.4.1: smaller construction and inspection panels, distinct Wave/Command Point icons, Maze plans before building, 3×/5× speed, and recipe suggestions that follow the displayed rank without changing the actual defender. Legal Create actions sit under the draft choices; collapsed pinned recipes move to a compact external strip. MVP and support are always visible beneath Move, and current damage/DPS includes a readable base-and-bonus breakdown. Real MVP awards gain a brief light beam and MVP +1 label.
+
+The Recipes book has aligned facing pages, readable ingredient trees, a fixed top Pin control and real page numbers. Enemy Waves uses a larger portrait and expanded lore with 50 campaign stories; Bernhard gains a separate cutout from the approved crimson reference. The original 136 portraits remain unchanged. All **1,480 tests** and the production build pass. See [the complete 39-comment implementation and validation report](docs/UI_REFINEMENTS_V042_20261018.md). Final browser signoff and publication receipts are pending; physical iPad/Safari verification is unavailable. The 0.3.31 rollback remains available.
+
+<!-- V042_README_RELEASE_PENDING: Change the candidate heading and link final release evidence only after publication is verified. -->
+
+## Previous published release: 0.4.1 — The Cartographer’s Table, concept fidelity
 
 The interface now follows the approved concept materials and composition across all eleven states: engraved paper frames, a shared preparation folio, contextual field reports and a bound, two-page Recipes book with working chapter tabs, illustrated ingredient cards and an always-visible Pin footer. Enemy Waves has a numbered atlas index and one exact selected report. All 136 original-reference portraits have real PNG transparency; original source images, crops, prompts and review records remain unchanged.
 

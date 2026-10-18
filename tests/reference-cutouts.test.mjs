@@ -12,6 +12,24 @@ const manifest=json('public/assets/ui/reference-cutouts/manifest.json');
 const originals=json('public/assets/ui/reference-portraits/manifest.json');
 const settings=json('tools/reference-cutout-masks.json');
 
+test('Bernhard uses the approved crimson reference with exact source RGB and real alpha',()=>{
+  const variant=json('public/assets/ui/portrait-variants/manifest.json');
+  const sourceBytes=bytes(variant.source),outputBytes=bytes(variant.output);
+  assert.equal(hash(sourceBytes),variant.sourceSha256);assert.equal(hash(outputBytes),variant.sha256);
+  const source=decodePng(sourceBytes),output=decodePng(outputBytes);
+  assert.equal(output.channels,4);assert.deepEqual([output.width,output.height],variant.dimensions);
+  const [x,y]=variant.sourceRectangle,[left,top]=variant.trimRectangle;
+  let transparent=0,crimson=0;
+  for(let row=0;row<output.height;row++)for(let column=0;column<output.width;column++){
+    const at=(row*output.width+column)*4,original=((y+top+row)*source.width+x+left+column)*source.channels;
+    for(let channel=0;channel<3;channel++)assert.equal(output.pixels[at+channel],source.pixels[original+channel]);
+    if(!output.pixels[at+3])transparent++;
+    else if(output.pixels[at]>60&&output.pixels[at]>2*output.pixels[at+1]&&output.pixels[at]>1.7*output.pixels[at+2])crimson++;
+  }
+  assert.ok(transparent>output.width*output.height*.2);assert.ok(crimson>4000);
+  assert.match(referencePortrait('host_50'),/host_50-crimson\.png/);
+});
+
 // Independent decoder for the delivered non-interlaced, eight-bit RGB/RGBA
 // rasters. This exercises real PNG transparency instead of trusting metadata.
 function decodePng(buffer){
@@ -51,7 +69,7 @@ test('every runtime portrait is a transparent derivative of the same exact origi
     const before=sourceById.get(row.id),sourceBytes=bytes(row.sourceCrop),outputBytes=bytes(row.output);
     assert.equal(hash(sourceBytes),before.sha256,row.id);assert.equal(hash(outputBytes),row.sha256,row.id);
     assert.equal(row.sourceCropSha256,before.sha256);assert.equal(row.originalSourceSha256,before.sourceSha256);
-    assert.equal(referencePortrait(row.id,{base:'/project/'}),`/project/assets/ui/reference-cutouts/${row.id}.png?v=${REFERENCE_PORTRAIT_REVISION}`);
+    assert.equal(referencePortrait(row.id,{base:'/project/'}),`/project/assets/ui/reference-cutouts/${row.id==='host_50'?'host_50-crimson':row.id}.png?v=${REFERENCE_PORTRAIT_REVISION}`);
     const source=decodePng(sourceBytes),output=decodePng(outputBytes);
     assert.equal(output.channels,4,row.id);assert.deepEqual([output.width,output.height],row.dimensions);
     const [left,top,right,bottom]=row.sourceCropBounds;

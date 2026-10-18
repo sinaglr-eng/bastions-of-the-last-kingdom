@@ -20,6 +20,7 @@ import {defenderPanelMarkup} from '../ui/defender-panel.js';
 import {DpsMeasurement} from '../ui/dps-measurement.js';
 import {TowerDpsTracker} from '../game/core/tower-dps.js';
 import {endedPhase} from '../ui/phase-ui.js';
+import {PreparationRecipeNavigation} from '../ui/preparation-recipe-navigation.js';
 
 const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const data={...raw,towers:campaignTowers(raw.towers),recipes:campaignRecipes(raw.recipes),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves)};
@@ -45,7 +46,7 @@ function setup({placed=true,distinct=false}={}){
   const $=id=>id==='side-body'?body:id==='side-top'?top:null,rankPreview=new DefenderRankPreview();
   const images=Object.fromEntries(Object.keys(data.towers).flatMap(family=>ROMAN.map((_,index)=>[`${family}:${index+1}`,`approved-portrait:${family}:${index+1}`])));
   const panel=compile(between('function quality(t)','function notice(')+between('function towerPanel(t)','function enemyInspectionOptions'),'towerPanel',{
-    game,rankPreview,folioRecipeId:null,data,towers:data.towers,balance:data.balance,images,roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
+    game,rankPreview,preparationNavigation:new PreparationRecipeNavigation(),folioRecipeId:null,data,towers:data.towers,balance:data.balance,images,roman:ROMAN,icon,towerStats,rankColor,defenderCode,championClassification,
     defenderPanelMarkup,dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),defenderRankPreviewMarkup,builtTowerCount,rankLabel,abilityLines,formatTowerNumber,baseAttackDps,damageTypeName,selectedSupportMarkup,mvpDetailsMarkup,mergeTowerKey,recipeProgress,recipesUsing,recipeLabel
   });
   const sidebar=compile(between('function renderSidebar()','function previewRecipe()'),'renderSidebar',{phaseUi:new PhaseUiState(),

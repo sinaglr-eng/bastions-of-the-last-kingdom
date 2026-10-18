@@ -57,7 +57,7 @@ test('noncombat phases hide and disable mounted controls and reuse them after th
 test('actual delegated main clicks toggle pause and cycle only 1→2→1 without altering authoritative inventory or RNG',()=>{
  const game=new Game(data,{seed:591}),control=new Game(data,{seed:591}),header=headerFixture();game.phase=control.phase='combat';updateHeaderCombatControls(header.host,game);const boundary=actionBoundary(game,header),before=state(game);
  boundary.click(header.pause);assert.equal(game.paused,true);assert.equal(header.pause.label.textContent,'Resume');boundary.click(header.pause);assert.equal(game.paused,false);assert.equal(header.pause.label.textContent,'Pause');
- for(const rate of [2,1,2,1]){boundary.click(header.speed);assert.equal(game.speed,rate);assert.equal(header.speed.textContent,rate+'×');assert.equal(game.paused,false);}
+ for(const rate of [2,3,5,1]){boundary.click(header.speed);assert.equal(game.speed,rate);assert.equal(header.speed.textContent,rate+'×');assert.equal(game.paused,false);}
  assert.equal(boundary.renders,6);assert.equal(boundary.unlocks,6);assert.equal(state(game),before);assert.equal(game.rng(),control.rng());assert.equal(header.host.writes,1);
  game.phase='ready';updateHeaderCombatControls(header.host,game);const rendered=boundary.renders,unlocks=boundary.unlocks;boundary.click(header.pause);boundary.click(header.speed);assert.equal(boundary.renders,rendered);assert.equal(boundary.unlocks,unlocks);assert.equal(game.paused,false);assert.equal(game.speed,1);
 });
@@ -66,7 +66,9 @@ test('real Game clock and movement stop while paused and use the selected speed 
  const game=new Game(data,{seed:773}),header=headerFixture();game.phase='combat';game.combat.spawnQueue=[{time:1e6,type:'host_01'}];const enemy=game.combat.spawn('host_01');updateHeaderCombatControls(header.host,game);const boundary=actionBoundary(game,header);
  boundary.click(header.pause);const paused={elapsed:game.combat.elapsed,traveled:enemy.traveled,hp:enemy.hp};game.tick(.25);assert.equal(game.combat.elapsed,paused.elapsed);assert.equal(enemy.traveled,paused.traveled);assert.equal(enemy.hp,paused.hp);
  boundary.click(header.speed);assert.equal(game.speed,2);boundary.click(header.pause);game.tick(.1);assert.ok(Math.abs(game.combat.elapsed-paused.elapsed-.2)<1e-9);assert.ok(Math.abs(enemy.traveled-paused.traveled-enemy.speed*.2)<1e-9);
- boundary.click(header.speed);assert.equal(game.speed,1);game.tick(.1);assert.ok(Math.abs(game.combat.elapsed-paused.elapsed-.3)<1e-9);assert.ok(Math.abs(enemy.traveled-paused.traveled-enemy.speed*.3)<1e-9);
+ boundary.click(header.speed);assert.equal(game.speed,3);game.tick(.1);assert.ok(Math.abs(game.combat.elapsed-paused.elapsed-.5)<1e-9);assert.ok(Math.abs(enemy.traveled-paused.traveled-enemy.speed*.5)<1e-9);
+ boundary.click(header.speed);assert.equal(game.speed,5);game.tick(.1);assert.ok(Math.abs(game.combat.elapsed-paused.elapsed-1)<1e-9);assert.ok(Math.abs(enemy.traveled-paused.traveled-enemy.speed)<1e-9);
+ boundary.click(header.speed);assert.equal(game.speed,1);game.tick(.1);assert.ok(Math.abs(game.combat.elapsed-paused.elapsed-1.1)<1e-9);
 });
 
 test('actual Space shortcut toggles once from the battlefield and does not leak through native header buttons or open dialogs',()=>{

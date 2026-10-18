@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "release": "0.4.2",
+  "environment": "Chromium in-app browser; local Vite source; UI interaction only",
+  "status": "passed",
+  "viewports": [[1715,1244],[1180,820],[1024,768],[820,1180],[390,844],[844,390]],
+  "checks": [
+    "Initial Maze plans opens before any construction; choosing Commander spiral closes the chooser.",
+    "Ordinary desktop preparation folio is 280px high and reconnaissance note is 224px wide.",
+    "Actual Mage V versus viewed VI changes potential recipes, leaves actual rank unchanged, hides actual Create at VI and restores it at V.",
+    "Expanded recipe rows collapse and reopen; downstream champion inspection and return preserve planning state.",
+    "Native wheel over inner pinned-plan content moves outer scrollTop from 0 to 573.33 (clientHeight 250, scrollHeight 824).",
+    "Collapsing pinned plan reparents the same node outside the folio into a 330 by 49.33px strip; the planning pane is freed and Maze plans clears the strip.",
+    "Recipe book has aligned leaves, fixed top Pin/Unpin, straight bookmark, readable full chains, and separate numbered footers. Phone index and selected-recipe tabs work.",
+    "Direct Create Lady Claire works at desktop and 1024 by 768; resulting Ready inspector is closed. Explicit unit click opens it.",
+    "At 1180 by 820 Keep, Downgrade, Reroll, Reserve and Create all measure 48px; Keep and Downgrade share the same top/bottom; Create is entirely visible without candidate scrolling.",
+    "Actual supported Mage IV shows 108 damage and 216 direct DPS from base72, +50% damage aura and +100% attack-speed aura; range8 and interval0.5s. RankVI preview shows base450 and no copied bonuses; returningIV restores actual numbers.",
+    "Combat speed cycles 1x to2x to3x to5x to1x using actual controls.",
+    "Actual combat damage followed by real completed-wave MVP award produces the brief beam and floating label; retained unit becomes MVP1.",
+    "Enemy inspector keeps actual HP/armor/effects and omits the generic armor explanation.",
+    "Bernhard uses host_50-crimson.png; desktop portrait area is290 by360; lore starts open and mechanic guidance is dark ink rgb73,58,37 at15px.",
+    "No document horizontal overflow at inspected responsive sizes; phone enemy inspector remains within viewport.",
+    "Browser console error/warning check returns no entries."
+  ],
+  "limitations": ["No physical iPad or Safari available; viewport checks do not certify native touch input or Safari."],
+  "evidence": ["01-compact-building-desktop.jpg","05-champion-combination-chain-desktop.jpg","06-ready-inspector-closed.jpg","08-pinned-plan-wheel-scroll.jpg","09-pinned-plan-collapsed-external.jpg","10-book-final-desktop.jpg","11-book-tablet-landscape.jpg","12-book-tablet-portrait.jpg","13-book-phone-portrait.jpg","14-book-phone-landscape.jpg","15-folio-tablet-landscape.jpg","16-real-mvp-award.jpg","17-actual-support-stat-breakdown.jpg","18-speed-five-combat.jpg","19-bernhard-atlas-tablet.jpg","20-bernhard-lore-readable.jpg","21-live-enemy-inspector.jpg","22-phone-enemy-inspector.jpg","23-create-actions-tablet-final.jpg"]
+}

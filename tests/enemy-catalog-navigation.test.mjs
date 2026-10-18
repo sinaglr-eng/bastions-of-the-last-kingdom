@@ -112,9 +112,10 @@ test('remaining wave detail, lore, focused summary and scroll choices survive li
   updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({round:32,phase:'build'}));assert.equal(host.querySelector('[data-wave="38"]').querySelector('.warband-wave-details').open,true);
 });
 
-test('catalog defaults to compact closed rows and secondary lore, with no removed controls and responsive side-by-side comparison',()=>{
+test('catalog defaults to compact closed rows and open lore, with no removed controls and responsive side-by-side comparison',()=>{
   const html=warbandsOverviewMarkup(data.waves,data.enemies,images,options());assert.equal((html.match(/class="warband-wave-details"/g)||[]).length,50);assert.doesNotMatch(html,/<details class="warband-wave-details"[^>]* open/);
   assert.doesNotMatch(html,/data-warband-jump|Boss waves|Next wave and army response|warbands-overview-intelligence/);assert.match(html,/Lore and guidance/);
+  assert.equal((html.match(/<details class="warband-lore"[^>]* open>/g)||[]).length,50);
   const css=readFileSync(new URL('../ui/warbands-overview.css',import.meta.url),'utf8');assert.match(css,/warband-wave-row\{[^}]*min-height:62px/);assert.match(css,/warband-lore>summary\{[^}]*min-height:44px/);assert.doesNotMatch(css,/warband-quick-jump|warband-boss-jumps|warbands-overview-intelligence/);assert.match(css,/grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);assert.match(css,/warband-wave-row:focus-visible/);
   assert.match(css,/warband-card\.compact\{min-height:0/,'Compact rows override the historical 165px catalog card minimum');assert.match(css,/warband-wave-row \.warband-row-portrait\{float:none/,'Compact portraits override historical floated artwork');
 });
@@ -180,21 +181,20 @@ test('the open atlas changes only its selected page, retaining exact wave 31 var
   assert.equal(game.rng(),control.rng());
 });
 
-test('atlas page, index focus and nested lore survive live refresh; ordered endpoints respect the remaining campaign cap',()=>{
+test('atlas page, index focus and lore survive refresh; index-only navigation respects the remaining campaign cap',()=>{
   const {host,document}=catalogHost();updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({atlas:true,round:31}));
   host.click(host.querySelector('.warbands-atlas-pages').querySelector('[data-atlas-wave="38"]'));
   host.querySelector('.warband-lore').open=true;host.scrollTop=103;
   updateWarbandsOverviewPanel(host,data.waves,data.enemies,images,options({atlas:true,round:31,phase:'combat'}));
   assert.equal(host.querySelector('.warband-card').dataset.wave,'38');assert.equal(host.querySelector('.warband-lore').open,true);assert.equal(document.activeElement.dataset.atlasWave,'38');assert.equal(host.scrollTop,103);
-  const nav=host.querySelector('.warbands-atlas-nav');host.click(nav.querySelector('[data-atlas-wave="39"]'));
+  assert.equal(host.querySelector('.warbands-atlas-nav'),null);host.click(host.querySelector('.warbands-atlas-pages').querySelector('[data-atlas-wave="39"]'));
   assert.equal(host.querySelector('.warband-card').dataset.wave,'39');
   host.click(host.querySelector('.warbands-atlas-pages').querySelector('[data-atlas-wave="50"]'));
-  assert.equal(host.querySelector('.warbands-atlas-nav').querySelector('[data-atlas-wave="51"]').disabled,true);
-  host.click(host.querySelector('.warbands-atlas-nav').querySelector('[data-atlas-wave="51"]'));
+  assert.equal(host.querySelector('[data-atlas-wave="51"]'),null);
   assert.equal(host.querySelector('.warband-card').dataset.wave,'50');
   const short=catalogHost().host;updateWarbandsOverviewPanel(short,data.waves,data.enemies,images,options({atlas:true,round:9,waveLimit:10}));
   assert.equal(short.querySelector('.warbands-atlas-pages').querySelectorAll('button').length,2);
-  assert.equal(short.querySelector('.warbands-atlas-nav').querySelector('[data-atlas-wave="8"]').disabled,true);
+  assert.equal(short.querySelector('[data-atlas-wave="8"]'),null);
   updateWarbandsOverviewPanel(short,data.waves,data.enemies,images,options({atlas:true,round:10,waveLimit:10}));
   assert.equal(short.querySelector('.warband-card').dataset.wave,'10');
 });

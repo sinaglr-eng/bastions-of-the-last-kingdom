@@ -1,0 +1,142 @@
+/* Compact field notes and preparation sheets; touch targets stay usable. */
+#app { --drawer: 334px; }
+#app:is([data-phase=build],[data-phase=select]):not([data-combination-preview=true]) { --folio: clamp(252px,24dvh,292px); }
+#app .preparation-folio:not([data-preview=true]) { padding: 1px 7px 5px; grid-template-columns: minmax(0,1.65fr) minmax(0,1.05fr) minmax(0,.95fr); }
+#app .preparation-folio:not([data-preview=true]):has(.folio-plan[hidden]) { grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); }
+#app .folio-candidates { gap: 6px; padding-right: 10px; }
+#app .draft-heading { min-height: 24px; gap: 12px; margin-bottom: 5px; }
+#app .draft-heading h3 { font-size: 23px; gap: 11px; letter-spacing: -.4px; }
+#app .draft-heading .draft-sub { font-size: 12px; }
+#app .draws { height: 120px; gap: 6px; }
+#app .draw-card { min-height: 116px; }
+#app .draw-card:before { inset: 4px 4px 42px; }
+#app .draw-card img { top: 5px; height: calc(100% - 46px); }
+#app .draw-card .draw-name { font-size: 13px; bottom: 23px; left: 6px; right: 4px; }
+#app .draw-card .draw-damage { font-size: 9px; bottom: 5px; left: 6px; gap: 3px; }
+#app .draw-damage>.icon { width: 13px; height: 13px; }
+#app .draw-card .index { top: 6px; left: 6px; height: 18px; min-width: 18px; font-size: 11px; }
+#app .draw-card .tier-pips { top: 5px; right: 5px; font-size: 10px; }
+#app .mystery-card .mystery-sigil { width: 43px; height: 66px; min-height: 55px; font-size: 34px; margin-top: 5px; }
+#app .mystery-card .draw-name { bottom: 10px; font-size: 12px; }
+#app .draw-card .draw-recipe-ingredient { top: 28px; left: 4px; font-size: 8px; }
+#app .mastery-odds-label { font-size: 12px; }
+#app .draft-mastery { padding-top: 4px; }
+#app .prob-labels span { font-size: 11px; padding: 1px; }
+#app .folio-inspection { padding-inline: 10px; }
+#app .folio-inspection .defender-heading>img { width: 43px; height: 48px; padding: 2px; }
+#app .folio-inspection .defender-heading h2 { font-size: 18px!important; }
+#app .folio-inspection .defender-heading p { font-size: 10px; margin-top: 2px; }
+#app .folio-inspection .defender-abilities { font-size: 12px; line-height: 1.2; margin: 3px 0; }
+#app .folio-inspection .rank-preview { margin-block: 3px; }
+#app .folio-inspection .rank-preview-heading,#app .folio-inspection .rank-preview-caption { font-size: 11px; }
+#app .rank-preview-buttons { gap: 3px; }
+#app .rank-preview-buttons button { font-size: 15px; }
+#app .folio-inspection .stat-grid { gap: 3px; margin: 3px 0; }
+#app .folio-inspection .stat-grid>div { padding: 2px 4px; }
+#app .folio-inspection .stat-grid span { font-size: 11px; }
+#app .folio-inspection .stat-grid strong { font-size: 18px; }
+#app .folio-inspection .folio-base-note { font-size: 10px; }
+#app .folio-plan { padding-left: 10px; }
+#app .folio-recipes h3 { font-size: 15px; }
+#app .folio-recipe-rank { font-size: 11px; margin-block: 3px; }
+#app .folio-recipe-row { min-height: 48px; padding: 4px 6px; }
+#app .folio-recipe-row img { width: 33px; height: 38px; }
+#app .folio-recipe-row strong { font-size: 14px; }
+#app .folio-recipe-row small { font-size: 10px; }
+#app .folio-ingredient { min-height: 28px; font-size: 11px; }
+#app .folio-ingredient img { width: 25px; height: 29px; }
+#app .folio-ingredient small { font-size: 10px; }
+#app .folio-construction-note { min-height: 0; max-width: 440px; padding: 8px 12px; margin: 0 auto; grid-template-columns: 36px minmax(0,1fr); gap: 4px 10px; }
+#app .folio-construction-seal { width: 36px; height: 42px; }
+#app .folio-construction-seal>.icon { width: 36px; height: 36px; }
+#app .folio-construction-note>.eyebrow { font-size: 9px; }
+#app .folio-construction-note>h2 { font-size: 21px; }
+#app .folio-construction-note>.minor-note { font-size: 13px; line-height: 1.35; }
+#app .folio-construction-footnote { margin-top: 5px; padding-top: 5px; font-size: 11px; }
+#app #folio-create-actions { grid-column: 1/-1; }
+#app #folio-create-actions:empty { display: none; }
+#app .folio-create-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+#app #folio-create-actions button { min-height: 48px; min-width: 140px; flex: 1; font-size: 14px; padding: 6px 10px; }
+#app .folio-candidates>#folio-actions .defender-main-actions>button { min-height: 48px; height: 48px; padding-block: 5px; font-size: 13px; }
+#app .folio-candidates>#folio-actions .defender-main-actions>.tower-downgrade-keep { min-height: 48px; height: 48px; margin: 0; font-size: 11px; line-height: 1.15; }
+#app #folio-command-actions .command-button { min-height: 48px; font-size: 13px; }
+#app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-child(2)) .draws { height: 120px; }
+#app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-child(2)) .draw-card { min-height: 116px; }
+#app:is([data-phase=build],[data-phase=select]):has(#folio-create-actions:not(:empty)) { --folio: clamp(340px,28dvh,370px); }
+#app:is([data-phase=build],[data-phase=select]) .command-dock { bottom: calc(var(--folio) + 14px + var(--safe-bottom)); right: 14px; padding: 0; border-width: 7px; border-image-width: 7px; }
+#app:is([data-phase=build],[data-phase=select]) .map-start>.text-button { min-height: 44px; font-size: 14px; padding: 6px 12px; }
+#app:is([data-phase=build],[data-phase=select]):has(.is-compact-external:not([hidden])) .command-dock { bottom: calc(var(--folio) + 74px + var(--safe-bottom)); }
+
+/* A smaller reconnaissance note leaves more of the route visible. */
+#app .battlefield-overlays { width: 224px; --battlefield-overlay-content-max: 150px; border-width: 7px; border-image-width: 7px; top: calc(var(--register) + 10px); }
+#app .battlefield-overlays .battlefield-overlay-summary { padding: 2px 4px 4px; }
+#app .battlefield-overlays .battlefield-overlay-content { padding: 4px 4px 5px; }
+#app :is(.next-wave-heading,.current-wave-heading)>strong,#app .tower-dps-heading>span:first-child { font-size: 17px; }
+#app .next-wave-name,#app .current-wave-name { font-size: 15px; margin-block: 3px 5px; }
+#app .next-wave-group>header img,#app .current-wave-summary-group img { width: 37px; height: 44px; }
+#app .next-wave-group h3,#app .current-wave-summary-group h3 { font-size: 13px; }
+#app .next-wave-group>p,#app .current-wave-summary-group p { font-size: 12px; line-height: 1.3; margin-block: 4px; }
+#app .next-wave-traits li,#app .current-wave-summary-group .enemy-trait-list li { font-size: 11px; }
+#app .tower-dps-list button { min-height: 44px; grid-template-columns: 12px 27px minmax(0,1fr) auto; gap: 4px; }
+#app .tower-dps-list img { width: 27px; height: 33px; }
+#app .tower-dps-name strong { font-size: 12px; }
+#app .tower-dps-name small { font-size: 9px; }
+#app .tower-dps-summary-score { font-size: 19px; }
+
+/* Inspector opens on an explicit selection; its content scrolls as one sheet. */
+#app .sidebar { width: 320px; max-height: min(70dvh,650px); }
+#app .side-top { min-height: 38px; padding-bottom: 3px; }
+#app .side-top .phase { font-size: 14px; }
+#app .sidebar .side-body { padding: 6px 5px 4px; }
+#app .sidebar .defender-heading { gap: 8px; }
+#app .sidebar .defender-heading>img { width: 61px; height: 70px; }
+#app .sidebar .defender-heading h2 { font-size: 21px; }
+#app .sidebar .defender-heading p { font-size: 11px; }
+#app .sidebar .command-move-panel { padding: 0; margin: 6px 0; background: none; border: 0; }
+#app .sidebar .command-move-panel .command-button { min-height: 44px; font-size: 14px; }
+#app .sidebar .command-disabled-reason { font-size: 10px; }
+#app .sidebar .defender-abilities { font-size: 13px; line-height: 1.3; }
+#app .sidebar .stat-grid>div { padding: 5px 3px; }
+#app .sidebar .stat-grid span { font-size: 12px; }
+#app .sidebar .stat-grid strong { font-size: 18px; }
+#app .sidebar .folio-base-note { font-size: 10px; line-height: 1.3; }
+#app .sidebar .selected-support { margin-block: 6px; padding-block: 6px; }
+#app .sidebar .support-effects-list { font-size: 11px; }
+#app .combat-stat-grid[data-effective-stats]>div { display: grid; grid-template-columns: minmax(0,1fr) auto; }
+#app .folio-inspection .combat-stat-grid[data-stats-scope=base-preview]>div { display: flex; flex-direction: column; }
+
+@media (min-width:751px) and (max-width:1280px) and (min-height:601px) {
+  #app:is([data-phase=build],[data-phase=select]):not([data-combination-preview=true]) { --folio: 260px; }
+  #app .draws { height: 119px; }
+  #app .preparation-folio:not([data-preview=true]) { grid-template-columns: minmax(0,1.5fr) minmax(0,1.1fr) minmax(0,.9fr); }
+  #app .folio-inspection { padding-inline: 6px; }
+}
+@media (max-width:980px) and (min-width:751px) and (min-height:601px) {
+  #app:is([data-phase=build],[data-phase=select]):not([data-combination-preview=true]) { --folio: 290px; }
+  #app .preparation-folio:not([data-preview=true]) { grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); }
+  #app .folio-plan { grid-column: 1/-1; max-height: 160px; border-left: 0; padding: 6px 0 0; }
+  #app .preparation-folio:not([data-preview=true]):has(.folio-plan:not([hidden])) { overflow-y: auto; }
+}
+@media (max-width:750px) {
+  #app:is([data-phase=build],[data-phase=select]):not([data-combination-preview=true]) { --folio: min(390px,50dvh); }
+  #app .preparation-folio:not([data-preview=true]),#app .preparation-folio:not([data-preview=true]):has(.folio-plan[hidden]) { grid-template-columns: minmax(0,1fr); }
+  #app .folio-candidates { padding-right: 0; }
+  #app .folio-inspection { padding: 6px 0 0; }
+  #app .folio-plan { grid-column: 1; padding: 6px 0 0; }
+  #app .draws { height: 132px; }
+  #app .draw-card { min-height: 126px; }
+  #app .draw-card .draw-name { font-size: 11px; }
+  #app .draw-card .draw-damage { font-size: 8px; }
+  #app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-child(2)) .draws { height: 132px; }
+  #app .folio-candidates:has(#folio-actions .defender-main-actions>button:nth-child(2)) .draw-card { min-height: 126px; }
+  #app .battlefield-overlays { width: 190px; --battlefield-overlay-content-max: 100px; }
+  #app .sidebar { width: min(320px,calc(100vw - 16px)); max-height: min(57dvh,500px); }
+  #app:is([data-phase=build],[data-phase=select]) .command-dock { bottom: calc(var(--folio) + 7px + var(--safe-bottom)); right: 8px; }
+  #app:is([data-phase=build],[data-phase=select]):has(#folio-create-actions:not(:empty)) { --folio: min(430px,54dvh); }
+}
+@media (max-height:600px) and (min-width:751px) {
+  #app:is([data-phase=build],[data-phase=select]):not([data-combination-preview=true]) { --folio: 46dvh; }
+  #app .preparation-folio:not([data-preview=true]) { grid-template-columns: minmax(300px,1.2fr) minmax(270px,1fr) minmax(220px,.8fr); }
+  #app .battlefield-overlays { --battlefield-overlay-content-max: 60px; }
+  #app .sidebar { max-height: calc(100dvh - var(--register) - 96px); }
+}

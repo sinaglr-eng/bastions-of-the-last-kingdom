@@ -16,6 +16,8 @@ import {DefenderRankPreview} from '../ui/defender-rank-preview.js';
 import {defenderPanelMarkup} from '../ui/defender-panel.js';
 import {selectedEnemyMarkup} from '../ui/selected-enemy.js';
 import {icon} from '../ui/icons.js';
+import {PreparationRecipeNavigation} from '../ui/preparation-recipe-navigation.js';
+import {actualAvailableRecipeActionsMarkup} from '../ui/preparation-folio.js';
 
 const source=readFileSync(new URL('../game/main.js',import.meta.url),'utf8');
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
@@ -39,9 +41,9 @@ function selectionIntent(game,phaseUi){
 }
 
 test('actual main render and event wiring follow repeated draft, keeper, combat and pause transitions with five slots restored',()=>{
-  const game=new Game(data,{seed:402,waveLimit:10}),phaseUi=new PhaseUiState(),app=node(),nodes=new Map(['phase-strip','draft','compact-draft-actions','folio-command-actions','map-start','start-wave'].map(id=>[id,node()])),world={maze:{panelOpen:false},resize:noop};
+  const game=new Game(data,{seed:402,waveLimit:10}),phaseUi=new PhaseUiState(),app=node(),nodes=new Map(['phase-strip','draft','compact-draft-actions','folio-command-actions','folio-create-actions','map-start','start-wave'].map(id=>[id,node()])),world={maze:{panelOpen:false},resize:noop};
   const $=id=>nodes.get(id)||null,profile={bestScore:0,bestWave:0,wins:0},tracker=new RunStatistics(game,{id:'phase-transitions',clock:()=>100}),resultFacts=new RunResultFacts(),guidance=new ContextGuidance(),dpsTracker=new TowerDpsTracker(),dpsMeasurement=new DpsMeasurement();
-  const bindings={game,phaseUi,app,$,document:{activeElement:null},world,phaseStripMarkup,draftCardsMarkup,commandPointsMarkup,icon,data,images:{},tour:{refresh:noop},stampCraftButtons:noop,renderIntelligence:noop,renderSidebar:noop,renderRecipeBrowser:noop,renderEconomy:noop,hud:()=>phaseUi.apply(app,game),syncFolio:noop,draftCardActivation:{clear:noop}};
+  const bindings={game,phaseUi,app,$,document:{activeElement:null},world,phaseStripMarkup,draftCardsMarkup,commandPointsMarkup,actualAvailableRecipeActionsMarkup,rankPreview:new DefenderRankPreview(),icon,data,images:{},tour:{refresh:noop},stampCraftButtons:noop,renderIntelligence:noop,renderSidebar:noop,renderRecipeBrowser:noop,renderEconomy:noop,hud:()=>phaseUi.apply(app,game),syncFolio:noop,draftCardActivation:{clear:noop}};
   const functions=compile(['render','renderDraft','renderMapAction','sendWave'],bindings,'let mode=10,intelligenceKey=null;');
   // Execute the saved subscriber itself so selection intent, guidance and phase
   // updates have the same ordering as the running application.
@@ -89,7 +91,7 @@ test('actual result-review route presents ended facts and inspectors without con
   for(const outcome of ['won','lost']){
     const game=new Game(data,{seed:667,waveLimit:10});kept(game);const tower=game.selection;game.startCombat();const enemy=game.combat.spawn('host_01');game.end(outcome==='won');
     const phaseUi=new PhaseUiState(),app=node(),body=node(),top=node(),nodes=new Map([['side-body',body],['side-top',top]]),world={maze:{editing:false,sync:noop},doubleTap:{clear:noop},resize:noop},facts=new RunResultFacts();let resultCalls=0,closed=0;
-    const bindings=commandBindings(game,phaseUi,app,world,{$:id=>nodes.get(id)||null,document:{activeElement:null,querySelector:()=>null},data,images:{},icon,endedPhase,endedRunReviewMarkup,runResultModel,resultFacts:facts,statistics:null,panelDetails:new Map(),rankPreview:new DefenderRankPreview(),dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),defenderPanelMarkup,selectedEnemyMarkup,stampCraftButtons:noop,folioLayout:{restoreParts:noop},syncFolio:noop,tutorial:()=>{throw new Error('Ended review cannot show the construction tutorial');},closeDialog:()=>closed++,showResult:()=>resultCalls++});
+    const bindings=commandBindings(game,phaseUi,app,world,{$:id=>nodes.get(id)||null,document:{activeElement:null,querySelector:()=>null},data,images:{},icon,endedPhase,endedRunReviewMarkup,runResultModel,resultFacts:facts,statistics:null,panelDetails:new Map(),rankPreview:new DefenderRankPreview(),preparationNavigation:new PreparationRecipeNavigation(),dpsMeasurement:new DpsMeasurement(),dpsTracker:new TowerDpsTracker(),defenderPanelMarkup,selectedEnemyMarkup,stampCraftButtons:noop,folioLayout:{restoreParts:noop},syncFolio:noop,tutorial:()=>{throw new Error('Ended review cannot show the construction tutorial');},closeDialog:()=>closed++,showResult:()=>resultCalls++});
     const functions=compile(['handleCommand','renderSidebar','towerPanel','enemyInspectionOptions'],bindings,'let folioRecipeId=null,folioRecipeSelection=null;');const stop=selectionIntent(game,phaseUi);phaseUi.sync(game);phaseUi.open();press(functions.handleCommand,'result-review');functions.renderSidebar();assert.equal(closed,1);assert.equal(app.dataset.inspectorOpen,'false');assert.match(body.innerHTML,/Read-only|Run review/);assert.doesNotMatch(body.innerHTML,/Place recruits|data-action="(?:keep|craft|remove|reroll|reserve|move|start)"/);
     const before=inventory(game);game.select(tower.id);assert.equal(game.selection,tower);bindings.syncInspector();functions.renderSidebar();assert.equal(app.dataset.inspectorOpen,'true');assert.match(body.innerHTML,/Read-only defender inspection/);assert.doesNotMatch(body.innerHTML,/id="targeting"|data-action="(?:keep-draw|merge|downgrade|tower-pause)"/);
     for(const preview of body.innerHTML.match(/<button\b[^>]*data-action="craft-preview"[^>]*>/g)||[])assert.match(preview,/\bdisabled\b/,'Ended recipe planning cannot execute a combination');

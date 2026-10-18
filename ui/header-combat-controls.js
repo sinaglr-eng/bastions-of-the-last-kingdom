@@ -7,6 +7,6 @@ export function updateHeaderCombatControls(host,game){
   const pause=host.querySelector('[data-action="pause"]'),speed=host.querySelector('[data-action="speed"]'),label=game.paused?'Resume':'Pause';
   if(pause.getAttribute('aria-label')!==`${label} game`){pause.setAttribute('aria-label',`${label} game`);pause.querySelector('.header-pause-label').textContent=label;pause.querySelector('.header-pause-icon').innerHTML=icon(game.paused?'play':'pause');}
   pause.setAttribute('aria-pressed',String(!!game.paused));pause.title=`${label} game · Space`;
-  const rate=`${game.speed}×`;if(speed.textContent!==rate)speed.textContent=rate;speed.setAttribute('aria-label',`Game speed ${rate}`);speed.title=`${rate} game speed · click to change`;
+  const rate=`${game.speed}×`;if(speed.textContent!==rate)speed.textContent=rate;speed.setAttribute('aria-label',`Game speed ${rate}`);speed.title=`${rate} game speed · click to cycle 1×, 2×, 3×, 5×`;
   pause.disabled=host.hidden;speed.disabled=host.hidden;
 }

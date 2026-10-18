@@ -32,9 +32,12 @@ export function createFolioLayout(document){
   const get=id=>document.getElementById(id),body=get('side-body'),browser=get('recipe-browser');
   const bodyAnchor=document.createComment('map-inspector-body'),browserAnchor=document.createComment('map-inspector-recipes');
   body.before(bodyAnchor);browser.before(browserAnchor);
-  let action=null,recipes=null;
+  let action=null,recipes=null,lastSync=null;
   const restoreParts=()=>{if(action){body.append(action);action=null;}if(recipes){body.append(recipes);recipes=null;}};
-  return {restoreParts,sync(game,{images={},preview=false,view='unit',inspectedRecipeId=null}={}){
+  const sync=(game,options={})=>{
+    lastSync={game,options};
+    const focusedBrowserControl=browser.contains(document.activeElement)?document.activeElement:null;
+    let {images={},preview=false,view='unit',inspectedRecipeId=null}=options;
     const preparing=['build','select'].includes(game.phase),constructing=['build','select','ready','reward'].includes(game.phase),folio=get('preparation-folio');
     const html=constructing&&preview?combinationPreviewMarkup(game,images):'';
     preview=!!html;
@@ -49,13 +52,25 @@ export function createFolioLayout(document){
       action=body.querySelector('.folio-actions')||action;if(action&&action.parentNode!==get('folio-actions'))get('folio-actions').append(action);
       recipes=body.querySelector('.folio-recipes')||recipes;if(recipes&&recipes.parentNode!==get('folio-recipes'))get('folio-recipes').append(recipes);
       const showBrowser=(!recipes||view==='recipe')&&!!(inspectedRecipeId||game.pinned);
-      get('folio-recipes').hidden=showBrowser;
+      const collapsed=showBrowser&&browser.querySelector('.crafting-dock-disclosure')?.open===false;
+      browser.classList.toggle('is-compact-external',collapsed);
+      get('folio-recipes').hidden=showBrowser&&!collapsed;
       browser.hidden=!showBrowser;
-      if(showBrowser&&browser.parentNode!==get('folio-plan'))get('folio-plan').append(browser);
+      if(collapsed){if(browser.previousSibling!==folio)folio.after(browser);}
+      else if(showBrowser&&browser.parentNode!==get('folio-plan'))get('folio-plan').append(browser);
       else if(!showBrowser&&browser.previousSibling!==browserAnchor)browserAnchor.after(browser);
-    }else if(browser.previousSibling!==browserAnchor)browserAnchor.after(browser);
-    get('folio-plan').hidden=preparing&&!preview&&!recipes&&!game.pinned&&!inspectedRecipeId;
+      get('folio-plan').hidden=!recipes&&(!showBrowser||collapsed);
+    }else{
+      browser.classList.toggle('is-compact-external',false);
+      if(browser.previousSibling!==browserAnchor)browserAnchor.after(browser);
+      get('folio-plan').hidden=preparing&&!preview&&!recipes&&!game.pinned&&!inspectedRecipeId;
+    }
     get('app').dataset.folioInspector=String(inFolio);
     get('app').dataset.combinationPreview=String(preview);
-  }};
+    if(focusedBrowserControl&&document.activeElement!==focusedBrowserControl)focusedBrowserControl.focus?.({preventScroll:true});
+  };
+  // Native details toggles do not bubble. Keep the same disclosure and move its
+  // node on collapse, so the plan pane immediately becomes usable again.
+  browser.addEventListener('toggle',event=>{if(event.target.matches?.('.crafting-dock-disclosure')&&lastSync)sync(lastSync.game,lastSync.options);},true);
+  return {restoreParts,sync};
 }

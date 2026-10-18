@@ -8,6 +8,7 @@ import {PhaseUiState,endedPhase} from '../ui/phase-ui.js';
 import {defenderPanelMarkup} from '../ui/defender-panel.js';
 import {DefenderRankPreview} from '../ui/defender-rank-preview.js';
 import {icon} from '../ui/icons.js';
+import {PreparationRecipeNavigation} from '../ui/preparation-recipe-navigation.js';
 
 const main=readFileSync(new URL('../game/main.js',import.meta.url),'utf8'),noop=()=>{};
 const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
@@ -69,7 +70,7 @@ function fixture(){
   const profile={bestScore:0,bestWave:0,wins:0,discoveries:[]},waves=[],audio={unlock:noop,play:noop,resetRun:noop};
   const render=()=>{renders++;phaseUi.sync(game);functions.renderSidebar();functions.renderMapAction();};
   const bindings={game,app,window,document,world,phaseUi,CommandPointerInput,audio,data,images:{ruin:'approved-wall.png'},icon,endedPhase,
-    rankPreview:new DefenderRankPreview(),folioRecipeId:null,folioRecipeSelection:null,folioLayout:{restoreParts:noop},syncFolio:noop,defenderPanelMarkup,dpsMeasurement:{view:()=>({rows:[]}),startWave:round=>waves.push(round),completeWave:noop},dpsTracker:{reset:noop,recordHit:noop},
+    rankPreview:new DefenderRankPreview(),preparationNavigation:new PreparationRecipeNavigation(),folioRecipeId:null,folioRecipeSelection:null,folioLayout:{restoreParts:noop},syncFolio:noop,defenderPanelMarkup,dpsMeasurement:{view:()=>({rows:[]}),startWave:round=>waves.push(round),completeWave:noop},dpsTracker:{reset:noop,recordHit:noop},
     draftCardActivation:{clear:noop},draftPointerInput:{click:noop},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,cancelRecipePreview:noop,debugPanel:noop,render,
     $:id=>nodes.get(id)||null,panelDetails:new Map(),stampCraftButtons:noop,combatPanel:()=>'<p>Actual combat panel boundary</p>',tutorial:()=>'<p>Construction boundary</p>',
     resultFacts:{event:noop},guidance:{event:noop},profile,statistics:{tracker:{id:'listener-fixture',version:'0.3.31'}},saveProfile:noop,recordRunResult:noop,showResult:noop,notice:noop,towers:data.towers,balance:data.balance};

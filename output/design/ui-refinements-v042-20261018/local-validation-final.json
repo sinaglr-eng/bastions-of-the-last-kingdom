@@ -1,0 +1,93 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-10-18T06:13:42.476Z",
+  "scope": "Final local tests and production build only; deployment and public browser verification are separate",
+  "tests": {
+    "tests": 1480,
+    "pass": 1480,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "sourceFilesChecked": 391,
+  "sourceFilesUnchangedSinceTests": 390,
+  "postTestPresentationChanges": [
+    {
+      "path": "ui/cartographer-refinements.css",
+      "testedSha256": "3b00c471fd65fa27f7cd2c2b1feddb6fd18e7d740d3f6439ccc2ee4af45e01b5",
+      "builtSha256": "6f7c1a905b4bb3393434898e0fe8a5e96712a919499a5563b5700a521cf54740",
+      "reason": "Responsive QA correction: remove inherited Downgrade margins and reserve additional folio height only when an actual Create action exists. Runtime JavaScript, campaign data and tests are unchanged."
+    }
+  ],
+  "basePath": "/bastions-of-the-last-kingdom/",
+  "build": {
+    "modulesTransformed": 190,
+    "warning": "Vite reports existing chunks above 500 kB; build succeeds",
+    "compiledAssets": [
+      "assets/archer-307m-Z2J.js",
+      "assets/archer-DuO6Xkvi.css",
+      "assets/game-CsaE3vnw.css",
+      "assets/game-cmrkMtzz.js",
+      "assets/portrait-visibility-Cq7vvpxZ.css",
+      "assets/portrait-visibility-D9MtfM7S.js",
+      "assets/three-CsW0CHmH.js"
+    ],
+    "artifacts": {
+      "index.html": {
+        "bytes": 1220,
+        "sha256": "e150cec88374b33e0b050a6b5bb42565d35a42a810cb05a51e8a2422d63e1362"
+      },
+      "archer.html": {
+        "bytes": 819,
+        "sha256": "ca605a1eb6906f5173f8b9f9a1f849a2dc3ef37a84ebd03c05d0643acd3e75fa"
+      },
+      "assets/archer-307m-Z2J.js": {
+        "bytes": 313484,
+        "sha256": "f2e18a341bbe15ecdffa44f9e8655500fc5e25ed9a56ae839dca641e1a0d6746"
+      },
+      "assets/archer-DuO6Xkvi.css": {
+        "bytes": 7772,
+        "sha256": "6995f81669c3ef3c7a6a67554b937561241556482b0572b01bd1e3df7b2cdc04"
+      },
+      "assets/game-CsaE3vnw.css": {
+        "bytes": 274920,
+        "sha256": "40709d007639e366de858d4af5f7fc9724e8b27815fc22cbe3511db1349637dd"
+      },
+      "assets/game-cmrkMtzz.js": {
+        "bytes": 524749,
+        "sha256": "f1e98d30ecd7b4ea986669624642347266627c3a622004a1f321e5158c0d88fe"
+      },
+      "assets/portrait-visibility-Cq7vvpxZ.css": {
+        "bytes": 107,
+        "sha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56"
+      },
+      "assets/portrait-visibility-D9MtfM7S.js": {
+        "bytes": 216577,
+        "sha256": "4445175ba5623e4b3d252ee6d9375db0db09fb8daf5527373697fef44e6ed51d"
+      },
+      "assets/three-CsW0CHmH.js": {
+        "bytes": 653736,
+        "sha256": "60edbf437b01edf099aaa3288e82b9b83188b689b24a2f102841e82811fa3902"
+      },
+      "release.json": {
+        "bytes": 1119,
+        "sha256": "859ecae23a385cdc835e129f522dfdc306001f00c8c8e05b25926c9aa87da223"
+      },
+      "assets/ui/reference-cutouts/host_50-crimson.png": {
+        "bytes": 258524,
+        "sha256": "61a4a3e4dae617b6af817d3f825aee707012adb104b357678465f80272eaa82a"
+      }
+    }
+  },
+  "logs": {
+    "tests": {
+      "path": "output/design/ui-refinements-v042-20261018/tests-final.log",
+      "sha256": "91f226b78695150714628e26960c0410c7dfd96d3775a1d2da41f59633f3d6de"
+    },
+    "build": {
+      "path": "output/design/ui-refinements-v042-20261018/build-final.log",
+      "sha256": "cd77867bfb7264292b67afb8693392ff6ff8a99ecdd61b938fac5badcc9fc47d"
+    }
+  }
+}

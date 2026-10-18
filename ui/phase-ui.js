@@ -6,7 +6,7 @@ export class PhaseUiState {
     const changed=game.phase!==this.phase||game.round!==this.round;
     if(changed){
       this.historyExpanded=['build','select'].includes(game.phase);
-      if(game.phase==='combat'){this.inspectorOpen=false;this.view='unit';}
+      if(game.phase==='combat'||game.phase==='ready'){this.inspectorOpen=false;this.view='unit';}
       else if(endedPhase(game.phase)||game.phase==='build'&&this.phase==='combat'){this.inspectorOpen=false;this.view='unit';}
       this.selection=selection;
     }else if(selection&&selection!==this.selection){this.inspectorOpen=true;this.view='unit';}

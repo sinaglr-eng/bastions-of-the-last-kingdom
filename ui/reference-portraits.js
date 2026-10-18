@@ -15,7 +15,7 @@ const identities=new Set([...basicFamilies.flatMap(family=>Array.from({length:6}
 // preload or hidden-draft identity request. Unknown inputs have no fallback.
 export function referencePortrait(id,{base,revision=REFERENCE_PORTRAIT_REVISION}={}){
   if(!identities.has(id))return null;
-  return `${siteUrl(`assets/ui/reference-cutouts/${id}.png`,base)}?v=${encodeURIComponent(revision)}`;
+  return `${siteUrl(`assets/ui/reference-cutouts/${id==='host_50'?'host_50-crimson':id}.png`,base)}?v=${encodeURIComponent(revision)}`;
 }
 
 export function referenceDefenderPortrait(family,tier=1,options){

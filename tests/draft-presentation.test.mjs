@@ -10,6 +10,8 @@ import {masteryPanelMarkup} from '../ui/mastery-panel.js';
 import {commandPointsMarkup} from '../ui/command-points.js';
 import {icon} from '../ui/icons.js';
 import {drawnTower,drawKeeperKey,keepDrawKeeper,mergeTowerKey,mergeTowerFromBadge} from '../ui/draft-input.js';
+import {actualAvailableRecipeActionsMarkup} from '../ui/preparation-folio.js';
+import {DefenderRankPreview} from '../ui/defender-rank-preview.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const basics=Object.keys(data.towers).filter(family=>!data.towers[family].advanced);
@@ -116,8 +118,8 @@ test('production draft refresh retains local horizontal scroll and reveals a new
     }};
   };
   Object.defineProperty(host,'innerHTML',{get:()=>host.markup||'',set:markup=>{host.writes++;host.markup=markup;strip=createStrip();}});host.querySelector=selector=>selector==='.draws'?strip:null;
-  const compact={hidden:false,innerHTML:'stale controls',clears:0,replaceChildren(){this.innerHTML='';this.clears++;}},commands={innerHTML:''},modePicker={addEventListener(type,callback){assert.equal(type,'change');this.change=callback;}},$=id=>id==='draft'?host:id==='compact-draft-actions'?compact:id==='folio-command-actions'?commands:id==='mode'&&host.markup.includes('id="mode"')?modePicker:null;
-  const render=new Function('game','$','icon','commandPointsMarkup','data','images','draftCardsMarkup',`let mode=50,intelligenceKey=null;${source.slice(start,end)};return renderDraft;`)(game,$,icon,commandPointsMarkup,data,images,draftCardsMarkup);
+  const compact={hidden:false,innerHTML:'stale controls',clears:0,replaceChildren(){this.innerHTML='';this.clears++;}},commands={innerHTML:''},createActions={innerHTML:''},modePicker={addEventListener(type,callback){assert.equal(type,'change');this.change=callback;}},$=id=>id==='draft'?host:id==='compact-draft-actions'?compact:id==='folio-command-actions'?commands:id==='folio-create-actions'?createActions:id==='mode'&&host.markup.includes('id="mode"')?modePicker:null;
+  const render=new Function('game','$','icon','commandPointsMarkup','data','images','draftCardsMarkup','actualAvailableRecipeActionsMarkup','rankPreview',`let mode=50,intelligenceKey=null;${source.slice(start,end)};return renderDraft;`)(game,$,icon,commandPointsMarkup,data,images,draftCardsMarkup,actualAvailableRecipeActionsMarkup,new DefenderRankPreview());
   const before=state(game);render();assert.equal(strip.scrollLeft,0);strip.scrollLeft=113;
   assert.equal(compact.hidden,true);assert.equal(compact.innerHTML,'');assert.equal(compact.clears,1);assert.equal(commands.innerHTML,'','Building has no unavailable draft commitment controls');
   assert.ok(modePicker.change,'The first construction render connects the campaign-length control');assert.match(host.innerHTML,/id="mode"/);

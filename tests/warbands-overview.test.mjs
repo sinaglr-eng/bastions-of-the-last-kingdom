@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {remainingWarbands,warbandsOverviewMarkup,updateWarbandsOverviewPanel} from '../ui/warbands-overview.js';
 import {warbandCardsMarkup} from '../ui/warband-cards.js';
+import {enemyCampaignLore} from '../ui/enemy-campaign-lore.js';
 import {Game} from '../game/core/game.js';
 import {WaveThreatAnalyzer} from '../game/core/wave-threats.js';
 import {ArmyReadiness} from '../game/core/army-readiness.js';
@@ -51,7 +52,7 @@ test('real Game completion and nextRound transitions retain original global wave
 test('every remaining actual campaign card contains count, exact effective variant stats, numerical traits and original artwork',()=>{
  const markup=render(),cards=cardNumbers(markup);assert.equal(cards.length,50);
  for(const wave of data.waves)for(const group of wave.groups){
-  const definition=data.enemies[group.type];assert.ok(markup.includes(`src="${images['enemy:'+group.type]}"`));assert.ok(markup.includes(escape(definition.appearance)));assert.ok(markup.includes(escape(definition.counter||'Focus your damage along the route.')));assert.ok(markup.includes(`${enemyNumber(group.count)} ${wave.boss?'warlord':'invaders'}`));
+  const definition=data.enemies[group.type];assert.ok(markup.includes(`src="${images['enemy:'+group.type]}"`));assert.ok(markup.includes(escape(enemyCampaignLore(group.type)||definition.appearance)));assert.ok(markup.includes(escape(definition.counter||'Focus your damage along the route.')));assert.ok(markup.includes(`${enemyNumber(group.count)} ${wave.boss?'warlord':'invaders'}`));
   for(const info of warbandVariantInfo({...definition,type:group.type},{...wave,...group})){
    assert.ok(markup.includes(`${enemyNumber(info.maxHp)} HP · ${enemyNumber(info.armor)} armor · ${enemyNumber(info.speed)} tiles/s`),definition.name+' exact configured stats');for(const trait of info.traitDetails)assert.ok(markup.includes(escape(trait.text)),definition.name+' numerical '+trait.kind);
   }
@@ -92,9 +93,9 @@ test('explicit configured variant and group modifier overrides agree with actual
  const markup=warbandCardsMarkup([wave],data.enemies,images,{startWave:38});assert.match(markup,/data-wave="38"/);assert.ok(markup.includes(`${enemyNumber(expected.maxHp)} HP · ${enemyNumber(expected.armor)} armor · ${enemyNumber(expected.speed)} tiles/s`));assert.equal((markup.match(/class="warband-variant"/g)||[]).length,1);assert.doesNotMatch(markup,/Cloaked for|independently chooses/);assert.ok(markup.includes(escape(expected.traitDetails.find(trait=>trait.kind==='regen').text)));
 });
 
-test('wave names, live profiles, traits, URLs and intelligence copy are escaped without changing authored data',()=>{
- const wave={...data.waves[0],name:'<Wave & "name">'},enemies={...data.enemies,host_01:{...data.enemies.host_01,name:'<Enemy>',appearance:'<script>bad()</script>',counter:'<Counter>'}},pictures={...images,'enemy:host_01':'" onerror="bad()'},row={type:'<type>',name:'<Live & name>',count:1,liveCount:1,queuedCount:0,maxHp:50,armor:1,speed:2,traitDetails:[{text:'<Trait & details>',kind:'unknown'}]},before=JSON.stringify({wave,enemies,pictures,row});
- const markup=warbandsOverviewMarkup([wave],enemies,pictures,{round:1,phase:'combat',liveWarband:[row]});for(const text of [wave.name,enemies.host_01.name,enemies.host_01.appearance,enemies.host_01.counter,row.name,row.traitDetails[0].text])assert.ok(markup.includes(escape(text)));assert.ok(!markup.includes('<script>'));assert.ok(!markup.includes('src="" onerror='));assert.equal(JSON.stringify({wave,enemies,pictures,row}),before);
+test('wave names, live profiles, traits, URLs and fallback lore are escaped without changing authored data',()=>{
+ const wave={...data.waves[0],name:'<Wave & "name">',groups:data.waves[0].groups.map(group=>({...group,type:'external_profile'}))},enemies={...data.enemies,external_profile:{...data.enemies.host_01,name:'<Enemy>',appearance:'<script>bad()</script>',counter:'<Counter>'}},pictures={...images,'enemy:external_profile':'" onerror="bad()'},row={type:'<type>',name:'<Live & name>',count:1,liveCount:1,queuedCount:0,maxHp:50,armor:1,speed:2,traitDetails:[{text:'<Trait & details>',kind:'unknown'}]},before=JSON.stringify({wave,enemies,pictures,row});
+ const markup=warbandsOverviewMarkup([wave],enemies,pictures,{round:1,phase:'combat',liveWarband:[row]});for(const text of [wave.name,enemies.external_profile.name,enemies.external_profile.appearance,enemies.external_profile.counter,row.name,row.traitDetails[0].text])assert.ok(markup.includes(escape(text)));assert.ok(!markup.includes('<script>'));assert.ok(!markup.includes('src="" onerror='));assert.equal(JSON.stringify({wave,enemies,pictures,row}),before);
 });
 
 test('overview generation is deterministic and cannot roll draft identities, variants or spend Command Points',()=>{
