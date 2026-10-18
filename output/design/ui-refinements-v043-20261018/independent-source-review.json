@@ -1,8 +1,8 @@
 {
   "schema": "ui-refinements-v043-independent-source-review-v1",
-  "createdAt": "2026-10-18T10:56:37.8511579Z",
+  "createdAt": "2026-10-18T11:20:50.0675403Z",
   "baseline": "8290085c428f56b7561b2bb6f86b178fd743df23",
-  "status": "Passed; reported responsive tab availability finding resolved and covered by production regressions",
+  "status": "Passed locally after strict JSON hash portability correction; next exact-commit CI run remains required",
   "reviewed": [
     "game/main.js: recipe inspection, draft refresh, command host and HUD integration",
     "ui/recipe-marker-input.js: actual inventory token and two accepted pointer activations",
@@ -23,11 +23,13 @@
     "Header/draft fixtures preserve RNG and verify five visible choices without programmatic scrolling",
     "Responsive page availability uses actual pane content; unavailable active pages fall back before native disabled and aria-pressed updates",
     "Production regressions cover wall selection, selection loss, new draft, pin/unpin and cleared inspection context",
-    "Final complete suite passed 1504/1504 with zero failures; tests-final.log retained",
     "Production Vite build passed: 192 modules, base /bastions-of-the-last-kingdom/, build-final.log",
-    "All 482 snapshotted source files remained unchanged during tests and build, and between the tested and built source sets",
     "Final preservation audit passes; original asset bytes, 559 MAIN paths and both Git indexes remain preserved",
-    "Release owner confirmed compact DPS summary now fits one line in the live browser"
+    "Release owner confirmed compact DPS summary now fits one line in the live browser",
+    "Final corrected complete suite passed 1505/1505 with zero failures; tests-final.log retained",
+    "All 482 source files and six additional asset/provenance metadata records remained unchanged throughout and between final tests and build",
+    "Portability correction preserves 472 image files exactly against a4dcaea and leaves all 50 FRONT identity records and runtime code unchanged",
+    "JSON provenance SHA-256 uses explicitly recorded UTF-8 LF bytes; only CRLF to LF conversion is normalized, and added whitespace/content corruption remains rejected"
   ],
   "limitations": [
     "Remaining responsive panel geometry, MVP/craft/defeat visual QA and physical tablet touch checks are owned by the release integrator"
@@ -44,5 +46,16 @@
     "productionFile": "game/main.js",
     "regressionFile": "tests/cartographer-layout-v040.test.mjs",
     "status": "Resolved and included in passing 1504-test final suite"
+  },
+  "resolvedCiFinding": {
+    "issue": "Two new provenance tests compared Windows raw CRLF JSON hashes with Linux LF checkout bytes",
+    "failedCommit": "a4dcaea7591d8d8ec1d4aed483223ca6ce077ac3",
+    "originalReceipt": "ci-first-attempt.json",
+    "exactExcerpt": "ci-first-failure-excerpt.log",
+    "diagnosis": "ci-portability-diagnosis.json",
+    "fix": "Explicit utf8-lf hash serialization for JSON metadata only; all non-JSON files retain exact raw-byte hashes",
+    "regression": "Equivalent LF/CRLF digests agree while non-EOL changes and PNG corruption fail",
+    "localStatus": "Resolved with 1505/1505 tests and 192-module build",
+    "publicationStatus": "New commit CI and public verification remain pending"
   }
 }

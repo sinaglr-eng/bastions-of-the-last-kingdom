@@ -1,0 +1,65 @@
+2026-10-18T11:10:00.1853263Z # Subtest: all 50 runtime enemy portraits use separately reviewed FRONT crops and preserve exact approved RGB with real alpha
+2026-10-18T11:10:00.1853922Z not ok 801 - all 50 runtime enemy portraits use separately reviewed FRONT crops and preserve exact approved RGB with real alpha
+2026-10-18T11:10:00.1854025Z   ---
+2026-10-18T11:10:00.1854271Z   duration_ms: 2.845061
+2026-10-18T11:10:00.1854397Z   type: 'test'
+2026-10-18T11:10:00.1855059Z   location: '/home/runner/work/bastions-of-the-last-kingdom/bastions-of-the-last-kingdom/tests/enemy-front-cutouts-v043.test.mjs:29:1'
+2026-10-18T11:10:00.1855222Z   failureType: 'testCodeFailure'
+2026-10-18T11:10:00.1855371Z   error: |-
+2026-10-18T11:10:00.1855562Z     Expected values to be strictly equal:
+2026-10-18T11:10:00.1855699Z     + actual - expected
+2026-10-18T11:10:00.1855821Z     
+2026-10-18T11:10:00.1856140Z     + '45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f'
+2026-10-18T11:10:00.1856459Z     - 'fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4'
+2026-10-18T11:10:00.1856577Z     
+2026-10-18T11:10:00.1856715Z   code: 'ERR_ASSERTION'
+2026-10-18T11:10:00.1856843Z   name: 'AssertionError'
+2026-10-18T11:10:00.1857215Z   expected: 'fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4'
+2026-10-18T11:10:00.1857569Z   actual: '45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f'
+2026-10-18T11:10:00.1857722Z   operator: 'strictEqual'
+2026-10-18T11:10:00.1857843Z   stack: |-
+2026-10-18T11:10:00.1858902Z     TestContext.<anonymous> (file:///home/runner/work/bastions-of-the-last-kingdom/bastions-of-the-last-kingdom/tests/enemy-front-cutouts-v043.test.mjs:30:116)
+2026-10-18T11:10:00.1859153Z     Test.runInAsyncScope (node:async_hooks:214:14)
+2026-10-18T11:10:00.1859379Z     Test.run (node:internal/test_runner/test:1047:25)
+2026-10-18T11:10:00.1859597Z     Test.start (node:internal/test_runner/test:944:17)
+2026-10-18T11:10:00.1859917Z     startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+2026-10-18T11:10:00.1860022Z   ...
+2026-10-18T11:10:00.1860523Z # Subtest: the historical 136 portraits, 136 cutouts and 0.4.2 crimson derivative remain byte-identical
+2026-10-18T11:10:00.1861036Z not ok 802 - the historical 136 portraits, 136 cutouts and 0.4.2 crimson derivative remain byte-identical
+2026-10-18T11:10:00.1861140Z   ---
+2026-10-18T11:10:00.1861278Z   duration_ms: 30.969457
+2026-10-18T11:10:00.1861396Z   type: 'test'
+2026-10-18T11:10:00.1862050Z   location: '/home/runner/work/bastions-of-the-last-kingdom/bastions-of-the-last-kingdom/tests/enemy-front-cutouts-v043.test.mjs:54:1'
+2026-10-18T11:10:00.1862236Z   failureType: 'testCodeFailure'
+2026-10-18T11:10:00.1862347Z   error: |-
+2026-10-18T11:10:00.1862591Z     public/assets/ui/reference-portraits/manifest.json
+2026-10-18T11:10:00.1862733Z     + actual - expected
+2026-10-18T11:10:00.1862842Z     
+2026-10-18T11:10:00.1863144Z     + '45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f'
+2026-10-18T11:10:00.1863466Z     - 'fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4'
+2026-10-18T11:10:00.1863576Z     
+2026-10-18T11:10:00.1863706Z   code: 'ERR_ASSERTION'
+2026-10-18T11:10:00.1863849Z   name: 'AssertionError'
+2026-10-18T11:10:00.1864218Z   expected: 'fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4'
+2026-10-18T11:10:00.1864571Z   actual: '45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f'
+2026-10-18T11:10:00.1864709Z   operator: 'strictEqual'
+2026-10-18T11:10:00.1864831Z   stack: |-
+2026-10-18T11:10:00.1865670Z     TestContext.<anonymous> (file:///home/runner/work/bastions-of-the-last-kingdom/bastions-of-the-last-kingdom/tests/enemy-front-cutouts-v043.test.mjs:55:140)
+2026-10-18T11:10:00.1865887Z     Test.runInAsyncScope (node:async_hooks:214:14)
+2026-10-18T11:10:00.1866127Z     Test.run (node:internal/test_runner/test:1047:25)
+2026-10-18T11:10:00.1866452Z     Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+2026-10-18T11:10:00.1866690Z     Test.postRun (node:internal/test_runner/test:1173:19)
+2026-10-18T11:10:00.1866907Z     Test.run (node:internal/test_runner/test:1101:12)
+2026-10-18T11:10:00.1867272Z     async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+2026-10-18T11:10:00.1867385Z   ...
+2026-10-18T11:10:00.1867804Z # Subtest: the English FRONT review gallery resolves all 50 exact delivered images
+2026-10-18T11:10:00.1868307Z ok 803 - the English FRONT review gallery resolves all 50 exact delivered images
+2026-10-18T11:10:00.1868429Z   ---
+2026-10-18T11:10:00.1868568Z   duration_ms: 14.782455
+2026-10-18T11:10:00.1868805Z   type: 'test'
+2026-10-18T11:10:00.1868937Z   ...
+2026-10-18T11:10:00.1869424Z # Subtest: final wyvern source has two physical hindleg chains instead of invisible front chains
+2026-10-18T11:12:06.6461165Z # tests 1504
+2026-10-18T11:12:06.6461339Z # pass 1502
+2026-10-18T11:12:06.6461429Z # fail 2
+2026-10-18T11:12:06.6461803Z # duration_ms 206418.627624

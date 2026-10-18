@@ -1,0 +1,3318 @@
+{
+  "schema": "v043-ci-portability-preservation-v1",
+  "createdAt": "2026-10-18T11:20:18.755Z",
+  "comparedCommit": "a4dcaea7591d8d8ec1d4aed483223ca6ce077ac3",
+  "passed": true,
+  "imageFiles": 472,
+  "exactImageFiles": 472,
+  "frontIdentityRecords": 50,
+  "frontIdentityRecordsUnchanged": true,
+  "runtimeChanges": [],
+  "scope": "Exact image bytes and front crop/RGB/alpha identity records compared with the original pushed release. The CI correction changes only JSON hash serialization policy, builder/verifier tools, tests and evidence. Historical files and runtime code are untouched.",
+  "inventory": [
+    {
+      "baselineBlob": "e64928cdc249d48b5a53877d8e7c3aff1a42250c",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/02c373208eb310189ad7a1e5db22173e50ebcfeea3628c70c7d5d47a2ab4ea5f.png",
+      "workingBlob": "e64928cdc249d48b5a53877d8e7c3aff1a42250c",
+      "sha256": "02c373208eb310189ad7a1e5db22173e50ebcfeea3628c70c7d5d47a2ab4ea5f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6700a61c8020a55b7eac69be3996b6e2347e0f1b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/096f26fc2ebd4179940718af33ebf08fd7d747034468fabdea4116371d42000c.png",
+      "workingBlob": "6700a61c8020a55b7eac69be3996b6e2347e0f1b",
+      "sha256": "096f26fc2ebd4179940718af33ebf08fd7d747034468fabdea4116371d42000c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c53a5147906ba491143383f56d02f4f0e5e626c9",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/09b08bdc0227d0c977395187c16aeaccccf81f4e119a945e8621df59098d82e7.png",
+      "workingBlob": "c53a5147906ba491143383f56d02f4f0e5e626c9",
+      "sha256": "09b08bdc0227d0c977395187c16aeaccccf81f4e119a945e8621df59098d82e7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "427242347f18e63c4fea04573bfbc83579771638",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/0a9305f5ef43f791a959abe2f81effb5c5eb9cfc88c3a5e16054a3a5e21df689.png",
+      "workingBlob": "427242347f18e63c4fea04573bfbc83579771638",
+      "sha256": "0a9305f5ef43f791a959abe2f81effb5c5eb9cfc88c3a5e16054a3a5e21df689",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b3fb5ee6d5a4a80bde924669406f660571f9ce1f",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/14437dfe02d9de529dda492879d54c54f2fca0f15424a4340a75b852c069bc43.png",
+      "workingBlob": "b3fb5ee6d5a4a80bde924669406f660571f9ce1f",
+      "sha256": "14437dfe02d9de529dda492879d54c54f2fca0f15424a4340a75b852c069bc43",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "263adc49acc475a70d60cc0ca223877b75054e4b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/1a7f2529f4d6a2317316b23de38b3507ba09a9b893464e4bf934e440d62ff0f5.png",
+      "workingBlob": "263adc49acc475a70d60cc0ca223877b75054e4b",
+      "sha256": "1a7f2529f4d6a2317316b23de38b3507ba09a9b893464e4bf934e440d62ff0f5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c85ba5703cbabffb827e13bc8c691b6da96264d6",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/1a8773b991cf02d8ef00f0d1b9b46a30228490d10b67c1c80904ff1f7880a344.png",
+      "workingBlob": "c85ba5703cbabffb827e13bc8c691b6da96264d6",
+      "sha256": "1a8773b991cf02d8ef00f0d1b9b46a30228490d10b67c1c80904ff1f7880a344",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "bf75eba8a1a51af67244f983d816b18a2c832b3c",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/1e1f8bc5aa7cf1455439275d4600726dc27393907cfe4a5a70c9a1658b4ca9fe.png",
+      "workingBlob": "bf75eba8a1a51af67244f983d816b18a2c832b3c",
+      "sha256": "1e1f8bc5aa7cf1455439275d4600726dc27393907cfe4a5a70c9a1658b4ca9fe",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ba330e4b8ba98be11ad943ebfd0c85095bc4d1d6",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/1e9e2a4ab9e03f1c9b5e6728b8ed28dd8e545fb1a433167614e68872132f030f.png",
+      "workingBlob": "ba330e4b8ba98be11ad943ebfd0c85095bc4d1d6",
+      "sha256": "1e9e2a4ab9e03f1c9b5e6728b8ed28dd8e545fb1a433167614e68872132f030f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c1edc1274b41d97e812863b577ed0b22ab32818b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/29d04353e68cdcd503f26a200174e81bfc59d11379b552350520bc86dbf9c14a.png",
+      "workingBlob": "c1edc1274b41d97e812863b577ed0b22ab32818b",
+      "sha256": "29d04353e68cdcd503f26a200174e81bfc59d11379b552350520bc86dbf9c14a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "862aa024a659df20843952173d52f356d6301c7f",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/2ddddad8e912a2c103fcc8beb44fe20873897b7fb66c0ff79ea21496643a73bc.png",
+      "workingBlob": "862aa024a659df20843952173d52f356d6301c7f",
+      "sha256": "2ddddad8e912a2c103fcc8beb44fe20873897b7fb66c0ff79ea21496643a73bc",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "caf640485b8b7e337a38eefc1215c984f8f11e7b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/2e4f64b055e3735a01e3963951eb95c5018c7d812f842012bcd3d4243549ad79.png",
+      "workingBlob": "caf640485b8b7e337a38eefc1215c984f8f11e7b",
+      "sha256": "2e4f64b055e3735a01e3963951eb95c5018c7d812f842012bcd3d4243549ad79",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "764a5aa39f7a1fa8c4069544f5983209dc47b70a",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/2f9bbd6bd4dc8da0f511c147cf4111d1ab42aa40a032bc4fc2a991194edfa086.png",
+      "workingBlob": "764a5aa39f7a1fa8c4069544f5983209dc47b70a",
+      "sha256": "2f9bbd6bd4dc8da0f511c147cf4111d1ab42aa40a032bc4fc2a991194edfa086",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "209bd6cee97d47618682cdda1e02e86dba5ced11",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/373703111af0d810e01bef90f2ce80b7dde292f59ef2cde060a03a6c28b7a774.png",
+      "workingBlob": "209bd6cee97d47618682cdda1e02e86dba5ced11",
+      "sha256": "373703111af0d810e01bef90f2ce80b7dde292f59ef2cde060a03a6c28b7a774",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1a7c7951254e693d16c34f488e7dd9962adb8178",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/385ce97b68c064f6f3bc026407b38ca7c99c862019b42a0ede62aec5614d8d9a.png",
+      "workingBlob": "1a7c7951254e693d16c34f488e7dd9962adb8178",
+      "sha256": "385ce97b68c064f6f3bc026407b38ca7c99c862019b42a0ede62aec5614d8d9a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "87aa251e8002cd3f2c613d42b67cf101cff47ac3",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/38ca6afdd78f3f21f98f4bcc7f9ec1ea74352ecce4fe9f28c74ce4ee118e2bdc.png",
+      "workingBlob": "87aa251e8002cd3f2c613d42b67cf101cff47ac3",
+      "sha256": "38ca6afdd78f3f21f98f4bcc7f9ec1ea74352ecce4fe9f28c74ce4ee118e2bdc",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4a32cf9893894efdee0770f880fe8f07652db952",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/39a4fc30ba8d512b78e8b49505ae7b7e5a3e9db75507c1f936c769fcf37271a9.png",
+      "workingBlob": "4a32cf9893894efdee0770f880fe8f07652db952",
+      "sha256": "39a4fc30ba8d512b78e8b49505ae7b7e5a3e9db75507c1f936c769fcf37271a9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cd8014f8d5f29923b230b96c8cc298a66a8c3e74",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/3a2e5ec81c3a262bde3f736ce9a54ff27dd5fd8d43d66bf6c48e9c0e8dd89f5e.png",
+      "workingBlob": "cd8014f8d5f29923b230b96c8cc298a66a8c3e74",
+      "sha256": "3a2e5ec81c3a262bde3f736ce9a54ff27dd5fd8d43d66bf6c48e9c0e8dd89f5e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fb8dee66a5a8cc3ab50a2385f1f5c08770a35d48",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/3ae38b9511cb98e3aabb922a73d989dbc6d18fc62dc902d09d658c9eae6aa854.png",
+      "workingBlob": "fb8dee66a5a8cc3ab50a2385f1f5c08770a35d48",
+      "sha256": "3ae38b9511cb98e3aabb922a73d989dbc6d18fc62dc902d09d658c9eae6aa854",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "19153f17f850e1dcd80fba0cf4315e273e770e34",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/49007ec90f5de6795b93c6dcb1566bab9b9712b4251985571fa5d8828e19f2f0.png",
+      "workingBlob": "19153f17f850e1dcd80fba0cf4315e273e770e34",
+      "sha256": "49007ec90f5de6795b93c6dcb1566bab9b9712b4251985571fa5d8828e19f2f0",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "43cd25679530f70d978e882adffbd79ad9f6f7c6",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/4b29cfde28866124875357da30ab2f2f2cf4422cb22f5b0f852f6faa451ff9f5.png",
+      "workingBlob": "43cd25679530f70d978e882adffbd79ad9f6f7c6",
+      "sha256": "4b29cfde28866124875357da30ab2f2f2cf4422cb22f5b0f852f6faa451ff9f5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6859374b42b38643cffed94f498139cbe018cf7e",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/4bdbc5edd58a35b2185dd63aab1e75dbf343a82fa7489658f784604191e418aa.png",
+      "workingBlob": "6859374b42b38643cffed94f498139cbe018cf7e",
+      "sha256": "4bdbc5edd58a35b2185dd63aab1e75dbf343a82fa7489658f784604191e418aa",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8cbfc8ed91fe5b02b2d7d9ee37f263c898087f5b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/4e6a8bc1328b0e53596d3bc2f45fb05ba791aead3f2ca4beeb168f2e35a1667d.png",
+      "workingBlob": "8cbfc8ed91fe5b02b2d7d9ee37f263c898087f5b",
+      "sha256": "4e6a8bc1328b0e53596d3bc2f45fb05ba791aead3f2ca4beeb168f2e35a1667d",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "70330f16365211637dd92f77570f5bec47e0d6f5",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/4e891ceed929e0d2a953bb8bcdedd5d264d1df1ddc17c3be8455ea7e1f841c9e.png",
+      "workingBlob": "70330f16365211637dd92f77570f5bec47e0d6f5",
+      "sha256": "4e891ceed929e0d2a953bb8bcdedd5d264d1df1ddc17c3be8455ea7e1f841c9e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fae6dac12b436cdedd752f597828fee10b13c7b5",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/4eea18cf33680a965dfb51a285bd4b0299076023bae5e4f100b5b523bde02882.png",
+      "workingBlob": "fae6dac12b436cdedd752f597828fee10b13c7b5",
+      "sha256": "4eea18cf33680a965dfb51a285bd4b0299076023bae5e4f100b5b523bde02882",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c66eeb952e0417dc5f9615cf6bf9f276fc6f2ef8",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/4f5d9c76836b45d5faca3e37e73fe6a54e1d8c26a1341102ee5d50a7938712d6.png",
+      "workingBlob": "c66eeb952e0417dc5f9615cf6bf9f276fc6f2ef8",
+      "sha256": "4f5d9c76836b45d5faca3e37e73fe6a54e1d8c26a1341102ee5d50a7938712d6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f79c98f1404a52f65ad15d28cd1676a540b2ab03",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/50760b74929008293b7c36006a7d96fca2f46c0b6807cebce14028ef9e471e6a.png",
+      "workingBlob": "f79c98f1404a52f65ad15d28cd1676a540b2ab03",
+      "sha256": "50760b74929008293b7c36006a7d96fca2f46c0b6807cebce14028ef9e471e6a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e38653f0cb40cb013ad6d0263b054d24e7991051",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/50bd25d0b4c26a031f99761319715d6dc71994d9a62dd8030aaf9e01584c4979.png",
+      "workingBlob": "e38653f0cb40cb013ad6d0263b054d24e7991051",
+      "sha256": "50bd25d0b4c26a031f99761319715d6dc71994d9a62dd8030aaf9e01584c4979",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "bf8915aeb6c83dfed52135b8b83df2c2e75ae233",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/513ed0f555708f9eb0e6710add5336e352cdfd7f4b9f567bd7293119dc1acee7.png",
+      "workingBlob": "bf8915aeb6c83dfed52135b8b83df2c2e75ae233",
+      "sha256": "513ed0f555708f9eb0e6710add5336e352cdfd7f4b9f567bd7293119dc1acee7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8ba9bded1709517fe7099e3bd5cdaaab6d0bae6d",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/54e34d00a320a7fc96e878a2e363fc2c2314a80fa9d2766f0273c7f87eb6d1de.png",
+      "workingBlob": "8ba9bded1709517fe7099e3bd5cdaaab6d0bae6d",
+      "sha256": "54e34d00a320a7fc96e878a2e363fc2c2314a80fa9d2766f0273c7f87eb6d1de",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "3a51678848ddb7d1d67785a27f81d1ddb310ee1d",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/55637bd24f0276d7882795aa0dfbd0846c610215be7929e53de5dc1d65729fff.png",
+      "workingBlob": "3a51678848ddb7d1d67785a27f81d1ddb310ee1d",
+      "sha256": "55637bd24f0276d7882795aa0dfbd0846c610215be7929e53de5dc1d65729fff",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0e17f0145722d90120170ba2d21a9814db2f5c28",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/57ad6b0d09ed99269672ba09f47b59aeda7c1233379cf87736a8083f3d68e008.png",
+      "workingBlob": "0e17f0145722d90120170ba2d21a9814db2f5c28",
+      "sha256": "57ad6b0d09ed99269672ba09f47b59aeda7c1233379cf87736a8083f3d68e008",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "42a6e1fed1ad8ae8bd36b2ef9c5ec471c82663ed",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/59790d4ef36a25c1460a8c15b85a6fe0ac0e6f1121b5c70a910d9373217202a4.png",
+      "workingBlob": "42a6e1fed1ad8ae8bd36b2ef9c5ec471c82663ed",
+      "sha256": "59790d4ef36a25c1460a8c15b85a6fe0ac0e6f1121b5c70a910d9373217202a4",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "aa0c5efc2c4bc332320eea6f369270c960aca16b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1.png",
+      "workingBlob": "aa0c5efc2c4bc332320eea6f369270c960aca16b",
+      "sha256": "5e2f423572c5332c483b5d92580c71163e6388a74f66b05d90033799284c32b1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "180593993f3e58ed8b3e5691df47244a9f67eebe",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/5efa290a33703575775ca96ed3acb3ec06f8c77573977449a42686bb9c16b89a.png",
+      "workingBlob": "180593993f3e58ed8b3e5691df47244a9f67eebe",
+      "sha256": "5efa290a33703575775ca96ed3acb3ec06f8c77573977449a42686bb9c16b89a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "211fe6a550f0a90611e500fd4eb6ffac4a3926af",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/5f95c7dae568cacca1b9128cc3d03656ae274f61693ab8e709a6c4f9ee41913c.png",
+      "workingBlob": "211fe6a550f0a90611e500fd4eb6ffac4a3926af",
+      "sha256": "5f95c7dae568cacca1b9128cc3d03656ae274f61693ab8e709a6c4f9ee41913c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4389fd85819e0c228bc34229ef7a640dad031a0f",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/607a95bbd91dd7393aa1c2a4d50894cfc9f38eaa8198b7c34fe82d4ecdb60be8.png",
+      "workingBlob": "4389fd85819e0c228bc34229ef7a640dad031a0f",
+      "sha256": "607a95bbd91dd7393aa1c2a4d50894cfc9f38eaa8198b7c34fe82d4ecdb60be8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cd6978d17bab635638730c69b137126c5b48c20c",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/6380faff066acf219b9e17ec1ec6621c50b796729d2a6667cf999c5f14432c7b.png",
+      "workingBlob": "cd6978d17bab635638730c69b137126c5b48c20c",
+      "sha256": "6380faff066acf219b9e17ec1ec6621c50b796729d2a6667cf999c5f14432c7b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c79f100b9878f2d7bdfaf9d5d43b0194e81c834b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/63cdc0295cbcf7aa713dc096bf48f4cb888f5fb80f3023e615282ba695a273ee.png",
+      "workingBlob": "c79f100b9878f2d7bdfaf9d5d43b0194e81c834b",
+      "sha256": "63cdc0295cbcf7aa713dc096bf48f4cb888f5fb80f3023e615282ba695a273ee",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ea728b4b06ce8df22355097f7c29b41bd688b583",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/6435d3783c95865956950bf04730421e2728f61a393b1d4cca17c19b567689c4.png",
+      "workingBlob": "ea728b4b06ce8df22355097f7c29b41bd688b583",
+      "sha256": "6435d3783c95865956950bf04730421e2728f61a393b1d4cca17c19b567689c4",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5c794689b72a49462ccfb8b7f538580403742277",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/663b91498efe67257156fc4c8e4e29f5e12b902a6a1e9ec1b7cef636427ce2b9.png",
+      "workingBlob": "5c794689b72a49462ccfb8b7f538580403742277",
+      "sha256": "663b91498efe67257156fc4c8e4e29f5e12b902a6a1e9ec1b7cef636427ce2b9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1113b1ba00c75b5a69ba4af8768bf34d00228ba3",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/668d1953e8e927fe82e233620c17c9b44197056db86a7a2bbb1de4488193fbdb.png",
+      "workingBlob": "1113b1ba00c75b5a69ba4af8768bf34d00228ba3",
+      "sha256": "668d1953e8e927fe82e233620c17c9b44197056db86a7a2bbb1de4488193fbdb",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "798fa3402279a9e2d1cdf0242af4b4743ce87685",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/66fec81fdb7df9ff5efc428c8614efe4821a5226ea3a239567f5ec80099e3c04.png",
+      "workingBlob": "798fa3402279a9e2d1cdf0242af4b4743ce87685",
+      "sha256": "66fec81fdb7df9ff5efc428c8614efe4821a5226ea3a239567f5ec80099e3c04",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "16fa0addc3ff61877e0b2b8a7dbfae5dc3b64f4b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/6898d21bad29df4985f0ff4e55384b17affd625d862b3dc5a3a3599cf9831a89.png",
+      "workingBlob": "16fa0addc3ff61877e0b2b8a7dbfae5dc3b64f4b",
+      "sha256": "6898d21bad29df4985f0ff4e55384b17affd625d862b3dc5a3a3599cf9831a89",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "54473c3d9e6f8efe7ca308081e18cca7130fb474",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/6bd7be7b195147f6ae8073d1a3e7efef1d481b689485f36ed93bc626abf20758.png",
+      "workingBlob": "54473c3d9e6f8efe7ca308081e18cca7130fb474",
+      "sha256": "6bd7be7b195147f6ae8073d1a3e7efef1d481b689485f36ed93bc626abf20758",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "04e659b24eb98dcab4b8853da0a7f7646759b76c",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/6d3deadf5bf7e2272beab1a46387b5fabe78df4d073f96383bb907cf6504e5e3.png",
+      "workingBlob": "04e659b24eb98dcab4b8853da0a7f7646759b76c",
+      "sha256": "6d3deadf5bf7e2272beab1a46387b5fabe78df4d073f96383bb907cf6504e5e3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ad16333ebef822c869c7eea39f431377f6389fff",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/6e1f9a0a440ca261250b267d21dc56fe4803957069288455d4df7f2c6f9f3221.png",
+      "workingBlob": "ad16333ebef822c869c7eea39f431377f6389fff",
+      "sha256": "6e1f9a0a440ca261250b267d21dc56fe4803957069288455d4df7f2c6f9f3221",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9df27b1818026d4ed22b50d94c1ef0bd949a3151",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/714418ee5ca52796f587c5b4f02f1606298d274f7d75e2e93658c7a83d74b5a7.png",
+      "workingBlob": "9df27b1818026d4ed22b50d94c1ef0bd949a3151",
+      "sha256": "714418ee5ca52796f587c5b4f02f1606298d274f7d75e2e93658c7a83d74b5a7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "888c09272607c6f6e908d155f5d4fb54d51d5602",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5.png",
+      "workingBlob": "888c09272607c6f6e908d155f5d4fb54d51d5602",
+      "sha256": "72137316fff0d071634313873a74fdd44ceef1f8008c02c281657d503cff08b5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ac8ce284da8c05c2f5d619c76c4d3b85f4a46b88",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3.png",
+      "workingBlob": "ac8ce284da8c05c2f5d619c76c4d3b85f4a46b88",
+      "sha256": "72ffc434424f9c0a1bcf596478ec0133dc8a035250f9a01347b32ee1c915b8e3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b25f23c4f3de1f32d5e2c672a412ed2f5eab7a1c",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/7307a7130e655b8b68b256b4e37af08da83ae6bcf17497519f4ff12921cd8896.png",
+      "workingBlob": "b25f23c4f3de1f32d5e2c672a412ed2f5eab7a1c",
+      "sha256": "7307a7130e655b8b68b256b4e37af08da83ae6bcf17497519f4ff12921cd8896",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cce62c8f717d4f0e7b816d4dd1d432b4289d5185",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/756e1cd62618a1800cfb6345659b45e0c3d8ea178b99439030d26a957af2e479.png",
+      "workingBlob": "cce62c8f717d4f0e7b816d4dd1d432b4289d5185",
+      "sha256": "756e1cd62618a1800cfb6345659b45e0c3d8ea178b99439030d26a957af2e479",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1c72d11b635ee8cf1a78c1f388f49eeea2fbbd27",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/785ae00a2f8f4d37d768ae68b9c8bd26f3cf85a655fe6b633b0c349e9d953897.png",
+      "workingBlob": "1c72d11b635ee8cf1a78c1f388f49eeea2fbbd27",
+      "sha256": "785ae00a2f8f4d37d768ae68b9c8bd26f3cf85a655fe6b633b0c349e9d953897",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2897549de10e74e0dec3a6f3f59d4b726677d0d7",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/7a89aafc9fa34fee0156fb45c3ff3067bc83d734e51b1bd76c1bdeca0ebf20ac.png",
+      "workingBlob": "2897549de10e74e0dec3a6f3f59d4b726677d0d7",
+      "sha256": "7a89aafc9fa34fee0156fb45c3ff3067bc83d734e51b1bd76c1bdeca0ebf20ac",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "bf86a8d30a362c79c4c64a5e8816e03c040b95c1",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/7d35d96387d95997fd01cb312b736955f880e8f6b7d5afc5638123b616ef1270.png",
+      "workingBlob": "bf86a8d30a362c79c4c64a5e8816e03c040b95c1",
+      "sha256": "7d35d96387d95997fd01cb312b736955f880e8f6b7d5afc5638123b616ef1270",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4f370e003c2bd950cd85bcae7f812612c309f633",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/7de73f17356ecc13f3b829d20b3b288a30f9e7b2d3bcf3ab4c992bc3db8616cb.png",
+      "workingBlob": "4f370e003c2bd950cd85bcae7f812612c309f633",
+      "sha256": "7de73f17356ecc13f3b829d20b3b288a30f9e7b2d3bcf3ab4c992bc3db8616cb",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e0a75ae6e4324bc723317cf3e3bf8a58017e54fe",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/7ef08539aaef110495be1f9c94966128f1fa5ebcd5b41c14895104584d6da937.png",
+      "workingBlob": "e0a75ae6e4324bc723317cf3e3bf8a58017e54fe",
+      "sha256": "7ef08539aaef110495be1f9c94966128f1fa5ebcd5b41c14895104584d6da937",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6c1854230565dbfa62cd3b5e0791802e48b8d792",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/806910df23bb2285bcd0b4155cf1323350e39c4af53995221e89721c2c73dc85.png",
+      "workingBlob": "6c1854230565dbfa62cd3b5e0791802e48b8d792",
+      "sha256": "806910df23bb2285bcd0b4155cf1323350e39c4af53995221e89721c2c73dc85",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f314e92d48db8e827be8c31250c76516fb208cfb",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/83a7bf2065fe495d0cb7045486a519c14b832f92faad39050fe5d813898a8349.png",
+      "workingBlob": "f314e92d48db8e827be8c31250c76516fb208cfb",
+      "sha256": "83a7bf2065fe495d0cb7045486a519c14b832f92faad39050fe5d813898a8349",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a3b92ad421c3d8a1077388fd4b54b89ab42bca72",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/855b295f2c3787d32199d3bd3f97d852502475072777b8947edb9356de58d33b.png",
+      "workingBlob": "a3b92ad421c3d8a1077388fd4b54b89ab42bca72",
+      "sha256": "855b295f2c3787d32199d3bd3f97d852502475072777b8947edb9356de58d33b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "44d75a40a7b1e48279458280bdcecb9b7f687296",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/88a96cf30a6324d88f97d49497e811e037cb802744a9640f63f054676e061dde.png",
+      "workingBlob": "44d75a40a7b1e48279458280bdcecb9b7f687296",
+      "sha256": "88a96cf30a6324d88f97d49497e811e037cb802744a9640f63f054676e061dde",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1b88e82b532038da72c753a62c9e073a27f70848",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/904eb95be360352cdd982e4746579d2f49ca7021dbd884790e380e9ff0627e9a.png",
+      "workingBlob": "1b88e82b532038da72c753a62c9e073a27f70848",
+      "sha256": "904eb95be360352cdd982e4746579d2f49ca7021dbd884790e380e9ff0627e9a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "783fa6790b65c27ade16f87cc2bdd5d23d019335",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/917ed51ca699f34a3616fbb3c43656818948a00a45d1cfc6828322d03422dfd3.png",
+      "workingBlob": "783fa6790b65c27ade16f87cc2bdd5d23d019335",
+      "sha256": "917ed51ca699f34a3616fbb3c43656818948a00a45d1cfc6828322d03422dfd3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c6b79e1cb5426025e75c38c17e991e13d3d386ed",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/97b7e03afdea8276141332de49482d35da7c9b3421e0c1d66f742adcfe7afc78.png",
+      "workingBlob": "c6b79e1cb5426025e75c38c17e991e13d3d386ed",
+      "sha256": "97b7e03afdea8276141332de49482d35da7c9b3421e0c1d66f742adcfe7afc78",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f8ca430fc58db56232d280773006ef519c328267",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0.png",
+      "workingBlob": "f8ca430fc58db56232d280773006ef519c328267",
+      "sha256": "999bbcab3cfc1f6905d17447e1592f75a8c97607c411721f8e1616bbeb5b44b0",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "00a9a51687246e33a1662afad64af10fdf8d911a",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/9b789be0711dd88d5f72465d283084e1fbf4dbdc41a3f00819354a183a722e49.png",
+      "workingBlob": "00a9a51687246e33a1662afad64af10fdf8d911a",
+      "sha256": "9b789be0711dd88d5f72465d283084e1fbf4dbdc41a3f00819354a183a722e49",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e159e0673b0de80c2804ea091641ac5f0eb21300",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/9c69f7814f50186c666c3e89df9b0774326579a062af9352c3e04990cbf735de.png",
+      "workingBlob": "e159e0673b0de80c2804ea091641ac5f0eb21300",
+      "sha256": "9c69f7814f50186c666c3e89df9b0774326579a062af9352c3e04990cbf735de",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f03a5c3ef72a170636a7b4c5558be6336f7333d4",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/9e1063d4401efed90166305b0ab0a77ef505e3743061b2e16641bd68207c522e.png",
+      "workingBlob": "f03a5c3ef72a170636a7b4c5558be6336f7333d4",
+      "sha256": "9e1063d4401efed90166305b0ab0a77ef505e3743061b2e16641bd68207c522e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "62ee7517fcd60805b5a53a772302c60306cda3af",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50.png",
+      "workingBlob": "62ee7517fcd60805b5a53a772302c60306cda3af",
+      "sha256": "9eec39fa5a2242e0458a42a73524bc97d15aa6bab7745a0c24b19db2d1675a50",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "af9ff1799ff07c56a7cd1cff741a2320888a03dc",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/a27eec893daf407c03c55e724689c305e5f434dd9d976a43c571ca37baeff7be.png",
+      "workingBlob": "af9ff1799ff07c56a7cd1cff741a2320888a03dc",
+      "sha256": "a27eec893daf407c03c55e724689c305e5f434dd9d976a43c571ca37baeff7be",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "20942e45b67779d6eeafbfdc7ea626be99dc5d74",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/a5e72491393d8cd542de1e3c19560f6e7b5d311d14240b3f14619add86db6baf.png",
+      "workingBlob": "20942e45b67779d6eeafbfdc7ea626be99dc5d74",
+      "sha256": "a5e72491393d8cd542de1e3c19560f6e7b5d311d14240b3f14619add86db6baf",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c05f4142a93c4ed081240bfbfe0cfd1cbc05a137",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/b05d45b47375162cf1fcb6ae670079d873f21005a74ebc73730aa13e18d3faab.png",
+      "workingBlob": "c05f4142a93c4ed081240bfbfe0cfd1cbc05a137",
+      "sha256": "b05d45b47375162cf1fcb6ae670079d873f21005a74ebc73730aa13e18d3faab",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "3b2b8e8a4887e6c75e0d3f3dbb863094c828612e",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/b0869d7e8f944b48b038015ea0a5dc461c4ae921a7fd7eb4642cd2b5a8c18b70.png",
+      "workingBlob": "3b2b8e8a4887e6c75e0d3f3dbb863094c828612e",
+      "sha256": "b0869d7e8f944b48b038015ea0a5dc461c4ae921a7fd7eb4642cd2b5a8c18b70",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "819773aed3e19221e134f64bd288aaa7e083b1a0",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/b0fdbdd76ce9c9ddb1bac85d26813ef19e0683300bd66e4aa8647685c0c6f0e6.png",
+      "workingBlob": "819773aed3e19221e134f64bd288aaa7e083b1a0",
+      "sha256": "b0fdbdd76ce9c9ddb1bac85d26813ef19e0683300bd66e4aa8647685c0c6f0e6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d54f7f37159dcfd5c33ae4c2b279d4872a539c85",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/b1eadab3aa0ef59adc540d5b78ca51b203a0bd39ecd513c7384597152def8538.png",
+      "workingBlob": "d54f7f37159dcfd5c33ae4c2b279d4872a539c85",
+      "sha256": "b1eadab3aa0ef59adc540d5b78ca51b203a0bd39ecd513c7384597152def8538",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e04aa1b6171df26ad38d1259d24283a264e2b2d3",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/b78cbd8199a82a607ac6cafdf4fa5eac43f9b0b4f94e1e8870707c884859b1da.png",
+      "workingBlob": "e04aa1b6171df26ad38d1259d24283a264e2b2d3",
+      "sha256": "b78cbd8199a82a607ac6cafdf4fa5eac43f9b0b4f94e1e8870707c884859b1da",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0652f7584c43bbda8a033f725a9ce6483fd65c46",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/ba184c715414486bae297f8e54b384e41c139639241fbabda6d3220c7a443cda.png",
+      "workingBlob": "0652f7584c43bbda8a033f725a9ce6483fd65c46",
+      "sha256": "ba184c715414486bae297f8e54b384e41c139639241fbabda6d3220c7a443cda",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5a6c0d62abb40fe7d4c619c2d2a8167f1c621795",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/ba9a2cd6b05d0273acf4866f3db4d7710c7669a08f6d4e34881d28ba2d37ae22.png",
+      "workingBlob": "5a6c0d62abb40fe7d4c619c2d2a8167f1c621795",
+      "sha256": "ba9a2cd6b05d0273acf4866f3db4d7710c7669a08f6d4e34881d28ba2d37ae22",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f3a379c869bd1e42bb908b150fc8b91cfcfe6efd",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/c0c441d711f3e4a9d6fb0ac2905113396013d46563e9173942fb8143beef6c8d.png",
+      "workingBlob": "f3a379c869bd1e42bb908b150fc8b91cfcfe6efd",
+      "sha256": "c0c441d711f3e4a9d6fb0ac2905113396013d46563e9173942fb8143beef6c8d",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1a7ef578c4e10a463c32dedb24c48d9b34757527",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/c1ecc2578a237ed279340993446a518bc2b672150ab7edda1003e74414c1ce39.png",
+      "workingBlob": "1a7ef578c4e10a463c32dedb24c48d9b34757527",
+      "sha256": "c1ecc2578a237ed279340993446a518bc2b672150ab7edda1003e74414c1ce39",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d033aa4333d52119bff83f74f33107d986f9a13c",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/c494fbef57f69e5cbb9c51b286db47a0f7837c4a2acfbc5df515efe25fc57a8f.png",
+      "workingBlob": "d033aa4333d52119bff83f74f33107d986f9a13c",
+      "sha256": "c494fbef57f69e5cbb9c51b286db47a0f7837c4a2acfbc5df515efe25fc57a8f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4c6b56c8fc686b25a94b3fefb1687dcc1dd5dddb",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/c4c0b733016fb29d690d6bce644aea7454ce1351beac039a80d88cf44b60cf70.png",
+      "workingBlob": "4c6b56c8fc686b25a94b3fefb1687dcc1dd5dddb",
+      "sha256": "c4c0b733016fb29d690d6bce644aea7454ce1351beac039a80d88cf44b60cf70",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "03633b5c4af368c576abcea4e9b8f415a20a2bdf",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/c62135e61cb901eecbea78a75b1dea026177aa61e7c4eecad8d8bd277f180687.png",
+      "workingBlob": "03633b5c4af368c576abcea4e9b8f415a20a2bdf",
+      "sha256": "c62135e61cb901eecbea78a75b1dea026177aa61e7c4eecad8d8bd277f180687",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "7bcf06ce7015192c34a442674a1edf2502b544ae",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/c6e3d24f64661217c461eea9fd0f9717219a4a15f2706009f253c577da1e9bc8.png",
+      "workingBlob": "7bcf06ce7015192c34a442674a1edf2502b544ae",
+      "sha256": "c6e3d24f64661217c461eea9fd0f9717219a4a15f2706009f253c577da1e9bc8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fe93a71364ad1b4ebe7c54660569156d8616f347",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/c7a366bf166f1bc6f779b5a73cef300a46ec4b9ee00813886f4a77a44647149b.png",
+      "workingBlob": "fe93a71364ad1b4ebe7c54660569156d8616f347",
+      "sha256": "c7a366bf166f1bc6f779b5a73cef300a46ec4b9ee00813886f4a77a44647149b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5186f0d89bf5d9e09de2cfb3629070d3d139eb14",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/c80e819748ff125ac9a63dec674ec9eb8cba6ce2746a59fbe87a6e9f97a39d8c.png",
+      "workingBlob": "5186f0d89bf5d9e09de2cfb3629070d3d139eb14",
+      "sha256": "c80e819748ff125ac9a63dec674ec9eb8cba6ce2746a59fbe87a6e9f97a39d8c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "eecdb1df80abd2b62c18fc8566c3213cbad9ef07",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/cb6f179ae6d96254d2c1402bb7afbedb7d345dfc0565d816d67a402b905d2450.png",
+      "workingBlob": "eecdb1df80abd2b62c18fc8566c3213cbad9ef07",
+      "sha256": "cb6f179ae6d96254d2c1402bb7afbedb7d345dfc0565d816d67a402b905d2450",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1b8ce23cd8360f6911aef5d573f63b7ba34e479a",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/d5205cc58789195a3884e000f9063825a1ec0817f468ff26472bec6d0b2e4286.png",
+      "workingBlob": "1b8ce23cd8360f6911aef5d573f63b7ba34e479a",
+      "sha256": "d5205cc58789195a3884e000f9063825a1ec0817f468ff26472bec6d0b2e4286",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f774203e4e298829c19ad97c520c548ad0381072",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/d84955c7e791a6c22f1eb9feb15baf9f7d18079407ea42c3fc6a4dd350bb04ff.png",
+      "workingBlob": "f774203e4e298829c19ad97c520c548ad0381072",
+      "sha256": "d84955c7e791a6c22f1eb9feb15baf9f7d18079407ea42c3fc6a4dd350bb04ff",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fe957f7f3af0e2aa92d122504f6492512fb19246",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e.png",
+      "workingBlob": "fe957f7f3af0e2aa92d122504f6492512fb19246",
+      "sha256": "d88d0f54d87479f46a67392ccd4e109aa02b19ee3df54c254e644002f7db270e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "35586148601048ffd15bb066c22bd84a9695dc4b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/d9319e94ae2f233e28713e80abc7f4619bcdc426a65b5184b390fbec370f3abd.png",
+      "workingBlob": "35586148601048ffd15bb066c22bd84a9695dc4b",
+      "sha256": "d9319e94ae2f233e28713e80abc7f4619bcdc426a65b5184b390fbec370f3abd",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5879b1a71b18de6553621b22c60e5eb561663722",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/dd97175837e92aaa2c19c8e8ae4753cddde14ee4be1340a42b9598c828c27545.png",
+      "workingBlob": "5879b1a71b18de6553621b22c60e5eb561663722",
+      "sha256": "dd97175837e92aaa2c19c8e8ae4753cddde14ee4be1340a42b9598c828c27545",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "308038e458311343428c935681f620639cd31449",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/de8a10851446a9dbdc1130e11d22185b7d2665caa59576473e2c101134c26d17.png",
+      "workingBlob": "308038e458311343428c935681f620639cd31449",
+      "sha256": "de8a10851446a9dbdc1130e11d22185b7d2665caa59576473e2c101134c26d17",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "92d4db0a9dd23b58ee58d0fb72ffdb3e695fa5ea",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/e088f7023e011ed88ae66147fd6721bde53fbb3454b71d4212a005fde3786fc2.png",
+      "workingBlob": "92d4db0a9dd23b58ee58d0fb72ffdb3e695fa5ea",
+      "sha256": "e088f7023e011ed88ae66147fd6721bde53fbb3454b71d4212a005fde3786fc2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "474b287bfd8458e2484cf8333ba28242cadbb28e",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/e6058a3724acca6c264477aa26463ba9bf87a6d4785dab3d1e4eb8829f81a84c.png",
+      "workingBlob": "474b287bfd8458e2484cf8333ba28242cadbb28e",
+      "sha256": "e6058a3724acca6c264477aa26463ba9bf87a6d4785dab3d1e4eb8829f81a84c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f9ec324c9f00e53e9a73a25fb15fbfd77566236a",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/e792c7774f2bf012411eb15f86a71b1cc8dcdb767d2a90172b7f6724cb835ea3.png",
+      "workingBlob": "f9ec324c9f00e53e9a73a25fb15fbfd77566236a",
+      "sha256": "e792c7774f2bf012411eb15f86a71b1cc8dcdb767d2a90172b7f6724cb835ea3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "855392a0bd6b91c1b2d2803d2506f655bb13cb73",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/ed4d428f094faff8428c0fe63e9384c6e8dca7a2aade40db49c875cce2953a91.png",
+      "workingBlob": "855392a0bd6b91c1b2d2803d2506f655bb13cb73",
+      "sha256": "ed4d428f094faff8428c0fe63e9384c6e8dca7a2aade40db49c875cce2953a91",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9ae92fd17ac0b0c580a4ff80477f1f9f211bf213",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/ed4ecbabe98d093c47a1e3de1977288ddc1dc973f1805a0c0f07405d0baf7f2c.png",
+      "workingBlob": "9ae92fd17ac0b0c580a4ff80477f1f9f211bf213",
+      "sha256": "ed4ecbabe98d093c47a1e3de1977288ddc1dc973f1805a0c0f07405d0baf7f2c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2d82c921cdba2b6c351cbfade03e47d531d1ebed",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/f0114906482e4e3be10d5b4e227ee80018b4ee9f44f6697ec539045d430c11c7.png",
+      "workingBlob": "2d82c921cdba2b6c351cbfade03e47d531d1ebed",
+      "sha256": "f0114906482e4e3be10d5b4e227ee80018b4ee9f44f6697ec539045d430c11c7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d0491bd67fc76f55eb7491356273661d69c08498",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/f09f4f5cce5961be363de6895327f460713d90dd4a2e4ae1ba5dd3f051fac3ba.png",
+      "workingBlob": "d0491bd67fc76f55eb7491356273661d69c08498",
+      "sha256": "f09f4f5cce5961be363de6895327f460713d90dd4a2e4ae1ba5dd3f051fac3ba",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "23836a879424e748d004e115ef2731d378c4d2d6",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/f2d05b5a03c09fcbab161bdf38133da1c3addaec4e096dacb17cdd6e7370857e.png",
+      "workingBlob": "23836a879424e748d004e115ef2731d378c4d2d6",
+      "sha256": "f2d05b5a03c09fcbab161bdf38133da1c3addaec4e096dacb17cdd6e7370857e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d0f6f91555dc13c9fed2879d61820bbebbfd5d1a",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/f3ecc114d250f3a0d071ebadb7d5d2268db78bd3b3acebc3d114ae4171facb47.png",
+      "workingBlob": "d0f6f91555dc13c9fed2879d61820bbebbfd5d1a",
+      "sha256": "f3ecc114d250f3a0d071ebadb7d5d2268db78bd3b3acebc3d114ae4171facb47",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1393775e2dfe40bacc6aa3110a8fdcde0ea6f1af",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/f5777e0e3c4cdd7f8f6daecd29b15ec964dcbd5095155230d92c78913c24cef5.png",
+      "workingBlob": "1393775e2dfe40bacc6aa3110a8fdcde0ea6f1af",
+      "sha256": "f5777e0e3c4cdd7f8f6daecd29b15ec964dcbd5095155230d92c78913c24cef5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "45a3a6af0ac3b4910f5308ee0216e7c6cee394eb",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5.png",
+      "workingBlob": "45a3a6af0ac3b4910f5308ee0216e7c6cee394eb",
+      "sha256": "fa85592464b4a7d1d37032dc94df0d913415d943b92f92bed543edf1127565e5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "146c7f11895e14a99f44256148ccd7aeea5789d7",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/fbd63503bcfc84b349a52e0de59709d83d2731c240362893a173d90ed03a3b72.png",
+      "workingBlob": "146c7f11895e14a99f44256148ccd7aeea5789d7",
+      "sha256": "fbd63503bcfc84b349a52e0de59709d83d2731c240362893a173d90ed03a3b72",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1b4ddee4f0c1610b027fb3030d1a1b409b9ec599",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/fe3efca32ea3dca269f1f6b64213197526dc4e3641e78553eaf82fa3c3a8bc56.png",
+      "workingBlob": "1b4ddee4f0c1610b027fb3030d1a1b409b9ec599",
+      "sha256": "fe3efca32ea3dca269f1f6b64213197526dc4e3641e78553eaf82fa3c3a8bc56",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1c8bd70d814c73f3fd026aba884f5b373af7e8a1",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-art/feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3.png",
+      "workingBlob": "1c8bd70d814c73f3fd026aba884f5b373af7e8a1",
+      "sha256": "feea4ee6cc1421cd6a72b3fb6d6a359ee43c63d709f3530b04d819ada59693f3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b49893ca66e39246a9224681fbeba285e817d094",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/01-building-desktop.png",
+      "workingBlob": "b49893ca66e39246a9224681fbeba285e817d094",
+      "sha256": "0e7582ebdac6109b8edf7e373915f2c7a3db345b127940d3bb996e140d61c252",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c9a5ab83d76c7fc6b135138f9129af1d82aadaca",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/01-building-ipad.png",
+      "workingBlob": "c9a5ab83d76c7fc6b135138f9129af1d82aadaca",
+      "sha256": "505c4e30356a7d5f1da3b9886233c0d3bc5e8f2edbe0a17eee7e764cefaed8b8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ddda61184486095d9eaee4f876f6d0bda6b03d97",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/02-choose-keeper-desktop.png",
+      "workingBlob": "ddda61184486095d9eaee4f876f6d0bda6b03d97",
+      "sha256": "8e95f9956eca221206ac8ef411385929c96a5d614f84797726e56bf573d00003",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5a96d133c106d9a167bcd88f4461a0697b89ca16",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/02-choose-keeper-ipad.png",
+      "workingBlob": "5a96d133c106d9a167bcd88f4461a0697b89ca16",
+      "sha256": "3c0d9c33b838c9614c5fe6a882241b6c69cd39ec3350d2c640077d32dac0dec7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "69056d7459745ed4832b73668d3aef13c3e5b6ae",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/03-combination-preview-desktop.png",
+      "workingBlob": "69056d7459745ed4832b73668d3aef13c3e5b6ae",
+      "sha256": "96a8e18910cb7fec8fbed33c2d7d17b055cdd4df8fb7beb3399a905e82aed988",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0378e0c01060db40bd2dbdab5ae93330ddb04973",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/03-combination-preview-ipad.png",
+      "workingBlob": "0378e0c01060db40bd2dbdab5ae93330ddb04973",
+      "sha256": "815de2a0e744b944cb7f4188ebbaa626796b121940d83b6d1dd0482b89a35e6e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "bc3150612ff55d2b39bc00ec85dff098b7a16ece",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/04-ready-defender-desktop.png",
+      "workingBlob": "bc3150612ff55d2b39bc00ec85dff098b7a16ece",
+      "sha256": "a3f5c09530d5dc44f2fcd52916da91c99c55305e1b755644b745515fbcb43b84",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "07c15c3c0e618c1616d44ca2305d5e4626bbd0d6",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/04-ready-defender-ipad.png",
+      "workingBlob": "07c15c3c0e618c1616d44ca2305d5e4626bbd0d6",
+      "sha256": "37478132a8fff034c74644c980cdce3154c46d6aa0afe55784e0a93b3f092499",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "81525859b23bc1be02344db53fc5fd953c59bbf6",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/05-combat-desktop.png",
+      "workingBlob": "81525859b23bc1be02344db53fc5fd953c59bbf6",
+      "sha256": "3c692d21b49166bf980aad690e6dec11074d65466bd8be7861124a3f6c8a0c6a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f22c6952137e5693a45c2a30e9faac7f074237b8",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/05-combat-ipad.png",
+      "workingBlob": "f22c6952137e5693a45c2a30e9faac7f074237b8",
+      "sha256": "bf67695a89ac624441607daf584ed8830afbf6713e4c50fce18883dd7e01a5ac",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "db53a48c99b876b03a55e285befbc936fc86461e",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/06-current-wave-desktop.png",
+      "workingBlob": "db53a48c99b876b03a55e285befbc936fc86461e",
+      "sha256": "bf13592f91a2e7f8426de1fbe1dcdedca91afc64abd1fc12a8bedddffd4b0237",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "015680c68910d79f7620a02f2e28d15da4ed1ee8",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/06-current-wave-ipad.png",
+      "workingBlob": "015680c68910d79f7620a02f2e28d15da4ed1ee8",
+      "sha256": "95d3c32561f2ba4ee9e4f84fa00500dab34a0989818c472488f1dabcfa3ec811",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "86a5394c7e52ded7abbd49d58f00877d239beb58",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/07-future-waves-desktop.png",
+      "workingBlob": "86a5394c7e52ded7abbd49d58f00877d239beb58",
+      "sha256": "1d57797d02dbb962dd929865e0989f6adedd44b3454af72dac4c6e4f4f4e922a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8ac64fca6155435960fcf1767526c134b3cd1bc6",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/07-future-waves-ipad.png",
+      "workingBlob": "8ac64fca6155435960fcf1767526c134b3cd1bc6",
+      "sha256": "9850763d5c63b8f122434a29c2d3cf6ea5f8b02a01a45bbff8c340dcc512e6a9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "49c1e0ee5a818c6458c0d568633f03c8234baad9",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/08-recipe-catalog-desktop.png",
+      "workingBlob": "49c1e0ee5a818c6458c0d568633f03c8234baad9",
+      "sha256": "91853ce371664d9a36a984cbbab6faff3fdee6d973611f40eb7b11ecc7ae0332",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cc0614d89a5e62a7ebd6284df2e5dbb1b5787cda",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/08-recipe-catalog-ipad.png",
+      "workingBlob": "cc0614d89a5e62a7ebd6284df2e5dbb1b5787cda",
+      "sha256": "f45183178400d5145c6ca9592b1e25f496454db61b2ce4c483490ad9b711e817",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "dce341cd80a083f0d89f2e1736000f726528059c",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/09-recipe-navigation-desktop.png",
+      "workingBlob": "dce341cd80a083f0d89f2e1736000f726528059c",
+      "sha256": "e303fbda47bc878e982b1d8c993a8e8bb471ff06858b5fca1f871e549b19d486",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ec9aef449f0911489f4f6c90e4334a3832d12800",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/09-recipe-navigation-ipad.png",
+      "workingBlob": "ec9aef449f0911489f4f6c90e4334a3832d12800",
+      "sha256": "68e8b0acde0afc38dbf004822875fb796652caf2713251162b62d526c50b5172",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5de5d22f3c2f01b58f17bd2de2ba90c137a68d6b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/10-three-combinations-desktop.png",
+      "workingBlob": "5de5d22f3c2f01b58f17bd2de2ba90c137a68d6b",
+      "sha256": "b5e57334b92c2bc07834dc09897a3a33f864f0f5c9321c7066c27c7d9f4addf9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c3573bd3e144027d1a1ab9e19a51a5d67e90abd8",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/10-three-combinations-ipad.png",
+      "workingBlob": "c3573bd3e144027d1a1ab9e19a51a5d67e90abd8",
+      "sha256": "8b4781ed53d5c6d48944a32319421022d9a522438af37f18ad73d0e6e7e0ac2a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d228021b73012a03942bca49d70108fb6dcfddc0",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/11-rank-comparison-desktop.png",
+      "workingBlob": "d228021b73012a03942bca49d70108fb6dcfddc0",
+      "sha256": "fe7c5183b301b134ba46fdaca4a3779b15f8586176fc12a5eecd25867dc4299b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4f4284d95ebb43e9b7076cbf043eda6fa5fbe19b",
+      "file": "docs/ui-cartographers-table-handoff-20261016/reference-ui/11-rank-comparison-ipad.png",
+      "workingBlob": "4f4284d95ebb43e9b7076cbf043eda6fa5fbe19b",
+      "sha256": "7c1123843148f4ef38a02679f3cf261b0cbebb41892267187e497d7c0d801f4e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "990ba7006db4c90c05c2ef353eb9086403119af8",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/contact-dark-01.jpg",
+      "workingBlob": "990ba7006db4c90c05c2ef353eb9086403119af8",
+      "sha256": "04d6d9f6c8e6ce16d82c17f8b9ecb34a369fc73dfe4c60800e1c7cdc3fcbbc14",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b841a5b88bb4f244cab68ae8a55ea6a004045b2a",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/contact-dark-02.jpg",
+      "workingBlob": "b841a5b88bb4f244cab68ae8a55ea6a004045b2a",
+      "sha256": "a4a3e988279a8aab682b86ca308ee579eaf12093b4d929dbd82120a30b6761e5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f6eb2849d9431cd8be8da1dd8360a5c24111e0a8",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/contact-dark-03.jpg",
+      "workingBlob": "f6eb2849d9431cd8be8da1dd8360a5c24111e0a8",
+      "sha256": "0c33e9698f03bc24964b75f831a24592d2ebf6a6d39241ec22a81dc91db00acf",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "993c9390b38a02c61097dbf3274bf999ef4b4332",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/contact-dark-04.jpg",
+      "workingBlob": "993c9390b38a02c61097dbf3274bf999ef4b4332",
+      "sha256": "ec8fda42a8fbba8ae20f8a5c3dfe3cb711a98ddf2955f6ef59eac263d986e8ed",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e14df3b1098981d5cc441652fb019130829b96be",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/contact-paper-01.jpg",
+      "workingBlob": "e14df3b1098981d5cc441652fb019130829b96be",
+      "sha256": "9f2fd5ba11616e5e3b184f5bdf786eda826bca79c4d47abcfa41a873caf7e07d",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a2b6f3cb768b7dbc1980dee28f122c21fa73273e",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/contact-paper-02.jpg",
+      "workingBlob": "a2b6f3cb768b7dbc1980dee28f122c21fa73273e",
+      "sha256": "6474eb750b022c91fd3fa1a9d4fcf6fbd30cfbf266df59d40b11e1dd3d57ffa9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a91ff30cdf7facb3b3dedf9dcc9218a45a545362",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/contact-paper-03.jpg",
+      "workingBlob": "a91ff30cdf7facb3b3dedf9dcc9218a45a545362",
+      "sha256": "8c4eff15f7043bb9a1f58bb7021913a74010f68f363e6455a41bba45442694fa",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8b338e27af033aa71e8d9164ce1c85497fbf369d",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/contact-paper-04.jpg",
+      "workingBlob": "8b338e27af033aa71e8d9164ce1c85497fbf369d",
+      "sha256": "13e46773643a71019fd10319f5032d660976b3dea89f6381aa0d7fa312db8278",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9ebe34877e936c0ccb98ecff1c3262868bf8e0e2",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/detail-dark-host_44.jpg",
+      "workingBlob": "9ebe34877e936c0ccb98ecff1c3262868bf8e0e2",
+      "sha256": "d2623e8f00aa43010b45772443c611d3bfcf46239b1607b6b500e209281777ab",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2e0d448810b73b361c956e5d936dd0793b3e9d55",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/detail-dark-host_50.jpg",
+      "workingBlob": "2e0d448810b73b361c956e5d936dd0793b3e9d55",
+      "sha256": "e301acf21a5e702ec4ed78f427574a8b764969b63ffffc0fa832706ac8dc5489",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "303c48f099fcffa9dba5740ed73c0c3a076000a8",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/raw-detail-host_19.png",
+      "workingBlob": "303c48f099fcffa9dba5740ed73c0c3a076000a8",
+      "sha256": "9e37259f3cb61b5e000346ff3906e902ac7ec078c0a6021f792b2059db88923f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2514262aa295ace05080a4732d709eee936a4fbe",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/raw-detail-host_21.png",
+      "workingBlob": "2514262aa295ace05080a4732d709eee936a4fbe",
+      "sha256": "e886a7f783654d05c9d08b810113eb296b18b258ef555d04be94edf9cb10a2b5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "782b8d72d4613115bcad2cecf70a249dd53db28a",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/raw-detail-host_44.png",
+      "workingBlob": "782b8d72d4613115bcad2cecf70a249dd53db28a",
+      "sha256": "501dbf55e65ba51f5c27189300f2587b7e165bc550a236deeccad6286c6cf3d1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "7b0aaab92a4c199da73ab7c24774e2a8e04da3b3",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/raw-detail-host_50.png",
+      "workingBlob": "7b0aaab92a4c199da73ab7c24774e2a8e04da3b3",
+      "sha256": "b6429587e8950d7b8e35ef83f2004b36f7c5400297a4bc60369b23eb0a6be027",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "166d941737fb7106d3ad7ef2cff22d238d263987",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/raw-front-01.jpg",
+      "workingBlob": "166d941737fb7106d3ad7ef2cff22d238d263987",
+      "sha256": "e546a30b682a47f65f6c0cbff8907638e0f36f67657a25d4b5031d33cbbf2bd6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "369173c204357fc74df88fe1a09d5b5010899639",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/raw-front-02.jpg",
+      "workingBlob": "369173c204357fc74df88fe1a09d5b5010899639",
+      "sha256": "4bbd3246beaa52ee3ef8f4c012c9ae4571df7867d750c6bad3f375b51412aa2e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ba98effa7ac16b4c39bcf300e7cc72e63702ca5d",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/raw-front-03.jpg",
+      "workingBlob": "ba98effa7ac16b4c39bcf300e7cc72e63702ca5d",
+      "sha256": "c940484fc1e33b2bc0b5aad7617d65bd8a70f2e79d65f66fb963d9797dd6cb35",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "3ed8b198ad09e4227e85d539466a8eba8a63eea6",
+      "file": "output/design/ui-refinements-v043-20261018/front-enemies/raw-front-04.jpg",
+      "workingBlob": "3ed8b198ad09e4227e85d539466a8eba8a63eea6",
+      "sha256": "51f885eee52e91466ccbfdb2a2229b2b5026e3eb3afdf6ac329d6a7ef3d0c087",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2e262fc1ff4dc3fb1377af9d6a67e9a2c5bdcd75",
+      "file": "public/assets/ui/portrait-variants/lord-bernhard-crimson-reference.png",
+      "workingBlob": "2e262fc1ff4dc3fb1377af9d6a67e9a2c5bdcd75",
+      "sha256": "e57b84ce6650d7633003e7599ec064f310cfc408ed70de5af2e9d75e8b8cce32",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "3d262ca9535c1f953b462243f3e644728a5391d8",
+      "file": "public/assets/ui/reference-cutouts/archangel.png",
+      "workingBlob": "3d262ca9535c1f953b462243f3e644728a5391d8",
+      "sha256": "0a1d7275ec09cdd7755ceb91fa12151ba6ea259d0bdb6fda9c9d4fd547b0f802",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2ab026024257a7163f0dfa3e2608413af66c9489",
+      "file": "public/assets/ui/reference-cutouts/archbishop.png",
+      "workingBlob": "2ab026024257a7163f0dfa3e2608413af66c9489",
+      "sha256": "c15e6885873b64e6fd03c7317b9dae6f4bbc67bce80e3b36cbecc7a6300d6ebd",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8e4532c736f7db22f73c789502945583dd10cb82",
+      "file": "public/assets/ui/reference-cutouts/archer-1.png",
+      "workingBlob": "8e4532c736f7db22f73c789502945583dd10cb82",
+      "sha256": "d4114409b9d4e001cfc2a53e36ea86e1e04703fe9a3f1f772c8358c2a34580c0",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e9c836fec366cb3d4014349082345a1e0126d57d",
+      "file": "public/assets/ui/reference-cutouts/archer-2.png",
+      "workingBlob": "e9c836fec366cb3d4014349082345a1e0126d57d",
+      "sha256": "15596d31b88c7a3272bfa15079fe34edc58ede2f5e2c464f87a4dbecfe04f212",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4bb7864326369eebb205a6098e4e0c97f1869cb3",
+      "file": "public/assets/ui/reference-cutouts/archer-3.png",
+      "workingBlob": "4bb7864326369eebb205a6098e4e0c97f1869cb3",
+      "sha256": "4759b146271f53a34cb7775e59989162906e5008bdbbbc04e97bfc8bf35760e1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c798975ca4b0b8364a229fc58b637a2a5968fca6",
+      "file": "public/assets/ui/reference-cutouts/archer-4.png",
+      "workingBlob": "c798975ca4b0b8364a229fc58b637a2a5968fca6",
+      "sha256": "d3e17feaf030c98997e33d2cfd530c19f3b41adc43232ee82a968146207ac826",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5f8d30f3a62272502f3733ec1dec276cac924da0",
+      "file": "public/assets/ui/reference-cutouts/archer-5.png",
+      "workingBlob": "5f8d30f3a62272502f3733ec1dec276cac924da0",
+      "sha256": "7fe5f38596b69bb252f4f4215432e20e520bf08326fabedb497db84dfbb49a83",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b9eefff6630c36e2efe817ca0d4b92866d0efce1",
+      "file": "public/assets/ui/reference-cutouts/archer-6.png",
+      "workingBlob": "b9eefff6630c36e2efe817ca0d4b92866d0efce1",
+      "sha256": "5eb2133bc28535928fc915e34955e05306bd414564147da5ea14d53bc6d7e204",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c41d3ea19e3e4a559e32dc09be654506c2676289",
+      "file": "public/assets/ui/reference-cutouts/cleric-1.png",
+      "workingBlob": "c41d3ea19e3e4a559e32dc09be654506c2676289",
+      "sha256": "6eccc495f235e41a52c1634ca73389659bfa29a13ae8d90cc9a916b605a2fa7d",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a71e733cc446bb4636766d87fb78ba958093cdb6",
+      "file": "public/assets/ui/reference-cutouts/cleric-2.png",
+      "workingBlob": "a71e733cc446bb4636766d87fb78ba958093cdb6",
+      "sha256": "8378550fa4337158924ec3788abb5e95a0c83e46336ca000e21bb39e343ac9ac",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cb661cb759cef1a0692c83fbc3e4bef46a84bb87",
+      "file": "public/assets/ui/reference-cutouts/cleric-3.png",
+      "workingBlob": "cb661cb759cef1a0692c83fbc3e4bef46a84bb87",
+      "sha256": "3613564767fe3caa9c6dc77d9401d19078c672956edad0984942f82a5a9ef89e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fd33223c602cbd018bb894cea4e44f6e09228458",
+      "file": "public/assets/ui/reference-cutouts/cleric-4.png",
+      "workingBlob": "fd33223c602cbd018bb894cea4e44f6e09228458",
+      "sha256": "e92c6af9549bea497954d29f6f5b0cf50684b044d6e6397b2d6b1b04f7d8d318",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ecd5f87c3046028eb46da51f2eac6b90e7772c9f",
+      "file": "public/assets/ui/reference-cutouts/cleric-5.png",
+      "workingBlob": "ecd5f87c3046028eb46da51f2eac6b90e7772c9f",
+      "sha256": "24d977b8444f2307da93724c25a7f36e98933061739d12028e6dec4aa05f92e5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f43fcbcb794fb06cacbb240c3d2c7b19b34ff3a1",
+      "file": "public/assets/ui/reference-cutouts/cleric-6.png",
+      "workingBlob": "f43fcbcb794fb06cacbb240c3d2c7b19b34ff3a1",
+      "sha256": "d9f7999b78be8f0de77d5005dffac2983bd5f4cb5c8f53b5f32868d1dc283bbf",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "24a356c9ac54f2176c6b6a4bd292f8219ed8ecba",
+      "file": "public/assets/ui/reference-cutouts/crownofages.png",
+      "workingBlob": "24a356c9ac54f2176c6b6a4bd292f8219ed8ecba",
+      "sha256": "f394024225a593c8e0efc8b519847967457486d4f51339c0e5e7efe7d16b32e5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "20c4c69c39cd80914d5b1fda1c7ed71d70d85666",
+      "file": "public/assets/ui/reference-cutouts/dawnspire.png",
+      "workingBlob": "20c4c69c39cd80914d5b1fda1c7ed71d70d85666",
+      "sha256": "ca79204ecf0bd9484bf3eaa4ba7c78b478bbdbe04f4cc06cf054b810550e204e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "19aca14cbb648c44197440db53f10bdba106977f",
+      "file": "public/assets/ui/reference-cutouts/druid-1.png",
+      "workingBlob": "19aca14cbb648c44197440db53f10bdba106977f",
+      "sha256": "ea3a7a2ff622c0b8941c3e57ee48d59cdb93406eb5e6d7d5237ff85fb7967587",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ae4810af9f075bdd4c1f0c547c7a46ef1f08edfc",
+      "file": "public/assets/ui/reference-cutouts/druid-2.png",
+      "workingBlob": "ae4810af9f075bdd4c1f0c547c7a46ef1f08edfc",
+      "sha256": "fab3acc10633ffe5ea73e913267c689b0da2a37c6c5b3cdf5f237b534560c612",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fe7c508f5e180618ad0256b3dc951dc5b97bebb7",
+      "file": "public/assets/ui/reference-cutouts/druid-3.png",
+      "workingBlob": "fe7c508f5e180618ad0256b3dc951dc5b97bebb7",
+      "sha256": "75bf20974a26fafd373ee0ee0bef74c23a7a228a7d4339e179e251b311d3b02d",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ce72af2d5f60ff4bdd4b4fcf6c7894a1aeabf705",
+      "file": "public/assets/ui/reference-cutouts/druid-4.png",
+      "workingBlob": "ce72af2d5f60ff4bdd4b4fcf6c7894a1aeabf705",
+      "sha256": "f497dd578bf295abee860adc6c9f6cfe7ec187f0c48dad6219ad4066ca97a84f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cc22c414454ce58d9e47eec650df8ea2a236894b",
+      "file": "public/assets/ui/reference-cutouts/druid-5.png",
+      "workingBlob": "cc22c414454ce58d9e47eec650df8ea2a236894b",
+      "sha256": "58a2375f9ddf84240ad82b431b4633afc635e439cbbdc4b49576e4b9960236a6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5b305d2e14efa2868d17c36f9f3cc7eda6508d29",
+      "file": "public/assets/ui/reference-cutouts/druid-6.png",
+      "workingBlob": "5b305d2e14efa2868d17c36f9f3cc7eda6508d29",
+      "sha256": "4fa890dd0aa66985f1ce8e21d362d21f7f5d7f79c0a6a283b49d34d1e2d20872",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "29d414dc220d6adb8507fee2c2645961792b5393",
+      "file": "public/assets/ui/reference-cutouts/eldergrove.png",
+      "workingBlob": "29d414dc220d6adb8507fee2c2645961792b5393",
+      "sha256": "93efa71eb685feafeddc16d5a7c92a5f3e18394d8af2d04a3a5e5d4263c531b4",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ea1041b8a498a7118345044756e2449065b1832e",
+      "file": "public/assets/ui/reference-cutouts/elvenking.png",
+      "workingBlob": "ea1041b8a498a7118345044756e2449065b1832e",
+      "sha256": "d02c775d5f64a1324553d34d3e11b045633789b06c42ae081a4c27f2a002c9ad",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "01e2693685fbc1be8e2b2569184b28af0be7ccaf",
+      "file": "public/assets/ui/reference-cutouts/embercrown.png",
+      "workingBlob": "01e2693685fbc1be8e2b2569184b28af0be7ccaf",
+      "sha256": "75677b52b2232ccd057d9fdf0affa31c8a6aefa6805ca177e5316efeaf337813",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a11034d79de577d0c553b91ed49e8dc3046c2d08",
+      "file": "public/assets/ui/reference-cutouts/emeraldgolem.png",
+      "workingBlob": "a11034d79de577d0c553b91ed49e8dc3046c2d08",
+      "sha256": "e69b89c6b1fa13cc7ed3c45942f357ceede344d0873da16c7e592e5c766d82d7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a42cf2a2879ece86400488d71762600921b832ac",
+      "file": "public/assets/ui/reference-cutouts/fireballista.png",
+      "workingBlob": "a42cf2a2879ece86400488d71762600921b832ac",
+      "sha256": "16d171a0db30a99675ecb3d655b081aa34f659661204f8913774413cea879826",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c7cc3b609b5f42158b812b62bd547f0143e4c6e1",
+      "file": "public/assets/ui/reference-cutouts/frostblade.png",
+      "workingBlob": "c7cc3b609b5f42158b812b62bd547f0143e4c6e1",
+      "sha256": "3a6200fc63c8d5a737a7bd5a9e92248bb10c257451c93e4963acdf346904129c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8f87b3ed43d420408bccde7656376f252db6ffb4",
+      "file": "public/assets/ui/reference-cutouts/frostwarden-1.png",
+      "workingBlob": "8f87b3ed43d420408bccde7656376f252db6ffb4",
+      "sha256": "f4141551f1e6cca9231776021a3cb277932551b0a9b2e070642d17af3b289e21",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "403719736c110bb7afc06a437008481447ec2d68",
+      "file": "public/assets/ui/reference-cutouts/frostwarden-2.png",
+      "workingBlob": "403719736c110bb7afc06a437008481447ec2d68",
+      "sha256": "3256697fec00ed07a46921cd03ddc81aa4d2006050c996bb280bc8d3a88cff26",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "37ac71ee51e9b1220cd89819028f2fc5ee834406",
+      "file": "public/assets/ui/reference-cutouts/frostwarden-3.png",
+      "workingBlob": "37ac71ee51e9b1220cd89819028f2fc5ee834406",
+      "sha256": "8513c9558e71b174624d07f5950bbfc17fae7ceeb0a4749f546ec1b83454ab66",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b4bcc8ed9d15f4c74160b9f62ee29023d4337341",
+      "file": "public/assets/ui/reference-cutouts/frostwarden-4.png",
+      "workingBlob": "b4bcc8ed9d15f4c74160b9f62ee29023d4337341",
+      "sha256": "d68cde8c6736b09e101f2e157efae8e5b1249c41570a9ee564f8512fadb6fcde",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "29fa88cba8f8bad231947c788d03aada312c6bb2",
+      "file": "public/assets/ui/reference-cutouts/frostwarden-5.png",
+      "workingBlob": "29fa88cba8f8bad231947c788d03aada312c6bb2",
+      "sha256": "446ee0e4cd7283d8a7dd9c4381979861093adca365030181867a7fed3f6af8b5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1b82d42396c73771068c85f9ee6511096553f646",
+      "file": "public/assets/ui/reference-cutouts/frostwarden-6.png",
+      "workingBlob": "1b82d42396c73771068c85f9ee6511096553f646",
+      "sha256": "f57269e18346ba710066091442bfc5801e6dde084061ad0fd0d266d9f067f7ee",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b78ef0ce22ea7a79fd0f1091d9864b510ada1183",
+      "file": "public/assets/ui/reference-cutouts/greenheart.png",
+      "workingBlob": "b78ef0ce22ea7a79fd0f1091d9864b510ada1183",
+      "sha256": "beaf8cfc31d6e702da9a19205183b6e76b765e9b7af25b42e554db1a87163db7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "dbb81e7b4a295d196a8b683b0785988e8c956fc6",
+      "file": "public/assets/ui/reference-cutouts/griffinbomber.png",
+      "workingBlob": "dbb81e7b4a295d196a8b683b0785988e8c956fc6",
+      "sha256": "1c8121aadd8c47922e985a317ba90558cb3abb253de6888e386cfb7b1a6ba198",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1872e8c2c5aa26dae5e4565be0f97601167c5a77",
+      "file": "public/assets/ui/reference-cutouts/highking.png",
+      "workingBlob": "1872e8c2c5aa26dae5e4565be0f97601167c5a77",
+      "sha256": "d11d427f5db02d40ca7bcf633b3d31b62951d9635205f7319236dc964f4f9d0e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4591cceafa9d086fa57996cfc6100750195ccb9b",
+      "file": "public/assets/ui/reference-cutouts/host_01.png",
+      "workingBlob": "4591cceafa9d086fa57996cfc6100750195ccb9b",
+      "sha256": "076babe29e66f36e17accb17ccc3dcf4775bbd26047d82075667a5be005e7ff2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cd865a654ba1a5922df479c31f6991bd291be14d",
+      "file": "public/assets/ui/reference-cutouts/host_02.png",
+      "workingBlob": "cd865a654ba1a5922df479c31f6991bd291be14d",
+      "sha256": "5bb46dc44bdc7409a73ac5a7e5f94dd984a602c663255bd80766939abb004a24",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a908b08b295356e20984c176552fc0f868205d9e",
+      "file": "public/assets/ui/reference-cutouts/host_03.png",
+      "workingBlob": "a908b08b295356e20984c176552fc0f868205d9e",
+      "sha256": "5e80b8af5e4c0bd248279dcaaf1a25ff32632d1180cfd504764cbcc39975ab87",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "00f274eef77a6e764f4eeb8d3af53b36affad3dc",
+      "file": "public/assets/ui/reference-cutouts/host_04.png",
+      "workingBlob": "00f274eef77a6e764f4eeb8d3af53b36affad3dc",
+      "sha256": "4bc67d6c6cec2fcfc91bde67f066635d68bf85cbc3ef8b494e266fe445431cde",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4578deb7e646d3c1f7f21fa2469f7e0044d0ab74",
+      "file": "public/assets/ui/reference-cutouts/host_05.png",
+      "workingBlob": "4578deb7e646d3c1f7f21fa2469f7e0044d0ab74",
+      "sha256": "19b6b9d63cebc651c6ded60c0451ac4bf0b4200d7243682c2fe9263578ab838f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2cd3108d29728c401d27a224c8802c881b06a833",
+      "file": "public/assets/ui/reference-cutouts/host_06.png",
+      "workingBlob": "2cd3108d29728c401d27a224c8802c881b06a833",
+      "sha256": "22c911addb32b8461c1f57904ddc920980a0bdd1a53b6574d939ea678e5d321c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "481ff0ffc0cef5059aa2726ce2545d655ae87dd0",
+      "file": "public/assets/ui/reference-cutouts/host_07.png",
+      "workingBlob": "481ff0ffc0cef5059aa2726ce2545d655ae87dd0",
+      "sha256": "d62bf9d4a1131f74b647d22f10b4cd7633232e13071d08a00ca4f2ef7a495faf",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0dd6d0c04add9e40cc3618cc6e251629c6edcfae",
+      "file": "public/assets/ui/reference-cutouts/host_08.png",
+      "workingBlob": "0dd6d0c04add9e40cc3618cc6e251629c6edcfae",
+      "sha256": "093ff7018c2d8a61bfcac0044cc43890894759f1dfea0568115e6bb6ff8c3c48",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a3a0560ff5a5df4a50530f6da57037205bcafe95",
+      "file": "public/assets/ui/reference-cutouts/host_09.png",
+      "workingBlob": "a3a0560ff5a5df4a50530f6da57037205bcafe95",
+      "sha256": "afb21d554cf3896affbf28aa1053269bbc8c0698a7c6d6bf00671854129ab860",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0b450309b8bf662493d4a89e839c9619a2c0a7fb",
+      "file": "public/assets/ui/reference-cutouts/host_10.png",
+      "workingBlob": "0b450309b8bf662493d4a89e839c9619a2c0a7fb",
+      "sha256": "3cd9bedd25f21a6073a013f997501ca5297794f902b01cbaf7bc5cfbdb55a844",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4b7b971619373f845f5b78343ac2e69aa0d6fdba",
+      "file": "public/assets/ui/reference-cutouts/host_11.png",
+      "workingBlob": "4b7b971619373f845f5b78343ac2e69aa0d6fdba",
+      "sha256": "1866f17164d246dfa9f12b8e045665acdbe907a91c6c401e0fc0e85a89fb370b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "68a1d87194191ed90af685b9fa27177f616eca1e",
+      "file": "public/assets/ui/reference-cutouts/host_12.png",
+      "workingBlob": "68a1d87194191ed90af685b9fa27177f616eca1e",
+      "sha256": "c454d5b36159d6504da69087de1dfaee773b5cc20e424dff4fa69603cbca2845",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "681b1c90c7112b9ea569caced02ef4276d172063",
+      "file": "public/assets/ui/reference-cutouts/host_13.png",
+      "workingBlob": "681b1c90c7112b9ea569caced02ef4276d172063",
+      "sha256": "f2864331f0976d5b214e0ebfaf8940e030e58e9f57857b4f7257dfa368286898",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "38aeedd8d97b0e45f973f19e84798c43a17169ba",
+      "file": "public/assets/ui/reference-cutouts/host_14.png",
+      "workingBlob": "38aeedd8d97b0e45f973f19e84798c43a17169ba",
+      "sha256": "7cf937223e00ecff976753062aaa0a4d76d95fe59d0292f2630191fd906b08d2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "7868d78663468bd742530385fd4d789efd052425",
+      "file": "public/assets/ui/reference-cutouts/host_15.png",
+      "workingBlob": "7868d78663468bd742530385fd4d789efd052425",
+      "sha256": "c8f1f313cdd72ea002169f07f6bb106bd7e6d9ff95d981509fbc4d359e291ebb",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "599c3026b2110cf13ef09f18a3df140d751a9a47",
+      "file": "public/assets/ui/reference-cutouts/host_16.png",
+      "workingBlob": "599c3026b2110cf13ef09f18a3df140d751a9a47",
+      "sha256": "4c159ec48ef851378d63d97427f86b384fc7095552cb2eb35ad50661d8c82966",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "3a5f653c933f76d619d2556daefa6cf9dd7dbf95",
+      "file": "public/assets/ui/reference-cutouts/host_17.png",
+      "workingBlob": "3a5f653c933f76d619d2556daefa6cf9dd7dbf95",
+      "sha256": "433d6acd976902da366f02398a8b9a93e1accac10075b91f9a32e38ad3ddb6e6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5bfc9d0167cda8313479105d3b7aa415d2b15663",
+      "file": "public/assets/ui/reference-cutouts/host_18.png",
+      "workingBlob": "5bfc9d0167cda8313479105d3b7aa415d2b15663",
+      "sha256": "ab4d3c6efbb5bba5fa0b57f30a4c5cdb9d46a6816bdec2239937a05c491e6f88",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "70fcd7e708532f59dea1d2f2ae5fe17e91883ace",
+      "file": "public/assets/ui/reference-cutouts/host_19.png",
+      "workingBlob": "70fcd7e708532f59dea1d2f2ae5fe17e91883ace",
+      "sha256": "e17273d1760bd522e264e9b40f2cdb74da6f914c01607693a04f37f6c3fe1f16",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "360bf8435c26c1cee6a8cd83c1ee1e531ea5fc20",
+      "file": "public/assets/ui/reference-cutouts/host_20.png",
+      "workingBlob": "360bf8435c26c1cee6a8cd83c1ee1e531ea5fc20",
+      "sha256": "01dfeae2d8ca0930e5020ebcd96acfc6f1af44e8d34fc1b2554164c01e6b37c1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fa420603e70b6fbb67dcd818160170f29b1de82a",
+      "file": "public/assets/ui/reference-cutouts/host_21.png",
+      "workingBlob": "fa420603e70b6fbb67dcd818160170f29b1de82a",
+      "sha256": "63ba69f12f0fedb35afad8baf17ff1cbd63854e4075695ac8cd44e63c34f28da",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1c7e4cfed2334bad9b208fd0a0ee82652f277008",
+      "file": "public/assets/ui/reference-cutouts/host_22.png",
+      "workingBlob": "1c7e4cfed2334bad9b208fd0a0ee82652f277008",
+      "sha256": "1229a319c9162e0d0f9f36ccdb1e6c4ba9a3006a1d48d44462dde870584f0ab1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "3214c9eee97f10dce68bcd256691b1f181f8e7f4",
+      "file": "public/assets/ui/reference-cutouts/host_23.png",
+      "workingBlob": "3214c9eee97f10dce68bcd256691b1f181f8e7f4",
+      "sha256": "e2edb4eec30575c2562183c6953f669860b3b4017ff5a2bd109ced4fde996512",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cf025ac4b381e970b34ff17945d93ab80cd0fb7d",
+      "file": "public/assets/ui/reference-cutouts/host_24.png",
+      "workingBlob": "cf025ac4b381e970b34ff17945d93ab80cd0fb7d",
+      "sha256": "0da28dc13c927758054c7aee27520a670169fb8c9934f6c9840432f75dd65782",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "663b332efce1e2cfa5517eb88c971ec6689c6908",
+      "file": "public/assets/ui/reference-cutouts/host_25.png",
+      "workingBlob": "663b332efce1e2cfa5517eb88c971ec6689c6908",
+      "sha256": "60858cf5fc017cfd188550f3a95f6c0a08fcae5d4c9587cb4be64f6bc2ee55d9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6e157f78b9190581c70834d106350f0853ade44b",
+      "file": "public/assets/ui/reference-cutouts/host_26.png",
+      "workingBlob": "6e157f78b9190581c70834d106350f0853ade44b",
+      "sha256": "d33165e813f89036859787284bd57fd9d6ca9f642e8def4e413e7e1e6770d9af",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "7c8c62513d274406237b6b0697004ce7c1ebf146",
+      "file": "public/assets/ui/reference-cutouts/host_27.png",
+      "workingBlob": "7c8c62513d274406237b6b0697004ce7c1ebf146",
+      "sha256": "deef4ea8ae2390a36a67b48a5ae887c7b3bce7da67e81da9f597bb3c21b85e45",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5eb8bcf33ca8b266d3c5ee198cd9702609c64a13",
+      "file": "public/assets/ui/reference-cutouts/host_28.png",
+      "workingBlob": "5eb8bcf33ca8b266d3c5ee198cd9702609c64a13",
+      "sha256": "6302e7b838c11e2d8cef67c6b63893793ef4c65dc6b1c009b1bbf3b077373c7e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "82d562e82e6a9b5270f95faa07095c3c9d8a125d",
+      "file": "public/assets/ui/reference-cutouts/host_29.png",
+      "workingBlob": "82d562e82e6a9b5270f95faa07095c3c9d8a125d",
+      "sha256": "2384bdfb6bb9786f3fd534ae58c48a0f199cfaa05f9bce48e37ac14750bc2157",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d7adff16ce13451de861dcb2cdd6a3cd7435a562",
+      "file": "public/assets/ui/reference-cutouts/host_30.png",
+      "workingBlob": "d7adff16ce13451de861dcb2cdd6a3cd7435a562",
+      "sha256": "a101729b593341844509471cf9da3b192bae721d853deb8aaeec2d7aed2fea4c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "229cbd8620edb46da65d6c65398a5ef2638be02b",
+      "file": "public/assets/ui/reference-cutouts/host_31.png",
+      "workingBlob": "229cbd8620edb46da65d6c65398a5ef2638be02b",
+      "sha256": "10cef2a100ba3419be1217d3180f5e25c65298bc0f622afdacaa92af55a99626",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e876fa07bbc6d93e61137b2b511e1489bf054925",
+      "file": "public/assets/ui/reference-cutouts/host_32.png",
+      "workingBlob": "e876fa07bbc6d93e61137b2b511e1489bf054925",
+      "sha256": "b933fa20724c410e20ec4141189b6d8017bf751f903d0351c142563b3642ba36",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "bf0e771e86c17fd92bb1b86e495b6a8e06b37d10",
+      "file": "public/assets/ui/reference-cutouts/host_33.png",
+      "workingBlob": "bf0e771e86c17fd92bb1b86e495b6a8e06b37d10",
+      "sha256": "f1580b33060b02571c72a3adaf13242384a5cea0d4dca30af3d1f155c900d3a4",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "85183335ab0df5cc23028fe1700ca880e5fb863d",
+      "file": "public/assets/ui/reference-cutouts/host_34.png",
+      "workingBlob": "85183335ab0df5cc23028fe1700ca880e5fb863d",
+      "sha256": "873faa9b481e297b1408a105aa027eae264a86ffe1f6c4f094626bb079c5fda7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b1037bc4abedc93e9739b019883dc06bd04644d7",
+      "file": "public/assets/ui/reference-cutouts/host_35.png",
+      "workingBlob": "b1037bc4abedc93e9739b019883dc06bd04644d7",
+      "sha256": "d8df48d8b40dae8e28816f915f97da669cc34e80860e6939dd297fc4d8bb2ce1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e8059d2ec2793c005b8230bd76457e3484808c95",
+      "file": "public/assets/ui/reference-cutouts/host_36.png",
+      "workingBlob": "e8059d2ec2793c005b8230bd76457e3484808c95",
+      "sha256": "d9835f046ceaf8f1bacde75f8d67638498d7297f79a015935a5d82c3890ee4ee",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9edbde285303aecd6444fccd58e62c44ff3c731d",
+      "file": "public/assets/ui/reference-cutouts/host_37.png",
+      "workingBlob": "9edbde285303aecd6444fccd58e62c44ff3c731d",
+      "sha256": "788b459a934e937456f27a9ffafac196cbc6fdbabb9a79eeac0544b385b94f8f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "658038adab2f5a6ce774ba0c4d4795fbdc6128bb",
+      "file": "public/assets/ui/reference-cutouts/host_38.png",
+      "workingBlob": "658038adab2f5a6ce774ba0c4d4795fbdc6128bb",
+      "sha256": "eeb1290da67a47f94da6d513d0a12f2ee4c1ecc463c23d18f7475fbe79d79922",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0564f0cb0f3f65008c12579c1508ada717dccf0c",
+      "file": "public/assets/ui/reference-cutouts/host_39.png",
+      "workingBlob": "0564f0cb0f3f65008c12579c1508ada717dccf0c",
+      "sha256": "d9779d8182a0f66218919c81ca1ad16cc42c18be71160edce25a87c2965b314e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "53c05010f7467989013e401f6fb274e5f2028181",
+      "file": "public/assets/ui/reference-cutouts/host_40.png",
+      "workingBlob": "53c05010f7467989013e401f6fb274e5f2028181",
+      "sha256": "f53bdae95d8689a0df35fc75d09ea38b61479433211d24609d84d1d5fc2e16b3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "00f2f89ba54221e80f05c79db8d924d11643799f",
+      "file": "public/assets/ui/reference-cutouts/host_41.png",
+      "workingBlob": "00f2f89ba54221e80f05c79db8d924d11643799f",
+      "sha256": "216e3e0ad9b5ecc6a004aefdbee2e8ef872d9812c2207db80732d648b9f95207",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "50d272aea06d6ce7334406f46febff736a46532f",
+      "file": "public/assets/ui/reference-cutouts/host_42.png",
+      "workingBlob": "50d272aea06d6ce7334406f46febff736a46532f",
+      "sha256": "f4a7d721bab9aff32a889e1e329de49e3d0a89c56f6126c5ad36f2ec3733b54f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2d9dd3bf69980a3c32b6de13e9d1de8c9c1eba03",
+      "file": "public/assets/ui/reference-cutouts/host_43.png",
+      "workingBlob": "2d9dd3bf69980a3c32b6de13e9d1de8c9c1eba03",
+      "sha256": "ce27149dc2057c249f9622ff954386bcc496f791976af76a5a516340645228a2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9515122b15ce2beb74dcf291ed1f982f27394650",
+      "file": "public/assets/ui/reference-cutouts/host_44.png",
+      "workingBlob": "9515122b15ce2beb74dcf291ed1f982f27394650",
+      "sha256": "f5b0198467a26df83672281c741ec005ae1e394165336ef748c0a195adfe688f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4560443185d4a9e1a19cedf7235a3c344a040961",
+      "file": "public/assets/ui/reference-cutouts/host_45.png",
+      "workingBlob": "4560443185d4a9e1a19cedf7235a3c344a040961",
+      "sha256": "7793583c745fc447dee0d8ce6801e77f9cd63db7239271666bf2a81508bb2999",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "91585056b0b0ffd45acb299de43e6eb11db5112e",
+      "file": "public/assets/ui/reference-cutouts/host_46.png",
+      "workingBlob": "91585056b0b0ffd45acb299de43e6eb11db5112e",
+      "sha256": "fb98939e3cddc81a75be762441d6cd91e3cdf0a7709e5cad1f5b6cbcf0f66ed3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e154d186f85caf1a1e4330a322ccd74acb7451b5",
+      "file": "public/assets/ui/reference-cutouts/host_47.png",
+      "workingBlob": "e154d186f85caf1a1e4330a322ccd74acb7451b5",
+      "sha256": "a9082833388e564666f10d1fcd52fb2dc3705cddc1f30a3e30a25e8263a24e01",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "03647ef8de132a8ae4d2ee0f602006ebdefd9e87",
+      "file": "public/assets/ui/reference-cutouts/host_48.png",
+      "workingBlob": "03647ef8de132a8ae4d2ee0f602006ebdefd9e87",
+      "sha256": "e740e2c8997cf2d33794cd63fef0a38242a3dc63b99db0e49c71558963f3bbd3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "46c9ab68b41bb2738c031a3d257ac924eabd5c55",
+      "file": "public/assets/ui/reference-cutouts/host_49.png",
+      "workingBlob": "46c9ab68b41bb2738c031a3d257ac924eabd5c55",
+      "sha256": "c29ea86c9858ac4c33cdcf750fa133e36e3f0f619a69886b0508ac7fa2ab8160",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8abcf0763167c047b1a7a729b301c4f1bd72595c",
+      "file": "public/assets/ui/reference-cutouts/host_50-crimson.png",
+      "workingBlob": "8abcf0763167c047b1a7a729b301c4f1bd72595c",
+      "sha256": "61a4a3e4dae617b6af817d3f825aee707012adb104b357678465f80272eaa82a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4e843e6b824486c49b7f10534994b130f4df139c",
+      "file": "public/assets/ui/reference-cutouts/host_50.png",
+      "workingBlob": "4e843e6b824486c49b7f10534994b130f4df139c",
+      "sha256": "0e602d1d469d5bcaa8bec82a3e8bef6efc2e147061bcf185bdc663add614146c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ce9587ab8d07ea4da124b64139b001a9c5e46795",
+      "file": "public/assets/ui/reference-cutouts/kingdomprotector.png",
+      "workingBlob": "ce9587ab8d07ea4da124b64139b001a9c5e46795",
+      "sha256": "03d99f3dc1741ab77f2ade0b499c63a01898a9f462ce176e511dfcb5e48b0df9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "3f78b1710bf2ab2bc977a3b61be4d55036fd511d",
+      "file": "public/assets/ui/reference-cutouts/kingsrangerguard.png",
+      "workingBlob": "3f78b1710bf2ab2bc977a3b61be4d55036fd511d",
+      "sha256": "ebab0690e734ef804e1968536b9c8ee3f9e50b29d35de3865bb3774cb4c97813",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5055d125d2449c82666e7a249a8f8bb754ce7cd6",
+      "file": "public/assets/ui/reference-cutouts/kingsreach.png",
+      "workingBlob": "5055d125d2449c82666e7a249a8f8bb754ce7cd6",
+      "sha256": "5b4dca8c1df99615c31e1cfa3f8b0e80c9368ebd30ff7eeb80a3eb4fa24c6050",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "7506d307252c98cbf3ef60d0c93c90883db0f03e",
+      "file": "public/assets/ui/reference-cutouts/ladyclaire.png",
+      "workingBlob": "7506d307252c98cbf3ef60d0c93c90883db0f03e",
+      "sha256": "aa61240b5773b48c5a2d8c204838cf6995edb3987d740ae2a6514c0946322824",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2e48833ce2251d9ba21804cd8c936a0e54fb2a94",
+      "file": "public/assets/ui/reference-cutouts/mage-1.png",
+      "workingBlob": "2e48833ce2251d9ba21804cd8c936a0e54fb2a94",
+      "sha256": "0be88130146e55cba99d41d0fe9d239988b05ef2471d81354bc151554ec261d7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a10a7a4113fb6b7f04f9d2649b0c68af3856c743",
+      "file": "public/assets/ui/reference-cutouts/mage-2.png",
+      "workingBlob": "a10a7a4113fb6b7f04f9d2649b0c68af3856c743",
+      "sha256": "d2777c3ba96a27d3b9bd6e5e74ca791328b264b7ba6b7fb8fa18151cbbee59c5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5b312f8f57b427102ec11f8433bd38129969abe7",
+      "file": "public/assets/ui/reference-cutouts/mage-3.png",
+      "workingBlob": "5b312f8f57b427102ec11f8433bd38129969abe7",
+      "sha256": "05fce441c6e4c8b71080600e4b8eacc985f0772d201ae92c3ab824290375b9a2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "467aee4d6c8c05b9167570876180e2b374d84b40",
+      "file": "public/assets/ui/reference-cutouts/mage-4.png",
+      "workingBlob": "467aee4d6c8c05b9167570876180e2b374d84b40",
+      "sha256": "1ae7bde7603a9e3da85510cdd3e872f9444984c80083a21e3a99a1f274f414d8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "289215a47d70443786a0ecd1a5105bb23bf58ad7",
+      "file": "public/assets/ui/reference-cutouts/mage-5.png",
+      "workingBlob": "289215a47d70443786a0ecd1a5105bb23bf58ad7",
+      "sha256": "934c25be34128ec048ea79f508f9ed26d0a135a571776c709ca879b10af08ff5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "43aa52ca068dccb762afad9de3e11f9451612529",
+      "file": "public/assets/ui/reference-cutouts/mage-6.png",
+      "workingBlob": "43aa52ca068dccb762afad9de3e11f9451612529",
+      "sha256": "00b6b39e5b4c2e0968b7805977a00e2887dd2ed1a5ee407077081d7f6fc1114f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "24bda5cc23bac3e2f0a72dc25f1c88684ca3b94d",
+      "file": "public/assets/ui/reference-cutouts/mechanicalgolem.png",
+      "workingBlob": "24bda5cc23bac3e2f0a72dc25f1c88684ca3b94d",
+      "sha256": "739f4e34519d04031b337704baa946585451902f918cdb857f7b40f6ca3c7141",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c2df32882530ca91ea74432b99442215e9d354bb",
+      "file": "public/assets/ui/reference-cutouts/monk.png",
+      "workingBlob": "c2df32882530ca91ea74432b99442215e9d354bb",
+      "sha256": "e0ea3f6f7c25075b9e4206d47347c29ab0599f557598b9d64dc5505c703ceaf3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b34d3c1ae7d4e5f20fb259acdbdd56223ff54825",
+      "file": "public/assets/ui/reference-cutouts/mothernature.png",
+      "workingBlob": "b34d3c1ae7d4e5f20fb259acdbdd56223ff54825",
+      "sha256": "fc88ddb3906694dbae6ef364280f1e8cdb0dc56d269c7467ce13ff91b3865889",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "96e5cdfbd738fb928b22a32529554511221cf1c5",
+      "file": "public/assets/ui/reference-cutouts/phoenix.png",
+      "workingBlob": "96e5cdfbd738fb928b22a32529554511221cf1c5",
+      "sha256": "54dbe617220065e34f6cf24e788e780e13ca9f7423ded2e4a2aabbd7058b6905",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8fd0a993bc49579bbef952713c5c354f85f82d16",
+      "file": "public/assets/ui/reference-cutouts/rangermentor.png",
+      "workingBlob": "8fd0a993bc49579bbef952713c5c354f85f82d16",
+      "sha256": "2aa1df1b61831157bbfd67479987b450eb0024c8e699d6e8df8d021db8d75a2a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "60fa2d4bd8b6d63735c171568a3f94a0a0c5b520",
+      "file": "public/assets/ui/reference-cutouts/rimewatch.png",
+      "workingBlob": "60fa2d4bd8b6d63735c171568a3f94a0a0c5b520",
+      "sha256": "7bec3134c347c45d631899f9bd969fa0aa7c1d98d28606f4413db120c9c586f8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b78badaf78b9b12ab3d9ae020344937ef55b92a0",
+      "file": "public/assets/ui/reference-cutouts/roseguard.png",
+      "workingBlob": "b78badaf78b9b12ab3d9ae020344937ef55b92a0",
+      "sha256": "261bb120c5adcd5baff8b0e38ee3ba8104e8d60555cbf78da27fe58f81e7de93",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "de5abf688ba6d299dfc92374d819316a4366efd1",
+      "file": "public/assets/ui/reference-cutouts/royalarsenal.png",
+      "workingBlob": "de5abf688ba6d299dfc92374d819316a4366efd1",
+      "sha256": "36e90a72923c13159e7936976f9645aa0bf7ca1f0d715321e54f3226d5306000",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "74bce7a072b438b1655651c62ac8721bf4fcd39a",
+      "file": "public/assets/ui/reference-cutouts/royalmarshal.png",
+      "workingBlob": "74bce7a072b438b1655651c62ac8721bf4fcd39a",
+      "sha256": "8f8dadfc1fcc0f3ee83c3fb0446d763811fc14cd0d11c20bf4f576a756ef9794",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8e89423c3c45624aacf7862672e2a1ee9613cf18",
+      "file": "public/assets/ui/reference-cutouts/royalranger.png",
+      "workingBlob": "8e89423c3c45624aacf7862672e2a1ee9613cf18",
+      "sha256": "bbcdf7ce94978ee62fd6b0ec9ae763ff6978c9fc3326c33d9a9c0b87f361d042",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9943952e26a85f82523f969db824901410b35512",
+      "file": "public/assets/ui/reference-cutouts/runebreaker-1.png",
+      "workingBlob": "9943952e26a85f82523f969db824901410b35512",
+      "sha256": "bad0d01ba508a78ceaf9b69718227596a8721879aedf180fb4dfe7ff832d20b2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c7064a2b361f2aafb2fe4b591bf4efa465df5a95",
+      "file": "public/assets/ui/reference-cutouts/runebreaker-2.png",
+      "workingBlob": "c7064a2b361f2aafb2fe4b591bf4efa465df5a95",
+      "sha256": "40b178fe1e8ea06b62182eb7ff252bdedc231005aebc7487fdaf60958c94202e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6ca67ac601047b550cdfebe4fdc8350f9e019612",
+      "file": "public/assets/ui/reference-cutouts/runebreaker-3.png",
+      "workingBlob": "6ca67ac601047b550cdfebe4fdc8350f9e019612",
+      "sha256": "5e809fd9cdcbef609e833ae7d093c4c9bf793fe4dd9d349e609a51ea971a580a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "aa7edc0474cf6a3f01257cff1a901e1beffc2876",
+      "file": "public/assets/ui/reference-cutouts/runebreaker-4.png",
+      "workingBlob": "aa7edc0474cf6a3f01257cff1a901e1beffc2876",
+      "sha256": "50f464c8459abf2fe1481bf396b8e70ba7f5bb6c028483e1f0a7ead29c7ea97d",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c60eac90dd236b2beac2e2932612ea78d23d5ee0",
+      "file": "public/assets/ui/reference-cutouts/runebreaker-5.png",
+      "workingBlob": "c60eac90dd236b2beac2e2932612ea78d23d5ee0",
+      "sha256": "ec71167644b2f3b5d691141d200b1c5fc88b3be31f7e8efe7b16a1546026dbac",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f539fca2a31a0bc15aa5336f6f6358fecaf0be64",
+      "file": "public/assets/ui/reference-cutouts/runebreaker-6.png",
+      "workingBlob": "f539fca2a31a0bc15aa5336f6f6358fecaf0be64",
+      "sha256": "009cdca0be5e9e6b2447066af14e32e26b6e3accf2cdbcdeff7aade24f2d33f5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "3f5442c261269e80d63140811d47384385091a5e",
+      "file": "public/assets/ui/reference-cutouts/soldier-1.png",
+      "workingBlob": "3f5442c261269e80d63140811d47384385091a5e",
+      "sha256": "27e0b1e9e2d9528608c18e6cb7af503731c64232d18cd2a1875cc79464aee945",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5e4d738c07349d1e35e8a672f203ce8c42b47f17",
+      "file": "public/assets/ui/reference-cutouts/soldier-2.png",
+      "workingBlob": "5e4d738c07349d1e35e8a672f203ce8c42b47f17",
+      "sha256": "05d1a60e938a807dcac4d7facbe5cacd06f69d477c0ca850431f6dc93016425f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d890852d29ad8d8642b864678b386e83a4b251cf",
+      "file": "public/assets/ui/reference-cutouts/soldier-3.png",
+      "workingBlob": "d890852d29ad8d8642b864678b386e83a4b251cf",
+      "sha256": "3f143a045e38df89007c684d403c2cc602a1b5b4a2eed1d18a8da4ad25a1afd2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0771f41df8a114a462146ac18cc77f24322bda96",
+      "file": "public/assets/ui/reference-cutouts/soldier-4.png",
+      "workingBlob": "0771f41df8a114a462146ac18cc77f24322bda96",
+      "sha256": "153b3a6e7cb65a1fabdd9d75c0e2e0df5e96835f3e9981e85331a90e54fd1a75",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "eb158273f2fdc188d7fd583a6c5d169118866dc4",
+      "file": "public/assets/ui/reference-cutouts/soldier-5.png",
+      "workingBlob": "eb158273f2fdc188d7fd583a6c5d169118866dc4",
+      "sha256": "dbb6195c07210aa285bd0d4bfbcf987ce6597a1f1a145aa15f8f069a6fb36f37",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "257dbfe943c29df27044bc2d8b609c37ce937208",
+      "file": "public/assets/ui/reference-cutouts/soldier-6.png",
+      "workingBlob": "257dbfe943c29df27044bc2d8b609c37ce937208",
+      "sha256": "73c7c37f2bad3891f2c9f1b78443fe32bebb45deba077339dc9175cd6b975bf6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c953e2c561f036f5f185e2466d7fcfcaadff94a4",
+      "file": "public/assets/ui/reference-cutouts/starfall.png",
+      "workingBlob": "c953e2c561f036f5f185e2466d7fcfcaadff94a4",
+      "sha256": "380b698287247979d32b4888a2990742f369ce27b9f3b23a86e7bfb5fdb39790",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "30a724fc618efd4e2ae7faae5b9c0249ba271acf",
+      "file": "public/assets/ui/reference-cutouts/stonewarden.png",
+      "workingBlob": "30a724fc618efd4e2ae7faae5b9c0249ba271acf",
+      "sha256": "a35aefca825aefb1b898f9fab45fe832d52ed9d2990cc6d5d20d048477748c71",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b57cedf8bef99124208701f6d18c6bc256d32216",
+      "file": "public/assets/ui/reference-cutouts/stormcaller-1.png",
+      "workingBlob": "b57cedf8bef99124208701f6d18c6bc256d32216",
+      "sha256": "6aca3213faba89ca3ec1a5b7a784c022dad1199fc93ab9129447afa1004dbb88",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "45cd3c900961070eadfcd037322cce1e44de376a",
+      "file": "public/assets/ui/reference-cutouts/stormcaller-2.png",
+      "workingBlob": "45cd3c900961070eadfcd037322cce1e44de376a",
+      "sha256": "f5189a5612cbb27c6aae1fc6c0e384ba212104b1bfb715473aeb035a0e456f81",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c6bd311322ca655f5a247573b52367024c5d478d",
+      "file": "public/assets/ui/reference-cutouts/stormcaller-3.png",
+      "workingBlob": "c6bd311322ca655f5a247573b52367024c5d478d",
+      "sha256": "680732555d73d0dd068f4d40f678c0b5bc35f5563a49aadcea72e3a6a63a2a60",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8d940e490992c43cbdc61324fe77379ee5a7a107",
+      "file": "public/assets/ui/reference-cutouts/stormcaller-4.png",
+      "workingBlob": "8d940e490992c43cbdc61324fe77379ee5a7a107",
+      "sha256": "cee5afc04478825a39e2909247685713660026584ed0e532a551dcb3490bf6d6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0943dce09638f8772d10e0d9f6ac97bf2cd346a5",
+      "file": "public/assets/ui/reference-cutouts/stormcaller-5.png",
+      "workingBlob": "0943dce09638f8772d10e0d9f6ac97bf2cd346a5",
+      "sha256": "cc8ba0077748b7f3024ab1ab9657518c7c13ae813e3df49006423f5d896efe71",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "647c3e29e4679a0b5e24006a0af6a525d7c175d7",
+      "file": "public/assets/ui/reference-cutouts/stormcaller-6.png",
+      "workingBlob": "647c3e29e4679a0b5e24006a0af6a525d7c175d7",
+      "sha256": "00e4c01d182a20a683baad34d77c83903a0f89b6e307f6f6059ef7e5affd0ca7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1f1d30aaf5f18d8ee89a8a0f5724c37800411370",
+      "file": "public/assets/ui/reference-cutouts/stormcitadel.png",
+      "workingBlob": "1f1d30aaf5f18d8ee89a8a0f5724c37800411370",
+      "sha256": "88b420e3a8e438c2383bf883e7fc5b34fd384899d90c7c9bee87d5901e8ec0a9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ea017505b136812a0101bddddc237700686e5a83",
+      "file": "public/assets/ui/reference-cutouts/sunward.png",
+      "workingBlob": "ea017505b136812a0101bddddc237700686e5a83",
+      "sha256": "9df9313c3aa094c40e183af6c134fe2eed7394a815ad42ab211559f7f54f38bd",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "717f5df7b6fa75228a6cb5187942f9d997a5dbb6",
+      "file": "public/assets/ui/reference-cutouts/tempest.png",
+      "workingBlob": "717f5df7b6fa75228a6cb5187942f9d997a5dbb6",
+      "sha256": "c0fb2306689dd6752796e32b3d5af9fbdfa3d2ad8a90825bee17dda6e2ef9cc5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b876399eb8745f3bd92964b7ad0f7d2a2b058e71",
+      "file": "public/assets/ui/reference-cutouts/thornwarden.png",
+      "workingBlob": "b876399eb8745f3bd92964b7ad0f7d2a2b058e71",
+      "sha256": "86daa6b7abb17a0bb8fe8623c289e00cea1b20e6fb16970e9baa308d0b00829b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "91222ebf2b566ea7befa92582d30b03a5d03d73f",
+      "file": "public/assets/ui/reference-cutouts/thunderheart.png",
+      "workingBlob": "91222ebf2b566ea7befa92582d30b03a5d03d73f",
+      "sha256": "7c3a05e7ced232b19bed495f0ad3aa41372ce6d4cf1036afac10db2e861e2098",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c0bd646cf4e43de129343393d7a9d76e8d0b28b2",
+      "file": "public/assets/ui/reference-cutouts/verdantguard.png",
+      "workingBlob": "c0bd646cf4e43de129343393d7a9d76e8d0b28b2",
+      "sha256": "c09c1e0355427dfa4f0a18f35053f1fa7de2b0ea182b45980ed5ae328efd1c1e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "614a36919d219c99f90cfdd01ab3888d1321b7f5",
+      "file": "public/assets/ui/reference-cutouts/winterhold.png",
+      "workingBlob": "614a36919d219c99f90cfdd01ab3888d1321b7f5",
+      "sha256": "b17b856e558a25bcf12932a6290a75681afca9a5324e3b2f4f72bc438ad5f84f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e222cb08ffcbdeb195480f01922a03af8253984a",
+      "file": "public/assets/ui/reference-cutouts/worldfire.png",
+      "workingBlob": "e222cb08ffcbdeb195480f01922a03af8253984a",
+      "sha256": "26f6ffe24ba71a4a9c200c8e3dd70bd72c1307361645301f6e77bb8e372412d5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cc4c0f0ae7322af7e0fb43294ff976316195069e",
+      "file": "public/assets/ui/reference-cutouts/wyvernhunter.png",
+      "workingBlob": "cc4c0f0ae7322af7e0fb43294ff976316195069e",
+      "sha256": "6e8bd387aaaf8e9658c3aba313ddab52e63e80ea7966b244362625ddeabfbee5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "db614519ef8b1b17a30e3a2d3172dfa525d7f2c3",
+      "file": "public/assets/ui/reference-enemy-fronts/host_01.png",
+      "workingBlob": "db614519ef8b1b17a30e3a2d3172dfa525d7f2c3",
+      "sha256": "f81e33d4c914ae3ac0a61a8efd6a61c6ed15c66d562182f2735d350c6fbcdbe1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "edb8e583d2002243f2d9f94575477024c7650305",
+      "file": "public/assets/ui/reference-enemy-fronts/host_02.png",
+      "workingBlob": "edb8e583d2002243f2d9f94575477024c7650305",
+      "sha256": "e94cead5800a9b660c6543aca33ef9536e66292485eaf44dfaffba287f38dbca",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e046a58b261afdc57371e5a0aad0fd757b4b7e02",
+      "file": "public/assets/ui/reference-enemy-fronts/host_03.png",
+      "workingBlob": "e046a58b261afdc57371e5a0aad0fd757b4b7e02",
+      "sha256": "92e8b57f8d5b0afa165106746bfee25ca33b47664f9f8799151508b005287f93",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "70c5bb3c9032bfaa45f796d7943885a6938d9221",
+      "file": "public/assets/ui/reference-enemy-fronts/host_04.png",
+      "workingBlob": "70c5bb3c9032bfaa45f796d7943885a6938d9221",
+      "sha256": "e6dbbb006f36ba68b411635d35c85a7a54c63e6889799e6d757a939ec53906ed",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8fe9c27d604df8ba701bdd0c3b045ae6b4ec7a24",
+      "file": "public/assets/ui/reference-enemy-fronts/host_05.png",
+      "workingBlob": "8fe9c27d604df8ba701bdd0c3b045ae6b4ec7a24",
+      "sha256": "1a9cac453d0dd7d6dd9e0f91269692b368a479650225fbb2eb81cc3b79bf5c15",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9a1ee7811fc4ee020e0c717e8d6d6e7664fd5e05",
+      "file": "public/assets/ui/reference-enemy-fronts/host_06.png",
+      "workingBlob": "9a1ee7811fc4ee020e0c717e8d6d6e7664fd5e05",
+      "sha256": "4dcc97a5f8804db87337ff6c94db8ee1e00ee9ddd610566e5317a2842064f892",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9e1d455c547aea6fdec74cf40d5791ec26c1d83d",
+      "file": "public/assets/ui/reference-enemy-fronts/host_07.png",
+      "workingBlob": "9e1d455c547aea6fdec74cf40d5791ec26c1d83d",
+      "sha256": "690abfd4d49d00aa46c141e491df59293dfe11e14fa849885ed642da1b413a9b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "45ffd8238821d79f171854675ac2b49f3ce9580c",
+      "file": "public/assets/ui/reference-enemy-fronts/host_08.png",
+      "workingBlob": "45ffd8238821d79f171854675ac2b49f3ce9580c",
+      "sha256": "b9bd208be522d856d86e4cbc77330c3d59a785eb4785cce94ef36c9fd6d51691",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "15b96ec1f3d51e1168833270da3b2b94c4b9afbb",
+      "file": "public/assets/ui/reference-enemy-fronts/host_09.png",
+      "workingBlob": "15b96ec1f3d51e1168833270da3b2b94c4b9afbb",
+      "sha256": "bfefea0a4db890e513e7325043d483a04dadf648ae688c557f9362514b618a5a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "aec26a1ea9d43dc3659c677754848eaf501891d7",
+      "file": "public/assets/ui/reference-enemy-fronts/host_10.png",
+      "workingBlob": "aec26a1ea9d43dc3659c677754848eaf501891d7",
+      "sha256": "968bacd165e1bf6555c2d7dfcba64065c2a1c8eb06c0d1eae929ae15a5cce0eb",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "56a6614084d27d2ba31615c595df1ef4a5d688de",
+      "file": "public/assets/ui/reference-enemy-fronts/host_11.png",
+      "workingBlob": "56a6614084d27d2ba31615c595df1ef4a5d688de",
+      "sha256": "20bd5d471af3e5cee167084f15882bea0462d55fac9ef98a4885623302708f3a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "315938e5b584e433d68d906e567d68fbcfbfcccb",
+      "file": "public/assets/ui/reference-enemy-fronts/host_12.png",
+      "workingBlob": "315938e5b584e433d68d906e567d68fbcfbfcccb",
+      "sha256": "356e0e4ec1ee7a9e1974d67a1534c0595bd8a87a56fca2009a46da2ad0a42fc1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c1cf5b0635baec8058c0b03baf8d918c80026989",
+      "file": "public/assets/ui/reference-enemy-fronts/host_13.png",
+      "workingBlob": "c1cf5b0635baec8058c0b03baf8d918c80026989",
+      "sha256": "d2bf1bd0410862a661e4ef9466925705f78eae127b003fecd6629fb3d0b5282b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2a5481662a8efd94ba738cf5a622ee8d0db246af",
+      "file": "public/assets/ui/reference-enemy-fronts/host_14.png",
+      "workingBlob": "2a5481662a8efd94ba738cf5a622ee8d0db246af",
+      "sha256": "1f5c7475c72d086397701347b430d5cffb79f29e1d91ea94128982b41de01e5f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f30aa0a644cea8dc63d89249f477bc67454522e4",
+      "file": "public/assets/ui/reference-enemy-fronts/host_15.png",
+      "workingBlob": "f30aa0a644cea8dc63d89249f477bc67454522e4",
+      "sha256": "fa9fcf762f60acfc37e57551b54f2ef9234f7ec3d62f4c33b9ec39e14ff690d8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "41731ff39c2d01e542400c7e8e165797e0607198",
+      "file": "public/assets/ui/reference-enemy-fronts/host_16.png",
+      "workingBlob": "41731ff39c2d01e542400c7e8e165797e0607198",
+      "sha256": "a57a18470eb3f18d1c0c5d3a37e0734a7c2fa8fefc912c59a205bf201913bbf7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b01d2904541a7f5045e68688c914a5b35c3e2a20",
+      "file": "public/assets/ui/reference-enemy-fronts/host_17.png",
+      "workingBlob": "b01d2904541a7f5045e68688c914a5b35c3e2a20",
+      "sha256": "bd24494c27bc85055e74ca6689cb3906aaa6ad5a1f88cde496343cc160dcd8ca",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "949bb89bb7c74c19366290dd141ea38a8879fe21",
+      "file": "public/assets/ui/reference-enemy-fronts/host_18.png",
+      "workingBlob": "949bb89bb7c74c19366290dd141ea38a8879fe21",
+      "sha256": "7b3260aef2b5025b92ba9edf5b1e021dfdeb6b7b78f7b5e355487777eabd4880",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "263d1152bfa280394ebf015daa2fe236ed9949b2",
+      "file": "public/assets/ui/reference-enemy-fronts/host_19.png",
+      "workingBlob": "263d1152bfa280394ebf015daa2fe236ed9949b2",
+      "sha256": "3f03fdf52eff8aba4060fbf3bbd0b064aabffcae4f7943f1cbb8199cc8e04b9e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "28b2642ad6b596b883dfa776fd87e1c723b73a19",
+      "file": "public/assets/ui/reference-enemy-fronts/host_20.png",
+      "workingBlob": "28b2642ad6b596b883dfa776fd87e1c723b73a19",
+      "sha256": "7e49e0b2a08c8fc9b4334095ae738810328d1366b03f0a4bf6573ad6f5c45021",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a01977b1547c3abf66320920319ffa2a39536f11",
+      "file": "public/assets/ui/reference-enemy-fronts/host_21.png",
+      "workingBlob": "a01977b1547c3abf66320920319ffa2a39536f11",
+      "sha256": "22061c7cb215f951306bf955ca6ad47a06795298003f83b663ba2d6c681aba54",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "616529ff1d625f3317097329c9aae542875192a5",
+      "file": "public/assets/ui/reference-enemy-fronts/host_22.png",
+      "workingBlob": "616529ff1d625f3317097329c9aae542875192a5",
+      "sha256": "640b63e769011bc77c1f588acad885b7f3a52c5899c02dbd51a2076681a22262",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8935635311ed6d593dc7c7931d398d9f0b9be374",
+      "file": "public/assets/ui/reference-enemy-fronts/host_23.png",
+      "workingBlob": "8935635311ed6d593dc7c7931d398d9f0b9be374",
+      "sha256": "37739117684da79abb5e927924543883f8cf7213fffcb67b941a1cb66655ef21",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f40b7fd0a045ccf2201129b8f559ee0a8184948c",
+      "file": "public/assets/ui/reference-enemy-fronts/host_24.png",
+      "workingBlob": "f40b7fd0a045ccf2201129b8f559ee0a8184948c",
+      "sha256": "51d5b8b52de555f6c90ef8c95585a43b0a29b281cf0433b15219c1767f7c2afa",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "19accd852a069189c570df22123e94f20f0b6718",
+      "file": "public/assets/ui/reference-enemy-fronts/host_25.png",
+      "workingBlob": "19accd852a069189c570df22123e94f20f0b6718",
+      "sha256": "65a9ac96c6a50a4e3710c3cc62cc20a2a316f585369493652b717060e12b2c15",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "85a2cfc04c492a3c3448aa81c3f9efe1a814ace6",
+      "file": "public/assets/ui/reference-enemy-fronts/host_26.png",
+      "workingBlob": "85a2cfc04c492a3c3448aa81c3f9efe1a814ace6",
+      "sha256": "bfad78e594c745e0e8f8963fbc99ccc86351aa618b3c26595c17d269390b5ca2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "7ed13c2271fdb48c2bc556287beea89289751c5b",
+      "file": "public/assets/ui/reference-enemy-fronts/host_27.png",
+      "workingBlob": "7ed13c2271fdb48c2bc556287beea89289751c5b",
+      "sha256": "9d06a3bc4840a5a9b59f0788228b5229c19bdcf8ae71ae40778813b86ca39e24",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "482159ad11854ab18b8ad12ed52852bfaae6272b",
+      "file": "public/assets/ui/reference-enemy-fronts/host_28.png",
+      "workingBlob": "482159ad11854ab18b8ad12ed52852bfaae6272b",
+      "sha256": "4125db45ddc406fcab6fc4031b37b75fb40cc058b5072afc0356f7899ca432dc",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6651343d90cc774da3e362b3609574e4b233ddb8",
+      "file": "public/assets/ui/reference-enemy-fronts/host_29.png",
+      "workingBlob": "6651343d90cc774da3e362b3609574e4b233ddb8",
+      "sha256": "9dce9495c566cbf3bd56ca714efcb5849f22fd817aca178686c78141a9171fdb",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "dcf61e8b0b5a12475056b5012966276006ed9ac8",
+      "file": "public/assets/ui/reference-enemy-fronts/host_30.png",
+      "workingBlob": "dcf61e8b0b5a12475056b5012966276006ed9ac8",
+      "sha256": "750c5b324c8f8afb1636b7fe8971618916c74579f903acdfbdb7700dc307392a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5d32f18fcf1cb503f9c5cb7ad27ff40abd44f937",
+      "file": "public/assets/ui/reference-enemy-fronts/host_31.png",
+      "workingBlob": "5d32f18fcf1cb503f9c5cb7ad27ff40abd44f937",
+      "sha256": "33e287d0c83ce8f802e1c0b10d9ebec20d567714128f6e292a0c853f422c1c91",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2ba775569d42fbc1f18781a3a868bd5794eb4bd1",
+      "file": "public/assets/ui/reference-enemy-fronts/host_32.png",
+      "workingBlob": "2ba775569d42fbc1f18781a3a868bd5794eb4bd1",
+      "sha256": "08cafb47730f9a5478d9b39be7c6489a0c85dd59f51c677851a39af9734ddb1b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "bc2cf2f384add93f632e8a04d44ec6aafe721896",
+      "file": "public/assets/ui/reference-enemy-fronts/host_33.png",
+      "workingBlob": "bc2cf2f384add93f632e8a04d44ec6aafe721896",
+      "sha256": "408196266eeb75d46a59d6bd16521c4f88e3e5d562aa5b0288b3caa37062c54a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6fd2acaf63ed969c6d17d32ef6a2cb2d586e2de4",
+      "file": "public/assets/ui/reference-enemy-fronts/host_34.png",
+      "workingBlob": "6fd2acaf63ed969c6d17d32ef6a2cb2d586e2de4",
+      "sha256": "11a0bc96d606232a0b84e18831471015a2c9c9242f3fc0cca2d7bc820f5a98f5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fcc3d33253d7d1fcd2561ac8f89fb0919e822913",
+      "file": "public/assets/ui/reference-enemy-fronts/host_35.png",
+      "workingBlob": "fcc3d33253d7d1fcd2561ac8f89fb0919e822913",
+      "sha256": "9d9f36175f8901e56105a91e24a4657d04d311cd6ab1463e890f96325d326741",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "552c02c27ec4329a7ed711609bb71a597705e5d2",
+      "file": "public/assets/ui/reference-enemy-fronts/host_36.png",
+      "workingBlob": "552c02c27ec4329a7ed711609bb71a597705e5d2",
+      "sha256": "8ab7b68b285ad36cb38361aff4dff1d73675d87117c564d1c2a68aea269ad860",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d19e68633d569a7bf217f36d22135fcc5e85c5f9",
+      "file": "public/assets/ui/reference-enemy-fronts/host_37.png",
+      "workingBlob": "d19e68633d569a7bf217f36d22135fcc5e85c5f9",
+      "sha256": "20c54817cc7b8747de1d2b6dc86cafdbc54d5049c50ac7b052b21a4ddd3117b8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "74cf167bb5c324b8000856607e3b2793c3384abf",
+      "file": "public/assets/ui/reference-enemy-fronts/host_38.png",
+      "workingBlob": "74cf167bb5c324b8000856607e3b2793c3384abf",
+      "sha256": "e72f5f59dde3261a1f5d1a7038fa8a2143c27ac0e313fed5724115ee8b69a618",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f8a64a30359c2539fd6abdc7a51789b2ad8205ee",
+      "file": "public/assets/ui/reference-enemy-fronts/host_39.png",
+      "workingBlob": "f8a64a30359c2539fd6abdc7a51789b2ad8205ee",
+      "sha256": "96537a00bedd5d9946e464cbadd154269ff653f4c7452d808ef118947ed505a9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e61d8c1b368e6d824064daff980e00aee3c65d5b",
+      "file": "public/assets/ui/reference-enemy-fronts/host_40.png",
+      "workingBlob": "e61d8c1b368e6d824064daff980e00aee3c65d5b",
+      "sha256": "02a0aa8405dfbffd003a3711ffa485bcd40023e87b3a23ad19e98f82dbbb3ee8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6dc5e414a693494d508654d8038c6d6968ff46da",
+      "file": "public/assets/ui/reference-enemy-fronts/host_41.png",
+      "workingBlob": "6dc5e414a693494d508654d8038c6d6968ff46da",
+      "sha256": "f5c4c90617a86d1f3cfa5983aa2fd19cfc3c416924f33cb9a0ac33533dc8cc39",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9abd62cdc0b7f9569ec1f126a8a722c812853882",
+      "file": "public/assets/ui/reference-enemy-fronts/host_42.png",
+      "workingBlob": "9abd62cdc0b7f9569ec1f126a8a722c812853882",
+      "sha256": "5348bbed56c066bdd991b0f1ea4092cfe2f96b8f7e3746f719acd73aa2f8ea72",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "98870ee9d0df746c3799c151a0dec7f0e4a6d923",
+      "file": "public/assets/ui/reference-enemy-fronts/host_43.png",
+      "workingBlob": "98870ee9d0df746c3799c151a0dec7f0e4a6d923",
+      "sha256": "e3b3c64845f5f7cd470502cd18f7ed29683ba46a6b303444c4413264a2e885b3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c110f143d7679e4a4420f11c050ba52f4da71ac5",
+      "file": "public/assets/ui/reference-enemy-fronts/host_44.png",
+      "workingBlob": "c110f143d7679e4a4420f11c050ba52f4da71ac5",
+      "sha256": "181ca7c0532c33762569185ec5ce442a7dba9c97e9452dbd967e22f9cfa58e6b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "61fc1a7551a178567280a63df7cf7a3b6ebd64de",
+      "file": "public/assets/ui/reference-enemy-fronts/host_45.png",
+      "workingBlob": "61fc1a7551a178567280a63df7cf7a3b6ebd64de",
+      "sha256": "1317624c6c18a32913423c46bd1aa41aa95ffdfc6f099388d3ec5423d96d2f7a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "061d2b6d3148c748eb18f83ed32c516af8eb0c2b",
+      "file": "public/assets/ui/reference-enemy-fronts/host_46.png",
+      "workingBlob": "061d2b6d3148c748eb18f83ed32c516af8eb0c2b",
+      "sha256": "23a4611b76986147292c6bb118dce6314d62a53485d87618fd00f881fb674c3c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c3a6ab55b56d42170e9d107d592478b3fc0040e5",
+      "file": "public/assets/ui/reference-enemy-fronts/host_47.png",
+      "workingBlob": "c3a6ab55b56d42170e9d107d592478b3fc0040e5",
+      "sha256": "8becf585fdb4dd40ecf51a14f301ae1f83061b9ade648f1de21c9e0afb7ceacc",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5e86210a6766beaac13b9f1c65d67cf9f2c34e7c",
+      "file": "public/assets/ui/reference-enemy-fronts/host_48.png",
+      "workingBlob": "5e86210a6766beaac13b9f1c65d67cf9f2c34e7c",
+      "sha256": "b3b3b89a743eb2d6b70839ab067ad328c581c36592204188965f14577c60fb22",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "eaf6e9005da697404228c1b1ccc72eb66bac595b",
+      "file": "public/assets/ui/reference-enemy-fronts/host_49.png",
+      "workingBlob": "eaf6e9005da697404228c1b1ccc72eb66bac595b",
+      "sha256": "3ac50b0135310298aa1fe1f4046102f031b9cc516dd2f37d277a616e89b3b2ec",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2ba150099295b5ff3f46db5a7b0a39da08fe0e8d",
+      "file": "public/assets/ui/reference-enemy-fronts/host_50.png",
+      "workingBlob": "2ba150099295b5ff3f46db5a7b0a39da08fe0e8d",
+      "sha256": "550818ad4829d89b40bb9982cb6118fae40f9ba21ab55317a67471ca8fb8261a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "09b134dd776e29eb48d0e6290b1fc3d000e86789",
+      "file": "public/assets/ui/reference-portraits/archangel.png",
+      "workingBlob": "09b134dd776e29eb48d0e6290b1fc3d000e86789",
+      "sha256": "d198ebbb51ad57ecbfe18254e68b013bc2af0b7f963c6db70c0acc5f57a95786",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b3e39660e503ed857f5632fb864c0e9a85c70cd5",
+      "file": "public/assets/ui/reference-portraits/archbishop.png",
+      "workingBlob": "b3e39660e503ed857f5632fb864c0e9a85c70cd5",
+      "sha256": "2e13a0d079363e2640eb500c2efc35ae4887c95d7f8395cf4d9af9fa7275c162",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9a63159f3a7d716bf5a6322334a274aa6afaad41",
+      "file": "public/assets/ui/reference-portraits/archer-1.png",
+      "workingBlob": "9a63159f3a7d716bf5a6322334a274aa6afaad41",
+      "sha256": "1f65554276252b5e360edba7b47a16e7b9d74e122c63f7851d96034c6c553e11",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "31202e785224b09c86ea3a2fb0c4f69984cb267d",
+      "file": "public/assets/ui/reference-portraits/archer-2.png",
+      "workingBlob": "31202e785224b09c86ea3a2fb0c4f69984cb267d",
+      "sha256": "5b7dbb9d4102a90d84f4dc7b440444288dd566043fc00f32906b5956475f28d2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e1fce91264e415fe8d51b9bbd8cb5fe1536b9d92",
+      "file": "public/assets/ui/reference-portraits/archer-3.png",
+      "workingBlob": "e1fce91264e415fe8d51b9bbd8cb5fe1536b9d92",
+      "sha256": "197c91e59e54cbbd4b9351131f2001eaa320774fb174eabe2c5ebebf64390910",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "40a460036c44671e9c43c40e38b1ba57c0fcb91d",
+      "file": "public/assets/ui/reference-portraits/archer-4.png",
+      "workingBlob": "40a460036c44671e9c43c40e38b1ba57c0fcb91d",
+      "sha256": "f662e26794ad15d9039eefb53217bb8927a4254b2969f9dec91166bc2a95ee8d",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "29f59929ea14cf91243cd99c05554d6656df941f",
+      "file": "public/assets/ui/reference-portraits/archer-5.png",
+      "workingBlob": "29f59929ea14cf91243cd99c05554d6656df941f",
+      "sha256": "f80f5f7a0fd846971d93618b27644a54b31d0aff198677a5f666948d63a7028b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b2f5798b0dc7abbbf7f7efa412e5fce0cabf861a",
+      "file": "public/assets/ui/reference-portraits/archer-6.png",
+      "workingBlob": "b2f5798b0dc7abbbf7f7efa412e5fce0cabf861a",
+      "sha256": "1ef470ec16c92934365d03db004c7c0482a87cadcc7744555280f41ce00ac0e4",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1945fe40daba39e2f2e4f23fc5b4a77686745cb5",
+      "file": "public/assets/ui/reference-portraits/cleric-1.png",
+      "workingBlob": "1945fe40daba39e2f2e4f23fc5b4a77686745cb5",
+      "sha256": "54e2e1c2fb209a11a475da4a23e60791729409c9f46fae8445e95f0bccef564c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9b49da3440464c7e43a357482aaa6a2793500765",
+      "file": "public/assets/ui/reference-portraits/cleric-2.png",
+      "workingBlob": "9b49da3440464c7e43a357482aaa6a2793500765",
+      "sha256": "10dd62e7ee5e34616385917d7cdfa8d78e7a6dc6973d60018fc60e94534eef5f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9aafb660fb2113ba87c011e486a05b530a2e6ae0",
+      "file": "public/assets/ui/reference-portraits/cleric-3.png",
+      "workingBlob": "9aafb660fb2113ba87c011e486a05b530a2e6ae0",
+      "sha256": "a286d97219ad2e7e07946fdc5c2d069c9826b3199d8bba65bb8b88fddf429388",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "7b22397389ad7b3d02f54e12cd036fc7b441c7a4",
+      "file": "public/assets/ui/reference-portraits/cleric-4.png",
+      "workingBlob": "7b22397389ad7b3d02f54e12cd036fc7b441c7a4",
+      "sha256": "3b7cf57e5430cd387cea83419387fde4fb3ddc12174ac9ef36e3a5849e1a4a68",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "138a265010244896ae91bb4dfe78cddae5960dbb",
+      "file": "public/assets/ui/reference-portraits/cleric-5.png",
+      "workingBlob": "138a265010244896ae91bb4dfe78cddae5960dbb",
+      "sha256": "eeb1c0d9746e6b6426854a30b5e2f0846999028f420eb18481a26687b2c324ad",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b2bd6662f1178d12f86f9428debe8c8c84ce180c",
+      "file": "public/assets/ui/reference-portraits/cleric-6.png",
+      "workingBlob": "b2bd6662f1178d12f86f9428debe8c8c84ce180c",
+      "sha256": "f9c9b75e9f528ffc6ab4c74ba5b408ed768acc2228d36cdae0289caa86e7b201",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fa989198e943fd3f12a13142226c24be600d5f43",
+      "file": "public/assets/ui/reference-portraits/crownofages.png",
+      "workingBlob": "fa989198e943fd3f12a13142226c24be600d5f43",
+      "sha256": "9261d6e7455d57627ca26c85306b100e4a751ba7eac7f7fd651b870830ff711d",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6f06c714e006279b58179030fd30530d0f24ae81",
+      "file": "public/assets/ui/reference-portraits/dawnspire.png",
+      "workingBlob": "6f06c714e006279b58179030fd30530d0f24ae81",
+      "sha256": "05071b9d64ad01031c4b303bfec3aced2b1dbb2e3786044e67c5cf6d62ac6afc",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "7c98b7486bd4b77e8c244797e3298a4a43c1b5db",
+      "file": "public/assets/ui/reference-portraits/druid-1.png",
+      "workingBlob": "7c98b7486bd4b77e8c244797e3298a4a43c1b5db",
+      "sha256": "0540a77f346072480a6bc44a74e1dd4d319e5d0803799280d3eb0417695b4340",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d5f4ef56097915bfed1e4214a7f73fbe9f9469ec",
+      "file": "public/assets/ui/reference-portraits/druid-2.png",
+      "workingBlob": "d5f4ef56097915bfed1e4214a7f73fbe9f9469ec",
+      "sha256": "49579bc5e6ec074d64dbc695b1c45a1451e4fa56360043617412c1b85f0ea8ce",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b0985cc86ca87770f5425385105b7699880040d7",
+      "file": "public/assets/ui/reference-portraits/druid-3.png",
+      "workingBlob": "b0985cc86ca87770f5425385105b7699880040d7",
+      "sha256": "ea1984a1c0577d11569254ecda0d74134bc552f7b56c46ecc207683ac0adf5ba",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "212667bfe57750e7c788bcb7f9fb15f34c4f6762",
+      "file": "public/assets/ui/reference-portraits/druid-4.png",
+      "workingBlob": "212667bfe57750e7c788bcb7f9fb15f34c4f6762",
+      "sha256": "7ff790839b3c789ec5917ef9472dd743e8d2aedf11c8f304223c22ee750a1649",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8f452af73e0dbd64c41e23646648859eb75c90f2",
+      "file": "public/assets/ui/reference-portraits/druid-5.png",
+      "workingBlob": "8f452af73e0dbd64c41e23646648859eb75c90f2",
+      "sha256": "d05c5a35076a82297b9b1aab0c7a3df0b7369ef0bb46ff54a394b5372c70204c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5f652c0766aef0481e20318c40cf3c7249e07c97",
+      "file": "public/assets/ui/reference-portraits/druid-6.png",
+      "workingBlob": "5f652c0766aef0481e20318c40cf3c7249e07c97",
+      "sha256": "3d9e6ba2dfd6c40c72f64e649dc10fd73bee1875f1e7bbd228bc6db5b1e090c6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d2e11f27dfa090c3f9465198fa8194402cf3de68",
+      "file": "public/assets/ui/reference-portraits/eldergrove.png",
+      "workingBlob": "d2e11f27dfa090c3f9465198fa8194402cf3de68",
+      "sha256": "b24cf6b6e88613b36e86e166e432b0fd40d3ad32d00223943f924ae4328af25f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "55bb050c29febeda0b830db7c3dfc29b8283250a",
+      "file": "public/assets/ui/reference-portraits/elvenking.png",
+      "workingBlob": "55bb050c29febeda0b830db7c3dfc29b8283250a",
+      "sha256": "5c1ee4232efa2eba217e8896f8ffa1d62c842b02be31e4ed9cdf5d47a6659b11",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c2f0b007751876c5901a64635ddcd46c40b59260",
+      "file": "public/assets/ui/reference-portraits/embercrown.png",
+      "workingBlob": "c2f0b007751876c5901a64635ddcd46c40b59260",
+      "sha256": "70be02f270bf43b3dc5c88e74e034e9d3b3af112e95ea535bbed8c3fd536584f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "59ddb7cd34d1a86940386c6eb9451a76351390c4",
+      "file": "public/assets/ui/reference-portraits/emeraldgolem.png",
+      "workingBlob": "59ddb7cd34d1a86940386c6eb9451a76351390c4",
+      "sha256": "ccbe7a2ac4fdd1d9d57fb8264d793cc9c22661ccfbd4d68a87492f204de1fccc",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4f22fd646013a0d87164586497c04d35ff648143",
+      "file": "public/assets/ui/reference-portraits/fireballista.png",
+      "workingBlob": "4f22fd646013a0d87164586497c04d35ff648143",
+      "sha256": "4e9dc2ee2ab495617c14a8fbc696ff9f277922afa88289e952b11c12ad6e3f03",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8dcdff5b2e9250c88a445d029857bb84094e1756",
+      "file": "public/assets/ui/reference-portraits/frostblade.png",
+      "workingBlob": "8dcdff5b2e9250c88a445d029857bb84094e1756",
+      "sha256": "32559dbe6c9ad8e56e775cee73b09fa1e92576981fa6756d16fe4dd806fcd965",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a7769099a776e04ffd12a87901e2f1454249f383",
+      "file": "public/assets/ui/reference-portraits/frostwarden-1.png",
+      "workingBlob": "a7769099a776e04ffd12a87901e2f1454249f383",
+      "sha256": "860f6d8516c5228b54e0ec7e12e97c953e24f9d64ae1337cd90c2446e718c71a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "74f5763140a819518bd93b50f762dddbcea44311",
+      "file": "public/assets/ui/reference-portraits/frostwarden-2.png",
+      "workingBlob": "74f5763140a819518bd93b50f762dddbcea44311",
+      "sha256": "dc371ea1c2ca29b62f4b647785fe3fed4a051617f61fb7ecc93fd6eb56b95c74",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "03025d8c64a0ee18f68ece0620a2fb2fa8a6ead6",
+      "file": "public/assets/ui/reference-portraits/frostwarden-3.png",
+      "workingBlob": "03025d8c64a0ee18f68ece0620a2fb2fa8a6ead6",
+      "sha256": "864093061bedcb408e3433090298f514ab9ffac1b8ac9cac15d56a5b05ea9399",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "66073982489e79c7f28a7916dc77839ca6386943",
+      "file": "public/assets/ui/reference-portraits/frostwarden-4.png",
+      "workingBlob": "66073982489e79c7f28a7916dc77839ca6386943",
+      "sha256": "5d0725c56e70bd5f49cd2a80337e6701bffa68e80f3b88c65926e0eea1395cc6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d9ab1bb468d773121c23334b272d2227dae32ad9",
+      "file": "public/assets/ui/reference-portraits/frostwarden-5.png",
+      "workingBlob": "d9ab1bb468d773121c23334b272d2227dae32ad9",
+      "sha256": "38aa70b7839f3e5516434c0bf1a270d6b2f3e612d68698a4671bd10c9ccb4a85",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "203c4d67fe5feea21f22a7c20ec7bf53cfe8c26d",
+      "file": "public/assets/ui/reference-portraits/frostwarden-6.png",
+      "workingBlob": "203c4d67fe5feea21f22a7c20ec7bf53cfe8c26d",
+      "sha256": "9a72ab4168abe3ad1724daa9abe5b79e9360512787d2344a721d89491c763345",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2bda88c59788a6bdde62edc0ab7d990a5de471db",
+      "file": "public/assets/ui/reference-portraits/greenheart.png",
+      "workingBlob": "2bda88c59788a6bdde62edc0ab7d990a5de471db",
+      "sha256": "5918c533f612dfee18c44c7e0a0dd2afe63f8be939c3ef56392a19273e6836b4",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "028b8a4500de24b50d8a590f89099f58181edc57",
+      "file": "public/assets/ui/reference-portraits/griffinbomber.png",
+      "workingBlob": "028b8a4500de24b50d8a590f89099f58181edc57",
+      "sha256": "052ba0e6241b018a74e93061404cf20903404562e377628b0160a6c44923df61",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "aacf421dba1c8f1437e1349c1e03d5599cf44a75",
+      "file": "public/assets/ui/reference-portraits/highking.png",
+      "workingBlob": "aacf421dba1c8f1437e1349c1e03d5599cf44a75",
+      "sha256": "e426f2e470f396c433c379b7375efa98e55af63a049e8bb6890d4d3affb63fee",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "aee2ccdf90bd0d0da9f449a53dfec68dc0b33720",
+      "file": "public/assets/ui/reference-portraits/host_01.png",
+      "workingBlob": "aee2ccdf90bd0d0da9f449a53dfec68dc0b33720",
+      "sha256": "9fc7808572ffb0215b2e6b25bfac9ae4e7b38829a748a5e6281ee24a31f46dd9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "537fb036c0893fe505b3ee261a63408ac8841cf2",
+      "file": "public/assets/ui/reference-portraits/host_02.png",
+      "workingBlob": "537fb036c0893fe505b3ee261a63408ac8841cf2",
+      "sha256": "a9c9f497eb81c17c66d6d58564a92636b6e57d692755734011a2e9f6a85706ad",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "99d8ca0952fe7975eb0aa7b74f355f50be2dbf1c",
+      "file": "public/assets/ui/reference-portraits/host_03.png",
+      "workingBlob": "99d8ca0952fe7975eb0aa7b74f355f50be2dbf1c",
+      "sha256": "569b1cb7150dc4bc4b8c7a156c7d47c6e1371cd0a4168f2b43c98dddb6b34e72",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a91e7a2238d835b226e2f76a4e77e8053ef4aaa1",
+      "file": "public/assets/ui/reference-portraits/host_04.png",
+      "workingBlob": "a91e7a2238d835b226e2f76a4e77e8053ef4aaa1",
+      "sha256": "a3da8471c6627243f1c2c04d482f40e7c251bbd1555bb8bf66cd578e1f717033",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f2f72cea88311a527d59d5d208b5c8f3de252c74",
+      "file": "public/assets/ui/reference-portraits/host_05.png",
+      "workingBlob": "f2f72cea88311a527d59d5d208b5c8f3de252c74",
+      "sha256": "bdcb7c4d6e560c94ad8d6957a90a99d02dd0fbac312bea2279bd2565f2395f3a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f4602a2b0b6f475122a27d4c29e6054d53243ad1",
+      "file": "public/assets/ui/reference-portraits/host_06.png",
+      "workingBlob": "f4602a2b0b6f475122a27d4c29e6054d53243ad1",
+      "sha256": "034b81b50636a6c16aa5480e3a315e3f7b6e6c131e03806a73a3944cb2b1c8c1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0aaf2b6a54fd638948fa869cd4e68ac52a7e73bc",
+      "file": "public/assets/ui/reference-portraits/host_07.png",
+      "workingBlob": "0aaf2b6a54fd638948fa869cd4e68ac52a7e73bc",
+      "sha256": "57f4b4e220e2bebde17ed09d0703657ef288aadc71b990bd485c74320237db04",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4d4ec841ca3936456c421a4c18b7f76fd3495ab6",
+      "file": "public/assets/ui/reference-portraits/host_08.png",
+      "workingBlob": "4d4ec841ca3936456c421a4c18b7f76fd3495ab6",
+      "sha256": "c0d3838551fa31458d1c37eb462824349e13d7cc5db204d47977f6ec8ef8fca3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d3dbe413d07cf7ab1e824fae4151d42bb682b5cb",
+      "file": "public/assets/ui/reference-portraits/host_09.png",
+      "workingBlob": "d3dbe413d07cf7ab1e824fae4151d42bb682b5cb",
+      "sha256": "6fac9fba54f468fcd3f671ba7b25373c7831666bb1e8c4aa826dcc8460b43241",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "134ab1623d423f30a2450764d0690f628b00facd",
+      "file": "public/assets/ui/reference-portraits/host_10.png",
+      "workingBlob": "134ab1623d423f30a2450764d0690f628b00facd",
+      "sha256": "a9030b424a1fcb874b6ca666a7c063893c6bf6c4a774b51e0bb74c84edbd8ed7",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "717a8b6ee0c5e00e8cc575d441902521e938df0b",
+      "file": "public/assets/ui/reference-portraits/host_11.png",
+      "workingBlob": "717a8b6ee0c5e00e8cc575d441902521e938df0b",
+      "sha256": "59dd41b77be811d000cf55a6f0092539193ea500a8b0a053dad9e6c5012954b8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "42fdda5bf0a039753e4a4d0a143ecb27eacd698e",
+      "file": "public/assets/ui/reference-portraits/host_12.png",
+      "workingBlob": "42fdda5bf0a039753e4a4d0a143ecb27eacd698e",
+      "sha256": "0842fbdcd6c9aabc94200e5b4f1ab3a137289a92d5cf977e5d78c7f274cdae2b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f803115034b4a4d4d8c89957141b1371c823d383",
+      "file": "public/assets/ui/reference-portraits/host_13.png",
+      "workingBlob": "f803115034b4a4d4d8c89957141b1371c823d383",
+      "sha256": "a598cb2a1eb54c158e7789d1b1de37db75afaccbe28ffa34338b26796ea892fd",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2e2b73f82a66145abaf1a46da10439bbdc38f4a2",
+      "file": "public/assets/ui/reference-portraits/host_14.png",
+      "workingBlob": "2e2b73f82a66145abaf1a46da10439bbdc38f4a2",
+      "sha256": "9187524a52a5d0c47f3fc9409806d3dda831b07b0df8cd4446fd93174feddf97",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "85e89a9974f49b683e6d06c41373f4f65492cdd5",
+      "file": "public/assets/ui/reference-portraits/host_15.png",
+      "workingBlob": "85e89a9974f49b683e6d06c41373f4f65492cdd5",
+      "sha256": "e253bbb74736a39d946bfe6c9d9db4711d094bde82b177d8071c90c483342411",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fd0ccae871af04f984f9d6260bbdc3d1617393f1",
+      "file": "public/assets/ui/reference-portraits/host_16.png",
+      "workingBlob": "fd0ccae871af04f984f9d6260bbdc3d1617393f1",
+      "sha256": "28f22296c57b5c9e72c2b7987d35b9b045204732b675a1d07667c4ef33f6f8a3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "85a901e6b3102cf1c53d63b4fa4fb0bd97d1841d",
+      "file": "public/assets/ui/reference-portraits/host_17.png",
+      "workingBlob": "85a901e6b3102cf1c53d63b4fa4fb0bd97d1841d",
+      "sha256": "5b277f4bde21211553048d097681362a1ce5dccfdad7a34f579ca1b282018aa0",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a13214e111eb7b1c11a1487ab8977a30d91d0f7c",
+      "file": "public/assets/ui/reference-portraits/host_18.png",
+      "workingBlob": "a13214e111eb7b1c11a1487ab8977a30d91d0f7c",
+      "sha256": "a774daff44cfaa44039815ab88098eba71ead78d738bb58b5a322d80b0273e28",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "dd36821e8166c7240c8a6eec0554b8a1d01300e9",
+      "file": "public/assets/ui/reference-portraits/host_19.png",
+      "workingBlob": "dd36821e8166c7240c8a6eec0554b8a1d01300e9",
+      "sha256": "643929c14be7f8e55ac277ae73e0de0cd4eda839706e3ba69005b16b989332ba",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d52279e0be743a09fd564c0e90cf3dcca16b16a4",
+      "file": "public/assets/ui/reference-portraits/host_20.png",
+      "workingBlob": "d52279e0be743a09fd564c0e90cf3dcca16b16a4",
+      "sha256": "506adc949daf9cf44a1da6050959ae28a5818a819daa174dc2408940278bff6c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "66fc36b72bc4bca82988158ba3968ba9f4d6e53b",
+      "file": "public/assets/ui/reference-portraits/host_21.png",
+      "workingBlob": "66fc36b72bc4bca82988158ba3968ba9f4d6e53b",
+      "sha256": "ec52d932f4bac32bee6fa7d5f2011c7a7f59ff4c88c8775184fa3ea157bb16ae",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b736ce637ac9dc39a5bf7f0a4ed717d334c21ecb",
+      "file": "public/assets/ui/reference-portraits/host_22.png",
+      "workingBlob": "b736ce637ac9dc39a5bf7f0a4ed717d334c21ecb",
+      "sha256": "200158df097b1483851d4441b430266e1c28a55de2a9dcbecc00c4a2f835e0ad",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a0485297e37407fd5a273fab7d68af899f207a25",
+      "file": "public/assets/ui/reference-portraits/host_23.png",
+      "workingBlob": "a0485297e37407fd5a273fab7d68af899f207a25",
+      "sha256": "4d712c946c556c87275c670ab73f64043b0b9ee15d60c63d742cb4b8d3a4b1ee",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "08a445f4e111d943be6a21c75106325fded30896",
+      "file": "public/assets/ui/reference-portraits/host_24.png",
+      "workingBlob": "08a445f4e111d943be6a21c75106325fded30896",
+      "sha256": "9d1f7a02b6fcb44b8a89e072bfe06a2e39d48fdb9206dada4bd28605324f7307",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1266861341dd44cad78ddb72cff0a72b1897e301",
+      "file": "public/assets/ui/reference-portraits/host_25.png",
+      "workingBlob": "1266861341dd44cad78ddb72cff0a72b1897e301",
+      "sha256": "bc1b6ff68a00571ad4d8784097696e22f77b72d7d508fe2628e48ec753d85ebb",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fd7a886c3ed5b049558320e2fb37d17f593f7d61",
+      "file": "public/assets/ui/reference-portraits/host_26.png",
+      "workingBlob": "fd7a886c3ed5b049558320e2fb37d17f593f7d61",
+      "sha256": "20489fd6a556c14d85c0d777de4503e5da337c28a5c956679f39dc6c4062e4f0",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f4a8e93009cdf2e9124bcba4c67c96fa5497cfdd",
+      "file": "public/assets/ui/reference-portraits/host_27.png",
+      "workingBlob": "f4a8e93009cdf2e9124bcba4c67c96fa5497cfdd",
+      "sha256": "6d29307fab329a1b196677f04ba86cdba1313716b4e59cf1fdec649ca70a0103",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e0af0d09015c1978f2b136b02afb806fb7e42203",
+      "file": "public/assets/ui/reference-portraits/host_28.png",
+      "workingBlob": "e0af0d09015c1978f2b136b02afb806fb7e42203",
+      "sha256": "180a7bc6bf383fbdc727564a3039239d42dad8bad1bca39062651d48deaff6d8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "bf5ab21e97f6f89888985f5c36660021f8ec4a0b",
+      "file": "public/assets/ui/reference-portraits/host_29.png",
+      "workingBlob": "bf5ab21e97f6f89888985f5c36660021f8ec4a0b",
+      "sha256": "544c2b3d7961d4902f6d453f880bc7c3875267e4879486088e6f0a1090722519",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "079d56577b945773d9d5a376f138d99ec9121ac0",
+      "file": "public/assets/ui/reference-portraits/host_30.png",
+      "workingBlob": "079d56577b945773d9d5a376f138d99ec9121ac0",
+      "sha256": "4b39abd820e0ec7d3eec394f0eeb7a1ef537ae9142b88316b27945344e3191e8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2027d43568327428ae59c2a93c3e76b5ce42dedd",
+      "file": "public/assets/ui/reference-portraits/host_31.png",
+      "workingBlob": "2027d43568327428ae59c2a93c3e76b5ce42dedd",
+      "sha256": "303abda79c00132c260c4cc14e750d02ccb3edfc856a0ec5bc8e88996bc1e02f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c0ffdee70f0f099e85966fb50487f6a4ed5b19cf",
+      "file": "public/assets/ui/reference-portraits/host_32.png",
+      "workingBlob": "c0ffdee70f0f099e85966fb50487f6a4ed5b19cf",
+      "sha256": "9965d60573f5ecb3ccbc18f9ae2fedb3bb06dacc538c2f30ab6ae307a57ed881",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a70b27dd749ecf43e82bc3275d12893d721e8b0e",
+      "file": "public/assets/ui/reference-portraits/host_33.png",
+      "workingBlob": "a70b27dd749ecf43e82bc3275d12893d721e8b0e",
+      "sha256": "360e69563697195b685dd263c42aa26c2167215995112c0fe3633e85cf5890dc",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "39cfde3402b93245f934b285da327ae1b4b4056f",
+      "file": "public/assets/ui/reference-portraits/host_34.png",
+      "workingBlob": "39cfde3402b93245f934b285da327ae1b4b4056f",
+      "sha256": "28707febebc8638870e23cfe6af38205cdf1c014ca32d6891a96a4dd114ebd7b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "45e27d43312049211568e0d2dd331aba4e0a1633",
+      "file": "public/assets/ui/reference-portraits/host_35.png",
+      "workingBlob": "45e27d43312049211568e0d2dd331aba4e0a1633",
+      "sha256": "1a7740d67beca4a84ba618ff5075b7c8c80dc0943aaf8898702554eb21102aef",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "96bb7e2c9bf77968a7b74e517cb5b1866981fed5",
+      "file": "public/assets/ui/reference-portraits/host_36.png",
+      "workingBlob": "96bb7e2c9bf77968a7b74e517cb5b1866981fed5",
+      "sha256": "49112b99abd0e72379fedbf6a3769bbe14e4183d1ddefee3237ecc70835ee23e",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "349c6c3e6f83d6151c3e180468e834a6d9c361bd",
+      "file": "public/assets/ui/reference-portraits/host_37.png",
+      "workingBlob": "349c6c3e6f83d6151c3e180468e834a6d9c361bd",
+      "sha256": "bfdc4393b92dc8a4f2f03fde822ea80d71042e62e88012dac2fd663dacec0166",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0969293db1939d991841237bfe13f21aa1db0631",
+      "file": "public/assets/ui/reference-portraits/host_38.png",
+      "workingBlob": "0969293db1939d991841237bfe13f21aa1db0631",
+      "sha256": "7c0df98f72f3f6235a923a2143b9ac1b7924d74ab4165036ac708df300b4888a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "c89ca83c789f436aaa61ef8b2ebf4ffbca6844e0",
+      "file": "public/assets/ui/reference-portraits/host_39.png",
+      "workingBlob": "c89ca83c789f436aaa61ef8b2ebf4ffbca6844e0",
+      "sha256": "f47b934740cab954b05d345c0045deed8f5c5ad827f3f3d12f755154ce98e5bc",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "94d91862a6e9ed084c0eecfcf1731ab4ba711d4f",
+      "file": "public/assets/ui/reference-portraits/host_40.png",
+      "workingBlob": "94d91862a6e9ed084c0eecfcf1731ab4ba711d4f",
+      "sha256": "fcff82c3e0683e033a45330f9b7e3b986b0f79845f7ca7f47116de74a4d9cedb",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "198cf46717d78f0524b13ee09167caebb32084f5",
+      "file": "public/assets/ui/reference-portraits/host_41.png",
+      "workingBlob": "198cf46717d78f0524b13ee09167caebb32084f5",
+      "sha256": "88c065db00f544bebb77551a22ae80dddcfbb98ff9f08cb74abbd50f747314b9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "3390ab46cd3ffca9d50c2dc747cac635dec0cad0",
+      "file": "public/assets/ui/reference-portraits/host_42.png",
+      "workingBlob": "3390ab46cd3ffca9d50c2dc747cac635dec0cad0",
+      "sha256": "e678bc5f040a66bdbb3dffec3961239a141320331899325f51c9632f46ed20fc",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "11f80b081b422baf48136ff43965ef461ecb6425",
+      "file": "public/assets/ui/reference-portraits/host_43.png",
+      "workingBlob": "11f80b081b422baf48136ff43965ef461ecb6425",
+      "sha256": "0a5e52a1042e199459cfe1059f0034778d09046d01bc3c101f974a2f0f5228af",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a20d393a6796af2b64af6ae5c1a391a969800302",
+      "file": "public/assets/ui/reference-portraits/host_44.png",
+      "workingBlob": "a20d393a6796af2b64af6ae5c1a391a969800302",
+      "sha256": "1743db173c9154837cf5d952dfea0fa1ff1a40e10315e2ea20d32dfb652dd237",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ed49332210b40d384d3bbdd8a0c602fc95c92e1e",
+      "file": "public/assets/ui/reference-portraits/host_45.png",
+      "workingBlob": "ed49332210b40d384d3bbdd8a0c602fc95c92e1e",
+      "sha256": "b4db7d52c641d206677d5e5e9a3d029afa4a33a4d744bfa80a56b1a7abd908b4",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d97fde9d88e75b1652d3feb482ad4d628a39b530",
+      "file": "public/assets/ui/reference-portraits/host_46.png",
+      "workingBlob": "d97fde9d88e75b1652d3feb482ad4d628a39b530",
+      "sha256": "87f03003db97d68dab97d5e7a3857d9d2d8dd883ff1fac411b606a9849f22fb8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "cb8acd3a9d90a0911879c4060971886f6c83a98d",
+      "file": "public/assets/ui/reference-portraits/host_47.png",
+      "workingBlob": "cb8acd3a9d90a0911879c4060971886f6c83a98d",
+      "sha256": "7b2579735b8e2887452b9943a32529f2c72916b87704cbd33f47fb99e51f36be",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ea0fb4ebc89e1625a6b32f72f141630af23b2486",
+      "file": "public/assets/ui/reference-portraits/host_48.png",
+      "workingBlob": "ea0fb4ebc89e1625a6b32f72f141630af23b2486",
+      "sha256": "a032d1991f1ea896db69cd53a9262ed3019c9c878e434d6f004491280bdbda03",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "60ec844e101e520c6221f5dc6cf213ff336ea691",
+      "file": "public/assets/ui/reference-portraits/host_49.png",
+      "workingBlob": "60ec844e101e520c6221f5dc6cf213ff336ea691",
+      "sha256": "179705f50b2f45d7c0d5f116464ccfee7d3443f5df282f38e81faf0a9f7b8b87",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "5d7d8f953ed23da18c54158d8888171ec208eda1",
+      "file": "public/assets/ui/reference-portraits/host_50.png",
+      "workingBlob": "5d7d8f953ed23da18c54158d8888171ec208eda1",
+      "sha256": "7eb6cbd99fe588eeadec7c62682185951955c7039b334bbfdea4b708287768a1",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "143f69471350c543b7d6d217a1acf5e54d564607",
+      "file": "public/assets/ui/reference-portraits/kingdomprotector.png",
+      "workingBlob": "143f69471350c543b7d6d217a1acf5e54d564607",
+      "sha256": "d2b120ac0f35f17183386d10c4a6e362417e9093d0d15205dd6c1aff7b13f98f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "de74a5687d866b36b8c083ae8b7dd729e52dddde",
+      "file": "public/assets/ui/reference-portraits/kingsrangerguard.png",
+      "workingBlob": "de74a5687d866b36b8c083ae8b7dd729e52dddde",
+      "sha256": "1d2235d999e33476a1f9e9cb8561a2dadbd82d956a40fef929a3fd4163246202",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "082d38de62bc7d332ad2f6b4c43601241481709f",
+      "file": "public/assets/ui/reference-portraits/kingsreach.png",
+      "workingBlob": "082d38de62bc7d332ad2f6b4c43601241481709f",
+      "sha256": "4eb07593db761d9d54da0af1b844dfb132f5aa234f854d399d169cce8d3e10ba",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "72c2b6638174346152ac8b6940af1ba56689c047",
+      "file": "public/assets/ui/reference-portraits/ladyclaire.png",
+      "workingBlob": "72c2b6638174346152ac8b6940af1ba56689c047",
+      "sha256": "c820f9b3d6abd2e3a574c7ada0a63ee4ac62ab23bea599a2279330350d36855c",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ed4c0d57715f2f370360f52b33a6fe560668a3a6",
+      "file": "public/assets/ui/reference-portraits/mage-1.png",
+      "workingBlob": "ed4c0d57715f2f370360f52b33a6fe560668a3a6",
+      "sha256": "c22c003498a62d5b31092ab7c117070f1058adcebb852a91b2c4567c91813d3b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ba112f26110f3a07fa2622033663aa7c07a2b91e",
+      "file": "public/assets/ui/reference-portraits/mage-2.png",
+      "workingBlob": "ba112f26110f3a07fa2622033663aa7c07a2b91e",
+      "sha256": "6fec3ad52a24ed0a5a366ffcbea9e8f541335f25d02a5d53472a3e95ff8341d5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e1bff60ff180fa5db439f2569bf1cc6334dad34e",
+      "file": "public/assets/ui/reference-portraits/mage-3.png",
+      "workingBlob": "e1bff60ff180fa5db439f2569bf1cc6334dad34e",
+      "sha256": "c014e892e75e6e95f5838549194d74fe910b7010178284021a89ebca20d9f765",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "23bda9845bd3bf5421fd6077c3028221cd782fd6",
+      "file": "public/assets/ui/reference-portraits/mage-4.png",
+      "workingBlob": "23bda9845bd3bf5421fd6077c3028221cd782fd6",
+      "sha256": "ec72c1db570ca1f3b6c75a62dddb0adf066e3eebdaf243f25a5ac72098bd4135",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "7c54467531c29dda0e9dc289e2cf37dcd99552e1",
+      "file": "public/assets/ui/reference-portraits/mage-5.png",
+      "workingBlob": "7c54467531c29dda0e9dc289e2cf37dcd99552e1",
+      "sha256": "05becd14f7a8e28417d744e9a35d752ae399cf720065094c1ad5c1aad81e378f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2bd29a07a37a28dd274be5a71f301a997a834b09",
+      "file": "public/assets/ui/reference-portraits/mage-6.png",
+      "workingBlob": "2bd29a07a37a28dd274be5a71f301a997a834b09",
+      "sha256": "36c9f7ac51bcfea9b355fc6a8f72e867cb10e9987a74de3841b76a7fcb142715",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "28c81fd1e92edba311af9814712cfde80da7f899",
+      "file": "public/assets/ui/reference-portraits/mechanicalgolem.png",
+      "workingBlob": "28c81fd1e92edba311af9814712cfde80da7f899",
+      "sha256": "ebc3660b3ee1e20dbdeab252210e440d628710d512d796d520517aa432725de6",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "6b344c5f681b37dff089cf5c73cbfc26b1097176",
+      "file": "public/assets/ui/reference-portraits/monk.png",
+      "workingBlob": "6b344c5f681b37dff089cf5c73cbfc26b1097176",
+      "sha256": "49b680b6d6e809926ad248ad65570b1e3792a7e238272248aea3a4ada55936eb",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b59d11e7aecc9fb55bfefaed6acadb8f04493cdc",
+      "file": "public/assets/ui/reference-portraits/mothernature.png",
+      "workingBlob": "b59d11e7aecc9fb55bfefaed6acadb8f04493cdc",
+      "sha256": "2512b9bd6ec5e0aea1dc74a1514cc30ebbeee7308bc2f6b6a0cbbd9c28e3c9d3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ce023511ebe279f2ab9637b409d013d9c2861535",
+      "file": "public/assets/ui/reference-portraits/phoenix.png",
+      "workingBlob": "ce023511ebe279f2ab9637b409d013d9c2861535",
+      "sha256": "dcf140d45619a38fe2a60c1f2e111b39c650ea13c62745bc3999fdfc46c7001d",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "320b8906248d7c0cc5eb31f0e2b5ef7481ddc88d",
+      "file": "public/assets/ui/reference-portraits/rangermentor.png",
+      "workingBlob": "320b8906248d7c0cc5eb31f0e2b5ef7481ddc88d",
+      "sha256": "1e13c2d657b2b0c925f7721f4467f61b8656cdcdc5c0a09089e567568fc81cac",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "59001c59bf7625d69ad280e6e5a7fd20d26cbd77",
+      "file": "public/assets/ui/reference-portraits/rimewatch.png",
+      "workingBlob": "59001c59bf7625d69ad280e6e5a7fd20d26cbd77",
+      "sha256": "dfbe415e8db4619c78616b6784989997487e89437e6bd2377206ddc621977eb5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "55f12de55485eb3edc9ff0ef8df689b2dd5aad60",
+      "file": "public/assets/ui/reference-portraits/roseguard.png",
+      "workingBlob": "55f12de55485eb3edc9ff0ef8df689b2dd5aad60",
+      "sha256": "e253fa50036611d09595d2a490fec1a3bb9c23c37378eadac0ffbc1b6283dbff",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a13e1376c9ab62fbc2bf33eb0fcb94ce6a9017c5",
+      "file": "public/assets/ui/reference-portraits/royalarsenal.png",
+      "workingBlob": "a13e1376c9ab62fbc2bf33eb0fcb94ce6a9017c5",
+      "sha256": "c608b7958138c126c3eddf65c3a8bf19abbf321ccd272d361e69367ea52bb0e2",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4f29bd05143f0c2dc1f8384ab45291f854c5e9ed",
+      "file": "public/assets/ui/reference-portraits/royalmarshal.png",
+      "workingBlob": "4f29bd05143f0c2dc1f8384ab45291f854c5e9ed",
+      "sha256": "f0ab729ff9cd9d576ff6fbaaad1d273b98bbafe4661c82934db50c28d89b3e03",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "16313570b37cbae7afacccb2ba411cdc6f54eca6",
+      "file": "public/assets/ui/reference-portraits/royalranger.png",
+      "workingBlob": "16313570b37cbae7afacccb2ba411cdc6f54eca6",
+      "sha256": "8e080d46322d1c6e14b8290eee034568bb00d29dd10f17dbeeb338a450830c18",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "b73c6aa4a561d4dd8dafcdcd0dab61077dd5adef",
+      "file": "public/assets/ui/reference-portraits/runebreaker-1.png",
+      "workingBlob": "b73c6aa4a561d4dd8dafcdcd0dab61077dd5adef",
+      "sha256": "9682ba9773fddaecebb4b057c8271962f433ef6f4c7331baf7d706a1b7b2c1a8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "da6853a20825327b30c63687529b6da873f7ed2e",
+      "file": "public/assets/ui/reference-portraits/runebreaker-2.png",
+      "workingBlob": "da6853a20825327b30c63687529b6da873f7ed2e",
+      "sha256": "5196227f76ac72e8ffd093d6fc0727cb190f2f3924f3aff2861975cb1b01d628",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "d34a8f6d7ea7f4e734119743e3354cf10c8ead74",
+      "file": "public/assets/ui/reference-portraits/runebreaker-3.png",
+      "workingBlob": "d34a8f6d7ea7f4e734119743e3354cf10c8ead74",
+      "sha256": "c479ef42e192871acf6c38f3cb8b51b486b21d679886cf9b06f35ee3dc74e4bb",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "e9fd37822a9801d4a51c9f76d7670c13714d4e55",
+      "file": "public/assets/ui/reference-portraits/runebreaker-4.png",
+      "workingBlob": "e9fd37822a9801d4a51c9f76d7670c13714d4e55",
+      "sha256": "18741788d8a41f169e89dac0657b961a1f4e54884dbec55f41c9c4f50677a341",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "66d0cb14600f7e988735f1c7b8be1a906b111d9d",
+      "file": "public/assets/ui/reference-portraits/runebreaker-5.png",
+      "workingBlob": "66d0cb14600f7e988735f1c7b8be1a906b111d9d",
+      "sha256": "82782cbf70741b03820f873a3da2acfc94494d267ff1b24355f2fc655e282325",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "92f7074e52198cf072aa9d0098baf716dfc8f702",
+      "file": "public/assets/ui/reference-portraits/runebreaker-6.png",
+      "workingBlob": "92f7074e52198cf072aa9d0098baf716dfc8f702",
+      "sha256": "392103769c135c3bacb8c7c17f80a22956249d61463266b79b5389a9abc50789",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1d026fade2f4f0172bdbc2e16399c8b25f7bc0b2",
+      "file": "public/assets/ui/reference-portraits/soldier-1.png",
+      "workingBlob": "1d026fade2f4f0172bdbc2e16399c8b25f7bc0b2",
+      "sha256": "4c819e434b51ce37b657eb0825649b0dcbe0df9f947bab052131e98358b1bc35",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9c47fc28744b386b8a5a52b20c5889a6874949ae",
+      "file": "public/assets/ui/reference-portraits/soldier-2.png",
+      "workingBlob": "9c47fc28744b386b8a5a52b20c5889a6874949ae",
+      "sha256": "f559a54dca7c0411e6c975ab38be99485ef2c93552ae95dfb8f104467c4eac31",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "dac595fd9fc94ba71be9a00205191d8666d9c40e",
+      "file": "public/assets/ui/reference-portraits/soldier-3.png",
+      "workingBlob": "dac595fd9fc94ba71be9a00205191d8666d9c40e",
+      "sha256": "c18fa4e0bb5562efc16e6d265ab337c8faec9fe39c084c6189115c192a54a66f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "90f0e2bab99b166a8a7cf62ed506516177709075",
+      "file": "public/assets/ui/reference-portraits/soldier-4.png",
+      "workingBlob": "90f0e2bab99b166a8a7cf62ed506516177709075",
+      "sha256": "de54a932cc05e319024f9c6452e6ece7c85c11f3e99369e84bab0f30f421a9bf",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "a077d4cbeb99bfb09baf9326b29ed5444ef12b39",
+      "file": "public/assets/ui/reference-portraits/soldier-5.png",
+      "workingBlob": "a077d4cbeb99bfb09baf9326b29ed5444ef12b39",
+      "sha256": "1e92ded6a9bc74151baab926b5471bd0cfb49e53fe1ec9b13ef2eeb6caaa9bd5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "fc4c4d672439f9f6676b625a778aef858ab4caeb",
+      "file": "public/assets/ui/reference-portraits/soldier-6.png",
+      "workingBlob": "fc4c4d672439f9f6676b625a778aef858ab4caeb",
+      "sha256": "a8f7d349d3bf976bcb0a61ed210e9b564fdbbe14f7c5c735d4fe850485cbb2aa",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ddcde32474a37942d8f78054fa1763f9e9966350",
+      "file": "public/assets/ui/reference-portraits/starfall.png",
+      "workingBlob": "ddcde32474a37942d8f78054fa1763f9e9966350",
+      "sha256": "860b46c5c0e519ac384fdae57741439ee98acd4321b867fcca8493e96370080a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "bb3d06cdd5109e8eb230cc1a71fced038835a10a",
+      "file": "public/assets/ui/reference-portraits/stonewarden.png",
+      "workingBlob": "bb3d06cdd5109e8eb230cc1a71fced038835a10a",
+      "sha256": "cb149f42ccde765f5ec4b5b14e4b455f8226a480f88d3c3b7572fc2acccd241f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "0ea584210d122c919eb162a7c7c5dab34f0e0b39",
+      "file": "public/assets/ui/reference-portraits/stormcaller-1.png",
+      "workingBlob": "0ea584210d122c919eb162a7c7c5dab34f0e0b39",
+      "sha256": "9202eaa03de3450ea7bc9495d700ab5401f6b6f05eee9559b0a55134f369ad20",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "321c6b27db1264f623d21d4297f3578985fec252",
+      "file": "public/assets/ui/reference-portraits/stormcaller-2.png",
+      "workingBlob": "321c6b27db1264f623d21d4297f3578985fec252",
+      "sha256": "32fc654ef08bf028ba7f99f78d49b7f2799b1a8594724a13ebc5344ab5d01a16",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "ad5a9c71357686c89a12ee52c1eae80c2f6db31f",
+      "file": "public/assets/ui/reference-portraits/stormcaller-3.png",
+      "workingBlob": "ad5a9c71357686c89a12ee52c1eae80c2f6db31f",
+      "sha256": "568e0d9e2b0ee121b6a8a690692061f0b0f4b6b39129df8f498a9bf1a1172d7b",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "1bb82832775069d14d57ac0cdc93bbc79e63e36a",
+      "file": "public/assets/ui/reference-portraits/stormcaller-4.png",
+      "workingBlob": "1bb82832775069d14d57ac0cdc93bbc79e63e36a",
+      "sha256": "5d2b4acbf39c695a53b73ea56c214bada62a9392f7cb1dca6f55dc1c1bbdd9a3",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "2281e7e6738f253c16888e18dfb06ceb88217746",
+      "file": "public/assets/ui/reference-portraits/stormcaller-5.png",
+      "workingBlob": "2281e7e6738f253c16888e18dfb06ceb88217746",
+      "sha256": "1db82d9d7ae8c54b72924c8d5dad71eaaa2db3f1069355a370fee8bf5f041cc9",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "bd34efab9d528c24e407a6c923954ed8c52eb6e8",
+      "file": "public/assets/ui/reference-portraits/stormcaller-6.png",
+      "workingBlob": "bd34efab9d528c24e407a6c923954ed8c52eb6e8",
+      "sha256": "8409479676a04ffbb2a8bf838e2af8745b7bb40b4a7928162a6666db469ccaa8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "25379a9d3961cc1f60030aff4d9f936efe653d05",
+      "file": "public/assets/ui/reference-portraits/stormcitadel.png",
+      "workingBlob": "25379a9d3961cc1f60030aff4d9f936efe653d05",
+      "sha256": "20191f9179fe737a172a1e8ea94bec0ef901379c80adef14ef420eefc98da8e5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "9644dd0ef8882b02db88028f72e65a17cab6b63b",
+      "file": "public/assets/ui/reference-portraits/sunward.png",
+      "workingBlob": "9644dd0ef8882b02db88028f72e65a17cab6b63b",
+      "sha256": "b6b60e16e98662541d023db3e53e74994c65852d43cdfca781f94c33f32746d8",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "64d37bc77fc4fe17c1528440d72c626cefd26a92",
+      "file": "public/assets/ui/reference-portraits/tempest.png",
+      "workingBlob": "64d37bc77fc4fe17c1528440d72c626cefd26a92",
+      "sha256": "2af3e952e34e73f5c36a42536fd85a556045c6801178bccc3b6a4e42eee5326f",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "df1e656e8d420e47281b81eb3d2a0a2f8957c581",
+      "file": "public/assets/ui/reference-portraits/thornwarden.png",
+      "workingBlob": "df1e656e8d420e47281b81eb3d2a0a2f8957c581",
+      "sha256": "77f099182b23a9e1deaefe8935b8b6b0d3acb04f61213de7bde5c6da52c0fe69",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "4639cd08c1197a1a719f600f9ed5d436e0cd1ced",
+      "file": "public/assets/ui/reference-portraits/thunderheart.png",
+      "workingBlob": "4639cd08c1197a1a719f600f9ed5d436e0cd1ced",
+      "sha256": "ba810b765524b523f0567f39b532d028fcb2b5578923c7141150e794bfc0f655",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "79300bc9992b867f4aa425c4bf86090800ffffbd",
+      "file": "public/assets/ui/reference-portraits/verdantguard.png",
+      "workingBlob": "79300bc9992b867f4aa425c4bf86090800ffffbd",
+      "sha256": "d5243554a08cdccbcb1d478746d454057d9d8028ca75eb48f0fa60ba24a46b9a",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f69befd47465f943058bc06336f2f7fd22747da3",
+      "file": "public/assets/ui/reference-portraits/winterhold.png",
+      "workingBlob": "f69befd47465f943058bc06336f2f7fd22747da3",
+      "sha256": "645fc87356552bb64742562c0b32bf9389736ea1c0293fa31fc8bd7e352f0843",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f66f1a6d74225dbccb17cf0feacd81166eee7a58",
+      "file": "public/assets/ui/reference-portraits/worldfire.png",
+      "workingBlob": "f66f1a6d74225dbccb17cf0feacd81166eee7a58",
+      "sha256": "fc482c9f585c9848771dd5bd196818535cbdb034b8f50549ea4120b4f05af5a5",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "8e66d0e2078d624419bce7735e2bdf6835ddb51a",
+      "file": "public/assets/ui/reference-portraits/wyvernhunter.png",
+      "workingBlob": "8e66d0e2078d624419bce7735e2bdf6835ddb51a",
+      "sha256": "677a5ad9c34e13b4a0de7a2ab04dfccc89506f7754ef4c357cc8f1936d0bc9b0",
+      "exactBytes": true
+    },
+    {
+      "baselineBlob": "f2d5ba551968e9a170c2cbb5b9dadc640fa2eb20",
+      "file": "public/assets/ui/results/defeat-city-v043.png",
+      "workingBlob": "f2d5ba551968e9a170c2cbb5b9dadc640fa2eb20",
+      "sha256": "d827523f201adfa0472d1afa2aaed6d2c9e27c9ca7069d9542686fc80e56f812",
+      "exactBytes": true
+    }
+  ]
+}

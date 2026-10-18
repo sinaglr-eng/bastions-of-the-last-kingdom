@@ -1,7 +1,11 @@
 {
   "revision": "enemy-front-cutouts-20261018-v1",
+  "sha256Policy": {
+    "jsonMetadata": "utf8-lf",
+    "otherFiles": "exact-bytes"
+  },
   "sourceManifest": "public/assets/ui/reference-portraits/manifest.json",
-  "sourceManifestSha256": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4",
+  "sourceManifestSha256": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f",
   "maskSettings": "tools/enemy-front-cutout-masks.json",
   "maskSettingsSha256": "291e0afc765f9878faaa36a8d72d2a450810f5a46be1663a1b14a98aee882161",
   "algorithm": "Original deterministic border-calibrated alpha-only cutout",
@@ -104,7 +108,7 @@
     "public/assets/ui/reference-portraits/mage-4.png": "ec72c1db570ca1f3b6c75a62dddb0adf066e3eebdaf243f25a5ac72098bd4135",
     "public/assets/ui/reference-portraits/mage-5.png": "05becd14f7a8e28417d744e9a35d752ae399cf720065094c1ad5c1aad81e378f",
     "public/assets/ui/reference-portraits/mage-6.png": "36c9f7ac51bcfea9b355fc6a8f72e867cb10e9987a74de3841b76a7fcb142715",
-    "public/assets/ui/reference-portraits/manifest.json": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4",
+    "public/assets/ui/reference-portraits/manifest.json": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f",
     "public/assets/ui/reference-portraits/mechanicalgolem.png": "ebc3660b3ee1e20dbdeab252210e440d628710d512d796d520517aa432725de6",
     "public/assets/ui/reference-portraits/monk.png": "49b680b6d6e809926ad248ad65570b1e3792a7e238272248aea3a4ada55936eb",
     "public/assets/ui/reference-portraits/mothernature.png": "2512b9bd6ec5e0aea1dc74a1514cc30ebbeee7308bc2f6b6a0cbbd9c28e3c9d3",
@@ -242,7 +246,7 @@
     "public/assets/ui/reference-cutouts/mage-4.png": "1ae7bde7603a9e3da85510cdd3e872f9444984c80083a21e3a99a1f274f414d8",
     "public/assets/ui/reference-cutouts/mage-5.png": "934c25be34128ec048ea79f508f9ed26d0a135a571776c709ca879b10af08ff5",
     "public/assets/ui/reference-cutouts/mage-6.png": "00b6b39e5b4c2e0968b7805977a00e2887dd2ed1a5ee407077081d7f6fc1114f",
-    "public/assets/ui/reference-cutouts/manifest.json": "50babe99b9f67691092a7720d05115311d47ee71f2c4f4871a393f91d981fb9d",
+    "public/assets/ui/reference-cutouts/manifest.json": "64416209e4367d68289f35b0f2bd4782e9f29551f8a5bbad265963d131c88baf",
     "public/assets/ui/reference-cutouts/mechanicalgolem.png": "739f4e34519d04031b337704baa946585451902f918cdb857f7b40f6ca3c7141",
     "public/assets/ui/reference-cutouts/monk.png": "e0ea3f6f7c25075b9e4206d47347c29ab0599f557598b9d64dc5505c703ceaf3",
     "public/assets/ui/reference-cutouts/mothernature.png": "fc88ddb3906694dbae6ef364280f1e8cdb0dc56d269c7467ce13ff91b3865889",
@@ -283,7 +287,7 @@
     "public/assets/ui/reference-cutouts/worldfire.png": "26f6ffe24ba71a4a9c200c8e3dd70bd72c1307361645301f6e77bb8e372412d5",
     "public/assets/ui/reference-cutouts/wyvernhunter.png": "6e8bd387aaaf8e9658c3aba313ddab52e63e80ea7966b244362625ddeabfbee5",
     "public/assets/ui/portrait-variants/lord-bernhard-crimson-reference.png": "e57b84ce6650d7633003e7599ec064f310cfc408ed70de5af2e9d75e8b8cce32",
-    "public/assets/ui/portrait-variants/manifest.json": "1f3fcdcfea71c0c438f219b083de4c3262f0858b882ca11b94924bc10df682fd"
+    "public/assets/ui/portrait-variants/manifest.json": "fe074b9d8ea0a156e0a54ab7bd545efd8d73294cce80da47ee11d1a80025ba11"
   },
   "visualReview": "Agent visual review of all 50 identities on four paper and four dark contact sheets, plus individual host_44 and host_50 source/output details. FRONT identity, complete weapons/mount/wings, pale facets, detached captions and panel borders were checked. Original artwork approval is separate and preserved.",
   "opencvVersion": "5.0.0",

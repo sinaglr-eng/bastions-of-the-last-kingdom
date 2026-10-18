@@ -33,14 +33,16 @@ settings_path = root / 'tools/enemy-front-cutout-masks.json'
 settings = json.loads(settings_path.read_text(encoding='utf-8'))
 original_manifest = root / 'public/assets/ui/reference-portraits/manifest.json'
 sha = lambda file: hashlib.sha256(file.read_bytes()).hexdigest()
+metadata_sha = lambda file: hashlib.sha256(file.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
 
 
-def historical_hashes():
+def historical_hashes(*, metadata_lf=False):
     paths = [*sorted((root / 'public/assets/ui/reference-portraits').glob('*')),
              *sorted((root / 'public/assets/ui/reference-cutouts').glob('*')),
              root / 'public/assets/ui/portrait-variants/lord-bernhard-crimson-reference.png',
              root / 'public/assets/ui/portrait-variants/manifest.json']
-    return {file.relative_to(root).as_posix(): sha(file) for file in paths if file.is_file()}
+    return {file.relative_to(root).as_posix(): metadata_sha(file) if metadata_lf and file.suffix == '.json' else sha(file)
+            for file in paths if file.is_file()}
 
 
 def review(rows):
@@ -128,10 +130,14 @@ def build():
         if index % 10 == 0:
             print(f'Prepared FRONT {index+1}/50', flush=True)
     assert old_hashes == historical_hashes(), 'Historical portrait assets must remain byte-identical'
-    manifest = {'revision': settings['revision'], 'sourceManifest': original_manifest.relative_to(root).as_posix(),
-                'sourceManifestSha256': sha(original_manifest), 'maskSettings': settings_path.relative_to(root).as_posix(),
-                'maskSettingsSha256': sha(settings_path), 'algorithm': 'Original deterministic border-calibrated alpha-only cutout',
-                'historicalAssetsPreserved': True, 'historicalAssetsSha256': old_hashes,
+    # Git checkouts may serialize JSON with LF or CRLF. Normalize only that
+    # boundary in metadata digests; images and all other files retain raw hashes.
+    # old_hashes remains a separate exact-byte pre/post preservation check.
+    manifest = {'revision': settings['revision'], 'sha256Policy': {'jsonMetadata': 'utf8-lf', 'otherFiles': 'exact-bytes'},
+                'sourceManifest': original_manifest.relative_to(root).as_posix(),
+                'sourceManifestSha256': metadata_sha(original_manifest), 'maskSettings': settings_path.relative_to(root).as_posix(),
+                'maskSettingsSha256': metadata_sha(settings_path), 'algorithm': 'Original deterministic border-calibrated alpha-only cutout',
+                'historicalAssetsPreserved': True, 'historicalAssetsSha256': historical_hashes(metadata_lf=True),
                 'visualReview': settings.get('reviewScope', 'Visual contact review is required'),
                 'opencvVersion': cv2.__version__, 'numpyVersion': np.__version__, 'identities': rows}
     (output / 'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8')

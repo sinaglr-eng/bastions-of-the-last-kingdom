@@ -1,7 +1,7 @@
 {
   "schema": "v043-source-hashes-v1",
-  "capturedAt": "2026-10-18T10:55:54.192Z",
-  "scope": "Runtime, styles, data, backend, tools, tests, build configuration and release metadata; documentation/evidence are outside this source snapshot.",
+  "capturedAt": "2026-10-18T11:19:49.696Z",
+  "scope": "Runtime, styles, data, backend, tools, tests, build configuration and release metadata; six asset/provenance metadata records are additionally frozen below. Other documentation/evidence are outside this source snapshot.",
   "files": {
     "archer.html": "c25f44249194eefbe6b281843bded30288bb6e2375c785f9733a487e06af1005",
     "backend/SITES_DEPLOYMENT.json": "f426784bef882673283af8f0378ec9677aba5d956d55b6eb32c2d4e325d641ed",
@@ -217,7 +217,7 @@
     "tests/enemy-concealment-effects.test.mjs": "963f2f82edc22ee432b8c32a09f385b670c880e6ce7600d8e386447d129d8ac9",
     "tests/enemy-defense-symbols.test.mjs": "243b1a85322fadb4a0045b7f20d7dbfccadf229819c0dcad801b69ab82d260de",
     "tests/enemy-designs.test.mjs": "a0cbe7c7a7a5aff6f7b1752d8ae53ed5527ca301e2c2fd0d8170c4446febf079",
-    "tests/enemy-front-cutouts-v043.test.mjs": "dfe4009f3466a167bb6fe5f64acf84140d6287feef97df8a00e8788bdff37894",
+    "tests/enemy-front-cutouts-v043.test.mjs": "3a379911061960d9e3a22e7dcc47db83af8c2b17328967ac77c5d162eba86078",
     "tests/enemy-hindleg-flight-v6.test.mjs": "8588585d3ea64c71c85f8a77442aa9352f778ffd36b21d1b0bacdb1ddb790987",
     "tests/enemy-motion.test.mjs": "89e14b20e8dd31bd80c487a6350b8986cce0538342c241a607dca83ccd836f50",
     "tests/enemy-physical-assembly-v6.test.mjs": "b736b7e190445072f8d2fcd3f4746d21a65eed2c4258fc7838b884152f338588",
@@ -272,7 +272,7 @@
     "tests/preparation-folio-v040.test.mjs": "75414b6d6e7ac16bca14340e8834a561546788aa5cb5a9b0201d2956485d3b5f",
     "tests/preparation-recipe-planning-v042.test.mjs": "5531fcf96df8b08aacd6d5cfc9803f9a019638a2d6a4ccce3b1cba7df96e7f8b",
     "tests/public-verification-v042.test.mjs": "1dfb3515273a05474600f20a3abede6e64064eb0c02b795d7ff6c491c9bff7c9",
-    "tests/public-verification-v043.test.mjs": "697433bc6b64c7c47f64d06360b6cfe18fc5eb07b371d0599496e18782b0a746",
+    "tests/public-verification-v043.test.mjs": "b2f5585901be6b93b981a0923b8ac8a9293677440e2ec3fc536029558e5a0f57",
     "tests/ranger-air-defenses.test.mjs": "c3450771eeffd95c693a0eb77ead4f15321ba4b151beebe413e3628b9eab925f",
     "tests/rank-five-retained-merge.test.mjs": "83424eaa51092ec071f6c66e5d31e3596a5e1f9659e73c6fe30bd4b8571d708e",
     "tests/ranks-recipes.test.mjs": "f8352e238a25dfb6ff313ee58a1b8a0dfc27f51f9c6eabd187a0d8489d82976e",
@@ -340,7 +340,7 @@
     "tools/benchmark-curated-mazes.mjs": "8906b3e9f7cc168304ecaf2afd2e9bf60ec745a5eaecaea7080852950cef52b8",
     "tools/benchmark-mazes.mjs": "5f51dac24485bd114233dcdb86b0b1aa0bec2198ebd408d896d3f4bb2b5bfd20",
     "tools/build-bernhard-crimson-cutout.py": "6c9f4de483a21ad34c390801221e11e66c747b8d1a520ed8e67b3c4abc81485d",
-    "tools/build-enemy-front-cutouts.py": "753ede101aa392ed4fd920aebdeae4789ba9eb699990485c9604c62df3ecc23c",
+    "tools/build-enemy-front-cutouts.py": "8c4425179c52fa87e530a897b793d3de9851931d8c8cd634d13c05240822df9d",
     "tools/build-reference-cutouts.py": "f6659aa6f175fabd2ecda327d3e0351d2954a19dc92f9dc66a013014d0992b50",
     "tools/build-reference-portraits.py": "3358967da76bd1b7ead4d055061bca71ba25733e6f8656e8ac373b2faa1cf1ec",
     "tools/check_champion_shapes_v5.py": "00f76c48cac3e644494548839bb61c668a6208be9a99d2016f9532a2a79c9ea0",
@@ -390,7 +390,7 @@
     "tools/verify-v0331-source-backup.py": "a01e0dcc64d7328806be093d172e2dab77f429c9b5ef5fb33b43aa60111d8b9b",
     "tools/verify-v041-public.mjs": "0a3a0e9199ae80a93dff7114d3d38452aa0c3e385c7388ec2f58a50c7fd3f9a4",
     "tools/verify-v042-public.mjs": "acb7b4cd12f3e35284e764676251edf2b29bf9b6825abd57cb92a74949a974f4",
-    "tools/verify-v043-public.mjs": "449c316746dc65463b4f8cd0bc3feafe33078a52070d09c46b83bc6aa473cfad",
+    "tools/verify-v043-public.mjs": "a072ae66e29d3f5ed7ac2dcc9d8e13f7ac472bc0d392e0dfc888440d8399f091",
     "tools/verify_defender_roundtrip_v3.py": "3860c7d8f1cd1406d1797481ce63358dbb8d5c96ef153b554f30583583401370",
     "tools/verify_defender_turnarounds_production.mjs": "4a609913f3125ddbf85f2482e64b1d9521eeca81ee808f6945251af7aebb451d",
     "tools/verify_geometric_archive_v5.py": "397b773343ee01d4e9fb769890634c6747572358c2ac40c43d0746c04204653f",
@@ -485,5 +485,13 @@
     "ui/wave-preview.css": "c5f90ca43b287a2e7b9d3eec229abdce66ff31bd65f7746cbd05ce02e94b171c",
     "ui/wave-preview.js": "3747c1b7e4bbfe5a139ee3a602f6026b345e6c50aaff69591f0d36d8089bba29",
     "vite.config.js": "1a5e13d074ace8660ef72fd0a8e44c8ad324de14b3232d73271e4befe6250bd3"
+  },
+  "assetMetadata": {
+    "public/assets/ui/reference-enemy-fronts/manifest.json": "ca6797131abd18b669bf78d0023be76c986d292792d093b45f195e25e6c97530",
+    "public/assets/ui/reference-portraits/manifest.json": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4",
+    "public/assets/ui/reference-cutouts/manifest.json": "50babe99b9f67691092a7720d05115311d47ee71f2c4f4871a393f91d981fb9d",
+    "public/assets/ui/portrait-variants/manifest.json": "1f3fcdcfea71c0c438f219b083de4c3262f0858b882ca11b94924bc10df682fd",
+    "public/assets/ui/results/manifest.json": "3a1b87994313b84a163a2751bda8b42e61bb28b920f380fb58c920d84f1c8113",
+    "output/design/ui-refinements-v043-20261018/front-enemies/pixel-verification.json": "1b257c4efb55c0f87f62e8c2f8f1982d037f885a52c4414c8374b2d91692603c"
   }
 }

@@ -5,6 +5,9 @@ import {inflateSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
 import {referenceEnemyPortrait,referenceDefenderPortrait,ENEMY_FRONT_PORTRAIT_REVISION,REFERENCE_PORTRAIT_REVISION} from '../ui/reference-portraits.js';
 const bytes=file=>readFileSync(new URL('../'+file,import.meta.url)),json=file=>JSON.parse(bytes(file)),sha=value=>createHash('sha256').update(value).digest('hex');
+// Only the CRLF/LF checkout boundary is canonicalized. JSON whitespace, keys,
+// values and all binary bytes remain part of their exact recorded digests.
+const jsonMetadataSha=value=>sha(Buffer.from(value.toString('utf8').replace(/\r\n/g,'\n')));
 const manifest=json('public/assets/ui/reference-enemy-fronts/manifest.json'),originals=json('public/assets/ui/reference-portraits/manifest.json');
 
 // Independent PNG scanline decoder. Source images may be RGB or RGBA; final
@@ -27,7 +30,7 @@ function decodePng(buffer){
 }
 
 test('all 50 runtime enemy portraits use separately reviewed FRONT crops and preserve exact approved RGB with real alpha',()=>{
-  assert.equal(manifest.revision,ENEMY_FRONT_PORTRAIT_REVISION);assert.equal(manifest.identities.length,50);assert.equal(sha(bytes(manifest.sourceManifest)),manifest.sourceManifestSha256);assert.equal(sha(bytes(manifest.maskSettings)),manifest.maskSettingsSha256);
+  assert.equal(manifest.revision,ENEMY_FRONT_PORTRAIT_REVISION);assert.deepEqual(manifest.sha256Policy,{jsonMetadata:'utf8-lf',otherFiles:'exact-bytes'});assert.equal(manifest.identities.length,50);assert.equal(jsonMetadataSha(bytes(manifest.sourceManifest)),manifest.sourceManifestSha256);assert.equal(jsonMetadataSha(bytes(manifest.maskSettings)),manifest.maskSettingsSha256);
   assert.deepEqual(manifest.identities.map(row=>row.id),Array.from({length:50},(_,index)=>`host_${String(index+1).padStart(2,'0')}`));
   const sources=new Map(originals.identities.filter(row=>row.category==='enemies').map(row=>[row.id,row]));
   for(const row of manifest.identities){
@@ -51,11 +54,21 @@ test('all 50 runtime enemy portraits use separately reviewed FRONT crops and pre
   assert.equal(referenceDefenderPortrait('archer',4,{base:'/project/'}),`/project/assets/ui/reference-cutouts/archer-4.png?v=${REFERENCE_PORTRAIT_REVISION}`);
 });
 
-test('the historical 136 portraits, 136 cutouts and 0.4.2 crimson derivative remain byte-identical',()=>{
-  assert.equal(manifest.historicalAssetsPreserved,true);for(const [file,expected]of Object.entries(manifest.historicalAssetsSha256))assert.equal(sha(bytes(file)),expected,file);
+test('historical artwork remains byte-identical and JSON provenance follows its explicit LF serialization policy',()=>{
+  assert.equal(manifest.historicalAssetsPreserved,true);for(const [file,expected]of Object.entries(manifest.historicalAssetsSha256))assert.equal(file.endsWith('.json')?jsonMetadataSha(bytes(file)):sha(bytes(file)),expected,file);
   assert.equal(originals.identities.length,136);assert.equal(json('public/assets/ui/reference-cutouts/manifest.json').identities.length,136);
   const old=json('public/assets/ui/portrait-variants/manifest.json');assert.equal(sha(bytes(old.source)),old.sourceSha256);assert.equal(sha(bytes(old.output)),old.sha256);
   assert.equal(originals.identities.find(row=>row.id==='host_44').view,'LEFT panel; full axe and silhouette without neighboring caption');assert.equal(manifest.identities.find(row=>row.id==='host_44').view,'FRONT');
+});
+
+test('metadata digests equate LF and CRLF checkouts while rejecting every non-EOL change and keeping PNG bytes exact',()=>{
+  for(const file of [manifest.sourceManifest,manifest.maskSettings,...Object.keys(manifest.historicalAssetsSha256).filter(file=>file.endsWith('.json'))]){
+    const lf=Buffer.from(bytes(file).toString('utf8').replace(/\r\n/g,'\n')),crlf=Buffer.from(lf.toString('utf8').replace(/\n/g,'\r\n'));
+    assert.equal(jsonMetadataSha(lf),jsonMetadataSha(crlf),file);assert.notEqual(sha(lf),sha(crlf),file+' actually exercises different checkout bytes');
+    assert.notEqual(jsonMetadataSha(Buffer.concat([lf,Buffer.from(' ')])),jsonMetadataSha(lf),'Even semantically insignificant non-EOL JSON whitespace remains protected');
+    const changed=Buffer.from(lf);changed[0]^=1;assert.notEqual(jsonMetadataSha(changed),jsonMetadataSha(lf),'Metadata content changes cannot pass');
+  }
+  const row=manifest.identities[0],png=bytes(row.output),changed=Buffer.from(png);changed[changed.length-1]^=1;assert.equal(sha(png),row.sha256);assert.notEqual(sha(changed),row.sha256,'Image corruption is never normalized');
 });
 
 test('the English FRONT review gallery resolves all 50 exact delivered images',()=>{

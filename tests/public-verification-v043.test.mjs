@@ -70,7 +70,7 @@ test('missing final local build and changed immutable manifest are rejected befo
 });
 
 test('invalid local FRONT view, source, RGB, alpha, identity, trim or historical metadata fails before any request',async()=>{
-  const changes=[m=>{m.identities[0].view='LEFT';},m=>{m.identities[0].sourceSha256='0'.repeat(64);},m=>{m.identities[0].preservedRgb=false;},m=>{m.identities[0].transparentPixels++;},m=>{m.identities[1].id=m.identities[0].id;},m=>{m.identities[0].sourceRectangle[2]=1024;},m=>{m.identities[0].trimRectangle[2]=999;},m=>{m.historicalAssetsSha256[manifest.identities[0].output]='0'.repeat(64);}];
+  const changes=[m=>{m.identities[0].view='LEFT';},m=>{m.identities[0].sourceSha256='0'.repeat(64);},m=>{m.identities[0].preservedRgb=false;},m=>{m.identities[0].transparentPixels++;},m=>{m.identities[1].id=m.identities[0].id;},m=>{m.identities[0].sourceRectangle[2]=1024;},m=>{m.identities[0].trimRectangle[2]=999;},m=>{m.historicalAssetsSha256[manifest.identities[0].output]='0'.repeat(64);},m=>{m.sha256Policy.jsonMetadata='exact-bytes';},m=>{m.sha256Policy.otherFiles='utf8-lf';},m=>{m.sourceManifestSha256='fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4';},m=>{m.historicalAssetsSha256['public/assets/ui/reference-portraits/manifest.json']='0'.repeat(64);}];
   for(const change of changes){const altered=structuredClone(frontManifest);change(altered);const {fetchImpl,requests}=fixture(),report=await verify({fetchImpl,frontManifest:altered});assert.equal(report.status,'failed');assert.equal(requests.length,0);assert.ok(report.failures.some(row=>/FRONT/.test(row.error)));}
 });
 

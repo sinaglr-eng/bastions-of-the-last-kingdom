@@ -34,12 +34,15 @@ const markers={
 
 function validateFrontManifest(front,original,crimson){
   invariant(front?.revision===expected.uiEnemyPortraitRevision,'Local FRONT manifest has the wrong revision');
-  invariant(front.sourceManifest==='public/assets/ui/reference-portraits/manifest.json'&&front.sourceManifestSha256==='fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4','Local FRONT source manifest provenance differs');
+  invariant(front.sha256Policy?.jsonMetadata==='utf8-lf'&&front.sha256Policy?.otherFiles==='exact-bytes'&&Object.keys(front.sha256Policy).length===2,'Local FRONT JSON/binary digest policy differs');
+  invariant(front.sourceManifest==='public/assets/ui/reference-portraits/manifest.json'&&front.sourceManifestSha256==='45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f','Local FRONT source manifest provenance differs');
   invariant(front.maskSettings==='tools/enemy-front-cutout-masks.json'&&/^[a-f0-9]{64}$/.test(front.maskSettingsSha256),'Local FRONT alpha-mask provenance differs');
   invariant(front.algorithm==='Original deterministic border-calibrated alpha-only cutout'&&front.historicalAssetsPreserved===true,'Local FRONT alpha/RGB preservation record differs');
   invariant(typeof front.visualReview==='string'&&front.visualReview.length>40,'Local FRONT visual review record is missing');
   const rows=front.identities;
   invariant(rows?.length===50&&new Set(rows.map(row=>row.id)).size===50,'Local FRONT manifest must contain 50 unique identities');
+  const historicalJson={'public/assets/ui/reference-portraits/manifest.json':'45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f','public/assets/ui/reference-cutouts/manifest.json':'64416209e4367d68289f35b0f2bd4782e9f29551f8a5bbad265963d131c88baf','public/assets/ui/portrait-variants/manifest.json':'fe074b9d8ea0a156e0a54ab7bd545efd8d73294cce80da47ee11d1a80025ba11'};
+  for(const [file,digest]of Object.entries(historicalJson))invariant(front.historicalAssetsSha256?.[file]===digest,`Local FRONT historical LF-JSON record differs: ${file}`);
   const originals=new Map(original.identities.map(row=>[row.id,row]));
   for(const row of original.identities){
     invariant(front.historicalAssetsSha256?.[row.output]===row.sha256&&front.historicalAssetsSha256?.[row.sourceCrop]===row.sourceCropSha256,`Local FRONT historical portrait record differs: ${row.id}`);
@@ -179,7 +182,7 @@ export async function verifyPublic({base=defaultBase,manifest,manifestSha256=nul
       }else if(file===frontManifestPath){
         const served=parseJson(bytes);validateFrontManifest(served,manifest,crimsonManifest);
         invariant(jsonSha(served)===jsonSha(frontManifest),'Public FRONT manifest differs from local verified record');
-        Object.assign(report.fronts,{manifestSha256:sha(bytes),manifestCanonicalSha256:jsonSha(served),revision:served.revision,manifestComparison:'Exact canonical JSON; checkout line endings in JSON formatting may differ; every metadata value is preserved',allFront:true,preservedRgb:true,historicalAssetsPreserved:true});
+        Object.assign(report.fronts,{manifestSha256:sha(bytes),manifestCanonicalSha256:jsonSha(served),revision:served.revision,manifestComparison:'Exact canonical JSON; checkout line endings in JSON formatting may differ; every metadata value is preserved',sourceMetadataDigestPolicy:'UTF-8 text with CRLF converted to LF only; all other formatting/content preserved; non-JSON files use exact raw bytes',allFront:true,preservedRgb:true,historicalAssetsPreserved:true});
       }else{
         const served=parseJson(bytes);validateDefeatManifest(served);
         invariant(jsonSha(served)===jsonSha(defeatManifest),'Public defeat manifest differs from local provenance record');

@@ -1,0 +1,31 @@
+{
+  "schema": "v043-ci-portability-diagnosis-v1",
+  "failedCommit": "a4dcaea7591d8d8ec1d4aed483223ca6ce077ac3",
+  "runId": 39121988704,
+  "jobId": 117659276126,
+  "ciTests": {"total": 1504, "passed": 1502, "failed": 2},
+  "failedFile": "tests/enemy-front-cutouts-v043.test.mjs",
+  "cause": "The new provenance test compared raw SHA-256 of Windows CRLF JSON files with Linux LF checkout bytes. Both failing cases stopped at the original portrait manifest; artwork and runtime behavior did not fail.",
+  "verifiedEvidence": {
+    "file": "public/assets/ui/reference-portraits/manifest.json",
+    "workingCrLfSha256": "fbeb324675a49612afef8e600d0a311139d05daf4324002844255fc5f7c1f0c4",
+    "exactCommittedGitBlobLfSha256": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f",
+    "ciActualSha256": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f",
+    "equalAfterCrLfToLfOnly": true,
+    "maskSettingsWorkingAndCommittedSha256": "291e0afc765f9878faaa36a8d72d2a450810f5a46be1663a1b14a98aee882161"
+  },
+  "fix": {
+    "files": ["tools/build-enemy-front-cutouts.py", "public/assets/ui/reference-enemy-fronts/manifest.json", "tests/enemy-front-cutouts-v043.test.mjs", "tools/verify-v043-public.mjs", "tests/public-verification-v043.test.mjs"],
+    "sha256Policy": {"jsonMetadata": "utf8-lf", "otherFiles": "exact-bytes"},
+    "normalization": "CRLF to LF only; no parsed JSON reserialization, whitespace changes, key reordering or other content changes are accepted by source metadata digests.",
+    "sourceManifestLfSha256": "45dcbf77adf145b4943242c1cb65c604950b89225b6e879038cb8530db55d36f",
+    "newFrontManifestSha256": "ca6797131abd18b669bf78d0023be76c986d292792d093b45f195e25e6c97530",
+    "allPngHashesRemainExact": true,
+    "allHistoricalFilesPreservedBySeparateRawPrePostChecks": true,
+    "rgbComparisonRetainedForEveryFrontPortrait": true,
+    "regression": "Equivalent LF and CRLF metadata digests agree; appended non-EOL whitespace, changed metadata bytes and changed PNG bytes fail."
+  },
+  "logRetrieval": {"method": "Connected GitHub fetch_workflow_job_logs read-only tool", "publicApiAttempt": "Credential-free log endpoint returned HTTP 403; no credentials were read or exported."},
+  "runtimeCodeChanged": false,
+  "mainWrites": false
+}
