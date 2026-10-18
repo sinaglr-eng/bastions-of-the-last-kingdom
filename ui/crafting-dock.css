@@ -76,8 +76,9 @@
 #app .folio-plan .crafting-dock{overflow:visible;box-shadow:none}
 #app .folio-plan{touch-action:pan-y;overscroll-behavior-y:contain}
 #app .folio-plan .crafting-dock{touch-action:pan-y;overscroll-behavior:auto}
-#app .crafting-order{display:flex;align-items:center;gap:5px;margin:0 0 8px}
-#app .crafting-order>button{flex:1;min-height:44px;padding:3px 7px;font-size:12px;white-space:nowrap}
+#app .crafting-order{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:0 0 7px;padding:3px 0;border-block:1px solid var(--rule,#b9a782)}
+#app .crafting-dock .crafting-order>button{flex:0 1 auto;width:auto;min-width:0;min-height:28px;height:28px;padding:2px 4px;font-size:12px;line-height:1.2;white-space:nowrap;border:0;border-radius:0;background:none;box-shadow:none}
+#app .crafting-dock .crafting-order>button:not(:disabled):hover{text-decoration:underline;background:none}
 #app .crafting-order>span{font-size:11px;white-space:nowrap;color:var(--muted-ink,#c8d8d3)}
 #app .crafting-dock-disclosure:not([open])~.crafting-dock-actions{display:none}
 #app .is-compact-external.crafting-dock{position:absolute;z-index:10;left:auto;right:16px;bottom:calc(var(--folio) + var(--safe-bottom) + 10px);width:min(330px,calc(100% - 32px));max-height:none;margin:0;padding:0;border:1px solid #648c91;border-radius:3px;background:var(--paper,#f7eedb);box-shadow:0 3px 10px #30220f30;overflow:hidden}

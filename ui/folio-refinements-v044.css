@@ -1,0 +1,69 @@
+/* The two draft CP choices share the established gold creation treatment. */
+#app .folio-decision-row :is([data-action=reroll],[data-action=reserve]) {
+  color: #241b0e;
+  border-color: #8c6224;
+  background: linear-gradient(110deg,#e0b65c,#f3d27e 47%,#d9ac4d);
+  box-shadow: inset 0 0 0 2px #f8dda1,inset 0 0 0 3px #b78b3f,0 2px 3px #5b3d252b;
+}
+#app .folio-decision-row :is([data-action=reroll],[data-action=reserve]):not(:disabled):hover {
+  background: linear-gradient(110deg,#f1cc79,#ffe4a2 47%,#e8bd62);
+}
+
+/* Damage channels keep their words/icons as well as distinct parchment ink. */
+#app { --damage-physical: #35536b; --damage-magical: #72509b; --damage-holy: #7c5b16; }
+#app .draw-damage[data-damage-type=physical],#app .defender-panel .damage-tag[data-damage-type=physical] { color: var(--damage-physical); }
+#app .draw-damage[data-damage-type=magical],#app .defender-panel .damage-tag[data-damage-type=magical] { color: var(--damage-magical); }
+#app .draw-damage[data-damage-type=holy],#app .defender-panel .damage-tag[data-damage-type=holy] { color: var(--damage-holy); }
+#app .draw-damage { font-weight: 600; }
+#app .defender-panel .damage-tag[data-damage-type=physical] { background: #e3ebef; }
+#app .defender-panel .damage-tag[data-damage-type=magical] { background: #eee6f5; }
+#app .defender-panel .damage-tag[data-damage-type=holy] { background: #f3e7bf; }
+
+/* The unknown figure is native SVG, independent of the hidden draw identity. */
+#app .folio-candidates .mystery-card .mystery-sigil {
+  display: block; width: min(92px,100%); height: calc(100% - 44px); min-height: 0;
+  margin: 3px auto 0; border: 0; background: none; clip-path: none;
+}
+#app .folio-candidates .mystery-placement { display: block; width: 100%; height: 100%; overflow: visible; }
+#app .mystery-placement .placement-tile { fill: #e7dac0; stroke: #9c8051; stroke-width: 1.4; stroke-linejoin: round; }
+#app .mystery-placement .placement-guide { fill: none; stroke: #8d754e; stroke-width: 1.3; }
+#app .mystery-placement .mystery-figure { fill: #cbb78f; stroke: #9b8054; stroke-width: 1.2; stroke-linejoin: round; }
+#app .mystery-placement .mystery-head { fill: #e6d8b8; }
+#app .mystery-placement .mystery-facet { fill: none; stroke: #baa178; }
+#app .mystery-placement .mystery-question { fill: none; stroke: #68502e; stroke-width: 3; stroke-linecap: round; }
+#app .mystery-placement .mystery-question-dot { fill: #68502e; }
+#app .mystery-placement .placement-arrow { fill: none; stroke: #87703f; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#app .folio-candidates .mystery-card .draw-name { bottom: 5px; padding: 0 3px; font-size: 11px; line-height: 1.15; text-align: center; }
+
+/* Rank choices are thinner. Candidate-only spacing keeps the complete simple
+   profile visible without clipping content or suppressing native scrolling. */
+#app .rank-preview-buttons>button { min-height: 30px; height: 30px; padding: 2px 0; font-size: 14px; line-height: 1.15; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] { min-width: 0; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .defender-heading { gap: 6px; margin: 0 0 3px; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .defender-heading>img { width: 37px; height: 42px; padding: 1px; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .defender-heading h2 { font-size: 18px!important; line-height: 1.05; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .defender-heading p { margin: 2px 0 0; font-size: 10px; line-height: 1.15; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .defender-stats-rank { margin: 1px 0 2px; font-size: 10px; line-height: 1.15; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .damage-tag { margin: 0; padding: 1px 5px; font-size: 10px; line-height: 1.2; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .defender-abilities { margin: 3px 0; font-size: 11.5px; line-height: 1.2; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .defender-abilities li { margin: 2px 0; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .rank-preview { margin: 3px 0; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] :is(.rank-preview-heading,.rank-preview-caption) { margin-block: 0 2px; font-size: 10px; line-height: 1.2; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .folio-metrics { margin: 3px 0; gap: 3px; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .combat-stat-grid[data-stats-scope=base-preview]>div { display: flex!important; flex-direction: row!important; align-items: baseline; justify-content: space-between; min-height: 22px; gap: 4px; padding: 1px 3px; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .folio-metrics span { font-size: 10px; line-height: 1.15; }
+#app .folio-inspection .defender-panel[data-defender-state=draft] .folio-metrics strong { font-size: 16px; line-height: 1.15; }
+#app .folio-inspection .defender-panel[data-defender-state=draft]>.minor-note { margin: 3px 0 0; font-size: 10px; line-height: 1.2; }
+
+/* Recipe arrows rotate inside a stationary frame, without a font baseline or
+   vertical translation affecting their position. */
+#app :is(.folio-recipe-chevron,.crafting-disclosure-chevron) { display: grid; place-items: center; width: 24px; height: 24px; min-width: 24px; min-height: 24px; padding: 0; line-height: 0; transform: none!important; translate: none; }
+#app :is(.folio-recipe-chevron,.crafting-disclosure-chevron)>svg { display: block; width: 16px; height: 16px; margin: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+#app .folio-recipe-row[aria-expanded=true] .folio-recipe-chevron>svg,#app .crafting-dock-disclosure[open]>.crafting-dock-summary .crafting-disclosure-chevron>svg { transform: rotate(180deg); }
+
+@media(min-width:601px) and (max-width:1050px) {
+  #app .folio-inspection .defender-panel[data-defender-state=draft] { display: grid; grid-template-columns: minmax(150px,.65fr) minmax(0,1.35fr); gap: 3px 12px; }
+}
+@media(max-height:600px) and (min-width:601px) {
+  #app .folio-inspection .defender-panel[data-defender-state=draft] .folio-metrics { grid-template-columns: repeat(4,minmax(0,1fr)); }
+}

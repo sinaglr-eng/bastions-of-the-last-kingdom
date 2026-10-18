@@ -7,7 +7,7 @@ import {DeveloperConsoleSession} from '../game/core/developer-console.js';
 import {campaignTowers,campaignEnemies,campaignWaves,campaignRecipes} from '../game/core/campaign-roster.js';
 import {warbandTraitDetails} from '../game/core/warband-info.js';
 import {currentWarbandInfo,bossHealth} from '../game/core/warband-info.js';
-import {enemyRulesFor} from '../game/core/enemy-rules.js';
+import {enemyRulesFor,enemyNumber} from '../game/core/enemy-rules.js';
 import {warbandVariantComparison,warbandCardsMarkup} from '../ui/warband-cards.js';
 import {warbandsOverviewMarkup,updateWarbandsOverviewPanel} from '../ui/warbands-overview.js';
 
@@ -15,6 +15,7 @@ const raw=Object.fromEntries(['balance','towers','enemies','waves','recipes'].ma
 const data={...raw,towers:campaignTowers(raw.towers),enemies:campaignEnemies(raw.enemies),waves:campaignWaves(raw.waves),recipes:campaignRecipes(raw.recipes)};
 const images=Object.fromEntries(Object.keys(data.enemies).map(type=>['enemy:'+type,'/approved/'+type+'.png']));
 const options=extra=>({balance:data.balance,data,round:1,phase:'build',waveLimit:50,...extra});
+const atlasValues=html=>Object.fromEntries([...html.matchAll(/<div data-stat="([^"]+)">[\s\S]*?<dd>([^<]+)<\/dd><\/div>/g)].map(([,key,value])=>[key,value]));
 
 test('all 62 effective campaign profiles reconstruct shared/different stats and abilities exactly as actual spawned enemies',()=>{
   const game=new Game(data,{seed:42}),before=JSON.stringify(data);let profiles=0;
@@ -172,9 +173,10 @@ test('the open atlas changes only its selected page, retaining exact wave 31 var
   assert.equal(host.querySelectorAll('.warband-card').length,1);
   assert.equal(host.querySelector('.warband-card').dataset.wave,'31');
   assert.equal(document.activeElement.dataset.atlasWave,'31');
-  assert.match(host.innerHTML,/Current campaign wave 9/);
-  assert.match(host.innerHTML,/Gold · selected page 31/);
-  assert.equal((host.innerHTML.match(/12,443 HP · 20 armor · 2\.05 tiles\/s/g)||[]).length,1);
+  assert.doesNotMatch(host.innerHTML,/warbands-atlas-legend|Current campaign wave|Gold · selected page/);
+  assert.equal(index.querySelector('[data-atlas-wave="9"]').dataset.atlasCurrent,'true');
+  assert.equal(host.querySelector('.warbands-atlas-pages').querySelector('[data-atlas-wave="31"]').attributes['aria-pressed'],'true');
+  assert.deepEqual(atlasValues(host.innerHTML),{count:'22',flying:'Ground',maxHp:'12,443',armor:'20',speed:'2.05'});
   assert.equal((host.innerHTML.match(/3 hit-blocking shields/g)||[]).length,1);
   assert.match(host.innerHTML,/Immune to Magical damage/);assert.match(host.innerHTML,/Immune to Physical damage/);
   assert.equal(JSON.stringify({towers:game.towers,draws:game.draft.draws,round:game.round,phase:game.phase,cp:game.commandPoints.value,gold:game.economy.gold}),before);
@@ -185,8 +187,38 @@ test('reference-shaped atlas keeps shared facts above one field portrait and two
   const html=warbandsOverviewMarkup(data.waves,data.enemies,images,options({atlas:true,round:9,selectedWave:31}));
   assert.match(html,/Wave 31 — Orc Dual-Seal Inquisitors/);assert.match(html,/warband-atlas-comparison" data-variant-count="2"/);
   assert.equal((html.match(/class="warband-atlas-portrait"/g)||[]).length,1);assert.equal((html.match(/class="warband-variant" data-variant-index=/g)||[]).length,2);
-  assert.ok(html.indexOf('class="warband-shared-stats"')<html.indexOf('class="warband-illustrated-comparison"'));assert.equal((html.match(/12,443 HP · 20 armor · 2\.05 tiles\/s/g)||[]).length,1);
+  assert.ok(html.indexOf('class="warband-shared-stats"')<html.indexOf('class="warband-illustrated-comparison"'));assert.equal((html.match(/<dd>12,443<\/dd>/g)||[]).length,1);
   assert.match(html,/Immune to Magical damage/);assert.match(html,/Immune to Physical damage/);assert.doesNotMatch(html,/warbands-atlas-nav|Return to battlefield/);
+});
+
+test('illustrated atlas statistic cells use each real shared value once and keep differing variant values inside their own panel',()=>{
+  const {host}=catalogHost(),before=JSON.stringify(data);
+  for(const [index,wave] of data.waves.entries()){
+    host.innerHTML=warbandsOverviewMarkup(data.waves,data.enemies,images,options({atlas:true,selectedWave:index+1}));
+    const model=warbandVariantComparison(wave,wave.groups[0],data.enemies[wave.groups[0].type],options()),shared=host.querySelector('.warband-shared-stats'),values=atlasValues(host.innerHTML);
+    assert.equal(values.count,String(wave.groups[0].count));
+    for(const key of ['maxHp','armor','speed','flying']){
+      const cells=shared.querySelectorAll(`[data-stat="${key}"]`);
+      assert.equal(cells.length,Object.hasOwn(model.commonStats,key)?1:0,`Wave ${index+1}: ${key}`);
+      if(cells.length)assert.equal(values[key],key==='flying'?(model.commonStats[key]?'Air':'Ground'):enemyNumber(model.commonStats[key]));
+    }
+    assert.equal(host.querySelectorAll('.warband-atlas-portrait').length,1);
+    assert.equal(host.querySelectorAll('.warband-lore').length,1);
+    assert.equal(host.querySelector('.warband-lore').open,true);
+    assert.equal(host.querySelector('.warbands-atlas-legend'),null);
+    assert.equal(host.querySelectorAll('.warband-variant').length,model.variants.length>1?model.variants.length:0);
+    for(const difference of model.differences)for(const trait of difference.traits)assert.ok(host.innerHTML.includes(trait.text.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))));
+  }
+  assert.equal(JSON.stringify(data),before);
+});
+
+test('the illustrated current boss page receives actual live health while an inspected future boss does not',()=>{
+  const game=new Game(data,{seed:710});game.round=10;game.phase='ready';assert.equal(game.startCombat(),true);
+  const queued=game.combat.spawnQueue.shift(),boss=game.combat.spawn(queued.type,queued.modifiers);boss.hp-=123;
+  const health=bossHealth(game),current=warbandsOverviewMarkup(data.waves,data.enemies,images,options({atlas:true,round:10,phase:'combat',selectedWave:10,liveBossHealth:health}));
+  assert.match(current,/class="warband-boss-health"/);assert.ok(current.includes(`value="${health.hp}" max="${health.maxHp}"`));
+  const future=warbandsOverviewMarkup(data.waves,data.enemies,images,options({atlas:true,round:10,phase:'combat',selectedWave:20,liveBossHealth:health}));
+  assert.doesNotMatch(future,/class="warband-boss-health"/);
 });
 
 test('atlas page, index focus and lore survive refresh; index-only navigation respects the remaining campaign cap',()=>{

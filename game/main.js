@@ -13,6 +13,7 @@ import {wallPanelMarkup} from '../ui/wall-panel.js';
 import {currentWavePanelMarkup,updateCurrentWavePanel} from '../ui/current-wave-panel.js';
 import {recipeFilterControlsMarkup,connectRecipeFilters} from '../ui/recipe-filters.js';
 import {updateHeaderCombatControls} from '../ui/header-combat-controls.js';
+import {updatePinnedGoal} from '../ui/pinned-goal.js';
 import {WaveThreatAnalyzer} from './core/wave-threats.js';
 import {ArmyReadiness} from './core/army-readiness.js';
 import {commandPointsMarkup} from '../ui/command-points.js';
@@ -95,6 +96,9 @@ import {defenderEffectiveStatsMarkup} from '../ui/defender-effective-stats.js';
 import '../ui/cartographer-refinements.css';
 import '../ui/folio-polish-v043.css';
 import '../ui/field-readability-v043.css';
+import '../ui/folio-refinements-v044.css';
+import '../ui/field-command-v044.css';
+import '../ui/outcome-art-v044.css';
 import {updateCurrentWaveSummaryPanel} from '../ui/current-wave-summary.js';
 import {CommandPointerInput} from '../ui/command-pointer-input.js';
 import {recipeNavigationVisit,recipeNavigationStep} from '../ui/recipe-navigation.js';
@@ -239,7 +243,7 @@ function renderMapAction(){
 }
 function hud(){
   phaseUi.apply(app,game);if(game.phase==='combat')updateCurrentWaveSummaryPanel($('next-wave-summary'),game,data,images,{open:true});updateCombatStatus($('combat-counts'),$('persistent-boss'),game);
-  const pin=craftingDockModel(game,{recipeId:game.pinned}).pinned,goal=$('pinned-goal');goal.hidden=!pin||!['build','select'].includes(game.phase)||!!game.previewRecipeId;const pinMarkup=pinnedGoalMarkup(pin,images);if(goal.innerHTML!==pinMarkup)goal.innerHTML=pinMarkup;
+  const pin=craftingDockModel(game,{recipeId:game.pinned}).pinned;updatePinnedGoal($('pinned-goal'),pin,images,{visible:['build','select'].includes(game.phase)&&!game.previewRecipeId});
   const hint=contextGuidanceMarkup(guidance?.model(game));if($('context-guidance').innerHTML!==hint)$('context-guidance').innerHTML=hint;
   $('menu-stats').textContent='Score '+(game.score||0).toLocaleString('en-US')+' · Time '+formatRunDuration(game.elapsedSeconds)+' · Gold '+game.economy.gold+' · CP '+game.commandPoints.value;
   audio.syncGameState(game,{musicPaused:$('dialog').open?modalPaused:game.paused});

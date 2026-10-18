@@ -40,7 +40,7 @@ test('Archer II→IV changes the displayed profile and recipe suggestions while 
 test('one canonical profile supplies quantified Mage splash and Frost Warden V/VI effects before rankbar and four metrics',()=>{
   const mage=candidates('mage',1),mageHtml=defenderPanelMarkup(mage,mage.selection);assert.match(mageHtml,/30% Magical splash · 3.6 damage to other enemies within 3 tiles/);
   const game=candidates('frostwarden',5),tower=game.selection,preview=new DefenderRankPreview();
-  let html=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(html,/36% movement slow for 3s/);assert.equal(metric(html,'Damage / hit'),'30');assert.match(html,/<span class="damage-tag">Physical/);
+  let html=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(html,/36% movement slow for 3s/);assert.equal(metric(html,'Damage / hit'),'30');assert.match(html,/<span class="damage-tag" data-damage-type="physical">Physical/);
   preview.select(tower,6,data);html=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(html,/55% movement slow for 3s · also within 0.5 tiles/);
   const positions=['folio-identity','folio-effects','class="rank-preview"','folio-metrics'].map(key=>html.indexOf(key));assert.ok(positions.every((value,index)=>value>=0&&(!index||value>positions[index-1])));
   assert.equal((html.match(/class="tower-effects/g)||[]).length,1);assert.equal((html.match(/Damage \/ hit/g)||[]).length,1);assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);
@@ -59,7 +59,7 @@ test('Build/Select share five selection cards and detail without hidden identity
   const game=new Game(data,{seed:402}),control=new Game(data,{seed:402});for(const current of [game,control]){place(current,Array.from({length:3},()=>({family:'archer',tier:2})));}
   for(const draw of game.draft.draws.filter(draw=>!draw.placed))for(const key of ['family','tier'])Object.defineProperty(draw,key,{get(){throw Error('Hidden identity read');},configurable:true});
   const hidden=draftCardsMarkup(game,data,{'archer:2':'/archer-II.png'},{actions:false}),detail=defenderPanelMarkup(game,game.selection);
-  assert.equal((hidden.match(/class="draw-slot/g)||[]).length,5);assert.equal((hidden.match(/Unrevealed defender\. Build/g)||[]).length,2);assert.equal((hidden.match(/<img/g)||[]).length,3);
+  assert.equal((hidden.match(/class="draw-slot/g)||[]).length,5);assert.equal((hidden.match(/Place a defender on the map\. Build/g)||[]).length,2);assert.equal((hidden.match(/<img/g)||[]).length,3);
   assert.doesNotMatch(hidden+detail,/data-action="(?:keep-draw|reroll|reserve|merge-tower)"|src="(?:undefined|null|)"/);assert.equal(game.phase,'build');assert.equal(game.rng(),control.rng());
   const complete=candidates(),plain=draftCardsMarkup(complete,data,{}, {actions:false}),legacy=draftCardsMarkup(complete,data,{}),panel=defenderPanelMarkup(complete,complete.selection);
   assert.equal((plain.match(/data-action="draw"/g)||[]).length,5);assert.equal((plain.match(/<button/g)||[]).length,5);assert.equal((legacy.match(/data-action="keep-draw"/g)||[]).length,1);assert.equal((panel.match(/data-action="keep-draw"/g)||[]).length,1);assert.doesNotMatch(plain,/keep-draw|merge-tower|has-keep|mergeable/);

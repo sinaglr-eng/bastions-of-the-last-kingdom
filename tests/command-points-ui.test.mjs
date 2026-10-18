@@ -23,7 +23,7 @@ const pointer={pointerType:'mouse',button:0,clientX:100,clientY:100};
 
 test('returning reserve is already placed at its fixed tile and selectable among exactly five cards',()=>{
   const game=carryGame(),html=draftCardsMarkup(game,data,{'soldier:2':'soldier-rank-II.png',soldier:'wrong-rank-I.png'});
-  assert.equal(countCards(html),5);assert.equal((html.match(/Unrevealed defender\. Build/g)||[]).length,4);
+  assert.equal(countCards(html),5);assert.equal((html.match(/Place a defender on the map\. Build/g)||[]).length,4);
   assert.match(html,/reserved-return/);assert.match(html,/Reserved from previous draft/);assert.match(html,/Fixed position/);assert.match(html,/Already placed at its fixed position/);assert.match(html,/soldier-rank-II\.png/);assert.doesNotMatch(html,/wrong-rank-I/);
   assert.match(html,/data-action="draw" data-index="0"/);assert.doesNotMatch(html,/keep-draw|Reserved for next draft/);
   const draw=game.draft.draws[0],tower=drawnTower(game,0);assert.equal(draw.placed,true);assert.equal(draw.fixedPosition,true);

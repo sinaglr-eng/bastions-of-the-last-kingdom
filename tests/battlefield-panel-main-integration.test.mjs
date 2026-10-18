@@ -17,7 +17,8 @@ import {ArmyReadiness} from '../game/core/army-readiness.js';
 import {nextWavePreviewIndex} from '../ui/wave-preview-flow.js';
 import {updateHeaderCombatControls} from '../ui/header-combat-controls.js';
 import {currentWavePanelMarkup,updateCurrentWavePanel} from '../ui/current-wave-panel.js';
-import {PhaseUiState,endedPhase,updateCombatStatus,pinnedGoalMarkup} from '../ui/phase-ui.js';
+import {PhaseUiState,endedPhase,updateCombatStatus} from '../ui/phase-ui.js';
+import {updatePinnedGoal} from '../ui/pinned-goal.js';
 import {craftingDockModel} from '../ui/crafting-dock.js';
 import {defenderPanelMarkup} from '../ui/defender-panel.js';
 import {DefenderRankPreview} from '../ui/defender-rank-preview.js';
@@ -94,7 +95,7 @@ test('actual main HUD follows real damage, pause and death while retaining indiv
   for(const id of ['hud-wave','hud-lives','hud-gold','hud-time','hud-cp','hud-score','tower-dps','developer-mode-indicator','combat-counts','persistent-boss','context-guidance','menu-stats','pinned-goal'])ui.nodes.set(id,{textContent:'',innerHTML:'',parentElement:{parentElement:{classList:{add(){},remove(){}}}}});
   const waveSummary=waveHost();ui.nodes.set('next-wave-summary',waveSummary);
   const header=headerHost();ui.nodes.set('header-combat-controls',header);ui.nodes.set('dialog',{open:false});
-  let audioSyncs=0;const {hud}=compile(['hud'],{game,$:ui.$,app:{dataset:{}},phaseUi:ui.phaseUi,updateCurrentWaveSummaryPanel,updateCombatStatus,craftingDockModel,pinnedGoalMarkup,contextGuidanceMarkup,guidance:null,audio:{syncGameState(actual,options){assert.equal(actual,game);assert.equal(options.musicPaused,game.paused);audioSyncs++;}},developerConnection:null,updateHeaderCombatControls,updateSelectedEnemyPanel,updateCurrentWavePanel,enemyInspectionOptions:ui.enemyInspectionOptions,renderSidebar:ui.renderSidebar,renderRecipeBrowser(){},updateTowerDpsPanel:(panel,rows,...rest)=>samples.push({rows,options:rest.at(-1)}),dpsTracker:tracker,dpsMeasurement:measurement,data,images:ui.images,balance:data.balance,formatRunDuration,profile:{bestScore:0},renderWarbandsOverview(){},supportEffectsMarkup(){throw new Error('No defender is selected');}});
+  let audioSyncs=0;const {hud}=compile(['hud'],{game,$:ui.$,app:{dataset:{}},phaseUi:ui.phaseUi,updateCurrentWaveSummaryPanel,updateCombatStatus,craftingDockModel,updatePinnedGoal,contextGuidanceMarkup,guidance:null,audio:{syncGameState(actual,options){assert.equal(actual,game);assert.equal(options.musicPaused,game.paused);audioSyncs++;}},developerConnection:null,updateHeaderCombatControls,updateSelectedEnemyPanel,updateCurrentWavePanel,enemyInspectionOptions:ui.enemyInspectionOptions,renderSidebar:ui.renderSidebar,renderRecipeBrowser(){},updateTowerDpsPanel:(panel,rows,...rest)=>samples.push({rows,options:rest.at(-1)}),dpsTracker:tracker,dpsMeasurement:measurement,data,images:ui.images,balance:data.balance,formatRunDuration,profile:{bestScore:0},renderWarbandsOverview(){},supportEffectsMarkup(){throw new Error('No defender is selected');}});
   const enemy=game.combat.enemies.find(candidate=>game.combat.isRevealed(candidate)),attacker=game.towers.find(t=>t.state==='active');assert.equal(game.selectEnemy(enemy.id),true);ui.renderSidebar();ui.body.scrollTop=107;
   for(let n=0;n<8;n++){
     game.combat.damage(enemy,Math.min(3,enemy.hp/100),'pure',{},attacker);hud();assert.equal(ui.body.scrollTop,107);

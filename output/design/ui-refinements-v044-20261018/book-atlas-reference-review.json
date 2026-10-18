@@ -1,0 +1,103 @@
+{
+  "schema": "book-atlas-reference-review-v044",
+  "language": "English",
+  "status": "Final native desktop, tablet and phone comparison completed; reference fidelity and honest variant-art limits recorded",
+  "referencesInspectedWithViewImage": [
+    "docs/ui-cartographers-table-handoff-20261016/reference-ui/07-future-waves-desktop.png",
+    "docs/ui-cartographers-table-handoff-20261016/reference-ui/07-future-waves-ipad.png",
+    "docs/ui-cartographers-table-handoff-20261016/reference-ui/08-recipe-catalog-desktop.png",
+    "docs/ui-cartographers-table-handoff-20261016/reference-ui/08-recipe-catalog-ipad.png"
+  ],
+  "baselineCapturesInspectedWithViewImage": [
+    "output/design/ui-refinements-v043-20261018/26-public-book-final.jpg",
+    "output/design/ui-refinements-v043-20261018/25-public-atlas-front-44.jpg"
+  ],
+  "book": {
+    "observedBaselineProblem": "A generic dialog style gives champion-catalog a more specific opaque paper background than atlas-book's transparent background. The rectangular catalog surface covers the curved native leaves and the central fold, leaving an apparently flat white object inside a decorative outline.",
+    "referenceFeatures": [
+      "Continuous warm paper material across each bowed leaf, with a narrow recessed center valley.",
+      "Separate leather cover, layered page edges, restrained gold corner ornament, external tabs and planning bookmark."
+    ],
+    "implementation": [
+      "Scoped transparent surface ownership overrides the generic dialog card background on the catalog and its leaf/layout layers. Individual controls, ingredient cards and selection highlights retain their intended surfaces.",
+      "A versioned native SVG owns the full paper silhouette, deeper curved fold, fine paper fibres, edge shadows, bowed head and tail, leather cover and page stack.",
+      "Inner content margins reserve space for the center valley. Decorations do not clip controls or intercept pointer input."
+    ]
+  },
+  "atlas": {
+    "observedBaselineProblem": "The plain rectangular report has a large textual legend, weak paper ornament and a text-heavy profile. The compact variant cards read as small cards beside the portrait rather than an illustrated field-guide comparison.",
+    "referenceFeatures": [
+      "Fine ornate parchment perimeter, large serif title, compact numbered index and clear centered wave heading.",
+      "A horizontal row of real shared statistics with large visual symbols, followed by broad illustrated trait panels."
+    ],
+    "implementation": [
+      "A new native parchment SVG supplies layered irregular edges, fine fibres and larger corner ornament; the report keeps a native vertical scroll container.",
+      "The wave-index legend is removed from markup. Current, selected and boss markers and accessible button names remain.",
+      "Shared count, movement, health, armor and speed are separate semantic statistic cells, each drawn from the existing configured comparison model. Values that differ stay inside their own variant panel.",
+      "Stronger serif headings, body copy and symbols establish the reference hierarchy. Real variant panels have more space; expanded lore follows the full multi-variant comparison.",
+      "The existing FRONT image is rendered once per campaign identity. A single-form wave keeps its lore beside the portrait and does not create an empty variant panel."
+    ]
+  },
+  "preservation": {
+    "historicalReferenceImagesAndRecordsChanged": false,
+    "existingApprovedPortraitAssetsChangedByThisTask": false,
+    "gameplayOrEnemyModelChanged": false,
+    "mainWorkspaceWritten": false,
+    "newAssets": [
+      "ui/assets/cartographer-open-book-v044.svg",
+      "ui/assets/cartographer-atlas-sheet-v044.svg"
+    ]
+  },
+  "checks": {
+    "focusedTests": {
+      "tests": 50,
+      "pass": 50,
+      "fail": 0,
+      "log": "output/design/ui-refinements-v044-20261018/book-atlas-focused-tests.log"
+    },
+    "cssParse": "Passed: 380 top-level nodes",
+    "svgXml": "Both versioned assets parsed successfully",
+    "diffWhitespace": "Passed; existing line-ending normalization notices only"
+  },
+  "renderedCapturesInspected": [
+    "output/design/ui-refinements-v044-20261018/06-book-desktop.jpg",
+    "output/design/ui-refinements-v044-20261018/07-atlas-wave31-desktop.jpg",
+    "output/design/ui-refinements-v044-20261018/08-atlas-wave44-desktop.jpg",
+    "output/design/ui-refinements-v044-20261018/09-atlas-ipad.jpg",
+    "output/design/ui-refinements-v044-20261018/10-book-ipad.jpg"
+  ],
+  "renderedObservations": [
+    "The desktop and iPad-sized book captures visibly expose continuous warm paper across the bowed leaves and a recessed center crease. The opaque rectangular catalog overlay present in 0.4.3 is absent.",
+    "Desktop capture 06 showed the footer label touching a curved native paper rule. Both leaf footers received 8 pixels of extra bottom clearance after that review. The source change is included in the final local validation.",
+    "The atlas captures show an ornate parchment perimeter, larger serif headings, a horizontal statistic/symbol row and separate named variant panels. Wave 31 uses one approved portrait and expanded full-width lore; wave 44 has one portrait beside lore without an empty variant panel.",
+    "Capture 07 is scrolled into its wave report, so it does not show the first wave-index row. Capture 08 shows the complete desktop index. Neither image alone certifies all report/index scroll positions.",
+    "The iPad-sized capture 09 exposed a third index row containing only wave 50. The fixed 25-column breakpoint was lowered to 1101 pixels. The release owner subsequently measured 50 buttons in 25 columns and two rows and repeated the final test/build gate.",
+    "The iPad-sized book capture 10 retains readable fixed title/Pin controls, filters, external tabs/bookmark and separate footers. The selected title wraps cleanly; lower list and ingredient details use native leaf scrolling."
+  ],
+  "releaseOwnerFinalChecks": {
+    "localTestsPassed": 1534,
+    "compiledModules": 197,
+    "nativeCaptures": 19,
+    "viewportSizes": 5,
+    "localDistFixtureGetsPassed": 202,
+    "atlasIndex": {
+      "buttons": 50,
+      "columns": 25,
+      "rows": 2
+    },
+    "scope": "Reported final local receipts; CI/public deployment and physical Safari certification are not claimed by this review"
+  },
+  "honestLimits": [
+    "The inspected captures establish visible paper/fold and hierarchy improvements, not a pixel-identical recreation. The native paper fibre pattern is stronger and the single approved variant portrait differs from the concept's two distinct illustrations.",
+    "The original wave-31 concept contains two distinct variant illustrations. This implementation preserves one approved FRONT portrait and exact separate variant text rather than inventing or recoloring variant art.",
+    "Later explicit user requests continue to take precedence over older concept controls: removed search/help/legend and bottom wave navigation stay removed, while the recipe Pin action stays at the top.",
+    "Physical iPad Safari behavior is not established by desktop screenshots."
+  ],
+  "finalReview": {
+    "book": "18-book-final-desktop.jpg",
+    "atlas": "19-atlas-final-ipad.jpg",
+    "geometry": "atlas-ipad-geometry.json",
+    "notes": "Native paper silhouette and continuous crease are visible. Final footers clear the curved rules by8 additional pixels. Tablet1180 uses25columns/tworows. Runtime uses one approved FRONT illustration per identity; no invented variant art.",
+    "browserReceipt": "browser-qa.json"
+  }
+}

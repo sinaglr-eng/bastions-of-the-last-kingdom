@@ -1,0 +1,9 @@
+/* Full outcome scenes keep every referenced character visible. */
+#app .run-result-art { display: block; width: 100%; height: auto; max-height: 38dvh; object-fit: contain; object-position: center; margin: 8px auto 14px; border: 1px solid #a27d4b; border-radius: 4px; background: #eee0c2; }
+#app .run-result.is-victory .run-result-outcome-copy { color: #355537; }
+#app .run-result.is-victory .run-result-art { border-color: #9a8e58; }
+@media (max-height: 700px) { #app .run-result-art { max-height: 34dvh; } }
+/* Keep the illustrated outcome in reading order on short landscape screens. */
+@media (max-height: 500px) and (min-width: 581px) {
+  #app .run-result { display: block; }
+}

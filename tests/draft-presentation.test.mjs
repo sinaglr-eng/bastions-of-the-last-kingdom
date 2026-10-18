@@ -59,7 +59,7 @@ test('rendering the odds and five mystery cards never reveals latent defender id
   const before=state(game);
   for(let pass=0;pass<4;pass++){
     const html=draftCardsMarkup(game,data,images)+masteryPanelMarkup(game.economy,data.balance);
-    assert.equal((html.match(/Unrevealed defender\. Build/g)||[]).length,5);
+    assert.equal((html.match(/Place a defender on the map\. Build/g)||[]).length,5);
     assert.equal((html.match(/class="draw-slot/g)||[]).length,5);
     assert.doesNotMatch(html,/<img|data-action="keep-draw"|data-action="merge-tower"|Construction mastery|mastery-heading/);
   }
@@ -94,7 +94,7 @@ test('pending and returning reserve keep their exact rank portrait, fixed positi
   game.select(drawnTower(game,1).id);assert.equal(game.keep(),true);assert.equal(game.startCombat(),true);game.completeWave();
   before=state(game);html=draftCardsMarkup(game,data,images);
   assert.deepEqual(sources(html),[defenderPortrait('frostwarden',6)]);
-  assert.equal((html.match(/Unrevealed defender\. Build/g)||[]).length,4);
+  assert.equal((html.match(/Place a defender on the map\. Build/g)||[]).length,4);
   assert.match(html,/Reserved from previous draft/);assert.match(html,/Fixed position/);
   assert.equal(game.towers.find(tower=>tower.id===reserved.id),reserved);assert.deepEqual([reserved.x,reserved.z],position);
   assert.equal(state(game),before);

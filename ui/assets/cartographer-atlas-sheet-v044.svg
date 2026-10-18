@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#ead7b7"/><stop offset=".1" stop-color="#f8ecd8"/><stop offset=".45" stop-color="#f4e7ce"/><stop offset=".83" stop-color="#fbf0dc"/><stop offset="1" stop-color="#e4cba3"/></linearGradient>
+    <linearGradient id="edge" x2="0" y2="1"><stop stop-color="#c2a16a"/><stop offset=".08" stop-color="#f5e5c8"/><stop offset=".92" stop-color="#e4cda6"/><stop offset="1" stop-color="#9f7b46"/></linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".34" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".065"/></feComponentTransfer></filter>
+    <pattern id="fibres" width="180" height="155" patternUnits="userSpaceOnUse"><g fill="none" stroke="#af9064" stroke-width=".65" opacity=".14"><path d="m0 23 27 9 15-14 12 25 27 5 7 23m-66 84 15-25 24 4 12-22 20-5 18 13 25-7 12 19 23-3M150 0l-9 30 22 18-8 30 23 13M0 80l21-8 18 12-5 23M100 0l9 20-14 19 13 18 27-2"/></g></pattern>
+    <clipPath id="sheet"><path d="M15 17Q302 10 600 16Q900 10 1185 17L1189 834Q900 841 600 834Q300 841 11 834Z"/></clipPath>
+    <g id="corner" fill="none" stroke="#ae8b56" stroke-width="1.6"><path d="M17 72V29Q17 17 31 17H79M24 65V34Q24 24 35 24H72M30 52C51 51 49 23 36 26C25 29 33 43 42 37C51 32 57 36 53 48M18 55l7 7 7-7M54 18l7 7 7-7"/><path d="m43 44 6-5 6 5-6 6Z" fill="#dfc396" stroke-width=".9"/></g>
+  </defs>
+  <path d="M10 11Q300 4 600 10Q900 4 1190 11L1196 842Q900 849 600 842Q300 849 4 842Z" fill="url(#edge)" stroke="#9f7d4a" stroke-width="1.5"/>
+  <path d="M15 17Q302 10 600 16Q900 10 1185 17L1189 834Q900 841 600 834Q300 841 11 834Z" fill="url(#paper)" stroke="#b29463" stroke-width="1"/>
+  <g clip-path="url(#sheet)"><rect width="1200" height="850" fill="url(#fibres)"/><rect width="1200" height="850" filter="url(#grain)" opacity=".7"/></g>
+  <path d="M24 79V31Q24 24 34 24H80M1120 24h46q10 0 10 10v45M1176 771v45q0 10-10 10h-46M80 826H34q-10 0-10-10v-45" fill="none" stroke="#c7a97b" stroke-width="1.2"/>
+  <path d="M79 21H1121M79 829H1121M20 78V772M1180 78V772" fill="none" stroke="#c7a97b" stroke-width=".7"/>
+  <use href="#corner"/><use href="#corner" transform="translate(1200 0) scale(-1 1)"/><use href="#corner" transform="translate(0 850) scale(1 -1)"/><use href="#corner" transform="translate(1200 850) scale(-1 -1)"/>
+</svg>

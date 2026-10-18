@@ -125,11 +125,11 @@ test('actual sidebar refresh keeps permanent MVP/potential/ranks visible and pre
   assert.ok(body.innerHTML.indexOf('folio-effects')<body.innerHTML.indexOf('class="rank-preview"'));assert.ok(body.innerHTML.indexOf('class="rank-preview"')<body.innerHTML.indexOf('folio-metrics'));assert.ok(body.innerHTML.indexOf('folio-metrics')<body.innerHTML.indexOf('folio-recipes'));
 });
 
-const displayedBuiltCount=html=>Number(html.match(/class="defender-built-count">(\d+) built of this type</)?.[1]);
+const displayedBuiltCount=html=>Number(html.match(/class="defender-built-count">(\d+) built at rank /)?.[1]);
 function placeRound(game,family,tier=1){game.draft.roundForced={family,tier};for(let x=3;x<8;x++)assert.equal(game.place(x,2+game.round),true);game.select(game.roundCandidates[0].tower.id);}
 function nextRound(game){assert.equal(game.startCombat(),true);game.completeWave();}
 
-test('header counts kept defenders of the actual family across ranks while excluding every candidate, reserve and discarded foundation',()=>{
+test('header counts only kept defenders at the actual family and rank, independent of a compared rank or candidate/reserve/wall stock',()=>{
   const game=new Game(data,{seed:807}),control=new Game(data,{seed:807});
   for(const current of [game,control]){
     placeRound(current,'mage',1);assert.equal(current.keep(),true);nextRound(current);
@@ -139,9 +139,11 @@ test('header counts kept defenders of the actual family across ranks while exclu
   const first=game.towers.find(t=>t.state==='active'),candidate=game.roundCandidates[0].tower,preview=new DefenderRankPreview();
   first.attackPaused=true;assert.equal(preview.select(candidate,6,data),true);
   let before=snapshot(game),html=defenderPanelMarkup(game,candidate,{rankPreview:preview});
-  assert.equal(displayedBuiltCount(html),2);assert.match(html,/Actual rank V · Candidate/);assert.equal(game.draft.draws.filter(draw=>!draw.placed).length,4);assert.equal(snapshot(game),before);
+  assert.equal(displayedBuiltCount(html),0);assert.match(html,/0 built at rank V/);assert.match(html,/Actual rank V · Candidate/);assert.equal(game.draft.draws.filter(draw=>!draw.placed).length,4);assert.equal(snapshot(game),before);
+  preview.select(first,6,data);html=defenderPanelMarkup(game,first,{rankPreview:preview});assert.equal(displayedBuiltCount(html),1);assert.match(html,/1 built at rank I/);assert.match(html,/Preview rank VI · Actual rank I unchanged/);
+  const rankIV=game.towers.find(t=>t.state==='active'&&t.tier===4);preview.select(rankIV,1,data);html=defenderPanelMarkup(game,rankIV,{rankPreview:preview});assert.equal(displayedBuiltCount(html),1);assert.match(html,/1 built at rank IV/);assert.equal(snapshot(game),before);
   for(const current of [game,control]){for(let x=4;x<8;x++)assert.equal(current.place(x,2+current.round),true);current.select(current.roundCandidates[0].tower.id);assert.equal(current.reserve(),true);}
-  before=snapshot(game);html=defenderPanelMarkup(game,candidate,{rankPreview:preview});assert.equal(displayedBuiltCount(html),2);assert.match(html,/Reserved · Inactive wall/);assert.equal(snapshot(game),before);
+  before=snapshot(game);html=defenderPanelMarkup(game,candidate,{rankPreview:preview});assert.equal(displayedBuiltCount(html),0);assert.match(html,/Reserved · Inactive wall/);assert.equal(snapshot(game),before);
   assert.equal(game.towers.filter(t=>t.family==='mage'&&t.state==='active').length,2);assert.ok(game.towers.some(t=>t.family==='mage'&&t.state==='ruin'));assert.equal(game.rng(),control.rng());
 });
 

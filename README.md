@@ -2,6 +2,12 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
+## Prepared release: 0.4.4 — Sculpted books and clearer commands
+
+Addresses the 15 follow-up comments on 0.4.3: gold Reroll/Reserve controls, a compact complete defender profile, actual-rank built counts, distinct damage-class labels, an explicit placement prompt, a stable pinned portrait, and one top-center command dock. Paused defenders receive a marker tied to their individual attack state. The Recipes book now exposes its shaped parchment leaves and center crease; the atlas has an ornate paper frame, larger serif statistics and separate real variant panels without the removed wave-index legend. New victory and defeat scenes use the approved character identities and geometric world style, with complete provenance.
+
+The final local suite passes **1,534 tests** and the production build compiles 197 modules after the last layout correction. Native review records 19 captures at five viewport sizes; the actual local-dist checker passes 202 fixture GETs. CI, deployment and public verification remain release gates; this section does not claim publication. [The 15-comment report](docs/UI_REFINEMENTS_V044_20261018.md) records implemented behavior, checks, native review and remaining limits. Campaign rules, exact recipes, hidden draws, original art/audio, historical records and recovery points remain preserved.
+
 ## Published release: 0.4.3 — Direct crafting and clearer field notes
 
 Implements the 30 follow-up comments on 0.4.2: full-height responsive recruit portraits, narrow-screen Recruits / Defender / Recipes pages, equal commitment controls with distinct CP actions, direct Pin and clickable champion ingredients in Potential combinations, and direct guarded Create actions without a separate Combination preview step. The Recipes book removes redundant search/help/history furniture while retaining direct filters, ordered recipe navigation and colored classifications. All 50 enemy atlas portraits use approved original FRONT views through RGB-preserving transparent derivatives.

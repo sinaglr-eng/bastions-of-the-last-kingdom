@@ -19,7 +19,7 @@ test('a real second-wave defeat separates one completed wave and records the act
   const h=harness();try{
     h.build();h.game.completeWave();assert.equal(h.game.round,2);h.game.lives=3;h.build();const enemy=h.leak({name:'Bat Scouts · Moon Clan',leak:7,flying:true});
     assert.equal(h.game.phase,'lost');const model=h.model();assert.equal(model.completedWaves,1);assert.equal(model.defeatWave,2);assert.equal(model.finalWaveLeaks,1);assert.equal(model.finalWaveHealthLost,3);assert.equal(model.totalLeaks,1);assert.equal(model.lastLeak.name,enemy.name);assert.equal(model.lastLeak.healthLost,3);assert.equal(model.lastLeak.flying,true);
-    const html=runResultMarkup(model);assert.match(html,/1 <span>waves completed/);assert.match(html,/Defeated on wave 2/);assert.match(html,/1 invader reached the keep · 3 keep health lost/);assert.match(html,/Last leak: Bat Scouts · Moon Clan · Flying/);assert.doesNotMatch(html,/need.*(?:archer|army)|caused by|weak defense/i);
+    const html=runResultMarkup(model);assert.match(html,/assets\/ui\/results\/v044\/defeat\.png/);assert.doesNotMatch(html,/v044\/victory\.png/);assert.match(html,/1 <span>waves completed/);assert.match(html,/Defeated on wave 2/);assert.match(html,/1 invader reached the keep · 3 keep health lost/);assert.match(html,/Last leak: Bat Scouts · Moon Clan · Flying/);assert.doesNotMatch(html,/need.*(?:archer|army)|caused by|weak defense/i);
   }finally{h.dispose();}
 });
 
@@ -36,7 +36,7 @@ test('actual 10-wave and 50-wave victories include the completed final wave and 
     const h=harness(limit);try{
       for(let round=1;round<=limit;round++){h.build();h.game.completeWave();}
       const model=h.model();assert.equal(model.won,true);assert.equal(model.completedWaves,limit);assert.equal(model.defeatWave,null);assert.equal(h.facts.completedWaves.size,limit);assert.equal(h.tracker.waves.length,limit);assert.equal(h.tracker.waves.at(-1).completed,true);assert.equal(model.finalWaveLeaks,0);
-      const html=runResultMarkup(model);assert.match(html,new RegExp(`Campaign completed · ${limit} waves`));assert.doesNotMatch(html,/Defeated on wave/);
+      const html=runResultMarkup(model);assert.match(html,/assets\/ui\/results\/v044\/victory\.png/);assert.doesNotMatch(html,/v044\/defeat\.png/);assert.match(html,new RegExp(`Campaign completed · ${limit} waves`));assert.doesNotMatch(html,/Defeated on wave/);
     }finally{h.dispose();}
   }
 });

@@ -8,6 +8,22 @@ const escape=text=>String(text??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt
 const stats=info=>`${enemyNumber(info.maxHp)} HP · ${enemyNumber(info.armor)} armor · ${enemyNumber(info.speed)} tiles/s · ${info.flying?'Air':'Ground'}`;
 const randomVariants=(wave,group,definition)=>definition.variants?.length>1&&!Object.hasOwn({...wave,...group},'variant');
 
+// Decorative field-guide symbols accompany real configured values. They never
+// supply a second stats model or imply an unconfigured enemy ability.
+const fieldSymbols={
+  count:'<circle cx="12" cy="5" r="3"/><circle cx="4" cy="8" r="2"/><circle cx="20" cy="8" r="2"/><path d="M7 21v-6a5 5 0 0 1 10 0v6ZM1 18v-4a3 3 0 0 1 5-2m17 6v-4a3 3 0 0 0-5-2"/>',
+  maxHp:'<path d="M12 21 3.5 12.5C-2 6.5 5 0 12 6c7-6 14 0.5 8.5 6.5Z"/>',
+  armor:'<path d="m12 2 9 4v7c0 5-9 9-9 9s-9-4-9-9V6ZM12 3v17"/>',
+  speed:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l5 2"/>',
+  flying:'<path d="M3 3v12l-2 4v3h20v-6l-9-2-1-11ZM4 8h7M4 11h7"/>',
+  air:'<path d="M12 18C4 16 2 10 2 3l8 5 2 10 2-10 8-5c0 7-2 13-10 15ZM4 9l6 3m10-3-6 3"/>'
+};
+const fieldSymbol=(key,air)=>`<svg class="warband-field-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${fieldSymbols[key==='flying'&&air?'air':key]}</svg>`;
+function atlasSharedStatsMarkup(wave,group,common){
+  const rows=[{key:'count',label:wave.boss?'Warlord':'Invaders',value:enemyNumber(group.count)},...['flying','maxHp','armor','speed'].filter(key=>Object.hasOwn(common,key)).map(key=>({key,label:{flying:'Movement',maxHp:'HP each',armor:'Armor',speed:'Tiles / second'}[key],value:key==='flying'?(common[key]?'Air':'Ground'):enemyNumber(common[key])}))];
+  return `<dl class="warband-shared-stats" aria-label="Shared wave statistics">${rows.map(({key,label,value})=>`<div data-stat="${key}">${fieldSymbol(key,common.flying)}<dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl>`;
+}
+
 export function warbandVariantComparison(wave,group,definition,{balance}={}){
   const modifiers={...wave,...group},choices=Object.hasOwn(modifiers,'variant')?[modifiers.variant]:definition.variants?.length?definition.variants:[undefined];
   const variants=choices.map(variant=>configuredWarbandInfo({...definition,type:group.type},{...modifiers,variant},enemyRulesFor({balance})));
@@ -23,9 +39,9 @@ function comparisonMarkup(wave,group,definition,options){
   const partial=values=>Object.entries(values).map(([key,n])=>`<span><b>${labels[key]}:</b> ${value(key,n)}</span>`).join(' · ');
   const shared=allShared?stats(model.variants[0]):partial(model.commonStats);
   if(options.atlas){
-    const variants=`<div class="warband-variant-columns">${model.differences.map(({info,stats:delta,traits},index)=>`<section class="warband-variant" data-variant-index="${index}"><header><span class="warband-form-number">Form ${index+1}</span><h3>${escape(info.name)}</h3></header>${Object.keys(delta).length?`<p class="warband-stats">${partial(delta)}</p>`:''}${traits.length?enemyTraitsMarkup(traits):'<p class="minor-note">No additional defenses or abilities.</p>'}</section>`).join('')}</div>`;
+    const variants=`<div class="warband-variant-columns">${model.differences.map(({info,stats:delta,traits},index)=>`<section class="warband-variant" data-variant-index="${index}"><header><h3>${escape(info.name)}</h3>${traitLabel(traits[0]||{})?`<p class="warband-variant-trait-label">${escape(traitLabel(traits[0]))}</p>`:''}</header>${Object.keys(delta).length?`<p class="warband-stats">${partial(delta)}</p>`:''}${traits.length?enemyTraitsMarkup(traits):'<p class="minor-note">No additional defenses or abilities.</p>'}</section>`).join('')}</div>`;
     const illustration=options.image?`<figure class="warband-atlas-portrait"><img src="${escape(options.image)}" alt="${escape(definition.name)}" draggable="false"></figure>`:'';
-    return `<section class="warband-comparison warband-atlas-comparison" data-variant-count="${model.variants.length}" aria-label="Actual configured variant comparison"><p class="warband-shared-stats"><b>${enemyNumber(group.count)} ${wave.boss?'warlord':'invaders'}</b> · ${shared}</p>${model.commonTraits.length?`<div class="warband-common-abilities"><strong>${model.variants.length>1?'Shared abilities':'Abilities'}</strong>${enemyTraitsMarkup(model.commonTraits)}</div>`:''}${model.identical?'<p class="warband-identical">These forms have identical gameplay statistics and abilities.</p>':''}${randomVariants(wave,group,definition)?'<p class="warband-variant-note">Each enemy independently chooses a random variant; the wave may contain a mix.</p>':''}<div class="warband-illustrated-comparison">${illustration}<div class="warband-profile-reading">${model.variants.length>1?variants:''}${options.lore||''}</div></div></section>`;
+    return `<section class="warband-comparison warband-atlas-comparison" data-variant-count="${model.variants.length}" aria-label="Actual configured variant comparison">${atlasSharedStatsMarkup(wave,group,model.commonStats)}${model.commonTraits.length?`<div class="warband-common-abilities"><strong>${model.variants.length>1?'Shared abilities':'Abilities'}</strong>${enemyTraitsMarkup(model.commonTraits)}</div>`:''}${model.identical?'<p class="warband-identical">These forms have identical gameplay statistics and abilities.</p>':''}${randomVariants(wave,group,definition)?'<p class="warband-variant-note">Each enemy independently chooses a random variant; the wave may contain a mix.</p>':''}<div class="warband-illustrated-comparison">${illustration}<div class="warband-profile-reading">${model.variants.length>1?variants:options.lore||''}</div></div>${model.variants.length>1?options.lore||'':''}</section>`;
   }
   return `<section class="warband-comparison" aria-label="Actual configured variant comparison"><p class="warband-shared-stats">${model.variants.length>1?'<b>Shared statistics</b> · ':''}${shared}</p>${model.commonTraits.length?`<div class="warband-common-abilities"><strong>${model.variants.length>1?'Shared abilities':'Abilities'}</strong>${enemyTraitsMarkup(model.commonTraits)}</div>`:''}${model.identical?'<p class="warband-identical">These forms have identical gameplay statistics and abilities.</p>':''}<div class="warband-variant-columns">${model.differences.map(({info,stats:delta,traits},index)=>`<section class="warband-variant" data-variant-index="${index}">${model.variants.length>1?`<strong>Form ${index+1} · ${escape(info.name)}</strong>`:''}${Object.keys(delta).length?`<p class="warband-stats">${partial(delta)}</p>`:''}${traits.length?enemyTraitsMarkup(traits):model.variants.length>1?'<p class="minor-note">No additional defenses or abilities.</p>':''}</section>`).join('')}</div></section>`;
 }

@@ -159,8 +159,6 @@
 #app .warbands-atlas-pages>button[aria-pressed=true]{background:linear-gradient(#d6ad60,#bc8c3d);border-color:#9d722f;box-shadow:inset 0 0 0 2px #f1d99f;color:#352513;font-weight:bold}
 #app .warbands-atlas-pages>button[data-atlas-current=true]{outline:2px solid #387b97;outline-offset:0}
 #app .warbands-atlas-pages>button[data-atlas-boss=true]::after{content:'◆';position:absolute;right:1px;bottom:0;font-size:8px;color:#a43e2d}
-#app .warbands-atlas-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;margin-top:9px;color:#796446}
-#app .warbands-atlas-legend .atlas-current-key{color:#2c6c85}#app .warbands-atlas-legend .atlas-boss-key{color:#943d2e}
 #app .warbands-atlas .warband-card{border:1px solid #c3a97e;background:linear-gradient(105deg,#fff8ea8c,#efe1c233);border-radius:5px;padding:0;box-shadow:inset 0 0 0 4px #fff6e570;margin:0}
 #app .warbands-atlas .warband-wave-row{display:none}
 #app .warbands-atlas .warband-wave-body{padding:19px 20px 14px;border:0}
@@ -321,7 +319,116 @@
 #app .warbands-atlas .warband-lore{margin-top:7px;border:0;border-top:1px solid #c7b187}
 #app .warbands-atlas .warband-story{font-size:15px!important;line-height:1.65!important}
 @media(min-width:751px){#app dialog:has(.warbands-atlas){max-height:min(980px,82dvh)}#app dialog:has(.warbands-atlas) .dialog-body{max-height:min(850px,calc(82dvh - 126px))}#app dialog:has(.warbands-atlas) .dialog-header h2{display:flex;align-items:center;gap:12px}#app dialog:has(.warbands-atlas) .dialog-header h2>.icon{width:36px;height:36px;flex:none}}
-@media(min-width:1281px){#app .warbands-atlas-pages{grid-template-columns:repeat(25,minmax(0,1fr))}}
+@media(min-width:1101px){#app .warbands-atlas-pages{grid-template-columns:repeat(25,minmax(0,1fr))}}
 @media(max-width:1100px) and (min-width:751px){#app dialog:has(.atlas-book){width:calc(100vw - 142px);padding-inline:20px}#app .atlas-book .catalog-view-tabs{left:-76px;width:62px}#app .catalog-bookmark{right:-74px;width:62px}#app .catalog-index-page{padding-right:24px}#app .catalog-reading-page{padding-left:24px}#app .catalog-page-heading h3{font-size:20px}#app .atlas-book .catalog-row-performance{display:none}#app .warbands-atlas .warband-illustrated-comparison{grid-template-columns:190px minmax(0,1fr);gap:15px}#app .warbands-atlas .warband-atlas-portrait>img{height:295px}}
 @media(max-width:750px){#app dialog:has(.atlas-book){width:calc(100vw - 28px);max-width:calc(100vw - 28px);max-height:calc(100dvh - 42px);margin:auto auto 15px;padding:10px 9px 14px;border:7px solid transparent;border-image:var(--folio-frame) 24 / 7px / 0 stretch;background:var(--folio-grain),linear-gradient(110deg,#f7ecd6,#fff8e9)}#app dialog:has(.atlas-book) .dialog-header>.icon-button{right:-17px;top:-35px;width:44px;height:44px;min-height:44px}#app .atlas-book .catalog-view-tabs{position:static;top:auto;left:auto;width:auto;margin:0 0 5px;padding:0}#app .atlas-book .catalog-view-tabs .text-button{min-height:44px;box-shadow:inset 0 0 0 2px #fff6df70;font-size:14px;padding:7px}#app .atlas-book .catalog-recipe-layout,#app .atlas-book .catalog-recipe-layout.has-detail{height:calc(100dvh - 190px);min-height:180px}#app .catalog-index-page,#app .catalog-reading-page{padding:9px 9px 2px}#app .atlas-book .catalog-row-performance{display:none}#app .atlas-book[data-catalog-mode=basics] .catalog-page-switcher{display:none}#app dialog:has(.warbands-atlas){width:calc(100vw - 24px);max-width:calc(100vw - 24px);margin:auto;padding:0;border-width:8px;border-image-width:8px}#app dialog:has(.warbands-atlas) .dialog-header{padding:10px 12px}#app dialog:has(.warbands-atlas) .dialog-header h2{font-size:25px}#app dialog:has(.warbands-atlas) .dialog-body{padding:0 9px 10px;max-height:calc(100dvh - 142px)}#app .warbands-atlas .warband-common-abilities{display:block}#app .warbands-atlas .warband-common-abilities>strong{display:block;text-align:center;margin-bottom:6px}#app .warbands-atlas .warband-illustrated-comparison{grid-template-columns:1fr;gap:13px}#app .warbands-atlas .warband-atlas-portrait{max-width:290px;width:100%;justify-self:center}#app .warbands-atlas .warband-atlas-portrait>img{height:260px}}
 @media(orientation:landscape) and (max-height:600px){#app dialog:has(.atlas-book){width:calc(100vw - 130px);margin:auto;padding-top:15px;padding-bottom:18px;max-height:calc(100dvh - 42px)}#app dialog:has(.atlas-book) .dialog-header>.icon-button{right:-37px;top:-24px;width:44px;height:44px;min-height:44px}#app .atlas-book .catalog-recipe-layout,#app .atlas-book .catalog-recipe-layout.has-detail{height:calc(100dvh - 88px);min-height:180px}#app .catalog-index-page,#app .catalog-reading-page{padding-top:5px;padding-bottom:0}#app .catalog-page-heading{min-height:34px;margin-bottom:4px;padding-bottom:4px}#app .catalog-page-heading h3{font-size:19px}#app .atlas-book .catalog-view-tabs{top:35px}#app dialog:has(.warbands-atlas){margin:auto;max-height:calc(100dvh - 20px)}#app dialog:has(.warbands-atlas) .dialog-header{padding:7px 14px}#app dialog:has(.warbands-atlas) .dialog-header h2{font-size:23px}#app dialog:has(.warbands-atlas) .dialog-body{max-height:calc(100dvh - 108px)}#app .warbands-atlas .warband-atlas-portrait>img{height:210px}}
+
+/* 0.4.4 — the native paper owns the silhouette and fold. Generic dialog card
+   styles must never paint a rectangular sheet over the shaped book. */
+#app dialog:has(.atlas-book){background-image:url('./assets/cartographer-open-book-v044.svg')}
+#app dialog:has(.atlas-book) .dialog-body .atlas-book,
+#app dialog:has(.atlas-book) .atlas-book :is(.catalog-recipe-layout,.catalog-index-page,.catalog-reading-page,.catalog-champions-view,.catalog-recipe-detail){background:transparent;border-radius:0;box-shadow:none}
+#app dialog:has(.atlas-book) .atlas-book :is(.catalog-index-page,.catalog-reading-page){padding-top:24px;padding-bottom:14px}
+#app dialog:has(.atlas-book) .atlas-book .catalog-index-page{padding-right:38px}
+#app dialog:has(.atlas-book) .atlas-book .catalog-reading-page{padding-left:38px}
+#app dialog:has(.atlas-book) .atlas-book .catalog-selected-heading{background:transparent}
+#app dialog:has(.atlas-book) .atlas-book .catalog-page-footer{background:transparent;border-color:#bca37a}
+
+/* Reference 07: an illustrated parchment folio, not a stack of plain cards.
+   All symbols accompany the configured facts rendered by warband-cards.js. */
+#app dialog:has(.warbands-atlas){padding:13px 14px 16px;border:0;border-image:none;background:url('./assets/cartographer-atlas-sheet-v044.svg') center/100% 100% no-repeat;box-shadow:none;filter:drop-shadow(0 12px 17px #24180852)}
+#app dialog:has(.warbands-atlas)>#dialog-content{border:0;border-radius:0;background:transparent;box-shadow:none}
+#app dialog:has(.warbands-atlas) .dialog-header{padding:15px 25px 10px;background:transparent}
+#app dialog:has(.warbands-atlas) .dialog-header h2{font:700 34px/1.12 Georgia,'Times New Roman',serif;letter-spacing:-.025em;color:#2f2519}
+#app dialog:has(.warbands-atlas) .dialog-header h2>.icon{width:39px;height:39px;color:#523b20}
+#app dialog:has(.warbands-atlas) .dialog-header .eyebrow{display:none}
+#app dialog:has(.warbands-atlas) .dialog-header>.icon-button{width:48px;height:48px;color:#30271b;border-color:#ac9165;background:linear-gradient(#fff7e7,#e9d9bc);box-shadow:inset 0 0 0 2px #fff5df}
+#app dialog:has(.warbands-atlas) .dialog-body{padding:0 25px 18px;background:transparent}
+#app .warbands-atlas{color:#362919}
+#app .warbands-atlas .warbands-progress{margin:0 0 22px;font:13px/1.4 Georgia,serif;color:#6d5739}
+#app .warbands-atlas-index{margin:0 0 18px;padding:11px 10px 10px;border-color:#bfa278;border-radius:1px;background:transparent;box-shadow:inset 0 0 0 3px #fff5e249}
+#app .warbands-atlas-index>h3{margin:-27px 0 8px;padding:6px 20px 4px;font:700 20px/1.1 Georgia,serif;background:#f6e9d0;border-color:#bfa278;border-radius:2px 2px 0 0;box-shadow:inset 0 2px 0 #fff6e6}
+#app .warbands-atlas-pages{gap:4px}
+#app .warbands-atlas-pages>button{font:600 16px/1 Georgia,serif;background:linear-gradient(#fcf4e4,#eee0c6);border-color:#c3ad89;box-shadow:inset 0 0 0 2px #fff9ec99}
+#app .warbands-atlas-pages>button[aria-pressed=true]{background:linear-gradient(#d7b66f,#be9448);border-color:#9b712b;color:#352610;box-shadow:inset 0 0 0 2px #f1d59599}
+#app .warbands-atlas-pages>button[data-atlas-current=true]{outline:2px solid #347d9b;outline-offset:0}
+#app .warbands-atlas .warband-card{position:relative;border:1px solid #bea176;border-radius:2px;background:transparent;box-shadow:inset 0 0 0 4px #fff6e344}
+#app .warbands-atlas .warband-card::before{content:'';position:absolute;inset:-3px;z-index:1;pointer-events:none;border:18px solid transparent;border-image:var(--folio-frame) 24 / 18px / 0 stretch;opacity:.7}
+#app .warbands-atlas .warband-wave-body{padding:16px 17px 14px}
+#app .warbands-atlas .warband-wave-name{font:700 33px/1.15 Georgia,serif;letter-spacing:-.02em;margin:0 0 12px;color:#302518}
+#app .warbands-atlas .warband-shared-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin:0 0 12px;padding:10px 0 12px;border:0;border-bottom:1px solid #c6ad83;text-align:left}
+#app .warbands-atlas .warband-shared-stats>div{display:grid;grid-template-columns:35px minmax(0,1fr);grid-template-rows:auto auto;align-items:center;column-gap:9px;padding:0 13px;border-left:1px solid #c7ad835e;min-width:0}
+#app .warbands-atlas .warband-shared-stats>div:first-child{border-left:0;padding-left:4px}
+#app .warbands-atlas .warband-field-symbol{grid-column:1;grid-row:1/3;width:34px;height:34px;color:#594329}
+#app .warbands-atlas .warband-shared-stats [data-stat=maxHp]>.warband-field-symbol{color:#9d4133;fill:#b9574436}
+#app .warbands-atlas .warband-shared-stats [data-stat=armor]>.warband-field-symbol{color:#655e50;fill:#80796922}
+#app .warbands-atlas .warband-shared-stats dt{grid-column:2;grid-row:2;margin:1px 0 0;font:11px/1.3 Georgia,serif;text-transform:uppercase;letter-spacing:.025em;color:#756043}
+#app .warbands-atlas .warband-shared-stats dd{grid-column:2;grid-row:1;margin:0;font:700 23px/1.15 Georgia,serif;color:#352919}
+#app .warbands-atlas .warband-common-abilities{margin:7px 0 10px;gap:12px}
+#app .warbands-atlas .warband-common-abilities>strong{padding-top:2px;font:600 14px/1.4 Georgia,serif;color:#5d472b}
+#app .warbands-atlas .warband-common-abilities .enemy-trait-list li{font:16px/1.45 Georgia,serif;color:#483720}
+#app .warbands-atlas .warband-variant-note{font:15px/1.35 Georgia,serif;color:#5d472b;margin:8px 0 14px}
+#app .warbands-atlas .warband-illustrated-comparison{grid-template-columns:minmax(210px,.8fr) minmax(0,2fr);gap:15px;align-items:stretch}
+#app .warbands-atlas .warband-atlas-portrait{display:flex;align-items:flex-end;justify-content:center;padding:10px 8px 5px;border:1px solid #c9ae83;border-radius:2px;background:radial-gradient(ellipse at 50% 85%,#c4a5703b,transparent 70%);box-shadow:inset 0 0 0 3px #fff5df66}
+#app .warbands-atlas .warband-atlas-portrait>img{height:310px;filter:drop-shadow(0 5px 4px #80603920)}
+#app .warbands-atlas .warband-profile-reading{display:flex;flex-direction:column;min-width:0}
+#app .warbands-atlas .warband-variant-columns{flex:1;gap:12px;margin:0}
+#app .warbands-atlas .warband-variant-columns>.warband-variant{min-height:310px;margin:0;padding:19px 17px;border:1px solid #c6a77a;border-radius:2px;background:linear-gradient(115deg,#f4dcc04a,#fdf3e052);box-shadow:inset 0 0 0 4px #fff3df66}
+#app .warbands-atlas .warband-variant-columns>.warband-variant:nth-child(2){background:linear-gradient(115deg,#dce5e14a,#f7edda52)}
+#app .warbands-atlas .warband-variant h3{font:700 21px/1.17 Georgia,serif;letter-spacing:-.015em;margin:0 0 13px;color:#392a18}
+#app .warbands-atlas .warband-variant .warband-variant-trait-label{font:700 13px/1.3 Georgia,serif;text-transform:uppercase;letter-spacing:.02em;color:#60472c;margin:0 0 17px}
+#app .warbands-atlas .warband-variant .enemy-trait-list{margin:0}
+#app .warbands-atlas .warband-variant .enemy-trait-list li{align-items:flex-start;font:17px/1.5 Georgia,serif;color:#44321d}
+#app .warbands-atlas .warband-variant .enemy-defense-glyph{width:33px;height:33px;flex:none;background:#ead8b142;border:0;border-radius:0}
+#app .warbands-atlas .warband-atlas-comparison>.warband-lore{margin:15px 0 0;padding:0 2px;border-top:1px solid #c1a476}
+#app .warbands-atlas .warband-profile-reading>.warband-lore{margin:0;padding:5px 6px 0;border:0}
+#app .warbands-atlas .warband-lore>summary{font:700 19px/1.3 Georgia,serif;color:#49351c}
+#app .warbands-atlas .warband-story{font:16px/1.5 Georgia,serif!important;color:#4c3923}
+#app .warbands-atlas .wave-counter{font:16px/1.5 Georgia,serif!important;color:#4c3923!important}
+#app .warbands-atlas .warband-lore>.warband-traits{font:600 15px/1.4 Georgia,serif;color:#5a4126}
+@media(min-width:751px) and (max-width:1100px){
+  #app dialog:has(.atlas-book) .atlas-book .catalog-index-page{padding-right:30px}
+  #app dialog:has(.atlas-book) .atlas-book .catalog-reading-page{padding-left:30px}
+  #app dialog:has(.warbands-atlas) .dialog-header h2{font-size:31px}
+  #app dialog:has(.warbands-atlas) .dialog-header{padding-inline:19px}
+  #app dialog:has(.warbands-atlas) .dialog-body{padding-inline:19px}
+  #app .warbands-atlas .warband-wave-name{font-size:29px}
+  #app .warbands-atlas .warband-shared-stats>div{grid-template-columns:27px minmax(0,1fr);gap:6px;padding-inline:8px}
+  #app .warbands-atlas .warband-field-symbol{width:27px;height:27px}
+  #app .warbands-atlas .warband-shared-stats dd{font-size:21px}
+  #app .warbands-atlas .warband-illustrated-comparison{grid-template-columns:190px minmax(0,1fr);gap:12px}
+  #app .warbands-atlas .warband-atlas-portrait>img{height:280px}
+  #app .warbands-atlas .warband-variant-columns>.warband-variant{min-height:280px;padding:16px 12px}
+  #app .warbands-atlas .warband-variant h3{font-size:19px}
+  #app .warbands-atlas .warband-variant .enemy-trait-list li{font-size:16px}
+}
+@media(max-width:750px){
+  #app dialog:has(.atlas-book){background-image:var(--folio-grain),linear-gradient(110deg,#f1e1c4,#f9eed9)}
+  #app dialog:has(.atlas-book) .atlas-book :is(.catalog-index-page,.catalog-reading-page){padding:9px 9px 2px}
+  #app dialog:has(.warbands-atlas){padding:10px 7px 9px}
+  #app dialog:has(.warbands-atlas) .dialog-header{padding:9px 14px 10px}
+  #app dialog:has(.warbands-atlas) .dialog-header h2{font-size:26px}
+  #app dialog:has(.warbands-atlas) .dialog-header h2>.icon{width:28px;height:28px}
+  #app dialog:has(.warbands-atlas) .dialog-body{padding:0 14px 13px}
+  #app .warbands-atlas .warband-wave-body{padding:15px 11px}
+  #app .warbands-atlas .warband-wave-name{font-size:25px}
+  #app .warbands-atlas .warband-shared-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:13px 0}
+  #app .warbands-atlas .warband-shared-stats>div{grid-template-columns:24px minmax(0,1fr);gap:6px;padding-inline:6px}
+  #app .warbands-atlas .warband-shared-stats>div:nth-child(4){border-left:0}
+  #app .warbands-atlas .warband-field-symbol{width:24px;height:24px}
+  #app .warbands-atlas .warband-shared-stats dt{font-size:9px}
+  #app .warbands-atlas .warband-shared-stats dd{font-size:18px}
+  #app .warbands-atlas .warband-illustrated-comparison{grid-template-columns:1fr}
+  #app .warbands-atlas .warband-atlas-portrait{justify-self:center;max-width:270px}
+  #app .warbands-atlas .warband-atlas-portrait>img{height:260px}
+  #app .warbands-atlas .warband-variant-columns>.warband-variant{min-height:0;padding:15px 12px}
+  #app .warbands-atlas .warband-variant h3{font-size:20px}
+}
+@media(orientation:landscape) and (max-height:600px){
+  #app dialog:has(.atlas-book) .atlas-book :is(.catalog-index-page,.catalog-reading-page){padding-top:9px}
+  #app dialog:has(.warbands-atlas) .dialog-header{padding-top:5px;padding-bottom:7px}
+  #app dialog:has(.warbands-atlas) .dialog-header h2{font-size:25px}
+  #app .warbands-atlas .warband-atlas-portrait>img{height:220px}
+  #app .warbands-atlas .warband-variant-columns>.warband-variant{min-height:220px}
+}

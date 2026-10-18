@@ -76,7 +76,7 @@ test('five rendered cards have one adjacent Keep control and never contain neste
 test('unplaced cards expose no family or rank and cannot show a Keep action',()=>{
   const game=new Game(data,{seed:1});game.draft.draws[0].family='highking';game.draft.draws[0].tier=6;
   const html=draftCardsMarkup(game,data,{});
-  assert.equal((html.match(/Unrevealed defender\. Build/g)||[]).length,5);
+  assert.equal((html.match(/Place a defender on the map\. Build/g)||[]).length,5);
   assert.doesNotMatch(html,/Kingslayer|VI|keep-draw|<img/);
   assert.equal(keepDrawKeeper(game,0),false);
 });

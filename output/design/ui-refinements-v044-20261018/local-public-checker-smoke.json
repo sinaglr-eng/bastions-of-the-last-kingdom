@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "startedAt": "2026-10-18T14:17:48.286Z",
+  "expected": {
+    "version": "0.4.4",
+    "uiRevision": "cartographer-sculpted-20261018-v5",
+    "uiPortraitRevision": "reference-cutouts-20261016-v1",
+    "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
+    "uiOutcomeArtRevision": "outcome-scenes-20261018-v1"
+  },
+  "publicBase": "https://example.test/bastions-of-the-last-kingdom/",
+  "authentication": "None; public GETs only; credentials omitted; no credential files or browser sessions read",
+  "concurrency": 6,
+  "cachePolicy": "Unique per-run query, no-store, no-cache headers",
+  "localManifestSha256": "50babe99b9f67691092a7720d05115311d47ee71f2c4f4871a393f91d981fb9d",
+  "release": {
+    "version": "0.4.4",
+    "uiRevision": "cartographer-sculpted-20261018-v5",
+    "uiPortraitRevision": "reference-cutouts-20261016-v1",
+    "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
+    "uiOutcomeArtRevision": "outcome-scenes-20261018-v1",
+    "sha256": "334a11ba9b083923b6bab1c03ea0be68b6b8092e3daf54565ff081feec11fce8"
+  },
+  "compiled": [
+    {
+      "file": "assets/game-Dq4f8Yuv.js",
+      "kind": "javascript",
+      "bytes": 529447,
+      "sha256": "ccf2913381501c4845befc2b9c071e527412a7b8bd9ad938e232fc73adfb3468"
+    },
+    {
+      "file": "assets/game-DqDM0Snl.css",
+      "kind": "css",
+      "bytes": 324471,
+      "sha256": "fb3ea43fe73033a2d83d6aa54d160e9fc78050da888ccf249825a5a4bb048eb4"
+    },
+    {
+      "file": "assets/portrait-visibility-ATKLEfq8.js",
+      "kind": "javascript",
+      "bytes": 216590,
+      "sha256": "dcdf8dc46871f86d355e348d54cc5df2e12cf8fd7e8dffc732832e86a8cc4f3c"
+    },
+    {
+      "file": "assets/portrait-visibility-Cq7vvpxZ.css",
+      "kind": "css",
+      "bytes": 107,
+      "sha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56"
+    },
+    {
+      "file": "assets/three-xuukYDL3.js",
+      "kind": "javascript",
+      "bytes": 653736,
+      "sha256": "5d645847b6ec862cefc17f450d72b3b5a742a7c45e668bd22b247b7845131995"
+    }
+  ],
+  "uiMarkers": {
+    "javascript": {
+      "required": [
+        "\"reference-cutouts\"",
+        "reference-cutouts-20261016-v1",
+        "atlas-book",
+        "catalog-index-page",
+        "catalog-reading-page",
+        "warbands-atlas",
+        "folio-construction-seal",
+        "catalog-selected-heading",
+        "warband-story",
+        "\"reference-enemy-fronts\"",
+        "enemy-front-cutouts-20261018-v1",
+        "assets/ui/results/v044/",
+        "run-result-victory-art",
+        "mystery-placement",
+        "Place a defender on the map",
+        "folio-ingredient-recipe",
+        "folio-champion-context",
+        "data-effective-stats"
+      ],
+      "missing": []
+    },
+    "css": {
+      "required": [
+        "--folio-grain",
+        "--folio-frame",
+        "book-corners",
+        "catalog-reading-page",
+        "catalog-bookmark",
+        "preparation-folio",
+        "catalog-heading-pin",
+        "is-compact-external",
+        "folio-create-actions",
+        "folio-decision-row",
+        "run-result-defeat-art",
+        "run-result-art",
+        "mystery-placement",
+        "crafting-order"
+      ],
+      "missing": []
+    }
+  },
+  "localBuildComparison": {
+    "status": "passed",
+    "index": true,
+    "indexComparison": "Exact HTML text after normalizing CR runs immediately before LF (including CRLF and CRCRLF) to LF; all other HTML text is preserved; compiled assets use exact raw bytes",
+    "entries": true,
+    "exactHashes": 5
+  },
+  "portraits": {
+    "expected": 136,
+    "checked": 136,
+    "passed": 136,
+    "pngSignatures": 136,
+    "rgbaHeaders": 136,
+    "exactHashes": 136,
+    "servedBytes": 30418257,
+    "inventorySha256": "35874942d0347be21a71f68e577537b1802478577d40e7670d10750a538f741f"
+  },
+  "crimson": {
+    "expected": 1,
+    "checked": 1,
+    "passed": 1,
+    "manifestSha256": "1f3fcdcfea71c0c438f219b083de4c3262f0858b882ca11b94924bc10df682fd",
+    "revision": "bernhard-crimson-20261018-v1",
+    "bytes": 258524,
+    "sha256": "61a4a3e4dae617b6af817d3f825aee707012adb104b357678465f80272eaa82a",
+    "dimensions": [
+      426,
+      422
+    ],
+    "rgbaHeader": true,
+    "role": "Legacy 0.4.2 crimson derivative preserved; active enemy atlas uses the FRONT namespace"
+  },
+  "fronts": {
+    "expected": 50,
+    "checked": 50,
+    "passed": 50,
+    "pngSignatures": 50,
+    "rgbaHeaders": 50,
+    "exactHashes": 50,
+    "servedBytes": 11348367,
+    "sourceMetadata": 50,
+    "manifestSha256": "ca6797131abd18b669bf78d0023be76c986d292792d093b45f195e25e6c97530",
+    "manifestCanonicalSha256": "55c2690b158f69b918fcf7575f65694050c9e959c92d64b113bd5a3719daa906",
+    "revision": "enemy-front-cutouts-20261018-v1",
+    "manifestComparison": "Exact canonical JSON; checkout line endings in JSON formatting may differ; every metadata value is preserved",
+    "sourceMetadataDigestPolicy": "UTF-8 text with CRLF converted to LF only; all other formatting/content preserved; non-JSON files use exact raw bytes",
+    "allFront": true,
+    "preservedRgb": true,
+    "historicalAssetsPreserved": true,
+    "inventorySha256": "c41be263b2aeb29f6a68e2e5d382d9bbfb70dd6963f1d6d2f245b897cb553544"
+  },
+  "defeat": {
+    "expected": 1,
+    "checked": 1,
+    "passed": 1,
+    "manifestSha256": "3a1b87994313b84a163a2751bda8b42e61bb28b920f380fb58c920d84f1c8113",
+    "manifestCanonicalSha256": "f3272e44d5908d78d8aed5f6bf7fff12ec35138b26a7b86ded25ed28dd366698",
+    "revision": "defeat-city-20261018-v1",
+    "manifestComparison": "Exact canonical JSON; generation prompt and provenance values are preserved",
+    "bytes": 2540557,
+    "sha256": "d827523f201adfa0472d1afa2aaed6d2c9e27c9ca7069d9542686fc80e56f812",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "pngHeader": true
+  },
+  "outcomes": {
+    "expected": 2,
+    "checked": 2,
+    "passed": 2,
+    "exactHashes": 2,
+    "assets": [
+      {
+        "id": "defeat",
+        "file": "assets/ui/results/v044/defeat.png",
+        "bytes": 2179822,
+        "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "victory",
+        "file": "assets/ui/results/v044/victory.png",
+        "bytes": 2299564,
+        "sha256": "b52df65307d67977a851177fc5912c21a4b0c8f7f43cc899f702310c69d2a27e",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      }
+    ],
+    "manifestSha256": "70840fe49eac6f73a63845d077611ec9b148ba47d47b085eac9f0197f27b39ff",
+    "manifestCanonicalSha256": "1a0b36c0b65e4d60f5882f3e7f3b686eaeea64c7e11d247ac0b602262ffbce2b",
+    "revision": "outcome-scenes-20261018-v1",
+    "manifestComparison": "Exact approved canonical JSON; complete generation prompts, reviews and all ordered input reference hashes are preserved"
+  },
+  "requests": 202,
+  "failures": [],
+  "limits": [
+    "HTTP signatures, hashes and bundle markers do not prove browser rendering, gameplay behavior, or physical iPad/Safari interaction.",
+    "FRONT metadata and served bytes are checked here; independent local pixel tests compare RGB and alpha against original source sheets.",
+    "Outcome generation prompts and all five reference identities/hashes are preserved in exact canonical JSON; this checker does not visually reassess generated art."
+  ],
+  "indexSha256": "667c38f9b8c71423b35a7293ae04cdd25c73192d2e786ee35351d7137d6fa594",
+  "publicManifest": {
+    "revision": "reference-cutouts-20261016-v1",
+    "identities": 136,
+    "sha256": "50babe99b9f67691092a7720d05115311d47ee71f2c4f4871a393f91d981fb9d",
+    "immutableCanonicalSha256": "5d6f7703ad89fec39b4f5b05d2510e4fce3ecf387e7b9812b851805ca191cc0d",
+    "comparison": "Immutable canonical JSON record; exact identity paths, dimensions and output SHA-256 values from local verified cutout manifest"
+  },
+  "finishedAt": "2026-10-18T14:17:48.607Z",
+  "durationMs": 321,
+  "requestTransport": "Injected local filesystem fetch over the final dist tree; no network requests",
+  "localDist": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\dist"
+}

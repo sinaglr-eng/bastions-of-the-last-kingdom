@@ -1,0 +1,238 @@
+{
+  "schema": "ui-refinements-v044-native-browser-qa-v1",
+  "recordedAt": "2026-10-18T14:17:14.706Z",
+  "status": "passed",
+  "url": "http://127.0.0.1:5196/?debug&seed=4044",
+  "browser": "Codex in-app browser",
+  "method": "Native browser screenshots and actual UI interactions. Read-only DOM geometry; no hidden runtime state assignments.",
+  "viewports": [
+    [
+      1715,
+      1244
+    ],
+    [
+      1180,
+      820
+    ],
+    [
+      1280,
+      900
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ]
+  ],
+  "checks": {
+    "goldChoices": "Reroll and Reserve share gold, each retains 1 CP label and legality.",
+    "candidateFit": {
+      "file": "engineer-geometry.json",
+      "clientHeight": 250,
+      "scrollHeight": 250,
+      "rankButtonHeight": 30,
+      "completeMetrics": [
+        "Damage / hit 6",
+        "Direct DPS 10",
+        "Range 5",
+        "Interval 0.6s"
+      ],
+      "abilities": [
+        "−2 enemy armor · 4s",
+        "Unmarked targets first; then selected priority"
+      ]
+    },
+    "actualRankCount": "Actual Archer III keeper displays 1 built at rank III. Mixed actual ranks and display-only comparison additionally covered by production panel integration tests.",
+    "damageChannels": "Physical blue, Magical violet, Holy darker gold; text/icons retained and all three canonical channels tested.",
+    "mystery": "Visible and accessible Place a defender on the map copy; native SVG question figure and placement tile.",
+    "commandDock": "One original host. Desktop Ready top80 center857.67; combat top80 same center. Phone390px combat top113 center195; no page overflow.",
+    "book": "Opaque rectangle removed; shaped native paper, continuous central crease, curved leaf edges, footers raised8px. Desktop, iPad and phone captures.",
+    "recipeControls": "Compact Previous/ordinal/Next; native SVG chevrons centered inside stationary frames.",
+    "pinnedPortrait": "Native decoded image reports complete=true, naturalWidth333, ready state. The compact folio hides the redundant external pin. Production HUD/native decoder integration additionally proves one IMG and one decode across100 refreshes.",
+    "atlas": "Decorated parchment, configured five-stat hierarchy, shared FRONT art and truthful variant panels; old legend absent. iPad1180 index has50buttons,25columns and exactly2rows.",
+    "unitPause": "Actual Archer attackPaused creates red rgb(181,38,50)25px badge above actor. Badge remains during global pause; resuming only unit removes it while global pause remains.",
+    "outcomes": "Actual final-wave victory and one-health final-wave defeat both observed. Correct versioned1672×941 scenes, contain-fit full figures, factual run facts. Phone defeat has325px scene and390px document without horizontal overflow;844×390 result reading order remains block.",
+    "console": "No warning/error entries in local native browser log."
+  },
+  "limits": [
+    "Responsive emulation; physical iPad and Safari were unavailable.",
+    "Outcome pictures illustrate each side’s campaign ending; Sandbox event facts remain independently factual.",
+    "Early atlas iPad09 capture predates the final25-column adjustment;19 is the final index capture."
+  ],
+  "captures": [
+    {
+      "file": "01-draft-desktop.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 298483,
+      "sha256": "b438ce91a8e8868f1b45ef37d1dd1a157e4c2bdaa8d9df95e4b8e406d633077b"
+    },
+    {
+      "file": "02-ready-top-center.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 281024,
+      "sha256": "ca138dcdc8bde3b5825d9bd52e02c6be68d19c625ca89b945b883950fc5549b9"
+    },
+    {
+      "file": "03-combat-top-center.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 271584,
+      "sha256": "0e9f9bb301fb4f78ba7a1ab870ec1eb1e25fd774c09214a73949734433295f1c"
+    },
+    {
+      "file": "04-placement-instruction.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 274854,
+      "sha256": "ecbc7dd84497d2a41b84256d1a6d7ae1a78fe9c09c9bda43d6fdee49193cc220"
+    },
+    {
+      "file": "05-engineer-no-scroll.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 301551,
+      "sha256": "f82bedc8cc09ea5c480ee2ca22721194de5abdbfd5dddc61600530841b0b39a0"
+    },
+    {
+      "file": "06-book-desktop.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 285378,
+      "sha256": "636f065978254145e6108d62c10712e629add770d1affe01bd312218230f9846"
+    },
+    {
+      "file": "07-atlas-wave31-desktop.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 286704,
+      "sha256": "b53b96aa8835eaf4b501acfdc28f0ba688d2fd1034c2bc2be7600045564da169"
+    },
+    {
+      "file": "08-atlas-wave44-desktop.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 277207,
+      "sha256": "c0e81d3598474def2c31dff5406b3dfe6ef884af8d78aa07d026a311461c690a"
+    },
+    {
+      "file": "09-atlas-ipad.jpg",
+      "dimensions": [
+        1180,
+        820
+      ],
+      "bytes": 131371,
+      "sha256": "3d3c31f66e2179acf4ca3a4a2b986f1b159f0f4783aafa116fa4d970061ae265"
+    },
+    {
+      "file": "10-book-ipad.jpg",
+      "dimensions": [
+        1180,
+        820
+      ],
+      "bytes": 146646,
+      "sha256": "5002e8011b230004147c552cbec6ec6a87538cc2544a19d8a754c23ccf7236fa"
+    },
+    {
+      "file": "11-unit-paused-ipad.jpg",
+      "dimensions": [
+        1180,
+        820
+      ],
+      "bytes": 142549,
+      "sha256": "2dde366fdda792035def02110db1bc6ec0d6ea78def8a9045833ba0003c167f5"
+    },
+    {
+      "file": "12-combat-phone.jpg",
+      "dimensions": [
+        390,
+        844
+      ],
+      "bytes": 50259,
+      "sha256": "4003201534f577699749b28e4207e939cc498457de88f64be02424dc86cfa55a"
+    },
+    {
+      "file": "13-victory-desktop.jpg",
+      "dimensions": [
+        1280,
+        900
+      ],
+      "bytes": 120269,
+      "sha256": "ee6d807e7cdf5a5b126af8738b2b0c9c876b351312bb2d28ce365916c817de0a"
+    },
+    {
+      "file": "14-victory-landscape.jpg",
+      "dimensions": [
+        844,
+        390
+      ],
+      "bytes": 38293,
+      "sha256": "ca2408c181c9546c67e71c51bde67ac33300580fa200303f3e87bc9c53eb4349"
+    },
+    {
+      "file": "15-defeat-desktop.jpg",
+      "dimensions": [
+        1280,
+        900
+      ],
+      "bytes": 118190,
+      "sha256": "9eced44b1863da659e93144f6b7407ec4f3d6789a9231180daac9bf010f04fb0"
+    },
+    {
+      "file": "16-defeat-phone.jpg",
+      "dimensions": [
+        390,
+        844
+      ],
+      "bytes": 55065,
+      "sha256": "cc148f2d1d326c0548cb0bba85657c6afa4ac7eac1102d12bf3be73b3dbc14bc"
+    },
+    {
+      "file": "17-book-phone.jpg",
+      "dimensions": [
+        390,
+        844
+      ],
+      "bytes": 48871,
+      "sha256": "f30206c0b92abe1065cb49b35100b1ad1db648b612a37fc3de76b106deb3549b"
+    },
+    {
+      "file": "18-book-final-desktop.jpg",
+      "dimensions": [
+        1715,
+        1244
+      ],
+      "bytes": 274473,
+      "sha256": "132e58ca806692b6c7114894dbe5f0420d70e2a1cfc7fe7c98d6c676d7e2ef70"
+    },
+    {
+      "file": "19-atlas-final-ipad.jpg",
+      "dimensions": [
+        1180,
+        820
+      ],
+      "bytes": 132954,
+      "sha256": "2c6be280d94aaef3f3de7e8918e4afd52b9ad512c2d203b96a8e572b90d8b11f"
+    }
+  ]
+}

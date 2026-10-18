@@ -4,6 +4,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {rankAdornment,animateRank,disposeRankAdornment} from './ranks.js';
 import {createChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
 import {MvpHalos,MvpAwardEffects} from './mvp-halo.js';
+import {DefenderPauseMarkers} from './defender-pause-markers.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
 import {enemyFigure,disposeEnemyFigure,installEnemyTemplate,animateEnemyCues} from './enemy-assets.js';
 import {pointedEnemy,createEnemySelectionRing,syncEnemySelectionRing,disposeEnemySelectionRing} from './enemy-pointer.js';
@@ -66,6 +67,7 @@ export class Battlefield {
     this.edgePointer=null;this.compass=container.parentElement.querySelector('.map-compass');
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#9bbcc1');this.scene.fog=new THREE.Fog('#9bbcc1',88,155);
     this.mvpAwards=new MvpAwardEffects(this.scene,{position:v3,reducedMotion:()=>!!this.reducedMotion?.matches});
+    this.defenderPauseMarkers=new DefenderPauseMarkers(container,{name:tower=>this.game.data.towers[tower.family]?.name||`Defender #${tower.id}`});
     this.camera=new THREE.PerspectiveCamera(38,1,0.1,210);this.camera.position.set(7,53,41);
     this.renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.18;container.append(this.renderer.domElement);
     this.renderer.domElement.setAttribute('aria-label','3D battlefield. Tap to place or select; drag one finger to pan; use two fingers to rotate or pinch to zoom.');this.renderer.domElement.tabIndex=0;
@@ -394,6 +396,7 @@ export class Battlefield {
     pan.multiplyScalar(dt*12);this.camera.position.add(pan);this.controls.target.add(pan);
     if(this.keys.has('q')||this.keys.has('e')){const offset=this.camera.position.clone().sub(this.controls.target);offset.applyAxisAngle(new THREE.Vector3(0,1,0),dt*(this.keys.has('q')?0.75:-0.75));this.camera.position.copy(this.controls.target).add(offset);}
     this.controls.update();
+    this.defenderPauseMarkers?.update(this.models,this.camera);
     this.reservedDefenderEffects.update(this.camera,this.container.clientHeight);
     const fogOffset=Math.max(0,this.camera.position.distanceTo(this.controls.target)-90);
     this.scene.fog.near=88+fogOffset;this.scene.fog.far=155+fogOffset;
@@ -434,6 +437,7 @@ export class Battlefield {
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
+    this.defenderPauseMarkers?.dispose();
     this.mvpHalos?.dispose();this.mvpAwards?.dispose();
     this.criticalHitLabels?.dispose();
     this.disposed=true;this.defenderLoader.dispose();this.combatEffects.dispose();this.supportEffects.dispose();this.commandMoveEffects.dispose();this.reservedDefenderEffects.dispose();this.enemyAbilityEffects.dispose();this.enemyConcealmentEffects.dispose();this.clearCorpses();

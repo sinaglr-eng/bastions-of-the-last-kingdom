@@ -1,0 +1,21 @@
+/* Ready and combat share the same mounted dock at the map's top center. */
+#app #command-dock { top: calc(var(--register) + 10px); left: calc((100% - var(--inspection,0px)) / 2); right: auto; bottom: auto; transform: translateX(-50%); width: max-content; max-width: calc(100% - 24px); padding: 2px; border-width: 7px; border-image-width: 7px; }
+#app #command-dock :is(.map-start,.header-combat-controls) { position: static; top: auto; right: auto; bottom: auto; left: auto; transform: none; margin: 0; gap: 7px; }
+#app #command-dock #start-wave { min-height: 48px; min-width: 170px; font-size: 20px; padding: 7px 15px; }
+#app #command-dock .header-combat-controls .text-button { min-height: 48px; min-width: 90px; padding: 7px 12px; font-size: 16px; }
+#app #command-dock .header-pause-label { display: inline!important; }
+
+/* Leave one control row above the notes so wide open sheets and phone notes
+   cannot cover the Start/Pause/speed controls at the top of the battlefield. */
+#app:is([data-phase=ready],[data-phase=combat]) .battlefield-overlays { top: calc(var(--register) + 80px); }
+#app:is([data-phase=ready],[data-phase=combat]) .persistent-boss { top: calc(var(--register) + 80px); }
+
+.defender-pause-markers { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }
+.defender-pause-marker { position: absolute; left: 0; top: 0; display: grid; place-items: center; box-sizing: border-box; width: 25px; height: 25px; border: 2px solid #fff3dd; border-radius: 50%; color: #fff3dd; background: #b52632; box-shadow: 0 1px 4px #32100c88; pointer-events: none; }
+.defender-pause-marker[hidden] { display: none; }
+.defender-pause-marker svg { width: 19px; height: 19px; }
+@media(max-width:750px) {
+  #app #command-dock { top: calc(var(--register) + 7px); }
+  #app #command-dock #start-wave { min-width: 150px; font-size: 18px; }
+  #app #command-dock .header-combat-controls .text-button { min-width: 74px; font-size: 14px; padding: 7px 9px; }
+}

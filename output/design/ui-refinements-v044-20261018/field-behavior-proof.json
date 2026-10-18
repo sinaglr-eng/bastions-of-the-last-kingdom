@@ -1,0 +1,40 @@
+{
+  "schema": "v044-field-behavior-proof-v1",
+  "createdAt": "2026-10-18T14:03:45.0848946Z",
+  "baseline": "836a541014a22b845b6b54b870ce7df7e5d143db",
+  "comments": [
+    6,
+    11,
+    14
+  ],
+  "controlDock": {
+    "behavior": "The existing single command dock is anchored to the top center of the visible battlefield in Ready and combat; Start is replaced in place by the mounted Pause and speed group.",
+    "newNodesOrPortals": false,
+    "responsive": "The dock uses the actual inspector width reserve; map notes and boss information leave one control row above them."
+  },
+  "pinnedPortrait": {
+    "rootCause": "Native approved-portrait decoding adds data-approved-portrait-state to IMG. The former HUD innerHTML string comparison then differed from its pristine template and replaced the portrait every 200 ms, restarting hidden native decode. HTML entity normalization is an additional mismatch source.",
+    "fix": "Mount the goal controls once and update text, aria labels and src only when their semantic values change; retain the actual approved IMG and native decode guard.",
+    "tested": "Actual production HUD plus native visibility guard retained one image node, one decode and ready state through 100 refreshes without RNG use or draw revelation."
+  },
+  "defenderPause": {
+    "source": "Only actual active tower.attackPaused === true",
+    "globalPauseCreatesMarker": false,
+    "presentation": "Static red 25px pause badge projected above the current actor bounds; noninteractive with a descriptive accessible label.",
+    "cleanup": "Resume, consumed/removed defender and renderer disposal remove the badge; offscreen projection hides it."
+  },
+  "focusedTests": {
+    "passed": 30,
+    "failed": 0,
+    "files": [
+      "tests/pinned-goal-v044.test.mjs",
+      "tests/defender-pause-markers-v044.test.mjs",
+      "tests/header-combat-controls.test.mjs",
+      "tests/battlefield-panel-main-integration.test.mjs",
+      "tests/defender-effective-stats-v042.test.mjs",
+      "tests/mvp-presentation.test.mjs"
+    ]
+  },
+  "browserValidation": "Pending release owner review",
+  "mainWrites": false
+}

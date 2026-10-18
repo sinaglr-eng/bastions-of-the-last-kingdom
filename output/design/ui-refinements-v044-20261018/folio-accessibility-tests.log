@@ -1,0 +1,46 @@
+✔ returning reserve is already placed at its fixed tile and selectable among exactly five cards (19.4866ms)
+✔ paid reserve displays its inactive fixed path-blocking state, cannot be kept, and creates no sixth card (10.0024ms)
+✔ reserving a different current unit removes the returning badge and keeps only the new paid reserve (11.5059ms)
+✔ after four new placements the fixed carried card can be kept without changing its tile (11.8248ms)
+✔ prices and visible reasons explain initial placement, used reroll, committed reserve and insufficient CP (15.6401ms)
+✔ configured costs are rendered and disabled reasons are escaped without changing game state (0.2904ms)
+✔ move UI guides defender then wall selection and offers a free cancel, without spending during rendering (7.2556ms)
+✔ stale keep tokens and pointer pairs cannot keep a rerolled defender even when forced RNG preserves its identity (6.5439ms)
+✔ merge controls remain valid for four available candidates after Reserve and reject a stale reroll key (5.1604ms)
+✔ draft controls disappear after commitment and ended runs expose no CP action (6.0919ms)
+✔ mouse double-click and touch double-tap select first, then keep that exact candidate once (25.7491ms)
+✔ changing cards, keyboard selection and mixed pointers cannot confirm a previous click (7.0712ms)
+✔ late taps, distant releases and interrupted gestures require a fresh pair (6.9607ms)
+✔ adjacent Keep controls reject stale identity, hidden draws, old rounds and non-draft towers (7.1331ms)
+✔ five rendered cards have one adjacent Keep control and never contain nested buttons (9.0577ms)
+✔ unplaced cards expose no family or rank and cannot show a Keep action (1.4262ms)
+✔ all eight basic families retain the exact approved portrait for each of their six ranks (303.54ms)
+✔ rendering the odds and five mystery cards never reveals latent defender identities or consumes RNG (1.1599ms)
+✔ separate Keep and Merge buttons address the selected candidate with current validation tokens (11.7147ms)
+✔ pending and returning reserve keep their exact rank portrait, fixed position and five-slot boundary (5.3413ms)
+✔ a committed champion and discarded castle walls retain their existing separate portrait ownership (6.1135ms)
+✔ production draft refresh renders all five choices without programmatic scrolling, updates decision count and preserves game state and RNG (9.6814ms)
+✔ unknown recruit placement SVG and visible map instruction do not consult hidden identities or consume RNG (12.4119ms)
+✔ Physical, Magical and Holy card labels agree with the actual candidate profile and its displayed-rank label (64.8998ms)
+✔ compact Engineer candidate retains every engine statistic, complete ability line and all six non-mutating rank choices (10.3161ms)
+✔ actual main render and event wiring follow repeated draft, keeper, combat and pause transitions with five slots restored (40.8683ms)
+✔ actual advanced-menu warning and Cancel preserve run eligibility; confirmation alone activates exclusion (11.1092ms)
+✔ actual Current-wave detail toggles independently of map-selected unit inspection and preserves combat resources (17.5316ms)
+✔ actual result-review route presents ended facts and inspectors without construction guidance or executable unit controls (37.8092ms)
+✔ Archer II→IV changes the displayed profile and recipe suggestions while actual Keep and cards stay II (52.0389ms)
+✔ one canonical profile supplies quantified Mage splash and Frost Warden V/VI effects before rankbar and four metrics (17.1332ms)
+✔ actual direct DPS includes effective support/MVP while aura-only profiles keep zero direct output with a quantified per-enemy effect (12.486ms)
+✔ Build/Select share five selection cards and detail without hidden identity reads, duplicate commands or changed RNG (15.9133ms)
+✔ multiple actual combinations remain visible while exactly one selected ingredient detail changes without pin/preview/selection mutation (24.1584ms)
+✔ all 38 current recipes expose actual ingredient allocations and preserve existing stale/final confirmation guards (231.8806ms)
+✔ retained champions satisfy one subtree and reserved/stale/hidden copies cannot enter current draft recipe inventory (6.2659ms)
+✔ retained rank V merge, downgrade cost, Move and ended/reserved inspection remain bound to actual state (22.9554ms)
+✔ unavailable higher-rank pictures use a neutral empty slot instead of a family rank-I fallback or undefined URL (6.9586ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 583.2967

@@ -1,0 +1,24 @@
+✔ 0.4.4 public checker verifies immutable 136 portraits, crimson, all 50 FRONT cutouts, legacy defeat, both new outcomes and exact build with credential-free GETs (141.9618ms)
+✔ release metadata mismatch stops verification before any bulk assets or compiled requests (23.2618ms)
+✔ LF, CRLF and Vite CRCRLF boundaries preserve JSON records and HTML while other HTML differences remain rejected (474.1914ms)
+✔ exact local bundle comparison detects a stale compiled response even if all required UI markers still exist (109.1244ms)
+✔ compiled portrait templates need the exact namespace identities even when revisions and all local/public bytes still match (218.5273ms)
+✔ crimson portrait corruption fails independently of the unchanged original 136 portraits (106.027ms)
+✔ missing final local build and changed immutable manifest are rejected before network requests (45.0167ms)
+✔ invalid local FRONT view, source, RGB, alpha, identity, trim or historical metadata fails before any request (262.3364ms)
+✔ a changed public FRONT manifest cannot silently replace the locally verified crop metadata (28.1214ms)
+✔ FRONT PNG corruption and a non-RGBA header fail independently of every historical portrait and defeat art (212.2092ms)
+✔ changed defeat prompt/provenance is rejected and invalid local asset identity fails before requests (43.6079ms)
+✔ defeat PNG corruption is rejected after the unchanged original, crimson and 50 FRONT portraits pass (107.6789ms)
+✔ both approved outcome identities retain complete prompts, generation settings, dimensions and all ordered input reference hashes before any GET (328.5748ms)
+✔ a public outcome provenance change cannot replace an approved prompt or input reference despite unchanged artwork (45.1437ms)
+✔ missing or corrupted new outcome PNGs and wrong dimensions fail independently of every historical image and the other outcome (477.5954ms)
+✔ compiled outcome path and both-result presentation markers remain necessary with exact public/local bytes and valid artwork (279.975ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2981.5844
