@@ -1,0 +1,98 @@
+{
+  "schema": "v046-public-native-browser-qa-v1",
+  "status": "passed",
+  "completedAt": "2026-10-18T19:39:38.420Z",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.6",
+  "release": "0.4.6",
+  "runtime": "825a713deb64834507f038bd6e032355c2ef676e",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "book": {
+    "heading": "Soldier VI",
+    "images": [
+      {
+        "complete": true,
+        "naturalWidth": 276,
+        "src": "/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/soldier-1.png?v=reference-cutouts-20261016-v1"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 269,
+        "src": "/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/archer-1.png?v=reference-cutouts-20261016-v1"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 245,
+        "src": "/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/druid-1.png?v=reference-cutouts-20261016-v1"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 230,
+        "src": "/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/mage-1.png?v=reference-cutouts-20261016-v1"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 255,
+        "src": "/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/cleric-1.png?v=reference-cutouts-20261016-v1"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 262,
+        "src": "/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/runebreaker-1.png?v=reference-cutouts-20261016-v1"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 234,
+        "src": "/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/frostwarden-1.png?v=reference-cutouts-20261016-v1"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 286,
+        "src": "/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/stormcaller-1.png?v=reference-cutouts-20261016-v1"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 310,
+        "src": "/bastions-of-the-last-kingdom/assets/ui/reference-cutouts/soldier-6.png?v=reference-cutouts-20261016-v1"
+      }
+    ],
+    "leaves": [
+      {
+        "className": "catalog-index-page",
+        "width": 502,
+        "x": 138
+      },
+      {
+        "className": "catalog-reading-page",
+        "width": 502,
+        "x": 640
+      }
+    ],
+    "profiles": 48,
+    "width": 1004
+  },
+  "checks": [
+    "Public normal game renders at wave1/50 with placement cards",
+    "Basic chapter uses separate facing leaves and48rankchoices",
+    "SoldierVI approved portrait and current2.5range/882damage displayed",
+    "Public54enemy roster loads exact approved Bloodwolf GLB and walk playback",
+    "PublicBabyFireDragon originalV8GLB loads and attack playback with corrected physicalmouthcaller"
+  ],
+  "diagnostics": {
+    "game": [],
+    "atelier": [],
+    "dragon": []
+  },
+  "captures": [
+    "12-public-basic-book.jpg",
+    "13-public-wolf-motion.jpg",
+    "14-public-dragon-mouth-attack.jpg"
+  ],
+  "limitations": [
+    "No legal-draft campaign completion or win-rate claim",
+    "No physical iPad/Safari certification",
+    "Native still captures and automated anchor checks do not constitute final human approval of every motion phase"
+  ]
+}

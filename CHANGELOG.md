@@ -8,8 +8,8 @@ Copies all **54 approved enemy V6 GLBs** with exact source hashes. Adds separate
 
 The latest local gate passes **1,636 tests** and the **210-module** production build. The actual local-distribution smoke passes **265 GET/hash checks**, including all 54 enemy GLBs, three active model manifests and provenance. [The English integration report](docs/APPROVED_INTEGRATION_V046_20261018.md) distinguishes implementation evidence from preserved historical approval/workshop records. Controlled developer scenarios do not certify legal-draft campaign completion or win rates; physical iPad/Safari testing, baked animation clips and final human pose approval remain unavailable.
 
-<!-- V046_PUBLICATION_PENDING -->
-**Publication pending:** the runtime commit, Pages CI result, public asset verification and release tag will be recorded after delivery. No 0.4.6 deployment is claimed here.
+<!-- V046_RELEASE_GATES_COMPLETE -->
+Published [0.4.6](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.6) from [`825a713deb64834507f038bd6e032355c2ef676e`](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/commit/825a713deb64834507f038bd6e032355c2ef676e) through successful [Pages CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/39159182411). All **1,636 tests**, the **210-module** build and **265 public GET/hash checks** pass, including exact hashes for all **54 approved enemy GLBs** and five compiled entries. Native public review confirms the facing-leaf Basic defenders book and approved model playback. Release tag: `v0.4.6`.
 
 ## 0.4.5 — A simpler preparation folio — 18 October 2026
 

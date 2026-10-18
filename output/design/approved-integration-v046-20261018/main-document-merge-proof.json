@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "clean",
+  "createdAt": "2026-10-18T19:40:36.418Z",
+  "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+  "main": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+  "baselineSnapshot": "tmp/v046-main-before.json",
+  "baselineSnapshotSha256": "52d9c7a96717ba4db57c9153bd88bdd87fa3faac677923435dddc913f1765b1c",
+  "mode": "ISO candidate files only; no MAIN writes and no index operations",
+  "documents": [
+    {
+      "file": "README.md",
+      "status": "clean-three-way-merge",
+      "baseCommit": "f0991cdd87117ffdc7dc71be5e06e73fe96362a6",
+      "baselineMainSha256": "6f2ea5afdecfeabdcaa026928f2492de20fc139bf081ad18fa0abdda0e90bc78",
+      "baseBlobSha256": "5316f79e2106f331b9257d8f800c39524806930e9bd816e6e66b69322a075ca4",
+      "isoSourceSha256": "fe080e919ccd2dd32d2d8ffc9d54e37af08ff99294fa269d8471ee51302ac72a",
+      "candidate": "tmp/v046-merged-README.md",
+      "candidateSha256": "b3886e26fec7072b57de2c8a4b35ba854d41355ca5f2b039af874ac14bf7456b",
+      "candidateBytes": 48157,
+      "normalization": "Inputs are LF-normalized solely for Git merge; original MAIN/source files are never written",
+      "reviewPatch": "output/design/approved-integration-v046-20261018/main-document-merge.patch"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "status": "clean-three-way-merge",
+      "baseCommit": "f0991cdd87117ffdc7dc71be5e06e73fe96362a6",
+      "baselineMainSha256": "c05d910f0b27129e9eda7cf0a02707c3bf5d5a279d51b37104e45343c9bbc751",
+      "baseBlobSha256": "f2e96fa1e4be86371324fb99b89cbcf286ec750f86553a5aeaf92bb7c27478b2",
+      "isoSourceSha256": "10a8af4594fca4b546d0be1cda94aed1ee98b90b2681a8f1e3dadabb22462c8f",
+      "candidate": "tmp/v046-merged-CHANGELOG.md",
+      "candidateSha256": "939a0abb562cdede1b5804d6c2ad565949fce2e7985d441ed9eeeaa6513263b8",
+      "candidateBytes": 61289,
+      "normalization": "Inputs are LF-normalized solely for Git merge; original MAIN/source files are never written",
+      "reviewPatch": "output/design/approved-integration-v046-20261018/main-document-merge.patch"
+    }
+  ]
+}
