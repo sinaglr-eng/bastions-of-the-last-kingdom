@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "frozenOwnedSha256": "64ff17237de4ae7449751b9201323bd7bfe9c6babb07b1ba8586ea26b707ea56",
+  "sourceGoSha256": "f55b87e91cd7b49e2ddbe64a0aeda9403a3b6f168e5e4f17c8238af11b977c09",
+  "mode": "dry-run",
+  "status": "ready",
+  "createdAt": "2026-10-19T05:52:20.982Z",
+  "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+  "main": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+  "sourceHead": "1d204f459e19b547a254f47517a5429282d29803",
+  "baselineCommit": "8dcb81ace4375b73e1686dde78ec11b67bfc330a",
+  "baselinePaths": 4942,
+  "baselineSha256": "57e2ffb8b12ea98d6ee6e15f3051bc45d0622b76f50ff2731ec9f3de529e94ab",
+  "payloadDigest": "14d1bcca690a35de0e1f9c000033194787fb58b9b64dcf4248ed8e5f62a09282",
+  "allowlist": "output/design/ipad-performance-v047-20261019/main-mirror-allowlist.json",
+  "files": 80,
+  "tracked": 30,
+  "new": 50,
+  "actions": {
+    "create": 50,
+    "replace-verified-baseline": 30,
+    "already-current": 0,
+    "conflict": 0
+  },
+  "documentMerges": [
+    {
+      "file": "CHANGELOG.md",
+      "payloadFile": "tmp/v047-merged-CHANGELOG.md",
+      "payloadSha256": "5169a111b580ad3334cc0105c33025f80138a00a8371bef0e665eb0a1a729a95"
+    },
+    {
+      "file": "README.md",
+      "payloadFile": "tmp/v047-merged-README.md",
+      "payloadSha256": "671a34a54fbcf65a681ebefc9df02e3274ed66092d05684c1a4af5e3f408b809"
+    }
+  ],
+  "excludedTracked": [],
+  "baselineMismatches": [],
+  "conflicts": [],
+  "mainWritten": false,
+  "written": [],
+  "noGitIndexOperations": true,
+  "finishedAt": "2026-10-19T05:52:23.569Z",
+  "allSavedPathsUnchanged": true,
+  "unownedBaselineChanges": [],
+  "unownedBaselinePathsChecked": 4912,
+  "indexHashes": {
+    "before": {
+      "source": "8e8f4757b6ebbcced19318d2c9760be35aaa7c0a268297cf57a71833ee09245f",
+      "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+    },
+    "after": {
+      "source": "8e8f4757b6ebbcced19318d2c9760be35aaa7c0a268297cf57a71833ee09245f",
+      "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+    }
+  },
+  "gitIndexesUnchanged": true
+}

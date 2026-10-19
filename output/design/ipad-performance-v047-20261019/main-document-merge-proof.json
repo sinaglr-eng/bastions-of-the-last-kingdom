@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "clean",
+  "createdAt": "2026-10-19T05:52:16.661Z",
+  "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+  "main": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+  "baselineSnapshot": "tmp/v047-main-before.json",
+  "baselineSnapshotSha256": "57e2ffb8b12ea98d6ee6e15f3051bc45d0622b76f50ff2731ec9f3de529e94ab",
+  "mode": "ISO candidate files only; no MAIN writes and no index operations",
+  "documents": [
+    {
+      "file": "README.md",
+      "status": "clean-three-way-merge",
+      "baseCommit": "8dcb81ace4375b73e1686dde78ec11b67bfc330a",
+      "baselineMainSha256": "b3886e26fec7072b57de2c8a4b35ba854d41355ca5f2b039af874ac14bf7456b",
+      "baseBlobSha256": "fe080e919ccd2dd32d2d8ffc9d54e37af08ff99294fa269d8471ee51302ac72a",
+      "isoSourceSha256": "e1c13cb8fea2b141096bd198fb9ae7a5d8ee8e475bf73eb2780d79b121e114d3",
+      "candidate": "tmp/v047-merged-README.md",
+      "candidateSha256": "671a34a54fbcf65a681ebefc9df02e3274ed66092d05684c1a4af5e3f408b809",
+      "candidateBytes": 49998,
+      "normalization": "Inputs are LF-normalized solely for Git merge; original MAIN/source files are never written",
+      "reviewPatch": "output/design/ipad-performance-v047-20261019/main-document-merge.patch"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "status": "clean-three-way-merge",
+      "baseCommit": "8dcb81ace4375b73e1686dde78ec11b67bfc330a",
+      "baselineMainSha256": "939a0abb562cdede1b5804d6c2ad565949fce2e7985d441ed9eeeaa6513263b8",
+      "baseBlobSha256": "10a8af4594fca4b546d0be1cda94aed1ee98b90b2681a8f1e3dadabb22462c8f",
+      "isoSourceSha256": "76aff28887d6492119514dd4bbeb57686c4bd88f7f65eeaafb083a77fbe3135e",
+      "candidate": "tmp/v047-merged-CHANGELOG.md",
+      "candidateSha256": "5169a111b580ad3334cc0105c33025f80138a00a8371bef0e665eb0a1a729a95",
+      "candidateBytes": 63502,
+      "normalization": "Inputs are LF-normalized solely for Git merge; original MAIN/source files are never written",
+      "reviewPatch": "output/design/ipad-performance-v047-20261019/main-document-merge.patch"
+    }
+  ]
+}

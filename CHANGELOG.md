@@ -6,9 +6,10 @@ Makes Pause/Resume and the fixed 1× → 2× → 3× → 5× speed cycle immedia
 
 Adds 50 distinct fictional Bernhard defeat chronicles and the appropriate victory ending. Retains historical scores with exact-version subtabs and rankings, guards asynchronous tab/save responses, and places Save score above Top 10 commanders. No database migration or external standalone backend deployment is required. Reduces boss presentation scale by 16% without changing combat properties.
 
-Optimizes private motion buffers and equivalent enemy poses, batches compatible basic-defender surfaces, and avoids unchanged canvas resizes. Original approved assets, materials, textures, motion source modules, render quality, simulation clocks, RNG and game balance remain preserved. All **1,679 local tests**, the **212-module** production build and **265 actual-dist GET/hash fixtures** pass. [The implementation report](docs/IPAD_PERFORMANCE_V047_20261019.md) distinguishes controlled CPU/geometry checks from physical device performance. Publication receipts remain pending.
+Optimizes private motion buffers and equivalent enemy poses, batches compatible basic-defender surfaces, and avoids unchanged canvas resizes. Original approved assets, materials, textures, motion source modules, render quality, simulation clocks, RNG and game balance remain preserved. All **1,679 local tests**, the **212-module** production build and **265 actual-dist GET/hash fixtures** pass. [The implementation report](docs/IPAD_PERFORMANCE_V047_20261019.md) distinguishes controlled CPU/geometry checks from physical device performance. Verified publication receipts are recorded below.
 
-<!-- V047_PUBLICATION_PENDING -->
+<!-- V047_RELEASE_GATES_COMPLETE -->
+Published [0.4.7](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.7) from [`1d204f459e19b547a254f47517a5429282d29803`](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/commit/1d204f459e19b547a254f47517a5429282d29803) through successful [Pages CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/39205886970). All **1,679 tests**, the **212-module** build and **265 public GET/hash checks** pass, including five compiled entries and all 54 unchanged approved enemy GLBs. Native public review confirms the new mystery cards and facing-leaf book. Release tag: `v0.4.7`.
 
 ## 0.4.6 — Approved armies, motion and combat effects — 18 October 2026
 

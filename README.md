@@ -2,13 +2,14 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-## Release 0.4.7 — Responsive controls and lighter rendering
+## Published release: 0.4.7 — Responsive controls and lighter rendering
 
 Pause/Resume now updates immediately without rebuilding the preparation UI, and one accepted tap advances speed through **1× → 2× → 3× → 5× → 1×**. Mystery cards use one parchment surface and an outlined unknown recruit, with no visible slot numbers. Defeat results feature 50 wave-specific Bernhard chronicles; scores remain retained with separate version tabs and the Save score form above the standings. Bosses are visually **16% smaller**.
 
-Rendering reuses equivalent enemy poses through private buffers, avoids redundant vertex/bounds work, batches compatible basic-defender surfaces and skips unchanged canvas resizes. Approved models, materials, animation detail, resolution, shadows and gameplay rules remain intact. All **1,679 local tests**, the **212-module** production build and **265 actual-dist GET/hash fixtures** pass. Controlled CPU, posed-surface and native layout checks are recorded in [the implementation report](docs/IPAD_PERFORMANCE_V047_20261019.md); physical iPad/Safari performance is not certified. Publication receipts will be recorded below when complete.
+Rendering reuses equivalent enemy poses through private buffers, avoids redundant vertex/bounds work, batches compatible basic-defender surfaces and skips unchanged canvas resizes. Approved models, materials, animation detail, resolution, shadows and gameplay rules remain intact. All **1,679 local tests**, the **212-module** production build and **265 actual-dist GET/hash fixtures** pass. Controlled CPU, posed-surface and native layout checks are recorded in [the implementation report](docs/IPAD_PERFORMANCE_V047_20261019.md); physical iPad/Safari performance is not certified. Verified publication receipts are recorded below.
 
-<!-- V047_PUBLICATION_PENDING -->
+<!-- V047_RELEASE_GATES_COMPLETE -->
+Published [0.4.7](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.7) from [`1d204f459e19b547a254f47517a5429282d29803`](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/commit/1d204f459e19b547a254f47517a5429282d29803) through successful [Pages CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/39205886970). All **1,679 tests**, the **212-module** build and **265 public GET/hash checks** pass, including five compiled entries and all 54 unchanged approved enemy GLBs. Native public review confirms the new mystery cards and facing-leaf book. Release tag: `v0.4.7`.
 
 ## Previous published release: 0.4.6 — Approved armies, motion and combat effects
 

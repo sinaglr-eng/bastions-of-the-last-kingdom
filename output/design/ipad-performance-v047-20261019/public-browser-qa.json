@@ -1,0 +1,146 @@
+{
+  "status": "passed",
+  "release": "0.4.7",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.7",
+  "reviewedAt": "2026-10-19T05:50:47.178Z",
+  "browser": "Desktop Chromium IAB, not physical iPad Safari",
+  "draft": {
+    "cards": [
+      {
+        "card": {
+          "height": 124.21875,
+          "width": 124.09375,
+          "x": 29,
+          "y": 607.2916870117188
+        },
+        "icon": {
+          "height": 74.82292175292969,
+          "width": 76,
+          "x": 53.04166793823242,
+          "y": 616.2916870117188
+        },
+        "label": {
+          "height": 26.39583396911621,
+          "width": 110.09375,
+          "x": 36,
+          "y": 696.1146240234375
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      },
+      {
+        "card": {
+          "height": 124.21875,
+          "width": 124.10417175292967,
+          "x": 159.09375,
+          "y": 607.2916870117188
+        },
+        "icon": {
+          "height": 77.48958587646484,
+          "width": 76,
+          "x": 183.14584350585935,
+          "y": 614.9583740234375
+        },
+        "label": {
+          "height": 26.39583396911621,
+          "width": 112.77083587646484,
+          "x": 164.7604217529297,
+          "y": 697.4479370117188
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      },
+      {
+        "card": {
+          "height": 124.21875,
+          "width": 124.09375,
+          "x": 289.19793701171875,
+          "y": 607.2916870117188
+        },
+        "icon": {
+          "height": 77.48958587646484,
+          "width": 76,
+          "x": 313.2395935058594,
+          "y": 614.9583740234375
+        },
+        "label": {
+          "height": 26.39583396911621,
+          "width": 112.76042175292967,
+          "x": 294.8645935058594,
+          "y": 697.4479370117188
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      },
+      {
+        "card": {
+          "height": 124.21875,
+          "width": 124.10417175292967,
+          "x": 419.2916870117187,
+          "y": 607.2916870117188
+        },
+        "icon": {
+          "height": 77.48958587646484,
+          "width": 76,
+          "x": 443.34375,
+          "y": 614.9583740234375
+        },
+        "label": {
+          "height": 26.39583396911621,
+          "width": 112.77083587646484,
+          "x": 424.9583435058594,
+          "y": 697.4479370117188
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      },
+      {
+        "card": {
+          "height": 124.21875,
+          "width": 124.09375,
+          "x": 549.3958740234375,
+          "y": 607.2916870117188
+        },
+        "icon": {
+          "height": 77.48958587646484,
+          "width": 76,
+          "x": 573.4375,
+          "y": 614.9583740234375
+        },
+        "label": {
+          "height": 26.39583396911621,
+          "width": 112.76042175292967,
+          "x": 555.0625,
+          "y": 697.4479370117188
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      }
+    ],
+    "viewport": {
+      "height": 820,
+      "width": 1180
+    }
+  },
+  "book": {
+    "facingLeaves": 2,
+    "selected": [
+      "Soldier III\n‹ Previous rank\n3 / 48\nNext rank ›\nVETERAN · RANK III · PHYSICAL\nDAMAGE / HIT\n90\nBASE DIRECT DPS\n90\nINTERVAL\n1s\nRANGE\n2.5\n\nA determined shieldbearer. Mythic rank delivers a devastating, faster sword strike.\n\nPHYSICAL · EFFECTS\nGround targets only\nAbout Base direct DPS\nHow ranks and damage work\nRANKS & ABILITIES"
+    ]
+  },
+  "errors": [],
+  "checks": [
+    "Outlined unknown cards share continuous parchment",
+    "All five instructions stay inside their cards without icon overlap",
+    "No visible ordinal badges",
+    "Basic defenders has two facing leaves and the selected Soldier III profile",
+    "No public score was submitted"
+  ],
+  "localResults": "Separate labeled readonlyfixture; see results-native-qa.json",
+  "limitations": "Desktop responsive review only; no physical iPad performance or touch certification and no legal-draft campaign completion claim."
+}
