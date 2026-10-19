@@ -83,7 +83,7 @@ test('statistics default to the actual game edition while preserving separate hi
     const page=await request(store,'/');
     assert.equal(page.status,200);
     const html=await page.text();
-    assert.ok(html.includes('<option value="all">All game versions</option>'));
+    assert.ok(!html.includes('<option value="all">All game versions</option>'));assert.ok(html.includes('<select id="edition"><option value="'+version+'">'+version+'</option>'));assert.ok(html.includes("data.version!==selected"));
     assert.ok(html.includes(`/api/leaderboard?version='+encodeURIComponent(document.getElementById('edition').value)+'&mode=`));
     assert.ok(html.includes(`${version} · ${STATISTICS_RELEASE_NAME}. Finish a campaign`));
     assert.ok(!html.includes('/api/leaderboard?version=0.2.7&mode='));

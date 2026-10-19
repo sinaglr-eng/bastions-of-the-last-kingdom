@@ -1,0 +1,423 @@
+{
+  "schema": "render-motion-cpu-benchmark-v047",
+  "scope": "Same actual approved GLTF sources, motion fields and sample times; CPU only, excludes browser/GPU/real iPad performance. Crowds compare046 field/reset/bounds work to047 exact-field memoization with private buffers. Skeletal draws are per camera/shadow pass, without reducing submitted triangles.",
+  "frames": 120,
+  "results": [
+    {
+      "id": "phoenix",
+      "frames": 120,
+      "baseline": {
+        "medianTotalMs": 559.8976,
+        "msPerActorFrame": 4.665813333333333,
+        "normalPasses": 116640,
+        "spherePasses": 233280,
+        "distribution": {
+          "p50Ms": 4.619500000000016,
+          "p95Ms": 4.946600000000046,
+          "maxMs": 9.37870000000001
+        }
+      },
+      "optimized": {
+        "medianTotalMs": 451.65800000000036,
+        "msPerActorFrame": 3.7638166666666697,
+        "normalPasses": 92490,
+        "spherePasses": 0,
+        "distribution": {
+          "p50Ms": 3.715599999999995,
+          "p95Ms": 4.010500000000093,
+          "maxMs": 9.401000000000067
+        }
+      },
+      "speedup": 1.2396494692887086
+    },
+    {
+      "id": "host_31-wraith",
+      "frames": 120,
+      "baseline": {
+        "medianTotalMs": 53.38630000000012,
+        "msPerActorFrame": 0.4448858333333343,
+        "normalPasses": 11160,
+        "spherePasses": 22320,
+        "distribution": {
+          "p50Ms": 0.4271000000003369,
+          "p95Ms": 0.4995000000003529,
+          "maxMs": 1.2424000000000888
+        }
+      },
+      "optimized": {
+        "medianTotalMs": 48.44540000000006,
+        "msPerActorFrame": 0.4037116666666672,
+        "normalPasses": 11160,
+        "spherePasses": 0,
+        "distribution": {
+          "p50Ms": 0.39920000000029177,
+          "p95Ms": 0.4488000000001193,
+          "maxMs": 2.245800000000145
+        }
+      },
+      "speedup": 1.1019890433353847
+    },
+    {
+      "id": "host_38-wraith",
+      "frames": 120,
+      "baseline": {
+        "medianTotalMs": 709.4829,
+        "msPerActorFrame": 5.9123575,
+        "normalPasses": 6480,
+        "spherePasses": 12960,
+        "distribution": {
+          "p50Ms": 5.896299999999428,
+          "p95Ms": 6.262000000000626,
+          "maxMs": 6.665200000000368
+        }
+      },
+      "optimized": {
+        "medianTotalMs": 641.674,
+        "msPerActorFrame": 5.347283333333333,
+        "normalPasses": 5760,
+        "spherePasses": 0,
+        "distribution": {
+          "p50Ms": 5.323199999999815,
+          "p95Ms": 5.658199999999852,
+          "maxMs": 6.109199999999873
+        }
+      },
+      "speedup": 1.1056750000779212
+    },
+    {
+      "id": "host_50",
+      "frames": 120,
+      "baseline": {
+        "medianTotalMs": 77.07040000000052,
+        "msPerActorFrame": 0.6422533333333377,
+        "normalPasses": 2520,
+        "spherePasses": 5040,
+        "distribution": {
+          "p50Ms": 0.6295000000000073,
+          "p95Ms": 0.7552999999998065,
+          "maxMs": 1.2757000000001426
+        }
+      },
+      "optimized": {
+        "medianTotalMs": 61.83359999999993,
+        "msPerActorFrame": 0.5152799999999994,
+        "normalPasses": 720,
+        "spherePasses": 0,
+        "distribution": {
+          "p50Ms": 0.49680000000080327,
+          "p95Ms": 0.6139000000002852,
+          "maxMs": 0.9351000000006024
+        }
+      },
+      "speedup": 1.2464161879625415
+    }
+  ],
+  "crowds": [
+    {
+      "id": "host_31-wraith",
+      "peers": 12,
+      "frames": 60,
+      "baseline046": {
+        "medianTotalMs": 337.47570000000087,
+        "msPerSceneFrame": 5.6245950000000144,
+        "distribution": {
+          "p50Ms": 5.572799999999916,
+          "p95Ms": 6.05409999999938,
+          "maxMs": 7.212700000000041
+        },
+        "normalPasses": 66960,
+        "spherePasses": 133920,
+        "fieldEvaluations": 2160,
+        "privatePoseCopies": 0
+      },
+      "optimized047": {
+        "medianTotalMs": 34.186900000000605,
+        "msPerSceneFrame": 0.5697816666666767,
+        "distribution": {
+          "p50Ms": 0.5753999999997177,
+          "p95Ms": 0.7186999999994441,
+          "maxMs": 2.836699999999837
+        },
+        "normalPasses": 5580,
+        "spherePasses": 0,
+        "fieldEvaluations": 180,
+        "privatePoseCopies": 1980
+      },
+      "speedup": 9.871491711737388
+    },
+    {
+      "id": "host_38-wraith",
+      "peers": 12,
+      "frames": 60,
+      "baseline046": {
+        "medianTotalMs": 4303.891299999999,
+        "msPerSceneFrame": 71.73152166666665,
+        "distribution": {
+          "p50Ms": 71.90529999999853,
+          "p95Ms": 73.21900000000096,
+          "maxMs": 75.83020000000033
+        },
+        "normalPasses": 38880,
+        "spherePasses": 77760,
+        "fieldEvaluations": 2160,
+        "privatePoseCopies": 0
+      },
+      "optimized047": {
+        "medianTotalMs": 390.6129000000001,
+        "msPerSceneFrame": 6.510215000000001,
+        "distribution": {
+          "p50Ms": 6.451999999997497,
+          "p95Ms": 7.033299999999144,
+          "maxMs": 8.284599999999045
+        },
+        "normalPasses": 2880,
+        "spherePasses": 0,
+        "fieldEvaluations": 180,
+        "privatePoseCopies": 1980
+      },
+      "speedup": 11.018303030954682
+    }
+  ],
+  "skeletalDraws": [
+    {
+      "id": "soldier-1",
+      "before": 68,
+      "after": 27
+    },
+    {
+      "id": "soldier-2",
+      "before": 70,
+      "after": 26
+    },
+    {
+      "id": "soldier-3",
+      "before": 104,
+      "after": 33
+    },
+    {
+      "id": "soldier-4",
+      "before": 162,
+      "after": 33
+    },
+    {
+      "id": "soldier-5",
+      "before": 152,
+      "after": 34
+    },
+    {
+      "id": "soldier-6",
+      "before": 226,
+      "after": 50
+    },
+    {
+      "id": "archer-1",
+      "before": 95,
+      "after": 36
+    },
+    {
+      "id": "archer-2",
+      "before": 116,
+      "after": 44
+    },
+    {
+      "id": "archer-3",
+      "before": 146,
+      "after": 57
+    },
+    {
+      "id": "archer-4",
+      "before": 146,
+      "after": 52
+    },
+    {
+      "id": "archer-5",
+      "before": 182,
+      "after": 54
+    },
+    {
+      "id": "archer-6",
+      "before": 209,
+      "after": 65
+    },
+    {
+      "id": "mage-1",
+      "before": 131,
+      "after": 34
+    },
+    {
+      "id": "mage-2",
+      "before": 139,
+      "after": 31
+    },
+    {
+      "id": "mage-3",
+      "before": 156,
+      "after": 35
+    },
+    {
+      "id": "mage-4",
+      "before": 164,
+      "after": 41
+    },
+    {
+      "id": "mage-5",
+      "before": 243,
+      "after": 60
+    },
+    {
+      "id": "mage-6",
+      "before": 237,
+      "after": 47
+    },
+    {
+      "id": "frostwarden-1",
+      "before": 126,
+      "after": 28
+    },
+    {
+      "id": "frostwarden-2",
+      "before": 126,
+      "after": 28
+    },
+    {
+      "id": "frostwarden-3",
+      "before": 132,
+      "after": 30
+    },
+    {
+      "id": "frostwarden-4",
+      "before": 134,
+      "after": 39
+    },
+    {
+      "id": "frostwarden-5",
+      "before": 161,
+      "after": 54
+    },
+    {
+      "id": "frostwarden-6",
+      "before": 166,
+      "after": 51
+    },
+    {
+      "id": "stormcaller-1",
+      "before": 237,
+      "after": 62
+    },
+    {
+      "id": "stormcaller-2",
+      "before": 269,
+      "after": 62
+    },
+    {
+      "id": "stormcaller-3",
+      "before": 278,
+      "after": 74
+    },
+    {
+      "id": "stormcaller-4",
+      "before": 430,
+      "after": 80
+    },
+    {
+      "id": "stormcaller-5",
+      "before": 358,
+      "after": 76
+    },
+    {
+      "id": "stormcaller-6",
+      "before": 494,
+      "after": 84
+    },
+    {
+      "id": "cleric-1",
+      "before": 81,
+      "after": 23
+    },
+    {
+      "id": "cleric-2",
+      "before": 108,
+      "after": 28
+    },
+    {
+      "id": "cleric-3",
+      "before": 113,
+      "after": 28
+    },
+    {
+      "id": "cleric-4",
+      "before": 164,
+      "after": 37
+    },
+    {
+      "id": "cleric-5",
+      "before": 170,
+      "after": 37
+    },
+    {
+      "id": "cleric-6",
+      "before": 192,
+      "after": 43
+    },
+    {
+      "id": "druid-1",
+      "before": 92,
+      "after": 32
+    },
+    {
+      "id": "druid-2",
+      "before": 92,
+      "after": 32
+    },
+    {
+      "id": "druid-3",
+      "before": 84,
+      "after": 27
+    },
+    {
+      "id": "druid-4",
+      "before": 99,
+      "after": 34
+    },
+    {
+      "id": "druid-5",
+      "before": 111,
+      "after": 33
+    },
+    {
+      "id": "druid-6",
+      "before": 111,
+      "after": 33
+    },
+    {
+      "id": "runebreaker-1",
+      "before": 144,
+      "after": 37
+    },
+    {
+      "id": "runebreaker-2",
+      "before": 153,
+      "after": 37
+    },
+    {
+      "id": "runebreaker-3",
+      "before": 193,
+      "after": 43
+    },
+    {
+      "id": "runebreaker-4",
+      "before": 212,
+      "after": 48
+    },
+    {
+      "id": "runebreaker-5",
+      "before": 231,
+      "after": 54
+    },
+    {
+      "id": "runebreaker-6",
+      "before": 242,
+      "after": 54
+    }
+  ]
+}

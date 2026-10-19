@@ -21,8 +21,8 @@ function declaration(name){const start=source.indexOf(`function ${name}(`),next=
 function compile(names,bindings,prefix=''){return new Function(...Object.keys(bindings),prefix+'\n'+names.map(declaration).join('\n')+`\nreturn {${names.join(',')}};`)(...Object.values(bindings));}
 function actionBoundary(game,header){
  const callbacks=new Map(),world={keys:new Set(),maze:{editing:false},doubleTap:{clear(){}}},dialog={open:false},document=header.document,noop=()=>{},app={addEventListener:(type,fn)=>callbacks.set(type,fn)};let renders=0,unlocks=0;
- const render=()=>{renders++;updateHeaderCombatControls(header.host,game);},bindings={game,world,document,app,render,sendWave:()=>game.startCombat(),audio:{unlock(){unlocks++;}},draftCardActivation:{clear(){}},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop};
- const functions=compile(['mainAction','handleCommand'],bindings);
+ const render=()=>{renders++;updateHeaderCombatControls(header.host,game);},bindings={game,world,document,app,render,$:id=>id==='dialog'?dialog:header.host,phaseUi:{apply(){}},updateHeaderCombatControls,sendWave:()=>game.startCombat(),audio:{unlock(){unlocks++;},syncGameState(){}},draftCardActivation:{clear(){}},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop};
+ const functions=compile(['combatTransport','mainAction','handleCommand'],bindings);
  const clickLine=source.split('\n').find(line=>line==="app.addEventListener('click',handleCommand);");assert.ok(clickLine);
  new Function('app','handleCommand',clickLine)(app,functions.handleCommand);
  const keyboardLine=source.split('\n').find(line=>line.startsWith("window.addEventListener('keydown'"));assert.ok(keyboardLine);
@@ -54,11 +54,11 @@ test('noncombat phases hide and disable mounted controls and reuse them after th
  game.phase='combat';game.paused=true;game.speed=2;updateHeaderCombatControls(header.host,game);assert.equal(header.host.hidden,false);assert.equal(pause.disabled,false);assert.equal(speed.disabled,false);assert.equal(pause.label.textContent,'Resume');assert.equal(speed.textContent,'2×');assert.equal(header.host.writes,1);
 });
 
-test('actual delegated main clicks toggle pause and cycle only 1→2→1 without altering authoritative inventory or RNG',()=>{
+test('actual delegated main clicks toggle pause and cycle 1→2→3→5→1 without full renders or authoritative inventory/RNG changes',()=>{
  const game=new Game(data,{seed:591}),control=new Game(data,{seed:591}),header=headerFixture();game.phase=control.phase='combat';updateHeaderCombatControls(header.host,game);const boundary=actionBoundary(game,header),before=state(game);
  boundary.click(header.pause);assert.equal(game.paused,true);assert.equal(header.pause.label.textContent,'Resume');boundary.click(header.pause);assert.equal(game.paused,false);assert.equal(header.pause.label.textContent,'Pause');
  for(const rate of [2,3,5,1]){boundary.click(header.speed);assert.equal(game.speed,rate);assert.equal(header.speed.textContent,rate+'×');assert.equal(game.paused,false);}
- assert.equal(boundary.renders,6);assert.equal(boundary.unlocks,6);assert.equal(state(game),before);assert.equal(game.rng(),control.rng());assert.equal(header.host.writes,1);
+ assert.equal(boundary.renders,0);assert.equal(boundary.unlocks,6);assert.equal(state(game),before);assert.equal(game.rng(),control.rng());assert.equal(header.host.writes,1);
  game.phase='ready';updateHeaderCombatControls(header.host,game);const rendered=boundary.renders,unlocks=boundary.unlocks;boundary.click(header.pause);boundary.click(header.speed);assert.equal(boundary.renders,rendered);assert.equal(boundary.unlocks,unlocks);assert.equal(game.paused,false);assert.equal(game.speed,1);
 });
 
@@ -73,10 +73,10 @@ test('real Game clock and movement stop while paused and use the selected speed 
 
 test('actual Space shortcut toggles once from the battlefield and does not leak through native header buttons or open dialogs',()=>{
  const game=new Game(data,{seed:114}),header=headerFixture();game.phase='combat';updateHeaderCombatControls(header.host,game);const boundary=actionBoundary(game,header);let prevented=0;const event=()=>({key:' ',preventDefault(){prevented++;}});
- header.document.activeElement={tagName:'BODY',isContentEditable:false,closest:()=>null};boundary.keydown(event());assert.equal(game.paused,true);assert.equal(prevented,1);assert.equal(boundary.renders,1);
- boundary.world.keys.clear();header.speed.focus();boundary.keydown(event());assert.equal(prevented,1);assert.equal(boundary.world.keys.size,0);assert.equal(boundary.renders,1);boundary.click(header.speed);assert.equal(game.speed,2);assert.equal(game.paused,true,'native speed-button activation does not also pause through the global shortcut');
- boundary.world.keys.clear();header.pause.focus();boundary.keydown(event());assert.equal(boundary.renders,2);assert.equal(boundary.world.keys.size,0);boundary.click(header.pause);assert.equal(game.paused,false);assert.equal(boundary.renders,3,'native pause-button activation changes state exactly once');
- header.document.activeElement={tagName:'BODY',isContentEditable:false,closest:()=>null};boundary.dialog.open=true;boundary.world.keys.clear();boundary.keydown(event());assert.equal(game.paused,false);assert.equal(boundary.renders,3);assert.equal(boundary.world.keys.size,0);assert.equal(prevented,1);
+ header.document.activeElement={tagName:'BODY',isContentEditable:false,closest:()=>null};boundary.keydown(event());assert.equal(game.paused,true);assert.equal(prevented,1);assert.equal(boundary.renders,0);
+ boundary.world.keys.clear();header.speed.focus();boundary.keydown(event());assert.equal(prevented,1);assert.equal(boundary.world.keys.size,0);assert.equal(boundary.renders,0);boundary.click(header.speed);assert.equal(game.speed,2);assert.equal(game.paused,true,'native speed-button activation does not also pause through the global shortcut');
+ boundary.world.keys.clear();header.pause.focus();boundary.keydown(event());assert.equal(boundary.renders,0);assert.equal(boundary.world.keys.size,0);boundary.click(header.pause);assert.equal(game.paused,false);assert.equal(boundary.renders,0,'native pause-button activation changes state exactly once without rebuilding the folio');
+ header.document.activeElement={tagName:'BODY',isContentEditable:false,closest:()=>null};boundary.dialog.open=true;boundary.world.keys.clear();boundary.keydown(event());assert.equal(game.paused,false);assert.equal(boundary.renders,0);assert.equal(boundary.world.keys.size,0);assert.equal(prevented,1);
 });
 
 test('actual modal open and close restore the previous pause state while keeping header buttons and game resources intact',()=>{

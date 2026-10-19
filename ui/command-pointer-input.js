@@ -71,7 +71,10 @@ export class CommandPointerInput {
     // scroll or blur, before the browser dispatches its compatibility click.
   }
   suppressClick(event){
-    if(!(event.detail>0)||event.sourceCapabilities?.firesTouchEvents===false||event.pointerType&& !managedType(event.pointerType))return false;
+    // WebKit can label a touch compatibility click as a mouse click. A real
+    // mouse pointerdown clears the release records in start(); the later
+    // click's advertised pointerType alone cannot identify a new mouse press.
+    if(!(event.detail>0)||event.sourceCapabilities?.firesTouchEvents===false)return false;
     if(!Number.isFinite(event.clientX)||!Number.isFinite(event.clientY))return false;
     this.prune();
     return this.releases.some(release=>{

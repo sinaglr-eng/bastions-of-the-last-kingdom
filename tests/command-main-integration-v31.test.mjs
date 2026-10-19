@@ -67,9 +67,10 @@ function fixture(){
   for(const id of ['side-top','side-body','map-start'])nodes.set(id,new Element('div',document,app));
   const start=new Element('button',document,nodes.get('map-start'));start.dataset.action='start';nodes.set('start-wave',start);nodes.get('map-start').append(start);
   const phaseUi=new PhaseUiState(),world={maze:{editing:false},doubleTap:{clear:noop},keys:new Set(),resize:noop};
-  const profile={bestScore:0,bestWave:0,wins:0,discoveries:[]},waves=[],audio={unlock:noop,play:noop,resetRun:noop};
+  const profile={bestScore:0,bestWave:0,wins:0,discoveries:[]},waves=[],audio={unlock:noop,play:noop,resetRun:noop,syncGameState:noop};
+  nodes.set('dialog',{open:false});nodes.set('header-combat-controls',new Element('div',document,app));
   const render=()=>{renders++;phaseUi.sync(game);functions.renderSidebar();functions.renderMapAction();};
-  const bindings={game,app,window,document,world,phaseUi,CommandPointerInput,audio,data,images:{ruin:'approved-wall.png'},icon,endedPhase,
+  const bindings={game,app,window,document,world,phaseUi,CommandPointerInput,audio,updateHeaderCombatControls:(host,game)=>{host.dataset.paused=String(game.paused);host.dataset.speed=String(game.speed);},data,images:{ruin:'approved-wall.png'},icon,endedPhase,
     rankPreview:new DefenderRankPreview(),preparationNavigation:new PreparationRecipeNavigation(),folioRecipeId:null,folioRecipeSelection:null,folioLayout:{restoreParts:noop},syncFolio:noop,defenderPanelMarkup,dpsMeasurement:{view:()=>({rows:[]}),startWave:round=>waves.push(round),completeWave:noop},dpsTracker:{reset:noop,recordHit:noop},
     draftCardActivation:{clear:noop},draftPointerInput:{click:noop},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,cancelRecipePreview:noop,debugPanel:noop,render,
     $:id=>nodes.get(id)||null,panelDetails:new Map(),stampCraftButtons:noop,combatPanel:()=>'<p>Actual combat panel boundary</p>',tutorial:()=>'<p>Construction boundary</p>',
@@ -79,7 +80,7 @@ function fixture(){
   const commands=between('function handleCommand(','function commandPointerIdentity(');
   const wiring=between('function commandPointerIdentity(',"function toggleWorld(");
   const startup=between('function startGame(','\ntry{');
-  const compiled=[declaration('sendWave'),declaration('mainAction'),declaration('towerPanel'),declaration('renderSidebar'),declaration('renderMapAction'),commands,wiring,keyboard,startup,
+  const compiled=[declaration('sendWave'),declaration('combatTransport'),declaration('mainAction'),declaration('towerPanel'),declaration('renderSidebar'),declaration('renderMapAction'),commands,wiring,keyboard,startup,
     `let dpsWave=null;${subscriber}\nreturn {handleCommand,renderSidebar,renderMapAction,startGame,commandPointerInput,replaceGame(next){game=next;}};`].join('\n');
   functions=Function(...Object.keys(bindings),compiled)(...Object.values(bindings));render();
   // A target-side trap deliberately mutates real construction state if a
@@ -123,7 +124,7 @@ test('actual root identity rejects changed selected walls and a replaced Game wi
 test('actual keydown guard leaves focused-button Space to one native keyboard/AT click',()=>{
   const view=fixture();view.down(view.start);view.up(view.start);const pause=view.button('pause');view.document.activeElement=pause;
   const before=view.renders;const key=dispatch(pause,'keydown',{key:' ',ctrlKey:false,metaKey:false,altKey:false,repeat:false});assert.equal(key.defaultPrevented,false);assert.equal(view.game.paused,false);
-  const activation=view.click(pause,{detail:0});assert.equal(activation.defaultPrevented,false);assert.equal(activation.immediateStopped,false);assert.equal(view.game.paused,true);assert.equal(view.renders,before+1);
+  const activation=view.click(pause,{detail:0});assert.equal(activation.defaultPrevented,false);assert.equal(activation.immediateStopped,false);assert.equal(view.game.paused,true);assert.equal(view.renders,before,'Transport commands update the mounted controls without rebuilding the folio');
   view.down(pause,2,'mouse');view.up(pause,2,'mouse');view.click(pause,{pointerType:'mouse'});assert.equal(view.game.paused,false,'Actual native mouse remains executable once');
 });
 
@@ -154,4 +155,28 @@ test('a held unit Pause cannot reverse an actual unit pause changed after the pr
   const original=view.nodes.get('side-body').querySelectorAll('[data-action]').find(button=>button.dataset.action==='tower-pause');assert.ok(original);view.down(original,2);
   assert.equal(view.game.setTowerAttackPaused(keeper.id,true),true);const replacement=view.nodes.get('side-body').querySelectorAll('[data-action]').find(button=>button.dataset.action==='tower-pause');view.hit(replacement);view.up(view.canvas,2);
   assert.equal(keeper.attackPaused,true,'The old press cannot resume a newer actual pause');assert.equal(view.click(replacement).immediateStopped,true);
+});
+
+test('rapid touch/pen transport releases consume WebKit mouse-labelled compatibility clicks and follow the full fixed speed cycle',()=>{
+  const view=fixture();view.down(view.start);view.up(view.start);const speed=view.button('speed'),pause=view.button('pause'),control=ready();control.startCombat();
+  const before=view.renders;let pointerId=2;
+  for(let index=0;index<40;index++){
+    const type=index%2?'pen':'touch',expected=[2,3,5,1][index%4];
+    view.down(speed,pointerId,type);view.up(speed,pointerId++,type);
+    assert.equal(view.game.speed,expected);assert.equal(view.nodes.get('header-combat-controls').dataset.speed,String(expected));
+    assert.equal(view.click(speed,{pointerType:'mouse'}).immediateStopped,true);assert.equal(view.game.speed,expected,'The delayed mouse label cannot execute a second speed change');
+    view.down(pause,pointerId,type);view.up(pause,pointerId++,type);const paused=view.game.paused;
+    assert.equal(view.click(pause,{pointerType:'mouse'}).immediateStopped,true);assert.equal(view.game.paused,paused);
+  }
+  assert.equal(view.renders,before,'Eighty accepted transport commands do not rebuild or resize the battlefield');
+  assert.equal(view.game.rng(),control.rng(),'Transport and compatibility suppression do not consume gameplay randomness');
+});
+
+test('combat transport survives unrelated selection refreshes but revalidates its own value and current round',()=>{
+  const view=fixture();view.down(view.start);view.up(view.start);const speed=view.button('speed'),keeper=view.game.towers.find(t=>t.state==='active');
+  view.game.select(keeper.id);view.down(speed,2);view.game.select(null);const renders=view.renders;view.hit(speed);view.up(speed,2);
+  assert.equal(view.game.speed,2,'A selection refresh cannot discard an otherwise valid speed tap');assert.equal(view.renders,renders);
+  view.down(speed,3);const pause=view.button('pause');view.click(pause,{detail:0});view.hit(speed);view.up(speed,3);
+  assert.equal(view.game.speed,3,'Pause is independent of an unchanged held speed value');assert.equal(view.game.paused,true);
+  view.down(speed,4);view.game.completeWave();view.hit(speed);view.up(speed,4);assert.equal(view.game.speed,3,'A completed wave invalidates an old transport press');
 });

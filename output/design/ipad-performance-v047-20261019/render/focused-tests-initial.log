@@ -1,0 +1,42 @@
+✔ approved enemy appearance has all 54 exact V6 files and four structural variants (470.0828ms)
+✔ all approved defenders bind real motion, preserve templates, release from posed geometry and freeze on zero dt (876.0377ms)
+✔ all approved champions bind real motion, preserve templates, release from posed geometry and freeze on zero dt (2473.6876ms)
+✔ all 54 approved enemy actors articulate, freeze independently and perform one persistent grounded death (2784.1139ms)
+✔ release identity is cosmetic and repeated multishot events do not restart the same cast (14.695ms)
+✔ actual champion motion excludes runtime aura geometry added before attack binding (24.7496ms)
+✔ production CombatEffects uses actual animated dragon and Thunderbird mouths and the Archangel staff (145.27ms)
+✔ every actual imported boss is sixteen percent smaller than046 while preserving its source proportions and gameplay data (153.3144ms)
+✔ fallback bosses receive the same reduced presentation; ordinary enemies and gameplay data remain unchanged (23.6725ms)
+✔ classification factors have five exact geometric steps, independent of ordinary equipment ranks (0.7438ms)
+✔ all 86 actual battlefield clones preserve source shapes, class auras, rank sizes and scaled attack geometry (7327.1228ms)
+✔ nonuniform authored outer transforms and private clone state preserve each original component (29.0386ms)
+✔ actual secret release projectile starts at the classified physical staff endpoint (18.4542ms)
+✔ actual ordinary and hostile boss exports retain existing enemy scales, and ruin masonry bypasses classification (22.7966ms)
+✔ batching keeps protected meshes, exact parent/material boundaries, semantic transforms and original vertex buffers (15.464ms)
+✔ all 48 actual defenders retain rest and attack/muzzle geometry and owned resources after sibling batching (5187.0106ms)
+✔ all 38 actual champions retain rest and attack/muzzle geometry and owned resources after sibling batching (22674.9465ms)
+✔ all 50 actual enemies retain rest, gait, grounded corpse geometry and owned resources after sibling batching (9582.4848ms)
+✔ current campaign has exactly eight basic families and 38 obtainable champions while historical Bernhard remains archived (7.787ms)
+✔ hostile Bernhard retains archived identity provenance and base stats while approved direct-hit shell changes apply to each real spawn (4.9462ms)
+✔ the actual final-wave heading uses the hostile Bernhard identity without changing any archived wave composition or combat modifier (3.2757ms)
+✔ blink events describe the actual checkpoint-preserving teleport separately from ordinary residual frame movement (2.1481ms)
+✔ pause and petrification suppress displacement, hidden teleport stays hidden, and existing blink-through-freeze semantics remain unchanged (10.6135ms)
+✔ the real renderer death event retains grounded corpses until the single wave-complete event before reward or final victory (13.9134ms)
+✔ the real battlefield keeps the mounted lightning cast aim and arm progress while its fire aura attacks another target (56.6325ms)
+✔ geometric manifests normalize rank and category and loader limits decoding, collects failures and stops dispatch after disposal (3.6696ms)
+✔ manifest fetch surfaces HTTP and malformed-content failures without claiming the geometric roster loaded (0.4618ms)
+✔ the three actual production manifests decode all140 approved identities and point at real GLBs (193.4204ms)
+✔ repeated UI renders do not reset an unchanged drawing buffer or camera projection (0.6245ms)
+✔ optimized motion skips redundant restores, sphere scans and unchanged normal work while restoring exact authored rest (1.9545ms)
+✔ same-clock enemy poses reuse one evaluation while source, variant, mode, private buffers and disposal remain independent (273.494ms)
+✔ all 48 actual V7 actors batch only identical skin/material transforms and preserve every posed rendered vertex and normal (2541.5477ms)
+✔ all54 actual enemy sources and structural variants reuse only matching gait poses with private surfaces (4134.7083ms)
+✔ all92 actual enemy/champion motion fields retain byte-identical posed positions, normals, visibility and world transforms (9003.4346ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37653.286

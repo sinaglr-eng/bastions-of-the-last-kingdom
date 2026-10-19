@@ -1,0 +1,419 @@
+TAP version 13
+# Subtest: statistics default to the actual game edition while preserving separate historical results
+ok 1 - statistics default to the actual game edition while preserving separate historical results
+  ---
+  duration_ms: 131.8256
+  type: 'test'
+  ...
+# Subtest: native SQLite supports the D1 schema, transactions, JSON analytics and name normalization safely
+ok 2 - native SQLite supports the D1 schema, transactions, JSON analytics and name normalization safely
+  ---
+  duration_ms: 2.6689
+  type: 'test'
+  ...
+# Statistics request failed: Invalid decisions.
+# Statistics request failed: Invalid decisions.
+# Subtest: real secret crafting retains ingredient draws, result families, combat performance and effect uptime in the existing SQLite schema
+ok 3 - real secret crafting retains ingredient draws, result families, combat performance and effect uptime in the existing SQLite schema
+  ---
+  duration_ms: 18.5602
+  type: 'test'
+  ...
+# Subtest: real Game and RunStatistics produce accepted 10-wave and 50-wave wins below the request size limit
+ok 4 - real Game and RunStatistics produce accepted 10-wave and 50-wave wins below the request size limit
+  ---
+  duration_ms: 449.3201
+  type: 'test'
+  ...
+# 10-wave full checkpoint: 14057 bytes
+# 50-wave full checkpoint: 197783 bytes
+# Subtest: real enemy leaks terminate a loss and checkpoint retries cannot rewrite newer wave rows
+ok 5 - real enemy leaks terminate a loss and checkpoint retries cannot rewrite newer wave rows
+  ---
+  duration_ms: 18.3563
+  type: 'test'
+  ...
+# Subtest: snapshot validation rejects inconsistent warband totals and impossible zero-health victories
+ok 6 - snapshot validation rejects inconsistent warband totals and impossible zero-health victories
+  ---
+  duration_ms: 39.7893
+  type: 'test'
+  ...
+# Statistics request failed: Request too large.
+# Subtest: newer checkpoint requests cannot delete or rewrite an already completed history prefix
+ok 7 - newer checkpoint requests cannot delete or rewrite an already completed history prefix
+  ---
+  duration_ms: 5.8514
+  type: 'test'
+  ...
+# Subtest: CORS accepts the game origin, rejects other browsers and never publishes admin credentials
+ok 8 - CORS accepts the game origin, rejects other browsers and never publishes admin credentials
+  ---
+  duration_ms: 0.7962
+  type: 'test'
+  ...
+# Subtest: canonical snapshots discard untrusted fields and validate every retained analytics value
+ok 9 - canonical snapshots discard untrusted fields and validate every retained analytics value
+  ---
+  duration_ms: 4.4407
+  type: 'test'
+  ...
+# Subtest: oversized chunked requests cancel the incoming stream before parsing or inserting a run
+ok 10 - oversized chunked requests cancel the incoming stream before parsing or inserting a run
+  ---
+  duration_ms: 1.6052
+  type: 'test'
+  ...
+# Subtest: final results stay frozen and their harmless higher-sequence retry still permits naming the score
+ok 11 - final results stay frozen and their harmless higher-sequence retry still permits naming the score
+  ---
+  duration_ms: 41.2941
+  type: 'test'
+  ...
+# Subtest: the real StatisticsClient drains newer checkpoints queued during its first upload and saves a previously uploaded final score
+ok 12 - the real StatisticsClient drains newer checkpoints queued during its first upload and saves a previously uploaded final score
+  ---
+  duration_ms: 44.9792
+  type: 'test'
+  ...
+# Subtest: default browser fetch is invoked with its permitted receiver and first-wave analytics reach SQLite
+ok 13 - default browser fetch is invoked with its permitted receiver and first-wave analytics reach SQLite
+  ---
+  duration_ms: 19.079
+  type: 'test'
+  ...
+# Subtest: a persisted outbox drains once after storage writes fail and preserves newer checkpoints in memory
+ok 14 - a persisted outbox drains once after storage writes fail and preserves newer checkpoints in memory
+  ---
+  duration_ms: 9.3244
+  type: 'test'
+  ...
+# Subtest: blocking localStorage access cannot prevent starting the game or uploading its in-memory checkpoint
+ok 15 - blocking localStorage access cannot prevent starting the game or uploading its in-memory checkpoint
+  ---
+  duration_ms: 2.85
+  type: 'test'
+  ...
+# Subtest: sampled status uptime separates damage-over-time from actual crowd control and records received support
+ok 16 - sampled status uptime separates damage-over-time from actual crowd control and records received support
+  ---
+  duration_ms: 1.0863
+  type: 'test'
+  ...
+# Subtest: effective control sampling credits only the strongest active source, including auras
+ok 17 - effective control sampling credits only the strongest active source, including auras
+  ---
+  duration_ms: 0.9451
+  type: 'test'
+  ...
+# Subtest: new-run rate limiting allows existing-run registration retries throughout a full campaign
+ok 18 - new-run rate limiting allows existing-run registration retries throughout a full campaign
+  ---
+  duration_ms: 20.5413
+  type: 'test'
+  ...
+# Subtest: owner report exports a persisted SQLite run to JSON and six Excel-safe CSV files without tokens
+ok 19 - owner report exports a persisted SQLite run to JSON and six Excel-safe CSV files without tokens
+  ---
+  duration_ms: 32.0897
+  type: 'test'
+  ...
+# Subtest: run checkpoints include pauses in exact elapsed seconds independently of speed, preserve legacy wall time, and freeze the final accepted duration
+ok 20 - run checkpoints include pauses in exact elapsed seconds independently of speed, preserve legacy wall time, and freeze the final accepted duration
+  ---
+  duration_ms: 43.8634
+  type: 'test'
+  ...
+# Subtest: optional elapsed duration validation preserves precise zero/fractional values and historical absence while rejecting fabricated invalid types and bounds
+ok 21 - optional elapsed duration validation preserves precise zero/fractional values and historical absence while rejecting fabricated invalid types and bounds
+  ---
+  duration_ms: 4.4134
+  type: 'test'
+  ...
+# Statistics sync postponed; the result remains queued on this device. offline timing fixture
+# Subtest: accepted elapsed durations cannot regress or disappear in a newer checkpoint, while older retries remain harmless
+ok 22 - accepted elapsed durations cannot regress or disappear in a newer checkpoint, while older retries remain harmless
+  ---
+  duration_ms: 6.8116
+  type: 'test'
+  ...
+# Subtest: real offline StatisticsClient checkpoints retain playing duration in the persisted outbox and upload the exact abandoned clock after reconnecting
+ok 23 - real offline StatisticsClient checkpoints retain playing duration in the persisted outbox and upload the exact abandoned clock after reconnecting
+  ---
+  duration_ms: 3.2988
+  type: 'test'
+  ...
+# Subtest: existing SQLite admin/CSV reports retain per-game elapsed times and exclude historical missing times from aggregates without a migration
+ok 24 - existing SQLite admin/CSV reports retain per-game elapsed times and exclude historical missing times from aggregates without a migration
+  ---
+  duration_ms: 43.7248
+  type: 'test'
+  ...
+# Subtest: a freshly prepared statistics Site includes canonical release dependencies and boots the current-edition Worker
+ok 25 - a freshly prepared statistics Site includes canonical release dependencies and boots the current-edition Worker
+  ---
+  duration_ms: 97.1945
+  type: 'test'
+  ...
+# Subtest: activating console withdraws an already uploaded run from every statistics query without touching historical runs
+ok 26 - activating console withdraws an already uploaded run from every statistics query without touching historical runs
+  ---
+  duration_ms: 39.1008
+  type: 'test'
+  ...
+# Subtest: a run excluded before registration cannot be resurrected by a delayed registration/checkpoint
+ok 27 - a run excluded before registration cannot be resurrected by a delayed registration/checkpoint
+  ---
+  duration_ms: 8.605
+  type: 'test'
+  ...
+# Statistics sync postponed; the result remains queued on this device. offline
+# Subtest: an exclusion arriving after a checkpoint owner read wins over its delayed SQL batch
+ok 28 - an exclusion arriving after a checkpoint owner read wins over its delayed SQL batch
+  ---
+  duration_ms: 5.965
+  type: 'test'
+  ...
+# Subtest: offline client permanently purges only its console run and retries withdrawal after reload
+ok 29 - offline client permanently purges only its console run and retries withdrawal after reload
+  ---
+  duration_ms: 7.2972
+  type: 'test'
+  ...
+# Subtest: run-scoped local withdrawal preserves old best/history/preferences and prevents a stale tab restoring the excluded score
+ok 30 - run-scoped local withdrawal preserves old best/history/preferences and prevents a stale tab restoring the excluded score
+  ---
+  duration_ms: 2.1886
+  type: 'test'
+  ...
+# Subtest: a stale client with excluded pending memory finishes flushing without re-uploading or spinning
+ok 31 - a stale client with excluded pending memory finishes flushing without re-uploading or spinning
+  ---
+  duration_ms: 2.3628
+  type: 'test'
+  ...
+# Subtest: two tabs retain legitimate wins, independently earned discoveries and latest preferences when one run is excluded
+ok 32 - two tabs retain legitimate wins, independently earned discoveries and latest preferences when one run is excluded
+  ---
+  duration_ms: 2.6558
+  type: 'test'
+  ...
+# Subtest: saving before the initial leaderboard completes prevents navigation and a late response cannot erase the saved rank
+ok 33 - saving before the initial leaderboard completes prevents navigation and a late response cannot erase the saved rank
+  ---
+  duration_ms: 15.6479
+  type: 'test'
+  ...
+# Subtest: a pending score submission ignores duplicate submits and initial loading failures cannot overwrite success
+ok 34 - a pending score submission ignores duplicate submits and initial loading failures cannot overwrite success
+  ---
+  duration_ms: 1.0312
+  type: 'test'
+  ...
+# Subtest: invalid HTML names never submit and failed saves leave the form usable with the initial ranking
+ok 35 - invalid HTML names never submit and failed saves leave the form usable with the initial ranking
+  ---
+  duration_ms: 1.2489
+  type: 'test'
+  ...
+# Subtest: single-version Top 10 and out-of-top player retain original edition and a five-column gap; mixed responses cannot render
+ok 36 - single-version Top 10 and out-of-top player retain original edition and a five-column gap; mixed responses cannot render
+  ---
+  duration_ms: 0.9237
+  type: 'test'
+  ...
+# Subtest: older single-version services can omit redundant row versions, while an unknown response edition is never assigned to the current game
+ok 37 - older single-version services can omit redundant row versions, while an unknown response edition is never assigned to the current game
+  ---
+  duration_ms: 0.648
+  type: 'test'
+  ...
+# Subtest: the name form precedes Top 10 and current-version navigation has no mixed-version view
+ok 38 - the name form precedes Top 10 and current-version navigation has no mixed-version view
+  ---
+  duration_ms: 0.324
+  type: 'test'
+  ...
+# Subtest: version subtabs default to this run, load exact historical ranks, and reject stale cross-tab responses
+ok 39 - version subtabs default to this run, load exact historical ranks, and reject stale cross-tab responses
+  ---
+  duration_ms: 0.8284
+  type: 'test'
+  ...
+# Subtest: saving while browsing an older version returns the saved run to its own version, and historical tabs remain usable
+ok 40 - saving while browsing an older version returns the saved run to its own version, and historical tabs remain usable
+  ---
+  duration_ms: 0.6688
+  type: 'test'
+  ...
+# Subtest: version navigation sorts numeric editions and never offers an all-version or untrusted label
+ok 41 - version navigation sorts numeric editions and never offers an all-version or untrusted label
+  ---
+  duration_ms: 0.5536
+  type: 'test'
+  ...
+# Subtest: the sixth result tile identifies the played version and the actual known or unknown best-score origin
+ok 42 - the sixth result tile identifies the played version and the actual known or unknown best-score origin
+  ---
+  duration_ms: 0.4066
+  type: 'test'
+  ...
+# Subtest: all six outcome scenes resolve to the reviewed original PNGs with matching provenance and English alternatives
+ok 43 - all six outcome scenes resolve to the reviewed original PNGs with matching provenance and English alternatives
+  ---
+  duration_ms: 29.386
+  type: 'test'
+  ...
+# Subtest: presentation sampling covers every scene, separates outcome pools and excludes the preceding scene of the same outcome
+ok 44 - presentation sampling covers every scene, separates outcome pools and excludes the preceding scene of the same outcome
+  ---
+  duration_ms: 0.2698
+  type: 'test'
+  ...
+# Subtest: reopening one ended run keeps the same scene and does not resample or access simulation RNG
+ok 45 - reopening one ended run keeps the same scene and does not resample or access simulation RNG
+  ---
+  duration_ms: 0.1466
+  type: 'test'
+  ...
+# Subtest: a real Sandbox restart of the same Game and wave chooses a new scene, while repeated result review remains stable
+ok 46 - a real Sandbox restart of the same Game and wave chooses a new scene, while repeated result review remains stable
+  ---
+  duration_ms: 21.5666
+  type: 'test'
+  ...
+# Subtest: selecting and rendering result art changes no gameplay fields or seeded random draws
+ok 47 - selecting and rendering result art changes no gameplay fields or seeded random draws
+  ---
+  duration_ms: 3.1593
+  type: 'test'
+  ...
+# Subtest: non-ended phases choose no illustration, and a later ended attempt is independently sampled
+ok 48 - non-ended phases choose no illustration, and a later ended attempt is independently sampled
+  ---
+  duration_ms: 0.137
+  type: 'test'
+  ...
+# Subtest: all 50 authored defeat chronicles have distinct short English text and the exact current campaign wave identity
+ok 49 - all 50 authored defeat chronicles have distinct short English text and the exact current campaign wave identity
+  ---
+  duration_ms: 1.1534
+  type: 'test'
+  ...
+# Subtest: every actual Game loss selects its wave chronicle, explicitly presents fiction and preserves factual score/progress and gameplay RNG
+ok 50 - every actual Game loss selects its wave chronicle, explicitly presents fiction and preserves factual score/progress and gameplay RNG
+  ---
+  duration_ms: 91.7666
+  type: 'test'
+  ...
+# Subtest: victory has its own ending, including the final Bernhard chapter and historical short-campaign victory
+ok 51 - victory has its own ending, including the final Bernhard chapter and historical short-campaign victory
+  ---
+  duration_ms: 1.5116
+  type: 'test'
+  ...
+# Subtest: chronicles never rely on unrecorded last invaders or interpolate raw HTML from model data
+ok 52 - chronicles never rely on unrecorded last invaders or interpolate raw HTML from model data
+  ---
+  duration_ms: 0.8956
+  type: 'test'
+  ...
+# Subtest: a real second-wave defeat separates one completed wave and records the actual last flying leak with clamped health loss
+ok 53 - a real second-wave defeat separates one completed wave and records the actual last flying leak with clamped health loss
+  ---
+  duration_ms: 31.1082
+  type: 'test'
+  ...
+# Subtest: each observed leak counts actual health damage separately from recovered health and duplicate event delivery
+ok 54 - each observed leak counts actual health damage separately from recovered health and duplicate event delivery
+  ---
+  duration_ms: 5.2498
+  type: 'test'
+  ...
+# Subtest: actual 10-wave and 50-wave victories include the completed final wave and never display a defeat wave
+ok 55 - actual 10-wave and 50-wave victories include the completed final wave and never display a defeat wave
+  ---
+  duration_ms: 219.3311
+  type: 'test'
+  ...
+# Subtest: actual Sandbox jumps and restarted losses count only completed wave IDs, including a later final-wave victory
+ok 56 - actual Sandbox jumps and restarted losses count only completed wave IDs, including a later final-wave victory
+  ---
+  duration_ms: 35.534
+  type: 'test'
+  ...
+# Subtest: a real Sandbox loss without earlier completions reports zero from the available observer, and ordinary fallback remains intact
+ok 57 - a real Sandbox loss without earlier completions reports zero from the available observer, and ordinary fallback remains intact
+  ---
+  duration_ms: 10.4022
+  type: 'test'
+  ...
+# Subtest: results and ended review stay read-only, preserve tracker sequence and RNG, and expose explicit retry/return actions
+ok 58 - results and ended review stay read-only, preserve tracker sequence and RNG, and expose explicit retry/return actions
+  ---
+  duration_ms: 9.9248
+  type: 'test'
+  ...
+# Subtest: missing event history does not fabricate facts, and fictional ending plus unavailable duration retain local retry
+ok 59 - missing event history does not fabricate facts, and fictional ending plus unavailable duration retain local retry
+  ---
+  duration_ms: 0.9039
+  type: 'test'
+  ...
+# Subtest: last recorded spawn retains factual copied values while the authored chronicle never renders untrusted event names
+ok 60 - last recorded spawn retains factual copied values while the authored chronicle never renders untrusted event names
+  ---
+  duration_ms: 4.4853
+  type: 'test'
+  ...
+# Subtest: an actual offline leaderboard rejection leaves local result and retry ahead of the optional online section
+ok 61 - an actual offline leaderboard rejection leaves local result and retry ahead of the optional online section
+  ---
+  duration_ms: 4.5051
+  type: 'test'
+  ...
+# Subtest: a pre-version local best survives actual newer completed runs, stale saves and an older tab rewriting the profile
+ok 62 - a pre-version local best survives actual newer completed runs, stale saves and an older tab rewriting the profile
+  ---
+  duration_ms: 272.4704
+  type: 'test'
+  ...
+# Subtest: a run ID retains its played version and one immutable completed result across repeated end-screen or unload saves
+ok 63 - a run ID retains its played version and one immutable completed result across repeated end-screen or unload saves
+  ---
+  duration_ms: 1.9652
+  type: 'test'
+  ...
+# Subtest: the actual main reward and result hooks attribute every saved score before profile persistence
+ok 64 - the actual main reward and result hooks attribute every saved score before profile persistence
+  ---
+  duration_ms: 41.0902
+  type: 'test'
+  ...
+# Subtest: all-version standings retain original SQLite rows and schema, exact-version ranks and separate campaign lengths
+ok 65 - all-version standings retain original SQLite rows and schema, exact-version ranks and separate campaign lengths
+  ---
+  duration_ms: 751.1241
+  type: 'test'
+  ...
+# Subtest: the real client saves the immutable current edition and browses exact historical ranks without changing any stored older score
+ok 66 - the real client saves the immutable current edition and browses exact historical ranks without changing any stored older score
+  ---
+  duration_ms: 87.2638
+  type: 'test'
+  ...
+# Subtest: edition loading never requests all, rejects invalid or mixed versions before display, and propagates real service failures
+ok 67 - edition loading never requests all, rejects invalid or mixed versions before display, and propagates real service failures
+  ---
+  duration_ms: 1.7627
+  type: 'test'
+  ...
+1..67
+# tests 67
+# suites 0
+# pass 67
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1279.2035

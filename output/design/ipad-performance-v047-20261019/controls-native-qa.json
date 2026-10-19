@@ -1,0 +1,67 @@
+{
+  "device": "Desktop Chromium native clicks, not physical iPad touch",
+  "status": "passed",
+  "sequence": [
+    {
+      "buttons": [
+        {
+          "action": "pause",
+          "label": "Pause game",
+          "pressed": "false"
+        },
+        {
+          "action": "speed",
+          "label": "Game speed 2×",
+          "pressed": null
+        }
+      ],
+      "text": "Pause2×"
+    },
+    {
+      "buttons": [
+        {
+          "action": "pause",
+          "label": "Pause game",
+          "pressed": "false"
+        },
+        {
+          "action": "speed",
+          "label": "Game speed 3×",
+          "pressed": null
+        }
+      ],
+      "text": "Pause3×"
+    },
+    {
+      "buttons": [
+        {
+          "action": "pause",
+          "label": "Pause game",
+          "pressed": "false"
+        },
+        {
+          "action": "speed",
+          "label": "Game speed 5×",
+          "pressed": null
+        }
+      ],
+      "text": "Pause5×"
+    },
+    {
+      "buttons": [
+        {
+          "action": "pause",
+          "label": "Pause game",
+          "pressed": "false"
+        },
+        {
+          "action": "speed",
+          "label": "Game speed 1×",
+          "pressed": null
+        }
+      ],
+      "text": "Pause1×"
+    }
+  ],
+  "automatedTouch": "40 rapid touch/pen cycles with mouse-labelled compatibility clicks covered in integration tests"
+}

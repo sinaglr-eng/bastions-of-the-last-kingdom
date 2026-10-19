@@ -7,10 +7,10 @@
 .run-result-progress p{font-size:16px;color:var(--cream);margin:0;line-height:1.4}
 .run-result .run-result-stats{margin:18px 0;gap:20px;justify-content:center}
 .run-result-stats .result-version{font-size:12px}
-.run-result-facts{padding:13px 15px;border:1px solid #94aa8544;background:#17302c;border-radius:6px;text-align:left}
-.run-result-facts h3{font:14px Inter,"Segoe UI",sans-serif;color:var(--cream);margin-bottom:7px}
-.run-result-facts p{font-size:12px;line-height:1.5;margin:4px 0;color:var(--text)}
-.run-result-facts small{font-size:10px;color:var(--muted);line-height:1.45;display:block;margin-top:7px}
+.run-result-story{padding:14px 16px;border:1px solid var(--rule,#94aa8544);background:var(--paper-light,#17302c);border-radius:6px;text-align:left;color:var(--ink,var(--text))}
+.run-result-story h3{font:20px Georgia,serif;color:var(--ink,var(--cream));margin:6px 0}
+.run-result-story p{font-size:14px;line-height:1.65;margin:9px 0 2px;color:var(--ink,var(--text))}
+.run-result-story small{font-size:11px;color:var(--muted-ink,var(--muted));line-height:1.5;display:block}.run-result-story-label{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted-ink,var(--muted))}
 .run-result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0}
 .run-result-actions>button{min-height:44px;flex:1;max-width:260px;font-size:13px}
 .run-result .run-result-actions .primary-button{margin:0}
@@ -26,5 +26,5 @@
 .ended-run-read-only{color:var(--muted);border-top:1px solid var(--border);padding-top:10px}
 .ended-run-review .run-result-actions>button{min-width:100px;font-size:12px;padding:10px}
 .run-result-online>summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-@media(max-width:580px){.run-result.result{padding:16px}.run-result h2{font-size:27px}.run-result-progress{gap:12px;padding:12px}.run-result-progress>strong{font-size:23px}.run-result-progress p{font-size:13px}.run-result .run-result-stats{gap:15px}.run-result-stats>div strong{font-size:22px}.run-result-stats>div small{font-size:9px}.run-result-actions>button{padding:10px;font-size:12px}.run-result-facts{padding:10px}}
-@media(max-height:500px) and (min-width:581px){.run-result.result{padding:14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.9fr);gap:8px 15px;text-align:left;max-width:100%}.run-result-symbol{display:none}.run-result>.eyebrow,.run-result>h2,.run-result>.run-result-progress,.run-result>.run-result-stats,.run-result>.run-result-actions{grid-column:1}.run-result h2{font-size:25px;margin:0}.run-result-progress{gap:12px;padding:8px}.run-result-progress>strong{font-size:22px}.run-result-progress p{font-size:12px}.run-result .run-result-stats{margin:4px 0;gap:12px}.run-result-facts{grid-column:2;grid-row:1 / span 4;align-self:start}.run-result-actions{margin:3px 0}.run-result-online{grid-column:2;grid-row:5 / span 2;margin:0;align-self:start}.run-result>.developer-mode-indicator{grid-column:2}}
+@media(max-width:580px){.run-result.result{padding:16px}.run-result h2{font-size:27px}.run-result-progress{gap:12px;padding:12px}.run-result-progress>strong{font-size:23px}.run-result-progress p{font-size:13px}.run-result .run-result-stats{gap:15px}.run-result-stats>div strong{font-size:22px}.run-result-stats>div small{font-size:9px}.run-result-actions>button{padding:10px;font-size:12px}.run-result-story{padding:10px}}
+@media(max-height:500px) and (min-width:581px){.run-result.result{padding:14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.9fr);gap:8px 15px;text-align:left;max-width:100%}.run-result-symbol{display:none}.run-result>.eyebrow,.run-result>h2,.run-result>.run-result-progress,.run-result>.run-result-stats,.run-result>.run-result-actions{grid-column:1}.run-result h2{font-size:25px;margin:0}.run-result-progress{gap:12px;padding:8px}.run-result-progress>strong{font-size:22px}.run-result-progress p{font-size:12px}.run-result .run-result-stats{margin:4px 0;gap:12px}.run-result-story{grid-column:2;grid-row:1 / span 4;align-self:start}.run-result-actions{margin:3px 0}.run-result-online{grid-column:2;grid-row:5 / span 2;margin:0;align-self:start}.run-result>.developer-mode-indicator{grid-column:2}}

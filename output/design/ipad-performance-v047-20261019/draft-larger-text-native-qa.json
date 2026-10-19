@@ -1,0 +1,132 @@
+{
+  "status": "passed",
+  "fixture": "LOCAL layout only, production markup/styles, five86pxcards and18px instruction text",
+  "viewport": {
+    "height": 820,
+    "width": 1180
+  },
+  "measurements": {
+    "cards": [
+      {
+        "card": {
+          "height": 86,
+          "width": 106.125,
+          "x": 38.66666793823242,
+          "y": 428.3333435058594
+        },
+        "icon": {
+          "height": 0,
+          "width": 76,
+          "x": 53.72916793823242,
+          "y": 437.3333435058594
+        },
+        "label": {
+          "height": 64.78125,
+          "width": 92.125,
+          "x": 45.66666793823242,
+          "y": 442.3333435058594
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      },
+      {
+        "card": {
+          "height": 86,
+          "width": 106.13542175292967,
+          "x": 149.7916717529297,
+          "y": 428.3333435058594
+        },
+        "icon": {
+          "height": 0.8854166865348816,
+          "width": 76,
+          "x": 164.8541717529297,
+          "y": 436
+        },
+        "label": {
+          "height": 64.78125,
+          "width": 94.80208587646484,
+          "x": 155.45834350585938,
+          "y": 441.8854370117187
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      },
+      {
+        "card": {
+          "height": 86,
+          "width": 106.13542175292967,
+          "x": 260.9270935058594,
+          "y": 428.3333435058594
+        },
+        "icon": {
+          "height": 0.8854166865348816,
+          "width": 76,
+          "x": 275.9895935058594,
+          "y": 436
+        },
+        "label": {
+          "height": 64.78125,
+          "width": 94.80208587646484,
+          "x": 266.59375,
+          "y": 441.8854370117187
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      },
+      {
+        "card": {
+          "height": 86,
+          "width": 106.13542175292967,
+          "x": 372.0625,
+          "y": 428.3333435058594
+        },
+        "icon": {
+          "height": 0.8854166865348816,
+          "width": 76,
+          "x": 387.125,
+          "y": 436
+        },
+        "label": {
+          "height": 64.78125,
+          "width": 94.80208587646484,
+          "x": 377.7291870117187,
+          "y": 441.8854370117187
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      },
+      {
+        "card": {
+          "height": 86,
+          "width": 106.125,
+          "x": 483.1979370117187,
+          "y": 428.3333435058594
+        },
+        "icon": {
+          "height": 0.8854166865348816,
+          "width": 76,
+          "x": 498.2604370117187,
+          "y": 436
+        },
+        "label": {
+          "height": 64.78125,
+          "width": 94.79167175292967,
+          "x": 488.8645935058594,
+          "y": 441.8854370117187
+        },
+        "labelInside": true,
+        "noOverlap": true,
+        "ordinal": false
+      }
+    ],
+    "viewport": {
+      "height": 642,
+      "width": 1180
+    }
+  },
+  "limits": "Desktop Chromium, no physical iPad Safari text autosizing certification; shrinking icon row protects natural label height."
+}

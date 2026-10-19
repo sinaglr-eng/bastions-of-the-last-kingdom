@@ -19,7 +19,7 @@ test('a real second-wave defeat separates one completed wave and records the act
   const h=harness();try{
     h.build();h.game.completeWave();assert.equal(h.game.round,2);h.game.lives=3;h.build();const enemy=h.leak({name:'Bat Scouts · Moon Clan',leak:7,flying:true});
     assert.equal(h.game.phase,'lost');const model=h.model();assert.equal(model.completedWaves,1);assert.equal(model.defeatWave,2);assert.equal(model.finalWaveLeaks,1);assert.equal(model.finalWaveHealthLost,3);assert.equal(model.totalLeaks,1);assert.equal(model.lastLeak.name,enemy.name);assert.equal(model.lastLeak.healthLost,3);assert.equal(model.lastLeak.flying,true);
-    const html=runResultMarkup(model);assert.match(html,/assets\/ui\/results\/(?:v044\/defeat|v045\/defeat-0[23])\.png/);assert.doesNotMatch(html,/results\/v04[45]\/victory/);assert.match(html,/1 <span>waves completed/);assert.match(html,/Defeated on wave 2/);assert.match(html,/1 invader reached the keep · 3 keep health lost/);assert.match(html,/Last leak: Bat Scouts · Moon Clan · Flying/);assert.doesNotMatch(html,/need.*(?:archer|army)|caused by|weak defense/i);
+    const html=runResultMarkup(model);assert.match(html,/assets\/ui\/results\/(?:v044\/defeat|v045\/defeat-0[23])\.png/);assert.doesNotMatch(html,/results\/v04[45]\/victory/);assert.match(html,/1 <span>waves completed/);assert.match(html,/Defeated on wave 2/);assert.match(html,/Fictional chronicle/);assert.match(html,/data-story-id="defeat-wave-2"/);assert.match(html,/Goblin Thornstriders/);assert.doesNotMatch(html,/Recorded final wave facts|Last leak:|invader reached the keep/);assert.doesNotMatch(html,/need.*(?:archer|army)|caused by|weak defense/i);
   }finally{h.dispose();}
 });
 
@@ -72,21 +72,22 @@ test('results and ended review stay read-only, preserve tracker sequence and RNG
   }finally{h.dispose();control.dispose();}
 });
 
-test('missing event history and duration produce honest unavailable detail; developer results remain locally retryable',()=>{
+test('missing event history does not fabricate facts, and fictional ending plus unavailable duration retain local retry',()=>{
   const game=new Game(data,{seed:26});game.end(false);delete game.elapsedSeconds;const model=runResultModel(game);assert.equal(model.completedWaves,0);assert.equal(model.finalWaveLeaks,null);assert.equal(model.finalWaveHealthLost,null);assert.equal(model.lastThreat,null);
-  let html=runResultMarkup(model);assert.match(html,/Leak detail was not recorded/);assert.match(html,/Last invader detail is unavailable/);assert.match(html,/Not recorded/);assert.match(html,/Play again/);
+  let html=runResultMarkup(model);assert.match(html,/Fictional chronicle/);assert.doesNotMatch(html,/Leak detail|Last invader detail|Recorded final wave facts/);assert.match(html,/Not recorded/);assert.match(html,/Play again/);
   game.developerMode=true;html=runResultMarkup(runResultModel(game),{leaderboardMarkup:resultLeaderboardMarkup()});assert.match(html,/this run is excluded/);assert.match(html,/data-action="restart"/);assert.doesNotMatch(html,/result-leaderboard|score-form/);
 });
 
-test('last recorded spawn and enemy names are factual copied values escaped in result markup',()=>{
+test('last recorded spawn retains factual copied values while the authored chronicle never renders untrusted event names',()=>{
   const h=harness();try{
-    h.build();const enemy=h.game.combat.spawn('host_01',{variant:{name:'<img src=x onerror=bad()>',flying:false}});h.game.end(false);enemy.name='Changed after the event';const model=h.model();assert.equal(model.lastLeak,null);assert.equal(model.lastThreat.name,'<img src=x onerror=bad()>');const html=runResultMarkup(model);assert.match(html,/Last recorded invader: &lt;img/);assert.doesNotMatch(html,/<img src=x|onerror="/);
+    h.build();const enemy=h.game.combat.spawn('host_01',{variant:{name:'<img src=x onerror=bad()>',flying:false}});h.game.end(false);enemy.name='Changed after the event';const model=h.model();assert.equal(model.lastLeak,null);assert.equal(model.lastThreat.name,'<img src=x onerror=bad()>');const html=runResultMarkup(model);assert.match(html,/Orc Skull Scavengers/);assert.doesNotMatch(html,/Last recorded invader|&lt;img/);assert.doesNotMatch(html,/<img src=x|onerror="/);
     const frozen=JSON.stringify(model);h.facts.event('spawn',{enemy:{name:'Later invader'}},h.game);assert.equal(JSON.stringify(h.model()),frozen,'ended observer ignores later inspection deliveries');
   }finally{h.dispose();}
 });
 
 class Element{
-  constructor(){this.matches=new Map();this.listeners=new Map();this.textContent='';this.disabled=false;}
+  constructor(){this.matches=new Map();this.listeners=new Map();this.textContent='';this.disabled=false;this.children=[];}
+  replaceChildren(...children){this.children=children;}
   querySelector(selector){return this.matches.get(selector)||null;}addEventListener(type,listener){this.listeners.set(type,listener);}
 }
 test('an actual offline leaderboard rejection leaves local result and retry ahead of the optional online section',async()=>{

@@ -2,13 +2,15 @@ import * as THREE from 'three';
 import {createBasicMotion} from './approved-motion-v1/basic-motion.js';
 import {createChampionMotion} from './approved-motion-v1/champion-motion.js';
 import {createEnemyMotion} from './approved-motion-v1/enemy-motion.js';
-import {createRig} from './approved-motion-v1/motion-rig.js';
+import {createRig} from './optimized-motion-rig.js';
 import {optimizeGeometricSiblings} from './geometric-batching.js';
+import {batchPrivateSkinnedActor} from './skinned-batching.js';
 import {ENEMY_RULES} from '../core/enemy-rules.js';
 
 // Approved authoring files stay immutable. Controllers and deforming buffers
 // belong to individual actors, never their cached templates or combat state.
 const actors=new WeakMap();
+const enemyPoses=new Map();let sourceGeneration=0;
 const finite=(n,f=0)=>Number.isFinite(n)?n:f;
 const clamp=n=>Math.max(0,Math.min(1,n));
 export const APPROVED_MOTION_REVISION='approved-motion-v1';
@@ -18,6 +20,7 @@ export function prepareApprovedMotionTemplate(scene,entry){
   scene.userData.approvedMotionTemplate={id:entry.id,family:entry.family,tier:entry.tier,
     kind:entry.motion.kind,height:entry.motion.height,revision:APPROVED_MOTION_REVISION,
     presentationScale:entry.reconstruction?.presentationScale||1,
+    poseGeneration:entry.motion.kind==='enemy'?++sourceGeneration:null,
     attackStyle:entry.reconstruction?.attackStyle||entry.attackStyle||'staff',
     sourceFile:entry.reconstruction?.sourceGlbFile,sourceGlbSha256:entry.assetSha256};
   return true;
@@ -41,11 +44,12 @@ export function bindApprovedMotion(actor){
   const entry=actor?.userData?.approvedMotionTemplate;if(!entry)return null;
   const source=prepareApprovedMotionActor(actor);
   actor.updateWorldMatrix(true,true);
+  let runtimeRig=null;const helpers={createRig(...args){return runtimeRig=createRig(...args);}};
   const motion=entry.kind==='basic'?createBasicMotion(THREE,source,{...entry,rank:entry.tier}):
-    entry.kind==='champion'?createChampionMotion(THREE,source,entry,{createRig}):
-      createEnemyMotion(THREE,source,entry,{createRig});
+    entry.kind==='champion'?createChampionMotion(THREE,source,entry,helpers):
+      createEnemyMotion(THREE,source,entry,helpers);
   if(!motion||!motion.channels?.length)throw new Error('No approved articulation for '+entry.id);
-  const controller={actor,source,entry,motion,clock:0,lastClock:null,lastFrame:-Infinity,
+  const controller={actor,source,entry,motion,runtimeRig,clock:0,lastClock:null,lastFrame:-Infinity,
     elapsed:1,duration:1,stage:'idle',lastRelease:null,phase:0,disposed:false,anchors:new Map(),
     releasePhase:motion.releaseTime===null?.4:clamp(finite(motion.releaseTime,motion.duration*.4)/motion.duration)};
   actors.set(actor,controller);
@@ -59,6 +63,7 @@ export function bindApprovedMotion(actor){
   // Bind every literal part before batching. Dynamic surfaces are explicitly
   // excluded; compatible static siblings keep their original parent transform.
   source.userData.geometricRig=true;
+  if(entry.kind==='basic')controller.skinnedBatching=batchPrivateSkinnedActor(source);
   controller.batching=optimizeGeometricSiblings(source);
   controller.ownedStaticGeometry=new Set();source.traverse(node=>{if(node.userData.geometricBatch&&node.geometry)controller.ownedStaticGeometry.add(node.geometry);});
   return controller;
@@ -67,12 +72,16 @@ export function bindApprovedMotion(actor){
 export const approvedMotionController=actor=>actors.get(actor)||null;
 export function disposeApprovedMotion(actor){
   const c=actors.get(actor);if(!c||c.disposed)return;
-  c.motion.dispose?.();for(const geometry of c.ownedStaticGeometry)geometry.dispose();c.ownedStaticGeometry.clear();c.disposed=true;actors.delete(actor);
+  const poses=enemyPoses.get(c.entry.poseGeneration);
+  if(poses){for(const [mode,row]of poses)if(row.controller===c)poses.delete(mode);if(!poses.size)enemyPoses.delete(c.entry.poseGeneration);}
+  c.skinnedBatching?.dispose();c.motion.dispose?.();for(const geometry of c.ownedStaticGeometry)geometry.dispose();c.ownedStaticGeometry.clear();c.disposed=true;actors.delete(actor);
 }
 function evaluate(c,phase,{idle=false,reducedMotion=false,melancholy=false}={}){
   if(reducedMotion){c.motion.reset();return;}
-  if(c.entry.kind==='basic')c.motion.update(c.clock,{mode:idle?'rest':'attack',phase});
-  else c.motion.update(idle?c.clock:phase*c.motion.duration,{mode:idle?'idle':'attack',melancholy});
+  c.runtimeRig?.beginUpdate();try{
+    if(c.entry.kind==='basic')c.motion.update(c.clock,{mode:idle?'rest':'attack',phase});
+    else c.motion.update(idle?c.clock:phase*c.motion.duration,{mode:idle?'idle':'attack',melancholy});
+  }finally{c.runtimeRig?.endUpdate();}
   c.actor.updateWorldMatrix(true,true);
 }
 export function releaseApprovedAttack(c,payload={}){
@@ -122,7 +131,18 @@ export function animateApprovedEnemy(actor,enemy,time,{moving=true,reducedMotion
   const running=['host_19','host_37','host_47'].includes(c.entry.id)||
     enemy.rush&&clock%ENEMY_RULES.rush.period<ENEMY_RULES.rush.duration;
   const mode=reducedMotion||blocked?'rest':enemy.flying?'fly':moving?(running?'run':'walk'):'idle';
-  c.motion.update(clock,{mode,speed:1});actor.updateWorldMatrix(true,true);return 0;
+  // Living enemy fields are pure functions of this decoded source, exact
+  // combat clock, mode and fixed speed1. Defenders keep independent cooldowns.
+  // Each mode holds just its current clock; buffers remain private to actors.
+  // The owner may seek, change mode, reset or receive another copied pose.
+  // Reuse requires its exact recorded revision, not merely a matching key.
+  let poses=enemyPoses.get(c.entry.poseGeneration);if(!poses){poses=new Map();enemyPoses.set(c.entry.poseGeneration,poses);}
+  const cached=poses.get(mode);
+  if(!cached||cached.clock!==clock||cached.controller.disposed||cached.revision!==cached.controller.runtimeRig.poseRevision||!c.runtimeRig.copyPoseFrom(cached.controller.runtimeRig)){
+    c.runtimeRig?.beginUpdate();try{c.motion.update(clock,{mode,speed:1});}finally{c.runtimeRig?.endUpdate();}
+    poses.set(mode,{clock,controller:c,revision:c.runtimeRig.poseRevision});
+  }
+  actor.updateWorldMatrix(true,true);return 0;
 }
 
 const labels=node=>{const names=[node.name];for(let p=node;p;p=p.parent){if(p.userData?.name)names.push(p.userData.name);if(p.userData?.semanticPart)names.push(p.userData.semanticPart);}return names.join(' ').replace(/_/g,' ');};

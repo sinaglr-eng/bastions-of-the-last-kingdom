@@ -132,12 +132,13 @@ test('actual main keyboard and overlay-entry listeners prevent panel controls fr
   const pointerLine=source.split('\n').find(line=>line.includes("$('battlefield-overlays').addEventListener('pointerenter'"));assert.ok(pointerLine);new Function('$','world',pointerLine)(()=>panel,world);callbacks.get('overlay:pointerenter')();assert.equal(cleared,1);assert.equal(world.keys.size,0);
   const keyboardLine=source.split('\n').find(line=>line.startsWith("window.addEventListener('keydown'"));assert.ok(keyboardLine);
   const document={activeElement:{tagName:'DIV',isContentEditable:false,closest:selector=>selector==='.battlefield-overlays'?panel:null}},window={addEventListener:(type,fn)=>callbacks.set(type,fn)};
-  const {mainAction}=compile(['mainAction'],{game,render:()=>renders++,sendWave:()=>{throw new Error('Combat cannot send another wave');}});
+  const transportApp={dataset:{}};
+  const {mainAction}=compile(['combatTransport','mainAction'],{game,$:()=>({open:false}),app:transportApp,phaseUi:new PhaseUiState(),updateHeaderCombatControls(){},audio:{syncGameState(){}},render:()=>renders++,sendWave:()=>{throw new Error('Combat cannot send another wave');}});
   new Function('window','document','game','world','$','audio','mainAction',keyboardLine)(window,document,game,world,()=>({open:false}),{unlock:()=>unlocked++},mainAction);
   const keydown=callbacks.get('keydown');let prevented=0;
   for(const key of [' ','ArrowDown','ArrowLeft','q','e','1','Delete'])keydown({key,preventDefault(){prevented++;}});
   assert.equal(world.keys.size,0);assert.equal(prevented,0);assert.equal(unlocked,0);assert.equal(renders,0);assert.equal(JSON.stringify({towers:game.towers,draws:game.draft.draws,cp:game.commandPoints.value}),initial);
-  document.activeElement.closest=()=>null;document.activeElement.tagName='BODY';game.paused=false;keydown({key:' ',preventDefault(){prevented++;}});assert.equal(game.paused,true);assert.equal(renders,1);assert.equal(unlocked,1);assert.equal(prevented,1);
+  document.activeElement.closest=()=>null;document.activeElement.tagName='BODY';game.paused=false;keydown({key:' ',preventDefault(){prevented++;}});assert.equal(game.paused,true);assert.equal(transportApp.dataset.paused,'true');assert.equal(renders,0);assert.equal(unlocked,1);assert.equal(prevented,1);
 });
 
 test('actual main uses one shared Next/Current slot through real wave31 completion and final10 victory, preserving disclosure and hidden draws',()=>{

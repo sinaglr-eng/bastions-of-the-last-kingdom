@@ -1,0 +1,544 @@
+TAP version 13
+# Subtest: statistics default to the actual game edition while preserving separate historical results
+not ok 1 - statistics default to the actual game edition while preserving separate historical results
+  ---
+  duration_ms: 20.3763
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\backend-statistics.test.mjs:77:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(html.includes('<option value="all">All game versions</option>'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/backend-statistics.test.mjs:86:12)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: native SQLite supports the D1 schema, transactions, JSON analytics and name normalization safely
+ok 2 - native SQLite supports the D1 schema, transactions, JSON analytics and name normalization safely
+  ---
+  duration_ms: 9.1907
+  type: 'test'
+  ...
+# Statistics request failed: Invalid decisions.
+# Statistics request failed: Invalid decisions.
+# Subtest: real secret crafting retains ingredient draws, result families, combat performance and effect uptime in the existing SQLite schema
+ok 3 - real secret crafting retains ingredient draws, result families, combat performance and effect uptime in the existing SQLite schema
+  ---
+  duration_ms: 30.1977
+  type: 'test'
+  ...
+# Subtest: real Game and RunStatistics produce accepted 10-wave and 50-wave wins below the request size limit
+ok 4 - real Game and RunStatistics produce accepted 10-wave and 50-wave wins below the request size limit
+  ---
+  duration_ms: 433.9418
+  type: 'test'
+  ...
+# 10-wave full checkpoint: 14057 bytes
+# 50-wave full checkpoint: 197783 bytes
+# Subtest: real enemy leaks terminate a loss and checkpoint retries cannot rewrite newer wave rows
+ok 5 - real enemy leaks terminate a loss and checkpoint retries cannot rewrite newer wave rows
+  ---
+  duration_ms: 18.2864
+  type: 'test'
+  ...
+# Subtest: snapshot validation rejects inconsistent warband totals and impossible zero-health victories
+ok 6 - snapshot validation rejects inconsistent warband totals and impossible zero-health victories
+  ---
+  duration_ms: 38.6721
+  type: 'test'
+  ...
+# Statistics request failed: Request too large.
+# Subtest: newer checkpoint requests cannot delete or rewrite an already completed history prefix
+ok 7 - newer checkpoint requests cannot delete or rewrite an already completed history prefix
+  ---
+  duration_ms: 5.7298
+  type: 'test'
+  ...
+# Subtest: CORS accepts the game origin, rejects other browsers and never publishes admin credentials
+ok 8 - CORS accepts the game origin, rejects other browsers and never publishes admin credentials
+  ---
+  duration_ms: 0.6653
+  type: 'test'
+  ...
+# Subtest: canonical snapshots discard untrusted fields and validate every retained analytics value
+ok 9 - canonical snapshots discard untrusted fields and validate every retained analytics value
+  ---
+  duration_ms: 4.6724
+  type: 'test'
+  ...
+# Subtest: oversized chunked requests cancel the incoming stream before parsing or inserting a run
+ok 10 - oversized chunked requests cancel the incoming stream before parsing or inserting a run
+  ---
+  duration_ms: 1.4123
+  type: 'test'
+  ...
+# Subtest: final results stay frozen and their harmless higher-sequence retry still permits naming the score
+ok 11 - final results stay frozen and their harmless higher-sequence retry still permits naming the score
+  ---
+  duration_ms: 40.0262
+  type: 'test'
+  ...
+# Subtest: the real StatisticsClient drains newer checkpoints queued during its first upload and saves a previously uploaded final score
+ok 12 - the real StatisticsClient drains newer checkpoints queued during its first upload and saves a previously uploaded final score
+  ---
+  duration_ms: 45.0218
+  type: 'test'
+  ...
+# Subtest: default browser fetch is invoked with its permitted receiver and first-wave analytics reach SQLite
+ok 13 - default browser fetch is invoked with its permitted receiver and first-wave analytics reach SQLite
+  ---
+  duration_ms: 17.8951
+  type: 'test'
+  ...
+# Subtest: a persisted outbox drains once after storage writes fail and preserves newer checkpoints in memory
+ok 14 - a persisted outbox drains once after storage writes fail and preserves newer checkpoints in memory
+  ---
+  duration_ms: 9.2982
+  type: 'test'
+  ...
+# Subtest: blocking localStorage access cannot prevent starting the game or uploading its in-memory checkpoint
+ok 15 - blocking localStorage access cannot prevent starting the game or uploading its in-memory checkpoint
+  ---
+  duration_ms: 2.9645
+  type: 'test'
+  ...
+# Subtest: sampled status uptime separates damage-over-time from actual crowd control and records received support
+ok 16 - sampled status uptime separates damage-over-time from actual crowd control and records received support
+  ---
+  duration_ms: 1.1282
+  type: 'test'
+  ...
+# Subtest: effective control sampling credits only the strongest active source, including auras
+ok 17 - effective control sampling credits only the strongest active source, including auras
+  ---
+  duration_ms: 0.9301
+  type: 'test'
+  ...
+# Subtest: new-run rate limiting allows existing-run registration retries throughout a full campaign
+ok 18 - new-run rate limiting allows existing-run registration retries throughout a full campaign
+  ---
+  duration_ms: 18.9012
+  type: 'test'
+  ...
+# Subtest: owner report exports a persisted SQLite run to JSON and six Excel-safe CSV files without tokens
+ok 19 - owner report exports a persisted SQLite run to JSON and six Excel-safe CSV files without tokens
+  ---
+  duration_ms: 45.6694
+  type: 'test'
+  ...
+# Subtest: run checkpoints include pauses in exact elapsed seconds independently of speed, preserve legacy wall time, and freeze the final accepted duration
+ok 20 - run checkpoints include pauses in exact elapsed seconds independently of speed, preserve legacy wall time, and freeze the final accepted duration
+  ---
+  duration_ms: 41.0195
+  type: 'test'
+  ...
+# Subtest: optional elapsed duration validation preserves precise zero/fractional values and historical absence while rejecting fabricated invalid types and bounds
+ok 21 - optional elapsed duration validation preserves precise zero/fractional values and historical absence while rejecting fabricated invalid types and bounds
+  ---
+  duration_ms: 4.4924
+  type: 'test'
+  ...
+# Statistics sync postponed; the result remains queued on this device. offline timing fixture
+# Subtest: accepted elapsed durations cannot regress or disappear in a newer checkpoint, while older retries remain harmless
+ok 22 - accepted elapsed durations cannot regress or disappear in a newer checkpoint, while older retries remain harmless
+  ---
+  duration_ms: 6.7509
+  type: 'test'
+  ...
+# Subtest: real offline StatisticsClient checkpoints retain playing duration in the persisted outbox and upload the exact abandoned clock after reconnecting
+ok 23 - real offline StatisticsClient checkpoints retain playing duration in the persisted outbox and upload the exact abandoned clock after reconnecting
+  ---
+  duration_ms: 3.0004
+  type: 'test'
+  ...
+# Subtest: existing SQLite admin/CSV reports retain per-game elapsed times and exclude historical missing times from aggregates without a migration
+ok 24 - existing SQLite admin/CSV reports retain per-game elapsed times and exclude historical missing times from aggregates without a migration
+  ---
+  duration_ms: 61.9577
+  type: 'test'
+  ...
+# Subtest: a freshly prepared statistics Site includes canonical release dependencies and boots the current-edition Worker
+ok 25 - a freshly prepared statistics Site includes canonical release dependencies and boots the current-edition Worker
+  ---
+  duration_ms: 103.01
+  type: 'test'
+  ...
+# Subtest: saving before the initial leaderboard completes prevents navigation and a late response cannot erase the saved rank
+not ok 26 - saving before the initial leaderboard completes prevents navigation and a late response cannot erase the saved rank
+  ---
+  duration_ms: 2.3513
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\leaderboard-display.test.mjs:26:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'Loading version 0.4.6…'
+    - 'Your rank: 15.'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'Your rank: 15.'
+  actual: 'Loading version 0.4.6…'
+  operator: 'strictEqual'
+  stack: |-
+    file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:30:71
+    async withDocument (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:24:130)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: a pending score submission ignores duplicate submits and initial loading failures cannot overwrite success
+not ok 27 - a pending score submission ignores duplicate submits and initial loading failures cannot overwrite success
+  ---
+  duration_ms: 0.5912
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\leaderboard-display.test.mjs:38:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'Slow leaderboard failed'
+    - 'Your rank: 2.'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'Your rank: 2.'
+  actual: 'Slow leaderboard failed'
+  operator: 'strictEqual'
+  stack: |-
+    file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:44:10
+    async withDocument (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:24:130)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: invalid HTML names never submit and failed saves leave the form usable with the initial ranking
+not ok 28 - invalid HTML names never submit and failed saves leave the form usable with the initial ranking
+  ---
+  duration_ms: 0.3426
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\leaderboard-display.test.mjs:48:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'Scores for this version could not be verified. Please try again.'
+    - 'Save your score to see your rank.'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'Save your score to see your rank.'
+  actual: 'Scores for this version could not be verified. Please try again.'
+  operator: 'strictEqual'
+  stack: |-
+    file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:54:10
+    async withDocument (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:24:130)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: the mixed-version Top 10 and out-of-top player show each original version as text with a five-column gap
+not ok 29 - the mixed-version Top 10 and out-of-top player show each original version as text with a five-column gap
+  ---
+  duration_ms: 0.2289
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\leaderboard-display.test.mjs:59:1'
+  failureType: 'testCodeFailure'
+  error: 'Scores for this version could not be verified. Please try again.'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    singleVersionResult (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/ui/leaderboard.js:13:196)
+    renderLeaderboard (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/ui/leaderboard.js:21:3)
+    file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:61:3
+    withDocument (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:24:136)
+    TestContext.<anonymous> (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:59:122)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+  ...
+# Subtest: legacy service responses disclose their single-version scope and never assign unknown old scores to the current game
+not ok 30 - legacy service responses disclose their single-version scope and never assign unknown old scores to the current game
+  ---
+  duration_ms: 10.014
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\leaderboard-display.test.mjs:66:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /only this game version/. Input:
+    
+    'Version 0.2.7. Scores from earlier versions remain stored.'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: 'Version 0.2.7. Scores from earlier versions remain stored.'
+  operator: 'match'
+  stack: |-
+    file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:68:99
+    withDocument (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:24:136)
+    TestContext.<anonymous> (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/leaderboard-display.test.mjs:66:134)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: the sixth result tile identifies the played version and the actual known or unknown best-score origin
+ok 31 - the sixth result tile identifies the played version and the actual known or unknown best-score origin
+  ---
+  duration_ms: 0.2536
+  type: 'test'
+  ...
+# Subtest: all six outcome scenes resolve to the reviewed original PNGs with matching provenance and English alternatives
+ok 32 - all six outcome scenes resolve to the reviewed original PNGs with matching provenance and English alternatives
+  ---
+  duration_ms: 24.1419
+  type: 'test'
+  ...
+# Subtest: presentation sampling covers every scene, separates outcome pools and excludes the preceding scene of the same outcome
+ok 33 - presentation sampling covers every scene, separates outcome pools and excludes the preceding scene of the same outcome
+  ---
+  duration_ms: 0.2578
+  type: 'test'
+  ...
+# Subtest: reopening one ended run keeps the same scene and does not resample or access simulation RNG
+ok 34 - reopening one ended run keeps the same scene and does not resample or access simulation RNG
+  ---
+  duration_ms: 0.1368
+  type: 'test'
+  ...
+# Subtest: a real Sandbox restart of the same Game and wave chooses a new scene, while repeated result review remains stable
+ok 35 - a real Sandbox restart of the same Game and wave chooses a new scene, while repeated result review remains stable
+  ---
+  duration_ms: 19.9789
+  type: 'test'
+  ...
+# Subtest: selecting and rendering result art changes no gameplay fields or seeded random draws
+ok 36 - selecting and rendering result art changes no gameplay fields or seeded random draws
+  ---
+  duration_ms: 3.0511
+  type: 'test'
+  ...
+# Subtest: non-ended phases choose no illustration, and a later ended attempt is independently sampled
+ok 37 - non-ended phases choose no illustration, and a later ended attempt is independently sampled
+  ---
+  duration_ms: 0.1347
+  type: 'test'
+  ...
+# Subtest: a real second-wave defeat separates one completed wave and records the actual last flying leak with clamped health loss
+not ok 38 - a real second-wave defeat separates one completed wave and records the actual last flying leak with clamped health loss
+  ---
+  duration_ms: 28.0631
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\run-results.test.mjs:18:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /1 invader reached the keep · 3 keep health lost/. Input:
+    
+    '<section class="result run-result is-defeat" aria-label="Local run result"><div class="run-result-symbol"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="M9 9v6h6V9M12 6v3"/></svg></div><div class="eyebrow">Run ended · Defeat</div><h2>The last banners fall.</h2><p class="run-result-outcome-copy">The last human keep has fallen to the orc horde.</p><img class="run-result-art run-result-defeat-art" data-outcome-art="defeat-02" src="/assets/ui/results/v045/defeat-02.png" alt="Mogrok, the Gatebreaker and an Orc Mirror Shieldbearer triumph above the defeated Elven Mage and Elven Ranger"><div class="run-result-progress"><strong>1 <span>waves completed</span></strong><p>Defeated on wave 2</p></div><div class="result-stats run-result-stats"><div><strong>100</strong><small>Score</small></div><div><strong>0</strong><small>Invaders defeated</small></div><div><strong>00:00</strong><small>Elapsed time</small></div></div><section class="run-result-story" aria-label="Fictional ending chronicle" data-story-id="defeat-wave-2"><span class="run-result-story-label">Fictional chronicle</span><h3>A crown of thorns</h3><small>Wave 2 · Goblin Thornstriders</small><p>The Goblin Thornstriders weave thorn branches through the empty gatehouse and hang their little bells upon the thorns. Lord Bernhard orders the bells left ringing, so every traveller will hear whose road this has become.</p></section><div class="run-result-actions"><button type="button" class="primary-button" data-action="restart"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 3v7h7"/></svg> Play again</button><button type="button" class="text-button" data-action="result-review"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></svg> Inspect battlefield</button></div></section>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '<section class="result run-result is-defeat" aria-label="Local run result"><div class="run-result-symbol"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="M9 9v6h6V9M12 6v3"/></svg></div><div class="eyebrow">Run ended · Defeat</div><h2>The last banners fall.</h2><p class="run-result-outcome-copy">The last human keep has fallen to the orc horde.</p><img class="run-result-art run-result-defeat-art" data-outcome-art="defeat-02" src="/assets/ui/results/v045/defeat-02.png" alt="Mogrok, the Gatebreaker and an Orc Mirror Shieldbearer triumph above the defeated Elven Mage and Elven Ranger"><div class="run-result-progress"><strong>1 <span>waves completed</span></strong><p>Defeated on wave 2</p></div><div class="result-stats run-result-stats"><div><strong>100</strong><small>Score</small></div><div><strong>0</strong><small>Invaders defeated</small></div><div><strong>00:00</strong><small>Elapsed time</small></div></div><section class="run-result-story" aria-label="Fictional ending chronicle" data-story-id="defeat-wave-2"><span class="run-result-story-label">Fictional chronicle</span><h3>A crown of thorns</h3><small>Wave 2 · Goblin Thornstriders</small><p>The Goblin Thornstriders weave thorn branches through the empty gatehouse and hang their little bells upon the thorns. Lord Bernhard orders the bells left ringing, so every traveller will hear whose road this has become.</p></section><div class="run-result-actions"><button type="button" class="primary-button" data-action="restart"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 3v7h7"/></svg> Play again</button><button type="button" class="text-button" data-action="result-review"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></svg> Inspect battlefield</button></div></section>'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/run-results.test.mjs:22:268)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.start (node:internal/test_runner/test:1242:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: each observed leak counts actual health damage separately from recovered health and duplicate event delivery
+ok 39 - each observed leak counts actual health damage separately from recovered health and duplicate event delivery
+  ---
+  duration_ms: 4.771
+  type: 'test'
+  ...
+# Subtest: actual 10-wave and 50-wave victories include the completed final wave and never display a defeat wave
+ok 40 - actual 10-wave and 50-wave victories include the completed final wave and never display a defeat wave
+  ---
+  duration_ms: 212.1013
+  type: 'test'
+  ...
+# Subtest: actual Sandbox jumps and restarted losses count only completed wave IDs, including a later final-wave victory
+ok 41 - actual Sandbox jumps and restarted losses count only completed wave IDs, including a later final-wave victory
+  ---
+  duration_ms: 34.9466
+  type: 'test'
+  ...
+# Subtest: a real Sandbox loss without earlier completions reports zero from the available observer, and ordinary fallback remains intact
+ok 42 - a real Sandbox loss without earlier completions reports zero from the available observer, and ordinary fallback remains intact
+  ---
+  duration_ms: 10.172
+  type: 'test'
+  ...
+# Subtest: results and ended review stay read-only, preserve tracker sequence and RNG, and expose explicit retry/return actions
+ok 43 - results and ended review stay read-only, preserve tracker sequence and RNG, and expose explicit retry/return actions
+  ---
+  duration_ms: 9.1846
+  type: 'test'
+  ...
+# Subtest: missing event history and duration produce honest unavailable detail; developer results remain locally retryable
+not ok 44 - missing event history and duration produce honest unavailable detail; developer results remain locally retryable
+  ---
+  duration_ms: 1.0089
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\run-results.test.mjs:75:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /Leak detail was not recorded/. Input:
+    
+    '<section class="result run-result is-defeat" aria-label="Local run result"><div class="run-result-symbol"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="M9 9v6h6V9M12 6v3"/></svg></div><div class="eyebrow">Run ended · Defeat</div><h2>The last banners fall.</h2><p class="run-result-outcome-copy">The last human keep has fallen to the orc horde.</p><img class="run-result-art run-result-defeat-art" data-outcome-art="defeat-03" src="/assets/ui/results/v045/defeat-03.png" alt="A Silent Orc Executioner and Bloodwolf Orc Rider triumph above the defeated Paladin and Baby Fire Dragon"><div class="run-result-progress"><strong>0 <span>waves completed</span></strong><p>Defeated on wave 1</p></div><div class="result-stats run-result-stats"><div><strong>0</strong><small>Score</small></div><div><strong>0</strong><small>Invaders defeated</small></div><div><strong>Not recorded</strong><small>Elapsed time</small></div></div><section class="run-result-story" aria-label="Fictional ending chronicle" data-story-id="defeat-wave-1"><span class="run-result-story-label">Fictional chronicle</span><h3>The first stolen banner</h3><small>Wave 1 · Orc Skull Scavengers</small><p>The Orc Skull Scavengers drag a royal banner through the dust and nail it above their camp. Far beyond the valley, Lord Bernhard receives the torn golden thread as the first tribute of his victory.</p></section><div class="run-result-actions"><button type="button" class="primary-button" data-action="restart"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 3v7h7"/></svg> Play again</button><button type="button" class="text-button" data-action="result-review"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></svg> Inspect battlefield</button></div></section>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '<section class="result run-result is-defeat" aria-label="Local run result"><div class="run-result-symbol"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="M9 9v6h6V9M12 6v3"/></svg></div><div class="eyebrow">Run ended · Defeat</div><h2>The last banners fall.</h2><p class="run-result-outcome-copy">The last human keep has fallen to the orc horde.</p><img class="run-result-art run-result-defeat-art" data-outcome-art="defeat-03" src="/assets/ui/results/v045/defeat-03.png" alt="A Silent Orc Executioner and Bloodwolf Orc Rider triumph above the defeated Paladin and Baby Fire Dragon"><div class="run-result-progress"><strong>0 <span>waves completed</span></strong><p>Defeated on wave 1</p></div><div class="result-stats run-result-stats"><div><strong>0</strong><small>Score</small></div><div><strong>0</strong><small>Invaders defeated</small></div><div><strong>Not recorded</strong><small>Elapsed time</small></div></div><section class="run-result-story" aria-label="Fictional ending chronicle" data-story-id="defeat-wave-1"><span class="run-result-story-label">Fictional chronicle</span><h3>The first stolen banner</h3><small>Wave 1 · Orc Skull Scavengers</small><p>The Orc Skull Scavengers drag a royal banner through the dust and nail it above their camp. Far beyond the valley, Lord Bernhard receives the torn golden thread as the first tribute of his victory.</p></section><div class="run-result-actions"><button type="button" class="primary-button" data-action="restart"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 3v7h7"/></svg> Play again</button><button type="button" class="text-button" data-action="result-review"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></svg> Inspect battlefield</button></div></section>'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/run-results.test.mjs:77:42)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: last recorded spawn and enemy names are factual copied values escaped in result markup
+not ok 45 - last recorded spawn and enemy names are factual copied values escaped in result markup
+  ---
+  duration_ms: 4.2256
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\run-results.test.mjs:81:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /Last recorded invader: &lt;img/. Input:
+    
+    '<section class="result run-result is-defeat" aria-label="Local run result"><div class="run-result-symbol"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="M9 9v6h6V9M12 6v3"/></svg></div><div class="eyebrow">Run ended · Defeat</div><h2>The last banners fall.</h2><p class="run-result-outcome-copy">The last human keep has fallen to the orc horde.</p><img class="run-result-art run-result-defeat-art" data-outcome-art="defeat-01" src="/assets/ui/results/v044/defeat.png" alt="The victorious Marsh Orc Hunter and Orc Ash Executioner stand beside defeated Frost Knight and Lionheart Champion"><div class="run-result-progress"><strong>0 <span>waves completed</span></strong><p>Defeated on wave 1</p></div><div class="result-stats run-result-stats"><div><strong>0</strong><small>Score</small></div><div><strong>0</strong><small>Invaders defeated</small></div><div><strong>00:00</strong><small>Elapsed time</small></div></div><section class="run-result-story" aria-label="Fictional ending chronicle" data-story-id="defeat-wave-1"><span class="run-result-story-label">Fictional chronicle</span><h3>The first stolen banner</h3><small>Wave 1 · Orc Skull Scavengers</small><p>The Orc Skull Scavengers drag a royal banner through the dust and nail it above their camp. Far beyond the valley, Lord Bernhard receives the torn golden thread as the first tribute of his victory.</p></section><div class="run-result-actions"><button type="button" class="primary-button" data-action="restart"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 3v7h7"/></svg> Play again</button><button type="button" class="text-button" data-action="result-review"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></svg> Inspect battlefield</button></div></section>'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '<section class="result run-result is-defeat" aria-label="Local run result"><div class="run-result-symbol"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="M9 9v6h6V9M12 6v3"/></svg></div><div class="eyebrow">Run ended · Defeat</div><h2>The last banners fall.</h2><p class="run-result-outcome-copy">The last human keep has fallen to the orc horde.</p><img class="run-result-art run-result-defeat-art" data-outcome-art="defeat-01" src="/assets/ui/results/v044/defeat.png" alt="The victorious Marsh Orc Hunter and Orc Ash Executioner stand beside defeated Frost Knight and Lionheart Champion"><div class="run-result-progress"><strong>0 <span>waves completed</span></strong><p>Defeated on wave 1</p></div><div class="result-stats run-result-stats"><div><strong>0</strong><small>Score</small></div><div><strong>0</strong><small>Invaders defeated</small></div><div><strong>00:00</strong><small>Elapsed time</small></div></div><section class="run-result-story" aria-label="Fictional ending chronicle" data-story-id="defeat-wave-1"><span class="run-result-story-label">Fictional chronicle</span><h3>The first stolen banner</h3><small>Wave 1 · Orc Skull Scavengers</small><p>The Orc Skull Scavengers drag a royal banner through the dust and nail it above their camp. Far beyond the valley, Lord Bernhard receives the torn golden thread as the first tribute of his victory.</p></section><div class="run-result-actions"><button type="button" class="primary-button" data-action="restart"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 3v7h7"/></svg> Play again</button><button type="button" class="text-button" data-action="result-review"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></svg> Inspect battlefield</button></div></section>'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/run-results.test.mjs:83:332)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: an actual offline leaderboard rejection leaves local result and retry ahead of the optional online section
+not ok 46 - an actual offline leaderboard rejection leaves local result and retry ahead of the optional online section
+  ---
+  duration_ms: 4.7143
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\run-results.test.mjs:92:1'
+  failureType: 'testCodeFailure'
+  error: 'rows.replaceChildren is not a function'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    loadVersion (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/ui/leaderboard.js:41:103)
+    connectResultLeaderboard (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/ui/leaderboard.js:52:9)
+    TestContext.<anonymous> (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/run-results.test.mjs:96:11)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: a pre-version local best survives actual newer completed runs, stale saves and an older tab rewriting the profile
+ok 47 - a pre-version local best survives actual newer completed runs, stale saves and an older tab rewriting the profile
+  ---
+  duration_ms: 261.7829
+  type: 'test'
+  ...
+# Subtest: a run ID retains its played version and one immutable completed result across repeated end-screen or unload saves
+ok 48 - a run ID retains its played version and one immutable completed result across repeated end-screen or unload saves
+  ---
+  duration_ms: 1.456
+  type: 'test'
+  ...
+# Subtest: the actual main reward and result hooks attribute every saved score before profile persistence
+ok 49 - the actual main reward and result hooks attribute every saved score before profile persistence
+  ---
+  duration_ms: 39.9918
+  type: 'test'
+  ...
+# Subtest: all-version standings retain original SQLite rows and schema, exact-version ranks and separate campaign lengths
+ok 50 - all-version standings retain original SQLite rows and schema, exact-version ranks and separate campaign lengths
+  ---
+  duration_ms: 712.0113
+  type: 'test'
+  ...
+# Subtest: the real client saves and loads mixed historical versions without changing the current immutable run version
+not ok 51 - the real client saves and loads mixed historical versions without changing the current immutable run version
+  ---
+  duration_ms: 82.8468
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\score-version-preservation.test.mjs:87:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    '0.4.6' !== 'all'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'all'
+  actual: '0.4.6'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/score-version-preservation.test.mjs:92:105)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: an older deployed service gets a bounded explicit single-version fallback, while real network failures do not hide behind fallback
+not ok 52 - an older deployed service gets a bounded explicit single-version fallback, while real network failures do not hide behind fallback
+  ---
+  duration_ms: 1.5983
+  type: 'test'
+  location: 'C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game\\tests\\score-version-preservation.test.mjs:97:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/sinag/.codex/worktrees/geometric-game-release/Tower%20Defense%20game/tests/score-version-preservation.test.mjs:101:73)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+1..52
+# tests 52
+# suites 0
+# pass 40
+# fail 12
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1198.3401

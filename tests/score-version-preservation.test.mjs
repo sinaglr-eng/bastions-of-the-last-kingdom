@@ -84,21 +84,28 @@ test('all-version standings retain original SQLite rows and schema, exact-versio
   }finally{store.sqlite.close();}
 });
 
-test('the real client saves and loads mixed historical versions without changing the current immutable run version',async()=>{
+test('the real client saves the immutable current edition and browses exact historical ranks without changing any stored older score',async()=>{
   const store=database(),previousWindow=globalThis.window;globalThis.window={addEventListener(){},removeEventListener(){}};
   let client;
   try{
-    await saveOnline(store,uuid(201),'0.2.7');const game=new Game(data,{seed:41,waveLimit:10});client=new StatisticsClient(game,{endpoint:'https://scores.example',storage:memoryStorage(),fetcher:(url,options)=>worker.fetch(new Request(url,options),{DB:store.DB})});client.tracker.id=uuid(202);complete(game);
-    assert.equal(await client.flush(),true);const result=await client.saveScore('New commander');assert.equal(result.version,'all');assert.equal(result.current.version,GAME_VERSION);assert.deepEqual(new Set(result.top.map(row=>row.version)),new Set(['0.2.7',GAME_VERSION]));
-    const listed=await client.leaderboard();assert.equal(listed.current.id,uuid(202));assert.equal(client.tracker.version,GAME_VERSION);assert.equal(store.sqlite.prepare('SELECT version FROM runs WHERE id = ?').get(uuid(202)).version,GAME_VERSION);
+    await saveOnline(store,uuid(201),'0.2.7');const oldRows=store.sqlite.prepare("SELECT * FROM runs WHERE version='0.2.7' ORDER BY id").all(),schema=store.sqlite.prepare("SELECT name,sql FROM sqlite_schema WHERE type IN ('table','index') ORDER BY name").all(),calls=[];
+    const game=new Game(data,{seed:41,waveLimit:10});client=new StatisticsClient(game,{endpoint:'https://scores.example',storage:memoryStorage(),fetcher:(url,options)=>{calls.push({url,body:options.body?JSON.parse(options.body):null});return worker.fetch(new Request(url,options),{DB:store.DB});}});client.tracker.id=uuid(202);complete(game);
+    assert.equal(await client.flush(),true);const result=await client.saveScore('New commander');assert.equal(result.version,GAME_VERSION);assert.equal(result.current.version,GAME_VERSION);assert.equal(result.current.rank,1);assert.ok(result.top.every(row=>row.version===GAME_VERSION));assert.deepEqual(new Set(result.versions),new Set(['0.2.7',GAME_VERSION]));
+    const sequence=client.tracker.sequence,stored=store.sqlite.prepare('SELECT * FROM runs ORDER BY id').all();
+    const listed=await client.leaderboard();assert.equal(listed.current.id,uuid(202));assert.equal(listed.current.rank,1);assert.equal(listed.version,GAME_VERSION);
+    const historical=await client.leaderboard('0.2.7');assert.equal(historical.version,'0.2.7');assert.equal(historical.current,null);assert.equal(historical.top.length,1);assert.equal(historical.top[0].id,uuid(201));assert.equal(historical.top[0].rank,1);
+    assert.equal(client.tracker.version,GAME_VERSION);assert.equal(client.tracker.sequence,sequence);assert.deepEqual(store.sqlite.prepare('SELECT * FROM runs ORDER BY id').all(),stored);assert.deepEqual(store.sqlite.prepare("SELECT * FROM runs WHERE version='0.2.7' ORDER BY id").all(),oldRows);assert.deepEqual(store.sqlite.prepare("SELECT name,sql FROM sqlite_schema WHERE type IN ('table','index') ORDER BY name").all(),schema);
+    assert.ok(calls.filter(row=>row.url.includes('/api/leaderboard')).every(row=>new URL(row.url).searchParams.get('version')!=='all'));assert.ok(calls.filter(row=>row.url.endsWith('/score')).every(row=>row.body.leaderboardVersion===undefined));
   }finally{client?.dispose();store.sqlite.close();globalThis.window=previousWindow;}
 });
 
-test('an older deployed service gets a bounded explicit single-version fallback, while real network failures do not hide behind fallback',async()=>{
-  const previousWindow=globalThis.window;globalThis.window={addEventListener(){},removeEventListener(){}};let client,allRequests=0,currentRequests=0;
+test('edition loading never requests all, rejects invalid or mixed versions before display, and propagates real service failures',async()=>{
+  const previousWindow=globalThis.window;globalThis.window={addEventListener(){},removeEventListener(){}};let client;const requests=[];
   try{
-    const game=new Game(data,{seed:42,waveLimit:10});client=new StatisticsClient(game,{endpoint:'https://legacy.example',storage:memoryStorage(),fetcher:async url=>{const version=new URL(url).searchParams.get('version');if(version==='all'){allRequests++;return Response.json({error:'Choose a valid campaign and edition.'},{status:400});}currentRequests++;return Response.json({version,mode:10,top:[],current:null});}});
-    for(let i=0;i<3;i++){const result=await client.leaderboard();assert.equal(result.olderService,true);assert.equal(result.version,GAME_VERSION);}assert.equal(allRequests,1);assert.equal(currentRequests,3);
-    client.dispose();client=new StatisticsClient(game,{endpoint:'https://offline.example',storage:memoryStorage(),fetcher:async()=>Response.json({error:'Server unavailable'},{status:503})});await assert.rejects(client.leaderboard(),/Server unavailable/);assert.notEqual(client.supportsAllVersions,false);
+    const game=new Game(data,{seed:42,waveLimit:10});client=new StatisticsClient(game,{endpoint:'https://legacy.example',storage:memoryStorage(),fetcher:async url=>{const version=new URL(url).searchParams.get('version');requests.push(version);return Response.json({version,mode:10,top:[],current:null});}});
+    for(let i=0;i<3;i++){const result=await client.leaderboard();assert.equal(result.version,GAME_VERSION);}await client.leaderboard('0.2.7');assert.deepEqual(requests,[GAME_VERSION,GAME_VERSION,GAME_VERSION,'0.2.7']);
+    const count=requests.length;for(const version of ['all','bad','0.2.7&mode=50','<svg>',null])await assert.rejects(client.leaderboard(version),/Choose one game version/);assert.equal(requests.length,count);
+    for(const payload of [{version:'all',top:[],current:null},{version:GAME_VERSION,top:[{version:'0.2.7'}],current:null},{version:GAME_VERSION,top:[],current:{version:'0.2.7'}}]){client.fetcher=async()=>Response.json(payload);await assert.rejects(client.leaderboard(),/different game version/);}
+    client.fetcher=async()=>Response.json({error:'Server unavailable'},{status:503});await assert.rejects(client.leaderboard(),/Server unavailable/);
   }finally{client?.dispose();globalThis.window=previousWindow;}
 });

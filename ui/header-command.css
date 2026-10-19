@@ -1,4 +1,5 @@
 .header-combat-controls{display:flex;align-items:center;gap:5px;flex:none}
+.header-combat-controls button{touch-action:manipulation;user-select:none;-webkit-user-select:none}
 .header-combat-controls[hidden]{display:none}
 .header-combat-controls .text-button{width:auto;padding:9px 12px;min-height:44px;min-width:44px;gap:7px;font-size:13px;font-weight:600;white-space:nowrap;background:#344239;border-color:#ac9d6d;color:#f1e5c1;box-shadow:0 1px 5px #0003}
 .header-combat-controls .text-button:hover{background:#465640;border-color:#e2c98b}

@@ -1,5 +1,15 @@
 # Releases
 
+## 0.4.7 — Responsive controls and lighter rendering — 19 October 2026
+
+Makes Pause/Resume and the fixed 1× → 2× → 3× → 5× speed cycle immediate, without full UI rebuilds, and suppresses touch compatibility clicks that advertise themselves as mouse. Keeps cancellation, drag, multi-touch, stale-command, real mouse, keyboard and assistive activation guards. Mystery cards share one surface, keep the outlined recruit clear of naturally wrapped instructions, and omit visible ordinal badges while preserving accessible numbers and shortcuts.
+
+Adds 50 distinct fictional Bernhard defeat chronicles and the appropriate victory ending. Retains historical scores with exact-version subtabs and rankings, guards asynchronous tab/save responses, and places Save score above Top 10 commanders. No database migration or external standalone backend deployment is required. Reduces boss presentation scale by 16% without changing combat properties.
+
+Optimizes private motion buffers and equivalent enemy poses, batches compatible basic-defender surfaces, and avoids unchanged canvas resizes. Original approved assets, materials, textures, motion source modules, render quality, simulation clocks, RNG and game balance remain preserved. All **1,679 local tests**, the **212-module** production build and **265 actual-dist GET/hash fixtures** pass. [The implementation report](docs/IPAD_PERFORMANCE_V047_20261019.md) distinguishes controlled CPU/geometry checks from physical device performance. Publication receipts remain pending.
+
+<!-- V047_PUBLICATION_PENDING -->
+
 ## 0.4.6 — Approved armies, motion and combat effects — 18 October 2026
 
 Integrates approved B01–B07. MVP now adds +5% personal damage per level, capped at +50%, with its ally-damage and enemy-armor auras removed. Rank VI requires two matching rank V defenders freshly drawn and placed in the same completed current draft; retained and reserved units cannot supply that pair. Frozen Celestial's attack and slow aura are ground-only. Approved direct ranges, independent aura radii, ranger slow auras and dwarven armor reductions are applied, including Archdruid +1 range and the preserved Nature Spirit/Mother Nature +3 exception. Dwarship's recipe remains unchanged.

@@ -3,3 +3,5 @@
 .result-leaderboard td:last-child,.result-leaderboard th:last-child{white-space:nowrap;font-variant-numeric:tabular-nums}
 .result-version strong{white-space:nowrap}
 .result-version .result-best-version{display:block;margin-top:5px;font-size:10px;line-height:1.4;color:var(--muted);overflow-wrap:anywhere}
+
+.result-leaderboard .score-form{margin:0 0 22px;padding-bottom:18px;border-bottom:1px solid var(--rule,var(--border))}.leaderboard-versions{display:flex;gap:5px;overflow-x:auto;max-width:100%;padding:3px 1px 7px;overscroll-behavior:contain}.leaderboard-versions>button{flex:0 0 auto;min-width:64px;min-height:36px;padding:7px 10px;border:1px solid var(--rule,var(--border));border-radius:3px;background:var(--paper-light,#122625);color:var(--ink,var(--text));font-size:12px;font-variant-numeric:tabular-nums;cursor:pointer}.leaderboard-versions>button[aria-pressed="true"]{background:#dfbf72;color:#302718;border-color:#a47c32;font-weight:700}.leaderboard-versions>button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}@media(pointer:coarse){.leaderboard-versions>button{min-height:44px}}

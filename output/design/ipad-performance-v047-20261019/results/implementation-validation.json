@@ -1,0 +1,47 @@
+{
+  "schema": "results-edition-chronicles-v047-validation-v1",
+  "status": "passed",
+  "createdAt": "2026-10-19T05:08:54.452546+00:00",
+  "baseline": "8dcb81ace4375b73e1686dde78ec11b67bfc330a",
+  "tests": {
+    "passed": 67,
+    "failed": 0,
+    "files": 7,
+    "log": "tests-focused.log",
+    "scope": "Actual RunStatistics and SQLite score persistence/version ranks, client network contracts with local worker, async UI version/save races and text escaping, real Game outcome rendering, authored 50-wave identity mapping and gameplay/RNG immutability."
+  },
+  "implementation": {
+    "defeatChronicles": 50,
+    "selection": "Deterministic by final wave; canonical campaign names, including composite wave38 and Lord Bernhard on wave50.",
+    "fictionLabel": "Fictional chronicle",
+    "victory": "Separate final-Bernhard and historical short-campaign victory chronicles.",
+    "factsPreserved": "Existing run event observer and factual progress/score/time/kills remain unchanged; only the old Recorded final wave facts section is replaced.",
+    "scoreVersionDefault": "Immutable played run version from client.tracker.version, falling back to current GAME_VERSION for markup.",
+    "versionNavigation": "Exact edition requests only; numeric sorting, current selection, focus preservation, rejected all/mixed-version responses and stale async response guards.",
+    "saveForm": "Before Top 10 commanders; saving always ranks the immutable played edition and returns that edition to view.",
+    "scoreRetention": "Existing rows, versions, schema and API remain intact; no database migration or deletion; local worker/SQLite tests verify older score rows byte-value unchanged and exact per-version ranks.",
+    "backendCompatibility": "Existing exact-version endpoint is used. Legacy all-version API remains available for existing external consumers; the game and standalone public UI do not offer it.",
+    "privacy": "Name validation and DOM text-only public rows retained; no new telemetry, identity fields or network endpoints."
+  },
+  "deployment": {
+    "gameClient": "Prepared for root 0.4.7 build/publish.",
+    "standaloneServicePage": "Source updated to default current edition and reject mismatched versions. External score-service deployment was not changed or attempted.",
+    "liveScoreWrites": 0
+  },
+  "sourceHashes": {
+    "ui/run-result-stories.js": "71c5fb23cac98f393cdec336dd4cea921822cb5ffd520c133804c95b8df17806",
+    "ui/run-results.js": "16c971c210d9a9ae44acf339e6151750b28e576d25ec1503aa80c2ee9b83138e",
+    "ui/run-results.css": "8579f294bdd0092a9afd588a7f95daf8ce1ffdc24a4669a20542549f1bc221a3",
+    "ui/leaderboard.js": "fefa4ae396027bce1418483411b3cd31983946aa1befd2dcfa1a05eb55094dbe",
+    "ui/leaderboard.css": "62172da6633d2259d165d01f91f15b0698a06b9daba8929d10e08ce58ed523a7",
+    "game/core/statistics-client.js": "3ad72952be2c7ad4dd469afe1b3adbbf5188174649534b41e353a9308cf83c8c",
+    "backend/service-page.js": "4057399a0752cf726231310b33bf97b2f8c7ebf58101a592acfe1e564ed9968c",
+    "tests/leaderboard-display.test.mjs": "b42fd02b7ea2805a3cef869ae6fb1167098d2a99b71a979cd9c66a86e9eec19a",
+    "tests/score-version-preservation.test.mjs": "f07a641f5ae66af504e2392bf17a6c4e329bcc354c6c85c2f0ac297ae8f69a0a",
+    "tests/run-results.test.mjs": "3f0c7c5b3c6e080a6cb5c504c53f88a9870bf1f9ab1d336e0c5895dc0160fe17",
+    "tests/run-result-stories-v047.test.mjs": "00d438bfb0ab82ba99b02925377c0dd9b807c8d393e1e63611b430bd0778dab8",
+    "tests/backend-statistics.test.mjs": "2a1b877d45ed2373f0f9a55eb93417323d7481b0a2204dfc52dd370bfd0a9c0b"
+  },
+  "protectedMechanics": "No combat/draft/renderer/release/main/header/score calculation changes. Only the explicitly authorized network presentation client within game/core was edited.",
+  "integrationNote": "A broader earlier check found the root-owned main transport fixture needed its new combatTransport binding; root was notified. This is outside these result/score files."
+}

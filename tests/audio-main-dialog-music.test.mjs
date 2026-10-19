@@ -29,7 +29,8 @@ async function fixture({paused=false,fetchAudio=reply}={}){
   const syncLine=declaration('hud').split('\n').find(line=>line.includes('audio.syncGameState('));assert.ok(syncLine,'Exercise the actual saved production HUD audio call');
   const stampLine=main.split('\n').find(line=>line.startsWith('function stampCraftButtons('));assert.ok(stampLine);
   const background=main.split('\n').find(line=>line.includes("window.addEventListener('blur'")&&line.includes('draftPointerInput.clear()'));assert.ok(background);
-  const names=['openDialog','closeDialog','dialogHeader','codex','warbands','fieldGuide','help','requestDeveloperConsole','openDeveloperConsole','handleCommand'];
+  Object.assign(bindings,{phaseUi:{apply:noop},updateHeaderCombatControls:noop});
+  const names=['combatTransport','openDialog','closeDialog','dialogHeader','codex','warbands','fieldGuide','help','requestDeveloperConsole','openDeveloperConsole','handleCommand'];
   const functions=Function(...Object.keys(bindings),`let modalPaused=false,developerConnection=null,developerSession=null,recipeFilterConnection=null,threatAnalyzer=null,armyReadiness=null,intelligenceKey=null;${stampLine}\nfunction syncAudio(){${syncLine}}\nfunction render(){syncAudio();}\n${names.map(declaration).join('\n')}\n${background}\nreturn {${names.join(',')},syncAudio,get session(){return developerSession;},get modalPaused(){return modalPaused;}};`)(...Object.values(bindings));
   functions.syncAudio();await flush();
   return {game,enemy,audio,context,timers,dialog,document,connections,functions,windowListeners,documentListeners,async command(action){functions.handleCommand({target:{closest:()=>({disabled:false,dataset:{action}})},detail:1});functions.syncAudio();await flush();},dispose(){functions.session?.dispose();audio.dispose();}};

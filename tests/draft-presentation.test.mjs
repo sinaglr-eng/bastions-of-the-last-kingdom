@@ -48,7 +48,8 @@ test('all eight basic families retain the exact approved portrait for each of th
     assert.equal(data.towers[family].unitCode,family==='runebreaker'?'R':displayDefenderCode(data.towers[family],1,{family}).split(' ')[0]);
     if(family==='runebreaker')assert.equal(defenderCode(data.towers[family],tier),`R ${['I','II','III','IV','V','VI'][tier-1]}`);
     assert.equal((html.match(/class="draw-name"/g)||[]).length,5);
-    assert.equal((html.match(/class="index">0[1-5]</g)||[]).length,5);
+    assert.doesNotMatch(html,/class="index"/,'Visible slot ordinals do not cover the approved portrait');
+    for(let index=0;index<5;index++)assert.match(html,new RegExp(`data-index="${index}" aria-label="${index+1}:`));
     assert.equal(state(game),before,'Large portrait presentation is read-only');
   }
 });
@@ -61,6 +62,9 @@ test('rendering the odds and five mystery cards never reveals latent defender id
     const html=draftCardsMarkup(game,data,images)+masteryPanelMarkup(game.economy,data.balance);
     assert.equal((html.match(/Place a defender on the map\. Build/g)||[]).length,5);
     assert.equal((html.match(/class="draw-slot/g)||[]).length,5);
+    assert.doesNotMatch(html,/class="index"/);
+    assert.equal((html.match(/class="mystery-outline"/g)||[]).length,5);
+    for(let index=0;index<5;index++)assert.match(html,new RegExp(`data-index="${index}" aria-label="${index+1}: Place a defender`));
     assert.doesNotMatch(html,/<img|data-action="keep-draw"|data-action="merge-tower"|Construction mastery|mastery-heading/);
   }
   assert.equal(state(game),before);
@@ -90,12 +94,14 @@ test('pending and returning reserve keep their exact rank portrait, fixed positi
   assert.equal((html.match(/class="draw-slot/g)||[]).length,5);
   assert.deepEqual(sources(html),Array(5).fill(defenderPortrait('frostwarden',6)));
   assert.match(html,/reserved-pending[^>]*disabled/);assert.match(html,/Reserved for next draft/);assert.match(html,/Inactive · blocks path/);
+  assert.doesNotMatch(html,/class="index"/);assert.match(html,/aria-label="1: F VI/);
   assert.doesNotMatch(html,/data-action="keep-draw" data-index="0"/);assert.equal(state(game),before);
   game.select(drawnTower(game,1).id);assert.equal(game.keep(),true);assert.equal(game.startCombat(),true);game.completeWave();
   before=state(game);html=draftCardsMarkup(game,data,images);
   assert.deepEqual(sources(html),[defenderPortrait('frostwarden',6)]);
   assert.equal((html.match(/Place a defender on the map\. Build/g)||[]).length,4);
   assert.match(html,/Reserved from previous draft/);assert.match(html,/Fixed position/);
+  assert.doesNotMatch(html,/class="index"/);assert.match(html,/data-index="0" aria-label="1: F VI/);
   assert.equal(game.towers.find(tower=>tower.id===reserved.id),reserved);assert.deepEqual([reserved.x,reserved.z],position);
   assert.equal(state(game),before);
 });
@@ -105,7 +111,11 @@ test('a committed champion and discarded castle walls retain their existing sepa
   game.select(tower.id);assert.equal(game.keep(),true);
   const before=state(game),html=draftCardsMarkup(game,data,images);
   assert.deepEqual(sources(html),[defenderPortrait(family,1),...Array(4).fill(images.ruin)]);
-  assert.doesNotMatch(html,/wrong-family-only-fallback/);assert.equal(state(game),before);
+  assert.doesNotMatch(html,/wrong-family-only-fallback|class="index"/);assert.equal(state(game),before);
+  const wall=game.towers.find(piece=>piece.state==='ruin');game.select(wall.id);assert.equal(game.remove(),true);
+  const cleared=draftCardsMarkup(game,data,images);
+  assert.match(cleared,/<button class="draw-card cleared-card" disabled aria-label="2: Cleared position">/);
+  assert.doesNotMatch(cleared,/class="index"/,'Even an actually demolished card retains only its accessible ordinal');
 });
 
 test('production draft refresh renders all five choices without programmatic scrolling, updates decision count and preserves game state and RNG',()=>{

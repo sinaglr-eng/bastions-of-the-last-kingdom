@@ -52,12 +52,16 @@ export class StatisticsClient {
       }return true;
     }catch(error){if(this.lastError!==error.message)console.warn('Statistics sync postponed; the result remains queued on this device.',error.message);this.lastError=error.message;return false;}finally{this.busy=null;}});return this.busy;
   }
-  async leaderboard(){
+  async leaderboard(version=this.tracker.version){
     if(this.game.developerMode)throw new Error('Developer Mode — statistics disabled.');
     if(!this.enabled)throw new Error('The online leaderboard is not connected yet.');
-    const load=version=>this.request(`/api/leaderboard?mode=${this.game.waveLimit}&version=${encodeURIComponent(version)}&id=${this.tracker.id}`);
-    if(this.supportsAllVersions!==false)try{const result=await load('all');this.supportsAllVersions=true;return result;}catch(error){if(error.status!==400)throw error;this.supportsAllVersions=false;}
-    const result=await load(this.tracker.version);return {...result,olderService:true};
+    if(typeof version!=='string'||!/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(version))throw new Error('Choose one game version.');
+    const result=await this.request(`/api/leaderboard?mode=${this.game.waveLimit}&version=${encodeURIComponent(version)}&id=${this.tracker.id}`);
+    return this.editionStandings(result,version);
+  }
+  editionStandings(result,version){
+    if(result?.version!==version||!Array.isArray(result.top)||[...result.top,...(result.current?[result.current]:[])].some(row=>row.version&&row.version!==version))throw new Error('The score service returned a different game version. Please try again.');
+    return result;
   }
   async saveScore(name){
     if(this.game.developerMode)throw new Error('Developer Mode — statistics disabled.');
@@ -66,8 +70,8 @@ export class StatisticsClient {
     // A newer checkpoint may have arrived while the first flush was in progress.
     if(this.pendingMemory&&!await this.flush())throw new Error(this.lastError);
     if(this.game.developerMode)throw new Error('Developer Mode — statistics disabled.');
-    const result=await this.request(`/api/runs/${this.tracker.id}/score`,{writeToken:this.writeToken,name,leaderboardVersion:'all'});
-    return result.version==='all'?result:this.leaderboard();
+    const result=await this.request(`/api/runs/${this.tracker.id}/score`,{writeToken:this.writeToken,name});
+    return this.editionStandings(result,this.tracker.version);
   }
   dispose(){this.unsubscribe();this.tracker.dispose();window.removeEventListener('online',this.online);}
 }

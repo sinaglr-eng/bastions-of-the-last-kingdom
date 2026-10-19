@@ -1,10 +1,30 @@
-/* Unknown recruits use one clear mark, with the placement instruction below. */
-#app .folio-candidates .mystery-card .mystery-sigil {
-  width: min(68px,72%); height: calc(100% - 36px); margin: 2px auto 0;
+/* One continuous unknown-recruit surface. The instruction owns its natural
+   height; the outlined symbol shrinks in its own row instead of overlapping. */
+#app .folio-candidates .draw-card.mystery-card {
+  display: grid; grid-template-rows: minmax(0,1fr) max-content; gap: 5px;
+  padding: 7px 5px; background: linear-gradient(145deg,#f8efdd,#eee0c7);
+}
+#app .folio-candidates .draw-card.mystery-card:before { content: none; display: none; }
+#app .folio-candidates .draw-card.mystery-card .mystery-sigil {
+  display: block; align-self: stretch; justify-self: center; width: min(76px,100%);
+  height: 100%; min-height: 0; min-width: 0; margin: 0; border: 0;
+  background: none; clip-path: none; overflow: hidden;
+}
+#app .folio-candidates .draw-card.mystery-card .mystery-placement {
+  display: block; width: 100%; height: 100%; overflow: hidden;
+}
+#app .folio-candidates .draw-card.mystery-card .draw-name {
+  position: static; inset: auto; width: 100%; margin: 0; padding: 0;
+  background: none; font-size: 11px; line-height: 1.2; font-weight: 400;
+  text-align: center; white-space: normal; overflow-wrap: normal;
+  word-break: normal; overflow: visible;
+}
+#app .mystery-placement .mystery-outline {
+  fill: none; stroke: #ad946c; stroke-width: 1.8; stroke-linejoin: round;
 }
 #app .mystery-placement .mystery-question {
-  fill: none; stroke: #806238; stroke-width: 8; stroke-linecap: round;
-  filter: drop-shadow(0 2px 0 #fff4d3);
+  fill: none; stroke: #806238; stroke-width: 5.5; stroke-linecap: round;
+  filter: none;
 }
 #app .mystery-placement .mystery-question-dot { fill: #806238; }
 

@@ -2,7 +2,15 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-## Published release: 0.4.6 — Approved armies, motion and combat effects
+## Release 0.4.7 — Responsive controls and lighter rendering
+
+Pause/Resume now updates immediately without rebuilding the preparation UI, and one accepted tap advances speed through **1× → 2× → 3× → 5× → 1×**. Mystery cards use one parchment surface and an outlined unknown recruit, with no visible slot numbers. Defeat results feature 50 wave-specific Bernhard chronicles; scores remain retained with separate version tabs and the Save score form above the standings. Bosses are visually **16% smaller**.
+
+Rendering reuses equivalent enemy poses through private buffers, avoids redundant vertex/bounds work, batches compatible basic-defender surfaces and skips unchanged canvas resizes. Approved models, materials, animation detail, resolution, shadows and gameplay rules remain intact. All **1,679 local tests**, the **212-module** production build and **265 actual-dist GET/hash fixtures** pass. Controlled CPU, posed-surface and native layout checks are recorded in [the implementation report](docs/IPAD_PERFORMANCE_V047_20261019.md); physical iPad/Safari performance is not certified. Publication receipts will be recorded below when complete.
+
+<!-- V047_PUBLICATION_PENDING -->
+
+## Previous published release: 0.4.6 — Approved armies, motion and combat effects
 
 Integrates the approved B01–B07 changes: MVP grants +5% personal damage per level up to +50%, rank VI requires two matching rank V defenders freshly drawn in the current completed draft, Frozen Celestial attacks and slows ground enemies only, and approved ranges, ranger slow auras and dwarven armor auras use their separate radii. All **54 approved V6 enemy models** are copied exactly. Separate runtime motion covers **48 basic ranks, 38 champions and 54 enemies**, including one-shot enemy deaths, while original V7/V8 geometry, materials and textures remain preserved. Actual resolved attacks and statuses drive the revised effects. Basic defenders now fits the book with a family/rank index on the left and the selected rank on the right, retaining all three filters and 48 profiles.
 

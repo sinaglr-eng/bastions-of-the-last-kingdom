@@ -379,7 +379,7 @@ export class Battlefield {
   burst(x,z,color,size) {
     const m=new THREE.Mesh(new THREE.RingGeometry(0.25,0.4,20),new THREE.MeshBasicMaterial({color,transparent:true,opacity:0.7,side:THREE.DoubleSide,depthWrite:false}));m.rotation.x=-Math.PI/2;m.position.copy(v3(x,0.22,z));this.scene.add(m);this.effects.push({object:m,life:0.45,max:0.45,size});
   }
-  resize(){const {width,height}=this.container.getBoundingClientRect();if(!width||!height)return;this.renderer.setSize(width,height);this.camera.aspect=width/height;this.camera.updateProjectionMatrix();if(!this.cameraFitted){this.resetCamera();this.cameraFitted=true;}}
+  resize(){const {width,height}=this.container.getBoundingClientRect();if(!width||!height||width===this.viewportWidth&&height===this.viewportHeight)return;this.viewportWidth=width;this.viewportHeight=height;this.renderer.setSize(width,height);this.camera.aspect=width/height;this.camera.updateProjectionMatrix();if(!this.cameraFitted){this.resetCamera();this.cameraFitted=true;}}
   resetCamera(){const factor=THREE.MathUtils.clamp(1.1/this.camera.aspect,1,1.32);this.controls.target.set(1,1,-1);this.camera.position.set(1+6*factor,1+52*factor,-1+42*factor);this.controls.update();}
   tileScreen(x,z) {const p=v3(x,0.08,z).project(this.camera),r=this.renderer.domElement.getBoundingClientRect();return {x:r.left+(p.x+1)*r.width/2,y:r.top+(-p.y+1)*r.height/2};}
   update(dt) {

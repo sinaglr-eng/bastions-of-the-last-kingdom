@@ -1,0 +1,79 @@
+{
+  "schema": "render-preservation-proof-v047",
+  "base": "8dcb81ace4375b73e1686dde78ec11b67bfc330a",
+  "scope": "CPU motion work, private basic skeletal material batches, unchanged-size renderer guard, boss presentation reduced16%. No gameplay, materials, GLBs, approved workshop sources, quality settings or simulation clock changes.",
+  "validation": {
+    "testLog": "focused-tests.log",
+    "tests": 34,
+    "passed": 34,
+    "failed": 0,
+    "actualChampionAndEnemyFieldSources": 92,
+    "fieldProof": "Byte-identical Float32 positions/normals, world matrices and visibility against original preserved helper across8 time/mode samples on every source.",
+    "actualEnemyMemoizationSources": 54,
+    "memoizationProof": "Every actual source and structural variant matches current-clock gait/rest/fly/run peers while retaining private geometry; independent source generation/mode/owner disposal and death tested.",
+    "actualSkeletalSources": 48,
+    "skeletalProof": "Every rendered skinned world vertex and shader normal, exact attributes, original material objects, bind matrices and private skin compare equal at4 attack phases.",
+    "bossProof": "Every actual boss imported surface is16% smaller on each axis, including idle/death; ordinary scales and gameplay unchanged.",
+    "resizeProof": "100 repeated renders allocate only1 drawing-buffer resize and1 projection update; genuine size changes still resize."
+  },
+  "drawSubmissionsPerPass": {
+    "before": 8249,
+    "after": 2087,
+    "reductionPercent": 74.69996363195538,
+    "trianglesReduced": false
+  },
+  "cpuCrowds": [
+    {
+      "id": "host_31-wraith",
+      "actors": 12,
+      "baselineMsPerSceneFrame": 5.6245950000000144,
+      "optimizedMsPerSceneFrame": 0.5697816666666767,
+      "speedup": 9.871491711737388,
+      "fieldEvaluationReductionPercent": 91.66666666666666
+    },
+    {
+      "id": "host_38-wraith",
+      "actors": 12,
+      "baselineMsPerSceneFrame": 71.73152166666665,
+      "optimizedMsPerSceneFrame": 6.510215000000001,
+      "speedup": 11.018303030954682,
+      "fieldEvaluationReductionPercent": 91.66666666666666
+    }
+  ],
+  "limits": [
+    "CPU timing is a local Node benchmark, not target iPad FPS; root records native-browser evidence separately.",
+    "Geometry detail, original PBR materials, render resolution, shadows and every approved motion channel are preserved.",
+    "Per-mode cache owns only its newest source clock; actors retain private mutable fields.",
+    "Skeletal batches retain named original semantic surfaces for anchors/picking bounds and add private merged buffers; their disposal restores originals."
+  ],
+  "files": [
+    {
+      "path": "game/render/optimized-motion-rig.js",
+      "sha256": "030eeac1d9a7b3dfe11df32ad2e43a2a5b0232d0b34de922550c97a4414f78d1"
+    },
+    {
+      "path": "game/render/skinned-batching.js",
+      "sha256": "4cd436f469b9b2835e64f43bacb45c16d546cf4a622956214cf55f79b0a78306"
+    },
+    {
+      "path": "game/render/approved-model-motion.js",
+      "sha256": "ddc76161ebae97303aca96d0513e975f5076930820bc5f02c9267de77b51f7f9"
+    },
+    {
+      "path": "game/render/battlefield-scale.js",
+      "sha256": "7c7ed9aaf113d43cd9a0be49d0c82af41b8e92ec67f971e31609d6283bd845df"
+    },
+    {
+      "path": "tests/render-performance-v047.test.mjs",
+      "sha256": "54d6372f18fc44f20ca387ca53403f97b813fc268fac49545a8c8976c0ed1993"
+    },
+    {
+      "path": "tests/boss-scale-v5.test.mjs",
+      "sha256": "e583e9e2950bcf8336f82e64249d295451686b0bf44a75cdcd5566412cd69b43"
+    },
+    {
+      "path": "tools/benchmark-render-v047.mjs",
+      "sha256": "c3d670a41239d89b8bbc67a564af0ea95d4920124f47b997ed513565eff47f2d"
+    }
+  ]
+}

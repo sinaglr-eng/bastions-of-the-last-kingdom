@@ -1,0 +1,130 @@
+{
+  "schema": "pose-cache-owner-correction-v047",
+  "finding": "Mutable cached owner changed from walk at0.2 to rest at0.4 before a new peer requested walk at0.2; mode/clock key alone could copy rest buffers.",
+  "fix": "Record exact runtime poseRevision with each cache row; advance the revision on evaluation, joint/field writes, reset and copy receipt; reject a row when its owner revision changed.",
+  "actualModel": "host_38-wraith",
+  "regressions": [
+    "walk0.2 to rest0.4 then peer walk0.2",
+    "walk0.2 to walk0.4 then peer walk0.2",
+    "rest0.2 to walk0.4 then peer rest0.2",
+    "fly0.2 to idle0.4 then peer fly0.2",
+    "walk owner receives cached rest before peer seeks old walk",
+    "rest owner receives cached walk before peer seeks old rest",
+    "walk owner explicitly resets before peer seeks old walk",
+    "same actor and same clock retains046 pause semantics, unchanged owner remains reusable"
+  ],
+  "initialReceipts": [
+    "render-proof-initial.json",
+    "cpu-motion-benchmark-initial.json",
+    "focused-tests-initial.log"
+  ],
+  "focusedTests": {
+    "passed": 35,
+    "failed": 0,
+    "logSha256": "cd6b8773a0f92c727f5d31eee13e29e00d8e7631aa57c2d35ebeb01077eea4d5"
+  },
+  "files": [
+    {
+      "path": "game/render/optimized-motion-rig.js",
+      "sha256": "28898cfc19381d255ecacbd27abc1d2fe5766468a2ee22c6c6d25ba64c8c310c"
+    },
+    {
+      "path": "game/render/approved-model-motion.js",
+      "sha256": "69a54704706752554a5ff8a95270029b0032921995cdf25c5b5ce0c44862a9fa"
+    },
+    {
+      "path": "tests/render-performance-v047.test.mjs",
+      "sha256": "22263bde8fef67d394eda40f1bf1532da268546ae16955ea0de8d1173f3c9cf6"
+    }
+  ],
+  "benchmark": [
+    {
+      "id": "host_31-wraith",
+      "current": {
+        "baselineMsPerSceneFrame": 5.61898000000001,
+        "optimizedMsPerSceneFrame": 0.6237499999999879,
+        "speedup": 9.00838476953927,
+        "fieldEvaluations": 180,
+        "privatePoseCopies": 1980,
+        "normalPasses": 5580,
+        "spherePasses": 0
+      },
+      "initial": {
+        "id": "host_31-wraith",
+        "peers": 12,
+        "frames": 60,
+        "baseline046": {
+          "medianTotalMs": 337.47570000000087,
+          "msPerSceneFrame": 5.6245950000000144,
+          "distribution": {
+            "p50Ms": 5.572799999999916,
+            "p95Ms": 6.05409999999938,
+            "maxMs": 7.212700000000041
+          },
+          "normalPasses": 66960,
+          "spherePasses": 133920,
+          "fieldEvaluations": 2160,
+          "privatePoseCopies": 0
+        },
+        "optimized047": {
+          "medianTotalMs": 34.186900000000605,
+          "msPerSceneFrame": 0.5697816666666767,
+          "distribution": {
+            "p50Ms": 0.5753999999997177,
+            "p95Ms": 0.7186999999994441,
+            "maxMs": 2.836699999999837
+          },
+          "normalPasses": 5580,
+          "spherePasses": 0,
+          "fieldEvaluations": 180,
+          "privatePoseCopies": 1980
+        },
+        "speedup": 9.871491711737388
+      }
+    },
+    {
+      "id": "host_38-wraith",
+      "current": {
+        "baselineMsPerSceneFrame": 71.31623999999998,
+        "optimizedMsPerSceneFrame": 6.429660000000028,
+        "speedup": 11.091759128787475,
+        "fieldEvaluations": 180,
+        "privatePoseCopies": 1980,
+        "normalPasses": 2880,
+        "spherePasses": 0
+      },
+      "initial": {
+        "id": "host_38-wraith",
+        "peers": 12,
+        "frames": 60,
+        "baseline046": {
+          "medianTotalMs": 4303.891299999999,
+          "msPerSceneFrame": 71.73152166666665,
+          "distribution": {
+            "p50Ms": 71.90529999999853,
+            "p95Ms": 73.21900000000096,
+            "maxMs": 75.83020000000033
+          },
+          "normalPasses": 38880,
+          "spherePasses": 77760,
+          "fieldEvaluations": 2160,
+          "privatePoseCopies": 0
+        },
+        "optimized047": {
+          "medianTotalMs": 390.6129000000001,
+          "msPerSceneFrame": 6.510215000000001,
+          "distribution": {
+            "p50Ms": 6.451999999997497,
+            "p95Ms": 7.033299999999144,
+            "maxMs": 8.284599999999045
+          },
+          "normalPasses": 2880,
+          "spherePasses": 0,
+          "fieldEvaluations": 180,
+          "privatePoseCopies": 1980
+        },
+        "speedup": 11.018303030954682
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "status": "observed",
+  "fixture": "Sandboxwave38 seed4047,8defenders, no enemy rules overrides",
+  "metrics": {
+    "calls": 1696,
+    "combatTime": 59.54139999999976,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_01",
+      "host_38-wraith",
+      "host_38",
+      "host_39"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 1866,
+    "medianMs": 31.599999994039536,
+    "p95Ms": 34.599999994039536,
+    "paused": false,
+    "pendingEnemies": 0,
+    "speed": 1,
+    "statusBatches": 0,
+    "statusInstances": 0,
+    "statusTargets": [],
+    "triangles": 1838369,
+    "visibleEnemies": 14
+  },
+  "limits": "Desktop Chromium, 120-frame rolling samples and naturally advancing scene; not paired physical iPad FPS or full-scene reduction measurement"
+}

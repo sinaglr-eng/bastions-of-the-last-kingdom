@@ -13,10 +13,10 @@ const source=name=>{
   const rest=main.slice(start),next=/\nfunction /.exec(rest);return rest.slice(0,next?.index??rest.length);
 };
 function actualCommands(game){
-  const bindings={cancelRecipePreview:()=>{},game,world:{maze:{editing:false},doubleTap:{clear:noop}},audio:{unlock:noop},debug:false,
+  const bindings={cancelRecipePreview:()=>{},game,world:{maze:{editing:false},doubleTap:{clear:noop}},audio:{unlock:noop,syncGameState:noop},debug:false,
     draftCardActivation:{clear:noop},draftPointerInput:{click:noop},codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop,
-    app:{addEventListener:noop},window:{addEventListener:noop},document:{querySelector:()=>null}};
-  return Function(...Object.keys(bindings),source('sendWave')+'\n'+source('handleCommand')+'\nreturn handleCommand;')(...Object.values(bindings));
+    $:()=>({open:false}),phaseUi:{apply:noop},updateHeaderCombatControls:noop,app:{addEventListener:noop},window:{addEventListener:noop},document:{querySelector:()=>null}};
+  return Function(...Object.keys(bindings),source('sendWave')+'\n'+source('combatTransport')+'\n'+source('handleCommand')+'\nreturn handleCommand;')(...Object.values(bindings));
 }
 function ready(seed=731){
   const game=new Game(data,{seed});
@@ -157,9 +157,10 @@ test('repeated real taps remain executable without a debounce; each compatibilit
   assert.equal(view.accepted.length,40);assert.ok(view.input.releases.length<=32);
 });
 
-test('mouse activation, keyboard/AT detail0 and clearly genuine mouse clicks stay native',()=>{
+test('keyboard/AT and mouse clicks after an actual mouse press stay native; WebKit compatibility mouse labels do not bypass suppression',()=>{
   const view=fixture({execute:false}),target=button('start');assert.equal(view.tap(target),true);
-  for(const event of [nativeClick(target,{detail:0}),nativeClick(target,{pointerType:'mouse'}),nativeClick(target,{sourceCapabilities:{firesTouchEvents:false}})])assert.equal(view.input.suppressClick(event),false);
+  for(const event of [nativeClick(target,{detail:0}),nativeClick(target,{sourceCapabilities:{firesTouchEvents:false}})])assert.equal(view.input.suppressClick(event),false);
+  assert.equal(view.input.suppressClick(nativeClick(target,{pointerType:'mouse'})),true,'A compatibility click may advertise mouse without a physical mouse press');
   assert.equal(view.down(target,2,'mouse'),false);assert.equal(view.up(target,2,'mouse'),false);assert.equal(view.input.suppressClick(nativeClick(target)),false);
   assert.equal(view.accepted.length,1);
 });
