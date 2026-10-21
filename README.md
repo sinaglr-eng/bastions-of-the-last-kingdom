@@ -2,13 +2,16 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-## Release candidate: 0.4.8 — Guided starts and hand-cast lightning
+## Published release: 0.4.8 — Guided starts and hand-cast lightning
 
 Every fresh run offers Start tutorial or Skip tutorial. The nine-step guide follows real play, with compact phone coaching that leaves the grid and keeper controls usable. Potential combinations and Online scores start open, completed matching recipe goals unpin automatically, Enemy Waves uses an invader icon, and approved outcome scenes rotate without replacement. Stormcaller, Elven Mage and Elven Archmage cast lightning from their moving hands.
 
 Late-wave visual aliases now resolve to approved models, and cache protection retains textures while live figures, corpses or the camp preview use them. The fully black enemy report was **not reproduced in desktop Chromium**; physical iPad/Safari verification remains unavailable. Ten new defeat images are supplied in an English approval gallery and remain outside the runtime pool pending approval. Original media, statistics, balance and seeded simulation stay preserved.
 
-All **1,738 local tests** and the **213-module** production build pass. Native phone and tablet review completes placement → Keep → Start → Pause/Speed → Finish. [The follow-up report](docs/FOLLOWUP_V048_20261021.md) records all eight requests, the initial phone blocker and correction, preservation evidence and artwork approval status. **Deployment pending:** Pages CI and public verification have not yet been recorded for 0.4.8.
+All **1,738 local tests** and the **213-module** production build pass. Native phone and tablet review completes placement → Keep → Start → Pause/Speed → Finish. [The follow-up report](docs/FOLLOWUP_V048_20261021.md) records all eight requests, the initial phone blocker and correction, preservation evidence and artwork approval status.
+
+<!-- V048_RELEASE_GATES_COMPLETE -->
+Published [0.4.8](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.8) from [`f4f5128c8ff3d23dd245a37841a46317cf99810d`](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/commit/f4f5128c8ff3d23dd245a37841a46317cf99810d) through successful [Pages CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/39665438997). All **1,738 tests**, the **213-module** build and **265 public GET/hash checks** pass, including five exact compiled entries and all 54 unchanged approved enemy GLBs. Native public review verifies the fresh Start/Skip invitation and the guide. Release tag: `v0.4.8`. Ten new defeat images remain pending approval outside the runtime pool; physical iPad/Safari verification remains unavailable.
 
 ## Published release: 0.4.7 — Responsive controls and lighter rendering
 

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mainRetentionSha256": "ea1c0a3cbc5f40fc55830fbd229f94d86ec1f72bde268a2652bf374afdf403ca",
+  "concurrentMainRetention": [
+    {
+      "file": "GAME_DESIGN.md",
+      "originalMainSha256": "7e616c04944ac2ea0778c2db27115e0ec23006d8e28c7df545546dbabd4b332b",
+      "retainedMainSha256": "f7ae91c46edf906bf480364e3001bb4bfda8d987e5454f60f2df3b4f74321cf1",
+      "includeInOwnedPayload": false,
+      "publishSource": false
+    }
+  ],
+  "frozenOwnedSha256": "5d75affa6c8dc152a6faab47e8fde1dec349796cb1e0752b4888977a8a8ffade",
+  "sourceGoSha256": "df10fd978098c7b6565ee955e43c79f0273dd6d6c1af8b6b3106fe033112cf9c",
+  "mode": "dry-run",
+  "status": "ready",
+  "createdAt": "2026-10-21T20:07:36.964Z",
+  "source": "C:\\Users\\sinag\\.codex\\worktrees\\geometric-game-release\\Tower Defense game",
+  "main": "C:\\Users\\sinag\\Documents\\ChatGPT\\Tower Defense game",
+  "sourceHead": "f4f5128c8ff3d23dd245a37841a46317cf99810d",
+  "baselineCommit": "dbb7ee84558a7f070c13b263b0c2830401a8cec0",
+  "baselinePaths": 4998,
+  "baselineSha256": "901cb7da82ffdaa219f551bc828ee5e7a10a7732e78d4100289bc8e21eba8c38",
+  "payloadDigest": "10dd7fd385df6e1c7bc42625d67ed836eb22044748b2e40d133799c1f3bb4fe3",
+  "allowlist": "output/design/followup-v048-20261021/main-mirror-allowlist.json",
+  "files": 120,
+  "tracked": 30,
+  "new": 90,
+  "actions": {
+    "create": 0,
+    "replace-verified-baseline": 0,
+    "already-current": 120,
+    "conflict": 0
+  },
+  "documentMerges": [
+    {
+      "file": "CHANGELOG.md",
+      "payloadFile": "tmp/v048-merged-CHANGELOG.md",
+      "payloadSha256": "e33f3559678f6ce95bd11aa96d7da879000b3f7f35cc27f23ecbddd6803b47b0"
+    },
+    {
+      "file": "README.md",
+      "payloadFile": "tmp/v048-merged-README.md",
+      "payloadSha256": "64fbee0fbfd20217c47d91d38166109ce61ba8bb1168285de3833ada39816dce"
+    }
+  ],
+  "excludedTracked": [],
+  "baselineMismatches": [],
+  "conflicts": [],
+  "mainWritten": false,
+  "written": [],
+  "noGitIndexOperations": true,
+  "finishedAt": "2026-10-21T20:07:39.575Z",
+  "allSavedPathsUnchanged": true,
+  "unownedBaselineChanges": [],
+  "unownedBaselinePathsChecked": 4968,
+  "indexHashes": {
+    "before": {
+      "source": "0d52f66c05dee32644599ef5e44b2bb5816453066608586a7e839076e9f236c1",
+      "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+    },
+    "after": {
+      "source": "0d52f66c05dee32644599ef5e44b2bb5816453066608586a7e839076e9f236c1",
+      "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+    }
+  },
+  "gitIndexesUnchanged": true
+}

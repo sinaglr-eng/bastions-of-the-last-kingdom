@@ -1,0 +1,34 @@
+{
+  "schema": "v048-public-native-browser-qa-v1",
+  "status": "passed",
+  "checkedAt": "2026-10-21T20:01:42.103Z",
+  "release": "0.4.8",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.8",
+  "runtimeCommit": "f4f5128c8ff3d23dd245a37841a46317cf99810d",
+  "browser": "Native in-app desktop Chromium",
+  "actualViewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "checks": {
+    "freshStartSkipInvitation": true,
+    "actualStartTutorial": true,
+    "actualCameraNextAdvancesToPlace": true,
+    "endTutorialWorks": true,
+    "reloadReoffersInvitation": true,
+    "actualSkipTutorial": true,
+    "headerEnemyWavesPresent": true,
+    "gameDrawsAfterSkip": true
+  },
+  "logs": [],
+  "screenshots": [
+    "public-tutorial-welcome.png",
+    "public-tutorial-place.png",
+    "public-game.png"
+  ],
+  "limits": [
+    "No physical iPad/Safari test.",
+    "No score or name submitted.",
+    "Public runtime identity and exact assets are established separately by CI and the 265-request GET/hash verifier."
+  ]
+}
