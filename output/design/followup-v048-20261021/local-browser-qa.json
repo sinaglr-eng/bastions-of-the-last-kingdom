@@ -1,0 +1,137 @@
+{
+  "schema": "v048-local-native-browser-qa-v1",
+  "version": "0.4.8",
+  "checkedAt": "2026-10-21T19:44:51.762Z",
+  "status": "passed",
+  "browser": "ChatGPT in-app browser, desktop Chromium",
+  "productionBase": "http://127.0.0.1:5200/bastions-of-the-last-kingdom/",
+  "physicalIpadSafariTested": false,
+  "tutorial": {
+    "phone": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "initialFailure": "Original full placement card covered the available map. Preserved as native/02-tutorial-place-phone.jpg.",
+      "fix": "Compact card at map top with default-collapsed native Show instructions; waiting Next hidden.",
+      "card": {
+        "x": 28,
+        "y": 118,
+        "width": 350,
+        "height": 127.625
+      },
+      "folioTop": 417,
+      "actualSuccessfulPlacements": 5,
+      "actualKeeperControl": {
+        "x": 24,
+        "y": 713,
+        "width": 109.3333,
+        "height": 48
+      },
+      "actualWalkthrough": [
+        "Start tutorial",
+        "camera Next",
+        "five placements",
+        "Keep Soldier I",
+        "Recipes open/close",
+        "Next",
+        "Enemy Waves open/close",
+        "Next",
+        "Start wave",
+        "Pause",
+        "Speed 1× to 2×",
+        "Finish tutorial"
+      ]
+    },
+    "tablet": {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "actualSuccessfulPlacements": 5,
+      "actualWalkthrough": [
+        "Start tutorial",
+        "camera Next",
+        "five placements",
+        "Keep Soldier I",
+        "Next",
+        "Next",
+        "Start wave",
+        "Pause",
+        "Speed 1× to 2×",
+        "Finish tutorial"
+      ]
+    },
+    "repeatedFreshRunInvitationObserved": true,
+    "skipChoiceObserved": true,
+    "acceptedSpeedCycle": [
+      "1×",
+      "2×",
+      "3×",
+      "5×",
+      "1×"
+    ],
+    "screenshotFiles": [
+      "native/01-tutorial-welcome-phone.jpg",
+      "native/03-tutorial-place-phone-fixed.jpg",
+      "native/04-tutorial-keeper-phone-fixed.jpg",
+      "native/05-tutorial-start-phone-fixed.jpg",
+      "native/06-tutorial-speed-phone-fixed.jpg",
+      "native/07-tutorial-welcome-tablet.jpg",
+      "native/08-tutorial-place-tablet.jpg",
+      "native/09-tutorial-completed-tablet.jpg"
+    ]
+  },
+  "lateEnemies": {
+    "baselineVersion": "0.4.7",
+    "baselineMissingSolid35": true,
+    "currentApprovedKeys": [
+      "host_35",
+      "host_35-wraith",
+      "host_36",
+      "host_36-wraith"
+    ],
+    "currentContextLost": false,
+    "allBlackReproduced": false,
+    "limitation": "Corrected missing approved variant aliases and protected borrowed maps. Desktop color/context checks do not establish the original physical iPad/Safari GPU cause.",
+    "records": [
+      "native/baseline-047-wave34.json",
+      "native/baseline-047-wave35.json",
+      "native/current-048-wave35.json"
+    ],
+    "screenshot": "native/current-048-wave35-paused-unobscured.jpg"
+  },
+  "lightning": {
+    "stormcaller": "native/stormcaller-lightning.json",
+    "elvenArchmage": "native/archmage-lightning.json",
+    "screenshots": [
+      "native/10-stormcaller-hand-lightning.jpg",
+      "native/11-archmage-hand-lightning.jpg"
+    ],
+    "numericAnchorProof": "Actual approved GLB posed-palm regression tests, recorded in render/render-proof.json."
+  },
+  "results": {
+    "fixture": "tmp/v048-result-review.html",
+    "defaultDisclosureFromProductionMarkup": true,
+    "manuallyForcedOpen": false,
+    "nameFormBeforeStandings": true,
+    "scoreOrStatisticsWrites": false,
+    "record": "native/results-default-open.json",
+    "screenshot": "native/12-results-default-open.jpg"
+  },
+  "approvalGallery": {
+    "candidates": 10,
+    "allNativeImagesLoaded": true,
+    "dimensions": [
+      1672,
+      941
+    ],
+    "approval": "pending",
+    "runtimeIntegration": false,
+    "screenshot": "art-review/browser-gallery.jpg"
+  },
+  "notes": [
+    "All native Developer Console fixtures permanently exclude their run from statistics. No fake score submission was performed.",
+    "Phone and tablet dimensions are measured CSS viewports on desktop Chromium; no physical touch-device performance certification is claimed."
+  ]
+}

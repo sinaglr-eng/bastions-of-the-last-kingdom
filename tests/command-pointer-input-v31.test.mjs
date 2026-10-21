@@ -16,6 +16,7 @@ function actualCommands(game){
   const bindings={cancelRecipePreview:()=>{},game,world:{maze:{editing:false},doubleTap:{clear:noop}},audio:{unlock:noop,syncGameState:noop},debug:false,
     draftCardActivation:{clear:noop},draftPointerInput:{click:noop},codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop,
     $:()=>({open:false}),phaseUi:{apply:noop},updateHeaderCombatControls:noop,app:{addEventListener:noop},window:{addEventListener:noop},document:{querySelector:()=>null}};
+  bindings.tour={refresh:noop};
   return Function(...Object.keys(bindings),source('sendWave')+'\n'+source('combatTransport')+'\n'+source('handleCommand')+'\nreturn handleCommand;')(...Object.values(bindings));
 }
 function ready(seed=731){

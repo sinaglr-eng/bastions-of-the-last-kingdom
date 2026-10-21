@@ -1,11 +1,19 @@
 /** Read actual queued choices and all next-wave appearances without rolling RNG. */
+import {enemyTemplateKey} from './enemy-assets.js';
 export function neededEnemyModelKeys(game){
-  const keys=new Set(),key=e=>e?.visualAsset||e?.type;
+  const keys=new Set(),key=e=>enemyTemplateKey(e);
   for(const enemy of game.combat.enemies)if(!enemy.dead)keys.add(key(enemy));
   for(const row of game.combat.spawnQueue){const base=game.data.enemies[row.type];keys.add(key({...base,...row.modifiers?.variant,type:row.type}));}
   const wave=game.data.waves[game.round-1+(game.phase==='combat'?1:0)];
   for(const group of wave?.groups||[]){const base=game.data.enemies[group.type];for(const variant of Object.hasOwn(group,'variant')?[group.variant]:base?.variants||[{}])keys.add(key({...base,...variant,type:group.type}));}
   return [...keys].filter(Boolean);
+}
+
+/** Live scene borrowers outlast queue changes and must retain their PBR maps. */
+export function retainedEnemyModelKeys(game,{figures=[],corpses=[],preview=null}={}){
+  const keys=new Set(neededEnemyModelKeys(game));
+  for(const figure of [...figures,...corpses,preview])if(figure?.userData.assetKey)keys.add(figure.userData.assetKey);
+  return keys;
 }
 
 /** Decode only needed wave identities; never eagerly stream the 54-model pack. */

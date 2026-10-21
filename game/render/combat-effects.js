@@ -12,7 +12,7 @@ const secretFamily=family=>family==='ladyclaire'||family==='lordbernhard';
 export const attackVisualColor=(family,kind)=>secretFamily(family)?'#ffda72':ATTACK_COLORS[kind];
 export function attackVisualKind(family,stats={}){
   const presentation=stats.projectileEffect||stats.effect||stats.type;
-  if(['tempest','stormcitadel','royalarsenal'].includes(family))return 'arcane';
+  if(family==='royalarsenal')return 'arcane';
   if(['rimewatch','winterhold','archangel'].includes(family))return 'frost';
   if(family==='kingdomprotector')return 'holy';
   if(family==='runebreaker')return 'runic';
@@ -175,7 +175,7 @@ export class CombatEffects{
   animationClock(source,time=this.time){const simulation=this.getSimulationTime?.();return Number.isFinite(simulation)?simulation:time;}
   point(target,height){return this.position(target.x,height,target.z);}
   muzzle(source,fallback=source,options={}){
-    const kind=['embercrown','worldfire','thunderheart','phoenix','starfall'].includes(source?.family)?'mouth':['archer','thornwarden','verdantguard','royalranger','wyvernhunter','kingsrangerguard','elvenking'].includes(source?.family)?'nock':['mage','cleric','druid','frostwarden','stormcaller','tempest','stormcitadel','royalarsenal','greenheart','eldergrove','mothernature','rangermentor','sunward','monk','archbishop','archangel','ladyclaire'].includes(source?.family)?'staff':'weapon';
+    const kind=['stormcaller','tempest','stormcitadel'].includes(source?.family)?'hand':['embercrown','worldfire','thunderheart','phoenix','starfall'].includes(source?.family)?'mouth':['archer','thornwarden','verdantguard','royalranger','wyvernhunter','kingsrangerguard','elvenking'].includes(source?.family)?'nock':['mage','cleric','druid','frostwarden','royalarsenal','greenheart','eldergrove','mothernature','rangermentor','sunward','monk','archbishop','archangel','ladyclaire'].includes(source?.family)?'staff':'weapon';
     const out=new THREE.Vector3(),point=this.getMuzzle?.(source,out,{kind,...options});
     return point&&[point.x,point.y,point.z].every(Number.isFinite)?out.copy(point):this.point(fallback,this.sourceHeight);
   }
@@ -215,7 +215,9 @@ export class CombatEffects{
   poseProjectile(record,time){
     const {object,kind,shot,lobbed}=record,p=clampProgress(shot.progress),motion=this.motion();
     time=this.animationClock(shot.source,time);
-    const start=kind==='flame'?this.muzzle(shot.source,shot.start||shot.source):record.origin,end=this.point(shot.target,this.targetHeight(shot.target));
+    // A connected electrical discharge follows its actual posed release surface
+    // throughout recovery, just like breath follows the moving mouth.
+    const start=kind==='flame'||kind==='lightning'?this.muzzle(shot.source,shot.start||shot.source):record.origin,end=this.point(shot.target,this.targetHeight(shot.target));
     if(kind==='lightning'){
       animateZigzag(object,start,start.clone().lerp(end,Math.max(.08,p)),time,shot.id||0,motion);
     }else if(kind==='flame'){

@@ -22,6 +22,7 @@ function compile(names,bindings,prefix=''){return new Function(...Object.keys(bi
 function actionBoundary(game,header){
  const callbacks=new Map(),world={keys:new Set(),maze:{editing:false},doubleTap:{clear(){}}},dialog={open:false},document=header.document,noop=()=>{},app={addEventListener:(type,fn)=>callbacks.set(type,fn)};let renders=0,unlocks=0;
  const render=()=>{renders++;updateHeaderCombatControls(header.host,game);},bindings={game,world,document,app,render,$:id=>id==='dialog'?dialog:header.host,phaseUi:{apply(){}},updateHeaderCombatControls,sendWave:()=>game.startCombat(),audio:{unlock(){unlocks++;},syncGameState(){}},draftCardActivation:{clear(){}},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,debugPanel:noop};
+ bindings.tour={refresh(){}};
  const functions=compile(['combatTransport','mainAction','handleCommand'],bindings);
  const clickLine=source.split('\n').find(line=>line==="app.addEventListener('click',handleCommand);");assert.ok(clickLine);
  new Function('app','handleCommand',clickLine)(app,functions.handleCommand);

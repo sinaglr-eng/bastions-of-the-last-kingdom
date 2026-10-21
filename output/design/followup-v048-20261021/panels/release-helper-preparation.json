@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "createdAt": "2026-10-21T19:30:54.639Z",
+  "base": "dbb7ee84558a7f070c13b263b0c2830401a8cec0",
+  "snapshotFile": "tmp/v048-main-before.json",
+  "snapshotSha256": "901cb7da82ffdaa219f551bc828ee5e7a10a7732e78d4100289bc8e21eba8c38",
+  "baselineTrackedFiles": 4997,
+  "protectedSnapshotPaths": 4998,
+  "release": "0.4.8",
+  "expected": {
+    "uiRevision": "onboarding-hand-lightning-20261021-v9",
+    "vfxRevision": "hand-lightning-20261021-v2",
+    "performanceRevision": "ipad-render-input-20261019-v1"
+  },
+  "command": [
+    "C:\\Users\\sinag\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "--test",
+    "tests/public-verification-v048.test.mjs",
+    "tmp/test-v048-release-helpers.mjs"
+  ],
+  "tests": 34,
+  "exitCode": 0,
+  "preparedFiles": [
+    {
+      "file": "tmp/v048-release-guards.mjs",
+      "sha256": "ca6371285131d90ccb95f52861e90fbd9aa078c892f927abec5890626ffef935"
+    },
+    {
+      "file": "tmp/v048-source-go.example.json",
+      "sha256": "48138a117f9d78c70fbf7bb78dc5941aefadf64ead430f7bb67ed300d5e3b4d1"
+    },
+    {
+      "file": "tmp/freeze-v048-owned.mjs",
+      "sha256": "ff253f961b7dcac299dd4fe39c4bfeb8b8d3058cbd1d4fdc89fdf9cb238fc7f5"
+    },
+    {
+      "file": "tmp/generate-v048-main-document-merges.mjs",
+      "sha256": "661bfb6c7989d60895a5b136c84e4b87225a75ef440bf5ab63a7e3dad66d0376"
+    },
+    {
+      "file": "tmp/mirror-v048.mjs",
+      "sha256": "1b1c8b68da7b17a56d50cfa78f2ad480c9d8a09dc6aaeb6af2a37164892d62a7"
+    },
+    {
+      "file": "tmp/prepare-v048-stage-paths.mjs",
+      "sha256": "fa0079bf2db35f7dfd13a3ea251f89fb6834f7dcc703a4d76130c54766c3fe06"
+    },
+    {
+      "file": "tmp/stage-v048-reviewed.mjs",
+      "sha256": "32aa9d0e089d4bfacbca1104c6bbfac20b6ecb0bcc2c11414e3fb292f14a1852"
+    },
+    {
+      "file": "tmp/record-v048-delivery.mjs",
+      "sha256": "bc35b15f9e68b2afb986038ff8fcf540e9e80cbbf64ad48e5bf4ab48ae7d540f"
+    },
+    {
+      "file": "tmp/verify-v048-finish.mjs",
+      "sha256": "5047467dfc0e49f7b09a95267d5f97d6e4147eae1626ecc879cd4d22097283c1"
+    },
+    {
+      "file": "tmp/smoke-v048-public-checker.mjs",
+      "sha256": "b7726685fd9923aaded99075d7a6f4f146112c8d43e1a77a58de56fbc7de5d5d"
+    },
+    {
+      "file": "tmp/test-v048-release-helpers.mjs",
+      "sha256": "711b5071e82320a78fdf59e663ac5df2e7702bf724b1f68921c2ed91e574c71a"
+    },
+    {
+      "file": "tmp/v048-release-helper-contract.md",
+      "sha256": "f48799d11fbaf1e0e20fa966b230622ea847fca495a912d2808ebdb9b6596ffb"
+    },
+    {
+      "file": "tools/verify-v048-public.mjs",
+      "sha256": "2372f46347364c86f998c5b4013004e5a2080f738aa60e4c6048227251b098f3"
+    },
+    {
+      "file": "tests/public-verification-v048.test.mjs",
+      "sha256": "11c77f9695a426e4ac1bf121445366f4f623b06d88220ad37e189ee7b571237d"
+    }
+  ],
+  "sourcesUnchangedDuringTests": true,
+  "indexesUnchangedFromSnapshot": {
+    "source": "5200d8f105dbcc4b8f00c4a59483ec40106be687acd5d263b90fcd323d009b9c",
+    "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+  },
+  "absentControlAndOperationalFiles": [
+    "tmp/v048-source-go.json",
+    "tmp/v048-owned-frozen.json",
+    "tmp/v048-stage-paths.json",
+    "output/design/followup-v048-20261021/main-document-merge-proof.json",
+    "output/design/followup-v048-20261021/main-document-merge.patch",
+    "output/design/followup-v048-20261021/main-mirror-allowlist.json",
+    "output/design/followup-v048-20261021/main-mirror-dry-run.json",
+    "output/design/followup-v048-20261021/main-mirror-apply.json",
+    "output/design/followup-v048-20261021/final-delivery.json"
+  ],
+  "ownershipCaptured": false,
+  "mainWritten": false,
+  "indexWritten": false,
+  "mirrorExecuted": false,
+  "stageExecuted": false,
+  "localDistSmokeExecuted": false,
+  "publicNetworkVerifierExecuted": false,
+  "originalAssetPinsPreserved": true,
+  "approvalPreviewsAreRuntimeAssets": false,
+  "expectedPublicRequestsWithFiveCompiledFiles": 265,
+  "approvedModels": {
+    "count": 54,
+    "bytes": 387872104
+  },
+  "recoveryTagPreserved": {
+    "tag": "v0.4.7",
+    "commit": "1d204f459e19b547a254f47517a5429282d29803"
+  },
+  "limitations": [
+    "The injected publication fixture has two compiled files and262 GETs; the real production build is expected to have five compiled files and265 GETs.",
+    "The root must provide final tested/built proofs and an explicit reviewed source GO before ownership capture or any delivery operation."
+  ]
+}

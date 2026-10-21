@@ -148,11 +148,13 @@ export function animateApprovedEnemy(actor,enemy,time,{moving=true,reducedMotion
 const labels=node=>{const names=[node.name];for(let p=node;p;p=p.parent){if(p.userData?.name)names.push(p.userData.name);if(p.userData?.semanticPart)names.push(p.userData.semanticPart);}return names.join(' ').replace(/_/g,' ');};
 const ANCHOR_PARTS={mouth:/mandible|lower.*jaw|mouth|beak/i,nock:/bowstring|string.*nock|drawn.*string/i,
   staff:/staff|stave|scepter|sceptre|focus|lightning.*right.hand|Weapon.*(?:shaft|crystal|orb)/i,
+  hand:/(?:hand.*right|right.*hand).*(?:palm|cup|fingers)|right.*(?:palm|fist)/i,
   fist:/fist|right.*palm|hand.*right/i,eye:/eye.*(?:right|left)|luminous.*eye/i,
   weapon:/sword.*(?:blade|point)|spear.*point|lance.*point|arrow.*head|bolt.*head|barrel|cannon|bomb|loaded stone|staff|stave|weapon|hammer|mallet/i};
 function makeAnchor(c,kind){
   const candidates=[];c.source.updateWorldMatrix(true,true);
-  const pattern=c.entry.id==='mechanicalgolem'&&['weapon','staff','fist'].includes(kind)?/Dwarship.*RIGHT.*bomb.support.*palm/i:
+  const pattern=kind==='hand'&&['tempest','stormcitadel'].includes(c.entry.id)?/LEFT.casting.arm.hand/i:
+    c.entry.id==='mechanicalgolem'&&['weapon','staff','fist'].includes(kind)?/Dwarship.*RIGHT.*bomb.support.*palm/i:
     c.entry.id==='rangermentor'?/Nature.Spirit.*green.energy.core/i:ANCHOR_PARTS[kind];
   c.source.traverse(node=>{if(node.isMesh&&pattern.test(labels(node)))candidates.push(node);});
   if(!candidates.length&&kind!=='weapon')return makeAnchor(c,'weapon');

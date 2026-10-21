@@ -90,10 +90,10 @@ function productionTabCommands(view){
   return page=>{const button=view.app.querySelectorAll('[data-action="folio-tab"]').find(button=>button.dataset.page===page);assert.ok(button,page);handle({target:button});return button;};
 }
 
-test('native Potential combinations stays closed initially and preserves deliberate disclosure across folio moves and rank refreshes',()=>{
+test('native Potential combinations starts open and preserves deliberate disclosure across folio moves and rank refreshes',()=>{
   const game=recipeGame(),control=recipeGame(),view=mainFixture(game),tower=game.selection;
   const disclosure=()=>view.app.querySelector('[data-detail-key="potential-combinations"]');
-  assert.equal(disclosure().open,false);assert.equal(disclosure().parentNode.parentNode.id,'folio-recipes');
+  assert.equal(disclosure().open,true);assert.equal(disclosure().parentNode.parentNode.id,'folio-recipes');
   assert.equal(view.app.querySelector('.folio-recipe-detail'),null);
   const before=snapshot(game);
   disclosure().open=true;view.render();assert.equal(disclosure().open,true);

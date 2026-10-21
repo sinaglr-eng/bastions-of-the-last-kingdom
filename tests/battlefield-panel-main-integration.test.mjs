@@ -133,7 +133,7 @@ test('actual main keyboard and overlay-entry listeners prevent panel controls fr
   const keyboardLine=source.split('\n').find(line=>line.startsWith("window.addEventListener('keydown'"));assert.ok(keyboardLine);
   const document={activeElement:{tagName:'DIV',isContentEditable:false,closest:selector=>selector==='.battlefield-overlays'?panel:null}},window={addEventListener:(type,fn)=>callbacks.set(type,fn)};
   const transportApp={dataset:{}};
-  const {mainAction}=compile(['combatTransport','mainAction'],{game,$:()=>({open:false}),app:transportApp,phaseUi:new PhaseUiState(),updateHeaderCombatControls(){},audio:{syncGameState(){}},render:()=>renders++,sendWave:()=>{throw new Error('Combat cannot send another wave');}});
+  const {mainAction}=compile(['combatTransport','mainAction'],{game,tour:{refresh(){}},$:()=>({open:false}),app:transportApp,phaseUi:new PhaseUiState(),updateHeaderCombatControls(){},audio:{syncGameState(){}},render:()=>renders++,sendWave:()=>{throw new Error('Combat cannot send another wave');}});
   new Function('window','document','game','world','$','audio','mainAction',keyboardLine)(window,document,game,world,()=>({open:false}),{unlock:()=>unlocked++},mainAction);
   const keydown=callbacks.get('keydown');let prevented=0;
   for(const key of [' ','ArrowDown','ArrowLeft','q','e','1','Delete'])keydown({key,preventDefault(){prevented++;}});

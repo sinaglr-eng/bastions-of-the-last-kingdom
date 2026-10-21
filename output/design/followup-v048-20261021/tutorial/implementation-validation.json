@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "scope": "Tutorial and narrow main integration",
+  "release": "0.4.8",
+  "date": "2026-10-21",
+  "checkedAt": "2026-10-21T19:18:41.028Z",
+  "status": "pass",
+  "sourceCount": 11,
+  "sourceHashes": {
+    "game/main.js": "43ba4e55ec312c80cd82b460137856c52678e4969c08d87cf79f84077c807835",
+    "ui/tutorial.js": "94f6f2b1120d1b000c32acc3e1d172f15bbcb725453d4e836fa869d900b2fc60",
+    "ui/tutorial.css": "df5b2ffa1a12efee16fd604eda549977f9c4071f5f0ea75a6a43beb185568768",
+    "tests/tutorial-v040.test.mjs": "86070d54b87eb56671de7ca29f1fb44020dec646f45c2b02f53e43c27cb85e6a",
+    "tests/tutorial-main-v048.test.mjs": "5b36e805c900baec03961f417279c2ae62fd5dcb54ea3d5db6724ebe8ceda2d4",
+    "tests/context-guidance.test.mjs": "5bf8acc4f18637f501f0c55f7ea154b782e0cef1376d714514f2f161069e0bec",
+    "tests/header-combat-controls.test.mjs": "ffb239dd527be7568a30b3a8728da530bf910aa5dc1ac27194812ee00e544ec7",
+    "tests/command-pointer-input-v31.test.mjs": "6d1350263fee38fb3ea0328c1243910286b93d941a1f9d7ea2bab48b117aba62",
+    "tests/command-main-integration-v31.test.mjs": "0adf71b69cf2610ce5e3fd8716d7e03304f013152dbb82b6d5ffa1766c796874",
+    "tests/audio-main-dialog-music.test.mjs": "70221eb44ad111b813fb24b70af0ca143e65a5b48c4f1f5d56c4d75446b7bd4b",
+    "tests/battlefield-panel-main-integration.test.mjs": "7e98632992e0fda14bb87b0c133cbf5dc4b61b3ed586d01025e186dbd1507bc3"
+  },
+  "sourcesStableDuringTests": true,
+  "testCommand": "node --test tests/tutorial-main-v048.test.mjs tests/tutorial-v040.test.mjs tests/context-guidance.test.mjs tests/header-combat-controls.test.mjs tests/command-pointer-input-v31.test.mjs tests/command-main-integration-v31.test.mjs tests/audio-main-dialog-music.test.mjs tests/battlefield-panel-main-integration.test.mjs tests/phase-main-integration.test.mjs",
+  "testExitCode": 0,
+  "tests": 72,
+  "changes": [
+    "Every fresh ordinary run asks Start tutorial or Skip tutorial, regardless of any historical saved decision. Developer setup replacements do not inherit or repeat the choice.",
+    "Nonmodal nine-step guide observes real placements, legal keeper or merge, Start, Pause and Speed. Camera mouse/touch controls, Recipes and Enemy Waves are explained.",
+    "Escape skips the invitation; End tutorial or Escape ends the guide; Help can replay it. Reset, replacement and run end never record completion.",
+    "Replaying while blueprint editing displays a visible explanation and Return to blueprint, preserving all unsaved cells and editor history. Uncommitted Move is cancelled without CP or physical changes before replay.",
+    "Opening a modal book cannot satisfy the Pause step. Pausing and speed changes refresh the guide without a full gameplay UI render.",
+    "Touch-sized native buttons, keyboard isolation, visible focus return, internal scrolling and visual viewport bounds. Small-screen instructions use a default-collapsed native disclosure and compact task card above the usable grid; waiting Next is hidden. The Enemy Waves header now uses the panel agent’s warband SVG."
+  ],
+  "preservation": [
+    "No core combat, statistics, balance, progression, wave data or seeded-RNG implementation edits.",
+    "The tutorial never places a recruit, keeps or merges one, sets pause/speed or advances a clock automatically.",
+    "Historical tutorial decision remains recorded but never suppresses a fresh invitation."
+  ],
+  "nativeQa": {
+    "performed": false,
+    "note": "DOM boundary and actual Game tests are automated; native browser viewport and touch-device review belongs to the release QA."
+  }
+}

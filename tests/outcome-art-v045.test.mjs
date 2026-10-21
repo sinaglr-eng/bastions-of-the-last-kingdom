@@ -41,6 +41,18 @@ test('presentation sampling covers every scene, separates outcome pools and excl
   for(const choices of [lose,win])for(let i=1;i<choices.length;i++)assert.notEqual(choices[i].id,choices[i-1].id);
 });
 
+test('each presentation bag shows all approved scenes once and never repeats across cycle boundaries',()=>{
+  for(const value of [0,.4,.999,NaN,-3,9]){
+    const selector=createOutcomeArtSelector({random:()=>value}),sequences={won:[],lost:[]};
+    for(let i=0;i<30;i++)for(const phase of ['lost','won'])sequences[phase].push(selector({phase}).id);
+    for(const phase of ['lost','won']){
+      const ids=OUTCOME_ART_SCENES[phase].map(art=>art.id).sort(),sequence=sequences[phase];
+      for(let start=0;start<sequence.length;start+=ids.length)assert.deepEqual(sequence.slice(start,start+ids.length).sort(),ids,`${phase} cycle ${start/ids.length}`);
+      for(let i=1;i<sequence.length;i++)assert.notEqual(sequence[i],sequence[i-1],`${phase} consecutive results ${i}`);
+    }
+  }
+});
+
 test('reopening one ended run keeps the same scene and does not resample or access simulation RNG',()=>{
   let samples=0,rngReads=0;const events=new Set(),selector=createOutcomeArtSelector({random:()=>{samples++;return .7;}});
   const game=Object.freeze({phase:'lost',get rng(){rngReads++;throw Error('Presentation must not read Game.rng');},on:listener=>{events.add(listener);return ()=>events.delete(listener);}});

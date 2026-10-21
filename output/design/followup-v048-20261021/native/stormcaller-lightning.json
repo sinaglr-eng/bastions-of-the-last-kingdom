@@ -1,0 +1,39 @@
+{
+  "version": "0.4.8",
+  "fixture": "tmp/v048-lightning-stormcaller.json",
+  "method": "Native Developer Console import and Run wave, Pause at the first discharge; camera moved with real WASD and zoom controls.",
+  "metrics": {
+    "calls": 245,
+    "combatTime": 0.35670000000001173,
+    "corpses": 0,
+    "detailedVfx": 1,
+    "enemyModels": [
+      "host_35-wraith",
+      "host_36-wraith",
+      "host_34",
+      "host_35"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 353,
+    "medianMs": 17.600000023841858,
+    "p95Ms": 19.80000001192093,
+    "paused": true,
+    "pendingEnemies": 0,
+    "shaderPrograms": 44,
+    "speed": 1,
+    "statusBatches": 0,
+    "statusInstances": 0,
+    "statusTargets": [],
+    "textureBuffers": 152,
+    "triangles": 437297,
+    "visibleEnemies": 1,
+    "webglContext": {
+      "lastEvent": null,
+      "losses": 0,
+      "lost": false,
+      "restores": 0
+    }
+  },
+  "limitation": "Exact posed-palm equality is established separately by actual GLB regression tests; browser evidence is visual."
+}

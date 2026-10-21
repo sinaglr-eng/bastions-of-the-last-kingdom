@@ -3,13 +3,20 @@ import {enemyModel} from './models.js';
 import {ENEMY_RULES as R,enemyDisarmActive} from '../core/enemy-rules.js';
 import {prepareApprovedMotionTemplate,bindApprovedMotion,disposeApprovedMotion} from './approved-model-motion.js';
 
+// These combat variant names use the same approved solid source model. Only
+// the four explicitly authored spectral variants have separate GLB identities.
+const APPROVED_VISUAL_ALIASES=Object.freeze({
+  'host_31-ember':'host_31','host_35-ember':'host_35','host_36-ember':'host_36',
+  'host_50-tyrant':'host_50','host_50-devourer':'host_50',
+});
 export function enemyTemplateKey(enemy={}){
-  return typeof enemy.visualAsset==='string'&&enemy.visualAsset.startsWith('host_')?enemy.visualAsset:
+  return typeof enemy.visualAsset==='string'&&enemy.visualAsset.startsWith('host_')?(APPROVED_VISUAL_ALIASES[enemy.visualAsset]||enemy.visualAsset):
     typeof enemy.type==='string'?enemy.type:enemy.id;
 }
 
 export function enemyAssetKey(enemy,templates){
   if(enemy.visualAsset&&templates.has(enemy.visualAsset))return enemy.visualAsset;
+  const approved=enemyTemplateKey(enemy);if(templates.has(approved))return approved;
   const variant=`${enemy.type}-${enemy.model}`;
   return templates.has(variant)?variant:enemy.type;
 }

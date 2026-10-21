@@ -1,0 +1,106 @@
+{
+  "schema": "v048-retention-v2-validation-v1",
+  "status": "pass",
+  "createdAt": "2026-10-21T19:50:28.852Z",
+  "tests": 8,
+  "testExitCode": 0,
+  "command": [
+    "C:\\Users\\sinag\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "--test",
+    "tmp/test-v048-release-helpers.mjs"
+  ],
+  "receipt": {
+    "file": "output/design/followup-v048-20261021/main-concurrent-work-retention.json",
+    "sha256": "ea1c0a3cbc5f40fc55830fbd229f94d86ec1f72bde268a2652bf374afdf403ca",
+    "revision": 2,
+    "retainedMainSha256": "f7ae91c46edf906bf480364e3001bb4bfda8d987e5454f60f2df3b4f74321cf1"
+  },
+  "previousReceipt": {
+    "file": "output/design/followup-v048-20261021/main-concurrent-work-retention-v1.json",
+    "sha256": "f2393465652260e35ed3302fbf5a6ad1f18de0bbcd4401e3518266d0f6a4ff29",
+    "previousRetainedMainSha256": "21d36a21a6e269eb1f24cc8a07660e1381c7377b606c600e47eca4a38b9b5142"
+  },
+  "previousPassedAudit": {
+    "file": "output/design/followup-v048-20261021/preservation-before-retention-v2.json",
+    "sha256": "5168651b0ef49610971c05a15112677a883db2607aa4fc1fa4c8857868252427",
+    "retainedMainSha256": "21d36a21a6e269eb1f24cc8a07660e1381c7377b606c600e47eca4a38b9b5142"
+  },
+  "currentPassedAudit": {
+    "file": "output/design/followup-v048-20261021/preservation-audit.json",
+    "sha256": "38e84be25ce066f675bd5e917478e3fd07fd18d7a94e5b7afa50a8cc515f8026",
+    "baselineFiles": 4997,
+    "mainProtectedPaths": 4998,
+    "unownedIsoPaths": 4968
+  },
+  "preparedHelperHashes": [
+    {
+      "file": "tmp/v048-release-guards.mjs",
+      "sha256": "ed6a57b21346c4dc3ffa27005e32d2ddea7c7d9bb21f1cd6eb20fd5a5a445292"
+    },
+    {
+      "file": "tmp/v048-source-go.example.json",
+      "sha256": "48138a117f9d78c70fbf7bb78dc5941aefadf64ead430f7bb67ed300d5e3b4d1"
+    },
+    {
+      "file": "tmp/freeze-v048-owned.mjs",
+      "sha256": "ff253f961b7dcac299dd4fe39c4bfeb8b8d3058cbd1d4fdc89fdf9cb238fc7f5"
+    },
+    {
+      "file": "tmp/generate-v048-main-document-merges.mjs",
+      "sha256": "661bfb6c7989d60895a5b136c84e4b87225a75ef440bf5ab63a7e3dad66d0376"
+    },
+    {
+      "file": "tmp/mirror-v048.mjs",
+      "sha256": "1b1c8b68da7b17a56d50cfa78f2ad480c9d8a09dc6aaeb6af2a37164892d62a7"
+    },
+    {
+      "file": "tmp/prepare-v048-stage-paths.mjs",
+      "sha256": "fa0079bf2db35f7dfd13a3ea251f89fb6834f7dcc703a4d76130c54766c3fe06"
+    },
+    {
+      "file": "tmp/stage-v048-reviewed.mjs",
+      "sha256": "32aa9d0e089d4bfacbca1104c6bbfac20b6ecb0bcc2c11414e3fb292f14a1852"
+    },
+    {
+      "file": "tmp/record-v048-delivery.mjs",
+      "sha256": "bc35b15f9e68b2afb986038ff8fcf540e9e80cbbf64ad48e5bf4ab48ae7d540f"
+    },
+    {
+      "file": "tmp/verify-v048-finish.mjs",
+      "sha256": "5047467dfc0e49f7b09a95267d5f97d6e4147eae1626ecc879cd4d22097283c1"
+    },
+    {
+      "file": "tmp/smoke-v048-public-checker.mjs",
+      "sha256": "b7726685fd9923aaded99075d7a6f4f146112c8d43e1a77a58de56fbc7de5d5d"
+    },
+    {
+      "file": "tmp/test-v048-release-helpers.mjs",
+      "sha256": "44c15b7aaa967bc020a1c67efb505a3879d5f7551bb24c0118014f1eb02bb4ed"
+    },
+    {
+      "file": "tmp/v048-release-helper-contract.md",
+      "sha256": "33c7382a77eac022fe70da8179c893150c66a911b0af6c2b44ea5ac0c409529b"
+    },
+    {
+      "file": "tools/verify-v048-public.mjs",
+      "sha256": "2372f46347364c86f998c5b4013004e5a2080f738aa60e4c6048227251b098f3"
+    },
+    {
+      "file": "tests/public-verification-v048.test.mjs",
+      "sha256": "11c77f9695a426e4ac1bf121445366f4f623b06d88220ad37e189ee7b571237d"
+    }
+  ],
+  "helpersStableDuringTests": true,
+  "sourceGoUnchangedSha256": "34c4010bbfab69d45380095ccb419b45d3ff1763652d8ad2875fb388fa792c7b",
+  "rootSourceGoRetentionRefreshRequired": true,
+  "immutableSnapshotSha256": "901cb7da82ffdaa219f551bc828ee5e7a10a7732e78d4100289bc8e21eba8c38",
+  "indexes": {
+    "source": "5200d8f105dbcc4b8f00c4a59483ec40106be687acd5d263b90fcd323d009b9c",
+    "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+  },
+  "mainWritten": false,
+  "snapshotChanged": false,
+  "runtimeChanged": false,
+  "ownedFreezeExists": false,
+  "ownershipCaptured": false
+}

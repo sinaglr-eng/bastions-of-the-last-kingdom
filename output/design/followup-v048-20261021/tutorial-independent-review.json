@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-21T19:00:21.937Z",
+  "reviewer": "render_black_lightning048",
+  "mode": "read-only independent review",
+  "source": [
+    {
+      "file": "ui/tutorial.js",
+      "sha256": "5d4df85a587bf5d21c0098eb3fde2a6ba38002c35ceebac1ad547e9e8f507284"
+    },
+    {
+      "file": "ui/tutorial.css",
+      "sha256": "9c953cbcc37d432f55c160ab9bc8ef68633a6ff2a2e4391a5db6dcfa69b97ca6"
+    },
+    {
+      "file": "game/main.js",
+      "sha256": "d4bf6b2885240db7d51d2d1c29237e6245edc7d542637333556955933fefac22"
+    },
+    {
+      "file": "tests/tutorial-v040.test.mjs",
+      "sha256": "d5f7f42406b5e0a736bf09a304aa93acab6ab0a567e8a7c1cd1382c799fec229"
+    },
+    {
+      "file": "tests/tutorial-main-v048.test.mjs",
+      "sha256": "a244d99987392d26cca482996f372e290c2311db71f77baa4877fe5ffd9a1428"
+    }
+  ],
+  "checks": [
+    "Every ordinary startGame offers Start/Skip independently of historical decision; developer setup replacements do not receive it.",
+    "Native invitation Escape chooses Skip; active-guide Escape yields to an open native dialog.",
+    "Keyboard handler leaves Space/movement on the tutorial card and buttons; the nonmodal overlay does not intercept ordinary map taps.",
+    "A book modal temporarily hides coaching, so its temporary paused flag cannot advance the Pause step.",
+    "Completed wait steps observe real placements, keeper/merge, combat, pause and speed state without choosing outcomes or consuming RNG.",
+    "New game identity and ended run dismiss the old guide without recording completion."
+  ],
+  "findings": [
+    {
+      "priority": 2,
+      "file": "game/main.js",
+      "line": 162,
+      "status": "Resolved and independently rechecked: replay defers blueprint editing with an explicit focused Return to blueprint control; uncommitted Move cancels without spending CP or changing structures.",
+      "title": "Replay preserves a map mode that prevents the required tutorial actions",
+      "reproduction": "Open How to play while blueprint editing, then Replay tutorial. startTutorial starts the guide without ending or deferring the editor. At Place five recruits map taps still paint the plan; the disabled Next cannot advance. An active Move during a later build phase similarly intercepts placement taps.",
+      "observedMainFunctionExecution": [
+        {
+          "mode": "blueprint",
+          "tourStarted": true,
+          "editorStillActive": true,
+          "moveStillActive": false
+        },
+        {
+          "mode": "move",
+          "tourStarted": true,
+          "editorStillActive": false,
+          "moveStillActive": true
+        }
+      ],
+      "recommendation": "Preserve unsaved blueprint edits and defer/refuse replay with an explicit finish/cancel-editor explanation. Safely cancel Move before replay without spending CP."
+    }
+  ],
+  "limitations": [
+    "This is source and direct main-function review. Native responsive layout/real dialog-focus behavior still requires browser QA, especially clipped/offscreen folio targets and enlarged text."
+  ],
+  "recheck": {
+    "reviewedAt": "2026-10-21T19:29:45.182Z",
+    "mode": "Read-only compact layout and replay recheck",
+    "source": [
+      {
+        "file": "ui/tutorial.js",
+        "sha256": "94f6f2b1120d1b000c32acc3e1d172f15bbcb725453d4e836fa869d900b2fc60"
+      },
+      {
+        "file": "ui/tutorial.css",
+        "sha256": "df5b2ffa1a12efee16fd604eda549977f9c4071f5f0ea75a6a43beb185568768"
+      },
+      {
+        "file": "game/main.js",
+        "sha256": "43ba4e55ec312c80cd82b460137856c52678e4969c08d87cf79f84077c807835"
+      },
+      {
+        "file": "tests/tutorial-v040.test.mjs",
+        "sha256": "86070d54b87eb56671de7ca29f1fb44020dec646f45c2b02f53e43c27cb85e6a"
+      },
+      {
+        "file": "tests/tutorial-main-v048.test.mjs",
+        "sha256": "5b36e805c900baec03961f417279c2ae62fd5dcb54ea3d5db6724ebe8ceda2d4"
+      }
+    ],
+    "validation": {
+      "command": "node --test tests/tutorial-v040.test.mjs tests/tutorial-main-v048.test.mjs",
+      "tests": 16,
+      "pass": 16,
+      "fail": 0
+    },
+    "conclusion": "No material blocker found. Compact instructions collapse per new task, explicit expansion survives placement refresh, native details remains keyboard accessible, and waiting Next is hidden after focus capture. Card stays below actual transport controls. Native phone map coverage remains the deciding visual check.",
+    "nativeLightningFixtures": [
+      "tmp/v048-lightning-stormcaller.json",
+      "tmp/v048-lightning-archmage.json",
+      "tmp/v048-lightning-combined.json"
+    ],
+    "muzzleEvidenceLimit": "Existing canvas renderReview exposes effect/resource counts and context state, not actual muzzle coordinates. Exact first-vertex-to-posed-palm equality is proved by native-GLB regression tests; native screenshots check visible appearance."
+  }
+}

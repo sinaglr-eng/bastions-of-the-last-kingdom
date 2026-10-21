@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-21T18:59:33.906Z",
+  "baseCommit": "dbb7ee84558a7f070c13b263b0c2830401a8cec0",
+  "status": "pass",
+  "command": [
+    "C:\\Users\\sinag\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "--test",
+    "tests/pinned-recipe-completion-v048.test.mjs",
+    "tests/preparation-recipe-planning-v042.test.mjs",
+    "tests/run-results.test.mjs",
+    "tests/outcome-art-v045.test.mjs",
+    "tests/crafting-dock.test.mjs",
+    "tests/crafting-main-integration.test.mjs",
+    "tests/recipe-marker-input.test.mjs",
+    "tests/recipe-navigation-v30.test.mjs",
+    "tests/cartographer-layout-v040.test.mjs"
+  ],
+  "tests": 98,
+  "exitCode": 0,
+  "coreChangeIsExactlyConditionalPinClear": true,
+  "sourcesUnchangedDuringTests": true,
+  "sources": [
+    {
+      "file": "game/core/game.js",
+      "sha256": "be7ff4bc2a24642c165ebaf8ca9e7f875dbf143a54ba417128907ae3f0247e37"
+    },
+    {
+      "file": "ui/icons.js",
+      "sha256": "38ded09ef2c1b5399b2e8ebca8fcdbad8fa8b6f9c6375d84810948cc1d1d0cc8"
+    },
+    {
+      "file": "ui/outcome-art.js",
+      "sha256": "77f3eeff9476051fcc73f73610bcab378beb124adc4c043330c9e4342f63219a"
+    },
+    {
+      "file": "ui/preparation-folio.js",
+      "sha256": "fe8c9e41bb52c95b351b0da7e3c6500b02f1218e7fd54a7c1e2313449a0fdcae"
+    },
+    {
+      "file": "ui/run-results.js",
+      "sha256": "4c2ab16d10d894a12e1ab2f33b296f759575ad208283e297eb5d39b6907a2f0d"
+    },
+    {
+      "file": "tests/outcome-art-v045.test.mjs",
+      "sha256": "8b3ab363c8e1c7f4be2cb453e34eefd482c5512bd0923eb28859a5c2625c8541"
+    },
+    {
+      "file": "tests/preparation-recipe-planning-v042.test.mjs",
+      "sha256": "4d1d9307d4e1eb22e1ca3b9b4d7e432e06ef638e1b56369cc3ef45dc97c936ee"
+    },
+    {
+      "file": "tests/run-results.test.mjs",
+      "sha256": "e1e9a8a9eecc4fc4898a10d431795624dc4b4ad2cc5bab05c860f6ca0d9dc527"
+    },
+    {
+      "file": "tests/pinned-recipe-completion-v048.test.mjs",
+      "sha256": "f3d67d1265e3aed3627b3af245c61c6b6805e821b791b55278f8f1314fd040d9"
+    },
+    {
+      "file": "tests/cartographer-layout-v040.test.mjs",
+      "sha256": "9b099cd09b708b6702a6d3d2de349ae6d0c495f47ff829f0a3106e59f2e6b6cf"
+    }
+  ],
+  "coverage": [
+    "All 38 campaign recipes clear only their own matching pin before each emitted refresh.",
+    "Direct and guarded dock crafting, retained-only completion, stale identity, missing ingredients, unrelated component goals and deliberate re-pinning.",
+    "Default-open potential combinations with independent recipe expansion; open normal result scores with name form before Top 10.",
+    "Thirty results per outcome at six presentation random values exhaust each approved three-scene pool without repeats, including cycle boundaries.",
+    "Stable repeated result review, Sandbox retry and unchanged seeded simulation RNG."
+  ],
+  "approvedRuntimeArtPoolUnchanged": {
+    "defeatScenes": 3,
+    "victoryScenes": 3,
+    "newApprovalImagesIncluded": false
+  },
+  "limitations": [
+    "Native browser layout and header icon call integration are delegated to the root and tutorial agent.",
+    "No real score submission or live backend mutation was performed."
+  ]
+}

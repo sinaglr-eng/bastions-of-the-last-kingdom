@@ -16,7 +16,7 @@ export const OUTCOME_ART_SCENES=Object.freeze({
 });
 
 export function createOutcomeArtSelector({random=()=>Math.random()}={}){
-  const attempts=new WeakMap(),previous={won:null,lost:null};
+  const attempts=new WeakMap(),previous={won:null,lost:null},remaining={won:[],lost:[]};
   return game=>{
     if(!game||typeof game!=='object')return null;
     let attempt=attempts.get(game);
@@ -32,9 +32,12 @@ export function createOutcomeArtSelector({random=()=>Math.random()}={}){
       game.on?.(type=>{if(type==='wave')attempt.scene=null;});
     }
     if(attempt.scene?.outcome===game.phase)return attempt.scene;
-    const choices=OUTCOME_ART_SCENES[game.phase].filter(art=>art.id!==previous[game.phase]);
+    // Draw without replacement so every approved scene appears before the next
+    // cycle. Keep the cycle boundary from repeating the preceding result too.
+    const bag=remaining[game.phase];if(!bag.length)bag.push(...OUTCOME_ART_SCENES[game.phase]);
+    const choices=bag.length>1?bag.filter(art=>art.id!==previous[game.phase]):bag;
     const sample=Number(random()),index=Number.isFinite(sample)?Math.min(choices.length-1,Math.max(0,Math.floor(sample*choices.length))):0;
-    attempt.scene=choices[index];previous[game.phase]=attempt.scene.id;
+    attempt.scene=choices[index];bag.splice(bag.indexOf(attempt.scene),1);previous[game.phase]=attempt.scene.id;
     return attempt.scene;
   };
 }

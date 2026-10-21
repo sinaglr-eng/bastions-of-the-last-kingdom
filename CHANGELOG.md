@@ -1,5 +1,13 @@
 # Releases
 
+## 0.4.8 — Guided starts and hand-cast lightning — 21 October 2026
+
+**Deployment pending.** Adds a Start/Skip choice to every fresh run and a nine-step tutorial driven by real actions. Compact phone coaching, optional native instructions and hidden waiting Next controls preserve access to the map, recruits and Keep. Replay preserves unsaved blueprint work and safely cancels uncommitted Move. Potential combinations and normal Online scores start open; the name form remains above Top 10. Successful crafting clears only its matching pin before observers refresh. Enemy Waves gains an invader icon.
+
+Resolves late-wave approved visual aliases and retains borrowed enemy templates/textures for live figures, corpses and the camp preview. The fully black report is not reproduced in desktop Chromium; physical iPad/Safari remains unverified. Stormcaller, Elven Mage and Elven Archmage use lightning connected to their moving hands. Existing approved outcome scenes rotate without replacement, stable per attempt. Ten additional defeat candidates await approval outside the runtime pool.
+
+All **1,738 local tests** and the **213-module** build pass; native phone/tablet walkthroughs complete placement, Keep, Start, Pause/Speed and Finish after correcting an initial phone map-coverage blocker. Original media, PBR materials, historical scores, balance, clocks and seeded simulation remain protected; the sole core change is matching-pin removal after successful crafting. [The follow-up report](docs/FOLLOWUP_V048_20261021.md) records focused/full evidence and the remaining publication gates.
+
 ## 0.4.7 — Responsive controls and lighter rendering — 19 October 2026
 
 Makes Pause/Resume and the fixed 1× → 2× → 3× → 5× speed cycle immediate, without full UI rebuilds, and suppresses touch compatibility clicks that advertise themselves as mouse. Keeps cancellation, drag, multi-touch, stale-command, real mouse, keyboard and assistive activation guards. Mystery cards share one surface, keep the outlined recruit clear of naturally wrapped instructions, and omit visible ordinal badges while preserving accessible numbers and shortcuts.

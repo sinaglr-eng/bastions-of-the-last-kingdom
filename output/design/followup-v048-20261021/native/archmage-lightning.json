@@ -1,0 +1,60 @@
+{
+  "version": "0.4.8",
+  "fixture": "tmp/v048-lightning-archmage.json",
+  "actualWave": 34,
+  "method": "Native Developer Console Reset test then Import JSON; explicitly select Wave34, Run wave and Pause at first discharge; native WASD/zoom for camera.",
+  "metrics": {
+    "calls": 686,
+    "combatTime": 0.33759999999997675,
+    "corpses": 0,
+    "detailedVfx": 1,
+    "enemyModels": [
+      "host_01",
+      "host_34",
+      "host_35-wraith",
+      "host_35"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 728,
+    "medianMs": 17.69999998807907,
+    "p95Ms": 21.19999998807907,
+    "paused": true,
+    "pendingEnemies": 0,
+    "shaderPrograms": 33,
+    "speed": 1,
+    "statusBatches": 0,
+    "statusInstances": 0,
+    "statusTargets": [],
+    "textureBuffers": 116,
+    "triangles": 450731,
+    "visibleEnemies": 1,
+    "webglContext": {
+      "lastEvent": null,
+      "losses": 0,
+      "lost": false,
+      "restores": 0
+    }
+  },
+  "limitation": "Actual-GLB regression tests prove exact posed-palm equality. Native screenshot verifies a beam visually, not numeric emitter coordinates.",
+  "logs": [
+    {
+      "level": "warn",
+      "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+      "timestamp": "2026-10-21T19:28:11.083Z",
+      "url": "http://127.0.0.1:5200/bastions-of-the-last-kingdom/assets/game-BLghAue5.js"
+    },
+    {
+      "level": "warn",
+      "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+      "timestamp": "2026-10-21T19:30:51.784Z",
+      "url": "http://127.0.0.1:5200/bastions-of-the-last-kingdom/assets/game-BLghAue5.js"
+    },
+    {
+      "level": "warn",
+      "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+      "timestamp": "2026-10-21T19:32:53.892Z",
+      "url": "http://127.0.0.1:5200/bastions-of-the-last-kingdom/assets/game-BLghAue5.js"
+    }
+  ]
+}

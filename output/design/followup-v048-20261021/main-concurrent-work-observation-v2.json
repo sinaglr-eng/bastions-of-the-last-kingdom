@@ -1,0 +1,48 @@
+{
+  "schema": "v048-main-concurrency-observation-v2",
+  "status": "root-reviewed-retention-only",
+  "createdAt": "2026-10-21T19:48:27.726Z",
+  "revision": 2,
+  "file": "GAME_DESIGN.md",
+  "absolute": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/GAME_DESIGN.md",
+  "modifiedAt": "2026-10-21T19:45:37.831Z",
+  "snapshotFile": "tmp/v048-main-before.json",
+  "snapshotSha256": "901cb7da82ffdaa219f551bc828ee5e7a10a7732e78d4100289bc8e21eba8c38",
+  "originalMainSha256": "7e616c04944ac2ea0778c2db27115e0ec23006d8e28c7df545546dbabd4b332b",
+  "previousRetainedMainSha256": "21d36a21a6e269eb1f24cc8a07660e1381c7377b606c600e47eca4a38b9b5142",
+  "observedMainSha256": "f7ae91c46edf906bf480364e3001bb4bfda8d987e5454f60f2df3b4f74321cf1",
+  "reconstruction": {
+    "removeNewestSectionSha256": "21d36a21a6e269eb1f24cc8a07660e1381c7377b606c600e47eca4a38b9b5142",
+    "matchesPreviousRetainedBytes": true,
+    "removeBothSectionsSha256": "7e616c04944ac2ea0778c2db27115e0ec23006d8e28c7df545546dbabd4b332b",
+    "matchesImmutableOriginalBytes": true,
+    "method": "Remove exactly the two inserted atlas sections in memory; never write a reconstructed document to disk."
+  },
+  "sections": [
+    {
+      "heading": "## Race atlas V2 — Human, Dwarves, Elves and Celestial — 21 October 2026",
+      "text": "## Race atlas V2 — Human, Dwarves, Elves and Celestial — 21 October 2026\n\nThe [private gallery](https://bastions-faction-atlas-20261021.sinagl-r.chatgpt.site) now follows the [race-specific V2 proposal](docs/FACTION_RACES_V2_20261021.md): original Human renamed only, Physical-led Dwarves, Magical-led Elves and Holy-only Celestial. Every faction retains 8 basic families, 37 ordinary champions and the unchanged shared Lady Claire. The three new races have **135 new simple geometric front concepts**, complete named rosters, quantified abilities, attack effects and finite immunity-suppression proposals for Dwarves/Elves. This supersedes the first equal-class faction proposal below. **Gallery revision only; new race gameplay and art remain proposed, not approved or implemented.** Physical iPad testing and faction campaign simulations remain outstanding.\n\n",
+      "sha256": "ecf8124b4df1a1da213cae69b8b4e89780fd0912499d82edc63bbf32d0845e1b"
+    },
+    {
+      "heading": "## Defender and faction design atlas — 21 October 2026",
+      "text": "## Defender and faction design atlas — 21 October 2026\n\nThe [private hosted atlas](https://bastions-faction-atlas-20261021.sinagl-r.chatgpt.site) presents all current working-runtime 0.4.7 recipes/properties and three proposed factions alongside the original army. Every faction retains eight basic families, 37 ordinary champion slots and the same Lady Claire. Eighteen unused triples are proposed as six alternative recipes per new faction, yielding 44 paths to the same 38 champion outputs. [The handoff](docs/FACTION_ATLAS_20261021.md) records complete rosters, exact effect proposals, source illustrations, recipe-space analysis and browser/device verification limits. **Gallery published privately; faction gameplay designs proposed, not approved or implemented.** No production game, gameplay source or approved artwork was changed.\n\n",
+      "sha256": "5b0ff7d3f991aba9b176f89ed0864210af4164ad2020af219b44943f18909319"
+    }
+  ],
+  "previousReceipt": {
+    "file": "output/design/followup-v048-20261021/main-concurrent-work-retention-v1.json",
+    "sha256": "f2393465652260e35ed3302fbf5a6ad1f18de0bbcd4401e3518266d0f6a4ff29"
+  },
+  "previousObservation": {
+    "file": "output/design/followup-v048-20261021/main-concurrent-work-observation.json",
+    "sha256": "4d512b0319d979a2ac8fec9fbe2e79a7ace3cc341e43cda2b14f60655ab6ce4a"
+  },
+  "previousAudit": {
+    "file": "output/design/followup-v048-20261021/preservation-before-retention-v2.json",
+    "sha256": "5168651b0ef49610971c05a15112677a883db2607aa4fc1fa4c8857868252427"
+  },
+  "mainWritten": false,
+  "snapshotChanged": false,
+  "ownedPayloadAuthorized": false
+}

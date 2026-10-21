@@ -1,0 +1,28 @@
+{
+  "schema": "v048-main-concurrency-observation-v1",
+  "status": "observed-not-authorized",
+  "createdAt": "2026-10-21T19:23:23.537Z",
+  "file": "GAME_DESIGN.md",
+  "absolute": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/GAME_DESIGN.md",
+  "modifiedAt": "2026-10-21T18:53:33.269Z",
+  "snapshotFile": "tmp/v048-main-before.json",
+  "snapshotSha256": "901cb7da82ffdaa219f551bc828ee5e7a10a7732e78d4100289bc8e21eba8c38",
+  "originalMainSha256": "7e616c04944ac2ea0778c2db27115e0ec23006d8e28c7df545546dbabd4b332b",
+  "observedMainSha256": "21d36a21a6e269eb1f24cc8a07660e1381c7377b606c600e47eca4a38b9b5142",
+  "originalContentReconstruction": {
+    "method": "Remove only the single inserted English atlas section in memory; no filesystem file is modified.",
+    "sha256": "7e616c04944ac2ea0778c2db27115e0ec23006d8e28c7df545546dbabd4b332b",
+    "matchesOriginalSnapshot": true
+  },
+  "insertedSection": "## Defender and faction design atlas — 21 October 2026\n\nThe [private hosted atlas](https://bastions-faction-atlas-20261021.sinagl-r.chatgpt.site) presents all current working-runtime 0.4.7 recipes/properties and three proposed factions alongside the original army. Every faction retains eight basic families, 37 ordinary champion slots and the same Lady Claire. Eighteen unused triples are proposed as six alternative recipes per new faction, yielding 44 paths to the same 38 champion outputs. [The handoff](docs/FACTION_ATLAS_20261021.md) records complete rosters, exact effect proposals, source illustrations, recipe-space analysis and browser/device verification limits. **Gallery published privately; faction gameplay designs proposed, not approved or implemented.** No production game, gameplay source or approved artwork was changed.\n\n",
+  "insertedSectionSha256": "5b0ff7d3f991aba9b176f89ed0864210af4164ad2020af219b44943f18909319",
+  "allOtherCapturedMainPathsMatched": true,
+  "originalPreflight": {
+    "file": "output/design/followup-v048-20261021/preservation-preflight-before-concurrent-retention.json",
+    "sha256": "225a46aba478dc440078bb126519750af93db76be05f3b94d993fed46f9515cf"
+  },
+  "authorization": false,
+  "mainWritten": false,
+  "baselineChanged": false,
+  "rootDecisionRequired": "A separately explicit root-reviewed one-path retention guard can protect this concurrent MAIN work without adding it to release ownership. The immutable snapshot remains unchanged."
+}

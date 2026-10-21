@@ -1,0 +1,27 @@
+{
+  "schema": "v048-main-retention-go-v1",
+  "status": "approved-retention-only",
+  "reviewedBy": "root",
+  "release": "0.4.8",
+  "base": "dbb7ee84558a7f070c13b263b0c2830401a8cec0",
+  "createdAt": "2026-10-21T19:27:14.923Z",
+  "snapshotFile": "tmp/v048-main-before.json",
+  "snapshotSha256": "901cb7da82ffdaa219f551bc828ee5e7a10a7732e78d4100289bc8e21eba8c38",
+  "payloadAuthorized": false,
+  "authorization": "Root explicitly instructed preservation of this exact concurrent MAIN atlas insertion, retaining unrelated user work outside the release payload. This authorizes no MAIN write, baseline change, ownership or publication of GAME_DESIGN.md.",
+  "observation": {
+    "file": "output/design/followup-v048-20261021/main-concurrent-work-observation.json",
+    "sha256": "4d512b0319d979a2ac8fec9fbe2e79a7ace3cc341e43cda2b14f60655ab6ce4a"
+  },
+  "entries": [
+    {
+      "file": "GAME_DESIGN.md",
+      "originalMainSha256": "7e616c04944ac2ea0778c2db27115e0ec23006d8e28c7df545546dbabd4b332b",
+      "retainedMainSha256": "21d36a21a6e269eb1f24cc8a07660e1381c7377b606c600e47eca4a38b9b5142",
+      "includeInOwnedPayload": false,
+      "publishSource": false
+    }
+  ],
+  "mainWritten": false,
+  "originalSnapshotChanged": false
+}

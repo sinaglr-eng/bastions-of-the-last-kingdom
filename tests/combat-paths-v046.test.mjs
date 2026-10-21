@@ -28,8 +28,9 @@ test('detailed capacity preserves a lightweight path for each real overflow shot
   fx.clear();assert.equal(fx.paths.records.length,0);fx.dispose();
 });
 
-test('approved family vocabulary does not turn caster fans into lightning or Elven King into a bomb',()=>{
-  for(const family of ['tempest','stormcitadel','royalarsenal'])assert.equal(attackVisualKind(family,{unitKind:'siege'}),'arcane');
+test('caster lightning and the Elven King keep their requested visual mechanisms independently of siege classification',()=>{
+  for(const family of ['tempest','stormcitadel'])assert.equal(attackVisualKind(family,{unitKind:'siege'}),'lightning');
+  assert.equal(attackVisualKind('royalarsenal',{unitKind:'siege'}),'arcane');
   const fx=new CombatEffects(new THREE.Scene());
   for(let tier=1;tier<=6;tier++){const shot={id:tier,source:{id:tier,family:'soldier',tier,x:0,z:0},target:{id:20,x:1,z:1},stats:{melee:true,type:'physical'},progress:.5};assert.equal(fx.shot(shot).kind,'thrust');}
   fx.dispose();

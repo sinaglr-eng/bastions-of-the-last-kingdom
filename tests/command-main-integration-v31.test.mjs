@@ -75,6 +75,7 @@ function fixture(){
     draftCardActivation:{clear:noop},draftPointerInput:{click:noop},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,cancelRecipePreview:noop,debugPanel:noop,render,
     $:id=>nodes.get(id)||null,panelDetails:new Map(),stampCraftButtons:noop,combatPanel:()=>'<p>Actual combat panel boundary</p>',tutorial:()=>'<p>Construction boundary</p>',
     resultFacts:{event:noop},guidance:{event:noop},profile,statistics:{tracker:{id:'listener-fixture',version:'0.3.31'}},saveProfile:noop,recordRunResult:noop,showResult:noop,notice:noop,towers:data.towers,balance:data.balance};
+  bindings.tour={refresh:noop};
   const subscriber=main.split('\n').find(line=>line.trimStart().startsWith('game.on((type,payload)=>{'));assert.ok(subscriber,'Actual main subscriber exists');
   const keyboard=main.split('\n').find(line=>line.startsWith("window.addEventListener('keydown',e=>{if(e.key==='Escape'"));assert.ok(keyboard,'Actual keyboard listener exists');
   const commands=between('function handleCommand(','function commandPointerIdentity(');

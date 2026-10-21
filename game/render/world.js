@@ -16,13 +16,14 @@ import {createEnemyAura,animateEnemyAura} from './enemy-aura.js';
 import {beginDeath,animateDeath,siegeRig,animateSiege,attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from './battle-animation.js';
 import {CombatEffects} from './combat-effects.js';
 import {CombatStatusVfx} from './combat-status-vfx.js';
-import {EnemyModelLoader,neededEnemyModelKeys} from './enemy-model-loader.js';
+import {EnemyModelLoader,neededEnemyModelKeys,retainedEnemyModelKeys} from './enemy-model-loader.js';
 import {CriticalHitLabels} from './critical-hit-labels.js';
 import {EnemyAbilityEffects} from './geometric-enemy-effects.js';
 import {EnemyConcealmentEffects} from './enemy-concealment-effects.js';
 import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS,takeCheckpointEffects,animateCheckpointEffects,disposeCheckpointEffects} from './checkpoint-marker.js';
 import {fetchGeometricEntries,geometricEntryUrl} from './geometric-assets.js';
 import {disposeGeometricResources} from './geometric-resources.js';
+import {observeWebGLContext} from './webgl-diagnostics.js';
 import {SupportEffects} from './support-effects.js';
 import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,pointedTower,defenderLoadingTemplate} from './defender-assets.js';
 import {applyDefenderClassificationScale} from './defender-classification-scale.js';
@@ -57,7 +58,9 @@ export class Battlefield {
       load:entry=>enemyGLTF.loadAsync(geometricEntryUrl(entry)),
       install:(entry,asset)=>{asset.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});return installEnemyTemplate(this,entry,asset.scene);},
       release:(key,asset)=>{if(this.enemyTemplates.get(key)===asset.scene)this.enemyTemplates.delete(key);disposeGeometricResources(asset.scene);},
-      protectedKeys:()=>new Set([...neededEnemyModelKeys(this.game),...[...this.corpses.values()].map(f=>f.userData.assetKey)]),
+      // Protect every actual borrower, including the last rendered frame and
+      // the camp preview, until its private actor has been removed/disposed.
+      protectedKeys:()=>retainedEnemyModelKeys(this.game,{figures:this.enemies.values(),corpses:this.corpses.values(),preview:this.campPreview}),
       onFailure:(entry,error)=>console.warn(`Enemy model could not load: ${entry.file}`,error),
     });
     this.defenderRecoveryAt=0;this.defenderManifestRetryAt=Infinity;this.defenderManifestAttempts=0;
@@ -80,6 +83,7 @@ export class Battlefield {
     this.defenderPauseMarkers=new DefenderPauseMarkers(container,{name:tower=>this.game.data.towers[tower.family]?.name||`Defender #${tower.id}`});
     this.camera=new THREE.PerspectiveCamera(38,1,0.1,210);this.camera.position.set(7,53,41);
     this.renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.18;container.append(this.renderer.domElement);
+    this.webglDiagnostics=observeWebGLContext(this.renderer.domElement);
     this.renderer.domElement.setAttribute('aria-label','3D battlefield. Tap to place or select; drag one finger to pan; use two fingers to rotate or pinch to zoom.');this.renderer.domElement.tabIndex=0;
     this.defenderLoadingStatus=document.createElement('div');this.defenderLoadingStatus.className='defender-loading-status';this.defenderLoadingStatus.hidden=true;
     this.defenderLoadingLabel=document.createElement('span');this.defenderLoadingLabel.setAttribute('role','status');this.defenderLoadingLabel.setAttribute('aria-live','polite');
@@ -448,11 +452,12 @@ export class Battlefield {
       const stamp=performance.now();this.reviewFrames??=[];
       if(this.reviewFrameAt)this.reviewFrames.push(stamp-this.reviewFrameAt);this.reviewFrameAt=stamp;if(this.reviewFrames.length>120)this.reviewFrames.shift();
       const sorted=[...this.reviewFrames].sort((a,b)=>a-b),percentile=p=>sorted[Math.min(sorted.length-1,Math.floor(sorted.length*p))]||0;
-      this.renderer.domElement.dataset.renderReview=JSON.stringify({frames:sorted.length,medianMs:percentile(.5),p95Ms:percentile(.95),calls:this.renderer.info.render.calls,triangles:this.renderer.info.render.triangles,geometryBuffers:this.renderer.info.memory.geometries,enemyModels:[...this.enemyTemplates.keys()],pendingEnemies:this.enemyLoader.pending.size,visibleEnemies:[...this.enemies.values()].filter(e=>e.visible).length,corpses:this.corpses.size,detailedVfx:this.combatEffects.effects.length+this.combatEffects.projectiles.size,fallbackPaths:this.combatEffects.paths.records.length,statusInstances:this.combatStatusVfx.count,statusBatches:[...this.combatStatusVfx.batches].filter(([,b])=>b.count).length,statusTargets:[...this.combatStatusVfx.targets.values()],combatTime:this.motionTime,paused:this.game.paused,speed:this.game.speed});
+      this.renderer.domElement.dataset.renderReview=JSON.stringify({frames:sorted.length,medianMs:percentile(.5),p95Ms:percentile(.95),calls:this.renderer.info.render.calls,triangles:this.renderer.info.render.triangles,geometryBuffers:this.renderer.info.memory.geometries,textureBuffers:this.renderer.info.memory.textures,shaderPrograms:this.renderer.info.programs?.length||0,webglContext:this.webglDiagnostics.snapshot(),enemyModels:[...this.enemyTemplates.keys()],pendingEnemies:this.enemyLoader.pending.size,visibleEnemies:[...this.enemies.values()].filter(e=>e.visible).length,corpses:this.corpses.size,detailedVfx:this.combatEffects.effects.length+this.combatEffects.projectiles.size,fallbackPaths:this.combatEffects.paths.records.length,statusInstances:this.combatStatusVfx.count,statusBatches:[...this.combatStatusVfx.batches].filter(([,b])=>b.count).length,statusTargets:[...this.combatStatusVfx.targets.values()],combatTime:this.motionTime,paused:this.game.paused,speed:this.game.speed});
     }
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}
   dispose(){
+    this.webglDiagnostics?.dispose();
     this.defenderPauseMarkers?.dispose();
     this.mvpAwards?.dispose();
     this.criticalHitLabels?.dispose();

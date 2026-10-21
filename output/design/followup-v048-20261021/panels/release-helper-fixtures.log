@@ -1,0 +1,42 @@
+✔ 0.4.8 UI component verifies all historical assets, both 0.4.4 outcomes, four new variants and exact build with credential-free GETs (172.602ms)
+✔ release metadata mismatch stops verification before any bulk assets or compiled requests (29.0544ms)
+✔ 0.4.8 requires its exact UI, hand-lightning VFX and performance revisions before requesting immutable assets (134.8924ms)
+✔ LF, CRLF and Vite CRCRLF boundaries preserve JSON records and HTML while other HTML differences remain rejected (546.5451ms)
+✔ exact local bundle comparison detects a stale compiled response even if all required UI markers still exist (125.6965ms)
+✔ compiled portrait templates need the exact namespace identities even when revisions and all local/public bytes still match (250.7464ms)
+✔ crimson portrait corruption fails independently of the unchanged original 136 portraits (124.4811ms)
+✔ missing final local build and changed immutable manifest are rejected before network requests (46.5847ms)
+✔ invalid local FRONT view, source, RGB, alpha, identity, trim or historical metadata fails before any request (297.0069ms)
+✔ a changed public FRONT manifest cannot silently replace the locally verified crop metadata (32.7154ms)
+✔ FRONT PNG corruption and a non-RGBA header fail independently of every historical portrait and defeat art (246.4331ms)
+✔ changed defeat prompt/provenance is rejected and invalid local asset identity fails before requests (49.4486ms)
+✔ defeat PNG corruption is rejected after the unchanged original, crimson and 50 FRONT portraits pass (118.2396ms)
+✔ both approved outcome identities retain complete prompts, generation settings, dimensions and all ordered input reference hashes before any GET (348.0756ms)
+✔ a public outcome provenance change cannot replace an approved prompt or input reference despite unchanged artwork (55.7591ms)
+✔ missing or corrupted new outcome PNGs and wrong dimensions fail independently of every historical image and the other outcome (585.7573ms)
+✔ compiled outcome path and both-result presentation markers remain necessary with exact public/local bytes and valid artwork (1217.1859ms)
+✔ new variant prompts, reference identities, historical pool and selection provenance are immutable before any request (451.0959ms)
+✔ changed public variant provenance stops before assets while the original outcome manifest stays independently protected (60.7567ms)
+✔ all four new variant PNGs reject missing files, corrupted bytes and wrong geometry independently of historical assets (1014.7939ms)
+✔ geometric local manifest identity, motion and approval provenance mutations fail before any GET (36.3137ms)
+✔ geometric metadata permits formatting line endings while retaining every approved value (13.4665ms)
+✔ changed public geometric manifests or approval records stop before large GLB transfers (17.7932ms)
+✔ streaming GLB verification rejects missing, malformed, corrupt and oversized approved models and stops the bulk transfer (46.4193ms)
+✔ full publication verifier retains all historical checks and streams all 54 exact approved models sequentially (794.6712ms)
+✔ aggregate verification rejects invalid local authority or a stale release before requesting geometry (46.4288ms)
+✔ 048 authority is the existing protected snapshot and one cached immutable-base inventory (40.6269ms)
+✔ GO rejects approval placeholders, duplicate/unsafe ownership, other trees and original asset edits (3.726ms)
+✔ root retention authorizes exactly the reviewed concurrent path and rejects unlisted or nonmatching records (12.128ms)
+✔ retained concurrent content must match its exact root-reviewed hash and cannot be treated as release ownership (2.4976ms)
+✔ exactly six direct operational receipt paths are exempt after the final follow-up (0.124ms)
+✔ dry-run destination logic preserves differing new files, changed MAIN work and unreviewed document changes (0.2343ms)
+✔ prepared CLIs parse without executing mutations and missing GO fails before ownership capture (294.6899ms)
+✔ guard fixtures leave MAIN, control files and both Git indexes unchanged (44.5397ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6944.8545

@@ -1,1 +1,33 @@
-.tutorial-layer[hidden]{display:none}.tutorial-layer{position:fixed;inset:0;z-index:35;pointer-events:none}.tutorial-highlight{position:fixed;border:2px solid #e7c57d;border-radius:6px;box-shadow:0 0 0 5px #e7c57d28,0 0 28px #e7c57d35;pointer-events:none}.tutorial-card{position:fixed;width:min(360px,calc(100vw - 24px));padding:21px;background:#172b2af5;border:1px solid #bda165;border-radius:8px;box-shadow:0 12px 48px #0008;pointer-events:auto}.tutorial-progress{font-size:11px;letter-spacing:1.2px;color:#d9b977}.tutorial-card h2{font-size:24px;margin:10px 0}.tutorial-card p{font-size:14px;line-height:1.6;color:#c3cebe}.tutorial-card nav{display:flex;align-items:center;gap:8px;margin-top:18px}.tutorial-card nav button{min-height:42px;padding:8px 11px;font-size:12px}.tutorial-card nav button:first-child{margin-right:auto}.tutorial-welcome{max-width:520px;margin:0 auto;padding:30px}.tutorial-welcome h2{font-size:32px}.tutorial-welcome p{line-height:1.6;color:#aebdac}.tutorial-welcome .actions{flex-direction:row;gap:12px}.tutorial-welcome button{min-height:44px}.tutorial-card:focus-within{outline:1px solid #e7c57d}@media(max-width:580px){.tutorial-card{padding:16px}.tutorial-card h2{font-size:21px}.tutorial-card p{font-size:13px}.tutorial-welcome{padding:22px}.tutorial-welcome .actions{flex-direction:column}}@media(prefers-reduced-motion:reduce){.tutorial-highlight{transition:none}}
+.tutorial-layer[hidden],body:has(dialog[open])>.tutorial-layer{display:none}
+.tutorial-layer{position:fixed;inset:0;z-index:35;pointer-events:none}
+.tutorial-highlight{position:fixed;border:2px solid #177d97;border-radius:4px;box-shadow:0 0 0 4px #fffbf0b3,0 0 18px #177d9740;pointer-events:none}
+.tutorial-card{box-sizing:border-box;position:fixed;width:min(350px,calc(100vw - 24px));padding:17px;color:#29251f;background:#fffbf0fa;border:1px solid #b18b45;border-radius:5px;box-shadow:0 9px 30px #30220f40;pointer-events:auto;overflow:auto;overscroll-behavior:contain;font:14px/1.45 "Segoe UI",Arial,sans-serif}
+.tutorial-progress{font-size:10px;letter-spacing:1.2px;color:#795a21}
+.tutorial-card h2{font:22px/1.15 Georgia,"Times New Roman",serif;margin:8px 0 10px;color:#29251f}
+.tutorial-card p{font-size:14px;line-height:1.45;color:#514734;margin:0}
+.tutorial-card [hidden]{display:none!important}
+.tutorial-instructions>summary{display:none}
+.tutorial-card .tutorial-task{font-size:12px;font-weight:600;color:#175e70;margin-top:10px}
+.tutorial-task:empty{display:none}
+.tutorial-card nav{position:sticky;bottom:-17px;display:flex;align-items:center;gap:10px;justify-content:space-between;margin-top:14px;padding:7px 0;background:#fffbf0}
+.tutorial-card nav button{min-height:44px;padding:8px 10px;font:13px/1.2 "Segoe UI",Arial,sans-serif;touch-action:manipulation;border:1px solid #b6a27d;border-radius:3px;color:#29251f;background:#f5ebd4;cursor:pointer}
+.tutorial-card nav .primary-button{background:#e4bf69;border-color:#a78237;font-weight:600}
+.tutorial-card nav button:disabled{cursor:default;opacity:.65;max-width:180px}
+.tutorial-card:focus-visible,.tutorial-card button:focus-visible{outline:3px solid #116985;outline-offset:3px}
+.tutorial-card[data-compact=true]{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"progress actions" "title actions" "task task" "instructions instructions";gap:3px 8px;padding:9px 12px}
+.tutorial-card[data-compact=true] .tutorial-progress{grid-area:progress;align-self:end;font-size:9px;letter-spacing:.8px}
+.tutorial-card[data-compact=true] h2{grid-area:title;align-self:start;margin:0;font-size:17px;line-height:1.15}
+.tutorial-card[data-compact=true] .tutorial-task{grid-area:task;margin:0;font-size:11px;line-height:1.3}
+.tutorial-card[data-compact=true] .tutorial-instructions{grid-area:instructions;min-width:0}
+.tutorial-card[data-compact=true] .tutorial-instructions>summary{display:list-item;min-height:44px;padding:12px 0 8px;font-size:12px;line-height:1.3;cursor:pointer;touch-action:manipulation}
+.tutorial-card[data-compact=true] .tutorial-copy{max-height:72px;overflow:auto;overscroll-behavior:contain;font-size:12px;line-height:1.4;margin-bottom:4px}
+.tutorial-card[data-compact=true] nav{grid-area:actions;align-self:start;position:sticky;top:0;bottom:auto;gap:5px;margin:0;padding:0;z-index:1}
+.tutorial-card[data-compact=true] nav button{min-height:44px;padding:7px 8px;font-size:11px}
+#app dialog:has(.tutorial-welcome){width:min(600px,calc(100vw - 24px))}
+.tutorial-welcome{max-width:550px;margin:0 auto;padding:32px;color:#29251f}
+.tutorial-welcome h2{font:32px/1.2 Georgia,"Times New Roman",serif;margin:10px 0 18px}
+.tutorial-welcome p{line-height:1.55;color:#514734}
+.tutorial-welcome-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.tutorial-welcome-actions button{min-height:48px;flex:1;min-width:150px}
+body:has(>.tutorial-layer:not([hidden])) #context-guidance{visibility:hidden}
+@media(max-width:580px){.tutorial-card{padding:14px}.tutorial-card h2{font-size:20px}.tutorial-card p{font-size:13px}.tutorial-welcome{padding:24px}.tutorial-welcome h2{font-size:27px}.tutorial-welcome-actions{flex-direction:column}}

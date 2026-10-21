@@ -2,6 +2,14 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
+## Release candidate: 0.4.8 — Guided starts and hand-cast lightning
+
+Every fresh run offers Start tutorial or Skip tutorial. The nine-step guide follows real play, with compact phone coaching that leaves the grid and keeper controls usable. Potential combinations and Online scores start open, completed matching recipe goals unpin automatically, Enemy Waves uses an invader icon, and approved outcome scenes rotate without replacement. Stormcaller, Elven Mage and Elven Archmage cast lightning from their moving hands.
+
+Late-wave visual aliases now resolve to approved models, and cache protection retains textures while live figures, corpses or the camp preview use them. The fully black enemy report was **not reproduced in desktop Chromium**; physical iPad/Safari verification remains unavailable. Ten new defeat images are supplied in an English approval gallery and remain outside the runtime pool pending approval. Original media, statistics, balance and seeded simulation stay preserved.
+
+All **1,738 local tests** and the **213-module** production build pass. Native phone and tablet review completes placement → Keep → Start → Pause/Speed → Finish. [The follow-up report](docs/FOLLOWUP_V048_20261021.md) records all eight requests, the initial phone blocker and correction, preservation evidence and artwork approval status. **Deployment pending:** Pages CI and public verification have not yet been recorded for 0.4.8.
+
 ## Published release: 0.4.7 — Responsive controls and lighter rendering
 
 Pause/Resume now updates immediately without rebuilding the preparation UI, and one accepted tap advances speed through **1× → 2× → 3× → 5× → 1×**. Mystery cards use one parchment surface and an outlined unknown recruit, with no visible slot numbers. Defeat results feature 50 wave-specific Bernhard chronicles; scores remain retained with separate version tabs and the Save score form above the standings. Bosses are visually **16% smaller**.

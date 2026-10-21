@@ -1,0 +1,16 @@
+✔ 048 authority is the existing protected snapshot and one cached immutable-base inventory (31.5827ms)
+✔ GO rejects approval placeholders, duplicate/unsafe ownership, other trees and original asset edits (2.541ms)
+✔ root retention authorizes exactly the reviewed concurrent path and rejects unlisted or nonmatching records (14.9282ms)
+✔ retained concurrent content must match its exact root-reviewed hash and cannot be treated as release ownership (2.6663ms)
+✔ exactly six direct operational receipt paths are exempt after the final follow-up (0.1123ms)
+✔ dry-run destination logic preserves differing new files, changed MAIN work and unreviewed document changes (0.2218ms)
+✔ prepared CLIs parse without executing mutations and missing GO fails before ownership capture (277.7503ms)
+✔ guard fixtures leave MAIN, control files and both Git indexes unchanged (40.2581ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 477.2076

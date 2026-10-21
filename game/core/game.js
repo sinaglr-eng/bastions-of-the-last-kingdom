@@ -211,6 +211,7 @@ export class Game {
     pieces.forEach(p=>p.state='ruin');t.family=family;t.tier=1;t.state='active';t.upgrades=0;t.kills=kills;t.mvpLevel=mvp;
     this.discoveries.add(family);
     if(this.data.towers[family]?.advanced===true)this.earnedDiscoveries.add(family);
+    if(this.pinned===recipe.id)this.pinned=null;
     if(draftUsed)this.finishSelection(t,draftIndex);
     this.emit('combine',{tower:t,previousFamily,crafted:this.data.towers[family]?.advanced===true&&family!==previousFamily});this.emit('defender-committed',{tower:t,round:this.round,action:'craft'});this.emit('discover',{id:family});this.emit('change');return true;
   }

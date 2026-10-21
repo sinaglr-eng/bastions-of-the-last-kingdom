@@ -1,0 +1,33 @@
+{
+  "schema": "v048-main-retention-go-v1",
+  "status": "approved-retention-only",
+  "reviewedBy": "root",
+  "revision": 2,
+  "release": "0.4.8",
+  "base": "dbb7ee84558a7f070c13b263b0c2830401a8cec0",
+  "createdAt": "2026-10-21T19:48:27.749Z",
+  "snapshotFile": "tmp/v048-main-before.json",
+  "snapshotSha256": "901cb7da82ffdaa219f551bc828ee5e7a10a7732e78d4100289bc8e21eba8c38",
+  "payloadAuthorized": false,
+  "authorization": "Root explicitly reviewed and approved retention of these exact two concurrent English atlas sections in MAIN. This remains unrelated user work and authorizes no MAIN write, snapshot change, release ownership or publication of GAME_DESIGN.md.",
+  "supersedes": {
+    "file": "output/design/followup-v048-20261021/main-concurrent-work-retention-v1.json",
+    "sha256": "f2393465652260e35ed3302fbf5a6ad1f18de0bbcd4401e3518266d0f6a4ff29",
+    "previousRetainedMainSha256": "21d36a21a6e269eb1f24cc8a07660e1381c7377b606c600e47eca4a38b9b5142"
+  },
+  "observation": {
+    "file": "output/design/followup-v048-20261021/main-concurrent-work-observation-v2.json",
+    "sha256": "253f2a79f48aeed2e91c33e39ecb015845d19f523f3570492bc693e4c1dfd8fa"
+  },
+  "entries": [
+    {
+      "file": "GAME_DESIGN.md",
+      "originalMainSha256": "7e616c04944ac2ea0778c2db27115e0ec23006d8e28c7df545546dbabd4b332b",
+      "retainedMainSha256": "f7ae91c46edf906bf480364e3001bb4bfda8d987e5454f60f2df3b4f74321cf1",
+      "includeInOwnedPayload": false,
+      "publishSource": false
+    }
+  ],
+  "mainWritten": false,
+  "originalSnapshotChanged": false
+}

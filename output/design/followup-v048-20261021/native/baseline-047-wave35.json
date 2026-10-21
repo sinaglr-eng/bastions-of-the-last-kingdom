@@ -1,0 +1,45 @@
+{
+  "version": "0.4.7",
+  "setup": {
+    "schemaVersion": 1,
+    "mode": "sandbox",
+    "seed": 4048,
+    "waveLimit": 50,
+    "wave": 34,
+    "variant": "random",
+    "resources": {
+      "gold": 0,
+      "lives": 1000,
+      "cp": 3
+    },
+    "enemyRules": {},
+    "enemies": {},
+    "towers": []
+  },
+  "metrics": {
+    "calls": 166,
+    "combatTime": 0.3331000000000349,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_01",
+      "host_34",
+      "host_35-wraith",
+      "host_36-wraith"
+    ],
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 223,
+    "medianMs": 17.599999964237213,
+    "p95Ms": 24.30000001192093,
+    "paused": true,
+    "pendingEnemies": 0,
+    "speed": 1,
+    "statusBatches": 0,
+    "statusInstances": 0,
+    "statusTargets": [],
+    "triangles": 520917,
+    "visibleEnemies": 1
+  },
+  "note": "35 selected through console after wave34, exact approvedhost35base missing whilewraithloaded"
+}

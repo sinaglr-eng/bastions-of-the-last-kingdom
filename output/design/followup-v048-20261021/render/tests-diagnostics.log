@@ -1,0 +1,16 @@
+✔ repeated UI renders do not reset an unchanged drawing buffer or camera projection (0.5708ms)
+✔ optimized motion skips redundant restores, sphere scans and unchanged normal work while restoring exact authored rest (1.837ms)
+✔ same-clock enemy poses reuse one evaluation while source, variant, mode, private buffers and disposal remain independent (234.9463ms)
+✔ actual enemy cache rejects owners changed by seeking, mode changes, copy receipt or direct reset (486.376ms)
+✔ all 48 actual V7 actors batch only identical skin/material transforms and preserve every posed rendered vertex and normal (2293.1362ms)
+✔ all54 actual enemy sources and structural variants reuse only matching gait poses with private surfaces (3672.649ms)
+✔ all92 actual enemy/champion motion fields retain byte-identical posed positions, normals, visibility and world transforms (8656.2123ms)
+✔ WebGL context diagnostics stay bounded and observational through loss, restoration and cleanup (3.1642ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15494.6257

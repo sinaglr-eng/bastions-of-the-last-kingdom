@@ -1,0 +1,40 @@
+✔ 0.4.8 UI component verifies all historical assets, both 0.4.4 outcomes, four new variants and exact build with credential-free GETs (156.4769ms)
+✔ release metadata mismatch stops verification before any bulk assets or compiled requests (28.1222ms)
+✔ 0.4.8 requires its exact UI, hand-lightning VFX and performance revisions before requesting immutable assets (133.1212ms)
+✔ LF, CRLF and Vite CRCRLF boundaries preserve JSON records and HTML while other HTML differences remain rejected (537.8173ms)
+✔ exact local bundle comparison detects a stale compiled response even if all required UI markers still exist (127.2703ms)
+✔ compiled portrait templates need the exact namespace identities even when revisions and all local/public bytes still match (249.7224ms)
+✔ crimson portrait corruption fails independently of the unchanged original 136 portraits (123.0222ms)
+✔ missing final local build and changed immutable manifest are rejected before network requests (47.5273ms)
+✔ invalid local FRONT view, source, RGB, alpha, identity, trim or historical metadata fails before any request (310.0685ms)
+✔ a changed public FRONT manifest cannot silently replace the locally verified crop metadata (31.372ms)
+✔ FRONT PNG corruption and a non-RGBA header fail independently of every historical portrait and defeat art (245.0408ms)
+✔ changed defeat prompt/provenance is rejected and invalid local asset identity fails before requests (51.0804ms)
+✔ defeat PNG corruption is rejected after the unchanged original, crimson and 50 FRONT portraits pass (125.8354ms)
+✔ both approved outcome identities retain complete prompts, generation settings, dimensions and all ordered input reference hashes before any GET (340.0853ms)
+✔ a public outcome provenance change cannot replace an approved prompt or input reference despite unchanged artwork (59.2814ms)
+✔ missing or corrupted new outcome PNGs and wrong dimensions fail independently of every historical image and the other outcome (605.93ms)
+✔ compiled outcome path and both-result presentation markers remain necessary with exact public/local bytes and valid artwork (1202.6509ms)
+✔ new variant prompts, reference identities, historical pool and selection provenance are immutable before any request (457.1741ms)
+✔ changed public variant provenance stops before assets while the original outcome manifest stays independently protected (78.6316ms)
+✔ all four new variant PNGs reject missing files, corrupted bytes and wrong geometry independently of historical assets (1008.9529ms)
+✔ geometric local manifest identity, motion and approval provenance mutations fail before any GET (36.8598ms)
+✔ geometric metadata permits formatting line endings while retaining every approved value (13.2414ms)
+✔ changed public geometric manifests or approval records stop before large GLB transfers (17.5448ms)
+✔ streaming GLB verification rejects missing, malformed, corrupt and oversized approved models and stops the bulk transfer (47.3785ms)
+✔ full publication verifier retains all historical checks and streams all 54 exact approved models sequentially (780.064ms)
+✔ aggregate verification rejects invalid local authority or a stale release before requesting geometry (42.9904ms)
+✔ 048 authority is the existing protected snapshot and one cached immutable-base inventory (33.677ms)
+✔ GO rejects approval placeholders, duplicate/unsafe ownership, other trees and original asset edits (2.9207ms)
+✔ exactly six direct operational receipt paths are exempt after the final follow-up (0.1369ms)
+✔ dry-run destination logic preserves differing new files, changed MAIN work and unreviewed document changes (0.3544ms)
+✔ prepared CLIs parse without executing mutations and missing GO fails before ownership capture (295.5091ms)
+✔ guard fixtures leave MAIN, control files and both Git indexes unchanged (43.272ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6937.7415
