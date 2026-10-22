@@ -1,0 +1,27 @@
+{
+  "schema": "v049-document-merges-v1",
+  "status": "clean",
+  "snapshotSha256": "f4ba509ac99666cf104a2c79d09be2b88b0069c920db30161248894455185d08",
+  "sourceGoSha256": "a1c3f7e58d36d14d258f35ec62c28561110de1891cfc3f9df4960a91fc187329",
+  "patchSha256": "64cb21fe2707889b8b2030d9f9333d93f85d999348740dbe7a9441db4ee714d0",
+  "entries": [
+    {
+      "file": "README.md",
+      "clean": true,
+      "sourceSha256": "e9e91af0576ef33eeb8b2c77c1a040e3ed7508f8048af804f9c58d412e39abdf",
+      "savedMainSha256": "64fbee0fbfd20217c47d91d38166109ce61ba8bb1168285de3833ada39816dce",
+      "baseSha256": "3171bf4846915e78d1af2990a9f50eb8e627e1a18c874061e3bc2897f7769813",
+      "candidate": "tmp/v049-merged-README.md",
+      "payloadSha256": "6a88657a266073ec8a426912f077da961e2d3178db43e4837b4503e08dd6ccbd"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "clean": true,
+      "sourceSha256": "342829071e392aeb86cd9ff3f29437b7fff8e0697b4d67235513942084dd027f",
+      "savedMainSha256": "e33f3559678f6ce95bd11aa96d7da879000b3f7f35cc27f23ecbddd6803b47b0",
+      "baseSha256": "9913255b597b97c5337b4b3a1f1963572a8af83143b4be71dc0c7e9b74e614b6",
+      "candidate": "tmp/v049-merged-CHANGELOG.md",
+      "payloadSha256": "4e3c21654ecd2766d8d716ffe86764e027b94c9f35701a82ff8b89acfb9bf001"
+    }
+  ]
+}

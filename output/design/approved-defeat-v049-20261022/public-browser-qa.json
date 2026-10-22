@@ -1,0 +1,46 @@
+{
+  "schema": "v049-native-public-browser-qa-v1",
+  "status": "passed",
+  "checkedAt": "2026-10-22T04:51:09.866Z",
+  "url": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.9",
+  "version": "0.4.9",
+  "method": "Native UI actions; Developer Console Sandbox import, real wave 35 leaks and loss; no application-state injection or score submission.",
+  "fixture": {
+    "schemaVersion": 1,
+    "mode": "sandbox",
+    "seed": 4901,
+    "waveLimit": 50,
+    "wave": 35,
+    "variant": "random",
+    "resources": {
+      "gold": 0,
+      "lives": 1,
+      "cp": 3
+    },
+    "enemyRules": {},
+    "enemies": {},
+    "towers": []
+  },
+  "speed": 3,
+  "statisticsExcluded": true,
+  "art": {
+    "alt": "Bernhard’s Final Banner: Lord Bernhard on the Wyvern Queen and Zaruun, Lord of Storm Wings triumph over the defeated Lady Claire and Archangel in the final keep",
+    "height": 941,
+    "id": "defeat-v049-10",
+    "loaded": true,
+    "src": "/bastions-of-the-last-kingdom/assets/ui/results/v049/defeat-10.png",
+    "width": 1672
+  },
+  "reopened": {
+    "id": "defeat-v049-10",
+    "loaded": true,
+    "src": "/bastions-of-the-last-kingdom/assets/ui/results/v049/defeat-10.png"
+  },
+  "resultStable": true,
+  "logs": [],
+  "screenshot": "public-result.png",
+  "notes": [
+    "The optional speed click occurred after the run had already ended and had no effect.",
+    "All ten approved image hashes and compiled pool membership are checked by the public HTTP verifier."
+  ]
+}

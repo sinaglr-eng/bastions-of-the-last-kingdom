@@ -1,0 +1,38 @@
+{
+  "schema": "v049-final-delivery-v1",
+  "status": "passed",
+  "release": "0.4.9",
+  "date": "2026-10-22T04:53:24.716Z",
+  "userApproval": "Schvaluji sceny",
+  "approvedScenes": 10,
+  "activeDefeatPool": 13,
+  "activeVictoryPool": 3,
+  "approvedBytes": 23356698,
+  "runtimeCommit": "58630419d3fe9e8a90d0b6be91f99c250dc2c3d7",
+  "headAtDelivery": "58630419d3fe9e8a90d0b6be91f99c250dc2c3d7",
+  "releaseTag": "v0.4.9",
+  "ownedMainFiles": 47,
+  "protectedSnapshotPaths": 5094,
+  "unownedPathsVerified": 5086,
+  "sourceGoSha256": "a1c3f7e58d36d14d258f35ec62c28561110de1891cfc3f9df4960a91fc187329",
+  "frozenSha256": "9efad3d7f9fe77837ec3483c5633f773e52d1c6c707d8b91e1bac7d014473ece",
+  "payloadDigest": "3f823a58cdcb3e65ebbd53bb9afdcd6c78cc440da3af703396a565c14a8074fe",
+  "indexes": {
+    "source": "748cd516a9d05aad48f2916954d48ffc0d191a6af027055d936019628b637b2b",
+    "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+  },
+  "mainIndexUnchanged": true,
+  "tests": 1772,
+  "sourceFiles": 534,
+  "metadataFiles": 12,
+  "publicRequests": 276,
+  "compiledHashes": 5,
+  "approvedPngHashes": 10,
+  "originalSourceArchiveUnchanged": true,
+  "gameplayChanged": false,
+  "publicProofs": {
+    "output/design/approved-defeat-v049-20261022/publication-ci-proof.json": "af125bc117d87f8ea6846fd8c7e20dd72529c2d9d25e6d92e754ddd9c2a7a1ad",
+    "output/design/approved-defeat-v049-20261022/public-verification.json": "baf721cdd8617bb146109bb637e8b25e1c919d44fa47cc4e9ae59a027b30c877",
+    "output/design/approved-defeat-v049-20261022/public-browser-qa.json": "5967b213681e5b31d555d728e50c7e1d6e6cacb035cd46a1d809b46372bfaae4"
+  }
+}

@@ -2,11 +2,11 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
-## Release candidate: 0.4.9 — Ten approved defeat scenes
+## Published release: 0.4.9 — Ten approved defeat scenes
 
 All ten defeat scenes approved by the user on October 22 are now included. The defeat pool contains thirteen images: the three previous approved scenes plus the ten new compositions. Every scene appears once before another cycle, with no immediate repeat at the cycle boundary; reopening the same ended run keeps its image. Victory scenes and seeded gameplay remain unchanged. Only the selected outcome image loads when results open.
 
-The [approved scene gallery](output/design/approved-defeat-v049-20261022/index.html), [human approval record](output/design/approved-defeat-v049-20261022/approval.json) and [implementation report](docs/APPROVED_DEFEAT_V049_20261022.md) retain the original full-resolution PNGs, prompts and references. The 0.4.8 proposal remains an immutable historical archive. <!-- V049_GATES_PENDING -->
+The [approved scene gallery](output/design/approved-defeat-v049-20261022/index.html), [human approval record](output/design/approved-defeat-v049-20261022/approval.json) and [implementation report](docs/APPROVED_DEFEAT_V049_20261022.md) retain the original full-resolution PNGs, prompts and references. The 0.4.8 proposal remains an immutable historical archive. Published [0.4.9](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/?release=0.4.9) from [`58630419d3fe9e8a90d0b6be91f99c250dc2c3d7`](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/commit/58630419d3fe9e8a90d0b6be91f99c250dc2c3d7) through successful [Pages CI](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/39723343919). All **1,772 tests**, the **213-module** build and **276 public GET/hash checks** pass, including all ten exact approved PNGs, the approval manifest, five compiled entries and all 54 unchanged enemy GLBs. Native public browser review confirms the result screen. Release tag: `v0.4.9`.
 
 ## Published release: 0.4.8 — Guided starts and hand-cast lightning
 

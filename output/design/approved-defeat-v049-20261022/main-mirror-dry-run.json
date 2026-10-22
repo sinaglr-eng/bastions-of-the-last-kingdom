@@ -1,0 +1,391 @@
+{
+  "schema": "v049-mirror-plan-v1",
+  "status": "ready",
+  "base": "13d48da0740731b1fc7b65c4a95eefc280549bb3",
+  "sourceHead": "58630419d3fe9e8a90d0b6be91f99c250dc2c3d7",
+  "snapshotSha256": "f4ba509ac99666cf104a2c79d09be2b88b0069c920db30161248894455185d08",
+  "sourceGoSha256": "a1c3f7e58d36d14d258f35ec62c28561110de1891cfc3f9df4960a91fc187329",
+  "frozenSha256": "9efad3d7f9fe77837ec3483c5633f773e52d1c6c707d8b91e1bac7d014473ece",
+  "documentsSha256": "3cb331111f3e2c6e770791a24072a871c9fb8a5465361a7f7a2e70ca3e3ba32a",
+  "entries": [
+    {
+      "file": "CHANGELOG.md",
+      "sourceSha256": "342829071e392aeb86cd9ff3f29437b7fff8e0697b4d67235513942084dd027f",
+      "payloadFile": "tmp/v049-merged-CHANGELOG.md",
+      "payloadSha256": "4e3c21654ecd2766d8d716ffe86764e027b94c9f35701a82ff8b89acfb9bf001",
+      "mainBefore": "e33f3559678f6ce95bd11aa96d7da879000b3f7f35cc27f23ecbddd6803b47b0",
+      "documentMerge": true,
+      "action": "replace"
+    },
+    {
+      "file": "README.md",
+      "sourceSha256": "e9e91af0576ef33eeb8b2c77c1a040e3ed7508f8048af804f9c58d412e39abdf",
+      "payloadFile": "tmp/v049-merged-README.md",
+      "payloadSha256": "6a88657a266073ec8a426912f077da961e2d3178db43e4837b4503e08dd6ccbd",
+      "mainBefore": "64fbee0fbfd20217c47d91d38166109ce61ba8bb1168285de3833ada39816dce",
+      "documentMerge": true,
+      "action": "replace"
+    },
+    {
+      "file": "docs/APPROVED_DEFEAT_V049_20261022.md",
+      "sourceSha256": "42796b887201202afc6a59c70ce410da04bf499365a09341f35b33a93b0ee416",
+      "payloadFile": "docs/APPROVED_DEFEAT_V049_20261022.md",
+      "payloadSha256": "42796b887201202afc6a59c70ce410da04bf499365a09341f35b33a93b0ee416",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "game/release.js",
+      "sourceSha256": "1871833619568097e1c8dbde3ab10d579e39ec586bcf3c674d5f589a67ec124c",
+      "payloadFile": "game/release.js",
+      "payloadSha256": "1871833619568097e1c8dbde3ab10d579e39ec586bcf3c674d5f589a67ec124c",
+      "mainBefore": "5b63101051f43237e815159bff98b18bd1a9020ad63618149d5cd093d81aaebd",
+      "action": "replace"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/.gitattributes",
+      "sourceSha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/.gitattributes",
+      "payloadSha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/approval.json",
+      "sourceSha256": "b0af044e61078081288c82b0768b9a54b0725f08893dbd484a25173fcd22cfb5",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/approval.json",
+      "payloadSha256": "b0af044e61078081288c82b0768b9a54b0725f08893dbd484a25173fcd22cfb5",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/build-final.log",
+      "sourceSha256": "a0dba0c73ac77203ec44a27c460ae8c7c4813ffc5375ab14a778cfe60453e2ee",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/build-final.log",
+      "payloadSha256": "a0dba0c73ac77203ec44a27c460ae8c7c4813ffc5375ab14a778cfe60453e2ee",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/handoff-guard-preparation-initial14.json",
+      "sourceSha256": "e7676630f6e16e0471e46f41fc71cf777405db6ad1b75f9cc7903dcbecfcd40f",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/handoff-guard-preparation-initial14.json",
+      "payloadSha256": "e7676630f6e16e0471e46f41fc71cf777405db6ad1b75f9cc7903dcbecfcd40f",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/handoff-guard-preparation.json",
+      "sourceSha256": "431f58e08da1ab6520e4fc1e8bacd9fb159d1240af531a4e8c9f00b725c92b1b",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/handoff-guard-preparation.json",
+      "payloadSha256": "431f58e08da1ab6520e4fc1e8bacd9fb159d1240af531a4e8c9f00b725c92b1b",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/handoff-guard-tests-initial14.log",
+      "sourceSha256": "24c5b9984354eb58aa35410d3b7588d425ea30b42212adf263481be0f91d002f",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/handoff-guard-tests-initial14.log",
+      "payloadSha256": "24c5b9984354eb58aa35410d3b7588d425ea30b42212adf263481be0f91d002f",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/handoff-guard-tests.log",
+      "sourceSha256": "d95de04ef35576b34996f2cbe7f17f9d1db0a4de047996c7eff21ad5db2b78dc",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/handoff-guard-tests.log",
+      "payloadSha256": "d95de04ef35576b34996f2cbe7f17f9d1db0a4de047996c7eff21ad5db2b78dc",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/index.html",
+      "sourceSha256": "95a71574cf6abea217bc1ab8158d57677c81bbf5505db67bc5e7a407455493e8",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/index.html",
+      "payloadSha256": "95a71574cf6abea217bc1ab8158d57677c81bbf5505db67bc5e7a407455493e8",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/local-browser-qa-initial.json",
+      "sourceSha256": "99b5de9a48479b41fbbc906b7911bbb80bea01e9b572cb48eca2cee4c8b4940c",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/local-browser-qa-initial.json",
+      "payloadSha256": "99b5de9a48479b41fbbc906b7911bbb80bea01e9b572cb48eca2cee4c8b4940c",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/local-browser-qa.json",
+      "sourceSha256": "c18151385d81825bbee765c2833ab2eb1dbc4b33b71828e14d3c23c1f8f7013e",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/local-browser-qa.json",
+      "payloadSha256": "c18151385d81825bbee765c2833ab2eb1dbc4b33b71828e14d3c23c1f8f7013e",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/local-public-checker-smoke.json",
+      "sourceSha256": "f908778f6723fd37801483a30507857146cffe46bc24a3eb4958f3dec0c2988b",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/local-public-checker-smoke.json",
+      "payloadSha256": "f908778f6723fd37801483a30507857146cffe46bc24a3eb4958f3dec0c2988b",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/local-result.png",
+      "sourceSha256": "a2b71beb1a6c6f3c816d42a7d7b525c3ebedfbb27b7d0b18dfdd1bfb2881a2e7",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/local-result.png",
+      "payloadSha256": "a2b71beb1a6c6f3c816d42a7d7b525c3ebedfbb27b7d0b18dfdd1bfb2881a2e7",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/local-validation-final.json",
+      "sourceSha256": "cd8636139546991b92aaf9d1014fcc3607a0cf451712c06be8741496df024540",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/local-validation-final.json",
+      "payloadSha256": "cd8636139546991b92aaf9d1014fcc3607a0cf451712c06be8741496df024540",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/public-browser-qa.json",
+      "sourceSha256": "5967b213681e5b31d555d728e50c7e1d6e6cacb035cd46a1d809b46372bfaae4",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/public-browser-qa.json",
+      "payloadSha256": "5967b213681e5b31d555d728e50c7e1d6e6cacb035cd46a1d809b46372bfaae4",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/public-result.png",
+      "sourceSha256": "3432256d47039e9411b9c8fe643accdb69b9af227f13ab7102420393f717dbd9",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/public-result.png",
+      "payloadSha256": "3432256d47039e9411b9c8fe643accdb69b9af227f13ab7102420393f717dbd9",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/public-verification.json",
+      "sourceSha256": "baf721cdd8617bb146109bb637e8b25e1c919d44fa47cc4e9ae59a027b30c877",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/public-verification.json",
+      "payloadSha256": "baf721cdd8617bb146109bb637e8b25e1c919d44fa47cc4e9ae59a027b30c877",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/publication-ci-proof.json",
+      "sourceSha256": "af125bc117d87f8ea6846fd8c7e20dd72529c2d9d25e6d92e754ddd9c2a7a1ad",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/publication-ci-proof.json",
+      "payloadSha256": "af125bc117d87f8ea6846fd8c7e20dd72529c2d9d25e6d92e754ddd9c2a7a1ad",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/selector/focused-tests.log",
+      "sourceSha256": "d5c7becc2747469afa87c32dafbe050aa641be9bca3f035b6cf4934a83ed7881",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/selector/focused-tests.log",
+      "payloadSha256": "d5c7becc2747469afa87c32dafbe050aa641be9bca3f035b6cf4934a83ed7881",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/selector/implementation-validation.json",
+      "sourceSha256": "f635388a5fe6308ec983b17a2f219af4cca66f33fc56f27a510cc6f61f95f4d9",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/selector/implementation-validation.json",
+      "payloadSha256": "f635388a5fe6308ec983b17a2f219af4cca66f33fc56f27a510cc6f61f95f4d9",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/sources-built-final.json",
+      "sourceSha256": "a8d44615136549146ea0a19acf26225a778ef690dcba655c9a05b8e28df001fd",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/sources-built-final.json",
+      "payloadSha256": "a8d44615136549146ea0a19acf26225a778ef690dcba655c9a05b8e28df001fd",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/sources-tested-final.json",
+      "sourceSha256": "f6dc298169c42744bfd688044263d53969fc1152e3ec255e00fa6a99ceaa0eaf",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/sources-tested-final.json",
+      "payloadSha256": "f6dc298169c42744bfd688044263d53969fc1152e3ec255e00fa6a99ceaa0eaf",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/tests-final.log",
+      "sourceSha256": "fdb31381ffa54ec970b8d113afdf5cfab669d84937f88fb05c869319145f2266",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/tests-final.log",
+      "payloadSha256": "fdb31381ffa54ec970b8d113afdf5cfab669d84937f88fb05c869319145f2266",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/verification/implementation-validation.json",
+      "sourceSha256": "db5fcce142020572f5b12379c71d6555b7e664b5b5a1a18fbbec5e0ad182ca87",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/verification/implementation-validation.json",
+      "payloadSha256": "db5fcce142020572f5b12379c71d6555b7e664b5b5a1a18fbbec5e0ad182ca87",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "output/design/approved-defeat-v049-20261022/verification/tests-focused.log",
+      "sourceSha256": "7d3776e2fa9856787b7535d4f2d2a19d706d616464f1779ac05758a9db051586",
+      "payloadFile": "output/design/approved-defeat-v049-20261022/verification/tests-focused.log",
+      "payloadSha256": "7d3776e2fa9856787b7535d4f2d2a19d706d616464f1779ac05758a9db051586",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "package.json",
+      "sourceSha256": "4f5f957aceb1c3b4978709bafa11f00d747bfbcc43a4711cebb6752a77789597",
+      "payloadFile": "package.json",
+      "payloadSha256": "4f5f957aceb1c3b4978709bafa11f00d747bfbcc43a4711cebb6752a77789597",
+      "mainBefore": "ebb06339f51c65534c6fe7207804298a2504da6b0aefd6091649cd921e9996c6",
+      "action": "replace"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-01.png",
+      "sourceSha256": "4f084198d47d7a3958af0a7cd1a7c9082cfa1a1bdd83bcf2781368a9e499f25c",
+      "payloadFile": "public/assets/ui/results/v049/defeat-01.png",
+      "payloadSha256": "4f084198d47d7a3958af0a7cd1a7c9082cfa1a1bdd83bcf2781368a9e499f25c",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-02.png",
+      "sourceSha256": "4991c635d6d118238ea5253fac565495845d65e8bad77ddafa5e1a9c071f5a18",
+      "payloadFile": "public/assets/ui/results/v049/defeat-02.png",
+      "payloadSha256": "4991c635d6d118238ea5253fac565495845d65e8bad77ddafa5e1a9c071f5a18",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-03.png",
+      "sourceSha256": "89c0129d11c72d4299a1101dbed73731a12c2516f5945d3301761f35c1dcd471",
+      "payloadFile": "public/assets/ui/results/v049/defeat-03.png",
+      "payloadSha256": "89c0129d11c72d4299a1101dbed73731a12c2516f5945d3301761f35c1dcd471",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-04.png",
+      "sourceSha256": "e558ef3fcb2bb13254a7aa822fc673babb7e2bd63bd20a9e94904b80ace22c04",
+      "payloadFile": "public/assets/ui/results/v049/defeat-04.png",
+      "payloadSha256": "e558ef3fcb2bb13254a7aa822fc673babb7e2bd63bd20a9e94904b80ace22c04",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-05.png",
+      "sourceSha256": "d14f365209cbfd912b5602ead13c190e04b866d60df2d3ee68010e862766c4c2",
+      "payloadFile": "public/assets/ui/results/v049/defeat-05.png",
+      "payloadSha256": "d14f365209cbfd912b5602ead13c190e04b866d60df2d3ee68010e862766c4c2",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-06.png",
+      "sourceSha256": "d62a52051d3bae006f544580c6bd3e9b1d595fb22553d10dc8d7100dab70eddd",
+      "payloadFile": "public/assets/ui/results/v049/defeat-06.png",
+      "payloadSha256": "d62a52051d3bae006f544580c6bd3e9b1d595fb22553d10dc8d7100dab70eddd",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-07.png",
+      "sourceSha256": "e4810f8a449fdb8e3a0afc95b5f7c54ee6b02c700f6422cf8918f4911ebe53d9",
+      "payloadFile": "public/assets/ui/results/v049/defeat-07.png",
+      "payloadSha256": "e4810f8a449fdb8e3a0afc95b5f7c54ee6b02c700f6422cf8918f4911ebe53d9",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-08.png",
+      "sourceSha256": "1cf62285adf0018593f24d1642f7b6f2a39d2452d1797459330969435c4878aa",
+      "payloadFile": "public/assets/ui/results/v049/defeat-08.png",
+      "payloadSha256": "1cf62285adf0018593f24d1642f7b6f2a39d2452d1797459330969435c4878aa",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-09.png",
+      "sourceSha256": "ab023a9798da07f887ef595590f1385be3869f42405103730e443436fb7d7c00",
+      "payloadFile": "public/assets/ui/results/v049/defeat-09.png",
+      "payloadSha256": "ab023a9798da07f887ef595590f1385be3869f42405103730e443436fb7d7c00",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/defeat-10.png",
+      "sourceSha256": "ebe86cbe296ebf9b12c1a0afb971b9cf2925fd18d65bb245ba96239ef92de778",
+      "payloadFile": "public/assets/ui/results/v049/defeat-10.png",
+      "payloadSha256": "ebe86cbe296ebf9b12c1a0afb971b9cf2925fd18d65bb245ba96239ef92de778",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/assets/ui/results/v049/manifest.json",
+      "sourceSha256": "2dcd51825c98525c4fd5b069d4c04ec7d7220bbd44eec807f20a6e75d21ee10f",
+      "payloadFile": "public/assets/ui/results/v049/manifest.json",
+      "payloadSha256": "2dcd51825c98525c4fd5b069d4c04ec7d7220bbd44eec807f20a6e75d21ee10f",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "public/release.json",
+      "sourceSha256": "68e30b3fc2634855c1cc9232023a289c4024e1efd79ce2fe194bd9e57a8fdaaf",
+      "payloadFile": "public/release.json",
+      "payloadSha256": "68e30b3fc2634855c1cc9232023a289c4024e1efd79ce2fe194bd9e57a8fdaaf",
+      "mainBefore": "ee7a481152ccbb93ac7506e091e6fb73292a4c39ccf27e18cd58db9817d388c8",
+      "action": "replace"
+    },
+    {
+      "file": "tests/approved-outcomes-v049.test.mjs",
+      "sourceSha256": "a772f94b66231b52a89db2b04a1926b5dcc181529dc2b0b3e041b8dec3cb187d",
+      "payloadFile": "tests/approved-outcomes-v049.test.mjs",
+      "payloadSha256": "a772f94b66231b52a89db2b04a1926b5dcc181529dc2b0b3e041b8dec3cb187d",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "tests/outcome-art-v045.test.mjs",
+      "sourceSha256": "0aa5cc19151aa586f1a6984b60b400760efe0d50a615857fe0a8f6e8c4d38bf0",
+      "payloadFile": "tests/outcome-art-v045.test.mjs",
+      "payloadSha256": "0aa5cc19151aa586f1a6984b60b400760efe0d50a615857fe0a8f6e8c4d38bf0",
+      "mainBefore": "8b3ab363c8e1c7f4be2cb453e34eefd482c5512bd0923eb28859a5c2625c8541",
+      "action": "replace"
+    },
+    {
+      "file": "tests/public-verification-v049.test.mjs",
+      "sourceSha256": "6ba1bd10b03b4b5014817a0cb2c00d7e32624ad26a56a7c99cc98dcc497de7ff",
+      "payloadFile": "tests/public-verification-v049.test.mjs",
+      "payloadSha256": "6ba1bd10b03b4b5014817a0cb2c00d7e32624ad26a56a7c99cc98dcc497de7ff",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "tests/run-results.test.mjs",
+      "sourceSha256": "577090c742fa96bfaea3e228bb41ec24767e314cd63be0fcd1ed5e11279f93d1",
+      "payloadFile": "tests/run-results.test.mjs",
+      "payloadSha256": "577090c742fa96bfaea3e228bb41ec24767e314cd63be0fcd1ed5e11279f93d1",
+      "mainBefore": "e1e9a8a9eecc4fc4898a10d431795624dc4b4ad2cc5bab05c860f6ca0d9dc527",
+      "action": "replace"
+    },
+    {
+      "file": "tools/verify-v049-public.mjs",
+      "sourceSha256": "d7671187c001fafbcb96797dbea13398eb61baed56d167730c74c97edf079601",
+      "payloadFile": "tools/verify-v049-public.mjs",
+      "payloadSha256": "d7671187c001fafbcb96797dbea13398eb61baed56d167730c74c97edf079601",
+      "mainBefore": null,
+      "action": "create"
+    },
+    {
+      "file": "ui/outcome-art.js",
+      "sourceSha256": "6b3d54cb04c5c960e0700a91deb6c34b519b57686caba259cf553eee0c4a8916",
+      "payloadFile": "ui/outcome-art.js",
+      "payloadSha256": "6b3d54cb04c5c960e0700a91deb6c34b519b57686caba259cf553eee0c4a8916",
+      "mainBefore": "77f3eeff9476051fcc73f73610bcab378beb124adc4c043330c9e4342f63219a",
+      "action": "replace"
+    }
+  ],
+  "payloadDigest": "3f823a58cdcb3e65ebbd53bb9afdcd6c78cc440da3af703396a565c14a8074fe"
+}
