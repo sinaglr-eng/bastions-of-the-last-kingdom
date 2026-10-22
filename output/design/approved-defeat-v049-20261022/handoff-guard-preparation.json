@@ -1,0 +1,141 @@
+{
+  "schema": "v049-handoff-guard-preparation-v1",
+  "status": "passed",
+  "checkedAt": "2026-10-22T04:33:11.834Z",
+  "release": "0.4.9",
+  "base": "13d48da0740731b1fc7b65c4a95eefc280549bb3",
+  "helperSourceHashes": {
+    "tmp/v049-guard.mjs": "7820724c144cbd48318b8e4df304a6d41ffce1e93753e5736058849ef2d130ed",
+    "tmp/v049-guard-tests.mjs": "2ed6dad37efdb3b8d5aa79ba6645f48499f93edcec53d5501808685f58d64826"
+  },
+  "helpersStableDuringTests": true,
+  "tests": {
+    "command": "node --test tmp/v049-guard-tests.mjs",
+    "count": 15,
+    "exitCode": 0,
+    "log": "output/design/approved-defeat-v049-20261022/handoff-guard-tests.log"
+  },
+  "readOnlyWorkspaceAudit": {
+    "snapshot": "tmp/v049-main-before.json",
+    "snapshotSha256": "f4ba509ac99666cf104a2c79d09be2b88b0069c920db30161248894455185d08",
+    "protectedMainPaths": 5094,
+    "mainChanges": [],
+    "sourceUnownedPaths": 5086,
+    "sourceUnownedChanges": [],
+    "indexesBefore": {
+      "source": "64345bef6090d50e28135b1858ac80ef8274e684f553f83656ec48ff4092ba00",
+      "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+    },
+    "indexesAfter": {
+      "source": "64345bef6090d50e28135b1858ac80ef8274e684f553f83656ec48ff4092ba00",
+      "main": "d308469fc8c58105a0f8551d45ee53b14b7e82bcf7078447144f57116b82c4a5"
+    },
+    "indexesUnchanged": true,
+    "mainIndexMatchesSnapshot": true,
+    "realFreezeExecuted": false,
+    "realDocumentCandidatesGenerated": false,
+    "realDryRunExecuted": false,
+    "realApplyExecuted": false,
+    "mainWritten": false,
+    "gitIndexesWritten": false
+  },
+  "coverage": [
+    "Root approval and explicit path ownership; original public namespaces and unlisted assets rejected; exact eleven new public files.",
+    "All 5,094 protected paths and arbitrary smaller fixtures are counted dynamically. Unowned source/MAIN mutation, including GAME_DESIGN.md, is rejected without a retention exception.",
+    "Both current Git indexes stay unchanged during operations; MAIN additionally matches its fresh captured index.",
+    "Stale root GO, snapshot, final proof/validation and reviewed dry-run identities are rejected.",
+    "Actual Git three-way fixtures preserve five captured MAIN paragraphs and historical changelog text; conflicts remain explicit.",
+    "Exact CI/runtime, edition, five compiled public hashes and expected 276 requests gate MAIN apply. All old release tags, including v0.4.8, are pinned at final verify.",
+    "Disposable Git repository with pre-existing ignored tools/__pycache__ file: it remains byte-identical and does not block ownership; unknown nonignored game/unapproved.js still blocks."
+  ],
+  "cli": [
+    "node tmp/v049-guard.mjs freeze",
+    "node tmp/v049-guard.mjs docs",
+    "node tmp/v049-guard.mjs dry-run",
+    "node tmp/v049-guard.mjs apply",
+    "node tmp/v049-guard.mjs verify"
+  ],
+  "replacementFreeze": "node tmp/v049-guard.mjs freeze --replace=EXACT_PRIOR_FREEZE_SHA256",
+  "goFile": "tmp/v049-source-go.json",
+  "goExample": {
+    "schema": "v049-root-source-go-v1",
+    "release": "0.4.9",
+    "base": "13d48da0740731b1fc7b65c4a95eefc280549bb3",
+    "status": "EXAMPLE_ONLY_NOT_APPROVED",
+    "reviewedBy": "root",
+    "baselineSha256": "f4ba509ac99666cf104a2c79d09be2b88b0069c920db30161248894455185d08",
+    "trackedPaths": [
+      "ui/outcome-art.js",
+      "game/release.js",
+      "package.json",
+      "public/release.json",
+      "tests/outcome-art-v045.test.mjs",
+      "tests/run-results.test.mjs",
+      "README.md",
+      "CHANGELOG.md"
+    ],
+    "newFiles": [
+      "public/assets/ui/results/v049/defeat-01.png",
+      "public/assets/ui/results/v049/defeat-02.png",
+      "public/assets/ui/results/v049/defeat-03.png",
+      "public/assets/ui/results/v049/defeat-04.png",
+      "public/assets/ui/results/v049/defeat-05.png",
+      "public/assets/ui/results/v049/defeat-06.png",
+      "public/assets/ui/results/v049/defeat-07.png",
+      "public/assets/ui/results/v049/defeat-08.png",
+      "public/assets/ui/results/v049/defeat-09.png",
+      "public/assets/ui/results/v049/defeat-10.png",
+      "public/assets/ui/results/v049/manifest.json",
+      "tests/approved-outcomes-v049.test.mjs",
+      "tests/public-verification-v049.test.mjs",
+      "tools/verify-v049-public.mjs",
+      "docs/APPROVED_DEFEAT_V049_20261022.md"
+    ],
+    "newTrees": [
+      "output/design/approved-defeat-v049-20261022"
+    ],
+    "postRuntimeDocs": [
+      "README.md",
+      "CHANGELOG.md",
+      "docs/APPROVED_DEFEAT_V049_20261022.md"
+    ],
+    "finalValidationFile": "output/design/approved-defeat-v049-20261022/local-validation-final.json",
+    "finalValidationSha256": "ROOT_FILL_AFTER_PASSING_FINAL_GATE",
+    "sourceProofFile": "output/design/approved-defeat-v049-20261022/sources-built-final.json",
+    "sourceProofSha256": "ROOT_FILL_AFTER_PASSING_FINAL_GATE",
+    "expectedPublicRequests": 276
+  },
+  "addPublicationOnlyAfterCiPublicAndBrowserPass": {
+    "runtimeCommit": "ROOT_FILL_EXACT_CI_VERIFIED_40_HEX_COMMIT",
+    "ciFile": "output/design/approved-defeat-v049-20261022/publication-ci-proof.json",
+    "ciSha256": "ROOT_FILL",
+    "publicFile": "output/design/approved-defeat-v049-20261022/public-verification.json",
+    "publicSha256": "ROOT_FILL",
+    "browserFile": "output/design/approved-defeat-v049-20261022/public-browser-qa.json",
+    "browserSha256": "ROOT_FILL"
+  },
+  "workflow": [
+    "Root reviews exact paths and fills final validation/source proof hashes, then writes the approved GO.",
+    "Freeze; generate/review clean ISO-only document candidates and patch; dry-run/review zero conflicts.",
+    "After CI/public/native gates, root updates the publication object and pending docs/evidence, explicitly refreezes using the old SHA, regenerates candidate docs and dry-run.",
+    "Apply requires the same reviewed dry-run HEAD, GO, snapshot, ownership, documents and payload. Root alone invokes apply.",
+    "Root records/copies operational receipts separately and stages/commits. Final verify is read-only and requires clean tracked source, verified runtime lineage, the annotated new tag and remote heads/tags."
+  ],
+  "limits": [
+    "The helper never stages, commits, deletes worktrees or modifies indexes. Only the root may execute the real mutation commands after review.",
+    "Operational receipts are excluded only at six exact central paths to avoid recursive ownership; the helper does not copy operational receipts into MAIN. Root controls that separate reviewed step."
+  ],
+  "refinement": {
+    "reason": "The initial physical runtime inventory treated a pre-existing ignored Python cache as a new release file.",
+    "runtimeInventory": "git ls-files --others --exclude-standard -z -- game ui data tests tools public",
+    "ignoredCaches": "Retained unchanged; excluded only from the new-runtime addition inventory.",
+    "newNonignoredRuntimePaths": 14,
+    "exactPublicAssetPhysicalWalkRetained": true,
+    "allSnapshotRawHashChecksRetained": true,
+    "originalReceipts": [
+      "output/design/approved-defeat-v049-20261022/handoff-guard-tests-initial14.log",
+      "output/design/approved-defeat-v049-20261022/handoff-guard-preparation-initial14.json"
+    ],
+    "rootGoSha256": "40f6c3bef3cc88b77dbec9fb5f01e6f7c0de49e14f2b7b144e218ba01551b347"
+  }
+}

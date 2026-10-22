@@ -1,0 +1,440 @@
+{
+  "schema": "approved-defeat-scenes-v049-v1",
+  "revision": "approved-defeat-scenes-20261022-v1",
+  "date": "2026-10-22",
+  "generator": "Built-in ImageGen",
+  "approval": "approved",
+  "approvedCount": 10,
+  "approvalEvidence": {
+    "date": "2026-10-22",
+    "decision": "Schvaluji sceny",
+    "scope": "All ten 0.4.8 defeat candidates"
+  },
+  "runtimeIntegration": true,
+  "originalAssetsChanged": false,
+  "copiedWithoutPixelEdits": true,
+  "sourceManifest": "output/design/followup-v048-20261021/art-review/manifest.json",
+  "sourceManifestSha256": "9f358dad4dd0eb745f8d139de04b40f79798007bab8cbc97ad0bffe430af9827",
+  "identities": [
+    {
+      "id": "defeat-v049-01",
+      "title": "The Fallen Outpost",
+      "prompt": "Use case: stylized-concept. Asset type: DEFEAT outcome illustration, approval candidate 01, The Fallen Outpost, for Bastions of the Last Kingdom. Create one new wide 16:9 cohesive faceted toy-miniature scene. References 1–4 are exact character identities; reference 5 is rendering/world style ONLY. Reference1: Soldier III, cuboid pale square-eyed face, silver faceted helmet, plum tunic, sword and wooden diamond-boss shield. Reference2: Archer III, plum hood and layered brown armor, wooden bow, white-arrow quiver, square-eyed cuboid face. These defenders are alive but unmistakably defeated: seated wearily on broken pale-stone wall steps with lowered weapons and dropped blue human pennant. Reference3: victorious green Orc Skull Scavenger, brown hood, ivory tusks, skulls on shoulder and belt, broad rusty cleaver. Reference4: victorious lanky green Goblin Thornstrider, huge pointed ears, wooden spear with large stone point, thorn-wrapped boots. Preserve these four exact identities, equipment, colors and silhouettes. Scene: captured human forest outpost beside a collapsed wooden palisade at dawn, pale stone gate, blue diamond banners trampled in clean rubble. Compose at a low three-quarter angle along a diagonal broken wall, orc on the wall raising cleaver, goblin guarding the captured gate, defeated Soldier and Archer together in foreground; all four complete heads and distinctive weapons visible, no individual display plinths. Match reference5's clean large facets, matte surfaces and warm soft lighting, but use these new characters and a completely different layout. Clear enemy victory and human defeat. No gore, wounds, death, realism, text, numbers, labels, UI, border, watermark.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-aaf02a57-8b6b-4c20-b287-ec40d325d75a.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-01.png",
+      "bytes": 2245491,
+      "sha256": "4f084198d47d7a3958af0a7cd1a7c9082cfa1a1bdd83bcf2781368a9e499f25c",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/soldier-3.png",
+          "sha256": "3f143a045e38df89007c684d403c2cc602a1b5b4a2eed1d18a8da4ad25a1afd2"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/archer-3.png",
+          "sha256": "4759b146271f53a34cb7775e59989162906e5008bdbbbc04e97bfc8bf35760e1"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_01.png",
+          "sha256": "f81e33d4c914ae3ac0a61a8efd6a61c6ed15c66d562182f2735d350c6fbcdbe1"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_02.png",
+          "sha256": "e94cead5800a9b660c6543aca33ef9536e66292485eaf44dfaffba287f38dbca"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "01",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    },
+    {
+      "id": "defeat-v049-02",
+      "title": "The Silenced Grove",
+      "prompt": "Use case: stylized-concept. Asset type: new DEFEAT outcome illustration approval candidate for Bastions of the Last Kingdom. Wide landscape 16:9, one cohesive clean faceted toy-miniature diorama. References1–4 define the exact four character identities, equipment, colors and silhouettes; reference5 provides rendering/world style only. Large planar facets, matte toy surfaces, soft shadows, pale human stonework and fallen blue diamond banners. Orcs clearly victorious; defenders alive, unharmed but visibly defeated with lowered heads/weapons. No individual display plinths. Complete distinctive faces and equipment readable. No gore, wounds, corpses, animal harm, text, numerals, captions, UI, border, watermark or photographic realism. Candidate02: The Silenced Grove. Defeated DruidIV (ivory hood and robe, small antlers, leaf staff) and MasterDruid (green antlered leaf hood, gold diamonds, branching staff with green crystal). Victorious MossbackTroll with moss/mushroom-covered shoulders, runestone on back and heavy stone club; OgreGlutton with beige round belly, cooking-pot helmet, barrel mace and dangling iron pan. Scene an overrun woodland sanctuary at the human forest-wall, huge geometric roots and shattered pale-stone arch. Overhead oblique composition centered on a circular grove: defeated druids seated together beneath an old tree in foreground, giant mossy troll standing across the arch, ogre beside overturned barrel at the rear. Dappled late-afternoon sun and green-gold palette. Keep all exact approved identity features, no reused composition from reference5.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-c130c54d-e307-46f4-844b-3f0aa0c43fca.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-02.png",
+      "bytes": 2409281,
+      "sha256": "4991c635d6d118238ea5253fac565495845d65e8bad77ddafa5e1a9c071f5a18",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/druid-4.png",
+          "sha256": "f497dd578bf295abee860adc6c9f6cfe7ec187f0c48dad6219ad4066ca97a84f"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/greenheart.png",
+          "sha256": "beaf8cfc31d6e702da9a19205183b6e76b765e9b7af25b42e554db1a87163db7"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_06.png",
+          "sha256": "4dcc97a5f8804db87337ff6c94db8ee1e00ee9ddd610566e5317a2842064f892"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_03.png",
+          "sha256": "92e8b57f8d5b0afa165106746bfee25ca33b47664f9f8799151508b005287f93"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "02",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    },
+    {
+      "id": "defeat-v049-03",
+      "title": "The Extinguished Observatory",
+      "prompt": "Use case: stylized-concept. Asset type: new DEFEAT outcome illustration approval candidate for Bastions of the Last Kingdom. Wide landscape 16:9, one cohesive clean faceted toy-miniature diorama. References1–4 define the exact four character identities, equipment, colors and silhouettes; reference5 provides rendering/world style only. Large planar facets, matte toy surfaces, soft shadows, pale human stonework and fallen blue diamond banners. Orcs clearly victorious; defenders alive, unharmed but visibly defeated with lowered heads/weapons. No individual display plinths. Complete distinctive faces and equipment readable. No gore, wounds, corpses, animal harm, text, numerals, captions, UI, border, watermark or photographic realism. Candidate03: The Extinguished Observatory. Defeated StormcallerIV with swept grey hair, gold forehead band, ivory/gold coat and golden lightning focus; ElvenArchmage in teal/green gold-trimmed robes, pointed ears, leaf-and-gem crown and blue-crystal staff, dim colored levitating crystals. Victorious OrcSpellEater, green tusked broad orc with black rune-stones around shoulders and dark spiked mace; CursedTotemTroll with towering stacked skull totem strapped to mossy shoulders and tree-trunk club. Scene shattered human observatory terrace with broken circular stone floor and fallen astronomical brass rings, night-blue sky, extinguished magic and amber ember glow. Side-on composition: weary two defenders on lower left steps, spell-eater in strong foreground profile lifting mace, giant totem troll behind open terrace breach. Preserve recognizable staff, crown, hair and rune/skull equipment exactly; no repeated gate composition.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-d97b1e6a-5f20-47b2-bf4e-f18ee45cc910.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-03.png",
+      "bytes": 2303943,
+      "sha256": "89c0129d11c72d4299a1101dbed73731a12c2516f5945d3301761f35c1dcd471",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/stormcaller-4.png",
+          "sha256": "cee5afc04478825a39e2909247685713660026584ed0e532a551dcb3490bf6d6"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/stormcitadel.png",
+          "sha256": "88b420e3a8e438c2383bf883e7fc5b34fd384899d90c7c9bee87d5901e8ec0a9"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_26.png",
+          "sha256": "bfad78e594c745e0e8f8963fbc99ccc86351aa618b3c26595c17d269390b5ca2"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_17.png",
+          "sha256": "bd24494c27bc85055e74ca6689cb3906aaa6ad5a1f88cde496343cc160dcd8ca"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "03",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    },
+    {
+      "id": "defeat-v049-04",
+      "title": "The Broken Ice Crossing",
+      "prompt": "Use case: stylized-concept. Asset type: new DEFEAT outcome illustration approval candidate for Bastions of the Last Kingdom. Wide landscape 16:9, one cohesive clean faceted toy-miniature diorama. References1–4 define the exact four character identities, equipment, colors and silhouettes; reference5 provides rendering/world style only. Large planar facets, matte toy surfaces, soft shadows, pale human stonework and fallen blue diamond banners. Orcs clearly victorious; defenders alive, unharmed but visibly defeated with lowered heads/weapons. No individual display plinths. Complete distinctive faces and equipment readable. No gore, wounds, corpses, animal harm, text, numerals, captions, UI, border, watermark or photographic realism. Candidate04: The Broken Ice Crossing. Defeated FrostWardenV with golden hood, pale collar, blue crystalline spear and blue hexagonal shield; FrozenCelestial as full ice-blue crystalline armored champion with ice spear, angular ice wings, ice crown and floating ice halo. Victorious SilentOrcExecutioner in huge pointed black-purple hood, strapped muzzle-mask, twin crescent hand blades; OrcWraith of the ShatteredWorld with translucent ice-blue tusked body, dark purple ragged hood, amethyst chest and crystal blade. Scene broken stone bridge across a frozen stream just below human castle walls. Diagonal bridge receding into mist, defeated frost defenders crouch by a cracked blue banner near camera while executioner stands on bridge parapet raising blade and wraith crosses behind. Cold cyan dawn, purple/amber accents, delicate geometric snow. Keep crystalline character forms and all distinctive approved equipment; no harm or shattered body parts.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-76e3d455-6f05-4342-a540-1ad13a3338f7.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-04.png",
+      "bytes": 2384507,
+      "sha256": "e558ef3fcb2bb13254a7aa822fc673babb7e2bd63bd20a9e94904b80ace22c04",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/frostwarden-5.png",
+          "sha256": "446ee0e4cd7283d8a7dd9c4381979861093adca365030181867a7fed3f6af8b5"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/winterhold.png",
+          "sha256": "b17b856e558a25bcf12932a6290a75681afca9a5324e3b2f4f72bc438ad5f84f"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_18.png",
+          "sha256": "7b3260aef2b5025b92ba9edf5b1e021dfdeb6b7b78f7b5e355487777eabd4880"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_33.png",
+          "sha256": "408196266eeb75d46a59d6bd16521c4f88e3e5d562aa5b0288b3caa37062c54a"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "04",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    },
+    {
+      "id": "defeat-v049-05",
+      "title": "The Last Bell",
+      "prompt": "Use case: stylized-concept. Asset type: new DEFEAT outcome approval candidate for Bastions of the Last Kingdom. One cohesive wide landscape 16:9 faceted toy-miniature illustration. References1–4 define exact four identities/equipment/colors; reference5 is rendering/world style only. Preserve blocky square-eyed faces and large planar matte facets, soft cinematic light and pale human stonework, defeated blue diamond banners. Clear orc victory, human defenders alive but weary and defeated. No separate character display bases. No gore, wounds, dead bodies, animal harm, photographic realism, text, letters, numbers, labels, UI, watermark, border. Candidate05: The Last Bell. Defeated ClericVI in tall white-gold mitre and ivory/gold robe, gold cross staff and open book; defeated HighPriest in red/white/gold sun-trimmed robe with large sun staff, glowing gold halo and red sun-emblem book. Victorious OrcDualSealInquisitor with green tusked face, immense twin-point black gold-trimmed hood, golden seal staff and dark sun-emblem shield; OgreRevenant in HollowArmor, bulky riveted hollow iron suit with no solid face and gentle teal spectral light inside. Interior scene, ruined human bell chapel with broken blue stained-glass window and large fallen bronze bell. Strong centered depth composition: inquisitor occupies center aisle beneath the window, hollow revenant stands at far chapel door, defeated clerics grouped at right by the fallen bell, staff laid down and book closed. Gentle overcast windowbeam and amber candlelight; sombre elegant ivory/gold versus dark metal, no fiery gate or forest composition. Keep staff/book/mitre/halo/skull shoulder details recognizable.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-af13f0af-67a0-49f8-afb0-412262aa386a.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-05.png",
+      "bytes": 2351015,
+      "sha256": "d14f365209cbfd912b5602ead13c190e04b866d60df2d3ee68010e862766c4c2",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/cleric-6.png",
+          "sha256": "d9f7999b78be8f0de77d5005dffac2983bd5f4cb5c8f53b5f32868d1dc283bbf"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/monk.png",
+          "sha256": "e0ea3f6f7c25075b9e4206d47347c29ab0599f557598b9d64dc5505c703ceaf3"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_31.png",
+          "sha256": "33e287d0c83ce8f802e1c0b10d9ebec20d567714128f6e292a0c853f422c1c91"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_46.png",
+          "sha256": "23a4611b76986147292c6bb118dce6314d62a53485d87618fd00f881fb674c3c"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "05",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    },
+    {
+      "id": "defeat-v049-06",
+      "title": "The Captured Workshop",
+      "prompt": "Use case: stylized-concept. Asset type: new DEFEAT outcome approval candidate for Bastions of the Last Kingdom. One cohesive wide landscape 16:9 faceted toy-miniature illustration. References1–4 define exact four identities/equipment/colors; reference5 is rendering/world style only. Preserve blocky square-eyed faces and large planar matte facets, soft cinematic light and pale human stonework, defeated blue diamond banners. Clear orc victory, human defenders alive but weary and defeated. No separate character display bases. No gore, wounds, dead bodies, animal harm, photographic realism, text, letters, numbers, labels, UI, watermark, border. Candidate06: The Captured Workshop. Defeated EngineerV is short orange-bearded dwarf in golden work cap with dark round goggles, grey apron and yellow coat, grey rune hammer and graduated wooden ruler. Catapult is the exact recognizable wooden four-wheel iron-braced torsion siege machine with rope winch, long throwing arm and grey stone. It is captured and inert, leaning against damaged workshop wall but still recognizable, no invented human rider. Victorious OrcScrapTinker with patchwork rusted riveted armor/helmet, gear on back, hammer and iron plate shield; RivetedGoblinMutant is little green goblin pilot inside huge square wood/metal riveted walking machine, mechanical claw on one arm and gear saw on other. Wide high three-quarter workshop-yard view: catapult dominates foreground diagonal, engineer seated by its wheel with lowered hammer, goblin machine occupying breached workshop door, tinker raising stolen workshop gear on left. Geometric scattered timber, pale walls, dropped blue banners and gold late-afternoon light. Mechanically believable catapult, full pilot visible, no tank/modern technology; distinctive four-identity composition unlike prior defeated-two-front-and-two-back layouts.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-7af72dfc-3b01-4fe8-9a4a-11b0acfc7dfb.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-06.png",
+      "bytes": 2262564,
+      "sha256": "d62a52051d3bae006f544580c6bd3e9b1d595fb22553d10dc8d7100dab70eddd",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/runebreaker-5.png",
+          "sha256": "ec71167644b2f3b5d691141d200b1c5fc88b3be31f7e8efe7b16a1546026dbac"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/stonewarden.png",
+          "sha256": "a35aefca825aefb1b898f9fab45fe832d52ed9d2990cc6d5d20d048477748c71"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_04.png",
+          "sha256": "e6dbbb006f36ba68b411635d35c85a7a54c63e6889799e6d757a939ec53906ed"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_24.png",
+          "sha256": "51d5b8b52de555f6c90ef8c95585a43b0a29b281cf0433b15219c1767f7c2afa"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "06",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    },
+    {
+      "id": "defeat-v049-07",
+      "title": "The Stolen Throne",
+      "prompt": "Use case: stylized-concept. Asset type: new DEFEAT outcome approval candidate for Bastions of the Last Kingdom. One cohesive wide landscape 16:9 faceted toy-miniature illustration. References1–4 define exact four identities/equipment/colors; reference5 is rendering/world style only. Preserve blocky square-eyed faces and large planar matte facets, soft cinematic light and pale human stonework, defeated blue diamond banners. Clear orc victory, human defenders alive but weary and defeated. No separate character display bases. No gore, wounds, dead bodies, animal harm, photographic realism, text, letters, numbers, labels, UI, watermark, border. Candidate07: The Stolen Throne. Defeated Paladin in silver/gold armor, red tabard, gold sun hammer and red gold-cross shield, kneeling with shield lowered. Defeated King is the approved elderly white-bearded crowned human in silver/gold armor with purple fleur-de-lis shield/cape, crystal-blue sword; his exact brown armored horse stands calmly behind him unharmed while the dismounted King sits on lower throne step. Victorious MogrokGatebreaker: huge beige tusked orc, horned iron helmet, skull mace, tall iron-banded wooden shield. Victorious GorvashBonePatriarch: huge green tusked orc with fan of enormous ivory bones around shoulders/head, bone staff and dark leather armor. Setting inside partially roofless royal throne hall, oblique view down a long blue carpet. Gorvash stands beside captured throne at far left, Mogrok plants wooden shield centrally, weary Paladin and King at right midground beside calm horse. Warm dusk enters broken roof, purple/gold regal palette against bone/iron, blue diamond human banners on floor. No outside burning gate, all exact full faces, crowns, horse and signature gear visible.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-8b1b7090-d55a-4fae-8cd7-436ed279fa7d.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-07.png",
+      "bytes": 2367897,
+      "sha256": "e4810f8a449fdb8e3a0afc95b5f7c54ee6b02c700f6422cf8918f4911ebe53d9",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/kingdomprotector.png",
+          "sha256": "03d99f3dc1741ab77f2ade0b499c63a01898a9f462ce176e511dfcb5e48b0df9"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/crownofages.png",
+          "sha256": "f394024225a593c8e0efc8b519847967457486d4f51339c0e5e7efe7d16b32e5"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_10.png",
+          "sha256": "968bacd165e1bf6555c2d7dfcba64065c2a1c8eb06c0d1eae929ae15a5cce0eb"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_20.png",
+          "sha256": "7e49e0b2a08c8fc9b4334095ae738810328d1366b03f0a4bf6573ad6f5c45021"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "07",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    },
+    {
+      "id": "defeat-v049-08",
+      "title": "The Fallen Skywatch",
+      "prompt": "Use case: stylized-concept. Asset type: new wide16:9DEFEAT outcome approval candidate for Bastions of the Last Kingdom. Create one cohesive faceted toy-miniature illustration, clean broad planar surfaces, matte geometric materials, readable square-eyed faces, pale human stone ruins and fallen blue diamond banners, soft cinematic lighting matching reference5 STYLEONLY. References1–4 are exact identity locks for subjects/equipment/colors. Defenders defeated but alive, tired lowered-head poses; enemies unmistakably victorious. No gore, wounds, dead bodies, harm to animals, text, captions, letters, numerals, UI, individual display bases, border, watermark, or photorealistic anatomy. Candidate08: The Fallen Skywatch. Exact MotherFireDragon orange faceted scales, cream chest, two pale horns, orange membrane wings, dark claws, tail-tip flame; exact Thunderbird purple-and-ivory feathered bird, golden beak/claws, lightning marks in wings. Both are defeated unharmed: mother dragon rests with wings folded and weary lowered head, Thunderbird perches quietly next to it with lowered wings. Victorious IronBatOrcRider is green orc wearing grey iron helmet, holding wooden crossbow while mounted on chunky purple/mauve bat in plated iron face/chest armor; victorious ThunderMantaOrcRider is green orc in red angular mask holding polearm with red pennant, mounted on blue-grey broad manta with white lightning markings and leather saddle. High viewpoint from a ruined human watchtower terrace looking over a conifer valley: large orange dragon curled around broken stair in foreground, purple bird on parapet, victorious bat and manta flying low side-by-side beyond captured blue banner. Airborne rider faces and both complete mounts visible, creatures as approved, no humanoid replacements. Clear four-subject defeat story, sunset red-gold and cool valley mist; not the two-front-two-back gate arrangement.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-7970974e-bc46-4686-a8ae-29ce23ed9a5a.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-08.png",
+      "bytes": 2310359,
+      "sha256": "1cf62285adf0018593f24d1642f7b6f2a39d2452d1797459330969435c4878aa",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/worldfire.png",
+          "sha256": "26f6ffe24ba71a4a9c200c8e3dd70bd72c1307361645301f6e77bb8e372412d5"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/starfall.png",
+          "sha256": "380b698287247979d32b4888a2990742f369ce27b9f3b23a86e7bfb5fdb39790"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_25.png",
+          "sha256": "65a9ac96c6a50a4e3710c3cc62cc20a2a316f585369493652b717060e12b2c15"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_39.png",
+          "sha256": "96537a00bedd5d9946e464cbadd154269ff653f4c7452d808ef118947ed505a9"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "08",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    },
+    {
+      "id": "defeat-v049-09",
+      "title": "The Lost River Road",
+      "prompt": "Use case: stylized-concept. Asset type: new wide16:9DEFEAT outcome approval candidate for Bastions of the Last Kingdom. Create one cohesive faceted toy-miniature illustration, clean broad planar surfaces, matte geometric materials, readable square-eyed faces, pale human stone ruins and fallen blue diamond banners, soft cinematic lighting matching reference5 STYLEONLY. References1–4 are exact identity locks for subjects/equipment/colors. Defenders defeated but alive, tired lowered-head poses; enemies unmistakably victorious. No gore, wounds, dead bodies, harm to animals, text, captions, letters, numerals, UI, individual display bases, border, watermark, or photorealistic anatomy. Candidate09: The Lost River Road. Exact ElvenRanger has green leaf hood/cape, pointed ears, wooden bow and white arrow quiver. Exact MasterRanger has layered brown/ivory leaf-trimmed hood/cape over green robe, ornate gold/green bow and green arrows. Both sit wearily on opposite ends of a broken pale-stone river marker, bows lowered, alive and defeated. Victorious BlackMarshKnifeman has green tusked face, black-grey layered hood, crimson cloth face mask, paired short silver blades. Victorious RiftwolfOrcRider has green orc in dark hood and brown leather, long purple crystal spear, riding a faceted charcoal-grey wolf with angular violet brow crystal and square black eyes. Scene misty shallow river-ford after rain at ruined human watergate; camera low across water with soft reflected blue banners. Raider rider and wolf dominate LEFT foreground in proud alert stance, knifeman stands atop broken watergate at RIGHT distance, defeated ranger pair occupies middle riverbank center; reeds and geometric pebbles, blue-grey/green mist, subdued early morning amber light. Keep exact bow/hood/wolf/spear details. Not a burning city or symmetrical victory lineup.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-7d4ee19b-a4d5-4448-83bf-f1c099036bb2.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-09.png",
+      "bytes": 2407697,
+      "sha256": "ab023a9798da07f887ef595590f1385be3869f42405103730e443436fb7d7c00",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/thornwarden.png",
+          "sha256": "86daa6b7abb17a0bb8fe8623c289e00cea1b20e6fb16970e9baa308d0b00829b"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/royalranger.png",
+          "sha256": "bbcdf7ce94978ee62fd6b0ec9ae763ff6978c9fc3326c33d9a9c0b87f361d042"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_38.png",
+          "sha256": "e72f5f59dde3261a1f5d1a7038fa8a2143c27ac0e313fed5724115ee8b69a618"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_37.png",
+          "sha256": "20c54817cc7b8747de1d2b6dc86cafdbc54d5049c50ac7b052b21a4ddd3117b8"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "09",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    },
+    {
+      "id": "defeat-v049-10",
+      "title": "Bernhard’s Final Banner",
+      "prompt": "Use case: stylized-concept. Asset type: new wide16:9DEFEAT outcome approval candidate for Bastions of the Last Kingdom. Create one cohesive faceted toy-miniature illustration, clean broad planar surfaces, matte geometric materials, readable square-eyed faces, pale human stone ruins and fallen blue diamond banners, soft cinematic lighting matching reference5 STYLEONLY. References1–4 are exact identity locks for subjects/equipment/colors. Defenders defeated but alive, tired lowered-head poses; enemies unmistakably victorious. No gore, wounds, dead bodies, harm to animals, text, captions, letters, numerals, UI, individual display bases, border, watermark, or photorealistic anatomy. Candidate10: Bernhard's Final Banner. Exact LadyClaire: blonde long faceted hair, gold crown with orange diamond, square green eyes, ivory-gold gown, circle-topped gold staff and orange floating crystals. Exact Archangel: golden closed helmet/plate armor, white angular feathered wings, floating golden halo and large gold sword. Both alive but defeated, Claire seated weary on fallen pale-stone royal crest with lowered staff; Archangel kneels beside her, wings folded and sword lowered. Exact LordBernhard as reference3: black hooded sorcerer with hidden dark face, black iron throne-saddle and tall black spires, red gemstone armor, crimson glowing magical sword held in RIGHT hand; mounted on full charcoal-scaled WyvernQueen with red membrane wings and jagged red/black horns. Exact ZaruunLordofStormWings as reference4: green crowned orc with axe, mounted on dark purple bat with curved brown horns and plated face. Monumental WIDE view of the final keep's roofless inner courtyard from slightly elevated sideangle: Bernhard and whole wyvern dominate far LEFT atop broken battlement, Zaruun/bat visible circling upperright, Claire and Archangel grouped in closer rightforeground beneath lowered blue human banner. Crimson dusk and dark-violet sky against warm ivory defenders, strong readable silhouettes and all complete heads/weapons. Enemy triumph is clear, Claire/Archangel recognizably unharmed and exhausted; no death or chained captives, no other inventedcharacters.",
+      "sourceGenerationFile": "C:\\Users\\sinag\\.codex\\generated_images\\01a0fe1d-9f48-7bd2-b992-a4480c941281\\exec-323110b3-dc32-49a4-833c-d793473895a8.png",
+      "approval": "approved",
+      "intendedOutcome": "lost",
+      "file": "public/assets/ui/results/v049/defeat-10.png",
+      "bytes": 2313944,
+      "sha256": "ebe86cbe296ebf9b12c1a0afb971b9cf2925fd18d65bb245ba96239ef92de778",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "references": [
+        {
+          "file": "public/assets/ui/reference-cutouts/ladyclaire.png",
+          "sha256": "aa61240b5773b48c5a2d8c204838cf6995edb3987d740ae2a6514c0946322824"
+        },
+        {
+          "file": "public/assets/ui/reference-cutouts/dawnspire.png",
+          "sha256": "ca79204ecf0bd9484bf3eaa4ba7c78b478bbdbe04f4cc06cf054b810550e204e"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_50.png",
+          "sha256": "550818ad4829d89b40bb9982cb6118fae40f9ba21ab55317a67471ca8fb8261a"
+        },
+        {
+          "file": "public/assets/ui/reference-enemy-fronts/host_30.png",
+          "sha256": "750c5b324c8f8afb1636b7fe8971618916c74579f903acdfbdb7700dc307392a"
+        },
+        {
+          "file": "public/assets/ui/results/v044/defeat.png",
+          "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7"
+        }
+      ],
+      "copiedWithoutPixelEdits": true,
+      "review": "Reviewed for recognizable approved subject identities, faceted style, readable defeat composition and no text or gore. Technical review only; human approval is pending.",
+      "sourceCandidateId": "10",
+      "outcome": "lost",
+      "reviewStatus": "Historical candidate review; human approval is recorded in approvalEvidence."
+    }
+  ]
+}

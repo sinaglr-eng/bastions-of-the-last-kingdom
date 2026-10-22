@@ -1,0 +1,67 @@
+{
+  "schema": "approved-outcomes-v049-selector-validation-v1",
+  "status": "pass",
+  "createdAt": "2026-10-22T04:15:48.593Z",
+  "baseCommit": "13d48da0740731b1fc7b65c4a95eefc280549bb3",
+  "sourceCount": 4,
+  "sources": [
+    {
+      "file": "ui/outcome-art.js",
+      "sha256": "6b3d54cb04c5c960e0700a91deb6c34b519b57686caba259cf553eee0c4a8916"
+    },
+    {
+      "file": "tests/outcome-art-v045.test.mjs",
+      "sha256": "0aa5cc19151aa586f1a6984b60b400760efe0d50a615857fe0a8f6e8c4d38bf0"
+    },
+    {
+      "file": "tests/run-results.test.mjs",
+      "sha256": "577090c742fa96bfaea3e228bb41ec24767e314cd63be0fcd1ed5e11279f93d1"
+    },
+    {
+      "file": "tests/approved-outcomes-v049.test.mjs",
+      "sha256": "a772f94b66231b52a89db2b04a1926b5dcc181529dc2b0b3e041b8dec3cb187d"
+    }
+  ],
+  "sourcesStableDuringTests": true,
+  "boundaries": {
+    "selectorBodyUnchanged": true,
+    "victoryPoolUnchanged": true,
+    "originalThreeDefeatRowsUnchanged": true
+  },
+  "tests": 22,
+  "testExitCode": 0,
+  "command": [
+    "C:\\Users\\sinag\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "--test",
+    "tests/approved-outcomes-v049.test.mjs",
+    "tests/outcome-art-v045.test.mjs",
+    "tests/run-results.test.mjs",
+    "tests/run-result-stories-v047.test.mjs"
+  ],
+  "runtimePools": {
+    "lost": 13,
+    "won": 3,
+    "newApprovedDefeatScenes": 10
+  },
+  "manifest": {
+    "file": "public/assets/ui/results/v049/manifest.json",
+    "sha256": "2dcd51825c98525c4fd5b069d4c04ec7d7220bbd44eec807f20a6e75d21ee10f",
+    "revision": "approved-defeat-scenes-20261022-v1",
+    "approval": "approved",
+    "approvedCount": 10,
+    "sourceManifest": "output/design/followup-v048-20261021/art-review/manifest.json",
+    "sourceManifestSha256": "9f358dad4dd0eb745f8d139de04b40f79798007bab8cbc97ad0bffe430af9827"
+  },
+  "coverage": [
+    "All ten registered PNGs equal their approved 0.4.8 candidate bytes, hashes and dimensions; original prompts, historical reviews and five ordered input references remain exact.",
+    "All 13 defeat scenes appear in each presentation bag before the next cycle. Repeats are excluded at cycle boundaries for six presentation-random samples. Victory remains its own unchanged pool of three scenes.",
+    "The scene remains stable during ended-run review and changes on actual Sandbox attempts; seeded gameplay RNG and actual result score/progress remain unchanged."
+  ],
+  "runtimeAlgorithmChanged": false,
+  "originalArtworkChanged": false,
+  "mainWritten": false,
+  "indexWritten": false,
+  "limitations": [
+    "Focused Node tests validate source, selection, manifest and exact pixels; native browser loading and release publication belong to the root release QA."
+  ]
+}

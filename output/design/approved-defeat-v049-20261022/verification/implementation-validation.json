@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-22T04:22:32.831Z",
+  "baseCommit": "13d48da0740731b1fc7b65c4a95eefc280549bb3",
+  "scope": "New 0.4.9 public GET verification tool and fixture tests only. No previous verifier, runtime, asset, MAIN, Git index or publication mutation.",
+  "source": [
+    {
+      "file": "tools/verify-v049-public.mjs",
+      "sha256": "d7671187c001fafbcb96797dbea13398eb61baed56d167730c74c97edf079601"
+    },
+    {
+      "file": "tests/public-verification-v049.test.mjs",
+      "sha256": "6ba1bd10b03b4b5014817a0cb2c00d7e32624ad26a56a7c99cc98dcc497de7ff"
+    }
+  ],
+  "previousVerifierPreserved": [
+    {
+      "file": "tools/verify-v048-public.mjs",
+      "sha256": "2372f46347364c86f998c5b4013004e5a2080f738aa60e4c6048227251b098f3",
+      "gitDiffFromBase": false
+    },
+    {
+      "file": "tests/public-verification-v048.test.mjs",
+      "sha256": "11c77f9695a426e4ac1bf121445366f4f623b06d88220ad37e189ee7b571237d",
+      "gitDiffFromBase": false
+    }
+  ],
+  "validation": {
+    "command": "node --test tests/public-verification-v049.test.mjs",
+    "tests": 32,
+    "pass": 32,
+    "fail": 0,
+    "log": "tests-focused.log",
+    "logSha256": "7d3776e2fa9856787b7535d4f2d2a19d706d616464f1779ac05758a9db051586"
+  },
+  "approvedDefeatAuthority": {
+    "file": "public/assets/ui/results/v049/manifest.json",
+    "sha256": "2dcd51825c98525c4fd5b069d4c04ec7d7220bbd44eec807f20a6e75d21ee10f",
+    "identities": 10,
+    "approval": "approved",
+    "approvalEvidence": {
+      "date": "2026-10-22",
+      "decision": "Schvaluji sceny",
+      "scope": "All ten 0.4.8 defeat candidates"
+    },
+    "sourceManifestSha256": "9f358dad4dd0eb745f8d139de04b40f79798007bab8cbc97ad0bffe430af9827",
+    "sourceManifestCanonicalSha256": "30e992c6a6cf1d1821d483500f2950a24913a0faa5245eea7a164d8ef89ba2b9",
+    "pngs": [
+      {
+        "id": "defeat-v049-01",
+        "file": "public/assets/ui/results/v049/defeat-01.png",
+        "sha256": "4f084198d47d7a3958af0a7cd1a7c9082cfa1a1bdd83bcf2781368a9e499f25c",
+        "expected": "4f084198d47d7a3958af0a7cd1a7c9082cfa1a1bdd83bcf2781368a9e499f25c",
+        "bytes": 2245491
+      },
+      {
+        "id": "defeat-v049-02",
+        "file": "public/assets/ui/results/v049/defeat-02.png",
+        "sha256": "4991c635d6d118238ea5253fac565495845d65e8bad77ddafa5e1a9c071f5a18",
+        "expected": "4991c635d6d118238ea5253fac565495845d65e8bad77ddafa5e1a9c071f5a18",
+        "bytes": 2409281
+      },
+      {
+        "id": "defeat-v049-03",
+        "file": "public/assets/ui/results/v049/defeat-03.png",
+        "sha256": "89c0129d11c72d4299a1101dbed73731a12c2516f5945d3301761f35c1dcd471",
+        "expected": "89c0129d11c72d4299a1101dbed73731a12c2516f5945d3301761f35c1dcd471",
+        "bytes": 2303943
+      },
+      {
+        "id": "defeat-v049-04",
+        "file": "public/assets/ui/results/v049/defeat-04.png",
+        "sha256": "e558ef3fcb2bb13254a7aa822fc673babb7e2bd63bd20a9e94904b80ace22c04",
+        "expected": "e558ef3fcb2bb13254a7aa822fc673babb7e2bd63bd20a9e94904b80ace22c04",
+        "bytes": 2384507
+      },
+      {
+        "id": "defeat-v049-05",
+        "file": "public/assets/ui/results/v049/defeat-05.png",
+        "sha256": "d14f365209cbfd912b5602ead13c190e04b866d60df2d3ee68010e862766c4c2",
+        "expected": "d14f365209cbfd912b5602ead13c190e04b866d60df2d3ee68010e862766c4c2",
+        "bytes": 2351015
+      },
+      {
+        "id": "defeat-v049-06",
+        "file": "public/assets/ui/results/v049/defeat-06.png",
+        "sha256": "d62a52051d3bae006f544580c6bd3e9b1d595fb22553d10dc8d7100dab70eddd",
+        "expected": "d62a52051d3bae006f544580c6bd3e9b1d595fb22553d10dc8d7100dab70eddd",
+        "bytes": 2262564
+      },
+      {
+        "id": "defeat-v049-07",
+        "file": "public/assets/ui/results/v049/defeat-07.png",
+        "sha256": "e4810f8a449fdb8e3a0afc95b5f7c54ee6b02c700f6422cf8918f4911ebe53d9",
+        "expected": "e4810f8a449fdb8e3a0afc95b5f7c54ee6b02c700f6422cf8918f4911ebe53d9",
+        "bytes": 2367897
+      },
+      {
+        "id": "defeat-v049-08",
+        "file": "public/assets/ui/results/v049/defeat-08.png",
+        "sha256": "1cf62285adf0018593f24d1642f7b6f2a39d2452d1797459330969435c4878aa",
+        "expected": "1cf62285adf0018593f24d1642f7b6f2a39d2452d1797459330969435c4878aa",
+        "bytes": 2310359
+      },
+      {
+        "id": "defeat-v049-09",
+        "file": "public/assets/ui/results/v049/defeat-09.png",
+        "sha256": "ab023a9798da07f887ef595590f1385be3869f42405103730e443436fb7d7c00",
+        "expected": "ab023a9798da07f887ef595590f1385be3869f42405103730e443436fb7d7c00",
+        "bytes": 2407697
+      },
+      {
+        "id": "defeat-v049-10",
+        "file": "public/assets/ui/results/v049/defeat-10.png",
+        "sha256": "ebe86cbe296ebf9b12c1a0afb971b9cf2925fd18d65bb245ba96239ef92de778",
+        "expected": "ebe86cbe296ebf9b12c1a0afb971b9cf2925fd18d65bb245ba96239ef92de778",
+        "bytes": 2313944
+      }
+    ]
+  },
+  "expectedRequests": {
+    "uiFixtureWithTwoCompiledAssets": 215,
+    "fullFixtureWithTwoCompiledAssets": 273,
+    "productionFormula": "271 + compiled entry count",
+    "productionWithFiveCompiledAssets": 276
+  },
+  "reviewNotes": [
+    "The three legacy defeat scenes and three victory scenes remain in their original namespaces; ten approved copies occupy a new v049 namespace.",
+    "Active outcome-scenes-20261022-v3 release metadata is independent of immutable historical v045 outcome-scenes-20261018-v2 provenance.",
+    "Complete quoted scene IDs prevent PNG filenames from impersonating retained pool identities.",
+    "Unused OUTCOME_ART_REVISION may be tree-shaken; release.json pins its value, while compiled checks use the actual namespace and all 13/3 scene IDs.",
+    "Historical 048 pending gallery, prompts, reviews and references remain unchanged; approvalEvidence records the later all-scenes decision."
+  ],
+  "limits": [
+    "Fixture GETs and exact hashes establish publication byte/metadata checks. They do not prove browser rendering, selection fairness or device performance. Root owns actual local-build/public GET smoke and runtime selection tests."
+  ]
+}

@@ -2,6 +2,12 @@
 
 A single-player 3D fantasy tower-defense game for the browser. Build five mystery defenders, discover each on placement, retain one or combine matching ingredients, and use the rejected foundations to shape an enemy maze.
 
+## Release candidate: 0.4.9 — Ten approved defeat scenes
+
+All ten defeat scenes approved by the user on October 22 are now included. The defeat pool contains thirteen images: the three previous approved scenes plus the ten new compositions. Every scene appears once before another cycle, with no immediate repeat at the cycle boundary; reopening the same ended run keeps its image. Victory scenes and seeded gameplay remain unchanged. Only the selected outcome image loads when results open.
+
+The [approved scene gallery](output/design/approved-defeat-v049-20261022/index.html), [human approval record](output/design/approved-defeat-v049-20261022/approval.json) and [implementation report](docs/APPROVED_DEFEAT_V049_20261022.md) retain the original full-resolution PNGs, prompts and references. The 0.4.8 proposal remains an immutable historical archive. <!-- V049_GATES_PENDING -->
+
 ## Published release: 0.4.8 — Guided starts and hand-cast lightning
 
 Every fresh run offers Start tutorial or Skip tutorial. The nine-step guide follows real play, with compact phone coaching that leaves the grid and keeper controls usable. Potential combinations and Online scores start open, completed matching recipe goals unpin automatically, Enemy Waves uses an invader icon, and approved outcome scenes rotate without replacement. Stormcaller, Elven Mage and Elven Archmage cast lightning from their moving hands.

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {OUTCOME_ART_REVISION,OUTCOME_ART_SCENES,createOutcomeArtSelector} from '../ui/outcome-art.js';
+import {OUTCOME_ART_SCENES,createOutcomeArtSelector} from '../ui/outcome-art.js';
 import {runResultModel,runResultMarkup} from '../ui/run-results.js';
 import {Game} from '../game/core/game.js';
 import {DeveloperConsoleSession} from '../game/core/developer-console.js';
@@ -14,12 +14,13 @@ const manifest=JSON.parse(read('public/assets/ui/results/v045/manifest.json'));
 const archived=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(read('data/'+key+'.json'))]));
 const data={...archived,towers:campaignTowers(archived.towers),enemies:campaignEnemies(archived.enemies),recipes:campaignRecipes(archived.recipes),waves:campaignWaves(archived.waves)};
 
-test('all six outcome scenes resolve to the reviewed original PNGs with matching provenance and English alternatives',()=>{
-  assert.equal(manifest.revision,OUTCOME_ART_REVISION);assert.equal(manifest.identities.length,4);assert.equal(manifest.preservedAssets.length,2);
+test('all six historical outcome scenes retain their reviewed original PNGs, provenance and English alternatives',()=>{
+  assert.equal(manifest.revision,'outcome-scenes-20261018-v2');assert.equal(manifest.identities.length,4);assert.equal(manifest.preservedAssets.length,2);
   const assets=[...manifest.identities,...manifest.preservedAssets];
   for(const outcome of ['won','lost']){
-    assert.equal(OUTCOME_ART_SCENES[outcome].length,3);
-    for(const scene of OUTCOME_ART_SCENES[outcome]){
+    const historical=OUTCOME_ART_SCENES[outcome].filter(scene=>!scene.path.includes('/v049/'));
+    assert.equal(historical.length,3);
+    for(const scene of historical){
       const entry=assets.find(asset=>asset.id===scene.id);assert.ok(entry,scene.id);assert.equal(entry.outcome,outcome);assert.equal(entry.file,'public/'+scene.path);
       const bytes=read(entry.file);assert.equal(bytes.toString('hex',0,8),'89504e470d0a1a0a');assert.deepEqual([bytes.readUInt32BE(16),bytes.readUInt32BE(20)],entry.dimensions);assert.equal(bytes.length,entry.bytes);assert.equal(hash(bytes),entry.sha256);
       assert.ok(scene.alt.length>70);assert.match(scene.alt,outcome==='won'?/celebrate above the defeated Lord Bernhard/:/victorious|triumph above the defeated/);
@@ -32,11 +33,12 @@ test('all six outcome scenes resolve to the reviewed original PNGs with matching
   const legacy=manifest.preservedManifest;assert.equal(hash(read(legacy.file).toString('utf8').replace(/\r\n/g,'\n')),legacy.sha256);
 });
 
-test('presentation sampling covers every scene, separates outcome pools and excludes the preceding scene of the same outcome',()=>{
-  const samples=[0,0,.999,0,0,.999],selector=createOutcomeArtSelector({random:()=>samples.shift()});
-  const lose=Array.from({length:3},()=>selector(Object.freeze({phase:'lost'})));
+test('presentation sampling covers all thirteen defeat scenes and the separate unchanged victory pool',()=>{
+  const selector=createOutcomeArtSelector({random:()=>0});
+  assert.equal(OUTCOME_ART_SCENES.lost.length,13);assert.equal(OUTCOME_ART_SCENES.won.length,3);
+  const lose=Array.from({length:13},()=>selector(Object.freeze({phase:'lost'})));
   const win=Array.from({length:3},()=>selector(Object.freeze({phase:'won'})));
-  assert.deepEqual(lose.map(art=>art.id),['defeat-01','defeat-02','defeat-03']);
+  assert.deepEqual(lose.map(art=>art.id),OUTCOME_ART_SCENES.lost.map(art=>art.id));
   assert.deepEqual(win.map(art=>art.id),['victory-01','victory-02','victory-03']);
   for(const choices of [lose,win])for(let i=1;i<choices.length;i++)assert.notEqual(choices[i].id,choices[i-1].id);
 });
@@ -44,7 +46,7 @@ test('presentation sampling covers every scene, separates outcome pools and excl
 test('each presentation bag shows all approved scenes once and never repeats across cycle boundaries',()=>{
   for(const value of [0,.4,.999,NaN,-3,9]){
     const selector=createOutcomeArtSelector({random:()=>value}),sequences={won:[],lost:[]};
-    for(let i=0;i<30;i++)for(const phase of ['lost','won'])sequences[phase].push(selector({phase}).id);
+    for(let i=0;i<39;i++)for(const phase of ['lost','won'])sequences[phase].push(selector({phase}).id);
     for(const phase of ['lost','won']){
       const ids=OUTCOME_ART_SCENES[phase].map(art=>art.id).sort(),sequence=sequences[phase];
       for(let start=0;start<sequence.length;start+=ids.length)assert.deepEqual(sequence.slice(start,start+ids.length).sort(),ids,`${phase} cycle ${start/ids.length}`);

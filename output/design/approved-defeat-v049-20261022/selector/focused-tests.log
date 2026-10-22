@@ -1,0 +1,30 @@
+✔ all ten approved illustrations retain exact original candidate pixels, prompts, reviews and ordered input references (56.1595ms)
+✔ each approved scene renders in the existing defeat result without changing gameplay, scores, review stability or seeded RNG (19.7799ms)
+✔ all six historical outcome scenes retain their reviewed original PNGs, provenance and English alternatives (23.2804ms)
+✔ presentation sampling covers all thirteen defeat scenes and the separate unchanged victory pool (0.3141ms)
+✔ each presentation bag shows all approved scenes once and never repeats across cycle boundaries (0.6949ms)
+✔ reopening one ended run keeps the same scene and does not resample or access simulation RNG (0.1621ms)
+✔ a real Sandbox restart of the same Game and wave chooses a new scene, while repeated result review remains stable (21.2199ms)
+✔ selecting and rendering result art changes no gameplay fields or seeded random draws (3.0075ms)
+✔ non-ended phases choose no illustration, and a later ended attempt is independently sampled (0.1262ms)
+✔ all 50 authored defeat chronicles have distinct short English text and the exact current campaign wave identity (1.0847ms)
+✔ every actual Game loss selects its wave chronicle, explicitly presents fiction and preserves factual score/progress and gameplay RNG (83.6047ms)
+✔ victory has its own ending, including the final Bernhard chapter and historical short-campaign victory (1.368ms)
+✔ chronicles never rely on unrecorded last invaders or interpolate raw HTML from model data (0.8398ms)
+✔ a real second-wave defeat separates one completed wave and records the actual last flying leak with clamped health loss (28.0723ms)
+✔ each observed leak counts actual health damage separately from recovered health and duplicate event delivery (4.7917ms)
+✔ actual 10-wave and 50-wave victories include the completed final wave and never display a defeat wave (219.9831ms)
+✔ actual Sandbox jumps and restarted losses count only completed wave IDs, including a later final-wave victory (35.0233ms)
+✔ a real Sandbox loss without earlier completions reports zero from the available observer, and ordinary fallback remains intact (10.1721ms)
+✔ results and ended review stay read-only, preserve tracker sequence and RNG, and expose explicit retry/return actions (9.5491ms)
+✔ missing event history does not fabricate facts, and fictional ending plus unavailable duration retain local retry (0.9359ms)
+✔ last recorded spawn retains factual copied values while the authored chronicle never renders untrusted event names (4.37ms)
+✔ an actual offline leaderboard rejection leaves local result and retry ahead of the optional online section (4.5746ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 406.2059

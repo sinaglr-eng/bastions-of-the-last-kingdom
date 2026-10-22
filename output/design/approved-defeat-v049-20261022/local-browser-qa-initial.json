@@ -1,0 +1,46 @@
+{
+  "schema": "v049-local-native-results-v1",
+  "status": "failed",
+  "version": "0.4.9",
+  "method": "Actual production build, Developer Console Sandbox import and genuine wave35 loss at5×. No app-state injection, fabricated result or score submission.",
+  "fixture": {
+    "schemaVersion": 1,
+    "mode": "sandbox",
+    "seed": 4901,
+    "waveLimit": 50,
+    "wave": 35,
+    "variant": "random",
+    "resources": {
+      "gold": 0,
+      "lives": 1,
+      "cp": 3
+    },
+    "enemyRules": {},
+    "enemies": {},
+    "towers": []
+  },
+  "selected": {
+    "alt": "The Lost River Road: a Black Marsh Knifeman and Riftwolf Orc Rider triumph over the defeated Elven Ranger and Master Ranger beside a ruined watergate",
+    "height": 941,
+    "id": "defeat-v049-09",
+    "loaded": true,
+    "src": "/bastions-of-the-last-kingdom/assets/ui/results/v049/defeat-09.png",
+    "width": 1672
+  },
+  "reopened": {
+    "id": "defeat-v049-09",
+    "loaded": true,
+    "src": "/bastions-of-the-last-kingdom/assets/ui/results/v049/defeat-09.png"
+  },
+  "stableAfterInspect": true,
+  "developerRunExcluded": true,
+  "logs": [
+    {
+      "level": "warn",
+      "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+      "timestamp": "2026-10-22T04:26:18.737Z",
+      "url": "http://127.0.0.1:5200/bastions-of-the-last-kingdom/assets/game-BHAgyTxP.js"
+    }
+  ],
+  "screenshot": "local-result.png"
+}

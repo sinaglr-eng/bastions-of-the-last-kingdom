@@ -1,5 +1,11 @@
 # Releases
 
+## 0.4.9 — Ten approved defeat scenes — 22 October 2026
+
+All ten defeat scenes approved by the user on October 22 are now included. The defeat pool contains thirteen images: the three previous approved scenes plus the ten new compositions. Every scene appears once before another cycle, with no immediate repeat at the cycle boundary; reopening the same ended run keeps its image. Victory scenes and seeded gameplay remain unchanged. Only the selected outcome image loads when results open.
+
+All ten files are exact byte copies of the approved 0.4.8 candidates. Historical PNGs, manifests, prompts and technical reviews remain intact; a new dated approval manifest records the user's decision. [Approval and provenance](docs/APPROVED_DEFEAT_V049_20261022.md). <!-- V049_GATES_PENDING -->
+
 ## 0.4.8 — Guided starts and hand-cast lightning — 21 October 2026
 
 Adds a Start/Skip choice to every fresh run and a nine-step tutorial driven by real actions. Compact phone coaching, optional native instructions and hidden waiting Next controls preserve access to the map, recruits and Keep. Replay preserves unsaved blueprint work and safely cancels uncommitted Move. Potential combinations and normal Online scores start open; the name form remains above Top 10. Successful crafting clears only its matching pin before observers refresh. Enemy Waves gains an invader icon.
