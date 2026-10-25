@@ -39,7 +39,7 @@ The old offline 0.3.31 release pair and its obsolete rollback tools are retired.
 
 ## Validation
 
-All **1,833 tests** and the **213-module** root-base production build pass. All **532 source/configuration files** remain stable across tests and build. Native browser checks at **390 × 844** and **1,024 × 768** confirm the picker stays outside the tutorial card, Close does not advance, choosing a plan advances to recruit placement, and reselecting a stored plan works. These are responsive Chromium checks, not physical iPad/Safari certification. Local preview statistics requests cannot reach the configured endpoint; their queued-sync warning is recorded without claiming endpoint availability.
+All **1,843 tests** and the **213-module** root-base production build pass. All **533 source/configuration files** remain stable across tests and build. Native browser checks at **390 × 844** and **1,024 × 768** confirm the picker stays outside the tutorial card, Close does not advance, choosing a plan advances to recruit placement, and reselecting a stored plan works. These are responsive Chromium checks, not physical iPad/Safari certification. Local preview statistics requests cannot reach the configured endpoint; their queued-sync warning is recorded without claiming endpoint availability.
 
 The initial complete run found one historical test that still expected the former nine-step order; it was updated to require the new ten-step order and the complete rerun passed. The original failure log remains in the release evidence.
 

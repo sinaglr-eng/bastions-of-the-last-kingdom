@@ -19,10 +19,19 @@ function Inside([string]$Target,[string]$Parent) {
 if($Apply){
   if(-not $VerifiedArchiveProof){throw 'A successful new archive verification receipt is required.'}
   $proof=Get-Content -LiteralPath $VerifiedArchiveProof -Raw | ConvertFrom-Json
-  if($proof.status -ne 'passed' -or $proof.version -ne '0.5.0' -or -not $proof.archiveVerified){throw 'The 0.5.0 archive has not passed verification.'}
-  foreach($archive in $proof.archives){
+  if($proof.status -ne 'passed' -or $proof.version -ne '0.5.0' -or $proof.archiveVerified -isnot [bool] -or $proof.archiveVerified -ne $true){throw 'The 0.5.0 archive has not passed verification.'}
+  $verified=@($proof.archives)
+  if($verified.Count -ne 2){throw 'Both verified source and production archives are required.'}
+  $names=@();$verifiedPaths=@()
+  foreach($archive in $verified){
+    if($archive.sha256 -notmatch '^[a-f0-9]{64}$' -or -not $archive.path){throw 'Invalid archive identity.'}
+    $item=Get-Item -LiteralPath $archive.path -Force
+    if($item.PSIsContainer -or ($item.Attributes -band [IO.FileAttributes]::ReparsePoint)){throw 'A regular archive file is required.'}
+    $archivePath=Inside $item.FullName (Split-Path -Parent $item.FullName)
+    $names+=$item.Name;$verifiedPaths+=$archivePath
     if((Get-FileHash -LiteralPath $archive.path -Algorithm SHA256).Hash.ToLowerInvariant() -ne $archive.sha256){throw 'Verified archive bytes changed.'}
   }
+  if(@($verifiedPaths | Select-Object -Unique).Count -ne 2 -or @($names | Sort-Object) -join ',' -ne 'bastions-v0.5.0-production.zip,bastions-v0.5.0-source.zip'){throw 'Two distinct current source/production archives are required.'}
 }
 $candidates=@();$skipped=@()
 foreach($workspace in $WorkspaceRoots){
@@ -52,11 +61,19 @@ foreach($workspace in $WorkspaceRoots){
     $entries=@(Get-ChildItem -LiteralPath $target -Force -Recurse)
     $expected=@('README.md','bastions-v0.3.31-production.zip','bastions-v0.3.31-source.zip','production-backup-proof.json','rollback-identity.json','source-backup-proof.json')
     if($entries.Count -ne 6 -or ($entries | Where-Object {$_.PSIsContainer -or ($_.Attributes -band [IO.FileAttributes]::ReparsePoint) -or $_.Name -notin $expected})){throw 'Unexpected content in previous release archive; retained.'}
+    $relative=[IO.Path]::GetRelativePath($root,$target).Replace('\','/')
+    $tracked=@(& git -C $root ls-files -- $relative)
+    if($LASTEXITCODE -ne 0 -or $tracked.Count){throw 'Tracked previous archive cannot be removed.'}
     $candidates+=@{path=$target;parent=$parent;kind='retired-offline-release';version='0.3.31';bytes=[long](($entries | Measure-Object -Property Length -Sum).Sum)}
   }
 }
 $receipt=@{schema='v050-old-build-cleanup-v1';status=($(if($Apply){'removed'}else{'preview'}));checkedAt=[DateTime]::UtcNow.ToString('o');paths=$candidates;skipped=$skipped;bytes=[long](($candidates | Measure-Object -Property bytes -Sum).Sum)}
 if($Apply){
+  foreach($candidate in $candidates){
+    foreach($protected in @((Resolve-Path -LiteralPath $VerifiedArchiveProof).Path)+$verifiedPaths){
+      if($protected.StartsWith($candidate.path+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)){throw 'Current archive or receipt is inside an obsolete cleanup target.'}
+    }
+  }
   foreach($row in $candidates){
     $checked=Inside ((Resolve-Path -LiteralPath $row.path).Path) $row.parent
     if($checked -ne $row.path){throw 'Resolved cleanup target changed.'}
