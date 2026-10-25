@@ -23,6 +23,7 @@
 .tutorial-card[data-compact=true] .tutorial-copy{max-height:72px;overflow:auto;overscroll-behavior:contain;font-size:12px;line-height:1.4;margin-bottom:4px}
 .tutorial-card[data-compact=true] nav{grid-area:actions;align-self:start;position:sticky;top:0;bottom:auto;gap:5px;margin:0;padding:0;z-index:1}
 .tutorial-card[data-compact=true] nav button{min-height:44px;padding:7px 8px;font-size:11px}
+.tutorial-card[data-compact=true] nav [data-tour=maze]{max-width:112px;white-space:normal}
 #app dialog:has(.tutorial-welcome){width:min(600px,calc(100vw - 24px))}
 .tutorial-welcome{max-width:550px;margin:0 auto;padding:32px;color:#29251f}
 .tutorial-welcome h2{font:32px/1.2 Georgia,"Times New Roman",serif;margin:10px 0 18px}

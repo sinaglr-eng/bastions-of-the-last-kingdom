@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       release_ref:
-        description: 'Optional immutable release tag or commit to rebuild (for example v0.3.31-stable)'
+        description: 'Optional immutable release tag or commit to rebuild (default baseline: v0.5.0-stable)'
         required: false
         type: string
 

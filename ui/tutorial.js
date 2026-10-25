@@ -1,5 +1,6 @@
 export const TUTORIAL_STEPS=[
   {id:'camera',target:'#battlefield',title:'Look around the battlefield',text:'Mouse: use WASD or the arrow keys to pan, Q / E to rotate, and the wheel to zoom. Touch / iPad: drag one finger to pan; pinch to zoom; drag two fingers to rotate. Tap an empty tile to build. You can end this guide at any time.'},
+  {id:'maze',target:'.map-tools > summary',fallback:'#battlefield',title:'Choose your maze shape',text:'Open Maze plans and select a shape from its thumbnails before placing recruits. You can select the currently saved shape again. Choosing a plan only shows building hints: blue cells mark planned walls and gold cells mark firing positions. It spends no recruits, gold or Command Points. Flying enemies ignore the walls. Use Map tools → Suggested maze, or M, to change your plan later.',wait:'Select a shape in Maze plans'},
   {id:'place',target:'#draft',fallback:'#battlefield',title:'Place five recruits',text:'Tap or click five empty grid tiles. Each successful placement reveals a defender in the cards below. Keep the route through all five checkpoints open; an invalid placement spends nothing.',wait:'Place recruits on the map'},
   {id:'keeper',target:'#folio-actions',fallback:'#draft',title:'Choose your keeper',text:'Select a revealed recruit, then press Keep. You can also double-click or double-tap its card or figure. If a legal Merge or Create champion action is available, that also completes your choice. The other recruits become castle walls.',wait:'Choose a keeper, merge or champion'},
   {id:'recipes',target:'.header-actions [data-action="codex"]',title:'Plan a champion',text:'Open Recipes to inspect exact ingredients, ranks and abilities. Pin a recipe to keep its plan beside the battlefield. Looking and pinning spend nothing. Close the book to return here, then choose Next.'},
@@ -25,7 +26,7 @@ export class TutorialInvitation{
 }
 
 export function tutorialInvitationMarkup(){
-  return '<section class="tutorial-welcome" data-tutorial-choice aria-labelledby="tutorial-welcome-title"><div class="eyebrow">Welcome, commander</div><h2 id="tutorial-welcome-title">Learn to hold the valley?</h2><p>A short guide follows your real actions: place five recruits, choose a keeper, start a wave, then try Pause and Speed.</p><p>You can end the guide at any time and replay it from How to play. Your choice applies to this run.</p><div class="tutorial-welcome-actions"><button type="button" class="primary-button" data-action="tutorial-start" autofocus>Start tutorial</button><button type="button" class="text-button" data-action="tutorial-skip">Skip tutorial</button></div></section>';
+  return '<section class="tutorial-welcome" data-tutorial-choice aria-labelledby="tutorial-welcome-title"><div class="eyebrow">Welcome, commander</div><h2 id="tutorial-welcome-title">Learn to hold the valley?</h2><p>A short guide follows your real actions: choose a maze shape, place five recruits, choose a keeper, start a wave, then try Pause and Speed.</p><p>You can end the guide at any time and replay it from How to play. Your choice applies to this run.</p><div class="tutorial-welcome-actions"><button type="button" class="primary-button" data-action="tutorial-start" autofocus>Start tutorial</button><button type="button" class="text-button" data-action="tutorial-skip">Skip tutorial</button></div></section>';
 }
 
 export function tutorialFocusTarget(documentRef=document){
@@ -34,9 +35,10 @@ export function tutorialFocusTarget(documentRef=document){
 
 const ended=game=>game?.phase==='won'||game?.phase==='lost';
 const placed=game=>game?.draft?.draws?.filter(draw=>draw.placed).length||0;
-export function tutorialStepComplete(step,game,{round=1,speed=1}={}){
+export function tutorialStepComplete(step,game,{round=1,speed=1,maze=null,initialPlan=null}={}){
   if(!game)return false;
   const later=game.round>round;
+  if(step==='maze')return !!maze?.plan?.id&&maze.plan!==initialPlan&&!maze.editing&&!maze.panelOpen;
   if(step==='place')return later||placed(game)>=5||['select','ready','combat'].includes(game.phase);
   if(step==='keeper')return later||['ready','combat'].includes(game.phase);
   if(step==='start')return later||game.phase==='combat';
@@ -48,17 +50,19 @@ export function tutorialStepComplete(step,game,{round=1,speed=1}={}){
 // Nonmodal coaching observes ordinary actions only. It never places a recruit,
 // chooses an outcome, consumes RNG, sets a transport value or changes a clock.
 export class GuidedTutorial{
-  constructor({onFinish=()=>{},focusReturn=()=>null,onInteract=()=>{}}={}){
-    this.onFinish=onFinish;this.focusReturn=focusReturn;this.index=0;this.active=false;this.game=null;
+  constructor({onFinish=()=>{},focusReturn=()=>null,onInteract=()=>{},getMaze=()=>null,openMaze=()=>{}}={}){
+    this.onFinish=onFinish;this.focusReturn=focusReturn;this.getMaze=getMaze;this.openMaze=openMaze;this.index=0;this.active=false;this.game=null;
     this.layer=document.createElement('div');this.layer.className='tutorial-layer';this.layer.hidden=true;
-    this.layer.innerHTML='<div class="tutorial-highlight" aria-hidden="true"></div><section class="tutorial-card" role="region" aria-labelledby="tutorial-step-title" tabindex="-1"><div class="tutorial-progress" aria-live="polite"></div><h2 id="tutorial-step-title"></h2><details class="tutorial-instructions" open><summary>Show instructions</summary><p class="tutorial-copy"></p></details><p class="tutorial-task" role="status" aria-live="polite"></p><nav aria-label="Tutorial steps"><button type="button" class="text-button" data-tour="skip">End tutorial</button><button type="button" class="primary-button" data-tour="next">Next</button></nav></section>';
+    this.layer.innerHTML='<div class="tutorial-highlight" aria-hidden="true"></div><section class="tutorial-card" role="region" aria-labelledby="tutorial-step-title" tabindex="-1"><div class="tutorial-progress" aria-live="polite"></div><h2 id="tutorial-step-title"></h2><details class="tutorial-instructions" open><summary>Show instructions</summary><p class="tutorial-copy"></p></details><p class="tutorial-task" role="status" aria-live="polite"></p><nav aria-label="Tutorial steps"><button type="button" class="text-button" data-tour="skip">End tutorial</button><button type="button" class="primary-button" data-tour="maze" hidden>Open maze plans</button><button type="button" class="primary-button" data-tour="next">Next</button></nav></section>';
     document.body.append(this.layer);this.card=this.layer.querySelector('.tutorial-card');this.highlight=this.layer.querySelector('.tutorial-highlight');
     this.next=this.card.querySelector('[data-tour="next"]');
+    this.mazeButton=this.card.querySelector('[data-tour="maze"]');
     this.instructions=this.card.querySelector('.tutorial-instructions');this.instructions.addEventListener('toggle',()=>this.position());
     this.card.addEventListener('pointerenter',onInteract);this.card.addEventListener('focusin',onInteract);
     this.layer.addEventListener('click',event=>{
       const button=event.target.closest('[data-tour]');if(!button||button.disabled||!this.active)return;
       if(button.dataset.tour==='skip')this.finish();
+      if(button.dataset.tour==='maze'&&TUTORIAL_STEPS[this.index].id==='maze'){this.openMaze();this.refresh();}
       if(button.dataset.tour==='next'&&!TUTORIAL_STEPS[this.index].wait){
         if(this.index===TUTORIAL_STEPS.length-1)this.finish({reason:'complete'});
         else this.show(this.index+1);
@@ -67,7 +71,9 @@ export class GuidedTutorial{
     this.reposition=()=>this.position();window.addEventListener('resize',this.reposition);window.addEventListener('scroll',this.reposition,true);
     window.visualViewport?.addEventListener?.('resize',this.reposition);window.visualViewport?.addEventListener?.('scroll',this.reposition);
     this.key=event=>{
+      if(this.active&&event.key.toLowerCase()==='m')queueMicrotask(()=>this.refresh());
       if(this.active&&event.key==='Escape'&&!document.querySelector('dialog[open]')){
+        if(this.getMaze()?.editing||this.getMaze()?.panelOpen){queueMicrotask(()=>this.refresh());return;}
         event.preventDefault();event.stopImmediatePropagation();this.finish();
       }
     };window.addEventListener('keydown',this.key,true);
@@ -76,6 +82,11 @@ export class GuidedTutorial{
     this.finish({reason:'reset',restoreFocus:false});
     if(!game||ended(game))return false;
     this.game=game;this.round=game.round;this.active=true;this.layer.hidden=false;
+    const maze=this.getMaze();this.initialPlan=maze?.plan||null;this.mazePanel=maze?.panel;
+    this.mazeInteraction=()=>queueMicrotask(()=>this.refresh());
+    for(const event of ['click','keydown'])this.mazePanel?.addEventListener(event,this.mazeInteraction);
+    this.mazeLauncher=event=>{if(event.target.closest?.('[data-action="maze"],.map-tools > summary'))queueMicrotask(()=>this.refresh());};
+    window.addEventListener('click',this.mazeLauncher);
     this.returnFocus=document.activeElement;this.show(0);this.card.focus({preventScroll:true});return true;
   }
   show(index){
@@ -86,9 +97,9 @@ export class GuidedTutorial{
     if(!this.active)return;
     if(game!==this.game||ended(game)){this.finish({reason:'reset',restoreFocus:false});return;}
     // A book's temporary modal pause is not the player's Pause tutorial action.
-    this.layer.hidden=!!document.querySelector('dialog[open]');if(this.layer.hidden)return;
+    const maze=this.getMaze();this.layer.hidden=!!document.querySelector('dialog[open]')||!!maze?.editing;if(this.layer.hidden)return;
     let step=TUTORIAL_STEPS[this.index];
-    while(step.wait&&tutorialStepComplete(step.id,game,{round:this.round,speed:this.speedAtStep})){
+    while(step.wait&&tutorialStepComplete(step.id,game,{round:this.round,speed:this.speedAtStep,maze,initialPlan:this.initialPlan})){
       this.index++;step=TUTORIAL_STEPS[this.index];this.speedAtStep=game.speed;
     }
     this.card.querySelector('h2').textContent=step.title;this.card.querySelector('.tutorial-copy').textContent=step.text;
@@ -97,11 +108,12 @@ export class GuidedTutorial{
     this.card.querySelector('.tutorial-task').textContent=task;
     const nextFocused=document.activeElement===this.next;
     this.next.disabled=!!step.wait;this.next.hidden=!!step.wait;this.next.textContent=step.id==='finish'?'Finish tutorial':'Next';
+    this.mazeButton.hidden=step.id!=='maze'||!!maze?.panelOpen;
     if(this.next.disabled&&nextFocused)this.card.focus({preventScroll:true});
     this.position();
   }
   position(){
-    if(!this.active||this.layer.hidden)return;const step=TUTORIAL_STEPS[this.index];let target=document.querySelector(step.target);
+    if(!this.active||this.layer.hidden)return;const step=TUTORIAL_STEPS[this.index],maze=this.getMaze();let target=step.id==='maze'&&maze?.panelOpen?maze.panel:document.querySelector(step.target);
     if(!target||!target.getClientRects().length)target=document.querySelector(step.fallback||'#battlefield');
     const rect=target?.getBoundingClientRect();if(!rect)return;
     const viewport=window.visualViewport,width=viewport?.width||innerWidth,height=viewport?.height||innerHeight;
@@ -114,13 +126,27 @@ export class GuidedTutorial{
     // Put the compact card outside the highlighted control whenever possible.
     // On short screens it can scroll internally instead of covering its actions.
     const cardWidth=Math.min(350,width-2*gap);this.card.style.width=`${cardWidth}px`;this.card.style.maxHeight=`${height-2*gap}px`;
+    // The real picker must remain tappable and scrollable. It occupies the
+    // right drawer on tablets and the lower drawer on phones.
+    if(step.id==='maze'&&maze?.panelOpen){
+      const mapTop=document.querySelector('#battlefield')?.getBoundingClientRect().top??top,minTop=Math.max(top+gap,mapTop+gap);
+      const before=rect.left-left-2*gap,after=right-rect.right-2*gap;
+      if(Math.max(before,after)>=Math.min(280,cardWidth)){
+        const w=Math.min(cardWidth,Math.max(before,after)),x=before>=after?rect.left-gap-w:rect.right+gap;
+        Object.assign(this.card.style,{width:`${w}px`,left:`${x}px`,top:`${minTop}px`,maxHeight:`${bottom-minTop-gap}px`});
+      }else{
+        const above=rect.top-minTop-gap,below=bottom-rect.bottom-2*gap,h=Math.max(44,Math.max(above,below));
+        Object.assign(this.card.style,{left:`${left+gap}px`,top:`${above>=below?minTop:rect.bottom+gap}px`,maxHeight:`${compact?Math.min(190,h):h}px`});
+      }
+      return;
+    }
     if(compact){
       const mapTarget=document.querySelector('#battlefield'),map=mapTarget?.getBoundingClientRect(),folio=document.querySelector('#preparation-folio'),folioRect=folio?.getClientRects().length?folio.getBoundingClientRect():null;
       const mapTop=Math.max(top,map?.top||top),mapBottom=Math.min(bottom,map?.bottom||bottom,folioRect?.top>mapTop?folioRect.top:bottom);
       // Coach above the usable grid, rather than filling the only exposed map
       // strip between the header and the mobile recruit folio. Actual transport
       // controls remain above their coaching card and can always be pressed.
-      const transport=target!==mapTarget&&['start','pause','speed','finish'].includes(step.id),y=Math.max(top+gap,mapTop+gap,transport?rect.bottom+gap:0);
+      const transport=target!==mapTarget&&['maze','start','pause','speed','finish'].includes(step.id),y=Math.max(top+gap,mapTop+gap,transport?rect.bottom+gap:0);
       const maxHeight=Math.max(112,Math.min(190,(mapBottom-y-gap)*.6,height-2*gap));
       Object.assign(this.card.style,{left:`${Math.max(left+gap,right-cardWidth-gap)}px`,top:`${Math.min(bottom-maxHeight-gap,y)}px`,maxHeight:`${maxHeight}px`});
       return;
@@ -142,6 +168,9 @@ export class GuidedTutorial{
   }
   finish({reason='skipped',restoreFocus=true}={}){
     if(!this.active)return false;const focused=this.card.contains(document.activeElement);
+    for(const event of ['click','keydown'])this.mazePanel?.removeEventListener(event,this.mazeInteraction);
+    window.removeEventListener?.('click',this.mazeLauncher);
+    this.mazePanel=null;this.mazeInteraction=null;
     this.active=false;this.layer.hidden=true;this.game=null;
     if(restoreFocus&&focused){
       const previous=this.returnFocus,visible=previous?.isConnected&&previous.getClientRects?.().length&&!previous.closest?.('dialog:not([open])');

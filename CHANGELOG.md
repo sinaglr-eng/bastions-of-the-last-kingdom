@@ -1,5 +1,11 @@
 # Releases
 
+## 0.5.0 — Maze-first field guide — 25 October 2026
+
+The tutorial now asks for a real maze-shape selection immediately after camera controls and before the first recruit. Opening the existing picker, selecting a preset or saving a custom blueprint uses the ordinary planner; a previous saved choice alone does not skip the new step. Version 0.5.0 becomes the default and its independently verified source/production archive replaces the retired offline 0.3.31 pair. Approved source media, game rules, score history and current design-gallery work remain intact. Old generated builds and obsolete rollback helpers are removed.
+
+Details: [0.5 baseline and archive](docs/RELEASE_0.5.md).
+
 ## 0.4.9 — Ten approved defeat scenes — 22 October 2026
 
 All ten defeat scenes approved by the user on October 22 are now included. The defeat pool contains thirteen images: the three previous approved scenes plus the ten new compositions. Every scene appears once before another cycle, with no immediate repeat at the cycle boundary; reopening the same ended run keeps its image. Victory scenes and seeded gameplay remain unchanged. Only the selected outcome image loads when results open.

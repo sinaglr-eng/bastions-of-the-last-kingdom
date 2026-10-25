@@ -54,6 +54,17 @@ test('actual Start and Escape/Skip choices close the modal, restore pause and ke
   h.functions.tour.finish({reason:'complete'});assert.equal(h.profile.tutorialDecision,'complete');
 });
 
+test('actual main tutorial hooks open the existing maze picker and read the current world after a new run',()=>{
+  const h=fixture();h.functions.startGame();h.click('tutorial-start');const first=h.functions.world.maze,options=h.functions.tour.options;
+  assert.strictEqual(options.getMaze(),first);assert.equal(typeof options.openMaze,'function');
+  let opened=0;const calls=[];first.editing=false;first.panelOpen=false;first.togglePanel=()=>{first.panelOpen=!first.panelOpen;opened++;};
+  const phaseUi={open:value=>calls.push(value),close:()=>calls.push('close')};
+  const invoke=Function('game','world','phaseUi','syncInspector',`${declaration('toggleMazePanel')};return ${options.openMaze.toString()};`)(h.functions.game,h.functions.world,phaseUi,noop);
+  const before=gameState(h.functions.game);invoke();assert.equal(opened,1);assert.equal(first.panelOpen,true);assert.deepEqual(calls,['maze']);assert.equal(gameState(h.functions.game),before);invoke();assert.equal(opened,1,'opening an already visible panel does not close it');
+  first.panelOpen=false;first.editing=true;invoke();assert.equal(opened,1,'the guide leaves blueprint editing intact');
+  h.functions.startGame();assert.notStrictEqual(options.getMaze(),first);assert.strictEqual(options.getMaze(),h.functions.world.maze,'the callback never retains a disposed world');
+});
+
 test('actual tutorial replay refuses blueprint editing with a visible explanation and preserves the unsaved plan',()=>{
   const h=fixture('skipped');h.functions.startGame();h.click('tutorial-skip');const game=h.functions.game,maze=h.functions.world.maze;
   maze.editing=true;maze.cells=[{x:6,z:4},{x:7,z:4}];maze.history=[['add',6,4],['add',7,4]];

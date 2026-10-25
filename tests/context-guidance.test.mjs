@@ -43,7 +43,7 @@ test('seen preferences reject hostile types, duplicates and unknown IDs; unavail
 
 test('guidance describes current rules and the tutorial points to the actual folio, books and combat controls',()=>{
   const game=new Game(data,{seed:22}),cp=guidanceTopicMarkup('cp',game),mvp=guidanceTopicMarkup('mvp',game);assert.match(cp,new RegExp(`Reroll · ${game.commandPoints.cost('reroll')} CP`));assert.match(cp,new RegExp(`Each defeated boss adds ${game.commandPoints.config.bossReward} CP`));assert.match(cp,/returning reserved recruit is protected/);assert.match(mvp,/most actual HP damage/);assert.match(mvp,/already at level 10/);assert.match(mvp,/Each level adds 5% own damage, up to \+50%/);assert.doesNotMatch(mvp,/nearby enemy armor|nearby allies|75%/);assert.equal(guidanceTopicMarkup('unknown',game),'');
-  assert.deepEqual(TUTORIAL_STEPS.map(step=>step.id),['camera','place','keeper','recipes','waves','start','pause','speed','finish']);
+  assert.deepEqual(TUTORIAL_STEPS.map(step=>step.id),['camera','maze','place','keeper','recipes','waves','start','pause','speed','finish']);
   assert.match(TUTORIAL_STEPS.find(step=>step.id==='camera').text,/Touch \/ iPad: drag one finger to pan; pinch to zoom; drag two fingers to rotate/);
   assert.equal(TUTORIAL_STEPS.find(step=>step.id==='recipes').target,'.header-actions [data-action="codex"]');assert.match(TUTORIAL_STEPS.find(step=>step.id==='recipes').text,/exact ingredients/);
   assert.equal(TUTORIAL_STEPS.find(step=>step.id==='waves').target,'.header-actions [data-action="warbands"]');assert.match(TUTORIAL_STEPS.find(step=>step.id==='waves').text,/Current wave during combat/);

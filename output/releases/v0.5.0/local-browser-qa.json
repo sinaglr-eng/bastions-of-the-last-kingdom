@@ -1,0 +1,74 @@
+{
+  "schema": "v050-native-browser-qa-v1",
+  "status": "passed",
+  "version": "0.5.0",
+  "method": "Native browser UI on real production build; responsive Chromium viewports, not physical Safari.",
+  "tablet": {
+    "card": {
+      "bottom": 430.8541870117187,
+      "height": 354.85418701171875,
+      "right": 698,
+      "width": 350,
+      "x": 348,
+      "y": 76
+    },
+    "nextHidden": true,
+    "picker": {
+      "bottom": 597.59375,
+      "height": 459.59375,
+      "right": 990,
+      "width": 280,
+      "x": 710,
+      "y": 138
+    },
+    "step": "FIELD GUIDE · 2 / 10",
+    "viewport": {
+      "height": 768,
+      "width": 1024
+    },
+    "afterClose": "FIELD GUIDE · 2 / 10",
+    "afterSelection": "FIELD GUIDE · 3 / 10",
+    "overlap": false
+  },
+  "phone": {
+    "card": {
+      "bottom": 245.625,
+      "height": 127.625,
+      "right": 362,
+      "width": 350,
+      "x": 12,
+      "y": 118
+    },
+    "picker": {
+      "bottom": 737.0000305175781,
+      "height": 403.0729370117187,
+      "right": 362,
+      "width": 280,
+      "x": 82,
+      "y": 333.9270935058594
+    },
+    "step": "FIELD GUIDE · 2 / 10",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "previousSavedChoice": "FIELD GUIDE · 2 / 10",
+    "afterReselect": "FIELD GUIDE · 3 / 10",
+    "overlap": false
+  },
+  "logs": [
+    {
+      "level": "warn",
+      "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+      "timestamp": "2026-10-25T05:49:08.814Z",
+      "url": "http://127.0.0.1:5200/assets/game-Cje1tvU_.js"
+    },
+    {
+      "level": "warn",
+      "message": "Statistics sync postponed; the result remains queued on this device. Failed to fetch",
+      "timestamp": "2026-10-25T05:50:33.202Z",
+      "url": "http://127.0.0.1:5200/assets/game-Cje1tvU_.js"
+    }
+  ],
+  "checkedAt": "2026-10-25T05:51:02.475Z"
+}
