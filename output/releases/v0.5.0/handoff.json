@@ -1,0 +1,270 @@
+{
+  "schema": "v050-handoff-v1",
+  "status": "passed",
+  "base": "859168476dfd406b534958c6f110933003d25eea",
+  "head": "e8745f5805aea56a1aea6a9d0ebb3445e5bf8e4a",
+  "mainIndexUnchanged": true,
+  "protectedPaths": 5145,
+  "payload": [
+    {
+      "file": ".gitignore",
+      "source": "20a94d055b1089506c3bbb155641ed4b6aa87c15868a68632d65d31ad961bc52",
+      "main": "be25ad03926c2df6322edd1850fa223b82d3c3b1c4fae8f7e649ef28a96e163f"
+    },
+    {
+      "file": ".github/workflows/pages.yml",
+      "source": "70ce57a9396b91dec835d141e3a7a85a0a64c727b35fea0516473f619a48ab12",
+      "main": "358828af30da42af3217b6a71c1ec93130f121e194c3ca146b377a5583a1cceb"
+    },
+    {
+      "file": "README.md",
+      "source": "fb520ad29573c3fe4655dcf6fd477e7e3f9465d3d5c697804a7e2b2bd898ff5c",
+      "main": "6a88657a266073ec8a426912f077da961e2d3178db43e4837b4503e08dd6ccbd"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "source": "0fb10b03aea95a56ae1216f4fea4ee4932d256289c1160056a46b82fce72eb3c",
+      "main": "4e3c21654ecd2766d8d716ffe86764e027b94c9f35701a82ff8b89acfb9bf001"
+    },
+    {
+      "file": "package.json",
+      "source": "51476c893850bd29ea8f41cc532837ce95506e19a6bd284eedd98cb1f9be1602",
+      "main": "4f5f957aceb1c3b4978709bafa11f00d747bfbcc43a4711cebb6752a77789597"
+    },
+    {
+      "file": "game/release.js",
+      "source": "df4a7ada4f551e88be85f3c39be089d7de0ca5c00f0341ff1099fd29b1f0561f",
+      "main": "1871833619568097e1c8dbde3ab10d579e39ec586bcf3c674d5f589a67ec124c"
+    },
+    {
+      "file": "public/release.json",
+      "source": "98eb6c5e99c7aaa72c35778e4f3bdffd63b8793e474f1f10a24971548ae0ba30",
+      "main": "68e30b3fc2634855c1cc9232023a289c4024e1efd79ce2fe194bd9e57a8fdaaf"
+    },
+    {
+      "file": "game/main.js",
+      "source": "28c871b85c602e75f0e90e3105d49243f7d9dbf241862de686864b595a120210",
+      "main": "43ba4e55ec312c80cd82b460137856c52678e4969c08d87cf79f84077c807835"
+    },
+    {
+      "file": "ui/tutorial.js",
+      "source": "1920516ae886015bf66d861a3536e869aee0384986fa5c950690e35872b82e88",
+      "main": "94f6f2b1120d1b000c32acc3e1d172f15bbcb725453d4e836fa869d900b2fc60"
+    },
+    {
+      "file": "ui/tutorial.css",
+      "source": "8ff82757f24725214319f3b0666d010a8d94209ceb2d3d467f6398fdac7014cc",
+      "main": "df5b2ffa1a12efee16fd604eda549977f9c4071f5f0ea75a6a43beb185568768"
+    },
+    {
+      "file": "tests/tutorial-main-v048.test.mjs",
+      "source": "799fc56914f1a4666cade2e341f95330cd1ca85891533c5df8860b75d9bd927c",
+      "main": "5b36e805c900baec03961f417279c2ae62fd5dcb54ea3d5db6724ebe8ceda2d4"
+    },
+    {
+      "file": "tests/tutorial-v040.test.mjs",
+      "source": "f1a0b5fbd57969650f5c3033b0394f48fcbf100cf51fbe19f9cef5fdd1dc107f",
+      "main": "86070d54b87eb56671de7ca29f1fb44020dec646f45c2b02f53e43c27cb85e6a"
+    },
+    {
+      "file": "tools/archive-release.py",
+      "source": "bcc344ba00594e50e782da5bedc5958c2ff61d3280b7b9d04cdec0c7eda32130",
+      "main": null
+    },
+    {
+      "file": "tests/archive-release.test.mjs",
+      "source": "8464654d938c1c63385453a63e5a05c40ad57b0449feb2cf76467fdd274e7df6",
+      "main": null
+    },
+    {
+      "file": "tools/verify-v050-public.mjs",
+      "source": "aeeb7e08c402f57e2f9551d83d7c4a5c2c302d9558ee238e0f71a4a5288218c3",
+      "main": null
+    },
+    {
+      "file": "tests/public-verification-v050.test.mjs",
+      "source": "ae308ff060e1bbb27ef1b3e0a05667032983d9632590facd9ed962cfc6e1cfb4",
+      "main": null
+    },
+    {
+      "file": "tools/clean-old-builds.ps1",
+      "source": "beb85f2146c5932b48b4a5f5b9f9f2e009f9ab8e529deeb55ee1bcb74e0dcfae",
+      "main": null
+    },
+    {
+      "file": "docs/RELEASE_0.5.md",
+      "source": "c6e20bfc071574aa9a5f00c59370b388fc8fb451b5f493595fd602aaa071a424",
+      "main": null
+    },
+    {
+      "file": "docs/ROLLBACK_0.3.31.md",
+      "source": "2f0a170652478c6847493885e17d6703b6aa74f26401d241541b0bedd3b0cae0",
+      "main": "bb9c2a5d9823af55e99156bb00ab4ac352a40f7b41914376be02c3e1690fc6c0"
+    },
+    {
+      "file": "tools/rollback-v0331.ps1",
+      "source": null,
+      "main": "e8199d05ab258ec0d4f7fbc469dc67ab870340a0fd604b7835904834bb668783"
+    },
+    {
+      "file": "tools/test-rollback-v0331.ps1",
+      "source": null,
+      "main": "14b6967e4f8a3e011ca71db2516b409311b4cff5d5a0a40a2f1bcef1934ad6a0"
+    },
+    {
+      "file": "tools/verify-v0331-source-backup.py",
+      "source": null,
+      "main": "a01e0dcc64d7328806be093d172e2dab77f429c9b5ef5fb33b43aa60111d8b9b"
+    },
+    {
+      "file": "tests/context-guidance.test.mjs",
+      "source": "509320f26d75cc9ef152b1f3ba05d405e8905969bc541aa5d49abcf1597b3593",
+      "main": "5bf8acc4f18637f501f0c55f7ea154b782e0cef1376d714514f2f161069e0bec"
+    },
+    {
+      "file": "tests/cleanup-release.test.mjs",
+      "source": "ec527949e53a81f2e1baf52eac4ea942569fe0d86acc113eddc63d57352caf06",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/.gitattributes",
+      "source": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/archive-manifest.json",
+      "source": "71a7579dcb0690a17063ddcbf8687240522ddb2a42f5cf0fb656aa008ad27237",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/archive-readonly-verification.json",
+      "source": "244ec81b445ca0ad59f4a5b4cf5771bba84d5e88309b90182bc09c32d5188f92",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/archive-rebuild-build.log",
+      "source": "2ccfa9b6c921c17b0431ee4f96223e27293d2ee3ee9ba345f36e4d448ce21445",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/archive-rebuild-install.log",
+      "source": "aa0e393607554c8e11e00309004a8bf6842ea5e8838e89b09792110d09c2a4a2",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/archive-rebuild.json",
+      "source": "9efcebdd1b31258614bcc2241d8e723cdc1473e641cf2bc3001360d50d45deb8",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/archive-verification.json",
+      "source": "3ebb23bb0c57305e8f2e645ac939a984b87e1e124ea0da83f5fe70910f937926",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/build-offline.log",
+      "source": "4bb7209173f71340aa236f7e8e2b5121315e7131a08565272dbbdd46af0153a1",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/build-pages.log",
+      "source": "4b78006e03830e70992fd265bdbbcb7763da53151a937119184a35b46fe3f1dd",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/cleanup-applied.json",
+      "source": "bf227370f649f9d4da5538f672f6664fab074ff849635dca0efbaa25c6ced003",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/cleanup-preview.json",
+      "source": "82f28aceefc7403bcd37ba5da6853b298f086105658b92cbaad5f8236eac1458",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/final-delivery.json",
+      "source": "5f6db6a14e5ef29bebbaf26d666d5541a1951ac1cde61839a910997e415ad437",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/local-browser-qa.json",
+      "source": "b7fdc6ae3e1293cc2d78558a240419b62d4ad5c5965a5e5e693108cc55ac5b66",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/local-validation.json",
+      "source": "0e0b85673924413f574b2f94f3123e503c9354665cfa78e20b61415ebad016fe",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/main-production-verification.json",
+      "source": "b579897fccc81a7add737084e301254d695cb63866de1c486758511fd0cb9d3e",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/public-browser-qa.json",
+      "source": "761511802e09b7bcdc0226fa40db78ef8eacd12025fb52387399335fafa4965d",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/public-checker-console.json",
+      "source": "f22416fe351d5f0226893d9a9db8199409ff5a20c5c5f78569b844f8ad8cf02f",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/public-tutorial-maze.png",
+      "source": "7674c31d5f63c3506ee2fdbad476dcccb6f1a816657aeb1776b829ec7b316ffa",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/public-verification.json",
+      "source": "07d4f59e98d79a77639b6658b621a3ca6b33bac87342a5a7732b86d75cd2afaf",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/publication-ci-proof.json",
+      "source": "442e33044fbcf07aac4f0f4f058c7e0cc3a524d88862105ae96e549269dbef6f",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/sources-built.json",
+      "source": "0ab7642f423c39a31a1c92cffe59c4a69628865cc45674a7e2d33344683873a8",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/sources-tested.json",
+      "source": "0ab7642f423c39a31a1c92cffe59c4a69628865cc45674a7e2d33344683873a8",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/tests-before-cleanup-guard.log",
+      "source": "538a4d7d290838f135737bc969b50f088d13fa12a21310c997653fe83ccc81b9",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/tests-initial-stale-sequence.log",
+      "source": "f59e8efbb4d960fb7ff6eccfbf2a98548c0bc263c8045e2407c206f218bab73a",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/tests.log",
+      "source": "16af92897078de94e2cbfa93a383dfa14a0afca6646ed0a0159e2da3e9525464",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/tutorial-phone-maze.png",
+      "source": "0ffe62ad166c8ae17db627cc4558eb06a0611fbccb678169e72d2c5ffce90981",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/tutorial-tablet-after-choice.png",
+      "source": "e02053ef3d39fe27a34d1eeadcc5f1bf60e3efa670e0f0a5aefc1058a1893a78",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.0/tutorial-tablet-maze.png",
+      "source": "4797804f5829336fd36d058dc0a46f2e02a740623173805bb8f99b866588774f",
+      "main": null
+    }
+  ]
+}

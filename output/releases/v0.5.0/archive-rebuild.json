@@ -1,0 +1,27 @@
+{
+  "schema": "v050-independent-archive-rebuild-v1",
+  "status": "passed",
+  "version": "0.5.0",
+  "gitCommit": "e8745f5805aea56a1aea6a9d0ebb3445e5bf8e4a",
+  "sourceEntries": 5155,
+  "productionEntries": 2651,
+  "rawExactFiles": 2640,
+  "lineEndingOnlyFiles": [
+    "index.html",
+    "assets/geometric/geometric-champions.json",
+    "assets/geometric/geometric-defenders.json",
+    "assets/geometric/geometric-enemies.json",
+    "assets/scenery/manifest.json",
+    "assets/audio/selection/catalogue.json",
+    "assets/geometric/approved-enemies-v6/provenance.json",
+    "assets/ui/portrait-variants/manifest.json",
+    "assets/ui/reference-cutouts/manifest.json",
+    "assets/ui/reference-enemy-fronts/manifest.json",
+    "assets/ui/reference-portraits/manifest.json"
+  ],
+  "compiledArtifactsExact": true,
+  "basePath": "/",
+  "frozenOfflineDependencyInstall": true,
+  "sourceZipSha256": "9b0b8b784b53d3ba8cc6edea4ac2b6f3e07dbbb13fbfa683550f8e3739633d71",
+  "productionZipSha256": "eed929137215cd56e7b2838c25e7609f9ccf45e6a9992879333617196c4bc8dd"
+}
