@@ -98,7 +98,7 @@ export const campaignEnemies = enemies => {
     if(current.regen>0)current.regen=wave===38?.25:.2;
     if(current.refraction>0)current.refraction=3;
     // The Deep Maw guardians' approved recharge reduction is specific to wave 49.
-    if(current.recharge>0)current.recharge=wave===49?.25:.5;
+    if(current.recharge>0)current.recharge=wave===49?.1:.5;
     if(current.evasion>0)current.evasion=.25;
     if(current.untouchable>0)current.untouchable=.75;
     if(current.blink>0)current.blink=6;

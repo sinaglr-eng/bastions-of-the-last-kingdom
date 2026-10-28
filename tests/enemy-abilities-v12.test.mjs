@@ -17,7 +17,7 @@ test('current recharge invaders use their configured missing-health fraction at 
   const before=JSON.stringify(data),types=Object.entries(data.enemies).filter(([,enemy])=>enemy.recharge>0).map(([type])=>type);
   assert.deepEqual(types,['host_32','host_43','host_49']);assert.equal(R.recharge.period,4);
   for(const type of types)for(const hp of [1,2.5]){
-    const fraction=type==='host_49'?.25:.5;
+    const fraction=type==='host_49'?.1:.5;
     const game=arena(),enemy=stationary(game,type,{hp});enemy.hp=enemy.maxHp*.5;
     assert.equal(enemy.recharge,fraction);assert.equal(enemy.rechargeClock,4);
     game.combat.update(3.999);close(enemy.hp,enemy.maxHp*.5,'No early pulse');
@@ -29,21 +29,21 @@ test('current recharge invaders use their configured missing-health fraction at 
   assert.equal(JSON.stringify(data),before);
 });
 
-test('wave 49 restores 25% of missing HP: a 100 HP guardian at 20 HP reaches 40 HP after four seconds',()=>{
+test('wave 49 restores 10% of missing HP: a 100 HP guardian at 20 HP reaches 28 HP after four seconds',()=>{
   const game=arena(),enemy=stationary(game,'host_49');enemy.maxHp=100;enemy.hp=20;
   game.rng=()=>{throw Error('Recharge must not consume RNG');};
-  game.combat.update(3.999);assert.equal(enemy.hp,20);game.combat.update(.001);assert.equal(enemy.hp,40);
-  game.combat.update(4);assert.equal(enemy.hp,55,'The second pulse uses the remaining 60 missing HP');
+  game.combat.update(3.999);assert.equal(enemy.hp,20);game.combat.update(.001);assert.equal(enemy.hp,28);
+  game.combat.update(4);close(enemy.hp,35.2,'The second pulse uses the remaining 72 missing HP');
   assert.equal(enemy.rechargeClock,4);assert.equal(data.enemies.host_32.recharge,.5);assert.equal(data.enemies.host_43.recharge,.5);
 });
 
-test('wave 49 healing block suppresses scheduled pulses without banking them, and its numerical guides show 25%',()=>{
+test('wave 49 healing block suppresses scheduled pulses without banking them, and its numerical guides show 10%',()=>{
   const game=arena(),enemy=stationary(game,'host_49');enemy.maxHp=100;enemy.hp=20;
   game.combat.applyEffects(enemy,{healingBlockDuration:5});game.combat.update(13);
-  assert.equal(enemy.hp,55,'Only the ordinary eight- and twelve-second deadlines heal');assert.equal(enemy.rechargeClock,3);
-  game.combat.update(3);assert.equal(enemy.hp,66.25,'The next pulse remains on the sixteen-second deadline');
-  assert.match(configuredWarbandInfo(data.enemies.host_49,{hp:2}).traits.find(text=>text.startsWith('Restores ')),/^Restores 25% missing health every 4s/);
-  assert.match(enemyDefenseDescriptions(enemy).find(row=>row.kind==='recharge').detail,/25% missing HP every 4s/);
+  close(enemy.hp,35.2,'Only the ordinary eight- and twelve-second deadlines heal');assert.equal(enemy.rechargeClock,3);
+  game.combat.update(3);close(enemy.hp,41.68,'The next pulse remains on the sixteen-second deadline');
+  assert.match(configuredWarbandInfo(data.enemies.host_49,{hp:2}).traits.find(text=>text.startsWith('Restores ')),/^Restores 10% missing health every 4s/);
+  assert.match(enemyDefenseDescriptions(enemy).find(row=>row.kind==='recharge').detail,/10% missing HP every 4s/);
   assert.equal(archived.enemies.host_49.recharge,.12,'Original authoring definitions remain verbatim');
 });
 
@@ -51,7 +51,7 @@ test('the wave 49 reduction also reaches its recharge variants without changing 
   const source=structuredClone(archived.enemies),before=JSON.stringify(source);
   source.host_49.variants=[{name:'Guardian variant',recharge:.12},{name:'Non-healing guardian variant',recharge:0}];
   const variantSource=JSON.stringify(source),current=campaignEnemies(source);
-  assert.deepEqual(current.host_49.variants.map(row=>row.recharge),[.25,0]);
+  assert.deepEqual(current.host_49.variants.map(row=>row.recharge),[.1,0]);
   for(const [id,definition]of Object.entries(data.enemies))if(id!=='host_49')assert.deepEqual(current[id],definition,`Unrelated wave preserved: ${id}`);
   assert.equal(JSON.stringify(source),variantSource,'Campaign adaptation leaves original variant data intact');
   assert.notEqual(variantSource,before,'This test added isolated variant fixtures only');

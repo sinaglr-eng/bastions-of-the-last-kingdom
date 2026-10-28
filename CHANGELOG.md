@@ -1,5 +1,10 @@
 # Releases
 
+## 0.5.2 — 2026-10-28
+
+- Wave 49 restores 10% of missing HP every four seconds; other waves retain their current recovery rules.
+- Enlarges the TD seal and doubles its letter size in the wordmark. The original logo revision remains preserved.
+
 ## 0.5.1 — Forged Alliances TD — 28 October 2026
 
 Renames the current game, browser titles and local launcher to Forged Alliances TD, with a new native vector mark and wordmark. Corrects the initial loading ellipsis, frames the two atlas buttons and removes the outer Potential combinations collapse control. Wave 49 alone now restores 25% of missing health every four seconds; other rechargers retain their existing values.
