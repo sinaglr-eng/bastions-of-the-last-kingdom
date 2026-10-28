@@ -1,0 +1,170 @@
+{
+  "schema": "v052-handoff-v1",
+  "status": "passed",
+  "base": "68b3540d50324e09ad1565049cd0617b3916cd13",
+  "head": "2d500e88fa264b99116542e21fc405eb011e99f3",
+  "mainIndexUnchanged": true,
+  "protectedPaths": 5213,
+  "payload": [
+    {
+      "file": "README.md",
+      "source": "d719e3814d005872af2d0e8e1aa013c5532bb366f5cbbf9346013aea3a7aeed2",
+      "main": "d719e3814d005872af2d0e8e1aa013c5532bb366f5cbbf9346013aea3a7aeed2"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "source": "8ee40dffb252f8ace54672dedcf5c21eee2831270ccdf9e8f23fc2d31e8b546d",
+      "main": "8ee40dffb252f8ace54672dedcf5c21eee2831270ccdf9e8f23fc2d31e8b546d"
+    },
+    {
+      "file": "package.json",
+      "source": "19c3701c85a8e88099dc62613470796d93f8088c2d2f682261a9e0442265c69a",
+      "main": "19c3701c85a8e88099dc62613470796d93f8088c2d2f682261a9e0442265c69a"
+    },
+    {
+      "file": "game/release.js",
+      "source": "222418430ed5cfecba593839242ae5c34b34ec9b3aae0e846378fe5c8655b4c6",
+      "main": "222418430ed5cfecba593839242ae5c34b34ec9b3aae0e846378fe5c8655b4c6"
+    },
+    {
+      "file": "public/release.json",
+      "source": "a72b04a0e54e9dd000d9df0cddc8dfa7000c187cebea511dfffd0c39ab894b74",
+      "main": "a72b04a0e54e9dd000d9df0cddc8dfa7000c187cebea511dfffd0c39ab894b74"
+    },
+    {
+      "file": "game/main.js",
+      "source": "14db5febb626274771c86f723796a82e618f4f714f2253c2e6ae15054cd22fcf",
+      "main": "14db5febb626274771c86f723796a82e618f4f714f2253c2e6ae15054cd22fcf"
+    },
+    {
+      "file": "game/core/campaign-roster.js",
+      "source": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa",
+      "main": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa"
+    },
+    {
+      "file": "index.html",
+      "source": "54d64b8083c25a9f4346a15facb6623d49c8c35afc7c6f884cf3be2875d0b106",
+      "main": "54d64b8083c25a9f4346a15facb6623d49c8c35afc7c6f884cf3be2875d0b106"
+    },
+    {
+      "file": "tests/enemy-abilities-v12.test.mjs",
+      "source": "f21638b94169c6a503cf00bfa9950aaff3e87524707d13f931cc8513156e45df",
+      "main": "f21638b94169c6a503cf00bfa9950aaff3e87524707d13f931cc8513156e45df"
+    },
+    {
+      "file": "public/assets/branding/forged-alliances-v2/mark.svg",
+      "source": "cbc5414fe118316c9f1a112af7629aeb7e2f29ae30dfbfef8c9c8b44e5bd6c6d",
+      "main": "cbc5414fe118316c9f1a112af7629aeb7e2f29ae30dfbfef8c9c8b44e5bd6c6d"
+    },
+    {
+      "file": "public/assets/branding/forged-alliances-v2/wordmark.svg",
+      "source": "63aca362cf71d56a5b9e7ab1d5290e64c9308a29e84ec7a1eebbe44c720bef56",
+      "main": "63aca362cf71d56a5b9e7ab1d5290e64c9308a29e84ec7a1eebbe44c720bef56"
+    },
+    {
+      "file": "public/assets/branding/forged-alliances-v2/manifest.json",
+      "source": "3d76d77beba4fd2edb3c66508592df29485c9c37fcdd147a03c6c8e0e4cc456f",
+      "main": "3d76d77beba4fd2edb3c66508592df29485c9c37fcdd147a03c6c8e0e4cc456f"
+    },
+    {
+      "file": "tools/verify-v052-public.mjs",
+      "source": "4cbfd353a0fdbcac878d33b12f304d91af38001009f100f4b0b202d8ac4d059b",
+      "main": "4cbfd353a0fdbcac878d33b12f304d91af38001009f100f4b0b202d8ac4d059b"
+    },
+    {
+      "file": "docs/FORGED_ALLIANCES_V052.md",
+      "source": "fb56167b7249c1e4ec25a962dff159ceaa8f952446b9e5d63c5aa2688d84d17e",
+      "main": "0ed778cf178e5a1ca818fd0db7eb5334737e85505e78918fb7beba115ac1f230"
+    },
+    {
+      "file": "output/releases/v0.5.2/.gitattributes",
+      "source": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "main": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "file": "output/releases/v0.5.2/build-offline.log",
+      "source": "b49ba3be5fd4e7245de3276c0dfe5895715cdc49566896879c05231719ab33fb",
+      "main": "b49ba3be5fd4e7245de3276c0dfe5895715cdc49566896879c05231719ab33fb"
+    },
+    {
+      "file": "output/releases/v0.5.2/build-pages.log",
+      "source": "2f815bf97ade1f4883e82369d8b05a75b94a317389e19826316e52a503b6b571",
+      "main": "2f815bf97ade1f4883e82369d8b05a75b94a317389e19826316e52a503b6b571"
+    },
+    {
+      "file": "output/releases/v0.5.2/final-delivery.json",
+      "source": "910f00ec5a257bc15612e064290031f34da16d46aec61b0729e0eb73d90897cf",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.2/handoff.json",
+      "source": "8d8d141a6542eb2787c9750781c511eb23fcccbc7d29d2297cc94515bfb85058",
+      "main": "8d8d141a6542eb2787c9750781c511eb23fcccbc7d29d2297cc94515bfb85058"
+    },
+    {
+      "file": "output/releases/v0.5.2/local-browser-qa.json",
+      "source": "4b238dcb0ff3db62de2e1a75b7c3016a859a60e1ad74117ecff391110c1c7e1d",
+      "main": "4b238dcb0ff3db62de2e1a75b7c3016a859a60e1ad74117ecff391110c1c7e1d"
+    },
+    {
+      "file": "output/releases/v0.5.2/local-game.png",
+      "source": "6570e7120bdd28a5882ab83aaae5c8af0cbf660bc70e1fbab5900920ba496d93",
+      "main": "6570e7120bdd28a5882ab83aaae5c8af0cbf660bc70e1fbab5900920ba496d93"
+    },
+    {
+      "file": "output/releases/v0.5.2/local-validation.json",
+      "source": "7db3eb3d813a70cfe7acd537c4da3033cb19471d9d5b4b6b09dcfdcf9d3e0cf3",
+      "main": "7db3eb3d813a70cfe7acd537c4da3033cb19471d9d5b4b6b09dcfdcf9d3e0cf3"
+    },
+    {
+      "file": "output/releases/v0.5.2/local-wave49.png",
+      "source": "3afddc54a5e40757021e61b03025f08068e5f6dee5588dae3aada4ad2bc91986",
+      "main": "3afddc54a5e40757021e61b03025f08068e5f6dee5588dae3aada4ad2bc91986"
+    },
+    {
+      "file": "output/releases/v0.5.2/main-production-install.json",
+      "source": "57f814fe85ab58902d7c271dcd8a99c70828917d3f000fe871e015baabebf339",
+      "main": "57f814fe85ab58902d7c271dcd8a99c70828917d3f000fe871e015baabebf339"
+    },
+    {
+      "file": "output/releases/v0.5.2/public-browser-qa.json",
+      "source": "32d24d649b5d51a7bb59926261b8fef60eb735f2a686e2a8d01eaaed3dc9f8dd",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.2/public-game.png",
+      "source": "bb1a05af636185fee3ce1b924303b3721c2a30d963a5b16fd14b73b2ed4423eb",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.2/public-verification.json",
+      "source": "6dad1b7ba5b9d1f06f5aba07d1b1aea70b7a8f4ad02a24ae33143d637cfa5b52",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.2/public-wave49.png",
+      "source": "406c4c2298ce2ae9dbb7ef3972bbe142b11b2a9bb3eaaa7473e49a6f7a824c10",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.2/publication-ci-proof.json",
+      "source": "cae21a4d09432a1c8c5461e07515455a0d8bcc5aef891733304cae1125f96650",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.5.2/sources-built.json",
+      "source": "f35f4518fee14a36bc785042e363cd1c014d843a2cf25d84f0fb18a9b6e11dc7",
+      "main": "f35f4518fee14a36bc785042e363cd1c014d843a2cf25d84f0fb18a9b6e11dc7"
+    },
+    {
+      "file": "output/releases/v0.5.2/sources-tested.json",
+      "source": "f35f4518fee14a36bc785042e363cd1c014d843a2cf25d84f0fb18a9b6e11dc7",
+      "main": "f35f4518fee14a36bc785042e363cd1c014d843a2cf25d84f0fb18a9b6e11dc7"
+    },
+    {
+      "file": "output/releases/v0.5.2/tests.log",
+      "source": "049860c663778d8b295a7c295976e255b788c8654c1aa250ffdaf44d9b9eb34f",
+      "main": "049860c663778d8b295a7c295976e255b788c8654c1aa250ffdaf44d9b9eb34f"
+    }
+  ]
+}

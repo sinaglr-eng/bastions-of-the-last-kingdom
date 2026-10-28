@@ -6,4 +6,8 @@ The TD letters in the wordmark increase from 25 to 50 SVG units, with a taller s
 
 No gallery, original unit asset, statistics API or archive changes are included.
 
-<!-- V052_GATES_PENDING -->
+## Verification
+
+**1,890 tests passed**, with zero failures, followed by a 215-module build. All 538 tested source/configuration fingerprints remain unchanged. Local and public browser checks confirm the larger TD wordmark and the actual wave 49 guide reading “Restores 10% missing health every 4s”.
+
+[Tests, build and deployment](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/40686110440) succeeded for runtime commit `2d500e88fa264b99116542e21fc405eb011e99f3`. Public verification passed **280 read-only HTTPS GETs**, including five exact compiled assets and three branding SVG hashes. Evidence is recorded in [output/releases/v0.5.2](../output/releases/v0.5.2/). Previous releases and unrelated MAIN files are preserved.
