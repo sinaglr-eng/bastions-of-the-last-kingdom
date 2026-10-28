@@ -29,4 +29,11 @@ Existing URLs, browser storage keys, statistics API, retained scores and version
 
 The canonical design gallery remains local-only in its existing source directory. This game patch creates no additional maintained gallery, uploads no gallery updates or new 3D model binaries, and does not run historical gallery generators over newer source decisions.
 
-<!-- V051_GATES_PENDING -->
+## Verification and publication
+
+Runtime commit: `b10944dfa981bd147ff39c86c79d3651bce884ca`. [GitHub tests, build and Pages deployment](https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/40653959300) succeeded for that exact push. Local validation passed **1,890 tests**, with zero failures and a **215-module** production build. All **537 source/configuration fingerprints** still match the tested and built inventory.
+
+The public checker passed **280 read-only HTTPS GETs**, including exact compiled production bytes, approved asset/provenance checks and all three logo SVG hashes. Native browser review covered the logo/loading markup, header controls at 1945, 1024 and 390 pixel viewports, the permanently visible combinations list, the actual wave 49 guide and paused waves 44 and 45. A real Sandbox wave 44 completed all 29 invaders and advanced to 45 without a context loss. The production public page was also opened and checked. These desktop checks do not replace a physical iPad Safari test.
+
+Evidence is in [output/releases/v0.5.1](../output/releases/v0.5.1/), including local/public browser receipts, exact public verification, buffer inventories and source fingerprints. The MAIN handoff preserves its existing index and unrelated tracked files; only the explicit patch files, evidence and generated runtime entry payload are copied. The 0.5.0 stable runtime and offline archives remain preserved.
+

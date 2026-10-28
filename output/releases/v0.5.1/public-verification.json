@@ -1,0 +1,916 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "startedAt": "2026-10-28T08:10:30.517Z",
+  "expected": {
+    "name": "Forged Alliances TD",
+    "brandRevision": "forged-alliances-20261028-v1",
+    "version": "0.5.1",
+    "date": "2026-10-28",
+    "uiRevision": "forged-alliances-20261028-v1",
+    "performanceRevision": "shared-enemy-surfaces-20261028-v1",
+    "uiPortraitRevision": "reference-cutouts-20261016-v1",
+    "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
+    "uiOutcomeArtRevision": "outcome-scenes-20261022-v3",
+    "artRevision": "basic-defenders-v7",
+    "championArtRevision": "champions-v8",
+    "enemyArtRevision": "approved-enemies-v6",
+    "motionRevision": "approved-motion-v1",
+    "vfxRevision": "hand-lightning-20261021-v2",
+    "balanceRevision": "wave49-recharge25-20261028"
+  },
+  "publicBase": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "authentication": "None; public GETs only; credentials omitted; no credential files or browser sessions read",
+  "concurrency": 6,
+  "cachePolicy": "Unique per-run query, no-store, no-cache headers",
+  "localManifestSha256": "50babe99b9f67691092a7720d05115311d47ee71f2c4f4871a393f91d981fb9d",
+  "release": {
+    "name": "Forged Alliances TD",
+    "brandRevision": "forged-alliances-20261028-v1",
+    "version": "0.5.1",
+    "date": "2026-10-28",
+    "uiRevision": "forged-alliances-20261028-v1",
+    "performanceRevision": "shared-enemy-surfaces-20261028-v1",
+    "uiPortraitRevision": "reference-cutouts-20261016-v1",
+    "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
+    "uiOutcomeArtRevision": "outcome-scenes-20261022-v3",
+    "artRevision": "basic-defenders-v7",
+    "championArtRevision": "champions-v8",
+    "enemyArtRevision": "approved-enemies-v6",
+    "motionRevision": "approved-motion-v1",
+    "vfxRevision": "hand-lightning-20261021-v2",
+    "balanceRevision": "wave49-recharge25-20261028",
+    "sha256": "47f92d46f230394e991d32eef68df21f723f53ec5012bf9c60c0fe02dc932de5"
+  },
+  "compiled": [
+    {
+      "file": "assets/game-B66ka80M.js",
+      "kind": "javascript",
+      "bytes": 572858,
+      "sha256": "738c02c4e74e7abd2c1b7ee9da6ac6e7b3f6a2cc3393a649b9d8f782c81dc3ad"
+    },
+    {
+      "file": "assets/game-Bl7xQav6.css",
+      "kind": "css",
+      "bytes": 338346,
+      "sha256": "cf200a0783523059387c223b2d13fdbb6c554ca02b905c05d678a72f1559086f"
+    },
+    {
+      "file": "assets/portrait-visibility-Cq7vvpxZ.css",
+      "kind": "css",
+      "bytes": 107,
+      "sha256": "46601755db3da8ed002f395c70e02fec02305b96f4e4d54bc765c2bb7d940a56"
+    },
+    {
+      "file": "assets/portrait-visibility-z1sIqCXJ.js",
+      "kind": "javascript",
+      "bytes": 380749,
+      "sha256": "e6e3d968240af7dd6bcc6e71916115977bcd860c5f6a662b2943ce5cfb97ad6e"
+    },
+    {
+      "file": "assets/three-BVi7VBIT.js",
+      "kind": "javascript",
+      "bytes": 771631,
+      "sha256": "f50716d399ef35a1ade4b6a85dbba7d7cf15925010c3140f83b80c37feb9e7ff"
+    }
+  ],
+  "uiMarkers": {
+    "javascript": {
+      "required": [
+        "\"reference-cutouts\"",
+        "reference-cutouts-20261016-v1",
+        "atlas-book",
+        "catalog-index-page",
+        "catalog-reading-page",
+        "warbands-atlas",
+        "folio-construction-seal",
+        "catalog-selected-heading",
+        "warband-story",
+        "\"reference-enemy-fronts\"",
+        "enemy-front-cutouts-20261018-v1",
+        "assets/ui/results/v044/",
+        "assets/ui/results/v045/",
+        "data-outcome-art",
+        "run-result-victory-art",
+        "mystery-placement",
+        "Place a defender on the map",
+        "folio-ingredient-recipe",
+        "folio-champion-context",
+        "data-effective-stats",
+        "catalog-index-tools",
+        "catalog-basic-detail",
+        "approved-motion-v1",
+        "approved-enemies-v6",
+        "data-tutorial-choice",
+        "Start tutorial",
+        "Skip tutorial",
+        "tutorial-layer",
+        "Choose your maze shape",
+        "Open maze plans",
+        "data-tour=\"maze\"",
+        "assets/ui/results/v049/",
+        "\"defeat-v049-01\"",
+        "\"defeat-v049-02\"",
+        "\"defeat-v049-03\"",
+        "\"defeat-v049-04\"",
+        "\"defeat-v049-05\"",
+        "\"defeat-v049-06\"",
+        "\"defeat-v049-07\"",
+        "\"defeat-v049-08\"",
+        "\"defeat-v049-09\"",
+        "\"defeat-v049-10\"",
+        "\"defeat-01\"",
+        "\"defeat-02\"",
+        "\"defeat-03\"",
+        "\"victory-01\"",
+        "\"victory-02\"",
+        "\"victory-03\"",
+        "Forged Alliances TD",
+        "forged-brand"
+      ],
+      "missing": []
+    },
+    "css": {
+      "required": [
+        "--folio-grain",
+        "--folio-frame",
+        "book-corners",
+        "catalog-reading-page",
+        "catalog-bookmark",
+        "preparation-folio",
+        "catalog-heading-pin",
+        "is-compact-external",
+        "folio-create-actions",
+        "folio-decision-row",
+        "run-result-defeat-art",
+        "run-result-art",
+        "mystery-placement",
+        "crafting-order",
+        "catalog-index-tools",
+        "catalog-basic-ranks",
+        "tutorial-welcome",
+        "tutorial-layer"
+      ],
+      "missing": []
+    }
+  },
+  "localBuildComparison": {
+    "status": "passed",
+    "index": true,
+    "indexComparison": "Exact HTML text after normalizing CR runs immediately before LF (including CRLF and CRCRLF) to LF; all other HTML text is preserved; compiled assets use exact raw bytes",
+    "entries": true,
+    "exactHashes": 5
+  },
+  "portraits": {
+    "expected": 136,
+    "checked": 136,
+    "passed": 136,
+    "pngSignatures": 136,
+    "rgbaHeaders": 136,
+    "exactHashes": 136,
+    "servedBytes": 30418257,
+    "inventorySha256": "35874942d0347be21a71f68e577537b1802478577d40e7670d10750a538f741f"
+  },
+  "crimson": {
+    "expected": 1,
+    "checked": 1,
+    "passed": 1,
+    "manifestSha256": "fe074b9d8ea0a156e0a54ab7bd545efd8d73294cce80da47ee11d1a80025ba11",
+    "revision": "bernhard-crimson-20261018-v1",
+    "bytes": 258524,
+    "sha256": "61a4a3e4dae617b6af817d3f825aee707012adb104b357678465f80272eaa82a",
+    "dimensions": [
+      426,
+      422
+    ],
+    "rgbaHeader": true,
+    "role": "Legacy 0.4.2 crimson derivative preserved; active enemy atlas uses the FRONT namespace"
+  },
+  "fronts": {
+    "expected": 50,
+    "checked": 50,
+    "passed": 50,
+    "pngSignatures": 50,
+    "rgbaHeaders": 50,
+    "exactHashes": 50,
+    "servedBytes": 11348367,
+    "sourceMetadata": 50,
+    "manifestSha256": "8cbb71983fb39edcf1951b01e1e73d83c29ecfd821fc9f6fb06d2f3b05227dec",
+    "manifestCanonicalSha256": "55c2690b158f69b918fcf7575f65694050c9e959c92d64b113bd5a3719daa906",
+    "revision": "enemy-front-cutouts-20261018-v1",
+    "manifestComparison": "Exact canonical JSON; checkout line endings in JSON formatting may differ; every metadata value is preserved",
+    "sourceMetadataDigestPolicy": "UTF-8 text with CRLF converted to LF only; all other formatting/content preserved; non-JSON files use exact raw bytes",
+    "allFront": true,
+    "preservedRgb": true,
+    "historicalAssetsPreserved": true,
+    "inventorySha256": "c41be263b2aeb29f6a68e2e5d382d9bbfb70dd6963f1d6d2f245b897cb553544"
+  },
+  "defeat": {
+    "expected": 1,
+    "checked": 1,
+    "passed": 1,
+    "manifestSha256": "3a1b87994313b84a163a2751bda8b42e61bb28b920f380fb58c920d84f1c8113",
+    "manifestCanonicalSha256": "f3272e44d5908d78d8aed5f6bf7fff12ec35138b26a7b86ded25ed28dd366698",
+    "revision": "defeat-city-20261018-v1",
+    "manifestComparison": "Exact canonical JSON; generation prompt and provenance values are preserved",
+    "bytes": 2540557,
+    "sha256": "d827523f201adfa0472d1afa2aaed6d2c9e27c9ca7069d9542686fc80e56f812",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "pngHeader": true
+  },
+  "outcomes": {
+    "expected": 2,
+    "checked": 2,
+    "passed": 2,
+    "exactHashes": 2,
+    "assets": [
+      {
+        "id": "defeat",
+        "file": "assets/ui/results/v044/defeat.png",
+        "bytes": 2179822,
+        "sha256": "350365c17e344e55f9191c6ac287f646cb8bd9ce54a6bf7565023a2430ce8ab7",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "victory",
+        "file": "assets/ui/results/v044/victory.png",
+        "bytes": 2299564,
+        "sha256": "b52df65307d67977a851177fc5912c21a4b0c8f7f43cc899f702310c69d2a27e",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      }
+    ],
+    "manifestSha256": "70840fe49eac6f73a63845d077611ec9b148ba47d47b085eac9f0197f27b39ff",
+    "manifestCanonicalSha256": "1a0b36c0b65e4d60f5882f3e7f3b686eaeea64c7e11d247ac0b602262ffbce2b",
+    "revision": "outcome-scenes-20261018-v1",
+    "manifestComparison": "Exact approved canonical JSON; complete generation prompts, reviews and all ordered input reference hashes are preserved"
+  },
+  "variants": {
+    "expected": 4,
+    "checked": 4,
+    "passed": 4,
+    "exactHashes": 4,
+    "assets": [
+      {
+        "id": "defeat-02",
+        "file": "assets/ui/results/v045/defeat-02.png",
+        "bytes": 2277495,
+        "sha256": "4de70fdd9d05cf2e35bb33c157fe27e4a86e854098b9dfa3831db7ae48b4b4fb",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-03",
+        "file": "assets/ui/results/v045/defeat-03.png",
+        "bytes": 2249658,
+        "sha256": "c5f04d55af0bf4a4aaec5d52bfb090820ad36b706066848b04c171f931059b69",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "victory-02",
+        "file": "assets/ui/results/v045/victory-02.png",
+        "bytes": 2378379,
+        "sha256": "7a86162cf423fedbf66a67c0d717a9c059798582be0b38a1bcd6a5468682ba58",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "victory-03",
+        "file": "assets/ui/results/v045/victory-03.png",
+        "bytes": 2318690,
+        "sha256": "d96348d2f97a98b852d738d552422a8047a878f871a937dd2e3e8c7cb4959aef",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      }
+    ],
+    "manifestSha256": "54db7f8f7c3195f26b1f8be5c54b540d86967d2a332ed75adb71bec1a6fdcf75",
+    "manifestCanonicalSha256": "d71df30941072fbc9439c504cb8040b75c11f33a51ed913584f1dc59ae7f0ac9",
+    "revision": "outcome-scenes-20261018-v2",
+    "manifestComparison": "Exact approved canonical JSON; complete new generation prompts, ordered reference identities, reviews, historical pool links and source/output hashes are preserved"
+  },
+  "approvedDefeats": {
+    "expected": 10,
+    "checked": 10,
+    "passed": 10,
+    "exactHashes": 10,
+    "servedBytes": 23356698,
+    "assets": [
+      {
+        "id": "defeat-v049-01",
+        "file": "assets/ui/results/v049/defeat-01.png",
+        "bytes": 2245491,
+        "sha256": "4f084198d47d7a3958af0a7cd1a7c9082cfa1a1bdd83bcf2781368a9e499f25c",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-v049-02",
+        "file": "assets/ui/results/v049/defeat-02.png",
+        "bytes": 2409281,
+        "sha256": "4991c635d6d118238ea5253fac565495845d65e8bad77ddafa5e1a9c071f5a18",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-v049-03",
+        "file": "assets/ui/results/v049/defeat-03.png",
+        "bytes": 2303943,
+        "sha256": "89c0129d11c72d4299a1101dbed73731a12c2516f5945d3301761f35c1dcd471",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-v049-04",
+        "file": "assets/ui/results/v049/defeat-04.png",
+        "bytes": 2384507,
+        "sha256": "e558ef3fcb2bb13254a7aa822fc673babb7e2bd63bd20a9e94904b80ace22c04",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-v049-05",
+        "file": "assets/ui/results/v049/defeat-05.png",
+        "bytes": 2351015,
+        "sha256": "d14f365209cbfd912b5602ead13c190e04b866d60df2d3ee68010e862766c4c2",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-v049-06",
+        "file": "assets/ui/results/v049/defeat-06.png",
+        "bytes": 2262564,
+        "sha256": "d62a52051d3bae006f544580c6bd3e9b1d595fb22553d10dc8d7100dab70eddd",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-v049-07",
+        "file": "assets/ui/results/v049/defeat-07.png",
+        "bytes": 2367897,
+        "sha256": "e4810f8a449fdb8e3a0afc95b5f7c54ee6b02c700f6422cf8918f4911ebe53d9",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-v049-08",
+        "file": "assets/ui/results/v049/defeat-08.png",
+        "bytes": 2310359,
+        "sha256": "1cf62285adf0018593f24d1642f7b6f2a39d2452d1797459330969435c4878aa",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-v049-09",
+        "file": "assets/ui/results/v049/defeat-09.png",
+        "bytes": 2407697,
+        "sha256": "ab023a9798da07f887ef595590f1385be3869f42405103730e443436fb7d7c00",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      },
+      {
+        "id": "defeat-v049-10",
+        "file": "assets/ui/results/v049/defeat-10.png",
+        "bytes": 2313944,
+        "sha256": "ebe86cbe296ebf9b12c1a0afb971b9cf2925fd18d65bb245ba96239ef92de778",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "pngHeader": true
+      }
+    ],
+    "expectedActivePool": {
+      "lost": 13,
+      "won": 3
+    },
+    "manifestSha256": "2dcd51825c98525c4fd5b069d4c04ec7d7220bbd44eec807f20a6e75d21ee10f",
+    "manifestCanonicalSha256": "0748f119a1f1219e1594b7c62dab15bd7d52d833a7de44f8e4acd3df8c84f7ee",
+    "revision": "approved-defeat-scenes-20261022-v1",
+    "approval": "approved",
+    "approvedCount": 10,
+    "approvalEvidence": {
+      "date": "2026-10-22",
+      "decision": "Schvaluji sceny",
+      "scope": "All ten 0.4.8 defeat candidates"
+    },
+    "sourceManifest": "output/design/followup-v048-20261021/art-review/manifest.json",
+    "sourceManifestSha256": "9f358dad4dd0eb745f8d139de04b40f79798007bab8cbc97ad0bffe430af9827",
+    "archivedCandidateCanonicalSha256": "30e992c6a6cf1d1821d483500f2950a24913a0faa5245eea7a164d8ef89ba2b9",
+    "manifestComparison": "Exact approved canonical JSON; every original candidate prompt, historical review, source generation record and ordered reference hash remains verbatim"
+  },
+  "requests": 280,
+  "failures": [],
+  "limits": [
+    "HTTP signatures, hashes and bundle markers do not prove browser rendering, gameplay behavior, or physical iPad/Safari interaction.",
+    "FRONT metadata and served bytes are checked here; independent local pixel tests compare RGB and alpha against original source sheets.",
+    "Historical and new outcome prompts, reference identities/hashes, generation records and pool links are preserved in exact canonical JSON; this checker does not visually reassess generated art or prove random selection behavior."
+  ],
+  "indexSha256": "2996510c0ab2ee3b5952d90a0852bf7d34d201cd7f6b51588289cb5f55529926",
+  "publicManifest": {
+    "revision": "reference-cutouts-20261016-v1",
+    "identities": 136,
+    "sha256": "64416209e4367d68289f35b0f2bd4782e9f29551f8a5bbad265963d131c88baf",
+    "immutableCanonicalSha256": "5d6f7703ad89fec39b4f5b05d2510e4fce3ecf387e7b9812b851805ca191cc0d",
+    "comparison": "Immutable canonical JSON record; exact identity paths, dimensions and output SHA-256 values from local verified cutout manifest"
+  },
+  "finishedAt": "2026-10-28T08:11:48.352Z",
+  "durationMs": 77836,
+  "geometric": {
+    "status": "passed",
+    "motionRevision": "approved-motion-v1",
+    "manifests": {
+      "expected": 3,
+      "checked": 3,
+      "passed": 3,
+      "assets": [
+        {
+          "file": "assets/geometric/geometric-defenders.json",
+          "revision": "approved-basic-defenders-v7",
+          "motionRevision": "approved-motion-v1",
+          "identities": 48,
+          "sha256": "98b6c613d182a7cceb5be42089cd4d339c5ec4d01ae8e40da3bb9cf44613786c",
+          "canonicalSha256": "fee51231bdc6b5d7642f00d4acb28300cdfc120b8a6cefc94e485d9d9bbff5db"
+        },
+        {
+          "file": "assets/geometric/geometric-champions.json",
+          "revision": "approved-champions-v8",
+          "motionRevision": "approved-motion-v1",
+          "identities": 38,
+          "sha256": "8ca3a53a33aca43e367a580cb5a5ed49b97cd5b8b40fc1446174e059a4591e7a",
+          "canonicalSha256": "e6d43f5fd11df841e02c9a424ed80be816ef4606b18a3f68b49ee91686862176"
+        },
+        {
+          "file": "assets/geometric/geometric-enemies.json",
+          "revision": "approved-enemies-v6",
+          "motionRevision": "approved-motion-v1",
+          "identities": 54,
+          "sha256": "ba989de1d710bb0c6da90c49a2760301bdbd862f7f152c5b726d819c38114850",
+          "canonicalSha256": "5d62668702b049bc233142ab9d2416c639288b78483efff303f7cf5f30a21a0e"
+        }
+      ]
+    },
+    "provenance": {
+      "passed": true,
+      "file": "assets/geometric/approved-enemies-v6/provenance.json",
+      "sha256": "445575558fdcad3d2fe10016b61ddaaf106e0fe86bd415d7bc490d9ad5fe678d",
+      "canonicalSha256": "be11dfcdcdb486ad9f15b37912f28c126920ec87cf1e8faa7e0ae6ec0e36afd6",
+      "approvedEnemyCount": 54,
+      "motionSources": 4
+    },
+    "models": {
+      "expected": 54,
+      "checked": 54,
+      "passed": 54,
+      "exactHashes": 54,
+      "glbHeaders": 54,
+      "servedBytes": 387872104,
+      "expectedBytes": 387872104,
+      "assets": [
+        {
+          "id": "host_01",
+          "file": "assets/geometric/approved-enemies-v6/host_01.glb",
+          "bytes": 824184,
+          "sha256": "eb7f824cddca06a6923d0649b38fd84999d1ee2ea105ce53f6e66b950a791991",
+          "glbHeader": true
+        },
+        {
+          "id": "host_02",
+          "file": "assets/geometric/approved-enemies-v6/host_02.glb",
+          "bytes": 1115808,
+          "sha256": "a16cbfa42fbd1633d7ee853843b63c566332645bab2f9a9d4374d8b4fa84a3ac",
+          "glbHeader": true
+        },
+        {
+          "id": "host_03",
+          "file": "assets/geometric/approved-enemies-v6/host_03.glb",
+          "bytes": 5940772,
+          "sha256": "4651942c50c3c61f457722592f981f8015db601146f4bc45bfd2c666a68cef52",
+          "glbHeader": true
+        },
+        {
+          "id": "host_04",
+          "file": "assets/geometric/approved-enemies-v6/host_04.glb",
+          "bytes": 4737916,
+          "sha256": "b8d1917c24eb4a41a08aea989a0080fc998e3461a1582861ab0245026fcaa1d9",
+          "glbHeader": true
+        },
+        {
+          "id": "host_05",
+          "file": "assets/geometric/approved-enemies-v6/host_05.glb",
+          "bytes": 1568712,
+          "sha256": "aca31727ef86dc73bab769993ca23421e8e9e88d87af60c29c43aab01a7f29a4",
+          "glbHeader": true
+        },
+        {
+          "id": "host_06",
+          "file": "assets/geometric/approved-enemies-v6/host_06.glb",
+          "bytes": 3615136,
+          "sha256": "0a6104c0a691fab25ed5e26a8ddc406a4b5947575a96f16c2e61e02d647c6de0",
+          "glbHeader": true
+        },
+        {
+          "id": "host_07",
+          "file": "assets/geometric/approved-enemies-v6/host_07.glb",
+          "bytes": 25784176,
+          "sha256": "50131819fd43e0ab7ad98cfcafbed798c483845d8ee6ef03d548c33fc6999ad6",
+          "glbHeader": true
+        },
+        {
+          "id": "host_08",
+          "file": "assets/geometric/approved-enemies-v6/host_08.glb",
+          "bytes": 8875428,
+          "sha256": "9f12a03108c5bdcffdf06ada974f0b110263df6f04030e7750fed5c0408656cb",
+          "glbHeader": true
+        },
+        {
+          "id": "host_09",
+          "file": "assets/geometric/approved-enemies-v6/host_09.glb",
+          "bytes": 4363832,
+          "sha256": "4632159791aa43ea7a8c789ee1d040145cd7527954add5877d18c7ce30d35f4a",
+          "glbHeader": true
+        },
+        {
+          "id": "host_10",
+          "file": "assets/geometric/approved-enemies-v6/host_10.glb",
+          "bytes": 35180948,
+          "sha256": "2ed4e6df6097c4a53d63d321cc7ec30328efa0f2b6b01b375dddf536ac49edc2",
+          "glbHeader": true
+        },
+        {
+          "id": "host_11",
+          "file": "assets/geometric/approved-enemies-v6/host_11.glb",
+          "bytes": 3512248,
+          "sha256": "a1951c376fff50ec49acb84ee89d41ca07a2afdac7a88f79b477152bd5b6495d",
+          "glbHeader": true
+        },
+        {
+          "id": "host_12",
+          "file": "assets/geometric/approved-enemies-v6/host_12.glb",
+          "bytes": 2740248,
+          "sha256": "59b993ec7b2675cf5514fb3e56c7e31c78915ed15e459641a6f265f56eea99a5",
+          "glbHeader": true
+        },
+        {
+          "id": "host_13",
+          "file": "assets/geometric/approved-enemies-v6/host_13.glb",
+          "bytes": 4407724,
+          "sha256": "cb51254a034790155d3a117a4edc18939fc828fd6395cb056e411b62592cebe8",
+          "glbHeader": true
+        },
+        {
+          "id": "host_14",
+          "file": "assets/geometric/approved-enemies-v6/host_14.glb",
+          "bytes": 3514572,
+          "sha256": "1f0fba6fb9c97602c89a696adf021f6ca61f48e410f492b34a12a678109eab26",
+          "glbHeader": true
+        },
+        {
+          "id": "host_15",
+          "file": "assets/geometric/approved-enemies-v6/host_15.glb",
+          "bytes": 1959824,
+          "sha256": "cb6b9aabf3bfa4418fbe8434eb8a517ce2a4ac8716e7a16d0938ae77b8256833",
+          "glbHeader": true
+        },
+        {
+          "id": "host_16",
+          "file": "assets/geometric/approved-enemies-v6/host_16.glb",
+          "bytes": 3692336,
+          "sha256": "35909e3bbcbb8497753342d7e5b30838c6e9a54039adf708afc53ef25d682628",
+          "glbHeader": true
+        },
+        {
+          "id": "host_17",
+          "file": "assets/geometric/approved-enemies-v6/host_17.glb",
+          "bytes": 13561724,
+          "sha256": "5d55ace1f98469c079039452019b4f8183e6fbb601a44ad69031c50598b7939f",
+          "glbHeader": true
+        },
+        {
+          "id": "host_18",
+          "file": "assets/geometric/approved-enemies-v6/host_18.glb",
+          "bytes": 2143820,
+          "sha256": "7a51457639ef8f76355c7e54104abca3e5522f3c91279cd4e08ebe06c6257107",
+          "glbHeader": true
+        },
+        {
+          "id": "host_19",
+          "file": "assets/geometric/approved-enemies-v6/host_19.glb",
+          "bytes": 8995452,
+          "sha256": "dac6b19433d9957413baf60041950ab83746593093e0115de523f71c1f7aea98",
+          "glbHeader": true
+        },
+        {
+          "id": "host_20",
+          "file": "assets/geometric/approved-enemies-v6/host_20.glb",
+          "bytes": 13624524,
+          "sha256": "2394ffa1d07a272e7905c6294c5071ecc64e9403ad04dd47019eb0f0f2c5f0a8",
+          "glbHeader": true
+        },
+        {
+          "id": "host_21",
+          "file": "assets/geometric/approved-enemies-v6/host_21.glb",
+          "bytes": 5687832,
+          "sha256": "874ad1994c91666923df92e3db33a88b9caebbe414bc6cd8fa9949feb2a030a1",
+          "glbHeader": true
+        },
+        {
+          "id": "host_22",
+          "file": "assets/geometric/approved-enemies-v6/host_22.glb",
+          "bytes": 6346596,
+          "sha256": "4468e0eb8c5911c4e2d2c1c9745587a077e7a2264ad380a63e583ea7bda2a619",
+          "glbHeader": true
+        },
+        {
+          "id": "host_23",
+          "file": "assets/geometric/approved-enemies-v6/host_23.glb",
+          "bytes": 3121004,
+          "sha256": "787643d0bd30b3caf29369d5804d25f32e6fa8c81c108380d02b1a192397e044",
+          "glbHeader": true
+        },
+        {
+          "id": "host_24",
+          "file": "assets/geometric/approved-enemies-v6/host_24.glb",
+          "bytes": 26573364,
+          "sha256": "b81b61fad860cc0599ce9ff42f8021c8dd95455946014da2adab7e14a4207427",
+          "glbHeader": true
+        },
+        {
+          "id": "host_25",
+          "file": "assets/geometric/approved-enemies-v6/host_25.glb",
+          "bytes": 3559652,
+          "sha256": "e96ff6a8240379dc66552f9529630f29a8e2a6684079c16c781ef50b6883bab7",
+          "glbHeader": true
+        },
+        {
+          "id": "host_26",
+          "file": "assets/geometric/approved-enemies-v6/host_26.glb",
+          "bytes": 4163800,
+          "sha256": "16bfd276e47e050d7eedb49b25ce02d07fb6848b31e0f824b92f481ae94373b0",
+          "glbHeader": true
+        },
+        {
+          "id": "host_27",
+          "file": "assets/geometric/approved-enemies-v6/host_27.glb",
+          "bytes": 2022688,
+          "sha256": "04750f09acb0ea4c51de365c847d5f2437ec0b81ce88f3db3e61f2762f286e65",
+          "glbHeader": true
+        },
+        {
+          "id": "host_28",
+          "file": "assets/geometric/approved-enemies-v6/host_28.glb",
+          "bytes": 1706692,
+          "sha256": "c439037e96e2e2a9a26e7431c5a2b02e0d6bb5533d8bc7b3aeb0b4d5a239dc07",
+          "glbHeader": true
+        },
+        {
+          "id": "host_29",
+          "file": "assets/geometric/approved-enemies-v6/host_29.glb",
+          "bytes": 2069576,
+          "sha256": "12e9493eb3f85d3266f746e26c5f381ddd885ebac8a1040c7da023494be92640",
+          "glbHeader": true
+        },
+        {
+          "id": "host_30",
+          "file": "assets/geometric/approved-enemies-v6/host_30.glb",
+          "bytes": 2948720,
+          "sha256": "444faf1c04290a12347cefc9a46627afac13550e574cae2a9112df7c88a1c623",
+          "glbHeader": true
+        },
+        {
+          "id": "host_31",
+          "file": "assets/geometric/approved-enemies-v6/host_31.glb",
+          "bytes": 17617948,
+          "sha256": "c7e4d39c58443d66de6766f68e6b29239e43ad17a197223c75d68d57ef16e142",
+          "glbHeader": true
+        },
+        {
+          "id": "host_32",
+          "file": "assets/geometric/approved-enemies-v6/host_32.glb",
+          "bytes": 5063156,
+          "sha256": "c5ad82896b10d6b675702221172abe0aa3c05573559b4cf559f0115dffdbae2f",
+          "glbHeader": true
+        },
+        {
+          "id": "host_33",
+          "file": "assets/geometric/approved-enemies-v6/host_33.glb",
+          "bytes": 2620600,
+          "sha256": "10ec491c526278262875ba43adf51d682789eae35528fed8b37ae77f8229dc66",
+          "glbHeader": true
+        },
+        {
+          "id": "host_34",
+          "file": "assets/geometric/approved-enemies-v6/host_34.glb",
+          "bytes": 1491944,
+          "sha256": "59e9563ccc3de012cf35b09d0f5a1f7e9776899b33e5ae8b29ce912753ec7407",
+          "glbHeader": true
+        },
+        {
+          "id": "host_35",
+          "file": "assets/geometric/approved-enemies-v6/host_35.glb",
+          "bytes": 2836228,
+          "sha256": "6220de043c2d8d31f6f56aa6fb0b5199d76efcd29f5ce5175d118faeae255f87",
+          "glbHeader": true
+        },
+        {
+          "id": "host_36",
+          "file": "assets/geometric/approved-enemies-v6/host_36.glb",
+          "bytes": 6845732,
+          "sha256": "4b5f2d2d4e92cda59885eaa9b98965c27a5ba72ba938129a0e270ffd67416676",
+          "glbHeader": true
+        },
+        {
+          "id": "host_37",
+          "file": "assets/geometric/approved-enemies-v6/host_37.glb",
+          "bytes": 8631444,
+          "sha256": "aafd55073aaaee27733e9afd9c50e6feb0195b9368ec395648575e9bd33e00b2",
+          "glbHeader": true
+        },
+        {
+          "id": "host_38",
+          "file": "assets/geometric/approved-enemies-v6/host_38.glb",
+          "bytes": 6302376,
+          "sha256": "c9b626a45596762b316d1656555ec7dfed48c8c101dec991390432251dac046c",
+          "glbHeader": true
+        },
+        {
+          "id": "host_39",
+          "file": "assets/geometric/approved-enemies-v6/host_39.glb",
+          "bytes": 3478728,
+          "sha256": "2d825bb584d93472e2f59984cc687357759bb66c345b6666b9a92fac5c543f59",
+          "glbHeader": true
+        },
+        {
+          "id": "host_40",
+          "file": "assets/geometric/approved-enemies-v6/host_40.glb",
+          "bytes": 2544476,
+          "sha256": "102579595d8398d9dc0cb47d232c87e1fb69124d0c66674ceeaba3aea4cd47a0",
+          "glbHeader": true
+        },
+        {
+          "id": "host_41",
+          "file": "assets/geometric/approved-enemies-v6/host_41.glb",
+          "bytes": 5528452,
+          "sha256": "44c1a33911fb8e662af8aea05f1de6c9d85a663ada4eaad5de973abb818b9ea4",
+          "glbHeader": true
+        },
+        {
+          "id": "host_42",
+          "file": "assets/geometric/approved-enemies-v6/host_42.glb",
+          "bytes": 2039448,
+          "sha256": "efd67af5130f2833f4cce9bfe0cf46ac21abe8d93245db665bf898f7a88c0b40",
+          "glbHeader": true
+        },
+        {
+          "id": "host_43",
+          "file": "assets/geometric/approved-enemies-v6/host_43.glb",
+          "bytes": 15020444,
+          "sha256": "337185175c783bd6d6024227c590c6481742c3e484ab754a0e8b0bbe263edd86",
+          "glbHeader": true
+        },
+        {
+          "id": "host_44",
+          "file": "assets/geometric/approved-enemies-v6/host_44.glb",
+          "bytes": 32331704,
+          "sha256": "d6e73936a2e560fff9d3f6b42111b4d75b9c7058eea3adf5f34c15c806ba5261",
+          "glbHeader": true
+        },
+        {
+          "id": "host_45",
+          "file": "assets/geometric/approved-enemies-v6/host_45.glb",
+          "bytes": 3283524,
+          "sha256": "d5ff6ddd3f15658b644220f5b79df17238a5792ebc1d52927694e342b41275ae",
+          "glbHeader": true
+        },
+        {
+          "id": "host_46",
+          "file": "assets/geometric/approved-enemies-v6/host_46.glb",
+          "bytes": 5862676,
+          "sha256": "60359fc3a910c096eca899e1d48ab5acbb971362b2bdc9204bb7c4a93d05d0af",
+          "glbHeader": true
+        },
+        {
+          "id": "host_47",
+          "file": "assets/geometric/approved-enemies-v6/host_47.glb",
+          "bytes": 15567928,
+          "sha256": "4f196c025fb1049523f7aa31fb8484e2999a10f0778a6bd1a02d30fbe126291b",
+          "glbHeader": true
+        },
+        {
+          "id": "host_48",
+          "file": "assets/geometric/approved-enemies-v6/host_48.glb",
+          "bytes": 2025496,
+          "sha256": "48b54855a0bd0bba000f075cf118b249820732397ce62abf21f1d120d098ab1c",
+          "glbHeader": true
+        },
+        {
+          "id": "host_49",
+          "file": "assets/geometric/approved-enemies-v6/host_49.glb",
+          "bytes": 1493892,
+          "sha256": "9533499b727dec4e3946a28163c8c5caa96b0a66ec8b92a330d7bca1ade434ef",
+          "glbHeader": true
+        },
+        {
+          "id": "host_50",
+          "file": "assets/geometric/approved-enemies-v6/host_50.glb",
+          "bytes": 4941536,
+          "sha256": "81ac2223c3c1abea28491412f4f9cafe7e25dce5875de5465ec929de7185b821",
+          "glbHeader": true
+        },
+        {
+          "id": "host_31-wraith",
+          "file": "assets/geometric/approved-enemies-v6/host_31-wraith.glb",
+          "bytes": 19459348,
+          "sha256": "d4111bda0a15bc3d0619109ca3a1d78f624602ee88aecf712a82a0c99a302454",
+          "glbHeader": true
+        },
+        {
+          "id": "host_35-wraith",
+          "file": "assets/geometric/approved-enemies-v6/host_35-wraith.glb",
+          "bytes": 2012976,
+          "sha256": "973f0d066f0424565dd815debe8e4e6007ed5847a2595035e02b954e61d8b99b",
+          "glbHeader": true
+        },
+        {
+          "id": "host_36-wraith",
+          "file": "assets/geometric/approved-enemies-v6/host_36-wraith.glb",
+          "bytes": 4730880,
+          "sha256": "68e9447a7a9e453a91ef71ed5c7828253423bc74eaece7c9ee7e1df01cd8a73b",
+          "glbHeader": true
+        },
+        {
+          "id": "host_38-wraith",
+          "file": "assets/geometric/approved-enemies-v6/host_38-wraith.glb",
+          "bytes": 7781860,
+          "sha256": "900aaeb6854215cc64081486943af6424a669872f39a6f616a7675b0bfaf83b5",
+          "glbHeader": true
+        }
+      ],
+      "transferPolicy": "One sequential streamed GLB at a time; exact SHA-256 and declared GLB length; no model body is buffered in full"
+    },
+    "requests": 58,
+    "failures": [],
+    "metadataComparison": "Complete approved canonical JSON values; formatting line endings may differ. GLBs use exact raw bytes.",
+    "limitations": [
+      "HTTP metadata, GLB headers and hashes do not certify browser decode, motion appearance or device frame rate.",
+      "The 136-entry historical source-manifest remains an archived concept inventory; the three active model manifests select the current 48/38/54 production models."
+    ],
+    "finishedAt": "2026-10-28T08:11:48.352Z",
+    "durationMs": 56645
+  },
+  "branding": {
+    "status": "passed",
+    "requests": 4,
+    "passed": 3,
+    "failures": []
+  }
+}
