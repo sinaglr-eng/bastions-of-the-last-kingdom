@@ -7,6 +7,7 @@ import {updateHeaderCombatControls} from '../ui/header-combat-controls.js';
 import {audioControlsMarkup} from '../ui/audio-controls.js';
 import {craftRecipeKey} from '../ui/crafting-dock.js';
 import {icon} from '../ui/icons.js';
+import {siteUrl} from '../game/site-url.js';
 
 const source=readFileSync(new URL('../game/main.js',import.meta.url),'utf8'),data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL('../data/'+key+'.json',import.meta.url)))]));
 const state=game=>JSON.stringify({towers:game.towers,draws:game.draft.draws,cp:game.commandPoints.value,gold:game.economy.gold,round:game.round,phase:game.phase,occupied:[...game.grid.occupied],route:game.grid.route});
@@ -34,7 +35,7 @@ function actionBoundary(game,header){
 test('production battlefield dock owns the single combat-control host beside Ready actions while TIME remains in the resource register',()=>{
  const start=source.indexOf('app.innerHTML=`'),end=source.indexOf('\nconst $=',start);assert.ok(start>=0&&end>start);
  const app={innerHTML:''},audio=new AudioManager(false);
- try{new Function('app','icon','profile','balance','audioControlsMarkup','audio',source.slice(start,end))(app,icon,{muted:false},data.balance,audioControlsMarkup,audio);}finally{audio.dispose();}
+ try{new Function('app','icon','profile','balance','audioControlsMarkup','audio','siteUrl',source.slice(start,end))(app,icon,{muted:false},data.balance,audioControlsMarkup,audio,siteUrl);}finally{audio.dispose();}
  const header=app.innerHTML.slice(0,app.innerHTML.indexOf('</header>')),actions=header.slice(header.indexOf('class="header-actions"'));
  const dock=app.innerHTML.slice(app.innerHTML.indexOf('class="command-dock"'),app.innerHTML.indexOf('class="battlefield-overlays"'));
  assert.doesNotMatch(header,/id="header-combat-controls"/);assert.equal((app.innerHTML.match(/id="header-combat-controls"/g)||[]).length,1);assert.match(dock,/id="header-combat-controls" role="group" aria-label="Combat controls" hidden/);assert.doesNotMatch(dock,/data-action="maze"/,'Maze plans no longer occupy the combat-control dock');assert.match(app.innerHTML,/<details class="map-tools">[\s\S]*data-action="maze"/,'The existing maze action remains accessible within Map tools');assert.match(dock,/data-action="start" id="start-wave"/);

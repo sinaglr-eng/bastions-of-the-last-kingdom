@@ -28,26 +28,11 @@
 }
 #app .mystery-placement .mystery-question-dot { fill: #806238; }
 
-/* The existing sidebar disclosure cache preserves each deliberate open/close
-   across rerenders. Omission of open makes the first view compact. */
-#app .folio-combinations-disclosure { margin: 0; border: 0; }
-#app .folio-combinations-disclosure>summary {
-  display: flex; align-items: center; justify-content: space-between; gap: 8px;
-  min-height: 32px; padding: 2px 0; cursor: pointer; list-style: none;
-}
-#app .folio-combinations-disclosure>summary::-webkit-details-marker { display: none; }
-#app .folio-combinations-disclosure>summary h3 {
+/* The combination list is permanently visible. Individual recipe rows keep
+   their own independent expand/collapse controls. */
+#app .potential-combinations>.folio-combinations-heading {
   margin: 0; font-size: 15px; line-height: 1.25;
 }
-#app .folio-combinations-chevron {
-  display: grid; place-items: center; width: 24px; height: 24px; flex: none;
-  border: 1px solid #b7a27d; border-radius: 3px; color: #66502d; background: #fff8e8;
-}
-#app .folio-combinations-chevron>svg {
-  width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6;
-  stroke-linecap: round; stroke-linejoin: round;
-}
-#app .folio-combinations-disclosure[open]>summary .folio-combinations-chevron>svg { transform: rotate(180deg); }
 
 /* The attack toggle belongs beside the name. It is a single guarded command,
    with a native tooltip and accessible label instead of a second text row. */
@@ -63,5 +48,4 @@
 #app .defender-name-row .defender-heading-pause[aria-pressed=true] { color: #a0332c; border-color: #bd8172; background: #fff0e7; }
 @media(pointer:coarse) {
   #app .defender-name-row .defender-heading-pause { width: 36px; height: 36px; min-width: 36px; min-height: 36px; }
-  #app .folio-combinations-disclosure>summary { min-height: 40px; }
 }

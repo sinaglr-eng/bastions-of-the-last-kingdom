@@ -26,12 +26,13 @@ test('every chosen basic rank filters suggestions by that displayed rank while a
   }
 });
 
-test('Potential combinations starts open while each recipe opens, closes and reopens independently',()=>{
+test('Potential combinations has no outer collapse control while each recipe opens, closes and reopens independently',()=>{
   const game=recruit([{family:'archer',tier:2}]),tower=game.selection,planningNavigation=new PreparationRecipeNavigation();
   const options={planningNavigation},initial=preparationRecipeModel(game,tower,options),first=initial.options[0].recipe.id;
   assert.equal(initial.selected,null);
   let html=preparationRecipesMarkup(game,tower,{},options);
-  assert.match(html,/<details class="folio-combinations-disclosure" data-detail-key="potential-combinations" open>/);
+  assert.match(html,/<h3 class="folio-combinations-heading">Potential combinations \(\d+\)<\/h3>/);
+  assert.doesNotMatch(html,/<details|<summary|data-detail-key="potential-combinations"|folio-combinations-chevron/);
   assert.doesNotMatch(html,/aria-expanded="true"|class="folio-recipe-detail"/);
   planningNavigation.toggle(first,first);
   assert.match(preparationRecipesMarkup(game,tower,{},options),/aria-expanded="true"/);

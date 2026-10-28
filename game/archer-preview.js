@@ -143,7 +143,7 @@ function setEffectVisibility(){
 }
 async function showRank(rank){
  selected=rank;const request=++sequence,selectedFamily=family,selectedRoster=roster,definition=members()[family],enemy=isEnemy(),advanced=!enemy&&definition.advanced,url=asset(family,rank),entry=enemy?enemyEntries.get(family):modelEntries.get(advanced?family:`${family}-${rank}`);
- clearModel();host.dataset.modelIdentity='';host.setAttribute('aria-busy','true');renderer.render(scene,camera);animationControls.hidden=true;document.title=`${definition.name}${enemy?` · wave ${definition.wave}`:advanced?'':` ${roman[rank-1]}`} · Royal Atelier`;
+ clearModel();host.dataset.modelIdentity='';host.setAttribute('aria-busy','true');renderer.render(scene,camera);animationControls.hidden=true;document.title=`${definition.name}${enemy?` · wave ${definition.wave}`:advanced?'':` ${roman[rank-1]}`} · Forged Alliances TD · Royal Atelier`;
  history.replaceState(null,'',location.pathname+atelierSelectionQuery({roster,id:family,tier:rank}));
  document.querySelectorAll('[data-rank]').forEach(b=>{const active=Number(b.dataset.rank)===rank;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelector('#selected-rank').textContent=enemy?`WAVE ${definition.wave} · ${definition.flying?'FLIGHT':'WALK'}`:advanced?`${championClassification(family).toUpperCase()} · CHAMPION`:`${defenderCode(definition,rank)} · ${colors[rank-1].toUpperCase()}`;

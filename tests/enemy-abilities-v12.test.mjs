@@ -13,19 +13,48 @@ const close=(actual,expected,message)=>assert.ok(Math.abs(actual-expected)<1e-7,
 function arena(){const game=new Game(data,{seed:7});game.phase='combat';game.combat.spawnQueue=[{time:999999,type:'host_01'}];return game;}
 function stationary(game,type,modifiers={}){const enemy=game.combat.spawn(type,modifiers);enemy.speed=0;return enemy;}
 
-test('current recharge invaders restore 50% of missing modified health at each 4s deadline, including multiple deadlines in a large tick',()=>{
+test('current recharge invaders use their configured missing-health fraction at each 4s deadline, including multiple deadlines in a large tick',()=>{
   const before=JSON.stringify(data),types=Object.entries(data.enemies).filter(([,enemy])=>enemy.recharge>0).map(([type])=>type);
   assert.deepEqual(types,['host_32','host_43','host_49']);assert.equal(R.recharge.period,4);
   for(const type of types)for(const hp of [1,2.5]){
+    const fraction=type==='host_49'?.25:.5;
     const game=arena(),enemy=stationary(game,type,{hp});enemy.hp=enemy.maxHp*.5;
-    assert.equal(enemy.recharge,.5);assert.equal(enemy.rechargeClock,4);
+    assert.equal(enemy.recharge,fraction);assert.equal(enemy.rechargeClock,4);
     game.combat.update(3.999);close(enemy.hp,enemy.maxHp*.5,'No early pulse');
-    game.combat.update(.001);close(enemy.hp,enemy.maxHp*.75,'Half the missing half is one quarter of maximum');
-    game.combat.update(8);close(enemy.hp,enemy.maxHp*(1-.5*.5**3),'Each pulse recomputes actual missing health');close(enemy.rechargeClock,4,'Large tick retains phase');
+    game.combat.update(.001);close(enemy.hp,enemy.maxHp*(1-.5*(1-fraction)),'The first pulse heals the configured fraction of missing health');
+    game.combat.update(8);close(enemy.hp,enemy.maxHp*(1-.5*(1-fraction)**3),'Each pulse recomputes actual missing health');close(enemy.rechargeClock,4,'Large tick retains phase');
     enemy.hp=enemy.maxHp;game.combat.update(4);assert.equal(enemy.hp,enemy.maxHp,'Full health never overflows');
-    assert.ok(warbandTraitDetails(enemy).some(row=>row.text.includes('50% missing health every 4s')));
+    assert.ok(warbandTraitDetails(enemy).some(row=>row.text.includes(`${fraction*100}% missing health every 4s`)));
   }
   assert.equal(JSON.stringify(data),before);
+});
+
+test('wave 49 restores 25% of missing HP: a 100 HP guardian at 20 HP reaches 40 HP after four seconds',()=>{
+  const game=arena(),enemy=stationary(game,'host_49');enemy.maxHp=100;enemy.hp=20;
+  game.rng=()=>{throw Error('Recharge must not consume RNG');};
+  game.combat.update(3.999);assert.equal(enemy.hp,20);game.combat.update(.001);assert.equal(enemy.hp,40);
+  game.combat.update(4);assert.equal(enemy.hp,55,'The second pulse uses the remaining 60 missing HP');
+  assert.equal(enemy.rechargeClock,4);assert.equal(data.enemies.host_32.recharge,.5);assert.equal(data.enemies.host_43.recharge,.5);
+});
+
+test('wave 49 healing block suppresses scheduled pulses without banking them, and its numerical guides show 25%',()=>{
+  const game=arena(),enemy=stationary(game,'host_49');enemy.maxHp=100;enemy.hp=20;
+  game.combat.applyEffects(enemy,{healingBlockDuration:5});game.combat.update(13);
+  assert.equal(enemy.hp,55,'Only the ordinary eight- and twelve-second deadlines heal');assert.equal(enemy.rechargeClock,3);
+  game.combat.update(3);assert.equal(enemy.hp,66.25,'The next pulse remains on the sixteen-second deadline');
+  assert.match(configuredWarbandInfo(data.enemies.host_49,{hp:2}).traits.find(text=>text.startsWith('Restores ')),/^Restores 25% missing health every 4s/);
+  assert.match(enemyDefenseDescriptions(enemy).find(row=>row.kind==='recharge').detail,/25% missing HP every 4s/);
+  assert.equal(archived.enemies.host_49.recharge,.12,'Original authoring definitions remain verbatim');
+});
+
+test('the wave 49 reduction also reaches its recharge variants without changing other waves or non-healing variants',()=>{
+  const source=structuredClone(archived.enemies),before=JSON.stringify(source);
+  source.host_49.variants=[{name:'Guardian variant',recharge:.12},{name:'Non-healing guardian variant',recharge:0}];
+  const variantSource=JSON.stringify(source),current=campaignEnemies(source);
+  assert.deepEqual(current.host_49.variants.map(row=>row.recharge),[.25,0]);
+  for(const [id,definition]of Object.entries(data.enemies))if(id!=='host_49')assert.deepEqual(current[id],definition,`Unrelated wave preserved: ${id}`);
+  assert.equal(JSON.stringify(source),variantSource,'Campaign adaptation leaves original variant data intact');
+  assert.notEqual(variantSource,before,'This test added isolated variant fixtures only');
 });
 
 test('regeneration heals only the eligible part of a tick after a healing block expires, using actual maxHp rather than currentHp',()=>{

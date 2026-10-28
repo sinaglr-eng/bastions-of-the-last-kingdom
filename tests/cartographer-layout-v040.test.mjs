@@ -90,18 +90,20 @@ function productionTabCommands(view){
   return page=>{const button=view.app.querySelectorAll('[data-action="folio-tab"]').find(button=>button.dataset.page===page);assert.ok(button,page);handle({target:button});return button;};
 }
 
-test('native Potential combinations starts open and preserves deliberate disclosure across folio moves and rank refreshes',()=>{
+test('Potential combinations stays visible without an outer toggle across folio moves, stale saved collapse and rank refreshes',()=>{
   const game=recipeGame(),control=recipeGame(),view=mainFixture(game),tower=game.selection;
-  const disclosure=()=>view.app.querySelector('[data-detail-key="potential-combinations"]');
-  assert.equal(disclosure().open,true);assert.equal(disclosure().parentNode.parentNode.id,'folio-recipes');
+  const list=()=>view.app.querySelector('.potential-combinations'),heading=()=>list().querySelector('.folio-combinations-heading');
+  assert.equal(list().parentNode.id,'folio-recipes');assert.equal(heading().tagName,'H3');
+  assert.equal(list().querySelector('summary'),null);assert.equal(list().querySelector('details'),null);
+  assert.equal(view.app.querySelector('[data-detail-key="potential-combinations"]'),null);
   assert.equal(view.app.querySelector('.folio-recipe-detail'),null);
   const before=snapshot(game);
-  disclosure().open=true;view.render();assert.equal(disclosure().open,true);
+  view.context.panelDetails.set('potential-combinations',false);view.render();assert.ok(heading());
   view.context.preparationNavigation.toggle(game.recipes.find(recipe=>recipe.id==='thornwarden').id);view.render();
-  assert.ok(view.app.querySelector('.folio-recipe-detail'));assert.equal(disclosure().open,true);
-  view.rankPreview.select(tower,4,data);view.render();assert.equal(disclosure().open,true);assert.equal(view.app.querySelector('.folio-recipe-detail'),null,'Changing viewed rank does not select a recipe');
-  disclosure().open=false;view.rankPreview.select(tower,1,data);view.render();assert.equal(disclosure().open,false);
-  for(let pass=0;pass<3;pass++){view.render();assert.equal(disclosure().open,false);}
+  assert.ok(view.app.querySelector('.folio-recipe-detail'));assert.ok(heading());
+  view.rankPreview.select(tower,4,data);view.render();assert.ok(heading());assert.equal(view.app.querySelector('.folio-recipe-detail'),null,'Changing viewed rank does not select a recipe');
+  view.rankPreview.select(tower,1,data);view.render();assert.ok(heading());
+  for(let pass=0;pass<3;pass++){view.render();assert.ok(heading());assert.equal(list().querySelector('summary'),null);assert.equal(list().hidden,false);}
   assert.equal(snapshot(game),before);assert.equal(game.rng(),control.rng());
 });
 

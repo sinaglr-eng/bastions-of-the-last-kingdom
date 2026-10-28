@@ -23,6 +23,7 @@ import {EnemyConcealmentEffects} from './enemy-concealment-effects.js';
 import {createCheckpointMarker,CHECKPOINT_ROMAN_LABELS,takeCheckpointEffects,animateCheckpointEffects,disposeCheckpointEffects} from './checkpoint-marker.js';
 import {fetchGeometricEntries,geometricEntryUrl} from './geometric-assets.js';
 import {disposeGeometricResources} from './geometric-resources.js';
+import {sharedGeometricBatchStats} from './geometric-batching.js';
 import {observeWebGLContext} from './webgl-diagnostics.js';
 import {SupportEffects} from './support-effects.js';
 import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance,pointedTower,defenderLoadingTemplate} from './defender-assets.js';
@@ -452,7 +453,7 @@ export class Battlefield {
       const stamp=performance.now();this.reviewFrames??=[];
       if(this.reviewFrameAt)this.reviewFrames.push(stamp-this.reviewFrameAt);this.reviewFrameAt=stamp;if(this.reviewFrames.length>120)this.reviewFrames.shift();
       const sorted=[...this.reviewFrames].sort((a,b)=>a-b),percentile=p=>sorted[Math.min(sorted.length-1,Math.floor(sorted.length*p))]||0;
-      this.renderer.domElement.dataset.renderReview=JSON.stringify({frames:sorted.length,medianMs:percentile(.5),p95Ms:percentile(.95),calls:this.renderer.info.render.calls,triangles:this.renderer.info.render.triangles,geometryBuffers:this.renderer.info.memory.geometries,textureBuffers:this.renderer.info.memory.textures,shaderPrograms:this.renderer.info.programs?.length||0,webglContext:this.webglDiagnostics.snapshot(),enemyModels:[...this.enemyTemplates.keys()],pendingEnemies:this.enemyLoader.pending.size,visibleEnemies:[...this.enemies.values()].filter(e=>e.visible).length,corpses:this.corpses.size,detailedVfx:this.combatEffects.effects.length+this.combatEffects.projectiles.size,fallbackPaths:this.combatEffects.paths.records.length,statusInstances:this.combatStatusVfx.count,statusBatches:[...this.combatStatusVfx.batches].filter(([,b])=>b.count).length,statusTargets:[...this.combatStatusVfx.targets.values()],combatTime:this.motionTime,paused:this.game.paused,speed:this.game.speed});
+      this.renderer.domElement.dataset.renderReview=JSON.stringify({frames:sorted.length,medianMs:percentile(.5),p95Ms:percentile(.95),calls:this.renderer.info.render.calls,triangles:this.renderer.info.render.triangles,geometryBuffers:this.renderer.info.memory.geometries,textureBuffers:this.renderer.info.memory.textures,shaderPrograms:this.renderer.info.programs?.length||0,webglContext:this.webglDiagnostics.snapshot(),enemyStaticSurfaces:sharedGeometricBatchStats(),enemyModels:[...this.enemyTemplates.keys()],pendingEnemies:this.enemyLoader.pending.size,visibleEnemies:[...this.enemies.values()].filter(e=>e.visible).length,corpses:this.corpses.size,detailedVfx:this.combatEffects.effects.length+this.combatEffects.projectiles.size,fallbackPaths:this.combatEffects.paths.records.length,statusInstances:this.combatStatusVfx.count,statusBatches:[...this.combatStatusVfx.batches].filter(([,b])=>b.count).length,statusTargets:[...this.combatStatusVfx.targets.values()],combatTime:this.motionTime,paused:this.game.paused,speed:this.game.speed});
     }
   }
   clearCorpses(){for(const corpse of this.corpses.values()){this.scene.remove(corpse);disposeEnemyFigure(corpse);}this.corpses.clear();}

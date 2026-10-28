@@ -8,6 +8,36 @@
 .header-combat-controls [aria-pressed="true"]{background:#5b4d31;border-color:#dfc382}
 .potential-combinations{margin:12px 0 16px}
 .potential-combinations>.section-label{margin:0 0 8px}
+/* These two atlas openers are the primary header navigation. Their explicit
+   frame and pressed/focus states stay distinct from inline text actions. */
+#app .topbar .header-actions>button:is([data-action="codex"],[data-action="warbands"]){
+ display:inline-flex;align-items:center;justify-content:center;gap:7px;flex:0 1 auto;
+ min-height:44px;min-width:100px;padding:8px 12px;white-space:nowrap;
+ font-size:14px;font-weight:600;line-height:1.2;color:#332817;
+ border:1px solid #9e7b3c;border-radius:5px;
+ background:linear-gradient(#fff9e9,#ebd8ad);
+ box-shadow:inset 0 1px 0 #fffdf5,inset 0 -1px 0 #ae87494a,0 2px 3px #49371929;
+ touch-action:manipulation;
+}
+#app .topbar .header-actions>button:is([data-action="codex"],[data-action="warbands"]):hover{
+ color:#251c0f;border-color:#775624;background:linear-gradient(#fff4d6,#dfbf7d);
+}
+#app .topbar .header-actions>button:is([data-action="codex"],[data-action="warbands"]):active{
+ background:linear-gradient(#dbc08d,#f1dfb7);box-shadow:inset 0 2px 4px #49371933;
+}
+#app .topbar .header-actions>button:is([data-action="codex"],[data-action="warbands"]):focus-visible{
+ outline:3px solid #126d82;outline-offset:3px;
+}
+#app .topbar .header-actions>button:is([data-action="codex"],[data-action="warbands"])>.icon{
+ width:19px;height:19px;color:#76551f;flex:none;
+}
+@media(max-width:750px){
+ #app .topbar .header-actions>button:is([data-action="codex"],[data-action="warbands"]){flex:1 1 0;min-width:0;padding:8px;font-size:13px;gap:6px}
+}
+@media(max-width:380px){
+ #app .topbar .header-actions>button:is([data-action="codex"],[data-action="warbands"]){padding:8px 6px;font-size:11px;gap:4px}
+ #app .topbar .header-actions>button:is([data-action="codex"],[data-action="warbands"])>.icon{width:16px;height:16px}
+}
 .next-wave-heading>strong{font-weight:700}
 .next-wave-health{color:#e0d4b4;margin:4px 0 6px}
 @media(min-width:581px) and (max-width:1400px){

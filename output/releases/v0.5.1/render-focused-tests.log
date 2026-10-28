@@ -1,0 +1,364 @@
+TAP version 13
+# Subtest: approved enemy appearance has all 54 exact V6 files and four structural variants
+ok 1 - approved enemy appearance has all 54 exact V6 files and four structural variants
+  ---
+  duration_ms: 523.695
+  type: 'test'
+  ...
+# Subtest: all approved defenders bind real motion, preserve templates, release from posed geometry and freeze on zero dt
+ok 2 - all approved defenders bind real motion, preserve templates, release from posed geometry and freeze on zero dt
+  ---
+  duration_ms: 1216.9883
+  type: 'test'
+  ...
+# Subtest: all approved champions bind real motion, preserve templates, release from posed geometry and freeze on zero dt
+ok 3 - all approved champions bind real motion, preserve templates, release from posed geometry and freeze on zero dt
+  ---
+  duration_ms: 2987.5237
+  type: 'test'
+  ...
+# Subtest: all 54 approved enemy actors articulate, freeze independently and perform one persistent grounded death
+ok 4 - all 54 approved enemy actors articulate, freeze independently and perform one persistent grounded death
+  ---
+  duration_ms: 3170.9933
+  type: 'test'
+  ...
+# Subtest: release identity is cosmetic and repeated multishot events do not restart the same cast
+ok 5 - release identity is cosmetic and repeated multishot events do not restart the same cast
+  ---
+  duration_ms: 12.1892
+  type: 'test'
+  ...
+# Subtest: actual champion motion excludes runtime aura geometry added before attack binding
+ok 6 - actual champion motion excludes runtime aura geometry added before attack binding
+  ---
+  duration_ms: 25.5262
+  type: 'test'
+  ...
+# Subtest: production CombatEffects uses actual animated dragon and Thunderbird mouths and the Archangel staff
+ok 7 - production CombatEffects uses actual animated dragon and Thunderbird mouths and the Archangel staff
+  ---
+  duration_ms: 152.0958
+  type: 'test'
+  ...
+# Subtest: only placed active, draft or reserved units produce a key; champions share rank one
+ok 8 - only placed active, draft or reserved units produce a key; champions share rank one
+  ---
+  duration_ms: 1.0725
+  type: 'test'
+  ...
+# Subtest: indexing the real 86-model roster dispatches zero GLBs and does not inspect any draft
+ok 9 - indexing the real 86-model roster dispatches zero GLBs and does not inspect any draft
+  ---
+  duration_ms: 1.8666
+  type: 'test'
+  ...
+# Subtest: a constructor-time placed request waits for manifests then starts exactly once
+ok 10 - a constructor-time placed request waits for manifests then starts exactly once
+  ---
+  duration_ms: 1.0563
+  type: 'test'
+  ...
+# Subtest: missing and invalid manifest entries resolve to procedural fallback without model requests
+ok 11 - missing and invalid manifest entries resolve to procedural fallback without model requests
+  ---
+  duration_ms: 0.2254
+  type: 'test'
+  ...
+# Subtest: unplaced and hidden draws never enter the request queue even with valid manifest families
+ok 12 - unplaced and hidden draws never enter the request queue even with valid manifest families
+  ---
+  duration_ms: 0.2002
+  type: 'test'
+  ...
+# Subtest: all copies of a successfully installed rank share one completed request
+ok 13 - all copies of a successfully installed rank share one completed request
+  ---
+  duration_ms: 0.3614
+  type: 'test'
+  ...
+# Subtest: the FIFO request queue limits simultaneous decodes to three
+ok 14 - the FIFO request queue limits simultaneous decodes to three
+  ---
+  duration_ms: 6.2533
+  type: 'test'
+  ...
+# Subtest: rank changes and family changes request their own model while champion upgrades reuse one model
+ok 15 - rank changes and family changes request their own model while champion upgrades reuse one model
+  ---
+  duration_ms: 0.5326
+  type: 'test'
+  ...
+# Subtest: two failed attempts emit one original warning and later syncs do not restart downloads
+ok 16 - two failed attempts emit one original warning and later syncs do not restart downloads
+  ---
+  duration_ms: 0.3937
+  type: 'test'
+  ...
+# Subtest: one transient decode failure retries once and successful recovery emits no warning
+ok 17 - one transient decode failure retries once and successful recovery emits no warning
+  ---
+  duration_ms: 0.3168
+  type: 'test'
+  ...
+# Subtest: configured limits cannot exceed three simultaneous decodes or two attempts
+ok 18 - configured limits cannot exceed three simultaneous decodes or two attempts
+  ---
+  duration_ms: 0.2126
+  type: 'test'
+  ...
+# Subtest: a rejected installation releases decoded GPU resources and bitmap without retry
+ok 19 - a rejected installation releases decoded GPU resources and bitmap without retry
+  ---
+  duration_ms: 1.2179
+  type: 'test'
+  ...
+# Subtest: an installation exception releases the first decode before a fresh retry is adopted
+ok 20 - an installation exception releases the first decode before a fresh retry is adopted
+  ---
+  duration_ms: 0.5239
+  type: 'test'
+  ...
+# Subtest: disposing before manifests resolves waiting requests and never starts a decode
+ok 21 - disposing before manifests resolves waiting requests and never starts a decode
+  ---
+  duration_ms: 0.1203
+  type: 'test'
+  ...
+# Subtest: dispose cancels queued work immediately and releases all late decodes without installing
+ok 22 - dispose cancels queued work immediately and releases all late decodes without installing
+  ---
+  duration_ms: 1.7516
+  type: 'test'
+  ...
+# Subtest: the external battlefield disposal guard also rejects late assets and stops queued requests
+ok 23 - the external battlefield disposal guard also rejects late assets and stops queued requests
+  ---
+  duration_ms: 0.4544
+  type: 'test'
+  ...
+# Subtest: world template returns the procedural placeholder immediately then uses the arriving shared GLB
+ok 24 - world template returns the procedural placeholder immediately then uses the arriving shared GLB
+  ---
+  duration_ms: 1.5318
+  type: 'test'
+  ...
+# Subtest: world manifest loading indexes only and requests placed units rather than active or hidden draw cards
+ok 25 - world manifest loading indexes only and requests placed units rather than active or hidden draw cards
+  ---
+  duration_ms: 1.1749
+  type: 'test'
+  ...
+# Subtest: one unavailable roster preserves its warning while the other roster still loads needed placed units
+ok 26 - one unavailable roster preserves its warning while the other roster still loads needed placed units
+  ---
+  duration_ms: 1.1652
+  type: 'test'
+  ...
+# Subtest: batching keeps protected meshes, exact parent/material boundaries, semantic transforms and original vertex buffers
+ok 27 - batching keeps protected meshes, exact parent/material boundaries, semantic transforms and original vertex buffers
+  ---
+  duration_ms: 19.2954
+  type: 'test'
+  ...
+# Subtest: all 48 actual defenders retain rest and attack/muzzle geometry and owned resources after sibling batching
+ok 28 - all 48 actual defenders retain rest and attack/muzzle geometry and owned resources after sibling batching
+  ---
+  duration_ms: 6180.4952
+  type: 'test'
+  ...
+# Subtest: all 38 actual champions retain rest and attack/muzzle geometry and owned resources after sibling batching
+ok 29 - all 38 actual champions retain rest and attack/muzzle geometry and owned resources after sibling batching
+  ---
+  duration_ms: 23842.6279
+  type: 'test'
+  ...
+# Subtest: all 50 actual enemies retain rest, gait, grounded corpse geometry and owned resources after sibling batching
+ok 30 - all 50 actual enemies retain rest, gait, grounded corpse geometry and owned resources after sibling batching
+  ---
+  duration_ms: 9539.8403
+  type: 'test'
+  ...
+# Subtest: final cache cleanup emits one GPU buffer/material/texture disposal and closes a shared bitmap once across roots and clones
+ok 31 - final cache cleanup emits one GPU buffer/material/texture disposal and closes a shared bitmap once across roots and clones
+  ---
+  duration_ms: 4.857
+  type: 'test'
+  ...
+# Subtest: a live decoded asset is adopted without releasing its shared buffers, while rejected installation releases every scene
+ok 32 - a live decoded asset is adopted without releasing its shared buffers, while rejected installation releases every scene
+  ---
+  duration_ms: 1.0957
+  type: 'test'
+  ...
+# Subtest: all in-flight late decodes release GPU and bitmap resources without install or further dispatch after a battlefield is disposed
+ok 33 - all in-flight late decodes release GPU and bitmap resources without install or further dispatch after a battlefield is disposed
+  ---
+  duration_ms: 1.0754
+  type: 'test'
+  ...
+# Subtest: an installation failure releases the first decode before a retry while preserving the original error
+ok 34 - an installation failure releases the first decode before a retry while preserving the original error
+  ---
+  duration_ms: 1.4134
+  type: 'test'
+  ...
+# Subtest: repeated UI renders do not reset an unchanged drawing buffer or camera projection
+ok 35 - repeated UI renders do not reset an unchanged drawing buffer or camera projection
+  ---
+  duration_ms: 1.2283
+  type: 'test'
+  ...
+# Subtest: optimized motion skips redundant restores, sphere scans and unchanged normal work while restoring exact authored rest
+ok 36 - optimized motion skips redundant restores, sphere scans and unchanged normal work while restoring exact authored rest
+  ---
+  duration_ms: 3.4282
+  type: 'test'
+  ...
+# Subtest: same-clock enemy poses reuse one evaluation while source, variant, mode, private buffers and disposal remain independent
+ok 37 - same-clock enemy poses reuse one evaluation while source, variant, mode, private buffers and disposal remain independent
+  ---
+  duration_ms: 302.6666
+  type: 'test'
+  ...
+# Subtest: actual enemy cache rejects owners changed by seeking, mode changes, copy receipt or direct reset
+ok 38 - actual enemy cache rejects owners changed by seeking, mode changes, copy receipt or direct reset
+  ---
+  duration_ms: 408.8152
+  type: 'test'
+  ...
+# Subtest: all 48 actual V7 actors batch only identical skin/material transforms and preserve every posed rendered vertex and normal
+ok 39 - all 48 actual V7 actors batch only identical skin/material transforms and preserve every posed rendered vertex and normal
+  ---
+  duration_ms: 3000.7751
+  type: 'test'
+  ...
+# Subtest: all54 actual enemy sources and structural variants reuse only matching gait poses with private surfaces
+ok 40 - all54 actual enemy sources and structural variants reuse only matching gait poses with private surfaces
+  ---
+  duration_ms: 3664.3998
+  type: 'test'
+  ...
+# Subtest: all92 actual enemy/champion motion fields retain byte-identical posed positions, normals, visibility and world transforms
+ok 41 - all92 actual enemy/champion motion fields retain byte-identical posed positions, normals, visibility and world transforms
+  ---
+  duration_ms: 9999.0071
+  type: 'test'
+  ...
+# Subtest: every real campaign and queued variant resolves to one of the 54 approved model identities without RNG
+ok 42 - every real campaign and queued variant resolves to one of the 54 approved model identities without RNG
+  ---
+  duration_ms: 1.8222
+  type: 'test'
+  ...
+# Subtest: late-wave solid and spectral models remain protected with their actual texture/material resources during cache pressure
+ok 43 - late-wave solid and spectral models remain protected with their actual texture/material resources during cache pressure
+  ---
+  duration_ms: 212.608
+  type: 'test'
+  ...
+# Subtest: scene retention includes preview and settled corpse borrowers after combat queues advance
+ok 44 - scene retention includes preview and settled corpse borrowers after combat queues advance
+  ---
+  duration_ms: 0.3026
+  type: 'test'
+  ...
+# Subtest: stormcaller-1 sends a connected lightning discharge from its actual posed casting palm
+ok 45 - stormcaller-1 sends a connected lightning discharge from its actual posed casting palm
+  ---
+  duration_ms: 48.7611
+  type: 'test'
+  ...
+# Subtest: stormcaller-2 sends a connected lightning discharge from its actual posed casting palm
+ok 46 - stormcaller-2 sends a connected lightning discharge from its actual posed casting palm
+  ---
+  duration_ms: 49.9458
+  type: 'test'
+  ...
+# Subtest: stormcaller-3 sends a connected lightning discharge from its actual posed casting palm
+ok 47 - stormcaller-3 sends a connected lightning discharge from its actual posed casting palm
+  ---
+  duration_ms: 47.9536
+  type: 'test'
+  ...
+# Subtest: stormcaller-4 sends a connected lightning discharge from its actual posed casting palm
+ok 48 - stormcaller-4 sends a connected lightning discharge from its actual posed casting palm
+  ---
+  duration_ms: 70.1968
+  type: 'test'
+  ...
+# Subtest: stormcaller-5 sends a connected lightning discharge from its actual posed casting palm
+ok 49 - stormcaller-5 sends a connected lightning discharge from its actual posed casting palm
+  ---
+  duration_ms: 42.5091
+  type: 'test'
+  ...
+# Subtest: stormcaller-6 sends a connected lightning discharge from its actual posed casting palm
+ok 50 - stormcaller-6 sends a connected lightning discharge from its actual posed casting palm
+  ---
+  duration_ms: 56.7851
+  type: 'test'
+  ...
+# Subtest: tempest sends a connected lightning discharge from its actual posed casting palm
+ok 51 - tempest sends a connected lightning discharge from its actual posed casting palm
+  ---
+  duration_ms: 64.8233
+  type: 'test'
+  ...
+# Subtest: stormcitadel sends a connected lightning discharge from its actual posed casting palm
+ok 52 - stormcitadel sends a connected lightning discharge from its actual posed casting palm
+  ---
+  duration_ms: 76.0159
+  type: 'test'
+  ...
+# Subtest: shared static batches retain their exact immutable surfaces until the last borrower leaves
+ok 53 - shared static batches retain their exact immutable surfaces until the last borrower leaves
+  ---
+  duration_ms: 6.6531
+  type: 'test'
+  ...
+# Subtest: different decoded scopes, local transforms and materials never reuse an incompatible batch
+ok 54 - different decoded scopes, local transforms and materials never reuse an incompatible batch
+  ---
+  duration_ms: 2.8285
+  type: 'test'
+  ...
+# Subtest: two matching groups within one actor release both borrowed references exactly once
+ok 55 - two matching groups within one actor release both borrowed references exactly once
+  ---
+  duration_ms: 1.1449
+  type: 'test'
+  ...
+# Subtest: host_44 preserves every posed vertex, normal, material and actor-local motion while borrowing static batches
+ok 56 - host_44 preserves every posed vertex, normal, material and actor-local motion while borrowing static batches
+  ---
+  duration_ms: 617.011
+  type: 'test'
+  ...
+# Subtest: host_45 preserves every posed vertex, normal, material and actor-local motion while borrowing static batches
+ok 57 - host_45 preserves every posed vertex, normal, material and actor-local motion while borrowing static batches
+  ---
+  duration_ms: 89.9766
+  type: 'test'
+  ...
+# Subtest: the actual 29-enemy wave44 static geometry budget is one surface set and returns to zero at cleanup
+ok 58 - the actual 29-enemy wave44 static geometry budget is one surface set and returns to zero at cleanup
+  ---
+  duration_ms: 951.0731
+  type: 'test'
+  ...
+# Subtest: WebGL context diagnostics stay bounded and observational through loss, restoration and cleanup
+ok 59 - WebGL context diagnostics stay bounded and observational through loss, restoration and cleanup
+  ---
+  duration_ms: 5.0524
+  type: 'test'
+  ...
+1..59
+# tests 59
+# suites 0
+# pass 59
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 39824.6612

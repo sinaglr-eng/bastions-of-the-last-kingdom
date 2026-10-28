@@ -1,0 +1,62 @@
+{
+  "revision": "shared-enemy-surfaces-20261028-v1",
+  "finding": "Confirmed per-actor duplication of immutable static enemy surface buffers; a substantial source of late-wave memory pressure. The physical iPad/Safari black-render symptom has not been reproduced on this desktop.",
+  "fix": "Share immutable compatible static merged geometry only within the same decoded enemy source; retain private moving fields, transforms and materials. Reference-count static surfaces through previews, living figures and corpses, and release only after the final borrower leaves.",
+  "scope": {
+    "sourceBinaryChanges": 0,
+    "textureChanges": 0,
+    "materialChanges": 0,
+    "gameplayChanges": 0,
+    "qualityReduction": false
+  },
+  "measurements": {
+    "wave44": {
+      "sourceGlbBytes": 32331704,
+      "actualRoster": 29,
+      "sharedBatchCount": 7,
+      "oldStaticBufferBytes": 848641152,
+      "newStaticBufferBytes": 29263488,
+      "staticBufferSavingsBytes": 819377664,
+      "privateMovingBufferBytesPerActor": 100232
+    },
+    "wave45": {
+      "testFigures": 29,
+      "oldStaticBufferBytes": 6046848,
+      "newStaticBufferBytes": 208512,
+      "privateMovingBufferBytesPerActor": 162372
+    },
+    "category": "CPU typed-array byte lengths of runtime merged static geometry; excludes original decoded GLB resources, moving geometry, scene textures, other game assets and renderer overhead. Shared BufferGeometry also enables Three.js to share its corresponding WebGL geometry buffers."
+  },
+  "verification": {
+    "tests": 59,
+    "passed": 59,
+    "failed": 0,
+    "log": "tmp/ipad051-final-tests.log",
+    "durationMs": 39824.6612,
+    "coverage": [
+      "All 54 enemy movement controllers retain private moving fields",
+      "Exact byte parity for all 92 approved enemy/champion moving surfaces",
+      "Actual host_44/host_45 shared vs independently merged full-geometry, normals, matrices and material identity parity",
+      "Shared geometry retained when one actor or corpse is disposed; final borrower disposes once",
+      "Different decoded source, transform or material cannot share incompatible geometry",
+      "29 actual wave44 figures retain 7 static merged buffers and cleanup returns all sharing counters to zero",
+      "Existing model-loader, geometric-resource ownership and WebGL diagnostic tests"
+    ],
+    "diffCheck": "passed"
+  },
+  "limitations": [
+    "Physical iPad/Safari not available for validation",
+    "The exact driver-level reason for black output is not proven",
+    "The measured saving is the runtime merged static geometry category, not total browser or GPU memory or a measured frame-rate claim"
+  ],
+  "primarySources": [
+    "https://threejs.org/manual/pages/cleanup.html",
+    "https://threejs.org/manual/en/how-to-dispose-of-objects.html"
+  ],
+  "sha256": {
+    "game/render/geometric-batching.js": "1b6a41e1b64862e4a273d5583394131d1b3d4032930dbd9fed5c185272ca8cdb",
+    "game/render/approved-model-motion.js": "1abb713054f47cfecf3ffc715c1e8ef84d220752a4310a05ae5e45620b0b0578",
+    "game/render/world.js": "879f29c9118ff1953bcfc24103d0b215d72dfe2a1c268e3c79b430fef5065b32",
+    "tests/shared-enemy-surfaces-v051.test.mjs": "a0df565d8116da113d15b383e301d2aee55eeaa39d5a90994a14d5c35610655e"
+  }
+}

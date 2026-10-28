@@ -1,0 +1,7 @@
+/* One scalable mark and wordmark; the game keeps its existing responsive HUD. */
+#app .brand.forged-brand{flex:0 0 205px;min-width:0;gap:0;width:205px}
+#app .brand.forged-brand h1{margin:0;width:100%;font-size:0;line-height:1}
+#app .forged-brand img{display:block;width:100%;height:auto}
+#app .forged-brand .brand-compact{display:none}
+@media(max-width:1250px) and (min-width:751px){#app .brand.forged-brand{flex-basis:42px;width:42px}#app .forged-brand .brand-wide{display:none}#app .forged-brand .brand-compact{display:block;width:42px;height:42px}}
+@media(max-width:750px){#app .brand.forged-brand{display:none}}

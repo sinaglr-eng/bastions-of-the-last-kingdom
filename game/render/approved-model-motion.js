@@ -3,7 +3,7 @@ import {createBasicMotion} from './approved-motion-v1/basic-motion.js';
 import {createChampionMotion} from './approved-motion-v1/champion-motion.js';
 import {createEnemyMotion} from './approved-motion-v1/enemy-motion.js';
 import {createRig} from './optimized-motion-rig.js';
-import {optimizeGeometricSiblings} from './geometric-batching.js';
+import {optimizeGeometricSiblings,releaseSharedGeometricBatches} from './geometric-batching.js';
 import {batchPrivateSkinnedActor} from './skinned-batching.js';
 import {ENEMY_RULES} from '../core/enemy-rules.js';
 
@@ -64,8 +64,8 @@ export function bindApprovedMotion(actor){
   // excluded; compatible static siblings keep their original parent transform.
   source.userData.geometricRig=true;
   if(entry.kind==='basic')controller.skinnedBatching=batchPrivateSkinnedActor(source);
-  controller.batching=optimizeGeometricSiblings(source);
-  controller.ownedStaticGeometry=new Set();source.traverse(node=>{if(node.userData.geometricBatch&&node.geometry)controller.ownedStaticGeometry.add(node.geometry);});
+  controller.batching=optimizeGeometricSiblings(source,{sharedScope:entry.kind==='enemy'?entry.poseGeneration:null});
+  controller.ownedStaticGeometry=new Set();source.traverse(node=>{if(node.userData.geometricBatch&&!node.userData.sharedGeometricBatch&&node.geometry)controller.ownedStaticGeometry.add(node.geometry);});
   return controller;
 }
 
@@ -74,7 +74,7 @@ export function disposeApprovedMotion(actor){
   const c=actors.get(actor);if(!c||c.disposed)return;
   const poses=enemyPoses.get(c.entry.poseGeneration);
   if(poses){for(const [mode,row]of poses)if(row.controller===c)poses.delete(mode);if(!poses.size)enemyPoses.delete(c.entry.poseGeneration);}
-  c.skinnedBatching?.dispose();c.motion.dispose?.();for(const geometry of c.ownedStaticGeometry)geometry.dispose();c.ownedStaticGeometry.clear();c.disposed=true;actors.delete(actor);
+  c.skinnedBatching?.dispose();c.motion.dispose?.();releaseSharedGeometricBatches(c.source);for(const geometry of c.ownedStaticGeometry)geometry.dispose();c.ownedStaticGeometry.clear();c.disposed=true;actors.delete(actor);
 }
 function evaluate(c,phase,{idle=false,reducedMotion=false,melancholy=false}={}){
   if(reducedMotion){c.motion.reset();return;}

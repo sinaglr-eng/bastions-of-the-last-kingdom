@@ -72,6 +72,7 @@ import '../ui/defender-loading.css';
 import '../ui/battlefield-command.css';
 import '../ui/draft-presentation.css';
 import '../ui/header-command.css';
+import '../ui/brand.css';
 import '../ui/current-wave-panel.css';
 import '../ui/recipe-filters.css';
 import '../ui/critical-hit-labels.css';
@@ -123,7 +124,7 @@ let folioRecipeId=null,folioRecipeSelection=null,previewPrevious=null;
 const recipeFilterState={damage:'',ability:'',counter:''};let recipeFilterConnection=null;
 app.innerHTML=`
 <header class="topbar">
- <div class="brand"><div class="crest">${icon('shield')}</div><div><h1>Bastions</h1><small>of the Last Kingdom</small></div></div>
+ <div class="brand forged-brand"><h1 aria-label="Forged Alliances TD"><img class="brand-wide" src="${siteUrl('assets/branding/forged-alliances-v1/wordmark.svg')}" width="650" height="160" alt="Forged Alliances TD" /><img class="brand-compact" src="${siteUrl('assets/branding/forged-alliances-v1/mark.svg')}" width="96" height="96" alt="" aria-hidden="true" /></h1></div>
  <div class="top-stats">
   <div class="hud-stat wave">${icon('wave')}<div><small>WAVE</small><strong id="hud-wave"></strong></div></div>
   <div class="hud-stat keep">${icon('shield')}<div><small>KEEP HEALTH</small><strong id="hud-lives"></strong></div></div>

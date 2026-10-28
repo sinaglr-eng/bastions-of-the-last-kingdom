@@ -1,7 +1,8 @@
 {
-  "version": "0.5.0",
+  "version": "0.5.1",
+  "name": "Forged Alliances TD",
   "edition": "The Cartographer’s Table",
-  "date": "2026-10-25",
+  "date": "2026-10-28",
   "basicClasses": 8,
   "champions": 38,
   "secretChampions": 1,
@@ -35,12 +36,13 @@
   "mvpMaximumLevel": 10,
   "developerConsole": true,
   "classificationScaleStep": 1.1,
-  "uiRevision": "maze-first-tutorial-20261025-v1",
-  "performanceRevision": "ipad-render-input-20261019-v1",
+  "uiRevision": "forged-alliances-20261028-v1",
+  "performanceRevision": "shared-enemy-surfaces-20261028-v1",
+  "brandRevision": "forged-alliances-20261028-v1",
   "uiPortraitRevision": "reference-cutouts-20261016-v1",
   "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
   "uiOutcomeArtRevision": "outcome-scenes-20261022-v3",
   "motionRevision": "approved-motion-v1",
   "vfxRevision": "hand-lightning-20261021-v2",
-  "balanceRevision": "approved-b01-b06-20261018"
+  "balanceRevision": "wave49-recharge25-20261028"
 }

@@ -1,5 +1,11 @@
 # Releases
 
+## 0.5.1 — Forged Alliances TD — 28 October 2026
+
+Renames the current game, browser titles and local launcher to Forged Alliances TD, with a new native vector mark and wordmark. Corrects the initial loading ellipsis, frames the two atlas buttons and removes the outer Potential combinations collapse control. Wave 49 alone now restores 25% of missing health every four seconds; other rechargers retain their existing values.
+
+Enemy instances share exact immutable static batches instead of duplicating their complete surfaces per invader. For the actual 29-invader wave 44, the measured static buffer category falls from 848,641,152 to 29,263,488 bytes. Private moving buffers, original assets, materials and game rules remain intact. Physical iPad/Safari confirmation of the reported black appearance remains unavailable. [Implementation and verification](docs/FORGED_ALLIANCES_V051.md).
+
 ## 0.5.0 — Maze-first field guide — 25 October 2026
 
 The tutorial now asks for a real maze-shape selection immediately after camera controls and before the first recruit. Opening the existing picker, selecting a preset or saving a custom blueprint uses the ordinary planner; a previous saved choice alone does not skip the new step. Version 0.5.0 becomes the default and its independently verified source/production archive replaces the retired offline 0.3.31 pair. Approved source media, game rules, score history and current design-gallery work remain intact. Old generated builds and obsolete rollback helpers are removed.

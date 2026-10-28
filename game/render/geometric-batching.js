@@ -2,6 +2,32 @@ import * as THREE from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 
 const optimized=new WeakMap(),retired=new WeakMap();
+// Enemy copies keep independent transforms and deforming surfaces. Compatible
+// static batches are immutable, so one decoded source can lend their buffers
+// to all of its living figures, preview and corpses instead of uploading the
+// complete merged body once for every invader. A borrower owns a reference,
+// never the shared geometry's disposal.
+const sharedScopes=new Map(),borrowedBatches=new WeakMap();
+const bufferBytes=geometry=>Object.values(geometry.attributes).reduce((n,a)=>n+a.array.byteLength,geometry.index?.array.byteLength||0);
+const sharedSignature=siblings=>siblings.map(node=>[node.geometry.uuid,node.material.uuid,layout(node.geometry),...node.matrix.elements].join(',')).join('|');
+export function releaseSharedGeometricBatches(root){
+  const borrowed=borrowedBatches.get(root);if(!borrowed)return 0;
+  borrowedBatches.delete(root);let disposed=0;
+  for(const [row,count]of borrowed){
+    row.users-=count;
+    if(row.users)continue;
+    row.geometry.dispose();disposed++;row.scope.delete(row.key);
+    if(!row.scope.size)sharedScopes.delete(row.scopeId);
+  }
+  return disposed;
+}
+export function sharedGeometricBatchStats(){
+  let geometries=0,borrowers=0,bytes=0,unsharedBytes=0;
+  for(const scope of sharedScopes.values())for(const row of scope.values()){
+    geometries++;borrowers+=row.users;const size=bufferBytes(row.geometry);bytes+=size;unsharedBytes+=size*row.users;
+  }
+  return {geometries,borrowers,bytes,unsharedBytes};
+}
 const dynamicName=/^(?:torso_pivot|head_pivot|mount_head_pivot|mount_torso_pivot|upper_arm_[RL]|forearm_[RL]|hand_[RL]|weapon_[RL]|upper_leg_(?:[RL]|[FB][RL])|shin_(?:[RL]|[FB][RL])|foot_(?:[RL]|[FB][RL])|wing_[RL]|tail_pivot|jaw_pivot|mouth_pivot|siege_arm|bow_pivot|weapon_pivot|attack_arm|bow_arm|dragon_jaw|left_wing_pivot|right_wing_pivot)$/;
 const protectedName=/^(?:refraction_shards|authored_bowstring|bow_tip_upper|bow_tip_lower|bow_nock|attack_muzzle|staff_tip|sword_tip)(?:_?\d+)?$|bow_?string|crossbow.*string|actual drawn string tip to nock/i;
 const layout=geometry=>Object.entries(geometry.attributes).map(([name,attribute])=>`${name}:${attribute.itemSize}:${attribute.normalized}:${attribute.array.constructor.name}`).sort().join('|');
@@ -22,7 +48,7 @@ function eligible(node,animated){
   return node.matrix.determinant()>0;
 }
 
-export function optimizeGeometricSiblings(root,{animations=root?.animations||[]}={}){
+export function optimizeGeometricSiblings(root,{animations=root?.animations||[],sharedScope=null}={}){
   if(!root)return {before:0,after:0,mergedGroups:0,retiredMeshes:0};
   if(optimized.has(root))return optimized.get(root);
   let geometric=false;root.traverse(node=>{if(node.userData.geometricRig)geometric=true;});
@@ -38,15 +64,28 @@ export function optimizeGeometricSiblings(root,{animations=root?.animations||[]}
   });
   for(const siblings of groups.values()){
     if(siblings.length<2)continue;
-    const copies=siblings.map(node=>{
-      const copy=node.geometry.clone(),geometry=copy.index?copy.toNonIndexed():copy;
-      if(geometry!==copy)copy.dispose();return geometry.applyMatrix4(node.matrix);
-    });
-    let geometry;try{geometry=mergeGeometries(copies,false);}finally{for(const copy of copies)copy.dispose();}
+    let scope,key,row;
+    if(sharedScope!==null){
+      scope=sharedScopes.get(sharedScope);key=sharedSignature(siblings);row=scope?.get(key);
+    }
+    let geometry=row?.geometry;
+    if(!geometry){
+      const copies=siblings.map(node=>{
+        const copy=node.geometry.clone(),geometry=copy.index?copy.toNonIndexed():copy;
+        if(geometry!==copy)copy.dispose();return geometry.applyMatrix4(node.matrix);
+      });
+      try{geometry=mergeGeometries(copies,false);}finally{for(const copy of copies)copy.dispose();}
+      if(geometry){geometry.computeBoundingBox();geometry.computeBoundingSphere();}
+    }
     if(!geometry)continue;
-    geometry.computeBoundingBox();geometry.computeBoundingSphere();
     const first=siblings[0],parent=first.parent,merged=new THREE.Mesh(geometry,first.material);
     merged.name=`geometric_batch_${stats.mergedGroups+1}`;merged.userData.geometricBatch=true;
+    if(sharedScope!==null){
+      if(!scope){scope=new Map();sharedScopes.set(sharedScope,scope);}
+      if(!row){row={geometry,scope,key,scopeId:sharedScope,users:0};scope.set(key,row);}
+      row.users++;let borrowed=borrowedBatches.get(root);if(!borrowed){borrowed=new Map();borrowedBatches.set(root,borrowed);}borrowed.set(row,(borrowed.get(row)||0)+1);
+      merged.userData.sharedGeometricBatch=true;
+    }
     merged.castShadow=first.castShadow;merged.receiveShadow=first.receiveShadow;merged.renderOrder=first.renderOrder;merged.layers.mask=first.layers.mask;merged.frustumCulled=first.frustumCulled;
     for(const node of siblings){
       originals.add(node.geometry);

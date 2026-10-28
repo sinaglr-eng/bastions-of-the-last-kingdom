@@ -1,0 +1,215 @@
+{
+  "date": "2026-10-28T08:00:29.736Z",
+  "scope": "Desktop Chromium production build; responsive viewports, not a physical iPad Safari test",
+  "loadingMarkup": {
+    "fixture": "Built initial HTML with module startup removed for inspection",
+    "text": "Raising the banners…",
+    "screenshot": "loading-markup-review.png"
+  },
+  "headers": [
+    {
+      "buttons": [
+        {
+          "action": "codex",
+          "background": "linear-gradient(rgb(255, 249, 233), rgb(235, 216, 173))",
+          "border": "solid",
+          "font": "14px",
+          "height": 44,
+          "left": 1554.0833740234375,
+          "right": 1661.3646240234375,
+          "width": 107.28125
+        },
+        {
+          "action": "warbands",
+          "background": "linear-gradient(rgb(255, 249, 233), rgb(235, 216, 173))",
+          "border": "solid",
+          "font": "14px",
+          "height": 44,
+          "left": 1669.3646240234375,
+          "right": 1821.3333740234375,
+          "width": 151.96875
+        }
+      ],
+      "height": 1244,
+      "scrollWidth": 1945,
+      "width": 1945
+    },
+    {
+      "buttons": [
+        {
+          "action": "codex",
+          "background": "linear-gradient(rgb(255, 249, 233), rgb(235, 216, 173))",
+          "border": "solid",
+          "font": "14px",
+          "height": 44,
+          "left": 639.75,
+          "right": 747.03125,
+          "width": 107.28125
+        },
+        {
+          "action": "warbands",
+          "background": "linear-gradient(rgb(255, 249, 233), rgb(235, 216, 173))",
+          "border": "solid",
+          "font": "14px",
+          "height": 44,
+          "left": 755.03125,
+          "right": 907,
+          "width": 151.96875
+        }
+      ],
+      "height": 768,
+      "scrollWidth": 1024,
+      "width": 1024
+    },
+    {
+      "buttons": [
+        {
+          "action": "codex",
+          "background": "linear-gradient(rgb(255, 249, 233), rgb(235, 216, 173))",
+          "border": "solid",
+          "font": "13.8756px",
+          "height": 44,
+          "left": 10,
+          "right": 97.55208587646484,
+          "width": 87.55208587646484
+        },
+        {
+          "action": "warbands",
+          "background": "linear-gradient(rgb(255, 249, 233), rgb(235, 216, 173))",
+          "border": "solid",
+          "font": "13.8756px",
+          "height": 44,
+          "left": 102.55208587646484,
+          "right": 190.1041717529297,
+          "width": 87.55208587646484
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    }
+  ],
+  "wave49Text": "INVADERS\n31\nMOVEMENT\nGround\nHP EACH\n117,958\nARMOR\n48\nTILES / SECOND\n2.05\nAbilities\nShell blocks 200 damage per direct hit, including Holy damage\nRestores 25% missing health every 4s · healing block prevents recharge\nLore and guidance\n\nThe guardians of the deep maw have left the approaches to Bernhard’s seat for the first time in living memory. They are the last oath-bound barrier before their master; if the kingdom can stand against them, it will have forced the architect of the invasion to answer in person.\n\nDeep shell · Soul recharge\n\nReduces damage from individual direct hits. Periodically restores health. Armor reduces all three damage types; use armor reduction or penetration.",
+  "natural44To45": {
+    "calls": 226,
+    "combatTime": 52.380300000000666,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_01",
+      "host_44",
+      "host_45"
+    ],
+    "enemyStaticSurfaces": {
+      "borrowers": 7,
+      "bytes": 208512,
+      "geometries": 7,
+      "unsharedBytes": 208512
+    },
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 227,
+    "medianMs": 17.700000047683716,
+    "p95Ms": 19.199999928474423,
+    "paused": false,
+    "pendingEnemies": 0,
+    "shaderPrograms": 23,
+    "speed": 3,
+    "statusBatches": 0,
+    "statusInstances": 0,
+    "statusTargets": [],
+    "textureBuffers": 122,
+    "triangles": 556459,
+    "visibleEnemies": 0,
+    "webglContext": {
+      "lastEvent": null,
+      "losses": 0,
+      "lost": false,
+      "restores": 0
+    }
+  },
+  "wave44Paused": {
+    "calls": 256,
+    "combatTime": 0.3477999999999884,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_01",
+      "host_44",
+      "host_45"
+    ],
+    "enemyStaticSurfaces": {
+      "borrowers": 14,
+      "bytes": 29472000,
+      "geometries": 14,
+      "unsharedBytes": 29472000
+    },
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 251,
+    "medianMs": 17.5,
+    "p95Ms": 19.600000023841854,
+    "paused": true,
+    "pendingEnemies": 0,
+    "shaderPrograms": 25,
+    "speed": 1,
+    "statusBatches": 0,
+    "statusInstances": 0,
+    "statusTargets": [],
+    "textureBuffers": 122,
+    "triangles": 882859,
+    "visibleEnemies": 1,
+    "webglContext": {
+      "lastEvent": null,
+      "losses": 0,
+      "lost": false,
+      "restores": 0
+    }
+  },
+  "wave45Paused": {
+    "calls": 341,
+    "combatTime": 0.3331999999999534,
+    "corpses": 0,
+    "detailedVfx": 0,
+    "enemyModels": [
+      "host_01",
+      "host_44",
+      "host_45",
+      "host_46"
+    ],
+    "enemyStaticSurfaces": {
+      "borrowers": 11,
+      "bytes": 428784,
+      "geometries": 11,
+      "unsharedBytes": 428784
+    },
+    "fallbackPaths": 0,
+    "frames": 120,
+    "geometryBuffers": 341,
+    "medianMs": 17.799999952316284,
+    "p95Ms": 19.799999952316284,
+    "paused": true,
+    "pendingEnemies": 0,
+    "shaderPrograms": 25,
+    "speed": 1,
+    "statusBatches": 0,
+    "statusInstances": 0,
+    "statusTargets": [],
+    "textureBuffers": 136,
+    "triangles": 642187,
+    "visibleEnemies": 1,
+    "webglContext": {
+      "lastEvent": null,
+      "losses": 0,
+      "lost": false,
+      "restores": 0
+    }
+  },
+  "combinations": {
+    "heading": "Potential combinations (1)",
+    "outerDetails": false,
+    "recipeControls": 1,
+    "text": "Potential combinations (1)\n\nActual rank I recipes\n\nBaby Fire Dragon\nMissing ingredients"
+  },
+  "logs": []
+}

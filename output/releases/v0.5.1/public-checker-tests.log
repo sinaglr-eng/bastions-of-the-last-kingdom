@@ -1,0 +1,238 @@
+TAP version 13
+# Subtest: 0.5.1 UI component verifies historical assets, all ten approved defeats and exact build with credential-free GETs
+ok 1 - 0.5.1 UI component verifies historical assets, all ten approved defeats and exact build with credential-free GETs
+  ---
+  duration_ms: 198.3859
+  type: 'test'
+  ...
+# Subtest: release metadata mismatch stops verification before any bulk assets or compiled requests
+ok 2 - release metadata mismatch stops verification before any bulk assets or compiled requests
+  ---
+  duration_ms: 39.8408
+  type: 'test'
+  ...
+# Subtest: 0.5.1 requires its exact date, maze tutorial UI, hand-lightning VFX and performance revisions before requesting immutable assets
+ok 3 - 0.5.1 requires its exact date, maze tutorial UI, hand-lightning VFX and performance revisions before requesting immutable assets
+  ---
+  duration_ms: 234.9008
+  type: 'test'
+  ...
+# Subtest: LF, CRLF and Vite CRCRLF boundaries preserve JSON records and HTML while other HTML differences remain rejected
+ok 4 - LF, CRLF and Vite CRCRLF boundaries preserve JSON records and HTML while other HTML differences remain rejected
+  ---
+  duration_ms: 840.0036
+  type: 'test'
+  ...
+# Subtest: exact local bundle comparison detects a stale compiled response even if all required UI markers still exist
+ok 5 - exact local bundle comparison detects a stale compiled response even if all required UI markers still exist
+  ---
+  duration_ms: 249.5932
+  type: 'test'
+  ...
+# Subtest: compiled portrait templates need the exact namespace identities even when revisions and all local/public bytes still match
+ok 6 - compiled portrait templates need the exact namespace identities even when revisions and all local/public bytes still match
+  ---
+  duration_ms: 467.3589
+  type: 'test'
+  ...
+# Subtest: crimson portrait corruption fails independently of the unchanged original 136 portraits
+ok 7 - crimson portrait corruption fails independently of the unchanged original 136 portraits
+  ---
+  duration_ms: 220.8341
+  type: 'test'
+  ...
+# Subtest: missing final local build and changed immutable manifest are rejected before network requests
+ok 8 - missing final local build and changed immutable manifest are rejected before network requests
+  ---
+  duration_ms: 112.6783
+  type: 'test'
+  ...
+# Subtest: invalid local FRONT view, source, RGB, alpha, identity, trim or historical metadata fails before any request
+ok 9 - invalid local FRONT view, source, RGB, alpha, identity, trim or historical metadata fails before any request
+  ---
+  duration_ms: 565.2261
+  type: 'test'
+  ...
+# Subtest: a changed public FRONT manifest cannot silently replace the locally verified crop metadata
+ok 10 - a changed public FRONT manifest cannot silently replace the locally verified crop metadata
+  ---
+  duration_ms: 56.828
+  type: 'test'
+  ...
+# Subtest: FRONT PNG corruption and a non-RGBA header fail independently of every historical portrait and defeat art
+ok 11 - FRONT PNG corruption and a non-RGBA header fail independently of every historical portrait and defeat art
+  ---
+  duration_ms: 405.1471
+  type: 'test'
+  ...
+# Subtest: changed defeat prompt/provenance is rejected and invalid local asset identity fails before requests
+ok 12 - changed defeat prompt/provenance is rejected and invalid local asset identity fails before requests
+  ---
+  duration_ms: 69.0937
+  type: 'test'
+  ...
+# Subtest: defeat PNG corruption is rejected after the unchanged original, crimson and 50 FRONT portraits pass
+ok 13 - defeat PNG corruption is rejected after the unchanged original, crimson and 50 FRONT portraits pass
+  ---
+  duration_ms: 169.9826
+  type: 'test'
+  ...
+# Subtest: both approved outcome identities retain complete prompts, generation settings, dimensions and all ordered input reference hashes before any GET
+ok 14 - both approved outcome identities retain complete prompts, generation settings, dimensions and all ordered input reference hashes before any GET
+  ---
+  duration_ms: 565.4627
+  type: 'test'
+  ...
+# Subtest: a public outcome provenance change cannot replace an approved prompt or input reference despite unchanged artwork
+ok 15 - a public outcome provenance change cannot replace an approved prompt or input reference despite unchanged artwork
+  ---
+  duration_ms: 84.9446
+  type: 'test'
+  ...
+# Subtest: missing or corrupted new outcome PNGs and wrong dimensions fail independently of every historical image and the other outcome
+ok 16 - missing or corrupted new outcome PNGs and wrong dimensions fail independently of every historical image and the other outcome
+  ---
+  duration_ms: 999.3743
+  type: 'test'
+  ...
+# Subtest: compiled outcome path and both-result presentation markers remain necessary with exact public/local bytes and valid artwork
+ok 17 - compiled outcome path and both-result presentation markers remain necessary with exact public/local bytes and valid artwork
+  ---
+  duration_ms: 2525.3643
+  type: 'test'
+  ...
+# Subtest: new variant prompts, reference identities, historical pool and selection provenance are immutable before any request
+ok 18 - new variant prompts, reference identities, historical pool and selection provenance are immutable before any request
+  ---
+  duration_ms: 869.6373
+  type: 'test'
+  ...
+# Subtest: changed public variant provenance stops before assets while the original outcome manifest stays independently protected
+ok 19 - changed public variant provenance stops before assets while the original outcome manifest stays independently protected
+  ---
+  duration_ms: 99.0436
+  type: 'test'
+  ...
+# Subtest: all four new variant PNGs reject missing files, corrupted bytes and wrong geometry independently of historical assets
+ok 20 - all four new variant PNGs reject missing files, corrupted bytes and wrong geometry independently of historical assets
+  ---
+  duration_ms: 1640.3055
+  type: 'test'
+  ...
+# Subtest: 0.4.9 approval evidence and every original candidate field are required before any public GET
+ok 21 - 0.4.9 approval evidence and every original candidate field are required before any public GET
+  ---
+  duration_ms: 921.9162
+  type: 'test'
+  ...
+# Subtest: changed public 0.4.9 approval, prompt or reference provenance stops before any portrait or scene transfer
+ok 22 - changed public 0.4.9 approval, prompt or reference provenance stops before any portrait or scene transfer
+  ---
+  duration_ms: 154.6449
+  type: 'test'
+  ...
+# Subtest: all ten approved PNGs independently reject missing files, corrupted bytes and wrong dimensions
+ok 23 - all ten approved PNGs independently reject missing files, corrupted bytes and wrong dimensions
+  ---
+  duration_ms: 4112.8848
+  type: 'test'
+  ...
+# Subtest: approved PNG and 13-defeat/3-victory compiled identities remain necessary even with exact local/public bundle bytes
+ok 24 - approved PNG and 13-defeat/3-victory compiled identities remain necessary even with exact local/public bundle bytes
+  ---
+  duration_ms: 2337.6903
+  type: 'test'
+  ...
+# Subtest: a valid compiled pool can omit its unused tree-shaken revision export while release metadata retains the active revision
+ok 25 - a valid compiled pool can omit its unused tree-shaken revision export while release metadata retains the active revision
+  ---
+  duration_ms: 134.4457
+  type: 'test'
+  ...
+# Subtest: 050 release date and active art revision are independent of preserved 049 approval and 045 manifest revisions
+ok 26 - 050 release date and active art revision are independent of preserved 049 approval and 045 manifest revisions
+  ---
+  duration_ms: 654.0188
+  type: 'test'
+  ...
+# Subtest: geometric local manifest identity, motion and approval provenance mutations fail before any GET
+ok 27 - geometric local manifest identity, motion and approval provenance mutations fail before any GET
+  ---
+  duration_ms: 37.0103
+  type: 'test'
+  ...
+# Subtest: geometric metadata permits formatting line endings while retaining every approved value
+ok 28 - geometric metadata permits formatting line endings while retaining every approved value
+  ---
+  duration_ms: 14.3336
+  type: 'test'
+  ...
+# Subtest: changed public geometric manifests or approval records stop before large GLB transfers
+ok 29 - changed public geometric manifests or approval records stop before large GLB transfers
+  ---
+  duration_ms: 18.7656
+  type: 'test'
+  ...
+# Subtest: streaming GLB verification rejects missing, malformed, corrupt and oversized approved models and stops the bulk transfer
+ok 30 - streaming GLB verification rejects missing, malformed, corrupt and oversized approved models and stops the bulk transfer
+  ---
+  duration_ms: 60.7071
+  type: 'test'
+  ...
+# Subtest: full publication verifier retains all 276 requests with five compiled assets and 54 exact sequentially streamed models
+ok 31 - full publication verifier retains all 276 requests with five compiled assets and 54 exact sequentially streamed models
+  ---
+  duration_ms: 949.3156
+  type: 'test'
+  ...
+# Subtest: aggregate verification rejects invalid local authority or a stale release before requesting geometry
+ok 32 - aggregate verification rejects invalid local authority or a stale release before requesting geometry
+  ---
+  duration_ms: 63.1993
+  type: 'test'
+  ...
+# Subtest: public UI and geometry reject HTTP downgrade and credential-bearing URLs before any GET
+ok 33 - public UI and geometry reject HTTP downgrade and credential-bearing URLs before any GET
+  ---
+  duration_ms: 127.3533
+  type: 'test'
+  ...
+# Subtest: public requests reject redirects rather than following an HTTPS-to-HTTP downgrade
+ok 34 - public requests reject redirects rather than following an HTTPS-to-HTTP downgrade
+  ---
+  duration_ms: 2.0569
+  type: 'test'
+  ...
+# Subtest: current brand manifest, both vector logos and favicon use exact credential-free HTTPS bytes
+ok 35 - current brand manifest, both vector logos and favicon use exact credential-free HTTPS bytes
+  ---
+  duration_ms: 4.0007
+  type: 'test'
+  ...
+# Subtest: changed current logo fails exact public brand hashes
+ok 36 - changed current logo fails exact public brand hashes
+  ---
+  duration_ms: 0.5833
+  type: 'test'
+  ...
+# Subtest: a stale public brand manifest cannot substitute old brand decisions
+ok 37 - a stale public brand manifest cannot substitute old brand decisions
+  ---
+  duration_ms: 0.4269
+  type: 'test'
+  ...
+# Subtest: brand HTTP downgrade and redirect fail before any successful asset validation
+ok 38 - brand HTTP downgrade and redirect fail before any successful asset validation
+  ---
+  duration_ms: 0.1576
+  type: 'test'
+  ...
+1..38
+# tests 38
+# suites 0
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 20101.0569

@@ -18,7 +18,7 @@ const server=createServer(async(req,res)=>{
 });
 server.on('error',e=>{console.error(e.code==='EADDRINUSE'?`Port ${port} is already in use. If the game is running, open ${url}`:e.message);process.exitCode=1;});
 server.listen(port,'127.0.0.1',()=>{
- console.log(`Bastions of the Last Kingdom\nPlay at ${url}\nKeep this window open while playing. Ctrl+C stops the server.`);
+ console.log(`Forged Alliances TD\nPlay at ${url}\nKeep this window open while playing. Ctrl+C stops the server.`);
  if(process.argv.includes('--open')){
   if(process.platform==='win32')spawn('cmd.exe',['/c','start','',url],{windowsHide:true});
   else spawn(process.platform==='darwin'?'open':'xdg-open',[url]);
