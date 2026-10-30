@@ -2,7 +2,7 @@
   "schema": "v060-handoff-v1",
   "status": "passed",
   "base": "5ed559bc29237b96dc64ec447e9945722e8b1a0a",
-  "head": "06ea77c6830e8e3a0e9179fd52a6f1099ac52ee1",
+  "head": "e059fec8f30fef363c9eeee8893bbcd836728429",
   "mainIndexUnchanged": true,
   "protectedPaths": 5231,
   "payload": [
@@ -53,8 +53,8 @@
     },
     {
       "file": "docs/FACTIONS_V060.md",
-      "source": "4ab2c0a5d15345e873f186b6c2570f4e949ed1d5c945cce0b4aa3be00dc13a36",
-      "main": "12daec19b4eeddc47f0504cd685f93e6f354892ba8040561201011dcd241891e"
+      "source": "56a395ca91efe421709c02b00b9f06e6dbb225dfdf7542e29bfefbe4e513814b",
+      "main": "4ab2c0a5d15345e873f186b6c2570f4e949ed1d5c945cce0b4aa3be00dc13a36"
     },
     {
       "file": "game/core/combat-rules.js",
@@ -119,7 +119,7 @@
     {
       "file": "game/render/battle-animation.js",
       "source": "172415988bdfe6d97e1cff4a4068c0eab05cbb60bbf851d3351d4714dde31b9a",
-      "main": "e56afe22edd6373024ed89067e9213e96c51c5230e052cb975676c8d4fce9f64"
+      "main": "172415988bdfe6d97e1cff4a4068c0eab05cbb60bbf851d3351d4714dde31b9a"
     },
     {
       "file": "game/render/champion-classification.js",
@@ -2789,7 +2789,7 @@
     {
       "file": "tests/faction-motion-v060.test.mjs",
       "source": "63cb5b0b00975b4c41501258c09eea691719f40120f24c975c9119aea35f4dce",
-      "main": "16261c10190e6612ecd1ba7983bab62a5ea04da26c2a44eba6bf3f730e80fc94"
+      "main": "63cb5b0b00975b4c41501258c09eea691719f40120f24c975c9119aea35f4dce"
     },
     {
       "file": "tests/faction-statistics-v060.test.mjs",
@@ -2889,7 +2889,12 @@
     {
       "file": "output/releases/v0.6.0/.gitattributes",
       "source": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d",
-      "main": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+      "main": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d"
+    },
+    {
+      "file": "output/releases/v0.6.0/archive-cleanup.json",
+      "source": "3440c762f71c4dffc64740c6609a28206dfde7cc8932097da8604749b5fbaafa",
+      "main": null
     },
     {
       "file": "output/releases/v0.6.0/backend-deployment.json",
@@ -2909,12 +2914,22 @@
     {
       "file": "output/releases/v0.6.0/build-offline.log",
       "source": "e1dcb2c7e1333544d14d6c94c4120f7d8dbd15b2618bcaafabaefe1709829395",
-      "main": "afea91f50bcd3bcf126c2bb61cdd186c23397698d2241fb765571956631e2756"
+      "main": "e1dcb2c7e1333544d14d6c94c4120f7d8dbd15b2618bcaafabaefe1709829395"
     },
     {
       "file": "output/releases/v0.6.0/build-pages.log",
       "source": "8b8e1b7abfb8a00cc6cbd18fda139f5f14354b7ac78aab22d64deab48dddd332",
-      "main": "f7380545e1045c1d91dc5d388ddd322bcb6d1a7c2ff9d119e88205b1b4f78ab0"
+      "main": "8b8e1b7abfb8a00cc6cbd18fda139f5f14354b7ac78aab22d64deab48dddd332"
+    },
+    {
+      "file": "output/releases/v0.6.0/ci.json",
+      "source": "2e1b8c137a8c71729d9498f567dfe9302c96a7bb18bb88056c993ecf1fd79bcc",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.0/deployment-retry.json",
+      "source": "0950f4e3d096e63c8d697b6c0cb83c56b2beb197ff88f200ce8956bc5986210e",
+      "main": null
     },
     {
       "file": "output/releases/v0.6.0/gameplay-simulation.json",
@@ -2923,23 +2938,38 @@
     },
     {
       "file": "output/releases/v0.6.0/handoff.json",
-      "source": "b1d3f2327e478bc876a8402c85664c0bab78e30ec36288a537eb81e49c63f84a",
-      "main": "b1d3f2327e478bc876a8402c85664c0bab78e30ec36288a537eb81e49c63f84a"
+      "source": "98bd6f376c86affbec74592e6399cb219cec6d3ee50cff379b694b01b9fec651",
+      "main": "98bd6f376c86affbec74592e6399cb219cec6d3ee50cff379b694b01b9fec651"
     },
     {
       "file": "output/releases/v0.6.0/local-validation.json",
       "source": "2b8aacc84c9c911244b04c8bc3b98d0ae4008393b522c4972333123549d2bab0",
-      "main": "914d25be3bce8e3f665eec3a8404b61d72d7c1623d0251e0e3fe025a5e525f5f"
+      "main": "2b8aacc84c9c911244b04c8bc3b98d0ae4008393b522c4972333123549d2bab0"
     },
     {
       "file": "output/releases/v0.6.0/main-production-install.json",
       "source": "cac55a95cced2c5e09aac5f70f47e998550c380303b7918751217aba45b51043",
-      "main": "94c1f3dcb268ed375afb980d89e50f8b8c9018d64e2d73efbb6570b6c40318ce"
+      "main": "cac55a95cced2c5e09aac5f70f47e998550c380303b7918751217aba45b51043"
+    },
+    {
+      "file": "output/releases/v0.6.0/model-readiness.json",
+      "source": "8fd9a65abc136b5196aa1697a147a9baec87313f8796909253f1afd3d6d40e15",
+      "main": null
     },
     {
       "file": "output/releases/v0.6.0/native-motion.log",
       "source": "d1714b682a411855d1a864112c73201351b48c4c77cc076a5b46664f366feae3",
-      "main": "cb15aca2b009c85b443ca1e3eae0a4a4022dbea4ca3c5e99ab2c82eb33aabf27"
+      "main": "d1714b682a411855d1a864112c73201351b48c4c77cc076a5b46664f366feae3"
+    },
+    {
+      "file": "output/releases/v0.6.0/public-verification.json",
+      "source": "59563dc9304dd4420ee59ec003ae6c19d9a43f3e4aed1f500c8a43b1b35fa18c",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.0/release.json",
+      "source": "20b1cbc500f28776e3f6db2bb17dded14439616ed45d584dbe15d7d7489ff866",
+      "main": null
     },
     {
       "file": "output/releases/v0.6.0/runtime-packaging.json",
@@ -2949,17 +2979,17 @@
     {
       "file": "output/releases/v0.6.0/sources-built.json",
       "source": "6f6ca43d608a7dd9040f5769039a51e3b369c8fe654d1ff2d3f8233a7fda255c",
-      "main": "cd1eb856d4e2f7d8bbf139500476e13461d48093961712708737f2f5d28d4b67"
+      "main": "6f6ca43d608a7dd9040f5769039a51e3b369c8fe654d1ff2d3f8233a7fda255c"
     },
     {
       "file": "output/releases/v0.6.0/sources-tested.json",
       "source": "6f6ca43d608a7dd9040f5769039a51e3b369c8fe654d1ff2d3f8233a7fda255c",
-      "main": "cd1eb856d4e2f7d8bbf139500476e13461d48093961712708737f2f5d28d4b67"
+      "main": "6f6ca43d608a7dd9040f5769039a51e3b369c8fe654d1ff2d3f8233a7fda255c"
     },
     {
       "file": "output/releases/v0.6.0/tests.log",
       "source": "c836f81fd09a175e3032b37ea2e20e2bb0e5bd210fdb5cbd52f955d02c3de5d2",
-      "main": "1e73b75e04ed240e36479ad24fb17131081513fb3617afba8f17560c9201fcef"
+      "main": "c836f81fd09a175e3032b37ea2e20e2bb0e5bd210fdb5cbd52f955d02c3de5d2"
     }
   ]
 }
