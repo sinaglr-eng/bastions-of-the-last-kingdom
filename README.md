@@ -1,14 +1,16 @@
-# Forged Alliances TD — 0.6.0
+# Forged Alliances TD — 0.6.1
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**0.6.0 is the current version.** [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
+**0.6.1 is the current version.** [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
 
 Choose **Human**, **Dwarves** or **Elves** before each run and before its Start/Skip tutorial prompt. The selected faction owns its eight basic defender families, 38 recipes and 86 approved V3 appearances, with authored Idle and Attack animation clips. The faction stays locked for the run. Local and online results retain the played faction; earlier scores remain in Legacy records. [Implementation and verification](docs/FACTIONS_V060.md).
 
 The game is named **Forged Alliances TD**, with a vector mark and wordmark whose TD seal is now larger. Recipes and Enemy Waves have framed touch buttons, Potential combinations stays expanded, the initial loading message has correct punctuation, and wave 49 restores 10% of missing health every four seconds. Late-wave enemy instances share identical immutable static surfaces to reduce memory use while retaining all original geometry, materials and motion. [Changes and verification](docs/FORGED_ALLIANCES_V052.md).
 
 The tutorial now introduces **Choose your maze shape** as its second step, before placing recruits. Open the ordinary Maze plans picker and choose a plan to continue. A previously saved plan can be selected again; simply opening or closing the picker does not complete the step. Each new run still offers Start tutorial or Skip tutorial.
+
+The faction chooser now shows large battle illustrations and clear faction specialties. All 258 defender portraits use gallery reference artwork with transparent backgrounds, including recipe and map badges. Dwarf battlefield figures have a larger presentation scale. Combat rules and V3 model/animation bytes remain unchanged. [Presentation update](docs/FACTION_PRESENTATION_V061.md).
 
 ## Run locally
 

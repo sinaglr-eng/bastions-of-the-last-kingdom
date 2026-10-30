@@ -35,7 +35,8 @@ import {DraftMarkers} from './draft-markers.js';
 import {CommandMoveEffects} from './command-move-effects.js';
 import {ReservedDefenderEffects} from './reserved-defender-effects.js';
 import {siteUrl} from '../site-url.js';
-import {releaseAsset,defenderPortrait,enemyPortrait} from '../release.js';
+import {releaseAsset,enemyPortrait} from '../release.js';
+import {referenceDefenderPortrait} from '../../ui/reference-portraits.js';
 import {SIZE} from '../core/grid.js';
 import {MazePlanner} from './maze-planner.js';
 import {currentEnemyRoute,createRouteOverlay,animateRouteOverlay,disposeRouteOverlay,CHECKPOINT_MARKER_SCALE} from './route-overlay.js';
@@ -490,7 +491,7 @@ export function makeThumbnails(data) {
   const camera=new THREE.PerspectiveCamera(32,180/156,0.1,20);camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,0.95,0);
   const images={};
   for(const [id,stats]of Object.entries(data.towers))for(let tier=1;tier<=(stats.advanced?1:data.balance.tiers.length);tier++){
-    images[`${id}:${tier}`]=defenderPortrait(id,tier);
+    images[`${id}:${tier}`]=data.defenderAssets?siteUrl(data.defenderAssets.find(a=>a.family===id&&a.tier===tier)?.portrait||''):referenceDefenderPortrait(id,tier);
     if(tier===1)images[id]=images[`${id}:${tier}`];
   }
   camera.position.set(-2.3,2.2,-3.6);camera.lookAt(0,.95,0);

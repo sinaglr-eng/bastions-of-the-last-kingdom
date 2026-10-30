@@ -107,6 +107,7 @@ import '../ui/folio-refinements-v044.css';
 import '../ui/field-command-v044.css';
 import '../ui/outcome-art-v044.css';
 import '../ui/folio-refinements-v045.css';
+import '../ui/reference-portraits-v061.css';
 import {updateCurrentWaveSummaryPanel} from '../ui/current-wave-summary.js';
 import {CommandPointerInput} from '../ui/command-pointer-input.js';
 import {recipeNavigationVisit,recipeNavigationStep} from '../ui/recipe-navigation.js';

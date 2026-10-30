@@ -1,7 +1,7 @@
 export const FACTIONS=Object.freeze([
- {id:'crown',name:'Human',description:'A versatile army combining steel, elemental attacks and Holy support. Flexible recipe branches offer many defensive options.'},
- {id:'forge',name:'Dwarves',description:'Heavy weapons, powerful machines and rune support. Selected champions reward carefully arranged adjacent formations.'},
- {id:'grove',name:'Elves',description:'Elemental magic, lunar curses and battlefield control. Selected champions gain strength when fighting alone.'}
+ {id:'crown',name:'Human',specialty:'Versatile',scene:'assets/ui/faction-scenes-v061/crown-march.png',description:'Versatile defenders combining Physical, Magical and Holy damage. Flexible champions adapt to many threats.'},
+ {id:'forge',name:'Dwarves',specialty:'Physical damage',scene:'assets/ui/faction-scenes-v061/forge-march.png',description:'Physical damage specialists. Heavy weapons, sturdy warriors and powerful machines break through enemy lines.'},
+ {id:'grove',name:'Elves',specialty:'Magical damage',scene:'assets/ui/faction-scenes-v061/grove-march.png',description:'Magical damage specialists. Elemental spells, lunar magic and battlefield control overwhelm the enemy.'}
 ]);
 export const factionName=id=>FACTIONS.find(f=>f.id===id)?.name||'Faction not recorded';
 export function factionProfile(profile){

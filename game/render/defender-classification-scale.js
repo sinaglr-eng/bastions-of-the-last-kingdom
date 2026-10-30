@@ -9,13 +9,14 @@ export const defenderClassificationMultiplier=family=>
 // Keep the approved creatures' authored proportions. The Baby was less than
 // half a normal defender's height; larger descendants retain their own shapes.
 export const DRAGON_PRESENTATION_SCALES=Object.freeze({embercrown:2.3,worldfire:1.25,thunderheart:1.2,phoenix:1.15});
-export const defenderPresentationMultiplier=family=>Object.hasOwn(DRAGON_PRESENTATION_SCALES,family)?DRAGON_PRESENTATION_SCALES[family]:1;
+export const DWARF_BATTLEFIELD_PRESENTATION_SCALE=1.75;
+export const defenderPresentationMultiplier=(family,factionId=null)=>factionId==='forge'&&family!=='ladyclaire'?DWARF_BATTLEFIELD_PRESENTATION_SCALE:Object.hasOwn(DRAGON_PRESENTATION_SCALES,family)?DRAGON_PRESENTATION_SCALES[family]:1;
 
 const actorScales=new WeakMap();
 // Apply to a private clone before battlefield scaling or preview framing.
 // Repeated calls for the same class leave battlefield/idle transforms intact.
 export function applyDefenderClassificationScale(actor,family){
-  const classification=defenderClassificationMultiplier(family),presentation=defenderPresentationMultiplier(family);
+  const classification=defenderClassificationMultiplier(family),presentation=defenderPresentationMultiplier(family,actor.userData.factionAttackEntry?.factionId);
   const multiplier=classification*presentation;
   let state=actorScales.get(actor);
   if(!state){state={base:actor.scale.clone(),multiplier:null};actorScales.set(actor,state);}

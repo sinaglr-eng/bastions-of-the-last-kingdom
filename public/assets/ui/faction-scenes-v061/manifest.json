@@ -1,0 +1,43 @@
+{
+  "revision": "faction-battle-scenes-20261030-v1",
+  "generator": "Built-in image_gen",
+  "status": "Generated for the requested game update; no new gallery approval record created",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "sourceGallery": "Local canonical design gallery V24",
+  "scenes": [
+    {
+      "id": "crown",
+      "name": "Human",
+      "file": "assets/ui/faction-scenes-v061/crown-march.png",
+      "references": [
+        "assets/current-v4/highking.png",
+        "assets/current-v4/frostblade.png",
+        "assets/current-v4/kingdomprotector.png"
+      ],
+      "prompt": "Create a wide 3:2 fantasy battle illustration for the Human faction selection card in Forged Alliances TD. The supplied images are appearance references, not edit targets. Show the black armored mounted Kingslayer with a blue crystal sword leading blue and silver Frost Knights, a red white and gold Paladin, soldiers and an elemental mage out of a human castle toward battle. Match the approved faceted geometric fantasy illustration style and recognizable champion designs. Rich warm daylight, blue and gold banners, clear foreground heroes, deeper ranks and castle in the background. Dramatic readable group silhouettes. No text, labels, UI, gray studio background or individual display bases."
+    },
+    {
+      "id": "forge",
+      "name": "Dwarves",
+      "file": "assets/ui/faction-scenes-v061/forge-march.png",
+      "references": [
+        "assets/visual-v22/59f2cf56dc0e06f9-dwarf-berserker-champions.png",
+        "assets/current-v4/mechanicalgolem.png"
+      ],
+      "prompt": "Create a wide 3:2 fantasy battle illustration for the Dwarf faction selection card in Forged Alliances TD. The supplied images are appearance references, not edit targets. A powerful orange bearded Dwarf Berserker with a huge two handed axe leads musketeers in blue caps, shield warriors and a commander into battle from a mountain forge stronghold. Above them flies the approved wooden cream balloon Dwarf Warship. Emphasize physical weapons, sturdy armor and ingenious machines. Match the faceted geometric fantasy reference style; cinematic warm forge light and cool mountain atmosphere, readable foreground champions and deeper army ranks. No text, labels, UI, gray studio background or individual display bases."
+    },
+    {
+      "id": "grove",
+      "name": "Elves",
+      "file": "assets/ui/faction-scenes-v061/grove-march.png",
+      "references": [
+        "assets/visual-v19/5316827a359643f3-emerald-guardians-green-brown.png",
+        "assets/visual-v18/a38bf268ec25c794-world-oak-ent.png"
+      ],
+      "prompt": "Create a wide 3:2 fantasy battle illustration for the Elf faction selection card in Forged Alliances TD. The supplied images are appearance references, not edit targets. Green and brown Emerald Blademaster champions lead an elven army into battle from a luminous ancient forest city. Include a hand lightning caster, elegant lunar priestess and enormous leafy World Oak Ent behind the foreground warriors. Emphasize magical damage, elemental power and forest identity; emerald green, wood brown, moon silver and luminous blue spell accents. Match the faceted geometric fantasy reference style, clear identifiable hero silhouettes, cinematic layered composition. No text, labels, UI, gray studio background or individual display bases."
+    }
+  ]
+}

@@ -1,0 +1,926 @@
+{
+  "revision": "gallery-ai-background-removal-20261030-v1",
+  "generator": "Built-in image_gen",
+  "userChoice": "Use AI background removal",
+  "originalGalleryUnchanged": true,
+  "prompts": {
+    "single-original": "EDIT TARGET: the attached approved game character illustration. Remove ONLY the cream paper background, border, caption, Roman numeral and any ground shadow outside the subject. Return a true transparent RGBA cutout. Preserve the complete character, its exact pose, faceted geometric illustration style, face, hair, clothing colors, hammer, ruler and beige display base. Do not add, redraw, relight, recolor, mirror, simplify or change any equipment. Keep the original square canvas and original subject position and scale; retain clean detailed edges and transparent holes between body and tools. No new text, checkerboard, gray backdrop, glow or cast shadow. This is background removal of gallery reference artwork, not a render of a 3D model.",
+    "single-front": "EDIT TARGET: the attached gallery reference artwork. Remove the cream/white paper background, all borders, separators, text, captions, numbers and any shadows OUTSIDE each subject. Return genuinely transparent RGBA. Preserve every character's recognizable approved identity, exact pose, equipment, face, colors, faceted geometric illustration style, magical particles and beige display base. Do not relight, recolor, mirror or redesign. Do not add a checkerboard, gray backdrop, outline, glow or new text. If the input is a multiview sheet, extract ONLY the complete FRONT figure in the TOP LEFT panel as one large centered portrait. Discard every other view and detail panel. If it is already one illustration, retain the entire subject. Fit the entire subject including weapons and pedestal inside a square transparent canvas with a small even margin.",
+    "atlas": "EDIT TARGET: the attached gallery reference artwork. Remove the cream/white paper background, all borders, separators, text, captions, numbers and any shadows OUTSIDE each subject. Return genuinely transparent RGBA. Preserve every character's recognizable approved identity, exact pose, equipment, face, colors, faceted geometric illustration style, magical particles and beige display base. Do not relight, recolor, mirror or redesign. Do not add a checkerboard, gray backdrop, outline, glow or new text. This is a CHARACTER ATLAS. KEEP THE ENTIRE SHEET'S EXACT ORIGINAL ASPECT RATIO, GRID, SUBJECT COUNT, POSITIONS, SIZES AND CELL ORDER. Do not rearrange, enlarge, merge or omit any subjects. Make the original paper and grid transparent in place. Every character stays in its original cell, fully intact, at its original relative position. Transparent holes between equipment and limbs. The output will be cropped at the original cell coordinates."
+  },
+  "results": [
+    {
+      "id": 31,
+      "keys": [
+        "crown/runebreaker/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/8321d5a856f43f8e-front-proposal.png",
+      "sourceSha256": "8321d5a856f43f8eaf6d5a628e2ce6dabf910bd041701ac6e3f896c8c75bff9d",
+      "layout": "portrait",
+      "promptKey": "single-original",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-031.png",
+      "sha256": "0fa19530154fe4b21b2d8977fed87b95ae6853210e5bad2f2d8fe3c2cec50b4f"
+    },
+    {
+      "id": 32,
+      "keys": [
+        "crown/runebreaker/2"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/566423a63f5b1e4d-front-proposal.png",
+      "sourceSha256": "566423a63f5b1e4daa0f50b43d66812f9c0bf47cedf5afb011bad8f4f3537531",
+      "layout": "portrait",
+      "promptKey": "single-original",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-032.png",
+      "sha256": "136fb96f37a75622f97fc78ba866fbe0d7ae7028b856302680c4c7aef240b69a"
+    },
+    {
+      "id": 33,
+      "keys": [
+        "crown/runebreaker/3"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/33b4945345f082c1-front-proposal.png",
+      "sourceSha256": "33b4945345f082c1b1a12c2c2a23b62231bee13b6dab816702527ff515d1d6d4",
+      "layout": "portrait",
+      "promptKey": "single-original",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-033.png",
+      "sha256": "01a3d4550f7274e31a5888549f00366016bc779a3e4a1e7be1439e457bd86149"
+    },
+    {
+      "id": 34,
+      "keys": [
+        "crown/runebreaker/4"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/83c7e634c632625a-front-proposal.png",
+      "sourceSha256": "83c7e634c632625ac98396d65f67e6c705b2b099debb076d34602736116b1169",
+      "layout": "portrait",
+      "promptKey": "single-original",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-034.png",
+      "sha256": "50db8fac39461145e8802d79bd6f3761a3e23c3517fc8cfb404571f682f10ed1"
+    },
+    {
+      "id": 35,
+      "keys": [
+        "crown/runebreaker/5"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/a7e3d86d27f8d4c2-front-proposal.png",
+      "sourceSha256": "a7e3d86d27f8d4c2a6d75a0a20394ccedffe00868a63aa77746cf6863f4d703e",
+      "layout": "portrait",
+      "promptKey": "single-original",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-035.png",
+      "sha256": "387912ed6b8dc95f023bbf7c6332684ffd166a213097bb32a200157877a15e13"
+    },
+    {
+      "id": 36,
+      "keys": [
+        "crown/runebreaker/6"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/a8e727d48cd5b5bd-front-proposal.png",
+      "sourceSha256": "a8e727d48cd5b5bd0932b668035a1e691a43815413ec2e4e4b8f67aee3e54c81",
+      "layout": "portrait",
+      "promptKey": "single-original",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-036.png",
+      "sha256": "d16e26ee72a678ad6b5d83c18ba9096e0bfbaeae62f6d1af8bd004660fc3a48c"
+    },
+    {
+      "id": 54,
+      "keys": [
+        "crown/thornwarden/1",
+        "crown/verdantguard/1",
+        "crown/embercrown/1",
+        "crown/worldfire/1",
+        "crown/starfall/1",
+        "crown/royalmarshal/1"
+      ],
+      "source": "dist/assets/races-v3/human-v3.png",
+      "sourceSha256": "08381166fbbb2f9e4c18dd20a031532b25778a5dae0de369e2e42807a9062ecd",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-054.png",
+      "sha256": "32dc2652cd0ed76b670b3bd39dbe397b69d3fc437e7842dac0a223632aab9007"
+    },
+    {
+      "id": 55,
+      "keys": [
+        "crown/tempest/1",
+        "crown/stormcitadel/1",
+        "crown/thunderheart/1",
+        "crown/phoenix/1",
+        "crown/winterhold/1",
+        "crown/dawnspire/1",
+        "crown/royalarsenal/1",
+        "crown/fireballista/1",
+        "crown/griffinbomber/1",
+        "crown/archangel/1"
+      ],
+      "source": "dist/assets/races-v4/human-v4.png",
+      "sourceSha256": "3c166a80babe6c0f100079f8689f0a876946a1e2840b613ab1fdf8d8b3c10bd9",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-055.png",
+      "sha256": "1d71b13977c249b25c1572f507e13ea069298c35a2e160ab6518d530799ecb66"
+    },
+    {
+      "id": 69,
+      "keys": [
+        "crown/mechanicalgolem/1"
+      ],
+      "source": "dist/assets/races-v7/mechanicalgolem.png",
+      "sourceSha256": "4f5e359048101f9dd425fe665288e55774191aa49814030e36e060d6672798ab",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-069.png",
+      "sha256": "8c9fd6cb039785fe8b570c2481740d271f9cd0960773d5a024a29389df4885e4"
+    },
+    {
+      "id": 73,
+      "keys": [
+        "forge/dw_shieldguard/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/4fe127e2d9724453-reference-sheet.png",
+      "sourceSha256": "4fe127e2d972445386e8754a4a48db4da73ce6887245d2169deecd7a233cce09",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-073.png",
+      "sha256": "459495319b7f1bb2a18138f4fa3fec8388e22cfa0c2ef725ae9c06c1f5f809ed"
+    },
+    {
+      "id": 74,
+      "keys": [
+        "forge/dw_shieldguard/2"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/3becb6d0a234f694-reference-sheet.png",
+      "sourceSha256": "3becb6d0a234f694344e9231f69948fb51f43a7e620828028af88a3c6ea9314b",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-074.png",
+      "sha256": "1c12e648d777c693b77065eb0c95927de32a1b2df386d0f6d449213d620c8941"
+    },
+    {
+      "id": 75,
+      "keys": [
+        "forge/dw_shieldguard/3"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/cf04d387bb214902-reference-sheet.png",
+      "sourceSha256": "cf04d387bb2149026f22386bba69fbe5f95a2a5c7ddf2504f50a2baba643a6cc",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-075.png",
+      "sha256": "0fba2cc7ac24cb25c746d1ec5b4121c8f78febb173ec91040460365e0251cd23"
+    },
+    {
+      "id": 76,
+      "keys": [
+        "forge/dw_shieldguard/4"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/d31a12b8a509ab51-reference-sheet.png",
+      "sourceSha256": "d31a12b8a509ab518c7b9b4bed01cd56fa29bbf52388fa68122259621cc2cf45",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-076.png",
+      "sha256": "9a623f5016217993b09f8a8b3a2fd4dc1559f3d7fb5ca9fd4e6bbbf9c4b9ea92"
+    },
+    {
+      "id": 77,
+      "keys": [
+        "forge/dw_shieldguard/5"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/7cb72640a526a7c4-reference-sheet.png",
+      "sourceSha256": "7cb72640a526a7c458ade37c0da7cab867641b1330ce6c95f06bdd44e8898e04",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-077.png",
+      "sha256": "28ca3442f0d7e0b58385a2590d1f405e89c1cdc43a3cbd3dfce870a63a38fdd8"
+    },
+    {
+      "id": 78,
+      "keys": [
+        "forge/dw_shieldguard/6"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/fcab18ab0c988b8c-reference-sheet.png",
+      "sourceSha256": "fcab18ab0c988b8cf30cf30b1c115dd2ee0c3234a2714491969bcf1860a4006a",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-078.png",
+      "sha256": "386776ef6e820e838e709e84537ab2ec71d67c66c3a99827edd4a560e2da5c7e"
+    },
+    {
+      "id": 79,
+      "keys": [
+        "forge/dw_musketeer/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/ea3e1784de5c525c-reference-sheet.png",
+      "sourceSha256": "ea3e1784de5c525ca4ef852ea6b2ecf58a679672da797d8cd74703e22162b33e",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-079.png",
+      "sha256": "c78a717968e8f17597f6dfdda6c92c2d1395b1547869feb15660a9a776518c66"
+    },
+    {
+      "id": 80,
+      "keys": [
+        "forge/dw_musketeer/2"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/2cbb0adffdffeed2-reference-sheet.png",
+      "sourceSha256": "2cbb0adffdffeed25e15efdfbb58ca6218caf721d12a9528b910d5f1a9beecb8",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-080.png",
+      "sha256": "675df7325534c50671e89cff1955f7c22f3ce0e79fc8a97c804bf1a2c74923c3"
+    },
+    {
+      "id": 81,
+      "keys": [
+        "forge/dw_musketeer/3",
+        "forge/dw_musketeer/4",
+        "forge/dw_musketeer/5",
+        "forge/dw_musketeer/6"
+      ],
+      "source": "dist/assets/visual-v24/b1842a9023b051bd-musketeer-flat-caps.png",
+      "sourceSha256": "b1842a9023b051bdfd2f6eb09ea4177565370d8015b9d4be7cb7c2df310b3ce5",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-081.png",
+      "sha256": "d1d08d5834b733322641cb41142e223c12b3ab44ea84d94034d2ef894079c74e"
+    },
+    {
+      "id": 82,
+      "keys": [
+        "forge/dw_runesmith/1",
+        "forge/dw_runesmith/2"
+      ],
+      "source": "dist/assets/races-v5/ranks/forge/dw_runesmith.png",
+      "sourceSha256": "f0beeff7e4b306138e391fdbea6d878ce9dbe9e0b73a9035c2cb4cc282832a0c",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-082.png",
+      "sha256": "5482359cd7270e7cdcc6aca5ceada8fb5eb957118ba8d1410d1a6e559e67e177"
+    },
+    {
+      "id": 83,
+      "keys": [
+        "forge/dw_runesmith/3",
+        "forge/dw_runesmith/4",
+        "forge/dw_runesmith/5",
+        "forge/dw_runesmith/6"
+      ],
+      "source": "dist/assets/visual-v24/b2bf6c1f84f7aba2-runesmith-no-hoods.png",
+      "sourceSha256": "b2bf6c1f84f7aba2103716eecb2937882b93eecb0a1d25a595ad1558bd33f98d",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-083.png",
+      "sha256": "c9eec5c3cca0a88b5a13f50971ec54a49faec8fa5df0eb6e585a63c049de3933"
+    },
+    {
+      "id": 84,
+      "keys": [
+        "forge/dw_boarrider/1",
+        "forge/dw_boarrider/2",
+        "forge/dw_boarrider/3",
+        "forge/dw_boarrider/4",
+        "forge/dw_boarrider/5",
+        "forge/dw_boarrider/6"
+      ],
+      "source": "dist/assets/races-v5/ranks/forge/dw_boarrider.png",
+      "sourceSha256": "ddcab8569b44bd4a3688f33f926a57480d303f10900414ad8c73620a814719fa",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-084.png",
+      "sha256": "6c5e7b9c44419780d748039a0159b10636e001072e57b76344d751778f68c600"
+    },
+    {
+      "id": 85,
+      "keys": [
+        "forge/dw_grenadier/1",
+        "forge/dw_grenadier/2",
+        "forge/dw_grenadier/3",
+        "forge/dw_grenadier/4",
+        "forge/dw_grenadier/5",
+        "forge/dw_grenadier/6"
+      ],
+      "source": "dist/assets/races-v5/ranks/forge/dw_grenadier.png",
+      "sourceSha256": "6370108949dc231d46c79a308141ecef7e563aa17f97f6efcb7dec66534ea0d4",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-085.png",
+      "sha256": "53fe69626496c3fb9a87de857d24c417372187f3b8523fd1c24401ce2b089ba3"
+    },
+    {
+      "id": 86,
+      "keys": [
+        "forge/dw_engineer/1",
+        "forge/dw_engineer/2",
+        "forge/dw_engineer/3",
+        "forge/dw_engineer/4",
+        "forge/dw_engineer/5",
+        "forge/dw_engineer/6"
+      ],
+      "source": "dist/assets/visual-v22/e5916f455b6fd776-dwarf-miner-ranks.png",
+      "sourceSha256": "e5916f455b6fd7761871dc9c9b922304646eade38353b7775f0f3c5659139133",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-086.png",
+      "sha256": "d9db1b0adeff107cae199bfe1fb236e33563a5f446b70a4b485e077199b20703"
+    },
+    {
+      "id": 87,
+      "keys": [
+        "forge/dw_griffinhandler/1",
+        "forge/dw_griffinhandler/2",
+        "forge/dw_griffinhandler/3",
+        "forge/dw_griffinhandler/4",
+        "forge/dw_griffinhandler/5",
+        "forge/dw_griffinhandler/6"
+      ],
+      "source": "dist/assets/races-v5/ranks/forge/dw_griffinhandler.png",
+      "sourceSha256": "b1905b408cb048ed1184345c0237bebb3d9f077b2a09f2d8b374e059b23d9e65",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-087.png",
+      "sha256": "1007cdb5c27f5768610fa1ffc843452398d1f9ee40834e1cbf3326d47e6bd4c8"
+    },
+    {
+      "id": 88,
+      "keys": [
+        "forge/dw_furnacetender/1",
+        "forge/dw_furnacetender/2",
+        "forge/dw_furnacetender/3",
+        "forge/dw_furnacetender/4",
+        "forge/dw_furnacetender/6"
+      ],
+      "source": "dist/assets/races-v5/ranks/forge/dw_furnacetender.png",
+      "sourceSha256": "1bc0adb5965489ab2cbff1758cf2b6abe5a76dfce4a6f9d869212b85a6a555f6",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-088.png",
+      "sha256": "31d952d697614b022123255e4544b893e36c7e8acc555979bdf2a38845d11621"
+    },
+    {
+      "id": 89,
+      "keys": [
+        "forge/dw_furnacetender/5"
+      ],
+      "source": "dist/assets/visual-v23/241bde6d11d3be76-blacksmith-v-goggles.png",
+      "sourceSha256": "241bde6d11d3be7667c62ab779799333b8170489467d08f413c260022557f4fb",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-089.png",
+      "sha256": "453058dba7c083681e980bc4d8e99a2d900949ba9a282370a7e79b426cdc9d70"
+    },
+    {
+      "id": 90,
+      "keys": [
+        "forge/dw_ironwarden/1",
+        "forge/dw_ashshield/1"
+      ],
+      "source": "dist/assets/visual-v23/4fdc20d87004c3a9-dwarf-axeman-dualist.png",
+      "sourceSha256": "4fdc20d87004c3a905a8b4c06cc4babd10af75131aed5bea2d6e5efa190aecf2",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-090.png",
+      "sha256": "d8cb52a22e121d39a11baacf54fe537d19db57c10b69bad1fcddf19b7ef4a5f0"
+    },
+    {
+      "id": 91,
+      "keys": [
+        "forge/dw_bulwarkcaptain/1",
+        "forge/dw_forgeking/1"
+      ],
+      "source": "dist/assets/visual-v22/59f2cf56dc0e06f9-dwarf-berserker-champions.png",
+      "sourceSha256": "59f2cf56dc0e06f93abacfc0f9b6256e68b1336239b36cd1d5bb0d62967d7530",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-091.png",
+      "sha256": "8d8b20476f6d117355c07e52d4afdcc2f9f0945801c710a1e41371cfd5c8004f"
+    },
+    {
+      "id": 92,
+      "keys": [
+        "forge/dw_longrifle/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/5eeac478d787956b-reference-sheet.png",
+      "sourceSha256": "5eeac478d787956bf3599ef75b892e7f4a62aaa3750b10bdede5239c4f9a4930",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-092.png",
+      "sha256": "d33904c7e4419524c72a2b2f1a9d29f2bc082bfa30bb8b35e112d6068a162d6f"
+    },
+    {
+      "id": 93,
+      "keys": [
+        "forge/dw_thunderlock/1",
+        "forge/dw_steamrail/1",
+        "forge/dw_ironstorm/1"
+      ],
+      "source": "dist/assets/visual-v22/12d7b727208ecb99-dwarf-snipers-orange-cloaks.png",
+      "sourceSha256": "12d7b727208ecb990e04d5e2cdd8b264408c89ef15aeeeda06b719700d55522b",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-093.png",
+      "sha256": "77e2da0757120cc259102939af58c487cff4d96083f43696c9bdf78ffdbba987"
+    },
+    {
+      "id": 94,
+      "keys": [
+        "forge/dw_grapeshotcart/1",
+        "forge/dw_boarstandard/1",
+        "forge/dw_warcaller/1",
+        "forge/dw_deepdelve/1",
+        "forge/dw_runemortar/1",
+        "forge/dw_tunnelsapper/1",
+        "forge/dw_nullifier/1",
+        "forge/dw_worldanvil/1"
+      ],
+      "source": "dist/assets/races-v5/dwarves-champions-v5.png",
+      "sourceSha256": "6a021478d0cb267be346e057a6dc13f625f1dde30e088215fe6dc80caba6cc73",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-094.png",
+      "sha256": "a76b13f44ae9e84bfe31ca71a50e09ca8d25e14cbebd33431564621cc925b1ca"
+    },
+    {
+      "id": 95,
+      "keys": [
+        "forge/dw_boarlancer/1",
+        "forge/dw_fuserunner/1",
+        "forge/dw_cinderhowitzer/1",
+        "forge/dw_pressuresmith/1",
+        "forge/dw_steamharpooner/1",
+        "forge/dw_flamewarden/1",
+        "forge/dw_emberanvil/1",
+        "forge/dw_bombardking/1"
+      ],
+      "source": "dist/assets/races-v4/dwarves-v4.png",
+      "sourceSha256": "7e1f30a18fc64e4ed95963f98b0d7f1082fea7230fc2a2721c2746078cca20a5",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-095.png",
+      "sha256": "f162abe952711a26d13f33646d76f553a6f4741fe96aef14fd73a10889786b3a"
+    },
+    {
+      "id": 96,
+      "keys": [
+        "forge/dw_goreback/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/eaeaf62a72a1fdc6-reference-sheet.png",
+      "sourceSha256": "eaeaf62a72a1fdc6de539a486e92dff3aeb498fff5cfd732856baa685d40f18c",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-096.png",
+      "sha256": "a21d78f3f9ae83db6acd51c8d37c192912c00f2ad286f4bf7c7571f7ded27896"
+    },
+    {
+      "id": 97,
+      "keys": [
+        "forge/dw_boaravatar/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/b2aeef984f469b86-reference-sheet.png",
+      "sourceSha256": "b2aeef984f469b862d21c020b4c70aab6a9fbc0049618211a09827e20395b965",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-097.png",
+      "sha256": "2ce759c483301861610ae0f6802df3dc163849dd6711f64e64a69f991b66c320"
+    },
+    {
+      "id": 101,
+      "keys": [
+        "forge/dw_repeatercrew/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/bb24f2616ed3c9ab-reference-sheet.png",
+      "sourceSha256": "bb24f2616ed3c9ab7fc61128c20bc6a11870ba2ae2e06f97f9528eae0414e91c",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-101.png",
+      "sha256": "2dff595ef14d748cfc8438aa59aeb117abe9422d0389a02ee6749625eedbfe60"
+    },
+    {
+      "id": 102,
+      "keys": [
+        "forge/dw_ironclad/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/6b48530273bb72ec-reference-sheet.png",
+      "sourceSha256": "6b48530273bb72ec67b9261c3c50a48a6e3b75fcaab29a8d6d88629bdd4c305a",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-102.png",
+      "sha256": "c346c70207da129b5dd276de93a7587ff628625c5bbf7bbb2d428aac7e520dfa"
+    },
+    {
+      "id": 103,
+      "keys": [
+        "forge/dw_breachorgan/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/ad052c6f8eb7b017-reference-sheet.png",
+      "sourceSha256": "ad052c6f8eb7b0174b022b3936363efbd22eef30db2a931d77dc4c464c326c14",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-103.png",
+      "sha256": "784212db40076a3ca68c870394bb48d0576ea33abb075ce58fd4e60c64e73eb4"
+    },
+    {
+      "id": 104,
+      "keys": [
+        "forge/dw_salvomarshal/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/913d7cd9c9bf88f0-reference-sheet.png",
+      "sourceSha256": "913d7cd9c9bf88f0db39ea2497e9658e47eb18615d0209115a4224deb1afa53e",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-104.png",
+      "sha256": "89394f12d53134f2050b4e7b09ced8bc9d2014aed96df5854091fbd254f9f1d1"
+    },
+    {
+      "id": 105,
+      "keys": [
+        "forge/dw_griffinscout/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/661017446c040f04-reference-sheet.png",
+      "sourceSha256": "661017446c040f04fcbd21b46f668df6a3101177b22a6f719b7cb0b3234522b7",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-105.png",
+      "sha256": "20731819e85d49f2a08bc045e53393f903094d252649d9a5c3e9b49ea4616ca1"
+    },
+    {
+      "id": 106,
+      "keys": [
+        "forge/dw_skyhook/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/aec5631a309fb5e9-reference-sheet.png",
+      "sourceSha256": "aec5631a309fb5e920d11b3191ad65b8a4a37433856a2f3314d3791646c49c56",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-106.png",
+      "sha256": "fa65cbd02ec7943ea05903548be6bbe861f76745d6b986672961955c54ec0c37"
+    },
+    {
+      "id": 107,
+      "keys": [
+        "forge/dw_talonlord/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/1c2b9f32ecb7e3c8-reference-sheet.png",
+      "sourceSha256": "1c2b9f32ecb7e3c843c7cc8c833ee0f5485d26fb538a3910988fe1a163a8ffa4",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-107.png",
+      "sha256": "3a83ec8ee0de434fade43120e73a598426b19e8baa3a14d448089e9ba9ede55f"
+    },
+    {
+      "id": 108,
+      "keys": [
+        "forge/dw_highthane/1"
+      ],
+      "source": "design-v16/original-assets/assets/visual-v16/b42e15c1902049ed-reference-sheet.png",
+      "sourceSha256": "b42e15c1902049edbfac6fe3e960d0683ca14d256e223ac41a26b33deb7e3769",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-108.png",
+      "sha256": "4d5266b1f5ca1aed61172367930cb4f6bed994d0a3aeec74ae7e43cb5536bec5"
+    },
+    {
+      "id": 109,
+      "keys": [
+        "grove/el_moonblade/1",
+        "grove/el_moonblade/2",
+        "grove/el_moonblade/3",
+        "grove/el_moonblade/4",
+        "grove/el_moonblade/6"
+      ],
+      "source": "dist/assets/visual-v17/c9a9017c79e27791-emerald-elf-ranks.png",
+      "sourceSha256": "c9a9017c79e2779142468f6af1389149115ad76c1a6f29458ac854b4e3ffb9e7",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-109.png",
+      "sha256": "86375d57ae11ccc9d77791cb25820bf0d8709aea94e8866a4cb80f8fba7042b8"
+    },
+    {
+      "id": 110,
+      "keys": [
+        "grove/el_moonblade/5"
+      ],
+      "source": "dist/assets/visual-v18/bfa6a716825209f5-emerald-elf-v-gold.png",
+      "sourceSha256": "bfa6a716825209f5f9e77be29257645f9e27963b8b7524a46c9ea354567b3c16",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-110.png",
+      "sha256": "18d1c4fd41c122bca8dc83bd9e8e9cc29adb996918008f1197c1d165acbaf862"
+    },
+    {
+      "id": 111,
+      "keys": [
+        "grove/el_grove_archer/1",
+        "grove/el_grove_archer/2",
+        "grove/el_grove_archer/3",
+        "grove/el_grove_archer/4",
+        "grove/el_grove_archer/5",
+        "grove/el_grove_archer/6"
+      ],
+      "source": "dist/assets/visual-v17/b6c2076381db21fc-elven-ranger-ranks.png",
+      "sourceSha256": "b6c2076381db21fcd26e92b4edd95548947585d1b00d30bacb63453ad5bcaa05",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-111.png",
+      "sha256": "b98fa8f43c0bfb3449da09e5b44ba26f9cee004c01c1ffa282d401e019ed2231"
+    },
+    {
+      "id": 112,
+      "keys": [
+        "grove/el_spark_adept/1",
+        "grove/el_spark_adept/2",
+        "grove/el_spark_adept/3",
+        "grove/el_spark_adept/4",
+        "grove/el_spark_adept/5",
+        "grove/el_spark_adept/6"
+      ],
+      "source": "dist/assets/visual-v17/f8f3da855c7d400f-stormspear-ranks.png",
+      "sourceSha256": "f8f3da855c7d400f34f2e517d5650e032308df58b9a0d21b91f64213b70e40d9",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-112.png",
+      "sha256": "0a264a4c8209e3ca8ff06d5b4c54cbd2c46135bf31ff9d79b4c6f242b06387fe"
+    },
+    {
+      "id": 113,
+      "keys": [
+        "grove/el_sealweaver/1",
+        "grove/el_sealweaver/2",
+        "grove/el_sealweaver/3",
+        "grove/el_sealweaver/4",
+        "grove/el_sealweaver/5",
+        "grove/el_sealweaver/6"
+      ],
+      "source": "dist/assets/visual-v20/cca72b6d42c7c4e6-lunar-spirit-shamans-natural.png",
+      "sourceSha256": "cca72b6d42c7c4e6856e56f087dde1834154fec35e184e60c531f3dc1944691c",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-113.png",
+      "sha256": "4647e18c711176fdce29b9cb6a95bced84974c252e10bd8d614b5aeabbea0165"
+    },
+    {
+      "id": 114,
+      "keys": [
+        "grove/el_drow_cinder/1",
+        "grove/el_drow_cinder/2",
+        "grove/el_drow_cinder/3",
+        "grove/el_drow_cinder/4",
+        "grove/el_drow_cinder/5",
+        "grove/el_drow_cinder/6"
+      ],
+      "source": "dist/assets/visual-v18/d87b9db772c1057e-nightweaver-spider-dark.png",
+      "sourceSha256": "d87b9db772c1057eab1a79cb16d3eb7de5b4dddf37f57a050eb4a275769a834d",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-114.png",
+      "sha256": "68a4c120f458dcb083f8495d25a2716c3b37429b20a3f8662adba7056eb30db4"
+    },
+    {
+      "id": 115,
+      "keys": [
+        "grove/el_drow_blade/1",
+        "grove/el_drow_blade/2",
+        "grove/el_drow_blade/3",
+        "grove/el_drow_blade/4",
+        "grove/el_drow_blade/5",
+        "grove/el_drow_blade/6"
+      ],
+      "source": "dist/assets/visual-v18/faf150856fb9f7fa-moonblade-assassin-dark.png",
+      "sourceSha256": "faf150856fb9f7fa858646fe5e4241384f40bd1b0d5b7d7f6071b4d956ad2319",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-115.png",
+      "sha256": "b32072971f53843bc0d930b0e3838f7c28bfaec221c592d4914c83ab685202b1"
+    },
+    {
+      "id": 116,
+      "keys": [
+        "grove/el_drow_acolyte/1",
+        "grove/el_drow_acolyte/2",
+        "grove/el_drow_acolyte/3",
+        "grove/el_drow_acolyte/4",
+        "grove/el_drow_acolyte/5",
+        "grove/el_drow_acolyte/6"
+      ],
+      "source": "dist/assets/visual-v17/af91f6bd7590f5d7-elven-priestess.png",
+      "sourceSha256": "af91f6bd7590f5d7ea723d068cd5e99482ca46f06336d48891d91ab72bdc0dc3",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-116.png",
+      "sha256": "0346aa272f39952239459f5134d5f7b32c1633d8d1f13dcfac7b0ab103688477"
+    },
+    {
+      "id": 117,
+      "keys": [
+        "grove/el_dragon_keeper/1",
+        "grove/el_dragon_keeper/2",
+        "grove/el_dragon_keeper/3",
+        "grove/el_dragon_keeper/4",
+        "grove/el_dragon_keeper/5",
+        "grove/el_dragon_keeper/6"
+      ],
+      "source": "dist/assets/visual-v21/b69f4a4b7ba99339-dragon-keeper-defined-hair.png",
+      "sourceSha256": "b69f4a4b7ba99339e3ed053700a904355ccf700f4525a249c2a168c3afd31695",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-117.png",
+      "sha256": "ba50742380df28d745853bc972aae57f5759ed0a934130a630f2fe3edc89f8bb"
+    },
+    {
+      "id": 118,
+      "keys": [
+        "grove/el_moonblade_sentinel/1",
+        "grove/el_elite_warrior/1"
+      ],
+      "source": "dist/assets/visual-v19/5316827a359643f3-emerald-guardians-green-brown.png",
+      "sourceSha256": "5316827a359643f3ba7e350d34a3e4042a8cb285d23dd81b69982b1d409e156f",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-118.png",
+      "sha256": "e2505a47a601f653f435528cc6af7269106acf5ace6fc185741885d43635d2d3"
+    },
+    {
+      "id": 119,
+      "keys": [
+        "grove/el_stormblade_warden/1"
+      ],
+      "source": "dist/assets/visual-v18/d8009e831b0370ae-ironbark-ent-natural.png",
+      "sourceSha256": "d8009e831b0370ae1de8bc828a639db97e4dc938e53300e7ef30d2fcd539a6f7",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-119.png",
+      "sha256": "d2a1c660c30efbc25472d471f7a86207f9802db9325193baac1a365350a983ac"
+    },
+    {
+      "id": 120,
+      "keys": [
+        "grove/el_elven_king/1"
+      ],
+      "source": "dist/assets/visual-v18/a38bf268ec25c794-world-oak-ent.png",
+      "sourceSha256": "a38bf268ec25c794669c9df6296e84494f0e532372f574135d9be0e8b94848bc",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-120.png",
+      "sha256": "ae475c3d607ec2affd1c44033bfe9db3b69796dc65d971234e8553e36a06df2e"
+    },
+    {
+      "id": 121,
+      "keys": [
+        "grove/el_stag_knight/1"
+      ],
+      "source": "dist/assets/visual-v19/23baf0c9729dc96a-stag-bulwark-natural-antlers.png",
+      "sourceSha256": "23baf0c9729dc96a59dfea27c66e6b4fd8fe57738a6822eff9b17654aa0ca2ec",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-121.png",
+      "sha256": "97290e4a0fe34e1b033a37e0fd7b5191b9cbbb21c37e93f42132f5f4f3ed9eaf"
+    },
+    {
+      "id": 122,
+      "keys": [
+        "grove/el_elven_archer/1",
+        "grove/el_elven_bowmaster/1",
+        "grove/el_tempest_bowmage/1",
+        "grove/el_starfall_bowmaster/1",
+        "grove/el_twilight_huntress/1"
+      ],
+      "source": "dist/assets/visual-v20/fa70dbef64eab6ff-moonlight-rangers-forest.png",
+      "sourceSha256": "fa70dbef64eab6ff22c3c37130b6063628d07698698cbfb888915dc6de5ed289",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-122.png",
+      "sha256": "f44cddb566b8098d48242d37b1a7e9a79e33ddac4f8e2af950e2ddf2baf86a5d"
+    },
+    {
+      "id": 123,
+      "keys": [
+        "grove/el_elven_mage/1",
+        "grove/el_storm_conductor/1",
+        "grove/el_elven_archmage/1",
+        "grove/el_wisp_conductor/1"
+      ],
+      "source": "dist/assets/visual-v20/0c42a3783bf9e4a6-thunder-phoenixes-ocean.png",
+      "sourceSha256": "0c42a3783bf9e4a61b609fc3c28970ae5dd2b32466b86f53c8dd8c1c50ea04de",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-123.png",
+      "sha256": "950e9ab8c64422fc524310948ce331a540425301b9ea56b79c8aa3c4e0df13ab"
+    },
+    {
+      "id": 124,
+      "keys": [
+        "grove/el_storm_sovereign/1"
+      ],
+      "source": "dist/assets/visual-v21/ac18187a3cc9bcab-tempest-phoenix-lightning.png",
+      "sourceSha256": "ac18187a3cc9bcabd551e90a3725297e4f15e43895215decba2cc4e1542c351e",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-124.png",
+      "sha256": "cd347da1c78a18f86e788c0edf47d28628b0e0e5accddffcb5b5b987254f67d7"
+    },
+    {
+      "id": 125,
+      "keys": [
+        "grove/el_veil_adept/1",
+        "grove/el_sealwarden/1",
+        "grove/el_moonwell_seer/1",
+        "grove/el_eclipse_unbinder/1",
+        "grove/el_stag_oracle/1"
+      ],
+      "source": "dist/assets/visual-v20/dda6238ed49e5923-drow-phantoms-dark-purple.png",
+      "sourceSha256": "dda6238ed49e5923fa96092ecb996c8643040caf8c8f79732fdea8ccc33714df",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-125.png",
+      "sha256": "c60cc898be0830d1814794254e72e30ab7a282c88259b557a7b4c3b043bbe3df"
+    },
+    {
+      "id": 126,
+      "keys": [
+        "grove/el_drow_ember_novice/1",
+        "grove/el_drow_pyromancer/1"
+      ],
+      "source": "dist/assets/visual-v18/6e2dc5d4acaf6afa-nightweaver-crimson-champions.png",
+      "sourceSha256": "6e2dc5d4acaf6afa8315ae99f2f691ecb430237a05b7e7af7350153a6e6e016b",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-126.png",
+      "sha256": "4532e45328e30d5e0a813a548691ef9dde0c05e52c45cace9f857f700e97c506"
+    },
+    {
+      "id": 127,
+      "keys": [
+        "grove/el_drow_ember_matron/1",
+        "grove/el_drow_cinderqueen/1"
+      ],
+      "source": "dist/assets/visual-v19/4d6a752ab343954a-crimson-spider-queens.png",
+      "sourceSha256": "4d6a752ab343954a59812a7e97ffc01f93d317340ea315e0960e2593c586c364",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-127.png",
+      "sha256": "ae815584b08a933aca2c880f4dc9e48d699866ec9bbec89baa5ca2f1f2cf0c99"
+    },
+    {
+      "id": 128,
+      "keys": [
+        "grove/el_drow_furnace_seer/1"
+      ],
+      "source": "dist/assets/visual-v19/097be3c3f4fc8f87-moonweb-hunter-lunar.png",
+      "sourceSha256": "097be3c3f4fc8f873ac0e9d22a870177bd881ce4ce3e7ba0333f0bcdeb04b4db",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-128.png",
+      "sha256": "26ee3bbadd0c031aa25d1a412a4632a357315c780dec38cb482893856663d03d"
+    },
+    {
+      "id": 129,
+      "keys": [
+        "grove/el_drow_blade_initiate/1",
+        "grove/el_drow_duelist/1",
+        "grove/el_drow_ashblade/1",
+        "grove/el_drow_eclipse_duelist/1"
+      ],
+      "source": "dist/assets/visual-v17/abc0e94bd8256e95-shadow-assassins.png",
+      "sourceSha256": "abc0e94bd8256e9596caaeb88a906fef2be07c0c9298a5dffa1aeabdbe80827e",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-129.png",
+      "sha256": "2b4e33b2f54e87cbc9f8832859729f6f1648772ace4cbe186d321fcaed51fddf"
+    },
+    {
+      "id": 130,
+      "keys": [
+        "grove/el_drow_gloom_initiate/1",
+        "grove/el_drow_eclipse_priest/1",
+        "grove/el_veilfire_hierophant/1"
+      ],
+      "source": "dist/assets/visual-v20/11f184128b1a88ca-elven-battlemages-bareheaded.png",
+      "sourceSha256": "11f184128b1a88ca95d97d756632f8ca31db69d31aec257aa3d57e2e7a5b77c6",
+      "layout": "atlas",
+      "promptKey": "atlas",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-130.png",
+      "sha256": "08fa4147b21ace3ad7448ef976937dfabfb0692588c7f7d395eccd3d32196bf7"
+    },
+    {
+      "id": 131,
+      "keys": [
+        "grove/el_drow_night_hierarch/1"
+      ],
+      "source": "dist/assets/visual-v21/83ff515b0a8ddb3e-elven-battlemage-master-radiant-jade.png",
+      "sourceSha256": "83ff515b0a8ddb3ee43dc3fcbed76cd365524475feb3acb121ea0fed9954cad4",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-131.png",
+      "sha256": "5a44469b5c6fcabd27769e0b832122358b830bb74e5badd07f9127250e367aa3"
+    },
+    {
+      "id": 132,
+      "keys": [
+        "grove/el_baby_fire_dragon/1"
+      ],
+      "source": "dist/assets/visual-v17/213fe3bbc8d41ff6-baby-fire-dragon.png",
+      "sourceSha256": "213fe3bbc8d41ff676308ab4d0aace25fa614a8fad3bc08b744db5802c3d3328",
+      "layout": "portrait",
+      "promptKey": "single-front",
+      "file": "output/releases/v0.6.1/ai-backgrounds/source-132.png",
+      "sha256": "38af631b1a80c8143df65604ee0e91b3df9e98e4393fcab3f43e9926de4a5d40"
+    }
+  ]
+}

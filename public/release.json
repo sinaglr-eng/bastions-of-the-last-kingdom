@@ -1,5 +1,5 @@
 {
-  "version": "0.6.0",
+  "version": "0.6.1",
   "name": "Forged Alliances TD",
   "edition": "Forged Alliances",
   "date": "2026-10-30",
@@ -36,10 +36,10 @@
   "mvpMaximumLevel": 10,
   "developerConsole": true,
   "classificationScaleStep": 1.1,
-  "uiRevision": "faction-selection-20261030-v1",
+  "uiRevision": "faction-battle-selection-20261030-v2",
   "performanceRevision": "shared-enemy-surfaces-20261028-v1",
   "brandRevision": "forged-alliances-20261028-v2",
-  "uiPortraitRevision": "v3-first-frame-20261030",
+  "uiPortraitRevision": "gallery-reference-portraits-v24-ai-20261030-v1",
   "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
   "uiOutcomeArtRevision": "outcome-scenes-20261022-v3",
   "motionRevision": "approved-faction-motion-v3",
@@ -60,5 +60,6 @@
     }
   ],
   "totalDefenderVariants": 258,
-  "factionArtRevision": "approved-faction-models-v3-20261030"
+  "factionArtRevision": "approved-faction-models-v3-20261030",
+  "dwarfPresentationScale": 1.75
 }
