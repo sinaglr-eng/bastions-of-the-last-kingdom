@@ -2,7 +2,7 @@
   "schema": "v062-handoff-v1",
   "status": "passed",
   "base": "998f32f75151b2bc306de5d5736bfe57c172ac28",
-  "head": "998f32f75151b2bc306de5d5736bfe57c172ac28",
+  "head": "10e9aa06142f7cc54e649a59af2c2950ccb215b5",
   "mainIndexUnchanged": true,
   "protectedPaths": 6151,
   "payload": [
@@ -19,7 +19,7 @@
     {
       "file": "docs/RELEASE_0_6_2.md",
       "source": "ba094e967553d2f836fbb484823ed698402c1d9b36ad85f3312baf2d8a2ee455",
-      "main": "2bd5ed4ef2e3a694aeef219eb4fa3eba32ed939a8b9868609c3d80eb4be4955e"
+      "main": "ba094e967553d2f836fbb484823ed698402c1d9b36ad85f3312baf2d8a2ee455"
     },
     {
       "file": "game/core/factions.js",
@@ -38,7 +38,7 @@
     },
     {
       "file": "index.html",
-      "source": "e036f74f6def535154cbdf7f87b2d31872522c89cedea1472c4a0eee31fc96ba",
+      "source": "e5238677ffa00864baa832e78c15e61cb1dc4400bc27efe6f006ef4f42eacdb8",
       "main": "e036f74f6def535154cbdf7f87b2d31872522c89cedea1472c4a0eee31fc96ba"
     },
     {
@@ -233,8 +233,13 @@
     },
     {
       "file": "output/releases/v0.6.2/build-offline.log",
-      "source": "e410bf1f8dee037a435e370cd42dffab1b3f6de47a2563b775689a0e23e874bc",
+      "source": "4f922149631fda0201a5079d08904a4593e2fd36a3257694f0e168d5dc570b60",
       "main": "e410bf1f8dee037a435e370cd42dffab1b3f6de47a2563b775689a0e23e874bc"
+    },
+    {
+      "file": "output/releases/v0.6.2/build-public.log",
+      "source": "17094bdc96f8d692992a9538d4c95a7a2ec071987adde6889ff7422cc40c112e",
+      "main": "17094bdc96f8d692992a9538d4c95a7a2ec071987adde6889ff7422cc40c112e"
     },
     {
       "file": "output/releases/v0.6.2/first-validation.log",
@@ -244,17 +249,17 @@
     {
       "file": "output/releases/v0.6.2/fr001/acquisition-balance.json",
       "source": "6ba656dd6b6d9b732959eae01e15b322d3157c828399e9b148866aa973cc16a7",
-      "main": null
+      "main": "6ba656dd6b6d9b732959eae01e15b322d3157c828399e9b148866aa973cc16a7"
     },
     {
       "file": "output/releases/v0.6.2/fr001/acquisition.log",
       "source": "99280bfac9c09091c87b9bba1160f74f7596fb095f288717752f5ea754c2d0e5",
-      "main": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "main": "99280bfac9c09091c87b9bba1160f74f7596fb095f288717752f5ea754c2d0e5"
     },
     {
       "file": "output/releases/v0.6.2/fr001/acquisition.mjs",
       "source": "7bb9a1b07d2b8b15df0953b1971a6a11fa8c646bab8559b67cb1d49aa3d4bbd0",
-      "main": "33927edc3bfebea796fc43561c71f3e34f9070f5c347c30fbd4a7d44f4da623a"
+      "main": "7bb9a1b07d2b8b15df0953b1971a6a11fa8c646bab8559b67cb1d49aa3d4bbd0"
     },
     {
       "file": "output/releases/v0.6.2/fr001/campaign/implemented/campaign-results.json",
@@ -308,12 +313,12 @@
     },
     {
       "file": "output/releases/v0.6.2/handoff.json",
-      "source": "f05212a59dd8173435e1c9ffcaf82912afaf0195bd37419709cf04ddfa06eb0a",
-      "main": "f05212a59dd8173435e1c9ffcaf82912afaf0195bd37419709cf04ddfa06eb0a"
+      "source": "a944099971aa2b49cc64355c763324b412b84fcd894cc598bf88b23bb9e71cc1",
+      "main": "a944099971aa2b49cc64355c763324b412b84fcd894cc598bf88b23bb9e71cc1"
     },
     {
       "file": "output/releases/v0.6.2/local-validation.json",
-      "source": "06072e46d9760847c787a7cecd5d78f4e3943a9ffddc618f3852d5953a13aa4c",
+      "source": "ed8925277838b0448eacc41eb7cd7ee4158d2fe82eb99f7f54fa08b883eee4ad",
       "main": "06072e46d9760847c787a7cecd5d78f4e3943a9ffddc618f3852d5953a13aa4c"
     },
     {
@@ -323,8 +328,8 @@
     },
     {
       "file": "output/releases/v0.6.2/main-production-install.json",
-      "source": "47f1d4eb4d2d8b1b3aa6f14202537f729f9178ec2cdc54f9361e70b0acc53c55",
-      "main": null
+      "source": "dab1bebf9d14e719b9d216849dbe665eaaaa75b75af83bbec6642aeeb3ca71bb",
+      "main": "47f1d4eb4d2d8b1b3aa6f14202537f729f9178ec2cdc54f9361e70b0acc53c55"
     },
     {
       "file": "output/releases/v0.6.2/preserved-concurrent-edits.json",
@@ -333,17 +338,22 @@
     },
     {
       "file": "output/releases/v0.6.2/sources-built.json",
-      "source": "dbeee44da591048ca517cba248b6f0427da9e054083d843ef7bb5db91e6f411c",
+      "source": "0ea9d5903e2eb94dd5686743607e5eb09bdade178f290d8aedc5a7c11b08d442",
       "main": "dbeee44da591048ca517cba248b6f0427da9e054083d843ef7bb5db91e6f411c"
     },
     {
       "file": "output/releases/v0.6.2/sources-tested.json",
-      "source": "dbeee44da591048ca517cba248b6f0427da9e054083d843ef7bb5db91e6f411c",
+      "source": "0ea9d5903e2eb94dd5686743607e5eb09bdade178f290d8aedc5a7c11b08d442",
       "main": "dbeee44da591048ca517cba248b6f0427da9e054083d843ef7bb5db91e6f411c"
     },
     {
+      "file": "output/releases/v0.6.2/superseded-ci.json",
+      "source": "29ab8283217f3ca6bf4fd15807d3ae9236419758c65513b59ea1b840e32871c9",
+      "main": null
+    },
+    {
       "file": "output/releases/v0.6.2/tests.log",
-      "source": "40801e4dc2b7735548460a745887777709e6cd111878beda58e1977d40373f5f",
+      "source": "269971d427d222f679256f0322be6cb37f364b56229ad1b2518a6ffba8c995bd",
       "main": "40801e4dc2b7735548460a745887777709e6cd111878beda58e1977d40373f5f"
     }
   ]
