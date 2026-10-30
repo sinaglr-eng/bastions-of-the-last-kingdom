@@ -9,7 +9,8 @@ import {playerName, validateSnapshot} from '../backend/validation.js';
 import {Game} from '../game/core/game.js';
 import {RunStatistics} from '../game/core/run-statistics.js';
 import {towerStats} from '../game/core/math.js';
-import {StatisticsClient} from '../game/core/statistics-client.js';
+import {StatisticsClient as ProductionStatisticsClient} from '../game/core/statistics-client.js';
+class StatisticsClient extends ProductionStatisticsClient{constructor(game,options){super(game,options);if(!game.factionId)this.tracker.version='0.5.2';}} // Existing legacy transport scenarios.
 import {report, csvRows} from '../tools/statistics-report.mjs';
 import {GAME_VERSION} from '../game/release.js';
 import {STATISTICS_RELEASE_NAME} from '../backend/service-page.js';
@@ -18,7 +19,7 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 
 const data = Object.fromEntries(['balance', 'towers', 'enemies', 'waves', 'recipes'].map(name =>
   [name, JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url)))]));
-const access = 'a'.repeat(64), version = GAME_VERSION;
+const access = 'a'.repeat(64), version = '0.5.2'; // Legacy compatibility fixtures; 0.6 faction identity has dedicated tests.
 const uuid = number => `12345678-1234-4234-8234-${String(number).padStart(12, '0')}`;
 
 function storage() {
@@ -79,13 +80,13 @@ test('statistics default to the actual game edition while preserving separate hi
   try {
     const health=await request(store,'/api/health');
     assert.equal(health.status,200);
-    assert.deepEqual(await health.json(),{ok:true,storage:'SQLite',edition:version,releaseName:STATISTICS_RELEASE_NAME});
+    assert.deepEqual(await health.json(),{ok:true,storage:'SQLite',edition:GAME_VERSION,releaseName:STATISTICS_RELEASE_NAME});
     const page=await request(store,'/');
     assert.equal(page.status,200);
     const html=await page.text();
-    assert.ok(!html.includes('<option value="all">All game versions</option>'));assert.ok(html.includes('<select id="edition"><option value="'+version+'">'+version+'</option>'));assert.ok(html.includes("data.version!==selected"));
+    assert.ok(!html.includes('<option value="all">All game versions</option>'));assert.ok(html.includes('<select id="edition"><option value="'+GAME_VERSION+'">'+GAME_VERSION+'</option>'));assert.ok(html.includes("data.version!==selected"));
     assert.ok(html.includes(`/api/leaderboard?version='+encodeURIComponent(document.getElementById('edition').value)+'&mode=`));
-    assert.ok(html.includes(`${version} · ${STATISTICS_RELEASE_NAME}. Finish a campaign`));
+    assert.ok(html.includes(`${GAME_VERSION} · ${STATISTICS_RELEASE_NAME}. Finish a campaign`));
     assert.ok(!html.includes('/api/leaderboard?version=0.2.7&mode='));
     for(const [index,edition] of ['0.2.7',version].entries()) {
       const id=uuid(index+2), played=run(10,id,edition); playedRuns.push(played);
@@ -601,7 +602,7 @@ test('existing SQLite admin/CSV reports retain per-game elapsed times and exclud
     const csv=readFileSync(join(exported.destination,'runs.csv'),'utf8'),lines=csv.replace(/^\uFEFF/,'').trimEnd().split('\r\n'),columns=lines[0].split(',');
     const old=lines.slice(1).map(line=>line.split(',')).find(row=>row[columns.indexOf('version')]==='0.2.7');assert.equal(old[columns.indexOf('averageDurationSeconds')],'');assert.equal(old[columns.indexOf('totalDurationSeconds')],'');
     assert.ok(csv.includes('18.8125'));assert.ok(!csv.includes('private-timing-report-token'));
-    const durationsCsv=readFileSync(join(exported.destination,'run-durations.csv'),'utf8');assert.ok(durationsCsv.includes(`${uuid(204)},${version},10,playing,12.5,0`));assert.ok(durationsCsv.includes(`${uuid(205)},${version},10,playing,,100000`));
+    const durationsCsv=readFileSync(join(exported.destination,'run-durations.csv'),'utf8');assert.ok(durationsCsv.includes(`${uuid(204)},${version},10,,playing,12.5,0`));assert.ok(durationsCsv.includes(`${uuid(205)},${version},10,,playing,,100000`));
     assert.ok(csvRows([{version:'0.2.7',runs:1}],['timedRuns','totalDurationSeconds','averageDurationSeconds']).includes('0.2.7,1,,,'),'An older API with no timing fields exports blanks, not made-up zero duration');
     const page=await request(store,'/owner'),html=await page.text();assert.ok(html.includes('Run duration includes pauses'));assert.ok(html.includes('Not recorded'));
     assert.ok(html.includes('value="runDurations"'));assert.equal((await request(store,'/api/admin/statistics')).status,401);

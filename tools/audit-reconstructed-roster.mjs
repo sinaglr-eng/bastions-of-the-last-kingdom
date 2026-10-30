@@ -106,7 +106,8 @@ function stringBoundToActualEndpoints(rig){
   return [[0,rig.string.top],[2,rig.string.bottom],[1,rig.string.nock],[3,rig.string.nock]].every(([index,node])=>!!node&&new THREE.Vector3().fromBufferAttribute(position,index).applyMatrix4(line.matrixWorld).distanceTo(node.getWorldPosition(new THREE.Vector3()))<1e-5);
 }
 function skinState(root){const skins=[];root.traverse(node=>{if(node.isSkinnedMesh)skins.push({node,skeleton:node.skeleton,bones:node.skeleton.bones});});return skins;}
-function sourceFile(entry,designRoot){return resolve(designRoot,'output/design',entry.reconstruction.revision==='basic-defenders-v7'?'basic-defenders-reconstruction-v7/models':'champions-reconstruction-v8/refined/models',entry.id+'.glb');}
+function preservedInput(file,designRoot,expectedSha){if(existsSync(file))return file;const delivery=resolve(designRoot,'output/design/faction-attack-animation-v3'),mapFile=resolve(delivery,'authoring/dependencies/input-map.json');if(!existsSync(mapFile))return file;const row=json(mapFile).files.find(r=>resolve(r.originalPath)===resolve(file)||expectedSha&&r.sha256===expectedSha);if(row)return resolve(delivery,row.cachePath);const reference=expectedSha&&resolve(assetRoot,'reconstruction-references/champions',expectedSha+'.png');return reference&&existsSync(reference)?reference:file;}
+function sourceFile(entry,designRoot){return preservedInput(resolve(designRoot,'output/design',entry.reconstruction.revision==='basic-defenders-v7'?'basic-defenders-reconstruction-v7/models':'champions-reconstruction-v8/refined/models',entry.id+'.glb'),designRoot,entry.assetSha256);}
 function jsonChunk(bytes){const length=bytes.readUInt32LE(12);return JSON.parse(bytes.subarray(20,20+length).toString('utf8'));}
 
 export function currentReconstructionEntry(id){
@@ -119,16 +120,16 @@ export async function auditCurrentReconstructionIds(ids){
 }
 
 export async function auditReconstructedEntry(entry,{designRoot=existsSync(designDefault)?designDefault:null}={}){
-  const started=performance.now(),checks=[],check=(name,pass,detail=null)=>checks.push({name,passed:!!pass,...(detail===null?{}:{detail})});
+  const started=performance.now(),checks=[],unavailableEvidence=[],check=(name,pass,detail=null)=>checks.push({name,passed:!!pass,...(detail===null?{}:{detail})});
   const file=resolve(assetRoot,entry.file),bytes=readFileSync(file),raw=jsonChunk(bytes),sha256=hash(bytes),data={towers:json(resolve(project,'data/towers.json')),balance:json(resolve(project,'data/balance.json'))},familyStats=data.towers[entry.family],stats=familyStats?towerStats({family:entry.family,tier:entry.tier},data):null,dataBefore=JSON.stringify(data);
   let decoded,actor,peer,rig,result;
   try{
     check('Mapped runtime family exists and exact approved export hash matches',!!stats&&sha256===entry.assetSha256&&sha256===entry.reconstruction.sourceGlbSha256,{sha256});
-    if(designRoot){const original=sourceFile(entry,designRoot);check('Delivered GLB equals independently read approved source bytes',existsSync(original)&&hash(readFileSync(original))===sha256,{file:original});}
+    if(designRoot){const original=sourceFile(entry,designRoot);if(existsSync(original))check('Delivered GLB equals independently read approved source bytes',hash(readFileSync(original))===sha256,{file:original});else unavailableEvidence.push({file:original,kind:'historical original GLB',reason:'Earlier deliveries were retired by the human owner on 30 October 2026. The approved export hash and actual runtime geometry remain verified.'});}
     if(designRoot){
-      const native=resolve(designRoot,entry.reconstruction.sourceNativeFile),reference=entry.reconstruction.approvedAuthoringReference,referenceFile=reference.path?resolve(designRoot,reference.path):resolve(designRoot,entry.reconstruction.sourceDelivery,reference.file);
-      check('Native master provenance equals independently read approved Blender bytes',existsSync(native)&&hash(readFileSync(native))===entry.reconstruction.sourceNativeSha256,{file:native});
-      check('Current authoring reference equals independently read original approved concept bytes',existsSync(referenceFile)&&hash(readFileSync(referenceFile))===reference.sha256,{file:referenceFile});
+      const native=preservedInput(resolve(designRoot,entry.reconstruction.sourceNativeFile),designRoot,entry.reconstruction.sourceNativeSha256),reference=entry.reconstruction.approvedAuthoringReference,referenceFile=reference.path?resolve(designRoot,reference.path):resolve(designRoot,entry.reconstruction.sourceDelivery,reference.file);
+      if(existsSync(native))check('Native master provenance equals independently read approved Blender bytes',hash(readFileSync(native))===entry.reconstruction.sourceNativeSha256,{file:native});else unavailableEvidence.push({file:native,kind:'historical Blender master',reason:'Earlier native masters were retired by the human owner on 30 October 2026; this check is unavailable, not a fresh native-file verification.'});
+      check('Current authoring reference equals independently read original approved concept bytes',existsSync(preservedInput(referenceFile,designRoot,reference.sha256))&&hash(readFileSync(preservedInput(referenceFile,designRoot,reference.sha256)))===reference.sha256,{file:referenceFile});
     }
     decoded=await new NativeTestGLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
     const source=decoded.scene;source.animations=[...decoded.animations];
@@ -198,7 +199,7 @@ export async function auditReconstructedEntry(entry,{designRoot=existsSync(desig
     check('Actor cleanup keeps every shared template resource alive',[...sharedMonitor.values()].every(count=>count===0));
     disposeDecodedGeometricAsset(decoded);disposeDecodedGeometricAsset(decoded);check('Final cache cleanup releases every shared resource exactly once',[...sharedMonitor.values()].every(count=>count===1),{sharedResources:sharedMonitor.size});
     check('Raw delivered approved GLB bytes are unchanged by this audit',hash(readFileSync(file))===sha256);
-    result={id:entry.id,family:entry.family,tier:entry.tier,reconstruction:entry.reconstruction.revision,assetSha256:sha256,assetBytes:bytes.length,presentationScale,productionStats:{damage:stats.damage,interval:stats.interval,range:stats.range,type:stats.type,effectKind:rig.kind},nativeSkins:sourceSkins.length,decodedAnimations:decoded.animations.map(clip=>({name:clip.name,duration:clip.duration,tracks:clip.tracks.length})),physicalMeshes:adapted.meshes,triangles:adapted.triangles,batching,nativeBounds,fieldBounds,maximumMuzzleTravel,maximumPhysicalTravel,poses,checks};
+    result={id:entry.id,family:entry.family,tier:entry.tier,reconstruction:entry.reconstruction.revision,assetSha256:sha256,assetBytes:bytes.length,presentationScale,productionStats:{damage:stats.damage,interval:stats.interval,range:stats.range,type:stats.type,effectKind:rig.kind},nativeSkins:sourceSkins.length,decodedAnimations:decoded.animations.map(clip=>({name:clip.name,duration:clip.duration,tracks:clip.tracks.length})),physicalMeshes:adapted.meshes,triangles:adapted.triangles,batching,nativeBounds,fieldBounds,maximumMuzzleTravel,maximumPhysicalTravel,poses,checks,unavailableEvidence};
   }catch(error){check('Audit completes without loader/adapter/runtime exception',false,{error:String(error),stack:error.stack});result={id:entry.id,assetSha256:sha256,checks};}
   finally{disposeAttack(rig);disposeDefenderInstance(actor);disposeDefenderInstance(peer);if(decoded)disposeDecodedGeometricAsset(decoded);}
   result.durationMs=performance.now()-started;result.failures=checks.filter(record=>!record.passed);return result;

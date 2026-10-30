@@ -42,7 +42,7 @@ export function disposeDefenderInstance(actor){
 
 export function installDefenderTemplate(field,entry,scene,animations=scene.animations||[]){
   if(field.disposed)return false;
-  if(!prepareApprovedMotionTemplate(scene,entry)){
+  if(entry.factionAnimation){scene.userData.factionAttackEntry=entry;}else if(!prepareApprovedMotionTemplate(scene,entry)){
     prepareReconstructedDefender(scene,entry);
     optimizeGeometricSiblings(scene,{animations});
   }

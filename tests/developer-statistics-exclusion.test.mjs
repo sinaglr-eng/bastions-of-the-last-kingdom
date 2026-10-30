@@ -4,9 +4,10 @@ import {readFileSync} from 'node:fs';
 import {DatabaseSync} from 'node:sqlite';
 import {Game} from '../game/core/game.js';
 import {RunStatistics} from '../game/core/run-statistics.js';
-import {StatisticsClient} from '../game/core/statistics-client.js';
+import {StatisticsClient as ProductionStatisticsClient} from '../game/core/statistics-client.js';
 import {loadProfile,saveProfile,recordRunResult,excludeRunResult} from '../game/core/save.js';
 import worker from '../backend/worker.js';
+class StatisticsClient extends ProductionStatisticsClient{constructor(game,options){super(game,options);this.tracker.version='0.5.2';}} // Explicit pre-faction compatibility fixtures.
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const memory=()=>{const values=new Map();return {getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,value),values};};
 const id=n=>`848a3230-f991-4195-99bf-${String(n).padStart(12,'0')}`,writeToken='a'.repeat(64);

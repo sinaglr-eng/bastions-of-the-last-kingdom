@@ -70,7 +70,7 @@ function fixture(){
   const profile={bestScore:0,bestWave:0,wins:0,discoveries:[]},waves=[],audio={unlock:noop,play:noop,resetRun:noop,syncGameState:noop};
   nodes.set('dialog',{open:false});nodes.set('header-combat-controls',new Element('div',document,app));
   const render=()=>{renders++;phaseUi.sync(game);functions.renderSidebar();functions.renderMapAction();};
-  const bindings={game,app,window,document,world,phaseUi,CommandPointerInput,audio,updateHeaderCombatControls:(host,game)=>{host.dataset.paused=String(game.paused);host.dataset.speed=String(game.speed);},data,images:{ruin:'approved-wall.png'},icon,endedPhase,
+  const bindings={recipeCatalogState:{},championCatalogDefaults:()=>({}),stageFactionRun:()=>{audio.resetRun();throw Error('Unmocked world staging');},requestFactionRun:noop,game,app,window,document,world,phaseUi,CommandPointerInput,audio,updateHeaderCombatControls:(host,game)=>{host.dataset.paused=String(game.paused);host.dataset.speed=String(game.speed);},data,images:{ruin:'approved-wall.png'},icon,endedPhase,
     rankPreview:new DefenderRankPreview(),preparationNavigation:new PreparationRecipeNavigation(),folioRecipeId:null,folioRecipeSelection:null,folioLayout:{restoreParts:noop},syncFolio:noop,defenderPanelMarkup,dpsMeasurement:{view:()=>({rows:[]}),startWave:round=>waves.push(round),completeWave:noop},dpsTracker:{reset:noop,recordHit:noop},
     draftCardActivation:{clear:noop},draftPointerInput:{click:noop},debug:false,codex:noop,warbands:noop,help:noop,closeDialog:noop,cancelRecipePreview:noop,debugPanel:noop,render,
     $:id=>nodes.get(id)||null,panelDetails:new Map(),stampCraftButtons:noop,combatPanel:()=>'<p>Actual combat panel boundary</p>',tutorial:()=>'<p>Construction boundary</p>',

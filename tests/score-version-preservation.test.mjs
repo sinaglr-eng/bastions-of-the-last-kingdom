@@ -4,9 +4,10 @@ import {readFileSync} from 'node:fs';
 import {DatabaseSync} from 'node:sqlite';
 import {Game} from '../game/core/game.js';
 import {RunStatistics} from '../game/core/run-statistics.js';
-import {StatisticsClient} from '../game/core/statistics-client.js';
+import {StatisticsClient as ProductionStatisticsClient} from '../game/core/statistics-client.js';
+class StatisticsClient extends ProductionStatisticsClient{constructor(game,options){super(game,options);this.tracker.version=GAME_VERSION;}}
 import {loadProfile,saveProfile,recordRunResult} from '../game/core/save.js';
-import {GAME_VERSION} from '../game/release.js';
+const GAME_VERSION='0.5.2'; // Frozen legacy score-preservation scenarios; faction cohorts are tested separately.
 import worker from '../backend/worker.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));

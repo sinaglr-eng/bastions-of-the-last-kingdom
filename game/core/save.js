@@ -5,10 +5,11 @@ const versionOf=value=>typeof value==='string'&&/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.te
 const scoreOf=value=>Number.isFinite(Number(value))?Math.max(0,Math.floor(Number(value))):0;
 const object=value=>value&&typeof value==='object'&&!Array.isArray(value)?value:{};
 const read=key=>{try{return object(JSON.parse(localStorage.getItem(key)||'{}'));}catch{return {};}};
+function factionDiscoveries(...values){const result={};for(const value of values)for(const id of ['crown','forge','grove'])if(Array.isArray(value?.[id]))result[id]=[...new Set([...(result[id]||[]),...value[id].filter(x=>typeof x==='string')])];return result;}
 function mergeBestScores(...lists){
-  const rows=new Map();
-  for(const row of lists.flat())if(row&&typeof row==='object'&&Number.isFinite(row.score)&&row.score>=0){
-    const version=versionOf(row.version),mode=[10,50].includes(row.mode)?row.mode:null,key=JSON.stringify([version,mode]),existing=rows.get(key);
+  const rows=new Map(),attribution=new Map(lists.flat().filter(row=>row?.id&&row.factionId).map(row=>[row.id,row.factionId]));
+  for(const row of lists.flat())if(row&&typeof row==='object'&&(!attribution.has(row.id)||attribution.get(row.id)===row.factionId)&&Number.isFinite(row.score)&&row.score>=0){
+    const version=versionOf(row.version),mode=[10,50].includes(row.mode)?row.mode:null,key=JSON.stringify([version,mode,row.factionId??null]),existing=rows.get(key);
     if(!existing||row.score>existing.score)rows.set(key,{...row,version,mode,score:scoreOf(row.score)});
   }
   return [...rows.values()];
@@ -18,7 +19,7 @@ function mergeRunHistory(...lists){
   for(const row of lists.flat())if(row&&typeof row==='object'&&typeof row.id==='string'&&row.id&&Number.isFinite(row.score)&&row.score>=0){
     const existing=rows.get(row.id);
     if(!existing)rows.set(row.id,{...row,version:versionOf(row.version),score:scoreOf(row.score)});
-    else if(existing.version===versionOf(row.version)&&!['won','lost'].includes(existing.outcome)&&row.score>=existing.score)rows.set(row.id,{...existing,...row,version:existing.version,score:scoreOf(row.score)});
+    else if(existing.version===versionOf(row.version)&&(existing.factionId??null)===(row.factionId??null)&&!['won','lost'].includes(existing.outcome)&&row.score>=existing.score)rows.set(row.id,{...existing,...row,version:existing.version,score:scoreOf(row.score)});
   }
   return [...rows.values()];
 }
@@ -46,17 +47,17 @@ function progress(profile,archive,retained){
 }
 export function loadProfile() {
   const raw=read(KEY),archive=read(SCORES_KEY),retained=scores(raw,archive);
-  return {...raw,audioVolumes:audioVolumePreferences(raw.audioVolumes),discoveries:stringList(raw.discoveries),muted:raw.muted===true,bestWave:scoreOf(raw.bestWave),...retained,wins:scoreOf(raw.wins),...progress(raw,archive,retained),tutorial:raw.tutorial!==false,tutorialDecision:['accepted','skipped','complete'].includes(raw.tutorialDecision)?raw.tutorialDecision:null};
+  return {...raw,factionDiscoveries:factionDiscoveries(archive.factionDiscoveries,raw.factionDiscoveries),audioVolumes:audioVolumePreferences(raw.audioVolumes),discoveries:stringList(raw.discoveries),muted:raw.muted===true,bestWave:scoreOf(raw.bestWave),...retained,wins:scoreOf(raw.wins),...progress(raw,archive,retained),tutorial:raw.tutorial!==false,tutorialDecision:['accepted','skipped','complete'].includes(raw.tutorialDecision)?raw.tutorialDecision:null};
 }
 export function saveProfile(profile){
   const archive=read(SCORES_KEY),stored=read(KEY),retained=scores(profile,scores(stored,archive));
   // A pre-exclusion tab can contribute legitimate attributed run records, but
   // cannot restore excluded awards or overwrite more recent preferences.
   if(retained.excludedRuns?.some(id=>!(profile.excludedRuns||[]).includes(id)))Object.assign(profile,stored);
-  Object.assign(profile,retained,progress(profile,archive,retained));
+  Object.assign(profile,retained,progress(profile,archive,retained));profile.factionDiscoveries=factionDiscoveries(archive.factionDiscoveries,stored.factionDiscoveries,profile.factionDiscoveries);
   // A separate stable archive survives an older tab rewriting the old profile.
   let archived=false,saved=false;
-  try{localStorage.setItem(SCORES_KEY,JSON.stringify({...archive,schemaVersion:2,...retained,progressLedger:profile.progressLedger}));archived=true;}catch{}
+  try{localStorage.setItem(SCORES_KEY,JSON.stringify({...archive,schemaVersion:2,...retained,progressLedger:profile.progressLedger,factionDiscoveries:profile.factionDiscoveries}));archived=true;}catch{}
   try{localStorage.setItem(KEY,JSON.stringify(profile));saved=true;}catch{}
   return archived&&saved;
 }
@@ -65,7 +66,7 @@ export function recordRunResult(profile,game,{id,version=GAME_VERSION,outcome,di
   if(typeof id!=='string'||!id||!versionOf(version)||![10,50].includes(game.waveLimit))return null;
   const previous=(profile.runHistory||[]).find(row=>row.id===id);
   if(previous&&previous.version!==version)return null;
-  const result={id,version,mode:game.waveLimit,score:scoreOf(game.score),wavesSurvived:Math.max(0,Math.min(game.waveLimit,game.round-(['won','reward'].includes(game.phase)?0:1))),outcome:outcome||(['won','lost'].includes(game.phase)?game.phase:'abandoned'),finishedAt:Date.now(),discoveryAwards:stringList(discoveryAwards?Array.from(discoveryAwards):[]),...(Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?{durationSeconds:game.elapsedSeconds}:{})};
+  const result={id,version,...(game.factionId?{factionId:game.factionId}:{}),mode:game.waveLimit,score:scoreOf(game.score),wavesSurvived:Math.max(0,Math.min(game.waveLimit,game.round-(['won','reward'].includes(game.phase)?0:1))),outcome:outcome||(['won','lost'].includes(game.phase)?game.phase:'abandoned'),finishedAt:Date.now(),discoveryAwards:stringList(discoveryAwards?Array.from(discoveryAwards):[]),...(Number.isFinite(game.elapsedSeconds)&&game.elapsedSeconds>=0?{durationSeconds:game.elapsedSeconds}:{})};
   profile.runHistory=mergeRunHistory(profile.runHistory||[],[result]);
   const accepted=profile.runHistory.find(row=>row.id===id);
   profile.bestScores=mergeBestScores(profile.bestScores||[],[accepted]);profile.bestScore=Math.max(scoreOf(profile.bestScore),accepted.score);

@@ -25,7 +25,7 @@ export class StatisticsClient {
     const id=this.tracker.id,ids=this.excludedIds();ids.add(id);this.excludedMemory=[...ids];
     try{this.storage?.setItem(EXCLUDED_IDS,JSON.stringify([...ids]));}catch{}
     this.pendingMemory=null;this.writeQueue(this.readQueue().filter(row=>row.snapshot.id!==id));
-    const entry={endpoint:this.endpoint,id,writeToken:this.writeToken,version:this.tracker.version,mode:this.game.waveLimit,seed:this.game.seed};
+    const entry={endpoint:this.endpoint,id,writeToken:this.writeToken,version:this.tracker.version,mode:this.game.waveLimit,seed:this.game.seed,...(this.tracker.factionId?{factionId:this.tracker.factionId,rulesetRevision:this.tracker.rulesetRevision,contentManifestId:this.tracker.contentManifestId}:{})};
     this.writeExclusions([...this.readExclusions().filter(row=>row.id!==id||row.endpoint!==this.endpoint),entry]);
     // Enqueue before returning to the console. Offline retries survive reloads.
     void this.flushExclusions({keepalive:true});
@@ -34,7 +34,7 @@ export class StatisticsClient {
     if(this.exclusionBusy)return this.exclusionBusy;
     this.exclusionBusy=Promise.resolve().then(async()=>{try{
       for(const entry of this.readExclusions().filter(row=>row.endpoint===this.endpoint)){
-        await this.request(`/api/runs/${entry.id}/developer-mode`,{writeToken:entry.writeToken,version:entry.version,mode:entry.mode,seed:entry.seed},options);
+        await this.request(`/api/runs/${entry.id}/developer-mode`,{writeToken:entry.writeToken,version:entry.version,mode:entry.mode,seed:entry.seed,...(entry.factionId?{factionId:entry.factionId,rulesetRevision:entry.rulesetRevision,contentManifestId:entry.contentManifestId}:{})},options);
         this.writeExclusions(this.readExclusions().filter(row=>row.id!==entry.id||row.endpoint!==entry.endpoint));
       }return true;
     }catch{return false;}finally{this.exclusionBusy=null;}});return this.exclusionBusy;
@@ -48,7 +48,7 @@ export class StatisticsClient {
       await this.flushExclusions(options);
       for(;;){let queue=this.readQueue();if(this.pendingMemory&&this.excludedIds().has(this.pendingMemory.snapshot.id))this.pendingMemory=null;if(this.pendingMemory&&!queue.some(x=>x.snapshot.id===this.pendingMemory.snapshot.id&&x.snapshot.sequence>=this.pendingMemory.snapshot.sequence))queue.push(this.pendingMemory);
       if(!queue.length)break;
-      for(const entry of queue){const s=entry.snapshot;if(this.excludedIds().has(s.id))continue;await this.request('/api/runs',{id:s.id,writeToken:entry.writeToken,version:s.version,mode:s.mode,seed:s.seed},options);if(this.excludedIds().has(s.id))continue;await this.request(`/api/runs/${s.id}/checkpoint`,{writeToken:entry.writeToken,snapshot:s},options);this.writeQueue(this.readQueue().filter(x=>x.snapshot.id!==s.id||x.snapshot.sequence>s.sequence));if(this.pendingMemory?.snapshot.id===s.id&&this.pendingMemory.snapshot.sequence===s.sequence)this.pendingMemory=null;}
+      for(const entry of queue){const s=entry.snapshot;if(this.excludedIds().has(s.id))continue;await this.request('/api/runs',{id:s.id,writeToken:entry.writeToken,version:s.version,mode:s.mode,seed:s.seed,...(s.factionId?{factionId:s.factionId,rulesetRevision:s.rulesetRevision,contentManifestId:s.contentManifestId}:{})},options);if(this.excludedIds().has(s.id))continue;await this.request(`/api/runs/${s.id}/checkpoint`,{writeToken:entry.writeToken,snapshot:s},options);this.writeQueue(this.readQueue().filter(x=>x.snapshot.id!==s.id||x.snapshot.sequence>s.sequence));if(this.pendingMemory?.snapshot.id===s.id&&this.pendingMemory.snapshot.sequence===s.sequence)this.pendingMemory=null;}
       }return true;
     }catch(error){if(this.lastError!==error.message)console.warn('Statistics sync postponed; the result remains queued on this device.',error.message);this.lastError=error.message;return false;}finally{this.busy=null;}});return this.busy;
   }
@@ -56,12 +56,12 @@ export class StatisticsClient {
     if(this.game.developerMode)throw new Error('Developer Mode — statistics disabled.');
     if(!this.enabled)throw new Error('The online leaderboard is not connected yet.');
     if(typeof version!=='string'||!/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(version))throw new Error('Choose one game version.');
-    const result=await this.request(`/api/leaderboard?mode=${this.game.waveLimit}&version=${encodeURIComponent(version)}&id=${this.tracker.id}`);
+    const result=await this.request(`/api/leaderboard?mode=${this.game.waveLimit}&version=${encodeURIComponent(version)}&faction=${encodeURIComponent(this.legacyStandings?'legacy':this.tracker.factionId||'legacy')}&id=${this.tracker.id}`);
     return this.editionStandings(result,version);
   }
   editionStandings(result,version){
     if(result?.version!==version||!Array.isArray(result.top)||[...result.top,...(result.current?[result.current]:[])].some(row=>row.version&&row.version!==version))throw new Error('The score service returned a different game version. Please try again.');
-    return result;
+    if(this.tracker.factionId&&result.factionId!==(this.legacyStandings?null:this.tracker.factionId))throw new Error('The score service returned a different faction.');return result;
   }
   async saveScore(name){
     if(this.game.developerMode)throw new Error('Developer Mode — statistics disabled.');
@@ -71,7 +71,7 @@ export class StatisticsClient {
     if(this.pendingMemory&&!await this.flush())throw new Error(this.lastError);
     if(this.game.developerMode)throw new Error('Developer Mode — statistics disabled.');
     const result=await this.request(`/api/runs/${this.tracker.id}/score`,{writeToken:this.writeToken,name});
-    return this.editionStandings(result,this.tracker.version);
+    this.legacyStandings=false;return this.editionStandings(result,this.tracker.version);
   }
   dispose(){this.unsubscribe();this.tracker.dispose();window.removeEventListener('online',this.online);}
 }

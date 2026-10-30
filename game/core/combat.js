@@ -1,3 +1,4 @@
+import {updateFactionTower,factionImpact} from './faction-combat.js';
 import {distance,damageDefenseBreakdown,towerStats,combatTowerStats,offensiveAuraRange} from './math.js';
 import {enemyRevealed} from './visibility.js';
 import {enemyRulesFor,enemyDisarmActive} from './enemy-rules.js';
@@ -25,7 +26,7 @@ export class CombatManager {
       }
     }
     this.total=this.spawnQueue.length;
-    for(const t of this.game.towers){t.cooldown=0;t.melancholy=0;t.melancholyUntil=0;delete t.dread;}
+    for(const t of this.game.towers){t.cooldown=0;t.melancholy=0;t.melancholyUntil=0;delete t.dread;delete t.weaponCycleState;delete t.factionClocks;delete t.executionReadyAt;t.factionReleases=0;}
   }
   spawn(type,modifiers={}) {
     const base={...this.game.data.enemies[type],...modifiers.variant};
@@ -67,7 +68,7 @@ export class CombatManager {
     if(enemy.dead){result.blockReason='dead';return finish();}
     if(!Number.isFinite(amount)||amount<=0){result.blockReason='invalid';return finish();}
     if(stats.directHit){
-      if(enemy.evasion&&!stats.trueStrike&&this.game.rng()<enemy.evasion){result.blockReason='evasion';return finish();}
+      if(enemy.evasion&&!stats.trueStrike&&this.game.rng()<enemy.evasion*(1-(stats.evasionIgnore||0))){result.blockReason='evasion';return finish();}
       if(enemy.shields>0){
         enemy.shields--;
         if(enemy.shields===0){enemy.shieldClock=this.rules.refraction.period;enemy.shieldReadyAt=this.elapsed+enemy.shieldClock;}
@@ -181,6 +182,7 @@ export class CombatManager {
     }
   }
   impact(shot) {
+    if(shot.faction)return factionImpact(this,shot);
     const {target,stats,source}=shot;
     // A target that recloaks before impact cannot be struck or disclose its
     // hidden position through impact particles. Existing damage-over-time stays.
@@ -228,12 +230,12 @@ export class CombatManager {
   update(dt) {
     const R=this.rules;
     const frameStart=this.elapsed,dreadAtStart=new Map(this.game.towers.filter(t=>t.dread?.until>frameStart).map(t=>[t,{...t.dread}]));
-    this.elapsed+=dt;
+    this.elapsed+=dt;for(const tower of this.game.towers)tower.factionNow=this.elapsed;
     while(this.spawnQueue.length && this.spawnQueue[0].time<=this.elapsed) {const item=this.spawnQueue.shift();this.spawn(item.type,item.modifiers);}
     this.updateStoneGazes(dt);
     for(const enemy of this.enemies) {
       if(enemy.dead)continue;
-      for(const key of ['slow','freeze','gazeSlow','poison','burn','healBlock'])if(!statusEffectAllowed(enemy,key))delete enemy.statuses[key];
+      for(const key of ['slow','freeze','stun','root','gazeSlow','poison','burn','healBlock','regenReduction'])if(!statusEffectAllowed(enemy,key))delete enemy.statuses[key];
       enemy.hit=Math.max(0,enemy.hit-dt);
       enemy.cloaked=!!(enemy.stealth||(enemy.cloakDaggers&&this.elapsed%R.cloak.period<R.cloak.hiddenDuration));
       enemy.reactiveStacks=Math.max(0,enemy.reactiveStacks-dt*R.reactive.decayPerSecond);
@@ -250,14 +252,14 @@ export class CombatManager {
         if(supporter.hasteAura&&this.elapsed%R.support.hastePeriod<R.support.hasteDuration)haste=Math.max(haste,supporter.hasteAura);
       }
       this.prepareArmor(enemy);
-      const healingBlockedFor=Math.max(0,enemy.statuses.healBlock?.time||0);
+      const healingBlockedFor=Math.max(0,enemy.statuses.healBlock?.time||0),regenReduction={...enemy.statuses.regenReduction};
       for(const [key,status] of Object.entries(enemy.statuses)) {
         if(key==='poison'&&status.applications){this.updatePoison(enemy,status,dt);continue;}
         if(status.dps)this.damage(enemy,status.dps*Math.min(dt,status.time),status.damageType||(key==='bleed'?'physical':'magical'),{effect:key==='burn'?'fire':key},status.source);
         status.time-=dt;if(status.time<=0)delete enemy.statuses[key];
       }
       if(enemy.dead)continue;
-      this.updateEnemyHealing(enemy,dt,healingBlockedFor);
+      this.updateEnemyHealing(enemy,dt,healingBlockedFor,regenReduction);
       if(enemy.type==='sapper')for(const ruin of this.game.towers)if(ruin.state==='ruin'&&distance(ruin,enemy)<R.sapper.radius)ruin.weakened=R.sapper.duration;
       const frenzy=enemy.rush&&this.elapsed%R.rush.period<R.rush.duration?enemy.rush:enemy.type==='berserker'&&enemy.hp<enemy.maxHp*R.rush.berserkerThreshold?R.rush.berserkerSpeed:1;
       let slow=Math.max(enemy.statuses.slow?.amount||0,enemy.statuses.gazeSlow?.amount||0);
@@ -278,8 +280,9 @@ export class CombatManager {
         if(enemy.x!==from.x||enemy.z!==from.z)this.game.emit('teleport',{enemy,from,to:{x:enemy.x,z:enemy.z},visible:visible&&this.isRevealed(enemy)});
       }
       // Inspection reports the movement rate actually used in this game tick.
-      enemy.currentSpeed=enemy.statuses.petrify?0:enemy.speed*haste*frenzy*(enemy.statuses.freeze?0:1-slow);
-      move(enemy.statuses.petrify?0:enemy.speed*dt*haste*frenzy*(enemy.statuses.freeze?0:1-slow));
+      const stopped=enemy.statuses.petrify||enemy.statuses.freeze||enemy.statuses.stun||enemy.statuses.root;
+      enemy.currentSpeed=stopped?0:enemy.speed*haste*frenzy*(1-slow);
+      move(stopped?0:enemy.speed*dt*haste*frenzy*(1-slow));
       if(enemy.pathIndex>=enemy.route.length){enemy.dead=true;this.game.lives=Math.max(0,this.game.lives-(enemy.leak||1));this.game.leaks++;if(enemy.thief)this.game.economy.gold=Math.max(0,this.game.economy.gold-enemy.thief);this.game.emit('leak',{enemy});}
     }
     for(const tower of this.game.towers) {
@@ -302,6 +305,7 @@ export class CombatManager {
         if(other.state==='ruin'&&other.weakened>0&&distance(tower,other)<R.sapper.defenderRadius)boost*=1-R.sapper.attackPenalty;
       }
       if(tower.attackPaused)continue;
+      if(stats.factionProfile){if(!tower.disarmed)updateFactionTower(this,tower,stats,dt,boost*(1-dread));continue;}
       if(stats.burnAura){
         const victims=this.enemies.filter(e=>!e.dead&&this.canSee(e,tower)&&distance(e,tower)<=offensiveAuraRange(stats,'burn'));
         for(const e of victims)this.damage(e,stats.burnAura*dt,effectDamageType(stats,'fire'),{...stats,effect:'fire'},tower);
@@ -338,7 +342,7 @@ export class CombatManager {
     if(this.game.lives<=0)this.game.end(false);
     else if(!this.spawnQueue.length&&!this.enemies.length)this.game.completeWave();
   }
-  updateEnemyHealing(enemy,dt,blockedFor){
+  updateEnemyHealing(enemy,dt,blockedFor,reduction={}){
     const R=this.rules;
     const clockEpsilon=1e-9;
     const heal=(value,cause)=>{
@@ -348,7 +352,7 @@ export class CombatManager {
     };
     const regenerate=(from,to)=>{
       const active=Math.max(0,to-Math.max(from,blockedFor));
-      if(enemy.regen>0&&active>0)heal(enemy.maxHp*enemy.regen*active,'regeneration');
+      const reduced=Math.max(0,Math.min(to,reduction.time||0)-Math.max(from,blockedFor));if(enemy.regen>0&&active>0)heal(enemy.maxHp*enemy.regen*(active-reduced*(reduction.amount||0)),'regeneration');
     };
     let cursor=0;
     if(enemy.recharge>0){
@@ -357,7 +361,7 @@ export class CombatManager {
         const at=Math.min(dt,Math.max(0,deadline));regenerate(cursor,at);
         // Compare each real deadline with expiry, instead of sampling a block
         // at the beginning/end of a large tick and losing eligible pulses.
-        if(at+clockEpsilon>=blockedFor)heal(Math.max(0,enemy.maxHp-enemy.hp)*enemy.recharge,'recharge');
+        if(at+clockEpsilon>=blockedFor)heal(Math.max(0,enemy.maxHp-enemy.hp)*enemy.recharge*(at<(reduction.time||0)?1-(reduction.amount||0):1),'recharge');
         cursor=at;deadline+=R.recharge.period;
       }
       enemy.rechargeClock=deadline-dt;

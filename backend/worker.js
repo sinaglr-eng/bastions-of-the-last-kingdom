@@ -1,4 +1,5 @@
-import {playerName,validId,validateSnapshot} from './validation.js';
+import factionRegistry from '../data/faction-memberships.json' with {type:'json'};
+import {playerName,validId,validateSnapshot,validateFactionIdentity} from './validation.js';
 import families from '../data/towers.json' with {type:'json'};
 import waveDefinitions from '../data/waves.json' with {type:'json'};
 import enemyDefinitions from '../data/enemies.json' with {type:'json'};
@@ -19,12 +20,13 @@ async function rateLimit(request,env,kind,max,windowMs){
   await env.DB.prepare('INSERT INTO request_limits (key, period, hits) VALUES (?, ?, 1) ON CONFLICT(key) DO UPDATE SET hits = CASE WHEN request_limits.period = excluded.period THEN request_limits.hits + 1 ELSE 1 END, period = excluded.period').bind(key,period).run();
   return (await env.DB.prepare('SELECT hits FROM request_limits WHERE key = ?').bind(key).first()).hits<=max;
 }
-async function standings(db,mode,version,id=null){
-  const scope=version==='all'?'mode = ?':'mode = ? AND version = ?',parameters=version==='all'?[mode]:[mode,version];
-  const top=await db.prepare(`SELECT id, name, version, score, waves_survived AS wavesSurvived, outcome FROM runs WHERE ${scope} AND outcome != 'developer' AND name IS NOT NULL ORDER BY score DESC, finished_at ASC, id ASC LIMIT 10`).bind(...parameters).all();
+async function standings(db,mode,version,id=null,factionId=null){
+  let scope=version==='all'?'mode = ?':'mode = ? AND version = ?',parameters=version==='all'?[mode]:[mode,version];scope+=factionId?" AND json_extract(summary_json, '$.factionId') = ?":" AND json_extract(summary_json, '$.factionId') IS NULL";if(factionId)parameters.push(factionId);
+  const top=await db.prepare(`SELECT id, name, version, json_extract(summary_json, '$.factionId') AS factionId, score, waves_survived AS wavesSurvived, outcome FROM runs WHERE ${scope} AND outcome != 'developer' AND name IS NOT NULL ORDER BY score DESC, finished_at ASC, id ASC LIMIT 10`).bind(...parameters).all();
   let current=null;if(id){const own=await db.prepare(`SELECT id, name, version, score, waves_survived AS wavesSurvived, outcome, finished_at FROM runs WHERE id = ? AND ${scope} AND outcome != 'developer' AND name IS NOT NULL`).bind(id,...parameters).first();if(own){const row=await db.prepare(`SELECT COUNT(*) + 1 AS rank FROM runs WHERE ${scope} AND outcome != 'developer' AND name IS NOT NULL AND (score > ? OR (score = ? AND (finished_at < ? OR (finished_at = ? AND id < ?))))`).bind(...parameters,own.score,own.score,own.finished_at,own.finished_at,own.id).first();current={...own,rank:row.rank};delete current.finished_at;}}
-  const versions=await db.prepare("SELECT DISTINCT version FROM runs WHERE mode = ? AND outcome != 'developer' AND name IS NOT NULL ORDER BY version").bind(mode).all();
-  return {top:top.results.map((x,i)=>({...x,rank:i+1})),current,mode,version,versions:versions.results.map(row=>row.version)};
+  const versions=await db.prepare(`SELECT DISTINCT version FROM runs WHERE mode = ? AND outcome != 'developer' AND name IS NOT NULL AND ${factionId?"json_extract(summary_json, '$.factionId') = ?":"json_extract(summary_json, '$.factionId') IS NULL"} ORDER BY version`).bind(mode,...(factionId?[factionId]:[])).all();
+  const legacyVersions=await db.prepare("SELECT DISTINCT version FROM runs WHERE mode = ? AND outcome != 'developer' AND name IS NOT NULL AND json_extract(summary_json, '$.factionId') IS NULL ORDER BY version").bind(mode).all();
+  return {top:top.results.map((x,i)=>({...x,rank:i+1})),current,mode,version,factionId,legacyVersions:legacyVersions.results.map(r=>r.version),versions:versions.results.map(row=>row.version)};
 }
 export async function handle(request,env){
   const url=new URL(request.url),db=env.DB,path=url.pathname;
@@ -33,10 +35,10 @@ export async function handle(request,env){
   if(path==='/api/health'){await db.prepare('SELECT COUNT(*) AS tables FROM sqlite_schema WHERE name = ?').bind('runs').first();return response({ok:true,storage:'SQLite',edition:STATISTICS_EDITION,releaseName:STATISTICS_RELEASE_NAME});}
   if(request.method==='POST'&&path==='/api/runs'){
     const b=await body(request);if(!validId(b.id)||!validToken(b.writeToken)||!/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(b.version)||![10,50].includes(b.mode)||!Number.isFinite(b.seed))return response({error:'Invalid new run.'},400);
-    if(await owner(db,b.id,b.writeToken))return response({id:b.id},201);
+    validateFactionIdentity(b);const existing=await owner(db,b.id,b.writeToken);if(existing){const identity=JSON.parse(existing.summary_json);if(existing.version!==b.version||existing.mode!==b.mode||existing.seed!==String(b.seed)||(identity.factionId??null)!==(b.factionId??null)||identity.rulesetRevision!==b.rulesetRevision||identity.contentManifestId!==b.contentManifestId)return response({error:'Run identity cannot change.'},400);return response({id:b.id},201);}
     if(!await rateLimit(request,env,'start',30,3600000))return response({error:'Too many new runs. Please try again later.'},429);
     await db.prepare('DELETE FROM request_limits WHERE period < ?').bind(Date.now()-86400000).run();
-    await db.prepare("INSERT OR IGNORE INTO runs (id, token_hash, version, mode, seed, started_at, updated_at, outcome) VALUES (?, ?, ?, ?, ?, ?, ?, 'playing')").bind(b.id,await hash(b.writeToken),b.version,b.mode,String(b.seed),Date.now(),Date.now()).run();
+    await db.prepare("INSERT OR IGNORE INTO runs (id, token_hash, version, mode, seed, started_at, updated_at, outcome, summary_json) VALUES (?, ?, ?, ?, ?, ?, ?, 'playing', ?)").bind(b.id,await hash(b.writeToken),b.version,b.mode,String(b.seed),Date.now(),Date.now(),JSON.stringify({draws:[],decisions:[],...(b.factionId?{factionId:b.factionId,rulesetRevision:b.rulesetRevision,contentManifestId:b.contentManifestId}:{})})).run();
     if(!await owner(db,b.id,b.writeToken))return response({error:'This run belongs to a different session.'},403);
     return response({id:b.id},201);
   }
@@ -44,11 +46,13 @@ export async function handle(request,env){
   if(request.method==='POST'&&exclusionPath){
     const b=await body(request),id=exclusionPath[1];
     if(!validId(id)||!validToken(b.writeToken)||!/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(b.version)||![10,50].includes(b.mode)||!Number.isFinite(b.seed))return response({error:'Invalid run exclusion.'},400);
+    validateFactionIdentity(b);
+    const identity=JSON.stringify(b.factionId?{factionId:b.factionId,rulesetRevision:b.rulesetRevision,contentManifestId:b.contentManifestId}:{});
     // The tombstone also covers a run whose first checkpoint is still in flight.
-    await db.prepare("INSERT OR IGNORE INTO runs (id, token_hash, version, mode, seed, started_at, updated_at, outcome) VALUES (?, ?, ?, ?, ?, ?, ?, 'developer')").bind(id,await hash(b.writeToken),b.version,b.mode,String(b.seed),Date.now(),Date.now()).run();
+    await db.prepare("INSERT OR IGNORE INTO runs (id, token_hash, version, mode, seed, started_at, updated_at, outcome, summary_json) VALUES (?, ?, ?, ?, ?, ?, ?, 'developer', ?)").bind(id,await hash(b.writeToken),b.version,b.mode,String(b.seed),Date.now(),Date.now(),identity).run();
     if(!await owner(db,id,b.writeToken))return response({error:'Invalid run access.'},403);
     await db.batch([
-      db.prepare("UPDATE runs SET outcome = 'developer', name = NULL, score = 0, waves_survived = 0, duration_ms = 0, health = 0, kingdom_level = 0, gold = 0, summary_json = '{}', updated_at = ?, finished_at = ? WHERE id = ?").bind(Date.now(),Date.now(),id),
+      db.prepare("UPDATE runs SET outcome = 'developer', name = NULL, score = 0, waves_survived = 0, duration_ms = 0, health = 0, kingdom_level = 0, gold = 0, summary_json = ?, updated_at = ?, finished_at = ? WHERE id = ?").bind(identity,Date.now(),Date.now(),id),
       db.prepare('DELETE FROM run_waves WHERE run_id = ?').bind(id),
     ]);
     return response({excluded:true,id});
@@ -59,7 +63,7 @@ export async function handle(request,env){
     const b=await body(request),id=runPath[1],run=await owner(db,id,b.writeToken);if(!run)return response({error:'Invalid run access.'},403);
     if(run.outcome==='developer')return response({error:'Developer Mode runs are excluded from statistics.'},409);
     if(runPath[2]==='checkpoint'){
-      const s=validateSnapshot(b.snapshot,{families,waveDefinitions,enemyDefinitions});if(s.id!==id||s.mode!==run.mode||s.version!==run.version||String(s.seed)!==run.seed)return response({error:'Run identity cannot change.'},400);
+      const storedIdentity=JSON.parse(run.summary_json),selected=factionRegistry.factions.find(f=>f.id===storedIdentity.factionId),allowed=selected?Object.fromEntries(selected.units.map(u=>[u.id,{advanced:u.kind!=='basic'}])):families;const s=validateSnapshot(b.snapshot,{families:allowed,waveDefinitions,enemyDefinitions});if((s.factionId??null)!==(storedIdentity.factionId??null)||s.rulesetRevision!==storedIdentity.rulesetRevision||s.contentManifestId!==storedIdentity.contentManifestId)return response({error:'Run faction cannot change.'},400);if(s.id!==id||s.mode!==run.mode||s.version!==run.version||String(s.seed)!==run.seed)return response({error:'Run identity cannot change.'},400);
       if(s.sequence<=run.sequence)return response({saved:true,sequence:run.sequence});
       if(s.score<run.score||s.wavesSurvived<run.waves_survived)return response({error:'Invalid progress regression.'},409);
       const priorDuration=JSON.parse(run.summary_json).durationSeconds;
@@ -72,7 +76,7 @@ export async function handle(request,env){
         return response({saved:true,sequence:run.sequence});
       }
       const finished=['won','lost'].includes(s.outcome);
-      const summary={draws:s.draws,decisions:s.decisions,...(Object.hasOwn(s,'durationSeconds')?{durationSeconds:s.durationSeconds}:{})};
+      const summary={draws:s.draws,decisions:s.decisions,...(s.factionId?{factionId:s.factionId,rulesetRevision:s.rulesetRevision,contentManifestId:s.contentManifestId}:{}),...(Object.hasOwn(s,'durationSeconds')?{durationSeconds:s.durationSeconds}:{})};
       const statements=[db.prepare('UPDATE runs SET sequence = ?, updated_at = ?, outcome = ?, score = ?, waves_survived = ?, duration_ms = ?, health = ?, kingdom_level = ?, gold = ?, summary_json = ?, finished_at = ? WHERE id = ? AND sequence < ? AND outcome NOT IN (?, ?, ?)').bind(s.sequence,Date.now(),s.outcome,s.score,s.wavesSurvived,s.durationMs,s.health,s.kingdomLevel,s.gold,JSON.stringify(summary),finished?Date.now():null,id,s.sequence,'won','lost','developer')];
       // One guarded statement per checkpoint: older retries cannot overwrite newer waves.
       for(const w of s.waves)statements.push(db.prepare("INSERT INTO run_waves (run_id, wave, snapshot_json, sequence) SELECT ?, ?, ?, ? WHERE EXISTS (SELECT 1 FROM runs WHERE id = ? AND sequence = ? AND outcome != 'developer') ON CONFLICT(run_id, wave) DO UPDATE SET snapshot_json = excluded.snapshot_json, sequence = excluded.sequence WHERE run_waves.sequence < excluded.sequence").bind(id,w.index,JSON.stringify(w),s.sequence,id,s.sequence));
@@ -80,20 +84,20 @@ export async function handle(request,env){
     }
     if(!['won','lost'].includes(run.outcome))return response({error:'Finish the run before saving a score.'},409);
     const name=playerName(b.name);if(run.name&&run.name!==name)return response({error:'This score has already been saved.'},409);
-    await db.prepare("UPDATE runs SET name = ? WHERE id = ? AND name IS NULL AND outcome IN ('won','lost')").bind(name,id).run();return response(await standings(db,run.mode,b.leaderboardVersion==='all'?'all':run.version,id));
+    await db.prepare("UPDATE runs SET name = ? WHERE id = ? AND name IS NULL AND outcome IN ('won','lost')").bind(name,id).run();return response(await standings(db,run.mode,b.leaderboardVersion==='all'?'all':run.version,id,JSON.parse(run.summary_json).factionId??null));
   }
   if(request.method==='GET'&&path==='/api/leaderboard'){
     const mode=Number(url.searchParams.get('mode')),version=url.searchParams.get('version');if(![10,50].includes(mode)||!(version==='all'||/^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(version||'')))return response({error:'Choose a valid campaign and edition.'},400);
-    return response(await standings(db,mode,version,url.searchParams.get('id')));
+    const factionId=url.searchParams.get('faction');if(factionId&&!['legacy','crown','forge','grove'].includes(factionId))return response({error:'Invalid faction.'},400);return response(await standings(db,mode,version,url.searchParams.get('id'),factionId==='legacy'?null:factionId));
   }
   if(request.method==='GET'&&path==='/api/admin/statistics'){
     if(!env.ADMIN_TOKEN||request.headers.get('Authorization')!==`Bearer ${env.ADMIN_TOKEN}`)return response({error:'Owner access required.'},401);
-    const runs=await db.prepare("SELECT version, mode, outcome, COUNT(*) AS runs, AVG(waves_survived) AS averageWaves, AVG(score) AS averageScore, COUNT(json_extract(summary_json, '$.durationSeconds')) AS timedRuns, SUM(json_extract(summary_json, '$.durationSeconds')) AS totalDurationSeconds, AVG(json_extract(summary_json, '$.durationSeconds')) AS averageDurationSeconds FROM runs WHERE outcome != 'developer' GROUP BY version, mode, outcome").all();
-    const runDurations=await db.prepare("SELECT id AS runId, version, mode, outcome, json_extract(summary_json, '$.durationSeconds') AS durationSeconds, duration_ms AS durationMs FROM runs WHERE outcome != 'developer' ORDER BY started_at DESC, id ASC").all();
-    const waves=await db.prepare("SELECT r.version, r.mode, w.wave, COUNT(*) AS attempts, SUM(json_extract(snapshot_json, '$.completed')) AS completed, AVG(json_extract(snapshot_json, '$.leaks')) AS averageLeaks, AVG(json_extract(snapshot_json, '$.healthLost')) AS averageHealthLost, AVG(json_extract(snapshot_json, '$.durationMs')) AS averageDurationMs, AVG(json_extract(snapshot_json, '$.routeLength')) AS averageRoute FROM run_waves w JOIN runs r ON r.id=w.run_id WHERE r.outcome != 'developer' GROUP BY r.version, r.mode, w.wave").all();
-    const defenders=await db.prepare("SELECT r.version, r.mode, json_extract(t.value, '$.family') AS family, json_extract(t.value, '$.tier') AS tier, COUNT(*) AS waveDeployments, COUNT(DISTINCT w.run_id) AS runsUsing, SUM(json_extract(t.value, '$.damage')) AS damage, SUM(json_extract(t.value, '$.kills')) AS kills, SUM(json_extract(t.value, '$.shots')) AS shots, SUM(json_extract(t.value, '$.hits')) AS hits, SUM(json_extract(t.value, '$.controlSeconds')) AS controlSeconds, SUM(json_extract(t.value, '$.supportSeconds')) AS receivedSupportSeconds FROM run_waves w JOIN runs r ON r.id=w.run_id, json_each(w.snapshot_json, '$.towers') t WHERE r.outcome != 'developer' GROUP BY r.version, r.mode, family, tier").all();
-    const draws=await db.prepare("SELECT r.version, r.mode, json_extract(t.value, '$.family') AS family, json_extract(t.value, '$.tier') AS tier, COUNT(*) AS drawn FROM runs r, json_each(r.summary_json, '$.draws') t WHERE r.outcome != 'developer' GROUP BY r.version, r.mode, family, tier").all();
-    const decisions=await db.prepare("SELECT r.version, r.mode, json_extract(t.value, '$.family') AS family, json_extract(t.value, '$.tier') AS tier, json_extract(t.value, '$.action') AS action, COUNT(*) AS chosen FROM runs r, json_each(r.summary_json, '$.decisions') t WHERE r.outcome != 'developer' GROUP BY r.version, r.mode, family, tier, action").all();
+    const runs=await db.prepare("SELECT version, mode, json_extract(summary_json, '$.factionId') AS factionId, outcome, COUNT(*) AS runs, AVG(waves_survived) AS averageWaves, AVG(score) AS averageScore, COUNT(json_extract(summary_json, '$.durationSeconds')) AS timedRuns, SUM(json_extract(summary_json, '$.durationSeconds')) AS totalDurationSeconds, AVG(json_extract(summary_json, '$.durationSeconds')) AS averageDurationSeconds FROM runs WHERE outcome != 'developer' GROUP BY version, mode, factionId, outcome").all();
+    const runDurations=await db.prepare("SELECT id AS runId, version, mode, json_extract(summary_json, '$.factionId') AS factionId, outcome, json_extract(summary_json, '$.durationSeconds') AS durationSeconds, duration_ms AS durationMs FROM runs WHERE outcome != 'developer' ORDER BY started_at DESC, id ASC").all();
+    const waves=await db.prepare("SELECT r.version, r.mode, json_extract(r.summary_json, '$.factionId') AS factionId, w.wave, COUNT(*) AS attempts, SUM(json_extract(snapshot_json, '$.completed')) AS completed, AVG(json_extract(snapshot_json, '$.leaks')) AS averageLeaks, AVG(json_extract(snapshot_json, '$.healthLost')) AS averageHealthLost, AVG(json_extract(snapshot_json, '$.durationMs')) AS averageDurationMs, AVG(json_extract(snapshot_json, '$.routeLength')) AS averageRoute FROM run_waves w JOIN runs r ON r.id=w.run_id WHERE r.outcome != 'developer' GROUP BY r.version, r.mode, factionId, w.wave").all();
+    const defenders=await db.prepare("SELECT r.version, r.mode, json_extract(r.summary_json, '$.factionId') AS factionId, json_extract(t.value, '$.family') AS family, json_extract(t.value, '$.tier') AS tier, COUNT(*) AS waveDeployments, COUNT(DISTINCT w.run_id) AS runsUsing, SUM(json_extract(t.value, '$.damage')) AS damage, SUM(json_extract(t.value, '$.kills')) AS kills, SUM(json_extract(t.value, '$.shots')) AS shots, SUM(json_extract(t.value, '$.hits')) AS hits, SUM(json_extract(t.value, '$.controlSeconds')) AS controlSeconds, SUM(json_extract(t.value, '$.supportSeconds')) AS receivedSupportSeconds FROM run_waves w JOIN runs r ON r.id=w.run_id, json_each(w.snapshot_json, '$.towers') t WHERE r.outcome != 'developer' GROUP BY r.version, r.mode, factionId, family, tier").all();
+    const draws=await db.prepare("SELECT r.version, r.mode, json_extract(r.summary_json, '$.factionId') AS factionId, json_extract(t.value, '$.family') AS family, json_extract(t.value, '$.tier') AS tier, COUNT(*) AS drawn FROM runs r, json_each(r.summary_json, '$.draws') t WHERE r.outcome != 'developer' GROUP BY r.version, r.mode, factionId, family, tier").all();
+    const decisions=await db.prepare("SELECT r.version, r.mode, json_extract(r.summary_json, '$.factionId') AS factionId, json_extract(t.value, '$.family') AS family, json_extract(t.value, '$.tier') AS tier, json_extract(t.value, '$.action') AS action, COUNT(*) AS chosen FROM runs r, json_each(r.summary_json, '$.decisions') t WHERE r.outcome != 'developer' GROUP BY r.version, r.mode, factionId, family, tier, action").all();
     return response({generatedAt:new Date().toISOString(),runs:runs.results,runDurations:runDurations.results,waves:waves.results,defenders:defenders.results,draws:draws.results,decisions:decisions.results});
   }
   return response({error:'Not found.'},404);

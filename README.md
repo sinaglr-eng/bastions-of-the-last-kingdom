@@ -1,10 +1,12 @@
-# Forged Alliances TD — 0.5.2
+# Forged Alliances TD — 0.6.0
 
 A browser tower-defense game: place five mystery recruits, keep one or combine exact recipe ingredients, then use the remaining foundations to shape the enemy route. The campaign has 50 waves.
 
-**0.5.2 is the current version.** [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/) · [Royal atelier](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/archer.html)
+**0.6.0 is the current version.** [Play the game](https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/)
 
-The game is now named **Forged Alliances TD**, with a vector mark and wordmark whose TD seal is now larger. Recipes and Enemy Waves have framed touch buttons, Potential combinations stays expanded, the initial loading message has correct punctuation, and wave 49 restores 10% of missing health every four seconds. Late-wave enemy instances share identical immutable static surfaces to reduce memory use while retaining all original geometry, materials and motion. [Changes and verification](docs/FORGED_ALLIANCES_V052.md).
+Choose **Human**, **Dwarves** or **Elves** before each run and before its Start/Skip tutorial prompt. The selected faction owns its eight basic defender families, 38 recipes and 86 approved V3 appearances, with authored Idle and Attack animation clips. The faction stays locked for the run. Local and online results retain the played faction; earlier scores remain in Legacy records. [Implementation and verification](docs/FACTIONS_V060.md).
+
+The game is named **Forged Alliances TD**, with a vector mark and wordmark whose TD seal is now larger. Recipes and Enemy Waves have framed touch buttons, Potential combinations stays expanded, the initial loading message has correct punctuation, and wave 49 restores 10% of missing health every four seconds. Late-wave enemy instances share identical immutable static surfaces to reduce memory use while retaining all original geometry, materials and motion. [Changes and verification](docs/FORGED_ALLIANCES_V052.md).
 
 The tutorial now introduces **Choose your maze shape** as its second step, before placing recruits. Open the ordinary Maze plans picker and choose a plan to continue. A previously saved plan can be selected again; simply opening or closing the picker does not complete the step. Each new run still offers Start tutorial or Skip tutorial.
 
@@ -37,6 +39,8 @@ The maze is a construction guide; selecting it does not build walls or spend res
 
 ## Archive and development
 
-The preserved offline 0.5.0 source and production archives are in `backups/releases/v0.5.0/` in the primary workspace. Their manifest records exact release and file hashes. The immutable `v0.5.0-stable` reference remains the archived baseline; current game updates do not rewrite it. [Archive verification, release evidence and cleanup scope](docs/RELEASE_0.5.md).
+The verified previous 0.5.2 source and production rollback pair is retained locally in `backups/releases/v0.5.2/`. Older offline rollback pairs can be retired after the 0.6 deployment is verified. Historical design evidence and the local-only canonical gallery are preserved. Current production packaging excludes retired review deliveries and uses lossless gzip model transport; decoded bytes match the approved originals. The older public atelier entry returns to the current game.
 
-Original approved models, images, audio, prompts, reference galleries and editable Blender sources remain intact. Older asset namespace names identify approved source revisions still used by the current game. Current faction-gallery work is separate. The game uses a separate statistics service; scores, player saves and service data are retained. See [backend setup](docs/STATISTICS_BACKEND.md) and the [change history](CHANGELOG.md).
+The older offline 0.5.0 pair is retired after verifying this release. Its immutable `v0.5.0-stable` Git reference and historical verification records remain available. [Historical archive evidence](docs/RELEASE_0.5.md).
+
+Current approved original models, images, audio, prompts, reference galleries and editable V3 Blender sources remain intact. Older asset namespace names identify preserved historical evidence or approved enemy/scenery revisions still used by the current game. Current faction-gallery work is separate. The game uses a separate statistics service; scores, player saves and service data are retained. See [backend setup](docs/STATISTICS_BACKEND.md) and the [change history](CHANGELOG.md).

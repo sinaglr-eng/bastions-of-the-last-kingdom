@@ -61,7 +61,7 @@ function decodePng(buffer){
 
 test('all 136 historical cutouts remain exact transparent derivatives while runtime enemies use separate front portraits',()=>{
   assert.equal(manifest.identities.length,136);assert.equal(manifest.revision,REFERENCE_PORTRAIT_REVISION);
-  assert.equal(json('public/release.json').uiPortraitRevision,manifest.revision);
+  assert.equal(json('public/release.json').uiPortraitRevision,'v3-first-frame-20261030'); // Historical cutouts remain exact; selected allied portraits now use V3 frames.
   assert.equal(manifest.maskSha256,hash(bytes('tools/reference-cutout-masks.json')));
   const sourceById=new Map(originals.identities.map(row=>[row.id,row]));
   assert.deepEqual(manifest.identities.map(row=>row.id).sort(),[...sourceById.keys()].sort());

@@ -6,7 +6,7 @@ const number=n=>Math.round((Number(n)||0)*100)/100;
 const unit=t=>({id:t.id,family:t.family,tier:t.tier,x:t.x,z:t.z});
 export class RunStatistics {
   constructor(game,{id=crypto.randomUUID(),clock=()=>Date.now(),version=GAME_VERSION}={}){
-    this.game=game;this.clock=clock;this.id=id;this.startedAt=clock();this.version=version;this.sequence=0;this.waves=[];this.draws=[];this.decisions=[];this.current=null;this.outcome='playing';this.lastSources=new Map();this.sampleClock=0;this.unsubscribe=game.on((type,payload)=>this.event(type,payload));
+    this.game=game;this.factionId=game.factionId;this.rulesetRevision=game.data.rulesetRevision;this.contentManifestId=game.data.contentManifestId;this.clock=clock;this.id=id;this.startedAt=clock();this.version=version;this.sequence=0;this.waves=[];this.draws=[];this.decisions=[];this.current=null;this.outcome='playing';this.lastSources=new Map();this.sampleClock=0;this.unsubscribe=game.on((type,payload)=>this.event(type,payload));
   }
   event(type,p){
     if(this.game.developerMode)return;
@@ -63,7 +63,7 @@ export class RunStatistics {
     // The optional elapsed-run clock comes only from Game, never from an
     // old timestamp or a sum of speed-scaled combat waves.
     const duration=Number.isFinite(g.elapsedSeconds)&&g.elapsedSeconds>=0?{durationSeconds:g.elapsedSeconds}:{};
-    return {id:this.id,version:this.version,mode:g.waveLimit,seed:g.seed,sequence:++this.sequence,outcome:abandoned&&this.outcome==='playing'?'abandoned':this.outcome,score:g.score,wavesSurvived:waves.filter(w=>w.completed).length,durationMs:Math.max(0,(this.finishedAt??this.clock())-this.startedAt),...duration,kingdomLevel:g.economy.level,health:g.lives,gold:g.economy.gold,draws:structuredClone(this.draws),decisions:structuredClone(this.decisions),waves};
+    return {id:this.id,...(this.factionId?{factionId:this.factionId,rulesetRevision:this.rulesetRevision,contentManifestId:this.contentManifestId}:{}),version:this.version,mode:g.waveLimit,seed:g.seed,sequence:++this.sequence,outcome:abandoned&&this.outcome==='playing'?'abandoned':this.outcome,score:g.score,wavesSurvived:waves.filter(w=>w.completed).length,durationMs:Math.max(0,(this.finishedAt??this.clock())-this.startedAt),...duration,kingdomLevel:g.economy.level,health:g.lives,gold:g.economy.gold,draws:structuredClone(this.draws),decisions:structuredClone(this.decisions),waves};
   }
   dispose(){this.unsubscribe();}
 }

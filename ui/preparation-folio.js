@@ -11,7 +11,7 @@ const portrait=(family,tier,data,images)=>images[`${family}:${tier}`]||(data.tow
 
 export function preparationEffects(stats){
   const aura=stats.burnAura?`${formatTowerNumber(stats.burnAura)} ${damageTypeName(effectDamageType(stats,'burn'))} fire damage/s within ${offensiveAuraRange(stats,'burn')} tiles`:null;
-  const lines=abilityLines(stats).map((line,index)=>stats.type==='holy'&&index===0?'Holy damage ignores immunities':line===aura?`${formatTowerNumber(stats.burnAura)} ${damageTypeName(effectDamageType(stats,'burn'))} aura damage/s per enemy within ${offensiveAuraRange(stats,'burn')} tiles`:line.replace(/\b(physical|magical|holy)\b/g,type=>damageTypeName(type)));
+  const lines=abilityLines(stats).map((line,index)=>!stats.factionProfile&&stats.type==='holy'&&index===0?'Holy damage ignores immunities':line===aura?`${formatTowerNumber(stats.burnAura)} ${damageTypeName(effectDamageType(stats,'burn'))} aura damage/s per enemy within ${offensiveAuraRange(stats,'burn')} tiles`:line.replace(/\b(physical|magical|holy)\b/g,type=>damageTypeName(type)));
   if(lines.length===1&&lines[0]==='Single-target attack')return ['Targets 1 · No additional status effect.'];
   if(lines.length===1&&lines[0]==='Ground targets only')return ['Targets 1 · Ground only · No additional status effect.'];
   return lines;

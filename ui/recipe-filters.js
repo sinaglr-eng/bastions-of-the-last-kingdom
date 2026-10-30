@@ -9,6 +9,12 @@ export const RECIPE_FILTERS={
 export function recipeCapabilities(s,{family}={}){
   s=canonicalCombatStats(s);
   const damage=new Set(),abilities=new Set(),counters=new Set();
+  if(s.factionProfile){
+    const groups={poison:['poison'],burn:['burn','fire-aura','flame-cone'],slow:['slow','slow-aura','root'],stun:['stun','freeze','root'],armor:['armor-reduction','armor-reduction-aura','armor-penetration'],critical:['critical-strike','magical-critical-strike'],splash:['splash','cleave-physical','cleave-magical','multishot','ricochet','flame-cone'],lightning:['lightning','spark'],support:['attack-speed-aura','damage-aura','range-aura','protection-aura'],detection:['visibility'],'healing-block':['anti-regeneration']};
+    for(const a of s.abilities||[]){for(const [tag,ids]of Object.entries(groups))if(ids.includes(a.familyId))abilities.add(tag);if(a.damage||a.dps||a.damagePercent){const type=a.damageType==='profile'?s.type:a.damageType==='magical-or-holy'?(s.type==='holy'?'holy':'magical'):a.damageType;if(type)damage.add(damageType(type));}if(a.familyId==='cancel-magic-immunity')counters.add('magic-immunity');if(a.familyId==='cancel-physical-immunity')counters.add('physical-immunity');if(a.familyId==='true-strike')counters.add('evasion');}
+    if(s.continuousAttack){damage.add(s.type);counters.add('shields');counters.add('shell');}
+    if(abilities.has('healing-block'))counters.add('regeneration');
+  }
   const channel=type=>{if(type)damage.add(damageType(type));};
   if(s.damage>0)channel(s.type);
   if(s.poisonDps||s.poison){channel(effectDamageType(s,'poison'));abilities.add('poison');}
@@ -38,7 +44,7 @@ export function recipeCapabilities(s,{family}={}){
   if(independent.has('magical')||independent.has('holy'))counters.add('physical-immunity');
   if(s.trueStrike||s.aura?.trueStrike||s.burnAura)counters.add('evasion');
   if(s.poisonDps||s.poison||s.burnDps||s.burn||s.bleed||s.burnAura||s.cleave){counters.add('shields');counters.add('shell');}
-  if(!s.melee)counters.add('flying');
+  if(!s.melee&&!s.groundOnly)counters.add('flying');
   return {damage,abilities,counters};
 }
 export function recipeMatches(stats,{damage='',ability='',counter=''}={},context={}){

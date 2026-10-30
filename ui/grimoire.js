@@ -10,13 +10,14 @@ import {icon} from './icons.js';
 import {recipeIngredientPresentation} from './recipe-navigation.js';
 export const ROMAN=['I','II','III','IV','V','VI'];
 export const BASE_DPS_NOTE='Base DPS is damage per hit ÷ attack interval for one target, before armor or damage immunity. It excludes critical hits, poison, auras, extra targets and ally bonuses.';
-export const baseAttackDps=s=>s.interval>0&&Number.isFinite(s.damage)&&Number.isFinite(s.interval)?s.damage/s.interval:0;
+export const baseAttackDps=s=>s.factionProfile&&s.cycleMetrics? s.cycleMetrics.primaryDps:s.interval>0&&Number.isFinite(s.damage)&&Number.isFinite(s.interval)?s.damage/s.interval:0;
 export const formatTowerNumber=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(n);
 export const damageTypeName=type=>({physical:'Physical',magical:'Magical',holy:'Holy'}[type]||type);
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Runtime channels remain separate: an aura is not a direct attack, poison is
 // per successful hit, and multiple targets do not form a universal DPS score.
 export function championPerformanceSummary(stats){
+  if(stats.factionProfile){const cone=stats.continuousAttack,fire=stats.abilities?.find(a=>a.familyId==='fire-aura');return [cone?`Continuous cone ${formatTowerNumber(cone.dps)}/s`:stats.damage>0?`Base direct DPS ${formatTowerNumber(baseAttackDps(stats))}${stats.weaponCycle?' over a full magazine and reload cycle':''}`:'No direct attack',fire?`Fire aura ${formatTowerNumber(fire.dps)}/s`:''].filter(Boolean).join(' · ');}
   const parts=[];
   if(stats.burnAura)parts.push(`Aura DPS ${formatTowerNumber(stats.burnAura)}/s · ${damageTypeName(effectDamageType(stats,'burn'))}`);
   if(stats.damage>0&&stats.interval>0)parts.push(`Direct DPS ${formatTowerNumber(baseAttackDps(stats))}${stats.multishot?` per target · ${stats.multishot} targets`:''}`);
@@ -32,6 +33,7 @@ export function runtimeDefenderDescription(stats,{family}={}){
 const performanceStatsMarkup=(stats,directLabel=false)=>stats.burnAura&&!(stats.damage>0)?`<dl class="recipe-stat-grid aura-performance"><div><dt>Aura DPS</dt><dd>${formatTowerNumber(stats.burnAura)}/s</dd></div><div><dt>Damage type</dt><dd>${damageTypeName(effectDamageType(stats,'burn'))}</dd></div><div><dt>Direct attack</dt><dd>None</dd></div><div><dt>Range</dt><dd>${formatTowerNumber(stats.range)}</dd></div></dl>`:`<dl class="recipe-stat-grid"><div><dt>Damage / hit</dt><dd>${formatTowerNumber(stats.damage)}</dd></div><div><dt>${directLabel?'Base direct DPS':'Base DPS'}</dt><dd>${formatTowerNumber(baseAttackDps(stats))}</dd></div><div><dt>Interval</dt><dd>${formatTowerNumber(stats.interval)}s</dd></div><div><dt>Range</dt><dd>${formatTowerNumber(stats.range)}</dd></div></dl>`;
 export const basicIngredientLabel=(p,data)=>`${p.count}×${defenderCode(data.towers[p.family],p.tier)}`;
 export function abilityLines(s){
+  if(s.factionProfile)return [...(s.weaponCycle?[`${s.weaponCycle.magazine} shots per magazine · ${s.weaponCycle.fixedInterval}s between shots · ${s.weaponCycle.reload}s reload${s.weaponCycle.spinUpSeconds?` · ${s.weaponCycle.spinUpSeconds}s spin-up`:''}`]:[]),...(s.abilities||[]).map(a=>a.text)];
   const parts=[];
   if(s.type==='holy')parts.push('Holy damage ignores damage immunities; companion slows/freezes respect Physical immunity and poison/burning/healing block respect Magical immunity; armor, evasion, shields and shells still apply');
   if(s.melee)parts.push('Ground targets only');

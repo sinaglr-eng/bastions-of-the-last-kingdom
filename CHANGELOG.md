@@ -1,5 +1,11 @@
 # Releases
 
+## 0.6.0 — Three factions and approved V3 motion — 30 October 2026
+
+Adds mandatory Human, Dwarves or Elves selection before the tutorial. Every run uses one closed roster, with 8 basic families, 38 recipes and 86 approved V3 appearances per faction. The actual authored Idle/Attack clips run through private animation mixers without driving combat damage. Human retains 0.5.2 combat; the two added armies use their authored faction profiles. New results and standings carry immutable faction attribution, while legacy scores remain separately accessible. The name form, maze-first tutorial, 50-wave campaign and previous approved UI fixes remain.
+
+The previous 0.5.2 source/production pair is verified and retained for rollback. Current production media uses lossless transport compression and excludes earlier modeling review deliveries. [Details and verification limits](docs/FACTIONS_V060.md).
+
 ## 0.5.2 — 2026-10-28
 
 - Wave 49 restores 10% of missing HP every four seconds; other waves retain their current recovery rules.

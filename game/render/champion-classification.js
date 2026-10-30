@@ -1,3 +1,4 @@
+import factionClasses from '../../data/faction-classifications.json' with {type:'json'};
 // Visual classifications verified against the Gem TD wiki's Towers table.
 // These levels identify presentation classes independently of combat buffs and basic ranks.
 export const CHAMPION_CLASSIFICATION_SOURCE = 'https://dota2.fandom.com/wiki/Gem_TD#Towers';
@@ -46,5 +47,5 @@ export const CHAMPION_CLASSIFICATIONS = Object.freeze({
   lordbernhard: 'Secret'
 });
 
-export const championClassification = family => Object.hasOwn(CHAMPION_CLASSIFICATIONS,family) ? CHAMPION_CLASSIFICATIONS[family] : null;
+export const championClassification = family => Object.hasOwn(CHAMPION_CLASSIFICATIONS,family) ? CHAMPION_CLASSIFICATIONS[family] : Object.hasOwn(factionClasses,family)?factionClasses[family]:null;
 export const championAuraLevel = family => CLASSIFICATION_LEVELS[championClassification(family)] ?? 0;

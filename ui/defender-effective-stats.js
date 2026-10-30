@@ -24,6 +24,14 @@ export function defenderEffectiveStats(game,tower,{data=game.data,view=tower}={}
   }
   const stopped=live&&(tower.attackPaused?'Attacks paused':support.byKey.melancholy?'Melancholy · cannot attack':support.byKey.disarm?'Disarmed · cannot attack':null);
   if(stopped&&dps){dpsParts.push({key:'stopped',label:stopped,value:-dps});dps=0;}
+  if(base.factionProfile){
+    const s=combat.stats,weapon=s.weaponCycle;
+    // Reload/spin-up and continuous damage do not gain attack-speed bonuses.
+    if(s.continuousAttack)dps=stopped?0:s.continuousAttack.dps;
+    else if(weapon)dps=stopped||rate<=0?0:s.damage*weapon.magazine/((weapon.spinUpSeconds||0)+weapon.magazine*weapon.fixedInterval/rate+weapon.reload);
+    else dps=stopped?0:s.damage/Math.max(.01,s.interval)*Math.max(0,rate);
+    dpsParts.length=0;
+  }
   return {live,base,stats:combat.stats,damage:combat.stats.damage||0,dps,range:combat.stats.range,interval:stopped||rate<=0?null:base.interval/rate,damageParts,dpsParts,rangeBonus:combat.stats.range-base.range,haste:combat.bonuses.haste,stopped};
 }
 
@@ -31,5 +39,5 @@ const contributionMarkup=parts=>parts.length?`<dl class="effective-stat-breakdow
 export function defenderEffectiveStatsMarkup(game,tower,options={}){
   const result=defenderEffectiveStats(game,tower,options),{base}=result;
   const breakdown=(value,parts)=>result.live&&parts.length?`<small class="effective-stat-base">Base ${formatTowerNumber(value)}</small>${contributionMarkup(parts)}`:'';
-  return `<div class="folio-metrics stat-grid combat-stat-grid" data-effective-stats="" data-stats-scope="${result.live?'current':'base-preview'}"><div><span>Damage / hit</span><strong>${formatTowerNumber(result.damage)}</strong>${breakdown(base.damage,result.damageParts)}</div><div><span>Direct DPS</span><strong>${formatTowerNumber(result.dps)}</strong>${breakdown(baseAttackDps(base),result.dpsParts)}</div><div><span>Range</span><strong>${formatTowerNumber(result.range)}</strong>${result.rangeBonus?`<small class="effective-stat-base">Base ${formatTowerNumber(base.range)} + ${formatTowerNumber(result.rangeBonus)} aura</small>`:''}</div><div><span>Interval</span><strong>${result.interval===null?'—':formatTowerNumber(result.interval)+'s'}</strong>${result.stopped?`<small class="effective-stat-base">${result.stopped}</small>`:result.live&&result.interval!==base.interval?`<small class="effective-stat-base">Base ${formatTowerNumber(base.interval)}s · current attack speed</small>`:''}</div></div>`;
+  return `<div class="folio-metrics stat-grid combat-stat-grid" data-effective-stats="" data-stats-scope="${result.live?'current':'base-preview'}"><div><span>Damage / hit</span><strong>${base.continuousAttack?'—':formatTowerNumber(result.damage)}</strong>${breakdown(base.damage,result.damageParts)}</div><div><span>${base.continuousAttack?'Continuous DPS':base.weaponCycle?'Cycle DPS':'Direct DPS'}</span><strong>${formatTowerNumber(result.dps)}</strong>${breakdown(baseAttackDps(base),result.dpsParts)}</div><div><span>Range</span><strong>${formatTowerNumber(result.range)}</strong>${result.rangeBonus?`<small class="effective-stat-base">Base ${formatTowerNumber(base.range)} + ${formatTowerNumber(result.rangeBonus)} aura</small>`:''}</div><div><span>Interval</span><strong>${base.continuousAttack?'Continuous':result.interval===null?'—':formatTowerNumber(result.interval)+'s'}</strong>${result.stopped?`<small class="effective-stat-base">${result.stopped}</small>`:result.live&&result.interval!==base.interval?`<small class="effective-stat-base">Base ${formatTowerNumber(base.interval)}s · current attack speed</small>`:''}</div></div>`;
 }

@@ -1,8 +1,8 @@
 {
-  "version": "0.5.2",
+  "version": "0.6.0",
   "name": "Forged Alliances TD",
-  "edition": "The Cartographer’s Table",
-  "date": "2026-10-28",
+  "edition": "Forged Alliances",
+  "date": "2026-10-30",
   "basicClasses": 8,
   "champions": 38,
   "secretChampions": 1,
@@ -36,13 +36,29 @@
   "mvpMaximumLevel": 10,
   "developerConsole": true,
   "classificationScaleStep": 1.1,
-  "uiRevision": "forged-alliances-20261028-v2",
+  "uiRevision": "faction-selection-20261030-v1",
   "performanceRevision": "shared-enemy-surfaces-20261028-v1",
   "brandRevision": "forged-alliances-20261028-v2",
-  "uiPortraitRevision": "reference-cutouts-20261016-v1",
+  "uiPortraitRevision": "v3-first-frame-20261030",
   "uiEnemyPortraitRevision": "enemy-front-cutouts-20261018-v1",
   "uiOutcomeArtRevision": "outcome-scenes-20261022-v3",
-  "motionRevision": "approved-motion-v1",
+  "motionRevision": "approved-faction-motion-v3",
   "vfxRevision": "hand-lightning-20261021-v2",
-  "balanceRevision": "wave49-recharge10-20261028"
+  "balanceRevision": "factions-v14-human052-20261030",
+  "factions": [
+    {
+      "id": "crown",
+      "name": "Human"
+    },
+    {
+      "id": "forge",
+      "name": "Dwarves"
+    },
+    {
+      "id": "grove",
+      "name": "Elves"
+    }
+  ],
+  "totalDefenderVariants": 258,
+  "factionArtRevision": "approved-faction-models-v3-20261030"
 }

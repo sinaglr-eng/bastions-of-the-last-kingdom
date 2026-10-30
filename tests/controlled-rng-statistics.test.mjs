@@ -7,7 +7,7 @@ import {validateSnapshot} from '../backend/validation.js';
 
 const data=Object.fromEntries(['balance','towers','enemies','waves','recipes'].map(key=>[key,JSON.parse(readFileSync(new URL(`../data/${key}.json`,import.meta.url)))]));
 const makeRun=(waveLimit=50)=>{
-  const game=new Game(data,{seed:42,waveLimit}),statistics=new RunStatistics(game,{id:'00000000-0000-4000-8000-000000000016',clock:()=>1000});
+  const game=new Game(data,{seed:42,waveLimit}),statistics=new RunStatistics(game,{id:'00000000-0000-4000-8000-000000000016',clock:()=>1000,version:'0.5.2'});
   return {game,statistics};
 };
 const cleanSnapshot=statistics=>validateSnapshot(statistics.snapshot(),{families:data.towers,waveDefinitions:data.waves,enemyDefinitions:data.enemies});

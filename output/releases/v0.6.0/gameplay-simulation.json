@@ -1,0 +1,156 @@
+{
+  "status": "passed",
+  "method": "Nine real unforced seeded campaigns with greedy legal placements, keeps, merges and recipes. No debug mode, enemy clearing, injected ranks or artificial victories. Separate controlled single-defender endurance skirmishes use high stationary target HP to exercise each authored appearance against six actual wave kits.",
+  "limitations": "A smoke and regression policy, not an optimized player or a claim that every campaign is won. Rendering and physical iPad Safari were not exercised.",
+  "campaigns": [
+    {
+      "factionId": "crown",
+      "seed": 42,
+      "outcome": "lost",
+      "lastWave": 14,
+      "completed": 13,
+      "lives": 0,
+      "kills": 110,
+      "score": 19000,
+      "placements": 70,
+      "crafted": 3,
+      "merged": 1,
+      "steps": 5368
+    },
+    {
+      "factionId": "crown",
+      "seed": 123,
+      "outcome": "lost",
+      "lastWave": 12,
+      "completed": 11,
+      "lives": 0,
+      "kills": 87,
+      "score": 13600,
+      "placements": 60,
+      "crafted": 2,
+      "merged": 3,
+      "steps": 5205
+    },
+    {
+      "factionId": "crown",
+      "seed": 807,
+      "outcome": "lost",
+      "lastWave": 12,
+      "completed": 11,
+      "lives": 0,
+      "kills": 85,
+      "score": 13410,
+      "placements": 60,
+      "crafted": 1,
+      "merged": 0,
+      "steps": 5418
+    },
+    {
+      "factionId": "forge",
+      "seed": 42,
+      "outcome": "lost",
+      "lastWave": 10,
+      "completed": 9,
+      "lives": 0,
+      "kills": 67,
+      "score": 7680,
+      "placements": 50,
+      "crafted": 1,
+      "merged": 2,
+      "steps": 5536
+    },
+    {
+      "factionId": "forge",
+      "seed": 123,
+      "outcome": "lost",
+      "lastWave": 9,
+      "completed": 8,
+      "lives": 0,
+      "kills": 49,
+      "score": 5440,
+      "placements": 45,
+      "crafted": 0,
+      "merged": 4,
+      "steps": 4721
+    },
+    {
+      "factionId": "forge",
+      "seed": 807,
+      "outcome": "lost",
+      "lastWave": 8,
+      "completed": 7,
+      "lives": 0,
+      "kills": 40,
+      "score": 4270,
+      "placements": 40,
+      "crafted": 0,
+      "merged": 0,
+      "steps": 4505
+    },
+    {
+      "factionId": "grove",
+      "seed": 42,
+      "outcome": "lost",
+      "lastWave": 6,
+      "completed": 5,
+      "lives": 0,
+      "kills": 18,
+      "score": 1910,
+      "placements": 30,
+      "crafted": 0,
+      "merged": 1,
+      "steps": 3269
+    },
+    {
+      "factionId": "grove",
+      "seed": 123,
+      "outcome": "lost",
+      "lastWave": 7,
+      "completed": 6,
+      "lives": 0,
+      "kills": 27,
+      "score": 2970,
+      "placements": 35,
+      "crafted": 0,
+      "merged": 3,
+      "steps": 3895
+    },
+    {
+      "factionId": "grove",
+      "seed": 807,
+      "outcome": "lost",
+      "lastWave": 7,
+      "completed": 6,
+      "lives": 0,
+      "kills": 30,
+      "score": 3090,
+      "placements": 35,
+      "crafted": 0,
+      "merged": 2,
+      "steps": 3915
+    }
+  ],
+  "skirmishes": [
+    {
+      "factionId": "crown",
+      "cases": 516,
+      "shots": 25611,
+      "damage": 13691987.453774203,
+      "finite": true
+    },
+    {
+      "factionId": "forge",
+      "cases": 516,
+      "shots": 12009,
+      "damage": 5451373524.320864,
+      "finite": true
+    },
+    {
+      "factionId": "grove",
+      "cases": 516,
+      "shots": 13037,
+      "damage": 2115929040.8971157,
+      "finite": true
+    }
+  ]
+}

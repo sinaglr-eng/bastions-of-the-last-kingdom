@@ -1,0 +1,571 @@
+{
+  "factions": [
+    {
+      "id": "crown",
+      "units": [
+        {
+          "id": "soldier",
+          "kind": "basic"
+        },
+        {
+          "id": "archer",
+          "kind": "basic"
+        },
+        {
+          "id": "druid",
+          "kind": "basic"
+        },
+        {
+          "id": "mage",
+          "kind": "basic"
+        },
+        {
+          "id": "cleric",
+          "kind": "basic"
+        },
+        {
+          "id": "runebreaker",
+          "kind": "basic"
+        },
+        {
+          "id": "frostwarden",
+          "kind": "basic"
+        },
+        {
+          "id": "stormcaller",
+          "kind": "basic"
+        },
+        {
+          "id": "rimewatch",
+          "kind": "champion"
+        },
+        {
+          "id": "frostblade",
+          "kind": "champion"
+        },
+        {
+          "id": "roseguard",
+          "kind": "champion"
+        },
+        {
+          "id": "highking",
+          "kind": "champion"
+        },
+        {
+          "id": "crownofages",
+          "kind": "champion"
+        },
+        {
+          "id": "thornwarden",
+          "kind": "champion"
+        },
+        {
+          "id": "verdantguard",
+          "kind": "champion"
+        },
+        {
+          "id": "tempest",
+          "kind": "champion"
+        },
+        {
+          "id": "stormcitadel",
+          "kind": "champion"
+        },
+        {
+          "id": "embercrown",
+          "kind": "champion"
+        },
+        {
+          "id": "worldfire",
+          "kind": "champion"
+        },
+        {
+          "id": "starfall",
+          "kind": "champion"
+        },
+        {
+          "id": "thunderheart",
+          "kind": "champion"
+        },
+        {
+          "id": "phoenix",
+          "kind": "champion"
+        },
+        {
+          "id": "greenheart",
+          "kind": "champion"
+        },
+        {
+          "id": "eldergrove",
+          "kind": "champion"
+        },
+        {
+          "id": "kingsreach",
+          "kind": "champion"
+        },
+        {
+          "id": "sunward",
+          "kind": "champion"
+        },
+        {
+          "id": "winterhold",
+          "kind": "champion"
+        },
+        {
+          "id": "dawnspire",
+          "kind": "champion"
+        },
+        {
+          "id": "royalmarshal",
+          "kind": "champion"
+        },
+        {
+          "id": "stonewarden",
+          "kind": "champion"
+        },
+        {
+          "id": "wyvernhunter",
+          "kind": "champion"
+        },
+        {
+          "id": "royalarsenal",
+          "kind": "champion"
+        },
+        {
+          "id": "rangermentor",
+          "kind": "champion"
+        },
+        {
+          "id": "kingdomprotector",
+          "kind": "champion"
+        },
+        {
+          "id": "mothernature",
+          "kind": "champion"
+        },
+        {
+          "id": "royalranger",
+          "kind": "champion"
+        },
+        {
+          "id": "kingsrangerguard",
+          "kind": "champion"
+        },
+        {
+          "id": "elvenking",
+          "kind": "champion"
+        },
+        {
+          "id": "fireballista",
+          "kind": "champion"
+        },
+        {
+          "id": "emeraldgolem",
+          "kind": "champion"
+        },
+        {
+          "id": "griffinbomber",
+          "kind": "champion"
+        },
+        {
+          "id": "mechanicalgolem",
+          "kind": "champion"
+        },
+        {
+          "id": "monk",
+          "kind": "champion"
+        },
+        {
+          "id": "archbishop",
+          "kind": "champion"
+        },
+        {
+          "id": "archangel",
+          "kind": "champion"
+        },
+        {
+          "id": "ladyclaire",
+          "kind": "secret"
+        }
+      ]
+    },
+    {
+      "id": "forge",
+      "units": [
+        {
+          "id": "dw_shieldguard",
+          "kind": "basic"
+        },
+        {
+          "id": "dw_musketeer",
+          "kind": "basic"
+        },
+        {
+          "id": "dw_runesmith",
+          "kind": "basic"
+        },
+        {
+          "id": "dw_boarrider",
+          "kind": "basic"
+        },
+        {
+          "id": "dw_grenadier",
+          "kind": "basic"
+        },
+        {
+          "id": "dw_engineer",
+          "kind": "basic"
+        },
+        {
+          "id": "dw_griffinhandler",
+          "kind": "basic"
+        },
+        {
+          "id": "dw_furnacetender",
+          "kind": "basic"
+        },
+        {
+          "id": "dw_ironwarden",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_ashshield",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_bulwarkcaptain",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_forgeking",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_longrifle",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_thunderlock",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_steamrail",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_grapeshotcart",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_ironstorm",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_boarlancer",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_boarstandard",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_goreback",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_warcaller",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_boaravatar",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_fuserunner",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_firebomber",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_griffinbomber",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_cinderhowitzer",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_dwarship",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_repeatercrew",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_ironclad",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_breachorgan",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_deepdelve",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_salvomarshal",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_runemortar",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_tunnelsapper",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_nullifier",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_worldanvil",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_griffinscout",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_skyhook",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_talonlord",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_highthane",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_pressuresmith",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_steamharpooner",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_flamewarden",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_emberanvil",
+          "kind": "champion"
+        },
+        {
+          "id": "dw_bombardking",
+          "kind": "champion"
+        },
+        {
+          "id": "ladyclaire",
+          "kind": "secret"
+        }
+      ]
+    },
+    {
+      "id": "grove",
+      "units": [
+        {
+          "id": "el_moonblade",
+          "kind": "basic"
+        },
+        {
+          "id": "el_grove_archer",
+          "kind": "basic"
+        },
+        {
+          "id": "el_spark_adept",
+          "kind": "basic"
+        },
+        {
+          "id": "el_sealweaver",
+          "kind": "basic"
+        },
+        {
+          "id": "el_drow_cinder",
+          "kind": "basic"
+        },
+        {
+          "id": "el_drow_blade",
+          "kind": "basic"
+        },
+        {
+          "id": "el_drow_acolyte",
+          "kind": "basic"
+        },
+        {
+          "id": "el_dragon_keeper",
+          "kind": "basic"
+        },
+        {
+          "id": "el_moonblade_sentinel",
+          "kind": "champion"
+        },
+        {
+          "id": "el_elite_warrior",
+          "kind": "champion"
+        },
+        {
+          "id": "el_stormblade_warden",
+          "kind": "champion"
+        },
+        {
+          "id": "el_elven_king",
+          "kind": "champion"
+        },
+        {
+          "id": "el_stag_knight",
+          "kind": "champion"
+        },
+        {
+          "id": "el_elven_archer",
+          "kind": "champion"
+        },
+        {
+          "id": "el_elven_bowmaster",
+          "kind": "champion"
+        },
+        {
+          "id": "el_tempest_bowmage",
+          "kind": "champion"
+        },
+        {
+          "id": "el_starfall_bowmaster",
+          "kind": "champion"
+        },
+        {
+          "id": "el_twilight_huntress",
+          "kind": "champion"
+        },
+        {
+          "id": "el_elven_mage",
+          "kind": "champion"
+        },
+        {
+          "id": "el_storm_conductor",
+          "kind": "champion"
+        },
+        {
+          "id": "el_elven_archmage",
+          "kind": "champion"
+        },
+        {
+          "id": "el_storm_sovereign",
+          "kind": "champion"
+        },
+        {
+          "id": "el_wisp_conductor",
+          "kind": "champion"
+        },
+        {
+          "id": "el_veil_adept",
+          "kind": "champion"
+        },
+        {
+          "id": "el_sealwarden",
+          "kind": "champion"
+        },
+        {
+          "id": "el_moonwell_seer",
+          "kind": "champion"
+        },
+        {
+          "id": "el_eclipse_unbinder",
+          "kind": "champion"
+        },
+        {
+          "id": "el_stag_oracle",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_ember_novice",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_pyromancer",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_ember_matron",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_cinderqueen",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_furnace_seer",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_blade_initiate",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_duelist",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_ashblade",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_eclipse_duelist",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_gloom_initiate",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_eclipse_priest",
+          "kind": "champion"
+        },
+        {
+          "id": "el_veilfire_hierophant",
+          "kind": "champion"
+        },
+        {
+          "id": "el_drow_night_hierarch",
+          "kind": "champion"
+        },
+        {
+          "id": "el_baby_fire_dragon",
+          "kind": "champion"
+        },
+        {
+          "id": "el_fire_dragon",
+          "kind": "champion"
+        },
+        {
+          "id": "el_mother_fire_dragon",
+          "kind": "champion"
+        },
+        {
+          "id": "el_ancient_patriarch",
+          "kind": "champion"
+        },
+        {
+          "id": "ladyclaire",
+          "kind": "secret"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "command": "create",
+  "version": "0.5.2",
+  "gitCommit": "5ed559bc29237b96dc64ec447e9945722e8b1a0a",
+  "productionBasePath": "/bastions-of-the-last-kingdom/",
+  "sourceArchive": {
+    "file": "bastions-v0.5.2-source.zip",
+    "bytes": 1347389916,
+    "sha256": "6fd0ecf09deb73127814e183699a53d85152af96c726586eab9865d84c2b3a0e",
+    "fileCount": 5231,
+    "totalBytes": 2017343823
+  },
+  "productionArchive": {
+    "file": "bastions-v0.5.2-production.zip",
+    "bytes": 698442678,
+    "sha256": "b4687974b72494f0ebc5e03c59949737e2dd492529ca8d892f26c314476792b9",
+    "fileCount": 2657,
+    "totalBytes": 1197390929
+  },
+  "allZipStreamsCrcAndSha256Verified": true,
+  "sourceMatchesFreshGitTar": true,
+  "extractionPerformed": false,
+  "manifestWritten": true
+}

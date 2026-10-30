@@ -11,8 +11,8 @@ export const ignoresDamageImmunity=stats=>damageType(stats.type)==='holy';
 // Damage class never changes the category of a status effect. Only Golem's
 // explicitly authored petrification has a separate immunity bypass.
 export function statusEffectAllowed(enemy,effect){
-  if(['slow','freeze','gazeSlow'].includes(effect))return !enemy.physicalImmune;
-  if(['poison','burn','healBlock'].includes(effect))return !enemy.magicImmune;
+  if(['slow','freeze','stun','root','gazeSlow'].includes(effect))return !enemy.physicalImmune||enemy.statuses?.breachPhysical?.time>0;
+  if(['poison','burn','healBlock','regenReduction'].includes(effect))return !enemy.magicImmune||enemy.statuses?.breachMagic?.time>0;
   return true;
 }
 export const attackTargetAllowed=(stats,enemy)=>!enemy.flying||!(stats.melee||stats.groundOnly);

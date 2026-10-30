@@ -10,7 +10,7 @@ import {MvpManager,inheritedMvpLevel,mvpLevel} from './mvp.js';
 
 export class Game {
   constructor(data,{seed=Date.now(),waveLimit=data.waves.length,discoveries=[]}={}) {
-    this.data=data;this.seed=seed;this.rng=seededRandom(seed);this.waveLimit=waveLimit;
+    this.data=data;Object.defineProperty(this,'factionId',{value:data.factionId??null,enumerable:true});this.seed=seed;this.rng=seededRandom(seed);this.waveLimit=waveLimit;
     this.grid=new GridManager();this.economy=new EconomyManager(data.balance);this.commandPoints=new CommandPoints(data.balance);this.draft=new DraftManager(data,this.rng,this.commandPoints);this.combat=new CombatManager(this);this.commandMove=new CommandMove(this);
     this.towers=[];this.nextId=1;this.round=1;this.lives=data.balance.startingLives;this.kills=0;this.leaks=0;this.phase='build';this.selected=null;this.activeDraw=0;this.speed=1;this.paused=false;this.listeners=new Set();this.discoveries=new Set(discoveries);this.pinned=null;this.lastReward=0;
     this.earnedDiscoveries=new Set();
@@ -126,7 +126,7 @@ export class Game {
   keep() {
     if(this.commandMove.active)return this.message('Finish or cancel Move first.');
     const t=this.selection;
-    if(this.phase!=='select'||t?.state!=='draft')return this.message('Select one of this round’s five defenses.');
+    if(this.phase!=='select'||t?.state!=='draft'||!this.validFactionUnit(t))return this.message('Select one of this round’s five defenses.');
     this.finishSelection(t);this.emit('keep',{tower:t});this.emit('defender-committed',{tower:t,round:this.round,action:'keep'});return true;
   }
   downgrade() {
@@ -138,7 +138,8 @@ export class Game {
     t.tier--;this.finishSelection(t);this.emit('keep',{tower:t});this.emit('defender-committed',{tower:t,round:this.round,action:'downgrade'});
     this.message('Defender downgraded by one rank and kept · 200 gold');return true;
   }
-  canCombine(t) {return !this.commandMove.active&&t&&['active','draft'].includes(t.state)&&['build','select','ready','reward'].includes(this.phase)&&(t.state!=='draft'||this.phase==='select');}
+  validFactionUnit(t){const s=t&&Object.hasOwn(this.data.towers,t.family)&&this.data.towers[t.family];return !this.factionId||!!s&&Number.isInteger(t.tier)&&t.tier>=1&&t.tier<=(s.advanced?1:6);}
+  canCombine(t) {return !this.commandMove.active&&t&&this.validFactionUnit(t)&&['active','draft'].includes(t.state)&&['build','select','ready','reward'].includes(this.phase)&&(t.state!=='draft'||this.phase==='select');}
   recipePieces(recipe,anchor=this.selection){
     if(!recipe.currentRoundOnly)return matchingIngredients(recipe,this.towers.filter(t=>this.canCombine(t)),anchor);
     // The five actual, placed draw IDs are the authority. A stray or stale draft
@@ -235,7 +236,7 @@ export class Game {
   reserve(){
     if(!this.commandActions.reserve.available)return this.message(this.commandActions.reserve.reason);
     const tower=this.selection,index=this.reserveIndex;
-    if(!tower||tower.state!=='draft'||tower.round!==this.round||!this.draft.reserve(index,tower))return false;
+    if(!tower||!this.validFactionUnit(tower)||tower.state!=='draft'||tower.round!==this.round||!this.draft.reserve(index,tower))return false;
     // Reservation changes combat eligibility, never the committed foundation or route.
     tower.state='reserved';this.selected=null;this.previewRecipeId=null;this.selectionVoiceKey=null;
     this.emit('reserve',{tower,cost:this.commandPoints.cost('reserve')});this.emit('change');this.message(`Defender reserved for the next draft · −${this.commandPoints.cost('reserve')} CP`);return true;

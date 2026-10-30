@@ -32,6 +32,7 @@ export class DraftManager {
   }
   generate(draw) {
     const families=Object.entries(this.data.towers).filter(([,t])=>!t.advanced);
+    if(this.data.factionId&&this.roundForced?.family&&(!Object.hasOwn(this.data.towers,this.roundForced.family)||this.data.towers[this.roundForced.family].advanced))throw Error('Invalid faction draft family.');
     draw.family=this.roundForced?.family || families[weightedIndex(families.map(([,t])=>t.weight),this.rng)][0];
     draw.tier=this.roundForced?.tier || weightedIndex(this.data.balance.mastery[this.mastery].weights,this.rng)+1;
     return draw;

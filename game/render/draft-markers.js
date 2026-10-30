@@ -1,11 +1,12 @@
 import * as THREE from 'three';
 import {recipeFamily,recipeLabel,rankLabel} from '../core/recipes.js';
-import {referenceDefenderPortrait as defenderPortrait} from '../../ui/reference-portraits.js';
+import {referenceDefenderPortrait as legacyDefenderPortrait} from '../../ui/reference-portraits.js';
 import {RecipeMarkerActivation} from '../../ui/recipe-marker-input.js';
 import {mergeTowerKey,mergeTowerFromBadge} from '../../ui/draft-input.js';
 import {PointerTapGesture} from './touch-input.js';
 import {pinnedRecipeHighlightIds} from '../../ui/crafting-dock.js';
 import {PinnedRecruitActivation} from '../../ui/pinned-recruit-input.js';
+import {siteUrl} from '../site-url.js';
 
 // Independent world-space markers: aiming and recoil never move the round indicators.
 export class DraftMarkers {
@@ -59,6 +60,7 @@ export class DraftMarkers {
   }
   sync(game,models){
     this.game=game;
+    const defenderPortrait=(family,tier=1)=>game.data.defenderAssets?siteUrl(game.data.defenderAssets.find(a=>a.family===family&&a.tier===tier)?.portrait||''):legacyDefenderPortrait(family,tier);
     const candidates=game.roundCandidates,ids=new Set(candidates.map(c=>c.tower.id)),hints=game.combinationHints,hintIds=new Set(hints.map(h=>h.tower.id));
     const merges=candidates.flatMap(({tower,number})=>{const key=mergeTowerKey(game,tower.id);return key?[{tower,number,key}]:[];}),mergeIds=new Set(merges.map(merge=>merge.tower.id));
     for(const [id,marker] of this.items)if(!ids.has(id)){this.release(marker);this.items.delete(id);}

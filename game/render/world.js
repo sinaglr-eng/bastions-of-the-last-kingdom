@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {loadPackedModel} from './packed-model.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {rankAdornment,animateRank,disposeRankAdornment} from './ranks.js';
@@ -56,7 +57,7 @@ export class Battlefield {
     this.corpses=new Map();this.disposed=false;
     const enemyGLTF=new GLTFLoader();
     this.enemyLoader=new EnemyModelLoader({
-      load:entry=>enemyGLTF.loadAsync(geometricEntryUrl(entry)),
+      load:entry=>import.meta.env?.PROD&&entry.file.includes('approved-enemies-v6/')?loadPackedModel(enemyGLTF,{...entry,sha256:entry.assetSha256,packedFile:(entry.file.startsWith('assets/')?'':'assets/geometric/')+entry.file+'.gz'}):enemyGLTF.loadAsync(geometricEntryUrl(entry)),
       install:(entry,asset)=>{asset.scene.traverse(o=>{if(o.isMesh)o.castShadow=o.receiveShadow=true;});return installEnemyTemplate(this,entry,asset.scene);},
       release:(key,asset)=>{if(this.enemyTemplates.get(key)===asset.scene)this.enemyTemplates.delete(key);disposeGeometricResources(asset.scene);},
       // Protect every actual borrower, including the last rendered frame and
@@ -67,7 +68,7 @@ export class Battlefield {
     this.defenderRecoveryAt=0;this.defenderManifestRetryAt=Infinity;this.defenderManifestAttempts=0;
     const defenderGLTF=new GLTFLoader();
     this.defenderLoader=new DefenderModelLoader({
-      load:entry=>defenderGLTF.loadAsync(geometricEntryUrl(entry)),
+      load:entry=>entry.packedFile?loadPackedModel(defenderGLTF,entry):defenderGLTF.loadAsync(geometricEntryUrl(entry)),
       install:(entry,asset)=>{
         asset.scene.traverse(object=>{if(object.isMesh)object.castShadow=object.receiveShadow=true;});
         return installDefenderTemplate(this,entry,asset.scene,asset.animations);
@@ -163,7 +164,7 @@ export class Battlefield {
     // Index only; a placed unit retains a neutral tile marker until its own
     // approved family/rank has decoded. Never substitute a procedural figure.
     try {
-      const rosters=await Promise.allSettled(['geometric-defenders.json','geometric-champions.json'].map(fetchGeometricEntries));
+      const rosters=this.game.data.defenderAssets?[{status:'fulfilled',value:this.game.data.defenderAssets}]:await Promise.allSettled(['geometric-defenders.json','geometric-champions.json'].map(fetchGeometricEntries));
       if(this.disposed)return;
       const entries=rosters.flatMap(result=>result.status==='fulfilled'?result.value:[]);
       for(const result of rosters)if(result.status==='rejected')console.warn('Geometric roster unavailable.',result.reason);
@@ -358,10 +359,10 @@ export class Battlefield {
     if(type==='shot'||type==='aura-attack'){
       const value=this.models.get(payload.source.id);
       if(value){
-        const articulated=value.attack?.native||value.attack?.geometric;
+        const articulated=value.attack?.faction||value.attack?.native||value.attack?.geometric;
         // A dragon aura has its own jaw/target track. It must not redirect a
         // simultaneous lightning or staff attack toward a different enemy.
-        if(!(value.attack?.geometric&&type==='aura-attack'))value.actor.rotation.y=Math.atan2(payload.target.x-payload.source.x,payload.target.z-payload.source.z)+(!articulated&&['archer','thornwarden','verdantguard'].includes(payload.source.family)?Math.PI/2:Math.PI);
+        if(!value.attack?.faction&&!(value.attack?.geometric&&type==='aura-attack'))value.actor.rotation.y=Math.atan2(payload.target.x-payload.source.x,payload.target.z-payload.source.z)+(!articulated&&['archer','thornwarden','verdantguard'].includes(payload.source.family)?Math.PI/2:Math.PI);
         triggerAttack(value.attack,articulated?{...payload,breath:type==='aura-attack',combatTime:this.game.combat.elapsed,visualRate:secretAttackContext(value.tower,this.game).rate,reducedMotion:!!this.reducedMotion?.matches}:payload);
         if(value.siege&&!value.attack?.geometric)value.siege.elapsed=0;
       }
@@ -424,15 +425,15 @@ export class Battlefield {
     syncEnemySelectionRing(this.enemySelectionRing,this.game.enemySelection,this.enemies.get(this.game.selectedEnemy));
     for(const value of this.models.values()){
       if(value.tower.state==='reserved'||value.modelStatus!=='ready')continue;
-      const articulated=value.attack?.native||value.attack?.geometric,context=articulated?secretAttackContext(value.tower,this.game):{};
+      const articulated=value.attack?.faction||value.attack?.native||value.attack?.geometric,context=articulated?secretAttackContext(value.tower,this.game):{};
       const idle=value.hero&&!articulated?Math.sin(this.time*2.8+value.phase)*.018:0;
       if(!articulated)animateBattlefieldIdleScale(value.actor,idle);
-      if(articulated&&(value.attack.native?.stage??value.attack.stage)!=='recovery'&&context.target)value.actor.rotation.y=Math.atan2(context.target.x-value.tower.x,context.target.z-value.tower.z)+Math.PI;
-      if(!value.attack?.geometric)animateSiege(value.siege,battleDt);
-      animateAttack(value.attack,battleDt,this.motionTime,{...context,reducedMotion:!!this.reducedMotion?.matches});
+      if(!value.attack?.faction&&articulated&&(value.attack.native?.stage??value.attack.stage)!=='recovery'&&context.target)value.actor.rotation.y=Math.atan2(context.target.x-value.tower.x,context.target.z-value.tower.z)+Math.PI;
+      if(!value.attack?.faction&&!value.attack?.geometric)animateSiege(value.siege,battleDt);
+      animateAttack(value.attack,battleDt,this.motionTime,{...context,tower:value.tower,reducedMotion:!!this.reducedMotion?.matches});
       const melancholy=this.game.phase==='combat'&&(value.tower.melancholyUntil||0)>this.game.combat.elapsed;
       if(value.attack?.geometric)animateGeometricOrbits(value.actor,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches,melancholy});
-      else if(this.game.data.towers[value.tower.family]?.secret)animateSecretChampion(value.actor,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches,melancholy});
+      else if(!value.attack?.faction&&this.game.data.towers[value.tower.family]?.secret)animateSecretChampion(value.actor,this.motionTime,{reducedMotion:!!this.reducedMotion?.matches,melancholy});
     }
     this.enemyAbilityEffects?.sync(this.game.combat.enemies,this.enemies,this.motionTime);
     this.enemyConcealmentEffects?.sync(this.game.combat.enemies,{time:this.motionTime,cosmeticTime:this.time,figures:this.enemies,active:this.game.phase==='combat'});
