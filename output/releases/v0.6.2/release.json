@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "version": "0.6.2",
+  "runtimeCommit": "d70909d201b12356297dec6069efc426c8b1d0f8",
+  "releaseTag": "v0.6.2",
+  "defaultUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "localTests": 1951,
+  "ciRequiredChecksPassed": true,
+  "publicChecks": 942,
+  "approvedModels": 312,
+  "fr001": {
+    "approvedNumericDeltas": 492,
+    "approvedRecipeChanges": 18,
+    "abilityDescriptionsRegenerated": 65,
+    "controlledCombatScenarios": 5400,
+    "legalCampaigns": 80,
+    "claireCases": 66,
+    "masteryRowsChecked": 16,
+    "fullCampaignParityCertified": false
+  },
+  "visuals": {
+    "widescreenScenes": 3,
+    "noSceneCropping": true,
+    "newNativeSvgLogo": true,
+    "ornamentalFactionChooser": true,
+    "defenderAbilitiesAtBottom": true
+  },
+  "unchanged": [
+    "Human combat and recipes",
+    "Ordinary Dwarf champion parameters",
+    "Shared Lady Claire profile and secret contract",
+    "Enemies, economy and draft odds",
+    "Portrait derivatives, native models and animation clips",
+    "Local-only design gallery"
+  ],
+  "browserQa": "Explicitly waived by user; no physical iPad Safari check",
+  "ciUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41118580114",
+  "recordedAt": "2026-10-30T20:01:19.057Z"
+}

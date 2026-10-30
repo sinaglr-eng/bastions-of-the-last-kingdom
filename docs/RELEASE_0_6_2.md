@@ -24,3 +24,5 @@ Browser and physical iPad checks were explicitly waived by the user. The local-o
 ## Visual sources
 
 The built-in image_gen tool recomposed the three existing scenes. Exact prompts, source hashes, native dimensions and final workspace paths are recorded in public/assets/ui/faction-scenes-v062/manifest.json. The logo is original editable SVG in public/assets/branding/forged-alliances-v3. These implementation visuals have not received a separate human approval.
+
+Verified activation: **0.6.2** is the default public game at https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/. Runtime commit d70909d201b12356297dec6069efc426c8b1d0f8 is pinned by tag v0.6.2. All required GitHub test/build/upload/deployment checks passed for this exact commit, and all 942 public files match the production inventory. The previous v0.6.1 tag remains available for recovery.

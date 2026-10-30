@@ -1,0 +1,116 @@
+{
+  "status": "controlled encounter evidence",
+  "source": "combat/implemented/results.json",
+  "method": "Summarize already measured actual-engine results. Distinct ordinary profiles, no Claire. Valid finite recipe trees are checked by the implementation regressions.",
+  "limitations": "Three stationary real-HP targets with respawn. This does not certify single-boss kill time, an acquired late-game army or a legal full-campaign victory.",
+  "rows": [
+    {
+      "factionId": "forge",
+      "scenario": "final-flying-boss",
+      "ordinaryCounters": [
+        {
+          "family": "dw_highthane",
+          "dps": 7523.785714
+        },
+        {
+          "family": "dw_ironstorm",
+          "dps": 6832.932485
+        },
+        {
+          "family": "dw_dwarship",
+          "dps": 4761.5
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "scenario": "final-magic-immune-flying-boss",
+      "ordinaryCounters": [
+        {
+          "family": "dw_highthane",
+          "dps": 7523.785714
+        },
+        {
+          "family": "dw_ironstorm",
+          "dps": 6832.932485
+        },
+        {
+          "family": "dw_dwarship",
+          "dps": 4498
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "scenario": "final-physical-immune-flying-boss",
+      "ordinaryCounters": [
+        {
+          "family": "dw_highthane",
+          "dps": 7331.635714
+        },
+        {
+          "family": "dw_ironstorm",
+          "dps": 6800.382485
+        },
+        {
+          "family": "dw_dwarship",
+          "dps": 4706.9
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "scenario": "final-flying-boss",
+      "ordinaryCounters": [
+        {
+          "family": "el_storm_sovereign",
+          "dps": 10194.02381
+        },
+        {
+          "family": "el_drow_night_hierarch",
+          "dps": 9574.5
+        },
+        {
+          "family": "el_starfall_bowmaster",
+          "dps": 8971.232523
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "scenario": "final-magic-immune-flying-boss",
+      "ordinaryCounters": [
+        {
+          "family": "el_starfall_bowmaster",
+          "dps": 8971.232523
+        },
+        {
+          "family": "el_twilight_huntress",
+          "dps": 8872.747312
+        },
+        {
+          "family": "el_tempest_bowmage",
+          "dps": 2412.022796
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "scenario": "final-physical-immune-flying-boss",
+      "ordinaryCounters": [
+        {
+          "family": "el_storm_sovereign",
+          "dps": 9949.37381
+        },
+        {
+          "family": "el_drow_night_hierarch",
+          "dps": 9476.85
+        },
+        {
+          "family": "el_starfall_bowmaster",
+          "dps": 8653.082523
+        }
+      ]
+    }
+  ]
+}
