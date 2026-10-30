@@ -1,0 +1,773 @@
+{
+  "status": "proposal only; not integrated",
+  "date": "2026-10-30",
+  "factionId": "forge",
+  "source": {
+    "file": "data/factions-v060.json",
+    "sha256": "aa2dacea050682ebc1b1d7d4f84189fdc92edb66ce83f688b224d740fb78eb15",
+    "revision": "three-factions-v060-20261030"
+  },
+  "scope": "Replace recipe ingredient triples only after approval; retain all other unit, model and combat fields.",
+  "recipes": [
+    {
+      "id": "dw_ironwarden",
+      "level": 1,
+      "stage": "BASIC",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_shieldguard",
+          "tier": 1
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 1
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "dw_ashshield",
+      "level": 1,
+      "stage": "INTERMEDIATE",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_ironwarden",
+          "tier": 1
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 4
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_bulwarkcaptain",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_ashshield",
+          "tier": 1
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 5
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dw_forgeking",
+      "level": 1,
+      "stage": "TOP",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_bulwarkcaptain",
+          "tier": 1
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 6
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "dw_longrifle",
+      "level": 1,
+      "stage": "BASIC",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_musketeer",
+          "tier": 3
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 2
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "dw_thunderlock",
+      "level": 1,
+      "stage": "INTERMEDIATE",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_longrifle",
+          "tier": 1
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 4
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_steamrail",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_thunderlock",
+          "tier": 1
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 5
+        },
+        {
+          "family": "dw_griffinhandler",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_grapeshotcart",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_thunderlock",
+          "tier": 1
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 5
+        },
+        {
+          "family": "dw_griffinhandler",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "dw_ironstorm",
+      "level": 1,
+      "stage": "TOP",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_steamrail",
+          "tier": 1
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 6
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "dw_boarlancer",
+      "level": 1,
+      "stage": "BASIC",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_boarrider",
+          "tier": 3
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 2
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_boarstandard",
+      "level": 1,
+      "stage": "INTERMEDIATE",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_boarlancer",
+          "tier": 1
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 4
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "dw_goreback",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_boarstandard",
+          "tier": 1
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 5
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dw_warcaller",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_boarstandard",
+          "tier": 1
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 5
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dw_boaravatar",
+      "level": 1,
+      "stage": "TOP",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_goreback",
+          "tier": 1
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 6
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "dw_fuserunner",
+      "level": 1,
+      "stage": "BASIC",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_grenadier",
+          "tier": 1
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 1
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "dw_firebomber",
+      "level": 1,
+      "stage": "INTERMEDIATE",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_fuserunner",
+          "tier": 1
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 4
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_griffinbomber",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_firebomber",
+          "tier": 1
+        },
+        {
+          "family": "dw_griffinhandler",
+          "tier": 5
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dw_cinderhowitzer",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_firebomber",
+          "tier": 1
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 5
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dw_dwarship",
+      "level": 1,
+      "stage": "TOP",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_griffinbomber",
+          "tier": 1
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 6
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "dw_repeatercrew",
+      "level": 1,
+      "stage": "BASIC",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_engineer",
+          "tier": 3
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 2
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "dw_ironclad",
+      "level": 1,
+      "stage": "INTERMEDIATE",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_repeatercrew",
+          "tier": 1
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 4
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_breachorgan",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_ironclad",
+          "tier": 1
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 5
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dw_deepdelve",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_ironclad",
+          "tier": 1
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 5
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_salvomarshal",
+      "level": 1,
+      "stage": "TOP",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_breachorgan",
+          "tier": 1
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 6
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "dw_runemortar",
+      "level": 1,
+      "stage": "BASIC",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_runesmith",
+          "tier": 3
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 2
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "dw_tunnelsapper",
+      "level": 1,
+      "stage": "INTERMEDIATE",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_runemortar",
+          "tier": 1
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 4
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_nullifier",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_tunnelsapper",
+          "tier": 1
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 5
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dw_worldanvil",
+      "level": 1,
+      "stage": "TOP",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_nullifier",
+          "tier": 1
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 6
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "dw_griffinscout",
+      "level": 1,
+      "stage": "BASIC",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_griffinhandler",
+          "tier": 1
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 1
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "dw_skyhook",
+      "level": 1,
+      "stage": "INTERMEDIATE",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_griffinscout",
+          "tier": 1
+        },
+        {
+          "family": "dw_griffinhandler",
+          "tier": 4
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_talonlord",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_skyhook",
+          "tier": 1
+        },
+        {
+          "family": "dw_griffinhandler",
+          "tier": 5
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dw_highthane",
+      "level": 1,
+      "stage": "TOP",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_talonlord",
+          "tier": 1
+        },
+        {
+          "family": "dw_griffinhandler",
+          "tier": 6
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "dw_pressuresmith",
+      "level": 1,
+      "stage": "BASIC",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_furnacetender",
+          "tier": 2
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 2
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "dw_steamharpooner",
+      "level": 1,
+      "stage": "INTERMEDIATE",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_pressuresmith",
+          "tier": 1
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 4
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "dw_flamewarden",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_steamharpooner",
+          "tier": 1
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 5
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "id": "dw_emberanvil",
+      "level": 1,
+      "stage": "ADVANCED",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_steamharpooner",
+          "tier": 1
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 5
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "dw_bombardking",
+      "level": 1,
+      "stage": "TOP",
+      "currentRoundOnly": false,
+      "ingredients": [
+        {
+          "family": "dw_flamewarden",
+          "tier": 1
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 6
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "ladyclaire",
+      "level": 1,
+      "stage": "Secret",
+      "currentRoundOnly": true,
+      "ingredients": [
+        {
+          "family": "dw_runesmith",
+          "tier": 5
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 5
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 5
+        }
+      ]
+    }
+  ]
+}

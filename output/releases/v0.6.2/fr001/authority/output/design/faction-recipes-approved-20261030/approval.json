@@ -1,0 +1,936 @@
+{
+  "requirementId": "FR-001",
+  "date": "2026-10-30",
+  "status": "approved recipes; tests and handoff only; implementation deferred to another chat",
+  "language": "en",
+  "historicalUserEvidence": {
+    "language": "cs",
+    "quote": "Schvaluji navržené změny receptů, Otestuj také vyvážení obou frakcí.\n\npro Lady Clair zarid aby se dala zkombinovat v kazde frakci, z Human frakce vymen obrance za stejnou hodnotou v ostatnich frakci, tak aby bylo mozne Lady Clair zkombinovat\n\npriprav toto pod novym pozadavkem do hry ktery naimplementujeme v druhem chatu a odkazu se na nej sem"
+  },
+  "approvedRecipeInputs": [
+    {
+      "factionId": "forge",
+      "source": "output/design/faction-recipe-review-20261030/dwarf/proposed-recipes.json",
+      "file": "output/design/faction-recipes-approved-20261030/approved/forge-recipes.json",
+      "sha256": "7dde169abfe2e85cd64c8453d8129b59dd35f16db4481b1364dc1130503ae875",
+      "changedRecipes": 10,
+      "changes": [
+        {
+          "id": "dw_ironwarden",
+          "name": "Dwarf Axeman",
+          "before": {
+            "id": "dw_ironwarden",
+            "name": "Dwarf Axeman",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_shieldguard",
+                "tier": 2
+              },
+              {
+                "family": "dw_shieldguard",
+                "tier": 3
+              },
+              {
+                "family": "dw_runesmith",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 8,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_ironwarden",
+            "name": "Dwarf Axeman",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_shieldguard",
+                "tier": 1
+              },
+              {
+                "family": "dw_boarrider",
+                "tier": 1
+              },
+              {
+                "family": "dw_runesmith",
+                "tier": 1
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 3,
+            "directAllRankI": true
+          }
+        },
+        {
+          "id": "dw_steamrail",
+          "name": "Heavy Sniper",
+          "before": {
+            "id": "dw_steamrail",
+            "name": "Heavy Sniper",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "dw_thunderlock",
+                "tier": 1
+              },
+              {
+                "family": "dw_musketeer",
+                "tier": 5
+              },
+              {
+                "family": "dw_engineer",
+                "tier": 4
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 44,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_steamrail",
+            "name": "Heavy Sniper",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "dw_thunderlock",
+                "tier": 1
+              },
+              {
+                "family": "dw_musketeer",
+                "tier": 5
+              },
+              {
+                "family": "dw_griffinhandler",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 40,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "dw_grapeshotcart",
+          "name": "Mortar Dwarf",
+          "before": {
+            "id": "dw_grapeshotcart",
+            "name": "Mortar Dwarf",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "dw_thunderlock",
+                "tier": 1
+              },
+              {
+                "family": "dw_grenadier",
+                "tier": 5
+              },
+              {
+                "family": "dw_shieldguard",
+                "tier": 4
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 44,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_grapeshotcart",
+            "name": "Mortar Dwarf",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "dw_thunderlock",
+                "tier": 1
+              },
+              {
+                "family": "dw_grenadier",
+                "tier": 5
+              },
+              {
+                "family": "dw_griffinhandler",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 38,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "dw_boarlancer",
+          "name": "Boar Lancer",
+          "before": {
+            "id": "dw_boarlancer",
+            "name": "Boar Lancer",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_boarrider",
+                "tier": 3
+              },
+              {
+                "family": "dw_shieldguard",
+                "tier": 2
+              },
+              {
+                "family": "dw_musketeer",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 8,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_boarlancer",
+            "name": "Boar Lancer",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_boarrider",
+                "tier": 3
+              },
+              {
+                "family": "dw_shieldguard",
+                "tier": 2
+              },
+              {
+                "family": "dw_shieldguard",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 10,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "dw_boarstandard",
+          "name": "Boar Drummer",
+          "before": {
+            "id": "dw_boarstandard",
+            "name": "Boar Drummer",
+            "classification": "INTERMEDIATE",
+            "ingredients": [
+              {
+                "family": "dw_boarlancer",
+                "tier": 1
+              },
+              {
+                "family": "dw_boarrider",
+                "tier": 4
+              },
+              {
+                "family": "dw_furnacetender",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 5,
+            "rankIEquivalent": 20,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_boarstandard",
+            "name": "Boar Drummer",
+            "classification": "INTERMEDIATE",
+            "ingredients": [
+              {
+                "family": "dw_boarlancer",
+                "tier": 1
+              },
+              {
+                "family": "dw_boarrider",
+                "tier": 4
+              },
+              {
+                "family": "dw_boarrider",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 5,
+            "rankIEquivalent": 20,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "dw_fuserunner",
+          "name": "Bomb Dwarf",
+          "before": {
+            "id": "dw_fuserunner",
+            "name": "Bomb Dwarf",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_grenadier",
+                "tier": 3
+              },
+              {
+                "family": "dw_furnacetender",
+                "tier": 2
+              },
+              {
+                "family": "dw_runesmith",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 8,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_fuserunner",
+            "name": "Bomb Dwarf",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_grenadier",
+                "tier": 1
+              },
+              {
+                "family": "dw_furnacetender",
+                "tier": 1
+              },
+              {
+                "family": "dw_runesmith",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 4,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "dw_deepdelve",
+          "name": "Forge Sentinel",
+          "before": {
+            "id": "dw_deepdelve",
+            "name": "Forge Sentinel",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "dw_ironclad",
+                "tier": 1
+              },
+              {
+                "family": "dw_shieldguard",
+                "tier": 5
+              },
+              {
+                "family": "dw_runesmith",
+                "tier": 4
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 44,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_deepdelve",
+            "name": "Forge Sentinel",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "dw_ironclad",
+                "tier": 1
+              },
+              {
+                "family": "dw_shieldguard",
+                "tier": 5
+              },
+              {
+                "family": "dw_runesmith",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 40,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "dw_griffinscout",
+          "name": "Griffin Scout",
+          "before": {
+            "id": "dw_griffinscout",
+            "name": "Griffin Scout",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_griffinhandler",
+                "tier": 3
+              },
+              {
+                "family": "dw_boarrider",
+                "tier": 2
+              },
+              {
+                "family": "dw_musketeer",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 8,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_griffinscout",
+            "name": "Griffin Scout",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_griffinhandler",
+                "tier": 1
+              },
+              {
+                "family": "dw_musketeer",
+                "tier": 1
+              },
+              {
+                "family": "dw_engineer",
+                "tier": 1
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 3,
+            "directAllRankI": true
+          }
+        },
+        {
+          "id": "dw_pressuresmith",
+          "name": "Steam Dwarf",
+          "before": {
+            "id": "dw_pressuresmith",
+            "name": "Steam Dwarf",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_furnacetender",
+                "tier": 3
+              },
+              {
+                "family": "dw_engineer",
+                "tier": 2
+              },
+              {
+                "family": "dw_runesmith",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 8,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_pressuresmith",
+            "name": "Steam Dwarf",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "dw_furnacetender",
+                "tier": 2
+              },
+              {
+                "family": "dw_engineer",
+                "tier": 2
+              },
+              {
+                "family": "dw_runesmith",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 6,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "dw_emberanvil",
+          "name": "Forge Dwarf",
+          "before": {
+            "id": "dw_emberanvil",
+            "name": "Forge Dwarf",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "dw_steamharpooner",
+                "tier": 1
+              },
+              {
+                "family": "dw_engineer",
+                "tier": 5
+              },
+              {
+                "family": "dw_runesmith",
+                "tier": 4
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 44,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "dw_emberanvil",
+            "name": "Forge Dwarf",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "dw_steamharpooner",
+                "tier": 1
+              },
+              {
+                "family": "dw_furnacetender",
+                "tier": 5
+              },
+              {
+                "family": "dw_furnacetender",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 36,
+            "directAllRankI": false
+          }
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "source": "output/design/faction-recipe-review-20261030/elf/proposed-recipes.json",
+      "file": "output/design/faction-recipes-approved-20261030/approved/grove-recipes.json",
+      "sha256": "4b2335593cbba9343f7e80b16b7f8eadd79732860ef08c31ebf9541dcd03ea6a",
+      "changedRecipes": 8,
+      "changes": [
+        {
+          "id": "el_moonblade_sentinel",
+          "name": "Emerald Sentry",
+          "before": {
+            "id": "el_moonblade_sentinel",
+            "name": "Emerald Sentry",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "el_moonblade",
+                "tier": 2
+              },
+              {
+                "family": "el_spark_adept",
+                "tier": 2
+              },
+              {
+                "family": "el_grove_archer",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 8,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "el_moonblade_sentinel",
+            "name": "Emerald Sentry",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "el_moonblade",
+                "tier": 1
+              },
+              {
+                "family": "el_grove_archer",
+                "tier": 1
+              },
+              {
+                "family": "el_drow_cinder",
+                "tier": 1
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 3,
+            "directAllRankI": true
+          }
+        },
+        {
+          "id": "el_stormblade_warden",
+          "name": "Ironbark Ent",
+          "before": {
+            "id": "el_stormblade_warden",
+            "name": "Ironbark Ent",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "el_elite_warrior",
+                "tier": 1
+              },
+              {
+                "family": "el_spark_adept",
+                "tier": 4
+              },
+              {
+                "family": "el_moonblade",
+                "tier": 5
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 40,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "el_stormblade_warden",
+            "name": "Ironbark Ent",
+            "classification": "ADVANCED",
+            "ingredients": [
+              {
+                "family": "el_elite_warrior",
+                "tier": 1
+              },
+              {
+                "family": "el_moonblade",
+                "tier": 4
+              },
+              {
+                "family": "el_moonblade",
+                "tier": 5
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 7,
+            "rankIEquivalent": 35,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "el_elven_bowmaster",
+          "name": "Moonlight Ranger Captain",
+          "before": {
+            "id": "el_elven_bowmaster",
+            "name": "Moonlight Ranger Captain",
+            "classification": "INTERMEDIATE",
+            "ingredients": [
+              {
+                "family": "el_elven_archer",
+                "tier": 1
+              },
+              {
+                "family": "el_grove_archer",
+                "tier": 3
+              },
+              {
+                "family": "el_drow_acolyte",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 5,
+            "rankIEquivalent": 16,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "el_elven_bowmaster",
+            "name": "Moonlight Ranger Captain",
+            "classification": "INTERMEDIATE",
+            "ingredients": [
+              {
+                "family": "el_elven_archer",
+                "tier": 1
+              },
+              {
+                "family": "el_grove_archer",
+                "tier": 3
+              },
+              {
+                "family": "el_grove_archer",
+                "tier": 4
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 5,
+            "rankIEquivalent": 20,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "el_elven_mage",
+          "name": "Stormspear Initiate",
+          "before": {
+            "id": "el_elven_mage",
+            "name": "Stormspear Initiate",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "el_spark_adept",
+                "tier": 2
+              },
+              {
+                "family": "el_drow_acolyte",
+                "tier": 2
+              },
+              {
+                "family": "el_sealweaver",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 8,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "el_elven_mage",
+            "name": "Stormspear Initiate",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "el_spark_adept",
+                "tier": 1
+              },
+              {
+                "family": "el_drow_acolyte",
+                "tier": 1
+              },
+              {
+                "family": "el_dragon_keeper",
+                "tier": 1
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 3,
+            "directAllRankI": true
+          }
+        },
+        {
+          "id": "el_veil_adept",
+          "name": "Drow Wraithcaller",
+          "before": {
+            "id": "el_veil_adept",
+            "name": "Drow Wraithcaller",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "el_sealweaver",
+                "tier": 2
+              },
+              {
+                "family": "el_drow_acolyte",
+                "tier": 2
+              },
+              {
+                "family": "el_drow_cinder",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 8,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "el_veil_adept",
+            "name": "Drow Wraithcaller",
+            "classification": "BASIC",
+            "ingredients": [
+              {
+                "family": "el_sealweaver",
+                "tier": 1
+              },
+              {
+                "family": "el_drow_blade",
+                "tier": 1
+              },
+              {
+                "family": "el_drow_cinder",
+                "tier": 2
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 3,
+            "rankIEquivalent": 4,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "el_sealwarden",
+          "name": "Drow Moon Specter",
+          "before": {
+            "id": "el_sealwarden",
+            "name": "Drow Moon Specter",
+            "classification": "INTERMEDIATE",
+            "ingredients": [
+              {
+                "family": "el_veil_adept",
+                "tier": 1
+              },
+              {
+                "family": "el_sealweaver",
+                "tier": 3
+              },
+              {
+                "family": "el_drow_cinder",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 5,
+            "rankIEquivalent": 16,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "el_sealwarden",
+            "name": "Drow Moon Specter",
+            "classification": "INTERMEDIATE",
+            "ingredients": [
+              {
+                "family": "el_veil_adept",
+                "tier": 1
+              },
+              {
+                "family": "el_sealweaver",
+                "tier": 3
+              },
+              {
+                "family": "el_drow_acolyte",
+                "tier": 4
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 5,
+            "rankIEquivalent": 16,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "el_drow_night_hierarch",
+          "name": "Elven Battlemage Master",
+          "before": {
+            "id": "el_drow_night_hierarch",
+            "name": "Elven Battlemage Master",
+            "classification": "TOP",
+            "ingredients": [
+              {
+                "family": "el_veilfire_hierophant",
+                "tier": 1
+              },
+              {
+                "family": "el_drow_acolyte",
+                "tier": 6
+              },
+              {
+                "family": "el_spark_adept",
+                "tier": 6
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 9,
+            "rankIEquivalent": 104,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "el_drow_night_hierarch",
+            "name": "Elven Battlemage Master",
+            "classification": "TOP",
+            "ingredients": [
+              {
+                "family": "el_veilfire_hierophant",
+                "tier": 1
+              },
+              {
+                "family": "el_drow_acolyte",
+                "tier": 6
+              },
+              {
+                "family": "el_moonblade",
+                "tier": 6
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 9,
+            "rankIEquivalent": 104,
+            "directAllRankI": false
+          }
+        },
+        {
+          "id": "el_fire_dragon",
+          "name": "Fire Dragon",
+          "before": {
+            "id": "el_fire_dragon",
+            "name": "Fire Dragon",
+            "classification": "INTERMEDIATE",
+            "ingredients": [
+              {
+                "family": "el_baby_fire_dragon",
+                "tier": 1
+              },
+              {
+                "family": "el_dragon_keeper",
+                "tier": 3
+              },
+              {
+                "family": "el_spark_adept",
+                "tier": 3
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 5,
+            "rankIEquivalent": 16,
+            "directAllRankI": false
+          },
+          "after": {
+            "id": "el_fire_dragon",
+            "name": "Fire Dragon",
+            "classification": "INTERMEDIATE",
+            "ingredients": [
+              {
+                "family": "el_baby_fire_dragon",
+                "tier": 1
+              },
+              {
+                "family": "el_dragon_keeper",
+                "tier": 3
+              },
+              {
+                "family": "el_dragon_keeper",
+                "tier": 4
+              }
+            ],
+            "currentRoundOnly": false,
+            "leafCount": 5,
+            "rankIEquivalent": 20,
+            "directAllRankI": false
+          }
+        }
+      ]
+    }
+  ],
+  "scope": [
+    "18 ordinary recipe changes",
+    "same-value faction-local Lady Claire unlock contract",
+    "balance testing and implementation handoff"
+  ],
+  "runtimeImplementationPerformed": false
+}

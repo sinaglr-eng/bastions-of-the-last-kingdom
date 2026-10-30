@@ -11131,7 +11131,7 @@
           "role": "Shieldguard draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 8,
+              "damage": 18,
               "interval": 0.9,
               "range": 2.5,
               "type": "physical",
@@ -11151,12 +11151,12 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 0.9,
-                "primaryDps": 8.89,
+                "primaryDps": 20,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 18,
+              "damage": 36,
               "interval": 0.9,
               "range": 2.5,
               "type": "physical",
@@ -11176,12 +11176,12 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 0.9,
-                "primaryDps": 20,
+                "primaryDps": 40,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 40,
+              "damage": 72,
               "interval": 0.9,
               "range": 2.5,
               "type": "physical",
@@ -11201,12 +11201,12 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 0.9,
-                "primaryDps": 44.44,
+                "primaryDps": 80,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 88,
+              "damage": 128,
               "interval": 0.9,
               "range": 2.5,
               "type": "physical",
@@ -11226,12 +11226,12 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 0.9,
-                "primaryDps": 97.78,
+                "primaryDps": 142.22,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 190,
+              "damage": 220,
               "interval": 0.9,
               "range": 2.5,
               "type": "physical",
@@ -11251,12 +11251,12 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 0.9,
-                "primaryDps": 211.11,
+                "primaryDps": 244.44,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 410,
+              "damage": 480,
               "interval": 0.9,
               "range": 2.5,
               "type": "physical",
@@ -11276,7 +11276,7 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 0.9,
-                "primaryDps": 455.56,
+                "primaryDps": 533.33,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             }
@@ -11292,9 +11292,9 @@
           "role": "Musketeer draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 12,
+              "damage": 20,
               "interval": 0.4,
-              "range": 4.5,
+              "range": 5,
               "type": "physical",
               "abilities": [
                 {
@@ -11309,23 +11309,23 @@
               ],
               "cycleMetrics": {
                 "shotCount": 3,
-                "cycleSeconds": 3.6,
-                "primaryDps": 10,
+                "cycleSeconds": 2.4,
+                "primaryDps": 25,
                 "magazine": 3,
-                "reloadSeconds": 2.4,
+                "reloadSeconds": 1.2,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "weaponCycle": {
                 "magazine": 3,
-                "reload": 2.4,
+                "reload": 1.2,
                 "fixedInterval": 0.4,
                 "spinUpSeconds": 0
               }
             },
             {
-              "damage": 27,
+              "damage": 40,
               "interval": 0.4,
-              "range": 4.5,
+              "range": 5,
               "type": "physical",
               "abilities": [
                 {
@@ -11349,23 +11349,23 @@
               ],
               "cycleMetrics": {
                 "shotCount": 3,
-                "cycleSeconds": 3.6,
-                "primaryDps": 22.5,
+                "cycleSeconds": 2.4,
+                "primaryDps": 50,
                 "magazine": 3,
-                "reloadSeconds": 2.4,
+                "reloadSeconds": 1.2,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "weaponCycle": {
                 "magazine": 3,
-                "reload": 2.4,
+                "reload": 1.2,
                 "fixedInterval": 0.4,
                 "spinUpSeconds": 0
               }
             },
             {
-              "damage": 60,
+              "damage": 80,
               "interval": 0.4,
-              "range": 4.75,
+              "range": 5,
               "type": "physical",
               "abilities": [
                 {
@@ -11389,23 +11389,23 @@
               ],
               "cycleMetrics": {
                 "shotCount": 3,
-                "cycleSeconds": 3.6,
-                "primaryDps": 50,
+                "cycleSeconds": 2.4,
+                "primaryDps": 100,
                 "magazine": 3,
-                "reloadSeconds": 2.4,
+                "reloadSeconds": 1.2,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "weaponCycle": {
                 "magazine": 3,
-                "reload": 2.4,
+                "reload": 1.2,
                 "fixedInterval": 0.4,
                 "spinUpSeconds": 0
               }
             },
             {
-              "damage": 132,
+              "damage": 150,
               "interval": 0.4,
-              "range": 4.75,
+              "range": 5,
               "type": "physical",
               "abilities": [
                 {
@@ -11429,21 +11429,21 @@
               ],
               "cycleMetrics": {
                 "shotCount": 3,
-                "cycleSeconds": 3.6,
-                "primaryDps": 110,
+                "cycleSeconds": 3,
+                "primaryDps": 150,
                 "magazine": 3,
-                "reloadSeconds": 2.4,
+                "reloadSeconds": 1.8,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "weaponCycle": {
                 "magazine": 3,
-                "reload": 2.4,
+                "reload": 1.8,
                 "fixedInterval": 0.4,
                 "spinUpSeconds": 0
               }
             },
             {
-              "damage": 285,
+              "damage": 300,
               "interval": 0.4,
               "range": 5,
               "type": "physical",
@@ -11469,21 +11469,21 @@
               ],
               "cycleMetrics": {
                 "shotCount": 3,
-                "cycleSeconds": 3.6,
-                "primaryDps": 237.5,
+                "cycleSeconds": 3.2,
+                "primaryDps": 281.25,
                 "magazine": 3,
-                "reloadSeconds": 2.4,
+                "reloadSeconds": 2,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "weaponCycle": {
                 "magazine": 3,
-                "reload": 2.4,
+                "reload": 2,
                 "fixedInterval": 0.4,
                 "spinUpSeconds": 0
               }
             },
             {
-              "damage": 615,
+              "damage": 650,
               "interval": 0.4,
               "range": 5.25,
               "type": "physical",
@@ -11509,15 +11509,15 @@
               ],
               "cycleMetrics": {
                 "shotCount": 3,
-                "cycleSeconds": 3.6,
-                "primaryDps": 512.5,
+                "cycleSeconds": 3.2,
+                "primaryDps": 609.38,
                 "magazine": 3,
-                "reloadSeconds": 2.4,
+                "reloadSeconds": 2,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "weaponCycle": {
                 "magazine": 3,
-                "reload": 2.4,
+                "reload": 2,
                 "fixedInterval": 0.4,
                 "spinUpSeconds": 0
               }
@@ -11534,9 +11534,9 @@
           "role": "Runesmith draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 5,
+              "damage": 7,
               "interval": 1.1,
-              "range": 3.5,
+              "range": 4.25,
               "type": "magical",
               "abilities": [
                 {
@@ -11576,15 +11576,15 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 1.1,
-                "primaryDps": 4.55,
+                "primaryDps": 6.36,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "detectionRange": 3.5
             },
             {
-              "damage": 11,
+              "damage": 14,
               "interval": 1.1,
-              "range": 3.5,
+              "range": 4.25,
               "type": "magical",
               "abilities": [
                 {
@@ -11624,15 +11624,15 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 1.1,
-                "primaryDps": 10,
+                "primaryDps": 12.73,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "detectionRange": 3.5
             },
             {
-              "damage": 24,
+              "damage": 28,
               "interval": 1.1,
-              "range": 3.5,
+              "range": 4.25,
               "type": "magical",
               "abilities": [
                 {
@@ -11672,15 +11672,15 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 1.1,
-                "primaryDps": 21.82,
+                "primaryDps": 25.45,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "detectionRange": 3.5
             },
             {
-              "damage": 53,
+              "damage": 56,
               "interval": 1.1,
-              "range": 3.5,
+              "range": 4.25,
               "type": "magical",
               "abilities": [
                 {
@@ -11720,7 +11720,7 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 1.1,
-                "primaryDps": 48.18,
+                "primaryDps": 50.91,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               },
               "detectionRange": 3.5
@@ -11728,7 +11728,7 @@
             {
               "damage": 114,
               "interval": 1.1,
-              "range": 3.5,
+              "range": 4.25,
               "type": "magical",
               "abilities": [
                 {
@@ -11776,7 +11776,7 @@
             {
               "damage": 246,
               "interval": 1.1,
-              "range": 3.5,
+              "range": 4.25,
               "type": "magical",
               "abilities": [
                 {
@@ -11833,8 +11833,8 @@
           "role": "Boar Rider draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 11,
-              "interval": 1.3,
+              "damage": 20,
+              "interval": 1.2,
               "range": 2.75,
               "type": "physical",
               "groundOnly": true,
@@ -11862,14 +11862,14 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.3,
-                "primaryDps": 8.46,
+                "cycleSeconds": 1.2,
+                "primaryDps": 16.67,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 25,
-              "interval": 1.3,
+              "damage": 40,
+              "interval": 1.2,
               "range": 2.75,
               "type": "physical",
               "groundOnly": true,
@@ -11897,14 +11897,14 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.3,
-                "primaryDps": 19.23,
+                "cycleSeconds": 1.2,
+                "primaryDps": 33.33,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 55,
-              "interval": 1.3,
+              "damage": 80,
+              "interval": 1.2,
               "range": 2.75,
               "type": "physical",
               "groundOnly": true,
@@ -11932,14 +11932,14 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.3,
-                "primaryDps": 42.31,
+                "cycleSeconds": 1.2,
+                "primaryDps": 66.67,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 121,
-              "interval": 1.3,
+              "damage": 150,
+              "interval": 1.2,
               "range": 2.75,
               "type": "physical",
               "groundOnly": true,
@@ -11967,14 +11967,14 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.3,
-                "primaryDps": 93.08,
+                "cycleSeconds": 1.2,
+                "primaryDps": 125,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 261,
-              "interval": 1.3,
+              "damage": 280,
+              "interval": 1.2,
               "range": 2.75,
               "type": "physical",
               "groundOnly": true,
@@ -12002,14 +12002,14 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.3,
-                "primaryDps": 200.77,
+                "cycleSeconds": 1.2,
+                "primaryDps": 233.33,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 564,
-              "interval": 1.3,
+              "damage": 610,
+              "interval": 1.2,
               "range": 2.75,
               "type": "physical",
               "groundOnly": true,
@@ -12037,8 +12037,8 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.3,
-                "primaryDps": 433.85,
+                "cycleSeconds": 1.2,
+                "primaryDps": 508.33,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             }
@@ -12054,19 +12054,19 @@
           "role": "Grenadier draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 9,
-              "interval": 1.4,
-              "range": 4.5,
+              "damage": 14,
+              "interval": 1.2,
+              "range": 4.75,
               "type": "physical",
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 2 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 4 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-1",
+                  "levelId": "burn-forge-fr001-ba61321aaffd",
                   "level": 1,
-                  "levelLabel": "Burn I",
-                  "dps": 2,
+                  "levelLabel": "Burn · Dwarf FR-001",
+                  "dps": 4,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
@@ -12086,25 +12086,25 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.4,
-                "primaryDps": 6.43,
+                "cycleSeconds": 1.2,
+                "primaryDps": 11.67,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 20,
-              "interval": 1.4,
-              "range": 4.5,
+              "damage": 28,
+              "interval": 1.2,
+              "range": 4.75,
               "type": "physical",
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 6 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 8 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-2",
+                  "levelId": "burn-forge-fr001-7844c4f386a6",
                   "level": 2,
-                  "levelLabel": "Burn II",
-                  "dps": 6,
+                  "levelLabel": "Burn · Dwarf FR-001",
+                  "dps": 8,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
@@ -12124,15 +12124,15 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.4,
-                "primaryDps": 14.29,
+                "cycleSeconds": 1.2,
+                "primaryDps": 23.33,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 44,
-              "interval": 1.4,
-              "range": 4.5,
+              "damage": 56,
+              "interval": 1.2,
+              "range": 4.75,
               "type": "physical",
               "abilities": [
                 {
@@ -12162,15 +12162,15 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.4,
-                "primaryDps": 31.43,
+                "cycleSeconds": 1.2,
+                "primaryDps": 46.67,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 97,
-              "interval": 1.4,
-              "range": 4.5,
+              "damage": 112,
+              "interval": 1.2,
+              "range": 4.75,
               "type": "physical",
               "abilities": [
                 {
@@ -12200,15 +12200,15 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.4,
-                "primaryDps": 69.29,
+                "cycleSeconds": 1.2,
+                "primaryDps": 93.33,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 209,
-              "interval": 1.4,
-              "range": 4.5,
+              "damage": 220,
+              "interval": 1.2,
+              "range": 4.75,
               "type": "physical",
               "abilities": [
                 {
@@ -12238,15 +12238,15 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.4,
-                "primaryDps": 149.29,
+                "cycleSeconds": 1.2,
+                "primaryDps": 183.33,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 451,
-              "interval": 1.4,
-              "range": 4.5,
+              "damage": 475,
+              "interval": 1.2,
+              "range": 4.75,
               "type": "physical",
               "abilities": [
                 {
@@ -12276,8 +12276,8 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1.4,
-                "primaryDps": 322.14,
+                "cycleSeconds": 1.2,
+                "primaryDps": 395.83,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             }
@@ -12293,52 +12293,18 @@
           "role": "Dwarf Engineer draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 5,
+              "damage": 7,
               "interval": 0.8,
-              "range": 3.75,
-              "type": "physical",
-              "abilities": [
-                {
-                  "name": "Attack Speed Aura",
-                  "text": "Allies within 5 tiles gain +5% attack speed. Only the strongest aura applies. Reload, cooldowns and continuous damage/s are unchanged.",
-                  "familyId": "attack-speed-aura",
-                  "levelId": "attack-speed-aura-v12-4bfe1ebe2c",
-                  "level": 1,
-                  "levelLabel": "Attack Speed Aura I",
-                  "bonusPercent": 5,
-                  "radius": 5
-                },
-                {
-                  "name": "Protection Aura",
-                  "text": "Allies within 3 tiles suffer 25% shorter Disarm and Dread. Only the strongest Protection Aura applies.",
-                  "familyId": "protection-aura",
-                  "levelId": "protection-aura-1",
-                  "level": 1,
-                  "levelLabel": "Protection Aura I",
-                  "protectionPercent": 25,
-                  "radius": 3
-                }
-              ],
-              "cycleMetrics": {
-                "shotCount": 1,
-                "cycleSeconds": 0.8,
-                "primaryDps": 6.25,
-                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
-              }
-            },
-            {
-              "damage": 11,
-              "interval": 0.8,
-              "range": 3.75,
+              "range": 4.25,
               "type": "physical",
               "abilities": [
                 {
                   "name": "Attack Speed Aura",
                   "text": "Allies within 5 tiles gain +10% attack speed. Only the strongest aura applies. Reload, cooldowns and continuous damage/s are unchanged.",
                   "familyId": "attack-speed-aura",
-                  "levelId": "attack-speed-aura-v12-881de75518",
-                  "level": 2,
-                  "levelLabel": "Attack Speed Aura II",
+                  "levelId": "attack-speed-aura-forge-fr001-2648965271ff",
+                  "level": 1,
+                  "levelLabel": "Attack Speed Aura · Dwarf FR-001",
                   "bonusPercent": 10,
                   "radius": 5
                 },
@@ -12356,23 +12322,23 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 0.8,
-                "primaryDps": 13.75,
+                "primaryDps": 8.75,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 24,
+              "damage": 14,
               "interval": 0.8,
-              "range": 3.75,
+              "range": 4.25,
               "type": "physical",
               "abilities": [
                 {
                   "name": "Attack Speed Aura",
                   "text": "Allies within 5 tiles gain +15% attack speed. Only the strongest aura applies. Reload, cooldowns and continuous damage/s are unchanged.",
                   "familyId": "attack-speed-aura",
-                  "levelId": "attack-speed-aura-1",
-                  "level": 3,
-                  "levelLabel": "Attack Speed Aura III",
+                  "levelId": "attack-speed-aura-forge-fr001-d828b8ce10bc",
+                  "level": 2,
+                  "levelLabel": "Attack Speed Aura · Dwarf FR-001",
                   "bonusPercent": 15,
                   "radius": 5
                 },
@@ -12390,24 +12356,58 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 0.8,
-                "primaryDps": 30,
+                "primaryDps": 17.5,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
-              "damage": 53,
+              "damage": 28,
               "interval": 0.8,
-              "range": 3.75,
+              "range": 4.25,
               "type": "physical",
               "abilities": [
                 {
                   "name": "Attack Speed Aura",
                   "text": "Allies within 5 tiles gain +20% attack speed. Only the strongest aura applies. Reload, cooldowns and continuous damage/s are unchanged.",
                   "familyId": "attack-speed-aura",
-                  "levelId": "attack-speed-aura-2",
-                  "level": 4,
-                  "levelLabel": "Attack Speed Aura IV",
+                  "levelId": "attack-speed-aura-forge-fr001-b2c1ebe0a7bb",
+                  "level": 3,
+                  "levelLabel": "Attack Speed Aura · Dwarf FR-001",
                   "bonusPercent": 20,
+                  "radius": 5
+                },
+                {
+                  "name": "Protection Aura",
+                  "text": "Allies within 3 tiles suffer 25% shorter Disarm and Dread. Only the strongest Protection Aura applies.",
+                  "familyId": "protection-aura",
+                  "levelId": "protection-aura-1",
+                  "level": 1,
+                  "levelLabel": "Protection Aura I",
+                  "protectionPercent": 25,
+                  "radius": 3
+                }
+              ],
+              "cycleMetrics": {
+                "shotCount": 1,
+                "cycleSeconds": 0.8,
+                "primaryDps": 35,
+                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+              }
+            },
+            {
+              "damage": 56,
+              "interval": 0.8,
+              "range": 4.25,
+              "type": "physical",
+              "abilities": [
+                {
+                  "name": "Attack Speed Aura",
+                  "text": "Allies within 5 tiles gain +25% attack speed. Only the strongest aura applies. Reload, cooldowns and continuous damage/s are unchanged.",
+                  "familyId": "attack-speed-aura",
+                  "levelId": "attack-speed-aura-forge-fr001-b9afbabccb42",
+                  "level": 4,
+                  "levelLabel": "Attack Speed Aura · Dwarf FR-001",
+                  "bonusPercent": 25,
                   "radius": 5
                 },
                 {
@@ -12424,24 +12424,24 @@
               "cycleMetrics": {
                 "shotCount": 1,
                 "cycleSeconds": 0.8,
-                "primaryDps": 66.25,
+                "primaryDps": 70,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             },
             {
               "damage": 114,
               "interval": 0.8,
-              "range": 3.75,
+              "range": 4.25,
               "type": "physical",
               "abilities": [
                 {
                   "name": "Attack Speed Aura",
-                  "text": "Allies within 5 tiles gain +30% attack speed. Only the strongest aura applies. Reload, cooldowns and continuous damage/s are unchanged.",
+                  "text": "Allies within 5 tiles gain +35% attack speed. Only the strongest aura applies. Reload, cooldowns and continuous damage/s are unchanged.",
                   "familyId": "attack-speed-aura",
-                  "levelId": "attack-speed-aura-3",
+                  "levelId": "attack-speed-aura-forge-fr001-6590df4b480c",
                   "level": 5,
-                  "levelLabel": "Attack Speed Aura V",
-                  "bonusPercent": 30,
+                  "levelLabel": "Attack Speed Aura · Dwarf FR-001",
+                  "bonusPercent": 35,
                   "radius": 5
                 },
                 {
@@ -12465,7 +12465,7 @@
             {
               "damage": 246,
               "interval": 0.8,
-              "range": 3.75,
+              "range": 4.25,
               "type": "physical",
               "abilities": [
                 {
@@ -12508,9 +12508,9 @@
           "role": "Griffin Handler draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 7,
-              "interval": 1,
-              "range": 4.5,
+              "damage": 11,
+              "interval": 0.9,
+              "range": 5.25,
               "type": "physical",
               "abilities": [
                 {
@@ -12525,231 +12525,11 @@
                 },
                 {
                   "name": "Sky Hunt",
-                  "text": "Direct Physical attacks deal +20% damage against flying enemies. Ground targets receive no bonus.",
-                  "familyId": "sky-hunt",
-                  "levelId": "sky-hunt-1",
-                  "level": 1,
-                  "levelLabel": "Sky Hunt I",
-                  "bonusPercent": 20,
-                  "targeting": "flying",
-                  "damageType": "physical"
-                },
-                {
-                  "name": "Visibility",
-                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
-                  "familyId": "visibility",
-                  "levelId": "visibility-1",
-                  "level": 1,
-                  "levelLabel": "Visibility I",
-                  "radius": 3.5
-                }
-              ],
-              "cycleMetrics": {
-                "shotCount": 1,
-                "cycleSeconds": 1,
-                "primaryDps": 7,
-                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
-              }
-            },
-            {
-              "damage": 16,
-              "interval": 1,
-              "range": 4.5,
-              "type": "physical",
-              "abilities": [
-                {
-                  "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 4 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
-                  "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-2",
-                  "level": 2,
-                  "levelLabel": "Armor Reduction II",
-                  "armorReduction": 4,
-                  "duration": 4
-                },
-                {
-                  "name": "Sky Hunt",
-                  "text": "Direct Physical attacks deal +20% damage against flying enemies. Ground targets receive no bonus.",
-                  "familyId": "sky-hunt",
-                  "levelId": "sky-hunt-1",
-                  "level": 1,
-                  "levelLabel": "Sky Hunt I",
-                  "bonusPercent": 20,
-                  "targeting": "flying",
-                  "damageType": "physical"
-                },
-                {
-                  "name": "Visibility",
-                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
-                  "familyId": "visibility",
-                  "levelId": "visibility-1",
-                  "level": 1,
-                  "levelLabel": "Visibility I",
-                  "radius": 3.5
-                }
-              ],
-              "cycleMetrics": {
-                "shotCount": 1,
-                "cycleSeconds": 1,
-                "primaryDps": 16,
-                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
-              }
-            },
-            {
-              "damage": 35,
-              "interval": 1,
-              "range": 4.5,
-              "type": "physical",
-              "abilities": [
-                {
-                  "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 8 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
-                  "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-3",
-                  "level": 3,
-                  "levelLabel": "Armor Reduction III",
-                  "armorReduction": 8,
-                  "duration": 4
-                },
-                {
-                  "name": "Sky Hunt",
-                  "text": "Direct Physical attacks deal +30% damage against flying enemies. Ground targets receive no bonus.",
-                  "familyId": "sky-hunt",
-                  "levelId": "sky-hunt-2",
-                  "level": 2,
-                  "levelLabel": "Sky Hunt II",
-                  "bonusPercent": 30,
-                  "targeting": "flying",
-                  "damageType": "physical"
-                },
-                {
-                  "name": "Visibility",
-                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
-                  "familyId": "visibility",
-                  "levelId": "visibility-1",
-                  "level": 1,
-                  "levelLabel": "Visibility I",
-                  "radius": 3.5
-                }
-              ],
-              "cycleMetrics": {
-                "shotCount": 1,
-                "cycleSeconds": 1,
-                "primaryDps": 35,
-                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
-              }
-            },
-            {
-              "damage": 77,
-              "interval": 1,
-              "range": 4.5,
-              "type": "physical",
-              "abilities": [
-                {
-                  "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 16 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
-                  "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-4",
-                  "level": 4,
-                  "levelLabel": "Armor Reduction IV",
-                  "armorReduction": 16,
-                  "duration": 4
-                },
-                {
-                  "name": "Sky Hunt",
-                  "text": "Direct Physical attacks deal +30% damage against flying enemies. Ground targets receive no bonus.",
-                  "familyId": "sky-hunt",
-                  "levelId": "sky-hunt-2",
-                  "level": 2,
-                  "levelLabel": "Sky Hunt II",
-                  "bonusPercent": 30,
-                  "targeting": "flying",
-                  "damageType": "physical"
-                },
-                {
-                  "name": "Visibility",
-                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
-                  "familyId": "visibility",
-                  "levelId": "visibility-1",
-                  "level": 1,
-                  "levelLabel": "Visibility I",
-                  "radius": 3.5
-                }
-              ],
-              "cycleMetrics": {
-                "shotCount": 1,
-                "cycleSeconds": 1,
-                "primaryDps": 77,
-                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
-              }
-            },
-            {
-              "damage": 166,
-              "interval": 1,
-              "range": 4.5,
-              "type": "physical",
-              "abilities": [
-                {
-                  "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 32 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
-                  "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-5",
-                  "level": 5,
-                  "levelLabel": "Armor Reduction V",
-                  "armorReduction": 32,
-                  "duration": 4
-                },
-                {
-                  "name": "Sky Hunt",
-                  "text": "Direct Physical attacks deal +40% damage against flying enemies. Ground targets receive no bonus.",
-                  "familyId": "sky-hunt",
-                  "levelId": "sky-hunt-3",
-                  "level": 3,
-                  "levelLabel": "Sky Hunt III",
-                  "bonusPercent": 40,
-                  "targeting": "flying",
-                  "damageType": "physical"
-                },
-                {
-                  "name": "Visibility",
-                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
-                  "familyId": "visibility",
-                  "levelId": "visibility-1",
-                  "level": 1,
-                  "levelLabel": "Visibility I",
-                  "radius": 3.5
-                }
-              ],
-              "cycleMetrics": {
-                "shotCount": 1,
-                "cycleSeconds": 1,
-                "primaryDps": 166,
-                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
-              }
-            },
-            {
-              "damage": 359,
-              "interval": 1,
-              "range": 4.5,
-              "type": "physical",
-              "abilities": [
-                {
-                  "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 64 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
-                  "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-6",
-                  "level": 6,
-                  "levelLabel": "Armor Reduction VI",
-                  "armorReduction": 64,
-                  "duration": 4
-                },
-                {
-                  "name": "Sky Hunt",
                   "text": "Direct Physical attacks deal +50% damage against flying enemies. Ground targets receive no bonus.",
                   "familyId": "sky-hunt",
-                  "levelId": "sky-hunt-4",
-                  "level": 4,
-                  "levelLabel": "Sky Hunt IV",
+                  "levelId": "sky-hunt-forge-fr001-8ed9810cddd4",
+                  "level": 1,
+                  "levelLabel": "Sky Hunt · Dwarf FR-001",
                   "bonusPercent": 50,
                   "targeting": "flying",
                   "damageType": "physical"
@@ -12766,8 +12546,228 @@
               ],
               "cycleMetrics": {
                 "shotCount": 1,
-                "cycleSeconds": 1,
-                "primaryDps": 359,
+                "cycleSeconds": 0.9,
+                "primaryDps": 12.22,
+                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+              }
+            },
+            {
+              "damage": 22,
+              "interval": 0.9,
+              "range": 5.25,
+              "type": "physical",
+              "abilities": [
+                {
+                  "name": "Armor Reduction",
+                  "text": "Hits reduce armor by 4 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "familyId": "armor-reduction",
+                  "levelId": "armor-reduction-2",
+                  "level": 2,
+                  "levelLabel": "Armor Reduction II",
+                  "armorReduction": 4,
+                  "duration": 4
+                },
+                {
+                  "name": "Sky Hunt",
+                  "text": "Direct Physical attacks deal +50% damage against flying enemies. Ground targets receive no bonus.",
+                  "familyId": "sky-hunt",
+                  "levelId": "sky-hunt-forge-fr001-8ed9810cddd4",
+                  "level": 1,
+                  "levelLabel": "Sky Hunt · Dwarf FR-001",
+                  "bonusPercent": 50,
+                  "targeting": "flying",
+                  "damageType": "physical"
+                },
+                {
+                  "name": "Visibility",
+                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
+                  "familyId": "visibility",
+                  "levelId": "visibility-1",
+                  "level": 1,
+                  "levelLabel": "Visibility I",
+                  "radius": 3.5
+                }
+              ],
+              "cycleMetrics": {
+                "shotCount": 1,
+                "cycleSeconds": 0.9,
+                "primaryDps": 24.44,
+                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+              }
+            },
+            {
+              "damage": 44,
+              "interval": 0.9,
+              "range": 5.25,
+              "type": "physical",
+              "abilities": [
+                {
+                  "name": "Armor Reduction",
+                  "text": "Hits reduce armor by 8 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "familyId": "armor-reduction",
+                  "levelId": "armor-reduction-3",
+                  "level": 3,
+                  "levelLabel": "Armor Reduction III",
+                  "armorReduction": 8,
+                  "duration": 4
+                },
+                {
+                  "name": "Sky Hunt",
+                  "text": "Direct Physical attacks deal +60% damage against flying enemies. Ground targets receive no bonus.",
+                  "familyId": "sky-hunt",
+                  "levelId": "sky-hunt-forge-fr001-d536fdf78a52",
+                  "level": 2,
+                  "levelLabel": "Sky Hunt · Dwarf FR-001",
+                  "bonusPercent": 60,
+                  "targeting": "flying",
+                  "damageType": "physical"
+                },
+                {
+                  "name": "Visibility",
+                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
+                  "familyId": "visibility",
+                  "levelId": "visibility-1",
+                  "level": 1,
+                  "levelLabel": "Visibility I",
+                  "radius": 3.5
+                }
+              ],
+              "cycleMetrics": {
+                "shotCount": 1,
+                "cycleSeconds": 0.9,
+                "primaryDps": 48.89,
+                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+              }
+            },
+            {
+              "damage": 88,
+              "interval": 0.9,
+              "range": 5.25,
+              "type": "physical",
+              "abilities": [
+                {
+                  "name": "Armor Reduction",
+                  "text": "Hits reduce armor by 16 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "familyId": "armor-reduction",
+                  "levelId": "armor-reduction-4",
+                  "level": 4,
+                  "levelLabel": "Armor Reduction IV",
+                  "armorReduction": 16,
+                  "duration": 4
+                },
+                {
+                  "name": "Sky Hunt",
+                  "text": "Direct Physical attacks deal +60% damage against flying enemies. Ground targets receive no bonus.",
+                  "familyId": "sky-hunt",
+                  "levelId": "sky-hunt-forge-fr001-d536fdf78a52",
+                  "level": 2,
+                  "levelLabel": "Sky Hunt · Dwarf FR-001",
+                  "bonusPercent": 60,
+                  "targeting": "flying",
+                  "damageType": "physical"
+                },
+                {
+                  "name": "Visibility",
+                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
+                  "familyId": "visibility",
+                  "levelId": "visibility-1",
+                  "level": 1,
+                  "levelLabel": "Visibility I",
+                  "radius": 3.5
+                }
+              ],
+              "cycleMetrics": {
+                "shotCount": 1,
+                "cycleSeconds": 0.9,
+                "primaryDps": 97.78,
+                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+              }
+            },
+            {
+              "damage": 176,
+              "interval": 0.9,
+              "range": 5.25,
+              "type": "physical",
+              "abilities": [
+                {
+                  "name": "Armor Reduction",
+                  "text": "Hits reduce armor by 32 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "familyId": "armor-reduction",
+                  "levelId": "armor-reduction-5",
+                  "level": 5,
+                  "levelLabel": "Armor Reduction V",
+                  "armorReduction": 32,
+                  "duration": 4
+                },
+                {
+                  "name": "Sky Hunt",
+                  "text": "Direct Physical attacks deal +75% damage against flying enemies. Ground targets receive no bonus.",
+                  "familyId": "sky-hunt",
+                  "levelId": "sky-hunt-forge-fr001-b81fec90d3d6",
+                  "level": 3,
+                  "levelLabel": "Sky Hunt · Dwarf FR-001",
+                  "bonusPercent": 75,
+                  "targeting": "flying",
+                  "damageType": "physical"
+                },
+                {
+                  "name": "Visibility",
+                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
+                  "familyId": "visibility",
+                  "levelId": "visibility-1",
+                  "level": 1,
+                  "levelLabel": "Visibility I",
+                  "radius": 3.5
+                }
+              ],
+              "cycleMetrics": {
+                "shotCount": 1,
+                "cycleSeconds": 0.9,
+                "primaryDps": 195.56,
+                "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
+              }
+            },
+            {
+              "damage": 380,
+              "interval": 0.9,
+              "range": 5.25,
+              "type": "physical",
+              "abilities": [
+                {
+                  "name": "Armor Reduction",
+                  "text": "Hits reduce armor by 64 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "familyId": "armor-reduction",
+                  "levelId": "armor-reduction-6",
+                  "level": 6,
+                  "levelLabel": "Armor Reduction VI",
+                  "armorReduction": 64,
+                  "duration": 4
+                },
+                {
+                  "name": "Sky Hunt",
+                  "text": "Direct Physical attacks deal +75% damage against flying enemies. Ground targets receive no bonus.",
+                  "familyId": "sky-hunt",
+                  "levelId": "sky-hunt-forge-fr001-b81fec90d3d6",
+                  "level": 4,
+                  "levelLabel": "Sky Hunt · Dwarf FR-001",
+                  "bonusPercent": 75,
+                  "targeting": "flying",
+                  "damageType": "physical"
+                },
+                {
+                  "name": "Visibility",
+                  "text": "Reveal hidden enemies within 3.5 tiles for all allies. This removes concealment, not evasion or damage immunity.",
+                  "familyId": "visibility",
+                  "levelId": "visibility-1",
+                  "level": 1,
+                  "levelLabel": "Visibility I",
+                  "radius": 3.5
+                }
+              ],
+              "cycleMetrics": {
+                "shotCount": 1,
+                "cycleSeconds": 0.9,
+                "primaryDps": 422.22,
                 "note": "Primary damage per complete unbuffed cycle before armor/evasion, armor ignore, conditional bonuses, support, splash, secondary hits, burn and target caps. Explicit spin-up, cooling and servicing are included. This is not effective DPS or campaign simulation."
               }
             }
@@ -12783,9 +12783,9 @@
           "role": "Blacksmith draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 7,
-              "interval": 1.2,
-              "range": 3.5,
+              "damage": 10,
+              "interval": 1.1,
+              "range": 4,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -12832,9 +12832,9 @@
               }
             },
             {
-              "damage": 16,
-              "interval": 1.2,
-              "range": 3.5,
+              "damage": 20,
+              "interval": 1.1,
+              "range": 4,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -12881,9 +12881,9 @@
               }
             },
             {
-              "damage": 35,
-              "interval": 1.2,
-              "range": 3.5,
+              "damage": 40,
+              "interval": 1.1,
+              "range": 4,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -12930,9 +12930,9 @@
               }
             },
             {
-              "damage": 77,
-              "interval": 1.2,
-              "range": 3.5,
+              "damage": 80,
+              "interval": 1.1,
+              "range": 4,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -12980,8 +12980,8 @@
             },
             {
               "damage": 166,
-              "interval": 1.2,
-              "range": 3.5,
+              "interval": 1.1,
+              "range": 4,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -13029,8 +13029,8 @@
             },
             {
               "damage": 359,
-              "interval": 1.2,
-              "range": 3.5,
+              "interval": 1.1,
+              "range": 4,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -13130,15 +13130,15 @@
           "recipe": [
             {
               "id": "dw_shieldguard",
-              "rank": 2
+              "rank": 1
             },
             {
-              "id": "dw_shieldguard",
-              "rank": 3
+              "id": "dw_boarrider",
+              "rank": 1
             },
             {
               "id": "dw_runesmith",
-              "rank": 2
+              "rank": 1
             }
           ]
         },
@@ -13702,8 +13702,8 @@
               "rank": 5
             },
             {
-              "id": "dw_engineer",
-              "rank": 4
+              "id": "dw_griffinhandler",
+              "rank": 3
             }
           ]
         },
@@ -13809,8 +13809,8 @@
               "rank": 5
             },
             {
-              "id": "dw_shieldguard",
-              "rank": 4
+              "id": "dw_griffinhandler",
+              "rank": 2
             }
           ]
         },
@@ -14014,8 +14014,8 @@
               "rank": 2
             },
             {
-              "id": "dw_musketeer",
-              "rank": 2
+              "id": "dw_shieldguard",
+              "rank": 3
             }
           ]
         },
@@ -14111,8 +14111,8 @@
               "rank": 4
             },
             {
-              "id": "dw_furnacetender",
-              "rank": 3
+              "id": "dw_boarrider",
+              "rank": 2
             }
           ]
         },
@@ -14484,11 +14484,11 @@
           "recipe": [
             {
               "id": "dw_grenadier",
-              "rank": 3
+              "rank": 1
             },
             {
               "id": "dw_furnacetender",
-              "rank": 2
+              "rank": 1
             },
             {
               "id": "dw_runesmith",
@@ -15160,7 +15160,7 @@
             },
             {
               "id": "dw_runesmith",
-              "rank": 4
+              "rank": 3
             }
           ]
         },
@@ -15730,15 +15730,15 @@
           "recipe": [
             {
               "id": "dw_griffinhandler",
-              "rank": 3
-            },
-            {
-              "id": "dw_boarrider",
-              "rank": 2
+              "rank": 1
             },
             {
               "id": "dw_musketeer",
-              "rank": 2
+              "rank": 1
+            },
+            {
+              "id": "dw_engineer",
+              "rank": 1
             }
           ]
         },
@@ -16117,7 +16117,7 @@
           "recipe": [
             {
               "id": "dw_furnacetender",
-              "rank": 3
+              "rank": 2
             },
             {
               "id": "dw_engineer",
@@ -16433,12 +16433,12 @@
               "rank": 1
             },
             {
-              "id": "dw_engineer",
+              "id": "dw_furnacetender",
               "rank": 5
             },
             {
-              "id": "dw_runesmith",
-              "rank": 4
+              "id": "dw_furnacetender",
+              "rank": 2
             }
           ]
         },
@@ -28346,8 +28346,8 @@
           "role": "Elven Guardian draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 9.5,
-              "interval": 1.1,
+              "damage": 16,
+              "interval": 1,
               "range": 2.5,
               "type": "physical",
               "groundOnly": true,
@@ -28367,8 +28367,8 @@
               ]
             },
             {
-              "damage": 17.6,
-              "interval": 1.1,
+              "damage": 32,
+              "interval": 1,
               "range": 2.5,
               "type": "physical",
               "groundOnly": true,
@@ -28388,8 +28388,8 @@
               ]
             },
             {
-              "damage": 32.3,
-              "interval": 1.1,
+              "damage": 64,
+              "interval": 1,
               "range": 2.5,
               "type": "physical",
               "groundOnly": true,
@@ -28409,8 +28409,8 @@
               ]
             },
             {
-              "damage": 58.9,
-              "interval": 1.1,
+              "damage": 128,
+              "interval": 1,
               "range": 2.5,
               "type": "physical",
               "groundOnly": true,
@@ -28430,8 +28430,8 @@
               ]
             },
             {
-              "damage": 107.4,
-              "interval": 1.1,
+              "damage": 256,
+              "interval": 1,
               "range": 2.5,
               "type": "physical",
               "groundOnly": true,
@@ -28451,8 +28451,8 @@
               ]
             },
             {
-              "damage": 193.8,
-              "interval": 1.1,
+              "damage": 640,
+              "interval": 0.8,
               "range": 2.5,
               "type": "physical",
               "groundOnly": true,
@@ -28483,8 +28483,8 @@
           "role": "Sky Ranger draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 6,
-              "interval": 0.85,
+              "damage": 9,
+              "interval": 0.35,
               "range": 4.5,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
@@ -28512,8 +28512,8 @@
               ]
             },
             {
-              "damage": 11.1,
-              "interval": 0.85,
+              "damage": 18,
+              "interval": 0.35,
               "range": 4.5,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
@@ -28541,8 +28541,8 @@
               ]
             },
             {
-              "damage": 20.4,
-              "interval": 0.85,
+              "damage": 36,
+              "interval": 0.35,
               "range": 4.5,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
@@ -28570,8 +28570,8 @@
               ]
             },
             {
-              "damage": 37.2,
-              "interval": 0.85,
+              "damage": 65,
+              "interval": 0.35,
               "range": 4.5,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
@@ -28599,9 +28599,9 @@
               ]
             },
             {
-              "damage": 67.8,
-              "interval": 0.85,
-              "range": 4.5,
+              "damage": 100,
+              "interval": 0.35,
+              "range": 4.75,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
               "abilities": [
@@ -28628,9 +28628,9 @@
               ]
             },
             {
-              "damage": 122.4,
-              "interval": 0.85,
-              "range": 4.5,
+              "damage": 240,
+              "interval": 0.2,
+              "range": 5.25,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
               "abilities": [
@@ -28668,19 +28668,19 @@
           "role": "Stormspear draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 11,
-              "interval": 1.1,
-              "range": 4,
+              "damage": 18,
+              "interval": 1,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 8 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 10 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-v12-fb9446f497",
+                  "levelId": "lightning-grove-fr001-e4c840e7901c",
                   "level": 1,
-                  "levelLabel": "Lightning I",
-                  "damage": 8,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 10,
                   "targets": 2,
                   "linkRange": 2,
                   "chancePercent": 20,
@@ -28690,19 +28690,19 @@
               ]
             },
             {
-              "damage": 20.4,
-              "interval": 1.1,
-              "range": 4,
+              "damage": 36,
+              "interval": 1,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 20 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 24 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-v12-9e452674fd",
+                  "levelId": "lightning-grove-fr001-91d95094c2c1",
                   "level": 2,
-                  "levelLabel": "Lightning II",
-                  "damage": 20,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 24,
                   "targets": 2,
                   "linkRange": 2,
                   "chancePercent": 20,
@@ -28712,19 +28712,19 @@
               ]
             },
             {
-              "damage": 37.4,
-              "interval": 1.1,
-              "range": 4,
+              "damage": 60,
+              "interval": 1,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 40 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 48 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-v12-22babe6074",
+                  "levelId": "lightning-grove-fr001-7c80edfd2c61",
                   "level": 3,
-                  "levelLabel": "Lightning III",
-                  "damage": 40,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 48,
                   "targets": 2,
                   "linkRange": 2,
                   "chancePercent": 20,
@@ -28734,19 +28734,19 @@
               ]
             },
             {
-              "damage": 68.2,
-              "interval": 1.1,
-              "range": 4,
+              "damage": 120,
+              "interval": 1,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 80 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 96 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-1",
+                  "levelId": "lightning-grove-fr001-9d7101dab9b2",
                   "level": 4,
-                  "levelLabel": "Lightning IV",
-                  "damage": 80,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 96,
                   "targets": 2,
                   "linkRange": 2,
                   "chancePercent": 20,
@@ -28756,19 +28756,19 @@
               ]
             },
             {
-              "damage": 124.3,
-              "interval": 1.1,
-              "range": 4,
+              "damage": 240,
+              "interval": 1,
+              "range": 5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 3 different enemies for 165 Magical damage each (Holy on Holy defenders). Jumps reach 3 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 3 different enemies for 200 Magical damage each (Holy on Holy defenders). Jumps reach 3 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-2",
+                  "levelId": "lightning-grove-fr001-bbd7cd0870be",
                   "level": 5,
-                  "levelLabel": "Lightning V",
-                  "damage": 165,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 200,
                   "targets": 3,
                   "linkRange": 3,
                   "chancePercent": 20,
@@ -28778,19 +28778,19 @@
               ]
             },
             {
-              "damage": 224.4,
-              "interval": 1.1,
-              "range": 4,
+              "damage": 800,
+              "interval": 0.75,
+              "range": 6,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 4 different enemies for 250 Magical damage each (Holy on Holy defenders). Jumps reach 4 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 4 different enemies for 400 Magical damage each (Holy on Holy defenders). Jumps reach 4 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-3",
+                  "levelId": "lightning-grove-fr001-140bf7e38fa9",
                   "level": 6,
-                  "levelLabel": "Lightning VI",
-                  "damage": 250,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 400,
                   "targets": 4,
                   "linkRange": 4,
                   "chancePercent": 20,
@@ -28811,9 +28811,9 @@
           "role": "Drow Lunar Binder draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 5,
-              "interval": 1.1,
-              "range": 3.5,
+              "damage": 6,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -28843,9 +28843,9 @@
               ]
             },
             {
-              "damage": 9.3,
-              "interval": 1.1,
-              "range": 3.5,
+              "damage": 12,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -28875,9 +28875,9 @@
               ]
             },
             {
-              "damage": 17,
-              "interval": 1.1,
-              "range": 3.5,
+              "damage": 24,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -28907,9 +28907,9 @@
               ]
             },
             {
-              "damage": 31,
-              "interval": 1.1,
-              "range": 3.5,
+              "damage": 48,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -28939,9 +28939,9 @@
               ]
             },
             {
-              "damage": 56.5,
-              "interval": 1.1,
-              "range": 3.5,
+              "damage": 96,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -28971,9 +28971,9 @@
               ]
             },
             {
-              "damage": 102,
-              "interval": 1.1,
-              "range": 3.5,
+              "damage": 240,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -29014,9 +29014,9 @@
           "role": "Drow Lunar Hexer draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 8,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 9,
+              "interval": 0.75,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
@@ -29032,91 +29032,91 @@
               ]
             },
             {
-              "damage": 14.8,
-              "interval": 1.15,
-              "range": 4,
-              "type": "magical",
-              "abilities": [
-                {
-                  "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 2 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
-                  "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-1",
-                  "level": 1,
-                  "levelLabel": "Armor Reduction I",
-                  "armorReduction": 2,
-                  "duration": 4
-                }
-              ]
-            },
-            {
-              "damage": 27.2,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 18,
+              "interval": 0.75,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Armor Reduction",
                   "text": "Hits reduce armor by 4 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
                   "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-2",
-                  "level": 2,
-                  "levelLabel": "Armor Reduction II",
+                  "levelId": "armor-reduction-grove-fr001-92c5c8ab05e9",
+                  "level": 1,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
                   "armorReduction": 4,
                   "duration": 4
                 }
               ]
             },
             {
-              "damage": 49.6,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 30,
+              "interval": 0.75,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Armor Reduction",
                   "text": "Hits reduce armor by 8 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
                   "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-3",
-                  "level": 3,
-                  "levelLabel": "Armor Reduction III",
+                  "levelId": "armor-reduction-grove-fr001-4d219e2ba97d",
+                  "level": 2,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
                   "armorReduction": 8,
                   "duration": 4
                 }
               ]
             },
             {
-              "damage": 90.4,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 48,
+              "interval": 0.75,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Armor Reduction",
                   "text": "Hits reduce armor by 16 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
                   "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-4",
-                  "level": 4,
-                  "levelLabel": "Armor Reduction IV",
+                  "levelId": "armor-reduction-grove-fr001-5aa9c33fc01f",
+                  "level": 3,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
                   "armorReduction": 16,
                   "duration": 4
                 }
               ]
             },
             {
-              "damage": 163.2,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 72,
+              "interval": 0.75,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Armor Reduction",
                   "text": "Hits reduce armor by 32 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
                   "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-5",
-                  "level": 5,
-                  "levelLabel": "Armor Reduction V",
+                  "levelId": "armor-reduction-grove-fr001-ba746b4f9939",
+                  "level": 4,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
                   "armorReduction": 32,
+                  "duration": 4
+                }
+              ]
+            },
+            {
+              "damage": 300,
+              "interval": 0.65,
+              "range": 4.75,
+              "type": "magical",
+              "abilities": [
+                {
+                  "name": "Armor Reduction",
+                  "text": "Hits reduce armor by 64 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "familyId": "armor-reduction",
+                  "levelId": "armor-reduction-grove-fr001-5f0713fc88f5",
+                  "level": 5,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
+                  "armorReduction": 64,
                   "duration": 4
                 }
               ]
@@ -29133,8 +29133,8 @@
           "role": "Drow Moonblade Stalker draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 12,
-              "interval": 1,
+              "damage": 20,
+              "interval": 0.9,
               "range": 2.5,
               "type": "magical",
               "groundOnly": true,
@@ -29152,8 +29152,8 @@
               ]
             },
             {
-              "damage": 22.2,
-              "interval": 1,
+              "damage": 40,
+              "interval": 0.9,
               "range": 2.5,
               "type": "magical",
               "groundOnly": true,
@@ -29171,8 +29171,8 @@
               ]
             },
             {
-              "damage": 40.8,
-              "interval": 1,
+              "damage": 80,
+              "interval": 0.9,
               "range": 2.5,
               "type": "magical",
               "groundOnly": true,
@@ -29190,8 +29190,8 @@
               ]
             },
             {
-              "damage": 74.4,
-              "interval": 1,
+              "damage": 160,
+              "interval": 0.9,
               "range": 2.5,
               "type": "magical",
               "groundOnly": true,
@@ -29209,8 +29209,8 @@
               ]
             },
             {
-              "damage": 135.6,
-              "interval": 1,
+              "damage": 320,
+              "interval": 0.9,
               "range": 2.5,
               "type": "magical",
               "groundOnly": true,
@@ -29228,8 +29228,8 @@
               ]
             },
             {
-              "damage": 244.8,
-              "interval": 1,
+              "damage": 1000,
+              "interval": 0.7,
               "range": 2.5,
               "type": "magical",
               "groundOnly": true,
@@ -29258,59 +29258,19 @@
           "role": "Gale Dancer draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 8,
+              "damage": 14,
               "interval": 1,
-              "range": 3.5,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Magical Cleave",
-                  "text": "Direct attacks deal 25% base damage as Magical damage to all other eligible enemies within 1 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
+                  "text": "Direct attacks deal 30% base damage as Magical damage to all other eligible enemies within 1.5 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
                   "familyId": "cleave-magical",
-                  "levelId": "cleave-magical-1",
+                  "levelId": "cleave-magical-grove-fr001-3a3dfcbc5857",
                   "level": 1,
-                  "levelLabel": "Magical Cleave I",
-                  "damagePercent": 25,
-                  "radius": 1,
-                  "damageType": "magical",
-                  "maxTargets": null
-                }
-              ]
-            },
-            {
-              "damage": 14.8,
-              "interval": 1,
-              "range": 3.5,
-              "type": "magical",
-              "abilities": [
-                {
-                  "name": "Magical Cleave",
-                  "text": "Direct attacks deal 25% base damage as Magical damage to all other eligible enemies within 1 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
-                  "familyId": "cleave-magical",
-                  "levelId": "cleave-magical-1",
-                  "level": 1,
-                  "levelLabel": "Magical Cleave I",
-                  "damagePercent": 25,
-                  "radius": 1,
-                  "damageType": "magical",
-                  "maxTargets": null
-                }
-              ]
-            },
-            {
-              "damage": 27.2,
-              "interval": 1,
-              "range": 3.5,
-              "type": "magical",
-              "abilities": [
-                {
-                  "name": "Magical Cleave",
-                  "text": "Direct attacks deal 35% base damage as Magical damage to all other eligible enemies within 1.5 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
-                  "familyId": "cleave-magical",
-                  "levelId": "cleave-magical-2",
-                  "level": 2,
-                  "levelLabel": "Magical Cleave II",
-                  "damagePercent": 35,
+                  "levelLabel": "Magical Cleave · Elf FR-001",
+                  "damagePercent": 30,
                   "radius": 1.5,
                   "damageType": "magical",
                   "maxTargets": null
@@ -29318,39 +29278,39 @@
               ]
             },
             {
-              "damage": 49.6,
+              "damage": 28,
               "interval": 1,
-              "range": 3.5,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Magical Cleave",
-                  "text": "Direct attacks deal 35% base damage as Magical damage to all other eligible enemies within 1.5 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
+                  "text": "Direct attacks deal 35% base damage as Magical damage to all other eligible enemies within 1.75 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
                   "familyId": "cleave-magical",
-                  "levelId": "cleave-magical-2",
-                  "level": 2,
-                  "levelLabel": "Magical Cleave II",
+                  "levelId": "cleave-magical-grove-fr001-833ad8c61918",
+                  "level": 1,
+                  "levelLabel": "Magical Cleave · Elf FR-001",
                   "damagePercent": 35,
-                  "radius": 1.5,
+                  "radius": 1.75,
                   "damageType": "magical",
                   "maxTargets": null
                 }
               ]
             },
             {
-              "damage": 90.4,
+              "damage": 48,
               "interval": 1,
-              "range": 3.5,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Magical Cleave",
-                  "text": "Direct attacks deal 50% base damage as Magical damage to all other eligible enemies within 2 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
+                  "text": "Direct attacks deal 45% base damage as Magical damage to all other eligible enemies within 2 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
                   "familyId": "cleave-magical",
-                  "levelId": "cleave-magical-3",
-                  "level": 3,
-                  "levelLabel": "Magical Cleave III",
-                  "damagePercent": 50,
+                  "levelId": "cleave-magical-grove-fr001-f670d3d4790d",
+                  "level": 2,
+                  "levelLabel": "Magical Cleave · Elf FR-001",
+                  "damagePercent": 45,
                   "radius": 2,
                   "damageType": "magical",
                   "maxTargets": null
@@ -29358,20 +29318,60 @@
               ]
             },
             {
-              "damage": 163.2,
+              "damage": 96,
               "interval": 1,
-              "range": 3.5,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Magical Cleave",
-                  "text": "Direct attacks deal 50% base damage as Magical damage to all other eligible enemies within 2 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
+                  "text": "Direct attacks deal 55% base damage as Magical damage to all other eligible enemies within 2.25 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
                   "familyId": "cleave-magical",
-                  "levelId": "cleave-magical-3",
+                  "levelId": "cleave-magical-grove-fr001-90016e98a012",
+                  "level": 2,
+                  "levelLabel": "Magical Cleave · Elf FR-001",
+                  "damagePercent": 55,
+                  "radius": 2.25,
+                  "damageType": "magical",
+                  "maxTargets": null
+                }
+              ]
+            },
+            {
+              "damage": 192,
+              "interval": 1,
+              "range": 4.5,
+              "type": "magical",
+              "abilities": [
+                {
+                  "name": "Magical Cleave",
+                  "text": "Direct attacks deal 65% base damage as Magical damage to all other eligible enemies within 2.5 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
+                  "familyId": "cleave-magical",
+                  "levelId": "cleave-magical-grove-fr001-c187630226a9",
                   "level": 3,
-                  "levelLabel": "Magical Cleave III",
-                  "damagePercent": 50,
-                  "radius": 2,
+                  "levelLabel": "Magical Cleave · Elf FR-001",
+                  "damagePercent": 65,
+                  "radius": 2.5,
+                  "damageType": "magical",
+                  "maxTargets": null
+                }
+              ]
+            },
+            {
+              "damage": 640,
+              "interval": 0.9,
+              "range": 5,
+              "type": "magical",
+              "abilities": [
+                {
+                  "name": "Magical Cleave",
+                  "text": "Direct attacks deal 80% base damage as Magical damage to all other eligible enemies within 3 tiles of the target. Secondary damage cannot trigger more abilities. With Multishot, only the first selected target creates Splash or Cleave. Area damage skips every directly hit target, and each other enemy takes area damage at most once from that attack.",
+                  "familyId": "cleave-magical",
+                  "levelId": "cleave-magical-grove-fr001-a6e8198fb027",
+                  "level": 3,
+                  "levelLabel": "Magical Cleave · Elf FR-001",
+                  "damagePercent": 80,
+                  "radius": 3,
                   "damageType": "magical",
                   "maxTargets": null
                 }
@@ -29389,31 +29389,31 @@
           "role": "Dragon Keeper draft defender with six reviewed ranks.",
           "profiles": [
             {
-              "damage": 9,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 10,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 2 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 4 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-1",
+                  "levelId": "burn-grove-fr001-ba61321aaffd",
                   "level": 1,
-                  "levelLabel": "Burn I",
-                  "dps": 2,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 4,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Spark",
-                  "text": "Every 5 s, strike one enemy in attack range for 10 Magical lightning damage.",
+                  "text": "Every 5 s, strike one enemy in attack range for 12 Magical lightning damage.",
                   "familyId": "spark",
-                  "levelId": "spark-1",
+                  "levelId": "spark-grove-fr001-a2678b35b31e",
                   "level": 1,
-                  "levelLabel": "Spark I",
-                  "damage": 10,
+                  "levelLabel": "Spark · Elf FR-001",
+                  "damage": 12,
                   "cooldown": 5,
                   "targets": 1,
                   "damageType": "magical"
@@ -29421,31 +29421,31 @@
               ]
             },
             {
-              "damage": 16.7,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 20,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 2 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 8 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-1",
+                  "levelId": "burn-grove-fr001-7844c4f386a6",
                   "level": 1,
-                  "levelLabel": "Burn I",
-                  "dps": 2,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 8,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Spark",
-                  "text": "Every 5 s, strike one enemy in attack range for 10 Magical lightning damage.",
+                  "text": "Every 5 s, strike one enemy in attack range for 24 Magical lightning damage.",
                   "familyId": "spark",
-                  "levelId": "spark-1",
+                  "levelId": "spark-grove-fr001-e9d88eb96263",
                   "level": 1,
-                  "levelLabel": "Spark I",
-                  "damage": 10,
+                  "levelLabel": "Spark · Elf FR-001",
+                  "damage": 24,
                   "cooldown": 5,
                   "targets": 1,
                   "damageType": "magical"
@@ -29453,31 +29453,31 @@
               ]
             },
             {
-              "damage": 30.6,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 32,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 6 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 16 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-2",
+                  "levelId": "burn-grove-fr001-75a44a786b94",
                   "level": 2,
-                  "levelLabel": "Burn II",
-                  "dps": 6,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 16,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Spark",
-                  "text": "Every 5 s, strike one enemy in attack range for 10 Magical lightning damage.",
+                  "text": "Every 5 s, strike one enemy in attack range for 48 Magical lightning damage.",
                   "familyId": "spark",
-                  "levelId": "spark-1",
+                  "levelId": "spark-grove-fr001-1abc0a9468b3",
                   "level": 1,
-                  "levelLabel": "Spark I",
-                  "damage": 10,
+                  "levelLabel": "Spark · Elf FR-001",
+                  "damage": 48,
                   "cooldown": 5,
                   "targets": 1,
                   "damageType": "magical"
@@ -29485,31 +29485,31 @@
               ]
             },
             {
-              "damage": 55.8,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 56,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 6 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 32 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-2",
+                  "levelId": "burn-grove-fr001-659dc976805b",
                   "level": 2,
-                  "levelLabel": "Burn II",
-                  "dps": 6,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 32,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Spark",
-                  "text": "Every 5 s, strike one enemy in attack range for 10 Magical lightning damage.",
+                  "text": "Every 5 s, strike one enemy in attack range for 96 Magical lightning damage.",
                   "familyId": "spark",
-                  "levelId": "spark-1",
+                  "levelId": "spark-grove-fr001-36241167f1ba",
                   "level": 1,
-                  "levelLabel": "Spark I",
-                  "damage": 10,
+                  "levelLabel": "Spark · Elf FR-001",
+                  "damage": 96,
                   "cooldown": 5,
                   "targets": 1,
                   "damageType": "magical"
@@ -29517,31 +29517,31 @@
               ]
             },
             {
-              "damage": 101.7,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 96,
+              "interval": 1,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 18 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 64 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-3",
+                  "levelId": "burn-grove-fr001-66080d5a858f",
                   "level": 3,
-                  "levelLabel": "Burn III",
-                  "dps": 18,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 64,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Spark",
-                  "text": "Every 5 s, strike one enemy in attack range for 30 Magical lightning damage.",
+                  "text": "Every 5 s, strike one enemy in attack range for 192 Magical lightning damage.",
                   "familyId": "spark",
-                  "levelId": "spark-2",
+                  "levelId": "spark-grove-fr001-d84fb458cce6",
                   "level": 2,
-                  "levelLabel": "Spark II",
-                  "damage": 30,
+                  "levelLabel": "Spark · Elf FR-001",
+                  "damage": 192,
                   "cooldown": 5,
                   "targets": 1,
                   "damageType": "magical"
@@ -29549,31 +29549,31 @@
               ]
             },
             {
-              "damage": 183.6,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 480,
+              "interval": 0.9,
+              "range": 4.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 50 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 240 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-4",
+                  "levelId": "burn-grove-fr001-39c716529486",
                   "level": 4,
-                  "levelLabel": "Burn IV",
-                  "dps": 50,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 240,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Spark",
-                  "text": "Every 5 s, strike one enemy in attack range for 80 Magical lightning damage.",
+                  "text": "Every 5 s, strike one enemy in attack range for 600 Magical lightning damage.",
                   "familyId": "spark",
-                  "levelId": "spark-3",
+                  "levelId": "spark-grove-fr001-9e2ec3bbe4df",
                   "level": 3,
-                  "levelLabel": "Spark III",
-                  "damage": 80,
+                  "levelLabel": "Spark · Elf FR-001",
+                  "damage": 600,
                   "cooldown": 5,
                   "targets": 1,
                   "damageType": "magical"
@@ -29592,9 +29592,9 @@
           "role": "BASIC Guardian Sentry: Physical Cleave.",
           "profiles": [
             {
-              "damage": 45,
-              "interval": 1,
-              "range": 3,
+              "damage": 90,
+              "interval": 0.95,
+              "range": 3.25,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -29616,15 +29616,15 @@
           "recipe": [
             {
               "id": "el_moonblade",
-              "rank": 2
-            },
-            {
-              "id": "el_spark_adept",
-              "rank": 2
+              "rank": 1
             },
             {
               "id": "el_grove_archer",
-              "rank": 3
+              "rank": 1
+            },
+            {
+              "id": "el_drow_cinder",
+              "rank": 1
             }
           ]
         },
@@ -29637,9 +29637,9 @@
           "role": "INTERMEDIATE Guardian Veteran: Charged Attack, Critical Strike, Physical Cleave.",
           "profiles": [
             {
-              "damage": 110,
-              "interval": 1,
-              "range": 3.25,
+              "damage": 230,
+              "interval": 0.85,
+              "range": 3.5,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -29677,7 +29677,7 @@
                 }
               ],
               "expectedMetrics": {
-                "primaryDps": 154,
+                "primaryDps": 378.8235,
                 "criticalChance": 0.1,
                 "criticalMultiplier": 5,
                 "criticalFamilyId": "critical-strike",
@@ -29709,9 +29709,9 @@
           "role": "ADVANCED Sunsteel Warden: Charged Attack, Critical Strike, Physical Cleave.",
           "profiles": [
             {
-              "damage": 230,
-              "interval": 1,
-              "range": 3.5,
+              "damage": 1250,
+              "interval": 0.85,
+              "range": 4.25,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -29749,7 +29749,7 @@
                 }
               ],
               "expectedMetrics": {
-                "primaryDps": 414,
+                "primaryDps": 2647.0588,
                 "criticalChance": 0.2,
                 "criticalMultiplier": 5,
                 "criticalFamilyId": "critical-strike",
@@ -29763,7 +29763,7 @@
               "rank": 1
             },
             {
-              "id": "el_spark_adept",
+              "id": "el_moonblade",
               "rank": 4
             },
             {
@@ -29781,9 +29781,9 @@
           "role": "TOP Crown Guardian: Charged Attack, Critical Strike, Physical Cleave.",
           "profiles": [
             {
-              "damage": 800,
-              "interval": 1,
-              "range": 3.75,
+              "damage": 3600,
+              "interval": 0.8,
+              "range": 4.75,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -29831,7 +29831,7 @@
                 }
               ],
               "expectedMetrics": {
-                "primaryDps": 1440,
+                "primaryDps": 8100,
                 "criticalChance": 0.2,
                 "criticalMultiplier": 5,
                 "criticalFamilyId": "critical-strike",
@@ -29863,9 +29863,9 @@
           "role": "ADVANCED Stag Bulwark: Charged Attack, Critical Strike, Physical Cleave.",
           "profiles": [
             {
-              "damage": 258,
-              "interval": 1,
-              "range": 3.5,
+              "damage": 1150,
+              "interval": 0.85,
+              "range": 4.5,
               "type": "physical",
               "groundOnly": true,
               "abilities": [
@@ -29914,7 +29914,7 @@
                 }
               ],
               "expectedMetrics": {
-                "primaryDps": 464.4,
+                "primaryDps": 2435.2941,
                 "criticalChance": 0.2,
                 "criticalMultiplier": 5,
                 "criticalFamilyId": "critical-strike",
@@ -29946,9 +29946,9 @@
           "role": "BASIC Sky Ranger Scout: Multishot, Visibility.",
           "profiles": [
             {
-              "damage": 24,
-              "interval": 0.8,
-              "range": 4.5,
+              "damage": 90,
+              "interval": 0.7,
+              "range": 5,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
               "abilities": [
@@ -29998,9 +29998,9 @@
           "role": "INTERMEDIATE Sky Ranger Captain: Lone Vigil, Multishot, Visibility.",
           "profiles": [
             {
-              "damage": 50,
-              "interval": 0.85,
-              "range": 4.75,
+              "damage": 225,
+              "interval": 0.75,
+              "range": 5.5,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
               "abilities": [
@@ -30047,8 +30047,8 @@
               "rank": 3
             },
             {
-              "id": "el_drow_acolyte",
-              "rank": 3
+              "id": "el_grove_archer",
+              "rank": 4
             }
           ]
         },
@@ -30061,20 +30061,20 @@
           "role": "ADVANCED Stormfeather Ranger: Armor Reduction, Lone Vigil, Multishot.",
           "profiles": [
             {
-              "damage": 95,
-              "interval": 0.85,
-              "range": 5,
+              "damage": 900,
+              "interval": 0.6,
+              "range": 6.5,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
               "abilities": [
                 {
                   "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 4 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "text": "Hits reduce armor by 16 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
                   "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-2",
+                  "levelId": "armor-reduction-grove-fr001-5aa9c33fc01f",
                   "level": 2,
-                  "levelLabel": "Armor Reduction II",
-                  "armorReduction": 4,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
+                  "armorReduction": 16,
                   "duration": 4
                 },
                 {
@@ -30134,20 +30134,20 @@
           "role": "TOP High Sky Warden: Armor Reduction, Lone Vigil, Multishot.",
           "profiles": [
             {
-              "damage": 450,
-              "interval": 0.85,
-              "range": 5.5,
+              "damage": 2600,
+              "interval": 0.6,
+              "range": 7.5,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
               "abilities": [
                 {
                   "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 8 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "text": "Hits reduce armor by 16 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
                   "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-3",
+                  "levelId": "armor-reduction-grove-fr001-5aa9c33fc01f",
                   "level": 3,
-                  "levelLabel": "Armor Reduction III",
-                  "armorReduction": 8,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
+                  "armorReduction": 16,
                   "duration": 4
                 },
                 {
@@ -30208,20 +30208,20 @@
           "role": "ADVANCED Skyshear Hunter: Armor Reduction, Critical Strike, Lone Vigil.",
           "profiles": [
             {
-              "damage": 107,
-              "interval": 0.85,
-              "range": 5,
+              "damage": 1300,
+              "interval": 0.65,
+              "range": 6.75,
               "type": "physical",
               "targetPriority": "flying-then-furthest-path",
               "abilities": [
                 {
                   "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 8 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "text": "Hits reduce armor by 32 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
                   "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-3",
+                  "levelId": "armor-reduction-grove-fr001-ba746b4f9939",
                   "level": 3,
-                  "levelLabel": "Armor Reduction III",
-                  "armorReduction": 8,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
+                  "armorReduction": 32,
                   "duration": 4
                 },
                 {
@@ -30266,7 +30266,7 @@
                 }
               ],
               "expectedMetrics": {
-                "primaryDps": 176.2353,
+                "primaryDps": 2800,
                 "criticalChance": 0.1,
                 "criticalMultiplier": 5,
                 "criticalFamilyId": "critical-strike",
@@ -30298,19 +30298,19 @@
           "role": "BASIC Stormspear Initiate: Lightning.",
           "profiles": [
             {
-              "damage": 64,
-              "interval": 1,
-              "range": 4.25,
+              "damage": 110,
+              "interval": 0.9,
+              "range": 5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 40 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 60 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-v12-22babe6074",
+                  "levelId": "lightning-grove-fr001-361c70635c50",
                   "level": 3,
-                  "levelLabel": "Lightning III",
-                  "damage": 40,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 60,
                   "targets": 2,
                   "linkRange": 2,
                   "chancePercent": 20,
@@ -30323,15 +30323,15 @@
           "recipe": [
             {
               "id": "el_spark_adept",
-              "rank": 2
+              "rank": 1
             },
             {
               "id": "el_drow_acolyte",
-              "rank": 2
+              "rank": 1
             },
             {
-              "id": "el_sealweaver",
-              "rank": 3
+              "id": "el_dragon_keeper",
+              "rank": 1
             }
           ]
         },
@@ -30344,19 +30344,19 @@
           "role": "INTERMEDIATE Thunderlance Guard: Lightning.",
           "profiles": [
             {
-              "damage": 145,
-              "interval": 1,
-              "range": 4.5,
+              "damage": 420,
+              "interval": 0.8,
+              "range": 5.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 80 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 2 different enemies for 200 Magical damage each (Holy on Holy defenders). Jumps reach 2 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-1",
+                  "levelId": "lightning-grove-fr001-12b36c0f4ffc",
                   "level": 4,
-                  "levelLabel": "Lightning IV",
-                  "damage": 80,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 200,
                   "targets": 2,
                   "linkRange": 2,
                   "chancePercent": 20,
@@ -30390,19 +30390,19 @@
           "role": "ADVANCED Stormlance Sentinel: Lightning.",
           "profiles": [
             {
-              "damage": 300,
-              "interval": 1,
-              "range": 4.75,
+              "damage": 1800,
+              "interval": 0.7,
+              "range": 6.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 3 different enemies for 165 Magical damage each (Holy on Holy defenders). Jumps reach 3 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 3 different enemies for 1000 Magical damage each (Holy on Holy defenders). Jumps reach 3 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-2",
+                  "levelId": "lightning-grove-fr001-7fc42ce01d78",
                   "level": 5,
-                  "levelLabel": "Lightning V",
-                  "damage": 165,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 1000,
                   "targets": 3,
                   "linkRange": 3,
                   "chancePercent": 20,
@@ -30436,19 +30436,19 @@
           "role": "TOP Tempest Spear Sovereign: Lightning, Spark.",
           "profiles": [
             {
-              "damage": 960,
-              "interval": 1,
-              "range": 5,
+              "damage": 7200,
+              "interval": 0.4,
+              "range": 7.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 4 different enemies for 250 Magical damage each (Holy on Holy defenders). Jumps reach 4 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 4 different enemies for 3600 Magical damage each (Holy on Holy defenders). Jumps reach 4 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-3",
+                  "levelId": "lightning-grove-fr001-161ac6d33c23",
                   "level": 6,
-                  "levelLabel": "Lightning VI",
-                  "damage": 250,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 3600,
                   "targets": 4,
                   "linkRange": 4,
                   "chancePercent": 20,
@@ -30457,12 +30457,12 @@
                 },
                 {
                   "name": "Spark",
-                  "text": "Every 5 s, strike one enemy in attack range for 200 Magical lightning damage.",
+                  "text": "Every 5 s, strike one enemy in attack range for 4000 Magical lightning damage.",
                   "familyId": "spark",
-                  "levelId": "spark-4",
+                  "levelId": "spark-grove-fr001-d37f08c10aa7",
                   "level": 4,
-                  "levelLabel": "Spark IV",
-                  "damage": 200,
+                  "levelLabel": "Spark · Elf FR-001",
+                  "damage": 4000,
                   "cooldown": 5,
                   "targets": 1,
                   "damageType": "magical"
@@ -30494,19 +30494,19 @@
           "role": "ADVANCED Thunderhead Anchor: Lightning.",
           "profiles": [
             {
-              "damage": 336,
-              "interval": 1,
-              "range": 4.75,
+              "damage": 2000,
+              "interval": 0.75,
+              "range": 6.5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Lightning",
-                  "text": "Direct attacks have a 20% chance to chain lightning to 4 different enemies for 250 Magical damage each (Holy on Holy defenders). Jumps reach 4 tiles. A target is hit once per chain.",
+                  "text": "Direct attacks have a 20% chance to chain lightning to 4 different enemies for 1200 Magical damage each (Holy on Holy defenders). Jumps reach 4 tiles. A target is hit once per chain.",
                   "familyId": "lightning",
-                  "levelId": "lightning-3",
+                  "levelId": "lightning-grove-fr001-06911ba79efc",
                   "level": 6,
-                  "levelLabel": "Lightning VI",
-                  "damage": 250,
+                  "levelLabel": "Lightning · Elf FR-001",
+                  "damage": 1200,
                   "targets": 4,
                   "linkRange": 4,
                   "chancePercent": 20,
@@ -30540,9 +30540,9 @@
           "role": "BASIC Lunar Sealbearer: Cancel Magic Immunity, Visibility.",
           "profiles": [
             {
-              "damage": 32,
-              "interval": 1.1,
-              "range": 3.75,
+              "damage": 100,
+              "interval": 1,
+              "range": 4.75,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -30575,15 +30575,15 @@
           "recipe": [
             {
               "id": "el_sealweaver",
-              "rank": 2
+              "rank": 1
             },
             {
-              "id": "el_drow_acolyte",
-              "rank": 2
+              "id": "el_drow_blade",
+              "rank": 1
             },
             {
               "id": "el_drow_cinder",
-              "rank": 3
+              "rank": 2
             }
           ]
         },
@@ -30596,9 +30596,9 @@
           "role": "INTERMEDIATE Eclipse Binder: Anti-Regeneration, Cancel Magic Immunity, Protection Aura.",
           "profiles": [
             {
-              "damage": 75,
-              "interval": 1.1,
-              "range": 4,
+              "damage": 320,
+              "interval": 1,
+              "range": 5.25,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -30658,8 +30658,8 @@
               "rank": 3
             },
             {
-              "id": "el_drow_cinder",
-              "rank": 3
+              "id": "el_drow_acolyte",
+              "rank": 4
             }
           ]
         },
@@ -30672,9 +30672,9 @@
           "role": "ADVANCED Moonseal Inquisitor: Anti-Regeneration, Cancel Magic Immunity, Damage Aura.",
           "profiles": [
             {
-              "damage": 160,
-              "interval": 1.1,
-              "range": 4.25,
+              "damage": 400,
+              "interval": 1,
+              "range": 5.5,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -30758,9 +30758,9 @@
           "role": "TOP Eclipse Unbinder: Anti-Regeneration, Cancel Magic Immunity, Damage Aura.",
           "profiles": [
             {
-              "damage": 520,
-              "interval": 1.1,
-              "range": 4.5,
+              "damage": 1600,
+              "interval": 0.85,
+              "range": 6.5,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -30844,9 +30844,9 @@
           "role": "ADVANCED Crescent Exorcist: Anti-Regeneration, Cancel Magic Immunity, Protection Aura.",
           "profiles": [
             {
-              "damage": 180,
-              "interval": 1.1,
-              "range": 4.25,
+              "damage": 450,
+              "interval": 1,
+              "range": 5.75,
               "type": "magical",
               "detectionRange": 3.5,
               "abilities": [
@@ -30932,19 +30932,19 @@
           "role": "BASIC Lunar Hex Initiate: Armor Reduction.",
           "profiles": [
             {
-              "damage": 45,
-              "interval": 1.15,
-              "range": 4,
+              "damage": 100,
+              "interval": 0.9,
+              "range": 5,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 4 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "text": "Hits reduce armor by 8 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
                   "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-2",
+                  "levelId": "armor-reduction-grove-fr001-4d219e2ba97d",
                   "level": 2,
-                  "levelLabel": "Armor Reduction II",
-                  "armorReduction": 4,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
+                  "armorReduction": 8,
                   "duration": 4
                 }
               ]
@@ -30974,19 +30974,19 @@
           "role": "INTERMEDIATE Moonveil Hexer: Armor Reduction, Slow.",
           "profiles": [
             {
-              "damage": 100,
-              "interval": 1.15,
-              "range": 4.25,
+              "damage": 280,
+              "interval": 0.85,
+              "range": 5.25,
               "type": "magical",
               "abilities": [
                 {
                   "name": "Armor Reduction",
-                  "text": "Hits reduce armor by 8 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
+                  "text": "Hits reduce armor by 16 for 4 s. The strongest reduction applies; armor cannot fall below 0.",
                   "familyId": "armor-reduction",
-                  "levelId": "armor-reduction-3",
+                  "levelId": "armor-reduction-grove-fr001-5aa9c33fc01f",
                   "level": 3,
-                  "levelLabel": "Armor Reduction III",
-                  "armorReduction": 8,
+                  "levelLabel": "Armor Reduction · Elf FR-001",
+                  "armorReduction": 16,
                   "duration": 4
                 },
                 {
@@ -31026,9 +31026,9 @@
           "role": "ADVANCED Lunar Tormentor: Anti-Regeneration, Armor Reduction, Slow.",
           "profiles": [
             {
-              "damage": 210,
-              "interval": 1.1,
-              "range": 4.5,
+              "damage": 800,
+              "interval": 0.85,
+              "range": 6,
               "type": "magical",
               "abilities": [
                 {
@@ -31088,9 +31088,9 @@
           "role": "TOP Drow Eclipse Matriarch: Anti-Regeneration, Armor Reduction, Charged Attack.",
           "profiles": [
             {
-              "damage": 680,
-              "interval": 1.1,
-              "range": 4.75,
+              "damage": 4500,
+              "interval": 0.7,
+              "range": 6.5,
               "type": "magical",
               "abilities": [
                 {
@@ -31160,9 +31160,9 @@
           "role": "ADVANCED Pale Moon Oracle: Armor Reduction, Root, Slow.",
           "profiles": [
             {
-              "damage": 236,
-              "interval": 1.1,
-              "range": 4.5,
+              "damage": 750,
+              "interval": 0.85,
+              "range": 6.25,
               "type": "magical",
               "abilities": [
                 {
@@ -31233,9 +31233,9 @@
           "role": "BASIC Moonblade Initiate: Anti-Regeneration, Magical Critical Strike, Moon Strike.",
           "profiles": [
             {
-              "damage": 58,
-              "interval": 1,
-              "range": 2.75,
+              "damage": 150,
+              "interval": 0.9,
+              "range": 3.25,
               "type": "magical",
               "groundOnly": true,
               "abilities": [
@@ -31283,7 +31283,7 @@
                 }
               ],
               "expectedMetrics": {
-                "primaryDps": 63.8,
+                "primaryDps": 183.3333,
                 "criticalChance": 0.1,
                 "criticalMultiplier": 2,
                 "criticalFamilyId": "magical-critical-strike",
@@ -31315,9 +31315,9 @@
           "role": "INTERMEDIATE Moonblade Stalker: Anti-Regeneration, Lone Vigil, Magical Critical Strike.",
           "profiles": [
             {
-              "damage": 135,
-              "interval": 1,
-              "range": 3,
+              "damage": 420,
+              "interval": 0.85,
+              "range": 3.5,
               "type": "magical",
               "groundOnly": true,
               "abilities": [
@@ -31376,7 +31376,7 @@
                 }
               ],
               "expectedMetrics": {
-                "primaryDps": 162,
+                "primaryDps": 592.9412,
                 "criticalChance": 0.1,
                 "criticalMultiplier": 3,
                 "criticalFamilyId": "magical-critical-strike",
@@ -31408,9 +31408,9 @@
           "role": "ADVANCED Nightglass Assassin: Anti-Regeneration, Armor Reduction, Lone Vigil.",
           "profiles": [
             {
-              "damage": 295,
-              "interval": 1,
-              "range": 3.25,
+              "damage": 1100,
+              "interval": 0.75,
+              "range": 3.75,
               "type": "magical",
               "groundOnly": true,
               "abilities": [
@@ -31479,7 +31479,7 @@
                 }
               ],
               "expectedMetrics": {
-                "primaryDps": 383.5,
+                "primaryDps": 1906.6667,
                 "criticalChance": 0.1,
                 "criticalMultiplier": 4,
                 "criticalFamilyId": "magical-critical-strike",
@@ -31511,9 +31511,9 @@
           "role": "TOP Eclipse Executioner: Anti-Regeneration, Armor Reduction, Execution.",
           "profiles": [
             {
-              "damage": 950,
-              "interval": 1,
-              "range": 3.5,
+              "damage": 3400,
+              "interval": 0.65,
+              "range": 4.25,
               "type": "magical",
               "groundOnly": true,
               "abilities": [
@@ -31594,7 +31594,7 @@
                 }
               ],
               "expectedMetrics": {
-                "primaryDps": 1710,
+                "primaryDps": 9415.3846,
                 "criticalChance": 0.2,
                 "criticalMultiplier": 5,
                 "criticalFamilyId": "magical-critical-strike",
@@ -31626,9 +31626,9 @@
           "role": "BASIC Gale Apprentice: Magical Cleave.",
           "profiles": [
             {
-              "damage": 38,
-              "interval": 1,
-              "range": 3.75,
+              "damage": 130,
+              "interval": 0.95,
+              "range": 4.75,
               "type": "magical",
               "abilities": [
                 {
@@ -31670,9 +31670,9 @@
           "role": "INTERMEDIATE Zephyr Duelist: Magical Cleave, True Strike.",
           "profiles": [
             {
-              "damage": 95,
-              "interval": 1,
-              "range": 4,
+              "damage": 360,
+              "interval": 0.85,
+              "range": 5.25,
               "type": "magical",
               "abilities": [
                 {
@@ -31723,9 +31723,9 @@
           "role": "ADVANCED Windblade Virtuoso: Magical Cleave, True Strike.",
           "profiles": [
             {
-              "damage": 210,
-              "interval": 1,
-              "range": 4.25,
+              "damage": 900,
+              "interval": 0.8,
+              "range": 6,
               "type": "magical",
               "abilities": [
                 {
@@ -31776,9 +31776,9 @@
           "role": "TOP Avatar of the Gale: Charged Attack, Magical Cleave, True Strike.",
           "profiles": [
             {
-              "damage": 700,
-              "interval": 1,
-              "range": 4.5,
+              "damage": 4200,
+              "interval": 0.65,
+              "range": 6.75,
               "type": "magical",
               "abilities": [
                 {
@@ -31825,7 +31825,7 @@
               "rank": 6
             },
             {
-              "id": "el_spark_adept",
+              "id": "el_moonblade",
               "rank": 6
             }
           ]
@@ -31841,32 +31841,32 @@
             {
               "damage": 0,
               "interval": 0,
-              "range": 3,
+              "range": 3.5,
               "type": "magical",
               "groundOnly": true,
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 6 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 18 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-2",
+                  "levelId": "burn-grove-fr001-01950214a739",
                   "level": 2,
-                  "levelLabel": "Burn II",
-                  "dps": 6,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 18,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Flame Cone",
-                  "text": "Continuously deal 60 damage/s to every ground enemy in a 45° cone reaching 3 tiles. There is no enemy-count limit. The damage type is the defender's listed damage type.",
+                  "text": "Continuously deal 240 damage/s to every ground enemy in a 45° cone reaching 3.5 tiles. There is no enemy-count limit. The damage type is the defender's listed damage type.",
                   "familyId": "flame-cone",
-                  "levelId": "flame-cone-1",
+                  "levelId": "flame-cone-grove-fr001-b311fb0dcc61",
                   "level": 1,
-                  "levelLabel": "Flame Cone I",
-                  "dps": 60,
+                  "levelLabel": "Flame Cone · Elf FR-001",
+                  "dps": 240,
                   "coneDegrees": 45,
-                  "range": 3,
+                  "range": 3.5,
                   "continuous": true,
                   "maxTargets": null,
                   "targeting": "ground",
@@ -31882,9 +31882,9 @@
               "attackMode": "continuous",
               "continuousAttack": {
                 "familyId": "flame-cone",
-                "dps": 60,
+                "dps": 240,
                 "angleDegrees": 45,
-                "range": 3,
+                "range": 3.5,
                 "damageType": "magical",
                 "targeting": "ground",
                 "maxTargets": null
@@ -31917,30 +31917,30 @@
             {
               "damage": 0,
               "interval": 0,
-              "range": 3.5,
+              "range": 4.5,
               "type": "magical",
               "groundOnly": true,
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 18 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 64 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-3",
+                  "levelId": "burn-grove-fr001-66080d5a858f",
                   "level": 3,
-                  "levelLabel": "Burn III",
-                  "dps": 18,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 64,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Fire Aura",
-                  "text": "All eligible enemies within 2 tiles take 25 Magical fire damage/s. There is no enemy-count limit. Overlapping Fire Auras use the strongest damage.",
+                  "text": "All eligible enemies within 2 tiles take 100 Magical fire damage/s. There is no enemy-count limit. Overlapping Fire Auras use the strongest damage.",
                   "familyId": "fire-aura",
-                  "levelId": "fire-aura-1",
+                  "levelId": "fire-aura-grove-fr001-6f0dd1f9daaf",
                   "level": 1,
-                  "levelLabel": "Fire Aura I",
-                  "dps": 25,
+                  "levelLabel": "Fire Aura · Elf FR-001",
+                  "dps": 100,
                   "radius": 2,
                   "damageType": "magical",
                   "continuous": true,
@@ -31948,14 +31948,14 @@
                 },
                 {
                   "name": "Flame Cone",
-                  "text": "Continuously deal 180 damage/s to every ground enemy in a 60° cone reaching 3.5 tiles. There is no enemy-count limit. The damage type is the defender's listed damage type.",
+                  "text": "Continuously deal 800 damage/s to every ground enemy in a 60° cone reaching 4.5 tiles. There is no enemy-count limit. The damage type is the defender's listed damage type.",
                   "familyId": "flame-cone",
-                  "levelId": "flame-cone-2",
+                  "levelId": "flame-cone-grove-fr001-5df03aa1ccfb",
                   "level": 2,
-                  "levelLabel": "Flame Cone II",
-                  "dps": 180,
+                  "levelLabel": "Flame Cone · Elf FR-001",
+                  "dps": 800,
                   "coneDegrees": 60,
-                  "range": 3.5,
+                  "range": 4.5,
                   "continuous": true,
                   "maxTargets": null,
                   "targeting": "ground",
@@ -31971,9 +31971,9 @@
               "attackMode": "continuous",
               "continuousAttack": {
                 "familyId": "flame-cone",
-                "dps": 180,
+                "dps": 800,
                 "angleDegrees": 60,
-                "range": 3.5,
+                "range": 4.5,
                 "damageType": "magical",
                 "targeting": "ground",
                 "maxTargets": null
@@ -31990,8 +31990,8 @@
               "rank": 3
             },
             {
-              "id": "el_spark_adept",
-              "rank": 3
+              "id": "el_dragon_keeper",
+              "rank": 4
             }
           ]
         },
@@ -32006,30 +32006,30 @@
             {
               "damage": 0,
               "interval": 0,
-              "range": 4,
+              "range": 5.25,
               "type": "magical",
               "groundOnly": true,
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 50 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 140 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-4",
+                  "levelId": "burn-grove-fr001-9a7b4b7c2251",
                   "level": 4,
-                  "levelLabel": "Burn IV",
-                  "dps": 50,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 140,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Fire Aura",
-                  "text": "All eligible enemies within 2.5 tiles take 60 Magical fire damage/s. There is no enemy-count limit. Overlapping Fire Auras use the strongest damage.",
+                  "text": "All eligible enemies within 2.5 tiles take 250 Magical fire damage/s. There is no enemy-count limit. Overlapping Fire Auras use the strongest damage.",
                   "familyId": "fire-aura",
-                  "levelId": "fire-aura-2",
+                  "levelId": "fire-aura-grove-fr001-38c60cd7146b",
                   "level": 2,
-                  "levelLabel": "Fire Aura II",
-                  "dps": 60,
+                  "levelLabel": "Fire Aura · Elf FR-001",
+                  "dps": 250,
                   "radius": 2.5,
                   "damageType": "magical",
                   "continuous": true,
@@ -32037,14 +32037,14 @@
                 },
                 {
                   "name": "Flame Cone",
-                  "text": "Continuously deal 360 damage/s to every ground enemy in a 75° cone reaching 4 tiles. There is no enemy-count limit. The damage type is the defender's listed damage type.",
+                  "text": "Continuously deal 1300 damage/s to every ground enemy in a 75° cone reaching 5.25 tiles. There is no enemy-count limit. The damage type is the defender's listed damage type.",
                   "familyId": "flame-cone",
-                  "levelId": "flame-cone-3",
+                  "levelId": "flame-cone-grove-fr001-cb9e5788c6b7",
                   "level": 3,
-                  "levelLabel": "Flame Cone III",
-                  "dps": 360,
+                  "levelLabel": "Flame Cone · Elf FR-001",
+                  "dps": 1300,
                   "coneDegrees": 75,
-                  "range": 4,
+                  "range": 5.25,
                   "continuous": true,
                   "maxTargets": null,
                   "targeting": "ground",
@@ -32060,9 +32060,9 @@
               "attackMode": "continuous",
               "continuousAttack": {
                 "familyId": "flame-cone",
-                "dps": 360,
+                "dps": 1300,
                 "angleDegrees": 75,
-                "range": 4,
+                "range": 5.25,
                 "damageType": "magical",
                 "targeting": "ground",
                 "maxTargets": null
@@ -32095,30 +32095,30 @@
             {
               "damage": 0,
               "interval": 0,
-              "range": 4.5,
+              "range": 6,
               "type": "magical",
               "groundOnly": true,
               "abilities": [
                 {
                   "name": "Burn",
-                  "text": "Fire contact burns the enemy for 120 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
+                  "text": "Fire contact burns the enemy for 600 Magical damage/s for 3 s. Reapplication refreshes the duration; only the strongest Burn deals damage.",
                   "familyId": "burn",
-                  "levelId": "burn-5",
+                  "levelId": "burn-grove-fr001-9042704fb32a",
                   "level": 5,
-                  "levelLabel": "Burn V",
-                  "dps": 120,
+                  "levelLabel": "Burn · Elf FR-001",
+                  "dps": 600,
                   "duration": 3,
                   "damageType": "magical",
                   "stacking": "strongest only"
                 },
                 {
                   "name": "Fire Aura",
-                  "text": "All eligible enemies within 4.5 tiles take 240 Magical fire damage/s. There is no enemy-count limit. Overlapping Fire Auras use the strongest damage.",
+                  "text": "All eligible enemies within 4.5 tiles take 1200 Magical fire damage/s. There is no enemy-count limit. Overlapping Fire Auras use the strongest damage.",
                   "familyId": "fire-aura",
-                  "levelId": "fire-aura-3",
+                  "levelId": "fire-aura-grove-fr001-32a00f123fd3",
                   "level": 3,
-                  "levelLabel": "Fire Aura III",
-                  "dps": 240,
+                  "levelLabel": "Fire Aura · Elf FR-001",
+                  "dps": 1200,
                   "radius": 4.5,
                   "damageType": "magical",
                   "continuous": true,
@@ -32126,14 +32126,14 @@
                 },
                 {
                   "name": "Flame Cone",
-                  "text": "Continuously deal 1,000 damage/s to every ground enemy in a 90° cone reaching 4.5 tiles. There is no enemy-count limit. The damage type is the defender's listed damage type.",
+                  "text": "Continuously deal 7500 damage/s to every ground enemy in a 90° cone reaching 6 tiles. There is no enemy-count limit. The damage type is the defender's listed damage type.",
                   "familyId": "flame-cone",
-                  "levelId": "flame-cone-4",
+                  "levelId": "flame-cone-grove-fr001-fbf73b230a44",
                   "level": 4,
-                  "levelLabel": "Flame Cone IV",
-                  "dps": 1000,
+                  "levelLabel": "Flame Cone · Elf FR-001",
+                  "dps": 7500,
                   "coneDegrees": 90,
-                  "range": 4.5,
+                  "range": 6,
                   "continuous": true,
                   "maxTargets": null,
                   "targeting": "ground",
@@ -32141,12 +32141,12 @@
                 },
                 {
                   "name": "Spark",
-                  "text": "Every 5 s, strike one enemy in attack range for 500 Magical lightning damage.",
+                  "text": "Every 5 s, strike one enemy in attack range for 3000 Magical lightning damage.",
                   "familyId": "spark",
-                  "levelId": "spark-5",
+                  "levelId": "spark-grove-fr001-6a51b3f28e07",
                   "level": 5,
-                  "levelLabel": "Spark V",
-                  "damage": 500,
+                  "levelLabel": "Spark · Elf FR-001",
+                  "damage": 3000,
                   "cooldown": 5,
                   "targets": 1,
                   "damageType": "magical"
@@ -32161,9 +32161,9 @@
               "attackMode": "continuous",
               "continuousAttack": {
                 "familyId": "flame-cone",
-                "dps": 1000,
+                "dps": 7500,
                 "angleDegrees": 90,
-                "range": 4.5,
+                "range": 6,
                 "damageType": "magical",
                 "targeting": "ground",
                 "maxTargets": null

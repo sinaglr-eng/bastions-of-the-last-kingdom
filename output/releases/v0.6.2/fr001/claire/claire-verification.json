@@ -1,0 +1,1484 @@
+{
+  "requirementId": "FR-001",
+  "date": "2026-10-30",
+  "status": "actual implemented 0.6.2 Game validation; no candidate recipe overlay",
+  "baselineVersion": "0.6.2",
+  "rulesetRevision": "three-factions-v060-20261030",
+  "findings": {
+    "allThreeRecipesAlreadyPresent": true,
+    "currentRecipesNeedNoIngredientChange": true,
+    "sameValueDefinition": "Three distinct basic family rank-V ingredients, each family weight 1 of 8, identical rank probability and recipe level. Rank-V abstract merge weight is 16 each, total 48. This is equal recruitment rarity and rank, not equal combat power.",
+    "secretName": "Lady Claire",
+    "canonicalResultId": "ladyclaire",
+    "currentRoundOnly": true,
+    "recipeLevel": 1
+  },
+  "mappings": [
+    {
+      "human": "Mage V",
+      "humanId": "mage",
+      "dwarves": "Runesmith V",
+      "dwarfId": "dw_runesmith",
+      "elves": "Stormspear V",
+      "elfId": "el_spark_adept",
+      "reason": "Spellcasting slot; exact rank and draft rarity retained. Abilities and damage need not be identical."
+    },
+    {
+      "human": "Druid V",
+      "humanId": "druid",
+      "dwarves": "Blacksmith V",
+      "dwarfId": "dw_furnacetender",
+      "elves": "Nightweaver Spider V",
+      "elfId": "el_drow_cinder",
+      "reason": "Damage and debuff slot; exact rank and draft rarity retained. Burn, poison and armor reduction are different kits."
+    },
+    {
+      "human": "Frost Warden V",
+      "humanId": "frostwarden",
+      "dwarves": "Dwarf Miner V",
+      "dwarfId": "dw_engineer",
+      "elves": "Lunar Spirit Shaman V",
+      "elfId": "el_sealweaver",
+      "reason": "Utility slot; exact rank and draft rarity retained. Slow, protection and immunity support are different kits."
+    }
+  ],
+  "recipes": [
+    {
+      "factionId": "crown",
+      "factionName": "Human",
+      "recipe": {
+        "id": "ladyclaire",
+        "level": 1,
+        "stage": "Secret",
+        "currentRoundOnly": true,
+        "referenceTower": "Fantastic Miss Shrimp",
+        "ingredients": [
+          {
+            "family": "mage",
+            "tier": 5
+          },
+          {
+            "family": "druid",
+            "tier": 5
+          },
+          {
+            "family": "frostwarden",
+            "tier": 5
+          }
+        ]
+      },
+      "ingredientNames": [
+        "Mage V",
+        "Druid V",
+        "Frost Warden V"
+      ],
+      "seed": 1236,
+      "naturalSeededDraws": [
+        {
+          "family": "frostwarden",
+          "tier": 5
+        },
+        {
+          "family": "mage",
+          "tier": 3
+        },
+        {
+          "family": "mage",
+          "tier": 3
+        },
+        {
+          "family": "mage",
+          "tier": 5
+        },
+        {
+          "family": "druid",
+          "tier": 5
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "factionName": "Dwarves",
+      "recipe": {
+        "id": "ladyclaire",
+        "level": 1,
+        "stage": "Secret",
+        "currentRoundOnly": true,
+        "ingredients": [
+          {
+            "family": "dw_runesmith",
+            "tier": 5
+          },
+          {
+            "family": "dw_furnacetender",
+            "tier": 5
+          },
+          {
+            "family": "dw_engineer",
+            "tier": 5
+          }
+        ]
+      },
+      "ingredientNames": [
+        "Runesmith V",
+        "Blacksmith V",
+        "Dwarf Miner V"
+      ],
+      "seed": 228,
+      "naturalSeededDraws": [
+        {
+          "family": "dw_furnacetender",
+          "tier": 5
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 5
+        },
+        {
+          "family": "dw_griffinhandler",
+          "tier": 5
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 3
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 5
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "factionName": "Elves",
+      "recipe": {
+        "id": "ladyclaire",
+        "level": 1,
+        "stage": "Secret",
+        "currentRoundOnly": true,
+        "ingredients": [
+          {
+            "family": "el_spark_adept",
+            "tier": 5
+          },
+          {
+            "family": "el_sealweaver",
+            "tier": 5
+          },
+          {
+            "family": "el_drow_cinder",
+            "tier": 5
+          }
+        ]
+      },
+      "ingredientNames": [
+        "Stormspear V",
+        "Lunar Spirit Shaman V",
+        "Nightweaver Spider V"
+      ],
+      "seed": 1872,
+      "naturalSeededDraws": [
+        {
+          "family": "el_drow_cinder",
+          "tier": 5
+        },
+        {
+          "family": "el_moonblade",
+          "tier": 1
+        },
+        {
+          "family": "el_drow_blade",
+          "tier": 4
+        },
+        {
+          "family": "el_spark_adept",
+          "tier": 5
+        },
+        {
+          "family": "el_sealweaver",
+          "tier": 5
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "cases": 66,
+    "passed": 66,
+    "failures": 0,
+    "casesList": [
+      {
+        "factionId": "crown",
+        "name": "Natural seeded draft crafts from ingredient anchor 1",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Natural seeded draft crafts from ingredient anchor 2",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Natural seeded draft crafts from ingredient anchor 3",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Retained ingredient",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Wrong rank",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Stale round",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Incomplete placement",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Foreign ingredient family",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Forged draw identity",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Duplicate draw identity",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Noningredient anchor",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Reserved required ingredient",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Reject phase build",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Reject phase ready",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Reject phase reward",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Reject phase combat",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Reject phase won",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Reject phase lost",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "An unrelated reserved filler does not block the three unreserved ingredients",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Natural seeded draft crafts from ingredient anchor 1",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Natural seeded draft crafts from ingredient anchor 2",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Natural seeded draft crafts from ingredient anchor 3",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Retained ingredient",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Wrong rank",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Stale round",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Incomplete placement",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Foreign ingredient family",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Forged draw identity",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Duplicate draw identity",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Noningredient anchor",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Reserved required ingredient",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Reject phase build",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Reject phase ready",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Reject phase reward",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Reject phase combat",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Reject phase won",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Reject phase lost",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "An unrelated reserved filler does not block the three unreserved ingredients",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Natural seeded draft crafts from ingredient anchor 1",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Natural seeded draft crafts from ingredient anchor 2",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Natural seeded draft crafts from ingredient anchor 3",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Retained ingredient",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Wrong rank",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Stale round",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Incomplete placement",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Foreign ingredient family",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Forged draw identity",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Duplicate draw identity",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Noningredient anchor",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Reserved required ingredient",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Reject phase build",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Reject phase ready",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Reject phase reward",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Reject phase combat",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Reject phase won",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Reject phase lost",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "An unrelated reserved filler does not block the three unreserved ingredients",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Returned reserve from previous round crafts from ingredient anchor 1",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Returned reserve from previous round crafts from ingredient anchor 2",
+        "passed": true
+      },
+      {
+        "factionId": "crown",
+        "name": "Returned reserve from previous round crafts from ingredient anchor 3",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Returned reserve from previous round crafts from ingredient anchor 1",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Returned reserve from previous round crafts from ingredient anchor 2",
+        "passed": true
+      },
+      {
+        "factionId": "forge",
+        "name": "Returned reserve from previous round crafts from ingredient anchor 3",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Returned reserve from previous round crafts from ingredient anchor 1",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Returned reserve from previous round crafts from ingredient anchor 2",
+        "passed": true
+      },
+      {
+        "factionId": "grove",
+        "name": "Returned reserve from previous round crafts from ingredient anchor 3",
+        "passed": true
+      }
+    ],
+    "returnedReserveProofs": [
+      {
+        "factionId": "crown",
+        "seed": 114,
+        "priorRound": 25,
+        "currentRound": 26,
+        "priorDraws": [
+          {
+            "family": "mage",
+            "tier": 4,
+            "towerId": 1,
+            "origin": "random"
+          },
+          {
+            "family": "frostwarden",
+            "tier": 5,
+            "towerId": 2,
+            "origin": "random"
+          },
+          {
+            "family": "mage",
+            "tier": 4,
+            "towerId": 3,
+            "origin": "random"
+          },
+          {
+            "family": "frostwarden",
+            "tier": 5,
+            "towerId": 4,
+            "origin": "random"
+          },
+          {
+            "family": "runebreaker",
+            "tier": 2,
+            "towerId": 5,
+            "origin": "random"
+          }
+        ],
+        "carriedId": 2,
+        "carriedFamily": "frostwarden",
+        "carriedPosition": [
+          11,
+          10
+        ],
+        "currentDraws": [
+          {
+            "family": "frostwarden",
+            "tier": 5,
+            "towerId": 2,
+            "origin": "reserve",
+            "placed": true
+          },
+          {
+            "family": "mage",
+            "tier": 5,
+            "towerId": 6,
+            "origin": "random",
+            "placed": true
+          },
+          {
+            "family": "cleric",
+            "tier": 4,
+            "towerId": 7,
+            "origin": "random",
+            "placed": true
+          },
+          {
+            "family": "soldier",
+            "tier": 4,
+            "towerId": 8,
+            "origin": "random",
+            "placed": true
+          },
+          {
+            "family": "druid",
+            "tier": 5,
+            "towerId": 9,
+            "origin": "random",
+            "placed": true
+          }
+        ],
+        "transition": "Actual reserve(), keep(), then nextRound() at a controlled reward boundary; four remaining candidates are normal unforced RNG draws."
+      },
+      {
+        "factionId": "forge",
+        "seed": 344,
+        "priorRound": 25,
+        "currentRound": 26,
+        "priorDraws": [
+          {
+            "family": "dw_griffinhandler",
+            "tier": 5,
+            "towerId": 1,
+            "origin": "random"
+          },
+          {
+            "family": "dw_griffinhandler",
+            "tier": 3,
+            "towerId": 2,
+            "origin": "random"
+          },
+          {
+            "family": "dw_furnacetender",
+            "tier": 5,
+            "towerId": 3,
+            "origin": "random"
+          },
+          {
+            "family": "dw_boarrider",
+            "tier": 4,
+            "towerId": 4,
+            "origin": "random"
+          },
+          {
+            "family": "dw_engineer",
+            "tier": 3,
+            "towerId": 5,
+            "origin": "random"
+          }
+        ],
+        "carriedId": 3,
+        "carriedFamily": "dw_furnacetender",
+        "carriedPosition": [
+          12,
+          10
+        ],
+        "currentDraws": [
+          {
+            "family": "dw_furnacetender",
+            "tier": 5,
+            "towerId": 3,
+            "origin": "reserve",
+            "placed": true
+          },
+          {
+            "family": "dw_furnacetender",
+            "tier": 4,
+            "towerId": 6,
+            "origin": "random",
+            "placed": true
+          },
+          {
+            "family": "dw_engineer",
+            "tier": 5,
+            "towerId": 7,
+            "origin": "random",
+            "placed": true
+          },
+          {
+            "family": "dw_runesmith",
+            "tier": 5,
+            "towerId": 8,
+            "origin": "random",
+            "placed": true
+          },
+          {
+            "family": "dw_grenadier",
+            "tier": 3,
+            "towerId": 9,
+            "origin": "random",
+            "placed": true
+          }
+        ],
+        "transition": "Actual reserve(), keep(), then nextRound() at a controlled reward boundary; four remaining candidates are normal unforced RNG draws."
+      },
+      {
+        "factionId": "grove",
+        "seed": 10,
+        "priorRound": 25,
+        "currentRound": 26,
+        "priorDraws": [
+          {
+            "family": "el_drow_cinder",
+            "tier": 5,
+            "towerId": 1,
+            "origin": "random"
+          },
+          {
+            "family": "el_drow_blade",
+            "tier": 5,
+            "towerId": 2,
+            "origin": "random"
+          },
+          {
+            "family": "el_sealweaver",
+            "tier": 3,
+            "towerId": 3,
+            "origin": "random"
+          },
+          {
+            "family": "el_grove_archer",
+            "tier": 2,
+            "towerId": 4,
+            "origin": "random"
+          },
+          {
+            "family": "el_moonblade",
+            "tier": 5,
+            "towerId": 5,
+            "origin": "random"
+          }
+        ],
+        "carriedId": 1,
+        "carriedFamily": "el_drow_cinder",
+        "carriedPosition": [
+          10,
+          10
+        ],
+        "currentDraws": [
+          {
+            "family": "el_drow_cinder",
+            "tier": 5,
+            "towerId": 1,
+            "origin": "reserve",
+            "placed": true
+          },
+          {
+            "family": "el_dragon_keeper",
+            "tier": 2,
+            "towerId": 6,
+            "origin": "random",
+            "placed": true
+          },
+          {
+            "family": "el_sealweaver",
+            "tier": 3,
+            "towerId": 7,
+            "origin": "random",
+            "placed": true
+          },
+          {
+            "family": "el_sealweaver",
+            "tier": 5,
+            "towerId": 8,
+            "origin": "random",
+            "placed": true
+          },
+          {
+            "family": "el_spark_adept",
+            "tier": 5,
+            "towerId": 9,
+            "origin": "random",
+            "placed": true
+          }
+        ],
+        "transition": "Actual reserve(), keep(), then nextRound() at a controlled reward boundary; four remaining candidates are normal unforced RNG draws."
+      }
+    ],
+    "fixture": "Controlled round-25 state, standard unforced seeded family/rank rolls, actual Game.place for route-valid foundations and actual Game.craft. Nine additional cases reserve an actual prior-round candidate, keep another, call nextRound() at a controlled reward boundary and roll four normal fresh candidates. No reserve origin is forged. These fixtures do not claim a complete played campaign or simulated wave survival."
+  },
+  "chance": {
+    "method": "Exact inclusion-exclusion for three distinct family-V categories among five draws, independently verified by exhaustive 4^5 category enumeration at all 16 mastery rows.",
+    "formula": "1 - 3*(1-q)^5 + 3*(1-2*q)^5 - (1-3*q)^5, q = rank-V draw probability / 8",
+    "assumptions": "Five fresh ordinary draws, eight equally weighted families, identical shared mastery rows; no reroll, reserve or previous inventory. All three factions therefore have the exact same chance. A rare Secret is possible, not guaranteed in each run.",
+    "firstPossibleRound": 19,
+    "maximumMastery": {
+      "masteryIndex": 15,
+      "masteryLabel": 16,
+      "rankVWeight": 20,
+      "oneSpecificFamilyVProbability": 0.025,
+      "exactFraction": "1779/2048000",
+      "probability": 0.00086865234375,
+      "percent": 0.086865234375
+    },
+    "masterySchedule": [
+      {
+        "masteryIndex": 0,
+        "masteryLabel": 1,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 1,
+        "masteryLabel": 2,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 2,
+        "masteryLabel": 3,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 3,
+        "masteryLabel": 4,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 4,
+        "masteryLabel": 5,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 5,
+        "masteryLabel": 6,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 6,
+        "masteryLabel": 7,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 7,
+        "masteryLabel": 8,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 8,
+        "masteryLabel": 9,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 9,
+        "masteryLabel": 10,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 10,
+        "masteryLabel": 11,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "masteryIndex": 11,
+        "masteryLabel": 12,
+        "rankVWeight": 1,
+        "oneSpecificFamilyVProbability": 0.00125,
+        "exactFraction": "765123/6553600000000",
+        "probability": 1.1674850463867188e-7,
+        "percent": 0.000011674850463867187
+      },
+      {
+        "masteryIndex": 12,
+        "masteryLabel": 13,
+        "rankVWeight": 5,
+        "oneSpecificFamilyVProbability": 0.00625,
+        "exactFraction": "30147/2097152000",
+        "probability": 0.000014375209808349609,
+        "percent": 0.0014375209808349609
+      },
+      {
+        "masteryIndex": 13,
+        "masteryLabel": 14,
+        "rankVWeight": 10,
+        "oneSpecificFamilyVProbability": 0.0125,
+        "exactFraction": "1479/13107200",
+        "probability": 0.0001128387451171875,
+        "percent": 0.01128387451171875
+      },
+      {
+        "masteryIndex": 14,
+        "masteryLabel": 15,
+        "rankVWeight": 15,
+        "oneSpecificFamilyVProbability": 0.01875,
+        "exactFraction": "783513/2097152000",
+        "probability": 0.0003736081123352051,
+        "percent": 0.03736081123352051
+      },
+      {
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      }
+    ],
+    "roundSchedule": [
+      {
+        "round": 1,
+        "masteryIndex": 0,
+        "masteryLabel": 1,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 2,
+        "masteryIndex": 0,
+        "masteryLabel": 1,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 3,
+        "masteryIndex": 1,
+        "masteryLabel": 2,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 4,
+        "masteryIndex": 1,
+        "masteryLabel": 2,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 5,
+        "masteryIndex": 2,
+        "masteryLabel": 3,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 6,
+        "masteryIndex": 3,
+        "masteryLabel": 4,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 7,
+        "masteryIndex": 3,
+        "masteryLabel": 4,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 8,
+        "masteryIndex": 4,
+        "masteryLabel": 5,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 9,
+        "masteryIndex": 5,
+        "masteryLabel": 6,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 10,
+        "masteryIndex": 5,
+        "masteryLabel": 6,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 11,
+        "masteryIndex": 6,
+        "masteryLabel": 7,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 12,
+        "masteryIndex": 6,
+        "masteryLabel": 7,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 13,
+        "masteryIndex": 7,
+        "masteryLabel": 8,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 14,
+        "masteryIndex": 8,
+        "masteryLabel": 9,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 15,
+        "masteryIndex": 8,
+        "masteryLabel": 9,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 16,
+        "masteryIndex": 9,
+        "masteryLabel": 10,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 17,
+        "masteryIndex": 10,
+        "masteryLabel": 11,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 18,
+        "masteryIndex": 10,
+        "masteryLabel": 11,
+        "rankVWeight": 0,
+        "oneSpecificFamilyVProbability": 0,
+        "exactFraction": "0/1",
+        "probability": 0,
+        "percent": 0
+      },
+      {
+        "round": 19,
+        "masteryIndex": 11,
+        "masteryLabel": 12,
+        "rankVWeight": 1,
+        "oneSpecificFamilyVProbability": 0.00125,
+        "exactFraction": "765123/6553600000000",
+        "probability": 1.1674850463867188e-7,
+        "percent": 0.000011674850463867187
+      },
+      {
+        "round": 20,
+        "masteryIndex": 11,
+        "masteryLabel": 12,
+        "rankVWeight": 1,
+        "oneSpecificFamilyVProbability": 0.00125,
+        "exactFraction": "765123/6553600000000",
+        "probability": 1.1674850463867188e-7,
+        "percent": 0.000011674850463867187
+      },
+      {
+        "round": 21,
+        "masteryIndex": 12,
+        "masteryLabel": 13,
+        "rankVWeight": 5,
+        "oneSpecificFamilyVProbability": 0.00625,
+        "exactFraction": "30147/2097152000",
+        "probability": 0.000014375209808349609,
+        "percent": 0.0014375209808349609
+      },
+      {
+        "round": 22,
+        "masteryIndex": 13,
+        "masteryLabel": 14,
+        "rankVWeight": 10,
+        "oneSpecificFamilyVProbability": 0.0125,
+        "exactFraction": "1479/13107200",
+        "probability": 0.0001128387451171875,
+        "percent": 0.01128387451171875
+      },
+      {
+        "round": 23,
+        "masteryIndex": 13,
+        "masteryLabel": 14,
+        "rankVWeight": 10,
+        "oneSpecificFamilyVProbability": 0.0125,
+        "exactFraction": "1479/13107200",
+        "probability": 0.0001128387451171875,
+        "percent": 0.01128387451171875
+      },
+      {
+        "round": 24,
+        "masteryIndex": 14,
+        "masteryLabel": 15,
+        "rankVWeight": 15,
+        "oneSpecificFamilyVProbability": 0.01875,
+        "exactFraction": "783513/2097152000",
+        "probability": 0.0003736081123352051,
+        "percent": 0.03736081123352051
+      },
+      {
+        "round": 25,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 26,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 27,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 28,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 29,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 30,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 31,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 32,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 33,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 34,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 35,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 36,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 37,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 38,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 39,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 40,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 41,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 42,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 43,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 44,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 45,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 46,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 47,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 48,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 49,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      },
+      {
+        "round": 50,
+        "masteryIndex": 15,
+        "masteryLabel": 16,
+        "rankVWeight": 20,
+        "oneSpecificFamilyVProbability": 0.025,
+        "exactFraction": "1779/2048000",
+        "probability": 0.00086865234375,
+        "percent": 0.086865234375
+      }
+    ],
+    "conditionalChanceIfEveryFreshDraftThroughRound50IsOffered": {
+      "probability": 0.02294150123074623,
+      "percent": 2.294150123074623,
+      "qualification": "Conditional mathematical opportunity across 50 offered fresh drafts; excludes deaths, rerolls/reserves, merge choices and competing ordinary crafts, so it is not an observed acquisition or win rate."
+    }
+  },
+  "preservation": {
+    "protectedFiles": {
+      "package.json": "c214fb0303d17c724dece8d8fba87974fbb08406fafa6f13864ca156983a30e6",
+      "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+      "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+      "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+      "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+      "game/core/game.js": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed",
+      "game/core/draft.js": "4c6ec76c0d41813681b5bc3743ab3cd504655d80825890a6e4374a3e5d126730",
+      "game/core/recipes.js": "95d564d550a39f24c6c9b0047d5bb8d2a6f35629d9727b5abed48eecfd3b0503",
+      "game/core/factions.js": "a1d2e237b4800eff507404f3049ccb7b35f1eb9d5855bd3e5634680c6c1cd835",
+      "game/core/math.js": "b5d6a07839f5be4409cc97478844235f66d2201f3392553f079110b4f9f01b15",
+      "game/core/progression.js": "a7bbd576307f5463289b06e7da9e8abe3ce0375c2ae5349ae8d5e8f3114382f9"
+    },
+    "verifiedUnchanged": true,
+    "approvedCandidateHashes": {
+      "forge": "7dde169abfe2e85cd64c8453d8129b59dd35f16db4481b1364dc1130503ae875",
+      "grove": "4b2335593cbba9343f7e80b16b7f8eadd79732860ef08c31ebf9541dcd03ea6a"
+    }
+  },
+  "notes": [
+    "The existing all-faction recipes already satisfy the requested local-faction rank equivalence. The implementation requirement should lock and regression-test them rather than arbitrarily replace an already correct triple.",
+    "A newly reserved required ingredient cannot be consumed; reserving an unrelated filler is legal and leaves the other three eligible ingredients.",
+    "The current secret contract requires membership in the current five-place draft, not the fresh-roll-only condition used for rank-VI merges. A returned reserve in the next draft is a current candidate under existing Human rules. No stricter fresh-only Claire rule was introduced.",
+    "A different-faction family or a retained battlefield defender cannot substitute for a current ingredient, even if it has rank V."
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "requirementId": "FR-001",
+  "date": "2026-10-30",
+  "approvedAt": "2026-10-30T18:02:57Z",
+  "status": "approved for future implementation in another chat; not implemented or published",
+  "historicalUserEvidence": {
+    "language": "cs",
+    "quote": "schvaluji tyto zmeny a pridej je prosim do pozadavku FR-001 pripraveneho na implementaci"
+  },
+  "scope": {
+    "numericDeltas": 492,
+    "changedProfiles": 133,
+    "elfProfiles": 85,
+    "dwarfProfiles": 48,
+    "expectedDpsProjectionCorrections": 9,
+    "earlierApprovedRecipeChanges": 18
+  },
+  "approvedPatchManifest": {
+    "iteration": "recommended",
+    "files": [
+      "output/design/faction-balance-fr001-20261030/iterations/recommended/elf-early.json",
+      "output/design/faction-balance-fr001-20261030/iterations/recommended/elf-late.json",
+      "output/design/faction-balance-fr001-20261030/iterations/recommended/dwarf.json",
+      "output/design/faction-balance-fr001-20261030/iterations/recommended/elf-derived.json"
+    ],
+    "hashes": {
+      "output/design/faction-balance-fr001-20261030/iterations/recommended/elf-early.json": "595409866a6df28206d8c7545d7b15c2a903f0728bd15666de7b7eecf624a96e",
+      "output/design/faction-balance-fr001-20261030/iterations/recommended/elf-late.json": "81d13f3156fa0459eb05e5582da9a59186b6e313f6d4b1d164d8c6a5e6c3f9be",
+      "output/design/faction-balance-fr001-20261030/iterations/recommended/dwarf.json": "ce6f353037d838918eb42b24043af4f3e510942779c5e9c5d71a6ff5093f8eef",
+      "output/design/faction-balance-fr001-20261030/iterations/recommended/elf-derived.json": "185bf8605fdacb6baebe75cbbe8da6a5f0dda0ced329b3f1ce38ffc49ba493d7"
+    },
+    "derivedProjectionChanges": 9
+  },
+  "originalNumericLedger": {
+    "file": "output/design/faction-balance-fr001-20261030/numeric-changes.json",
+    "sha256": "3046a3e3df651288fff1f8efd5b75229057781c7f4771e081407f4751506a1a0",
+    "collectionStatus": "Historical tested proposal; exact values approved by this receipt"
+  },
+  "earlierRecipeApproval": "output/design/faction-recipes-approved-20261030/approval.json",
+  "preserved": [
+    "Human combat and recipes",
+    "Shared Lady Claire combat and faction-local unlock contract",
+    "All ordinary Dwarf champion parameters",
+    "Enemy waves and defenses",
+    "Economy and draft odds",
+    "Existing targeting and immunity rules",
+    "Approved models, appearances and voices"
+  ],
+  "fullCampaignParityCertified": false,
+  "runtimeImplementationPerformed": false,
+  "published": false,
+  "priorDocumentEvidence": {
+    "docs/APPROVED_FACTION_RECIPES_FR001_20261030.md": {
+      "sha256": "7cda14b37a323703df86940363bf75f2698418f166cfe1a0698b348da1a039c5",
+      "snapshot": "output/design/faction-balance-fr001-20261030/baseline/before-numeric-approval/APPROVED_FACTION_RECIPES_FR001_20261030.md"
+    },
+    "docs/FACTION_BALANCE_PARAMETERS_FR001_20261030.md": {
+      "sha256": "1efb4a30bb9b207cc6321defdd70ace82addf4dd3756d18b08952c398252a440",
+      "snapshot": "output/design/faction-balance-fr001-20261030/baseline/before-numeric-approval/FACTION_BALANCE_PARAMETERS_FR001_20261030.md"
+    },
+    "GAME_DESIGN.md": {
+      "sha256": "e97dc8b0da2ac0dc0d67f8359f148b088af296403501d18d7492a353933e4e7f",
+      "snapshot": "output/design/faction-balance-fr001-20261030/baseline/before-numeric-approval/GAME_DESIGN.md"
+    },
+    "output/design/faction-balance-fr001-20261030/handoff.json": {
+      "sha256": "946adad4c159688bbcfb974b17bea52c8f2dc51acd2a508f94e0f5b94c8c6730",
+      "snapshot": "output/design/faction-balance-fr001-20261030/baseline/before-numeric-approval/handoff.json"
+    },
+    "output/design/faction-balance-fr001-20261030/numeric-changes.json": {
+      "sha256": "3046a3e3df651288fff1f8efd5b75229057781c7f4771e081407f4751506a1a0",
+      "snapshot": "output/design/faction-balance-fr001-20261030/baseline/before-numeric-approval/numeric-changes.json"
+    }
+  }
+}

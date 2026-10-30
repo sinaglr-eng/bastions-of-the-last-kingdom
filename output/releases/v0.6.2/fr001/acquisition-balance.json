@@ -1,0 +1,3158 @@
+{
+  "date": "2026-10-30",
+  "requirementId": "FR-001",
+  "method": "Exact multinomial event probabilities and inclusion-exclusion across all ordinary recipes whose three inputs are basics. Five independent fresh draws at each actual mastery row, eight equal family weights. No retained inventory, reserve, reroll, merge or champion ingredients. This is acquisition opportunity, not a campaign or power estimate.",
+  "results": [
+    {
+      "name": "Human",
+      "id": "crown",
+      "approved": true,
+      "ordinaryDirectRecipes": 14,
+      "rows": [
+        {
+          "mastery": 0,
+          "weights": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.1556396484375,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.07781982421875
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.07781982421875
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0
+            }
+          ]
+        },
+        {
+          "mastery": 1,
+          "weights": [
+            75,
+            25,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.0863376259803772,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.03662019968032837
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.03662019968032837
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.013097226619720459
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0
+            }
+          ]
+        },
+        {
+          "mastery": 2,
+          "weights": [
+            69,
+            27,
+            4,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.07068981627218625,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.02925196801254271
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.02925196801254271
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.01213744084963989
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.000048439397460937516
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0
+            }
+          ]
+        },
+        {
+          "mastery": 3,
+          "weights": [
+            62,
+            29,
+            9,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.05466837471688845,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.021854927797851573
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.021854927797851573
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.010699144516845708
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0002593746043395996
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0
+            }
+          ]
+        },
+        {
+          "mastery": 4,
+          "weights": [
+            56,
+            31,
+            13,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.04304951682485962,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.016510305000000003
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.016510305000000003
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.00945782208984375
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0005710847350158692
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0
+            }
+          ]
+        },
+        {
+          "mastery": 5,
+          "weights": [
+            49,
+            34,
+            17,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.03188237445245361,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.011382939280242917
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.011382939280242917
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.008060547836608886
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0010559480553588873
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0
+            }
+          ]
+        },
+        {
+          "mastery": 6,
+          "weights": [
+            43,
+            35,
+            21,
+            1,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.02397262997039795,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.007882118903961182
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.007882118903961182
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.006484975050201414
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0016393785383605954
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.00008012386001586911
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.000003914713897705078
+            }
+          ]
+        },
+        {
+          "mastery": 7,
+          "weights": [
+            36,
+            35,
+            23,
+            6,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.016762361594696046,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.00475706671875
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.00475706671875
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.004631074936523438
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0019562475050354
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.0005217719229125976
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.00013913379272460937
+            }
+          ]
+        },
+        {
+          "mastery": 8,
+          "weights": [
+            30,
+            35,
+            25,
+            10,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.012525556468963622,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.0028192291259765616
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.0028192291259765616
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.0032675193786621095
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.002299168109893799
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.0009378919601440429
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.0003825187683105469
+            }
+          ]
+        },
+        {
+          "mastery": 9,
+          "weights": [
+            26,
+            33,
+            27,
+            14,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.010626657139068605,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.0018643068310546882
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.0018643068310546882
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.002344666927001954
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.002521864152191162
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.001330090879943848
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.0007014215178222657
+            }
+          ]
+        },
+        {
+          "mastery": 10,
+          "weights": [
+            21,
+            31,
+            29,
+            19,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.009199282630737304,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.001001677707366943
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.001001677707366943
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.0014596007862854002
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0027258094547424313
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.0018094574488220212
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.0012010595261535645
+            }
+          ]
+        },
+        {
+          "mastery": 11,
+          "weights": [
+            18,
+            29,
+            31,
+            21,
+            1,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.009153154753326415,
+          "claireProbability": 1.1674850463867189e-7,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.0006381704443359375
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0.00010395138290405274
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.0006381704443359375
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0.00009749636892700196
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.0010136605979003907
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0.00007133255813598632
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0029061418642272957
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0.00006690196188354492
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0.00007133255813598632
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0.000048945172576904285
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0.00006690196188354492
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0.00006690196188354492
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.0019946952904357908
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.0013689877486267085
+            }
+          ]
+        },
+        {
+          "mastery": 12,
+          "weights": [
+            12,
+            25,
+            34,
+            24,
+            5,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.010733072154235837,
+          "claireProbability": 0.00001437520980834961,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.00019350140624999995
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0.0006171522326660155
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.00019350140624999995
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0.0004591171188354493
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.00039648098144531244
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0.0004413233203125001
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.003005749932861329
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0.0003282886047363281
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0.0004413233203125001
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0.00031556267578124994
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0.0003282886047363281
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0.0003282886047363281
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.00214976455078125
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.0015374188476562497
+            }
+          ]
+        },
+        {
+          "mastery": 13,
+          "weights": [
+            10,
+            23,
+            32,
+            25,
+            10,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.012590380904205325,
+          "claireProbability": 0.00011283874511718756,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.00011283874511718756
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0.0010919025000000002
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.00011283874511718756
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0.0007940309765624999
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.00025526420288085947
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0.000860841796875
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0024689364375000003
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0.0006259710617065431
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0.000860841796875
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0.0006786489486694337
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0.0006259710617065431
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0.0006259710617065431
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.0019466271240234378
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.0015347501564025878
+            }
+          ]
+        },
+        {
+          "mastery": 14,
+          "weights": [
+            6,
+            20,
+            30,
+            29,
+            15,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.015011711513214112,
+          "claireProbability": 0.0003736081123352051,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.000024746528320312506
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0.0014376091003417968
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.000024746528320312506
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0.0009709442138671873
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.00008103893554687496
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0.0013914996597290039
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0019043151855468751
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0.000939794613647461
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0.0013914996597290039
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0.0013468679933166495
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0.000939794613647461
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0.000939794613647461
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.0018432445312500001
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.0017841308880615233
+            }
+          ]
+        },
+        {
+          "mastery": 15,
+          "weights": [
+            4,
+            18,
+            27,
+            31,
+            20,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.016648106065979006,
+          "claireProbability": 0.0008686523437500001,
+          "recipes": [
+            {
+              "id": "rimewatch",
+              "name": "Frostsword Watchmen",
+              "probability": 0.00000738796875
+            },
+            {
+              "id": "roseguard",
+              "name": "Lionheart Champion",
+              "probability": 0.0015546169720458993
+            },
+            {
+              "id": "thornwarden",
+              "name": "Royal Scout",
+              "probability": 0.00000738796875
+            },
+            {
+              "id": "tempest",
+              "name": "Lightning Weaver",
+              "probability": 0.001048609072265625
+            },
+            {
+              "id": "embercrown",
+              "name": "Cinder Adept",
+              "probability": 0.000032663601562500004
+            },
+            {
+              "id": "starfall",
+              "name": "Storm Eagle",
+              "probability": 0.001775647172241211
+            },
+            {
+              "id": "greenheart",
+              "name": "Master Druid",
+              "probability": 0.0014028089957885748
+            },
+            {
+              "id": "kingsreach",
+              "name": "Ballista",
+              "probability": 0.00119773283203125
+            },
+            {
+              "id": "sunward",
+              "name": "Priest",
+              "probability": 0.001775647172241211
+            },
+            {
+              "id": "winterhold",
+              "name": "Frozen Paladin",
+              "probability": 0.0020280754193115237
+            },
+            {
+              "id": "royalmarshal",
+              "name": "Royal Grenadier",
+              "probability": 0.00119773283203125
+            },
+            {
+              "id": "stonewarden",
+              "name": "Catapult",
+              "probability": 0.00119773283203125
+            },
+            {
+              "id": "wyvernhunter",
+              "name": "Ranger",
+              "probability": 0.0016022664332885745
+            },
+            {
+              "id": "kingdomprotector",
+              "name": "Paladin",
+              "probability": 0.0018300590348510747
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dwarves implemented",
+      "id": "forge",
+      "approved": true,
+      "ordinaryDirectRecipes": 8,
+      "rows": [
+        {
+          "mastery": 0,
+          "weights": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.1556396484375,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.07781982421875
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.07781982421875
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0
+            }
+          ]
+        },
+        {
+          "mastery": 1,
+          "weights": [
+            75,
+            25,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.08796930313110352,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.03662019968032837
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.013097226619720459
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.03662019968032837
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.0016638636589050293
+            }
+          ]
+        },
+        {
+          "mastery": 2,
+          "weights": [
+            69,
+            27,
+            4,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.0736855982786865,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.02925196801254271
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.00031745876550292966
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.000048439397460937516
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.01213744084963989
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.00031745876550292966
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.00031745876550292966
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.02925196801254271
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.0020796265626525875
+            }
+          ]
+        },
+        {
+          "mastery": 3,
+          "weights": [
+            62,
+            29,
+            9,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.05962726438449099,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.021854927797851573
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0008144655619812012
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.00025937460433959967
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.010699144516845702
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0008144655619812012
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0008144655619812012
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.021854927797851573
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.00255665835067749
+            }
+          ]
+        },
+        {
+          "mastery": 4,
+          "weights": [
+            56,
+            31,
+            13,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.05009053325289918,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.016510305000000003
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0013303866918640138
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.0005710847350158692
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.009457822089843752
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0013303866918640138
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0013303866918640138
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.016510305000000003
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.003098394008331298
+            }
+          ]
+        },
+        {
+          "mastery": 5,
+          "weights": [
+            49,
+            34,
+            17,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.042054850103576666,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.011382939280242917
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0020655578605957045
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.0010559480553588873
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.008060547836608888
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0020655578605957045
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0020655578605957045
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.011382939280242917
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.00403947915527344
+            }
+          ]
+        },
+        {
+          "mastery": 6,
+          "weights": [
+            43,
+            35,
+            21,
+            1,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.036252564322814936,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.007882118903961182
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0026826186698913567
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.0016393785383605956
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.006484975050201414
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0026826186698913567
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0026826186698913567
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.007882118903961182
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.004389002323150633
+            }
+          ]
+        },
+        {
+          "mastery": 7,
+          "weights": [
+            36,
+            35,
+            23,
+            6,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.029211004972686774,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.00475706671875
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.002930364228057862
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.0019562475050354006
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.004631074936523438
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.002930364228057862
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.002930364228057862
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.00475706671875
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.004389002323150633
+            }
+          ]
+        },
+        {
+          "mastery": 8,
+          "weights": [
+            30,
+            35,
+            25,
+            10,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.025053434658050534,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.0028192291259765616
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0031767783164978023
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.002299168109893799
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.0032675193786621095
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0031767783164978023
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0031767783164978023
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.0028192291259765616
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.004389002323150633
+            }
+          ]
+        },
+        {
+          "mastery": 9,
+          "weights": [
+            26,
+            33,
+            27,
+            14,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.021416292622100833,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.0018643068310546882
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.00305805108279419
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.0025218641521911624
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.002344666927001954
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.00305805108279419
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.00305805108279419
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.0018643068310546882
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.0037081252592468263
+            }
+          ]
+        },
+        {
+          "mastery": 10,
+          "weights": [
+            21,
+            31,
+            29,
+            19,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.017953632836608887,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.001001677707366943
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0029061418642272953
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.0027258094547424313
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.0014596007862854002
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0029061418642272953
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0029061418642272953
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.001001677707366943
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.003098394008331298
+            }
+          ]
+        },
+        {
+          "mastery": 11,
+          "weights": [
+            18,
+            29,
+            31,
+            21,
+            1,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.015885527815338127,
+          "claireProbability": 1.1674850463867189e-7,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.0006381704443359375
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0027258094547424313
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.0029061418642272953
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.0010136605979003904
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0027258094547424313
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0027258094547424313
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.0006381704443359375
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.00255665835067749
+            }
+          ]
+        },
+        {
+          "mastery": 12,
+          "weights": [
+            12,
+            25,
+            34,
+            24,
+            5,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.012131912731475831,
+          "claireProbability": 0.00001437520980834961,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.00019350140624999995
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.002236403617858887
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.003005749932861329
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.00039648098144531244
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.002236403617858887
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.002236403617858887
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.00019350140624999995
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.0016638636589050293
+            }
+          ]
+        },
+        {
+          "mastery": 13,
+          "weights": [
+            10,
+            23,
+            32,
+            25,
+            10,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.009621735537139896,
+          "claireProbability": 0.00011283874511718756,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.00011283874511718756
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0017955866630859378
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.0024689364375
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.00025526420288085947
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0017955866630859378
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0017955866630859378
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.00011283874511718756
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.001305789634552002
+            }
+          ]
+        },
+        {
+          "mastery": 14,
+          "weights": [
+            6,
+            20,
+            30,
+            29,
+            15,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.006750586435546876,
+          "claireProbability": 0.0003736081123352051,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.000024746528320312506
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0012862060546875
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.0019043151855468751
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.00008103893554687497
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0012862060546875
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0012862060546875
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.000024746528320312506
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.0008686523437500001
+            }
+          ]
+        },
+        {
+          "mastery": 15,
+          "weights": [
+            4,
+            18,
+            27,
+            31,
+            20,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.0049202331835327155,
+          "claireProbability": 0.0008686523437500001,
+          "recipes": [
+            {
+              "id": "dw_ironwarden",
+              "name": "Dwarf Axeman",
+              "probability": 0.00000738796875
+            },
+            {
+              "id": "dw_longrifle",
+              "name": "Dwarf Rifleman",
+              "probability": 0.0009461983952636721
+            },
+            {
+              "id": "dw_boarlancer",
+              "name": "Boar Lancer",
+              "probability": 0.001402808995788575
+            },
+            {
+              "id": "dw_fuserunner",
+              "name": "Bomb Dwarf",
+              "probability": 0.0000326636015625
+            },
+            {
+              "id": "dw_repeatercrew",
+              "name": "Gatling Gunner",
+              "probability": 0.0009461983952636721
+            },
+            {
+              "id": "dw_runemortar",
+              "name": "Rune Dwarf",
+              "probability": 0.0009461983952636721
+            },
+            {
+              "id": "dw_griffinscout",
+              "name": "Griffin Scout",
+              "probability": 0.00000738796875
+            },
+            {
+              "id": "dw_pressuresmith",
+              "name": "Steam Dwarf",
+              "probability": 0.0006381704443359375
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Elves implemented",
+      "id": "grove",
+      "approved": true,
+      "ordinaryDirectRecipes": 8,
+      "rows": [
+        {
+          "mastery": 0,
+          "weights": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.1556396484375,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.07781982421875
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.07781982421875
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0
+            }
+          ]
+        },
+        {
+          "mastery": 1,
+          "weights": [
+            75,
+            25,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.0863376259803772,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.03662019968032837
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.03662019968032837
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.013097226619720459
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0
+            }
+          ]
+        },
+        {
+          "mastery": 2,
+          "weights": [
+            69,
+            27,
+            4,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.07222335590780636,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.02925196801254271
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.00031745876550292966
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.02925196801254271
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.01213744084963989
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.00031745876550292966
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.00031745876550292966
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.00031745876550292966
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.00031745876550292966
+            }
+          ]
+        },
+        {
+          "mastery": 3,
+          "weights": [
+            62,
+            29,
+            9,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.05846922602279663,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.021854927797851573
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0008144655619812012
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.021854927797851573
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.010699144516845702
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0008144655619812012
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0008144655619812012
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0008144655619812012
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0008144655619812012
+            }
+          ]
+        },
+        {
+          "mastery": 4,
+          "weights": [
+            56,
+            31,
+            13,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.049112330610443115,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.016510305000000003
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0013303866918640138
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.016510305000000003
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.009457822089843752
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0013303866918640138
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0013303866918640138
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0013303866918640138
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0013303866918640138
+            }
+          ]
+        },
+        {
+          "mastery": 5,
+          "weights": [
+            49,
+            34,
+            17,
+            0,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.04112861676306152,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.011382939280242917
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0020655578605957045
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.011382939280242917
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.008060547836608888
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0020655578605957045
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0020655578605957045
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0020655578605957045
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0020655578605957045
+            }
+          ]
+        },
+        {
+          "mastery": 6,
+          "weights": [
+            43,
+            35,
+            21,
+            1,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.03563103865081786,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.007882118903961182
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0026826186698913567
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.007882118903961182
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.006484975050201414
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0026826186698913567
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0026826186698913567
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0026826186698913567
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0026826186698913567
+            }
+          ]
+        },
+        {
+          "mastery": 7,
+          "weights": [
+            36,
+            35,
+            23,
+            6,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.02876704542617798,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.00475706671875
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.002930364228057862
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.00475706671875
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.004631074936523438
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.002930364228057862
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.002930364228057862
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.002930364228057862
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.002930364228057862
+            }
+          ]
+        },
+        {
+          "mastery": 8,
+          "weights": [
+            30,
+            35,
+            25,
+            10,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.024760148906707757,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.0028192291259765616
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0031767783164978023
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.0028192291259765616
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.0032675193786621095
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0031767783164978023
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0031767783164978023
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0031767783164978023
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0031767783164978023
+            }
+          ]
+        },
+        {
+          "mastery": 9,
+          "weights": [
+            26,
+            33,
+            27,
+            14,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.021337068996002205,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.0018643068310546882
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.00305805108279419
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.0018643068310546882
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.002344666927001954
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.00305805108279419
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.00305805108279419
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.00305805108279419
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.00305805108279419
+            }
+          ]
+        },
+        {
+          "mastery": 10,
+          "weights": [
+            21,
+            31,
+            29,
+            19,
+            0,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.01797081443902588,
+          "claireProbability": 0,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.001001677707366943
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0029061418642272957
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.001001677707366943
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.0014596007862854002
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0029061418642272957
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0029061418642272957
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0029061418642272957
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0029061418642272957
+            }
+          ]
+        },
+        {
+          "mastery": 11,
+          "weights": [
+            18,
+            29,
+            31,
+            21,
+            1,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.015898788996368405,
+          "claireProbability": 1.1674850463867189e-7,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.0006381704443359375
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0027258094547424313
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.0006381704443359375
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.0010136605979003904
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0027258094547424313
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0027258094547424313
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0027258094547424313
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0027258094547424313
+            }
+          ]
+        },
+        {
+          "mastery": 12,
+          "weights": [
+            12,
+            25,
+            34,
+            24,
+            5,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.01195115190765381,
+          "claireProbability": 0.00001437520980834961,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.00019350140624999995
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.002236403617858887
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.00019350140624999995
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.00039648098144531244
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.002236403617858887
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.002236403617858887
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.002236403617858887
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.002236403617858887
+            }
+          ]
+        },
+        {
+          "mastery": 13,
+          "weights": [
+            10,
+            23,
+            32,
+            25,
+            10,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.009449129836669923,
+          "claireProbability": 0.00011283874511718756,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.00011283874511718756
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0017955866630859376
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.00011283874511718756
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.00025526420288085947
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0017955866630859376
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0017955866630859376
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0017955866630859376
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0017955866630859376
+            }
+          ]
+        },
+        {
+          "mastery": 14,
+          "weights": [
+            6,
+            20,
+            30,
+            29,
+            15,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.006556130625000001,
+          "claireProbability": 0.0003736081123352051,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.000024746528320312506
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0012862060546875002
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.000024746528320312506
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.00008103893554687497
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0012862060546875002
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0012862060546875002
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0012862060546875002
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0012862060546875002
+            }
+          ]
+        },
+        {
+          "mastery": 15,
+          "weights": [
+            4,
+            18,
+            27,
+            31,
+            20,
+            0
+          ],
+          "ordinaryDirectRecipeProbability": 0.0047752663454589854,
+          "claireProbability": 0.0008686523437500001,
+          "recipes": [
+            {
+              "id": "el_moonblade_sentinel",
+              "name": "Emerald Sentry",
+              "probability": 0.00000738796875
+            },
+            {
+              "id": "el_elven_archer",
+              "name": "Moonlight Ranger Scout",
+              "probability": 0.0009461983952636721
+            },
+            {
+              "id": "el_elven_mage",
+              "name": "Stormspear Initiate",
+              "probability": 0.00000738796875
+            },
+            {
+              "id": "el_veil_adept",
+              "name": "Drow Wraithcaller",
+              "probability": 0.0000326636015625
+            },
+            {
+              "id": "el_drow_ember_novice",
+              "name": "Nightweaver Broodguard",
+              "probability": 0.0009461983952636721
+            },
+            {
+              "id": "el_drow_blade_initiate",
+              "name": "Shadow Assassin Apprentice",
+              "probability": 0.0009461983952636721
+            },
+            {
+              "id": "el_drow_gloom_initiate",
+              "name": "Elven Battlemage Apprentice",
+              "probability": 0.0009461983952636721
+            },
+            {
+              "id": "el_baby_fire_dragon",
+              "name": "Baby Fire Dragon",
+              "probability": 0.0009461983952636721
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "game/core/factions.js": "a1d2e237b4800eff507404f3049ccb7b35f1eb9d5855bd3e5634680c6c1cd835",
+    "game/core/campaign-roster.js": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa"
+  }
+}

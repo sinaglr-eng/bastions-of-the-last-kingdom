@@ -1,0 +1,6243 @@
+{
+  "requirementId": "FR-001",
+  "version": "0.6.2",
+  "numericDeltas": 492,
+  "recipeDeltas": 18,
+  "regeneratedAbilityDescriptions": 65,
+  "baselineSha256": "3a3708a2d52a09bad3f3f2a9bcafcec3788341f8f66f49a16a0561d9afd7f45e",
+  "registrySha256": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+  "numeric": [
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 9.5,
+      "after": 16,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 17.6,
+      "after": 32,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 32.3,
+      "after": 64,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 58.9,
+      "after": 128,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 107.4,
+      "after": 256,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 193.8,
+      "after": 640,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.8,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 6,
+      "after": 9,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 11.1,
+      "after": 18,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 20.4,
+      "after": 36,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 37.2,
+      "after": 65,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 67.8,
+      "after": 100,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 122.4,
+      "after": 240,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.2,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_grove_archer",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 11,
+      "after": 18,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 20.4,
+      "after": 36,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 37.4,
+      "after": 60,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 68.2,
+      "after": 120,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 124.3,
+      "after": 240,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 224.4,
+      "after": 800,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 6,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 5,
+      "after": 6,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 9.3,
+      "after": 12,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 17,
+      "after": 24,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 31,
+      "after": 48,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 56.5,
+      "after": 96,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 102,
+      "after": 240,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealweaver",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 8,
+      "after": 9,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 14.8,
+      "after": 18,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 27.2,
+      "after": 30,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 49.6,
+      "after": 48,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 90.4,
+      "after": 72,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 163.2,
+      "after": 300,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.65,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 12,
+      "after": 20,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 22.2,
+      "after": 40,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 40.8,
+      "after": 80,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 74.4,
+      "after": 160,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 135.6,
+      "after": 320,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 244.8,
+      "after": 1000,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.7,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 8,
+      "after": 14,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 14.8,
+      "after": 28,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 27.2,
+      "after": 48,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 49.6,
+      "after": 96,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 90.4,
+      "after": 192,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 163.2,
+      "after": 640,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 9,
+      "after": 10,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 16.7,
+      "after": 20,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 30.6,
+      "after": 32,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 55.8,
+      "after": 56,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 101.7,
+      "after": 96,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 183.6,
+      "after": 480,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.9,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 8,
+      "after": 10,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 25,
+      "after": 30,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 1,
+      "after": 1.5,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 2,
+      "after": 4,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 10,
+      "after": 12,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 20,
+      "after": 24,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 2,
+      "after": 4,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 25,
+      "after": 35,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 1,
+      "after": 1.75,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 2,
+      "after": 8,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 10,
+      "after": 24,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 40,
+      "after": 48,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 4,
+      "after": 8,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 35,
+      "after": 45,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 1.5,
+      "after": 2,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 6,
+      "after": 16,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 10,
+      "after": 48,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 80,
+      "after": 96,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 8,
+      "after": 16,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 35,
+      "after": 55,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 1.5,
+      "after": 2.25,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 6,
+      "after": 32,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 10,
+      "after": 96,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 165,
+      "after": 200,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 16,
+      "after": 32,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 50,
+      "after": 65,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 2,
+      "after": 2.5,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 18,
+      "after": 64,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 30,
+      "after": 192,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_spark_adept",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 250,
+      "after": 400,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinder",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 32,
+      "after": 64,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 50,
+      "after": 80,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 2,
+      "after": 3,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 50,
+      "after": 240,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 80,
+      "after": 600,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade_sentinel",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 45,
+      "after": 90,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade_sentinel",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.95,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonblade_sentinel",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3,
+      "after": 3.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elite_warrior",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 110,
+      "after": 230,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elite_warrior",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elite_warrior",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.25,
+      "after": 3.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 24,
+      "after": 90,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.8,
+      "after": 0.7,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_bowmaster",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 50,
+      "after": 225,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_bowmaster",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.75,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_bowmaster",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 5.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_mage",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 64,
+      "after": 110,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_mage",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_mage",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_conductor",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 145,
+      "after": 420,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_conductor",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.8,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_conductor",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_veil_adept",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 32,
+      "after": 100,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_veil_adept",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_veil_adept",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.75,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealwarden",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 75,
+      "after": 320,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealwarden",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_sealwarden",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ember_novice",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 45,
+      "after": 100,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ember_novice",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.9,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ember_novice",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_pyromancer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 100,
+      "after": 280,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_pyromancer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.85,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_pyromancer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 5.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade_initiate",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 58,
+      "after": 150,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade_initiate",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade_initiate",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 2.75,
+      "after": 3.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_duelist",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 135,
+      "after": 420,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_duelist",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_duelist",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3,
+      "after": 3.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_gloom_initiate",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 38,
+      "after": 130,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_gloom_initiate",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.95,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_gloom_initiate",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.75,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_eclipse_priest",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 95,
+      "after": 360,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_eclipse_priest",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_eclipse_priest",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3,
+      "after": 3.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_mage",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 40,
+      "after": 60,
+      "reason": "Entry lightning damage follows the improved recruit and its three-rank-I recipe."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_conductor",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 80,
+      "after": 200,
+      "reason": "Intermediate lightning must provide meaningful damage beyond the basic chain keeper."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ember_novice",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 4,
+      "after": 8,
+      "reason": "Crafted armor application must not be weaker than ordinary rank-III support."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_pyromancer",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 8,
+      "after": 16,
+      "reason": "Advance armor preparation alongside the higher approved recipe budget."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "dps"
+      ],
+      "before": 60,
+      "after": 240,
+      "reason": "Continuous cone damage, not unused primary damage, drives this defender."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "range"
+      ],
+      "before": 3,
+      "after": 3.5,
+      "reason": "Keep canonical cone range aligned with the attack profile."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "dps"
+      ],
+      "before": 60,
+      "after": 240,
+      "reason": "Keep displayed cone DPS equal to the actual continuousAttack value."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "range"
+      ],
+      "before": 3,
+      "after": 3.5,
+      "reason": "Keep displayed and canonical cone reach synchronized."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 6,
+      "after": 18,
+      "reason": "Burn scales with the crafted cone role while remaining strongest-only."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "dps"
+      ],
+      "before": 180,
+      "after": 800,
+      "reason": "Continuous cone damage, not unused primary damage, drives this defender."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Keep canonical cone range aligned with the attack profile."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "dps"
+      ],
+      "before": 180,
+      "after": 800,
+      "reason": "Keep displayed cone DPS equal to the actual continuousAttack value."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Keep displayed and canonical cone reach synchronized."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 18,
+      "after": 64,
+      "reason": "Burn scales with the crafted cone role while remaining strongest-only."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "dps"
+      ],
+      "before": 25,
+      "after": 100,
+      "reason": "The Intermediate flame aura remains secondary to its cone rather than replacing it."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stormblade_warden",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 230,
+      "after": 1250,
+      "reason": "Ground-only cleave attacker: compare Kingslayer acquisition weight 36; shorter range and no air targeting justify strong melee primary damage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stormblade_warden",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Ground-only cleave attacker: compare Kingslayer acquisition weight 36; shorter range and no air targeting justify strong melee primary damage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stormblade_warden",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Ground-only cleave attacker: compare Kingslayer acquisition weight 36; shorter range and no air targeting justify strong melee primary damage."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_king",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 800,
+      "after": 3600,
+      "reason": "Ground-only final melee attacker: preserve charged critical cleave and stun; lower reach and air exclusion remain tradeoffs against King."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_king",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.8,
+      "reason": "Ground-only final melee attacker: preserve charged critical cleave and stun; lower reach and air exclusion remain tradeoffs against King."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_king",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.75,
+      "reason": "Ground-only final melee attacker: preserve charged critical cleave and stun; lower reach and air exclusion remain tradeoffs against King."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stag_knight",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 258,
+      "after": 1150,
+      "reason": "Terminal mounted ground controller: keep damage below Ironbark while preserving its root utility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stag_knight",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Terminal mounted ground controller: keep damage below Ironbark while preserving its root utility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stag_knight",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Terminal mounted ground controller: keep damage below Ironbark while preserving its root utility."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_tempest_bowmage",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 95,
+      "after": 900,
+      "reason": "Three-target physical ranger: improve sustained hits and exposure while retaining low target count relative to Human Stormbow Magister."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_tempest_bowmage",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.6,
+      "reason": "Three-target physical ranger: improve sustained hits and exposure while retaining low target count relative to Human Stormbow Magister."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_tempest_bowmage",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 5,
+      "after": 6.5,
+      "reason": "Three-target physical ranger: improve sustained hits and exposure while retaining low target count relative to Human Stormbow Magister."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_starfall_bowmaster",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 450,
+      "after": 2600,
+      "reason": "Ten-target physical final ranger: raw ten-target rate remains below Human Tempest Sovereign three-target raw rate; armor preparation supplies an ordinary air-boss counter."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_starfall_bowmaster",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.6,
+      "reason": "Ten-target physical final ranger: raw ten-target rate remains below Human Tempest Sovereign three-target raw rate; armor preparation supplies an ordinary air-boss counter."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_starfall_bowmaster",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 5.5,
+      "after": 7.5,
+      "reason": "Ten-target physical final ranger: raw ten-target rate remains below Human Tempest Sovereign three-target raw rate; armor preparation supplies an ordinary air-boss counter."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 107,
+      "after": 1300,
+      "reason": "Five-target terminal physical ranger: improve armor preparation and direct strikes without granting the final ranger ten-target budget."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.65,
+      "reason": "Five-target terminal physical ranger: improve armor preparation and direct strikes without granting the final ranger ten-target budget."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 5,
+      "after": 6.75,
+      "reason": "Five-target terminal physical ranger: improve armor preparation and direct strikes without granting the final ranger ten-target budget."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archmage",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 300,
+      "after": 1800,
+      "reason": "Advanced lightning damage role: raise primary and lightning burst toward comparable Human advanced acquisition budgets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archmage",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.7,
+      "reason": "Advanced lightning damage role: raise primary and lightning burst toward comparable Human advanced acquisition budgets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archmage",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 6.5,
+      "reason": "Advanced lightning damage role: raise primary and lightning burst toward comparable Human advanced acquisition budgets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 960,
+      "after": 7200,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.4,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 5,
+      "after": 7.5,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_wisp_conductor",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 336,
+      "after": 2000,
+      "reason": "Terminal lightning rider: slightly stronger primary than Thunder Phoenix, with a less flexible final route."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_wisp_conductor",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.75,
+      "reason": "Terminal lightning rider: slightly stronger primary than Thunder Phoenix, with a less flexible final route."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_wisp_conductor",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 6.5,
+      "reason": "Terminal lightning rider: slightly stronger primary than Thunder Phoenix, with a less flexible final route."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonwell_seer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 160,
+      "after": 400,
+      "reason": "Immunity and protection support: improve exposure and modest primary output, while keeping support primary below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonwell_seer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity and protection support: improve exposure and modest primary output, while keeping support primary below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_moonwell_seer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 5.5,
+      "reason": "Immunity and protection support: improve exposure and modest primary output, while keeping support primary below damage specialists."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_eclipse_unbinder",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 520,
+      "after": 1600,
+      "reason": "Final immunity/protection support: improve reach and damage but preserve existing finite breach windows and strongest-only aura."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_eclipse_unbinder",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.85,
+      "reason": "Final immunity/protection support: improve reach and damage but preserve existing finite breach windows and strongest-only aura."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_eclipse_unbinder",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6.5,
+      "reason": "Final immunity/protection support: improve reach and damage but preserve existing finite breach windows and strongest-only aura."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stag_oracle",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 180,
+      "after": 450,
+      "reason": "Terminal immunity support: modest splash damage and reach, preserving its support role rather than treating it as a boss carry."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stag_oracle",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Terminal immunity support: modest splash damage and reach, preserving its support role rather than treating it as a boss carry."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stag_oracle",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 5.75,
+      "reason": "Terminal immunity support: modest splash damage and reach, preserving its support role rather than treating it as a boss carry."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ember_matron",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 210,
+      "after": 800,
+      "reason": "Advanced armor/slow/anti-regeneration support attacker: improve primary and reach while keeping existing control numbers."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ember_matron",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.85,
+      "reason": "Advanced armor/slow/anti-regeneration support attacker: improve primary and reach while keeping existing control numbers."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ember_matron",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6,
+      "reason": "Advanced armor/slow/anti-regeneration support attacker: improve primary and reach while keeping existing control numbers."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinderqueen",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 680,
+      "after": 4500,
+      "reason": "Final armor-preparing damage role: strong charged single-target attacks complement Magical damage allies and preserve existing 64 armor reduction."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinderqueen",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.7,
+      "reason": "Final armor-preparing damage role: strong charged single-target attacks complement Magical damage allies and preserve existing 64 armor reduction."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_cinderqueen",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 6.5,
+      "reason": "Final armor-preparing damage role: strong charged single-target attacks complement Magical damage allies and preserve existing 64 armor reduction."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_furnace_seer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 236,
+      "after": 750,
+      "reason": "Terminal root and slow-aura controller: lower direct damage than Spider Queen, balanced by stronger armor preparation and control."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_furnace_seer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.85,
+      "reason": "Terminal root and slow-aura controller: lower direct damage than Spider Queen, balanced by stronger armor preparation and control."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_furnace_seer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6.25,
+      "reason": "Terminal root and slow-aura controller: lower direct damage than Spider Queen, balanced by stronger armor preparation and control."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ashblade",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 295,
+      "after": 1100,
+      "reason": "Ground-only solitary critical attacker: strong short-range primary retains Holy Moon Strike as a secondary rather than changing primary damage type."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ashblade",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.75,
+      "reason": "Ground-only solitary critical attacker: strong short-range primary retains Holy Moon Strike as a secondary rather than changing primary damage type."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ashblade",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.25,
+      "after": 3.75,
+      "reason": "Ground-only solitary critical attacker: strong short-range primary retains Holy Moon Strike as a secondary rather than changing primary damage type."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_eclipse_duelist",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 950,
+      "after": 3400,
+      "reason": "Final ground-only solitary burst attacker: preserve execution cooldown and control restrictions, with short reach and no air targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_eclipse_duelist",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.65,
+      "reason": "Final ground-only solitary burst attacker: preserve execution cooldown and control restrictions, with short reach and no air targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_eclipse_duelist",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Final ground-only solitary burst attacker: preserve execution cooldown and control restrictions, with short reach and no air targeting."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_veilfire_hierophant",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 210,
+      "after": 900,
+      "reason": "Advanced Magical area attacker: improve primary and reach while preserving True Strike and the existing cleave percentage/radius."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_veilfire_hierophant",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.8,
+      "reason": "Advanced Magical area attacker: improve primary and reach while preserving True Strike and the existing cleave percentage/radius."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_veilfire_hierophant",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 6,
+      "reason": "Advanced Magical area attacker: improve primary and reach while preserving True Strike and the existing cleave percentage/radius."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_night_hierarch",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 700,
+      "after": 4200,
+      "reason": "Final Magical area attacker: raise charged attacks above shell thresholds during support windows without changing evasion or immunity rules."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_night_hierarch",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.65,
+      "reason": "Final Magical area attacker: raise charged attacks above shell thresholds during support windows without changing evasion or immunity rules."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_night_hierarch",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6.75,
+      "reason": "Final Magical area attacker: raise charged attacks above shell thresholds during support windows without changing evasion or immunity rules."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_starfall_bowmaster",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 8,
+      "after": 16,
+      "reason": "Ten-target physical final ranger: raw ten-target rate remains below Human Tempest Sovereign three-target raw rate; armor preparation supplies an ordinary air-boss counter."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_tempest_bowmage",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 4,
+      "after": 16,
+      "reason": "Three-target physical ranger: improve sustained hits and exposure while retaining low target count relative to Human Stormbow Magister."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 8,
+      "after": 32,
+      "reason": "Five-target terminal physical ranger: improve armor preparation and direct strikes without granting the final ranger ten-target budget."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_archmage",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 165,
+      "after": 1000,
+      "reason": "Advanced lightning damage role: raise primary and lightning burst toward comparable Human advanced acquisition budgets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 250,
+      "after": 3600,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_wisp_conductor",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 250,
+      "after": 1200,
+      "reason": "Terminal lightning rider: slightly stronger primary than Thunder Phoenix, with a less flexible final route."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 200,
+      "after": 4000,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "dps"
+      ],
+      "before": 360,
+      "after": 1300,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "dps"
+      ],
+      "before": 360,
+      "after": 1300,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 50,
+      "after": 140,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "dps"
+      ],
+      "before": 60,
+      "after": 250,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "dps"
+      ],
+      "before": 1000,
+      "after": 7500,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "dps"
+      ],
+      "before": 1000,
+      "after": 7500,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 120,
+      "after": 600,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "dps"
+      ],
+      "before": 240,
+      "after": 1200,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        3,
+        "damage"
+      ],
+      "before": 500,
+      "after": 3000,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 8,
+      "after": 18,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 8.89,
+      "after": 20,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 18,
+      "after": 36,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 20,
+      "after": 40,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 40,
+      "after": 72,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 44.44,
+      "after": 80,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 88,
+      "after": 128,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 97.78,
+      "after": 142.22,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 190,
+      "after": 220,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 211.11,
+      "after": 244.44,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 410,
+      "after": 480,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_shieldguard",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 455.56,
+      "after": 533.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 12,
+      "after": 20,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 2.4,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 10,
+      "after": 25,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 27,
+      "after": 40,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 2.4,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 22.5,
+      "after": 50,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 60,
+      "after": 80,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 5,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 2.4,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 50,
+      "after": 100,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 132,
+      "after": 150,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 5,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 1.8,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 3,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 110,
+      "after": 150,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 1.8,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 285,
+      "after": 300,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 3.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 237.5,
+      "after": 281.25,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 615,
+      "after": 650,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 3.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 512.5,
+      "after": 609.38,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 5,
+      "after": 7,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 4.55,
+      "after": 6.36,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 11,
+      "after": 14,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 10,
+      "after": 12.73,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 24,
+      "after": 28,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 21.82,
+      "after": 25.45,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 53,
+      "after": 56,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 48.18,
+      "after": 50.91,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_runesmith",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 11,
+      "after": 20,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 8.46,
+      "after": 16.67,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 25,
+      "after": 40,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 19.23,
+      "after": 33.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 55,
+      "after": 80,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 42.31,
+      "after": 66.67,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 121,
+      "after": 150,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 93.08,
+      "after": 125,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 261,
+      "after": 280,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 200.77,
+      "after": 233.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 564,
+      "after": 610,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_boarrider",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 433.85,
+      "after": 508.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 9,
+      "after": 14,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 2,
+      "after": 4,
+      "reason": "Improve low-rank burn while preserving strongest-only stacking."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 6.43,
+      "after": 11.67,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 20,
+      "after": 28,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 6,
+      "after": 8,
+      "reason": "Improve low-rank burn while preserving strongest-only stacking."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 14.29,
+      "after": 23.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 44,
+      "after": 56,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 31.43,
+      "after": 46.67,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 97,
+      "after": 112,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 69.29,
+      "after": 93.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 209,
+      "after": 220,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 149.29,
+      "after": 183.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 451,
+      "after": 475,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 322.14,
+      "after": 395.83,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 5,
+      "after": 7,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 5,
+      "after": 10,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 6.25,
+      "after": 8.75,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 11,
+      "after": 14,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 10,
+      "after": 15,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 13.75,
+      "after": 17.5,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 24,
+      "after": 28,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 15,
+      "after": 20,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 30,
+      "after": 35,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 53,
+      "after": 56,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 20,
+      "after": 25,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 66.25,
+      "after": 70,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 30,
+      "after": 35,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_engineer",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 7,
+      "after": 11,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 20,
+      "after": 50,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 7,
+      "after": 12.22,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 16,
+      "after": 22,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 20,
+      "after": 50,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 16,
+      "after": 24.44,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 35,
+      "after": 44,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 30,
+      "after": 60,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 35,
+      "after": 48.89,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 77,
+      "after": 88,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 30,
+      "after": 60,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 77,
+      "after": 97.78,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 166,
+      "after": 176,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 40,
+      "after": 75,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 166,
+      "after": 195.56,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 359,
+      "after": 380,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 50,
+      "after": 75,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 359,
+      "after": 422.22,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 7,
+      "after": 10,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 16,
+      "after": 20,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 35,
+      "after": 40,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 77,
+      "after": 80,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "factionId": "forge",
+      "unitId": "dw_furnacetender",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elite_warrior",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 154,
+      "after": 378.8235,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stormblade_warden",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 414,
+      "after": 2647.0588,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_elven_king",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 1440,
+      "after": 8100,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_stag_knight",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 464.4,
+      "after": 2435.2941,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 176.2353,
+      "after": 2800,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_blade_initiate",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 63.8,
+      "after": 183.3333,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_duelist",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 162,
+      "after": 592.9412,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_ashblade",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 383.5,
+      "after": 1906.6667,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "factionId": "grove",
+      "unitId": "el_drow_eclipse_duelist",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 1710,
+      "after": 9415.3846,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    }
+  ],
+  "recipes": [
+    {
+      "factionId": "forge",
+      "id": "dw_ironwarden",
+      "before": [
+        {
+          "family": "dw_shieldguard",
+          "tier": 2
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 3
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 2
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_shieldguard",
+          "tier": 1
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 1
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "id": "dw_steamrail",
+      "before": [
+        {
+          "family": "dw_thunderlock",
+          "tier": 1
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 5
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 4
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_thunderlock",
+          "tier": 1
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 5
+        },
+        {
+          "family": "dw_griffinhandler",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "id": "dw_grapeshotcart",
+      "before": [
+        {
+          "family": "dw_thunderlock",
+          "tier": 1
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 5
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 4
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_thunderlock",
+          "tier": 1
+        },
+        {
+          "family": "dw_grenadier",
+          "tier": 5
+        },
+        {
+          "family": "dw_griffinhandler",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "id": "dw_boarlancer",
+      "before": [
+        {
+          "family": "dw_boarrider",
+          "tier": 3
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 2
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 2
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_boarrider",
+          "tier": 3
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 2
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "id": "dw_boarstandard",
+      "before": [
+        {
+          "family": "dw_boarlancer",
+          "tier": 1
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 4
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 3
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_boarlancer",
+          "tier": 1
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 4
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "id": "dw_fuserunner",
+      "before": [
+        {
+          "family": "dw_grenadier",
+          "tier": 3
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 2
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 2
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_grenadier",
+          "tier": 1
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 1
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "id": "dw_deepdelve",
+      "before": [
+        {
+          "family": "dw_ironclad",
+          "tier": 1
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 5
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 4
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_ironclad",
+          "tier": 1
+        },
+        {
+          "family": "dw_shieldguard",
+          "tier": 5
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "id": "dw_griffinscout",
+      "before": [
+        {
+          "family": "dw_griffinhandler",
+          "tier": 3
+        },
+        {
+          "family": "dw_boarrider",
+          "tier": 2
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 2
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_griffinhandler",
+          "tier": 1
+        },
+        {
+          "family": "dw_musketeer",
+          "tier": 1
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "id": "dw_pressuresmith",
+      "before": [
+        {
+          "family": "dw_furnacetender",
+          "tier": 3
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 2
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 2
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_furnacetender",
+          "tier": 2
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 2
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "factionId": "forge",
+      "id": "dw_emberanvil",
+      "before": [
+        {
+          "family": "dw_steamharpooner",
+          "tier": 1
+        },
+        {
+          "family": "dw_engineer",
+          "tier": 5
+        },
+        {
+          "family": "dw_runesmith",
+          "tier": 4
+        }
+      ],
+      "after": [
+        {
+          "family": "dw_steamharpooner",
+          "tier": 1
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 5
+        },
+        {
+          "family": "dw_furnacetender",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "id": "el_moonblade_sentinel",
+      "before": [
+        {
+          "family": "el_moonblade",
+          "tier": 2
+        },
+        {
+          "family": "el_spark_adept",
+          "tier": 2
+        },
+        {
+          "family": "el_grove_archer",
+          "tier": 3
+        }
+      ],
+      "after": [
+        {
+          "family": "el_moonblade",
+          "tier": 1
+        },
+        {
+          "family": "el_grove_archer",
+          "tier": 1
+        },
+        {
+          "family": "el_drow_cinder",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "id": "el_stormblade_warden",
+      "before": [
+        {
+          "family": "el_elite_warrior",
+          "tier": 1
+        },
+        {
+          "family": "el_spark_adept",
+          "tier": 4
+        },
+        {
+          "family": "el_moonblade",
+          "tier": 5
+        }
+      ],
+      "after": [
+        {
+          "family": "el_elite_warrior",
+          "tier": 1
+        },
+        {
+          "family": "el_moonblade",
+          "tier": 4
+        },
+        {
+          "family": "el_moonblade",
+          "tier": 5
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "id": "el_elven_bowmaster",
+      "before": [
+        {
+          "family": "el_elven_archer",
+          "tier": 1
+        },
+        {
+          "family": "el_grove_archer",
+          "tier": 3
+        },
+        {
+          "family": "el_drow_acolyte",
+          "tier": 3
+        }
+      ],
+      "after": [
+        {
+          "family": "el_elven_archer",
+          "tier": 1
+        },
+        {
+          "family": "el_grove_archer",
+          "tier": 3
+        },
+        {
+          "family": "el_grove_archer",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "id": "el_elven_mage",
+      "before": [
+        {
+          "family": "el_spark_adept",
+          "tier": 2
+        },
+        {
+          "family": "el_drow_acolyte",
+          "tier": 2
+        },
+        {
+          "family": "el_sealweaver",
+          "tier": 3
+        }
+      ],
+      "after": [
+        {
+          "family": "el_spark_adept",
+          "tier": 1
+        },
+        {
+          "family": "el_drow_acolyte",
+          "tier": 1
+        },
+        {
+          "family": "el_dragon_keeper",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "id": "el_veil_adept",
+      "before": [
+        {
+          "family": "el_sealweaver",
+          "tier": 2
+        },
+        {
+          "family": "el_drow_acolyte",
+          "tier": 2
+        },
+        {
+          "family": "el_drow_cinder",
+          "tier": 3
+        }
+      ],
+      "after": [
+        {
+          "family": "el_sealweaver",
+          "tier": 1
+        },
+        {
+          "family": "el_drow_blade",
+          "tier": 1
+        },
+        {
+          "family": "el_drow_cinder",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "id": "el_sealwarden",
+      "before": [
+        {
+          "family": "el_veil_adept",
+          "tier": 1
+        },
+        {
+          "family": "el_sealweaver",
+          "tier": 3
+        },
+        {
+          "family": "el_drow_cinder",
+          "tier": 3
+        }
+      ],
+      "after": [
+        {
+          "family": "el_veil_adept",
+          "tier": 1
+        },
+        {
+          "family": "el_sealweaver",
+          "tier": 3
+        },
+        {
+          "family": "el_drow_acolyte",
+          "tier": 4
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "id": "el_drow_night_hierarch",
+      "before": [
+        {
+          "family": "el_veilfire_hierophant",
+          "tier": 1
+        },
+        {
+          "family": "el_drow_acolyte",
+          "tier": 6
+        },
+        {
+          "family": "el_spark_adept",
+          "tier": 6
+        }
+      ],
+      "after": [
+        {
+          "family": "el_veilfire_hierophant",
+          "tier": 1
+        },
+        {
+          "family": "el_drow_acolyte",
+          "tier": 6
+        },
+        {
+          "family": "el_moonblade",
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "factionId": "grove",
+      "id": "el_fire_dragon",
+      "before": [
+        {
+          "family": "el_baby_fire_dragon",
+          "tier": 1
+        },
+        {
+          "family": "el_dragon_keeper",
+          "tier": 3
+        },
+        {
+          "family": "el_spark_adept",
+          "tier": 3
+        }
+      ],
+      "after": [
+        {
+          "family": "el_baby_fire_dragon",
+          "tier": 1
+        },
+        {
+          "family": "el_dragon_keeper",
+          "tier": 3
+        },
+        {
+          "family": "el_dragon_keeper",
+          "tier": 4
+        }
+      ]
+    }
+  ],
+  "fullCampaignParityCertified": false
+}

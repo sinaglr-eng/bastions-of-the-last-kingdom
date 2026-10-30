@@ -1,0 +1,104 @@
+{
+  "factionId": "grove",
+  "changes": [
+    {
+      "unitId": "el_elite_warrior",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 154,
+      "after": 378.8235,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "unitId": "el_stormblade_warden",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 414,
+      "after": 2647.0588,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "unitId": "el_elven_king",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 1440,
+      "after": 8100,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "unitId": "el_stag_knight",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 464.4,
+      "after": 2435.2941,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 176.2353,
+      "after": 2800,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "unitId": "el_drow_blade_initiate",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 63.8,
+      "after": 183.3333,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "unitId": "el_drow_duelist",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 162,
+      "after": 592.9412,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "unitId": "el_drow_ashblade",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 383.5,
+      "after": 1906.6667,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    },
+    {
+      "unitId": "el_drow_eclipse_duelist",
+      "rank": 1,
+      "path": [
+        "expectedMetrics",
+        "primaryDps"
+      ],
+      "before": 1710,
+      "after": 9415.3846,
+      "reason": "Regenerate descriptive expected unbuffed primary DPS from the changed attack and existing critical chance; this field is not a combat input."
+    }
+  ]
+}

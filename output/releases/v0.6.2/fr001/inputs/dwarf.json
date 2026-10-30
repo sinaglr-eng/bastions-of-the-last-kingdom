@@ -1,0 +1,1980 @@
+{
+  "schemaVersion": 1,
+  "factionId": "forge",
+  "date": "2026-10-30",
+  "status": "numeric candidate; no production changes",
+  "sourceRegistrySha256": "aa2dacea050682ebc1b1d7d4f84189fdc92edb66ce83f688b224d740fb78eb15",
+  "scope": "Eight draft families. All 37 ordinary Dwarf champions and shared Lady Claire remain unchanged.",
+  "changes": [
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 8,
+      "after": 18,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 8.89,
+      "after": 20,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 18,
+      "after": 36,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 20,
+      "after": 40,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 40,
+      "after": 72,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 44.44,
+      "after": 80,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 88,
+      "after": 128,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 97.78,
+      "after": 142.22,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 190,
+      "after": 220,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 211.11,
+      "after": 244.44,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 410,
+      "after": 480,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_shieldguard",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 455.56,
+      "after": 533.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 12,
+      "after": 20,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 2.4,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 10,
+      "after": 25,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 27,
+      "after": 40,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 2.4,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 22.5,
+      "after": 50,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 60,
+      "after": 80,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 5,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 2.4,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 50,
+      "after": 100,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 1.2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 132,
+      "after": 150,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 5,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 1.8,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 3,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 110,
+      "after": 150,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 1.8,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 285,
+      "after": 300,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 3.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 237.5,
+      "after": 281.25,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 615,
+      "after": 650,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "weaponCycle",
+        "reload"
+      ],
+      "before": 2.4,
+      "after": 2,
+      "reason": "Reduce low-tier magazine downtime while retaining magazine size and fixed firing interval."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 3.6,
+      "after": 3.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 512.5,
+      "after": 609.38,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_musketeer",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "reloadSeconds"
+      ],
+      "before": 2.4,
+      "after": 2,
+      "reason": "Synchronize reload display metadata."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 5,
+      "after": 7,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 4.55,
+      "after": 6.36,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 11,
+      "after": 14,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 10,
+      "after": 12.73,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 24,
+      "after": 28,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 21.82,
+      "after": 25.45,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 53,
+      "after": 56,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 48.18,
+      "after": 50.91,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_runesmith",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 11,
+      "after": 20,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 8.46,
+      "after": 16.67,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 25,
+      "after": 40,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 19.23,
+      "after": 33.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 55,
+      "after": 80,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 42.31,
+      "after": 66.67,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 121,
+      "after": 150,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 93.08,
+      "after": 125,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 261,
+      "after": 280,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 200.77,
+      "after": 233.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 564,
+      "after": 610,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.3,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_boarrider",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 433.85,
+      "after": 508.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 9,
+      "after": 14,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 2,
+      "after": 4,
+      "reason": "Improve low-rank burn while preserving strongest-only stacking."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 6.43,
+      "after": 11.67,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 20,
+      "after": 28,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 6,
+      "after": 8,
+      "reason": "Improve low-rank burn while preserving strongest-only stacking."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 14.29,
+      "after": 23.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 44,
+      "after": 56,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 31.43,
+      "after": 46.67,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 97,
+      "after": 112,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 69.29,
+      "after": 93.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 209,
+      "after": 220,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 149.29,
+      "after": 183.33,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 451,
+      "after": 475,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1.4,
+      "after": 1.2,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_grenadier",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 322.14,
+      "after": 395.83,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 5,
+      "after": 7,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 5,
+      "after": 10,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 6.25,
+      "after": 8.75,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 11,
+      "after": 14,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 10,
+      "after": 15,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 13.75,
+      "after": 17.5,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 24,
+      "after": 28,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 15,
+      "after": 20,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 30,
+      "after": 35,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 53,
+      "after": 56,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 20,
+      "after": 25,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 66.25,
+      "after": 70,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "bonusPercent"
+      ],
+      "before": 30,
+      "after": 35,
+      "reason": "Narrow the low-tier support gap; this remains below the fixed Human Cleric blessing."
+    },
+    {
+      "unitId": "dw_engineer",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 7,
+      "after": 11,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 20,
+      "after": 50,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 1,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 7,
+      "after": 12.22,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 16,
+      "after": 22,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 20,
+      "after": 50,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 2,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 16,
+      "after": 24.44,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 35,
+      "after": 44,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 30,
+      "after": 60,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 3,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 35,
+      "after": 48.89,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 77,
+      "after": 88,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 30,
+      "after": 60,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 4,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 77,
+      "after": 97.78,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 166,
+      "after": 176,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 40,
+      "after": 75,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 5,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 166,
+      "after": 195.56,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 359,
+      "after": 380,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "abilities",
+        1,
+        "bonusPercent"
+      ],
+      "before": 50,
+      "after": 75,
+      "reason": "Strengthen the dedicated early anti-air role rather than buff every attacker."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "cycleSeconds"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Synchronize derived unbuffed cycle metadata with the proposed numeric parameters."
+    },
+    {
+      "unitId": "dw_griffinhandler",
+      "rank": 6,
+      "path": [
+        "cycleMetrics",
+        "primaryDps"
+      ],
+      "before": 359,
+      "after": 422.22,
+      "reason": "Synchronize derived unbuffed cycle metadata; this is not effective DPS."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 7,
+      "after": 10,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 16,
+      "after": 20,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 35,
+      "after": 40,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 77,
+      "after": 80,
+      "reason": "Improve early recruit viability against the fixed Human reference without increasing strong Dwarf TOP profiles."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.2,
+      "after": 1.1,
+      "reason": "Keep the recruit attack cadence useful before the first champion."
+    },
+    {
+      "unitId": "dw_furnacetender",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4,
+      "reason": "Increase usable exposure without changing ground/air eligibility or aura radius."
+    }
+  ]
+}

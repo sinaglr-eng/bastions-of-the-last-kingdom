@@ -131,7 +131,7 @@ let folioRecipeId=null,folioRecipeSelection=null,previewPrevious=null;
 const recipeFilterState={damage:'',ability:'',counter:''};let recipeFilterConnection=null;
 app.innerHTML=`
 <header class="topbar">
- <div class="brand forged-brand"><h1 aria-label="Forged Alliances TD"><img class="brand-wide" src="${siteUrl('assets/branding/forged-alliances-v2/wordmark.svg')}" width="650" height="160" alt="Forged Alliances TD" /><img class="brand-compact" src="${siteUrl('assets/branding/forged-alliances-v2/mark.svg')}" width="96" height="96" alt="" aria-hidden="true" /></h1></div>
+ <div class="brand forged-brand"><h1 aria-label="Forged Alliances TD"><img class="brand-wide" src="${siteUrl('assets/branding/forged-alliances-v3/wordmark.svg')}" width="650" height="160" alt="Forged Alliances TD" /><img class="brand-compact" src="${siteUrl('assets/branding/forged-alliances-v3/mark.svg')}" width="96" height="96" alt="" aria-hidden="true" /></h1></div>
  <div class="top-stats">
   <div class="hud-stat wave">${icon('wave')}<div><small>WAVE</small><strong id="hud-wave"></strong></div></div>
   <div class="hud-stat keep">${icon('shield')}<div><small>KEEP HEALTH</small><strong id="hud-lives"></strong></div></div>

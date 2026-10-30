@@ -22,3 +22,7 @@ public/assets/audio/allied-recast-20261011/catalogue.json -text
 
 # D006 historical request evidence is immutable byte-for-byte.
 docs/evidence/ui-phase-request-20261013-v1/** -text
+
+# FR-001 approval and frozen input hashes refer to exact original bytes.
+output/releases/v0.6.2/fr001/authority/** -text
+output/releases/v0.6.2/fr001/inputs/** -text

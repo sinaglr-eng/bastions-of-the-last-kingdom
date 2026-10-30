@@ -1,0 +1,2275 @@
+{
+  "factionId": "grove",
+  "status": "numeric candidate; test memory only",
+  "date": "2026-10-30",
+  "scope": "Eight basic families at all six ranks and eight BASIC/eight INTERMEDIATE champions. Human and Claire unchanged.",
+  "sourceRegistrySha256": "aa2dacea050682ebc1b1d7d4f84189fdc92edb66ce83f688b224d740fb78eb15",
+  "changes": [
+    {
+      "unitId": "el_moonblade",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 9.5,
+      "after": 16,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 17.6,
+      "after": 32,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 32.3,
+      "after": 64,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 58.9,
+      "after": 128,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 107.4,
+      "after": 256,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 193.8,
+      "after": 640,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_moonblade",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.8,
+      "reason": "Keep melee and Physical cleave identity; recover single-target recruit value below Soldier while retaining its cluster advantage."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 6,
+      "after": 9,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 11.1,
+      "after": 18,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 20.4,
+      "after": 36,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 37.2,
+      "after": 65,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 67.8,
+      "after": 100,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.35,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 4.75,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 122.4,
+      "after": 240,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.2,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_grove_archer",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.25,
+      "reason": "Restore a useful Physical air keeper with agile lower-damage arrows; preserve slower cadence than Human Archer, Sky Hunt and visibility."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 11,
+      "after": 18,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 20.4,
+      "after": 36,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 37.4,
+      "after": 60,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 68.2,
+      "after": 120,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 124.3,
+      "after": 240,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 224.4,
+      "after": 800,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.75,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 6,
+      "reason": "Make ordinary lightning recruits comparable to Human multi-target recruitment value, with slower stochastic chains and distinct targeting."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 5,
+      "after": 6,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 9.3,
+      "after": 12,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 17,
+      "after": 24,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 31,
+      "after": 48,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 56.5,
+      "after": 96,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 102,
+      "after": 240,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_sealweaver",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Immunity support retains finite windows; improve its reach and ordinary keeper output without replacing its support role."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 8,
+      "after": 9,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 14.8,
+      "after": 18,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 27.2,
+      "after": 30,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 49.6,
+      "after": 48,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 90.4,
+      "after": 72,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 163.2,
+      "after": 300,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.65,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.75,
+      "reason": "Armor support needs sufficient application rate and range; direct output remains below damage specialists."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 12,
+      "after": 20,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 22.2,
+      "after": 40,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 40.8,
+      "after": 80,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 74.4,
+      "after": 160,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 135.6,
+      "after": 320,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 244.8,
+      "after": 1000,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_blade",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.7,
+      "reason": "Ground-only Magical assassin pays for short exposure with stronger direct hits; anti-regeneration values stay unchanged."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 8,
+      "after": 14,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 14.8,
+      "after": 28,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 27.2,
+      "after": 48,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 49.6,
+      "after": 96,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 90.4,
+      "after": 192,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 163.2,
+      "after": 640,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 5,
+      "reason": "Restore the ranged cleave caster relative to Mage, retaining smaller area reach and no global haste support."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 9,
+      "after": 10,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "damage"
+      ],
+      "before": 16.7,
+      "after": 20,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "damage"
+      ],
+      "before": 30.6,
+      "after": 32,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "damage"
+      ],
+      "before": 55.8,
+      "after": 56,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "damage"
+      ],
+      "before": 101.7,
+      "after": 96,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 1,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "damage"
+      ],
+      "before": 183.6,
+      "after": 480,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.9,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 4.5,
+      "reason": "Sustain burn and timed spark progression instead of leaving fixed rank-I spark damage through rank IV."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 8,
+      "after": 10,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 25,
+      "after": 30,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 1,
+      "after": 1.5,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 2,
+      "after": 4,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 10,
+      "after": 12,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 20,
+      "after": 24,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 2,
+      "after": 4,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 25,
+      "after": 35,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 1,
+      "after": 1.75,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 2,
+      "after": 8,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 2,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 10,
+      "after": 24,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 40,
+      "after": 48,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 4,
+      "after": 8,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 35,
+      "after": 45,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 1.5,
+      "after": 2,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 6,
+      "after": 16,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 3,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 10,
+      "after": 48,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 80,
+      "after": 96,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 8,
+      "after": 16,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 35,
+      "after": 55,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 1.5,
+      "after": 2.25,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 6,
+      "after": 32,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 4,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 10,
+      "after": 96,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 165,
+      "after": 200,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 16,
+      "after": 32,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 50,
+      "after": 65,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 2,
+      "after": 2.5,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 18,
+      "after": 64,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 5,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 30,
+      "after": 192,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "unitId": "el_spark_adept",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 250,
+      "after": 400,
+      "reason": "Chain damage scales with recruitment rank; chance and target count remain unchanged."
+    },
+    {
+      "unitId": "el_drow_cinder",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 32,
+      "after": 64,
+      "reason": "Match Human Engineer armor-preparation rank progression; the Elf lacks the Human attack-speed blessing."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "damagePercent"
+      ],
+      "before": 50,
+      "after": 80,
+      "reason": "Keep cleave below Human Mage large-radius scaling while improving area throughput."
+    },
+    {
+      "unitId": "el_drow_acolyte",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "radius"
+      ],
+      "before": 2,
+      "after": 3,
+      "reason": "Slightly broader cleave rewards clustered encounters without inheriting Mage maximum area."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 50,
+      "after": 240,
+      "reason": "Rank-appropriate strongest-only burn; poison stacking mechanics are not copied."
+    },
+    {
+      "unitId": "el_dragon_keeper",
+      "rank": 6,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 80,
+      "after": 600,
+      "reason": "Timed single-target spark receives a real rank progression."
+    },
+    {
+      "unitId": "el_moonblade_sentinel",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 45,
+      "after": 90,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_moonblade_sentinel",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.95,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_moonblade_sentinel",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3,
+      "after": 3.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elite_warrior",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 110,
+      "after": 230,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elite_warrior",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elite_warrior",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.25,
+      "after": 3.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_archer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 24,
+      "after": 90,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_archer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.8,
+      "after": 0.7,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_archer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_bowmaster",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 50,
+      "after": 225,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_bowmaster",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.75,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_bowmaster",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 5.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_mage",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 64,
+      "after": 110,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_mage",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_mage",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_storm_conductor",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 145,
+      "after": 420,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_storm_conductor",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.8,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_storm_conductor",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 5.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_veil_adept",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 32,
+      "after": 100,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_veil_adept",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_veil_adept",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.75,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_sealwarden",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 75,
+      "after": 320,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_sealwarden",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_sealwarden",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_ember_novice",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 45,
+      "after": 100,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_ember_novice",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.9,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_ember_novice",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_pyromancer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 100,
+      "after": 280,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_pyromancer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.15,
+      "after": 0.85,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_pyromancer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 5.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_blade_initiate",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 58,
+      "after": 150,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_blade_initiate",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.9,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_blade_initiate",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 2.75,
+      "after": 3.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_duelist",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 135,
+      "after": 420,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_duelist",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_duelist",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3,
+      "after": 3.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_gloom_initiate",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 38,
+      "after": 130,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_gloom_initiate",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.95,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_gloom_initiate",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.75,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_eclipse_priest",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 95,
+      "after": 360,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_eclipse_priest",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_drow_eclipse_priest",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3,
+      "after": 3.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Crafted progression is calibrated to its approved ingredient budget and role; preserve mechanics, target classes and recipe inputs."
+    },
+    {
+      "unitId": "el_elven_mage",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 40,
+      "after": 60,
+      "reason": "Entry lightning damage follows the improved recruit and its three-rank-I recipe."
+    },
+    {
+      "unitId": "el_storm_conductor",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 80,
+      "after": 200,
+      "reason": "Intermediate lightning must provide meaningful damage beyond the basic chain keeper."
+    },
+    {
+      "unitId": "el_drow_ember_novice",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 4,
+      "after": 8,
+      "reason": "Crafted armor application must not be weaker than ordinary rank-III support."
+    },
+    {
+      "unitId": "el_drow_pyromancer",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 8,
+      "after": 16,
+      "reason": "Advance armor preparation alongside the higher approved recipe budget."
+    },
+    {
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "dps"
+      ],
+      "before": 60,
+      "after": 240,
+      "reason": "Continuous cone damage, not unused primary damage, drives this defender."
+    },
+    {
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "range"
+      ],
+      "before": 3,
+      "after": 3.5,
+      "reason": "Keep canonical cone range aligned with the attack profile."
+    },
+    {
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "dps"
+      ],
+      "before": 60,
+      "after": 240,
+      "reason": "Keep displayed cone DPS equal to the actual continuousAttack value."
+    },
+    {
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "range"
+      ],
+      "before": 3,
+      "after": 3.5,
+      "reason": "Keep displayed and canonical cone reach synchronized."
+    },
+    {
+      "unitId": "el_baby_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 6,
+      "after": 18,
+      "reason": "Burn scales with the crafted cone role while remaining strongest-only."
+    },
+    {
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "dps"
+      ],
+      "before": 180,
+      "after": 800,
+      "reason": "Continuous cone damage, not unused primary damage, drives this defender."
+    },
+    {
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Keep canonical cone range aligned with the attack profile."
+    },
+    {
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "dps"
+      ],
+      "before": 180,
+      "after": 800,
+      "reason": "Keep displayed cone DPS equal to the actual continuousAttack value."
+    },
+    {
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Keep displayed and canonical cone reach synchronized."
+    },
+    {
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 18,
+      "after": 64,
+      "reason": "Burn scales with the crafted cone role while remaining strongest-only."
+    },
+    {
+      "unitId": "el_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "dps"
+      ],
+      "before": 25,
+      "after": 100,
+      "reason": "The Intermediate flame aura remains secondary to its cone rather than replacing it."
+    }
+  ]
+}

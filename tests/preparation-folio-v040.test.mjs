@@ -37,12 +37,12 @@ test('Archer II→IV changes the displayed profile and recipe suggestions while 
   assert.equal(keepDrawKeeper(game,0,tower.id,key),true);assert.equal(tower.tier,2);assert.equal(tower.state,'active');
 });
 
-test('one canonical profile supplies quantified Mage splash and Frost Warden V/VI effects before rankbar and four metrics',()=>{
+test('one canonical profile supplies quantified Mage splash and Frost Warden V/VI effects after rankbar and four metrics',()=>{
   const mage=candidates('mage',1),mageHtml=defenderPanelMarkup(mage,mage.selection);assert.match(mageHtml,/30% Magical splash · 3.6 damage to other enemies within 3 tiles/);
   const game=candidates('frostwarden',5),tower=game.selection,preview=new DefenderRankPreview();
   let html=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(html,/36% movement slow for 3s/);assert.equal(metric(html,'Damage / hit'),'30');assert.match(html,/<span class="damage-tag" data-damage-type="physical">Physical/);
   preview.select(tower,6,data);html=defenderPanelMarkup(game,tower,{rankPreview:preview});assert.match(html,/55% movement slow for 3s · also within 0.5 tiles/);
-  const positions=['folio-identity','folio-effects','class="rank-preview"','folio-metrics'].map(key=>html.indexOf(key));assert.ok(positions.every((value,index)=>value>=0&&(!index||value>positions[index-1])));
+  const positions=['folio-identity','class="rank-preview"','folio-metrics','folio-effects'].map(key=>html.indexOf(key));assert.ok(positions.every((value,index)=>value>=0&&(!index||value>positions[index-1])));
   assert.equal((html.match(/class="tower-effects/g)||[]).length,1);assert.equal((html.match(/Damage \/ hit/g)||[]).length,1);assert.equal((html.match(/data-action="preview-rank"/g)||[]).length,6);
 });
 

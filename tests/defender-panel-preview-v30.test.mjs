@@ -24,13 +24,13 @@ const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const snapshot=game=>JSON.stringify({data:game.data,towers:game.towers,draws:game.draft.draws,round:game.round,phase:game.phase,gold:game.economy.gold,cp:game.commandPoints.value,selection:game.selected,grid:[...game.grid.occupied]});
 function candidates(family='druid',tier=1){const game=new Game(data,{seed:807});game.draft.roundForced={family,tier};for(let x=15;x<20;x++)assert.equal(game.place(x,17),true);game.select(game.towers[0].id);return game;}
 const core=html=>{const start=html.indexOf('class="defender-core"');assert.ok(start>=0);return html.slice(start,html.indexOf('<section class="folio-recipes',start));};
-const mainEffects=html=>[...core(html).matchAll(/<li>([\s\S]*?)<\/li>/g)].map(match=>match[1]);
+const mainEffects=html=>[...(html.match(/<ul class="tower-effects defender-abilities[^"]*">([\s\S]*?)<\/ul>/)?.[1]||'').matchAll(/<li>([\s\S]*?)<\/li>/g)].map(match=>match[1]);
 const attr=(html,action,name)=>html.match(new RegExp(`<button[^>]*data-action="${action}"[^>]*${name}="([^"]+)"`))?.[1];
 
-test('candidate folio keeps actual actions and puts all previewed effects before ranks and the single base grid',()=>{
+test('candidate folio keeps actual actions and puts all previewed effects after ranks and the single base grid',()=>{
   const game=candidates(),tower=game.selection,preview=new DefenderRankPreview(),images={'druid:1':'/actual-druid-I.png','druid:2':'/preview-druid-II.png'};
   assert.equal(preview.select(tower,2,data),true);const before=snapshot(game),html=defenderPanelMarkup(game,tower,{rankPreview:preview,images});
-  const positions=['class="tower-name"','data-action="keep-draw"','data-action="merge"','class="defender-core"','folio-effects','class="rank-preview"','folio-metrics','folio-recipes'].map(key=>html.indexOf(key));
+  const positions=['class="tower-name"','data-action="keep-draw"','data-action="merge"','class="defender-core"','class="rank-preview"','folio-metrics','folio-recipes','folio-effects'].map(key=>html.indexOf(key));
   assert.ok(positions.every((position,index)=>position>=0&&(index===0||position>positions[index-1])));
   assert.match(html,/Actual rank I · Candidate/);assert.match(core(html),/Preview rank II · Actual rank I unchanged/);
   assert.match(html,/src="\/preview-druid-II\.png"/);assert.doesNotMatch(html.slice(0,html.indexOf('</header>')),/src="\/actual-druid-I\.png"/);assert.doesNotMatch(html,/rank-comparison-stats|data-detail-key="abilities"/);
@@ -51,9 +51,9 @@ test('every basic rank and champion shows all engine-derived abilities once, wit
       const displayed={...tower,tier},stats=towerStats(displayed,data),expected=preparationEffects(stats).map(escape),html=defenderPanelMarkup(game,tower,{rankPreview:preview});profiles++;
       if(stats.type==='holy')expected[0]='Holy damage ignores immunities';
       if(expected.length>3)longLists++;
-      assert.deepEqual(mainEffects(html),expected,`${family} rank ${tier} has a complete upper ability list`);
+      assert.deepEqual(mainEffects(html),expected,`${family} rank ${tier} has a complete bottom ability list`);
       assert.equal((html.match(/class="tower-effects/g)||[]).length,1);assert.doesNotMatch(html,/data-detail-key="abilities"|rank-comparison-stats|concise-effects/);
-      assert.ok(html.indexOf('folio-effects')<html.indexOf('folio-metrics'));assert.ok(html.indexOf('folio-metrics')<html.indexOf('folio-recipes'));
+      assert.ok(html.indexOf('folio-effects')>html.indexOf('folio-metrics'));assert.ok(html.indexOf('folio-metrics')<html.indexOf('folio-recipes'));
       assert.ok(html.indexOf('class="defender-core"')<html.indexOf('id="targeting"'));
       const actual=tier===tower.tier,effective=actual?combatTowerStats(tower,game.towers,data):{stats,bonuses:{haste:1}};
       assert.ok(core(html).includes(`Direct DPS</span><strong>${formatTowerNumber(baseAttackDps(effective.stats)*effective.bonuses.haste)}</strong>`));
@@ -122,7 +122,7 @@ test('actual sidebar refresh keeps permanent MVP/potential/ranks visible and pre
   assert.equal(body.querySelector('.mvp-details').tag,'section');assert.equal(body.querySelector('[data-detail-key="mvp"]'),null);
   for(const selector of ['.potential-combinations','.rank-preview']){const section=body.querySelector(selector);assert.ok(section);assert.equal(section.tag,'section');assert.equal(section.parentNode.tag==='details',false);}
   assert.equal(body.scrollTop,174);assert.equal(document.activeElement,body.querySelector('[data-tier="2"]'));assert.match(core(body.innerHTML),/Preview rank II · Actual rank I unchanged/);
-  assert.ok(body.innerHTML.indexOf('folio-effects')<body.innerHTML.indexOf('class="rank-preview"'));assert.ok(body.innerHTML.indexOf('class="rank-preview"')<body.innerHTML.indexOf('folio-metrics'));assert.ok(body.innerHTML.indexOf('folio-metrics')<body.innerHTML.indexOf('folio-recipes'));
+  assert.ok(body.innerHTML.indexOf('folio-effects')>body.innerHTML.indexOf('class="rank-preview"'));assert.ok(body.innerHTML.indexOf('class="rank-preview"')<body.innerHTML.indexOf('folio-metrics'));assert.ok(body.innerHTML.indexOf('folio-metrics')<body.innerHTML.indexOf('folio-recipes'));
 });
 
 const displayedBuiltCount=html=>Number(html.match(/class="defender-built-count">(\d+) built at rank /)?.[1]);

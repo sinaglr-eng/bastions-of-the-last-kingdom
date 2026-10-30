@@ -1,7 +1,7 @@
 export const FACTIONS=Object.freeze([
- {id:'crown',name:'Human',specialty:'Versatile',scene:'assets/ui/faction-scenes-v061/crown-march.png',description:'Versatile defenders combining Physical, Magical and Holy damage. Flexible champions adapt to many threats.'},
- {id:'forge',name:'Dwarves',specialty:'Physical damage',scene:'assets/ui/faction-scenes-v061/forge-march.png',description:'Physical damage specialists. Heavy weapons, sturdy warriors and powerful machines break through enemy lines.'},
- {id:'grove',name:'Elves',specialty:'Magical damage',scene:'assets/ui/faction-scenes-v061/grove-march.png',description:'Magical damage specialists. Elemental spells, lunar magic and battlefield control overwhelm the enemy.'}
+ {id:'crown',name:'Human',specialty:'Versatile',sceneWidth:1660,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/crown-march.png',description:'Versatile defenders combining Physical, Magical and Holy damage. Flexible champions adapt to many threats.'},
+ {id:'forge',name:'Dwarves',specialty:'Physical damage',sceneWidth:1660,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/forge-march.png',description:'Physical damage specialists. Heavy weapons, sturdy warriors and powerful machines break through enemy lines.'},
+ {id:'grove',name:'Elves',specialty:'Magical damage',sceneWidth:1659,sceneHeight:948,scene:'assets/ui/faction-scenes-v062/grove-march.png',description:'Magical damage specialists. Elemental spells, lunar magic and battlefield control overwhelm the enemy.'}
 ]);
 export const factionName=id=>FACTIONS.find(f=>f.id===id)?.name||'Faction not recorded';
 export function factionProfile(profile){

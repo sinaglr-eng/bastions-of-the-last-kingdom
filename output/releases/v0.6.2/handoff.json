@@ -1,0 +1,350 @@
+{
+  "schema": "v062-handoff-v1",
+  "status": "passed",
+  "base": "998f32f75151b2bc306de5d5736bfe57c172ac28",
+  "head": "998f32f75151b2bc306de5d5736bfe57c172ac28",
+  "mainIndexUnchanged": true,
+  "protectedPaths": 6151,
+  "payload": [
+    {
+      "file": ".gitattributes",
+      "source": "c7ec5535730a6908ed158504a99b8aa128a77c81140d85f17e79f7b705f7a907",
+      "main": "c7ec5535730a6908ed158504a99b8aa128a77c81140d85f17e79f7b705f7a907"
+    },
+    {
+      "file": "data/factions-v060.json",
+      "source": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+      "main": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4"
+    },
+    {
+      "file": "docs/RELEASE_0_6_2.md",
+      "source": "ba094e967553d2f836fbb484823ed698402c1d9b36ad85f3312baf2d8a2ee455",
+      "main": "2bd5ed4ef2e3a694aeef219eb4fa3eba32ed939a8b9868609c3d80eb4be4955e"
+    },
+    {
+      "file": "game/core/factions.js",
+      "source": "a1d2e237b4800eff507404f3049ccb7b35f1eb9d5855bd3e5634680c6c1cd835",
+      "main": "a1d2e237b4800eff507404f3049ccb7b35f1eb9d5855bd3e5634680c6c1cd835"
+    },
+    {
+      "file": "game/main.js",
+      "source": "eab6df253444dbf045917b546ac264668272f500b6fd1e89cec9da81e321c099",
+      "main": "eab6df253444dbf045917b546ac264668272f500b6fd1e89cec9da81e321c099"
+    },
+    {
+      "file": "game/release.js",
+      "source": "595796817ab8c60c7499cbb3dfc53ecfad182d78c410a941709289b53d20bc5b",
+      "main": "595796817ab8c60c7499cbb3dfc53ecfad182d78c410a941709289b53d20bc5b"
+    },
+    {
+      "file": "index.html",
+      "source": "e036f74f6def535154cbdf7f87b2d31872522c89cedea1472c4a0eee31fc96ba",
+      "main": "e036f74f6def535154cbdf7f87b2d31872522c89cedea1472c4a0eee31fc96ba"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/authority/docs/APPROVED_FACTION_RECIPES_FR001_20261030.md",
+      "source": "c855f9215debdc38a4541e632b1acb6b09a3b9a10079c33c2ee8c3d7526bac6c",
+      "main": "c855f9215debdc38a4541e632b1acb6b09a3b9a10079c33c2ee8c3d7526bac6c"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/authority/docs/FACTION_BALANCE_PARAMETERS_FR001_20261030.md",
+      "source": "b89b8803e813e9bb22ed9f1154a32d0b799cbc3640502d1d3eb311d3d0887648",
+      "main": "b89b8803e813e9bb22ed9f1154a32d0b799cbc3640502d1d3eb311d3d0887648"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/authority/output/design/faction-balance-fr001-20261030/approval.json",
+      "source": "ea90034687d8988d43712433b46486f57383b5a165dbd259768b3be52654817e",
+      "main": "ea90034687d8988d43712433b46486f57383b5a165dbd259768b3be52654817e"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/authority/output/design/faction-recipes-approved-20261030/approval.json",
+      "source": "bc0fee8c4b011542d4db3240fdc4585aa43961033eac3bf030aefd5ca6791c81",
+      "main": "bc0fee8c4b011542d4db3240fdc4585aa43961033eac3bf030aefd5ca6791c81"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/baseline-registry.json.gz",
+      "source": "94c641c8c7d44353e8bcb83995f2eaf5021e84fbd07b21f31c3bca190fd1cfd3",
+      "main": "94c641c8c7d44353e8bcb83995f2eaf5021e84fbd07b21f31c3bca190fd1cfd3"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/inputs/dwarf.json",
+      "source": "ce6f353037d838918eb42b24043af4f3e510942779c5e9c5d71a6ff5093f8eef",
+      "main": "ce6f353037d838918eb42b24043af4f3e510942779c5e9c5d71a6ff5093f8eef"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/inputs/elf-derived.json",
+      "source": "185bf8605fdacb6baebe75cbbe8da6a5f0dda0ced329b3f1ce38ffc49ba493d7",
+      "main": "185bf8605fdacb6baebe75cbbe8da6a5f0dda0ced329b3f1ce38ffc49ba493d7"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/inputs/elf-early.json",
+      "source": "595409866a6df28206d8c7545d7b15c2a903f0728bd15666de7b7eecf624a96e",
+      "main": "595409866a6df28206d8c7545d7b15c2a903f0728bd15666de7b7eecf624a96e"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/inputs/elf-late.json",
+      "source": "81d13f3156fa0459eb05e5582da9a59186b6e313f6d4b1d164d8c6a5e6c3f9be",
+      "main": "81d13f3156fa0459eb05e5582da9a59186b6e313f6d4b1d164d8c6a5e6c3f9be"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/inputs/forge-recipes.json",
+      "source": "7dde169abfe2e85cd64c8453d8129b59dd35f16db4481b1364dc1130503ae875",
+      "main": "7dde169abfe2e85cd64c8453d8129b59dd35f16db4481b1364dc1130503ae875"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/inputs/grove-recipes.json",
+      "source": "4b2335593cbba9343f7e80b16b7f8eadd79732860ef08c31ebf9541dcd03ea6a",
+      "main": "4b2335593cbba9343f7e80b16b7f8eadd79732860ef08c31ebf9541dcd03ea6a"
+    },
+    {
+      "file": "package.json",
+      "source": "c214fb0303d17c724dece8d8fba87974fbb08406fafa6f13864ca156983a30e6",
+      "main": "c214fb0303d17c724dece8d8fba87974fbb08406fafa6f13864ca156983a30e6"
+    },
+    {
+      "file": "public/assets/branding/forged-alliances-v3/manifest.json",
+      "source": "219b26ba989f66889b63bc799e3fb5b6c67924147040d160b77f458d8d6ff19d",
+      "main": "219b26ba989f66889b63bc799e3fb5b6c67924147040d160b77f458d8d6ff19d"
+    },
+    {
+      "file": "public/assets/branding/forged-alliances-v3/mark.svg",
+      "source": "c61b1c0e6d9648931c2fb8f9e02b8e9bfae050814c47fd2cc247bf9cb2e9b3fc",
+      "main": "c61b1c0e6d9648931c2fb8f9e02b8e9bfae050814c47fd2cc247bf9cb2e9b3fc"
+    },
+    {
+      "file": "public/assets/branding/forged-alliances-v3/wordmark.svg",
+      "source": "c481ae2493a122d736a9ced8c5f06ec4512b1fa719fc408c1f8e26f4c2acbd4b",
+      "main": "c481ae2493a122d736a9ced8c5f06ec4512b1fa719fc408c1f8e26f4c2acbd4b"
+    },
+    {
+      "file": "public/assets/ui/faction-scenes-v062/crown-march.png",
+      "source": "efef179e34d40c4cec07a3c4f1c4f0512cd153803c4d8c86acac7ed68175b2e4",
+      "main": "efef179e34d40c4cec07a3c4f1c4f0512cd153803c4d8c86acac7ed68175b2e4"
+    },
+    {
+      "file": "public/assets/ui/faction-scenes-v062/forge-march.png",
+      "source": "32a952abe2458742a9dcb24bf6e76e6ba9c71c8c317c18daecc74a80d8b02090",
+      "main": "32a952abe2458742a9dcb24bf6e76e6ba9c71c8c317c18daecc74a80d8b02090"
+    },
+    {
+      "file": "public/assets/ui/faction-scenes-v062/grove-march.png",
+      "source": "d3205a67a53fd32bbd224a5acd957f33da17b3cac10bb60a8b2655676f03b079",
+      "main": "d3205a67a53fd32bbd224a5acd957f33da17b3cac10bb60a8b2655676f03b079"
+    },
+    {
+      "file": "public/assets/ui/faction-scenes-v062/manifest.json",
+      "source": "f40b7dd7a2fdeebb534fd30fb0dd88a7bafafffa449901aac0ceaf8667fa1331",
+      "main": "f40b7dd7a2fdeebb534fd30fb0dd88a7bafafffa449901aac0ceaf8667fa1331"
+    },
+    {
+      "file": "public/favicon.svg",
+      "source": "c61b1c0e6d9648931c2fb8f9e02b8e9bfae050814c47fd2cc247bf9cb2e9b3fc",
+      "main": "c61b1c0e6d9648931c2fb8f9e02b8e9bfae050814c47fd2cc247bf9cb2e9b3fc"
+    },
+    {
+      "file": "public/release.json",
+      "source": "70fef7ef4638e88ec65815fc4980d9f9c9e1557d467f8232dbb3fc033c0d9730",
+      "main": "70fef7ef4638e88ec65815fc4980d9f9c9e1557d467f8232dbb3fc033c0d9730"
+    },
+    {
+      "file": "tests/defender-panel-preview-v30.test.mjs",
+      "source": "b7f919f92a248ec7dda612da8b38d016843a3933ec501ed7066e15c06973c372",
+      "main": "b7f919f92a248ec7dda612da8b38d016843a3933ec501ed7066e15c06973c372"
+    },
+    {
+      "file": "tests/faction-presentation-v061.test.mjs",
+      "source": "ac8e12f48730a5f545d6a53686fd04a838a4bf76af10c562eaf5148b5568cfd2",
+      "main": "ac8e12f48730a5f545d6a53686fd04a838a4bf76af10c562eaf5148b5568cfd2"
+    },
+    {
+      "file": "tests/faction-reference-portraits-v061.test.mjs",
+      "source": "855d9f854db9b8a3bd55eb19bb8606519fa6ff02a2b75bc44a99ac932bca462c",
+      "main": "855d9f854db9b8a3bd55eb19bb8606519fa6ff02a2b75bc44a99ac932bca462c"
+    },
+    {
+      "file": "tests/factions-v060.test.mjs",
+      "source": "b219c8ff5c89f7f5d1757c1ab525650037448b7122b87fb77c2c12da747f6238",
+      "main": "b219c8ff5c89f7f5d1757c1ab525650037448b7122b87fb77c2c12da747f6238"
+    },
+    {
+      "file": "tests/fr001-implemented.test.mjs",
+      "source": "cceb53ec9f2bf5854a945ab1a1f79ff7de4ca2bf01c853ffbc4b75236d595627",
+      "main": "cceb53ec9f2bf5854a945ab1a1f79ff7de4ca2bf01c853ffbc4b75236d595627"
+    },
+    {
+      "file": "tests/phase-ui.test.mjs",
+      "source": "678525b1c73f4182d1590d3fcfd5d7c4a1bd5f42079dd2421455c0beb6756f5f",
+      "main": "678525b1c73f4182d1590d3fcfd5d7c4a1bd5f42079dd2421455c0beb6756f5f"
+    },
+    {
+      "file": "tests/preparation-folio-v040.test.mjs",
+      "source": "ab3182e7c73481e14f9273a2b6646b3c0d11351930d3f30f0c73f961d5abfb0c",
+      "main": "ab3182e7c73481e14f9273a2b6646b3c0d11351930d3f30f0c73f961d5abfb0c"
+    },
+    {
+      "file": "tests/public-verification-v051.test.mjs",
+      "source": "822a2a190cf848675503e2c8d7b6830576e267d81294a8434cbbe9dbf9816f07",
+      "main": "822a2a190cf848675503e2c8d7b6830576e267d81294a8434cbbe9dbf9816f07"
+    },
+    {
+      "file": "tools/apply-fr001.mjs",
+      "source": "67f5c41bcd4b617cd8664d750ea24950fbdc05b30f61ea8399930e5878736fa8",
+      "main": "67f5c41bcd4b617cd8664d750ea24950fbdc05b30f61ea8399930e5878736fa8"
+    },
+    {
+      "file": "tools/fr001-validation/campaign.mjs",
+      "source": "038c82d751846e0453fb9ed235ed76e99570116c766af9b0d6cbefa6e5408c4c",
+      "main": "038c82d751846e0453fb9ed235ed76e99570116c766af9b0d6cbefa6e5408c4c"
+    },
+    {
+      "file": "tools/fr001-validation/claire.mjs",
+      "source": "5a3547fe85454d1d60e1f7a9307a1e00a2161f35e6a7afacb527620cb2cbffa9",
+      "main": "5a3547fe85454d1d60e1f7a9307a1e00a2161f35e6a7afacb527620cb2cbffa9"
+    },
+    {
+      "file": "tools/fr001-validation/combat.mjs",
+      "source": "dd00e2f0587a1e74ef6b3525505fd6b43fd8d98e5b4a30a909c3944ca62edd46",
+      "main": "dd00e2f0587a1e74ef6b3525505fd6b43fd8d98e5b4a30a909c3944ca62edd46"
+    },
+    {
+      "file": "tools/fr001-validation/datasets.mjs",
+      "source": "69748d3001b19c6124929bfe6d022f8992cc9dad3348904dab8443a5ef5d7935",
+      "main": "69748d3001b19c6124929bfe6d022f8992cc9dad3348904dab8443a5ef5d7935"
+    },
+    {
+      "file": "tools/package-runtime-assets.mjs",
+      "source": "bd98df55953c6dfe6c14f1547da76c24ab5e087527308ceba00f9fd5139ad150",
+      "main": "bd98df55953c6dfe6c14f1547da76c24ab5e087527308ceba00f9fd5139ad150"
+    },
+    {
+      "file": "ui/defender-panel.js",
+      "source": "0e5da15f4f342683cf08d29f8c1908ac143725521c7dab5db36dc3ed930cc984",
+      "main": "0e5da15f4f342683cf08d29f8c1908ac143725521c7dab5db36dc3ed930cc984"
+    },
+    {
+      "file": "ui/faction-selection.css",
+      "source": "db50a69d16b7af97737ab9e84cbdaa9d8267d6ad576ba27d84b44925ef602097",
+      "main": "db50a69d16b7af97737ab9e84cbdaa9d8267d6ad576ba27d84b44925ef602097"
+    },
+    {
+      "file": "ui/faction-selection.js",
+      "source": "e26a6629dc65012e60c4e3f361e10494b5db6016adf37da4d8b10a631a2467fd",
+      "main": "e26a6629dc65012e60c4e3f361e10494b5db6016adf37da4d8b10a631a2467fd"
+    },
+    {
+      "file": "output/releases/v0.6.2/build-offline.log",
+      "source": "e410bf1f8dee037a435e370cd42dffab1b3f6de47a2563b775689a0e23e874bc",
+      "main": "e410bf1f8dee037a435e370cd42dffab1b3f6de47a2563b775689a0e23e874bc"
+    },
+    {
+      "file": "output/releases/v0.6.2/first-validation.log",
+      "source": "38c8fe964d13c0d4a7893b8797f9f3292ba597a8c0dc8bd5a0cc0bf9e68d33e6",
+      "main": "38c8fe964d13c0d4a7893b8797f9f3292ba597a8c0dc8bd5a0cc0bf9e68d33e6"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/acquisition-balance.json",
+      "source": "6ba656dd6b6d9b732959eae01e15b322d3157c828399e9b148866aa973cc16a7",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/acquisition.log",
+      "source": "99280bfac9c09091c87b9bba1160f74f7596fb095f288717752f5ea754c2d0e5",
+      "main": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/acquisition.mjs",
+      "source": "7bb9a1b07d2b8b15df0953b1971a6a11fa8c646bab8559b67cb1d49aa3d4bbd0",
+      "main": "33927edc3bfebea796fc43561c71f3e34f9070f5c347c30fbd4a7d44f4da623a"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/campaign/implemented/campaign-results.json",
+      "source": "d4d7bc995e3dee535239494f704065428062369a2959bab1dcdca5dcab67133a",
+      "main": "d4d7bc995e3dee535239494f704065428062369a2959bab1dcdca5dcab67133a"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/campaign/implemented/placement-plan.json",
+      "source": "0a66ab5ed3c44155775277b25bcda89942d1d31b8e23eb2f7e6badc5aab60f14",
+      "main": "0a66ab5ed3c44155775277b25bcda89942d1d31b8e23eb2f7e6badc5aab60f14"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/campaign/implemented/summary.json",
+      "source": "289d79a8295134c14fd8d7c823ad8b5cf092165a586567e3f63a9e6b10e96327",
+      "main": "289d79a8295134c14fd8d7c823ad8b5cf092165a586567e3f63a9e6b10e96327"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/campaign.log",
+      "source": "5e4bb2fc0b624fa72211c5c98bb5d4fe2882570940bc3af4a41793386cbad79a",
+      "main": "5e4bb2fc0b624fa72211c5c98bb5d4fe2882570940bc3af4a41793386cbad79a"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/claire/claire-verification.json",
+      "source": "454d6407f9e94517be7902916e96de2012505965a1106e95c4a56f0b1dcfeffe",
+      "main": "454d6407f9e94517be7902916e96de2012505965a1106e95c4a56f0b1dcfeffe"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/claire.log",
+      "source": "468ed65a2d5a3dbedf32a26c5b6ec021f913ba832596648fc1f1f99c851f0857",
+      "main": "468ed65a2d5a3dbedf32a26c5b6ec021f913ba832596648fc1f1f99c851f0857"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/combat/implemented/results.json",
+      "source": "9e7cb23acee9721b4932b8fe83641f010578684dd8e4f9fed2d833f3f890de36",
+      "main": "9e7cb23acee9721b4932b8fe83641f010578684dd8e4f9fed2d833f3f890de36"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/combat.log",
+      "source": "5f517181b6cbd5a3f0c458e246fae94c713addb3aaa7fce11708c8b637687734",
+      "main": "5f517181b6cbd5a3f0c458e246fae94c713addb3aaa7fce11708c8b637687734"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/implementation.json",
+      "source": "c8716ada0ce37fe3cedbf96bf07d6e6b58de2a87a724e62e59c2df0a3a54b355",
+      "main": "c8716ada0ce37fe3cedbf96bf07d6e6b58de2a87a724e62e59c2df0a3a54b355"
+    },
+    {
+      "file": "output/releases/v0.6.2/fr001/validation-attribution.json",
+      "source": "1d34d36e951e16897028308152e56a972959a229a8a87a0e687e3f22ec02ad49",
+      "main": "1d34d36e951e16897028308152e56a972959a229a8a87a0e687e3f22ec02ad49"
+    },
+    {
+      "file": "output/releases/v0.6.2/handoff.json",
+      "source": "f05212a59dd8173435e1c9ffcaf82912afaf0195bd37419709cf04ddfa06eb0a",
+      "main": "f05212a59dd8173435e1c9ffcaf82912afaf0195bd37419709cf04ddfa06eb0a"
+    },
+    {
+      "file": "output/releases/v0.6.2/local-validation.json",
+      "source": "06072e46d9760847c787a7cecd5d78f4e3943a9ffddc618f3852d5953a13aa4c",
+      "main": "06072e46d9760847c787a7cecd5d78f4e3943a9ffddc618f3852d5953a13aa4c"
+    },
+    {
+      "file": "output/releases/v0.6.2/logo-preview.png",
+      "source": "142e7ce8c006de8494f62c66b6e49055c4c70c134309851995fe447247c5bc5f",
+      "main": "142e7ce8c006de8494f62c66b6e49055c4c70c134309851995fe447247c5bc5f"
+    },
+    {
+      "file": "output/releases/v0.6.2/main-production-install.json",
+      "source": "47f1d4eb4d2d8b1b3aa6f14202537f729f9178ec2cdc54f9361e70b0acc53c55",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.2/preserved-concurrent-edits.json",
+      "source": "6ac91cab38eae269a4e6457275b3b956f615a7df03de4b1ce88f44b8110efc30",
+      "main": "6ac91cab38eae269a4e6457275b3b956f615a7df03de4b1ce88f44b8110efc30"
+    },
+    {
+      "file": "output/releases/v0.6.2/sources-built.json",
+      "source": "dbeee44da591048ca517cba248b6f0427da9e054083d843ef7bb5db91e6f411c",
+      "main": "dbeee44da591048ca517cba248b6f0427da9e054083d843ef7bb5db91e6f411c"
+    },
+    {
+      "file": "output/releases/v0.6.2/sources-tested.json",
+      "source": "dbeee44da591048ca517cba248b6f0427da9e054083d843ef7bb5db91e6f411c",
+      "main": "dbeee44da591048ca517cba248b6f0427da9e054083d843ef7bb5db91e6f411c"
+    },
+    {
+      "file": "output/releases/v0.6.2/tests.log",
+      "source": "40801e4dc2b7735548460a745887777709e6cd111878beda58e1977d40373f5f",
+      "main": "40801e4dc2b7735548460a745887777709e6cd111878beda58e1977d40373f5f"
+    }
+  ]
+}

@@ -1,0 +1,762 @@
+[
+  {
+    "id": "el_moonblade_sentinel",
+    "level": 1,
+    "stage": "BASIC",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_moonblade",
+        "tier": 1
+      },
+      {
+        "family": "el_grove_archer",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "el_elite_warrior",
+    "level": 1,
+    "stage": "INTERMEDIATE",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_moonblade_sentinel",
+        "tier": 1
+      },
+      {
+        "family": "el_moonblade",
+        "tier": 3
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_stormblade_warden",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_elite_warrior",
+        "tier": 1
+      },
+      {
+        "family": "el_moonblade",
+        "tier": 4
+      },
+      {
+        "family": "el_moonblade",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_elven_king",
+    "level": 1,
+    "stage": "TOP",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_stormblade_warden",
+        "tier": 1
+      },
+      {
+        "family": "el_moonblade",
+        "tier": 6
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "el_stag_knight",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_elite_warrior",
+        "tier": 1
+      },
+      {
+        "family": "el_moonblade",
+        "tier": 4
+      },
+      {
+        "family": "el_dragon_keeper",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_elven_archer",
+    "level": 1,
+    "stage": "BASIC",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_grove_archer",
+        "tier": 2
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 2
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_elven_bowmaster",
+    "level": 1,
+    "stage": "INTERMEDIATE",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_elven_archer",
+        "tier": 1
+      },
+      {
+        "family": "el_grove_archer",
+        "tier": 3
+      },
+      {
+        "family": "el_grove_archer",
+        "tier": 4
+      }
+    ]
+  },
+  {
+    "id": "el_tempest_bowmage",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_elven_bowmaster",
+        "tier": 1
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 4
+      },
+      {
+        "family": "el_grove_archer",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_starfall_bowmaster",
+    "level": 1,
+    "stage": "TOP",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_tempest_bowmage",
+        "tier": 1
+      },
+      {
+        "family": "el_grove_archer",
+        "tier": 6
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "el_twilight_huntress",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_elven_bowmaster",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 4
+      },
+      {
+        "family": "el_grove_archer",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_elven_mage",
+    "level": 1,
+    "stage": "BASIC",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_spark_adept",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 1
+      },
+      {
+        "family": "el_dragon_keeper",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "el_storm_conductor",
+    "level": 1,
+    "stage": "INTERMEDIATE",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_elven_mage",
+        "tier": 1
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 3
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_elven_archmage",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_storm_conductor",
+        "tier": 1
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 4
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_storm_sovereign",
+    "level": 1,
+    "stage": "TOP",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_elven_archmage",
+        "tier": 1
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 6
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "el_wisp_conductor",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_storm_conductor",
+        "tier": 1
+      },
+      {
+        "family": "el_moonblade",
+        "tier": 4
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_veil_adept",
+    "level": 1,
+    "stage": "BASIC",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_sealweaver",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_blade",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "el_sealwarden",
+    "level": 1,
+    "stage": "INTERMEDIATE",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_veil_adept",
+        "tier": 1
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 3
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 4
+      }
+    ]
+  },
+  {
+    "id": "el_moonwell_seer",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_sealwarden",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 4
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_eclipse_unbinder",
+    "level": 1,
+    "stage": "TOP",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_moonwell_seer",
+        "tier": 1
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 6
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "el_stag_oracle",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_sealwarden",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_blade",
+        "tier": 4
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_drow_ember_novice",
+    "level": 1,
+    "stage": "BASIC",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_cinder",
+        "tier": 2
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 2
+      },
+      {
+        "family": "el_drow_blade",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_drow_pyromancer",
+    "level": 1,
+    "stage": "INTERMEDIATE",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_ember_novice",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 3
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_drow_ember_matron",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_pyromancer",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_blade",
+        "tier": 4
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_drow_cinderqueen",
+    "level": 1,
+    "stage": "TOP",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_ember_matron",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 6
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "el_drow_furnace_seer",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_pyromancer",
+        "tier": 1
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 4
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_drow_blade_initiate",
+    "level": 1,
+    "stage": "BASIC",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_blade",
+        "tier": 2
+      },
+      {
+        "family": "el_moonblade",
+        "tier": 2
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_drow_duelist",
+    "level": 1,
+    "stage": "INTERMEDIATE",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_blade_initiate",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_blade",
+        "tier": 3
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_drow_ashblade",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_duelist",
+        "tier": 1
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 4
+      },
+      {
+        "family": "el_drow_blade",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_drow_eclipse_duelist",
+    "level": 1,
+    "stage": "TOP",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_ashblade",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_blade",
+        "tier": 6
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "el_drow_gloom_initiate",
+    "level": 1,
+    "stage": "BASIC",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_acolyte",
+        "tier": 2
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 2
+      },
+      {
+        "family": "el_moonblade",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_drow_eclipse_priest",
+    "level": 1,
+    "stage": "INTERMEDIATE",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_gloom_initiate",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 3
+      },
+      {
+        "family": "el_grove_archer",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_veilfire_hierophant",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_drow_eclipse_priest",
+        "tier": 1
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 4
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_drow_night_hierarch",
+    "level": 1,
+    "stage": "TOP",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_veilfire_hierophant",
+        "tier": 1
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 6
+      },
+      {
+        "family": "el_moonblade",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "el_baby_fire_dragon",
+    "level": 1,
+    "stage": "BASIC",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_dragon_keeper",
+        "tier": 2
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 2
+      },
+      {
+        "family": "el_drow_acolyte",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "el_fire_dragon",
+    "level": 1,
+    "stage": "INTERMEDIATE",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_baby_fire_dragon",
+        "tier": 1
+      },
+      {
+        "family": "el_dragon_keeper",
+        "tier": 3
+      },
+      {
+        "family": "el_dragon_keeper",
+        "tier": 4
+      }
+    ]
+  },
+  {
+    "id": "el_mother_fire_dragon",
+    "level": 1,
+    "stage": "ADVANCED",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_fire_dragon",
+        "tier": 1
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 4
+      },
+      {
+        "family": "el_dragon_keeper",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "el_ancient_patriarch",
+    "level": 1,
+    "stage": "TOP",
+    "currentRoundOnly": false,
+    "ingredients": [
+      {
+        "family": "el_mother_fire_dragon",
+        "tier": 1
+      },
+      {
+        "family": "el_dragon_keeper",
+        "tier": 6
+      },
+      {
+        "family": "el_spark_adept",
+        "tier": 6
+      }
+    ]
+  },
+  {
+    "id": "ladyclaire",
+    "level": 1,
+    "stage": "Secret",
+    "currentRoundOnly": true,
+    "ingredients": [
+      {
+        "family": "el_spark_adept",
+        "tier": 5
+      },
+      {
+        "family": "el_sealweaver",
+        "tier": 5
+      },
+      {
+        "family": "el_drow_cinder",
+        "tier": 5
+      }
+    ]
+  }
+]

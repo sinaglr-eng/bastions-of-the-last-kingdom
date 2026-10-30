@@ -1,0 +1,35 @@
+{
+  "version": "0.6.2",
+  "requirement": "FR-001",
+  "currentRegistrySha256": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+  "baselineArchiveSha256": "94c641c8c7d44353e8bcb83995f2eaf5021e84fbd07b21f31c3bca190fd1cfd3",
+  "actualImplementedData": true,
+  "noNumericOrRecipeOverlay": true,
+  "sourceHashes": {
+    "game/core/game.js": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed",
+    "game/core/combat.js": "53454cb347b41e8680ca2c1439e0f8d470a298dea2788ab304a53a302cf0f7c8",
+    "game/core/faction-combat.js": "f5dd968df22794b2e1303983f0bbe83617f2dacb5673d622e944a2edf558f74a",
+    "game/core/factions.js": "a1d2e237b4800eff507404f3049ccb7b35f1eb9d5855bd3e5634680c6c1cd835",
+    "game/core/math.js": "b5d6a07839f5be4409cc97478844235f66d2201f3392553f079110b4f9f01b15",
+    "game/core/campaign-roster.js": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa",
+    "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0"
+  },
+  "tests": {
+    "combatScenarios": 5400,
+    "legalCampaigns": 80,
+    "claireCases": 66
+  },
+  "fullCampaignParityCertified": false,
+  "limitations": "Controlled late-game combat probes and legal recipe graphs are not an observed legal 50-wave victory. No player win-rate claim.",
+  "harnesses": {
+    "tools/fr001-validation/datasets.mjs": "69748d3001b19c6124929bfe6d022f8992cc9dad3348904dab8443a5ef5d7935",
+    "tools/fr001-validation/combat.mjs": "dd00e2f0587a1e74ef6b3525505fd6b43fd8d98e5b4a30a909c3944ca62edd46",
+    "tools/fr001-validation/campaign.mjs": "038c82d751846e0453fb9ed235ed76e99570116c766af9b0d6cbefa6e5408c4c",
+    "tools/fr001-validation/claire.mjs": "5a3547fe85454d1d60e1f7a9307a1e00a2161f35e6a7afacb527620cb2cbffa9"
+  }
+}

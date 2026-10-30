@@ -1,0 +1,40 @@
+{
+  "revision": "faction-widescreen-20261030-v3",
+  "operation": "AI widescreen recomposition; originals preserved. Frame uses native aspect ratio with contain; no crop or stretch.",
+  "separateHumanVisualApproval": "Not separately requested or recorded",
+  "assets": [
+    {
+      "factionId": "crown",
+      "file": "assets/ui/faction-scenes-v062/crown-march.png",
+      "width": 1660,
+      "height": 948,
+      "sha256": "efef179e34d40c4cec07a3c4f1c4f0512cd153803c4d8c86acac7ed68175b2e4",
+      "editTarget": "public/assets/ui/faction-scenes-v061/crown-march.png",
+      "editTargetSha256": "99c001e122dc5d3ebc77b32e3c0587304ac3110dc05d50c77fba23b018e80e8b",
+      "tool": "Built-in image_gen",
+      "prompt": "Use case: identity-preserve illustration re-composition. Edit the supplied existing faction battle illustration into a genuinely widescreen 16:9 landscape composition for a faction-selection card. Deliver one full-bleed image, requested canvas 1792 x 1024 or wider 16:9 if supported. Recompose / outpaint wider surroundings; do NOT just crop the existing art, do NOT stretch characters. Keep all important champions and signature equipment comfortably inside the image with generous side and head room, all main figures visible. Preserve this exact low-poly faceted polished fantasy illustration style, original character identities, colors, clothing and battle march narrative. No lettering, logos, UI, border, collage or multiple panels. Human alliance: preserve the black-armored mounted Kingslayer holding a huge pale-blue crystal sword, blue and silver mounted Frost Knight with crystal shield, and red-white-gold Paladin with hammer and sun shield. Place them across the wider composition, with blue-bannered troops, sunlit stone citadel and distant mountains. Crystal sword and horses must fit entirely."
+    },
+    {
+      "factionId": "forge",
+      "file": "assets/ui/faction-scenes-v062/forge-march.png",
+      "width": 1660,
+      "height": 948,
+      "sha256": "32a952abe2458742a9dcb24bf6e76e6ba9c71c8c317c18daecc74a80d8b02090",
+      "editTarget": "public/assets/ui/faction-scenes-v061/forge-march.png",
+      "editTargetSha256": "99cba6011a6173a4eaaf23bb477228c10abd03a1b9ca4403b9606bf8a3dd6a59",
+      "tool": "Built-in image_gen",
+      "prompt": "Use case: identity-preserve illustration re-composition. Edit the supplied existing faction battle illustration into a genuinely widescreen 16:9 landscape composition for a faction-selection card. Deliver one full-bleed image, requested canvas 1792 x 1024 or wider 16:9 if supported. Recompose / outpaint wider surroundings; do NOT just crop the existing art, do NOT stretch characters. Keep all important champions and signature equipment comfortably inside the image with generous side and head room, all main figures visible. Preserve this exact low-poly faceted polished fantasy illustration style, original character identities, colors, clothing and battle march narrative. No lettering, logos, UI, border, collage or multiple panels. Dwarf alliance: preserve the orange-bearded axe Berserker, orange-bearded shield commander, blue-cap musketeers and cream-balloon wooden warship overhead. Spread these champions across a wider battlefront before a glowing mountain forge. Ensure the airship balloon and axe are fully visible with breathing room."
+    },
+    {
+      "factionId": "grove",
+      "file": "assets/ui/faction-scenes-v062/grove-march.png",
+      "width": 1659,
+      "height": 948,
+      "sha256": "d3205a67a53fd32bbd224a5acd957f33da17b3cac10bb60a8b2655676f03b079",
+      "editTarget": "public/assets/ui/faction-scenes-v061/grove-march.png",
+      "editTargetSha256": "62f1898b400e6020fd0ae4027fa7c58bb3d5a0c5ca024f6fd7188663393fdbc9",
+      "tool": "Built-in image_gen",
+      "prompt": "Use case: identity-preserve illustration re-composition. Edit the supplied existing faction battle illustration into a genuinely widescreen 16:9 landscape composition for a faction-selection card. Deliver one full-bleed image, requested canvas 1792 x 1024 or wider 16:9 if supported. Recompose / outpaint wider surroundings; do NOT just crop the existing art, do NOT stretch characters. Keep all important champions and signature equipment comfortably inside the image with generous side and head room, all main figures visible. Preserve this exact low-poly faceted polished fantasy illustration style, original character identities, colors, clothing and battle march narrative. No lettering, logos, UI, border, collage or multiple panels. Elf alliance: preserve the green and gold Emerald Blademaster with sword and shield, blue hand-lightning caster, violet lunar priestess with crescent staff and enormous living leafy World Oak Ent. Spread their march across a wide enchanted forest road with luminous distant elven citadel. Lightning originates from the caster's hands; keep signature weapons and leafy canopy comfortably framed."
+    }
+  ]
+}

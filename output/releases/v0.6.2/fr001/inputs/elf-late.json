@@ -1,0 +1,834 @@
+{
+  "factionId": "grove",
+  "status": "Numeric candidate only; no runtime or gallery import",
+  "scope": "13 Advanced and 8 TOP Elf champions; Human and Lady Claire immutable",
+  "revision": "elf-late-v3",
+  "changes": [
+    {
+      "unitId": "el_stormblade_warden",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 230,
+      "after": 1250,
+      "reason": "Ground-only cleave attacker: compare Kingslayer acquisition weight 36; shorter range and no air targeting justify strong melee primary damage."
+    },
+    {
+      "unitId": "el_stormblade_warden",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Ground-only cleave attacker: compare Kingslayer acquisition weight 36; shorter range and no air targeting justify strong melee primary damage."
+    },
+    {
+      "unitId": "el_stormblade_warden",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Ground-only cleave attacker: compare Kingslayer acquisition weight 36; shorter range and no air targeting justify strong melee primary damage."
+    },
+    {
+      "unitId": "el_elven_king",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 800,
+      "after": 3600,
+      "reason": "Ground-only final melee attacker: preserve charged critical cleave and stun; lower reach and air exclusion remain tradeoffs against King."
+    },
+    {
+      "unitId": "el_elven_king",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.8,
+      "reason": "Ground-only final melee attacker: preserve charged critical cleave and stun; lower reach and air exclusion remain tradeoffs against King."
+    },
+    {
+      "unitId": "el_elven_king",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.75,
+      "after": 4.75,
+      "reason": "Ground-only final melee attacker: preserve charged critical cleave and stun; lower reach and air exclusion remain tradeoffs against King."
+    },
+    {
+      "unitId": "el_stag_knight",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 258,
+      "after": 1150,
+      "reason": "Terminal mounted ground controller: keep damage below Ironbark while preserving its root utility."
+    },
+    {
+      "unitId": "el_stag_knight",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.85,
+      "reason": "Terminal mounted ground controller: keep damage below Ironbark while preserving its root utility."
+    },
+    {
+      "unitId": "el_stag_knight",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.5,
+      "reason": "Terminal mounted ground controller: keep damage below Ironbark while preserving its root utility."
+    },
+    {
+      "unitId": "el_tempest_bowmage",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 95,
+      "after": 900,
+      "reason": "Three-target physical ranger: improve sustained hits and exposure while retaining low target count relative to Human Stormbow Magister."
+    },
+    {
+      "unitId": "el_tempest_bowmage",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.6,
+      "reason": "Three-target physical ranger: improve sustained hits and exposure while retaining low target count relative to Human Stormbow Magister."
+    },
+    {
+      "unitId": "el_tempest_bowmage",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 5,
+      "after": 6.5,
+      "reason": "Three-target physical ranger: improve sustained hits and exposure while retaining low target count relative to Human Stormbow Magister."
+    },
+    {
+      "unitId": "el_starfall_bowmaster",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 450,
+      "after": 2600,
+      "reason": "Ten-target physical final ranger: raw ten-target rate remains below Human Tempest Sovereign three-target raw rate; armor preparation supplies an ordinary air-boss counter."
+    },
+    {
+      "unitId": "el_starfall_bowmaster",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.6,
+      "reason": "Ten-target physical final ranger: raw ten-target rate remains below Human Tempest Sovereign three-target raw rate; armor preparation supplies an ordinary air-boss counter."
+    },
+    {
+      "unitId": "el_starfall_bowmaster",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 5.5,
+      "after": 7.5,
+      "reason": "Ten-target physical final ranger: raw ten-target rate remains below Human Tempest Sovereign three-target raw rate; armor preparation supplies an ordinary air-boss counter."
+    },
+    {
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 107,
+      "after": 1300,
+      "reason": "Five-target terminal physical ranger: improve armor preparation and direct strikes without granting the final ranger ten-target budget."
+    },
+    {
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 0.85,
+      "after": 0.65,
+      "reason": "Five-target terminal physical ranger: improve armor preparation and direct strikes without granting the final ranger ten-target budget."
+    },
+    {
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 5,
+      "after": 6.75,
+      "reason": "Five-target terminal physical ranger: improve armor preparation and direct strikes without granting the final ranger ten-target budget."
+    },
+    {
+      "unitId": "el_elven_archmage",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 300,
+      "after": 1800,
+      "reason": "Advanced lightning damage role: raise primary and lightning burst toward comparable Human advanced acquisition budgets."
+    },
+    {
+      "unitId": "el_elven_archmage",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.7,
+      "reason": "Advanced lightning damage role: raise primary and lightning burst toward comparable Human advanced acquisition budgets."
+    },
+    {
+      "unitId": "el_elven_archmage",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 6.5,
+      "reason": "Advanced lightning damage role: raise primary and lightning burst toward comparable Human advanced acquisition budgets."
+    },
+    {
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 960,
+      "after": 7200,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.4,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 5,
+      "after": 7.5,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "unitId": "el_wisp_conductor",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 336,
+      "after": 2000,
+      "reason": "Terminal lightning rider: slightly stronger primary than Thunder Phoenix, with a less flexible final route."
+    },
+    {
+      "unitId": "el_wisp_conductor",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.75,
+      "reason": "Terminal lightning rider: slightly stronger primary than Thunder Phoenix, with a less flexible final route."
+    },
+    {
+      "unitId": "el_wisp_conductor",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 6.5,
+      "reason": "Terminal lightning rider: slightly stronger primary than Thunder Phoenix, with a less flexible final route."
+    },
+    {
+      "unitId": "el_moonwell_seer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 160,
+      "after": 400,
+      "reason": "Immunity and protection support: improve exposure and modest primary output, while keeping support primary below damage specialists."
+    },
+    {
+      "unitId": "el_moonwell_seer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Immunity and protection support: improve exposure and modest primary output, while keeping support primary below damage specialists."
+    },
+    {
+      "unitId": "el_moonwell_seer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 5.5,
+      "reason": "Immunity and protection support: improve exposure and modest primary output, while keeping support primary below damage specialists."
+    },
+    {
+      "unitId": "el_eclipse_unbinder",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 520,
+      "after": 1600,
+      "reason": "Final immunity/protection support: improve reach and damage but preserve existing finite breach windows and strongest-only aura."
+    },
+    {
+      "unitId": "el_eclipse_unbinder",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.85,
+      "reason": "Final immunity/protection support: improve reach and damage but preserve existing finite breach windows and strongest-only aura."
+    },
+    {
+      "unitId": "el_eclipse_unbinder",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6.5,
+      "reason": "Final immunity/protection support: improve reach and damage but preserve existing finite breach windows and strongest-only aura."
+    },
+    {
+      "unitId": "el_stag_oracle",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 180,
+      "after": 450,
+      "reason": "Terminal immunity support: modest splash damage and reach, preserving its support role rather than treating it as a boss carry."
+    },
+    {
+      "unitId": "el_stag_oracle",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 1,
+      "reason": "Terminal immunity support: modest splash damage and reach, preserving its support role rather than treating it as a boss carry."
+    },
+    {
+      "unitId": "el_stag_oracle",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 5.75,
+      "reason": "Terminal immunity support: modest splash damage and reach, preserving its support role rather than treating it as a boss carry."
+    },
+    {
+      "unitId": "el_drow_ember_matron",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 210,
+      "after": 800,
+      "reason": "Advanced armor/slow/anti-regeneration support attacker: improve primary and reach while keeping existing control numbers."
+    },
+    {
+      "unitId": "el_drow_ember_matron",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.85,
+      "reason": "Advanced armor/slow/anti-regeneration support attacker: improve primary and reach while keeping existing control numbers."
+    },
+    {
+      "unitId": "el_drow_ember_matron",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6,
+      "reason": "Advanced armor/slow/anti-regeneration support attacker: improve primary and reach while keeping existing control numbers."
+    },
+    {
+      "unitId": "el_drow_cinderqueen",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 680,
+      "after": 4500,
+      "reason": "Final armor-preparing damage role: strong charged single-target attacks complement Magical damage allies and preserve existing 64 armor reduction."
+    },
+    {
+      "unitId": "el_drow_cinderqueen",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.7,
+      "reason": "Final armor-preparing damage role: strong charged single-target attacks complement Magical damage allies and preserve existing 64 armor reduction."
+    },
+    {
+      "unitId": "el_drow_cinderqueen",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.75,
+      "after": 6.5,
+      "reason": "Final armor-preparing damage role: strong charged single-target attacks complement Magical damage allies and preserve existing 64 armor reduction."
+    },
+    {
+      "unitId": "el_drow_furnace_seer",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 236,
+      "after": 750,
+      "reason": "Terminal root and slow-aura controller: lower direct damage than Spider Queen, balanced by stronger armor preparation and control."
+    },
+    {
+      "unitId": "el_drow_furnace_seer",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1.1,
+      "after": 0.85,
+      "reason": "Terminal root and slow-aura controller: lower direct damage than Spider Queen, balanced by stronger armor preparation and control."
+    },
+    {
+      "unitId": "el_drow_furnace_seer",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6.25,
+      "reason": "Terminal root and slow-aura controller: lower direct damage than Spider Queen, balanced by stronger armor preparation and control."
+    },
+    {
+      "unitId": "el_drow_ashblade",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 295,
+      "after": 1100,
+      "reason": "Ground-only solitary critical attacker: strong short-range primary retains Holy Moon Strike as a secondary rather than changing primary damage type."
+    },
+    {
+      "unitId": "el_drow_ashblade",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.75,
+      "reason": "Ground-only solitary critical attacker: strong short-range primary retains Holy Moon Strike as a secondary rather than changing primary damage type."
+    },
+    {
+      "unitId": "el_drow_ashblade",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.25,
+      "after": 3.75,
+      "reason": "Ground-only solitary critical attacker: strong short-range primary retains Holy Moon Strike as a secondary rather than changing primary damage type."
+    },
+    {
+      "unitId": "el_drow_eclipse_duelist",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 950,
+      "after": 3400,
+      "reason": "Final ground-only solitary burst attacker: preserve execution cooldown and control restrictions, with short reach and no air targeting."
+    },
+    {
+      "unitId": "el_drow_eclipse_duelist",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.65,
+      "reason": "Final ground-only solitary burst attacker: preserve execution cooldown and control restrictions, with short reach and no air targeting."
+    },
+    {
+      "unitId": "el_drow_eclipse_duelist",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 3.5,
+      "after": 4.25,
+      "reason": "Final ground-only solitary burst attacker: preserve execution cooldown and control restrictions, with short reach and no air targeting."
+    },
+    {
+      "unitId": "el_veilfire_hierophant",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 210,
+      "after": 900,
+      "reason": "Advanced Magical area attacker: improve primary and reach while preserving True Strike and the existing cleave percentage/radius."
+    },
+    {
+      "unitId": "el_veilfire_hierophant",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.8,
+      "reason": "Advanced Magical area attacker: improve primary and reach while preserving True Strike and the existing cleave percentage/radius."
+    },
+    {
+      "unitId": "el_veilfire_hierophant",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.25,
+      "after": 6,
+      "reason": "Advanced Magical area attacker: improve primary and reach while preserving True Strike and the existing cleave percentage/radius."
+    },
+    {
+      "unitId": "el_drow_night_hierarch",
+      "rank": 1,
+      "path": [
+        "damage"
+      ],
+      "before": 700,
+      "after": 4200,
+      "reason": "Final Magical area attacker: raise charged attacks above shell thresholds during support windows without changing evasion or immunity rules."
+    },
+    {
+      "unitId": "el_drow_night_hierarch",
+      "rank": 1,
+      "path": [
+        "interval"
+      ],
+      "before": 1,
+      "after": 0.65,
+      "reason": "Final Magical area attacker: raise charged attacks above shell thresholds during support windows without changing evasion or immunity rules."
+    },
+    {
+      "unitId": "el_drow_night_hierarch",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6.75,
+      "reason": "Final Magical area attacker: raise charged attacks above shell thresholds during support windows without changing evasion or immunity rules."
+    },
+    {
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "unitId": "el_starfall_bowmaster",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 8,
+      "after": 16,
+      "reason": "Ten-target physical final ranger: raw ten-target rate remains below Human Tempest Sovereign three-target raw rate; armor preparation supplies an ordinary air-boss counter."
+    },
+    {
+      "unitId": "el_tempest_bowmage",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 4,
+      "after": 16,
+      "reason": "Three-target physical ranger: improve sustained hits and exposure while retaining low target count relative to Human Stormbow Magister."
+    },
+    {
+      "unitId": "el_twilight_huntress",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "armorReduction"
+      ],
+      "before": 8,
+      "after": 32,
+      "reason": "Five-target terminal physical ranger: improve armor preparation and direct strikes without granting the final ranger ten-target budget."
+    },
+    {
+      "unitId": "el_elven_archmage",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 165,
+      "after": 1000,
+      "reason": "Advanced lightning damage role: raise primary and lightning burst toward comparable Human advanced acquisition budgets."
+    },
+    {
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 250,
+      "after": 3600,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "unitId": "el_wisp_conductor",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "damage"
+      ],
+      "before": 250,
+      "after": 1200,
+      "reason": "Terminal lightning rider: slightly stronger primary than Thunder Phoenix, with a less flexible final route."
+    },
+    {
+      "unitId": "el_storm_sovereign",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "damage"
+      ],
+      "before": 200,
+      "after": 4000,
+      "reason": "Final lightning role: retain Magical immunity dependence and bounded chain targets, with a burst profile below Human Tempest Sovereign maximum direct output."
+    },
+    {
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "dps"
+      ],
+      "before": 360,
+      "after": 1300,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "dps"
+      ],
+      "before": 360,
+      "after": 1300,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "range"
+      ],
+      "before": 4,
+      "after": 5.25,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 50,
+      "after": 140,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "unitId": "el_mother_fire_dragon",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "dps"
+      ],
+      "before": 60,
+      "after": 250,
+      "reason": "Advanced continuous ground cone: compare Human advanced fire aura throughput; preserve cone angle and ground-only specialization."
+    },
+    {
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "dps"
+      ],
+      "before": 1000,
+      "after": 7500,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "continuousAttack",
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "dps"
+      ],
+      "before": 1000,
+      "after": 7500,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        2,
+        "range"
+      ],
+      "before": 4.5,
+      "after": 6,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        0,
+        "dps"
+      ],
+      "before": 120,
+      "after": 600,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        1,
+        "dps"
+      ],
+      "before": 240,
+      "after": 1200,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    },
+    {
+      "unitId": "el_ancient_patriarch",
+      "rank": 1,
+      "path": [
+        "abilities",
+        3,
+        "damage"
+      ],
+      "before": 500,
+      "after": 3000,
+      "reason": "Final continuous ground cone: compare Human Grand Pyromancer fire-aura output, with narrower cone exposure and no flying targets."
+    }
+  ]
+}

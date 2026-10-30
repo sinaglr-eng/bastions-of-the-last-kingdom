@@ -1,0 +1,58 @@
+{
+  "passedCases": 66,
+  "recipes": [
+    {
+      "factionName": "Human",
+      "ingredientNames": [
+        "Mage V",
+        "Druid V",
+        "Frost Warden V"
+      ],
+      "seed": 1236
+    },
+    {
+      "factionName": "Dwarves",
+      "ingredientNames": [
+        "Runesmith V",
+        "Blacksmith V",
+        "Dwarf Miner V"
+      ],
+      "seed": 228
+    },
+    {
+      "factionName": "Elves",
+      "ingredientNames": [
+        "Stormspear V",
+        "Lunar Spirit Shaman V",
+        "Nightweaver Spider V"
+      ],
+      "seed": 1872
+    }
+  ],
+  "returnedReserveSeeds": [
+    {
+      "factionId": "crown",
+      "seed": 114
+    },
+    {
+      "factionId": "forge",
+      "seed": 344
+    },
+    {
+      "factionId": "grove",
+      "seed": 10
+    }
+  ],
+  "maxMastery": {
+    "masteryIndex": 15,
+    "masteryLabel": 16,
+    "rankVWeight": 20,
+    "oneSpecificFamilyVProbability": 0.025,
+    "exactFraction": "1779/2048000",
+    "probability": 0.00086865234375,
+    "percent": 0.086865234375
+  },
+  "firstPossibleRound": 19,
+  "conditionalAll50Chance": 2.294150123074623,
+  "protectedFilesUnchanged": true
+}
