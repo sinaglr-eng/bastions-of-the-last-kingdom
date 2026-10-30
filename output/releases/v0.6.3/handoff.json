@@ -2,494 +2,524 @@
   "schema": "v063-handoff-v1",
   "status": "passed",
   "base": "1b8251fb13a7fcfe18daeefde51e957f81840d1d",
-  "head": "1b8251fb13a7fcfe18daeefde51e957f81840d1d",
+  "head": "36188b5bcfc1ba1caaea40c65915f7b3514284aa",
   "mainIndexUnchanged": true,
   "protectedPaths": 6205,
   "payload": [
     {
       "file": "data/faction-attack-visuals.json",
       "source": "41054dbcefc955ca0b941d4bd50714e62df843616a1bd66c010a5be6b61529e9",
-      "main": null
+      "main": "41054dbcefc955ca0b941d4bd50714e62df843616a1bd66c010a5be6b61529e9"
     },
     {
       "file": "data/faction-outcome-scenes-v063.json",
       "source": "fc7a34ef28b2ea29caa1ceba9e0a1e9a1193c2c8b3b223b667051c7c72ddc3ce",
-      "main": null
+      "main": "fc7a34ef28b2ea29caa1ceba9e0a1e9a1193c2c8b3b223b667051c7c72ddc3ce"
     },
     {
       "file": "docs/RELEASE_0_6_3.md",
-      "source": "bfd323056d965790445401bcc5c97061757139d5b6a7f0575c4d4917f532b162",
-      "main": null
+      "source": "04d4da29e96520898a73eb5879ea1b957f528dbbba5110d6166a56ff0311c0ff",
+      "main": "bfd323056d965790445401bcc5c97061757139d5b6a7f0575c4d4917f532b162"
     },
     {
       "file": "game/core/faction-combat.js",
       "source": "4ce93b1edb4200b8ce5f24699b833172dad4f90a12ff0ab9bb48f8f0187eb53e",
-      "main": "f5dd968df22794b2e1303983f0bbe83617f2dacb5673d622e944a2edf558f74a"
+      "main": "4ce93b1edb4200b8ce5f24699b833172dad4f90a12ff0ab9bb48f8f0187eb53e"
     },
     {
       "file": "game/release.js",
       "source": "09738b63169129332cfa25642079c5263fc8a7fff29296c4215a391d06c94c4e",
-      "main": "595796817ab8c60c7499cbb3dfc53ecfad182d78c410a941709289b53d20bc5b"
+      "main": "09738b63169129332cfa25642079c5263fc8a7fff29296c4215a391d06c94c4e"
     },
     {
       "file": "game/render/battle-animation.js",
       "source": "511c36f44129b4203f4d6b7ea3ddc3d925a6aac4488d2c64bef4d7854214e9a4",
-      "main": "172415988bdfe6d97e1cff4a4068c0eab05cbb60bbf851d3351d4714dde31b9a"
+      "main": "511c36f44129b4203f4d6b7ea3ddc3d925a6aac4488d2c64bef4d7854214e9a4"
     },
     {
       "file": "game/render/champion-aura.js",
       "source": "55bc2c34823b455259ed9792eb4c0b9e6011d25e2ea5c2febb3bc9a033c1dd6c",
-      "main": "c9cb9ceea4212f501562545cc2897073fbcce45053f5a7ff5f15d565031f4494"
+      "main": "55bc2c34823b455259ed9792eb4c0b9e6011d25e2ea5c2febb3bc9a033c1dd6c"
     },
     {
       "file": "game/render/champion-classification.js",
       "source": "5d195735b862061833d63c221ca85fccd19cbd123358e0bf210f70d028883963",
-      "main": "f5e8002465ec1593f509a3f2fd8c6dfcf74419a3c4988623dc05c361c933f3c3"
+      "main": "5d195735b862061833d63c221ca85fccd19cbd123358e0bf210f70d028883963"
     },
     {
       "file": "game/render/combat-effects.js",
       "source": "64d80328d15a6458ed847825ff0038a974aec01d147f64ce12455c913cbb3480",
-      "main": "51a232143563783ba08e35093d8f8d5b1dba91cd1e5324293badabf33a82b813"
+      "main": "64d80328d15a6458ed847825ff0038a974aec01d147f64ce12455c913cbb3480"
     },
     {
       "file": "game/render/defender-assets.js",
       "source": "c561a4b21ad1af9e0d1b7296f88dae777d653ac1d04a844612c252f600e4b6cc",
-      "main": "0e8294397ec31fdbd42950c00e8e9b13eb148ed3717b7d192c265824d7318ae7"
+      "main": "c561a4b21ad1af9e0d1b7296f88dae777d653ac1d04a844612c252f600e4b6cc"
     },
     {
       "file": "game/render/faction-attack-visuals.js",
       "source": "9a1012b1b445c5e1a8bf9d3bce39848e737852e2dc45a4672f4a6089757f6ff3",
-      "main": null
+      "main": "9a1012b1b445c5e1a8bf9d3bce39848e737852e2dc45a4672f4a6089757f6ff3"
     },
     {
       "file": "game/render/faction-vfx-anchors.js",
       "source": "acc17bd08c77c63b7373405c56ef3e757d84ec5e8a01bea0a131f409c83f141b",
-      "main": null
+      "main": "acc17bd08c77c63b7373405c56ef3e757d84ec5e8a01bea0a131f409c83f141b"
     },
     {
       "file": "game/render/support-effects.js",
       "source": "38cd000290439d610a58ec8104513fe0f00ea81bb0cb853e1cc423eab1664560",
-      "main": "69cb9cf82a20669d3e8d50458036eeb380d7d67ac665fe5ecef9c55301997c4a"
+      "main": "38cd000290439d610a58ec8104513fe0f00ea81bb0cb853e1cc423eab1664560"
     },
     {
       "file": "game/render/world.js",
       "source": "5415319718d92e3cbfe387b1628c1749f2bb178bd43d991fa25ef52488238b69",
-      "main": "5010e0ca0256c24fc144984d50f698777178b73e622df0f5871da18bb1048a41"
+      "main": "5415319718d92e3cbfe387b1628c1749f2bb178bd43d991fa25ef52488238b69"
     },
     {
       "file": "package.json",
       "source": "25433917a6fe9b9220e72e5d0489e8d449a6765417bad233ee0efafdb7578143",
-      "main": "c214fb0303d17c724dece8d8fba87974fbb08406fafa6f13864ca156983a30e6"
+      "main": "25433917a6fe9b9220e72e5d0489e8d449a6765417bad233ee0efafdb7578143"
     },
     {
       "file": "public/assets/ui/results/v063/crown-defeat-01.webp",
       "source": "9067d41730e797d5c4aa76cd2a0e5844d61cbe1bc589064897177418e26e3567",
-      "main": null
+      "main": "9067d41730e797d5c4aa76cd2a0e5844d61cbe1bc589064897177418e26e3567"
     },
     {
       "file": "public/assets/ui/results/v063/crown-defeat-02.webp",
       "source": "99ada8dd518811130af1533e7d92769eb847d80481c3953d9559acd7c18998fa",
-      "main": null
+      "main": "99ada8dd518811130af1533e7d92769eb847d80481c3953d9559acd7c18998fa"
     },
     {
       "file": "public/assets/ui/results/v063/crown-defeat-03.webp",
       "source": "59b94d7e009e61a1e7146713659897f49ef06e8a65dd11ad0a366e596cc6d386",
-      "main": null
+      "main": "59b94d7e009e61a1e7146713659897f49ef06e8a65dd11ad0a366e596cc6d386"
     },
     {
       "file": "public/assets/ui/results/v063/crown-defeat-04.webp",
       "source": "6d8d13b7a5d0be491fb525cef4e5b52b63465e6c7eb21c84782fe2d54df80d9e",
-      "main": null
+      "main": "6d8d13b7a5d0be491fb525cef4e5b52b63465e6c7eb21c84782fe2d54df80d9e"
     },
     {
       "file": "public/assets/ui/results/v063/crown-defeat-05.webp",
       "source": "0193ffb18bd0cdd8a1106a3b46e3a1db86c9406e2f05f7186fb301d64d2f2c2c",
-      "main": null
+      "main": "0193ffb18bd0cdd8a1106a3b46e3a1db86c9406e2f05f7186fb301d64d2f2c2c"
     },
     {
       "file": "public/assets/ui/results/v063/crown-victory-01.webp",
       "source": "fba5c0ae50874e4ddb57a286520f71133735d1821bf78807b002bb0abd011694",
-      "main": null
+      "main": "fba5c0ae50874e4ddb57a286520f71133735d1821bf78807b002bb0abd011694"
     },
     {
       "file": "public/assets/ui/results/v063/crown-victory-02.webp",
       "source": "33bc62ad1f08cc27a379e7a750b9f2034215fe3aa3858a54d86498f007579c24",
-      "main": null
+      "main": "33bc62ad1f08cc27a379e7a750b9f2034215fe3aa3858a54d86498f007579c24"
     },
     {
       "file": "public/assets/ui/results/v063/crown-victory-03.webp",
       "source": "2f9fcc0bad86c67c8fa9f83b72fe800fc5fb82da55716bc8de2214cb1853348d",
-      "main": null
+      "main": "2f9fcc0bad86c67c8fa9f83b72fe800fc5fb82da55716bc8de2214cb1853348d"
     },
     {
       "file": "public/assets/ui/results/v063/crown-victory-04.webp",
       "source": "ed6b41746766c6e4f5690c369b91a89bcba1b6f1768a4c229cde37df54d2be9b",
-      "main": null
+      "main": "ed6b41746766c6e4f5690c369b91a89bcba1b6f1768a4c229cde37df54d2be9b"
     },
     {
       "file": "public/assets/ui/results/v063/crown-victory-05.webp",
       "source": "9715a420304bb9cd71143adaa232478bbf98265891d53b026697999cc535942c",
-      "main": null
+      "main": "9715a420304bb9cd71143adaa232478bbf98265891d53b026697999cc535942c"
     },
     {
       "file": "public/assets/ui/results/v063/forge-defeat-01.webp",
       "source": "5af0d22daf731610f4c869d839579b5889fc46cf399759178d757f5dc90207d4",
-      "main": null
+      "main": "5af0d22daf731610f4c869d839579b5889fc46cf399759178d757f5dc90207d4"
     },
     {
       "file": "public/assets/ui/results/v063/forge-defeat-02.webp",
       "source": "22d7b9a7bd3132f460be525b32cc1dcb411fd707cf9dd236ad3320f881533572",
-      "main": null
+      "main": "22d7b9a7bd3132f460be525b32cc1dcb411fd707cf9dd236ad3320f881533572"
     },
     {
       "file": "public/assets/ui/results/v063/forge-defeat-03.webp",
       "source": "2407214d67aa266e1b12ad174c076f6bd3864aedc7c4903f2f11f7305ae6688e",
-      "main": null
+      "main": "2407214d67aa266e1b12ad174c076f6bd3864aedc7c4903f2f11f7305ae6688e"
     },
     {
       "file": "public/assets/ui/results/v063/forge-defeat-04.webp",
       "source": "1db4177cfd699f7b2cda38f2c9ff3ef1763db76497243ca6db6b3210e68ad19c",
-      "main": null
+      "main": "1db4177cfd699f7b2cda38f2c9ff3ef1763db76497243ca6db6b3210e68ad19c"
     },
     {
       "file": "public/assets/ui/results/v063/forge-defeat-05.webp",
       "source": "47e21d7fece10dbe067eacb4a0cfc1eea14eba54c90066c253c847f9470e9abd",
-      "main": null
+      "main": "47e21d7fece10dbe067eacb4a0cfc1eea14eba54c90066c253c847f9470e9abd"
     },
     {
       "file": "public/assets/ui/results/v063/forge-victory-01.webp",
       "source": "ab22f33fdfb72324014a1b609d13d2852e56b3d049cc06b4acd91aabf40a248b",
-      "main": null
+      "main": "ab22f33fdfb72324014a1b609d13d2852e56b3d049cc06b4acd91aabf40a248b"
     },
     {
       "file": "public/assets/ui/results/v063/forge-victory-02.webp",
       "source": "be671de9acdbd2b1ba9649c11896ae68501f76b267cddd55a2d06f2a836a611b",
-      "main": null
+      "main": "be671de9acdbd2b1ba9649c11896ae68501f76b267cddd55a2d06f2a836a611b"
     },
     {
       "file": "public/assets/ui/results/v063/forge-victory-03.webp",
       "source": "e68e2c012ad6eb6c8b78ce993e970d4af9847ac48698ded6218bc6d9283ef419",
-      "main": null
+      "main": "e68e2c012ad6eb6c8b78ce993e970d4af9847ac48698ded6218bc6d9283ef419"
     },
     {
       "file": "public/assets/ui/results/v063/forge-victory-04.webp",
       "source": "24acd6d519b0378d3c48c61aac328c19cb2dce45c097203f1a598f27d326e1f2",
-      "main": null
+      "main": "24acd6d519b0378d3c48c61aac328c19cb2dce45c097203f1a598f27d326e1f2"
     },
     {
       "file": "public/assets/ui/results/v063/forge-victory-05.webp",
       "source": "2d16a1423229ecf3cd17f330c6e115e98686060969881959f9f365f14378e592",
-      "main": null
+      "main": "2d16a1423229ecf3cd17f330c6e115e98686060969881959f9f365f14378e592"
     },
     {
       "file": "public/assets/ui/results/v063/grove-defeat-01.webp",
       "source": "a87c4f80849be31913b143657164827df35b639ea5bd6fdd6b650dde682ec175",
-      "main": null
+      "main": "a87c4f80849be31913b143657164827df35b639ea5bd6fdd6b650dde682ec175"
     },
     {
       "file": "public/assets/ui/results/v063/grove-defeat-02.webp",
       "source": "734d68370312c61bea9ffcc1b064695f717c2bee62c253d6f55c6125f9b98dc0",
-      "main": null
+      "main": "734d68370312c61bea9ffcc1b064695f717c2bee62c253d6f55c6125f9b98dc0"
     },
     {
       "file": "public/assets/ui/results/v063/grove-defeat-03.webp",
       "source": "ed1051be2351de46311e6693910f803efe6362ca2befbd321e080f094f98edc8",
-      "main": null
+      "main": "ed1051be2351de46311e6693910f803efe6362ca2befbd321e080f094f98edc8"
     },
     {
       "file": "public/assets/ui/results/v063/grove-defeat-04.webp",
       "source": "39525ed451b387545c02b59f3be773c23205ea0510333937830bfc6afa9c2595",
-      "main": null
+      "main": "39525ed451b387545c02b59f3be773c23205ea0510333937830bfc6afa9c2595"
     },
     {
       "file": "public/assets/ui/results/v063/grove-defeat-05.webp",
       "source": "5b603efd59e1138e2809d4cd4961abbd8aada38464f832c1eda876dc1de237a0",
-      "main": null
+      "main": "5b603efd59e1138e2809d4cd4961abbd8aada38464f832c1eda876dc1de237a0"
     },
     {
       "file": "public/assets/ui/results/v063/grove-victory-01.webp",
       "source": "78120a0f915cee32ea8e874fd79ad9fb22dea6cbfd78d22303f0df3397c9f242",
-      "main": null
+      "main": "78120a0f915cee32ea8e874fd79ad9fb22dea6cbfd78d22303f0df3397c9f242"
     },
     {
       "file": "public/assets/ui/results/v063/grove-victory-02.webp",
       "source": "42d953f8d15ae3ac58dc71239b230fe310d53dfa7c3bdb13757b1b1216b6a827",
-      "main": null
+      "main": "42d953f8d15ae3ac58dc71239b230fe310d53dfa7c3bdb13757b1b1216b6a827"
     },
     {
       "file": "public/assets/ui/results/v063/grove-victory-03.webp",
       "source": "4e51833e32beb385e276ef825971ade248bc055f29f1c248803ad9bab479a832",
-      "main": null
+      "main": "4e51833e32beb385e276ef825971ade248bc055f29f1c248803ad9bab479a832"
     },
     {
       "file": "public/assets/ui/results/v063/grove-victory-04.webp",
       "source": "642cde3390201c29fbd7a5754a2d00f2c8266f4f36614d233a9bffc60ae63f52",
-      "main": null
+      "main": "642cde3390201c29fbd7a5754a2d00f2c8266f4f36614d233a9bffc60ae63f52"
     },
     {
       "file": "public/assets/ui/results/v063/grove-victory-05.webp",
       "source": "263439d842b358db0207405c9546a95fad5400e05aafaa0fd3c364593cab8aff",
-      "main": null
+      "main": "263439d842b358db0207405c9546a95fad5400e05aafaa0fd3c364593cab8aff"
     },
     {
       "file": "public/assets/ui/results/v063/manifest.json",
       "source": "93078ca80d176c53ab76c4262e3d9a3a30c5d47e93b1ab918d04b9480978cb41",
-      "main": null
+      "main": "93078ca80d176c53ab76c4262e3d9a3a30c5d47e93b1ab918d04b9480978cb41"
     },
     {
       "file": "public/release.json",
       "source": "8c1b80d44575d8d77680a3f8448026e5184a344f10474a26b0551f7d7e5be9c8",
-      "main": "70fef7ef4638e88ec65815fc4980d9f9c9e1557d467f8232dbb3fc033c0d9730"
+      "main": "8c1b80d44575d8d77680a3f8448026e5184a344f10474a26b0551f7d7e5be9c8"
     },
     {
       "file": "tests/faction-outcomes-v063.test.mjs",
       "source": "3a80e9f0a95969f59716caa65bf18986d851b15d538dae43d28fd9424df078b0",
-      "main": null
+      "main": "3a80e9f0a95969f59716caa65bf18986d851b15d538dae43d28fd9424df078b0"
     },
     {
       "file": "tests/faction-vfx-v063.test.mjs",
       "source": "cabf779998ee5b06d0ea0d825abb6143563da767e14e2bc109a9e4dd87215d3c",
-      "main": null
+      "main": "cabf779998ee5b06d0ea0d825abb6143563da767e14e2bc109a9e4dd87215d3c"
     },
     {
       "file": "tools/verify-faction-rendering.mjs",
       "source": "e7cfec0bd2cc4c6160f54675b0ed3a4b716247dfa8885b596ef1824920afb290",
-      "main": null
+      "main": "e7cfec0bd2cc4c6160f54675b0ed3a4b716247dfa8885b596ef1824920afb290"
     },
     {
       "file": "ui/outcome-art.js",
       "source": "ee0b2de061b384552c65129537bb10827b46556ea0f67acb303db02699d1025e",
-      "main": "6b3d54cb04c5c960e0700a91deb6c34b519b57686caba259cf553eee0c4a8916"
+      "main": "ee0b2de061b384552c65129537bb10827b46556ea0f67acb303db02699d1025e"
     },
     {
       "file": "output/releases/v0.6.3/anchor-inventory.json",
       "source": "e1dc14d763f36d14fa08624b6d5338ff408702b3f97911fbd09e8ae93b4c0b80",
-      "main": null
+      "main": "e1dc14d763f36d14fa08624b6d5338ff408702b3f97911fbd09e8ae93b4c0b80"
     },
     {
       "file": "output/releases/v0.6.3/build-offline.log",
       "source": "c5f781a150522a5a46ba138422718bf76718e33aaad01282086926ea841cceb7",
+      "main": "c5f781a150522a5a46ba138422718bf76718e33aaad01282086926ea841cceb7"
+    },
+    {
+      "file": "output/releases/v0.6.3/build-public.log",
+      "source": "cca4062172a0f85afb3e1293c20b22bfbe9749103f788e06483a7c02b084f768",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.3/ci.json",
+      "source": "9ae3cee7c6d5e244026256729d1845c6091164f02d1e87e33fed6aef3449441d",
       "main": null
     },
     {
       "file": "output/releases/v0.6.3/first-validation.log",
       "source": "b6c8e57f942366a4804712c0559efa8a1e6062df3489a710ad5765c41a5d5367",
-      "main": null
+      "main": "b6c8e57f942366a4804712c0559efa8a1e6062df3489a710ad5765c41a5d5367"
+    },
+    {
+      "file": "output/releases/v0.6.3/handoff.json",
+      "source": "fd87919aceec0e738aca67d364d85dd5d325bc5abd70392ffbc942d94805ea8d",
+      "main": "fd87919aceec0e738aca67d364d85dd5d325bc5abd70392ffbc942d94805ea8d"
     },
     {
       "file": "output/releases/v0.6.3/local-validation.json",
       "source": "2958fec4ee94f5dac2f8fc84d74a93ea692725e2718d446a75d3a43fa3231ed8",
-      "main": null
+      "main": "2958fec4ee94f5dac2f8fc84d74a93ea692725e2718d446a75d3a43fa3231ed8"
     },
     {
       "file": "output/releases/v0.6.3/main-production-install.json",
       "source": "4d04dd6edf2c616219084e468dd404e527f6e9c55fe28e06e50dc2528426b377",
-      "main": null
+      "main": "4d04dd6edf2c616219084e468dd404e527f6e9c55fe28e06e50dc2528426b377"
     },
     {
       "file": "output/releases/v0.6.3/native-render-verification.json",
       "source": "cc1a34cf67ca05d43f5e5ce67841cc8b7d1bd43d5344692ed33facea0c5d3fe8",
-      "main": null
+      "main": "cc1a34cf67ca05d43f5e5ce67841cc8b7d1bd43d5344692ed33facea0c5d3fe8"
     },
     {
       "file": "output/releases/v0.6.3/native-render-verification.log",
       "source": "1348ce395a2d04f8eecdf3f57d4313fc2e988e4c543e3dfe937b7bef92aa3fb0",
-      "main": null
+      "main": "1348ce395a2d04f8eecdf3f57d4313fc2e988e4c543e3dfe937b7bef92aa3fb0"
     },
     {
       "file": "output/releases/v0.6.3/outcome-contact-01.jpg",
       "source": "6930f55a0b7af9398b727daf1786ee8701fb9589e21bfbda8fce85a57d1f04a3",
-      "main": null
+      "main": "6930f55a0b7af9398b727daf1786ee8701fb9589e21bfbda8fce85a57d1f04a3"
     },
     {
       "file": "output/releases/v0.6.3/outcome-contact-02.jpg",
       "source": "d9fd1ab704858a585a149e699cda17a06353735bf14fe3a47f6b476d4f5bd9d5",
-      "main": null
+      "main": "d9fd1ab704858a585a149e699cda17a06353735bf14fe3a47f6b476d4f5bd9d5"
     },
     {
       "file": "output/releases/v0.6.3/outcome-contact-03.jpg",
       "source": "7a3d93c5c65cd0395c8419b0533e036a078f0f3ab7a6939a20f64632dad90c5a",
-      "main": null
+      "main": "7a3d93c5c65cd0395c8419b0533e036a078f0f3ab7a6939a20f64632dad90c5a"
     },
     {
       "file": "output/releases/v0.6.3/outcome-contact-04.jpg",
       "source": "7b77aa60eaf5b4274de73a4e146f084e5c3f29420bd839093cbfaceba4f6959e",
-      "main": null
+      "main": "7b77aa60eaf5b4274de73a4e146f084e5c3f29420bd839093cbfaceba4f6959e"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-defeat-01.png",
       "source": "2201885075d6dea6ac6eb607192dc2c39f8ef0f91dcb9808f199d40e8c7dd456",
-      "main": null
+      "main": "2201885075d6dea6ac6eb607192dc2c39f8ef0f91dcb9808f199d40e8c7dd456"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-defeat-02.png",
       "source": "97fbd5496a98656a4a3059341be24fcde576adf993e7b2279bed29ca6f156d65",
-      "main": null
+      "main": "97fbd5496a98656a4a3059341be24fcde576adf993e7b2279bed29ca6f156d65"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-defeat-03.png",
       "source": "62d5141c0617bbdca090ce695d790045f37b6b0ffd80049251437fbf72b2d79f",
-      "main": null
+      "main": "62d5141c0617bbdca090ce695d790045f37b6b0ffd80049251437fbf72b2d79f"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-defeat-04.png",
       "source": "66cfea9998b390737f77aea4918aa888165028db957742132601e96021b95170",
-      "main": null
+      "main": "66cfea9998b390737f77aea4918aa888165028db957742132601e96021b95170"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-defeat-05.png",
       "source": "0de2259a586efe2da414abf1b913f1e486f5d1bcd0cacf41f6d0432b0986a2cb",
-      "main": null
+      "main": "0de2259a586efe2da414abf1b913f1e486f5d1bcd0cacf41f6d0432b0986a2cb"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-victory-01.png",
       "source": "e66039592f195cf4bb11b1cde34c2987b3e0630b8153ee7543e632017554e8c0",
-      "main": null
+      "main": "e66039592f195cf4bb11b1cde34c2987b3e0630b8153ee7543e632017554e8c0"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-victory-02.png",
       "source": "957664f971a10d85858416d73d51a366d965b1da2211c15fa4b57ed465d0f0ab",
-      "main": null
+      "main": "957664f971a10d85858416d73d51a366d965b1da2211c15fa4b57ed465d0f0ab"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-victory-03.png",
       "source": "f7dee9a9593c6d6c6552a4e4a21833cbdf02fc3b8ff509d46747824e002ffece",
-      "main": null
+      "main": "f7dee9a9593c6d6c6552a4e4a21833cbdf02fc3b8ff509d46747824e002ffece"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-victory-04.png",
       "source": "1d398d0f54c6cb47aa993c14aa82f525d188c2f2c0ac9026d4089312806254df",
-      "main": null
+      "main": "1d398d0f54c6cb47aa993c14aa82f525d188c2f2c0ac9026d4089312806254df"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/crown-victory-05.png",
       "source": "b2fb37cb38028d1d3d89d6d822f3606bfc4a58fc59c8fdc293184e303becba7a",
-      "main": null
+      "main": "b2fb37cb38028d1d3d89d6d822f3606bfc4a58fc59c8fdc293184e303becba7a"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-defeat-01.png",
       "source": "49cc30b511f40763b6e0fd4aa6ec7b9474d446c49cb2fae44812b22b1b297bdf",
-      "main": null
+      "main": "49cc30b511f40763b6e0fd4aa6ec7b9474d446c49cb2fae44812b22b1b297bdf"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-defeat-02.png",
       "source": "fb1c53798bf5e25c73d17a08b15efa59d8051b234b36d38e641d6af1265d91d6",
-      "main": null
+      "main": "fb1c53798bf5e25c73d17a08b15efa59d8051b234b36d38e641d6af1265d91d6"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-defeat-03.png",
       "source": "24c18fc438df5c2744a011dc17cd1b443dfaf6be37bbf4328aeeb3a4b3062367",
-      "main": null
+      "main": "24c18fc438df5c2744a011dc17cd1b443dfaf6be37bbf4328aeeb3a4b3062367"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-defeat-04.png",
       "source": "2d62521203b6d21c36cfc893a18289d8a4898bfbf389401a593a2055e6575e00",
-      "main": null
+      "main": "2d62521203b6d21c36cfc893a18289d8a4898bfbf389401a593a2055e6575e00"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-defeat-05.png",
       "source": "c2fb1070e84aa3377270a8750e053d38f3846a510d5ac00725ff2de5d6313680",
-      "main": null
+      "main": "c2fb1070e84aa3377270a8750e053d38f3846a510d5ac00725ff2de5d6313680"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-victory-01.png",
       "source": "6e9ecc8d2de442f5289e83986ed0429b531875853f99be1724209491fc09c5b5",
-      "main": null
+      "main": "6e9ecc8d2de442f5289e83986ed0429b531875853f99be1724209491fc09c5b5"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-victory-02.png",
       "source": "f0b6b49bc1c953b8fa8c3f07fcbdb2cfb9298e06012dc37189d4fe443cc1220a",
-      "main": null
+      "main": "f0b6b49bc1c953b8fa8c3f07fcbdb2cfb9298e06012dc37189d4fe443cc1220a"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-victory-03.png",
       "source": "0eb40d687b5d9d77fd6bf8a4638c2ec530ef741381979f9235ad383b93e97853",
-      "main": null
+      "main": "0eb40d687b5d9d77fd6bf8a4638c2ec530ef741381979f9235ad383b93e97853"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-victory-04.png",
       "source": "856121596cd350902ed83078196fc565aeb87f7c2922c99608a54294c50ac7ed",
-      "main": null
+      "main": "856121596cd350902ed83078196fc565aeb87f7c2922c99608a54294c50ac7ed"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/forge-victory-05.png",
       "source": "5925f796bd55defe1f1794c8c4e7399df8838e1e594683ca9cb8a3e3c95cdf29",
-      "main": null
+      "main": "5925f796bd55defe1f1794c8c4e7399df8838e1e594683ca9cb8a3e3c95cdf29"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-defeat-01.png",
       "source": "c237312dc2d0626591b3f9b3f131e80b35d95e37f13c3e7a0cdfe148d03c768d",
-      "main": null
+      "main": "c237312dc2d0626591b3f9b3f131e80b35d95e37f13c3e7a0cdfe148d03c768d"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-defeat-02.png",
       "source": "551219d184dc48ef35cc343feae106b529e1001178982a1bd6d513b1ecbf4d0c",
-      "main": null
+      "main": "551219d184dc48ef35cc343feae106b529e1001178982a1bd6d513b1ecbf4d0c"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-defeat-03.png",
       "source": "e2b3b6c2c7019de4c36f47735523f4523b7f168ff75cb907349d78c7891ad5bb",
-      "main": null
+      "main": "e2b3b6c2c7019de4c36f47735523f4523b7f168ff75cb907349d78c7891ad5bb"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-defeat-04.png",
       "source": "f2e61064b6bb13355e764a021791dec630b9a89e62fa2a269df4287a4f49d7b0",
-      "main": null
+      "main": "f2e61064b6bb13355e764a021791dec630b9a89e62fa2a269df4287a4f49d7b0"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-defeat-05.png",
       "source": "f1b6821ed95c6330fd05972bc60405efcb593445306c525c89d47b52d82b0dfd",
-      "main": null
+      "main": "f1b6821ed95c6330fd05972bc60405efcb593445306c525c89d47b52d82b0dfd"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-victory-01.png",
       "source": "fe24627577de28486a4fb23e1dd15c9c97c55f0fb7f8460a182e8fc78b296392",
-      "main": null
+      "main": "fe24627577de28486a4fb23e1dd15c9c97c55f0fb7f8460a182e8fc78b296392"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-victory-02.png",
       "source": "1fd8f643953b2f5b6a850da16c99a96400089a9779e68dc7147f6ebcddc636a2",
-      "main": null
+      "main": "1fd8f643953b2f5b6a850da16c99a96400089a9779e68dc7147f6ebcddc636a2"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-victory-03.png",
       "source": "30640c187540636aa57432915969054bb7845beda2d01ab5fc5981de5889916e",
-      "main": null
+      "main": "30640c187540636aa57432915969054bb7845beda2d01ab5fc5981de5889916e"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-victory-04.png",
       "source": "8acc2812849c4ac3f0c0bfd3b9a81c552b24745ee3e34615dadbe302e4a27414",
-      "main": null
+      "main": "8acc2812849c4ac3f0c0bfd3b9a81c552b24745ee3e34615dadbe302e4a27414"
     },
     {
       "file": "output/releases/v0.6.3/outcome-originals/grove-victory-05.png",
       "source": "cfbec67f147657d7269bdcc0bcc05314f8ce3670cfe8cf6fe4922b490a885e16",
+      "main": "cfbec67f147657d7269bdcc0bcc05314f8ce3670cfe8cf6fe4922b490a885e16"
+    },
+    {
+      "file": "output/releases/v0.6.3/outcome-overview.jpg",
+      "source": "bb912a38e8beea183d67d540d16216aac7599f53123b9871256ce7eb2565ceae",
       "main": null
     },
     {
       "file": "output/releases/v0.6.3/outcome-prompts.json",
       "source": "9896fb0f476566cdc429796dd5f49abf77356a5b48e6ba83e5ee1ba3c4f2f089",
-      "main": null
+      "main": "9896fb0f476566cdc429796dd5f49abf77356a5b48e6ba83e5ee1ba3c4f2f089"
     },
     {
       "file": "output/releases/v0.6.3/preserved-concurrent-edits.json",
       "source": "72094c8b2dcf0bfb4f1d7ef1e19f4be87352e3165051f0a9f28b3169215a5896",
+      "main": "72094c8b2dcf0bfb4f1d7ef1e19f4be87352e3165051f0a9f28b3169215a5896"
+    },
+    {
+      "file": "output/releases/v0.6.3/public-verification.json",
+      "source": "be3f103bd05285c50a947625ab7cb4d5da0348cc497d00bb059b6f0c700636d6",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.3/release.json",
+      "source": "d7c48520db6a9b406a1a543c49b2a9b6af948493f9cd356cdfc37f850b340e28",
       "main": null
     },
     {
       "file": "output/releases/v0.6.3/sources-built.json",
       "source": "bcfe720d6b1cb159d32f5c6292688afc0521918776a61b8ff23dff4e3d108073",
-      "main": null
+      "main": "bcfe720d6b1cb159d32f5c6292688afc0521918776a61b8ff23dff4e3d108073"
     },
     {
       "file": "output/releases/v0.6.3/sources-tested.json",
       "source": "bcfe720d6b1cb159d32f5c6292688afc0521918776a61b8ff23dff4e3d108073",
-      "main": null
+      "main": "bcfe720d6b1cb159d32f5c6292688afc0521918776a61b8ff23dff4e3d108073"
     },
     {
       "file": "output/releases/v0.6.3/tests.log",
       "source": "a193cb96ab203de7bd545a09f2196a7ea3f879ae507ee222c8f4d2fe5b6cb284",
-      "main": null
+      "main": "a193cb96ab203de7bd545a09f2196a7ea3f879ae507ee222c8f4d2fe5b6cb284"
     }
   ]
 }

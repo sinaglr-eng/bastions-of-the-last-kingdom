@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "version": "0.6.3",
+  "runtimeCommit": "36188b5bcfc1ba1caaea40c65915f7b3514284aa",
+  "releaseTag": "v0.6.3",
+  "defaultUrl": "https://sinaglr-eng.github.io/bastions-of-the-last-kingdom/",
+  "localTests": 1960,
+  "ciRequiredChecksPassed": true,
+  "modules": 218,
+  "publicChecks": 973,
+  "approvedModels": 312,
+  "actualNativeProfilesVerified": 258,
+  "newOutcomeScenes": 30,
+  "outcomeCohorts": 6,
+  "scenesPerCohort": 5,
+  "classificationColors": [
+    "blue",
+    "green",
+    "violet",
+    "gold"
+  ],
+  "supportGlyphs": "Actual attributed bonuses outside class rings",
+  "weapons": "Native emitting surfaces and current cadence/reload synchronization",
+  "boundedEffects": true,
+  "immutableCombatAndPlayerHashes": {
+    "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0",
+    "game/render/faction-attack-player.js": "3789bfd4ec971a1921b3537b260bdb556a6fd96f958b8bc559654d8cff62a9b6"
+  },
+  "gallery": "Local only; not changed or published",
+  "browserQa": "Previously explicitly waived by user; no physical iPad Safari check",
+  "ciUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41133568745",
+  "recordedAt": "2026-10-30T21:55:21.246Z"
+}
