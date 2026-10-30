@@ -13,3 +13,7 @@ Reference portraits remain tied to each exact gallery faction, family and rank; 
 Browser verification was waived by the user. Model geometry and interaction logic are verified by automated checks.
 
 Local validation: 1,947 tests pass; the 214-module production build succeeds. All 258 output PNGs have verified alpha, source identity and hashes. The entire faction registry excluding only portrait URLs retains SHA-256 a10426ebf0df5ae245ebf0cfec951c8b8750aec23d13606526070db929d32e92.
+
+Verified activation: version **0.6.1** is the default public game, pinned by tag v0.6.1 at ae22faa035ece40805d57d1b1a07dde0995a45d1. GitHub also passed all 1,947 tests, built 214 modules and successfully published its artifact. All 939 public files are verified; immutable model checks retain their exact approved decoded hashes. GitHub returned empty job-step lists, so the CI receipt explicitly supplements successful run/job conclusions with authenticated job-log evidence for tests, build, upload and deployment.
+
+Built-in ImageGen was used for the three faction scenes and 66 background-removal source outputs. The complete background-removal prompt set and saved source/output paths are in [the AI delivery manifest](../output/releases/v0.6.1/ai-backgrounds/manifest.json). The final 258 game portrait paths are in [the portrait manifest](../public/assets/ui/faction-reference-portraits-v061/manifest.json).

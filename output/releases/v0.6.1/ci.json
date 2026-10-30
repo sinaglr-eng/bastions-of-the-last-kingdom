@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "repository": "sinaglr-eng/bastions-of-the-last-kingdom",
+  "workflow": "pages.yml",
+  "checkedAt": "2026-10-30T18:15:38.492Z",
+  "requested": {
+    "runId": null,
+    "commit": "ae22faa035ece40805d57d1b1a07dde0995a45d1",
+    "latestMain": false
+  },
+  "run": {
+    "id": 41103523790,
+    "attempt": 1,
+    "name": "Test and deploy GitHub Pages",
+    "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41103523790",
+    "event": "push",
+    "headBranch": "main",
+    "headSha": "ae22faa035ece40805d57d1b1a07dde0995a45d1",
+    "status": "completed",
+    "conclusion": "success",
+    "createdAt": "2026-10-30T18:03:18Z",
+    "updatedAt": "2026-10-30T18:13:53Z",
+    "startedAt": "2026-10-30T18:03:18Z"
+  },
+  "assessment": {
+    "state": "incomplete_evidence",
+    "allRequiredChecksPassed": false,
+    "checks": [
+      {
+        "job": "build",
+        "status": "completed",
+        "conclusion": "success",
+        "passed": true
+      },
+      {
+        "job": "build",
+        "step": "Test game rules and assets",
+        "status": "not_reported",
+        "conclusion": null,
+        "passed": false
+      },
+      {
+        "job": "build",
+        "step": "Build for the repository URL",
+        "status": "not_reported",
+        "conclusion": null,
+        "passed": false
+      },
+      {
+        "job": "build",
+        "step": "Upload website",
+        "status": "not_reported",
+        "conclusion": null,
+        "passed": false
+      },
+      {
+        "job": "deploy",
+        "status": "completed",
+        "conclusion": "success",
+        "passed": true
+      },
+      {
+        "job": "deploy",
+        "step": "Publish website",
+        "status": "not_reported",
+        "conclusion": null,
+        "passed": false
+      }
+    ],
+    "failedSteps": [],
+    "reasons": [
+      "Completed workflow lacks complete successful tests/build/upload/deploy evidence"
+    ]
+  },
+  "jobs": [
+    {
+      "id": 124226440036,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41103523790/job/124226440036",
+      "startedAt": "2026-10-30T18:03:20Z",
+      "completedAt": "2026-10-30T18:10:33Z",
+      "steps": []
+    },
+    {
+      "id": 124230658292,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41103523790/job/124230658292",
+      "startedAt": "2026-10-30T18:12:03Z",
+      "completedAt": "2026-10-30T18:13:47Z",
+      "steps": []
+    }
+  ],
+  "identityBoundary": "headSha identifies the push workflow context; served compiled hashes and current deployment still need separate verification."
+}

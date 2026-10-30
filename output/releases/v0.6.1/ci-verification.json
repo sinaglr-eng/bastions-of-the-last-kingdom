@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "runtimeCommit": "ae22faa035ece40805d57d1b1a07dde0995a45d1",
+  "runId": 41103523790,
+  "runUrl": "https://github.com/sinaglr-eng/bastions-of-the-last-kingdom/actions/runs/41103523790",
+  "apiStepLists": "Returned empty by GitHub; no step statuses inferred or rewritten",
+  "evidence": {
+    "method": "GitHub run and job conclusions plus authenticated GitHub job-log evidence; the API returned empty step arrays",
+    "build": {
+      "jobId": 124226440036,
+      "excerpt": [
+        "2026-10-30T18:03:22.9661784Z   ref: ae22faa035ece40805d57d1b1a07dde0995a45d1",
+        "2026-10-30T18:03:23.4215389Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin ae22faa035ece40805d57d1b1a07dde0995a45d1",
+        "2026-10-30T18:04:23.8529348Z  * branch            ae22faa035ece40805d57d1b1a07dde0995a45d1 -> FETCH_HEAD",
+        "2026-10-30T18:04:23.8533581Z [command]/usr/bin/git rev-parse --verify --quiet ae22faa035ece40805d57d1b1a07dde0995a45d1^{object}",
+        "2026-10-30T18:04:23.8583465Z ae22faa035ece40805d57d1b1a07dde0995a45d1",
+        "2026-10-30T18:04:23.8719083Z [command]/usr/bin/git checkout --progress --force ae22faa035ece40805d57d1b1a07dde0995a45d1",
+        "2026-10-30T18:04:31.9192328Z Note: switching to 'ae22faa035ece40805d57d1b1a07dde0995a45d1'.",
+        "2026-10-30T18:04:31.9669971Z ae22faa035ece40805d57d1b1a07dde0995a45d1",
+        "2026-10-30T18:04:32.0011231Z ae22faa035ece40805d57d1b1a07dde0995a45d1 Use gallery reference portraits and larger faction battle scenes in 0.6.1",
+        "2026-10-30T18:09:48.3945222Z # tests 1947",
+        "2026-10-30T18:09:48.3945512Z # pass 1947",
+        "2026-10-30T18:09:48.3945602Z # fail 0",
+        "2026-10-30T18:09:51.7431734Z ✓ 214 modules transformed.",
+        "2026-10-30T18:09:52.4964288Z ✓ built in 3.50s",
+        "2026-10-30T18:10:31.5738527Z Artifact github-pages has been successfully uploaded! Final size is 837387556 bytes. Artifact ID is 13000582607"
+      ]
+    },
+    "deploy": {
+      "jobId": 124230658292,
+      "excerpt": [
+        "2026-10-30T18:12:06.7679934Z \t\"pages_build_version\": \"ae22faa035ece40805d57d1b1a07dde0995a45d1\",",
+        "2026-10-30T18:12:08.6787870Z Created deployment for ae22faa035ece40805d57d1b1a07dde0995a45d1, ID: ae22faa035ece40805d57d1b1a07dde0995a45d1",
+        "2026-10-30T18:13:45.7932625Z Reported success!"
+      ]
+    }
+  },
+  "checks": {
+    "tests": 1947,
+    "failures": 0,
+    "modules": 214,
+    "upload": "success",
+    "deployment": "success"
+  }
+}
