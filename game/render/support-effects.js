@@ -209,7 +209,7 @@ export class SupportEffects{
   constructor(scene,{position=defaultPosition,baseHeight=.15,pedestalHeight=.74,reducedMotion=()=>false,isVisible=enemy=>!enemy.cloaked,maxTowers=250,maxEnemies=256}={}){
     this.scene=scene;this.position=position;this.baseHeight=baseHeight;this.pedestalHeight=pedestalHeight;this.reducedMotion=reducedMotion;this.isVisible=isVisible;this.maxTowers=maxTowers;this.maxEnemies=maxEnemies;this.disposed=false;
     this.group=new THREE.Group();this.group.name='Actual support and status overlays';scene.add(this.group);this.batches=new Map();this.entries=new Map();this.states=new Map();this.enemyStates=new Map();this.time=0;this.matrix=new THREE.Matrix4();this.rotation=new THREE.Quaternion();this.scale=new THREE.Vector3(1,1,1);this.up=new THREE.Vector3(0,1,0);
-    for(const [key,style]of Object.entries(SUPPORT_EFFECT_STYLES))this.batch(key,style,maxTowers,negativeKeys.includes(key)?{inner:.83,outer:.90,glyphRadius:1.04}:{});
+    for(const [key,style]of Object.entries(SUPPORT_EFFECT_STYLES))this.batch(key,style,maxTowers,negativeKeys.includes(key)?{inner:1.08,outer:1.14,glyphRadius:1.28}:{inner:.84,outer:.91,glyphRadius:1.05});
     for(const [key,style]of Object.entries(ENEMY_EFFECT_STYLES))this.batch(`enemy:${key}`,style,maxEnemies,{inner:.34,outer:.39,glyphRadius:.54,angle:.57});
     this.batch('disarm:orbit',SUPPORT_EFFECT_STYLES.disarm,maxTowers,null,brokenSwordGeometry());
     const halo=new THREE.RingGeometry(.67,.73,48);halo.rotateX(-Math.PI/2);

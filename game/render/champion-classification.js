@@ -47,5 +47,6 @@ export const CHAMPION_CLASSIFICATIONS = Object.freeze({
   lordbernhard: 'Secret'
 });
 
-export const championClassification = family => Object.hasOwn(CHAMPION_CLASSIFICATIONS,family) ? CHAMPION_CLASSIFICATIONS[family] : Object.hasOwn(factionClasses,family)?factionClasses[family]:null;
+const canonicalClass=Object.freeze({BASIC:'Basic',INTERMEDIATE:'Intermediate',ADVANCED:'Advanced',TOP:'TOP',SECRET:'Secret'});
+export const championClassification = family => canonicalClass[String(Object.hasOwn(CHAMPION_CLASSIFICATIONS,family)?CHAMPION_CLASSIFICATIONS[family]:factionClasses[family]||'').toUpperCase()]||null;
 export const championAuraLevel = family => CLASSIFICATION_LEVELS[championClassification(family)] ?? 0;

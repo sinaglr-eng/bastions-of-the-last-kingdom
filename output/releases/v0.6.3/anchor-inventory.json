@@ -1,0 +1,3246 @@
+[
+  {
+    "family": "soldier",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "spear",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "archer",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "druid",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "mage",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "cleric",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "runebreaker",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "hammer-slam",
+    "weapon": "hammer",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "frostwarden",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "stormcaller",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "hand-cast",
+    "weapon": "empty-hands",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "rimewatch",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "sword",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "frostblade",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "lance",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "roseguard",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "lance",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "highking",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "sword",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "crownofages",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "sword",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "thornwarden",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "verdantguard",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "tempest",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "stormcitadel",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "embercrown",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "aura-channel",
+    "weapon": "held-brazier",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper",
+      "v2.fx.flame.1",
+      "cast.shared-bowl",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper",
+      "cast.shared-bowl"
+    ]
+  },
+  {
+    "family": "worldfire",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "aura-channel",
+    "weapon": "staff-and-ground-braziers",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper",
+      "cast.shared-bowl",
+      "v2.fx.flame.1",
+      "v2.fx.flame.2",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper",
+      "cast.shared-bowl"
+    ]
+  },
+  {
+    "family": "starfall",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "beak-strike",
+    "weapon": "beak-and-wings",
+    "bones": [
+      "cm_beast_left_wing",
+      "cm_beast_neck",
+      "cm_beast_right_wing",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "thunderheart",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "v2.fx.flame.1",
+      "cast.left.forearm",
+      "v2.fx.flame.2",
+      "cast.left.hand",
+      "cast.left.prop0",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop1",
+      "cast.right.upper",
+      "v2.fx.flame.3",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop0",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop1",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "phoenix",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "greenheart",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "eldergrove",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "kingsreach",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "ballista-shot",
+    "weapon": "ballista",
+    "bones": [
+      "cm_ballista_bolt",
+      "cm_ballista_limb",
+      "cm_ballista_nock",
+      "cm_ballista_reload",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_ballista_nock"
+    ]
+  },
+  {
+    "family": "sunward",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "winterhold",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "hammer-slam",
+    "weapon": "hammer",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dawnspire",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "hammer-slam",
+    "weapon": "hammer",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "royalmarshal",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "grenade-throw",
+    "weapon": "bomb",
+    "bones": [
+      "throw.left.forearm",
+      "throw.left.hand",
+      "throw.left.upper",
+      "throw.right.forearm",
+      "throw.right.hand",
+      "throw.right.upper",
+      "v2.fx.flame.1",
+      "throw.shared-grenade",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "throw.left.hand",
+      "throw.right.hand"
+    ]
+  },
+  {
+    "family": "stonewarden",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "catapult-shot",
+    "weapon": "catapult",
+    "bones": [
+      "cm_catapult_arm",
+      "cm_catapult_stone",
+      "cm_catapult_winch",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "wyvernhunter",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.loaded-arrow",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "royalarsenal",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "rangermentor",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "hand-cast",
+    "weapon": "leaf-energy-core",
+    "bones": [
+      "spirit.leaf-channel",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "kingdomprotector",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "hammer-slam",
+    "weapon": "hammer",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "mothernature",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "royalranger",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.loaded-arrow",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "kingsrangerguard",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.loaded-arrow",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "elvenking",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.loaded-arrow",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "fireballista",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "ballista-shot",
+    "weapon": "ballista",
+    "bones": [
+      "cm_ballista_bolt",
+      "cm_ballista_limb",
+      "cm_ballista_nock",
+      "v2.fx.flame.1",
+      "v2.fx.flame.2",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_ballista_nock"
+    ]
+  },
+  {
+    "family": "emeraldgolem",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "ballista-shot",
+    "weapon": "arm-mounted-ballista",
+    "bones": [
+      "cm_ballista_bolt",
+      "cm_ballista_limb",
+      "cm_ballista_nock",
+      "cm_ballista_reload",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_ballista_nock"
+    ]
+  },
+  {
+    "family": "griffinbomber",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "cannon-shot",
+    "weapon": "cannon",
+    "bones": [
+      "cm_cannon_barrel_recoil",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_cannon_barrel_recoil"
+    ]
+  },
+  {
+    "family": "mechanicalgolem",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "cannon-shot",
+    "weapon": "cannon",
+    "bones": [
+      "cm_cannon_barrel_recoil",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_cannon_barrel_recoil"
+    ]
+  },
+  {
+    "family": "monk",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "archbishop",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "archangel",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "sword",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "ladyclaire",
+    "faction": "crown",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "dw_shieldguard",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "axe-cleave",
+    "weapon": "axe",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_musketeer",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "rifle-shot",
+    "weapon": "rifle",
+    "bones": [
+      "cm_held_firearm_recoil",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_runesmith",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "hammer-slam",
+    "weapon": "rune-hammer",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_boarrider",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "spear",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_grenadier",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "grenade-throw",
+    "weapon": "bomb",
+    "bones": [
+      "throw.left.forearm",
+      "throw.left.hand",
+      "throw.left.upper",
+      "throw.right.forearm",
+      "throw.right.grenade",
+      "throw.right.hand",
+      "throw.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "throw.left.hand",
+      "throw.right.hand"
+    ]
+  },
+  {
+    "family": "dw_engineer",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "pick-strike",
+    "weapon": "pickaxe",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_griffinhandler",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "beak-strike",
+    "weapon": "griffin-beak-and-claws",
+    "bones": [
+      "cm_beast_left_wing",
+      "cm_beast_jaw",
+      "cm_beast_neck",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "v3.avian.jaw",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_beast_jaw",
+      "v3.avian.jaw"
+    ]
+  },
+  {
+    "family": "dw_furnacetender",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "hammer-slam",
+    "weapon": "smith-hammer",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_ironwarden",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "axe-cleave",
+    "weapon": "axe",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_ashshield",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "axe-cleave",
+    "weapon": "axe",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_bulwarkcaptain",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "axe-cleave",
+    "weapon": "axe",
+    "bones": [
+      "humanoid.power-torso",
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_forgeking",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "axe-cleave",
+    "weapon": "axe",
+    "bones": [
+      "humanoid.power-torso",
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_longrifle",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "rifle-shot",
+    "weapon": "rifle",
+    "bones": [
+      "cm_held_firearm_recoil",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_thunderlock",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "rifle-shot",
+    "weapon": "rifle",
+    "bones": [
+      "cm_held_firearm_recoil",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_steamrail",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "rifle-shot",
+    "weapon": "rifle",
+    "bones": [
+      "cm_held_firearm_recoil",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_grapeshotcart",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "mortar-shot",
+    "weapon": "hand-held-mortar",
+    "bones": [
+      "cm_held_firearm_recoil",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_ironstorm",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "rifle-shot",
+    "weapon": "rifle",
+    "bones": [
+      "cm_held_firearm_recoil",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_boarlancer",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "spear",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_boarstandard",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "drum-strike",
+    "weapon": "paired-drum-mallets",
+    "bones": [
+      "drum.left.forearm",
+      "drum.left.hand",
+      "drum.left.upper",
+      "drum.right.forearm",
+      "drum.right.hand",
+      "drum.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "drum.left.forearm",
+      "drum.left.hand",
+      "drum.left.upper",
+      "drum.right.forearm",
+      "drum.right.hand",
+      "drum.right.upper"
+    ]
+  },
+  {
+    "family": "dw_goreback",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "spear",
+    "bones": [
+      "humanoid.power-torso",
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_warcaller",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "drum-strike",
+    "weapon": "paired-drum-mallets",
+    "bones": [
+      "drum.left.forearm",
+      "drum.left.hand",
+      "drum.left.upper",
+      "drum.right.forearm",
+      "drum.right.hand",
+      "drum.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "drum.left.forearm",
+      "drum.left.hand",
+      "drum.left.upper",
+      "drum.right.forearm",
+      "drum.right.hand",
+      "drum.right.upper"
+    ]
+  },
+  {
+    "family": "dw_boaravatar",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "axe-cleave",
+    "weapon": "axe",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_fuserunner",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "grenade-throw",
+    "weapon": "bomb",
+    "bones": [
+      "throw.left.forearm",
+      "v2.fx.flame.1",
+      "throw.left.grenade",
+      "throw.left.hand",
+      "throw.left.upper",
+      "throw.right.forearm",
+      "v2.fx.flame.2",
+      "throw.right.grenade",
+      "throw.right.hand",
+      "throw.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "throw.left.hand",
+      "throw.right.hand"
+    ]
+  },
+  {
+    "family": "dw_firebomber",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "grenade-throw",
+    "weapon": "bomb",
+    "bones": [
+      "throw.left.forearm",
+      "throw.left.hand",
+      "throw.left.upper",
+      "throw.right.forearm",
+      "throw.right.hand",
+      "throw.right.upper",
+      "throw.shared-grenade",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "throw.left.hand",
+      "throw.right.hand"
+    ]
+  },
+  {
+    "family": "dw_griffinbomber",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "grenade-throw",
+    "weapon": "bomb",
+    "bones": [
+      "cm_mount_left_wing",
+      "cm_mount_right_wing",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "throw.left.forearm",
+      "throw.left.hand",
+      "throw.left.upper",
+      "throw.right.forearm",
+      "throw.right.grenade",
+      "throw.right.hand",
+      "throw.right.upper",
+      "v3.avian.jaw",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "throw.left.hand",
+      "throw.right.hand",
+      "v3.avian.jaw"
+    ]
+  },
+  {
+    "family": "dw_cinderhowitzer",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "cannon-shot",
+    "weapon": "wheeled-cannon",
+    "bones": [
+      "cm_cannon_barrel_recoil",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_cannon_barrel_recoil"
+    ]
+  },
+  {
+    "family": "dw_dwarship",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "grenade-throw",
+    "weapon": "bomb-and-airship",
+    "bones": [
+      "throw.left.forearm",
+      "throw.left.hand",
+      "throw.left.upper",
+      "throw.right.forearm",
+      "throw.right.grenade",
+      "throw.right.hand",
+      "throw.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "throw.left.hand",
+      "throw.right.hand"
+    ]
+  },
+  {
+    "family": "dw_repeatercrew",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "gatling-shot",
+    "weapon": "hand-held-gatling",
+    "bones": [
+      "cm_gatling_side_drive",
+      "cm_rotary_pack_1",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_ironclad",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "gatling-shot",
+    "weapon": "arm-mounted-gatling",
+    "bones": [
+      "cm_rotary_pack_1",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_breachorgan",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "gatling-shot",
+    "weapon": "arm-mounted-gatling",
+    "bones": [
+      "cm_rotary_pack_1",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_deepdelve",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "mech-punch",
+    "weapon": "armored-fist",
+    "bones": [
+      "cm_construct_elbow",
+      "cm_construct_shoulder",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_salvomarshal",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "gatling-shot",
+    "weapon": "arm-mounted-gatling",
+    "bones": [
+      "cm_rotary_pack_1",
+      "cm_rotary_pack_2",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_runemortar",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "rune-staff-and-book",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "dw_tunnelsapper",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "rune-staff-and-book",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "dw_nullifier",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "hammer-slam",
+    "weapon": "rune-hammer",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_worldanvil",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "hammer-slam",
+    "weapon": "rune-hammer",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "dw_griffinscout",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "rifle-shot",
+    "weapon": "rifle",
+    "bones": [
+      "cm_mount_jaw",
+      "cm_mount_left_wing",
+      "cm_mount_right_wing",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "cm_held_firearm_recoil",
+      "v3.avian.jaw",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_mount_jaw",
+      "v3.avian.jaw"
+    ]
+  },
+  {
+    "family": "dw_skyhook",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "rifle-shot",
+    "weapon": "rifle",
+    "bones": [
+      "cm_mount_jaw",
+      "cm_mount_left_wing",
+      "cm_mount_right_wing",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "cm_held_firearm_recoil",
+      "v3.avian.jaw",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_mount_jaw",
+      "v3.avian.jaw"
+    ]
+  },
+  {
+    "family": "dw_talonlord",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "rifle-shot",
+    "weapon": "rifle",
+    "bones": [
+      "cm_mount_jaw",
+      "cm_mount_left_wing",
+      "cm_mount_right_wing",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "cm_held_firearm_recoil",
+      "v3.avian.jaw",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_mount_jaw",
+      "v3.avian.jaw"
+    ]
+  },
+  {
+    "family": "dw_highthane",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "rifle-shot",
+    "weapon": "rifle",
+    "bones": [
+      "cm_mount_jaw",
+      "cm_mount_left_wing",
+      "cm_mount_right_wing",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "cm_held_firearm_recoil",
+      "v3.avian.jaw",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_mount_jaw",
+      "v3.avian.jaw"
+    ]
+  },
+  {
+    "family": "dw_pressuresmith",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "forge-channel",
+    "weapon": "forge-tongs-and-hearth",
+    "bones": [
+      "cm_forge_tong_servicing",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_steamharpooner",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "flamethrower-channel",
+    "weapon": "flame-nozzle",
+    "bones": [
+      "v2.fx.flame.1",
+      "cm_continuous_nozzle_pressure",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_continuous_nozzle_pressure"
+    ]
+  },
+  {
+    "family": "dw_flamewarden",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "flamethrower-channel",
+    "weapon": "paired-flame-nozzles",
+    "bones": [
+      "v2.fx.flame.1",
+      "v2.fx.flame.2",
+      "cm_continuous_nozzle_pressure",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_continuous_nozzle_pressure"
+    ]
+  },
+  {
+    "family": "dw_emberanvil",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "forge-channel",
+    "weapon": "forge-tongs-and-hearth",
+    "bones": [
+      "v2.fx.flame.1",
+      "cm_forge_stock_stoking",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "dw_bombardking",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "forge-channel",
+    "weapon": "furnace-and-ground-receivers",
+    "bones": [
+      "cm_furnace_pressure_controls",
+      "v2.fx.flame.1",
+      "v2.fx.flame.2",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_furnace_pressure_controls"
+    ]
+  },
+  {
+    "family": "ladyclaire",
+    "faction": "forge",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "crozier",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_moonblade",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "katana",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "el_grove_archer",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "el_spark_adept",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "storm-spear",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand"
+    ]
+  },
+  {
+    "family": "el_sealweaver",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "lunar-staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_drow_cinder",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "spider-strike",
+    "weapon": "fangs-and-forelegs",
+    "bones": [
+      "cm_spider_fang_strike",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "el_drow_blade",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "crescent-blade",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand"
+    ]
+  },
+  {
+    "family": "el_drow_acolyte",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "crescent-staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_dragon_keeper",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "hooked-crook",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_moonblade_sentinel",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "sword-and-shield",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "el_elite_warrior",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "sword-and-shield",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "el_stormblade_warden",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "ent-slam",
+    "weapon": "branch-fists",
+    "bones": [
+      "v3.ent.left.forearm",
+      "v3.ent.left.hand",
+      "v3.ent.left.upper",
+      "v3.ent.right.forearm",
+      "v3.ent.right.hand",
+      "v3.ent.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "v3.ent.left.hand",
+      "v3.ent.right.hand"
+    ]
+  },
+  {
+    "family": "el_elven_king",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "ent-slam",
+    "weapon": "branch-fists",
+    "bones": [
+      "v3.ent.left.forearm",
+      "v3.ent.left.hand",
+      "v3.ent.left.upper",
+      "v3.ent.right.forearm",
+      "v3.ent.right.hand",
+      "v3.ent.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "v3.ent.left.hand",
+      "v3.ent.right.hand"
+    ]
+  },
+  {
+    "family": "el_stag_knight",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "sword-and-shield",
+    "bones": [
+      "cm_mount_jaw",
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_mount_jaw",
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "el_elven_archer",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "el_elven_bowmaster",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "el_tempest_bowmage",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "el_starfall_bowmaster",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "cm_mount_jaw",
+      "cm_mount_left_wing",
+      "cm_mount_right_wing",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "v3.avian.jaw",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_mount_jaw",
+      "archery.bow.hand",
+      "archery.draw.hand",
+      "v3.avian.jaw"
+    ]
+  },
+  {
+    "family": "el_twilight_huntress",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "bow-shot",
+    "weapon": "bow",
+    "bones": [
+      "archery.bow.forearm",
+      "archery.bow.hand",
+      "archery.bow.upper",
+      "archery.chest",
+      "archery.draw.forearm",
+      "archery.draw.hand",
+      "archery.draw.upper",
+      "archery.lower-limb",
+      "archery.string",
+      "archery.upper-limb",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "archery.bow.hand",
+      "archery.draw.hand"
+    ]
+  },
+  {
+    "family": "el_elven_mage",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "storm-spear",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand"
+    ]
+  },
+  {
+    "family": "el_storm_conductor",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "storm-spear",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand"
+    ]
+  },
+  {
+    "family": "el_elven_archmage",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "beak-strike",
+    "weapon": "beak-and-wings",
+    "bones": [
+      "cm_beast_left_wing",
+      "cm_beast_neck",
+      "cm_beast_right_wing",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "el_storm_sovereign",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "beak-strike",
+    "weapon": "beak-and-wings",
+    "bones": [
+      "cm_beast_left_wing",
+      "cm_beast_neck",
+      "cm_beast_right_wing",
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "el_wisp_conductor",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "storm-staff",
+    "bones": [
+      "v3.avian.body-course.1",
+      "v3.avian.body-course.2",
+      "v3.avian.body-course.3",
+      "v3.avian.body-course.4",
+      "v3.avian.body-course.5",
+      "v3.avian.body-course.6",
+      "v3.avian.body-course.7",
+      "v3.avian.body-course.8",
+      "v3.avian.body-course.9",
+      "v3.avian.body-course.10",
+      "v3.avian.body-course.11",
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "v3.avian.head",
+      "v3.avian.left-wing",
+      "v3.avian.neck-course.1",
+      "v3.avian.neck-course.2",
+      "v3.avian.neck-course.3",
+      "v3.avian.neck-course.4",
+      "v3.avian.neck-course.5",
+      "v3.avian.neck-course.6",
+      "v3.avian.neck-course.7",
+      "v3.avian.neck-course.8",
+      "v3.avian.neck-course.9",
+      "v3.avian.neck-course.10",
+      "v3.avian.neck-course.11",
+      "v3.avian.right-wing",
+      "v3.avian.torso",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop1",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_veil_adept",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "lunar-staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_sealwarden",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "hand-cast",
+    "weapon": "empty-hands",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_moonwell_seer",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "hand-cast",
+    "weapon": "empty-hands",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_eclipse_unbinder",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "hand-cast",
+    "weapon": "empty-hands",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop0",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.prop0",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_stag_oracle",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "crescent-blade",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "el_drow_ember_novice",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "spider-strike",
+    "weapon": "fangs-and-forelegs",
+    "bones": [
+      "cm_spider_fang_strike",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "el_drow_pyromancer",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "crescent-staff",
+    "bones": [
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_drow_ember_matron",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "spider-strike",
+    "weapon": "humanoid-claws",
+    "bones": [
+      "queen_claw_1",
+      "queen_fore_1",
+      "queen_upper_1",
+      "queen_claw_-1",
+      "queen_fore_-1",
+      "queen_upper_-1",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "queen_claw_1",
+      "queen_claw_-1"
+    ]
+  },
+  {
+    "family": "el_drow_cinderqueen",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "spider-strike",
+    "weapon": "humanoid-claws",
+    "bones": [
+      "queen_claw_1",
+      "queen_fore_1",
+      "queen_upper_1",
+      "queen_claw_-1",
+      "queen_fore_-1",
+      "queen_upper_-1",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "queen_claw_1",
+      "queen_claw_-1"
+    ]
+  },
+  {
+    "family": "el_drow_furnace_seer",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "crescent-staff",
+    "bones": [
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_drow_blade_initiate",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "crescent-blade",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand"
+    ]
+  },
+  {
+    "family": "el_drow_duelist",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "crescent-blade",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand"
+    ]
+  },
+  {
+    "family": "el_drow_ashblade",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "crescent-blade",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand"
+    ]
+  },
+  {
+    "family": "el_drow_eclipse_duelist",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "dual-blade",
+    "weapon": "paired-crescent-blades",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "el_drow_gloom_initiate",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "crystal-wand",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_drow_eclipse_priest",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "crystal-staff",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  },
+  {
+    "family": "el_veilfire_hierophant",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "sword-slash",
+    "weapon": "jade-sword",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "el_drow_night_hierarch",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "spear-thrust",
+    "weapon": "storm-spear",
+    "bones": [
+      "humanoid.primary.forearm",
+      "humanoid.primary.hand",
+      "humanoid.primary.upper",
+      "humanoid.secondary.forearm",
+      "humanoid.secondary.hand",
+      "humanoid.secondary.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "humanoid.primary.hand",
+      "humanoid.secondary.hand"
+    ]
+  },
+  {
+    "family": "el_baby_fire_dragon",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "dragon-breath",
+    "weapon": "mouth-and-lower-jaw",
+    "bones": [
+      "cm_beast_hatchling_neck",
+      "cm_beast_left_wing",
+      "cm_beast_right_wing",
+      "v2.fx.flame.1",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": []
+  },
+  {
+    "family": "el_fire_dragon",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "dragon-breath",
+    "weapon": "mouth-and-lower-jaw",
+    "bones": [
+      "cm_beast_left_wing",
+      "cm_beast_jaw",
+      "cm_beast_neck",
+      "cm_beast_right_wing",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_beast_jaw"
+    ]
+  },
+  {
+    "family": "el_mother_fire_dragon",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "dragon-breath",
+    "weapon": "mouth-and-lower-jaw",
+    "bones": [
+      "cm_beast_left_wing",
+      "cm_beast_jaw",
+      "cm_beast_neck",
+      "cm_beast_right_wing",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_beast_jaw"
+    ]
+  },
+  {
+    "family": "el_ancient_patriarch",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "dragon-breath",
+    "weapon": "mouth-and-lower-jaw",
+    "bones": [
+      "cm_beast_left_wing",
+      "cm_beast_jaw",
+      "cm_beast_neck",
+      "cm_beast_right_wing",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cm_beast_jaw"
+    ]
+  },
+  {
+    "family": "ladyclaire",
+    "faction": "grove",
+    "tier": 1,
+    "motion": "staff-cast",
+    "weapon": "crozier",
+    "bones": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper",
+      "root",
+      "TD_ATTACK_RIG"
+    ],
+    "anchors": [
+      "cast.left.forearm",
+      "cast.left.hand",
+      "cast.left.upper",
+      "cast.right.forearm",
+      "cast.right.hand",
+      "cast.right.prop0",
+      "cast.right.upper"
+    ]
+  }
+]

@@ -1,0 +1,233 @@
+{
+  "revision": "faction-outcomes-20261030-v4",
+  "groups": {
+    "crown": {
+      "won": [
+        {
+          "id": "crown-victory-01",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/crown-victory-01.webp",
+          "alt": "The Human Dawn: Human victory in front of the intact white-stone citadel at bright dawn. The reference black-armored mounted Kingslayer raises his great pale-blue crystal sword, the blue-and-silver Frost Knight salutes with crystal shield, and the red-white-gold Paladin raises his sun hammer. Blue-armored human soldiers celebrate; disarmed green orc invaders retreat past captured red-black banners and broken siege ladders. Clear triumphant human heraldry, no elf or dwarf allies.",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-victory-02",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/crown-victory-02.webp",
+          "alt": "The River Gate Holds: Human victory at the saved river bridge and intact blue-bannered citadel. The reference blue-silver Frost Knight leads the mounted black-armored Kingslayer and red-white-gold hammer Paladin across the bridge, blue human troops cheering. Defeated green orcs abandon their black-red standards and siege engines beyond the river. Golden afternoon light on crystal weapons and sun shield. No elf or dwarf defenders.",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-victory-03",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/crown-victory-03.webp",
+          "alt": "The Unbroken Kingdom: Human victory in a grand high castle courtyard beneath blue and silver standards. The reference black Kingslayer with crystal sword, blue-silver Frost Knight and white-red-gold sun Paladin stand proudly before their surviving blue-armored human army. Captured orc shields and red-black banners lie at their feet; the defeated green orc warlord retreats through a distant gate. Regal warm sunlight and celebratory mood. No elf or dwarf allies.",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-victory-04",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/crown-victory-04.webp",
+          "alt": "The Last Oath: Dawn after a decisive victory at the human citadel gate: the reference black-armored mounted Kingslayer with crystal sword, blue silver Frost Knight and red-white-gold hammer Paladin stand together above captured orc axes and shields. Blue banners rise intact; green orc soldiers retreat down the road. Triumphant warm sunrise, intact fortress, unmistakably Human victory.",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-victory-05",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/crown-victory-05.webp",
+          "alt": "The Banners United: Victory celebration in the high human castle courtyard at golden dusk. The reference Paladin raises his sun-marked hammer; the Frost Knight's crystal shield glows; the mounted dark Kingslayer lowers his great crystal blade in salute. Blue-robed mage and blue human army celebrate with them. Defeated orc war banners and broken siege engines lie outside the open gates. Unmistakably Human victory.",
+          "factionId": "crown"
+        }
+      ],
+      "lost": [
+        {
+          "id": "crown-defeat-01",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/crown-defeat-01.webp",
+          "alt": "The Fallen Human Gate: Human defeat at a ruined blue-bannered stone citadel gate. The reference black-armored mounted Kingslayer has dismounted and kneels with his pale-blue crystal sword lowered; the blue-and-silver Frost Knight and white-red-gold Paladin lie defeated peacefully beside shattered shields. Armored green orcs and a broad grey ogre claim the broken gate with red-black banners. Blue human troops have fallen back. Dignified tragic sunset, no elf or dwarf defenders.",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-defeat-02",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/crown-defeat-02.webp",
+          "alt": "The Broken Ice Standard: Human defeat on a cold bridge beside a besieged stone castle. The reference blue-and-silver Frost Knight kneels with his cracked crystal shield; the red-white-gold sun Paladin and dark-armored Kingslayer stand exhausted with weapons lowered amid torn blue human standards. Green armored orcs advance from the captured fortress, goblins on ruined battlements. Winter-blue light, embers and mist; no elf or dwarf defenders.",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-defeat-03",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/crown-defeat-03.webp",
+          "alt": "The Last Human Throne: Human defeat in a breached high royal hall. The reference white-red-gold Paladin kneels beside his sun shield and dropped hammer; the black-armored Kingslayer and blue-silver Frost Knight are defeated among shattered blue banners. A green orc warlord with black armor and heavy axe claims the broken stone throne, orc infantry behind. Dramatic furnace-orange and blue shadows, tragic but dignified, no elf or dwarf defenders.",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-defeat-04",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/crown-defeat-04.webp",
+          "alt": "The Silenced Watch: Human defeat at a captured blue-bannered mountain watchtower. The reference dark Kingslayer's great pale-blue crystal sword lies across stone rubble; the blue Frost Knight and red-white-gold Paladin rest defeated beside human soldiers in blue armor. Huge grey trolls and green orc axemen occupy the burning watch gate under red-black standards. Stormy violet dusk, clear human heraldry, no elf or dwarf defenders.",
+          "factionId": "crown"
+        },
+        {
+          "id": "crown-defeat-05",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/crown-defeat-05.webp",
+          "alt": "The Last Blue Banner: Human defeat at the final river gate of their white-stone citadel. The reference Kingslayer in black armor kneels with lowered crystal sword, the blue-and-silver Frost Knight has set down his crystal shield, and the red-white-gold Paladin rests exhausted beside his hammer. Green orc and goblin troops stand victorious on the broken rampart. Torn blue human banners drift over the ruined bridge at red sunset. No elf or dwarf defenders.",
+          "factionId": "crown"
+        }
+      ]
+    },
+    "forge": {
+      "won": [
+        {
+          "id": "forge-victory-01",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/forge-victory-01.webp",
+          "alt": "The Forge Reclaimed: Dwarf victory before the blazing reclaimed mountain forge. The reference great-axe orange-bearded Berserker leads the shield commander and blue-cap musketeers forward over broken orc shields and captured red banners. Warm furnace gold, triumphant dwarf gold-and-blue standards, green orc army fleeing down the lower pass. Strong heroic readable composition.",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-victory-02",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/forge-victory-02.webp",
+          "alt": "The Sky Belongs to the Forge: Dwarf victory in a bright alpine sky. The reference cream-balloon wooden dwarf airship flies intact above a secured forge gate, orange-bearded pilot and musketeers celebrating. On the ground the orange-bearded shield commander and great-axe Berserker greet it amid defeated orc siege engines. Gold-blue dwarf banners, vivid mountains, unmistakably dwarf victory.",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-victory-03",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/forge-victory-03.webp",
+          "alt": "The Unbroken Shield: Dwarf victory on the defended mountain bridge. The reference shield commander raises his intact gold-trimmed shield, the massive orange-bearded axe Berserker stands beside him, and blue-cap musketeers reload in triumph. Broken orc weapons lie below the bridge while red-bannered green invaders retreat. Clear cool dawn with warm forge windows behind.",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-victory-04",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/forge-victory-04.webp",
+          "alt": "The King's Furnace: Dwarf victory in the grand forge throne hall. The reference orange-bearded Berserker raises his great axe above the captured black-and-red orc warlord banner; the shield commander and blue-cap musketeers flank him. Rows of enormous blazing furnaces, gold-blue dwarven flags, hand-crafted machinery and a victorious wooden airship visible through the open mountain arch. Regal warm cinematic light.",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-victory-05",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/forge-victory-05.webp",
+          "alt": "The Mountain Holds: Dwarf victory at a snow-dusted mountain fortress at sunset. The reference orange-bearded commander and Berserker stand on intact battlements, blue-cap musketeers saluting, cream-balloon wooden warship hovering behind. The defeated green orc horde withdraws through the valley, abandoned enemy ladders and siege engines below. Strong gold-and-blue faction identity.",
+          "factionId": "forge"
+        }
+      ],
+      "lost": [
+        {
+          "id": "forge-defeat-01",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/forge-defeat-01.webp",
+          "alt": "The Fallen Forge: Dwarf defeat in a breached mountain forge hall. The reference orange-bearded Berserker kneels exhausted with his great axe lowered; a shield commander and blue-cap musketeer lie defeated peacefully among broken gold-and-blue dwarf banners. Green armored orc invaders and a broad grey-brown ogre take the forge gate; furnace light and smoke, tragic heroic mood.",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-defeat-02",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/forge-defeat-02.webp",
+          "alt": "The Grounded Airship: Dwarf defeat in an overrun snowy hangar valley. The reference cream-balloon wooden dwarf warship has crash-landed, its torn balloon caught against ruined forge masonry. Orange-bearded musketeers in blue caps shelter defeated beside the grounded hull and abandoned cannon. Green orc raiders wave red enemy banners on the captured rampart. Dramatic grey sunset; no human or elf defenders.",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-defeat-03",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/forge-defeat-03.webp",
+          "alt": "The Broken Shieldwall: Dwarf defeat at a shattered mountain bridge before the forge fortress. The reference orange-bearded shield commander kneels behind his split gold-trimmed shield, the Berserker's great axe rests on the stone, and blue-cap musketeers have lowered their guns. Huge moss-backed grey trolls and armored green orcs advance across the broken gate. Dwarf gold-blue standards have fallen. Cold dusk, embers, no gore.",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-defeat-04",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/forge-defeat-04.webp",
+          "alt": "The Last Furnace: Dwarf defeat at the final furnace chamber, now dark except for dying orange coals. The recognizable orange-bearded Berserker and shield commander sit defeated among shattered gold-trimmed armor and a broken mountain banner. A towering green orc warlord with black armor and a heavy axe claims the foreground gate. Crushed dwarf artillery and forge tools frame a tragic orange-and-charcoal composition.",
+          "factionId": "forge"
+        },
+        {
+          "id": "forge-defeat-05",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/forge-defeat-05.webp",
+          "alt": "The Silenced Pass: Dwarf defeat in a snow-covered mountain pass. The reference blue-cap musketeers and orange-bearded shield commander have fallen back beside a wrecked wooden airship engine and broken gold-blue standard. Orc infantry and goblin raiders occupy the high stone road, red banners against a stormy sky. A dropped great dwarf axe in the foreground tells the loss; no gore, no human or elf defenders.",
+          "factionId": "forge"
+        }
+      ]
+    },
+    "grove": {
+      "won": [
+        {
+          "id": "grove-victory-01",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/grove-victory-01.webp",
+          "alt": "The Grove Awakens: Elf victory in the restored sacred grove at radiant dawn. The reference living World Oak Ent raises its huge leafy arms, the green-and-gold Emerald Blademaster lifts his sword and shield, the blue caster releases celebratory hand lightning upward, and violet lunar priestess raises her crescent staff. Defeated green orcs retreat beyond captured red banners. Emerald magic and sunbeams, no human or dwarf defenders.",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-victory-02",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/grove-victory-02.webp",
+          "alt": "The Moon Sanctuary Endures: Elf victory at the intact silver-white and gold moon temple. The recognizable white-haired violet lunar priestess raises her crescent staff in silver-purple light; green-gold Blademaster, blue hand-lightning caster and the enormous leafy World Oak Ent stand in triumph beside her. Captured orc banners lie on the steps; enemy green army retreats into the forest. Exquisite enchanted architecture, unmistakably elf victory.",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-victory-03",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/grove-victory-03.webp",
+          "alt": "Masters of the Stormspire: Elf victory above a white-gold forest citadel after the storm. The reference blue lightning caster sends bright controlled arcs directly from both hands into the clearing sky, the green-gold Blademaster holds his shield high, and violet lunar priestess and World Oak Ent protect the intact emerald battlements. Broken orc siege ladders and captured red standards lie below, enemy horde withdrawing. Fresh cyan and violet magic.",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-victory-04",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/grove-victory-04.webp",
+          "alt": "The Living Bridge: Elf victory on a luminous forest crossing. The reference World Oak Ent has formed a protective living arch over the road; the green-and-gold sword-and-shield Blademaster leads the violet crescent priestess and blue hand-lightning caster across it. Intact green elven banners, crystals and golden foliage. Green orc invaders retreat down the far bank leaving broken enemy shields behind. Bright magical triumph.",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-victory-05",
+          "outcome": "won",
+          "path": "assets/ui/results/v063/grove-victory-05.webp",
+          "alt": "The Emerald Crown: Elf victory in the royal forest courtyard at sunset. The recognizable green-and-gold Emerald Blademaster raises his sword before the triumphant white-gold citadel, flanked by blue hand-lightning caster and white-haired violet lunar priestess; enormous leafy World Oak Ent towers behind them. Captured red-black orc standards and disarmed enemy siege engines below intact emerald banners. Regal warm emerald-and-gold celebratory atmosphere.",
+          "factionId": "grove"
+        }
+      ],
+      "lost": [
+        {
+          "id": "grove-defeat-01",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/grove-defeat-01.webp",
+          "alt": "Ashes of the Ancient Grove: Elf defeat in an overrun sacred forest. The reference enormous leafy World Oak Ent has slumped among broken roots; the green-and-gold Emerald Blademaster kneels with sword lowered and shield on the earth; the blue lightning caster and violet lunar priestess have fallen back exhausted. Orc axemen and a grey moss-backed troll seize the broken green banners. Smoky late dusk, melancholy light, no gore.",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-defeat-02",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/grove-defeat-02.webp",
+          "alt": "The Fallen Moon Sanctuary: Elf defeat at a ruined silver-and-gold moon temple. The recognizable violet-and-white lunar priestess kneels with her crescent staff lowered beside the reference green-and-gold Blademaster and exhausted blue lightning caster. Armored green orcs with red standards occupy the broken moonlit stairs; living tree roots and shattered elven crystal architecture frame the loss. Ethereal purple night, no human or dwarf defenders.",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-defeat-03",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/grove-defeat-03.webp",
+          "alt": "The Broken Stormspire: Elf defeat at an enchanted elven citadel under a purple thunderstorm. The reference blue lightning caster lowers both hands as the last blue sparks fade; the green-gold Emerald Blademaster and violet lunar priestess stand defeated behind a broken emerald shield. Green orcs and goblin raiders climb ruined white-gold battlements, torn green banners, distant World Oak Ent slumped among smoking branches. No gore.",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-defeat-04",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/grove-defeat-04.webp",
+          "alt": "The Withered Crossing: Elf defeat at a shattered forest bridge. The reference green-and-gold Blademaster kneels beside a cracked shield and lowered blade; the violet priestess cradles her crescent staff, the blue caster exhausted nearby. The huge World Oak Ent is bowed over broken roots in the background. Grey trolls and armored green orcs claim the far side amid torn green standards. Cold mist and violet dusk.",
+          "factionId": "grove"
+        },
+        {
+          "id": "grove-defeat-05",
+          "outcome": "lost",
+          "path": "assets/ui/results/v063/grove-defeat-05.webp",
+          "alt": "The Last Leaf Falls: Elf defeat in the captured royal forest courtyard. The reference leafy World Oak Ent has fallen against a broken arch; green-gold Blademaster, blue hand-lightning caster and white-haired violet priestess are visibly defeated among scattered emerald banners and crystals. Green orc warlord and goblin troops hold red-black standards at the gate. Amber firelight against deep emerald and purple, tragic but dignified, no gore.",
+          "factionId": "grove"
+        }
+      ]
+    }
+  }
+}

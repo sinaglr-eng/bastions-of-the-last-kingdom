@@ -3,7 +3,7 @@ import {loadPackedModel} from './packed-model.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {rankAdornment,animateRank,disposeRankAdornment} from './ranks.js';
-import {createChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
+import {createChampionAura,attachChampionAura,animateChampionAura,disposeChampionAura} from './champion-aura.js';
 import {MvpAwardEffects} from './mvp-halo.js';
 import {DefenderPauseMarkers} from './defender-pause-markers.js';
 import {castleWallModel,wallConnections,hasWallFoundation,WALL_DECK_HEIGHT} from './walls.js';
@@ -280,8 +280,7 @@ export class Battlefield {
         object.add(actor);object.position.copy(v3(t.x,0,t.z));this.scene.add(object);
         actor.rotation.y=t.state==='ruin'?0:Math.PI;
         if(ready&&(!this.game.data.towers[t.family]?.advanced||t.tier>1))actor.add(rankAdornment(Math.min(6,t.tier)));
-        const aura=ready&&t.state==='active'?createChampionAura(t.family,{phase:t.id*1.7}):null;
-        if(aura)actor.add(aura);
+        const aura=ready&&t.state==='active'?attachChampionAura(actor,t.family,{phase:t.id*1.7}):null;
         value={object,actor,aura,signature,tower:t,modelKey,modelStatus:t.state==='ruin'?'wall':ready?'ready':actor.userData.defenderModelStatus,siege:!ready||t.state==='reserved'?null:siegeRig(actor),attack:!ready||['ruin','reserved'].includes(t.state)?null:attackRig(actor,t.family,towerStats(t,this.game.data)),hero:ready&&this.game.data.towers[t.family]?.unitKind!=='siege'&&!['ruin','reserved'].includes(t.state),phase:t.id*1.7};this.models.set(t.id,value);
       }
       // A Command Move retains identities and often the same wall-connection

@@ -1,3 +1,4 @@
+import {prepareFactionVfxAnchors} from './faction-vfx-anchors.js';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {Group,Mesh,RingGeometry,BoxGeometry,MeshBasicMaterial,DoubleSide} from 'three';
 import {prepareReconstructedDefender} from './reconstruction-adapter.js';
@@ -42,7 +43,7 @@ export function disposeDefenderInstance(actor){
 
 export function installDefenderTemplate(field,entry,scene,animations=scene.animations||[]){
   if(field.disposed)return false;
-  if(entry.factionAnimation){scene.userData.factionAttackEntry=entry;}else if(!prepareApprovedMotionTemplate(scene,entry)){
+  if(entry.factionAnimation){scene.userData.factionAttackEntry=entry;prepareFactionVfxAnchors(scene,entry);}else if(!prepareApprovedMotionTemplate(scene,entry)){
     prepareReconstructedDefender(scene,entry);
     optimizeGeometricSiblings(scene,{animations});
   }

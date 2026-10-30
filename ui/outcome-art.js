@@ -1,3 +1,6 @@
+import factionOutcomes from '../data/faction-outcome-scenes-v063.json' with {type:'json'};
+export const FACTION_OUTCOME_ART_REVISION=factionOutcomes.revision;
+export const FACTION_OUTCOME_ART_SCENES=Object.freeze(Object.fromEntries(Object.entries(factionOutcomes.groups).map(([id,g])=>[id,Object.freeze(Object.fromEntries(Object.entries(g).map(([o,scenes])=>[o,Object.freeze(scenes.map(s=>Object.freeze(s)))])))])));
 // Outcome scenes are presentation only. Their random choice is independent of
 // the seeded game simulation and remains stable while an ended run is reviewed.
 export const OUTCOME_ART_REVISION='outcome-scenes-20261022-v3';
@@ -26,7 +29,7 @@ export const OUTCOME_ART_SCENES=Object.freeze({
 });
 
 export function createOutcomeArtSelector({random=()=>Math.random()}={}){
-  const attempts=new WeakMap(),previous={won:null,lost:null},remaining={won:[],lost:[]};
+  const attempts=new WeakMap(),previous=new Map(),remaining=new Map();
   return game=>{
     if(!game||typeof game!=='object')return null;
     let attempt=attempts.get(game);
@@ -41,13 +44,15 @@ export function createOutcomeArtSelector({random=()=>Math.random()}={}){
       // The listener retains only this small record; no external Game reference.
       game.on?.(type=>{if(type==='wave')attempt.scene=null;});
     }
-    if(attempt.scene?.outcome===game.phase)return attempt.scene;
+    const factionId=Object.hasOwn(FACTION_OUTCOME_ART_SCENES,game.factionId)?game.factionId:null,cohort=(factionId||'legacy')+':'+game.phase;
+    if(attempt.scene?.outcome===game.phase&&attempt.cohort===cohort)return attempt.scene;
+    const scenes=factionId?FACTION_OUTCOME_ART_SCENES[factionId][game.phase]:OUTCOME_ART_SCENES[game.phase];
     // Draw without replacement so every approved scene appears before the next
     // cycle. Keep the cycle boundary from repeating the preceding result too.
-    const bag=remaining[game.phase];if(!bag.length)bag.push(...OUTCOME_ART_SCENES[game.phase]);
-    const choices=bag.length>1?bag.filter(art=>art.id!==previous[game.phase]):bag;
+    if(!remaining.has(cohort))remaining.set(cohort,[]);const bag=remaining.get(cohort);if(!bag.length)bag.push(...scenes);
+    const choices=bag.length>1?bag.filter(art=>art.id!==previous.get(cohort)):bag;
     const sample=Number(random()),index=Number.isFinite(sample)?Math.min(choices.length-1,Math.max(0,Math.floor(sample*choices.length))):0;
-    attempt.scene=choices[index];bag.splice(bag.indexOf(attempt.scene),1);previous[game.phase]=attempt.scene.id;
+    attempt.scene=choices[index];bag.splice(bag.indexOf(attempt.scene),1);previous.set(cohort,attempt.scene.id);attempt.cohort=cohort;
     return attempt.scene;
   };
 }
