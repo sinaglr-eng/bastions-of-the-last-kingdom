@@ -2,2934 +2,2964 @@
   "schema": "v060-handoff-v1",
   "status": "passed",
   "base": "5ed559bc29237b96dc64ec447e9945722e8b1a0a",
-  "head": "5ed559bc29237b96dc64ec447e9945722e8b1a0a",
+  "head": "06ea77c6830e8e3a0e9179fd52a6f1099ac52ee1",
   "mainIndexUnchanged": true,
   "protectedPaths": 5231,
   "payload": [
     {
       "file": "CHANGELOG.md",
       "source": "6feadd584d201386a54b9b1595ab24e8dd2ff46563a4f6b6e291a3b4348cf41a",
-      "main": "8ee40dffb252f8ace54672dedcf5c21eee2831270ccdf9e8f23fc2d31e8b546d"
+      "main": "6feadd584d201386a54b9b1595ab24e8dd2ff46563a4f6b6e291a3b4348cf41a"
     },
     {
       "file": "README.md",
-      "source": "2739a5300628cff970ea613a94e662023b4c89f35c9ed351e1cb5508c0584e01",
-      "main": "d719e3814d005872af2d0e8e1aa013c5532bb366f5cbbf9346013aea3a7aeed2"
+      "source": "16e0b21e76de7451347f9d47b91227bdb19b2d84a60ac7102e99d2b4c963a2b1",
+      "main": "16e0b21e76de7451347f9d47b91227bdb19b2d84a60ac7102e99d2b4c963a2b1"
     },
     {
       "file": "backend/SITES_DEPLOYMENT.json",
       "source": "655079790f6d7150f1346b68708942b0c298d01ed500add2ed0d6f158e6113d6",
-      "main": "f426784bef882673283af8f0378ec9677aba5d956d55b6eb32c2d4e325d641ed"
+      "main": "655079790f6d7150f1346b68708942b0c298d01ed500add2ed0d6f158e6113d6"
     },
     {
       "file": "backend/service-page.js",
       "source": "5ac0caa10f6bec7d9a61369bf7480f429e9f82a37aaa76bfe264eb06f5479079",
-      "main": "4057399a0752cf726231310b33bf97b2f8c7ebf58101a592acfe1e564ed9968c"
+      "main": "5ac0caa10f6bec7d9a61369bf7480f429e9f82a37aaa76bfe264eb06f5479079"
     },
     {
       "file": "backend/validation.js",
       "source": "a01bfe60afacaaebcc242294863269326dbf557e7e3692d30b6e1409c811d46f",
-      "main": "9759066e412d9bd7309e31fc92721d6feb8e159cf372860128dc23b6976f7d7c"
+      "main": "a01bfe60afacaaebcc242294863269326dbf557e7e3692d30b6e1409c811d46f"
     },
     {
       "file": "backend/worker.js",
       "source": "cd74fdeba550c83085df318870ea44e9a33192d3faf56ce19e950861adb7d38a",
-      "main": "38f716748837cd6cba433c551afa08e1382ea1fc167b3f33c0bf9fb433a072f1"
+      "main": "cd74fdeba550c83085df318870ea44e9a33192d3faf56ce19e950861adb7d38a"
     },
     {
       "file": "data/faction-classifications.json",
       "source": "3dccadde4e5d35d764054142dae175116da3c126db2ac0df4ff7005666aa583c",
-      "main": null
+      "main": "3dccadde4e5d35d764054142dae175116da3c126db2ac0df4ff7005666aa583c"
     },
     {
       "file": "data/faction-memberships.json",
       "source": "33a2a0bddb3387b47d35072d2d2a567e15ea91f3c28b03a62001e9d0de512f36",
-      "main": null
+      "main": "33a2a0bddb3387b47d35072d2d2a567e15ea91f3c28b03a62001e9d0de512f36"
     },
     {
       "file": "data/factions-v060.json",
       "source": "aa2dacea050682ebc1b1d7d4f84189fdc92edb66ce83f688b224d740fb78eb15",
-      "main": null
+      "main": "aa2dacea050682ebc1b1d7d4f84189fdc92edb66ce83f688b224d740fb78eb15"
     },
     {
       "file": "docs/FACTIONS_V060.md",
-      "source": "12daec19b4eeddc47f0504cd685f93e6f354892ba8040561201011dcd241891e",
-      "main": null
+      "source": "4ab2c0a5d15345e873f186b6c2570f4e949ed1d5c945cce0b4aa3be00dc13a36",
+      "main": "12daec19b4eeddc47f0504cd685f93e6f354892ba8040561201011dcd241891e"
     },
     {
       "file": "game/core/combat-rules.js",
       "source": "9da352b7f8ec9948a6a5446c813bf52f0ea5e72c18bce4638a71f172ad813fc1",
-      "main": "566193798b4645dcf28e28372c656bc3d6345d553d6e563d65a64767df74361a"
+      "main": "9da352b7f8ec9948a6a5446c813bf52f0ea5e72c18bce4638a71f172ad813fc1"
     },
     {
       "file": "game/core/combat.js",
       "source": "53454cb347b41e8680ca2c1439e0f8d470a298dea2788ab304a53a302cf0f7c8",
-      "main": "88cd04e3aa5425470c8618a4f50953c2d0784e80537a3be5da32041a8f16ef4f"
+      "main": "53454cb347b41e8680ca2c1439e0f8d470a298dea2788ab304a53a302cf0f7c8"
     },
     {
       "file": "game/core/draft.js",
       "source": "4c6ec76c0d41813681b5bc3743ab3cd504655d80825890a6e4374a3e5d126730",
-      "main": "c37cd78c9d972d179b943dca7d2d55d7050ec3ec0a2f2023b6b70dfe5d79c7de"
+      "main": "4c6ec76c0d41813681b5bc3743ab3cd504655d80825890a6e4374a3e5d126730"
     },
     {
       "file": "game/core/faction-combat.js",
       "source": "f5dd968df22794b2e1303983f0bbe83617f2dacb5673d622e944a2edf558f74a",
-      "main": null
+      "main": "f5dd968df22794b2e1303983f0bbe83617f2dacb5673d622e944a2edf558f74a"
     },
     {
       "file": "game/core/factions.js",
       "source": "887e08ae1bb58f5384eda3cdaff0d7538d732033f51f23f2009940f8cedcc1fa",
-      "main": null
+      "main": "887e08ae1bb58f5384eda3cdaff0d7538d732033f51f23f2009940f8cedcc1fa"
     },
     {
       "file": "game/core/game.js",
       "source": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed",
-      "main": "be7ff4bc2a24642c165ebaf8ca9e7f875dbf143a54ba417128907ae3f0247e37"
+      "main": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed"
     },
     {
       "file": "game/core/math.js",
       "source": "b5d6a07839f5be4409cc97478844235f66d2201f3392553f079110b4f9f01b15",
-      "main": "713738088e24309f6b988fc28fa0c8c474c20fb309027a2ab8928652ebb483ad"
+      "main": "b5d6a07839f5be4409cc97478844235f66d2201f3392553f079110b4f9f01b15"
     },
     {
       "file": "game/core/run-statistics.js",
       "source": "a01bc02ae34c7ef1803803ddffff2cc6a627961b1029102bfdc385ce7029eefd",
-      "main": "7e36bf59f88a6de45f753efdb763d73bb2f8b2745d91f488a17056be26e0f2da"
+      "main": "a01bc02ae34c7ef1803803ddffff2cc6a627961b1029102bfdc385ce7029eefd"
     },
     {
       "file": "game/core/save.js",
       "source": "9ea45a097d41fb263e7aa39c30eaef741ef696b596033f8246dfae2fd40f909a",
-      "main": "c3417497254b7063f428048b2529a9239bd4a9e9a5d34be9ced5e69f32976cb4"
+      "main": "9ea45a097d41fb263e7aa39c30eaef741ef696b596033f8246dfae2fd40f909a"
     },
     {
       "file": "game/core/statistics-client.js",
       "source": "4560545743a8b5b051225242dfc597f07ebc8d51f8c6570b49a32d3abfcf3a2b",
-      "main": "3ad72952be2c7ad4dd469afe1b3adbbf5188174649534b41e353a9308cf83c8c"
+      "main": "4560545743a8b5b051225242dfc597f07ebc8d51f8c6570b49a32d3abfcf3a2b"
     },
     {
       "file": "game/main.js",
       "source": "678204a4068682c5d62b2c60ec5bae10db531beaaf608d4c3c8e34550cd70976",
-      "main": "14db5febb626274771c86f723796a82e618f4f714f2253c2e6ae15054cd22fcf"
+      "main": "678204a4068682c5d62b2c60ec5bae10db531beaaf608d4c3c8e34550cd70976"
     },
     {
       "file": "game/release.js",
       "source": "a56780ef913edec6fa8093e8719c9f91c2d7b92d3c99ef2751050d241f5ff312",
-      "main": "222418430ed5cfecba593839242ae5c34b34ec9b3aae0e846378fe5c8655b4c6"
+      "main": "a56780ef913edec6fa8093e8719c9f91c2d7b92d3c99ef2751050d241f5ff312"
     },
     {
       "file": "game/render/battle-animation.js",
-      "source": "e56afe22edd6373024ed89067e9213e96c51c5230e052cb975676c8d4fce9f64",
-      "main": "cbff7b4b4d3a8e54c60588e9ecf830ca48fec8d97e571d8f79d1d1dd3752da41"
+      "source": "172415988bdfe6d97e1cff4a4068c0eab05cbb60bbf851d3351d4714dde31b9a",
+      "main": "e56afe22edd6373024ed89067e9213e96c51c5230e052cb975676c8d4fce9f64"
     },
     {
       "file": "game/render/champion-classification.js",
       "source": "f5e8002465ec1593f509a3f2fd8c6dfcf74419a3c4988623dc05c361c933f3c3",
-      "main": "278a16fa34f92428ea490c93baed457d9965a7aa2655a3b5a5ecb908d9724cff"
+      "main": "f5e8002465ec1593f509a3f2fd8c6dfcf74419a3c4988623dc05c361c933f3c3"
     },
     {
       "file": "game/render/defender-assets.js",
       "source": "0e8294397ec31fdbd42950c00e8e9b13eb148ed3717b7d192c265824d7318ae7",
-      "main": "f0bfdd52b8727296327c196cb15b8e9cd537048711fc7be29d553b6e8914629a"
+      "main": "0e8294397ec31fdbd42950c00e8e9b13eb148ed3717b7d192c265824d7318ae7"
     },
     {
       "file": "game/render/draft-markers.js",
       "source": "74a7b925f625bebd24640f7d033e14cc846aff568d37d64172051cf825ab67da",
-      "main": "11eaec556e2861e3597a0f53bce6afd81bc7fb64ee3866ab68da69f94afe6273"
+      "main": "74a7b925f625bebd24640f7d033e14cc846aff568d37d64172051cf825ab67da"
     },
     {
       "file": "game/render/faction-attack-player.js",
       "source": "3789bfd4ec971a1921b3537b260bdb556a6fd96f958b8bc559654d8cff62a9b6",
-      "main": null
+      "main": "3789bfd4ec971a1921b3537b260bdb556a6fd96f958b8bc559654d8cff62a9b6"
     },
     {
       "file": "game/render/packed-model.js",
       "source": "29fa297bcecca5df699754c12b321af273e805b696c35fed29d619644a730294",
-      "main": null
+      "main": "29fa297bcecca5df699754c12b321af273e805b696c35fed29d619644a730294"
     },
     {
       "file": "game/render/world.js",
       "source": "8330999c8e0e15bc0e06486c71a5cfba229bca1bbeb72edc969f01868633ae4e",
-      "main": "879f29c9118ff1953bcfc24103d0b215d72dfe2a1c268e3c79b430fef5065b32"
+      "main": "8330999c8e0e15bc0e06486c71a5cfba229bca1bbeb72edc969f01868633ae4e"
     },
     {
       "file": "output/releases/v0.6.0/import-proof.json",
       "source": "cd7a171fce83df6250feb6034bca8964f3c03f1cef1299210744692bfa83183a",
-      "main": null
+      "main": "cd7a171fce83df6250feb6034bca8964f3c03f1cef1299210744692bfa83183a"
     },
     {
       "file": "output/releases/v0.6.0/transport-compression.json",
       "source": "c3aa567ff29b6bc151d84bc618146260dc6bd70ace14fbbf8b3d2f3a17963a59",
-      "main": null
+      "main": "c3aa567ff29b6bc151d84bc618146260dc6bd70ace14fbbf8b3d2f3a17963a59"
     },
     {
       "file": "package.json",
       "source": "c0a062032bbd7898b7584dfc8900d087d7eb90cf5d0b94f64aa5d5deba6309c0",
-      "main": "19c3701c85a8e88099dc62613470796d93f8088c2d2f682261a9e0442265c69a"
+      "main": "c0a062032bbd7898b7584dfc8900d087d7eb90cf5d0b94f64aa5d5deba6309c0"
     },
     {
       "file": "public/assets/factions/v060/crown/archangel.glb.gz",
       "source": "9b582e1078e131a0accf6a625f79598a5d8a60b990250aa827b0af029d277433",
-      "main": null
+      "main": "9b582e1078e131a0accf6a625f79598a5d8a60b990250aa827b0af029d277433"
     },
     {
       "file": "public/assets/factions/v060/crown/archangel.png",
       "source": "e79e07d71ea7c96f3f90175a0481b0b0bbb73e7df3c47d14cf5b3b98a3c93528",
-      "main": null
+      "main": "e79e07d71ea7c96f3f90175a0481b0b0bbb73e7df3c47d14cf5b3b98a3c93528"
     },
     {
       "file": "public/assets/factions/v060/crown/archbishop.glb.gz",
       "source": "7c61e7ff5ba23b9bcd0361b2a2d3e9e15dceb572b2bb0585dfd8fc484ac3801e",
-      "main": null
+      "main": "7c61e7ff5ba23b9bcd0361b2a2d3e9e15dceb572b2bb0585dfd8fc484ac3801e"
     },
     {
       "file": "public/assets/factions/v060/crown/archbishop.png",
       "source": "11d368d850b9c6edb4e9dd4a1642fe546d4f311abbd91803eb4955fed4a27f7f",
-      "main": null
+      "main": "11d368d850b9c6edb4e9dd4a1642fe546d4f311abbd91803eb4955fed4a27f7f"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-1.glb.gz",
       "source": "57754fd82399af09161be599ceb265ca83c6bdbc28f4218c50ceaa9a9caa939d",
-      "main": null
+      "main": "57754fd82399af09161be599ceb265ca83c6bdbc28f4218c50ceaa9a9caa939d"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-1.png",
       "source": "06d258da2fa6cc5cca2a6779aefa0b178f7f9270da69517de85b85e38f562d39",
-      "main": null
+      "main": "06d258da2fa6cc5cca2a6779aefa0b178f7f9270da69517de85b85e38f562d39"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-2.glb.gz",
       "source": "3625a6474564bab60dde94a6d2f3ef773c2768619cbd4dfd4c5fce3494d91cc6",
-      "main": null
+      "main": "3625a6474564bab60dde94a6d2f3ef773c2768619cbd4dfd4c5fce3494d91cc6"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-2.png",
       "source": "c9e1274bc1a7a8c29175bee6c0ba69366f296702d28780865be8ca2e67e0cd34",
-      "main": null
+      "main": "c9e1274bc1a7a8c29175bee6c0ba69366f296702d28780865be8ca2e67e0cd34"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-3.glb.gz",
       "source": "891ccd3da4a08beb813feec29b25eb11aa21fa912204293d481a4596e74be066",
-      "main": null
+      "main": "891ccd3da4a08beb813feec29b25eb11aa21fa912204293d481a4596e74be066"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-3.png",
       "source": "96dfc9a3e643cb5bf89cf6c5d8843c2744f1e90348c1f8178f969d65c340d5b7",
-      "main": null
+      "main": "96dfc9a3e643cb5bf89cf6c5d8843c2744f1e90348c1f8178f969d65c340d5b7"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-4.glb.gz",
       "source": "c5e36c18b274abd4c7ce47f6bf22434cdbaf4a8a3b1aaf5c0ff946b4c2784add",
-      "main": null
+      "main": "c5e36c18b274abd4c7ce47f6bf22434cdbaf4a8a3b1aaf5c0ff946b4c2784add"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-4.png",
       "source": "5619b610c1232b82042ed1465df5e4da6359ddf4a6f0541a3f54ada5d56877b5",
-      "main": null
+      "main": "5619b610c1232b82042ed1465df5e4da6359ddf4a6f0541a3f54ada5d56877b5"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-5.glb.gz",
       "source": "166df92eece44a3c1b6c99dbd8c64b8210d74c23f05161e01e221c43fea25e88",
-      "main": null
+      "main": "166df92eece44a3c1b6c99dbd8c64b8210d74c23f05161e01e221c43fea25e88"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-5.png",
       "source": "3a4a519628fa3702fc2b3aaafdd612dd3bda58385a49f7ee08d176f5eda2c3b2",
-      "main": null
+      "main": "3a4a519628fa3702fc2b3aaafdd612dd3bda58385a49f7ee08d176f5eda2c3b2"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-6.glb.gz",
       "source": "3ad758ac1b37096a707e5776398ce4eab0b891514116f3876fe7d7410e76d95c",
-      "main": null
+      "main": "3ad758ac1b37096a707e5776398ce4eab0b891514116f3876fe7d7410e76d95c"
     },
     {
       "file": "public/assets/factions/v060/crown/archer-6.png",
       "source": "f517d5d26191795a959e48e6ea75e92c7e8b6658a5514790dfaa008709e02ce1",
-      "main": null
+      "main": "f517d5d26191795a959e48e6ea75e92c7e8b6658a5514790dfaa008709e02ce1"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-1.glb.gz",
       "source": "ccb6d1647312a32626d356b5ee6cae1434274666704fd691ec3d3de870226cc4",
-      "main": null
+      "main": "ccb6d1647312a32626d356b5ee6cae1434274666704fd691ec3d3de870226cc4"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-1.png",
       "source": "3689dd494d746accd6328c21f1894ba08ee18974b6c73d12b072ea23b34d6b45",
-      "main": null
+      "main": "3689dd494d746accd6328c21f1894ba08ee18974b6c73d12b072ea23b34d6b45"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-2.glb.gz",
       "source": "d47e09cf505764df721079b232a1e6cc69b001ee39b323bfd6cec3052b0fe1ba",
-      "main": null
+      "main": "d47e09cf505764df721079b232a1e6cc69b001ee39b323bfd6cec3052b0fe1ba"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-2.png",
       "source": "cbfec3312a73f805e94b5a8eb5ace8a1d5506a6b543735d5c266a2dfeb4a7e36",
-      "main": null
+      "main": "cbfec3312a73f805e94b5a8eb5ace8a1d5506a6b543735d5c266a2dfeb4a7e36"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-3.glb.gz",
       "source": "58fffad9ba0f407318cf356f714d9e9ef941641470de22dc0e21312290fc667b",
-      "main": null
+      "main": "58fffad9ba0f407318cf356f714d9e9ef941641470de22dc0e21312290fc667b"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-3.png",
       "source": "463b1894ad4b030ce5ae9c49062967f064f079a78e82175b47cb0409918fb884",
-      "main": null
+      "main": "463b1894ad4b030ce5ae9c49062967f064f079a78e82175b47cb0409918fb884"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-4.glb.gz",
       "source": "ca9d6259799cd6581ec14c552b993359d6ae1c4998964b3b822850c4efa201f0",
-      "main": null
+      "main": "ca9d6259799cd6581ec14c552b993359d6ae1c4998964b3b822850c4efa201f0"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-4.png",
       "source": "a4d0cc842c76658ba103beaeb5d3a45164049a2d4dcb4ddaa043aa34822c5880",
-      "main": null
+      "main": "a4d0cc842c76658ba103beaeb5d3a45164049a2d4dcb4ddaa043aa34822c5880"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-5.glb.gz",
       "source": "5db8729d5497569433fc5c15b6c7713f1434aef8754ca8184bd9a4674ebb2b6c",
-      "main": null
+      "main": "5db8729d5497569433fc5c15b6c7713f1434aef8754ca8184bd9a4674ebb2b6c"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-5.png",
       "source": "82a93b4381ead95e72387a09187ce742b22a87a449e452da21815caf674bf92b",
-      "main": null
+      "main": "82a93b4381ead95e72387a09187ce742b22a87a449e452da21815caf674bf92b"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-6.glb.gz",
       "source": "247ef63c224cd5b870fed0be21dc3b0372e1fc7871be2502bf97580bbfe99bbe",
-      "main": null
+      "main": "247ef63c224cd5b870fed0be21dc3b0372e1fc7871be2502bf97580bbfe99bbe"
     },
     {
       "file": "public/assets/factions/v060/crown/cleric-6.png",
       "source": "8d304f3a1bbc6c1bf66046bef63a05a3a1e08a298c0e8137d5200d10ee198642",
-      "main": null
+      "main": "8d304f3a1bbc6c1bf66046bef63a05a3a1e08a298c0e8137d5200d10ee198642"
     },
     {
       "file": "public/assets/factions/v060/crown/crownofages.glb.gz",
       "source": "a03dccd8e7b706bf98ae7399febce65d4b38dc65cbcc623f2345947c442ee6e8",
-      "main": null
+      "main": "a03dccd8e7b706bf98ae7399febce65d4b38dc65cbcc623f2345947c442ee6e8"
     },
     {
       "file": "public/assets/factions/v060/crown/crownofages.png",
       "source": "16ed87f08ae546687e700e969b098aaee65f6976dff824c90670faa53c50d96b",
-      "main": null
+      "main": "16ed87f08ae546687e700e969b098aaee65f6976dff824c90670faa53c50d96b"
     },
     {
       "file": "public/assets/factions/v060/crown/dawnspire.glb.gz",
       "source": "8ad124de5f8e014439e59da488fc4aabf6b42f2a10e3682ac7bd7cc4c130e06d",
-      "main": null
+      "main": "8ad124de5f8e014439e59da488fc4aabf6b42f2a10e3682ac7bd7cc4c130e06d"
     },
     {
       "file": "public/assets/factions/v060/crown/dawnspire.png",
       "source": "5dc54148ec83c993cb69052b7f8f97b446163235bf49d7afa6a94f093d526468",
-      "main": null
+      "main": "5dc54148ec83c993cb69052b7f8f97b446163235bf49d7afa6a94f093d526468"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-1.glb.gz",
       "source": "60679eaefc94afd263965265b3642196764035d885165733d70da109237d04f5",
-      "main": null
+      "main": "60679eaefc94afd263965265b3642196764035d885165733d70da109237d04f5"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-1.png",
       "source": "47f829906fa205acc4da4a345406841a66df52536f45526c1bab29e438f4675d",
-      "main": null
+      "main": "47f829906fa205acc4da4a345406841a66df52536f45526c1bab29e438f4675d"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-2.glb.gz",
       "source": "b10603ac62161e7306b61f360ccf77eeded5a35768378db13951e52c599b971c",
-      "main": null
+      "main": "b10603ac62161e7306b61f360ccf77eeded5a35768378db13951e52c599b971c"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-2.png",
       "source": "5e274a8944d47dc00b7a5785669ac226fed6a12a974e889299793546e3933c22",
-      "main": null
+      "main": "5e274a8944d47dc00b7a5785669ac226fed6a12a974e889299793546e3933c22"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-3.glb.gz",
       "source": "4543b56841335d797f32cb98993f0ba39c6305a9dc4c61fc88a8b88cf6409a48",
-      "main": null
+      "main": "4543b56841335d797f32cb98993f0ba39c6305a9dc4c61fc88a8b88cf6409a48"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-3.png",
       "source": "790591655ac9024e783d25fe84ac6ef9f699efc5cfb83daebcc3a45b76dee1d2",
-      "main": null
+      "main": "790591655ac9024e783d25fe84ac6ef9f699efc5cfb83daebcc3a45b76dee1d2"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-4.glb.gz",
       "source": "567f52a06fe17f246931979b0799d04fdd0ee77ab63d7c4e6fd115e95d9cf3cf",
-      "main": null
+      "main": "567f52a06fe17f246931979b0799d04fdd0ee77ab63d7c4e6fd115e95d9cf3cf"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-4.png",
       "source": "a2eef39c4744ea49c9e3ee4092fa2498babb054fb68cce127232cd477837adc8",
-      "main": null
+      "main": "a2eef39c4744ea49c9e3ee4092fa2498babb054fb68cce127232cd477837adc8"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-5.glb.gz",
       "source": "041167d981de3bc3717d2ad2b1460c9a983af3d0132dd554979726619ecc7987",
-      "main": null
+      "main": "041167d981de3bc3717d2ad2b1460c9a983af3d0132dd554979726619ecc7987"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-5.png",
       "source": "2621a9eb013f13e4e4a1f60bbe689cf12630a3b7d09ac73e9b38e52bc864ad69",
-      "main": null
+      "main": "2621a9eb013f13e4e4a1f60bbe689cf12630a3b7d09ac73e9b38e52bc864ad69"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-6.glb.gz",
       "source": "b55441f64a4c7c945d0bab83c7b62979f5246247c472d1b820db120c1a37af53",
-      "main": null
+      "main": "b55441f64a4c7c945d0bab83c7b62979f5246247c472d1b820db120c1a37af53"
     },
     {
       "file": "public/assets/factions/v060/crown/druid-6.png",
       "source": "e3432c3f372cee2afe3a939a0dfa82b2847c98487fdb23cf33c02b15b10113ee",
-      "main": null
+      "main": "e3432c3f372cee2afe3a939a0dfa82b2847c98487fdb23cf33c02b15b10113ee"
     },
     {
       "file": "public/assets/factions/v060/crown/eldergrove.glb.gz",
       "source": "1cfd191e1567b0bc7c183aa374d0a7df56d70f2a7ab09a84577c4c12dfaee086",
-      "main": null
+      "main": "1cfd191e1567b0bc7c183aa374d0a7df56d70f2a7ab09a84577c4c12dfaee086"
     },
     {
       "file": "public/assets/factions/v060/crown/eldergrove.png",
       "source": "01d7b12fd76b5db224052deca6e26f067a68e75fd8a086ff0242df01600982b2",
-      "main": null
+      "main": "01d7b12fd76b5db224052deca6e26f067a68e75fd8a086ff0242df01600982b2"
     },
     {
       "file": "public/assets/factions/v060/crown/elvenking.glb.gz",
       "source": "8b27f1701cdb0000ea43abc44b2548eeafd9de5cd09465c132fb9e3a9db85182",
-      "main": null
+      "main": "8b27f1701cdb0000ea43abc44b2548eeafd9de5cd09465c132fb9e3a9db85182"
     },
     {
       "file": "public/assets/factions/v060/crown/elvenking.png",
       "source": "31a6eff483b1f7dc6bd861d823fd82769ab64b0af3eb8d71a640cbb686d65c3c",
-      "main": null
+      "main": "31a6eff483b1f7dc6bd861d823fd82769ab64b0af3eb8d71a640cbb686d65c3c"
     },
     {
       "file": "public/assets/factions/v060/crown/embercrown.glb.gz",
       "source": "407c4a484bbad98d01136170e68a3bafd019bd57a14532cc14ef31948cb9c386",
-      "main": null
+      "main": "407c4a484bbad98d01136170e68a3bafd019bd57a14532cc14ef31948cb9c386"
     },
     {
       "file": "public/assets/factions/v060/crown/embercrown.png",
       "source": "be806a1f94b5249659d7ef13f01c353ae6898767ebe8d7f48dc0b1062d2ce317",
-      "main": null
+      "main": "be806a1f94b5249659d7ef13f01c353ae6898767ebe8d7f48dc0b1062d2ce317"
     },
     {
       "file": "public/assets/factions/v060/crown/emeraldgolem.glb.gz",
       "source": "a537e1a226f38e05bf730cb968bff64333690556d082f10c794dac755ac371a2",
-      "main": null
+      "main": "a537e1a226f38e05bf730cb968bff64333690556d082f10c794dac755ac371a2"
     },
     {
       "file": "public/assets/factions/v060/crown/emeraldgolem.png",
       "source": "ddd307ec03912ace256bde4e9c042bfaaf1e23d3689d2a13c976963d4b03ce9b",
-      "main": null
+      "main": "ddd307ec03912ace256bde4e9c042bfaaf1e23d3689d2a13c976963d4b03ce9b"
     },
     {
       "file": "public/assets/factions/v060/crown/fireballista.glb.gz",
       "source": "e2a3bde8bfa249500cb83304ed77e24507b7926825a3f28b133eccb9a8899101",
-      "main": null
+      "main": "e2a3bde8bfa249500cb83304ed77e24507b7926825a3f28b133eccb9a8899101"
     },
     {
       "file": "public/assets/factions/v060/crown/fireballista.png",
       "source": "0d24d25f4c9e63039f14b2385705ec0bfaffc0d0048b6b37e45a430b62ed2cb1",
-      "main": null
+      "main": "0d24d25f4c9e63039f14b2385705ec0bfaffc0d0048b6b37e45a430b62ed2cb1"
     },
     {
       "file": "public/assets/factions/v060/crown/frostblade.glb.gz",
       "source": "80f1d6c1573bd565cf707e1fd1fe4340397957edf3089cac3c11c1c619bbcdd5",
-      "main": null
+      "main": "80f1d6c1573bd565cf707e1fd1fe4340397957edf3089cac3c11c1c619bbcdd5"
     },
     {
       "file": "public/assets/factions/v060/crown/frostblade.png",
       "source": "fcbeef1a5e93584de741255335a8b85b9ba46d3022dd59bf352e8e5a3bd1a0f2",
-      "main": null
+      "main": "fcbeef1a5e93584de741255335a8b85b9ba46d3022dd59bf352e8e5a3bd1a0f2"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-1.glb.gz",
       "source": "178e396d0cc0bb9932ab41bb99dae4cf85f71b1aca0fdd2bbd62878056d37cb1",
-      "main": null
+      "main": "178e396d0cc0bb9932ab41bb99dae4cf85f71b1aca0fdd2bbd62878056d37cb1"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-1.png",
       "source": "7bc0daee152ad0d5b25c8cd58ff178c74009f943b25b466aff8bda918aebe006",
-      "main": null
+      "main": "7bc0daee152ad0d5b25c8cd58ff178c74009f943b25b466aff8bda918aebe006"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-2.glb.gz",
       "source": "7aa6c178e09b59736c6c481c226ad681a94a883b725749407b40da6d2e519467",
-      "main": null
+      "main": "7aa6c178e09b59736c6c481c226ad681a94a883b725749407b40da6d2e519467"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-2.png",
       "source": "59415cc011ec7d1ab4f6fc9eb4b8a66ba70c2a4394b85aab226ba3de8a4ba32f",
-      "main": null
+      "main": "59415cc011ec7d1ab4f6fc9eb4b8a66ba70c2a4394b85aab226ba3de8a4ba32f"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-3.glb.gz",
       "source": "c334d6d5bea109196265aa3c0b18daf9c1f4c43adf5f9412df50a7f898719950",
-      "main": null
+      "main": "c334d6d5bea109196265aa3c0b18daf9c1f4c43adf5f9412df50a7f898719950"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-3.png",
       "source": "720e56206f0792dba892f561faf6ebed29e509a4f9350b9a71ddd10e0098d17c",
-      "main": null
+      "main": "720e56206f0792dba892f561faf6ebed29e509a4f9350b9a71ddd10e0098d17c"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-4.glb.gz",
       "source": "952f9f7cf51c09321350c020204aeffcefd211ed518ca0aa1e35d9dd293bd70b",
-      "main": null
+      "main": "952f9f7cf51c09321350c020204aeffcefd211ed518ca0aa1e35d9dd293bd70b"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-4.png",
       "source": "023040f2a2c64004e7ae29266c7af4f732273f8ab46cfcc1a90b581ddec2631d",
-      "main": null
+      "main": "023040f2a2c64004e7ae29266c7af4f732273f8ab46cfcc1a90b581ddec2631d"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-5.glb.gz",
       "source": "1b630ac3ab4872a4ba9c39f4bc66fa4110f5fa9fe57258b58c0934c425e7fb16",
-      "main": null
+      "main": "1b630ac3ab4872a4ba9c39f4bc66fa4110f5fa9fe57258b58c0934c425e7fb16"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-5.png",
       "source": "4afb4661c70efc51b88e72cc59ba587e675e93690bc993e1bcfca28c510e0651",
-      "main": null
+      "main": "4afb4661c70efc51b88e72cc59ba587e675e93690bc993e1bcfca28c510e0651"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-6.glb.gz",
       "source": "b38a7e8cf5e7c696dfb1e918be60940980a12567aa8c71162b646f5ef0e28ec3",
-      "main": null
+      "main": "b38a7e8cf5e7c696dfb1e918be60940980a12567aa8c71162b646f5ef0e28ec3"
     },
     {
       "file": "public/assets/factions/v060/crown/frostwarden-6.png",
       "source": "01200428dc3250056f8a8cc2d5ceac05d8f929b08f52a3f69c4eaa9ccbd49fb0",
-      "main": null
+      "main": "01200428dc3250056f8a8cc2d5ceac05d8f929b08f52a3f69c4eaa9ccbd49fb0"
     },
     {
       "file": "public/assets/factions/v060/crown/greenheart.glb.gz",
       "source": "73bc90dd222e4661b28377ad914a366f18615c9e1717c4f14f2fe760cc43fc74",
-      "main": null
+      "main": "73bc90dd222e4661b28377ad914a366f18615c9e1717c4f14f2fe760cc43fc74"
     },
     {
       "file": "public/assets/factions/v060/crown/greenheart.png",
       "source": "4df528294959509fb2c860629d83df58f23d10ddac22ef2dd6424de9ed355557",
-      "main": null
+      "main": "4df528294959509fb2c860629d83df58f23d10ddac22ef2dd6424de9ed355557"
     },
     {
       "file": "public/assets/factions/v060/crown/griffinbomber.glb.gz",
       "source": "cdf04e41f02b2daaaa037ff57c665f1cca7fccec4a8e7c16ac3c2135fb429fa8",
-      "main": null
+      "main": "cdf04e41f02b2daaaa037ff57c665f1cca7fccec4a8e7c16ac3c2135fb429fa8"
     },
     {
       "file": "public/assets/factions/v060/crown/griffinbomber.png",
       "source": "49c0e959a81c2f7be535cbebd5fc7c180d3191b8aa8d4d5847ad6b44e638c531",
-      "main": null
+      "main": "49c0e959a81c2f7be535cbebd5fc7c180d3191b8aa8d4d5847ad6b44e638c531"
     },
     {
       "file": "public/assets/factions/v060/crown/highking.glb.gz",
       "source": "4c262164cd560b9f6f7b2bb5d42963194007e7803ce1d3daaad9d460382625c8",
-      "main": null
+      "main": "4c262164cd560b9f6f7b2bb5d42963194007e7803ce1d3daaad9d460382625c8"
     },
     {
       "file": "public/assets/factions/v060/crown/highking.png",
       "source": "eb792310eb1f0feec19166d158c60568eeccde0998fe88f722b0134ba1226235",
-      "main": null
+      "main": "eb792310eb1f0feec19166d158c60568eeccde0998fe88f722b0134ba1226235"
     },
     {
       "file": "public/assets/factions/v060/crown/kingdomprotector.glb.gz",
       "source": "57047eaeadb7565957fe5701303bc0c6225098c0051bf9d75d9f1fd2071eaf1c",
-      "main": null
+      "main": "57047eaeadb7565957fe5701303bc0c6225098c0051bf9d75d9f1fd2071eaf1c"
     },
     {
       "file": "public/assets/factions/v060/crown/kingdomprotector.png",
       "source": "ad7aa1b68451f95f047564e62e9760a2ce9ce96ecfaf98b1b73e2ce883be2577",
-      "main": null
+      "main": "ad7aa1b68451f95f047564e62e9760a2ce9ce96ecfaf98b1b73e2ce883be2577"
     },
     {
       "file": "public/assets/factions/v060/crown/kingsrangerguard.glb.gz",
       "source": "b5e3100140c871219e80fa9aabade9d47edafbc20b12933d5c0169e41ce1aac4",
-      "main": null
+      "main": "b5e3100140c871219e80fa9aabade9d47edafbc20b12933d5c0169e41ce1aac4"
     },
     {
       "file": "public/assets/factions/v060/crown/kingsrangerguard.png",
       "source": "ab5b119891a31bf2100ae7df1427049b1a8a144bf50fedd41e5c266f90535460",
-      "main": null
+      "main": "ab5b119891a31bf2100ae7df1427049b1a8a144bf50fedd41e5c266f90535460"
     },
     {
       "file": "public/assets/factions/v060/crown/kingsreach.glb.gz",
       "source": "3723034a7cce0856c3a715dd6e69bdab06098af73a51b12764c56020372abc2e",
-      "main": null
+      "main": "3723034a7cce0856c3a715dd6e69bdab06098af73a51b12764c56020372abc2e"
     },
     {
       "file": "public/assets/factions/v060/crown/kingsreach.png",
       "source": "7faa017757066cf64b30b30ea17c857b1697105b4c1d98f6653e37e9b1229f28",
-      "main": null
+      "main": "7faa017757066cf64b30b30ea17c857b1697105b4c1d98f6653e37e9b1229f28"
     },
     {
       "file": "public/assets/factions/v060/crown/ladyclaire.glb.gz",
       "source": "530d5671951c0a16486753e2d6b1bcfd81c10c403de8f1855f9a2436f2fdd4ff",
-      "main": null
+      "main": "530d5671951c0a16486753e2d6b1bcfd81c10c403de8f1855f9a2436f2fdd4ff"
     },
     {
       "file": "public/assets/factions/v060/crown/ladyclaire.png",
       "source": "27cd9ae4a8eaf05c1851f7a6370525a6501e8afb3e3423827ce3ef9bb26d8639",
-      "main": null
+      "main": "27cd9ae4a8eaf05c1851f7a6370525a6501e8afb3e3423827ce3ef9bb26d8639"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-1.glb.gz",
       "source": "4a1c4e7e483bdce58c6e27837eed4739041929aac3972351ccc0c5cb1d5d552c",
-      "main": null
+      "main": "4a1c4e7e483bdce58c6e27837eed4739041929aac3972351ccc0c5cb1d5d552c"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-1.png",
       "source": "a7356429581ad6f092be80bc03bd17f5b03cf08dc136926ede8b15fe71d3daec",
-      "main": null
+      "main": "a7356429581ad6f092be80bc03bd17f5b03cf08dc136926ede8b15fe71d3daec"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-2.glb.gz",
       "source": "0caed35bd8d1bd45e9c82857141c10a4a1820376bc5a8786ac4594d459fb51d1",
-      "main": null
+      "main": "0caed35bd8d1bd45e9c82857141c10a4a1820376bc5a8786ac4594d459fb51d1"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-2.png",
       "source": "33928a963aa792c9887b1836c845f91bb84042afb5b9803de718ce7d241ab1a6",
-      "main": null
+      "main": "33928a963aa792c9887b1836c845f91bb84042afb5b9803de718ce7d241ab1a6"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-3.glb.gz",
       "source": "4cfc712e717a1f2cf2ccd8466b35f346237eec0318a0f49c8d9faa210d40ef9e",
-      "main": null
+      "main": "4cfc712e717a1f2cf2ccd8466b35f346237eec0318a0f49c8d9faa210d40ef9e"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-3.png",
       "source": "97f95146b4beb85c8dc62565320b7a74f2e11fdfad56cfaab5f60ee3a8983dfa",
-      "main": null
+      "main": "97f95146b4beb85c8dc62565320b7a74f2e11fdfad56cfaab5f60ee3a8983dfa"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-4.glb.gz",
       "source": "92e196fe0c80e96e65afeddcc1631a4a406a8efa7f6a32b3a0d69df284600132",
-      "main": null
+      "main": "92e196fe0c80e96e65afeddcc1631a4a406a8efa7f6a32b3a0d69df284600132"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-4.png",
       "source": "f67891dffa1f52f86851bf709a6e1976c09b5e5773c2539e32774b4daf1fc459",
-      "main": null
+      "main": "f67891dffa1f52f86851bf709a6e1976c09b5e5773c2539e32774b4daf1fc459"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-5.glb.gz",
       "source": "ee73669dd8ee6d96d254007b853a4fc453ba5b44cdf8010e5ece82f312ea5460",
-      "main": null
+      "main": "ee73669dd8ee6d96d254007b853a4fc453ba5b44cdf8010e5ece82f312ea5460"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-5.png",
       "source": "e6be70286bc783d2e9637f1ca8de9ccd28cbe175fc6d40145032fc9e4703b26b",
-      "main": null
+      "main": "e6be70286bc783d2e9637f1ca8de9ccd28cbe175fc6d40145032fc9e4703b26b"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-6.glb.gz",
       "source": "2d25b3e551fdbfee8bc81006e29720e883ed57d633ce3f1a7c1b8340ef7e4c65",
-      "main": null
+      "main": "2d25b3e551fdbfee8bc81006e29720e883ed57d633ce3f1a7c1b8340ef7e4c65"
     },
     {
       "file": "public/assets/factions/v060/crown/mage-6.png",
       "source": "b8b3c81eed7cef6f2078996aa101673c7a7f0d0c362a380eccdfd9e63dafd1bf",
-      "main": null
+      "main": "b8b3c81eed7cef6f2078996aa101673c7a7f0d0c362a380eccdfd9e63dafd1bf"
     },
     {
       "file": "public/assets/factions/v060/crown/mechanicalgolem.glb.gz",
       "source": "cd537cbb26a6b99d5bccee5387b4de97a41261926a16824665a82efb1c235d76",
-      "main": null
+      "main": "cd537cbb26a6b99d5bccee5387b4de97a41261926a16824665a82efb1c235d76"
     },
     {
       "file": "public/assets/factions/v060/crown/mechanicalgolem.png",
       "source": "14c51d4739cdf27ef890154ce79a7615c799c22190196cc5a77fe06eff4e90ac",
-      "main": null
+      "main": "14c51d4739cdf27ef890154ce79a7615c799c22190196cc5a77fe06eff4e90ac"
     },
     {
       "file": "public/assets/factions/v060/crown/monk.glb.gz",
       "source": "4ce00ce7f9411df25c40b0f7bfc2dee3b440e901ff433cd00d36180662cfc94d",
-      "main": null
+      "main": "4ce00ce7f9411df25c40b0f7bfc2dee3b440e901ff433cd00d36180662cfc94d"
     },
     {
       "file": "public/assets/factions/v060/crown/monk.png",
       "source": "ee193b94915568f0b1619109fbf738e192aeac7c878a9561e5e4c9eb9babaec6",
-      "main": null
+      "main": "ee193b94915568f0b1619109fbf738e192aeac7c878a9561e5e4c9eb9babaec6"
     },
     {
       "file": "public/assets/factions/v060/crown/mothernature.glb.gz",
       "source": "be798867573ed8f8b96d9217a73c88f6341dc68d3d7ad9ce075172450b149258",
-      "main": null
+      "main": "be798867573ed8f8b96d9217a73c88f6341dc68d3d7ad9ce075172450b149258"
     },
     {
       "file": "public/assets/factions/v060/crown/mothernature.png",
       "source": "eeef91803b94794f6929edf5c41293c6846868543b058773b985f36cb1c9b724",
-      "main": null
+      "main": "eeef91803b94794f6929edf5c41293c6846868543b058773b985f36cb1c9b724"
     },
     {
       "file": "public/assets/factions/v060/crown/phoenix.glb.gz",
       "source": "d82ce0656ff77a8d7b28ea9b653b360925202da67c1ad6960c9b9314a078c5e4",
-      "main": null
+      "main": "d82ce0656ff77a8d7b28ea9b653b360925202da67c1ad6960c9b9314a078c5e4"
     },
     {
       "file": "public/assets/factions/v060/crown/phoenix.png",
       "source": "083cf64481226cd4e94c2c2a837b6c692f1e4aa624044bd573fb69159b11e315",
-      "main": null
+      "main": "083cf64481226cd4e94c2c2a837b6c692f1e4aa624044bd573fb69159b11e315"
     },
     {
       "file": "public/assets/factions/v060/crown/rangermentor.glb.gz",
       "source": "684051eb3fe5d5b198b7445180baa9db9bc87a57621aab2d880e946731ae43f6",
-      "main": null
+      "main": "684051eb3fe5d5b198b7445180baa9db9bc87a57621aab2d880e946731ae43f6"
     },
     {
       "file": "public/assets/factions/v060/crown/rangermentor.png",
       "source": "b97af91ed6c052d5ecbc8cd469c679232dd4852fdfb59c5cfe0ab483049337c8",
-      "main": null
+      "main": "b97af91ed6c052d5ecbc8cd469c679232dd4852fdfb59c5cfe0ab483049337c8"
     },
     {
       "file": "public/assets/factions/v060/crown/rimewatch.glb.gz",
       "source": "3b61168d01862ba77cfca4e943b3a715be01618b7c5a92543c2040418e94219e",
-      "main": null
+      "main": "3b61168d01862ba77cfca4e943b3a715be01618b7c5a92543c2040418e94219e"
     },
     {
       "file": "public/assets/factions/v060/crown/rimewatch.png",
       "source": "6bd08dc6b67e2c92c2eb12cfb9fa912822b655bcb3279dc3116b7a35574baa4b",
-      "main": null
+      "main": "6bd08dc6b67e2c92c2eb12cfb9fa912822b655bcb3279dc3116b7a35574baa4b"
     },
     {
       "file": "public/assets/factions/v060/crown/roseguard.glb.gz",
       "source": "35abe0fb745a9fccf7727db73dc3ab18de45b1d48e18546451c9b750553641fd",
-      "main": null
+      "main": "35abe0fb745a9fccf7727db73dc3ab18de45b1d48e18546451c9b750553641fd"
     },
     {
       "file": "public/assets/factions/v060/crown/roseguard.png",
       "source": "00a86c579cb49a28f6103202fcdcf081245d29ebbc995692cd08682207300029",
-      "main": null
+      "main": "00a86c579cb49a28f6103202fcdcf081245d29ebbc995692cd08682207300029"
     },
     {
       "file": "public/assets/factions/v060/crown/royalarsenal.glb.gz",
       "source": "d7896d36c3f5c5cd5ecb38bc4956355ae948c867193e76639ce198d765a0c56f",
-      "main": null
+      "main": "d7896d36c3f5c5cd5ecb38bc4956355ae948c867193e76639ce198d765a0c56f"
     },
     {
       "file": "public/assets/factions/v060/crown/royalarsenal.png",
       "source": "30f7f01d5a6c33a154bd9c44aefcccf7f88c0a2334a8455006d82fb3d4d826aa",
-      "main": null
+      "main": "30f7f01d5a6c33a154bd9c44aefcccf7f88c0a2334a8455006d82fb3d4d826aa"
     },
     {
       "file": "public/assets/factions/v060/crown/royalmarshal.glb.gz",
       "source": "665b6ce2b997e100065bc7cddd4942602436e622e955d571530f846f8690d1e8",
-      "main": null
+      "main": "665b6ce2b997e100065bc7cddd4942602436e622e955d571530f846f8690d1e8"
     },
     {
       "file": "public/assets/factions/v060/crown/royalmarshal.png",
       "source": "1cb4eda8586e745d1fe7c6adfe93358f0598ba182097d3ba2e72a200715e7f8b",
-      "main": null
+      "main": "1cb4eda8586e745d1fe7c6adfe93358f0598ba182097d3ba2e72a200715e7f8b"
     },
     {
       "file": "public/assets/factions/v060/crown/royalranger.glb.gz",
       "source": "8603d46282df29bf2b7ff319fbd0bee6684349632e95495d4f7f302214d2dd64",
-      "main": null
+      "main": "8603d46282df29bf2b7ff319fbd0bee6684349632e95495d4f7f302214d2dd64"
     },
     {
       "file": "public/assets/factions/v060/crown/royalranger.png",
       "source": "98107c4ab20e317c5dde823d38e2e141ec77da1c489f8934b455f3b495c8ccf7",
-      "main": null
+      "main": "98107c4ab20e317c5dde823d38e2e141ec77da1c489f8934b455f3b495c8ccf7"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-1.glb.gz",
       "source": "2a7f9132ce753e3445c6a585a36c6808e29791d40c5fed8ab6c358fbc9e605a1",
-      "main": null
+      "main": "2a7f9132ce753e3445c6a585a36c6808e29791d40c5fed8ab6c358fbc9e605a1"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-1.png",
       "source": "e43ba03e64266a4a1db0a32136db0ee9d7a8e6e56e69904592be19cf161e9461",
-      "main": null
+      "main": "e43ba03e64266a4a1db0a32136db0ee9d7a8e6e56e69904592be19cf161e9461"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-2.glb.gz",
       "source": "c6fe50c39cdd6d905bf9fdda0b2a60a411aca7add8fef06947585107273c6fb1",
-      "main": null
+      "main": "c6fe50c39cdd6d905bf9fdda0b2a60a411aca7add8fef06947585107273c6fb1"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-2.png",
       "source": "d82b82d21db4ccaa1bd144a1e0147113bc194dd6a47d2ab03f607935e931babd",
-      "main": null
+      "main": "d82b82d21db4ccaa1bd144a1e0147113bc194dd6a47d2ab03f607935e931babd"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-3.glb.gz",
       "source": "048b3d821651e2fb6375897ac7e298527103249970bbae857a0cc901fafa046e",
-      "main": null
+      "main": "048b3d821651e2fb6375897ac7e298527103249970bbae857a0cc901fafa046e"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-3.png",
       "source": "0be2d7ae75edd248e8609eb39cb7f5fdf0f058bfdfd506875dc4765c7d90dee9",
-      "main": null
+      "main": "0be2d7ae75edd248e8609eb39cb7f5fdf0f058bfdfd506875dc4765c7d90dee9"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-4.glb.gz",
       "source": "f7e55f502d738f90dcd11877a737218ff25107a334ca2a53456660550cc1c0f9",
-      "main": null
+      "main": "f7e55f502d738f90dcd11877a737218ff25107a334ca2a53456660550cc1c0f9"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-4.png",
       "source": "6fc55672f41dc5e0badebb3c3c7e282b0961a0d9d0d51771a2290ec7d7e83bb4",
-      "main": null
+      "main": "6fc55672f41dc5e0badebb3c3c7e282b0961a0d9d0d51771a2290ec7d7e83bb4"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-5.glb.gz",
       "source": "6b13310ad5b4cecdcf8c5bda02bb37a0265645712b81cfb88c828c8643b6f3f3",
-      "main": null
+      "main": "6b13310ad5b4cecdcf8c5bda02bb37a0265645712b81cfb88c828c8643b6f3f3"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-5.png",
       "source": "3c47c74800ff1ace2789b8445870a5311bebc3ab968b0f6a74a77b7663764acc",
-      "main": null
+      "main": "3c47c74800ff1ace2789b8445870a5311bebc3ab968b0f6a74a77b7663764acc"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-6.glb.gz",
       "source": "badf537a596f65ea60c68d91ff9b639d4a5da609d6f55b51631783ecdfcae09e",
-      "main": null
+      "main": "badf537a596f65ea60c68d91ff9b639d4a5da609d6f55b51631783ecdfcae09e"
     },
     {
       "file": "public/assets/factions/v060/crown/runebreaker-6.png",
       "source": "e70dd970c4576a78b140bdbf0d231223a05f2a63f09516bcfcb5fe25818f899b",
-      "main": null
+      "main": "e70dd970c4576a78b140bdbf0d231223a05f2a63f09516bcfcb5fe25818f899b"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-1.glb.gz",
       "source": "2665f2b49278d222d8fa78f38c649162cbbec5a402273b116d412ea4c06d1744",
-      "main": null
+      "main": "2665f2b49278d222d8fa78f38c649162cbbec5a402273b116d412ea4c06d1744"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-1.png",
       "source": "4c515f5b2d256fc1c98f9a23d9a094a2bb4cb3f285c64ed2dd944f2c1e7a7e06",
-      "main": null
+      "main": "4c515f5b2d256fc1c98f9a23d9a094a2bb4cb3f285c64ed2dd944f2c1e7a7e06"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-2.glb.gz",
       "source": "5c56967268aa993a7845cc58c26a184d4ccbf4adb14c702e73a19c68afab2abc",
-      "main": null
+      "main": "5c56967268aa993a7845cc58c26a184d4ccbf4adb14c702e73a19c68afab2abc"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-2.png",
       "source": "476087344df75461f1cd348eb8205cacaa83be800e58408668363a7cf3bf04ed",
-      "main": null
+      "main": "476087344df75461f1cd348eb8205cacaa83be800e58408668363a7cf3bf04ed"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-3.glb.gz",
       "source": "c3e575eb8ed78ded973e0d4f627c1131fcc2a6f774f8dbfe0ad89bac95e3ad25",
-      "main": null
+      "main": "c3e575eb8ed78ded973e0d4f627c1131fcc2a6f774f8dbfe0ad89bac95e3ad25"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-3.png",
       "source": "9da0bdbdeb2573bc551e84db467402ba55ff184d19fa23da76f01a2f5b472d49",
-      "main": null
+      "main": "9da0bdbdeb2573bc551e84db467402ba55ff184d19fa23da76f01a2f5b472d49"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-4.glb.gz",
       "source": "0f9caa468c2b13e9fd6a2b24df2ceb6537e7c6738d0cc3b3ca30c4303eda0b63",
-      "main": null
+      "main": "0f9caa468c2b13e9fd6a2b24df2ceb6537e7c6738d0cc3b3ca30c4303eda0b63"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-4.png",
       "source": "3759528ca2d11f89a5eb445fa9ba97dc9ce7c85de4bfc0cd55b369e58e244a06",
-      "main": null
+      "main": "3759528ca2d11f89a5eb445fa9ba97dc9ce7c85de4bfc0cd55b369e58e244a06"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-5.glb.gz",
       "source": "671f2dda435059a58f196bb91072f9968e99d5f9ed16cc01504b7164e6d6c60f",
-      "main": null
+      "main": "671f2dda435059a58f196bb91072f9968e99d5f9ed16cc01504b7164e6d6c60f"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-5.png",
       "source": "b7a541534a76ef6d984ffe311b75680468811696e107c746a102fd5a82dd66cb",
-      "main": null
+      "main": "b7a541534a76ef6d984ffe311b75680468811696e107c746a102fd5a82dd66cb"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-6.glb.gz",
       "source": "47dfa906620f8063bd71488084daa2c50b47b94912cb7332e97006d0154aa94f",
-      "main": null
+      "main": "47dfa906620f8063bd71488084daa2c50b47b94912cb7332e97006d0154aa94f"
     },
     {
       "file": "public/assets/factions/v060/crown/soldier-6.png",
       "source": "8fcd3c2c2cb36a28bf3bc21babd04920c1cd500308f561f10dccaea5bda3cb0e",
-      "main": null
+      "main": "8fcd3c2c2cb36a28bf3bc21babd04920c1cd500308f561f10dccaea5bda3cb0e"
     },
     {
       "file": "public/assets/factions/v060/crown/starfall.glb.gz",
       "source": "1a45d352a9dda8d654f563a254e4586572e8a8f7eb1b91d887178e5db90a79b4",
-      "main": null
+      "main": "1a45d352a9dda8d654f563a254e4586572e8a8f7eb1b91d887178e5db90a79b4"
     },
     {
       "file": "public/assets/factions/v060/crown/starfall.png",
       "source": "f8ff3d9573d69ff42305d355296d064eafa4cfd96edb878ce0e95d06008f5a0d",
-      "main": null
+      "main": "f8ff3d9573d69ff42305d355296d064eafa4cfd96edb878ce0e95d06008f5a0d"
     },
     {
       "file": "public/assets/factions/v060/crown/stonewarden.glb.gz",
       "source": "b6bd1eb35fe3df021f88fb6de03dea687ad328a42b3de8f766c83571adc87e5e",
-      "main": null
+      "main": "b6bd1eb35fe3df021f88fb6de03dea687ad328a42b3de8f766c83571adc87e5e"
     },
     {
       "file": "public/assets/factions/v060/crown/stonewarden.png",
       "source": "e951c158a1da7e731e24933a33864ad32459f2c3d59e70fbd21ef0c63c4386ad",
-      "main": null
+      "main": "e951c158a1da7e731e24933a33864ad32459f2c3d59e70fbd21ef0c63c4386ad"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-1.glb.gz",
       "source": "13233db0afd6f32704c2d41f33ea4be2d887d9b25749c2b4d84c801d51821ff5",
-      "main": null
+      "main": "13233db0afd6f32704c2d41f33ea4be2d887d9b25749c2b4d84c801d51821ff5"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-1.png",
       "source": "9e9299e05fda77d6bcbd2c395ff76071ec8ce30a9d8a3abc4f48a21903f1e9eb",
-      "main": null
+      "main": "9e9299e05fda77d6bcbd2c395ff76071ec8ce30a9d8a3abc4f48a21903f1e9eb"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-2.glb.gz",
       "source": "c683090e34ddef13964bed3d328016b5897bbaf4063e0042820dde34cac07cec",
-      "main": null
+      "main": "c683090e34ddef13964bed3d328016b5897bbaf4063e0042820dde34cac07cec"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-2.png",
       "source": "fe3c7cf8aad0ef2c4455503bcc3fbb4321422cdd7fcb6c8e5d893789a12acddb",
-      "main": null
+      "main": "fe3c7cf8aad0ef2c4455503bcc3fbb4321422cdd7fcb6c8e5d893789a12acddb"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-3.glb.gz",
       "source": "fb4b3bc48a7d53bc722ed13e9c98fcc3c1b518731326d8f302db9458793f11ad",
-      "main": null
+      "main": "fb4b3bc48a7d53bc722ed13e9c98fcc3c1b518731326d8f302db9458793f11ad"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-3.png",
       "source": "6f4d969c213af03f9f9450f47f1782b01e7a67c4a1e2e3d67e47a5c412cc7a3f",
-      "main": null
+      "main": "6f4d969c213af03f9f9450f47f1782b01e7a67c4a1e2e3d67e47a5c412cc7a3f"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-4.glb.gz",
       "source": "a1253de7863fb3b71e52e20063325651040adb1ea912429f6a0c7da8404ed196",
-      "main": null
+      "main": "a1253de7863fb3b71e52e20063325651040adb1ea912429f6a0c7da8404ed196"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-4.png",
       "source": "3aba1de4c446f74ba562974b2608c489e3da6ced9cb93706000557ce6b7d9302",
-      "main": null
+      "main": "3aba1de4c446f74ba562974b2608c489e3da6ced9cb93706000557ce6b7d9302"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-5.glb.gz",
       "source": "c1c35061d71a62b9f06efb2ddddbd7936c967c9c4ef5c5a0d7e5cf25783c8e96",
-      "main": null
+      "main": "c1c35061d71a62b9f06efb2ddddbd7936c967c9c4ef5c5a0d7e5cf25783c8e96"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-5.png",
       "source": "a10c7e1e13775e6e8115a031712c80598e813e4a5e6090b0678e3c0a51b77bb4",
-      "main": null
+      "main": "a10c7e1e13775e6e8115a031712c80598e813e4a5e6090b0678e3c0a51b77bb4"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-6.glb.gz",
       "source": "cb9ae942d939eff46b4f730f0a3b3e0383559b26d7cdcf42653d020d075acd96",
-      "main": null
+      "main": "cb9ae942d939eff46b4f730f0a3b3e0383559b26d7cdcf42653d020d075acd96"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcaller-6.png",
       "source": "c9bd15b846e10de594c6dd1ee2c65e42c0bc69b5e02ddf2e4a6cbf158ae9ade1",
-      "main": null
+      "main": "c9bd15b846e10de594c6dd1ee2c65e42c0bc69b5e02ddf2e4a6cbf158ae9ade1"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcitadel.glb.gz",
       "source": "08a07ac0980b8204bf1f1ab14c4ba44c761d98acb94a21aaafc32c72be744a00",
-      "main": null
+      "main": "08a07ac0980b8204bf1f1ab14c4ba44c761d98acb94a21aaafc32c72be744a00"
     },
     {
       "file": "public/assets/factions/v060/crown/stormcitadel.png",
       "source": "5b3121093f5618541bd40f237482506065fa78d0a679fad422470ebda2ca0c45",
-      "main": null
+      "main": "5b3121093f5618541bd40f237482506065fa78d0a679fad422470ebda2ca0c45"
     },
     {
       "file": "public/assets/factions/v060/crown/sunward.glb.gz",
       "source": "7830d14df104a05dea15fa7dfe94d68d14f4fdc55d042e142b5b89bd3cb6971c",
-      "main": null
+      "main": "7830d14df104a05dea15fa7dfe94d68d14f4fdc55d042e142b5b89bd3cb6971c"
     },
     {
       "file": "public/assets/factions/v060/crown/sunward.png",
       "source": "f70cc2087d97f142accef8876e63372481f2e6dc78ecdcd5b54cdcc49635730e",
-      "main": null
+      "main": "f70cc2087d97f142accef8876e63372481f2e6dc78ecdcd5b54cdcc49635730e"
     },
     {
       "file": "public/assets/factions/v060/crown/tempest.glb.gz",
       "source": "69a689fef42e16b87fd2ce44362e0ed54ac2224cba2a58f2822606507d0d8aab",
-      "main": null
+      "main": "69a689fef42e16b87fd2ce44362e0ed54ac2224cba2a58f2822606507d0d8aab"
     },
     {
       "file": "public/assets/factions/v060/crown/tempest.png",
       "source": "3342b770f8f702f1c1206a70ec5fb2577b42440c31be274140922100e1851f40",
-      "main": null
+      "main": "3342b770f8f702f1c1206a70ec5fb2577b42440c31be274140922100e1851f40"
     },
     {
       "file": "public/assets/factions/v060/crown/thornwarden.glb.gz",
       "source": "4e8a24e9877e04e3f13a066d7056f472a8479e3c6bfd2d972b500e969a90599c",
-      "main": null
+      "main": "4e8a24e9877e04e3f13a066d7056f472a8479e3c6bfd2d972b500e969a90599c"
     },
     {
       "file": "public/assets/factions/v060/crown/thornwarden.png",
       "source": "508bbaee94ad79fb2376d68d75f8f0648a076fec2ec30408b001b9a4fef423e9",
-      "main": null
+      "main": "508bbaee94ad79fb2376d68d75f8f0648a076fec2ec30408b001b9a4fef423e9"
     },
     {
       "file": "public/assets/factions/v060/crown/thunderheart.glb.gz",
       "source": "5c579a54930cdff53f71a77bc81101792d7e13a2cd23362ffba592f0c7298725",
-      "main": null
+      "main": "5c579a54930cdff53f71a77bc81101792d7e13a2cd23362ffba592f0c7298725"
     },
     {
       "file": "public/assets/factions/v060/crown/thunderheart.png",
       "source": "5b93df6d841db8631384b0a8e33f29fdf2cb0c96829652f568348df3983c2feb",
-      "main": null
+      "main": "5b93df6d841db8631384b0a8e33f29fdf2cb0c96829652f568348df3983c2feb"
     },
     {
       "file": "public/assets/factions/v060/crown/verdantguard.glb.gz",
       "source": "eb4031b6d33b81af1e330f61d5d63407fc58296b4c6b3037bd60f8c0d18a2e0f",
-      "main": null
+      "main": "eb4031b6d33b81af1e330f61d5d63407fc58296b4c6b3037bd60f8c0d18a2e0f"
     },
     {
       "file": "public/assets/factions/v060/crown/verdantguard.png",
       "source": "b5bd8a71701657320a9e1aa6c8686300cfe6a8d1f7c2f0f811ef28ba32725267",
-      "main": null
+      "main": "b5bd8a71701657320a9e1aa6c8686300cfe6a8d1f7c2f0f811ef28ba32725267"
     },
     {
       "file": "public/assets/factions/v060/crown/winterhold.glb.gz",
       "source": "0fc28ce34552cfe5b14c1241cb050a8ca2c418c9e001b0f817b0c5356b815556",
-      "main": null
+      "main": "0fc28ce34552cfe5b14c1241cb050a8ca2c418c9e001b0f817b0c5356b815556"
     },
     {
       "file": "public/assets/factions/v060/crown/winterhold.png",
       "source": "6fca4f1d6d8e29310dbe788f7f766b2b54d59d4e69736239eaf42c76c83aa774",
-      "main": null
+      "main": "6fca4f1d6d8e29310dbe788f7f766b2b54d59d4e69736239eaf42c76c83aa774"
     },
     {
       "file": "public/assets/factions/v060/crown/worldfire.glb.gz",
       "source": "751832daf0b5e32d512d3f377b57d663a0cb7cdf5f6d8c507ab1f3ae88d0e051",
-      "main": null
+      "main": "751832daf0b5e32d512d3f377b57d663a0cb7cdf5f6d8c507ab1f3ae88d0e051"
     },
     {
       "file": "public/assets/factions/v060/crown/worldfire.png",
       "source": "a24571849bd7521bf0d0a5e83ac9a24c71735dee07ace0abe4366e1191e84d13",
-      "main": null
+      "main": "a24571849bd7521bf0d0a5e83ac9a24c71735dee07ace0abe4366e1191e84d13"
     },
     {
       "file": "public/assets/factions/v060/crown/wyvernhunter.glb.gz",
       "source": "ec891c3d1459b03e199dd93af158260262b2a5611793714c800ec55dc7b58abf",
-      "main": null
+      "main": "ec891c3d1459b03e199dd93af158260262b2a5611793714c800ec55dc7b58abf"
     },
     {
       "file": "public/assets/factions/v060/crown/wyvernhunter.png",
       "source": "6117c9821730873a15981320d66745ee18d3ea1b0fc5a228ad8ef74aa87f1ffe",
-      "main": null
+      "main": "6117c9821730873a15981320d66745ee18d3ea1b0fc5a228ad8ef74aa87f1ffe"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_ashshield.glb.gz",
       "source": "96e44566b05ddc462d0c76d93bb511d32c5a89b260f1cde849a4728432afd895",
-      "main": null
+      "main": "96e44566b05ddc462d0c76d93bb511d32c5a89b260f1cde849a4728432afd895"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_ashshield.png",
       "source": "d7c8e7c1b95770d28dfdb35c4a7d9842f8cd04db5075ec85baeea7ad581ab071",
-      "main": null
+      "main": "d7c8e7c1b95770d28dfdb35c4a7d9842f8cd04db5075ec85baeea7ad581ab071"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boaravatar.glb.gz",
       "source": "c5d521f3e8d8ff0a148a95b1b0953fb46b3c8ee6ce745c1054cc1ebf9dc31ead",
-      "main": null
+      "main": "c5d521f3e8d8ff0a148a95b1b0953fb46b3c8ee6ce745c1054cc1ebf9dc31ead"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boaravatar.png",
       "source": "5d5442b22eab4f2feaccec3786c2a619bce5e0dd0f239a0beb56ee784003e19c",
-      "main": null
+      "main": "5d5442b22eab4f2feaccec3786c2a619bce5e0dd0f239a0beb56ee784003e19c"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarlancer.glb.gz",
       "source": "36ae3d2ad7a7d942970b3692d7e85305581d0859133ea2bfbda3d6518a5bf6c9",
-      "main": null
+      "main": "36ae3d2ad7a7d942970b3692d7e85305581d0859133ea2bfbda3d6518a5bf6c9"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarlancer.png",
       "source": "d64ac9327a1d24ae0fdc28c5f2c48746443ce4344677c49d1c64eec614b08c45",
-      "main": null
+      "main": "d64ac9327a1d24ae0fdc28c5f2c48746443ce4344677c49d1c64eec614b08c45"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-1.glb.gz",
       "source": "c6bb0c86a3b994725aea9a6412f621ab87d81ea56a19638ccc867a63e35002be",
-      "main": null
+      "main": "c6bb0c86a3b994725aea9a6412f621ab87d81ea56a19638ccc867a63e35002be"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-1.png",
       "source": "223b0cd16b2fc4fe1ab930869409f025445c242736364700b66f8991a6b9eac6",
-      "main": null
+      "main": "223b0cd16b2fc4fe1ab930869409f025445c242736364700b66f8991a6b9eac6"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-2.glb.gz",
       "source": "a5adda4524af4a10ac8378800cda1c38a0e7ff2cc8d78362129b070713a9baf5",
-      "main": null
+      "main": "a5adda4524af4a10ac8378800cda1c38a0e7ff2cc8d78362129b070713a9baf5"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-2.png",
       "source": "3a52bd55b0f745b8f0e3eaadbe7b0f0581b2916a1e0b178b5b18e63e9ac12afc",
-      "main": null
+      "main": "3a52bd55b0f745b8f0e3eaadbe7b0f0581b2916a1e0b178b5b18e63e9ac12afc"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-3.glb.gz",
       "source": "fb819d8df6ccbde380b8b463267c91f604965c7db208ef75b976147542072abb",
-      "main": null
+      "main": "fb819d8df6ccbde380b8b463267c91f604965c7db208ef75b976147542072abb"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-3.png",
       "source": "76d33d5c225e2aedb050d61cbdd1e5d376d9f81087d792d0df676e513c82ed21",
-      "main": null
+      "main": "76d33d5c225e2aedb050d61cbdd1e5d376d9f81087d792d0df676e513c82ed21"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-4.glb.gz",
       "source": "63827d0ce5e8d162d5d9096c5257e92a749f3691002198e38a6c1817269d972a",
-      "main": null
+      "main": "63827d0ce5e8d162d5d9096c5257e92a749f3691002198e38a6c1817269d972a"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-4.png",
       "source": "5a7c769507c878331810af9951996d9aab8ed2b89f8a6db2fff1c1092c76122e",
-      "main": null
+      "main": "5a7c769507c878331810af9951996d9aab8ed2b89f8a6db2fff1c1092c76122e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-5.glb.gz",
       "source": "5ead0f8e4dff1cbf682733dedcc858e4e99889a7fb712b885878a14329516b00",
-      "main": null
+      "main": "5ead0f8e4dff1cbf682733dedcc858e4e99889a7fb712b885878a14329516b00"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-5.png",
       "source": "5efa615fefbbd05137f5a7c48bac2b970e96ba40195c069e7d5917a0313f35fd",
-      "main": null
+      "main": "5efa615fefbbd05137f5a7c48bac2b970e96ba40195c069e7d5917a0313f35fd"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-6.glb.gz",
       "source": "39266314156bee7d4cc597a5a04bedd8ca737fa15daeecc88283589fce9557f6",
-      "main": null
+      "main": "39266314156bee7d4cc597a5a04bedd8ca737fa15daeecc88283589fce9557f6"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarrider-6.png",
       "source": "d8005b1f5f43213e37264a754f27efcafa2691b044279afb60e1a0ae412f880c",
-      "main": null
+      "main": "d8005b1f5f43213e37264a754f27efcafa2691b044279afb60e1a0ae412f880c"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarstandard.glb.gz",
       "source": "63a89759379bd71398326562a580d981fce29486defbcb86f84a14a325ce382f",
-      "main": null
+      "main": "63a89759379bd71398326562a580d981fce29486defbcb86f84a14a325ce382f"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_boarstandard.png",
       "source": "4941474eaf8c25dfc88420f00eb9476f4b88eb41a21188c9f0d23cf423d0ca72",
-      "main": null
+      "main": "4941474eaf8c25dfc88420f00eb9476f4b88eb41a21188c9f0d23cf423d0ca72"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_bombardking.glb.gz",
       "source": "a01ea6b5fecc3b4751b1a8b0d670650cddfcbb1e542eb2c79e3f048eb90f8c13",
-      "main": null
+      "main": "a01ea6b5fecc3b4751b1a8b0d670650cddfcbb1e542eb2c79e3f048eb90f8c13"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_bombardking.png",
       "source": "2f346bac8aca3412ec1f8f8839281a5e2ab40e40ce22e26043c315d2ae164adb",
-      "main": null
+      "main": "2f346bac8aca3412ec1f8f8839281a5e2ab40e40ce22e26043c315d2ae164adb"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_breachorgan.glb.gz",
       "source": "c4d365da6f6a0230a7acd4db555f1f21803bae52911cfad9f7c5134a70559a5d",
-      "main": null
+      "main": "c4d365da6f6a0230a7acd4db555f1f21803bae52911cfad9f7c5134a70559a5d"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_breachorgan.png",
       "source": "a03cae46bf190f8a9e8bb60140249fe4327ccf56805752d290410d9aad44f711",
-      "main": null
+      "main": "a03cae46bf190f8a9e8bb60140249fe4327ccf56805752d290410d9aad44f711"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_bulwarkcaptain.glb.gz",
       "source": "b93d13aee0574bb559e870a7bba3c454063da16afb27dc8b308e32c29ce42394",
-      "main": null
+      "main": "b93d13aee0574bb559e870a7bba3c454063da16afb27dc8b308e32c29ce42394"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_bulwarkcaptain.png",
       "source": "024760c015a282f2819cdfb241a34d7578361c91f08b24336b2352dbb46711ab",
-      "main": null
+      "main": "024760c015a282f2819cdfb241a34d7578361c91f08b24336b2352dbb46711ab"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_cinderhowitzer.glb.gz",
       "source": "02f12e8edbbbc1391f0676dc6ed46db7e961d99fbb4565fff3ae052ebbc24f14",
-      "main": null
+      "main": "02f12e8edbbbc1391f0676dc6ed46db7e961d99fbb4565fff3ae052ebbc24f14"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_cinderhowitzer.png",
       "source": "028d885eedacb05584d67d2ffa9f1e1e85727becdbd20030de4c14b0bb955922",
-      "main": null
+      "main": "028d885eedacb05584d67d2ffa9f1e1e85727becdbd20030de4c14b0bb955922"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_deepdelve.glb.gz",
       "source": "28b0814b2b3cfb38e3fe34e64342cdc2cb6556ae6e1dac4806ec344f3283065f",
-      "main": null
+      "main": "28b0814b2b3cfb38e3fe34e64342cdc2cb6556ae6e1dac4806ec344f3283065f"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_deepdelve.png",
       "source": "321664edc168ea1699f52313a1e0124925fb0050b16d3a4daa9084c171ed9fea",
-      "main": null
+      "main": "321664edc168ea1699f52313a1e0124925fb0050b16d3a4daa9084c171ed9fea"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_dwarship.glb.gz",
       "source": "a1a9ce9f7919e1dbd0703736ef3cad091daf96e375e39a0bac142a8d5f2b29bc",
-      "main": null
+      "main": "a1a9ce9f7919e1dbd0703736ef3cad091daf96e375e39a0bac142a8d5f2b29bc"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_dwarship.png",
       "source": "61b9a0ca516ceb66cc9b2ff9c04c4a0272dcc6c40563c90a7cb5b915901739f8",
-      "main": null
+      "main": "61b9a0ca516ceb66cc9b2ff9c04c4a0272dcc6c40563c90a7cb5b915901739f8"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_emberanvil.glb.gz",
       "source": "bca531c99b7efa1093c89d1c6f63a6b57996590ca4850a4e66c1834d7a4396c8",
-      "main": null
+      "main": "bca531c99b7efa1093c89d1c6f63a6b57996590ca4850a4e66c1834d7a4396c8"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_emberanvil.png",
       "source": "328946552b4bb256d8ff78a5feb50d4c672a1a995b2b114b9b963434426c697b",
-      "main": null
+      "main": "328946552b4bb256d8ff78a5feb50d4c672a1a995b2b114b9b963434426c697b"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-1.glb.gz",
       "source": "d9c46710c262d54b15f70a1c009efeb1dbb5953c748e84d8555aa1ba3e3cca59",
-      "main": null
+      "main": "d9c46710c262d54b15f70a1c009efeb1dbb5953c748e84d8555aa1ba3e3cca59"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-1.png",
       "source": "fbce1b5a862aecb60f986d4fc1ece9b8e0b334afdd62c9aaecb3fc09e7f617e8",
-      "main": null
+      "main": "fbce1b5a862aecb60f986d4fc1ece9b8e0b334afdd62c9aaecb3fc09e7f617e8"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-2.glb.gz",
       "source": "d570af9e8c99c8052cd440cbdd1b053e1da17da22d7e627fb69d37ecbd76934e",
-      "main": null
+      "main": "d570af9e8c99c8052cd440cbdd1b053e1da17da22d7e627fb69d37ecbd76934e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-2.png",
       "source": "b18ff43d39244c9d38e4ad5116d2b6ded9a6e77b7070317314f9e35fb96646c2",
-      "main": null
+      "main": "b18ff43d39244c9d38e4ad5116d2b6ded9a6e77b7070317314f9e35fb96646c2"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-3.glb.gz",
       "source": "99c400cb039513a00b412c02758d9c1912de47f5b78d9714b05c1d88bbb539c6",
-      "main": null
+      "main": "99c400cb039513a00b412c02758d9c1912de47f5b78d9714b05c1d88bbb539c6"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-3.png",
       "source": "7445907890722a7ee9cb7c7b38ee828895a7698202330f10d09ee42027ea1d01",
-      "main": null
+      "main": "7445907890722a7ee9cb7c7b38ee828895a7698202330f10d09ee42027ea1d01"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-4.glb.gz",
       "source": "c8c252c78d57b2d440a5afe37361bdc2747a0084a49f303fac7d4f670713dde1",
-      "main": null
+      "main": "c8c252c78d57b2d440a5afe37361bdc2747a0084a49f303fac7d4f670713dde1"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-4.png",
       "source": "8d4fceb57840e745e1afe2555aed4304b6d53713af3bea87bad0d7932454695a",
-      "main": null
+      "main": "8d4fceb57840e745e1afe2555aed4304b6d53713af3bea87bad0d7932454695a"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-5.glb.gz",
       "source": "73560f6e62264c8949fbff8f48451bad0230071ebebfdc6dbf3ccf62293288f9",
-      "main": null
+      "main": "73560f6e62264c8949fbff8f48451bad0230071ebebfdc6dbf3ccf62293288f9"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-5.png",
       "source": "9b42ffcced3d997342e54d11349a01fc379889a42c80bafbd72430b5b925f7b2",
-      "main": null
+      "main": "9b42ffcced3d997342e54d11349a01fc379889a42c80bafbd72430b5b925f7b2"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-6.glb.gz",
       "source": "f1a281869938a8651ca5ebe1e75d0eae0a3775fb2cffe6c60510c9160910ec9b",
-      "main": null
+      "main": "f1a281869938a8651ca5ebe1e75d0eae0a3775fb2cffe6c60510c9160910ec9b"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_engineer-6.png",
       "source": "10ca052ebe7c0b234cc5ce22347e05c7d618b462cbbca92874679baeeabe76c5",
-      "main": null
+      "main": "10ca052ebe7c0b234cc5ce22347e05c7d618b462cbbca92874679baeeabe76c5"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_firebomber.glb.gz",
       "source": "57800b59a1d7c8f08ab34443c05eb1fe799000d430318b2916b3ca952095ed06",
-      "main": null
+      "main": "57800b59a1d7c8f08ab34443c05eb1fe799000d430318b2916b3ca952095ed06"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_firebomber.png",
       "source": "1f9fa323332dab728c5e23208f300a2f7feb1b7408b781ec236ecf2dea42b604",
-      "main": null
+      "main": "1f9fa323332dab728c5e23208f300a2f7feb1b7408b781ec236ecf2dea42b604"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_flamewarden.glb.gz",
       "source": "8082fa9419074857491e28f3b8529215a55268ecaf0da37ad5dd233460350da8",
-      "main": null
+      "main": "8082fa9419074857491e28f3b8529215a55268ecaf0da37ad5dd233460350da8"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_flamewarden.png",
       "source": "06d492c4841aa315ee770fa89fc019a30742b3e3660f19abfd1881f7f2578537",
-      "main": null
+      "main": "06d492c4841aa315ee770fa89fc019a30742b3e3660f19abfd1881f7f2578537"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_forgeking.glb.gz",
       "source": "f02c46754f35920ce5e4aaa376dc1ca6d5b5c6facecc24b0293b818ab6a15bd2",
-      "main": null
+      "main": "f02c46754f35920ce5e4aaa376dc1ca6d5b5c6facecc24b0293b818ab6a15bd2"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_forgeking.png",
       "source": "8781f706dc5e45c7d62da6987eeee2751bb11f27a57e16766f97cc4ba22c471d",
-      "main": null
+      "main": "8781f706dc5e45c7d62da6987eeee2751bb11f27a57e16766f97cc4ba22c471d"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-1.glb.gz",
       "source": "cfeef974775dd10347ae9c1412c167341a40203dacb4b0f848334731f85e14c4",
-      "main": null
+      "main": "cfeef974775dd10347ae9c1412c167341a40203dacb4b0f848334731f85e14c4"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-1.png",
       "source": "bfa80d1dc481108edb6522a0f2a644ddaca3104e5d98f8be77dd22dc8407302e",
-      "main": null
+      "main": "bfa80d1dc481108edb6522a0f2a644ddaca3104e5d98f8be77dd22dc8407302e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-2.glb.gz",
       "source": "9b4e01ed3575618c6e805f1a140e08e25b446e2fb0bb03ef085391266c049ab9",
-      "main": null
+      "main": "9b4e01ed3575618c6e805f1a140e08e25b446e2fb0bb03ef085391266c049ab9"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-2.png",
       "source": "46e59489a3294266fce3aae7965bb41434afa35c6d7f32c75017411d3daa2de1",
-      "main": null
+      "main": "46e59489a3294266fce3aae7965bb41434afa35c6d7f32c75017411d3daa2de1"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-3.glb.gz",
       "source": "328282a95a0a3c645de600cf4754ee0a44b8bc403cff0b9182805322ac4bd873",
-      "main": null
+      "main": "328282a95a0a3c645de600cf4754ee0a44b8bc403cff0b9182805322ac4bd873"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-3.png",
       "source": "e46f663288d25cb71218fbc5ad1b849349400cba6fc25a3a103c46b5af1e9c2b",
-      "main": null
+      "main": "e46f663288d25cb71218fbc5ad1b849349400cba6fc25a3a103c46b5af1e9c2b"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-4.glb.gz",
       "source": "c953bcfbba348e2bbbe5493fc06761e3551069fb9036e4640c34002ef1fda089",
-      "main": null
+      "main": "c953bcfbba348e2bbbe5493fc06761e3551069fb9036e4640c34002ef1fda089"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-4.png",
       "source": "3fd5fc3dfb62444ca3be03eea7ab0b042febb858e704a89bd7d60bcd16c09656",
-      "main": null
+      "main": "3fd5fc3dfb62444ca3be03eea7ab0b042febb858e704a89bd7d60bcd16c09656"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-5.glb.gz",
       "source": "001981d8cc87fbb0451d0db5e70505afd60e51c5fde84d293071a13f5d2f1941",
-      "main": null
+      "main": "001981d8cc87fbb0451d0db5e70505afd60e51c5fde84d293071a13f5d2f1941"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-5.png",
       "source": "cd3c11773c1688c2dfd36893fccb1fb841ac044e439c6584a4b096c7f77b8399",
-      "main": null
+      "main": "cd3c11773c1688c2dfd36893fccb1fb841ac044e439c6584a4b096c7f77b8399"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-6.glb.gz",
       "source": "a910ca371b00ff5d46dd7c3cd64927fc40c1399312fb42f7032bd6e0cd29de45",
-      "main": null
+      "main": "a910ca371b00ff5d46dd7c3cd64927fc40c1399312fb42f7032bd6e0cd29de45"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_furnacetender-6.png",
       "source": "7e2cfb1aafebdd8dd3e8ac129e0948a4d2c979ed0241788779720bb6956ccb6e",
-      "main": null
+      "main": "7e2cfb1aafebdd8dd3e8ac129e0948a4d2c979ed0241788779720bb6956ccb6e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_fuserunner.glb.gz",
       "source": "4e2b26e35a60d5c554baf7ba1b7ca1b55172dc2446b038222212ba7bee8798ae",
-      "main": null
+      "main": "4e2b26e35a60d5c554baf7ba1b7ca1b55172dc2446b038222212ba7bee8798ae"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_fuserunner.png",
       "source": "9afcc4b20135a4c115ad0e6036b48a377f1d3ca58e6d076c0da0a21a2470c5bd",
-      "main": null
+      "main": "9afcc4b20135a4c115ad0e6036b48a377f1d3ca58e6d076c0da0a21a2470c5bd"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_goreback.glb.gz",
       "source": "c7486e5e6ad6f33cc0c75fbed0ce7bb8746ae3daf2f174704825df76b8fe224e",
-      "main": null
+      "main": "c7486e5e6ad6f33cc0c75fbed0ce7bb8746ae3daf2f174704825df76b8fe224e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_goreback.png",
       "source": "4531c3109f413ea738b126dfad28a559d276b21041dd97b189df2cdbbfe6be8b",
-      "main": null
+      "main": "4531c3109f413ea738b126dfad28a559d276b21041dd97b189df2cdbbfe6be8b"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grapeshotcart.glb.gz",
       "source": "e16c1cbf5dff97c4fe70e9043b8aaacd8901f833bfa556b3c53b1b2de22e513e",
-      "main": null
+      "main": "e16c1cbf5dff97c4fe70e9043b8aaacd8901f833bfa556b3c53b1b2de22e513e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grapeshotcart.png",
       "source": "e542f82f99cd09454fb50921f74f0956bfa03235780f0c854729a514c1eea0a8",
-      "main": null
+      "main": "e542f82f99cd09454fb50921f74f0956bfa03235780f0c854729a514c1eea0a8"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-1.glb.gz",
       "source": "afc9cd82409cd627703df8000755c285bc8757b6eb766768c908d0a4f828aacd",
-      "main": null
+      "main": "afc9cd82409cd627703df8000755c285bc8757b6eb766768c908d0a4f828aacd"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-1.png",
       "source": "aa901471d816ffec6a7c88b4a4b8fcc28505c8f5ebb13d90ee27d1ff99943586",
-      "main": null
+      "main": "aa901471d816ffec6a7c88b4a4b8fcc28505c8f5ebb13d90ee27d1ff99943586"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-2.glb.gz",
       "source": "b5b4a24c3ddd14052ecbe35da5c4cf6c4e24084c423b9e94fb69cad74c5ee878",
-      "main": null
+      "main": "b5b4a24c3ddd14052ecbe35da5c4cf6c4e24084c423b9e94fb69cad74c5ee878"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-2.png",
       "source": "0b7ba4d7e547d47b5b57f8a4275cec013d3c4f92acd010037b28b937101cfe5d",
-      "main": null
+      "main": "0b7ba4d7e547d47b5b57f8a4275cec013d3c4f92acd010037b28b937101cfe5d"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-3.glb.gz",
       "source": "603770911d02abd94857028f6d04bdd128d83a1df62ec74fd89aa8f3d3063610",
-      "main": null
+      "main": "603770911d02abd94857028f6d04bdd128d83a1df62ec74fd89aa8f3d3063610"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-3.png",
       "source": "09bdd5f8e143eb6cbd02ee0bebe6d920e2e87f51707af4af195c61475fed575f",
-      "main": null
+      "main": "09bdd5f8e143eb6cbd02ee0bebe6d920e2e87f51707af4af195c61475fed575f"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-4.glb.gz",
       "source": "bc68f1f731b9af1309566755e02d7cff435b5f9083966f11b01e16134d743141",
-      "main": null
+      "main": "bc68f1f731b9af1309566755e02d7cff435b5f9083966f11b01e16134d743141"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-4.png",
       "source": "4ab04fdf77da4047e6664163d68e0d31a6e97af448c70240419bc62c8cae1edf",
-      "main": null
+      "main": "4ab04fdf77da4047e6664163d68e0d31a6e97af448c70240419bc62c8cae1edf"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-5.glb.gz",
       "source": "c53b9aa4e80b82e9caae7dad5319f509b8949eaace72407a2edd622f5a5ccd0a",
-      "main": null
+      "main": "c53b9aa4e80b82e9caae7dad5319f509b8949eaace72407a2edd622f5a5ccd0a"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-5.png",
       "source": "652be79cfeb48c9a6f31255597723ff09747a93c121482775440664b394abd4e",
-      "main": null
+      "main": "652be79cfeb48c9a6f31255597723ff09747a93c121482775440664b394abd4e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-6.glb.gz",
       "source": "2e5ef015d61bcc2b67602983bd67c7c8f5657a9c7e5f3b60c48836d0dbe7e0eb",
-      "main": null
+      "main": "2e5ef015d61bcc2b67602983bd67c7c8f5657a9c7e5f3b60c48836d0dbe7e0eb"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_grenadier-6.png",
       "source": "52a6182480d6c2b9d8fde874073f55f3e5cb9c7ba1b82de57af1685c6ec979a8",
-      "main": null
+      "main": "52a6182480d6c2b9d8fde874073f55f3e5cb9c7ba1b82de57af1685c6ec979a8"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinbomber.glb.gz",
       "source": "e8e48227a0b78706e19af15dde462255bcab4d048063e7df5b416a0e9a2a94cc",
-      "main": null
+      "main": "e8e48227a0b78706e19af15dde462255bcab4d048063e7df5b416a0e9a2a94cc"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinbomber.png",
       "source": "c1d401ef2231b55e15e4460183e99d6764e501f5628dac2c8e4d932ccb601cbf",
-      "main": null
+      "main": "c1d401ef2231b55e15e4460183e99d6764e501f5628dac2c8e4d932ccb601cbf"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-1.glb.gz",
       "source": "dd50a6a612e5ac3891fcb2a9b530629fb901dea188a375cc75a0af6e8987ef22",
-      "main": null
+      "main": "dd50a6a612e5ac3891fcb2a9b530629fb901dea188a375cc75a0af6e8987ef22"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-1.png",
       "source": "828f60e6c9b201d6af7023e9523b212dd1af53a64b12f95b1c4396c6575777df",
-      "main": null
+      "main": "828f60e6c9b201d6af7023e9523b212dd1af53a64b12f95b1c4396c6575777df"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-2.glb.gz",
       "source": "9f41fe49ff52b8efb308f12d0b098c99c79cb2db734ddc637b67b3ff1acc83af",
-      "main": null
+      "main": "9f41fe49ff52b8efb308f12d0b098c99c79cb2db734ddc637b67b3ff1acc83af"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-2.png",
       "source": "b8e5fc17c11612cce253beb41d7c7639c24a8f7fd1938cd9030d1e3044be16e7",
-      "main": null
+      "main": "b8e5fc17c11612cce253beb41d7c7639c24a8f7fd1938cd9030d1e3044be16e7"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-3.glb.gz",
       "source": "3d2da6081567f49a3c64dd63d26bb7b3263dfcaf9162b32d21ed24b15e8d0ad7",
-      "main": null
+      "main": "3d2da6081567f49a3c64dd63d26bb7b3263dfcaf9162b32d21ed24b15e8d0ad7"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-3.png",
       "source": "13d13c07ee98d1ebb3ca5735d82c8ace6c3aa229520790433f51be1a9d8de20c",
-      "main": null
+      "main": "13d13c07ee98d1ebb3ca5735d82c8ace6c3aa229520790433f51be1a9d8de20c"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-4.glb.gz",
       "source": "c28e62e50e975dd1dbec6371df6eeb6c7f18da5ec3e4e1fe14f6235c9544630d",
-      "main": null
+      "main": "c28e62e50e975dd1dbec6371df6eeb6c7f18da5ec3e4e1fe14f6235c9544630d"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-4.png",
       "source": "38069dd94aad1d05a4ad0cfcce1795c43f150ed4faae6577d2de419e48c57c3c",
-      "main": null
+      "main": "38069dd94aad1d05a4ad0cfcce1795c43f150ed4faae6577d2de419e48c57c3c"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-5.glb.gz",
       "source": "da8acf46d16c89a2e8948de47a80f83e94c410ac0bd343dcf445e7abdde92131",
-      "main": null
+      "main": "da8acf46d16c89a2e8948de47a80f83e94c410ac0bd343dcf445e7abdde92131"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-5.png",
       "source": "1f81fb46a82049f9bf75331ae9fe7e9aaa0b2bc41bb1e8c2c485115590f751ac",
-      "main": null
+      "main": "1f81fb46a82049f9bf75331ae9fe7e9aaa0b2bc41bb1e8c2c485115590f751ac"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-6.glb.gz",
       "source": "881e2b7e8b81454229c703455a08a0138277819951380031d05a9e8b970f9fdd",
-      "main": null
+      "main": "881e2b7e8b81454229c703455a08a0138277819951380031d05a9e8b970f9fdd"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinhandler-6.png",
       "source": "4d87ec3409b869776a0b961710418ccaa7ef736f23343e64dc1d5f27a24b0172",
-      "main": null
+      "main": "4d87ec3409b869776a0b961710418ccaa7ef736f23343e64dc1d5f27a24b0172"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinscout.glb.gz",
       "source": "d668e78eef35d165f468e8a8d5cdaee1d7d02ee3b3e23e87818f372accbf6290",
-      "main": null
+      "main": "d668e78eef35d165f468e8a8d5cdaee1d7d02ee3b3e23e87818f372accbf6290"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_griffinscout.png",
       "source": "b860c4b34abfd317c27f3546205f1a5d629b62d376e2178f20c50c68703b6733",
-      "main": null
+      "main": "b860c4b34abfd317c27f3546205f1a5d629b62d376e2178f20c50c68703b6733"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_highthane.glb.gz",
       "source": "99a712c621e11890c567b081afaaa1cfaefa137f660e4be42ab3cc98fae2cda0",
-      "main": null
+      "main": "99a712c621e11890c567b081afaaa1cfaefa137f660e4be42ab3cc98fae2cda0"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_highthane.png",
       "source": "3521813b2fb9107f14d0be9882faae557a6d01c8c19e8fc796b149171a3ff965",
-      "main": null
+      "main": "3521813b2fb9107f14d0be9882faae557a6d01c8c19e8fc796b149171a3ff965"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_ironclad.glb.gz",
       "source": "d62657c2f941ff6040c92ac73af2d57ded9c987d10972ef6a53c5a9ae3347785",
-      "main": null
+      "main": "d62657c2f941ff6040c92ac73af2d57ded9c987d10972ef6a53c5a9ae3347785"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_ironclad.png",
       "source": "846873a5b32174df45180609a3862f3b012e36a2417db2452bd6bc963ab84e2a",
-      "main": null
+      "main": "846873a5b32174df45180609a3862f3b012e36a2417db2452bd6bc963ab84e2a"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_ironstorm.glb.gz",
       "source": "fef4fe328fb3629dff39854c85a6518af80ab9ecac4342af29bc0337557ed814",
-      "main": null
+      "main": "fef4fe328fb3629dff39854c85a6518af80ab9ecac4342af29bc0337557ed814"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_ironstorm.png",
       "source": "1e4476e4c09e3b64ba3c117f3b83beb36440afbd0169d6f1eb5b69ce3308fcd4",
-      "main": null
+      "main": "1e4476e4c09e3b64ba3c117f3b83beb36440afbd0169d6f1eb5b69ce3308fcd4"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_ironwarden.glb.gz",
       "source": "5b5adb28fa5591b9be75a382df65eed8651c21eb5a21f4c435d60829a4e1868e",
-      "main": null
+      "main": "5b5adb28fa5591b9be75a382df65eed8651c21eb5a21f4c435d60829a4e1868e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_ironwarden.png",
       "source": "c7ea4c76e1d867db199f70e7c6f3344890a9a41c8bc828bf6c296dd1e0c3923e",
-      "main": null
+      "main": "c7ea4c76e1d867db199f70e7c6f3344890a9a41c8bc828bf6c296dd1e0c3923e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_longrifle.glb.gz",
       "source": "009d7aa8d1ee47e8cf8a16ff7bac1c450f508784f205fa443bca4fdff63b8137",
-      "main": null
+      "main": "009d7aa8d1ee47e8cf8a16ff7bac1c450f508784f205fa443bca4fdff63b8137"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_longrifle.png",
       "source": "28e7310e61492e3eead7af918ad27d4b9a72c2934b8360a95002ca0409f0a45a",
-      "main": null
+      "main": "28e7310e61492e3eead7af918ad27d4b9a72c2934b8360a95002ca0409f0a45a"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-1.glb.gz",
       "source": "f934bee8af7901b7c3f67dbc968732c9afffa3613cdcea6f438e1cb0c88fccaf",
-      "main": null
+      "main": "f934bee8af7901b7c3f67dbc968732c9afffa3613cdcea6f438e1cb0c88fccaf"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-1.png",
       "source": "db4812246f651fcb066f991f5277d2716952947b5a9e7cb5f4da610cca8f1a6c",
-      "main": null
+      "main": "db4812246f651fcb066f991f5277d2716952947b5a9e7cb5f4da610cca8f1a6c"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-2.glb.gz",
       "source": "1ae42f2c3061cb8d0df8b7ff65d4321fafac7b001db8acd62cd474490f65b2de",
-      "main": null
+      "main": "1ae42f2c3061cb8d0df8b7ff65d4321fafac7b001db8acd62cd474490f65b2de"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-2.png",
       "source": "4a25cd9695dabe6829ee8e906b5dd7e6e70787f26926ef3e8c39ec4fe13f5e4b",
-      "main": null
+      "main": "4a25cd9695dabe6829ee8e906b5dd7e6e70787f26926ef3e8c39ec4fe13f5e4b"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-3.glb.gz",
       "source": "3c7a764567b966d1c8f792059c50de1b69add613693d0180c052cfe6b8965926",
-      "main": null
+      "main": "3c7a764567b966d1c8f792059c50de1b69add613693d0180c052cfe6b8965926"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-3.png",
       "source": "78856bbf7a1e5367d4a43c5b21509249390ed994cd40f8e4d7fdd6e63b0c27ed",
-      "main": null
+      "main": "78856bbf7a1e5367d4a43c5b21509249390ed994cd40f8e4d7fdd6e63b0c27ed"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-4.glb.gz",
       "source": "3697633ab5f0f1985b09033ce8d94a3e599f034caedd91edcaf4b883cd83dade",
-      "main": null
+      "main": "3697633ab5f0f1985b09033ce8d94a3e599f034caedd91edcaf4b883cd83dade"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-4.png",
       "source": "af13434e36684af1bd3030da574d1215a036a45dc45f1e965e2a3890b88ab7c0",
-      "main": null
+      "main": "af13434e36684af1bd3030da574d1215a036a45dc45f1e965e2a3890b88ab7c0"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-5.glb.gz",
       "source": "d8adcf1e5d8c6022ab3526d7906a3690d461ddf29b757ce657e809626718e771",
-      "main": null
+      "main": "d8adcf1e5d8c6022ab3526d7906a3690d461ddf29b757ce657e809626718e771"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-5.png",
       "source": "b97906bc68a6f396f717d665fb85f7bcc552b3b9523e790d877509a261d52581",
-      "main": null
+      "main": "b97906bc68a6f396f717d665fb85f7bcc552b3b9523e790d877509a261d52581"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-6.glb.gz",
       "source": "c35920fdbc7f733c391a16b55cef7010d91b734b239100db355ae0f2185aa4a4",
-      "main": null
+      "main": "c35920fdbc7f733c391a16b55cef7010d91b734b239100db355ae0f2185aa4a4"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_musketeer-6.png",
       "source": "74b7b3ec54f057785c1e9e2654f27dd4b55fd0572251e7a9ad715777b9c29754",
-      "main": null
+      "main": "74b7b3ec54f057785c1e9e2654f27dd4b55fd0572251e7a9ad715777b9c29754"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_nullifier.glb.gz",
       "source": "9c0791134361ffa5d2fe0f68ef31db9f34ca5d8c7964524aba1fd621f9d15919",
-      "main": null
+      "main": "9c0791134361ffa5d2fe0f68ef31db9f34ca5d8c7964524aba1fd621f9d15919"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_nullifier.png",
       "source": "10e9489a2cd6cf5ffc785c7d3b93ca8f7b5bebbc57fea49ca3d9d66119d3e424",
-      "main": null
+      "main": "10e9489a2cd6cf5ffc785c7d3b93ca8f7b5bebbc57fea49ca3d9d66119d3e424"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_pressuresmith.glb.gz",
       "source": "bc730b8777e85b23990fd54b5c9ecb940a6eebe042d9c965a8685170567fada4",
-      "main": null
+      "main": "bc730b8777e85b23990fd54b5c9ecb940a6eebe042d9c965a8685170567fada4"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_pressuresmith.png",
       "source": "e055d77c7d7d78d845ed9ddea272e42736f5f950b6132ad58314089895e00762",
-      "main": null
+      "main": "e055d77c7d7d78d845ed9ddea272e42736f5f950b6132ad58314089895e00762"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_repeatercrew.glb.gz",
       "source": "6a43b551de7259b60af61f3351a99c9eb0358d90d14c679500f2d790bf614ba2",
-      "main": null
+      "main": "6a43b551de7259b60af61f3351a99c9eb0358d90d14c679500f2d790bf614ba2"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_repeatercrew.png",
       "source": "4a55f7f5362fb46a1bc66ed7996fed36065992c72bb49b31ab55813602174600",
-      "main": null
+      "main": "4a55f7f5362fb46a1bc66ed7996fed36065992c72bb49b31ab55813602174600"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runemortar.glb.gz",
       "source": "3b954d66b5bad134ff091aaf9e290503b375f5ba97506a186bb9a1be22df0576",
-      "main": null
+      "main": "3b954d66b5bad134ff091aaf9e290503b375f5ba97506a186bb9a1be22df0576"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runemortar.png",
       "source": "c1ffbe5b6af66e2ff177e897ad9b73aed434d8a62ebdfc7d356dd3636a7ddebe",
-      "main": null
+      "main": "c1ffbe5b6af66e2ff177e897ad9b73aed434d8a62ebdfc7d356dd3636a7ddebe"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-1.glb.gz",
       "source": "fe88dca3b136aa404dc8b1b5b4c158861ae0e59db8de89a7882883a02aedddd3",
-      "main": null
+      "main": "fe88dca3b136aa404dc8b1b5b4c158861ae0e59db8de89a7882883a02aedddd3"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-1.png",
       "source": "7bdc8d878849f7bcb0713491cdde680c86622b52816aa6a4aa6c6f9261cce5b5",
-      "main": null
+      "main": "7bdc8d878849f7bcb0713491cdde680c86622b52816aa6a4aa6c6f9261cce5b5"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-2.glb.gz",
       "source": "fbfa9998d06e288f3eb8a31fdb83f91cf8c42809220d5f668c7d13ec3ef26de9",
-      "main": null
+      "main": "fbfa9998d06e288f3eb8a31fdb83f91cf8c42809220d5f668c7d13ec3ef26de9"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-2.png",
       "source": "12bc7d3aae74c6b12272c45c24c611e8df2c5b727440a4c54ec9ab849131646d",
-      "main": null
+      "main": "12bc7d3aae74c6b12272c45c24c611e8df2c5b727440a4c54ec9ab849131646d"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-3.glb.gz",
       "source": "e6e900496e3d65807d3d84cb035ee170d13a36e6a36653280a5f3012ba82d9f6",
-      "main": null
+      "main": "e6e900496e3d65807d3d84cb035ee170d13a36e6a36653280a5f3012ba82d9f6"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-3.png",
       "source": "9495562a9efd61a2d8a69074c55a66a52db7cedd9a1b02848bb2606554e356e0",
-      "main": null
+      "main": "9495562a9efd61a2d8a69074c55a66a52db7cedd9a1b02848bb2606554e356e0"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-4.glb.gz",
       "source": "aa1fa929c2add1cad778f5c626cb7c9e8e2f847f2f63189d2a75a9fb89a135f0",
-      "main": null
+      "main": "aa1fa929c2add1cad778f5c626cb7c9e8e2f847f2f63189d2a75a9fb89a135f0"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-4.png",
       "source": "abb0c5ad5f2435783008163f7a5ed78e0f8195c0929124b7965902a2b385a91e",
-      "main": null
+      "main": "abb0c5ad5f2435783008163f7a5ed78e0f8195c0929124b7965902a2b385a91e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-5.glb.gz",
       "source": "93fafe27bb4ded9a38de08692d732b12c052a50464d7383f9d47979da4657665",
-      "main": null
+      "main": "93fafe27bb4ded9a38de08692d732b12c052a50464d7383f9d47979da4657665"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-5.png",
       "source": "b2a7c939f7a8f959cc6ce9d9a32a447bf9b3a7d2f5914f0550e1693af7710f7f",
-      "main": null
+      "main": "b2a7c939f7a8f959cc6ce9d9a32a447bf9b3a7d2f5914f0550e1693af7710f7f"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-6.glb.gz",
       "source": "e6c63ceee356405ca3b105fbf33028305a8a7b52c792e665065624f7a463cf06",
-      "main": null
+      "main": "e6c63ceee356405ca3b105fbf33028305a8a7b52c792e665065624f7a463cf06"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_runesmith-6.png",
       "source": "9bfb3a3a1c9ea36e516c895b711730c616e6cd6ec2e36d727f4525df37e7ddd5",
-      "main": null
+      "main": "9bfb3a3a1c9ea36e516c895b711730c616e6cd6ec2e36d727f4525df37e7ddd5"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_salvomarshal.glb.gz",
       "source": "58874be59f8b3788bdfe75dd3a7fc4d9c36c07a99f4fb530075f7d8b1967f528",
-      "main": null
+      "main": "58874be59f8b3788bdfe75dd3a7fc4d9c36c07a99f4fb530075f7d8b1967f528"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_salvomarshal.png",
       "source": "da0dfb76d470a699bca2d4d96ddd63c8f176948796264d6e982ac2dd855b84c6",
-      "main": null
+      "main": "da0dfb76d470a699bca2d4d96ddd63c8f176948796264d6e982ac2dd855b84c6"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-1.glb.gz",
       "source": "e42cc0cbccbe10d2167999f4363da7f72a8f750422c7b4be387d98c1e608c510",
-      "main": null
+      "main": "e42cc0cbccbe10d2167999f4363da7f72a8f750422c7b4be387d98c1e608c510"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-1.png",
       "source": "36b798b599b150c5de4d94d7e9d3eadbc8839b7e262b2737221d54446e6d66e1",
-      "main": null
+      "main": "36b798b599b150c5de4d94d7e9d3eadbc8839b7e262b2737221d54446e6d66e1"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-2.glb.gz",
       "source": "69e522bc322e5acae8fe16d129b1ac8797783b6bf206545819d3afa4d0edea69",
-      "main": null
+      "main": "69e522bc322e5acae8fe16d129b1ac8797783b6bf206545819d3afa4d0edea69"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-2.png",
       "source": "b52af7734f34db419ebd5b0d11faddcf0c6b57c7b8d4d8082d792cbe584adb77",
-      "main": null
+      "main": "b52af7734f34db419ebd5b0d11faddcf0c6b57c7b8d4d8082d792cbe584adb77"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-3.glb.gz",
       "source": "1b9ee272805f5f3b46164d349aec4a2eb5cec26a7cc59f65bd06ac4676240b5c",
-      "main": null
+      "main": "1b9ee272805f5f3b46164d349aec4a2eb5cec26a7cc59f65bd06ac4676240b5c"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-3.png",
       "source": "8eabf41a265b9a01587c4fbde5469efc7aded6ca4c4c790b577c8ecb15c95edf",
-      "main": null
+      "main": "8eabf41a265b9a01587c4fbde5469efc7aded6ca4c4c790b577c8ecb15c95edf"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-4.glb.gz",
       "source": "a99239e90a1a15778a91e2aa2bb21e8fe8735476850d61d3ba1b8a6ad834bdbd",
-      "main": null
+      "main": "a99239e90a1a15778a91e2aa2bb21e8fe8735476850d61d3ba1b8a6ad834bdbd"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-4.png",
       "source": "8fa45001e0174443455b9ee9098a95fecb1f2f77b5b3af6fd17618921ccab23f",
-      "main": null
+      "main": "8fa45001e0174443455b9ee9098a95fecb1f2f77b5b3af6fd17618921ccab23f"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-5.glb.gz",
       "source": "1c517875458df57686ceba5b0b870ee619d6e51682057f84dfcf42e44a64bd3d",
-      "main": null
+      "main": "1c517875458df57686ceba5b0b870ee619d6e51682057f84dfcf42e44a64bd3d"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-5.png",
       "source": "f3def5ad4ffcac302c6d83134914f9abcde22123a76a906e21c75b37e4d740b6",
-      "main": null
+      "main": "f3def5ad4ffcac302c6d83134914f9abcde22123a76a906e21c75b37e4d740b6"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-6.glb.gz",
       "source": "cddbdbdf52fda7bef9fb9922265e50d13e2c2fb8b6862b7dc3109c6b897cf2e6",
-      "main": null
+      "main": "cddbdbdf52fda7bef9fb9922265e50d13e2c2fb8b6862b7dc3109c6b897cf2e6"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_shieldguard-6.png",
       "source": "fc63ba9b11fdcb6edfa2fd59bc053e1d6bcb75a175ae7beec2b2b805346fe2c0",
-      "main": null
+      "main": "fc63ba9b11fdcb6edfa2fd59bc053e1d6bcb75a175ae7beec2b2b805346fe2c0"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_skyhook.glb.gz",
       "source": "c401c52b61c30d3791b7eccfeb3f0d831c03bddb70ff456fc2220040c2a563fb",
-      "main": null
+      "main": "c401c52b61c30d3791b7eccfeb3f0d831c03bddb70ff456fc2220040c2a563fb"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_skyhook.png",
       "source": "94101f35b80b97312834e2b6198fbb4a9c60602977a6dfcd153907091a1c5dd7",
-      "main": null
+      "main": "94101f35b80b97312834e2b6198fbb4a9c60602977a6dfcd153907091a1c5dd7"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_steamharpooner.glb.gz",
       "source": "7886b250ab67f5970ab1330133b286970f1ee6fdc26d3926015867c57ae0e78c",
-      "main": null
+      "main": "7886b250ab67f5970ab1330133b286970f1ee6fdc26d3926015867c57ae0e78c"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_steamharpooner.png",
       "source": "fc4a3b6afc4fd2517b1461004c24b0df542b153405133125a7bb1eba1488bde8",
-      "main": null
+      "main": "fc4a3b6afc4fd2517b1461004c24b0df542b153405133125a7bb1eba1488bde8"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_steamrail.glb.gz",
       "source": "3b1303e584e74dcc779b85a7d8158327b071baae4e6bd04a523fc52ac5a7ef7a",
-      "main": null
+      "main": "3b1303e584e74dcc779b85a7d8158327b071baae4e6bd04a523fc52ac5a7ef7a"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_steamrail.png",
       "source": "32a2a35faa7f0803f690dc18bc4f79a4047035e882f4b6926eea0ff1aa850cbd",
-      "main": null
+      "main": "32a2a35faa7f0803f690dc18bc4f79a4047035e882f4b6926eea0ff1aa850cbd"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_talonlord.glb.gz",
       "source": "b88eef3132fa763e9d13aa2c22b78591645bc50e187a492e8bd8b4a9a831fb5c",
-      "main": null
+      "main": "b88eef3132fa763e9d13aa2c22b78591645bc50e187a492e8bd8b4a9a831fb5c"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_talonlord.png",
       "source": "b9bf29084c0ca3ce9bde57b384b210a7355f6fcd89ac78ef2f10df6841672dec",
-      "main": null
+      "main": "b9bf29084c0ca3ce9bde57b384b210a7355f6fcd89ac78ef2f10df6841672dec"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_thunderlock.glb.gz",
       "source": "7705b3eb8e79da1702be900d8e07d1ed320c29152eb247b9cc124ab0dfda379b",
-      "main": null
+      "main": "7705b3eb8e79da1702be900d8e07d1ed320c29152eb247b9cc124ab0dfda379b"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_thunderlock.png",
       "source": "d387bae945e90e347eb3bb2f612af4dd676ef54292137f670ff8e3ae0965e60e",
-      "main": null
+      "main": "d387bae945e90e347eb3bb2f612af4dd676ef54292137f670ff8e3ae0965e60e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_tunnelsapper.glb.gz",
       "source": "ca2605780e90584a0934e751883df545b3429f9c6afb8a468b649bb6f8e2765d",
-      "main": null
+      "main": "ca2605780e90584a0934e751883df545b3429f9c6afb8a468b649bb6f8e2765d"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_tunnelsapper.png",
       "source": "fc8e0dcdfb5fe259cfc609dcf10abc714e77e762565c53dfea27db31132eb897",
-      "main": null
+      "main": "fc8e0dcdfb5fe259cfc609dcf10abc714e77e762565c53dfea27db31132eb897"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_warcaller.glb.gz",
       "source": "1b831211b02377a927d35c3071f1176864183411080faf56ced46ba9bcc0f89e",
-      "main": null
+      "main": "1b831211b02377a927d35c3071f1176864183411080faf56ced46ba9bcc0f89e"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_warcaller.png",
       "source": "35d2b15e6ad38cbe51b294db6b3d2000f4a14b0d97b70ff5a945dc196e0e00d9",
-      "main": null
+      "main": "35d2b15e6ad38cbe51b294db6b3d2000f4a14b0d97b70ff5a945dc196e0e00d9"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_worldanvil.glb.gz",
       "source": "b78394fe9cb5753b1e7e24834cff11432169f2b0a697c9286bea5981e9ce37df",
-      "main": null
+      "main": "b78394fe9cb5753b1e7e24834cff11432169f2b0a697c9286bea5981e9ce37df"
     },
     {
       "file": "public/assets/factions/v060/forge/dw_worldanvil.png",
       "source": "2ec9b226beedf29f55ffd6bf798ee17fda8f5ad92b19e53199c2eba59258ca6f",
-      "main": null
+      "main": "2ec9b226beedf29f55ffd6bf798ee17fda8f5ad92b19e53199c2eba59258ca6f"
     },
     {
       "file": "public/assets/factions/v060/forge/ladyclaire.glb.gz",
       "source": "b1633e1f1342f9894de7d0b45263a3b81b29a7f0ac8f59f0d8c562f2c0797d49",
-      "main": null
+      "main": "b1633e1f1342f9894de7d0b45263a3b81b29a7f0ac8f59f0d8c562f2c0797d49"
     },
     {
       "file": "public/assets/factions/v060/forge/ladyclaire.png",
       "source": "56b169de6f73a68e9e3da2f2b1bec8db47ab66c0bb51a1a87a579d8fd1be0c7b",
-      "main": null
+      "main": "56b169de6f73a68e9e3da2f2b1bec8db47ab66c0bb51a1a87a579d8fd1be0c7b"
     },
     {
       "file": "public/assets/factions/v060/grove/el_ancient_patriarch.glb.gz",
       "source": "f32af0dc79cbae0978f65964aa9aff5402f53e67d536c6410c264ec9c32787d3",
-      "main": null
+      "main": "f32af0dc79cbae0978f65964aa9aff5402f53e67d536c6410c264ec9c32787d3"
     },
     {
       "file": "public/assets/factions/v060/grove/el_ancient_patriarch.png",
       "source": "64d61a8d1b5087febdbdbac2940d7636b1544118b2f86886724fa5fcc0bfde32",
-      "main": null
+      "main": "64d61a8d1b5087febdbdbac2940d7636b1544118b2f86886724fa5fcc0bfde32"
     },
     {
       "file": "public/assets/factions/v060/grove/el_baby_fire_dragon.glb.gz",
       "source": "cb193f4e2afd5334f71321c8ab5ffff630ba4eb1feba53e63105e0e7a3ea78d9",
-      "main": null
+      "main": "cb193f4e2afd5334f71321c8ab5ffff630ba4eb1feba53e63105e0e7a3ea78d9"
     },
     {
       "file": "public/assets/factions/v060/grove/el_baby_fire_dragon.png",
       "source": "bb6a46f2cc3cea3e6631e74f67a80d397f15bd562b035aa0a7f2b01e784a3f01",
-      "main": null
+      "main": "bb6a46f2cc3cea3e6631e74f67a80d397f15bd562b035aa0a7f2b01e784a3f01"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-1.glb.gz",
       "source": "bee798afa2ce535deab30c5e734a0a7b4d9056336b975231706c9899e73ccbed",
-      "main": null
+      "main": "bee798afa2ce535deab30c5e734a0a7b4d9056336b975231706c9899e73ccbed"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-1.png",
       "source": "a1b3704981d890cd213f9abd1821cfac2b7a2b5277a467535491567e8b6de9be",
-      "main": null
+      "main": "a1b3704981d890cd213f9abd1821cfac2b7a2b5277a467535491567e8b6de9be"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-2.glb.gz",
       "source": "46d694d5711bb77debbd31e33b907fdf85f9d8e1e184a86ea1c877350ed54c6f",
-      "main": null
+      "main": "46d694d5711bb77debbd31e33b907fdf85f9d8e1e184a86ea1c877350ed54c6f"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-2.png",
       "source": "c42ef0eee0ccebd946c3c8aa52a259234c72b77bece42526ec9e3543f13ff790",
-      "main": null
+      "main": "c42ef0eee0ccebd946c3c8aa52a259234c72b77bece42526ec9e3543f13ff790"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-3.glb.gz",
       "source": "1ad84f464935b5547b9536f219cd3a809878ff73e85ab8416d59aea20d593b4c",
-      "main": null
+      "main": "1ad84f464935b5547b9536f219cd3a809878ff73e85ab8416d59aea20d593b4c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-3.png",
       "source": "4c4f6eb9769a1e2849ec6b9596751c2d4f43e845ec96f6b6b1d77f5b0290bff6",
-      "main": null
+      "main": "4c4f6eb9769a1e2849ec6b9596751c2d4f43e845ec96f6b6b1d77f5b0290bff6"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-4.glb.gz",
       "source": "c6d4c19a450eaa290f70dbd1bad078e0afac3e9086a00d6953e458f960f39216",
-      "main": null
+      "main": "c6d4c19a450eaa290f70dbd1bad078e0afac3e9086a00d6953e458f960f39216"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-4.png",
       "source": "ec182be842ba11ae6a4d5b12750fcbbf8583e36a62cb1dd35238fc91aecaf8b3",
-      "main": null
+      "main": "ec182be842ba11ae6a4d5b12750fcbbf8583e36a62cb1dd35238fc91aecaf8b3"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-5.glb.gz",
       "source": "cd677a443cc7ae597b6ee6fbae7160f9974d9af01cfcff96e19ccf5395b7565c",
-      "main": null
+      "main": "cd677a443cc7ae597b6ee6fbae7160f9974d9af01cfcff96e19ccf5395b7565c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-5.png",
       "source": "3307e9409af05bf5692c89171ca9d2790e48e9eeb5b25e21d8cadf5656d8c8d7",
-      "main": null
+      "main": "3307e9409af05bf5692c89171ca9d2790e48e9eeb5b25e21d8cadf5656d8c8d7"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-6.glb.gz",
       "source": "c8d54291a38d79279e38c9ea52c3da990231c2ba38ec4778c9f8f491f4deaa03",
-      "main": null
+      "main": "c8d54291a38d79279e38c9ea52c3da990231c2ba38ec4778c9f8f491f4deaa03"
     },
     {
       "file": "public/assets/factions/v060/grove/el_dragon_keeper-6.png",
       "source": "9fccf2daf7c504f69e28c5c741e23cd73738a3df4e54e7e376b098b02d710acc",
-      "main": null
+      "main": "9fccf2daf7c504f69e28c5c741e23cd73738a3df4e54e7e376b098b02d710acc"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-1.glb.gz",
       "source": "0f7ddce5107dc29ba812ba71aedcccd1ec4c6c33eb7aed061fd45d46e6d2f71e",
-      "main": null
+      "main": "0f7ddce5107dc29ba812ba71aedcccd1ec4c6c33eb7aed061fd45d46e6d2f71e"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-1.png",
       "source": "29e08d59c73ae3f2a5b4263cb8b7539b60419f06bf5f184da222f3ef2ab73973",
-      "main": null
+      "main": "29e08d59c73ae3f2a5b4263cb8b7539b60419f06bf5f184da222f3ef2ab73973"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-2.glb.gz",
       "source": "97b8372b815033d90fceb127fd9090ac1ce1071d5a3e06e9fdf13d31b1696285",
-      "main": null
+      "main": "97b8372b815033d90fceb127fd9090ac1ce1071d5a3e06e9fdf13d31b1696285"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-2.png",
       "source": "890d5c69ae6898c79015375762837d2ae7abbc95b358386bc1dbc17da915be4c",
-      "main": null
+      "main": "890d5c69ae6898c79015375762837d2ae7abbc95b358386bc1dbc17da915be4c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-3.glb.gz",
       "source": "5bf07512579e56494f7b6d8b96fb950ca19233f486a74b1606df02d1cd0eb257",
-      "main": null
+      "main": "5bf07512579e56494f7b6d8b96fb950ca19233f486a74b1606df02d1cd0eb257"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-3.png",
       "source": "b0055f97dec80d145265bd20142b2e4b4d90482a20b11c05f3cf31ef64e9fa91",
-      "main": null
+      "main": "b0055f97dec80d145265bd20142b2e4b4d90482a20b11c05f3cf31ef64e9fa91"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-4.glb.gz",
       "source": "909e8c5e0156777168e1bd4da8523d7523dbad517c1d3373691cf2d95904aece",
-      "main": null
+      "main": "909e8c5e0156777168e1bd4da8523d7523dbad517c1d3373691cf2d95904aece"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-4.png",
       "source": "30e4cfd87cc4f1b8b9513256c985bfe03f89cd629a6b37d500479be2dc6e82b5",
-      "main": null
+      "main": "30e4cfd87cc4f1b8b9513256c985bfe03f89cd629a6b37d500479be2dc6e82b5"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-5.glb.gz",
       "source": "b613d1415ec23b6afbadb86decafb052301c5c8fbcc5df2a60eb9afb6bdef1b9",
-      "main": null
+      "main": "b613d1415ec23b6afbadb86decafb052301c5c8fbcc5df2a60eb9afb6bdef1b9"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-5.png",
       "source": "b9ba82b7dbd58dc4ae952f8244ce8dba801dee42848641d7f1a76f98fff4ca88",
-      "main": null
+      "main": "b9ba82b7dbd58dc4ae952f8244ce8dba801dee42848641d7f1a76f98fff4ca88"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-6.glb.gz",
       "source": "5feaeef620d341f5e925d423fc3839252ca7452e05a0071b6e8dd717990c5ec4",
-      "main": null
+      "main": "5feaeef620d341f5e925d423fc3839252ca7452e05a0071b6e8dd717990c5ec4"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_acolyte-6.png",
       "source": "e5fe66a638609fe125a5f033d4282c6941dea0ef4d16859e6494c1bcb0337573",
-      "main": null
+      "main": "e5fe66a638609fe125a5f033d4282c6941dea0ef4d16859e6494c1bcb0337573"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_ashblade.glb.gz",
       "source": "0aa311e3a6ef750c6bf9e11aaebf5a28bbf01e3e9ba477a6cde9bb057ab979ac",
-      "main": null
+      "main": "0aa311e3a6ef750c6bf9e11aaebf5a28bbf01e3e9ba477a6cde9bb057ab979ac"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_ashblade.png",
       "source": "7492680c3405b97ef1971a7a8a0ab558d50bf1b94280704ea19820fda9b8b138",
-      "main": null
+      "main": "7492680c3405b97ef1971a7a8a0ab558d50bf1b94280704ea19820fda9b8b138"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-1.glb.gz",
       "source": "e84742ef1be18f0e63ccf85f2f47e2aaa2af792761bee64272c89d57e3dd372a",
-      "main": null
+      "main": "e84742ef1be18f0e63ccf85f2f47e2aaa2af792761bee64272c89d57e3dd372a"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-1.png",
       "source": "ae33d93f0bdd339c47005d4b3bb259abefa207ddcfc1e0265cbe0abf37753fd1",
-      "main": null
+      "main": "ae33d93f0bdd339c47005d4b3bb259abefa207ddcfc1e0265cbe0abf37753fd1"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-2.glb.gz",
       "source": "932cd457ccf702d494fbc082de75ff58664b7c91b28f14f9885307a98a77a1b6",
-      "main": null
+      "main": "932cd457ccf702d494fbc082de75ff58664b7c91b28f14f9885307a98a77a1b6"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-2.png",
       "source": "afa36526c16f6e0574cb3b9b3570e17170faf28adeb920651e4527c76b9b9e17",
-      "main": null
+      "main": "afa36526c16f6e0574cb3b9b3570e17170faf28adeb920651e4527c76b9b9e17"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-3.glb.gz",
       "source": "55acd5e2d18061dc93612e8c0b84a7fddc465357308c6383f5cbb9459da67f5b",
-      "main": null
+      "main": "55acd5e2d18061dc93612e8c0b84a7fddc465357308c6383f5cbb9459da67f5b"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-3.png",
       "source": "4fc9ddd3e9719c7501478304fb5b516d61d0d79fe496d4ccb4ee518275b4ddf2",
-      "main": null
+      "main": "4fc9ddd3e9719c7501478304fb5b516d61d0d79fe496d4ccb4ee518275b4ddf2"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-4.glb.gz",
       "source": "84dc911f3d6d86a2d71cc9623aead035a927cf39ae50bf8bb3d5e7ce00946f5c",
-      "main": null
+      "main": "84dc911f3d6d86a2d71cc9623aead035a927cf39ae50bf8bb3d5e7ce00946f5c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-4.png",
       "source": "345562ff09c7fa2889c355c9935fa4d887f9a2f2eeeb013223251d98625be096",
-      "main": null
+      "main": "345562ff09c7fa2889c355c9935fa4d887f9a2f2eeeb013223251d98625be096"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-5.glb.gz",
       "source": "b4e5acbf5eaa66dd5e386915745fdd8ec658b068e6bfa7a3a432c44eff794020",
-      "main": null
+      "main": "b4e5acbf5eaa66dd5e386915745fdd8ec658b068e6bfa7a3a432c44eff794020"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-5.png",
       "source": "3b5b8216e9b4fadd4f39ee6e227103814c346a25e572fe4abc7cabc81d586d5a",
-      "main": null
+      "main": "3b5b8216e9b4fadd4f39ee6e227103814c346a25e572fe4abc7cabc81d586d5a"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-6.glb.gz",
       "source": "977e1370ad0e812b412c8dd2dd14cc277455b7051fc0f18fa01f2379f97c1d36",
-      "main": null
+      "main": "977e1370ad0e812b412c8dd2dd14cc277455b7051fc0f18fa01f2379f97c1d36"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade-6.png",
       "source": "282f8f5422aa9d05bdae4b4608b114ca852b695ae75fa104e03b65252e920a39",
-      "main": null
+      "main": "282f8f5422aa9d05bdae4b4608b114ca852b695ae75fa104e03b65252e920a39"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade_initiate.glb.gz",
       "source": "9609c84c261b25d5c792efa99adeeb94beab16c035b42d3d5db46e4c7f85f24c",
-      "main": null
+      "main": "9609c84c261b25d5c792efa99adeeb94beab16c035b42d3d5db46e4c7f85f24c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_blade_initiate.png",
       "source": "0d65680c2738adbdc6ab02bf71ec2830b72bfd74f5a75c157a53f7338896f32d",
-      "main": null
+      "main": "0d65680c2738adbdc6ab02bf71ec2830b72bfd74f5a75c157a53f7338896f32d"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-1.glb.gz",
       "source": "550f9ebc6f3b5ddb3cfe5e74510f4d872a54c4233474e18fa2461840ee54c19e",
-      "main": null
+      "main": "550f9ebc6f3b5ddb3cfe5e74510f4d872a54c4233474e18fa2461840ee54c19e"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-1.png",
       "source": "849bc91a9b2141d4a9e337ef1b65e177bd9db2a880bd9f9bdd38a88027b64e46",
-      "main": null
+      "main": "849bc91a9b2141d4a9e337ef1b65e177bd9db2a880bd9f9bdd38a88027b64e46"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-2.glb.gz",
       "source": "edd0715b98c45c973234c23a4d8331c3c0e74089f113dcc0aa0de3d159bb76cc",
-      "main": null
+      "main": "edd0715b98c45c973234c23a4d8331c3c0e74089f113dcc0aa0de3d159bb76cc"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-2.png",
       "source": "727e332854cfa9ada095d0678cfb5f00a214a568134f81f02a9750dbc7b8bdb5",
-      "main": null
+      "main": "727e332854cfa9ada095d0678cfb5f00a214a568134f81f02a9750dbc7b8bdb5"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-3.glb.gz",
       "source": "cb9ee1690c4e3dda9a2e49392d3d9d10ffe2ecaae7edf3e9c6eb3a1ff80a1844",
-      "main": null
+      "main": "cb9ee1690c4e3dda9a2e49392d3d9d10ffe2ecaae7edf3e9c6eb3a1ff80a1844"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-3.png",
       "source": "12ff3a3c32118142bbe79886f454ae1acc4f9ce05e0436240ce55cec10f2ae6b",
-      "main": null
+      "main": "12ff3a3c32118142bbe79886f454ae1acc4f9ce05e0436240ce55cec10f2ae6b"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-4.glb.gz",
       "source": "f1f8e367f4a71d3d42bcf5c20157e035460d00a121ad159301ad2a44611cc976",
-      "main": null
+      "main": "f1f8e367f4a71d3d42bcf5c20157e035460d00a121ad159301ad2a44611cc976"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-4.png",
       "source": "7f6d93b307509d0355b70534c668cf6728e59b824c354617df10fc40a779008b",
-      "main": null
+      "main": "7f6d93b307509d0355b70534c668cf6728e59b824c354617df10fc40a779008b"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-5.glb.gz",
       "source": "f69a0bb87bc87546528b723cd12663f4f40249684c6937ac20b98d3d62134925",
-      "main": null
+      "main": "f69a0bb87bc87546528b723cd12663f4f40249684c6937ac20b98d3d62134925"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-5.png",
       "source": "2414537cc99356ce6f45f14399a14b1b1554da1846234959cdd1be7e72592c5e",
-      "main": null
+      "main": "2414537cc99356ce6f45f14399a14b1b1554da1846234959cdd1be7e72592c5e"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-6.glb.gz",
       "source": "d9fe77d187193b1eded38c1d32b3e3df3bcb7a9e0bb9928a598ce9f301b70685",
-      "main": null
+      "main": "d9fe77d187193b1eded38c1d32b3e3df3bcb7a9e0bb9928a598ce9f301b70685"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinder-6.png",
       "source": "11ae83188394b424628670b4238d699b7fee5634d32f69fefc4a4a52c0a7d0da",
-      "main": null
+      "main": "11ae83188394b424628670b4238d699b7fee5634d32f69fefc4a4a52c0a7d0da"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinderqueen.glb.gz",
       "source": "8ddbacf58c416ca3ab2d6ab34e6cc1569aaabd60fa04a3d02d0c6a5cf7fe2e0d",
-      "main": null
+      "main": "8ddbacf58c416ca3ab2d6ab34e6cc1569aaabd60fa04a3d02d0c6a5cf7fe2e0d"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_cinderqueen.png",
       "source": "00d648a200613ccd8a2d89d5f3e0c6758d15e9dbb6bf7f1e0d1e2ccda06b6e0a",
-      "main": null
+      "main": "00d648a200613ccd8a2d89d5f3e0c6758d15e9dbb6bf7f1e0d1e2ccda06b6e0a"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_duelist.glb.gz",
       "source": "214ac148b47102abd6ab798f4fee5c186adacce04abaa26956bc2da23644bf19",
-      "main": null
+      "main": "214ac148b47102abd6ab798f4fee5c186adacce04abaa26956bc2da23644bf19"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_duelist.png",
       "source": "d5ca0bc9bb2592bf3b02632c811937ec74197308fc589236d1fc43259421032e",
-      "main": null
+      "main": "d5ca0bc9bb2592bf3b02632c811937ec74197308fc589236d1fc43259421032e"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_eclipse_duelist.glb.gz",
       "source": "0a433da79308b693648bfc418cc67c40e76da3a3dc5501facb1cf586c8c707a7",
-      "main": null
+      "main": "0a433da79308b693648bfc418cc67c40e76da3a3dc5501facb1cf586c8c707a7"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_eclipse_duelist.png",
       "source": "5f8acbfeba2e50f4d07fcf050937c75db3be0c94afa22fdbe628adef0610e0c2",
-      "main": null
+      "main": "5f8acbfeba2e50f4d07fcf050937c75db3be0c94afa22fdbe628adef0610e0c2"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_eclipse_priest.glb.gz",
       "source": "87bb10dfcf5c5f881c4f8226ff8947effb44049e58ce62db57779edf80cc81e5",
-      "main": null
+      "main": "87bb10dfcf5c5f881c4f8226ff8947effb44049e58ce62db57779edf80cc81e5"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_eclipse_priest.png",
       "source": "a02c26791b12ade1dc642efdbc3e0c6fc9d039a18495984b8b6c4f2b71507376",
-      "main": null
+      "main": "a02c26791b12ade1dc642efdbc3e0c6fc9d039a18495984b8b6c4f2b71507376"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_ember_matron.glb.gz",
       "source": "89b58c66631823025bb1bdf46081d27d9ba611ee22be211cc56ff3164194d84c",
-      "main": null
+      "main": "89b58c66631823025bb1bdf46081d27d9ba611ee22be211cc56ff3164194d84c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_ember_matron.png",
       "source": "fe049e6624cd47ae85878077e4d98b385745fcdfb47aa26490dc9deda148245e",
-      "main": null
+      "main": "fe049e6624cd47ae85878077e4d98b385745fcdfb47aa26490dc9deda148245e"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_ember_novice.glb.gz",
       "source": "a62e09a4300981e294037873afe35c11235a0256e9e0647e3c50db1d9d6893a3",
-      "main": null
+      "main": "a62e09a4300981e294037873afe35c11235a0256e9e0647e3c50db1d9d6893a3"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_ember_novice.png",
       "source": "2015fcdea79edc225cb81f2ad2f85252bce35d77bed6d7bbb19180b2ecd7b171",
-      "main": null
+      "main": "2015fcdea79edc225cb81f2ad2f85252bce35d77bed6d7bbb19180b2ecd7b171"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_furnace_seer.glb.gz",
       "source": "44ca7a2dcb38ccce27c5267da27ae68d9bd9646c50dd7a857d94789fb488465c",
-      "main": null
+      "main": "44ca7a2dcb38ccce27c5267da27ae68d9bd9646c50dd7a857d94789fb488465c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_furnace_seer.png",
       "source": "1903230d5c65c2e07d4ceff286ad161159b03e97cf919423b8eb4858989107d4",
-      "main": null
+      "main": "1903230d5c65c2e07d4ceff286ad161159b03e97cf919423b8eb4858989107d4"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_gloom_initiate.glb.gz",
       "source": "63f9e539b7aa5d25e473ab9a95a3353bb13aad1ecf9ac6406cf89d810da8b007",
-      "main": null
+      "main": "63f9e539b7aa5d25e473ab9a95a3353bb13aad1ecf9ac6406cf89d810da8b007"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_gloom_initiate.png",
       "source": "1804d47942fb587dfed5e19fd7da8e08d4a81c0a8b34ccd727780677373fb1a5",
-      "main": null
+      "main": "1804d47942fb587dfed5e19fd7da8e08d4a81c0a8b34ccd727780677373fb1a5"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_night_hierarch.glb.gz",
       "source": "9b5cc3d49fd29a277d3d65358fa9bd25efc0dd1a7ba434472f0416fdba011a00",
-      "main": null
+      "main": "9b5cc3d49fd29a277d3d65358fa9bd25efc0dd1a7ba434472f0416fdba011a00"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_night_hierarch.png",
       "source": "456616de0382b0dee2be6dd7a724821d708cdb4f102afb5115f8130faac74071",
-      "main": null
+      "main": "456616de0382b0dee2be6dd7a724821d708cdb4f102afb5115f8130faac74071"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_pyromancer.glb.gz",
       "source": "8c84a434b8176e4e1c46a7af0fcfeb69b4833c351ddbe5d151011f06580e6718",
-      "main": null
+      "main": "8c84a434b8176e4e1c46a7af0fcfeb69b4833c351ddbe5d151011f06580e6718"
     },
     {
       "file": "public/assets/factions/v060/grove/el_drow_pyromancer.png",
       "source": "782471feba6b8c83d0d7480829e7d775100ab8d2eef5f3287a1d8cd39bfc5cd4",
-      "main": null
+      "main": "782471feba6b8c83d0d7480829e7d775100ab8d2eef5f3287a1d8cd39bfc5cd4"
     },
     {
       "file": "public/assets/factions/v060/grove/el_eclipse_unbinder.glb.gz",
       "source": "721ed282c7480fa6777e598c0c924d723349d8e6f1e4c991c1d422e3018d2430",
-      "main": null
+      "main": "721ed282c7480fa6777e598c0c924d723349d8e6f1e4c991c1d422e3018d2430"
     },
     {
       "file": "public/assets/factions/v060/grove/el_eclipse_unbinder.png",
       "source": "ae6e41862b41c80a531bbf470033a263b5986253c47c2af1a17f5a8f2f83abf7",
-      "main": null
+      "main": "ae6e41862b41c80a531bbf470033a263b5986253c47c2af1a17f5a8f2f83abf7"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elite_warrior.glb.gz",
       "source": "51be24fc33f0397556381e8ae34886708e3ae40045eb0f6b7df39d65fc12d0e1",
-      "main": null
+      "main": "51be24fc33f0397556381e8ae34886708e3ae40045eb0f6b7df39d65fc12d0e1"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elite_warrior.png",
       "source": "47055db9b2f076553a92a63708df50910fb099424d1aa836d538b5dd992c5a20",
-      "main": null
+      "main": "47055db9b2f076553a92a63708df50910fb099424d1aa836d538b5dd992c5a20"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_archer.glb.gz",
       "source": "bdbd393c9ce3bc1dfcb4e9e4119c2d768681a19f4e2ed9267c06ad99f2a39d7b",
-      "main": null
+      "main": "bdbd393c9ce3bc1dfcb4e9e4119c2d768681a19f4e2ed9267c06ad99f2a39d7b"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_archer.png",
       "source": "e1d97a9784872e01b4d5fd7632871638c1e93c2ee9dbc28832e950b66ee25ee6",
-      "main": null
+      "main": "e1d97a9784872e01b4d5fd7632871638c1e93c2ee9dbc28832e950b66ee25ee6"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_archmage.glb.gz",
       "source": "c07a49e7411585a812a4fdae742ed27cf83f566e0a3f0772b6cea1a3e037f5d6",
-      "main": null
+      "main": "c07a49e7411585a812a4fdae742ed27cf83f566e0a3f0772b6cea1a3e037f5d6"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_archmage.png",
       "source": "1a5ba1afeb9a9553a0785ee0da1c21d193faea6d6da811701f50630c9506373f",
-      "main": null
+      "main": "1a5ba1afeb9a9553a0785ee0da1c21d193faea6d6da811701f50630c9506373f"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_bowmaster.glb.gz",
       "source": "179f9c6379ea5dbbcc01ed277ab19148c9e12b892b7e1944cc059d9920657167",
-      "main": null
+      "main": "179f9c6379ea5dbbcc01ed277ab19148c9e12b892b7e1944cc059d9920657167"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_bowmaster.png",
       "source": "114c81ba1010b1288be389661f3bf9fcab0f7c66429e0c9aa621d8451cf54a37",
-      "main": null
+      "main": "114c81ba1010b1288be389661f3bf9fcab0f7c66429e0c9aa621d8451cf54a37"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_king.glb.gz",
       "source": "c325dbc2999fb9f00bb8ba5bc5ca8c46b95e08eaed410c75fbac3671a3c348df",
-      "main": null
+      "main": "c325dbc2999fb9f00bb8ba5bc5ca8c46b95e08eaed410c75fbac3671a3c348df"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_king.png",
       "source": "ee3c01df293a8d0085cd7a3488fbc27f447ae6f16f20a78abc4caac340cf136a",
-      "main": null
+      "main": "ee3c01df293a8d0085cd7a3488fbc27f447ae6f16f20a78abc4caac340cf136a"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_mage.glb.gz",
       "source": "6d9da43ecbf6b08d9f617a533249cb18be0b2edeb01dd4294a3baf197126620f",
-      "main": null
+      "main": "6d9da43ecbf6b08d9f617a533249cb18be0b2edeb01dd4294a3baf197126620f"
     },
     {
       "file": "public/assets/factions/v060/grove/el_elven_mage.png",
       "source": "b76a84af0455b6113e31374df536d8bfa6226e88770778e74424cdba0cf6997e",
-      "main": null
+      "main": "b76a84af0455b6113e31374df536d8bfa6226e88770778e74424cdba0cf6997e"
     },
     {
       "file": "public/assets/factions/v060/grove/el_fire_dragon.glb.gz",
       "source": "495cb0917a9e9167871f6ae129f98d8fc716900017df9bffc4f35f906271308f",
-      "main": null
+      "main": "495cb0917a9e9167871f6ae129f98d8fc716900017df9bffc4f35f906271308f"
     },
     {
       "file": "public/assets/factions/v060/grove/el_fire_dragon.png",
       "source": "883bc6c796434fd59ffdeba0ace369bff6d626d56935c09b8470b0348f7e0e9a",
-      "main": null
+      "main": "883bc6c796434fd59ffdeba0ace369bff6d626d56935c09b8470b0348f7e0e9a"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-1.glb.gz",
       "source": "13eb0020753de972240896e7325694fb6097c5fdd5c424759be15b3d779239e2",
-      "main": null
+      "main": "13eb0020753de972240896e7325694fb6097c5fdd5c424759be15b3d779239e2"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-1.png",
       "source": "0fe7bc3517618ab4b7d5e57b7997337d92bc80e9fd609bcd8e1c4bcdcbbea7c5",
-      "main": null
+      "main": "0fe7bc3517618ab4b7d5e57b7997337d92bc80e9fd609bcd8e1c4bcdcbbea7c5"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-2.glb.gz",
       "source": "4051d467358ec55b12b31fbdc756e5213fd1f9e20f5a3ca18d9f9f4a2b5fd740",
-      "main": null
+      "main": "4051d467358ec55b12b31fbdc756e5213fd1f9e20f5a3ca18d9f9f4a2b5fd740"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-2.png",
       "source": "3cb9fcdf75acabcfb26557c8287ff0ad03649713971501171d0fd9a7c88b7683",
-      "main": null
+      "main": "3cb9fcdf75acabcfb26557c8287ff0ad03649713971501171d0fd9a7c88b7683"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-3.glb.gz",
       "source": "96735dd965e54515722490720cd8e70b48e7370d52210d92eb39d6f2c1ee9dbe",
-      "main": null
+      "main": "96735dd965e54515722490720cd8e70b48e7370d52210d92eb39d6f2c1ee9dbe"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-3.png",
       "source": "23923bd31d092d63ae6972486cbbeac6f2c57c0993aa2e3258ca8ec868e290c0",
-      "main": null
+      "main": "23923bd31d092d63ae6972486cbbeac6f2c57c0993aa2e3258ca8ec868e290c0"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-4.glb.gz",
       "source": "c5f27fc8d3c06f5ee97908e3cf52d788c6c7b531a1bd5190678c5321eaed1c67",
-      "main": null
+      "main": "c5f27fc8d3c06f5ee97908e3cf52d788c6c7b531a1bd5190678c5321eaed1c67"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-4.png",
       "source": "5584df8f3c0663f33aa412e8a14d4c3ba344598b21efa5e84f785e2b0a9a2834",
-      "main": null
+      "main": "5584df8f3c0663f33aa412e8a14d4c3ba344598b21efa5e84f785e2b0a9a2834"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-5.glb.gz",
       "source": "809d67a0b00f8e840eb4bba31efb7d53bbb0735ffaa8b2a3c57f6e2eaa92afad",
-      "main": null
+      "main": "809d67a0b00f8e840eb4bba31efb7d53bbb0735ffaa8b2a3c57f6e2eaa92afad"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-5.png",
       "source": "81638f9fb7db545284921b3a44bac77dfc7520efa8c2827e64a729fb0e4ac4d2",
-      "main": null
+      "main": "81638f9fb7db545284921b3a44bac77dfc7520efa8c2827e64a729fb0e4ac4d2"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-6.glb.gz",
       "source": "dfc853cf6e2d0393fb00fada8b640944068e8ddd047fcf8ad14f1d234b1573f5",
-      "main": null
+      "main": "dfc853cf6e2d0393fb00fada8b640944068e8ddd047fcf8ad14f1d234b1573f5"
     },
     {
       "file": "public/assets/factions/v060/grove/el_grove_archer-6.png",
       "source": "530c871d52189b3c1074baa0e00a83c8e946bbefcf15a37a27fbde0407e77f83",
-      "main": null
+      "main": "530c871d52189b3c1074baa0e00a83c8e946bbefcf15a37a27fbde0407e77f83"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-1.glb.gz",
       "source": "68a6b62ab01857d39f081899fc459a73f5c93b43794bc97ad304f58491504d62",
-      "main": null
+      "main": "68a6b62ab01857d39f081899fc459a73f5c93b43794bc97ad304f58491504d62"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-1.png",
       "source": "5197f8f8424848cf718b0b14aa6de60a0f3189fb678993f7308e1493b73e9bbb",
-      "main": null
+      "main": "5197f8f8424848cf718b0b14aa6de60a0f3189fb678993f7308e1493b73e9bbb"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-2.glb.gz",
       "source": "1fe4296e6b249aac997b0f68d6665f6be11f085e29bdaeb60b03b0692bf6a00f",
-      "main": null
+      "main": "1fe4296e6b249aac997b0f68d6665f6be11f085e29bdaeb60b03b0692bf6a00f"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-2.png",
       "source": "81496a3b666d47e73b09baf26c6abf5c6cca52dcd0b16449bbeb8be540c89571",
-      "main": null
+      "main": "81496a3b666d47e73b09baf26c6abf5c6cca52dcd0b16449bbeb8be540c89571"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-3.glb.gz",
       "source": "880ae50f461a0d7f90c3d9edf0984366a3dede303028cc79f43b223e77a8bb77",
-      "main": null
+      "main": "880ae50f461a0d7f90c3d9edf0984366a3dede303028cc79f43b223e77a8bb77"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-3.png",
       "source": "4eba45f4f89160fbb496c9d16b5a389a11af2567648980114169e8fa095f0a0e",
-      "main": null
+      "main": "4eba45f4f89160fbb496c9d16b5a389a11af2567648980114169e8fa095f0a0e"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-4.glb.gz",
       "source": "df852771393129b042543bd98975034f0c8370304018964fdb2398d07ac0cb80",
-      "main": null
+      "main": "df852771393129b042543bd98975034f0c8370304018964fdb2398d07ac0cb80"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-4.png",
       "source": "335efca11d0a3651d2e8abe2f52fe5a1f04b380e52b31eb66869514817ab4470",
-      "main": null
+      "main": "335efca11d0a3651d2e8abe2f52fe5a1f04b380e52b31eb66869514817ab4470"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-5.glb.gz",
       "source": "31bea5606913da37eb10b35e748c210180871417a6fe2f205de924a17abdcca7",
-      "main": null
+      "main": "31bea5606913da37eb10b35e748c210180871417a6fe2f205de924a17abdcca7"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-5.png",
       "source": "9d17a627b4019eb241826f76f1865ad12476658596ad39456e920188f5051f7c",
-      "main": null
+      "main": "9d17a627b4019eb241826f76f1865ad12476658596ad39456e920188f5051f7c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-6.glb.gz",
       "source": "95e022b1c228a6573f074455a95c262102bf1b5f849a579f2610803991aebb4d",
-      "main": null
+      "main": "95e022b1c228a6573f074455a95c262102bf1b5f849a579f2610803991aebb4d"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade-6.png",
       "source": "124da7d12b7baac7dbd6530de2e6d2072d5ff7bffa71885ceeb07befa537d973",
-      "main": null
+      "main": "124da7d12b7baac7dbd6530de2e6d2072d5ff7bffa71885ceeb07befa537d973"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade_sentinel.glb.gz",
       "source": "f0763d2696d24498a8af589d9d5ab8dad811a6aa92d90f112a19abfd4152f101",
-      "main": null
+      "main": "f0763d2696d24498a8af589d9d5ab8dad811a6aa92d90f112a19abfd4152f101"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonblade_sentinel.png",
       "source": "d224ace51418f72e4e7d8c8129f906c7f6718142ec77093e8d2ee2768453cf68",
-      "main": null
+      "main": "d224ace51418f72e4e7d8c8129f906c7f6718142ec77093e8d2ee2768453cf68"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonwell_seer.glb.gz",
       "source": "7604493fcd67736e2cd6759489baa7eaf64bbf529d21fd9d54be168b361b237a",
-      "main": null
+      "main": "7604493fcd67736e2cd6759489baa7eaf64bbf529d21fd9d54be168b361b237a"
     },
     {
       "file": "public/assets/factions/v060/grove/el_moonwell_seer.png",
       "source": "e741dcd67c9e787af60284dc496ef6b5bf8ff73e2c5f23b10bd1bbcebbde8607",
-      "main": null
+      "main": "e741dcd67c9e787af60284dc496ef6b5bf8ff73e2c5f23b10bd1bbcebbde8607"
     },
     {
       "file": "public/assets/factions/v060/grove/el_mother_fire_dragon.glb.gz",
       "source": "bca4eec2ef41918f66ba28b9495aea04577437d17eaac0f8a6e91073419ebd3e",
-      "main": null
+      "main": "bca4eec2ef41918f66ba28b9495aea04577437d17eaac0f8a6e91073419ebd3e"
     },
     {
       "file": "public/assets/factions/v060/grove/el_mother_fire_dragon.png",
       "source": "ba06ded00982e0784d793026141513cd4ec466219cf6d38da7e437ffac9eb34b",
-      "main": null
+      "main": "ba06ded00982e0784d793026141513cd4ec466219cf6d38da7e437ffac9eb34b"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealwarden.glb.gz",
       "source": "e0c25433d18f22ca63999cc05d933f3f912950fd5ced17dc0752cd8f7ffbd949",
-      "main": null
+      "main": "e0c25433d18f22ca63999cc05d933f3f912950fd5ced17dc0752cd8f7ffbd949"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealwarden.png",
       "source": "5c8fce73807f5fcebfda1a3bb78d9770e78fbd0b80324aebf1a89eef08f0b33e",
-      "main": null
+      "main": "5c8fce73807f5fcebfda1a3bb78d9770e78fbd0b80324aebf1a89eef08f0b33e"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-1.glb.gz",
       "source": "b08d4d64f860487b3ca91ffffb396a1486190f08100f3ed5eb9f8cfc41da771a",
-      "main": null
+      "main": "b08d4d64f860487b3ca91ffffb396a1486190f08100f3ed5eb9f8cfc41da771a"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-1.png",
       "source": "9b50e9c9392b08487ac6e42d0890ada69f019e064f072b19bd872dbb372c8247",
-      "main": null
+      "main": "9b50e9c9392b08487ac6e42d0890ada69f019e064f072b19bd872dbb372c8247"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-2.glb.gz",
       "source": "1e03016a5d93a2aa03ffcd2f0c879f6d08b852f8a0982874cab52be30ef1d773",
-      "main": null
+      "main": "1e03016a5d93a2aa03ffcd2f0c879f6d08b852f8a0982874cab52be30ef1d773"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-2.png",
       "source": "a98fb1a8bbc532968ae08ed9bd8a462a999a5f1c6dd32ab482f9cc1bf9d035c7",
-      "main": null
+      "main": "a98fb1a8bbc532968ae08ed9bd8a462a999a5f1c6dd32ab482f9cc1bf9d035c7"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-3.glb.gz",
       "source": "5bfcea06ac73004a22686d59f67048be54f241b238c44478cd5aadeeb438e6fe",
-      "main": null
+      "main": "5bfcea06ac73004a22686d59f67048be54f241b238c44478cd5aadeeb438e6fe"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-3.png",
       "source": "c0d0508c4c1c5894f67a80bd377b5cbaf0a5b44fa0830918684b26ba4456a9e4",
-      "main": null
+      "main": "c0d0508c4c1c5894f67a80bd377b5cbaf0a5b44fa0830918684b26ba4456a9e4"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-4.glb.gz",
       "source": "b414002f77bc5e55e8678a55c226aa996f6b51322bacb96472424e8764166489",
-      "main": null
+      "main": "b414002f77bc5e55e8678a55c226aa996f6b51322bacb96472424e8764166489"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-4.png",
       "source": "db5f34b78a0e2d0a9e53ceb2a16b3edf5145e7ef7d60d0ec0633bb1ee4747cdb",
-      "main": null
+      "main": "db5f34b78a0e2d0a9e53ceb2a16b3edf5145e7ef7d60d0ec0633bb1ee4747cdb"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-5.glb.gz",
       "source": "92a51df063cc48074ad2239d6b235b15877944010d58299619d24dab94d34c68",
-      "main": null
+      "main": "92a51df063cc48074ad2239d6b235b15877944010d58299619d24dab94d34c68"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-5.png",
       "source": "3d3168138bf610ca6c214d7ec3e375ddedd6266d8097a105f91b810c8c129c8c",
-      "main": null
+      "main": "3d3168138bf610ca6c214d7ec3e375ddedd6266d8097a105f91b810c8c129c8c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-6.glb.gz",
       "source": "e066072853f7e545826c1e41f2ee67d3b01dd04c46c0d544eeceaab75afaa0fd",
-      "main": null
+      "main": "e066072853f7e545826c1e41f2ee67d3b01dd04c46c0d544eeceaab75afaa0fd"
     },
     {
       "file": "public/assets/factions/v060/grove/el_sealweaver-6.png",
       "source": "b82ba76bc2297675b50907e8236f59e632811023db09488dc08a7b3b85a36994",
-      "main": null
+      "main": "b82ba76bc2297675b50907e8236f59e632811023db09488dc08a7b3b85a36994"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-1.glb.gz",
       "source": "8c20fa5a36f5f826b826a8d90d29399283c52005860606a55b713e367f237cdd",
-      "main": null
+      "main": "8c20fa5a36f5f826b826a8d90d29399283c52005860606a55b713e367f237cdd"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-1.png",
       "source": "a0804c83624e3cac81268908b365ea42b2b8ef4be9724502913676497d2eb8b9",
-      "main": null
+      "main": "a0804c83624e3cac81268908b365ea42b2b8ef4be9724502913676497d2eb8b9"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-2.glb.gz",
       "source": "0b450c12005d9ad22007a5915db471b5b44e3c840966fc273aff8363b926efb7",
-      "main": null
+      "main": "0b450c12005d9ad22007a5915db471b5b44e3c840966fc273aff8363b926efb7"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-2.png",
       "source": "82c7ec671565e839a684a334a30422a8c0c74b2082c2a95f38c5fbb801946ac7",
-      "main": null
+      "main": "82c7ec671565e839a684a334a30422a8c0c74b2082c2a95f38c5fbb801946ac7"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-3.glb.gz",
       "source": "b38095974ed7eb59d8b7911fd992377d7b7ac7877339fdee9910313d96a3ebe8",
-      "main": null
+      "main": "b38095974ed7eb59d8b7911fd992377d7b7ac7877339fdee9910313d96a3ebe8"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-3.png",
       "source": "59f0b6268ca508580c0bf3c49b3903d9df1b1b38dba893345710135b33ef321b",
-      "main": null
+      "main": "59f0b6268ca508580c0bf3c49b3903d9df1b1b38dba893345710135b33ef321b"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-4.glb.gz",
       "source": "9253f95dc30168197aa77dbfb9868a8d12f5852ffb42c77853910e3feded3097",
-      "main": null
+      "main": "9253f95dc30168197aa77dbfb9868a8d12f5852ffb42c77853910e3feded3097"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-4.png",
       "source": "9e7b4c320ef041d0dd57d8bf772f8c88c62a2237a93d34c950b1e015e17f048a",
-      "main": null
+      "main": "9e7b4c320ef041d0dd57d8bf772f8c88c62a2237a93d34c950b1e015e17f048a"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-5.glb.gz",
       "source": "da4c6fe6be9726b16f459491d89f2dc74c02aff79019342df59f167e82cbf0b6",
-      "main": null
+      "main": "da4c6fe6be9726b16f459491d89f2dc74c02aff79019342df59f167e82cbf0b6"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-5.png",
       "source": "5aeed36d15384180a9993291c06fc11b4002d554f2032f84d2605017cf579da7",
-      "main": null
+      "main": "5aeed36d15384180a9993291c06fc11b4002d554f2032f84d2605017cf579da7"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-6.glb.gz",
       "source": "d6170f5618d4590e4a0615305bab0f28f89339ccf598b77ffd94e9fc9ad1cf04",
-      "main": null
+      "main": "d6170f5618d4590e4a0615305bab0f28f89339ccf598b77ffd94e9fc9ad1cf04"
     },
     {
       "file": "public/assets/factions/v060/grove/el_spark_adept-6.png",
       "source": "2475c77c68fa22673b9972cd3c7c85014713826342ab7ba5ec2da073548d8bd4",
-      "main": null
+      "main": "2475c77c68fa22673b9972cd3c7c85014713826342ab7ba5ec2da073548d8bd4"
     },
     {
       "file": "public/assets/factions/v060/grove/el_stag_knight.glb.gz",
       "source": "f0cc3ba44dde06058c418877b9a99bab2aace60aa588cb58fc081c106a0525d6",
-      "main": null
+      "main": "f0cc3ba44dde06058c418877b9a99bab2aace60aa588cb58fc081c106a0525d6"
     },
     {
       "file": "public/assets/factions/v060/grove/el_stag_knight.png",
       "source": "a825304f92fa034dbd93ecea2cea42cd8119d1c15b5c49b9199e8b14f55859ea",
-      "main": null
+      "main": "a825304f92fa034dbd93ecea2cea42cd8119d1c15b5c49b9199e8b14f55859ea"
     },
     {
       "file": "public/assets/factions/v060/grove/el_stag_oracle.glb.gz",
       "source": "60d9246ecd71d5a533b8272e5e433d7252d1e32fb337b997d142173c1f426eb1",
-      "main": null
+      "main": "60d9246ecd71d5a533b8272e5e433d7252d1e32fb337b997d142173c1f426eb1"
     },
     {
       "file": "public/assets/factions/v060/grove/el_stag_oracle.png",
       "source": "a3d63aa590247eb9d29c6b7be910a692f1a97d549826acc9c9171bd5deb2d7d5",
-      "main": null
+      "main": "a3d63aa590247eb9d29c6b7be910a692f1a97d549826acc9c9171bd5deb2d7d5"
     },
     {
       "file": "public/assets/factions/v060/grove/el_starfall_bowmaster.glb.gz",
       "source": "45d4e968ce75a1b9629577894194a44999cba5915bdea1495c349b419808a0e8",
-      "main": null
+      "main": "45d4e968ce75a1b9629577894194a44999cba5915bdea1495c349b419808a0e8"
     },
     {
       "file": "public/assets/factions/v060/grove/el_starfall_bowmaster.png",
       "source": "31874e9e13cd7ae8106eb6ff72938767ac1fc83f077f0e3d0d5005464f9b8801",
-      "main": null
+      "main": "31874e9e13cd7ae8106eb6ff72938767ac1fc83f077f0e3d0d5005464f9b8801"
     },
     {
       "file": "public/assets/factions/v060/grove/el_storm_conductor.glb.gz",
       "source": "12d110fb3260e793fb7c81fff1899eb5400bded7b78b25e0e319998a4996dd7c",
-      "main": null
+      "main": "12d110fb3260e793fb7c81fff1899eb5400bded7b78b25e0e319998a4996dd7c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_storm_conductor.png",
       "source": "056a31ddb1ef7a3b051d31e77537cef68f21f0ae9dce8fa96f88e1ee8f9ea1ee",
-      "main": null
+      "main": "056a31ddb1ef7a3b051d31e77537cef68f21f0ae9dce8fa96f88e1ee8f9ea1ee"
     },
     {
       "file": "public/assets/factions/v060/grove/el_storm_sovereign.glb.gz",
       "source": "3f6fa2a3d5db0d0943a7e438cb80b9e05e16f5e3e7c4c130c97cb0212e6833fb",
-      "main": null
+      "main": "3f6fa2a3d5db0d0943a7e438cb80b9e05e16f5e3e7c4c130c97cb0212e6833fb"
     },
     {
       "file": "public/assets/factions/v060/grove/el_storm_sovereign.png",
       "source": "b44b55be44f0b91c31cc9e04c38559881ce184d357af09c0590902e1915e759c",
-      "main": null
+      "main": "b44b55be44f0b91c31cc9e04c38559881ce184d357af09c0590902e1915e759c"
     },
     {
       "file": "public/assets/factions/v060/grove/el_stormblade_warden.glb.gz",
       "source": "05e04f221ceea0973237d407b33cb687057367502202b37b21ff7254225ef4ae",
-      "main": null
+      "main": "05e04f221ceea0973237d407b33cb687057367502202b37b21ff7254225ef4ae"
     },
     {
       "file": "public/assets/factions/v060/grove/el_stormblade_warden.png",
       "source": "1db0ed064a90bac637f88f1d795282ed3b11006153782bd49d4ecaede03e2df5",
-      "main": null
+      "main": "1db0ed064a90bac637f88f1d795282ed3b11006153782bd49d4ecaede03e2df5"
     },
     {
       "file": "public/assets/factions/v060/grove/el_tempest_bowmage.glb.gz",
       "source": "27551533c49059361d4d1d6ab4ef4e7edafd2056715f1eb613022fcc00ff4998",
-      "main": null
+      "main": "27551533c49059361d4d1d6ab4ef4e7edafd2056715f1eb613022fcc00ff4998"
     },
     {
       "file": "public/assets/factions/v060/grove/el_tempest_bowmage.png",
       "source": "935fded494a90c342e365dfdcf2d61dd03d19a614b06771ecb7687a099fae481",
-      "main": null
+      "main": "935fded494a90c342e365dfdcf2d61dd03d19a614b06771ecb7687a099fae481"
     },
     {
       "file": "public/assets/factions/v060/grove/el_twilight_huntress.glb.gz",
       "source": "d93ff96f7fad1dbccd9a74d9b84dac75840d210fb5510de42fcb25c4706e7b41",
-      "main": null
+      "main": "d93ff96f7fad1dbccd9a74d9b84dac75840d210fb5510de42fcb25c4706e7b41"
     },
     {
       "file": "public/assets/factions/v060/grove/el_twilight_huntress.png",
       "source": "768be36de7bc8efa0e4311e859493ee77872c0947804788728007a1ef412536b",
-      "main": null
+      "main": "768be36de7bc8efa0e4311e859493ee77872c0947804788728007a1ef412536b"
     },
     {
       "file": "public/assets/factions/v060/grove/el_veil_adept.glb.gz",
       "source": "543f236a1efa4705e4eb3d1142edc4f279e93bab0bf38b33d21a13c1b5749225",
-      "main": null
+      "main": "543f236a1efa4705e4eb3d1142edc4f279e93bab0bf38b33d21a13c1b5749225"
     },
     {
       "file": "public/assets/factions/v060/grove/el_veil_adept.png",
       "source": "e02a1e3a67e337406c2be95fdcf4fe190af9527c7b91751e29d99728b6903b15",
-      "main": null
+      "main": "e02a1e3a67e337406c2be95fdcf4fe190af9527c7b91751e29d99728b6903b15"
     },
     {
       "file": "public/assets/factions/v060/grove/el_veilfire_hierophant.glb.gz",
       "source": "255a0ccdd9f51e2ac46747e7b782725bbd414ac8eefbe24f5fb185793a0f99a7",
-      "main": null
+      "main": "255a0ccdd9f51e2ac46747e7b782725bbd414ac8eefbe24f5fb185793a0f99a7"
     },
     {
       "file": "public/assets/factions/v060/grove/el_veilfire_hierophant.png",
       "source": "263cc9d2c5741bd40d95697770a5b5dbe130f007481cbc5d380436716db33a7f",
-      "main": null
+      "main": "263cc9d2c5741bd40d95697770a5b5dbe130f007481cbc5d380436716db33a7f"
     },
     {
       "file": "public/assets/factions/v060/grove/el_wisp_conductor.glb.gz",
       "source": "073a7da71a7eca4c0c9b7fea34d7c67394a950ace9d278f5b7633505a692725a",
-      "main": null
+      "main": "073a7da71a7eca4c0c9b7fea34d7c67394a950ace9d278f5b7633505a692725a"
     },
     {
       "file": "public/assets/factions/v060/grove/el_wisp_conductor.png",
       "source": "8868be4d2b17c10cf8b669e7e4c1f9d8e9b90361a52d9643b732512e74829052",
-      "main": null
+      "main": "8868be4d2b17c10cf8b669e7e4c1f9d8e9b90361a52d9643b732512e74829052"
     },
     {
       "file": "public/assets/factions/v060/grove/ladyclaire.glb.gz",
       "source": "4d7b1d7f463643b7443f38d6f7dabf694c57d9661948f3996730e6e58dc231f1",
-      "main": null
+      "main": "4d7b1d7f463643b7443f38d6f7dabf694c57d9661948f3996730e6e58dc231f1"
     },
     {
       "file": "public/assets/factions/v060/grove/ladyclaire.png",
       "source": "84789abba5b3741a246bf3426e85678fdc5ee6d28eac829e644b962121dfcbd3",
-      "main": null
+      "main": "84789abba5b3741a246bf3426e85678fdc5ee6d28eac829e644b962121dfcbd3"
     },
     {
       "file": "public/assets/factions/v060/manifest.json",
       "source": "7af666530a7d318892ac3418fc006c468bdc4a53843a653067ee198e690c40ba",
-      "main": null
+      "main": "7af666530a7d318892ac3418fc006c468bdc4a53843a653067ee198e690c40ba"
     },
     {
       "file": "public/release.json",
       "source": "6eb3d89507960cee70576d8b30831cb6998b33e0bfc527abaecfb184202a45b6",
-      "main": "a72b04a0e54e9dd000d9df0cddc8dfa7000c187cebea511dfffd0c39ab894b74"
+      "main": "6eb3d89507960cee70576d8b30831cb6998b33e0bfc527abaecfb184202a45b6"
     },
     {
       "file": "tests/audio-main-dialog-music.test.mjs",
       "source": "ea3e7dc25f4677d3c85cf788732245c868e6afc996238bf3c9f39a1e09a89677",
-      "main": "70221eb44ad111b813fb24b70af0ca143e65a5b48c4f1f5d56c4d75446b7bd4b"
+      "main": "ea3e7dc25f4677d3c85cf788732245c868e6afc996238bf3c9f39a1e09a89677"
     },
     {
       "file": "tests/backend-statistics.test.mjs",
       "source": "5e106c60de263adc5f2a681904c97537fce641909f7ca35114693c5d3db143c9",
-      "main": "2a1b877d45ed2373f0f9a55eb93417323d7481b0a2204dfc52dd370bfd0a9c0b"
+      "main": "5e106c60de263adc5f2a681904c97537fce641909f7ca35114693c5d3db143c9"
     },
     {
       "file": "tests/command-main-integration-v31.test.mjs",
       "source": "f2d1a13a0b676fed23aa483071c855311f44d598757357f0555bd1649ee8bbc6",
-      "main": "0adf71b69cf2610ce5e3fd8716d7e03304f013152dbb82b6d5ffa1766c796874"
+      "main": "f2d1a13a0b676fed23aa483071c855311f44d598757357f0555bd1649ee8bbc6"
     },
     {
       "file": "tests/controlled-rng-statistics.test.mjs",
       "source": "ff7e13dfbf7154dcc3cff4457fa9da10958128ee127008626f1434c35c25c13f",
-      "main": "81e565f868d977c20fcb6e84b64038cf6729287cc339e89c0672bf8eb87f123d"
+      "main": "ff7e13dfbf7154dcc3cff4457fa9da10958128ee127008626f1434c35c25c13f"
     },
     {
       "file": "tests/developer-statistics-exclusion.test.mjs",
       "source": "b38965c671528a6cb4e9f7c15909fc11796677fd223dc7894a102cb74d47e7bd",
-      "main": "233e95b475497810e756094006ae01ff05d079c2c8ef014dc48694a37647c454"
+      "main": "b38965c671528a6cb4e9f7c15909fc11796677fd223dc7894a102cb74d47e7bd"
     },
     {
       "file": "tests/faction-integration-v060.test.mjs",
       "source": "28aa57c26a2017830b5cea42ad0200efeaae77a9f7b4432f5f64bd5da4d7440b",
-      "main": null
+      "main": "28aa57c26a2017830b5cea42ad0200efeaae77a9f7b4432f5f64bd5da4d7440b"
     },
     {
       "file": "tests/faction-motion-v060.test.mjs",
-      "source": "16261c10190e6612ecd1ba7983bab62a5ea04da26c2a44eba6bf3f730e80fc94",
-      "main": null
+      "source": "63cb5b0b00975b4c41501258c09eea691719f40120f24c975c9119aea35f4dce",
+      "main": "16261c10190e6612ecd1ba7983bab62a5ea04da26c2a44eba6bf3f730e80fc94"
     },
     {
       "file": "tests/faction-statistics-v060.test.mjs",
       "source": "3e2fd22ad9f16ab16d278b51a139ee42bab100cd778ee45841202a114411b92f",
-      "main": null
+      "main": "3e2fd22ad9f16ab16d278b51a139ee42bab100cd778ee45841202a114411b92f"
     },
     {
       "file": "tests/factions-v060.test.mjs",
       "source": "e5a2906646de402d1bf7d151c926231ce0d6f692b88e196c5d2f313f865480b4",
-      "main": null
+      "main": "e5a2906646de402d1bf7d151c926231ce0d6f692b88e196c5d2f313f865480b4"
     },
     {
       "file": "tests/packed-model-v060.test.mjs",
       "source": "144dd1814b596037e8f219a72457629a8d1dba2662ba9a624126e83b3cbe1dbf",
-      "main": null
+      "main": "144dd1814b596037e8f219a72457629a8d1dba2662ba9a624126e83b3cbe1dbf"
     },
     {
       "file": "tests/reference-cutouts.test.mjs",
       "source": "c2b9ebdc57dcde1646afffd754c3123a37e5f44da27dc096ad987005ab1eb4e1",
-      "main": "baeb1c9506a954a1254068de608e07db476ca5c86db685503a6289db1d05a7f3"
+      "main": "c2b9ebdc57dcde1646afffd754c3123a37e5f44da27dc096ad987005ab1eb4e1"
     },
     {
       "file": "tests/score-version-preservation.test.mjs",
       "source": "c3241be3aa658894402e33a05460f979eef3b20547a2c946175ebc7be24c5111",
-      "main": "f07a641f5ae66af504e2392bf17a6c4e329bcc354c6c85c2f0ac297ae8f69a0a"
+      "main": "c3241be3aa658894402e33a05460f979eef3b20547a2c946175ebc7be24c5111"
     },
     {
       "file": "tests/tutorial-main-v048.test.mjs",
       "source": "4a56c9aa72341a46c8bbc787f0f8d1e72d0e1b3c5a25dcd458ea389c704eea2f",
-      "main": "799fc56914f1a4666cade2e341f95330cd1ca85891533c5df8860b75d9bd927c"
+      "main": "4a56c9aa72341a46c8bbc787f0f8d1e72d0e1b3c5a25dcd458ea389c704eea2f"
     },
     {
       "file": "tools/audit-reconstructed-roster.mjs",
       "source": "924c3a6561671701e3ce888595e50b52ec6079b39afa44862bba62d48826472a",
-      "main": "686c0461357b4d0b4c2b90b09af69e9e622c2412c980ecaa00c1e09890a69c5f"
+      "main": "924c3a6561671701e3ce888595e50b52ec6079b39afa44862bba62d48826472a"
     },
     {
       "file": "tools/package-runtime-assets.mjs",
       "source": "0f0b8a1f0cf211dd30e475d2b30b63e85a5abcd12c1f6923440d073534b0a2b4",
-      "main": null
+      "main": "0f0b8a1f0cf211dd30e475d2b30b63e85a5abcd12c1f6923440d073534b0a2b4"
     },
     {
       "file": "tools/prepare-statistics-site.mjs",
       "source": "581e5f409705535e28d89c8d1c9181f22361617004d44d12cdc0e5862d1b8b9b",
-      "main": "cdd0346cc481acd98ca16ad34592a51551f67b2f061e608dc50c5fc15217f14c"
+      "main": "581e5f409705535e28d89c8d1c9181f22361617004d44d12cdc0e5862d1b8b9b"
     },
     {
       "file": "ui/catalog-basics.js",
       "source": "7dcee468be54574ffb69915fcf5d55773cabe2b9ba7f7b387e333f5a3859c3f8",
-      "main": "1571c245a4c40df3f2908325170e18cd8c67214808f85ab2cf42301983a3c198"
+      "main": "7dcee468be54574ffb69915fcf5d55773cabe2b9ba7f7b387e333f5a3859c3f8"
     },
     {
       "file": "ui/defender-effective-stats.js",
       "source": "97cb375387e6f417507a79a07dfe4bae81fc38157d52bbdce20533be08247092",
-      "main": "65d40ee9f3f43011de0353cdf0841afffa0ba061c07ceb8d8bf056dfd5897980"
+      "main": "97cb375387e6f417507a79a07dfe4bae81fc38157d52bbdce20533be08247092"
     },
     {
       "file": "ui/faction-selection.css",
       "source": "19a95171bb284e994788d4cded27a64f76eddc9ab1a06e9f85b49b0aa0275695",
-      "main": null
+      "main": "19a95171bb284e994788d4cded27a64f76eddc9ab1a06e9f85b49b0aa0275695"
     },
     {
       "file": "ui/faction-selection.js",
       "source": "053cef5ce4adda4f35586e6e8a7e2ca226cd91011a38299cb801f286e78cfdeb",
-      "main": null
+      "main": "053cef5ce4adda4f35586e6e8a7e2ca226cd91011a38299cb801f286e78cfdeb"
     },
     {
       "file": "ui/grimoire.js",
       "source": "3824b7c58fd504410cba0ffa8aadbb0620ee56665735daedc2c9c79e322d74c2",
-      "main": "6190a7a8f2662eda8fdc584b9ef4f534322d898c8ac3d3777a2cfca53df755b6"
+      "main": "3824b7c58fd504410cba0ffa8aadbb0620ee56665735daedc2c9c79e322d74c2"
     },
     {
       "file": "ui/leaderboard.js",
       "source": "3a444a8be05a6320ac507d2296ed794c765c337c44dff059bd3ac989d084223a",
-      "main": "fefa4ae396027bce1418483411b3cd31983946aa1befd2dcfa1a05eb55094dbe"
+      "main": "3a444a8be05a6320ac507d2296ed794c765c337c44dff059bd3ac989d084223a"
     },
     {
       "file": "ui/preparation-folio.js",
       "source": "ca4151e080ab6c03d3eb1e789b0ca770f03ad47153f32fa9dfdded3dbffac140",
-      "main": "cdc7944c092e7715355ba3a49bec677f0fcc0ad14f45c6e8338c96c099aa4b6c"
+      "main": "ca4151e080ab6c03d3eb1e789b0ca770f03ad47153f32fa9dfdded3dbffac140"
     },
     {
       "file": "ui/recipe-filters.js",
       "source": "be5b0f37853e9eab6028eee4402c95971ed120b9fde05eb03f3ac6dd0d27911a",
-      "main": "0324bb9096ae0aa72db86f685dcb9028f9a4ea81512600ab7562b170a272a6f2"
+      "main": "be5b0f37853e9eab6028eee4402c95971ed120b9fde05eb03f3ac6dd0d27911a"
     },
     {
       "file": "ui/run-results.js",
       "source": "457d09983b6df22cf9049618512ea2d22a33375a4c5a515b17d7955214475b21",
-      "main": "4c2ab16d10d894a12e1ab2f33b296f759575ad208283e297eb5d39b6907a2f0d"
+      "main": "457d09983b6df22cf9049618512ea2d22a33375a4c5a515b17d7955214475b21"
     },
     {
       "file": "vite.config.js",
       "source": "14835a9ea11ba11d8d78ceb817f78ab8ab3d0b0d0c5769b78a677797e2af1d8f",
-      "main": "0277163918a946198456445c3359c9f697191b84c37bb8eada044f92725986ab"
+      "main": "14835a9ea11ba11d8d78ceb817f78ab8ab3d0b0d0c5769b78a677797e2af1d8f"
     },
     {
       "file": "output/releases/v0.6.0/.gitattributes",
-      "source": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
-      "main": null
+      "source": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d",
+      "main": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
     },
     {
       "file": "output/releases/v0.6.0/backend-deployment.json",
       "source": "10dff781d19921256c10ad492a7702e5ffdf4da42befd438df519d3fdd2d11a0",
-      "main": null
+      "main": "10dff781d19921256c10ad492a7702e5ffdf4da42befd438df519d3fdd2d11a0"
+    },
+    {
+      "file": "output/releases/v0.6.0/backend-public-checks.json",
+      "source": "58713bd98c32fae35d7d8bde5f0238f04617ba9443ee1e28442604e43a7ba343",
+      "main": "58713bd98c32fae35d7d8bde5f0238f04617ba9443ee1e28442604e43a7ba343"
     },
     {
       "file": "output/releases/v0.6.0/backup-052-create.json",
-      "source": "e55b5bdff72328d75b769387a0f4ff28f822f86292633fc7b7c27aa2b0e79d5e",
-      "main": null
+      "source": "b6325aaa69c5506a30d893efe0e39a3cb117e1803b9476361989d3dec8ea29b7",
+      "main": "b6325aaa69c5506a30d893efe0e39a3cb117e1803b9476361989d3dec8ea29b7"
     },
     {
       "file": "output/releases/v0.6.0/build-offline.log",
-      "source": "afea91f50bcd3bcf126c2bb61cdd186c23397698d2241fb765571956631e2756",
-      "main": null
+      "source": "e1dcb2c7e1333544d14d6c94c4120f7d8dbd15b2618bcaafabaefe1709829395",
+      "main": "afea91f50bcd3bcf126c2bb61cdd186c23397698d2241fb765571956631e2756"
+    },
+    {
+      "file": "output/releases/v0.6.0/build-pages.log",
+      "source": "8b8e1b7abfb8a00cc6cbd18fda139f5f14354b7ac78aab22d64deab48dddd332",
+      "main": "f7380545e1045c1d91dc5d388ddd322bcb6d1a7c2ff9d119e88205b1b4f78ab0"
     },
     {
       "file": "output/releases/v0.6.0/gameplay-simulation.json",
       "source": "7dc6a48e3e6201d9226ecbbaa814f35618769fe6b302f7fd2c1b8ba990f21ec3",
-      "main": null
+      "main": "7dc6a48e3e6201d9226ecbbaa814f35618769fe6b302f7fd2c1b8ba990f21ec3"
+    },
+    {
+      "file": "output/releases/v0.6.0/handoff.json",
+      "source": "b1d3f2327e478bc876a8402c85664c0bab78e30ec36288a537eb81e49c63f84a",
+      "main": "b1d3f2327e478bc876a8402c85664c0bab78e30ec36288a537eb81e49c63f84a"
     },
     {
       "file": "output/releases/v0.6.0/local-validation.json",
-      "source": "914d25be3bce8e3f665eec3a8404b61d72d7c1623d0251e0e3fe025a5e525f5f",
-      "main": null
+      "source": "2b8aacc84c9c911244b04c8bc3b98d0ae4008393b522c4972333123549d2bab0",
+      "main": "914d25be3bce8e3f665eec3a8404b61d72d7c1623d0251e0e3fe025a5e525f5f"
+    },
+    {
+      "file": "output/releases/v0.6.0/main-production-install.json",
+      "source": "cac55a95cced2c5e09aac5f70f47e998550c380303b7918751217aba45b51043",
+      "main": "94c1f3dcb268ed375afb980d89e50f8b8c9018d64e2d73efbb6570b6c40318ce"
+    },
+    {
+      "file": "output/releases/v0.6.0/native-motion.log",
+      "source": "d1714b682a411855d1a864112c73201351b48c4c77cc076a5b46664f366feae3",
+      "main": "cb15aca2b009c85b443ca1e3eae0a4a4022dbea4ca3c5e99ab2c82eb33aabf27"
+    },
+    {
+      "file": "output/releases/v0.6.0/runtime-packaging.json",
+      "source": "5fbd688a76b443f94bda36e8e61f8f5efbcd9ec4ce484f00d6eb45a3c697bf5c",
+      "main": "5fbd688a76b443f94bda36e8e61f8f5efbcd9ec4ce484f00d6eb45a3c697bf5c"
     },
     {
       "file": "output/releases/v0.6.0/sources-built.json",
-      "source": "cd1eb856d4e2f7d8bbf139500476e13461d48093961712708737f2f5d28d4b67",
-      "main": null
+      "source": "6f6ca43d608a7dd9040f5769039a51e3b369c8fe654d1ff2d3f8233a7fda255c",
+      "main": "cd1eb856d4e2f7d8bbf139500476e13461d48093961712708737f2f5d28d4b67"
     },
     {
       "file": "output/releases/v0.6.0/sources-tested.json",
-      "source": "cd1eb856d4e2f7d8bbf139500476e13461d48093961712708737f2f5d28d4b67",
-      "main": null
+      "source": "6f6ca43d608a7dd9040f5769039a51e3b369c8fe654d1ff2d3f8233a7fda255c",
+      "main": "cd1eb856d4e2f7d8bbf139500476e13461d48093961712708737f2f5d28d4b67"
     },
     {
       "file": "output/releases/v0.6.0/tests.log",
-      "source": "1e73b75e04ed240e36479ad24fb17131081513fb3617afba8f17560c9201fcef",
-      "main": null
+      "source": "c836f81fd09a175e3032b37ea2e20e2bb0e5bd210fdb5cbd52f955d02c3de5d2",
+      "main": "1e73b75e04ed240e36479ad24fb17131081513fb3617afba8f17560c9201fcef"
     }
   ]
 }

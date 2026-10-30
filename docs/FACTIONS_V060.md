@@ -24,7 +24,7 @@ The existing SQLite schema is retained; backward-compatible attribution is store
 
 ## Verification and practical limits
 
-Evidence is in 'output/releases/v0.6.0/': full regression and build inventories; exact import and transport receipts; 20 actual skinned runtime animation cases covering each faction/body/mode combination; transactional chooser, offline migration and combat tests; public deployment checks; and guarded workspace handoff receipts.
+Evidence is in 'output/releases/v0.6.0/': full regression and build inventories; exact import and transport receipts; 22 actual skinned runtime animation cases covering each faction/body/mode combination and the real casting-hand origins for Stormcaller and Elven Archmage; transactional chooser, offline migration and combat tests; public deployment checks; and guarded workspace handoff receipts.
 
 Nine campaigns used real seeded draws, legal placements, keeps, merges and recipes. The simple greedy policy lost between waves 6 and 14; this is not a claim of optimized play or equal faction win rates. All 258 appearance profiles also ran against six actual wave kits, including late waves 34, 44, 49 and 50: 1,548 controlled endurance skirmishes completed with finite combat state. No balance tuning was inferred from those bot losses.
 

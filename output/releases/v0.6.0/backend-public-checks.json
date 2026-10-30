@@ -1,0 +1,168 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-30T14:07:01.300Z",
+  "readOnly": true,
+  "requests": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "edition": "0.6.0"
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.0&faction=crown",
+      "status": 200,
+      "factionId": "crown",
+      "scoreCount": 0,
+      "versions": [],
+      "legacyVersions": [
+        "0.2.7",
+        "0.2.8",
+        "0.3.10",
+        "0.3.11",
+        "0.3.16",
+        "0.3.21",
+        "0.3.23",
+        "0.3.24",
+        "0.3.25",
+        "0.3.26",
+        "0.3.27",
+        "0.3.31",
+        "0.3.5",
+        "0.4.5",
+        "0.4.7",
+        "0.4.9",
+        "0.5.0",
+        "0.5.1"
+      ]
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.0&faction=forge",
+      "status": 200,
+      "factionId": "forge",
+      "scoreCount": 0,
+      "versions": [],
+      "legacyVersions": [
+        "0.2.7",
+        "0.2.8",
+        "0.3.10",
+        "0.3.11",
+        "0.3.16",
+        "0.3.21",
+        "0.3.23",
+        "0.3.24",
+        "0.3.25",
+        "0.3.26",
+        "0.3.27",
+        "0.3.31",
+        "0.3.5",
+        "0.4.5",
+        "0.4.7",
+        "0.4.9",
+        "0.5.0",
+        "0.5.1"
+      ]
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.0&faction=grove",
+      "status": 200,
+      "factionId": "grove",
+      "scoreCount": 0,
+      "versions": [],
+      "legacyVersions": [
+        "0.2.7",
+        "0.2.8",
+        "0.3.10",
+        "0.3.11",
+        "0.3.16",
+        "0.3.21",
+        "0.3.23",
+        "0.3.24",
+        "0.3.25",
+        "0.3.26",
+        "0.3.27",
+        "0.3.31",
+        "0.3.5",
+        "0.4.5",
+        "0.4.7",
+        "0.4.9",
+        "0.5.0",
+        "0.5.1"
+      ]
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.5.1&faction=legacy",
+      "status": 200,
+      "factionId": null,
+      "scoreCount": 1,
+      "versions": [
+        "0.2.7",
+        "0.2.8",
+        "0.3.10",
+        "0.3.11",
+        "0.3.16",
+        "0.3.21",
+        "0.3.23",
+        "0.3.24",
+        "0.3.25",
+        "0.3.26",
+        "0.3.27",
+        "0.3.31",
+        "0.3.5",
+        "0.4.5",
+        "0.4.7",
+        "0.4.9",
+        "0.5.0",
+        "0.5.1"
+      ],
+      "legacyVersions": [
+        "0.2.7",
+        "0.2.8",
+        "0.3.10",
+        "0.3.11",
+        "0.3.16",
+        "0.3.21",
+        "0.3.23",
+        "0.3.24",
+        "0.3.25",
+        "0.3.26",
+        "0.3.27",
+        "0.3.31",
+        "0.3.5",
+        "0.4.5",
+        "0.4.7",
+        "0.4.9",
+        "0.5.0",
+        "0.5.1"
+      ]
+    }
+  ],
+  "publishedSourceMatches": true,
+  "sourceCommit": "661f908c8f0a2ab5104f773bb9094f131608bed7",
+  "sources": [
+    {
+      "file": "backend/worker.js",
+      "sha256": "cd74fdeba550c83085df318870ea44e9a33192d3faf56ce19e950861adb7d38a",
+      "lineEndings": "LF normalized"
+    },
+    {
+      "file": "backend/validation.js",
+      "sha256": "a01bfe60afacaaebcc242294863269326dbf557e7e3692d30b6e1409c811d46f",
+      "lineEndings": "LF normalized"
+    },
+    {
+      "file": "backend/service-page.js",
+      "sha256": "5ac0caa10f6bec7d9a61369bf7480f429e9f82a37aaa76bfe264eb06f5479079",
+      "lineEndings": "LF normalized"
+    },
+    {
+      "file": "game/release.js",
+      "sha256": "801eeb94fc52e1e6e2bc46cd59e578f7ced9a4656347e121d08a7ce1be67721b",
+      "lineEndings": "LF normalized"
+    },
+    {
+      "file": "data/faction-memberships.json",
+      "sha256": "33a2a0bddb3387b47d35072d2d2a567e15ea91f3c28b03a62001e9d0de512f36",
+      "lineEndings": "LF normalized"
+    }
+  ]
+}

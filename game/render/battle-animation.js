@@ -87,7 +87,7 @@ function bindRigidArms(rig){
 export function attackRig(actor,family,stats={}){
   if(!actor)return null;
   const kind=attackVisualKind(family,stats),pose=ATTACK_POSES[kind],pivots=[];
-  if(actor.userData.factionAttackEntry){const faction=createFactionAttackPlayer(actor,actor.userData.factionAttackEntry);return {actor,family,kind,pose,faction,stage:'idle',active:false,disposed:false};}
+  if(actor.userData.factionAttackEntry){const faction=createFactionAttackPlayer(actor,actor.userData.factionAttackEntry),factionHand=['cast.right.hand','humanoid.primary.hand','caster.primary.hand'].map(name=>actor.getObjectByName(THREE.PropertyBinding.sanitizeNodeName(name))).find(Boolean);return {actor,family,kind,pose,faction,factionHand,stage:'idle',active:false,disposed:false};}
   const approved=bindApprovedMotion(actor);
   if(approved)return {actor,family,kind,pose,approved,geometric:actor.userData,
     attackStyle:actor.userData.attackStyle,stage:'idle',active:false,disposed:false,owned:[],pivots:[],joints:new Map()};
@@ -168,7 +168,7 @@ function updateBowString(rig){
   [topPoint,nockPoint,bottomPoint,nockPoint].forEach((p,i)=>positions.setXYZ(i,p.x,p.y,p.z));positions.needsUpdate=true;
 }
 export function attackMuzzle(rig,out=new THREE.Vector3(),{breath=false,kind}={}){
-  if(rig?.faction&&!rig.disposed){const hand=rig.actor.getObjectByName('humanoid.primary.hand')||rig.actor.getObjectByName('caster.primary.hand');rig.actor.updateMatrixWorld(true);return hand?hand.getWorldPosition(out):rig.actor.getWorldPosition(out).add(new THREE.Vector3(0,.8,0));}
+  if(rig?.faction&&!rig.disposed){const hand=rig.factionHand;rig.actor.updateMatrixWorld(true);return hand?hand.getWorldPosition(out):rig.actor.getWorldPosition(out).add(new THREE.Vector3(0,.8,0));}
   if(rig?.approved&&!rig.disposed)return approvedMotionAnchor(rig.actor,out,{breath,kind:kind||(rig.attackStyle==='bow'?'nock':rig.attackStyle==='staff'?'staff':rig.attackStyle==='breath'?'mouth':'weapon')});
   const muzzle=breath?rig?.breathMuzzle:rig?.muzzle;
   if(!rig||rig.disposed||!muzzle)return null;

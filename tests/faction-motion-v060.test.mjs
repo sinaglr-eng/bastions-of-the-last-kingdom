@@ -5,7 +5,7 @@ import {gunzipSync} from 'node:zlib';
 import * as THREE from 'three';
 import {NativeTestGLTFLoader} from './helpers/native-gltf.mjs';
 import {installDefenderTemplate,cloneDefenderTemplate,disposeDefenderInstance} from '../game/render/defender-assets.js';
-import {attackRig,triggerAttack,animateAttack,disposeAttack} from '../game/render/battle-animation.js';
+import {attackRig,triggerAttack,animateAttack,attackMuzzle,disposeAttack} from '../game/render/battle-animation.js';
 const registry=JSON.parse(readFileSync(new URL('../data/factions-v060.json',import.meta.url))),samples=new Map();
 for(const f of registry.factions)for(const a of f.assets){const key=f.id+':'+a.attack.bodyType+':'+a.attack.mode;if(!samples.has(key))samples.set(key,a);}
 for(const [key,entry]of samples)test(`approved V3 live pipeline: ${key} uses private actual skins and authored clips`,async()=>{
@@ -20,4 +20,9 @@ for(const [key,entry]of samples)test(`approved V3 live pipeline: ${key} uses pri
  animateAttack(rig,.2,.2,{target:payload.target,tower:payload.source});assert.ok(bones(actor).every(Number.isFinite));assert.notDeepEqual(bones(actor),rest);assert.deepEqual(bones(peer),rest);assert.deepEqual(bones(gltf.scene),original);assert.deepEqual(actor.position.toArray(),[4,1.1,5]);assert.deepEqual(actor.scale.toArray(),[1.2,1.2,1.2]);
  const paused=bones(actor),phase=rig.faction.state.phase;animateAttack(rig,0,.5,{blocked:true});assert.deepEqual(bones(actor),paused);assert.equal(rig.faction.state.phase,phase);
  disposeAttack(rig);disposeDefenderInstance(actor);disposeDefenderInstance(peer);const geometries=new Set(),materials=new Set();gltf.scene.traverse(n=>{if(n.geometry)geometries.add(n.geometry);for(const m of Array.isArray(n.material)?n.material:n.material?[n.material]:[])materials.add(m);});for(const g of geometries)g.dispose();for(const m of materials)m.dispose();
+});
+for(const family of ['stormcaller','tempest'])test(`V3 ${family}: lightning release follows the actual animated casting hand`,async()=>{
+ const entry=registry.factions.find(f=>f.id==='crown').assets.find(a=>a.family===family&&a.tier===1),b=gunzipSync(readFileSync(new URL('../public/'+entry.packedFile,import.meta.url))),gltf=await new NativeTestGLTFLoader().parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');
+ const field={imported:new Map(),models:new Map(),game:{towers:[],data:{towers:{}}},sync(){}};installDefenderTemplate(field,entry,gltf.scene,gltf.animations);const actor=cloneDefenderTemplate(gltf.scene),rig=attackRig(actor,family,{type:'magical'}),hand=actor.getObjectByName(THREE.PropertyBinding.sanitizeNodeName('cast.right.hand'));assert.ok(hand);actor.position.set(4,1.1,5);actor.scale.setScalar(1.2);
+ triggerAttack(rig,{id:99,source:{},target:{x:20,z:18},stats:{interval:1}});animateAttack(rig,.2,.2,{target:{x:20,z:18},tower:{}});actor.updateWorldMatrix(true,true);const actual=attackMuzzle(rig,new THREE.Vector3()),expected=hand.getWorldPosition(new THREE.Vector3());assert.ok(actual.distanceTo(expected)<1e-9);assert.ok(actual.distanceTo(actor.getWorldPosition(new THREE.Vector3()))>.1);disposeAttack(rig);disposeDefenderInstance(actor);
 });
