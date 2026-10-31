@@ -1,0 +1,131 @@
+{
+  "owners": 10,
+  "directedPartnerEntries": 28,
+  "uniqueMutualPairs": 14,
+  "pairs": [
+    "dw_breachorgan|dw_nullifier",
+    "dw_breachorgan|dw_tunnelsapper",
+    "dw_breachorgan|dw_worldanvil",
+    "dw_deepdelve|dw_nullifier",
+    "dw_deepdelve|dw_tunnelsapper",
+    "dw_deepdelve|dw_worldanvil",
+    "dw_ironclad|dw_nullifier",
+    "dw_ironclad|dw_tunnelsapper",
+    "dw_ironclad|dw_worldanvil",
+    "dw_ironstorm|dw_warcaller",
+    "dw_nullifier|dw_salvomarshal",
+    "dw_salvomarshal|dw_tunnelsapper",
+    "dw_salvomarshal|dw_worldanvil",
+    "dw_steamrail|dw_warcaller"
+  ],
+  "ownerRules": [
+    {
+      "assignment": "forge/dw_steamrail/1",
+      "partnerIds": [
+        "dw_warcaller"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    },
+    {
+      "assignment": "forge/dw_ironstorm/1",
+      "partnerIds": [
+        "dw_warcaller"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    },
+    {
+      "assignment": "forge/dw_warcaller/1",
+      "partnerIds": [
+        "dw_ironstorm",
+        "dw_steamrail"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    },
+    {
+      "assignment": "forge/dw_ironclad/1",
+      "partnerIds": [
+        "dw_nullifier",
+        "dw_tunnelsapper",
+        "dw_worldanvil"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    },
+    {
+      "assignment": "forge/dw_breachorgan/1",
+      "partnerIds": [
+        "dw_nullifier",
+        "dw_tunnelsapper",
+        "dw_worldanvil"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    },
+    {
+      "assignment": "forge/dw_deepdelve/1",
+      "partnerIds": [
+        "dw_nullifier",
+        "dw_tunnelsapper",
+        "dw_worldanvil"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    },
+    {
+      "assignment": "forge/dw_salvomarshal/1",
+      "partnerIds": [
+        "dw_nullifier",
+        "dw_tunnelsapper",
+        "dw_worldanvil"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    },
+    {
+      "assignment": "forge/dw_tunnelsapper/1",
+      "partnerIds": [
+        "dw_breachorgan",
+        "dw_deepdelve",
+        "dw_ironclad",
+        "dw_salvomarshal"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    },
+    {
+      "assignment": "forge/dw_nullifier/1",
+      "partnerIds": [
+        "dw_breachorgan",
+        "dw_deepdelve",
+        "dw_ironclad",
+        "dw_salvomarshal"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    },
+    {
+      "assignment": "forge/dw_worldanvil/1",
+      "partnerIds": [
+        "dw_breachorgan",
+        "dw_deepdelve",
+        "dw_ironclad",
+        "dw_salvomarshal"
+      ],
+      "bonusPercent": 20,
+      "cardinalAdjacencyOnly": true,
+      "primaryOnly": true
+    }
+  ]
+}

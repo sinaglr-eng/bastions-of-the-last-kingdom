@@ -8,7 +8,8 @@ export const validId=value=>typeof value==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4
 const integer=(n,min,max)=>Number.isInteger(n)&&n>=min&&n<=max;
 export function validateFactionIdentity(row){
  const newer=typeof row.version==='string'&&(Number(row.version.split('.')[0])>0||Number(row.version.split('.')[1])>=6);
- if(newer&&(!['crown','forge','grove'].includes(row.factionId)||row.rulesetRevision!=='three-factions-v060-20261030'||row.contentManifestId!=='approved-faction-models-v3-20261030'))throw Error('Invalid faction identity.');
+ const [major,minor,patch]=String(row.version).split('.').map(Number),fr002=major>0||minor>6||minor===6&&patch>=5;
+ if(newer&&(!['crown','forge','grove'].includes(row.factionId)||row.rulesetRevision!==(fr002?'fr002-r3-20261031':'three-factions-v060-20261030')||row.contentManifestId!=='approved-faction-models-v3-20261030'))throw Error('Invalid faction identity.');
  if(!newer&&row.factionId!=null)throw Error('Invalid legacy faction attribution.');
  return row.factionId??null;
 }

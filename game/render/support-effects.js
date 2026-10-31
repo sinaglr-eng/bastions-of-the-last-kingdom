@@ -26,6 +26,7 @@ export const ENEMY_EFFECT_STYLES=Object.freeze({
   bleed:Object.freeze({label:'Bleeding',color:'#ff747c',glyph:'drop'}),
   armor:Object.freeze({label:'Armor reduced',color:'#ffd088',glyph:'brokenShield'}),
   healBlock:Object.freeze({label:'Healing blocked',color:'#ffc0d0',glyph:'cross'}),
+  regenReduction:Object.freeze({label:'Healing reduced',color:'#ffc0d0',glyph:'cross'}),
 });
 const positiveKeys=['haste','damage','range','controlResistance','trueStrike'];
 const negativeKeys=['dread','disarm','weakened','melancholy'];
@@ -42,11 +43,9 @@ function prepared(towers,data){
     if(tower.state!=='active'||!data.towers[tower.family])continue;
     const key=`${tower.family}:${tower.tier}:${tower.upgrades||0}`;
     if(!stats.has(key))stats.set(key,towerStats(tower,data));
-    const spec=stats.get(key),aura=spec.aura;
-    if(!aura||!(aura.range>=0))continue;
-    const source={tower,stats:spec,aura};sources.push(source);largest=Math.max(largest,aura.range);
-    const bin=`${Math.floor(tower.x/8)}:${Math.floor(tower.z/8)}`;
-    if(!bins.has(bin))bins.set(bin,[]);bins.get(bin).push(source);
+    const spec=stats.get(key),properties={'attack-speed-aura':['haste','bonusPercent',.01],'damage-aura':['damageBonus','bonusPercent',.01],'range-aura':['rangeBonus','rangeBonus',1],'protection-aura':['controlResistance','protectionPercent',.01],'true-strike-aura':['trueStrike','evasionIgnorePercent',.01]};
+    const auras=spec.fr002&&spec.factionProfile?(spec.abilities||[]).filter(a=>properties[a.familyId]).map(a=>{const [field,param,scale]=properties[a.familyId];return {range:a.radius,[field]:scale===.01?a[param]/100:a[param]};}):[spec.aura];
+    for(const aura of auras){if(!aura||!(aura.range>=0))continue;const source={tower,stats:spec,aura};sources.push(source);largest=Math.max(largest,aura.range);const bin=`${Math.floor(tower.x/8)}:${Math.floor(tower.z/8)}`;if(!bins.has(bin))bins.set(bin,[]);bins.get(bin).push(source);}
   }
   return {sources,stats,bins,largest,data};
 }
@@ -141,6 +140,8 @@ export function enemyStatusState(enemy,towers,data,options={}){
   if(enemy.boss)slow*=data.balance.bossSlowMultiplier??.5;
   add('slow',slow);add('armor',armor);
   for(const key of ['freeze','petrify','poison','burn','bleed','healBlock'])if(statusEffectAllowed(enemy,key)&&statuses[key]?.time>0)add(key,statuses[key].dps||statuses[key].time);
+  if(statusEffectAllowed(enemy,'healBlock')&&statuses.regenReduction?.time>0)add('regenReduction',statuses.regenReduction.amount);
+  if(statusEffectAllowed(enemy,'freeze')&&(statuses.stun?.time>0||statuses.root?.time>0))add('freeze',Math.max(statuses.stun?.time||0,statuses.root?.time||0));
   return [...effects.values()];
 }
 

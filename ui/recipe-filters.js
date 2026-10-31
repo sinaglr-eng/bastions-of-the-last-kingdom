@@ -9,9 +9,9 @@ export const RECIPE_FILTERS={
 export function recipeCapabilities(s,{family}={}){
   s=canonicalCombatStats(s);
   const damage=new Set(),abilities=new Set(),counters=new Set();
-  if(s.factionProfile){
-    const groups={poison:['poison'],burn:['burn','fire-aura','flame-cone'],slow:['slow','slow-aura','root'],stun:['stun','freeze','root'],armor:['armor-reduction','armor-reduction-aura','armor-penetration'],critical:['critical-strike','magical-critical-strike'],splash:['splash','cleave-physical','cleave-magical','multishot','ricochet','flame-cone'],lightning:['lightning','spark'],support:['attack-speed-aura','damage-aura','range-aura','protection-aura'],detection:['visibility'],'healing-block':['anti-regeneration']};
-    for(const a of s.abilities||[]){for(const [tag,ids]of Object.entries(groups))if(ids.includes(a.familyId))abilities.add(tag);if(a.damage||a.dps||a.damagePercent){const type=a.damageType==='profile'?s.type:a.damageType==='magical-or-holy'?(s.type==='holy'?'holy':'magical'):a.damageType;if(type)damage.add(damageType(type));}if(a.familyId==='cancel-magic-immunity')counters.add('magic-immunity');if(a.familyId==='cancel-physical-immunity')counters.add('physical-immunity');if(a.familyId==='true-strike')counters.add('evasion');}
+  if(s.factionProfile||s.abilityCatalogue){
+    const groups={poison:['poison'],burn:['burn','fire-aura','flame-cone'],slow:['slow','slow-aura','root'],stun:['stun','freeze','root'],armor:['armor-reduction','armor-reduction-aura','armor-penetration'],critical:['critical-strike','magical-critical-strike'],splash:['splash','cleave-physical','cleave-magical','multishot','ricochet','flame-cone'],lightning:['lightning','spark'],support:['attack-speed-aura','damage-aura','range-aura','protection-aura','true-strike-aura'],detection:['visibility'],'healing-block':['anti-regeneration']};
+    for(const a of s.abilities||[]){for(const [tag,ids]of Object.entries(groups))if(ids.includes(a.familyId))abilities.add(tag);if(a.damage||a.dps||a.damagePercent){const type=a.damageType==='profile'?s.type:a.damageType==='magical-or-holy'?(s.type==='holy'?'holy':'magical'):a.damageType;if(type)damage.add(damageType(type));}if(a.familyId==='cancel-magic-immunity')counters.add('magic-immunity');if(a.familyId==='cancel-physical-immunity')counters.add('physical-immunity');if(['true-strike','true-strike-aura'].includes(a.familyId))counters.add('evasion');}
     if(s.continuousAttack){damage.add(s.type);counters.add('shields');counters.add('shell');}
     if(abilities.has('healing-block'))counters.add('regeneration');
   }

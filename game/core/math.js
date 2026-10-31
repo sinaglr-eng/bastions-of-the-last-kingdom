@@ -46,7 +46,7 @@ export function supportBonuses(tower,towers,data) {
   for(const other of towers){
     if(other.state!=='active')continue;
     const definition=towerStats(other,data);
-    if(definition.factionProfile){for(const a of definition.abilities||[]){if(distance(tower,other)>(a.radius||0))continue;switch(a.familyId){case'attack-speed-aura':haste.set('standard',Math.max(haste.get('standard')||0,a.bonusPercent/100));break;case'damage-aura':damage=Math.max(damage,a.bonusPercent/100);break;case'range-aura':range=Math.max(range,a.rangeBonus);break;case'protection-aura':controlResistance=Math.max(controlResistance,a.protectionPercent/100);break;}}continue;}
+    if(definition.factionProfile){for(const a of definition.abilities||[]){if(distance(tower,other)>(a.radius||0))continue;switch(a.familyId){case'attack-speed-aura':haste.set('standard',Math.max(haste.get('standard')||0,a.bonusPercent/100));break;case'damage-aura':damage=Math.max(damage,a.bonusPercent/100);break;case'range-aura':range=Math.max(range,a.rangeBonus);break;case'protection-aura':controlResistance=Math.max(controlResistance,a.protectionPercent/100);break;case'true-strike-aura':trueStrike||=a.evasionIgnorePercent===100;break;}}continue;}
     const aura=definition.aura;
     if(!aura||distance(tower,other)>aura.range)continue;
     if(aura.haste){const key=aura.stackKey==='otomad'?'otomad':'standard';haste.set(key,Math.max(haste.get(key)||0,aura.haste));}

@@ -1,5 +1,5 @@
 {
-  "version": "0.6.4",
+  "version": "0.6.5",
   "name": "Forged Alliances TD",
   "edition": "Forged Alliances",
   "date": "2026-10-31",
@@ -44,7 +44,7 @@
   "uiOutcomeArtRevision": "faction-outcomes-20261031-v5",
   "motionRevision": "approved-faction-motion-v3",
   "vfxRevision": "faction-weapon-surfaces-20261030-v3",
-  "balanceRevision": "fr001-approved-parameters-recipes-20261030",
+  "balanceRevision": "fr002-r3-20261031",
   "factions": [
     {
       "id": "crown",
@@ -63,5 +63,6 @@
   "factionArtRevision": "approved-faction-models-v3-20261030",
   "dwarfPresentationScale": 1.75,
   "championAuraRevision": "canonical-faction-classes-20261030-v2",
-  "babyFireDragonPresentationScale": 3.85
+  "babyFireDragonPresentationScale": 3.85,
+  "abilityRevision": "fr002-r3-shared-levels-20261031"
 }

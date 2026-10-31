@@ -1,0 +1,325 @@
+{
+  "schema": "v065-handoff-v1",
+  "status": "passed",
+  "base": "1965f5e27dbb9e001d86cf1963a86216f9cb7fa0",
+  "head": "1965f5e27dbb9e001d86cf1963a86216f9cb7fa0",
+  "mainIndexUnchanged": true,
+  "protectedPaths": 6383,
+  "payload": [
+    {
+      "file": "backend/validation.js",
+      "source": "c37cfb2ed750f31efc0ac97e7d759674c5fd27ecc37f4b9c24b86160f2e9973d",
+      "main": "a01bfe60afacaaebcc242294863269326dbf557e7e3692d30b6e1409c811d46f"
+    },
+    {
+      "file": "data/fr002-approved.json",
+      "source": "831eabf3b75d46d16df8de9cc4508059a6d06dd26916862804b712cc521fbcf1",
+      "main": null
+    },
+    {
+      "file": "docs/RELEASE_0_6_5.md",
+      "source": "1548aec13519d5119b3041b868b784e3a4159efa71e3ca864718209fc98adf4a",
+      "main": null
+    },
+    {
+      "file": "game/core/combat.js",
+      "source": "7987f1ba2f6b844646bfc3b9690cc22d1a48ac7220a4e66ffb931f725b85250a",
+      "main": "53454cb347b41e8680ca2c1439e0f8d470a298dea2788ab304a53a302cf0f7c8"
+    },
+    {
+      "file": "game/core/faction-combat.js",
+      "source": "30b558ce244b2a63c2b7eec828432317dc7c4ee788df93bd632a1d97d9300ae0",
+      "main": "4ce93b1edb4200b8ce5f24699b833172dad4f90a12ff0ab9bb48f8f0187eb53e"
+    },
+    {
+      "file": "game/core/factions.js",
+      "source": "89a1d548b5950282a1d99f1f0dc388e827a8945c47c928779ef14cb63351dfad",
+      "main": "a1d2e237b4800eff507404f3049ccb7b35f1eb9d5855bd3e5634680c6c1cd835"
+    },
+    {
+      "file": "game/core/fr002-combat.js",
+      "source": "7fce041f54356621a38c16ae0be198db5d3c941533cca5e936ae74e47ffa5db7",
+      "main": null
+    },
+    {
+      "file": "game/core/fr002-registry.js",
+      "source": "bbc84d92d3c211b52b36fd0b3d02ff889beb51f8b9f7b34daaf83ae1820d1f56",
+      "main": null
+    },
+    {
+      "file": "game/core/math.js",
+      "source": "88e7117a67a3e57572306158629ca4473067a217ef14406e259ffd8056613aa1",
+      "main": "b5d6a07839f5be4409cc97478844235f66d2201f3392553f079110b4f9f01b15"
+    },
+    {
+      "file": "game/main.js",
+      "source": "125c703eb7c669234d5ab866a4cf2e7614b519a0bc507a420248dead993dec89",
+      "main": "eab6df253444dbf045917b546ac264668272f500b6fd1e89cec9da81e321c099"
+    },
+    {
+      "file": "game/release.js",
+      "source": "ac68ccc9e83367a9553c323b890ef77263bca1a63c413685fc581f38a53d80e8",
+      "main": "1f2b478b7e6190d3ab9a6bdf3ca09f1613c8d6adb00c730b7d7602ade94a6229"
+    },
+    {
+      "file": "game/render/support-effects.js",
+      "source": "f4bd0c23ceb15c26a7238700a955867871b9ec54f58683dc6835a29cb428dd28",
+      "main": "38cd000290439d610a58ec8104513fe0f00ea81bb0cb853e1cc423eab1664560"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/approval-verification.json",
+      "source": "71fd38ba6378f185b21171468b5d55e9685a8e06515399a8bcef3a600c1e9da2",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source-manifest.json",
+      "source": "597162df1becabc47af7651cebb5287f1ee4f527df886c6d1a74d2ab1159a7d2",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/docs/APPROVED_FACTION_RECIPES_AND_ABILITIES_FR002_20261031.md",
+      "source": "045c60b05aacbfd0e7bd8658e5015bb1aca4a2951cf7340605daaa87722f8eda",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/docs/FACTION_RECIPES_AND_ABILITIES_FR002_20261031.md",
+      "source": "91f7dee1f8f59f12d78c11ec248d77277488b12a790bd7d43888812111998342",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/docs/FACTION_RECIPES_AND_ABILITIES_FR002_REVISION2_20261031.md",
+      "source": "d4e965437647b83c8740a18e6ef0bccee386683718036b767ad23d5fe77a2db0",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/docs/FACTION_RECIPES_AND_ABILITIES_FR002_REVISION3_20261031.md",
+      "source": "fbe665f0959571426dd762e33752a46110be7a2a3edf4cd334453b045873192f",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-approval-20261031/approval.json",
+      "source": "e163b076fe8b3edc3e3fa8f1a877e58f6c876e2f933114e08e5d2b481961f6eb",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-approval-20261031/approved-handoff.json",
+      "source": "1dd18c5b61e7a4056b624f180a94e786ccaf7ab55385a84458cc65451119d1ed",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-proposal-20261031/mechanics/proposal-mechanics.md",
+      "source": "03a4f45cc0ce34d00166de64195f0a5cc944ac96e8130523b9ad277f19b084c2",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-proposal-20261031/recipes/candidate-recipes.json",
+      "source": "ad0e629573d0a1dff21f85d88f438e8da6058356b4f92898bd2812e6f3a09b45",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-proposal-20261031/recipes/terminal-stat-proposal.json",
+      "source": "7b2a71dfc9d20877fbc80419b75f6691832c57126bc2177b437bf746b34a5ee3",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/ability-level-proposal.json",
+      "source": "beea5fdd09a202f4933b9ba5fe88fb9718cfb0b4611d6b0ee27549e86cdc7df4",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/bonded-formation-partners.json",
+      "source": "e7320942430943dd4784924a5f59e57e8b2bc84ae7b2e5127072c122ac665494",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/claire-equivalence.json",
+      "source": "7ac31a4e580abc0ee96fa395022805992393d1c7f178c2931ac81f8cc5297035",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/proposal-abilities.md",
+      "source": "97bc761bd46f3f3deeaff3915ca7a8a1d9a29f3771b841030daeaaa4fca33e64",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/proposal-manifest.json",
+      "source": "74af2e720438eb5ea0d34045e218aa39783181312a9c4b437fde28845d33ef91",
+      "main": null
+    },
+    {
+      "file": "package.json",
+      "source": "8db81fd5331c684fd80fb9b461619dac16d7467b4387e0fefd909e7fab8e7f25",
+      "main": "6761717343bd0411890ab2d581deb0cf366f859e853aa84fd0c5621469ad195d"
+    },
+    {
+      "file": "public/release.json",
+      "source": "72a072401312d29e323596f46be1b920befe35de13ebb02215e073126c68a890",
+      "main": "4129f8ef18068aa5e5e91ec9130011f947faccace3fec10bfd9a35ecca0fcb9d"
+    },
+    {
+      "file": "tests/fr002-combat.test.mjs",
+      "source": "10ae76cef5a28f8e8572b20051cf4596cae21b023a639f6ab0b954866c4307b0",
+      "main": null
+    },
+    {
+      "file": "tests/fr002-data.test.mjs",
+      "source": "035e04d9bf604fb92b53c9e2a09d2d75a0390ba46b00443d78484445fddfe0c5",
+      "main": null
+    },
+    {
+      "file": "tests/fr002-statistics.test.mjs",
+      "source": "aa98913cc74018956fe8096c69fcc87519453870c1bb1d46e80115369851f856",
+      "main": null
+    },
+    {
+      "file": "tests/support-effects.test.mjs",
+      "source": "53a4d5c58966217d686883300bbc013e8d7a48332631253fcdef6c69edd9c7ad",
+      "main": "81a003e45ebcfec04d5152e6c553d2157a2f2e043e34b92e3e0c098c715a52a2"
+    },
+    {
+      "file": "tools/fr002-validation/armies.mjs",
+      "source": "f42f9dfbfe1c8475bc6f62596074b736ec6999f78a25be138bc3749f850a3a18",
+      "main": null
+    },
+    {
+      "file": "tools/fr002-validation/campaign.mjs",
+      "source": "c399eddae5a34a85dbb60b2f662ede64123b7bd72a7be856575d9c62c67667f2",
+      "main": null
+    },
+    {
+      "file": "tools/fr002-validation/claire.mjs",
+      "source": "eb95b35e6b7f124127ab1f63df6afc5444a28743855850b395bdad29e955d843",
+      "main": null
+    },
+    {
+      "file": "tools/fr002-validation/combat.mjs",
+      "source": "ad7c2c39ecddc36d7147c352202e9037a404747536ab045d4ab8af37fbfdb6fc",
+      "main": null
+    },
+    {
+      "file": "tools/fr002-validation/datasets.mjs",
+      "source": "edc237cea0f1a352d4f5f25db20a21e088f709d8f788116f29125f3416e4beb8",
+      "main": null
+    },
+    {
+      "file": "ui/grimoire.js",
+      "source": "4e55e4060e4934c5e0de36f58f749f59b686d221d8db7b9d68b9685637002a7b",
+      "main": "3824b7c58fd504410cba0ffa8aadbb0620ee56665735daedc2c9c79e322d74c2"
+    },
+    {
+      "file": "ui/preparation-folio.js",
+      "source": "014da576dd96768b4f59d5163ceaa3f7f222abb019ad7357eb796f04a8315d98",
+      "main": "ca4151e080ab6c03d3eb1e789b0ca770f03ad47153f32fa9dfdded3dbffac140"
+    },
+    {
+      "file": "ui/recipe-filters.js",
+      "source": "138f5712346652080c4d51d17493319a5e9eba1abaa1a8fa218e75c291f905d9",
+      "main": "be5b0f37853e9eab6028eee4402c95971ed120b9fde05eb03f3ac6dd0d27911a"
+    },
+    {
+      "file": "ui/selected-enemy.js",
+      "source": "97ab39179a485af0df594d222846167ba44e72c3284aaad94ca20d408fb4ba93",
+      "main": "33e6c51c855a3744a01713fcaf4168e5186cb88cc6f25dfccdca8b955fbe4865"
+    },
+    {
+      "file": "output/releases/v0.6.5/backend-deployment.json",
+      "source": "a7998044fdcbf8332d9133c15fccbfd3f8ce8743a7f1bb8038049e10fd8d88d1",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/backend-public-checks.json",
+      "source": "9bd3e84d14161c3b4460069ea57f9055a433ac133d0e777f739525718163210a",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/build-offline.log",
+      "source": "9ae1368320d5f6370cd417ce282fe1512288d3a5c2002146baa18474fc5a738c",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/campaign/revision3/campaign-results.json",
+      "source": "211355d7b37b4dea27a9b00cdddb0eaa1a336e29c0a416c56669618d6f13978f",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/campaign/revision3/placement-plan.json",
+      "source": "0a66ab5ed3c44155775277b25bcda89942d1d31b8e23eb2f7e6badc5aab60f14",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/campaign/revision3/summary.json",
+      "source": "827ce625dd1af9c066dd8bd7ac6e188eef5412e0963728558946286d4c05672f",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/claire/claire-verification.json",
+      "source": "bcf794fe16c34172cb71398e6758e4ed374617e3b37e3c97b602ab753776865f",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/combat/equal-budget-armies.json",
+      "source": "59bab57d9fdaaca61d33416430891b30096ffdbe0d9d4287a2dfa3d43b71ff41",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/combat/results.json",
+      "source": "0f6bf8418d63e025421920578561c888191d19361160139f8d41573572948c27",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/runtime-gallery-compatibility.json",
+      "source": "c03e2fb6ff2e79e6fa21bac0629e0dbfcc1ee0e431b47bfa5e37912faca6639a",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/validation-summary.json",
+      "source": "51e56b3ba73f2e52a5a06c43ef418a414bae5fe33f1ef04d66a288cbf01939b2",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/local-validation.json",
+      "source": "099b3e231481879244b7856ce7795867257eb3b2998dd7d3025785d42c7b8476",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/main-production-install.json",
+      "source": "dce25c1359910b643914affc88ef1e434823174ccf690a8fa23399470fcf8398",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/native-render-verification.json",
+      "source": "232c6b23d3ca60cd1a63dda27666cf87192ed5421fa4f91435caaaf9a4425b40",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/preserved-concurrent-edits.json",
+      "source": "21519e2fd12ec5141a3dd1d49133243ea5240326e7c141fc9d2a26f43d029121",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/sources-built.json",
+      "source": "b7315e6a6fb18d0991691a4fed331095308063c27fbd86709eff076fbaab5606",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/sources-tested.json",
+      "source": "b7315e6a6fb18d0991691a4fed331095308063c27fbd86709eff076fbaab5606",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/statistics-v065.tar.gz",
+      "source": "1e8e3f996fb325dc898771e606e85a80db99d701786b3416b84e6247526dd51f",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/tests-first.log",
+      "source": "4c2376a656962c431d4d2b87d1b1169f7853e8e205f7fe339e2b7e32a0170ca2",
+      "main": null
+    },
+    {
+      "file": "output/releases/v0.6.5/tests.log",
+      "source": "19ca0c319e1ce516f9cfe8d765a1b6bea080dc5cbe43647d49603bd304fc1f58",
+      "main": null
+    }
+  ]
+}

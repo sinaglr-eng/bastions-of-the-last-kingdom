@@ -1,0 +1,648 @@
+{
+  "status": "completed",
+  "method": {
+    "policy": "Actual non-debug Game, legal placements, completed drafts, keeps, fresh merges and engine-authorized exact recipes. Shared legal foundation plan. Two fixed decision policies: deterministic immediate army utility, and the same policy with an eligible paid reserve every third round. No injected ingredients, levels, CP, gold, lives or forced draws. Baseline is the current 0.6.4 FR-001 registry; candidate is the approved FR-002 revision 3 overlay.",
+    "policies": [
+      "greedy",
+      "planning-reserve"
+    ],
+    "seeds": [
+      42,
+      123,
+      807,
+      43877,
+      32685,
+      40604,
+      48523,
+      56442
+    ],
+    "dt": 0.1,
+    "scenarios": [
+      "crown-baseline",
+      "crown-candidate",
+      "forge-baseline",
+      "forge-candidate",
+      "grove-baseline",
+      "grove-candidate"
+    ],
+    "unforced": true
+  },
+  "limitations": [
+    "This deterministic policy is not an optimized player and does not establish human win rates, impossibility, or equal final campaign difficulty.",
+    "The route exposure and next-wave utility estimate is a decision heuristic, not a substitute for measured damage.",
+    "Campaign RNG shares draft and combat draws; seed pairing fixes initial seed but downstream draws can diverge when combat behavior changes.",
+    "Only portions of the campaign actually reached by the bot are evaluated. No forced levels, guaranteed ingredients, artificial victory or injected resources were used.",
+    "No rendering, model transport, UI, touch or audio testing was performed."
+  ],
+  "sourceHashes": {
+    "game/core/game.js": "64612c96eaaee3712309a04617ff586f25850cd0a4d54b63b40412654724a1ed",
+    "game/core/combat.js": "7987f1ba2f6b844646bfc3b9690cc22d1a48ac7220a4e66ffb931f725b85250a",
+    "game/core/faction-combat.js": "30b558ce244b2a63c2b7eec828432317dc7c4ee788df93bd632a1d97d9300ae0",
+    "game/core/factions.js": "89a1d548b5950282a1d99f1f0dc388e827a8945c47c928779ef14cb63351dfad",
+    "game/core/math.js": "88e7117a67a3e57572306158629ca4473067a217ef14406e259ffd8056613aa1",
+    "game/core/campaign-roster.js": "f4e971b1b065381cd498a32d1295dfd815d8a49c70e820e290e396114b2a54fa",
+    "data/factions-v060.json": "9556a064a092ed7a3db679796607a4af367c48d2cc223d8dc1a06a154f71fca4",
+    "data/fr002-approved.json": "831eabf3b75d46d16df8de9cc4508059a6d06dd26916862804b712cc521fbcf1",
+    "game/core/fr002-combat.js": "7fce041f54356621a38c16ae0be198db5d3c941533cca5e936ae74e47ffa5db7",
+    "game/core/fr002-registry.js": "bbc84d92d3c211b52b36fd0b3d02ff889beb51f8b9f7b34daaf83ae1820d1f56",
+    "data/balance.json": "80dcf47926f776b63e2452aa252d28370a499b870519eb9d9600de926cebaf16",
+    "data/towers.json": "9c0da73d35504bb4a1d25a121a73a115febfbfc6303f69dc860a7887d7b8ed0d",
+    "data/recipes.json": "b8e9bbf92419b9b4eb2207eb3916dbb4b009035840b84758d52ca419178d0d97",
+    "data/enemies.json": "552a1d729065346403f5df77dc9754461693841917a9563ca1deb8e01cfcfc06",
+    "data/waves.json": "e738a3e84af1fb7c4855c0475bd5e055e3a3b3012e5b0bbb076cfc022efa01e0"
+  },
+  "patchHashes": {},
+  "summary": {
+    "crown-baseline": {
+      "runs": 16,
+      "wins": 0,
+      "meanCompleted": 13.875,
+      "medianCompleted": 14,
+      "minCompleted": 9,
+      "maxCompleted": 20,
+      "meanCrafts": 2.1875,
+      "totalCrafts": 35,
+      "meanKills": 128.125,
+      "championsCrafted": [
+        "Cinder Adept",
+        "Frost Knight",
+        "Frostsword Watchmen",
+        "Master Druid",
+        "Paladin",
+        "Royal Marksman",
+        "Royal Scout"
+      ]
+    },
+    "crown-candidate": {
+      "runs": 16,
+      "wins": 0,
+      "meanCompleted": 14.5,
+      "medianCompleted": 14,
+      "minCompleted": 9,
+      "maxCompleted": 27,
+      "meanCrafts": 2.25,
+      "totalCrafts": 36,
+      "meanKills": 135.5,
+      "championsCrafted": [
+        "Cinder Adept",
+        "Frost Knight",
+        "Frostsword Watchmen",
+        "Inferno Magister",
+        "Lightning Weaver",
+        "Lionheart Champion",
+        "Paladin",
+        "Ranger",
+        "Royal Marksman",
+        "Royal Scout"
+      ]
+    },
+    "forge-baseline": {
+      "runs": 16,
+      "wins": 0,
+      "meanCompleted": 10.875,
+      "medianCompleted": 10.5,
+      "minCompleted": 9,
+      "maxCompleted": 14,
+      "meanCrafts": 1.4375,
+      "totalCrafts": 23,
+      "meanKills": 87.1875,
+      "championsCrafted": [
+        "Bomb Dwarf",
+        "Dwarf Axeman",
+        "Dwarf Rifleman",
+        "Fire Bomber",
+        "Gatling Gunner",
+        "Griffin Scout",
+        "Steam Dwarf"
+      ]
+    },
+    "forge-candidate": {
+      "runs": 16,
+      "wins": 0,
+      "meanCompleted": 13.0625,
+      "medianCompleted": 13,
+      "minCompleted": 10,
+      "maxCompleted": 17,
+      "meanCrafts": 2.8125,
+      "totalCrafts": 45,
+      "meanKills": 113.75,
+      "championsCrafted": [
+        "Boar Lancer",
+        "Bomb Dwarf",
+        "Dwarf Axeman",
+        "Dwarf Dualist",
+        "Dwarf Rifleman",
+        "Fire Bomber",
+        "Griffin Gunner",
+        "Griffin Scout",
+        "Rune Dwarf",
+        "Rune Mage",
+        "Steam Dwarf"
+      ]
+    },
+    "grove-baseline": {
+      "runs": 16,
+      "wins": 0,
+      "meanCompleted": 11.5625,
+      "medianCompleted": 11,
+      "minCompleted": 9,
+      "maxCompleted": 16,
+      "meanCrafts": 2.125,
+      "totalCrafts": 34,
+      "meanKills": 96.8125,
+      "championsCrafted": [
+        "Baby Fire Dragon",
+        "Drow Wraithcaller",
+        "Elven Battlemage Apprentice",
+        "Emerald Blademaster",
+        "Emerald Sentry",
+        "Moonlight Ranger Scout",
+        "Nightweaver Broodguard",
+        "Shadow Assassin Apprentice",
+        "Stormspear Initiate",
+        "Thunderlance Guard"
+      ]
+    },
+    "grove-candidate": {
+      "runs": 16,
+      "wins": 0,
+      "meanCompleted": 14.25,
+      "medianCompleted": 14,
+      "minCompleted": 9,
+      "maxCompleted": 20,
+      "meanCrafts": 3.625,
+      "totalCrafts": 58,
+      "meanKills": 129.1875,
+      "championsCrafted": [
+        "Baby Fire Dragon",
+        "Elven Battlemage Adept",
+        "Elven Battlemage Apprentice",
+        "Fire Dragon",
+        "Moonlight Ranger Captain",
+        "Moonlight Ranger Scout",
+        "Nightweaver Broodguard",
+        "Shadow Assassin Apprentice",
+        "Stormspear Initiate",
+        "Thunderlance Guard"
+      ]
+    }
+  },
+  "paired": {
+    "crown": {
+      "pairs": [
+        {
+          "seed": 42,
+          "policy": "greedy",
+          "current": 15,
+          "approved": 14,
+          "delta": -1,
+          "currentCrafts": 3,
+          "approvedCrafts": 3
+        },
+        {
+          "seed": 42,
+          "policy": "planning-reserve",
+          "current": 13,
+          "approved": 13,
+          "delta": 0,
+          "currentCrafts": 2,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 123,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 11,
+          "delta": 0,
+          "currentCrafts": 1,
+          "approvedCrafts": 1
+        },
+        {
+          "seed": 123,
+          "policy": "planning-reserve",
+          "current": 17,
+          "approved": 20,
+          "delta": 3,
+          "currentCrafts": 5,
+          "approvedCrafts": 6
+        },
+        {
+          "seed": 807,
+          "policy": "greedy",
+          "current": 13,
+          "approved": 13,
+          "delta": 0,
+          "currentCrafts": 2,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 807,
+          "policy": "planning-reserve",
+          "current": 9,
+          "approved": 9,
+          "delta": 0,
+          "currentCrafts": 2,
+          "approvedCrafts": 1
+        },
+        {
+          "seed": 43877,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 14,
+          "delta": 3,
+          "currentCrafts": 0,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 43877,
+          "policy": "planning-reserve",
+          "current": 15,
+          "approved": 15,
+          "delta": 0,
+          "currentCrafts": 3,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 32685,
+          "policy": "greedy",
+          "current": 16,
+          "approved": 27,
+          "delta": 11,
+          "currentCrafts": 2,
+          "approvedCrafts": 6
+        },
+        {
+          "seed": 32685,
+          "policy": "planning-reserve",
+          "current": 16,
+          "approved": 20,
+          "delta": 4,
+          "currentCrafts": 2,
+          "approvedCrafts": 3
+        },
+        {
+          "seed": 40604,
+          "policy": "greedy",
+          "current": 20,
+          "approved": 19,
+          "delta": -1,
+          "currentCrafts": 5,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 40604,
+          "policy": "planning-reserve",
+          "current": 9,
+          "approved": 9,
+          "delta": 0,
+          "currentCrafts": 0,
+          "approvedCrafts": 0
+        },
+        {
+          "seed": 48523,
+          "policy": "greedy",
+          "current": 19,
+          "approved": 9,
+          "delta": -10,
+          "currentCrafts": 4,
+          "approvedCrafts": 1
+        },
+        {
+          "seed": 48523,
+          "policy": "planning-reserve",
+          "current": 14,
+          "approved": 14,
+          "delta": 0,
+          "currentCrafts": 3,
+          "approvedCrafts": 4
+        },
+        {
+          "seed": 56442,
+          "policy": "greedy",
+          "current": 14,
+          "approved": 15,
+          "delta": 1,
+          "currentCrafts": 1,
+          "approvedCrafts": 1
+        },
+        {
+          "seed": 56442,
+          "policy": "planning-reserve",
+          "current": 10,
+          "approved": 10,
+          "delta": 0,
+          "currentCrafts": 0,
+          "approvedCrafts": 0
+        }
+      ],
+      "meanDelta": 0.625,
+      "improved": 5,
+      "unchanged": 8,
+      "worse": 3
+    },
+    "forge": {
+      "pairs": [
+        {
+          "seed": 42,
+          "policy": "greedy",
+          "current": 14,
+          "approved": 13,
+          "delta": -1,
+          "currentCrafts": 3,
+          "approvedCrafts": 1
+        },
+        {
+          "seed": 42,
+          "policy": "planning-reserve",
+          "current": 13,
+          "approved": 16,
+          "delta": 3,
+          "currentCrafts": 2,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 123,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 17,
+          "delta": 6,
+          "currentCrafts": 2,
+          "approvedCrafts": 6
+        },
+        {
+          "seed": 123,
+          "policy": "planning-reserve",
+          "current": 12,
+          "approved": 12,
+          "delta": 0,
+          "currentCrafts": 1,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 807,
+          "policy": "greedy",
+          "current": 10,
+          "approved": 14,
+          "delta": 4,
+          "currentCrafts": 1,
+          "approvedCrafts": 4
+        },
+        {
+          "seed": 807,
+          "policy": "planning-reserve",
+          "current": 10,
+          "approved": 13,
+          "delta": 3,
+          "currentCrafts": 2,
+          "approvedCrafts": 3
+        },
+        {
+          "seed": 43877,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 13,
+          "delta": 2,
+          "currentCrafts": 1,
+          "approvedCrafts": 4
+        },
+        {
+          "seed": 43877,
+          "policy": "planning-reserve",
+          "current": 9,
+          "approved": 13,
+          "delta": 4,
+          "currentCrafts": 1,
+          "approvedCrafts": 4
+        },
+        {
+          "seed": 32685,
+          "policy": "greedy",
+          "current": 10,
+          "approved": 11,
+          "delta": 1,
+          "currentCrafts": 1,
+          "approvedCrafts": 1
+        },
+        {
+          "seed": 32685,
+          "policy": "planning-reserve",
+          "current": 9,
+          "approved": 13,
+          "delta": 4,
+          "currentCrafts": 0,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 40604,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 13,
+          "delta": 2,
+          "currentCrafts": 2,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 40604,
+          "policy": "planning-reserve",
+          "current": 10,
+          "approved": 10,
+          "delta": 0,
+          "currentCrafts": 1,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 48523,
+          "policy": "greedy",
+          "current": 10,
+          "approved": 13,
+          "delta": 3,
+          "currentCrafts": 1,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 48523,
+          "policy": "planning-reserve",
+          "current": 11,
+          "approved": 11,
+          "delta": 0,
+          "currentCrafts": 3,
+          "approvedCrafts": 1
+        },
+        {
+          "seed": 56442,
+          "policy": "greedy",
+          "current": 14,
+          "approved": 13,
+          "delta": -1,
+          "currentCrafts": 2,
+          "approvedCrafts": 4
+        },
+        {
+          "seed": 56442,
+          "policy": "planning-reserve",
+          "current": 9,
+          "approved": 14,
+          "delta": 5,
+          "currentCrafts": 0,
+          "approvedCrafts": 5
+        }
+      ],
+      "meanDelta": 2.1875,
+      "improved": 11,
+      "unchanged": 3,
+      "worse": 2
+    },
+    "grove": {
+      "pairs": [
+        {
+          "seed": 42,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 14,
+          "delta": 3,
+          "currentCrafts": 1,
+          "approvedCrafts": 3
+        },
+        {
+          "seed": 42,
+          "policy": "planning-reserve",
+          "current": 10,
+          "approved": 15,
+          "delta": 5,
+          "currentCrafts": 0,
+          "approvedCrafts": 3
+        },
+        {
+          "seed": 123,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 13,
+          "delta": 2,
+          "currentCrafts": 2,
+          "approvedCrafts": 3
+        },
+        {
+          "seed": 123,
+          "policy": "planning-reserve",
+          "current": 13,
+          "approved": 13,
+          "delta": 0,
+          "currentCrafts": 4,
+          "approvedCrafts": 4
+        },
+        {
+          "seed": 807,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 14,
+          "delta": 3,
+          "currentCrafts": 2,
+          "approvedCrafts": 3
+        },
+        {
+          "seed": 807,
+          "policy": "planning-reserve",
+          "current": 11,
+          "approved": 14,
+          "delta": 3,
+          "currentCrafts": 3,
+          "approvedCrafts": 5
+        },
+        {
+          "seed": 43877,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 15,
+          "delta": 4,
+          "currentCrafts": 1,
+          "approvedCrafts": 7
+        },
+        {
+          "seed": 43877,
+          "policy": "planning-reserve",
+          "current": 9,
+          "approved": 9,
+          "delta": 0,
+          "currentCrafts": 0,
+          "approvedCrafts": 3
+        },
+        {
+          "seed": 32685,
+          "policy": "greedy",
+          "current": 13,
+          "approved": 13,
+          "delta": 0,
+          "currentCrafts": 3,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 32685,
+          "policy": "planning-reserve",
+          "current": 13,
+          "approved": 15,
+          "delta": 2,
+          "currentCrafts": 2,
+          "approvedCrafts": 2
+        },
+        {
+          "seed": 40604,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 20,
+          "delta": 9,
+          "currentCrafts": 2,
+          "approvedCrafts": 5
+        },
+        {
+          "seed": 40604,
+          "policy": "planning-reserve",
+          "current": 11,
+          "approved": 15,
+          "delta": 4,
+          "currentCrafts": 1,
+          "approvedCrafts": 5
+        },
+        {
+          "seed": 48523,
+          "policy": "greedy",
+          "current": 13,
+          "approved": 16,
+          "delta": 3,
+          "currentCrafts": 3,
+          "approvedCrafts": 4
+        },
+        {
+          "seed": 48523,
+          "policy": "planning-reserve",
+          "current": 16,
+          "approved": 16,
+          "delta": 0,
+          "currentCrafts": 4,
+          "approvedCrafts": 3
+        },
+        {
+          "seed": 56442,
+          "policy": "greedy",
+          "current": 11,
+          "approved": 12,
+          "delta": 1,
+          "currentCrafts": 4,
+          "approvedCrafts": 1
+        },
+        {
+          "seed": 56442,
+          "policy": "planning-reserve",
+          "current": 10,
+          "approved": 14,
+          "delta": 4,
+          "currentCrafts": 2,
+          "approvedCrafts": 5
+        }
+      ],
+      "meanDelta": 2.6875,
+      "improved": 12,
+      "unchanged": 4,
+      "worse": 0
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "readOnly": true,
+  "requests": [
+    {
+      "path": "/api/health",
+      "status": 200,
+      "edition": "0.6.5"
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.5&faction=crown",
+      "status": 200,
+      "factionId": "crown",
+      "scores": 0,
+      "versions": []
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.5&faction=forge",
+      "status": 200,
+      "factionId": "forge",
+      "scores": 0,
+      "versions": []
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.5&faction=grove",
+      "status": 200,
+      "factionId": "grove",
+      "scores": 0,
+      "versions": [
+        "0.6.3"
+      ]
+    },
+    {
+      "path": "/api/leaderboard?mode=50&version=0.6.4&faction=forge",
+      "status": 200,
+      "factionId": "forge",
+      "scores": 0,
+      "versions": []
+    }
+  ]
+}

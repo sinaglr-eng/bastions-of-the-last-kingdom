@@ -1,4 +1,5 @@
 import {updateFactionTower,factionImpact} from './faction-combat.js';
+import {fr002DamageResolved,flushFr002Pulses} from './fr002-combat.js';
 import {distance,damageDefenseBreakdown,towerStats,combatTowerStats,offensiveAuraRange} from './math.js';
 import {enemyRevealed} from './visibility.js';
 import {enemyRulesFor,enemyDisarmActive} from './enemy-rules.js';
@@ -12,6 +13,7 @@ export class CombatManager {
   constructor(game) {this.game=game;this.enemies=[];this.projectiles=[];this.spawnQueue=[];this.elapsed=0;this.serial=0;this.shotSerial=0;this.spawned=0;this.total=0;}
   get rules(){return enemyRulesFor(this.game);}
   start(wave) {
+    this.fr002Pulses?.clear();
     this.enemies=[];this.projectiles=[];this.spawnQueue=[];this.elapsed=0;this.spawned=0;
     this.game.mvp?.startWave();
     let time=0.25;
@@ -104,6 +106,7 @@ export class CombatManager {
       this.game.awardScore(this.game.round*(enemy.boss?500:10));if(source)source.kills++;
       this.game.emit('death',{enemy,type,visible:result.visible});
     }
+    if(stats.fr002||stats._fr002Stats||this.game.data.fr002)fr002DamageResolved(this,result,stats,source);
     return result;
   }
   applyEffects(enemy,stats,source,{landedDamage=true}={}) {
@@ -135,7 +138,7 @@ export class CombatManager {
     // the transition from a stronger poison to a still-active weaker source.
     while(remaining>0&&applications.length&&!enemy.dead){
       const slice=Math.min(remaining,...applications.map(application=>application.time));
-      for(const application of applications){if(enemy.dead)break;this.damage(enemy,application.dps*slice,application.damageType||'magical',{effect:'poison'},application.source);}
+      for(const application of applications){if(enemy.dead)break;this.damage(enemy,application.dps*slice,application.damageType||'magical',{effect:'poison',...application.fr002Packet,...(application.fr002Packet?{_fr002Slice:{key:'dot:poison',dt:slice,endAt:this.elapsed-remaining+slice}}:{})},application.source);}
       for(const application of applications)application.time-=slice;
       applications=applications.filter(application=>application.time>1e-9);remaining-=slice;
     }
@@ -255,7 +258,7 @@ export class CombatManager {
       const healingBlockedFor=Math.max(0,enemy.statuses.healBlock?.time||0),regenReduction={...enemy.statuses.regenReduction};
       for(const [key,status] of Object.entries(enemy.statuses)) {
         if(key==='poison'&&status.applications){this.updatePoison(enemy,status,dt);continue;}
-        if(status.dps)this.damage(enemy,status.dps*Math.min(dt,status.time),status.damageType||(key==='bleed'?'physical':'magical'),{effect:key==='burn'?'fire':key},status.source);
+        if(status.dps){const slice=Math.min(dt,status.time);this.damage(enemy,status.dps*slice,status.damageType||(key==='bleed'?'physical':'magical'),{effect:key==='burn'?'fire':key,...status.fr002Packet,...(status.fr002Packet?{_fr002Slice:{key:'dot:'+key,dt:slice,endAt:this.elapsed-dt+slice}}:{})},status.source);}
         status.time-=dt;if(status.time<=0)delete enemy.statuses[key];
       }
       if(enemy.dead)continue;
@@ -338,6 +341,7 @@ export class CombatManager {
       if(shot.progress>=1)this.impact(shot);
     }
     this.projectiles=this.projectiles.filter(s=>s.progress<1);
+    flushFr002Pulses(this,{all:this.game.lives<=0});
     this.enemies=this.enemies.filter(e=>!e.dead);
     if(this.game.lives<=0)this.game.end(false);
     else if(!this.spawnQueue.length&&!this.enemies.length)this.game.completeWave();

@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "approvalId": "fr002-revision3-user-approval-20261031",
+  "approvedInputs": [
+    {
+      "file": "output/design/fr002-revision3-20261031/ability-level-proposal.json",
+      "sha256": "beea5fdd09a202f4933b9ba5fe88fb9718cfb0b4611d6b0ee27549e86cdc7df4"
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/recipes/candidate-recipes.json",
+      "sha256": "ad0e629573d0a1dff21f85d88f438e8da6058356b4f92898bd2812e6f3a09b45"
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/recipes/terminal-stat-proposal.json",
+      "sha256": "7b2a71dfc9d20877fbc80419b75f6691832c57126bc2177b437bf746b34a5ee3"
+    }
+  ],
+  "implementationAuthorization": "Direct request in the implementation chat: naimplementuj pozadavek FR-002 z dalsiho chatu",
+  "originalProposalLabels": "Frozen historical pending-approval labels are preserved; approval is recorded separately."
+}

@@ -1,0 +1,259 @@
+{
+  "requirementId": "FR-002",
+  "revision": 3,
+  "revisionId": "fr002-revision3-20261031",
+  "date": "2026-10-31",
+  "status": "PROPOSED — PENDING FINAL APPROVAL — NOT IMPLEMENTED IN THE GAME",
+  "approved": false,
+  "approval": null,
+  "implementationAuthorized": false,
+  "publicationAuthorized": false,
+  "galleryPreviewAuthorized": true,
+  "runtimeReference": "0.6.4",
+  "requirement": "docs/FACTION_RECIPES_AND_ABILITIES_FR002_REVISION3_20261031.md",
+  "abilityProposal": "output/design/fr002-revision3-20261031/ability-level-proposal.json",
+  "parentProposal": "output/design/fr002-revision2-20261031/proposal-manifest.json",
+  "parentProposalSha256": "0fb06bcdcd3a2b2c7de85026c7eec9c532b5d2fd309f04d703c84aafdd75a728",
+  "retainedRecipeProposal": "output/design/fr002-proposal-20261031/recipes/candidate-recipes.json",
+  "retainedTerminalStats": "output/design/fr002-proposal-20261031/recipes/terminal-stat-proposal.json",
+  "supersedes": "The specified repeated-level configurations and catalogue presentation from revision 2; retain every other proposed recipe, terminal stat, addition and rule.",
+  "sourceEvidence": {
+    "followUpBrowserComments": 4,
+    "subjects": [
+      "Anti-Regeneration II",
+      "Bonded Formation I",
+      "Lightning III",
+      "Physical Cleave II"
+    ]
+  },
+  "scope": {
+    "changedRecipes": 43,
+    "terminalSpecialists": 10,
+    "abilityFamilies": 42,
+    "potencyLevels": 152,
+    "parameterVariants": 160,
+    "abilityOccurrences": 570,
+    "proposedNewAbilityAssignments": 9,
+    "humanAbilityOnlyExceptions": 14,
+    "humanPrimaryParametersAndRecipes": "unchanged",
+    "sharedClaireCombatAndRecipes": "effectively unchanged; channel/default metadata aliases normalized",
+    "gameChanged": false
+  },
+  "applicationRules": [
+    "No approval or game implementation is recorded by this refinement.",
+    "Preserve the earlier recipe and terminal stat proposals and apply nine additions once.",
+    "Show one visible row per full ability level label, preserving exact technical identities for links.",
+    "Bonded Formation retains 28 directed partner entries and 14 mutual pairs; never union partner lists.",
+    "Lightning III follows the owner channel; preserve Holy Claire and Magical current non-Claire owners.",
+    "Use the explicit Claire effective-equivalence proof rather than treating aliases as combat deltas.",
+    "Preserve model/art/review/casting identities and the one local English gallery.",
+    "Test the combined actual game changes after approval before release."
+  ],
+  "files": [
+    {
+      "file": "docs/FACTION_RECIPES_AND_ABILITIES_FR002_20261031.md",
+      "sha256": "91f7dee1f8f59f12d78c11ec248d77277488b12a790bd7d43888812111998342",
+      "bytes": 17763
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/README.md",
+      "sha256": "a256b827d6f86dfd75d5c93cbf02a3e42d3dbbaa548d796026cd802a28abe44a",
+      "bytes": 4558
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/protected-baseline.json",
+      "sha256": "7063858b2cf99a44905f29722d0066f4d6843cd946f5a978cd9fae1f3e17a895",
+      "bytes": 110684
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/preservation-check.json",
+      "sha256": "0afbb8b87a0f9581d3b65c856ae84551c428b00ce22a785dfba978cfc093eb2e",
+      "bytes": 221
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/combined-verification.json",
+      "sha256": "a01eebc1365c76e55d68b85d556ee4919abc5c751185e51331782eec00cc67de",
+      "bytes": 464
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/recipes/proposal-recipes.md",
+      "sha256": "cb4170cf4c484d4b03d4dd563f1ebdce5618eefa8fc1af2331c4a427cb9de141",
+      "bytes": 12790
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/recipes/candidate-recipes.json",
+      "sha256": "ad0e629573d0a1dff21f85d88f438e8da6058356b4f92898bd2812e6f3a09b45",
+      "bytes": 34100
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/recipes/recipe-comparison.json",
+      "sha256": "e2521c301ee825a165e27c0a2102e7d13d7ca3d4246d4450ca2a7ddfc8efc784",
+      "bytes": 62883
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/recipes/terminal-comparison.json",
+      "sha256": "e0b7954164998aabf0c13f3f8f1dc4bc524e42285309afd6ef05d41ef3dfcdb3",
+      "bytes": 4010
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/recipes/terminal-stat-proposal.json",
+      "sha256": "7b2a71dfc9d20877fbc80419b75f6691832c57126bc2177b437bf746b34a5ee3",
+      "bytes": 6243
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/recipes/coverage.json",
+      "sha256": "d8d48c832a7a5cc1e5ca2a81e04ed3e652ce8b16efacfd45af6920d1bc0f0b67",
+      "bytes": 23373
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/recipes/verification.json",
+      "sha256": "dac832e6c4e0ae540113e116d93aff16bb8369fc4b0963d903d3fd31f53f19db",
+      "bytes": 854
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/abilities/proposal-abilities.md",
+      "sha256": "4f2df96de98f552f37e38d48ddd255e1449500e575e5dccb3fad03f5dabb658d",
+      "bytes": 14259
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/abilities/ability-level-proposal.json",
+      "sha256": "befd3bd338544ba857080b1c285e85f6722dd2967cb239f66dde4c2d08fe262f",
+      "bytes": 736797
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/abilities/ability-assignment-review.csv",
+      "sha256": "76d8d1821f3cdfe40771c1e0469ca60e862a9a5a16e2f77bd65a21923d8261de",
+      "bytes": 114441
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/abilities/ability-level-verification.json",
+      "sha256": "86bfd2a76089852cc5dbeaeb63354478ebfc19f6d2a14952aea6fd19ed03e532",
+      "bytes": 2606
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/mechanics/proposal-mechanics.md",
+      "sha256": "03a4f45cc0ce34d00166de64195f0a5cc944ac96e8130523b9ad277f19b084c2",
+      "bytes": 10590
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/mechanics/mechanics-proposal.json",
+      "sha256": "99d37d76fb2830c5e54625ab872f680e2112975041356ebf65ba92da89bbd851",
+      "bytes": 32870
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/review/final-review.json",
+      "sha256": "b41f9d35b0069b2a2a21ac0ce6415a9fe167117c8812f4c86c80f8fc851b6418",
+      "bytes": 7992
+    },
+    {
+      "file": "output/design/fr002-proposal-20261031/proposal-manifest.json",
+      "sha256": "847a5a9c856b7cd827e822ae9e4719b7fc59f9e07d228de92cc2d44950ae3c04",
+      "bytes": 5621
+    },
+    {
+      "file": "docs/FACTION_RECIPES_AND_ABILITIES_FR002_REVISION2_20261031.md",
+      "sha256": "d4e965437647b83c8740a18e6ef0bccee386683718036b767ad23d5fe77a2db0",
+      "bytes": 14805
+    },
+    {
+      "file": "output/design/fr002-revision2-20261031/README.md",
+      "sha256": "84d89b439686d8344aa0e50938b6f61afa081d7e5e92e5bb4c2268256e668ded",
+      "bytes": 3274
+    },
+    {
+      "file": "output/design/fr002-revision2-20261031/ability-level-proposal.json",
+      "sha256": "e0ccafd74068ab60c078c7b141eb1d365ae7086f697a3b7c21e2e7a6bf7373ba",
+      "bytes": 1126390
+    },
+    {
+      "file": "output/design/fr002-revision2-20261031/proposal-abilities.md",
+      "sha256": "a197bea8493c9f4000b733ab7a0a179b3228cb656c5ecd1414fe9c2149db35f9",
+      "bytes": 7892
+    },
+    {
+      "file": "output/design/fr002-revision2-20261031/assignment-review.csv",
+      "sha256": "70102fb32a7a852c97e4f7a8b6c2081fbbd3eb70e8bcf57d39bc2d5fdb129b0d",
+      "bytes": 124713
+    },
+    {
+      "file": "output/design/fr002-revision2-20261031/revision2-changes.json",
+      "sha256": "53f00fb11f53aeced03913f95f95bb7320bd9ef86dfb4e57136da5826f35f850",
+      "bytes": 40371
+    },
+    {
+      "file": "output/design/fr002-revision2-20261031/verification.json",
+      "sha256": "30094aa29f2b00eed8248a99ea9e98a66562873d82751142cea89d7932064ab6",
+      "bytes": 5055
+    },
+    {
+      "file": "output/design/fr002-revision2-20261031/ability-proposal-manifest.json",
+      "sha256": "9b1ae54f53a686c91b6cdb1a26a6129255ccc099da8c81f44eebd9c0a5dfb291",
+      "bytes": 1257
+    },
+    {
+      "file": "output/design/fr002-revision2-20261031/prepare-revision2.mjs",
+      "sha256": "95c68d53e13e7a38b94d4c495b7e7b6a99530ea8b31f0338cd56a50fee073fe0",
+      "bytes": 22030
+    },
+    {
+      "file": "output/design/fr002-revision2-20261031/proposal-manifest.json",
+      "sha256": "0fb06bcdcd3a2b2c7de85026c7eec9c532b5d2fd309f04d703c84aafdd75a728",
+      "bytes": 8543
+    },
+    {
+      "file": "docs/FACTION_RECIPES_AND_ABILITIES_FR002_REVISION3_20261031.md",
+      "sha256": "fbe665f0959571426dd762e33752a46110be7a2a3edf4cd334453b045873192f",
+      "bytes": 7493
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/README.md",
+      "sha256": "c60bb34deaad55ac0e5d7d334cb36f2da3fd236515dc1c2b3ab939e054d59ed8",
+      "bytes": 2135
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/ability-level-proposal.json",
+      "sha256": "beea5fdd09a202f4933b9ba5fe88fb9718cfb0b4611d6b0ee27549e86cdc7df4",
+      "bytes": 1416170
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/proposal-abilities.md",
+      "sha256": "97bc761bd46f3f3deeaff3915ca7a8a1d9a29f3771b841030daeaaa4fca33e64",
+      "bytes": 4519
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/assignment-review.csv",
+      "sha256": "82b05058fa55e69bcc38ddeed06ac1891204caa87e062672208839f81524bf29",
+      "bytes": 133750
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/revision3-changes.json",
+      "sha256": "b337b9350dca71c500b9316f9b240948986ce5767a4520c460fac6857567d72a",
+      "bytes": 10721
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/claire-equivalence.json",
+      "sha256": "7ac31a4e580abc0ee96fa395022805992393d1c7f178c2931ac81f8cc5297035",
+      "bytes": 5386
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/bonded-formation-partners.json",
+      "sha256": "e7320942430943dd4784924a5f59e57e8b2bc84ae7b2e5127072c122ac665494",
+      "bytes": 3075
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/verification.json",
+      "sha256": "7d2caf12a90aeb58d3a3f358921f4210eb955d9c5fbcb42bcd2198650576269d",
+      "bytes": 5740
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/ability-proposal-manifest.json",
+      "sha256": "3f27f077edf5c498f25001c86612c5da01b53ea97007eb8b6776bb01e7404440",
+      "bytes": 1613
+    },
+    {
+      "file": "output/design/fr002-revision3-20261031/prepare-revision3.mjs",
+      "sha256": "82f0345b919a932c6f1fe430ec6b73191204cefffb0d04c9b7e840322f72c90e",
+      "bytes": 18611
+    }
+  ]
+}

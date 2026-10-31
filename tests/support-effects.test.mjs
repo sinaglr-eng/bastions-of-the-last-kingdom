@@ -121,7 +121,7 @@ test('all persistent enemy statuses and effective debuff auras have distinct gly
   e.magicImmune=true;effects=enemyStatusState(e,g.towers,data);assert.equal(effects.find(s=>s.key==='slow').value,.75,'Magical immunity does not block ordinary slowing');assert.equal(effects.find(s=>s.key==='armor').value,30,'Fixed armor reduction is independent of damage immunity');
   e.physicalImmune=true;effects=enemyStatusState(e,g.towers,data);assert.equal(effects.find(s=>s.key==='slow'),undefined);assert.equal(effects.find(s=>s.key==='armor').value,30);
   e.magicImmune=false;e.physicalImmune=false;e.boss=true;effects=enemyStatusState(e,g.towers,data);assert.equal(effects.find(s=>s.key==='slow').value,.375);
-  e.statuses={slow:{amount:.2,time:3},gazeSlow:{amount:.8,time:3},shred:{amount:40,time:3},shredMagic:{amount:.3,time:3},freeze:{time:2},petrify:{time:2},poison:{time:3,dps:20},burn:{time:3,dps:10},bleed:{time:3,dps:5},healBlock:{time:2}};
+  e.statuses={slow:{amount:.2,time:3},gazeSlow:{amount:.8,time:3},shred:{amount:40,time:3},shredMagic:{amount:.3,time:3},freeze:{time:2},petrify:{time:2},poison:{time:3,dps:20},burn:{time:3,dps:10},bleed:{time:3,dps:5},healBlock:{time:2},regenReduction:{time:5,amount:1}};
   effects=enemyStatusState(e,g.towers,data);assert.deepEqual(effects.map(s=>s.key).sort(),Object.keys(ENEMY_EFFECT_STYLES).sort());assert.equal(effects.find(s=>s.key==='slow').value,.4);assert.equal(effects.find(s=>s.key==='armor').value,40);
   e.dead=true;assert.deepEqual(enemyStatusState(e,g.towers,data),[]);
 });
@@ -129,7 +129,7 @@ test('all persistent enemy statuses and effective debuff auras have distinct gly
 test('owned instanced overlays have bounded counts, visible independent glyph geometry, no picking and no hidden-enemy leaks',()=>{
   const scene=new THREE.Scene(),fx=new SupportEffects(scene,{baseHeight:1,position:(x,y,z)=>new THREE.Vector3(x-18,y,z-18),isVisible:e=>!e.cloaked,maxTowers:4,maxEnemies:3}),target=unit('archer'),support=unit('monk',2),nature=unit('mothernature',3);
   const towers=[target,support,nature,...Array.from({length:10},(_,i)=>unit('archer',20+i))],enemies=Array.from({length:12},(_,i)=>({id:i,x:10,z:10,statuses:{poison:{time:2,dps:5}},dead:false,cloaked:i===0}));
-  fx.sync(towers,data,{selected:support,combat:{enemies,elapsed:0},phase:'combat'});assert.equal(fx.batches.size,19);assert.equal(fx.group.children.length,21);assert.equal(fx.batches.has('enemy:magic'),false);
+  fx.sync(towers,data,{selected:support,combat:{enemies,elapsed:0},phase:'combat'});assert.equal(fx.batches.size,20);assert.equal(fx.group.children.length,22);assert.equal(fx.batches.has('enemy:magic'),false);
   assert.equal(fx.batches.get('haste').count,4);assert.equal(fx.batches.get('enemy:poison').count,3);assert.equal(fx.enemyStates.has(0),false);assert.ok(fx.radius.visible);assert.equal(fx.tint.count,4);
   const signatures=new Set();for(const key of styleKeys){const mesh=fx.batches.get(key);signatures.add(Array.from(mesh.geometry.attributes.position.array).join(','));assert.equal(mesh.geometry.userData.glyph,SUPPORT_EFFECT_STYLES[key].glyph);assert.ok(mesh.geometry.userData.glyphVertexStart>0);}
   assert.equal(signatures.size,9,'Shapes differ as well as colors');

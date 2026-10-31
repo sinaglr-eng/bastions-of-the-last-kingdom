@@ -8,7 +8,7 @@ const finite=(value,fallback=0)=>Number.isFinite(value)?value:fallback;
 const clamp=(value,min,max)=>Math.min(max,Math.max(min,value));
 const number=value=>enemyNumber(finite(value));
 const percent=value=>number(value*100)+'%';
-const statusNames={slow:'Slowed',gazeSlow:'Stone Gaze slow',freeze:'Frozen',petrify:'Petrified',burn:'Burning',poison:'Poisoned',bleed:'Bleeding',shred:'Armor shred',healBlock:'Healing blocked'};
+const statusNames={slow:'Slowed',gazeSlow:'Stone Gaze slow',freeze:'Frozen',stun:'Stunned',root:'Rooted',petrify:'Petrified',burn:'Burning',poison:'Poisoned',bleed:'Bleeding',shred:'Armor shred',healBlock:'Healing blocked',regenReduction:'Healing reduced',breachMagic:'Magical immunity weakened',breachPhysical:'Physical immunity weakened'};
 
 // Accept the actual combat object only. A stale clone, defeated actor or hidden
 // invader must not leave a second source of position/stat information in the UI.
@@ -19,6 +19,7 @@ export function selectedEnemyView(enemy,{data,combat}={}){
   const armor=damageDefenseBreakdown(0,'holy',{armor:baseArmor,reactiveArmor:finite(enemy.reactiveArmor),reactiveStacks:finite(enemy.reactiveStacks),armorShred:shred},{},data?.balance||{}).effectiveArmor;
   const effects=Object.entries(enemy.statuses||{}).filter(([kind,status])=>kind!=='shredMagic'&&Number.isFinite(status?.time)&&status.time>0).map(([kind,status])=>{
     let detail='';
+    if(kind==='regenReduction'&&Number.isFinite(status.amount))detail=percent(clamp(status.amount,0,1))+' less healing';
     if(['slow','gazeSlow'].includes(kind)&&Number.isFinite(status.amount))detail=percent(clamp(status.amount,0,1))+' movement slow';
     if(kind==='shred'&&Number.isFinite(status.amount))detail='−'+number(Math.max(0,status.amount))+' armor';
     return {name:statusNames[kind]||kind,time:status.time,detail};

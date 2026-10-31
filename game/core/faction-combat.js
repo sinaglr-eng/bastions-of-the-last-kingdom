@@ -1,5 +1,6 @@
 import {distance,combatTowerStats,towerStats} from './math.js';
 import {attackTargetAllowed,statusEffectAllowed} from './combat-rules.js';
+import {fr002Impact,updateFr002Tower} from './fr002-combat.js';
 const ability=(s,id)=>s.abilities?.find(a=>a.familyId===id);
 const eligible=(c,t,s)=>c.targetList(t,s);
 const fraction=n=>Math.max(0,Math.min(1,(n||0)/100));
@@ -23,6 +24,7 @@ function pulse(c,t,key,a,targets,act){
 }
 function secondary(c,t,e,amount,type,s={}){return c.resolveDamage(e,amount,type,{...s,directHit:true},t);}
 export function factionImpact(c,shot){
+ if(shot.stats.fr002)return fr002Impact(c,shot);
  const {source:t,target:e,stats:s}=shot;if(e.dead||!c.canSee(e,t)||!attackTargetAllowed(s,e))return;
  const sky=ability(s,'sky-hunt'),crit=ability(s,s.type==='magical'?'magical-critical-strike':'critical-strike')||ability(s,'critical-strike'),charge=ability(s,'charged-attack');
  let amount=s.damage;if(e.flying&&sky&&s.type==='physical')amount*=1+sky.bonusPercent/100;
@@ -49,6 +51,7 @@ function factionOnContact(c,t,e,s,landed){
  const lightning=ability(s,'lightning');if(lightning&&landed&&c.game.rng()<fraction(lightning.chancePercent)){const used=new Set([e]);let previous=e;for(let i=0;i<lightning.targets;i++){const next=c.enemies.filter(v=>!v.dead&&!used.has(v)&&c.canSee(v,t)&&distance(v,previous)<=lightning.linkRange).sort((a,b)=>distance(a,previous)-distance(b,previous)||a.id-b.id)[0];if(!next)break;used.add(next);secondary(c,t,next,lightning.damage,s.type==='holy'?'holy':'magical');c.game.emit('chain',{source:t,from:previous,to:next,effect:'lightning',visible:true});previous=next;}}
 }
 export function updateFactionTower(c,t,s,dt,boost){
+ if(s.fr002)return updateFr002Tower(c,t,s,dt,boost);
  const targets=eligible(c,t,s);if(s.targetPriority==='flying-then-furthest-path')targets.sort((a,b)=>Number(b.flying)-Number(a.flying)||b.traveled-a.traveled||a.id-b.id);
  for(const [id,key,immunity]of [['cancel-magic-immunity','breachMagic','magicImmune'],['cancel-physical-immunity','breachPhysical','physicalImmune']]){const a=ability(s,id);pulse(c,t,id,a,targets.filter(e=>e[immunity]&&c.elapsed>=(e[key+'Recovery']||0)),rows=>{for(const e of rows){const duration=a.duration*(e.boss?.5:1);e.statuses[key]={time:duration,multiplier:a.damageMultiplier,source:t};e[key+'Recovery']=c.elapsed+duration+4;}});}
  pulse(c,t,'root',ability(s,'root'),targets.filter(e=>statusEffectAllowed(e,'freeze')&&c.elapsed>=(e.factionControlRecovery||0)),rows=>{for(const e of rows){const duration=ability(s,'root').duration*(e.boss?.5:1);status(e,'root',{time:duration,source:t});e.factionControlRecovery=c.elapsed+duration+2;}});

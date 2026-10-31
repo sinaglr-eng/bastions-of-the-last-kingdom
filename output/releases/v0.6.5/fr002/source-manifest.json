@@ -1,0 +1,75 @@
+{
+  "status": "frozen reviewed inputs",
+  "requirementId": "FR-002",
+  "revision": 3,
+  "approvalEvidence": {
+    "threadId": "01a133e8-d3a8-7891-87f8-bbba16726c77",
+    "userApproval": "schvaluji",
+    "implementationRequest": "naimplementuj pozadavek FR-002 z dalsiho chatu",
+    "date": "2026-10-31"
+  },
+  "files": [
+    {
+      "file": "output/releases/v0.6.5/fr002/source/docs/FACTION_RECIPES_AND_ABILITIES_FR002_20261031.md",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/docs/FACTION_RECIPES_AND_ABILITIES_FR002_20261031.md",
+      "sha256": "91f7dee1f8f59f12d78c11ec248d77277488b12a790bd7d43888812111998342"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/docs/FACTION_RECIPES_AND_ABILITIES_FR002_REVISION2_20261031.md",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/docs/FACTION_RECIPES_AND_ABILITIES_FR002_REVISION2_20261031.md",
+      "sha256": "d4e965437647b83c8740a18e6ef0bccee386683718036b767ad23d5fe77a2db0"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/docs/FACTION_RECIPES_AND_ABILITIES_FR002_REVISION3_20261031.md",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/docs/FACTION_RECIPES_AND_ABILITIES_FR002_REVISION3_20261031.md",
+      "sha256": "fbe665f0959571426dd762e33752a46110be7a2a3edf4cd334453b045873192f"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/ability-level-proposal.json",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/fr002-revision3-20261031/ability-level-proposal.json",
+      "sha256": "beea5fdd09a202f4933b9ba5fe88fb9718cfb0b4611d6b0ee27549e86cdc7df4"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/proposal-manifest.json",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/fr002-revision3-20261031/proposal-manifest.json",
+      "sha256": "74af2e720438eb5ea0d34045e218aa39783181312a9c4b437fde28845d33ef91"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/bonded-formation-partners.json",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/fr002-revision3-20261031/bonded-formation-partners.json",
+      "sha256": "e7320942430943dd4784924a5f59e57e8b2bc84ae7b2e5127072c122ac665494"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/claire-equivalence.json",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/fr002-revision3-20261031/claire-equivalence.json",
+      "sha256": "7ac31a4e580abc0ee96fa395022805992393d1c7f178c2931ac81f8cc5297035"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-proposal-20261031/recipes/candidate-recipes.json",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/fr002-proposal-20261031/recipes/candidate-recipes.json",
+      "sha256": "ad0e629573d0a1dff21f85d88f438e8da6058356b4f92898bd2812e6f3a09b45"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-proposal-20261031/recipes/terminal-stat-proposal.json",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/fr002-proposal-20261031/recipes/terminal-stat-proposal.json",
+      "sha256": "7b2a71dfc9d20877fbc80419b75f6691832c57126bc2177b437bf746b34a5ee3"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-revision3-20261031/proposal-abilities.md",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/fr002-revision3-20261031/proposal-abilities.md",
+      "sha256": "97bc761bd46f3f3deeaff3915ca7a8a1d9a29f3771b841030daeaaa4fca33e64"
+    },
+    {
+      "file": "output/releases/v0.6.5/fr002/source/output/design/fr002-proposal-20261031/mechanics/proposal-mechanics.md",
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/output/design/fr002-proposal-20261031/mechanics/proposal-mechanics.md",
+      "sha256": "03a4f45cc0ce34d00166de64195f0a5cc944ac96e8130523b9ad277f19b084c2"
+    }
+  ],
+  "localOnlyInputs": [
+    {
+      "source": "C:/Users/sinag/Documents/ChatGPT/Tower Defense game/sites/defender-faction-atlas-20261021/dist/atlas-fr002-proposal-20261031.json",
+      "sha256": "271b793be1be5eb0b5f402ba2223984aa4df201f6a86b0b9a6458c012b297e78",
+      "availability": "Canonical local-only gallery and ignored local working evidence; deliberately excluded from Git and hosted distribution."
+    }
+  ]
+}
